@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useParams, Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, ChevronRight, ArrowLeft, MessageCircle, Mail, Video, ChevronDown } from "lucide-react";
+import { CheckCircle2, ChevronRight, ArrowLeft, MessageCircle, Mail, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function RealEstateSub() {
@@ -177,11 +177,10 @@ export default function RealEstateSub() {
                     {rel.sidebar.ctaBtn}
                   </Button>
                 </Link>
-                <div className="mt-6 pt-6 border-t border-white/20 grid grid-cols-3 gap-2">
+                <div className="mt-6 pt-6 border-t border-white/20 grid grid-cols-2 gap-2">
                   {[
                     { icon: MessageCircle, label: rel.sidebar.whatsapp },
                     { icon: Mail, label: rel.sidebar.email },
-                    { icon: Video, label: rel.sidebar.video },
                   ].map(({ icon: Icon, label }, i) => (
                     <Link key={i} href="/contact"
                       className="flex flex-col items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 py-3 px-2 transition-colors">

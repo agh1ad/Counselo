@@ -44,14 +44,13 @@ export const en = {
       desc: "Adlix is Saudi Arabia's dedicated online legal consultation platform — delivering expert legal guidance for individuals, businesses and investors",
       descBold: "without leaving your desk.",
       descEnd: "",
-      subDesc: "No office visit required. Choose WhatsApp, email or video — and get professional legal advice within minutes.",
+      subDesc: "No office visit required. Consult via WhatsApp or email — and get professional legal advice within minutes.",
       chips: ["✓ 20,000+ Cases Handled", "✓ Bilingual Arabic & English", "✓ All Client Types", "✓ Response Within Minutes"],
       bookBtn: "Start a Consultation",
       servicesBtn: "Our Practice Areas",
       channels: [
         { label: "WhatsApp", sub: "Fastest · Chat Now" },
         { label: "Email", sub: "Detailed · Written Review" },
-        { label: "Video", sub: "Personal · Live Session" },
       ],
     },
     stats: [
@@ -95,19 +94,18 @@ export const en = {
       heading: "How to Get Your Legal Consultation",
       subheading: "Three straightforward steps to professional legal advice — no waiting room required.",
       steps: [
-        { step: "01", title: "Choose Your Method", desc: "Select WhatsApp, email or a scheduled video session — whichever suits your situation best." },
+        { step: "01", title: "Choose Your Method", desc: "Select WhatsApp or email — whichever suits your situation best." },
         { step: "02", title: "Describe Your Matter", desc: "Share your legal situation. All information is treated as strictly confidential." },
         { step: "03", title: "Receive Expert Guidance", desc: "Adlix's legal team, under Lawyer Al-Baghdadi's supervision, reviews your case and delivers a structured legal analysis — fast." },
       ],
     },
     consultMethods: {
       eyebrow: "Available Online — Across Saudi Arabia",
-      heading: "Three Ways to Consult with Us",
+      heading: "Two Ways to Consult with Us",
       intro: "Hundreds of successful online consultations completed. Adlix's professional legal team — founded and led by Lawyer Omar Al-Baghdadi — delivers structured legal analysis and practical guidance without the need for in-person attendance.",
       methods: [
         { badge: "Fastest", title: "WhatsApp Consultation", desc: "The fastest way to get legal guidance. Send your case details and receive a professional response directly from the Adlix legal team." },
         { badge: "Most Detailed", title: "Email Legal Review", desc: "Submit your legal matter by email for a thorough written analysis. Ideal for complex commercial disputes requiring a detailed written opinion." },
-        { badge: "Most Personal", title: "Remote Strategy Session", desc: "A scheduled video or phone consultation for real-time case strategy and direct dialogue with a senior legal advocate." },
       ],
       ctaBtn: "Start Your Consultation",
     },
@@ -159,7 +157,7 @@ export const en = {
       eyebrow: "Saudi Arabia's Online Legal Platform",
       heading: "Get Expert Legal Advice — Fast.",
       desc: "Professional online legal consultations for individuals, businesses and investors across Saudi Arabia.",
-      subDesc: "Founded by Lawyer Omar Al-Baghdadi · Professional legal team · WhatsApp, email or video · Arabic & English",
+      subDesc: "Founded by Lawyer Omar Al-Baghdadi · Professional legal team · WhatsApp or email · Arabic & English",
       ctaBtn: "Book Your Consultation Now",
     },
   },
@@ -282,11 +280,11 @@ export const en = {
     experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
     sidebar: {
       heading: "Consult a Foreign Investment Lawyer Today",
-      desc: "Get expert foreign investment legal advice online — via WhatsApp, email or live video. No office visit needed. Response within minutes.",
+      desc: "Get expert foreign investment legal advice online — via WhatsApp or email. No office visit needed. Response within minutes.",
       ctaBtn: "Start a Consultation",
       whatsapp: "WhatsApp",
       email: "Email",
-      video: "Video Call",
+
     },
     subAreas: [
       { id: "investment-disputes", label: "Investment Disputes" },
@@ -304,7 +302,7 @@ export const en = {
         title: "Investment Disputes",
         seoTitle: "Investment Dispute Lawyer in Saudi Arabia | Online Foreign Investment Legal Consultation",
         subtitle: "Resolving commercial and regulatory investment disputes for foreign investors in Saudi Arabia.",
-        overview1: "Investment disputes in Saudi Arabia — whether between investors, with local partners, or with government authorities — require specialist legal expertise spanning Saudi commercial law, foreign investment regulations, and international dispute resolution mechanisms. As Saudi Arabia's Vision 2030 transformation accelerates foreign investment inflows, the frequency and complexity of investment disputes has increased commensurately. Adlix has advised and represented investors in Saudi investment disputes for over 30 years, with a track record across both domestic courts and international arbitration. Our online consultation service puts specialist investment dispute advice at your fingertips — via WhatsApp, email, or video call — within minutes.",
+        overview1: "Investment disputes in Saudi Arabia — whether between investors, with local partners, or with government authorities — require specialist legal expertise spanning Saudi commercial law, foreign investment regulations, and international dispute resolution mechanisms. As Saudi Arabia's Vision 2030 transformation accelerates foreign investment inflows, the frequency and complexity of investment disputes has increased commensurately. Adlix has advised and represented investors in Saudi investment disputes for over 30 years, with a track record across both domestic courts and international arbitration. Our online consultation service puts specialist investment dispute advice at your fingertips — via WhatsApp or email — within minutes.",
         overview2: "Investment disputes arise across many contexts: breach of joint venture agreements, partner deadlock, regulatory interference with investment operations, expropriation or regulatory taking, and contract disputes with Saudi government entities. Each requires a distinct legal strategy informed by the specific facts, the parties involved, and the available dispute resolution forums.",
         experienceNote: "Lawyer Omar Al-Baghdadi's 30+ years of investment law practice spans Saudi Arabia, the UAE, and Syria — encompassing a wide range of commercial and investment disputes before Saudi courts, GCC arbitration bodies, and international tribunals. Adlix brings this depth of multi-jurisdictional experience to every investment dispute.",
         covers: [
@@ -335,7 +333,7 @@ export const en = {
         title: "Investment Appeals",
         seoTitle: "Investment Appeal Lawyer in Saudi Arabia | Online Foreign Investment Legal Consultation",
         subtitle: "Appealing adverse investment decisions, regulatory rulings, and court judgments in Saudi Arabia.",
-        overview1: "When an investment licensing decision, regulatory ruling, or court judgment goes against a foreign investor in Saudi Arabia, the right of appeal is a critical legal tool — and acting promptly and correctly is essential to preserving it. Saudi Arabia's legal system provides multiple levels of administrative and judicial appeal, each with strict procedural requirements and timelines. Adlix has managed investment-related appeals before Saudi administrative tribunals, courts of appeal, and the Supreme Court for over 30 years — with the procedural precision that successful appeals demand. Our online consultation means appeal advice is available immediately — via WhatsApp, email, or video call.",
+        overview1: "When an investment licensing decision, regulatory ruling, or court judgment goes against a foreign investor in Saudi Arabia, the right of appeal is a critical legal tool — and acting promptly and correctly is essential to preserving it. Saudi Arabia's legal system provides multiple levels of administrative and judicial appeal, each with strict procedural requirements and timelines. Adlix has managed investment-related appeals before Saudi administrative tribunals, courts of appeal, and the Supreme Court for over 30 years — with the procedural precision that successful appeals demand. Our online consultation means appeal advice is available immediately — via WhatsApp or email.",
         overview2: "Investment appeals require both substantive legal expertise — identifying the legal or factual errors in the original decision — and procedural precision — filing within prescribed timelines with the correct documentation. Missing an appeal deadline can permanently extinguish the right to challenge an adverse decision. Adlix acts urgently on investment appeal matters to protect this critical right.",
         experienceNote: "Adlix's investment appeal practice covers the full spectrum of Saudi administrative and judicial appeal proceedings — from MISA licensing appeals through Commercial Court appeals, Board of Grievances appeals for administrative decisions, and Supreme Court petitions in significant investment cases.",
         covers: [
@@ -359,7 +357,7 @@ export const en = {
           { q: "What is the deadline for appealing a MISA investment decision in Saudi Arabia?", a: "MISA administrative decision appeal timelines are set by the applicable regulations and can be as short as 30 days from the date of the decision notification. Missing this deadline can permanently extinguish your right to appeal. Adlix acts immediately upon receiving an adverse MISA decision — assessing the applicable deadline and filing any urgently required appeal or interim challenge." },
           { q: "Can a foreign investor appeal a Saudi court judgment?", a: "Yes. Saudi court judgments can be appealed through the Court of Appeal and, in certain cases, the Supreme Court. Each level has specific procedural requirements and time limits. Adlix manages the full appellate process — from identifying grounds of appeal through to Supreme Court representation in significant investment cases." },
           { q: "What are the grounds for appealing an investment regulatory decision in Saudi Arabia?", a: "Grounds for appeal of investment regulatory decisions include: (1) legal error — the authority misapplied the applicable law or regulation; (2) procedural error — the decision-making process was irregular; (3) insufficient reasons — the authority failed to adequately explain the adverse decision; (4) failure to consider material evidence; (5) proportionality — the decision was disproportionate to the stated justification. Adlix identifies the strongest available grounds for each specific appeal." },
-          { q: "Can I get legal advice on an investment appeal online in Saudi Arabia?", a: "Yes — and given the urgent timelines involved in appeals, we recommend contacting us as soon as possible. Adlix provides immediate online consultation for investment appeals via WhatsApp, email, or video call. Share the adverse decision and relevant background documentation and our specialists will advise on your appeal rights and immediate next steps within minutes." },
+          { q: "Can I get legal advice on an investment appeal online in Saudi Arabia?", a: "Yes — and given the urgent timelines involved in appeals, we recommend contacting us as soon as possible. Adlix provides immediate online consultation for investment appeals via WhatsApp or email. Share the adverse decision and relevant background documentation and our specialists will advise on your appeal rights and immediate next steps within minutes." },
         ],
       },
       "investment-licensing": {
@@ -452,7 +450,7 @@ export const en = {
           { q: "What are the grounds for MISA cancelling a foreign investment license in Saudi Arabia?", a: "MISA may cancel a foreign investment license on grounds including: failure to commence operations within the required period after licensing; failure to meet minimum capital requirements; engaging in activities not covered by the license; regulatory violations; failure to renew the license on time; or national interest grounds. Many cancellation decisions are challengeable — particularly where the investor was not given adequate opportunity to remedy the non-compliance. Adlix assesses the legal strength of a cancellation decision and advises on the best challenge strategy." },
           { q: "Can I appeal a MISA license cancellation decision in Saudi Arabia?", a: "Yes. Saudi administrative law provides the right to appeal adverse MISA decisions through internal administrative appeal to MISA, appeal to the Investment Ministry's grievance committee, and judicial review before the Board of Grievances. Acting within the applicable deadlines is critical — missing an appeal deadline can permanently bar the challenge. Adlix acts immediately on license cancellation matters to preserve all available appeal rights." },
           { q: "Can I continue operating in Saudi Arabia if MISA suspends my investment license?", a: "A MISA license suspension creates significant legal uncertainty around the permissibility of continued operations. Adlix advises urgently on the scope and legal effect of the suspension decision, pursues an immediate stay pending challenge where available, and manages the regulatory engagement needed to restore the license to active status as quickly as possible." },
-          { q: "Can I get urgent legal advice about a MISA license cancellation online in Saudi Arabia?", a: "Yes — and given the urgency of license cancellation matters, we recommend contacting us immediately. Adlix provides urgent online consultation via WhatsApp, email, or video call — our investment licensing specialists respond within minutes and advise on your immediate options and next steps. Time is critical in license cancellation matters." },
+          { q: "Can I get urgent legal advice about a MISA license cancellation online in Saudi Arabia?", a: "Yes — and given the urgency of license cancellation matters, we recommend contacting us immediately. Adlix provides urgent online consultation via WhatsApp or email — our investment licensing specialists respond within minutes and advise on your immediate options and next steps. Time is critical in license cancellation matters." },
         ],
       },
       "company-formation": {
@@ -483,7 +481,7 @@ export const en = {
           { q: "What are the main options for foreign companies to establish a presence in Saudi Arabia?", a: "Foreign companies may establish in Saudi Arabia through: (1) LLC — the most common structure, now fully available to 100% foreign ownership in most sectors; (2) Joint Stock Company (JSC) — suitable for larger investments or entities planning capital market listings; (3) Branch Office — a registered presence of the foreign parent, permitted in certain sectors; (4) Representative Office — for liaison and market research activities only (no commercial activity); (5) Special Economic Zone entities — with special regulatory and tax treatment in designated zones. Adlix advises on the optimal structure for each investor's specific situation." },
           { q: "What is the minimum capital required for a foreign company in Saudi Arabia?", a: "Minimum capital requirements vary by entity type, sector, and activity. The general minimum for a foreign-owned LLC is SAR 500,000 — but higher minimums apply in certain regulated sectors (financial services, healthcare, construction). Joint Stock Companies have a minimum of SAR 500,000 for closed companies and SAR 10 million for public companies. Special Economic Zone entities may have different requirements. Adlix advises on the applicable minimum capital for your specific formation." },
           { q: "How long does it take to establish a foreign company in Saudi Arabia?", a: "With all documents prepared and regulatory requirements met, a straightforward foreign LLC can be established in Saudi Arabia within 4–8 weeks for routine sectors. Complex formations involving multiple regulatory approvals or restricted sectors take longer. Adlix manages the process proactively to minimise the timeline and maintains direct engagement with MISA and the Ministry of Commerce throughout." },
-          { q: "Can I set up a foreign company in Saudi Arabia online?", a: "Yes — much of the Saudi company formation process is now conducted through online government portals, including MISA's Invest Saudi platform and the Ministry of Commerce's Maroof portal. Adlix manages the entire formation process online on your behalf — from MISA licensing through Commercial Registration and operational readiness. Contact us via WhatsApp, email, or video call to begin your Saudi company formation today." },
+          { q: "Can I set up a foreign company in Saudi Arabia online?", a: "Yes — much of the Saudi company formation process is now conducted through online government portals, including MISA's Invest Saudi platform and the Ministry of Commerce's Maroof portal. Adlix manages the entire formation process online on your behalf — from MISA licensing through Commercial Registration and operational readiness. Contact us via WhatsApp or email to begin your Saudi company formation today." },
         ],
       },
       "foreign-investment-dispute": {
@@ -595,11 +593,11 @@ export const en = {
     experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
     sidebar: {
       heading: "Consult a Family Lawyer Today",
-      desc: "Get sensitive, expert family legal advice online — via WhatsApp, email or live video. Completely confidential. No office visit needed.",
+      desc: "Get sensitive, expert family legal advice online — via WhatsApp or email. Completely confidential. No office visit needed.",
       ctaBtn: "Start a Consultation",
       whatsapp: "WhatsApp",
       email: "Email",
-      video: "Video Call",
+
     },
     subAreas: [
       { id: "divorce", label: "Divorce" },
@@ -614,7 +612,7 @@ export const en = {
         title: "Divorce",
         seoTitle: "Divorce Lawyer in Saudi Arabia | Online Family Legal Consultation",
         subtitle: "Guiding you through divorce proceedings under Saudi Personal Status Law with sensitivity and expertise.",
-        overview1: "Divorce is one of the most significant legal and personal events in a person's life, and navigating Saudi Arabia's Personal Status law — which governs divorce for Muslim families — requires both deep legal knowledge and genuine human sensitivity. Adlix has guided hundreds of clients through divorce proceedings under Saudi law for over 30 years, with a thorough command of the Personal Status Courts, the MASAR digital family court system, and the Sharia-based legal principles that govern divorce in the Kingdom. Our fully online consultation service means you can seek expert guidance in complete privacy — via WhatsApp, email, or video call, from wherever you are.",
+        overview1: "Divorce is one of the most significant legal and personal events in a person's life, and navigating Saudi Arabia's Personal Status law — which governs divorce for Muslim families — requires both deep legal knowledge and genuine human sensitivity. Adlix has guided hundreds of clients through divorce proceedings under Saudi law for over 30 years, with a thorough command of the Personal Status Courts, the MASAR digital family court system, and the Sharia-based legal principles that govern divorce in the Kingdom. Our fully online consultation service means you can seek expert guidance in complete privacy — via WhatsApp or email, from wherever you are.",
         overview2: "Saudi law recognises several forms of divorce — talaq (husband-initiated), khul (wife-initiated), judicial divorce (faskh), and separation by mutual agreement. Each has specific legal requirements, timelines, and financial consequences. Adlix advises clients on the most appropriate form of divorce for their situation and manages the entire legal process with precision and care.",
         experienceNote: "Lawyer Omar Al-Baghdadi's 30+ years of family law practice in Saudi Arabia, the UAE, and Syria has produced a deep and nuanced understanding of Islamic personal status law as applied in Saudi courts — enabling Adlix clients to navigate even the most complex divorce matters with confidence.",
         covers: [
@@ -638,14 +636,14 @@ export const en = {
           { q: "How does divorce work under Saudi law?", a: "Saudi Arabia applies Islamic Personal Status Law to divorce for Muslim families. The primary forms are: (1) talaq — the husband pronounces divorce, which is registered before the court; (2) khul — the wife initiates divorce by returning her mahr; (3) faskh — judicial divorce granted by the court on grounds such as harm, absence, or failure to maintain. Adlix advises on the appropriate form for your circumstances and manages the full legal process." },
           { q: "What financial rights does a wife have in a Saudi divorce?", a: "On divorce, a wife in Saudi Arabia is entitled to: (1) her deferred mahr (if unpaid); (2) alimony (nafaqa) for the iddah period (3 months or until delivery if pregnant); (3) housing rights during iddah; (4) child support if she has custody of the children. Additional contractual financial rights may have been included in the marriage contract. Adlix ensures all financial rights are fully identified and pursued." },
           { q: "Can a wife get a divorce against her husband's wishes in Saudi Arabia?", a: "Yes — through khul (where the wife returns her mahr to obtain a divorce without the husband's consent) or through judicial faskh on grounds of harm, abandonment, failure to maintain, or imprisonment. Saudi courts have become increasingly accessible to wives seeking judicial divorce. Adlix has extensive experience representing wives in both khul and faskh proceedings." },
-          { q: "Can I consult a divorce lawyer in Saudi Arabia online?", a: "Yes — and many clients prefer this for the privacy it affords during a sensitive time. Adlix provides complete online legal consultation for divorce matters, with full confidentiality. Contact us via WhatsApp, email, or video call — our family law specialists respond within minutes and can manage the entire divorce process without requiring you to visit our office." },
+          { q: "Can I consult a divorce lawyer in Saudi Arabia online?", a: "Yes — and many clients prefer this for the privacy it affords during a sensitive time. Adlix provides complete online legal consultation for divorce matters, with full confidentiality. Contact us via WhatsApp or email — our family law specialists respond within minutes and can manage the entire divorce process without requiring you to visit our office." },
         ],
       },
       "khul": {
         title: "Khul (Wife-Initiated Divorce)",
         seoTitle: "Khul Divorce Lawyer in Saudi Arabia | Online Family Legal Consultation",
         subtitle: "Expert legal guidance for women seeking Khul divorce under Saudi Personal Status Law.",
-        overview1: "Khul is a form of divorce under Islamic law that allows a wife to end her marriage without her husband's consent by returning the mahr (dowry) — or a part of it agreed by the court. Saudi Arabia's Personal Status Courts hear khul applications regularly, and the process has become more accessible to women under Saudi Arabia's ongoing judicial reforms. At Adlix, we have represented hundreds of women in khul proceedings over 30 years, with deep knowledge of the Personal Status Courts' procedures, timelines, and the evidentiary requirements that determine the outcome of khul applications. Our fully online consultation service provides expert, confidential guidance — via WhatsApp, email, or video call.",
+        overview1: "Khul is a form of divorce under Islamic law that allows a wife to end her marriage without her husband's consent by returning the mahr (dowry) — or a part of it agreed by the court. Saudi Arabia's Personal Status Courts hear khul applications regularly, and the process has become more accessible to women under Saudi Arabia's ongoing judicial reforms. At Adlix, we have represented hundreds of women in khul proceedings over 30 years, with deep knowledge of the Personal Status Courts' procedures, timelines, and the evidentiary requirements that determine the outcome of khul applications. Our fully online consultation service provides expert, confidential guidance — via WhatsApp or email.",
         overview2: "Khul is often chosen by wives when the marital relationship has irretrievably broken down and the husband refuses to grant talaq. Saudi courts have the authority to grant khul even without the husband's agreement, provided the wife demonstrates her unwillingness to continue the marriage and returns the agreed portion of her mahr. Adlix advises women throughout this process — from the initial consultation through court proceedings and completion.",
         experienceNote: "Adlix's family law practice has a particular depth of experience in khul proceedings — having represented women across a wide range of khul cases including contested applications, multi-jurisdiction khul matters, and cases involving significant mahr disputes.",
         covers: [
@@ -669,7 +667,7 @@ export const en = {
           { q: "What is khul and how does it differ from talaq?", a: "Talaq is divorce initiated by the husband — it does not require the wife's consent. Khul is divorce initiated by the wife — she applies to the court to end the marriage by returning the mahr. Khul can be granted without the husband's agreement. The key difference is that in khul, the wife typically returns the mahr she received, whereas in talaq the mahr is retained by the wife." },
           { q: "Can a court grant khul without the husband's agreement in Saudi Arabia?", a: "Yes. Saudi Personal Status Courts have the authority to grant khul even if the husband refuses, provided the wife: (1) demonstrates her genuine unwillingness to continue the marriage; (2) agrees to return the agreed mahr amount. The court may order the return of the full mahr or a lesser amount depending on circumstances. Adlix advises on the likely court approach in your specific case." },
           { q: "Does khul affect child custody in Saudi Arabia?", a: "Khul itself does not determine child custody — custody is a separate matter governed by the child's best interests under Saudi Personal Status Law. A mother who obtains khul can still have full custody of young children. Adlix advises on custody as part of the complete khul process, ensuring post-divorce parenting arrangements are established in parallel." },
-          { q: "Can I apply for khul online in Saudi Arabia?", a: "Yes — the MASAR system allows for online submission of Personal Status Court applications including khul. Adlix manages the full online filing process and can represent you in court proceedings without requiring you to attend in person in many cases. Contact us via WhatsApp, email, or video call for a confidential consultation." },
+          { q: "Can I apply for khul online in Saudi Arabia?", a: "Yes — the MASAR system allows for online submission of Personal Status Court applications including khul. Adlix manages the full online filing process and can represent you in court proceedings without requiring you to attend in person in many cases. Contact us via WhatsApp or email for a confidential consultation." },
         ],
       },
       "alimony": {
@@ -731,14 +729,14 @@ export const en = {
           { q: "Who gets custody of children in a Saudi divorce?", a: "Saudi Personal Status Law generally grants custody of young children to the mother — boys until age 7 and girls until age 9 under the baseline rules, after which custody moves to the father unless the court decides otherwise in the child's best interests. The courts have substantial discretion to depart from these age benchmarks where circumstances require. Adlix advises parents on the likely outcome in their specific case and pursues the best available custody arrangement." },
           { q: "Can a mother lose custody in Saudi Arabia?", a: "Yes — a mother can lose custody if she: remarries a man who is not related to the children (mahram), is found unfit as a custodian due to conduct harmful to the children, moves residence in a way that impairs the father's contact, or the child reaches the custody age threshold. Adlix advises mothers on how to protect their custody position and represents fathers seeking custody transfer where circumstances justify it." },
           { q: "Can I prevent my ex-spouse from taking my children out of Saudi Arabia?", a: "Yes. A parent can apply to the court for a travel ban on the children's passports to prevent them from being removed from Saudi Arabia without court permission. If children have already been taken abroad without consent, Adlix advises on international child return mechanisms and coordinates with lawyers in the destination country. Act immediately — delay significantly complicates return proceedings." },
-          { q: "Can I get child custody legal advice online in Saudi Arabia?", a: "Yes. Adlix provides fully confidential online consultation for all child custody matters. Our family law specialists are available via WhatsApp, email, or video call and respond within minutes. We understand the urgency and sensitivity of custody matters and prioritise these consultations. Many aspects of custody proceedings — including MASAR filings — can be managed entirely online." },
+          { q: "Can I get child custody legal advice online in Saudi Arabia?", a: "Yes. Adlix provides fully confidential online consultation for all child custody matters. Our family law specialists are available via WhatsApp or email and respond within minutes. We understand the urgency and sensitivity of custody matters and prioritise these consultations. Many aspects of custody proceedings — including MASAR filings — can be managed entirely online." },
         ],
       },
       "inheritance-disputes": {
         title: "Inheritance & Estate Disputes",
         seoTitle: "Inheritance Dispute Lawyer in Saudi Arabia | Online Family Legal Consultation",
         subtitle: "Resolving inheritance disputes and ensuring Sharia-compliant estate distribution across the Kingdom.",
-        overview1: "Inheritance in Saudi Arabia is governed by Islamic law (Sharia) — with specific rules on the entitlement of each heir based on their relationship to the deceased. Despite this clear framework, inheritance disputes are extremely common — arising from contested heirs, missing wills, disputed property valuations, disagreements among co-heirs, and situations where the estate includes assets across multiple countries. Adlix has resolved inheritance disputes for families across Saudi Arabia for over 30 years, combining precise knowledge of Islamic inheritance law with practical litigation experience before the Personal Status Courts and the general civil courts. Our online consultation service is available immediately — via WhatsApp, email, or video call.",
+        overview1: "Inheritance in Saudi Arabia is governed by Islamic law (Sharia) — with specific rules on the entitlement of each heir based on their relationship to the deceased. Despite this clear framework, inheritance disputes are extremely common — arising from contested heirs, missing wills, disputed property valuations, disagreements among co-heirs, and situations where the estate includes assets across multiple countries. Adlix has resolved inheritance disputes for families across Saudi Arabia for over 30 years, combining precise knowledge of Islamic inheritance law with practical litigation experience before the Personal Status Courts and the general civil courts. Our online consultation service is available immediately — via WhatsApp or email.",
         overview2: "Inheritance disputes often involve deeply personal family dynamics alongside complex legal questions — including disputed paternity, contested relationships, valuation of business assets, and real estate holdings spanning multiple jurisdictions. Adlix brings both the legal precision and the interpersonal sensitivity these cases demand.",
         experienceNote: "Lawyer Omar Al-Baghdadi's 30+ years of practice across Saudi Arabia, the UAE, and Syria includes extensive experience with complex cross-border inheritance cases — including estates with assets in multiple GCC countries and disputes involving both Saudi and foreign nationals.",
         covers: [
@@ -812,11 +810,11 @@ export const en = {
     experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
     sidebar: {
       heading: "Consult an Employment Lawyer Today",
-      desc: "Get expert employment legal advice online — via WhatsApp, email or live video. No office visit needed. Response within minutes.",
+      desc: "Get expert employment legal advice online — via WhatsApp or email. No office visit needed. Response within minutes.",
       ctaBtn: "Start a Consultation",
       whatsapp: "WhatsApp",
       email: "Email",
-      video: "Video Call",
+
     },
     subAreas: [
       { id: "unpaid-wages", label: "Unpaid Wages" },
@@ -831,7 +829,7 @@ export const en = {
         title: "Unpaid Wages",
         seoTitle: "Unpaid Wages Lawyer in Saudi Arabia | Online Employment Legal Consultation",
         subtitle: "Recovering withheld salaries, delayed payments, and final settlements under Saudi Labour Law.",
-        overview1: "Unpaid wages remain one of the most prevalent employment law violations in Saudi Arabia, affecting workers across industries from construction and domestic services to finance and healthcare. Saudi Labour Law imposes clear, enforceable obligations on employers to pay wages on time — backed by the Kingdom's Wage Protection System (WPS) and severe penalties for non-compliance. At Adlix, our employment lawyers have recovered unpaid wages and final settlements for workers across the Kingdom for over 30 years, with a deep knowledge of the Saudi Labour Courts and the Ministry of Human Resources and Social Development (HRSD). Our online consultation service means you can speak to a specialist today — within minutes, via WhatsApp, email, or video call.",
+        overview1: "Unpaid wages remain one of the most prevalent employment law violations in Saudi Arabia, affecting workers across industries from construction and domestic services to finance and healthcare. Saudi Labour Law imposes clear, enforceable obligations on employers to pay wages on time — backed by the Kingdom's Wage Protection System (WPS) and severe penalties for non-compliance. At Adlix, our employment lawyers have recovered unpaid wages and final settlements for workers across the Kingdom for over 30 years, with a deep knowledge of the Saudi Labour Courts and the Ministry of Human Resources and Social Development (HRSD). Our online consultation service means you can speak to a specialist today — within minutes, via WhatsApp or email.",
         overview2: "Whether your employer has withheld monthly salary, delayed your final settlement after resignation or termination, deducted wages unlawfully, or failed to honour your contractual allowances, Adlix pursues the fastest available legal route to recover every riyal you are owed — including statutory penalties that can double or treble the unpaid amount.",
         experienceNote: "Lawyer Omar Al-Baghdadi's 30+ years of employment law experience includes hundreds of wage recovery cases for both individual workers and groups of employees — against employers ranging from small businesses to multinational corporations operating in the Kingdom.",
         covers: [
@@ -862,7 +860,7 @@ export const en = {
         title: "Labor Compensation",
         seoTitle: "Labor Compensation Lawyer in Saudi Arabia | Online Employment Legal Consultation",
         subtitle: "Claiming workplace injury compensation, GOSI entitlements, and occupational disease damages under Saudi Labour Law.",
-        overview1: "Saudi Arabia's Labour Law and the General Organization for Social Insurance (GOSI) provide a comprehensive framework for worker compensation following workplace injuries, occupational diseases, and work-related disabilities. Despite these protections, many workers fail to receive their full entitlements — either because employers dispute liability, because GOSI assessments undervalue the injury, or because workers are unaware of the full scope of their legal rights. Adlix has represented injured workers and their families in labour compensation claims for over 30 years, with specific expertise in the intersection of Labour Law, GOSI regulations, and civil liability principles under Saudi law. Our online consultation service is available today — via WhatsApp, email, or video call.",
+        overview1: "Saudi Arabia's Labour Law and the General Organization for Social Insurance (GOSI) provide a comprehensive framework for worker compensation following workplace injuries, occupational diseases, and work-related disabilities. Despite these protections, many workers fail to receive their full entitlements — either because employers dispute liability, because GOSI assessments undervalue the injury, or because workers are unaware of the full scope of their legal rights. Adlix has represented injured workers and their families in labour compensation claims for over 30 years, with specific expertise in the intersection of Labour Law, GOSI regulations, and civil liability principles under Saudi law. Our online consultation service is available today — via WhatsApp or email.",
         overview2: "A workplace injury or occupational illness can have devastating financial consequences. Saudi Labour Law provides compensation entitlements that extend well beyond GOSI benefits — including full wage continuation during treatment, medical expense coverage, long-term disability compensation, and civil damages where employer negligence is established. Adlix ensures you receive every riyal you are legally entitled to.",
         experienceNote: "With over 30 years of Saudi employment litigation experience, Adlix's lawyers have handled labour compensation cases involving construction accidents, industrial injuries, occupational diseases, and death at the workplace — always pursuing maximum recovery for injured workers and their families.",
         covers: [
@@ -1010,7 +1008,7 @@ export const en = {
           { q: "Is workplace sexual harassment illegal in Saudi Arabia?", a: "Yes. Saudi Arabia's Anti-Harassment Law (Royal Decree M/97) explicitly prohibits sexual harassment in the workplace and provides for criminal penalties against perpetrators. Victims have the right to file a complaint with the public prosecution. Employers are also required to implement anti-harassment policies and may face liability for failing to address harassment. Adlix advises and represents victims of workplace harassment with complete confidentiality." },
           { q: "What can I do if I am being discriminated against at work in Saudi Arabia?", a: "Saudi Labour Law and Vision 2030 workforce reforms provide increasing protections against workplace discrimination. Practical steps include: documenting incidents, preserving evidence, filing an HRSD complaint, and where appropriate, pursuing a Labour Court claim for compensation. Adlix advises on the strength and strategy of your discrimination claim in a fully confidential consultation." },
           { q: "Can my employer dismiss me for complaining about discrimination or harassment?", a: "Retaliation dismissal — dismissing or penalising an employee for making a discrimination or harassment complaint — is itself an unlawful act under Saudi law. If you are dismissed or victimised following a complaint, you have both the original discrimination/harassment claim and an additional retaliation claim against the employer. Adlix manages both claims in parallel." },
-          { q: "Can I get confidential legal advice about workplace discrimination online in Saudi Arabia?", a: "Yes. Adlix provides fully confidential online legal consultations for discrimination and harassment matters. You can speak to our specialist employment lawyers via WhatsApp, email, or video call — without visiting our office and without your employer knowing you have taken legal advice. We respond within minutes and treat all information with absolute confidentiality." },
+          { q: "Can I get confidential legal advice about workplace discrimination online in Saudi Arabia?", a: "Yes. Adlix provides fully confidential online legal consultations for discrimination and harassment matters. You can speak to our specialist employment lawyers via WhatsApp or email — without visiting our office and without your employer knowing you have taken legal advice. We respond within minutes and treat all information with absolute confidentiality." },
         ],
       },
     },
@@ -1029,11 +1027,11 @@ export const en = {
     experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
     sidebar: {
       heading: "Consult a Real Estate Lawyer Today",
-      desc: "Get expert real estate legal advice online — via WhatsApp, email or live video. No office visit needed. Response within minutes.",
+      desc: "Get expert real estate legal advice online — via WhatsApp or email. No office visit needed. Response within minutes.",
       ctaBtn: "Start a Consultation",
       whatsapp: "WhatsApp",
       email: "Email",
-      video: "Video Call",
+
     },
     subAreas: [
       { id: "ownership-disputes", label: "Ownership Disputes" },
@@ -1048,7 +1046,7 @@ export const en = {
         title: "Property Ownership Disputes",
         seoTitle: "Property Ownership Dispute Lawyer in Saudi Arabia | Online Legal Consultation",
         subtitle: "Resolving contested property ownership and title disputes across the Kingdom.",
-        overview1: "Property ownership disputes are among the most consequential legal matters in Saudi Arabia — involving land, residential, and commercial real estate worth potentially millions of riyals. At Adlix, our real estate lawyers have handled ownership disputes across the Kingdom for over 30 years, building unparalleled expertise in Saudi title law, the Real Estate General Authority (REGA) framework, and the notarial and court systems that govern property rights in the Kingdom. We offer full online legal consultation for ownership disputes — you can speak with our team today via WhatsApp, email, or video call.",
+        overview1: "Property ownership disputes are among the most consequential legal matters in Saudi Arabia — involving land, residential, and commercial real estate worth potentially millions of riyals. At Adlix, our real estate lawyers have handled ownership disputes across the Kingdom for over 30 years, building unparalleled expertise in Saudi title law, the Real Estate General Authority (REGA) framework, and the notarial and court systems that govern property rights in the Kingdom. We offer full online legal consultation for ownership disputes — you can speak with our team today via WhatsApp or email.",
         overview2: "Whether your dispute involves a contested inheritance of property, a fraudulent title transfer, a boundary conflict with a neighbour, or a disputed ownership registration, Adlix provides decisive, experienced legal representation. We have successfully resolved hundreds of ownership disputes before Saudi courts and before the Ministry of Justice's real estate dispute committees.",
         experienceNote: "Lawyer Omar Al-Baghdadi's 30+ years of experience spanning Saudi Arabia, the UAE, and Syria includes hundreds of property ownership cases — giving Adlix's clients a decisive advantage grounded in deep knowledge of Saudi real estate law and court practice.",
         covers: [
@@ -1072,7 +1070,7 @@ export const en = {
           { q: "How do I prove property ownership in Saudi Arabia?", a: "The primary proof of ownership in Saudi Arabia is the title deed (sak al-milkiya) issued by the Ministry of Justice and registered in the Real Estate Registry. Additional evidence includes sale contracts, inheritance documents, surveys, and long-term occupation evidence. Adlix assists clients in assembling and presenting the full documentary record needed to establish ownership before Saudi courts and registries." },
           { q: "Can I dispute a fraudulent property registration in Saudi Arabia?", a: "Yes. Fraudulent property registrations can be challenged before the Real Estate Court (now the Specialized Commercial Court or the Ministry of Justice dispute committees). Time is critical — acting quickly to obtain a precautionary freeze of the disputed title is essential. Contact Adlix immediately if you suspect fraudulent registration." },
           { q: "How long does a property ownership dispute take in Saudi Arabia?", a: "First-instance judgments in real estate ownership disputes typically take 12 to 24 months depending on complexity. Cases involving fraud or multiple parties may take longer. Adlix works to accelerate proceedings wherever possible, and pursues interim protection orders to protect your position during litigation." },
-          { q: "Can I consult a real estate lawyer in Saudi Arabia online?", a: "Yes — and Adlix specialises in online legal consultation. You can submit all your property documents electronically, receive a detailed legal opinion, and instruct us to file proceedings — all without visiting our office. We respond within minutes via WhatsApp, email, or video call." },
+          { q: "Can I consult a real estate lawyer in Saudi Arabia online?", a: "Yes — and Adlix specialises in online legal consultation. You can submit all your property documents electronically, receive a detailed legal opinion, and instruct us to file proceedings — all without visiting our office. We respond within minutes via WhatsApp or email." },
         ],
       },
       "sale-purchase-disputes": {
@@ -1103,7 +1101,7 @@ export const en = {
           { q: "What can I do if a developer in Saudi Arabia has not delivered my property?", a: "You have the right to demand specific performance (completion of the project) or rescission of the contract with a full refund plus damages. REGA provides a regulatory complaints channel against registered developers. Adlix pursues all available remedies simultaneously — regulatory complaint, civil claim, and where applicable, criminal complaint — to maximise pressure for resolution." },
           { q: "Can I get my money back if I discover title defects after buying property in Saudi Arabia?", a: "Yes. If the seller sold property with defects in title (e.g. undisclosed encumbrances, disputed ownership), you have the right to seek rescission of the sale and recovery of the full purchase price plus damages. The limitation period begins from the date you discover the defect. Contact Adlix immediately to protect your rights." },
           { q: "Is arbitration available for real estate disputes in Saudi Arabia?", a: "Yes. Many real estate contracts contain arbitration clauses, and Saudi Arabia has a developed arbitration framework. However, REGA-regulated disputes involving registered developers may have specific procedural requirements. Adlix advises on whether court or arbitration is the faster and more effective forum for your specific dispute." },
-          { q: "How can I consult a real estate lawyer online about my sale dispute?", a: "Adlix offers complete online legal consultation for sale and purchase disputes. Simply contact us via WhatsApp, email or video call — describe your situation and share your documents electronically. Our specialist real estate lawyers will review your matter and provide a detailed legal opinion, often within the same day. No office visit required." },
+          { q: "How can I consult a real estate lawyer online about my sale dispute?", a: "Adlix offers complete online legal consultation for sale and purchase disputes. Simply contact us via WhatsApp or email — describe your situation and share your documents electronically. Our specialist real estate lawyers will review your matter and provide a detailed legal opinion, often within the same day. No office visit required." },
         ],
       },
       "property-encroachment": {
@@ -1172,7 +1170,7 @@ export const en = {
         title: "Real Estate Registration & Title",
         seoTitle: "Real Estate Registration & Title Deed Lawyer in Saudi Arabia | Online Legal Consultation",
         subtitle: "Resolving title registration errors, deed disputes, and ownership documentation problems in Saudi Arabia.",
-        overview1: "Real estate registration and title deed issues are at the heart of many of Saudi Arabia's most serious property disputes. From errors in the Ministry of Justice's title registry to disputes over inheritance-based title transfers and defective sale registrations, these matters demand the precise legal expertise that Adlix has built over 30+ years of Saudi real estate practice. Adlix provides specialist online legal consultation for registration and title problems — with same-day response via WhatsApp, email, or video call.",
+        overview1: "Real estate registration and title deed issues are at the heart of many of Saudi Arabia's most serious property disputes. From errors in the Ministry of Justice's title registry to disputes over inheritance-based title transfers and defective sale registrations, these matters demand the precise legal expertise that Adlix has built over 30+ years of Saudi real estate practice. Adlix provides specialist online legal consultation for registration and title problems — with same-day response via WhatsApp or email.",
         overview2: "Saudi Arabia's title registration system has undergone significant digitalisation under Vision 2030, creating both new opportunities and new sources of error. Adlix's team is current on all recent reforms to REGA's registration procedures, the Ministry of Justice's notarial system, and the online real estate services platform.",
         experienceNote: "Adlix has successfully corrected hundreds of title registration errors and resolved complex title chain disputes — including multi-generation inheritance cases, disputed heirship titles, and registration errors arising from historical boundary surveys.",
         covers: [
@@ -1246,11 +1244,11 @@ export const en = {
     experienceBadge: "30+ Years of Experience · 20,000+ Cases Handled",
     sidebar: {
       heading: "Speak to a Specialist Today",
-      desc: "Our legal team responds within minutes. Consult via WhatsApp, email, or a live video session — no office visit needed.",
+      desc: "Our legal team responds within minutes. Consult via WhatsApp or email — no office visit needed.",
       ctaBtn: "Start a Consultation",
       whatsapp: "WhatsApp",
       email: "Email",
-      video: "Video Call",
+
     },
     subAreas: [
       { id: "commercial-contracts", label: "Commercial Contracts" },
@@ -1534,11 +1532,11 @@ export const en = {
     experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
     sidebar: {
       heading: "Consult an Administrative Law Lawyer Today",
-      desc: "Get expert administrative law advice online — via WhatsApp, email or live video. No office visit needed. Response within minutes.",
+      desc: "Get expert administrative law advice online — via WhatsApp or email. No office visit needed. Response within minutes.",
       ctaBtn: "Start a Consultation",
       whatsapp: "WhatsApp",
       email: "Email",
-      video: "Video Call",
+
     },
     subAreas: [
       { id: "board-of-grievances", label: "Board of Grievances Litigation" },
@@ -1555,7 +1553,7 @@ export const en = {
         title: "Board of Grievances Litigation",
         seoTitle: "Board of Grievances Lawyer in Saudi Arabia | Online Administrative Law Consultation",
         subtitle: "Expert litigation before Saudi Arabia's primary administrative court — online consultations available.",
-        overview1: "The Board of Grievances (Diwan Al-Mazalim) is Saudi Arabia's specialized administrative court system, with jurisdiction over disputes between individuals or businesses and government authorities. Whether you are challenging an unlawful administrative decision, pursuing a government entity for breach of contract, or seeking compensation for a government action that caused you loss, the Board of Grievances is the primary forum for your claim — and Adlix has been representing clients before it for over 30 years. Our online consultation service means specialist Board of Grievances legal advice is available via WhatsApp, email, or video call — within minutes, from anywhere.",
+        overview1: "The Board of Grievances (Diwan Al-Mazalim) is Saudi Arabia's specialized administrative court system, with jurisdiction over disputes between individuals or businesses and government authorities. Whether you are challenging an unlawful administrative decision, pursuing a government entity for breach of contract, or seeking compensation for a government action that caused you loss, the Board of Grievances is the primary forum for your claim — and Adlix has been representing clients before it for over 30 years. Our online consultation service means specialist Board of Grievances legal advice is available via WhatsApp or email — within minutes, from anywhere.",
         overview2: "Board of Grievances proceedings follow specific procedural rules, strict timelines, and require precise legal submissions. An experienced specialist is essential from the outset — not only to build a strong substantive case, but to navigate the procedural requirements that determine whether your claim is heard at all. Adlix's 30+ years of Board of Grievances litigation experience means we know exactly what it takes to succeed.",
         experienceNote: "Lawyer Omar Al-Baghdadi has litigated before the Board of Grievances across a wide range of cases — government contract disputes, regulatory challenges, administrative compensation claims, and public procurement matters — over more than three decades. This depth of experience, available online for immediate consultation, is what Adlix brings to every Board of Grievances case.",
         covers: [
@@ -1609,7 +1607,7 @@ export const en = {
         faqs: [
           { q: "What is the deadline for appealing an administrative decision in Saudi Arabia?", a: "Administrative appeal deadlines in Saudi Arabia vary by authority and type of decision, but are typically 30–60 days from the date the decision is notified to you. Some specialist regulatory bodies have their own timelines. Missing the deadline can permanently bar your appeal. Adlix acts immediately upon receiving a mandate — assessing the applicable deadline and filing any urgently required notices on the same day where necessary." },
           { q: "What grounds can I use to appeal an administrative decision in Saudi Arabia?", a: "Grounds for challenging an administrative decision include: (1) legal error — the authority applied the wrong law or misinterpreted the applicable regulation; (2) procedural error — the decision-making process was irregular or your right to be heard was not observed; (3) disproportionality — the sanction or decision was disproportionate to the facts; (4) insufficient reasoning — the authority failed to adequately explain its decision; (5) failure to consider material evidence. Adlix identifies the strongest available grounds for your specific situation." },
-          { q: "Can I get online advice on challenging an administrative decision in Saudi Arabia?", a: "Yes — and given the urgency of appeal deadlines, we strongly recommend contacting us as soon as you receive an adverse administrative decision. Adlix provides immediate online consultation via WhatsApp, email, or video call. Share the decision and the relevant background, and our specialist will advise on your appeal rights and immediate next steps within minutes." },
+          { q: "Can I get online advice on challenging an administrative decision in Saudi Arabia?", a: "Yes — and given the urgency of appeal deadlines, we strongly recommend contacting us as soon as you receive an adverse administrative decision. Adlix provides immediate online consultation via WhatsApp or email. Share the decision and the relevant background, and our specialist will advise on your appeal rights and immediate next steps within minutes." },
           { q: "Can I challenge an administrative decision while complying with it?", a: "In most cases, yes — filing an administrative appeal does not automatically suspend the effect of the decision. However, you can apply for interim relief (a stay) to suspend the decision's effect while the appeal is pending, provided you can demonstrate sufficient grounds. Adlix advises on the best approach for your specific decision — including whether to comply, challenge, or seek a stay — based on the facts and applicable law." },
         ],
       },
@@ -1702,7 +1700,7 @@ export const en = {
         faqs: [
           { q: "Can I challenge a fine or penalty imposed by a Saudi regulator?", a: "Yes. Administrative fines and penalties imposed by Saudi regulatory authorities can be challenged through the applicable regulatory appeal process and, ultimately, before the Board of Grievances. The applicable challenge procedure and timeline depend on the specific regulatory body and the type of decision. Adlix advises on the correct challenge route and manages the process — from internal regulatory appeal through Board of Grievances litigation — pursuing reduction or annulment of the penalty." },
           { q: "What can I do if a Saudi regulator refuses to grant or renew my licence?", a: "A licence refusal can be challenged through the applicable appeal procedure — typically including an internal regulatory review followed, if unsuccessful, by an appeal to the Board of Grievances. The grounds for challenge include: legal error in applying the licensing criteria; failure to consider material evidence; procedural irregularity in the licensing process; or disproportionate application of discretion. Adlix advises immediately on your options following a licence refusal — contact us as soon as you receive the adverse decision." },
-          { q: "Can I get online legal advice on a Saudi regulatory dispute?", a: "Yes. Adlix provides complete online consultation for regulatory disputes in Saudi Arabia via WhatsApp, email, or video call. Share the regulatory decision, the applicable licence or authorisation, and the relevant background and our specialist will advise on your challenge options and immediate next steps within minutes." },
+          { q: "Can I get online legal advice on a Saudi regulatory dispute?", a: "Yes. Adlix provides complete online consultation for regulatory disputes in Saudi Arabia via WhatsApp or email. Share the regulatory decision, the applicable licence or authorisation, and the relevant background and our specialist will advise on your challenge options and immediate next steps within minutes." },
           { q: "Can I continue operating while challenging a regulatory decision in Saudi Arabia?", a: "This depends on the nature of the regulatory decision and whether interim relief has been granted to suspend its effect. Where the regulatory decision suspends or revokes a licence, continuing to operate without the licence may expose you to further regulatory risk. Adlix advises on the position immediately following an adverse regulatory decision and, where appropriate, applies urgently for interim relief to allow continued operations during the challenge process." },
         ],
       },
@@ -1733,7 +1731,7 @@ export const en = {
         faqs: [
           { q: "How do I challenge a VAT or Zakat assessment from ZATCA in Saudi Arabia?", a: "ZATCA assessments must be challenged through a specific administrative process: (1) file a formal objection with ZATCA within 60 days of the assessment notification; (2) if the objection is unsuccessful, escalate to the Tax Dispute Resolution Committee (TDRC); (3) if the TDRC decision is adverse, appeal to the Administrative Court and ultimately the Board of Grievances. Each stage has strict procedural requirements and deadlines. Adlix manages the full ZATCA dispute process — from initial objection through final court appeal — with the specialist expertise that effective challenges require." },
           { q: "What is the deadline for challenging a ZATCA assessment?", a: "The deadline for filing a ZATCA objection is generally 60 days from the date the assessment is formally notified to you. Missing this deadline can seriously prejudice your ability to challenge the assessment. Adlix advises immediately on receipt of a ZATCA assessment — assessing the applicable deadline and preparing a comprehensive objection within the available time." },
-          { q: "Can I get online legal advice on a ZATCA customs or tax dispute?", a: "Yes. Adlix provides complete online consultation for ZATCA customs and tax disputes via WhatsApp, email, or video call. Share the ZATCA assessment, the relevant financial information, and the background facts, and our specialist will advise on your challenge grounds and recommended action within minutes." },
+          { q: "Can I get online legal advice on a ZATCA customs or tax dispute?", a: "Yes. Adlix provides complete online consultation for ZATCA customs and tax disputes via WhatsApp or email. Share the ZATCA assessment, the relevant financial information, and the background facts, and our specialist will advise on your challenge grounds and recommended action within minutes." },
           { q: "Can ZATCA take enforcement action while I am disputing an assessment?", a: "ZATCA has significant enforcement powers — including the ability to impose bank garnishments, asset freezes, and travel bans for significant unpaid tax liabilities. Filing a timely ZATCA objection generally suspends enforcement while the objection is being reviewed. Adlix advises immediately on the enforcement risk position and, where necessary, takes urgent action to protect assets while the dispute is being resolved." },
         ],
       },
@@ -1764,7 +1762,7 @@ export const en = {
         faqs: [
           { q: "What should I do if I receive a notice of disciplinary proceedings in Saudi Arabia?", a: "Act immediately and seek specialist legal advice. Disciplinary proceedings have strict timelines for response — missing the deadline to submit your initial response can significantly prejudice your position. Adlix advises immediately on receipt of a disciplinary notice — assessing the allegations, the applicable procedure, and the optimal immediate response. Our online consultation means you can receive specialist advice within minutes of receiving the notice." },
           { q: "Can I appeal a disciplinary sanction imposed by a Saudi professional body?", a: "Yes. Most professional disciplinary decisions in Saudi Arabia can be appealed — either through an internal appeal mechanism within the professional body, or before the Board of Grievances as the competent administrative court. The applicable appeal route and timeline depend on the specific professional body and the nature of the sanction. Adlix advises immediately on your appeal options following a disciplinary sanction." },
-          { q: "Can I get online legal advice on professional disciplinary proceedings in Saudi Arabia?", a: "Yes. Adlix provides complete online consultation for professional disciplinary matters via WhatsApp, email, or video call. Share the disciplinary notice, the allegations, and the relevant background, and our specialist will advise on your defence strategy and immediate next steps within minutes." },
+          { q: "Can I get online legal advice on professional disciplinary proceedings in Saudi Arabia?", a: "Yes. Adlix provides complete online consultation for professional disciplinary matters via WhatsApp or email. Share the disciplinary notice, the allegations, and the relevant background, and our specialist will advise on your defence strategy and immediate next steps within minutes." },
           { q: "Can disciplinary proceedings lead to criminal prosecution in Saudi Arabia?", a: "Potentially, yes — where the alleged professional misconduct also involves criminal elements (fraud, falsification of records, breach of trust), the disciplinary authority may refer the matter to public prosecution. Adlix advises on the criminal risk dimension of disciplinary proceedings from the outset — coordinating the disciplinary defence with any criminal law strategy required to protect the respondent's position comprehensively." },
         ],
       },
@@ -1796,7 +1794,7 @@ export const en = {
           { q: "Can I claim compensation from a Saudi government entity for causing me loss?", a: "Yes. Saudi administrative law — specifically through the Board of Grievances — provides the right to claim compensation from government entities for losses caused by unlawful administrative acts, negligence, wrongful decisions, and breaches of duty. Establishing a successful compensation claim requires proving: (1) the government act was unlawful or a breach of duty; (2) the act caused you loss; (3) the quantum of that loss. Adlix advises on whether your situation gives rise to a viable government compensation claim and manages the full process." },
           { q: "What is the time limit for bringing a compensation claim against a Saudi government entity?", a: "Government compensation claims before the Board of Grievances are generally subject to a 5-year limitation period from the date the right to claim arose or the date you became aware of the loss. However, specific statutory provisions may apply in certain cases. Adlix advises on the applicable limitation period for your specific claim and acts promptly to preserve your claim rights." },
           { q: "How do I prove my losses in a government compensation claim in Saudi Arabia?", a: "Compensation claims before the Board of Grievances require documented evidence of the loss caused by the government act — including financial records, expert reports quantifying lost profits or business value, valuation reports for property, and any other relevant evidence. Adlix works with financial, technical, and valuation experts to build a comprehensive, expert-supported loss quantification that the Board of Grievances will accept." },
-          { q: "Can I get online legal advice on a government compensation claim in Saudi Arabia?", a: "Yes. Adlix provides complete online consultation for government compensation claims via WhatsApp, email, or video call. Share the government act or decision, the losses you have suffered, and the relevant documentation, and our specialist will advise on the viability of a compensation claim and the recommended next steps within minutes." },
+          { q: "Can I get online legal advice on a government compensation claim in Saudi Arabia?", a: "Yes. Adlix provides complete online consultation for government compensation claims via WhatsApp or email. Share the government act or decision, the losses you have suffered, and the relevant documentation, and our specialist will advise on the viability of a compensation claim and the recommended next steps within minutes." },
         ],
       },
     },

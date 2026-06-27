@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Scale, ShieldCheck, Users, ArrowRight, CheckCircle2, Star, Quote, MessageCircle, Mail, Video, Award, Globe, Zap, BadgeCheck, Wifi, Clock, Lock, MapPin } from "lucide-react";
+import { Scale, ShieldCheck, Users, ArrowRight, CheckCircle2, Star, Quote, MessageCircle, Mail, Award, Globe, Zap, BadgeCheck, Wifi, Clock, Lock, MapPin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const fadeIn = {
@@ -14,8 +14,8 @@ const fadeIn = {
 const platformIcons = { wifi: Wifi, clock: Clock, lock: Lock, globe: Globe };
 const whyIcons = [Zap, ShieldCheck, Award, Globe];
 const clientIcons = [Users, Scale, Globe, BadgeCheck];
-const channelIcons = [MessageCircle, Mail, Video];
-const channelColors = ["bg-[#25D366]", "bg-white/15 border border-white/30", "bg-white/15 border border-white/30"];
+const channelIcons = [MessageCircle, Mail];
+const channelColors = ["bg-[#25D366]", "bg-white/15 border border-white/30"];
 
 export default function Home() {
   const { t } = useLanguage();
