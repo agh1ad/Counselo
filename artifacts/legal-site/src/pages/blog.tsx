@@ -11,7 +11,7 @@ export default function Blog() {
   const ui = {
     en: {
       eyebrow: "Legal Insights",
-      heading: "Saudi Arabian Law — Articles & Guides",
+      heading: "Articles & Guides",
       subheading:
         "Practical legal guidance on Saudi family law, employment, real estate, business, foreign investment, and administrative law — written by the team of Lawyer Omar Al-Baghdadi.",
       readMore: "Read Article",
@@ -23,7 +23,7 @@ export default function Blog() {
     },
     ar: {
       eyebrow: "رؤى قانونية",
-      heading: "القانون السعودي — مقالات وأدلة",
+      heading: "مقالات وأدلة",
       subheading:
         "إرشادات قانونية عملية في قانون الأسرة السعودي والعمل والعقارات والأعمال والاستثمار الأجنبي والقانون الإداري — من فريق المحامي عمر البغدادي.",
       readMore: "اقرأ المقال",
