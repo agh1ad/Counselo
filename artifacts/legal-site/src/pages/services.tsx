@@ -57,28 +57,30 @@ const services = [
 export default function Services() {
   return (
     <div className="w-full bg-background min-h-screen">
-      <section className="relative py-24 overflow-hidden border-b border-border">
+      {/* Hero — dark green */}
+      <section className="relative py-28 overflow-hidden">
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 10%) 0%, hsl(150 80% 15%) 100%)" }} />
         <div className="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
-          <div className="w-full h-full" style={{ background: "radial-gradient(ellipse at 50% 50%, hsl(38 80% 40%) 0%, transparent 70%)" }} />
+          <div className="w-full h-full" style={{ background: "radial-gradient(ellipse at 50% 50%, hsl(150 60% 60%) 0%, transparent 70%)" }} />
         </div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-2xl"
           >
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">Our Expertise</h1>
-            <div className="w-20 h-1 bg-primary mb-8" />
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <div className="w-20 h-1 bg-white/40 mb-8" />
+            <p className="text-xl text-white/75 leading-relaxed">
               Lexora Legal offers comprehensive, elite representation across seven core practice areas. Each division is led by partners who have dedicated their careers to mastering the nuances of their specific field.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
@@ -88,10 +90,10 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-card border border-border p-10 hover:border-primary/50 transition-colors flex flex-col h-full group"
+                className="bg-card border border-border p-10 hover:border-primary/50 hover:shadow-md transition-all flex flex-col h-full group"
               >
                 <service.icon className="h-12 w-12 text-primary mb-6" />
-                <h2 className="text-2xl font-serif font-bold text-white mb-4">{service.title}</h2>
+                <h2 className="text-2xl font-serif font-bold text-foreground mb-4">{service.title}</h2>
                 <p className="text-muted-foreground mb-8 flex-grow leading-relaxed">
                   {service.longDesc}
                 </p>
