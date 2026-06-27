@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
 import Home from "@/pages/home";
@@ -51,6 +52,7 @@ function App() {
               </main>
               <Footer />
             </div>
+            <WhatsAppFloat />
           </WouterRouter>
           <Toaster />
         </LanguageProvider>
