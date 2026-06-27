@@ -74,7 +74,7 @@ export default function Services() {
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">Our Expertise</h1>
             <div className="w-20 h-1 bg-white/40 mb-8" />
             <p className="text-xl text-white/75 leading-relaxed">
-              Lexora Legal offers comprehensive, elite representation across seven core practice areas. Each division is led by partners who have dedicated their careers to mastering the nuances of their specific field.
+              Adlix covers seven core practice areas with verified, experienced attorneys ready to consult with you online — fast, reliably, and on your schedule.
             </p>
           </motion.div>
         </div>

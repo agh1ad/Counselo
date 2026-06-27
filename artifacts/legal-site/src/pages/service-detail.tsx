@@ -7,7 +7,7 @@ const serviceData: Record<string, any> = {
   "family-law": {
     title: "Family Law",
     subtitle: "Protecting what matters most with discretion and resolve.",
-    overview: "Family law requires a delicate balance of aggressive advocacy and emotional intelligence. At Lexora Legal, we understand that family disputes are among the most stressful experiences our clients face. We provide strategic, clear-headed counsel to protect your assets, your relationship with your children, and your future.",
+    overview: "Family law requires a delicate balance of aggressive advocacy and emotional intelligence. At Adlix, we understand that family disputes are among the most stressful experiences our clients face. We provide strategic, clear-headed counsel to protect your assets, your relationship with your children, and your future.",
     covers: [
       "High-Net-Worth Divorce & Asset Tracing",
       "Contentious Child Custody Disputes",
@@ -25,7 +25,7 @@ const serviceData: Record<string, any> = {
   "business-law": {
     title: "Business & Corporate Law",
     subtitle: "Strategic legal architecture for modern enterprises.",
-    overview: "In today's regulatory environment, a misstep in corporate structuring or contract drafting can cost millions. Lexora Legal acts as outside general counsel to dynamic startups and established enterprises, providing the sophisticated legal architecture required to scale aggressively and safely.",
+    overview: "In today's regulatory environment, a misstep in corporate structuring or contract drafting can cost millions. Adlix acts as outside general counsel to dynamic startups and established enterprises, providing the sophisticated legal architecture required to scale aggressively and safely.",
     covers: [
       "Corporate Formation & Restructuring",
       "Mergers, Acquisitions & Buyouts",
@@ -61,7 +61,7 @@ const serviceData: Record<string, any> = {
   "real-estate": {
     title: "Real Estate Law",
     subtitle: "Securing and protecting high-value property transactions.",
-    overview: "Real estate transactions involve massive capital and complex regulations. A single overlooked clause can unravel a deal or lead to years of litigation. Lexora Legal brings exacting precision to commercial and residential real estate, ensuring your investments are legally sound and fiercely protected.",
+    overview: "Real estate transactions involve massive capital and complex regulations. A single overlooked clause can unravel a deal or lead to years of litigation. Adlix brings exacting precision to commercial and residential real estate, ensuring your investments are legally sound and fiercely protected.",
     covers: [
       "Commercial Lease Negotiation",
       "High-Value Residential Closings",
@@ -79,7 +79,7 @@ const serviceData: Record<string, any> = {
   "immigration": {
     title: "Immigration Law",
     subtitle: "Strategic navigation of a complex federal bureaucracy.",
-    overview: "U.S. Immigration law is a labyrinth of shifting policies and rigid deadlines. Whether securing critical international talent for your corporation or fighting to keep your family together, Lexora Legal provides clear, authoritative guidance through a system designed to be confusing.",
+    overview: "U.S. Immigration law is a labyrinth of shifting policies and rigid deadlines. Whether securing critical international talent for your corporation or fighting to keep your family together, Adlix provides clear, authoritative guidance through a system designed to be confusing.",
     covers: [
       "Employment-Based Visas (H-1B, L-1, O-1)",
       "Investor Visas (EB-5, E-2)",
@@ -97,7 +97,7 @@ const serviceData: Record<string, any> = {
   "personal-injury": {
     title: "Personal Injury",
     subtitle: "Relentless pursuit of justice following devastating harm.",
-    overview: "When you are injured by negligence, insurance companies deploy massive resources to minimize your compensation. Lexora Legal counters with overwhelming preparation and trial readiness. We do not accept lowball settlements; we demand full restitution for your suffering, lost wages, and future care.",
+    overview: "When you are injured by negligence, insurance companies deploy massive resources to minimize your compensation. Adlix counters with overwhelming preparation and trial readiness. We do not accept lowball settlements; we demand full restitution for your suffering, lost wages, and future care.",
     covers: [
       "Catastrophic Injury Litigation",
       "Medical Malpractice",
@@ -115,7 +115,7 @@ const serviceData: Record<string, any> = {
   "employment-law": {
     title: "Employment Law",
     subtitle: "Protecting professional reputations and enforcing corporate accountability.",
-    overview: "The balance of power in the workplace is inherently unequal. Lexora Legal exists to correct that imbalance. We represent executives negotiating complex severance packages and aggressively litigate claims of systemic discrimination, retaliation, and wrongful termination against major corporations.",
+    overview: "The balance of power in the workplace is inherently unequal. Adlix exists to correct that imbalance. We represent executives negotiating complex severance packages and aggressively litigate claims of systemic discrimination, retaliation, and wrongful termination against major corporations.",
     covers: [
       "Executive Severance Negotiation",
       "Wrongful Termination Litigation",
@@ -236,7 +236,7 @@ export default function ServiceDetail() {
               </Link>
               <div className="mt-6 pt-6 border-t border-white/20">
                 <p className="text-sm text-white/60 mb-2">Or call us directly at:</p>
-                <p className="text-white font-mono font-medium text-lg">+1 (800) LEXORA-LAW</p>
+                <p className="text-white font-mono font-medium text-lg">+1 (800) ADLIX-LAW</p>
               </div>
             </motion.div>
           </div>

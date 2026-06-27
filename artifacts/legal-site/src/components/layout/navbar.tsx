@@ -24,7 +24,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center gap-2">
-            <span className="font-serif text-2xl font-bold tracking-tight text-foreground">Lexora <span className="text-primary">Legal</span></span>
+            <span className="font-serif text-2xl font-bold tracking-tight text-foreground">Adlix</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">

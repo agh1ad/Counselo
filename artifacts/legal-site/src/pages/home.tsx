@@ -28,10 +28,10 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl md:text-7xl font-serif font-bold text-white leading-tight mb-6">
-                Clarity in <span className="text-white/70 italic">Complexity</span>.
+                Legal Counsel. <span className="text-white/70 italic">Fast & Reliable</span>.
               </h1>
               <p className="text-xl md:text-2xl text-white/75 mb-10 leading-relaxed">
-                Lexora Legal provides premium, authoritative legal counsel accessible from anywhere. Serious representation for the decisions that matter most.
+                Adlix delivers expert online legal consultations — connecting you with qualified attorneys quickly, securely, and from anywhere in the world.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/contact">
@@ -55,16 +55,16 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeIn}>
-              <h2 className="text-4xl font-serif font-bold text-foreground mb-6">Modern Counsel. <br/>Traditional Excellence.</h2>
+              <h2 className="text-4xl font-serif font-bold text-foreground mb-6">Fast Access. <br/>Expert Advice.</h2>
               <div className="w-20 h-1 bg-primary mb-8" />
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                We believe that premium legal advice shouldn't be confined to mahogany boardrooms. Lexora brings the rigor, authority, and discretion of a top-tier law firm directly to you, online.
+                We believe quality legal help should be instant, not bureaucratic. Adlix connects you with experienced attorneys online — no waiting rooms, no delays, no surprises.
               </p>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                Our partners carry decades of specialized experience across multiple disciplines, ensuring that whatever your legal challenge, you proceed with calm, unshakeable confidence.
+                Our network of specialized legal professionals spans multiple practice areas, ensuring you get reliable, expert counsel exactly when and where you need it.
               </p>
               <ul className="space-y-4 mb-8">
-                {["Secure online consultations", "Transparent fee structures", "Dedicated partner-level attention"].map((item, i) => (
+                {["Consultations booked in under 2 minutes", "Secure, encrypted video sessions", "Transparent flat-fee pricing"].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-foreground">
                     <CheckCircle2 className="text-primary h-5 w-5 shrink-0" />
                     <span>{item}</span>
@@ -166,16 +166,16 @@ export default function Home() {
       <section className="py-24 bg-card border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeIn} className="mb-16">
-            <h2 className="text-4xl font-serif font-bold text-foreground mb-4">The Lexora Advantage</h2>
+            <h2 className="text-4xl font-serif font-bold text-foreground mb-4">The Adlix Advantage</h2>
             <div className="w-20 h-1 bg-primary mb-6" />
           </motion.div>
 
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { icon: Scale, title: "Unmatched Authority", desc: "A formidable reputation built on precedent-setting victories." },
-              { icon: ShieldCheck, title: "Absolute Discretion", desc: "Your privacy is our paramount concern. Bank-grade security." },
-              { icon: Clock, title: "Responsive Counsel", desc: "Legal emergencies don't wait. Neither do we." },
-              { icon: Users, title: "Client-Centric", desc: "You are a priority, not a case file. Direct partner access." },
+              { icon: Clock, title: "Lightning Fast", desc: "Book a consultation in under 2 minutes. Get matched to an attorney today." },
+              { icon: ShieldCheck, title: "Bank-Grade Security", desc: "All sessions are end-to-end encrypted. Your privacy is guaranteed." },
+              { icon: Scale, title: "Verified Experts", desc: "Every attorney is rigorously vetted, licensed, and highly rated." },
+              { icon: Users, title: "Always Available", desc: "24/7 support means you're never left waiting when it matters most." },
             ].map((feature, i) => (
               <motion.div
                 key={i}
@@ -203,9 +203,9 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { quote: "Lexora handled my corporate restructuring with absolute precision. Their strategic foresight saved us from significant liability. Unparalleled service.", author: "James M.", title: "CEO, Tech Ventures" },
+              { quote: "Adlix handled my corporate restructuring with absolute precision. Their strategic foresight saved us from significant liability. Unparalleled service.", author: "James M.", title: "CEO, Tech Ventures" },
               { quote: "During the most difficult transition of my life, the team provided not just legal counsel, but a calm, authoritative presence that made all the difference.", author: "Sarah L.", title: "Family Law Client" },
-              { quote: "When our real estate deal hit a major snag, Lexora's attorneys stepped in and resolved the dispute within days. They are formidable negotiators.", author: "Robert C.", title: "Real Estate Developer" }
+              { quote: "When our real estate deal hit a major snag, Adlix's attorneys stepped in and resolved the dispute within days. They are formidable negotiators.", author: "Robert C.", title: "Real Estate Developer" }
             ].map((testimonial, i) => (
               <motion.div
                 key={i}
@@ -240,9 +240,9 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div {...fadeIn}>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Ready to discuss your case?</h2>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Get legal help — fast.</h2>
             <p className="text-xl text-white/75 mb-10">
-              Schedule a secure online consultation with one of our specialized partners today. Clarity is just a conversation away.
+              Book a secure online consultation with a verified attorney in minutes. Reliable legal counsel, wherever you are.
             </p>
             <Link href="/contact">
               <Button size="lg" className="text-lg px-12 py-8 rounded-none bg-white text-primary hover:bg-white/90 shadow-xl">

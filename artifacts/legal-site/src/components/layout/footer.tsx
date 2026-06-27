@@ -8,10 +8,10 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-6">
-              <span className="font-serif text-2xl font-bold tracking-tight text-white">Lexora <span className="text-white/60">Legal</span></span>
+              <span className="font-serif text-2xl font-bold tracking-tight text-white">Adlix</span>
             </Link>
             <p className="text-white/70 text-sm mb-6 leading-relaxed">
-              Premium online legal consultation making professional legal advice accessible, authoritative, and clear. Calm confidence for serious decisions.
+              Fast, reliable online legal consultations. Connect with verified attorneys in minutes — from anywhere, at any time.
             </p>
             <div className="flex space-x-4 text-white/60">
               <a href="#" className="hover:text-white transition-colors"><Facebook className="h-5 w-5" /></a>
@@ -51,11 +51,11 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-white/60 shrink-0" />
-                <span>+1 (800) LEXORA-LAW</span>
+                <span>+1 (800) ADLIX-LAW</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-white/60 shrink-0" />
-                <span>consult@lexoralegal.com</span>
+                <span>consult@adlix.com</span>
               </li>
             </ul>
           </div>
@@ -63,7 +63,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-white/60">
-            &copy; {new Date().getFullYear()} Lexora Legal. All rights reserved.
+            &copy; {new Date().getFullYear()} Adlix. All rights reserved.
           </p>
           <div className="flex gap-4 text-sm text-white/60">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>

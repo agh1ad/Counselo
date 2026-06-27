@@ -59,7 +59,7 @@ export default function Contact() {
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">Contact Us</h1>
             <div className="w-20 h-1 bg-white/40 mx-auto mb-8" />
             <p className="text-xl text-white/75 max-w-2xl mx-auto leading-relaxed">
-              Discreet, authoritative counsel is a message away. Schedule your secure consultation with a Lexora Legal partner.
+              Discreet, authoritative counsel is a message away. Schedule your secure consultation with a Adlix partner.
             </p>
           </motion.div>
         </div>
@@ -95,7 +95,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="text-foreground font-medium mb-1">Main Line</h4>
-                      <p className="text-muted-foreground">+1 (800) LEXORA-LAW</p>
+                      <p className="text-muted-foreground">+1 (800) ADLIX-LAW</p>
                     </div>
                   </div>
 
@@ -105,7 +105,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="text-foreground font-medium mb-1">Email</h4>
-                      <p className="text-muted-foreground">consult@lexoralegal.com</p>
+                      <p className="text-muted-foreground">consult@adlix.com</p>
                     </div>
                   </div>
 
