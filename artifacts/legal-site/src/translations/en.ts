@@ -36,7 +36,7 @@ export const en = {
   },
   home: {
     hero: {
-      badge: "Saudi Arabia's Online Legal Consultation Platform",
+      badge: "Saudi Arabia's Most Experienced Online Legal Platform",
       availableNow: "🟢 Available Now",
       responseTag: "Response within minutes",
       h1a: "Legal Help.",
@@ -56,7 +56,7 @@ export const en = {
     stats: [
       { stat: "20,000+", label: "Cases Handled" },
       { stat: "< 5 min", label: "Avg. First Response" },
-      { stat: "Arabic & English", label: "Fully Bilingual" },
+      { stat: "30+ Years", label: "Legal Experience" },
       { stat: "100% Online", label: "No Office Visit Needed" },
     ],
     platform: {
@@ -73,7 +73,7 @@ export const en = {
     about: {
       eyebrow: "About the Platform",
       heading: "Founded by Lawyer Omar Al-Baghdadi",
-      p1: "Adlix was founded by Lawyer Omar Al-Baghdadi — one of the region's most established senior advocates, with over 20,000 cases handled across Saudi Arabia, the UAE and Syria over decades of litigation and arbitration practice.",
+      p1: "Adlix was founded by Lawyer Omar Al-Baghdadi — one of the region's most established senior advocates, with over 30 years of active legal practice and more than 20,000 cases handled across Saudi Arabia, the UAE and Syria. His career spans every major area of Saudi law, from commercial litigation and arbitration to family law, real estate, employment, foreign investment and administrative proceedings.",
       p2: "Under his leadership, Adlix brings together a professional legal team of experienced attorneys across multiple practice areas — all supervised and directed by Lawyer Al-Baghdadi, ensuring consistent quality and senior oversight on every consultation.",
       p3: "Whether you are an individual, a business, or a foreign investor — Adlix gives you direct access to a coordinated legal team led by a senior founder, delivered online, fast and without friction.",
       bullets: [
@@ -123,7 +123,7 @@ export const en = {
     practiceAreas: {
       eyebrow: "Our Legal Expertise",
       heading: "Core Practice Areas in Saudi Arabia",
-      subheading: "Decades of courtroom litigation and arbitration across Saudi Arabia, the UAE and Syria — comprehensive legal representation across all major practice areas.",
+      subheading: "30+ years of courtroom litigation and arbitration across Saudi Arabia, the UAE and Syria — comprehensive legal representation across all major practice areas.",
       areas: [
         { title: "Commercial Litigation", desc: "Contract disputes, shareholder conflicts, corporate governance, banking and commercial agency disputes before Saudi courts and arbitration tribunals.", path: "/services/business-law" },
         { title: "Arbitration & Dispute Resolution", desc: "Domestic and international commercial arbitration, enforcement of arbitral awards, cross-border and investment dispute resolution.", path: "/services/business-law" },
@@ -164,7 +164,7 @@ export const en = {
   services: {
     hero: {
       heading: "Our Expertise",
-      desc: "Adlix covers seven core practice areas with verified, experienced attorneys ready to consult with you online — fast, reliably, and on your schedule.",
+      desc: "Adlix covers six core practice areas — backed by 30+ years of Saudi legal experience and 20,000+ cases. Professional legal advice online via WhatsApp or email, 24/7, in Arabic and English.",
     },
     explorePrefix: "Explore ",
     items: [
@@ -1481,7 +1481,7 @@ export const en = {
   contact: {
     hero: {
       heading: "Contact Us",
-      subheading: "Discreet, authoritative counsel is a message away. Schedule your secure consultation with the Adlix legal team.",
+      subheading: "30+ years of legal experience — discreet, authoritative counsel is a message away. Reach Lawyer Omar Al-Baghdadi's team via WhatsApp or email, 24/7.",
     },
     firmDetails: {
       heading: "Firm Details",
