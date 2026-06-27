@@ -95,23 +95,23 @@ export default function Home() {
               </ul>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative">
-              <div className="aspect-[4/5] relative">
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative pb-8 ps-8">
+              {/* Stat badge — behind and offset, not overlapping the photo */}
+              <div className="absolute bottom-0 start-0 bg-primary p-6 flex flex-col justify-center shadow-xl w-52 z-10">
+                <span className="text-3xl font-serif text-white font-bold mb-1">{h.about.caseStat}</span>
+                <span className="text-white/80 font-medium uppercase tracking-widest text-xs">{h.about.caseLabel}</span>
+              </div>
+              {/* Photo card */}
+              <div className="aspect-[4/5] relative shadow-2xl border border-border overflow-hidden">
                 <img
                   src="/omar-baghdadi.jpg"
                   alt="Lawyer Omar Al-Baghdadi — Founder of Adlix"
-                  className="w-full h-full object-cover object-top shadow-2xl border border-border"
+                  className="w-full h-full object-cover object-top"
                 />
-                {/* Name overlay at the bottom of the photo */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-8 pb-8 pt-16">
-                  <div className="text-white/60 uppercase tracking-widest text-xs mb-1">{h.about.founderRole}</div>
-                  <div className="text-xl font-serif font-bold text-white mb-1">{h.about.founderName}</div>
-                  <div className="text-white/60 text-xs leading-relaxed">{h.about.founderTeamLine}</div>
-                </div>
-                {/* Stat badge */}
-                <div className="absolute -bottom-6 -start-6 bg-primary p-6 flex flex-col justify-center shadow-xl w-52">
-                  <span className="text-3xl font-serif text-white font-bold mb-1">{h.about.caseStat}</span>
-                  <span className="text-white/80 font-medium uppercase tracking-widest text-xs">{h.about.caseLabel}</span>
+                {/* Subtle name strip at the very bottom of the photo, clear of badge */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent px-6 pb-6 pt-14">
+                  <div className="text-white/60 uppercase tracking-widest text-xs mb-0.5">{h.about.founderRole}</div>
+                  <div className="text-lg font-serif font-bold text-white leading-tight">{h.about.founderName}</div>
                 </div>
               </div>
             </motion.div>
