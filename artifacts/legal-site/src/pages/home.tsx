@@ -47,7 +47,7 @@ export default function Home() {
 
               {/* Trust chips */}
               <div className="flex flex-wrap gap-3 mb-10">
-                {["✓ 20,000+ Cases Handled", "✓ Bilingual Arabic & English", "✓ All Client Types", "✓ Response Within Hours"].map((chip, i) => (
+                {["✓ 20,000+ Cases Handled", "✓ Bilingual Arabic & English", "✓ All Client Types", "✓ Response Within Minutes"].map((chip, i) => (
                   <span key={i} className="bg-white/10 border border-white/20 text-white/80 text-sm px-3 py-1.5 font-medium">
                     {chip}
                   </span>
@@ -358,7 +358,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: Zap,        title: "Instant Access",          desc: "No waiting rooms, no scheduling delays. Submit your matter and receive a professional response within hours." },
+              { icon: Zap,        title: "Instant Access",          desc: "No waiting rooms, no scheduling delays. Submit your matter and receive a professional response within minutes." },
               { icon: ShieldCheck, title: "Reliable & Confidential", desc: "Strict professional confidentiality on every matter. Your legal information is never shared." },
               { icon: Award,      title: "Team Led by a Senior Founder", desc: "Adlix was founded by Lawyer Omar Al-Baghdadi. His professional legal team operates under his direct supervision — ensuring senior-level quality on every matter." },
               { icon: Globe,      title: "Arabic & English",        desc: "Fully bilingual consultations. Legal guidance in your preferred language, with no barriers." }
@@ -394,7 +394,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                quote: "Adlix resolved my commercial contract dispute quickly and professionally. The WhatsApp consultation was structured and clear — I had a legal opinion within hours. Exceptional service.",
+                quote: "Adlix resolved my commercial contract dispute quickly and professionally. The WhatsApp consultation was structured and clear — I had a legal opinion within minutes. Exceptional service.",
                 author: "Abdullah R.",
                 title: "Business Owner — Riyadh, KSA"
               },
