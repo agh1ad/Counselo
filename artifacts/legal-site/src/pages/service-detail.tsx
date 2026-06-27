@@ -80,6 +80,25 @@ export default function ServiceDetail() {
             </motion.div>
           </div>
 
+          {/* Foreign Investment Sub-Areas Grid */}
+          {id === "foreign-investment" && (
+            <div className="lg:col-span-8 mt-16">
+              <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
+                {t.foreignInvestmentDetail.relatedHeading.replace("Other ", "").replace("أخرى", "").trim()}
+              </h2>
+              <p className="text-muted-foreground mb-8">Explore our specialist foreign investment practice areas — each backed by 30+ years of Saudi investment law experience and available for online consultation today.</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {t.foreignInvestmentDetail.subAreas.map((area) => (
+                  <Link key={area.id} href={`/services/foreign-investment/${area.id}`}
+                    className="group flex items-center justify-between gap-4 bg-card border border-border px-6 py-5 hover:border-primary/60 hover:bg-primary/5 transition-all">
+                    <span className="font-semibold text-foreground group-hover:text-primary transition-colors">{area.label}</span>
+                    <ArrowRight className={`h-4 w-4 text-primary shrink-0 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180 group-hover:-translate-x-1 group-hover:translate-x-0" : ""}`} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Family Law Sub-Areas Grid */}
           {id === "family-law" && (
             <div className="lg:col-span-8 mt-16">

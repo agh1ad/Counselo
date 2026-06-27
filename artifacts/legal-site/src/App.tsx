@@ -14,6 +14,7 @@ import BusinessLawSub from "@/pages/business-law-sub";
 import RealEstateSub from "@/pages/real-estate-sub";
 import EmploymentLawSub from "@/pages/employment-law-sub";
 import FamilyLawSub from "@/pages/family-law-sub";
+import ForeignInvestmentSub from "@/pages/foreign-investment-sub";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ function Router() {
       <Route path="/services/real-estate/:subId" component={RealEstateSub} />
       <Route path="/services/employment-law/:subId" component={EmploymentLawSub} />
       <Route path="/services/family-law/:subId" component={FamilyLawSub} />
+      <Route path="/services/foreign-investment/:subId" component={ForeignInvestmentSub} />
       <Route path="/services/:id" component={ServiceDetail} />
       <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
