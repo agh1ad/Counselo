@@ -10,6 +10,7 @@ import Home from "@/pages/home";
 import Services from "@/pages/services";
 import Contact from "@/pages/contact";
 import ServiceDetail from "@/pages/service-detail";
+import BusinessLawSub from "@/pages/business-law-sub";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -19,6 +20,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/services" component={Services} />
+      <Route path="/services/business-law/:subId" component={BusinessLawSub} />
       <Route path="/services/:id" component={ServiceDetail} />
       <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
