@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { SEOHead } from "@/components/seo/SEOHead";
 
 const formSchema = z.object({
   name: z.string().min(2),
@@ -41,6 +42,11 @@ export default function Contact() {
 
   return (
     <div className="w-full bg-background min-h-screen">
+      <SEOHead
+        title="Contact an Online Lawyer in Saudi Arabia | Book a Consultation | Adlix"
+        description="Contact Adlix to book an online legal consultation in Saudi Arabia. Reach Lawyer Omar Al-Baghdadi — 30+ years experience — via WhatsApp (+966 59 285 0247) or email. Available 24/7 in Arabic and English."
+        canonical="/contact"
+      />
       {/* Hero */}
       <section className="relative py-28 border-b border-border">
         <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 10%) 0%, hsl(150 80% 15%) 100%)" }} />

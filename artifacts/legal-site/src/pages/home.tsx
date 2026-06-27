@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { SEOHead } from "@/components/seo/SEOHead";
 import { Scale, ShieldCheck, Users, ArrowRight, CheckCircle2, Star, Quote, MessageCircle, Mail, Award, Globe, Zap, BadgeCheck, Wifi, Clock, Lock, MapPin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -23,6 +24,11 @@ export default function Home() {
 
   return (
     <div className="w-full">
+      <SEOHead
+        title="Online Legal Consultations Saudi Arabia | 30+ Years Experience | Adlix"
+        description="Adlix — Saudi Arabia's most experienced online legal platform. Founded by Lawyer Omar Al-Baghdadi: 30+ years practice, 20,000+ cases across Saudi Arabia, UAE and Syria. Expert legal advice via WhatsApp or email. Available 24/7. Arabic & English."
+        canonical="/"
+      />
 
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">

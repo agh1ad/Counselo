@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useParams, Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ChevronRight, ArrowLeft, MessageCircle, Mail, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { SEOHead } from "@/components/seo/SEOHead";
 
 export default function RealEstateSub() {
   const params = useParams();
@@ -12,12 +13,6 @@ export default function RealEstateSub() {
   const rel = t.realEstateLawDetail;
   const data = rel.services[subId as keyof typeof rel.services];
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (data) {
-      document.title = `${data.seoTitle} | Adlix`;
-    }
-  }, [data]);
 
   if (!data) {
     return (
@@ -31,9 +26,24 @@ export default function RealEstateSub() {
   }
 
   const otherAreas = rel.subAreas.filter((a) => a.id !== subId);
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: (data.faqs as Array<{ q: string; a: string }>).map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
 
   return (
     <div className="w-full bg-background min-h-screen">
+      <SEOHead
+        title={data.seoTitle}
+        description={data.subtitle}
+        canonical={`/services/real-estate/${subId}`}
+        schema={faqSchema}
+      />
 
       {/* Breadcrumb */}
       <div className="bg-card border-b border-border py-4 mt-20">

@@ -3,6 +3,7 @@ import { useParams, Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, CheckCircle2, ChevronRight, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { SEOHead } from "@/components/seo/SEOHead";
 
 export default function ServiceDetail() {
   const params = useParams();
@@ -24,6 +25,11 @@ export default function ServiceDetail() {
 
   return (
     <div className="w-full bg-background min-h-screen">
+      <SEOHead
+        title={`${data.title} Lawyer Saudi Arabia | Online Legal Consultation | Adlix`}
+        description={`${data.subtitle} — Lawyer Omar Al-Baghdadi, 30+ years experience, 20,000+ cases. Consult online via WhatsApp or email. 24/7. Arabic & English.`}
+        canonical={`/services/${id}`}
+      />
       {/* Breadcrumb */}
       <div className="bg-card border-b border-border py-4 mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

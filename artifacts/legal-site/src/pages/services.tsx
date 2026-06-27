@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, BookOpen, Building2, Gavel, Home as HomeIcon, Map, Shield, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { SEOHead } from "@/components/seo/SEOHead";
 
 const icons = [Users, Building2, Shield, HomeIcon, Map, BookOpen, Gavel];
 
@@ -11,6 +12,11 @@ export default function Services() {
 
   return (
     <div className="w-full bg-background min-h-screen">
+      <SEOHead
+        title="All Legal Practice Areas | Online Lawyer Saudi Arabia | Adlix"
+        description="Explore all of Adlix's legal practice areas in Saudi Arabia: Family Law, Business & Corporate Law, Real Estate, Employment Law, Foreign Investment, and Administrative Law. 30+ years experience. Consult online via WhatsApp or email — 24/7."
+        canonical="/services"
+      />
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 10%) 0%, hsl(150 80% 15%) 100%)" }} />
         <div className="absolute end-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
