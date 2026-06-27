@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 import Home from "@/pages/home";
 import Services from "@/pages/services";
@@ -29,16 +30,18 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <div className="min-h-screen flex flex-col bg-background">
-            <Navbar />
-            <main className="flex-grow pt-20">
-              <Router />
-            </main>
-            <Footer />
-          </div>
-        </WouterRouter>
-        <Toaster />
+        <LanguageProvider>
+          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+            <div className="min-h-screen flex flex-col bg-background">
+              <Navbar />
+              <main className="flex-grow pt-20">
+                <Router />
+              </main>
+              <Footer />
+            </div>
+          </WouterRouter>
+          <Toaster />
+        </LanguageProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
