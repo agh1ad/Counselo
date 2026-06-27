@@ -14,7 +14,7 @@ export const en = {
     ],
   },
   footer: {
-    tagline: "Fast, reliable online legal consultations. Connect with our professional legal team in minutes — from anywhere, at any time.",
+    tagline: "Fast, reliable online legal consultations for individuals, businesses and investors across Saudi Arabia. Connect with our professional legal team in minutes — in Arabic or English.",
     practiceAreasHeading: "Practice Areas",
     quickLinksHeading: "Quick Links",
     contactHeading: "Contact Us",
@@ -44,7 +44,7 @@ export const en = {
       desc: "Adlix is Saudi Arabia's dedicated online legal consultation platform — delivering expert legal guidance for individuals, businesses and investors",
       descBold: "without leaving your desk.",
       descEnd: "",
-      subDesc: "No office visit required. Consult via WhatsApp or email — and get professional legal advice within minutes.",
+      subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Saudi Arabia — professional legal advice within minutes.",
       chips: ["✓ 20,000+ Cases Handled", "✓ Bilingual Arabic & English", "✓ All Client Types", "✓ Response Within Minutes"],
       bookBtn: "Start a Consultation",
       servicesBtn: "Our Practice Areas",
@@ -195,7 +195,7 @@ export const en = {
       "family-law": {
         title: "Family Law",
         subtitle: "Protecting what matters most with discretion and resolve.",
-        overview: "Family law requires a delicate balance of aggressive advocacy and emotional intelligence. At Adlix, we understand that family disputes are among the most stressful experiences our clients face. We provide strategic, clear-headed counsel to protect your assets, your relationship with your children, and your future.",
+        overview: "Family law in Saudi Arabia is governed by Islamic law principles and the Kingdom's Personal Status regulations. At Adlix, we understand that family disputes are among the most stressful experiences our clients face. We provide strategic, clear-headed counsel rooted in Saudi family law — protecting your assets, your relationship with your children, and your future before Saudi courts.",
         covers: ["High-Net-Worth Divorce & Asset Tracing", "Contentious Child Custody Disputes", "Prenuptial & Postnuptial Agreements", "Alimony & Spousal Support Negotiation", "Complex Adoption Proceedings"],
         process: [
           { title: "Initial Strategy Session", desc: "A confidential review of your situation to identify immediate vulnerabilities and long-term goals." },
@@ -207,7 +207,7 @@ export const en = {
       "business-law": {
         title: "Business & Corporate Law",
         subtitle: "Strategic legal architecture for modern enterprises.",
-        overview: "In today's regulatory environment, a misstep in corporate structuring or contract drafting can cost millions. Adlix acts as outside general counsel to dynamic startups and established enterprises, providing the sophisticated legal architecture required to scale aggressively and safely.",
+        overview: "In Saudi Arabia's evolving regulatory environment — shaped by Vision 2030, the Companies Law, and the Commerce Court — a misstep in corporate structuring or contract drafting can cost millions. Adlix acts as outside general counsel to dynamic startups and established enterprises operating in the Kingdom, providing the sophisticated legal architecture required to scale aggressively and safely under Saudi commercial law.",
         covers: ["Corporate Formation & Restructuring", "Mergers, Acquisitions & Buyouts", "Complex Commercial Contracts", "Intellectual Property Strategy", "Regulatory Compliance Audits"],
         process: [
           { title: "Corporate Audit", desc: "Comprehensive review of your current legal structure, identifying immediate exposure." },
@@ -219,7 +219,7 @@ export const en = {
       "real-estate": {
         title: "Real Estate Law",
         subtitle: "Securing and protecting high-value property transactions.",
-        overview: "Real estate transactions involve massive capital and complex regulations. A single overlooked clause can unravel a deal or lead to years of litigation. Adlix brings exacting precision to commercial and residential real estate.",
+        overview: "Saudi real estate transactions involve massive capital and complex regulations under Saudi property law and the Real Estate General Authority framework. A single overlooked clause can unravel a deal or lead to years of litigation before Saudi courts. Adlix brings exacting precision to commercial and residential real estate transactions across the Kingdom.",
         covers: ["Commercial Lease Negotiation", "High-Value Residential Closings", "Zoning & Land Use Disputes", "Construction Defect Litigation", "Complex Landlord-Tenant Disputes"],
         process: [
           { title: "Due Diligence", desc: "Exhaustive review of title, zoning, and encumbrances to ensure a clean transaction." },
@@ -231,13 +231,13 @@ export const en = {
       "employment-law": {
         title: "Employment Law",
         subtitle: "Protecting professional reputations and enforcing corporate accountability.",
-        overview: "The balance of power in the workplace is inherently unequal. Adlix exists to correct that imbalance. We represent executives negotiating complex severance packages and aggressively litigate claims of systemic discrimination.",
-        covers: ["Executive Severance Negotiation", "Wrongful Termination Litigation", "Workplace Discrimination & Harassment", "Non-Compete Agreement Disputes", "Wage & Hour Class Actions"],
+        overview: "Saudi Labor Law governs every aspect of the workplace relationship in the Kingdom — and when that law is violated, the consequences can be severe. Adlix represents employees and employers before Saudi Labor Tribunals and the Ministry of Human Resources & Social Development, handling wrongful termination, end-of-service benefit disputes, workplace discrimination, and executive severance — with 30+ years of experience in Saudi employment matters.",
+        covers: ["Wrongful Termination & End-of-Service Benefits", "Saudi Labor Tribunal Representation", "Workplace Discrimination & Harassment", "Non-Competition & Confidentiality Disputes", "Executive Severance Negotiation"],
         process: [
-          { title: "Claim Evaluation", desc: "Assessing the strength of your case and the potential exposure of the employer." },
-          { title: "Evidence Gathering", desc: "Securing communications, performance reviews, and witness statements." },
-          { title: "Strategic Leverage", desc: "Using the threat of public litigation to force favorable early settlements." },
-          { title: "Federal & State Litigation", desc: "Relentless prosecution of your claims in court or before the EEOC." },
+          { title: "Claim Evaluation", desc: "Assessing the strength of your case under Saudi Labor Law and the potential exposure of the employer." },
+          { title: "Evidence Gathering", desc: "Securing employment contracts, HR communications, performance records, and witness statements." },
+          { title: "Strategic Leverage", desc: "Using the threat of Labor Tribunal proceedings to force favourable early settlements." },
+          { title: "Saudi Labor Tribunal Litigation", desc: "Representing your interests before the Saudi Labor Tribunals and the Ministry of Human Resources — relentlessly pursuing your full entitlements." },
         ],
       },
       "foreign-investment": {
