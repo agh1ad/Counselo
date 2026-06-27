@@ -106,23 +106,23 @@ export default function Home() {
             <motion.div {...fadeIn}>
               <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">About the Platform</p>
               <h2 className="text-4xl font-serif font-bold text-foreground mb-6">
-                Saudi Arabia's Trusted Online Legal Consultation Service
+                Founded by Lawyer Omar Al-Baghdadi
               </h2>
               <div className="w-20 h-1 bg-primary mb-8" />
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                Adlix is a <strong className="text-foreground">professional online legal consultation platform</strong> built for clients across Saudi Arabia who need fast, reliable legal guidance — without the delays of traditional in-person appointments.
+                Adlix was <strong className="text-foreground">founded by Lawyer Omar Al-Baghdadi</strong> — one of the region's most established senior advocates, with over <strong className="text-foreground">20,000 cases</strong> handled across Saudi Arabia, the UAE and Syria over decades of litigation and arbitration practice.
               </p>
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-                Behind Adlix is <strong className="text-foreground">Lawyer Omar Al-Baghdadi</strong> — one of the region's most established senior advocates with over <strong className="text-foreground">20,000 cases</strong> handled across Saudi Arabia, the UAE and Syria over decades of litigation and arbitration practice.
+                Under his leadership, Adlix brings together a <strong className="text-foreground">professional legal team</strong> of experienced attorneys across multiple practice areas — all supervised and directed by Lawyer Al-Baghdadi, ensuring consistent quality and senior oversight on every consultation.
               </p>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                Whether you're an individual facing a legal matter, a business navigating a commercial dispute, or a foreign investor entering the Saudi market — Adlix provides the expert, structured legal guidance you need, <strong className="text-foreground">personally delivered by a senior lawyer</strong>.
+                Whether you are an individual, a business, or a foreign investor — Adlix gives you direct access to a <strong className="text-foreground">coordinated legal team led by a senior founder</strong>, delivered online, fast and without the friction of traditional appointments.
               </p>
               <ul className="space-y-4">
                 {[
-                  "Fast consultations — response within hours, not days",
-                  "Professional written legal analysis for every case",
-                  "Bilingual service in Arabic and English",
+                  "Founded and led by Lawyer Omar Al-Baghdadi",
+                  "Professional legal team across all major practice areas",
+                  "Senior oversight on every matter — consistent, reliable quality",
                   "All client types: individuals, businesses, investors, institutions"
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-foreground">
@@ -145,12 +145,13 @@ export default function Home() {
                   style={{ background: "linear-gradient(135deg, hsl(150 60% 15%) 0%, hsl(150 80% 20%) 100%)" }}>
                   <Award className="h-20 w-20 text-white/30" />
                   <div className="text-center">
-                    <div className="text-white/50 uppercase tracking-widest text-xs mb-3">Senior Legal Advocate</div>
-                    <div className="text-2xl font-serif font-bold text-white mb-2">Lawyer Omar<br/>Al-Baghdadi</div>
-                    <div className="text-white/60 text-sm mt-3 leading-relaxed">
-                      Commercial Litigation · Arbitration<br/>
-                      Saudi Arabia · UAE · Syria<br/>
-                      <span className="text-white/40">Mentor to 40+ Lawyers</span>
+                    <div className="text-white/50 uppercase tracking-widest text-xs mb-1">Founder & Senior Advocate</div>
+                    <div className="text-2xl font-serif font-bold text-white mb-3">Lawyer Omar<br/>Al-Baghdadi</div>
+                    <div className="w-10 h-px bg-white/20 mx-auto mb-3" />
+                    <div className="text-white/60 text-sm leading-relaxed">
+                      Leading a professional legal team<br/>
+                      across Saudi Arabia, UAE & Syria<br/>
+                      <span className="text-white/40 text-xs mt-1 block">Mentor to 40+ Lawyers</span>
                     </div>
                   </div>
                 </div>
@@ -207,7 +208,7 @@ export default function Home() {
             <h2 className="text-4xl font-serif font-bold text-white mb-4">Three Ways to Consult with Us</h2>
             <div className="w-20 h-1 bg-white/30 mx-auto mb-6" />
             <p className="text-white/70 text-lg leading-relaxed">
-              Hundreds of successful online consultations completed. Every consultation is handled <strong className="text-white">personally by Lawyer Omar Al-Baghdadi</strong> — providing structured legal analysis and practical guidance without the need for in-person attendance.
+              Hundreds of successful online consultations completed. Adlix's <strong className="text-white">professional legal team — founded and led by Lawyer Omar Al-Baghdadi</strong> — delivers structured legal analysis and practical guidance without the need for in-person attendance.
             </p>
           </motion.div>
 
@@ -359,7 +360,7 @@ export default function Home() {
             {[
               { icon: Zap,        title: "Instant Access",          desc: "No waiting rooms, no scheduling delays. Submit your matter and receive a professional response within hours." },
               { icon: ShieldCheck, title: "Reliable & Confidential", desc: "Strict professional confidentiality on every matter. Your legal information is never shared." },
-              { icon: Award,      title: "Senior Expertise",        desc: "Direct access to Lawyer Omar Al-Baghdadi — 20,000+ cases, decades of courtroom experience." },
+              { icon: Award,      title: "Team Led by a Senior Founder", desc: "Adlix was founded by Lawyer Omar Al-Baghdadi. His professional legal team operates under his direct supervision — ensuring senior-level quality on every matter." },
               { icon: Globe,      title: "Arabic & English",        desc: "Fully bilingual consultations. Legal guidance in your preferred language, with no barriers." }
             ].map((feature, i) => (
               <motion.div
@@ -448,7 +449,7 @@ export default function Home() {
               Professional online legal consultations for individuals, businesses and investors across Saudi Arabia.
             </p>
             <p className="text-white/50 text-base mb-10">
-              Available via WhatsApp, email or video session · Arabic &amp; English · All legal matters
+              Founded by Lawyer Omar Al-Baghdadi · Professional legal team · WhatsApp, email or video · Arabic &amp; English
             </p>
             <Link href="/contact">
               <Button size="lg" className="text-lg px-12 py-8 rounded-none bg-white text-primary hover:bg-white/90 shadow-xl font-semibold">
