@@ -44,17 +44,6 @@ export default function Home() {
 
             {/* Left — text */}
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-              {/* Available now pill */}
-              <div className="inline-flex items-center gap-2 mb-6">
-                <span className="bg-white/10 border border-white/20 text-white/80 text-xs font-medium px-3 py-1.5 tracking-wide">{h.hero.availableNow}</span>
-                <span className="text-white/50 text-xs">{h.hero.responseTag}</span>
-              </div>
-
-              {/* Platform badge */}
-              <div className="inline-flex items-center gap-2 bg-primary/60 border border-white/20 px-4 py-2 mb-8 text-white/80 text-xs font-medium tracking-wide uppercase">
-                <Globe className="h-3.5 w-3.5 shrink-0" /> {h.hero.badge}
-              </div>
-
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-6">
                 {h.hero.h1a}<br />
                 <span className="text-white/70 italic">{h.hero.h1b}</span>
