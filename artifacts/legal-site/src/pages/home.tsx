@@ -97,19 +97,18 @@ export default function Home() {
 
             <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative">
               <div className="aspect-[4/5] relative">
-                <div className="w-full h-full shadow-2xl border border-border flex flex-col items-center justify-center gap-6 p-10"
-                  style={{ background: "linear-gradient(135deg, hsl(150 60% 15%) 0%, hsl(150 80% 20%) 100%)" }}>
-                  <Award className="h-20 w-20 text-white/30" />
-                  <div className="text-center">
-                    <div className="text-white/50 uppercase tracking-widest text-xs mb-1">{h.about.founderRole}</div>
-                    <div className="text-2xl font-serif font-bold text-white mb-3">{h.about.founderName}</div>
-                    <div className="w-10 h-px bg-white/20 mx-auto mb-3" />
-                    <div className="text-white/60 text-sm leading-relaxed">
-                      {h.about.founderTeamLine}<br />
-                      <span className="text-white/40 text-xs mt-1 block">{h.about.founderNote}</span>
-                    </div>
-                  </div>
+                <img
+                  src="/omar-baghdadi.jpg"
+                  alt="Lawyer Omar Al-Baghdadi — Founder of Adlix"
+                  className="w-full h-full object-cover object-top shadow-2xl border border-border"
+                />
+                {/* Name overlay at the bottom of the photo */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-8 pb-8 pt-16">
+                  <div className="text-white/60 uppercase tracking-widest text-xs mb-1">{h.about.founderRole}</div>
+                  <div className="text-xl font-serif font-bold text-white mb-1">{h.about.founderName}</div>
+                  <div className="text-white/60 text-xs leading-relaxed">{h.about.founderTeamLine}</div>
                 </div>
+                {/* Stat badge */}
                 <div className="absolute -bottom-6 -start-6 bg-primary p-6 flex flex-col justify-center shadow-xl w-52">
                   <span className="text-3xl font-serif text-white font-bold mb-1">{h.about.caseStat}</span>
                   <span className="text-white/80 font-medium uppercase tracking-widest text-xs">{h.about.caseLabel}</span>
