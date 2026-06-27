@@ -1,0 +1,32 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "cPx-ADgHSZ31HmPJninMD"
+uri = "file://artifacts/legal-site/public/images/hero.png"
+type = "image"
+title = "High-end law office interior"
+
+[[generated]]
+id = "095oUC8GvFd293HB3ASwc"
+uri = "file://artifacts/legal-site/public/images/gavel.png"
+type = "image"
+title = "Gavel on desk"
+
+[[generated]]
+id = "GDhrNACMGGTsZgwIOIuo_"
+uri = "file://artifacts/legal-site/public/images/business.png"
+type = "image"
+title = "Business handshake"
+
+[[generated]]
+id = "B3pfN_ucIg7UzjEgswyv6"
+uri = "file://artifacts/legal-site/public/images/contact.png"
+type = "image"
+title = "Law office reception"
+
+[[generated]]
+id = "h7keYvG7zX9HDZcp8xVaw"
+uri = "file://artifacts/legal-site/public/images/services.png"
+type = "image"
+title = "Legal documents"
