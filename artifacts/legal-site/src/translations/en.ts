@@ -2,6 +2,7 @@ export const en = {
   nav: {
     home: "Home",
     services: "Services",
+    blog: "Blog",
     contact: "Contact",
     bookConsultation: "Book Consultation",
     servicesList: [
@@ -18,7 +19,7 @@ export const en = {
     practiceAreasHeading: "Practice Areas",
     quickLinksHeading: "Quick Links",
     contactHeading: "Contact Us",
-    links: { home: "Home", allServices: "All Services", contact: "Contact Us", book: "Book Consultation" },
+    links: { home: "Home", allServices: "All Services", blog: "Legal Blog", contact: "Contact Us", book: "Book Consultation" },
     practiceAreaLinks: [
       { label: "Family Law", href: "/services/family-law" },
       { label: "Business & Corporate", href: "/services/business-law" },

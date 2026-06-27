@@ -1,0 +1,204 @@
+import { useParams, Link } from "wouter";
+import { motion } from "framer-motion";
+import { Clock, ArrowLeft, ArrowRight, Calendar, MessageCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { SEOHead } from "@/components/seo/SEOHead";
+import { getPostBySlug, formatDate } from "@/data/blog-posts";
+
+export default function BlogPost() {
+  const { slug } = useParams<{ slug: string }>();
+  const { lang, isRTL } = useLanguage();
+
+  const post = getPostBySlug(slug ?? "");
+
+  const ui = {
+    en: {
+      back: "Back to Blog",
+      minRead: "min read",
+      consultHeading: "Need Legal Advice?",
+      consultDesc:
+        "Adlix offers confidential online consultations via WhatsApp or email. No office visit required. Founded by Lawyer Omar Al-Baghdadi — 30+ years of Saudi legal experience.",
+      whatsapp: "Chat on WhatsApp",
+      email: "Send an Email",
+      disclaimer:
+        "This article is for informational purposes only and does not constitute legal advice. For advice on your specific situation, please consult a qualified lawyer.",
+      notFound: "Article Not Found",
+      notFoundDesc: "This article does not exist or may have been moved.",
+      backBlog: "Return to Blog",
+    },
+    ar: {
+      back: "العودة إلى المدونة",
+      minRead: "د قراءة",
+      consultHeading: "هل تحتاج إلى مشورة قانونية؟",
+      consultDesc:
+        "يقدم أدليكس استشارات سرية عبر واتساب أو البريد الإلكتروني — دون الحاجة لزيارة مكتب. من تأسيس المحامي عمر البغدادي — خبرة قانونية سعودية تزيد على 30 عاماً.",
+      whatsapp: "تواصل عبر واتساب",
+      email: "أرسل بريداً إلكترونياً",
+      disclaimer:
+        "هذا المقال لأغراض إعلامية فحسب ولا يُعدّ مشورة قانونية. للحصول على نصيحة في وضعك المحدد، يرجى التواصل مع محامٍ متخصص.",
+      notFound: "المقال غير موجود",
+      notFoundDesc: "هذا المقال غير موجود أو ربما نُقل.",
+      backBlog: "العودة إلى المدونة",
+    },
+  }[lang];
+
+  const BackArrow = isRTL ? ArrowRight : ArrowLeft;
+
+  if (!post) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-4" dir={isRTL ? "rtl" : "ltr"}>
+        <h1 className="text-2xl font-serif font-bold text-foreground">{ui.notFound}</h1>
+        <p className="text-muted-foreground">{ui.notFoundDesc}</p>
+        <Link href="/blog" className="text-primary font-medium hover:underline">{ui.backBlog}</Link>
+      </div>
+    );
+  }
+
+  const data = post[lang];
+  const category = post.category[lang];
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": data.seoTitle,
+    "description": data.seoDescription,
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "author": {
+      "@type": "Person",
+      "name": "Lawyer Omar Al-Baghdadi",
+      "jobTitle": "Senior Advocate & Founder",
+      "worksFor": { "@type": "LegalService", "name": "Adlix" },
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Adlix",
+      "url": "https://adlix.law",
+    },
+    "about": { "@type": "LegalService", "areaServed": "Saudi Arabia" },
+  };
+
+  return (
+    <div className="w-full bg-background min-h-screen" dir={isRTL ? "rtl" : "ltr"}>
+      <SEOHead
+        title={data.seoTitle}
+        description={data.seoDescription}
+        canonical={`/blog/${post.slug}`}
+        extraSchemas={[articleSchema]}
+      />
+
+      {/* Hero */}
+      <section className="bg-primary text-white py-16 px-4">
+        <div className="max-w-3xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <Link href="/blog" className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium mb-8 transition-colors">
+              <BackArrow className="h-4 w-4" /> {ui.back}
+            </Link>
+            <div className="flex items-center gap-3 mb-4 flex-wrap">
+              <span className="bg-white/15 text-white/90 text-xs font-medium px-3 py-1 rounded-full border border-white/20">
+                {category}
+              </span>
+              <span className="text-white/50 text-xs flex items-center gap-1.5">
+                <Calendar className="h-3.5 w-3.5" /> {formatDate(post.date, lang)}
+              </span>
+              <span className="text-white/50 text-xs flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5" /> {post.readTime} {ui.minRead}
+              </span>
+            </div>
+            <h1 className="text-3xl md:text-4xl font-serif font-bold text-white leading-tight mb-4">
+              {data.title}
+            </h1>
+            <p className="text-lg text-white/70 leading-relaxed">{data.excerpt}</p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Content + Sidebar */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid lg:grid-cols-3 gap-12">
+
+          {/* Article body */}
+          <motion.article
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="lg:col-span-2"
+          >
+            <div className="prose prose-slate max-w-none">
+              {data.content.map((section, i) => (
+                <div key={i} className="mb-8">
+                  {section.heading && (
+                    <h2 className="text-xl font-serif font-bold text-foreground mb-3 mt-8 first:mt-0">
+                      {section.heading}
+                    </h2>
+                  )}
+                  <p className="text-foreground/80 leading-relaxed text-base">{section.body}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Disclaimer */}
+            <div className="mt-10 p-4 bg-muted/50 border border-border text-xs text-muted-foreground leading-relaxed">
+              {ui.disclaimer}
+            </div>
+
+            {/* Back link */}
+            <div className="mt-8">
+              <Link href="/blog" className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm">
+                <BackArrow className="h-4 w-4" /> {ui.back}
+              </Link>
+            </div>
+          </motion.article>
+
+          {/* Sidebar */}
+          <motion.aside
+            initial={{ opacity: 0, x: isRTL ? -20 : 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="lg:col-span-1"
+          >
+            <div className="sticky top-28">
+              <div className="bg-primary text-white p-6 mb-6">
+                <MessageCircle className="h-6 w-6 text-white/70 mb-3" />
+                <h3 className="text-lg font-serif font-bold text-white mb-2">{ui.consultHeading}</h3>
+                <p className="text-white/70 text-sm leading-relaxed mb-5">{ui.consultDesc}</p>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href="https://wa.me/966592850247"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 bg-[#25D366] text-white font-semibold py-2.5 text-sm hover:opacity-90 transition-opacity"
+                  >
+                    <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    {ui.whatsapp}
+                  </a>
+                  <a
+                    href="mailto:bagdadio@gmail.com"
+                    className="flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-white font-semibold py-2.5 text-sm hover:bg-white/20 transition-colors"
+                  >
+                    {ui.email}
+                  </a>
+                </div>
+              </div>
+
+              {/* Author */}
+              <div className="border border-border p-5">
+                <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-2">
+                  {lang === "en" ? "Written by" : "كتب بقلم"}
+                </p>
+                <p className="font-serif font-bold text-foreground">
+                  {lang === "en" ? "Lawyer Omar Al-Baghdadi" : "المحامي عمر البغدادي"}
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  {lang === "en"
+                    ? "Founder & Senior Advocate — 30+ years, 20,000+ cases"
+                    : "المؤسس والمحامي الأول — أكثر من 30 عاماً وأكثر من 20,000 قضية"}
+                </p>
+              </div>
+            </div>
+          </motion.aside>
+        </div>
+      </section>
+    </div>
+  );
+}

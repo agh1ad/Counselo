@@ -6,9 +6,10 @@ interface SEOHeadProps {
   canonical?: string;
   lang?: "en" | "ar";
   schema?: object | object[];
+  extraSchemas?: object[];
 }
 
-export function SEOHead({ title, description, canonical, lang = "en", schema }: SEOHeadProps) {
+export function SEOHead({ title, description, canonical, lang = "en", schema, extraSchemas }: SEOHeadProps) {
   const fullTitle = title.endsWith("| Adlix") || title.endsWith("| أدليكس")
     ? title
     : `${title} | Adlix`;
@@ -34,6 +35,11 @@ export function SEOHead({ title, description, canonical, lang = "en", schema }: 
           {JSON.stringify(Array.isArray(schema) ? schema : [schema])}
         </script>
       )}
+      {extraSchemas && extraSchemas.map((s, i) => (
+        <script key={i} type="application/ld+json">
+          {JSON.stringify(s)}
+        </script>
+      ))}
     </Helmet>
   );
 }

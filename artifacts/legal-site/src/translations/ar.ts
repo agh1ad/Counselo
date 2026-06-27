@@ -4,6 +4,7 @@ export const ar: typeof en = {
   nav: {
     home: "الرئيسية",
     services: "الخدمات",
+    blog: "المدونة",
     contact: "اتصل بنا",
     bookConsultation: "احجز استشارة",
     servicesList: [
@@ -20,7 +21,7 @@ export const ar: typeof en = {
     practiceAreasHeading: "مجالات الممارسة",
     quickLinksHeading: "روابط سريعة",
     contactHeading: "اتصل بنا",
-    links: { home: "الرئيسية", allServices: "جميع الخدمات", contact: "اتصل بنا", book: "احجز استشارة" },
+    links: { home: "الرئيسية", allServices: "جميع الخدمات", blog: "المدونة القانونية", contact: "اتصل بنا", book: "احجز استشارة" },
     practiceAreaLinks: [
       { label: "قانون الأسرة", href: "/services/family-law" },
       { label: "قانون الأعمال والشركات", href: "/services/business-law" },
