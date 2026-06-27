@@ -12,6 +12,7 @@ import Contact from "@/pages/contact";
 import ServiceDetail from "@/pages/service-detail";
 import BusinessLawSub from "@/pages/business-law-sub";
 import RealEstateSub from "@/pages/real-estate-sub";
+import EmploymentLawSub from "@/pages/employment-law-sub";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/services" component={Services} />
       <Route path="/services/business-law/:subId" component={BusinessLawSub} />
       <Route path="/services/real-estate/:subId" component={RealEstateSub} />
+      <Route path="/services/employment-law/:subId" component={EmploymentLawSub} />
       <Route path="/services/:id" component={ServiceDetail} />
       <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
