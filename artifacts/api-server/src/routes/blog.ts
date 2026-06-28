@@ -28,14 +28,14 @@ router.get("/blog/posts/:slug", async (req, res) => {
 });
 
 router.post("/admin/auth", (req, res) => {
-  const secret = process.env["SESSION_SECRET"];
-  if (!secret) {
+  const adminPassword = process.env["ADMIN_PASSWORD"];
+  if (!adminPassword) {
     res.status(500).json({ error: "Server misconfigured" });
     return;
   }
   const { password } = req.body as { password?: string };
-  if (password === secret) {
-    res.json({ token: secret });
+  if (password === adminPassword) {
+    res.json({ token: adminPassword });
     return;
   }
   res.status(401).json({ error: "Wrong password" });
