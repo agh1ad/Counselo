@@ -65,14 +65,14 @@ export function SEOHead({ title, description, canonical, keywords, schema, extra
       <meta name="twitter:image" content={ogImage} />
       <meta name="twitter:image:alt" content="Qanoni — Online Legal Consultation Saudi Arabia" />
 
-      {/* JSON-LD */}
-      {schema && (
-        <script type="application/ld+json">
-          {JSON.stringify(Array.isArray(schema) ? schema : [schema])}
+      {/* JSON-LD — one <script> per schema so react-helmet-async can deduplicate correctly */}
+      {schema && (Array.isArray(schema) ? schema : [schema]).map((s, i) => (
+        <script key={`schema-${i}`} type="application/ld+json">
+          {JSON.stringify(s)}
         </script>
-      )}
+      ))}
       {extraSchemas && extraSchemas.map((s, i) => (
-        <script key={i} type="application/ld+json">
+        <script key={`extra-${i}`} type="application/ld+json">
           {JSON.stringify(s)}
         </script>
       ))}
