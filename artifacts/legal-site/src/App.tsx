@@ -20,6 +20,7 @@ import ForeignInvestmentSub from "@/pages/foreign-investment-sub";
 import AdministrativeLawSub from "@/pages/administrative-law-sub";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
+import TermsOfService from "@/pages/terms-of-service";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -49,6 +50,7 @@ function Router() {
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
+        <Route path="/terms-of-service" component={TermsOfService} />
         <Route component={NotFound} />
       </Switch>
     </>

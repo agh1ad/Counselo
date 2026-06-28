@@ -90,9 +90,9 @@ export default function ServiceDetail() {
           {id === "foreign-investment" && (
             <div className="lg:col-span-8 mt-16">
               <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
-                {t.foreignInvestmentDetail.relatedHeading.replace("Other ", "").replace("أخرى", "").trim()}
+                {t.foreignInvestmentDetail.relatedHeading.replace("Other ", "").replace(" الأخرى", "").replace("أخرى ", "").replace("أخرى", "").trim()}
               </h2>
-              <p className="text-muted-foreground mb-8">Explore our specialist foreign investment practice areas — each backed by 30+ years of Saudi investment law experience and available for online consultation today.</p>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في الاستثمار الأجنبي — كلٌّ منها مدعوم بأكثر من 30 عاماً من الخبرة في قانون الاستثمار السعودي ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist foreign investment practice areas — each backed by 30+ years of Saudi investment law experience and available for online consultation today."}</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {t.foreignInvestmentDetail.subAreas.map((area) => (
                   <Link key={area.id} href={`/services/foreign-investment/${area.id}`}
@@ -109,9 +109,9 @@ export default function ServiceDetail() {
           {id === "family-law" && (
             <div className="lg:col-span-8 mt-16">
               <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
-                {t.familyLawDetail.relatedHeading.replace("Other ", "").replace("أخرى", "").trim()}
+                {t.familyLawDetail.relatedHeading.replace("Other ", "").replace(" الأخرى", "").replace("أخرى ", "").replace("أخرى", "").trim()}
               </h2>
-              <p className="text-muted-foreground mb-8">Explore our specialist family law practice areas — each handled with complete confidentiality and backed by 30+ years of Saudi Personal Status Law experience.</p>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في قانون الأسرة — تُعالَج جميعها بسرية تامة ومدعومة بأكثر من 30 عاماً من الخبرة في نظام الأحوال الشخصية السعودي." : "Explore our specialist family law practice areas — each handled with complete confidentiality and backed by 30+ years of Saudi Personal Status Law experience."}</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {t.familyLawDetail.subAreas.map((area) => (
                   <Link key={area.id} href={`/services/family-law/${area.id}`}
@@ -128,9 +128,9 @@ export default function ServiceDetail() {
           {id === "employment-law" && (
             <div className="lg:col-span-8 mt-16">
               <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
-                {t.employmentLawDetail.relatedHeading.replace("Other ", "").replace("أخرى", "").trim()}
+                {t.employmentLawDetail.relatedHeading.replace("Other ", "").replace(" الأخرى", "").replace("أخرى ", "").replace("أخرى", "").trim()}
               </h2>
-              <p className="text-muted-foreground mb-8">Explore our specialist employment law practice areas — each backed by 30+ years of Saudi Labour Law experience and available for online consultation today.</p>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في قانون العمل — كلٌّ منها مدعوم بأكثر من 30 عاماً من الخبرة في نظام العمل السعودي ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist employment law practice areas — each backed by 30+ years of Saudi Labour Law experience and available for online consultation today."}</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {t.employmentLawDetail.subAreas.map((area) => (
                   <Link key={area.id} href={`/services/employment-law/${area.id}`}
@@ -147,9 +147,9 @@ export default function ServiceDetail() {
           {id === "real-estate" && (
             <div className="lg:col-span-8 mt-16">
               <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
-                {t.realEstateLawDetail.relatedHeading.replace("Other ", "").replace("أخرى", "").trim()}
+                {t.realEstateLawDetail.relatedHeading.replace("Other ", "").replace(" الأخرى", "").replace("أخرى ", "").replace("أخرى", "").trim()}
               </h2>
-              <p className="text-muted-foreground mb-8">Explore our specialist real estate practice areas — each backed by 30+ years of Saudi property law experience and available for online consultation today.</p>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في قانون العقارات — كلٌّ منها مدعوم بأكثر من 30 عاماً من الخبرة في قانون الملكية السعودي ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist real estate practice areas — each backed by 30+ years of Saudi property law experience and available for online consultation today."}</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {t.realEstateLawDetail.subAreas.map((area) => (
                   <Link key={area.id} href={`/services/real-estate/${area.id}`}
@@ -166,9 +166,9 @@ export default function ServiceDetail() {
           {id === "administrative-law" && (
             <div className="lg:col-span-8 mt-16">
               <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
-                {t.administrativeLawDetail.relatedHeading.replace("Other ", "").replace("أخرى", "").trim()}
+                {t.administrativeLawDetail.relatedHeading.replace("Other ", "").replace(" الأخرى", "").replace("أخرى ", "").replace("أخرى", "").trim()}
               </h2>
-              <p className="text-muted-foreground mb-8">Explore our specialist administrative law practice areas — each backed by 30+ years of experience before the Board of Grievances, government ministries, and Saudi administrative tribunals.</p>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في القانون الإداري — مدعومة بأكثر من 30 عاماً من الخبرة أمام ديوان المظالم والوزارات والهيئات الإدارية السعودية." : "Explore our specialist administrative law practice areas — each backed by 30+ years of experience before the Board of Grievances, government ministries, and Saudi administrative tribunals."}</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {t.administrativeLawDetail.subAreas.map((area) => (
                   <Link key={area.id} href={`/services/administrative-law/${area.id}`}
@@ -185,9 +185,9 @@ export default function ServiceDetail() {
           {id === "business-law" && (
             <div className="lg:col-span-8 mt-16">
               <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
-                {t.businessLawDetail.relatedHeading.replace("Other ", "").replace("أخرى", "").trim()}
+                {t.businessLawDetail.relatedHeading.replace("Other ", "").replace(" الأخرى", "").replace("أخرى ", "").replace("أخرى", "").trim()}
               </h2>
-              <p className="text-muted-foreground mb-8">Explore our specialist practice areas within Business & Corporate Law — each backed by 30+ years of Saudi commercial court experience.</p>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في قانون الأعمال والشركات — كلٌّ منها مدعوم بأكثر من 30 عاماً من الخبرة أمام المحاكم التجارية السعودية." : "Explore our specialist practice areas within Business & Corporate Law — each backed by 30+ years of Saudi commercial court experience."}</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {t.businessLawDetail.subAreas.map((area) => (
                   <Link key={area.id} href={`/services/business-law/${area.id}`}
@@ -214,7 +214,7 @@ export default function ServiceDetail() {
               </Link>
               <div className="mt-6 pt-6 border-t border-white/20">
                 <p className="text-sm text-white/60 mb-2">{sd.sidebar.callLabel}</p>
-                <p className="text-white font-mono font-medium text-lg">{sd.sidebar.phone}</p>
+                <p className="text-white font-mono font-medium text-lg" dir="ltr">{sd.sidebar.phone}</p>
               </div>
             </motion.div>
           </div>

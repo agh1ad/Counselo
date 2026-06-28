@@ -13,12 +13,27 @@ interface LanguageContextType {
   isRTL: boolean;
 }
 
+const STORAGE_KEY = "qanoni-lang";
+
+function getSavedLang(): Lang {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === "ar" || saved === "en") return saved;
+  } catch {}
+  return "en";
+}
+
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>(getSavedLang);
 
-  const toggleLang = () => setLang(prev => (prev === "en" ? "ar" : "en"));
+  const toggleLang = () =>
+    setLang(prev => {
+      const next = prev === "en" ? "ar" : "en";
+      try { localStorage.setItem(STORAGE_KEY, next); } catch {}
+      return next;
+    });
 
   const isRTL = lang === "ar";
   const t = lang === "en" ? en : ar;

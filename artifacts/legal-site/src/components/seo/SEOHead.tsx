@@ -1,20 +1,22 @@
 import { Helmet } from "react-helmet-async";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface SEOHeadProps {
   title: string;
   description: string;
   canonical?: string;
-  lang?: "en" | "ar";
   schema?: object | object[];
   extraSchemas?: object[];
 }
 
-export function SEOHead({ title, description, canonical, lang = "en", schema, extraSchemas }: SEOHeadProps) {
-  const fullTitle = title.endsWith("| Adlix") || title.endsWith("| أدليكس")
-    ? title
-    : `${title} | Adlix`;
+export function SEOHead({ title, description, canonical, schema, extraSchemas }: SEOHeadProps) {
+  const { lang } = useLanguage();
 
-  const canonicalUrl = canonical ? `https://adlix.com${canonical}` : undefined;
+  const fullTitle = title.endsWith("| Qanoni") || title.endsWith("| قانوني")
+    ? title
+    : `${title} | Qanoni`;
+
+  const canonicalUrl = canonical ? `https://qanoni.com${canonical}` : undefined;
 
   return (
     <Helmet>
@@ -25,7 +27,7 @@ export function SEOHead({ title, description, canonical, lang = "en", schema, ex
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Adlix" />
+      <meta property="og:site_name" content="Qanoni" />
       {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />

@@ -76,8 +76,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Qanoni. {f.copyright}
           </p>
           <div className="flex gap-4 text-sm text-white/60">
-            <a href="#" className="hover:text-white transition-colors">{f.privacy}</a>
-            <a href="#" className="hover:text-white transition-colors">{f.terms}</a>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors">{f.terms}</Link>
           </div>
         </div>
       </div>
