@@ -82,7 +82,9 @@ export default function ServiceDetail() {
               <Link href="/services" className="inline-flex items-center text-primary mb-8 hover:underline underline-offset-4 text-sm font-medium">
                 <ArrowLeft className={`me-2 h-4 w-4 ${isRTL ? "rotate-180" : ""}`} /> {sd.backLink}
               </Link>
-              <h1 className="text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">{data.title}</h1>
+              <h1 className="text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
+                {isRTL ? `${data.title} في المملكة العربية السعودية` : `${data.title} Lawyer in Saudi Arabia`}
+              </h1>
               <p className="text-2xl text-primary font-serif italic mb-10">{data.subtitle}</p>
               <div className="prose prose-green max-w-none mb-16">
                 <p className="text-lg text-muted-foreground leading-relaxed">{data.overview}</p>

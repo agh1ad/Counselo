@@ -495,4 +495,116 @@
     <lastmod>2026-06-28</lastmod>
   </url>
 
+  <!-- ===== ARBITRATION & MEDIATION MAIN + SUB-PAGES ===== -->
+  <url>
+    <loc>https://qanoni.com/services/arbitration</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/arbitration"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/arbitration"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-06-28</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/arbitration/domestic-arbitration</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/arbitration/domestic-arbitration"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/arbitration/domestic-arbitration"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration/domestic-arbitration"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-28</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/arbitration/international-arbitration</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/arbitration/international-arbitration"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/arbitration/international-arbitration"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration/international-arbitration"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-28</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/arbitration/mediation-adr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/arbitration/mediation-adr"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/arbitration/mediation-adr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration/mediation-adr"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-28</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/arbitration/award-enforcement</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/arbitration/award-enforcement"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/arbitration/award-enforcement"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration/award-enforcement"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-28</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/arbitration/investment-arbitration</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/arbitration/investment-arbitration"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/arbitration/investment-arbitration"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration/investment-arbitration"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-28</lastmod>
+  </url>
+
+  <!-- ===== ENFORCEMENT & DEBT COLLECTION MAIN + SUB-PAGES ===== -->
+  <url>
+    <loc>https://qanoni.com/services/enforcement</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/enforcement"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/enforcement"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-06-28</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/enforcement/judgment-enforcement</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/enforcement/judgment-enforcement"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/enforcement/judgment-enforcement"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement/judgment-enforcement"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-28</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/enforcement/debt-recovery</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/enforcement/debt-recovery"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/enforcement/debt-recovery"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement/debt-recovery"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-28</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/enforcement/asset-attachment</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/enforcement/asset-attachment"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/enforcement/asset-attachment"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement/asset-attachment"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-28</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/enforcement/travel-bans</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/enforcement/travel-bans"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/enforcement/travel-bans"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement/travel-bans"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-28</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/enforcement/enforcement-against-government</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/enforcement/enforcement-against-government"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/enforcement/enforcement-against-government"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement/enforcement-against-government"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-28</lastmod>
+  </url>
+
 </urlset>
