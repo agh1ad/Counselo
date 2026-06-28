@@ -132,4 +132,43 @@
   --app-font-sans: 'Tajawal', 'Arial', sans-serif;
   --app-font-serif: 'Tajawal', 'Arial', sans-serif;
   letter-spacing: 0;
+  text-align: right;
+}
+
+/* Force RTL text alignment on all text-bearing elements */
+[dir="rtl"] p,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6,
+[dir="rtl"] li,
+[dir="rtl"] span,
+[dir="rtl"] label,
+[dir="rtl"] blockquote,
+[dir="rtl"] td,
+[dir="rtl"] th {
+  text-align: right;
+}
+
+/* Override @tailwindcss/typography which hard-codes text-align: left */
+[dir="rtl"] .prose {
+  direction: rtl;
+  text-align: right;
+}
+[dir="rtl"] .prose p,
+[dir="rtl"] .prose h1,
+[dir="rtl"] .prose h2,
+[dir="rtl"] .prose h3,
+[dir="rtl"] .prose h4,
+[dir="rtl"] .prose li,
+[dir="rtl"] .prose blockquote,
+[dir="rtl"] .prose figcaption {
+  text-align: right;
+}
+
+/* Exceptions: elements that should stay LTR regardless of page direction */
+[dir="rtl"] [dir="ltr"] {
+  text-align: left;
 }

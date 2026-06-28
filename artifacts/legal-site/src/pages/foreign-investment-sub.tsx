@@ -46,7 +46,7 @@ export default function ForeignInvestmentSub() {
       />
 
       {/* Breadcrumb */}
-      <div className="bg-card border-b border-border py-4 mt-20">
+      <div className="bg-card border-b border-border py-4 mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
             <Link href="/" className="hover:text-primary transition-colors">{rel.breadcrumb.home}</Link>
