@@ -23,6 +23,8 @@ export const blogPostsTable = pgTable("blog_posts", {
   seoTitleAr: text("seo_title_ar").notNull().default(""),
   seoDescriptionEn: text("seo_description_en").notNull().default(""),
   seoDescriptionAr: text("seo_description_ar").notNull().default(""),
+  bodyEn: text("body_en").notNull().default(""),
+  bodyAr: text("body_ar").notNull().default(""),
   contentEn: jsonb("content_en").$type<BlogSection[]>().notNull().default([]),
   contentAr: jsonb("content_ar").$type<BlogSection[]>().notNull().default([]),
   published: boolean("published").notNull().default(false),

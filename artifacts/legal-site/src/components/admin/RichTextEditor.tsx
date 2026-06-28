@@ -1,0 +1,222 @@
+import { useEditor, EditorContent } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
+import Underline from "@tiptap/extension-underline";
+import TextAlign from "@tiptap/extension-text-align";
+import Highlight from "@tiptap/extension-highlight";
+import { TextStyle } from "@tiptap/extension-text-style";
+import Link from "@tiptap/extension-link";
+import Placeholder from "@tiptap/extension-placeholder";
+import { useEffect, useCallback } from "react";
+import {
+  Bold, Italic, Underline as UnderlineIcon, Strikethrough,
+  Heading1, Heading2, Heading3, List, ListOrdered,
+  AlignLeft, AlignCenter, AlignRight, AlignJustify,
+  Highlighter, Link as LinkIcon, Minus, RotateCcw, RotateCw,
+  Type, RemoveFormatting,
+} from "lucide-react";
+
+interface Props {
+  value: string;
+  onChange: (html: string) => void;
+  placeholder?: string;
+  dir?: "ltr" | "rtl";
+  minHeight?: number;
+}
+
+function ToolBtn({
+  onClick,
+  active,
+  title,
+  children,
+  disabled,
+}: {
+  onClick: () => void;
+  active?: boolean;
+  title: string;
+  children: React.ReactNode;
+  disabled?: boolean;
+}) {
+  return (
+    <button
+      type="button"
+      title={title}
+      disabled={disabled}
+      onMouseDown={(e) => {
+        e.preventDefault();
+        onClick();
+      }}
+      className={`p-1.5 rounded transition-colors text-sm ${
+        active
+          ? "bg-green-700 text-white"
+          : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+      } ${disabled ? "opacity-30 cursor-not-allowed" : ""}`}
+    >
+      {children}
+    </button>
+  );
+}
+
+function Sep() {
+  return <div className="w-px h-5 bg-gray-200 mx-1 self-center shrink-0" />;
+}
+
+export function RichTextEditor({ value, onChange, placeholder, dir = "ltr", minHeight = 320 }: Props) {
+  const editor = useEditor({
+    extensions: [
+      StarterKit.configure({ heading: { levels: [1, 2, 3] } }),
+      Underline,
+      TextStyle,
+      Highlight.configure({ multicolor: false }),
+      TextAlign.configure({ types: ["heading", "paragraph"] }),
+      Link.configure({ openOnClick: false, autolink: true }),
+      Placeholder.configure({ placeholder: placeholder ?? (dir === "rtl" ? "اكتب هنا..." : "Start writing here...") }),
+    ],
+    content: value || "",
+    onUpdate({ editor }) {
+      onChange(editor.getHTML());
+    },
+    editorProps: {
+      attributes: {
+        dir,
+        class: "focus:outline-none",
+        style: `min-height:${minHeight}px; padding: 24px 28px; font-size: 16px; line-height: 1.8; color: #1a1a1a;`,
+      },
+    },
+  });
+
+  useEffect(() => {
+    if (editor && value !== editor.getHTML()) {
+      editor.commands.setContent(value || "");
+    }
+  }, [value, editor]);
+
+  const setLink = useCallback(() => {
+    if (!editor) return;
+    const prev = editor.getAttributes("link").href as string | undefined;
+    const url = window.prompt("URL", prev ?? "https://");
+    if (url === null) return;
+    if (url === "") {
+      editor.chain().focus().extendMarkRange("link").unsetLink().run();
+      return;
+    }
+    editor.chain().focus().extendMarkRange("link").setLink({ href: url }).run();
+  }, [editor]);
+
+  if (!editor) return null;
+
+  const h = editor.isActive("heading", { level: 1 })
+    ? "H1"
+    : editor.isActive("heading", { level: 2 })
+    ? "H2"
+    : editor.isActive("heading", { level: 3 })
+    ? "H3"
+    : "¶";
+
+  return (
+    <div className="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+      {/* Toolbar */}
+      <div className="flex flex-wrap items-center gap-0.5 px-3 py-2 border-b border-gray-100 bg-gray-50 sticky top-0 z-10">
+        {/* Undo / Redo */}
+        <ToolBtn title="Undo" onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()}>
+          <RotateCcw size={14} />
+        </ToolBtn>
+        <ToolBtn title="Redo" onClick={() => editor.chain().focus().redo().run()} disabled={!editor.can().redo()}>
+          <RotateCw size={14} />
+        </ToolBtn>
+
+        <Sep />
+
+        {/* Block type dropdown (visual) */}
+        <div className="relative">
+          <select
+            value={h}
+            onChange={(e) => {
+              const v = e.target.value;
+              if (v === "¶") editor.chain().focus().setParagraph().run();
+              else if (v === "H1") editor.chain().focus().toggleHeading({ level: 1 }).run();
+              else if (v === "H2") editor.chain().focus().toggleHeading({ level: 2 }).run();
+              else if (v === "H3") editor.chain().focus().toggleHeading({ level: 3 }).run();
+            }}
+            className="text-xs font-semibold text-gray-700 border border-gray-200 rounded px-2 py-1 bg-white appearance-none cursor-pointer hover:bg-gray-50 focus:outline-none pr-6"
+          >
+            <option value="¶">Paragraph</option>
+            <option value="H1">Heading 1</option>
+            <option value="H2">Heading 2</option>
+            <option value="H3">Heading 3</option>
+          </select>
+          <Type size={10} className="absolute right-1.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+        </div>
+
+        <Sep />
+
+        {/* Inline formatting */}
+        <ToolBtn title="Bold (Ctrl+B)" active={editor.isActive("bold")} onClick={() => editor.chain().focus().toggleBold().run()}>
+          <Bold size={14} />
+        </ToolBtn>
+        <ToolBtn title="Italic (Ctrl+I)" active={editor.isActive("italic")} onClick={() => editor.chain().focus().toggleItalic().run()}>
+          <Italic size={14} />
+        </ToolBtn>
+        <ToolBtn title="Underline (Ctrl+U)" active={editor.isActive("underline")} onClick={() => editor.chain().focus().toggleUnderline().run()}>
+          <UnderlineIcon size={14} />
+        </ToolBtn>
+        <ToolBtn title="Strikethrough" active={editor.isActive("strike")} onClick={() => editor.chain().focus().toggleStrike().run()}>
+          <Strikethrough size={14} />
+        </ToolBtn>
+        <ToolBtn title="Highlight" active={editor.isActive("highlight")} onClick={() => editor.chain().focus().toggleHighlight().run()}>
+          <Highlighter size={14} />
+        </ToolBtn>
+
+        <Sep />
+
+        {/* Lists */}
+        <ToolBtn title="Bullet list" active={editor.isActive("bulletList")} onClick={() => editor.chain().focus().toggleBulletList().run()}>
+          <List size={14} />
+        </ToolBtn>
+        <ToolBtn title="Numbered list" active={editor.isActive("orderedList")} onClick={() => editor.chain().focus().toggleOrderedList().run()}>
+          <ListOrdered size={14} />
+        </ToolBtn>
+
+        <Sep />
+
+        {/* Alignment */}
+        <ToolBtn title="Align left" active={editor.isActive({ textAlign: "left" })} onClick={() => editor.chain().focus().setTextAlign("left").run()}>
+          <AlignLeft size={14} />
+        </ToolBtn>
+        <ToolBtn title="Align center" active={editor.isActive({ textAlign: "center" })} onClick={() => editor.chain().focus().setTextAlign("center").run()}>
+          <AlignCenter size={14} />
+        </ToolBtn>
+        <ToolBtn title="Align right" active={editor.isActive({ textAlign: "right" })} onClick={() => editor.chain().focus().setTextAlign("right").run()}>
+          <AlignRight size={14} />
+        </ToolBtn>
+        <ToolBtn title="Justify" active={editor.isActive({ textAlign: "justify" })} onClick={() => editor.chain().focus().setTextAlign("justify").run()}>
+          <AlignJustify size={14} />
+        </ToolBtn>
+
+        <Sep />
+
+        {/* Link + HR */}
+        <ToolBtn title="Insert / edit link" active={editor.isActive("link")} onClick={setLink}>
+          <LinkIcon size={14} />
+        </ToolBtn>
+        <ToolBtn title="Horizontal rule" onClick={() => editor.chain().focus().setHorizontalRule().run()}>
+          <Minus size={14} />
+        </ToolBtn>
+
+        <Sep />
+
+        {/* Clear formatting */}
+        <ToolBtn title="Clear formatting" onClick={() => editor.chain().focus().clearNodes().unsetAllMarks().run()}>
+          <RemoveFormatting size={14} />
+        </ToolBtn>
+      </div>
+
+      {/* Editor area */}
+      <div
+        className="bg-white cursor-text tiptap-content"
+        onClick={() => editor.commands.focus()}
+      >
+        <EditorContent editor={editor} />
+      </div>
+    </div>
+  );
+}

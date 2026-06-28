@@ -5,7 +5,7 @@ import { requireAdmin } from "../middlewares/auth.js";
 
 const router = Router();
 
-router.get("/blog/posts", async (req, res) => {
+router.get("/blog/posts", async (_req, res) => {
   const posts = await db
     .select()
     .from(blogPostsTable)
@@ -49,28 +49,34 @@ router.get("/admin/blog/posts", requireAdmin, async (_req, res) => {
   res.json(posts.reverse());
 });
 
+function extractBody(body: Record<string, unknown>) {
+  return {
+    slug: String(body["slug"] ?? ""),
+    date: String(body["date"] ?? new Date().toISOString().slice(0, 10)),
+    categoryEn: String(body["categoryEn"] ?? ""),
+    categoryAr: String(body["categoryAr"] ?? ""),
+    readTime: Number(body["readTime"] ?? 5),
+    titleEn: String(body["titleEn"] ?? ""),
+    titleAr: String(body["titleAr"] ?? ""),
+    excerptEn: String(body["excerptEn"] ?? ""),
+    excerptAr: String(body["excerptAr"] ?? ""),
+    seoTitleEn: String(body["seoTitleEn"] ?? ""),
+    seoTitleAr: String(body["seoTitleAr"] ?? ""),
+    seoDescriptionEn: String(body["seoDescriptionEn"] ?? ""),
+    seoDescriptionAr: String(body["seoDescriptionAr"] ?? ""),
+    bodyEn: String(body["bodyEn"] ?? ""),
+    bodyAr: String(body["bodyAr"] ?? ""),
+    contentEn: (body["contentEn"] as never[]) ?? [],
+    contentAr: (body["contentAr"] as never[]) ?? [],
+    published: body["published"] === true || body["published"] === "true",
+  };
+}
+
 router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
   const body = req.body as Record<string, unknown>;
   const [post] = await db
     .insert(blogPostsTable)
-    .values({
-      slug: String(body["slug"] ?? ""),
-      date: String(body["date"] ?? new Date().toISOString().slice(0, 10)),
-      categoryEn: String(body["categoryEn"] ?? ""),
-      categoryAr: String(body["categoryAr"] ?? ""),
-      readTime: Number(body["readTime"] ?? 5),
-      titleEn: String(body["titleEn"] ?? ""),
-      titleAr: String(body["titleAr"] ?? ""),
-      excerptEn: String(body["excerptEn"] ?? ""),
-      excerptAr: String(body["excerptAr"] ?? ""),
-      seoTitleEn: String(body["seoTitleEn"] ?? ""),
-      seoTitleAr: String(body["seoTitleAr"] ?? ""),
-      seoDescriptionEn: String(body["seoDescriptionEn"] ?? ""),
-      seoDescriptionAr: String(body["seoDescriptionAr"] ?? ""),
-      contentEn: (body["contentEn"] as never[]) ?? [],
-      contentAr: (body["contentAr"] as never[]) ?? [],
-      published: Boolean(body["published"] ?? false),
-    })
+    .values(extractBody(body))
     .returning();
   res.status(201).json(post);
 });
@@ -80,25 +86,7 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
   const body = req.body as Record<string, unknown>;
   const [post] = await db
     .update(blogPostsTable)
-    .set({
-      slug: String(body["slug"] ?? ""),
-      date: String(body["date"] ?? ""),
-      categoryEn: String(body["categoryEn"] ?? ""),
-      categoryAr: String(body["categoryAr"] ?? ""),
-      readTime: Number(body["readTime"] ?? 5),
-      titleEn: String(body["titleEn"] ?? ""),
-      titleAr: String(body["titleAr"] ?? ""),
-      excerptEn: String(body["excerptEn"] ?? ""),
-      excerptAr: String(body["excerptAr"] ?? ""),
-      seoTitleEn: String(body["seoTitleEn"] ?? ""),
-      seoTitleAr: String(body["seoTitleAr"] ?? ""),
-      seoDescriptionEn: String(body["seoDescriptionEn"] ?? ""),
-      seoDescriptionAr: String(body["seoDescriptionAr"] ?? ""),
-      contentEn: (body["contentEn"] as never[]) ?? [],
-      contentAr: (body["contentAr"] as never[]) ?? [],
-      published: Boolean(body["published"] ?? false),
-      updatedAt: new Date(),
-    })
+    .set({ ...extractBody(body), updatedAt: new Date() })
     .where(eq(blogPostsTable.id, id))
     .returning();
   if (!post) {

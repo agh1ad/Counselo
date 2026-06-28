@@ -25,6 +25,8 @@ interface ApiPost {
   seoTitleAr: string;
   seoDescriptionEn: string;
   seoDescriptionAr: string;
+  bodyEn: string;
+  bodyAr: string;
   contentEn: BlogSection[];
   contentAr: BlogSection[];
   published: boolean;
@@ -113,6 +115,7 @@ export default function BlogPost() {
   const seoTitle = isRTL ? (post.seoTitleAr || post.titleAr) : (post.seoTitleEn || post.titleEn);
   const seoDesc = isRTL ? (post.seoDescriptionAr || post.excerptAr) : (post.seoDescriptionEn || post.excerptEn);
   const category = isRTL ? post.categoryAr : post.categoryEn;
+  const body = isRTL ? post.bodyAr : post.bodyEn;
   const content = isRTL ? post.contentAr : post.contentEn;
 
   const articleSchema = {
@@ -181,17 +184,24 @@ export default function BlogPost() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="lg:col-span-2"
           >
-            <div className="prose prose-slate max-w-none">
-              {content.map((section, i) => (
-                <div key={i} className="mb-8">
-                  {section.heading && (
-                    <h2 className="text-xl font-serif font-bold text-foreground mb-3 mt-8 first:mt-0">
-                      {section.heading}
-                    </h2>
-                  )}
-                  <p className="text-foreground/80 leading-relaxed text-base">{section.body}</p>
-                </div>
-              ))}
+            <div className="prose prose-slate max-w-none tiptap-content">
+              {body ? (
+                <div
+                  dir={isRTL ? "rtl" : "ltr"}
+                  dangerouslySetInnerHTML={{ __html: body }}
+                />
+              ) : (
+                content.map((section, i) => (
+                  <div key={i} className="mb-8">
+                    {section.heading && (
+                      <h2 className="text-xl font-serif font-bold text-foreground mb-3 mt-8 first:mt-0">
+                        {section.heading}
+                      </h2>
+                    )}
+                    <p className="text-foreground/80 leading-relaxed text-base">{section.body}</p>
+                  </div>
+                ))
+              )}
             </div>
 
             <div className="mt-10 p-4 bg-muted/50 border border-border text-xs text-muted-foreground leading-relaxed">
