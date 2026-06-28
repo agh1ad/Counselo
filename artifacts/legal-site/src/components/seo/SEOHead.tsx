@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -13,6 +14,7 @@ interface SEOHeadProps {
 
 export function SEOHead({ title, description, canonical, keywords, schema, extraSchemas, ogType = "website" }: SEOHeadProps) {
   const { lang } = useLanguage();
+  const injectedRef = useRef<HTMLScriptElement[]>([]);
 
   const isArabic = lang === "ar";
   const locale = isArabic ? "ar_SA" : "en_US";
@@ -30,6 +32,30 @@ export function SEOHead({ title, description, canonical, keywords, schema, extra
   const defaultKeywordsEn = "online legal consultation Saudi Arabia, lawyer Saudi Arabia online, legal advice KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law Saudi Arabia, foreign investment lawyer KSA, administrative law Saudi Arabia, Qanoni";
   const defaultKeywordsAr = "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة العربية السعودية, مشورة قانونية إلكترونية, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل السعودي, القانون العقاري السعودي, استثمار أجنبي محامي, القانون الإداري السعودي, قانوني";
   const finalKeywords = keywords ?? (isArabic ? defaultKeywordsAr : defaultKeywordsEn);
+
+  useEffect(() => {
+    const schemas: object[] = [
+      ...(schema ? (Array.isArray(schema) ? schema : [schema]) : []),
+      ...(extraSchemas ?? []),
+    ];
+
+    const prev = injectedRef.current;
+    prev.forEach((el) => el.parentNode?.removeChild(el));
+    injectedRef.current = [];
+
+    schemas.forEach((s) => {
+      const el = document.createElement("script");
+      el.type = "application/ld+json";
+      el.textContent = JSON.stringify(s);
+      document.head.appendChild(el);
+      injectedRef.current.push(el);
+    });
+
+    return () => {
+      injectedRef.current.forEach((el) => el.parentNode?.removeChild(el));
+      injectedRef.current = [];
+    };
+  }, [schema, extraSchemas]);
 
   return (
     <Helmet>
@@ -64,18 +90,6 @@ export function SEOHead({ title, description, canonical, keywords, schema, extra
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
       <meta name="twitter:image:alt" content="Qanoni — Online Legal Consultation Saudi Arabia" />
-
-      {/* JSON-LD — one <script> per schema so react-helmet-async can deduplicate correctly */}
-      {schema && (Array.isArray(schema) ? schema : [schema]).map((s, i) => (
-        <script key={`schema-${i}`} type="application/ld+json">
-          {JSON.stringify(s)}
-        </script>
-      ))}
-      {extraSchemas && extraSchemas.map((s, i) => (
-        <script key={`extra-${i}`} type="application/ld+json">
-          {JSON.stringify(s)}
-        </script>
-      ))}
     </Helmet>
   );
 }
