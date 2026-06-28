@@ -20,14 +20,18 @@ const channelIcons = [MessageCircle, Mail];
 const channelColors = ["bg-[#25D366]", "bg-white/15 border border-white/30"];
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
   const h = t.home;
 
   return (
     <div className="w-full">
       <SEOHead
-        title="Online Legal Consultations Saudi Arabia | 30+ Years Experience | Qanoni"
-        description="Qanoni — Saudi Arabia's most experienced online legal platform. Founded by Lawyer Omar Al-Baghdadi: 30+ years practice, 20,000+ cases across Saudi Arabia, UAE and Syria. Expert legal advice via WhatsApp or email. Available 24/7. Arabic & English."
+        title={isRTL
+          ? "استشارة قانونية أونلاين في السعودية | المحامي عمر البغدادي | 30+ عاماً | قانوني"
+          : "Online Legal Consultation Saudi Arabia | Lawyer Omar Al-Baghdadi | 30+ Years | Qanoni"}
+        description={isRTL
+          ? "قانوني — المنصة القانونية الأونلاين الأكثر خبرةً في المملكة العربية السعودية. أسّسها المحامي والمستشار القانوني عمر البغدادي: أكثر من 30 عاماً وأكثر من 20,000 قضية. مشورة قانونية متخصصة عبر واتساب أو البريد الإلكتروني — 24/7، بالعربية والإنجليزية."
+          : "Qanoni — Saudi Arabia's leading online legal platform. Founded by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years practice, 20,000+ cases across Saudi Arabia, UAE and Syria. Expert legal advice via WhatsApp or email. Available 24/7. Arabic & English."}
         canonical="/"
       />
 
@@ -233,7 +237,7 @@ export default function Home() {
 
             <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col gap-0">
               <div className="aspect-[4/5] relative shadow-2xl border border-border overflow-hidden">
-                <img src="/omar-baghdadi.jpg" alt="Lawyer Omar Al-Baghdadi — Founder of Adlix"
+                <img src="/omar-baghdadi.jpg" alt="Lawyer Omar Al-Baghdadi — Lawyer and Legal Counsel, Founder of Qanoni — 30+ years, 20,000+ cases"
                   className="w-full h-full object-cover object-top" />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent px-6 pb-6 pt-20">
                   <div className="text-white/60 uppercase tracking-widest text-xs mb-1">{h.about.founderRole}</div>
@@ -247,7 +251,7 @@ export default function Home() {
                 </div>
                 <div className="bg-foreground px-6 py-5 flex flex-col justify-center shadow-lg">
                   <span className="text-2xl font-serif text-white font-bold mb-0.5">30+</span>
-                  <span className="text-white/75 font-medium uppercase tracking-wider text-xs leading-tight">Years of Legal Experience</span>
+                  <span className="text-white/75 font-medium uppercase tracking-wider text-xs leading-tight">{h.about.yearsLabel ?? (isRTL ? "سنة خبرة قانونية" : "Years of Legal Experience")}</span>
                 </div>
               </div>
             </motion.div>

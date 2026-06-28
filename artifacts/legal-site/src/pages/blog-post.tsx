@@ -17,7 +17,7 @@ export default function BlogPost() {
       minRead: "min read",
       consultHeading: "Need Legal Advice?",
       consultDesc:
-        "Adlix offers confidential online consultations via WhatsApp or email. No office visit required. Founded by Lawyer Omar Al-Baghdadi — 30+ years of Saudi legal experience.",
+        "Qanoni offers confidential online legal consultations via WhatsApp or email — no office visit required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of Saudi legal practice, 20,000+ cases handled across Saudi Arabia, UAE and Syria.",
       whatsapp: "Chat on WhatsApp",
       email: "Send an Email",
       disclaimer:
@@ -67,13 +67,13 @@ export default function BlogPost() {
     "author": {
       "@type": "Person",
       "name": "Lawyer Omar Al-Baghdadi",
-      "jobTitle": "Senior Advocate & Founder",
-      "worksFor": { "@type": "LegalService", "name": "Adlix" },
+      "jobTitle": "Lawyer and Legal Counsel — Founder of Qanoni",
+      "worksFor": { "@type": "LegalService", "name": "Qanoni" },
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Adlix",
-      "url": "https://adlix.law",
+      "name": "Qanoni",
+      "url": "https://qanoni.com",
     },
     "about": { "@type": "LegalService", "areaServed": "Saudi Arabia" },
   };
@@ -184,15 +184,15 @@ export default function BlogPost() {
               {/* Author */}
               <div className="border border-border p-5">
                 <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-2">
-                  {lang === "en" ? "Written by" : "كتب بقلم"}
+                  {lang === "en" ? "Written by" : "بقلم"}
                 </p>
                 <p className="font-serif font-bold text-foreground">
-                  {lang === "en" ? "Lawyer Omar Al-Baghdadi" : "المحامي عمر البغدادي"}
+                  {lang === "en" ? "Lawyer Omar Al-Baghdadi" : "المحامي والمستشار القانوني عمر البغدادي"}
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   {lang === "en"
-                    ? "Founder & Senior Advocate — 30+ years, 20,000+ cases"
-                    : "المؤسس والمحامي الأول — أكثر من 30 عاماً وأكثر من 20,000 قضية"}
+                    ? "Lawyer & Legal Counsel — Founder of Qanoni | 30+ years | 20,000+ cases"
+                    : "مؤسس قانوني ومستشار قانوني | أكثر من 30 عاماً وأكثر من 20,000 قضية"}
                 </p>
               </div>
             </div>

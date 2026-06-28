@@ -7,14 +7,21 @@ import { SEOHead } from "@/components/seo/SEOHead";
 const icons = [Users, Building2, Shield, HomeIcon, Map, BookOpen, Gavel];
 
 export default function Services() {
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
   const s = t.services;
+
+  const seoTitle = isRTL
+    ? "مجالات الممارسة القانونية | محامي سعودي أونلاين | قانوني"
+    : "Legal Practice Areas Saudi Arabia | Online Lawyer | Qanoni — 30+ Years Experience";
+  const seoDesc = isRTL
+    ? "استكشف جميع مجالات قانوني القانونية في المملكة العربية السعودية: قانون الأسرة، القانون التجاري، القانون العقاري، قانون العمل، الاستثمار الأجنبي، والقانون الإداري — المحامي عمر البغدادي، أكثر من 30 عاماً وأكثر من 20,000 قضية. استشارة أونلاين عبر واتساب أو البريد الإلكتروني — 24/7."
+    : "All of Qanoni's legal practice areas in Saudi Arabia — Family Law, Commercial Law, Real Estate, Employment Law, Foreign Investment & Administrative Law. Led by Lawyer Omar Al-Baghdadi, Legal Counsel — 30+ years, 20,000+ cases. Consult online via WhatsApp or email, 24/7.";
 
   return (
     <div className="w-full bg-background min-h-screen">
       <SEOHead
-        title="All Legal Practice Areas | Online Lawyer Saudi Arabia | Adlix"
-        description="Explore all of Adlix's legal practice areas in Saudi Arabia: Family Law, Business & Corporate Law, Real Estate, Employment Law, Foreign Investment, and Administrative Law. 30+ years experience. Consult online via WhatsApp or email — 24/7."
+        title={seoTitle}
+        description={seoDesc}
         canonical="/services"
       />
       <section className="relative py-28 overflow-hidden">

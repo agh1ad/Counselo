@@ -50,8 +50,12 @@ export default function Blog() {
   return (
     <div className="w-full bg-background min-h-screen" dir={isRTL ? "rtl" : "ltr"}>
       <SEOHead
-        title="Saudi Arabian Law Blog | Legal Articles & Guides | Adlix"
-        description="Practical legal guides on Saudi family law, employment law, real estate, foreign investment, and administrative law. Written by Lawyer Omar Al-Baghdadi's team — 30+ years of Saudi legal experience."
+        title={isRTL
+          ? "مدونة قانونية سعودية | مقالات ودليل القانون السعودي | قانوني"
+          : "Saudi Arabian Law Blog | Legal Articles & Guides | Qanoni — Expert Legal Team"}
+        description={isRTL
+          ? "إرشادات قانونية عملية في قانون الأسرة السعودي وقانون العمل والعقارات والأعمال والاستثمار الأجنبي والقانون الإداري — بقلم فريق المحامي والمستشار القانوني عمر البغدادي، خبرة تزيد على 30 عاماً وأكثر من 20,000 قضية."
+          : "Practical legal articles on Saudi family law, employment law, real estate, commercial law, foreign investment, and administrative law — written by the team of Lawyer and Legal Counsel Omar Al-Baghdadi, 30+ years experience, 20,000+ cases handled across Saudi Arabia."}
         canonical="/blog"
       />
 

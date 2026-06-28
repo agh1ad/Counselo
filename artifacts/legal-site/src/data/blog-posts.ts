@@ -37,7 +37,7 @@ const _unused: BlogPost[] = [
       excerpt:
         "Divorce in Saudi Arabia is governed by Islamic law and the Saudi Personal Status Law. Understanding the types of divorce, your rights to custody, and how assets are divided is essential before you begin proceedings.",
       seoTitle:
-        "Divorce in Saudi Arabia: Legal Rights & Process | Online Family Law Consultation | Adlix",
+        "Divorce in Saudi Arabia: Legal Rights & Process | Online Family Law Consultation | Qanoni",
       seoDescription:
         "Understand your rights in a Saudi Arabian divorce — Talaq, Khul', and judicial divorce explained. 30+ years of experience. Book an online consultation with Lawyer Omar Al-Baghdadi.",
       content: [
@@ -62,7 +62,7 @@ const _unused: BlogPost[] = [
         },
         {
           heading: "Getting Legal Advice",
-          body: "Saudi family law involves nuanced procedural and evidentiary requirements that can significantly affect the outcome of your case. Consulting an experienced family law lawyer before taking any formal steps — including informal statements that could be used in proceedings — is strongly recommended. Adlix offers confidential online consultations via WhatsApp or email, so you can get expert guidance without the need to attend a physical office.",
+          body: "Saudi family law involves nuanced procedural and evidentiary requirements that can significantly affect the outcome of your case. Consulting an experienced family law lawyer before taking any formal steps — including informal statements that could be used in proceedings — is strongly recommended. Qanoni offers confidential online consultations via WhatsApp or email, so you can get expert guidance without the need to attend a physical office.",
         },
       ],
     },
@@ -111,7 +111,7 @@ const _unused: BlogPost[] = [
       excerpt:
         "Saudi Labor Law provides strong protections against arbitrary dismissal. If you have been terminated without a valid reason, you may be entitled to compensation, end-of-service benefits, and more — even if your employer claims otherwise.",
       seoTitle:
-        "Wrongful Termination Saudi Arabia: Employee Rights | Saudi Labor Law Lawyer | Adlix",
+        "Wrongful Termination Saudi Arabia: Employee Rights | Saudi Labor Law Lawyer | Qanoni",
       seoDescription:
         "Been wrongfully terminated in Saudi Arabia? Know your rights under Saudi Labor Law. Online consultation with a Saudi employment lawyer — 30+ years experience, response within minutes.",
       content: [
@@ -185,9 +185,9 @@ const _unused: BlogPost[] = [
       excerpt:
         "Vision 2030 has transformed Saudi Arabia's investment landscape. Foreign investors can now own 100% of companies across most sectors — but navigating the MISA licensing process and Commercial Registration requires careful planning.",
       seoTitle:
-        "Foreign Company Registration Saudi Arabia 2025: MISA License Guide | Adlix",
+        "Foreign Company Registration Saudi Arabia 2025: MISA License Guide | Qanoni",
       seoDescription:
-        "Step-by-step guide to registering a foreign company in Saudi Arabia. MISA license, Commercial Registration, company types, and common pitfalls. Expert legal advice from Adlix — 30+ years experience.",
+        "Step-by-step guide to registering a foreign company in Saudi Arabia. MISA license, Commercial Registration, company types, and common pitfalls. Expert legal advice from Qanoni — 30+ years experience.",
       content: [
         {
           body: "Saudi Arabia's Vision 2030 economic transformation has fundamentally opened the Kingdom to foreign investment. Foreign nationals and companies can now own 100% of their Saudi business across most sectors — a significant shift from the historical requirement of a Saudi partner. However, the registration process involves multiple regulatory bodies and a structured sequence of steps that must be followed precisely.",
@@ -259,9 +259,9 @@ const _unused: BlogPost[] = [
       excerpt:
         "When a government ministry, regulatory body, or public authority in Saudi Arabia makes a decision that harms your rights, the Board of Grievances is where you challenge it. Understanding how this court works — and its strict deadlines — can be the difference between winning and losing.",
       seoTitle:
-        "Board of Grievances Saudi Arabia: How to File & Win | Administrative Law Lawyer | Adlix",
+        "Board of Grievances Saudi Arabia: How to File & Win | Administrative Law Lawyer | Qanoni",
       seoDescription:
-        "Learn how the Board of Grievances (Diwan Al-Mazalim) works in Saudi Arabia. Types of cases, filing deadlines, and what to expect. Expert administrative law consultation — Adlix.",
+        "Learn how the Board of Grievances (Diwan Al-Mazalim) works in Saudi Arabia. Types of cases, filing deadlines, and what to expect. Expert administrative law consultation — Qanoni.",
       content: [
         {
           body: "The Board of Grievances (Diwan Al-Mazalim) is Saudi Arabia's supreme administrative court. It has exclusive jurisdiction over disputes between private parties — individuals or businesses — and government authorities. Whether a ministry has refused your licence, cancelled a government contract, imposed an unlawful penalty, or taken an administrative decision that harms your business, the Board of Grievances is the proper forum for challenge.",
@@ -333,9 +333,9 @@ const _unused: BlogPost[] = [
       excerpt:
         "From title fraud and boundary disputes to contractor defects and landlord-tenant conflicts, Saudi real estate disputes can be complex and high-stakes. Knowing the legal framework — and acting quickly — is critical.",
       seoTitle:
-        "Real Estate Disputes Saudi Arabia: Legal Rights & Remedies | Property Lawyer | Adlix",
+        "Real Estate Disputes Saudi Arabia: Legal Rights & Remedies | Property Lawyer | Qanoni",
       seoDescription:
-        "Facing a real estate dispute in Saudi Arabia? Learn your legal options — title disputes, contractor defects, rental disputes, and more. Expert Saudi property law consultation with Adlix.",
+        "Facing a real estate dispute in Saudi Arabia? Learn your legal options — title disputes, contractor defects, rental disputes, and more. Expert Saudi property law consultation with Qanoni.",
       content: [
         {
           body: "Real estate disputes in Saudi Arabia are handled by the General Courts (for private disputes) and the Board of Grievances (where a government entity is involved). Given the high capital values involved in property transactions in the Kingdom, and the increasingly complex regulatory framework, legal disputes in this area can have significant financial consequences if not handled properly and promptly.",
@@ -407,9 +407,9 @@ const _unused: BlogPost[] = [
       excerpt:
         "Child custody disputes in Saudi Arabia are governed by Islamic Sharia and the Personal Status Law. Understanding the distinction between physical custody (Hadhanah) and legal guardianship (Wilayah) — and what courts look for — can help you protect your relationship with your children.",
       seoTitle:
-        "Child Custody Saudi Arabia: Rights & Court Process | Family Law Lawyer | Adlix",
+        "Child Custody Saudi Arabia: Rights & Court Process | Family Law Lawyer | Qanoni",
       seoDescription:
-        "Understand how Saudi Arabian courts decide child custody — Hadhanah, Wilayah, and the best interests of the child. Expert online family law consultation with Adlix. 30+ years experience.",
+        "Understand how Saudi Arabian courts decide child custody — Hadhanah, Wilayah, and the best interests of the child. Expert online family law consultation with Qanoni. 30+ years experience.",
       content: [
         {
           body: "Child custody proceedings in Saudi Arabia are handled by the Personal Status Courts and are governed by Islamic Sharia principles as applied through Saudi judicial practice. The distinction between physical custody (Hadhanah) and legal guardianship (Wilayah) is fundamental — they are separate legal concepts with different rules and different courts.",

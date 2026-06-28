@@ -26,8 +26,12 @@ export default function ServiceDetail() {
   return (
     <div className="w-full bg-background min-h-screen">
       <SEOHead
-        title={`${data.title} Lawyer Saudi Arabia | Online Legal Consultation | Adlix`}
-        description={`${data.subtitle} — Lawyer Omar Al-Baghdadi, 30+ years experience, 20,000+ cases. Consult online via WhatsApp or email. 24/7. Arabic & English.`}
+        title={isRTL
+          ? `${data.title} | استشارة قانونية أونلاين في السعودية | قانوني`
+          : `${data.title} Lawyer Saudi Arabia | Online Legal Consultation | Qanoni`}
+        description={isRTL
+          ? `${data.subtitle} — المحامي والمستشار القانوني عمر البغدادي، أكثر من 30 عاماً وأكثر من 20,000 قضية. استشارة أونلاين عبر واتساب أو البريد الإلكتروني، على مدار الساعة.`
+          : `${data.subtitle} — Lawyer and Legal Counsel Omar Al-Baghdadi, 30+ years experience, 20,000+ cases handled. Consult online via WhatsApp or email, 24/7, in Arabic & English.`}
         canonical={`/services/${id}`}
       />
       {/* Breadcrumb */}
