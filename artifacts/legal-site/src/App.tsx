@@ -19,6 +19,7 @@ import FamilyLawSub from "@/pages/family-law-sub";
 import ForeignInvestmentSub from "@/pages/foreign-investment-sub";
 import AdministrativeLawSub from "@/pages/administrative-law-sub";
 import ArbitrationSub from "@/pages/arbitration-sub";
+import EnforcementSub from "@/pages/enforcement-sub";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import TermsOfService from "@/pages/terms-of-service";
@@ -63,6 +64,7 @@ function Router() {
         <Route path="/services/foreign-investment/:subId" component={ForeignInvestmentSub} />
         <Route path="/services/administrative-law/:subId" component={AdministrativeLawSub} />
         <Route path="/services/arbitration/:subId" component={ArbitrationSub} />
+        <Route path="/services/enforcement/:subId" component={EnforcementSub} />
         <Route path="/services/:id" component={ServiceDetail} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/blog" component={Blog} />
