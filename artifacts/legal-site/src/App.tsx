@@ -23,6 +23,7 @@ import EnforcementSub from "@/pages/enforcement-sub";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import TermsOfService from "@/pages/terms-of-service";
+import PrivacyPolicy from "@/pages/privacy-policy";
 import AdminCMS from "@/pages/admin";
 import NotFound from "@/pages/not-found";
 
@@ -70,6 +71,7 @@ function Router() {
         <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
         <Route path="/terms-of-service" component={TermsOfService} />
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route component={NotFound} />
       </Switch>
     </>
