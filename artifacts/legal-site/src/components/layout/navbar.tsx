@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logoWithText from "@assets/Screen_Shot_2026-06-28_at_4.58.35_AM_1782608505873.png";
 
 export function Navbar() {
   const [location] = useLocation();
@@ -16,7 +17,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center gap-2">
-            <span className="font-serif text-2xl font-bold tracking-tight text-foreground">Adlix</span>
+            <img src={logoWithText} alt="Qanoni — Online Legal Consultations" className="h-14 w-auto object-contain" />
           </Link>
 
           <div className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
@@ -48,7 +49,6 @@ export function Navbar() {
             <Link href="/blog" className={`text-sm font-medium transition-colors hover:text-primary ${location.startsWith("/blog") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.blog}</Link>
             <Link href="/contact" className={`text-sm font-medium transition-colors hover:text-primary ${location === "/contact" ? "text-primary" : "text-muted-foreground"}`}>{t.nav.contact}</Link>
 
-            {/* Language toggle */}
             <button
               onClick={toggleLang}
               className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors border border-border px-3 py-1.5 hover:border-primary"

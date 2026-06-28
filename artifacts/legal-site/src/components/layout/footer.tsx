@@ -1,6 +1,7 @@
 import { Link } from "wouter";
-import { MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logoHorizontal from "@assets/Screen_Shot_2026-06-28_at_4.58.49_AM_1782608643526.png";
 
 export function Footer() {
   const { t } = useLanguage();
@@ -12,13 +13,21 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-6">
-              <span className="font-serif text-2xl font-bold tracking-tight text-white">Adlix</span>
+              <img src={logoHorizontal} alt="Qanoni — Online Legal Consultations" className="h-16 w-auto object-contain" />
             </Link>
             <p className="text-white/70 text-sm mb-6 leading-relaxed">{f.tagline}</p>
             <div className="flex space-x-4 rtl:space-x-reverse text-white/60">
               <a href="#" className="hover:text-white transition-colors"><Facebook className="h-5 w-5" /></a>
               <a href="#" className="hover:text-white transition-colors"><Twitter className="h-5 w-5" /></a>
-              <a href="#" className="hover:text-white transition-colors"><Linkedin className="h-5 w-5" /></a>
+              <a
+                href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+                aria-label="LinkedIn — Lawyer Omar Al-Baghdadi"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
               <a href="#" className="hover:text-white transition-colors"><Instagram className="h-5 w-5" /></a>
             </div>
           </div>
@@ -52,7 +61,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-white/60 shrink-0" />
-                <span>{f.phone}</span>
+                <span dir="ltr">{f.phone}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-white/60 shrink-0" />
@@ -64,7 +73,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-white/60">
-            &copy; {new Date().getFullYear()} Adlix. {f.copyright}
+            &copy; {new Date().getFullYear()} Qanoni. {f.copyright}
           </p>
           <div className="flex gap-4 text-sm text-white/60">
             <a href="#" className="hover:text-white transition-colors">{f.privacy}</a>

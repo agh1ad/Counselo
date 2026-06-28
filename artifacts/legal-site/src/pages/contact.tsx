@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -22,9 +23,10 @@ const formSchema = z.object({
 
 export default function Contact() {
   const { toast } = useToast();
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
   const c = t.contact;
   const f = c.form;
+  const [submitting, setSubmitting] = useState(false);
 
   const searchParams = new URLSearchParams(window.location.search);
   const defaultService = searchParams.get("service") || "";
@@ -34,17 +36,48 @@ export default function Contact() {
     defaultValues: { name: "", email: "", phone: "", service: defaultService, message: "" },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({ title: f.submitBtn, description: f.disclaimer });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/bagdadio@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `New Legal Consultation — ${values.service} — ${values.name}`,
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          service: values.service,
+          message: values.message,
+        }),
+      });
+      if (res.ok) {
+        toast({
+          title: isRTL ? "تم إرسال طلبك بنجاح" : "Request sent successfully",
+          description: isRTL ? "سنتواصل معك خلال دقائق." : "We will contact you within minutes.",
+        });
+        form.reset();
+      } else {
+        throw new Error("Failed");
+      }
+    } catch {
+      toast({
+        title: isRTL ? "حدث خطأ" : "Submission error",
+        description: isRTL
+          ? "يُرجى المحاولة مجدداً أو التواصل عبر واتساب."
+          : "Please try again or contact us via WhatsApp.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
     <div className="w-full bg-background min-h-screen">
       <SEOHead
-        title="Contact an Online Lawyer in Saudi Arabia | Book a Consultation | Adlix"
-        description="Contact Adlix to book an online legal consultation in Saudi Arabia. Reach Lawyer Omar Al-Baghdadi — 30+ years experience — via WhatsApp (+966 59 285 0247) or email. Available 24/7 in Arabic and English."
+        title="Contact an Online Lawyer in Saudi Arabia | Book a Consultation | Qanoni"
+        description="Contact Qanoni to book an online legal consultation in Saudi Arabia. Reach Lawyer Omar Al-Baghdadi — 30+ years experience — via WhatsApp (+966 59 485 0247) or email. Available 24/7 in Arabic and English."
         canonical="/contact"
       />
       {/* Hero */}
@@ -69,18 +102,18 @@ export default function Contact() {
                 <h3 className="text-2xl font-serif font-bold text-foreground mb-8">{c.firmDetails.heading}</h3>
                 <div className="space-y-8">
                   {[
-                    { Icon: MapPin, label: c.firmDetails.addressTitle, value: c.firmDetails.address },
-                    { Icon: Phone, label: c.firmDetails.phoneTitle, value: c.firmDetails.phone },
-                    { Icon: Mail, label: c.firmDetails.emailTitle, value: c.firmDetails.email },
-                    { Icon: Clock, label: c.firmDetails.hoursTitle, value: c.firmDetails.hours },
-                  ].map(({ Icon, label, value }, i) => (
+                    { Icon: MapPin, label: c.firmDetails.addressTitle, value: c.firmDetails.address, ltr: false },
+                    { Icon: Phone, label: c.firmDetails.phoneTitle, value: c.firmDetails.phone, ltr: true },
+                    { Icon: Mail, label: c.firmDetails.emailTitle, value: c.firmDetails.email, ltr: true },
+                    { Icon: Clock, label: c.firmDetails.hoursTitle, value: c.firmDetails.hours, ltr: false },
+                  ].map(({ Icon, label, value, ltr }, i) => (
                     <div key={i} className="flex items-start gap-4">
                       <div className="w-10 h-10 bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
                         <Icon className="h-5 w-5 text-primary" />
                       </div>
                       <div>
                         <h4 className="text-foreground font-medium mb-1">{label}</h4>
-                        <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{value}</p>
+                        <p className="text-muted-foreground leading-relaxed whitespace-pre-line" dir={ltr ? "ltr" : undefined}>{value}</p>
                       </div>
                     </div>
                   ))}
@@ -116,7 +149,7 @@ export default function Contact() {
                       <FormField control={form.control} name="phone" render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-foreground font-medium">{f.phoneLabel}</FormLabel>
-                          <FormControl><Input type="tel" placeholder={f.phonePlaceholder} {...field} className="border-border focus:border-primary" /></FormControl>
+                          <FormControl><Input type="tel" placeholder={f.phonePlaceholder} {...field} className="border-border focus:border-primary" dir="ltr" /></FormControl>
                           <FormMessage />
                         </FormItem>
                       )} />
@@ -146,7 +179,9 @@ export default function Contact() {
                         <FormMessage />
                       </FormItem>
                     )} />
-                    <Button type="submit" size="lg" className="w-full py-6 text-lg rounded-none bg-primary text-white hover:bg-primary/90">{f.submitBtn}</Button>
+                    <Button type="submit" size="lg" disabled={submitting} className="w-full py-6 text-lg rounded-none bg-primary text-white hover:bg-primary/90 disabled:opacity-70">
+                      {submitting ? (isRTL ? "جارٍ الإرسال…" : "Sending…") : f.submitBtn}
+                    </Button>
                     <p className="text-xs text-muted-foreground text-center">{f.disclaimer}</p>
                   </form>
                 </Form>

@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { Scale, ShieldCheck, Users, ArrowRight, CheckCircle2, Star, Quote, MessageCircle, Mail, Award, Globe, Zap, BadgeCheck, Wifi, Clock, Lock, MapPin } from "lucide-react";
+import heroBg from "@assets/Screen_Shot_2026-06-28_at_4.58.49_AM_1782608643526.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const fadeIn = {
@@ -25,15 +26,20 @@ export default function Home() {
   return (
     <div className="w-full">
       <SEOHead
-        title="Online Legal Consultations Saudi Arabia | 30+ Years Experience | Adlix"
-        description="Adlix — Saudi Arabia's most experienced online legal platform. Founded by Lawyer Omar Al-Baghdadi: 30+ years practice, 20,000+ cases across Saudi Arabia, UAE and Syria. Expert legal advice via WhatsApp or email. Available 24/7. Arabic & English."
+        title="Online Legal Consultations Saudi Arabia | 30+ Years Experience | Qanoni"
+        description="Qanoni — Saudi Arabia's most experienced online legal platform. Founded by Lawyer Omar Al-Baghdadi: 30+ years practice, 20,000+ cases across Saudi Arabia, UAE and Syria. Expert legal advice via WhatsApp or email. Available 24/7. Arabic & English."
         canonical="/"
       />
 
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 9%) 0%, hsl(150 80% 14%) 100%)" }} />
-        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at 80% 40%, hsl(150 60% 25% / 0.3) 0%, transparent 60%)" }} />
+        {/* Hero background image */}
+        <div className="absolute inset-0 z-0">
+          <img src={heroBg} alt="" aria-hidden="true" className="w-full h-full object-cover object-center" />
+        </div>
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 5% / 0.92) 0%, hsl(150 80% 10% / 0.85) 100%)" }} />
+        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at 80% 40%, hsl(150 60% 25% / 0.25) 0%, transparent 60%)" }} />
 
         {/* Decorative grid lines */}
         <div className="absolute inset-0 z-0 opacity-5"
