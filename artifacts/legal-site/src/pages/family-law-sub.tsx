@@ -26,6 +26,50 @@ export default function FamilyLawSub() {
   }
 
   const otherAreas = rel.subAreas.filter((a) => a.id !== subId);
+
+  const SEO_DATA: Record<string, { desc: string; descAr: string; kw: string; kwAr: string }> = {
+    "divorce": {
+      desc: "Divorce legal consultation in Saudi Arabia — talaq rights, asset division, custody & Personal Status Law. Online via WhatsApp or email, 24/7 in Arabic & English.",
+      descAr: "استشارة قانونية في الطلاق بالمملكة العربية السعودية — حقوق الطلاق وتقسيم الأصول والحضانة ونظام الأحوال الشخصية. أونلاين عبر واتساب أو البريد الإلكتروني، 24/7.",
+      kw: "divorce lawyer Saudi Arabia, talaq Saudi Arabia, divorce consultation online KSA, Saudi Personal Status Law, divorce rights Saudi, online family lawyer",
+      kwAr: "محامي طلاق السعودية, طلاق المملكة العربية السعودية, نظام الأحوال الشخصية, استشارة طلاق أونلاين, حقوق الطلاق",
+    },
+    "khul": {
+      desc: "Khul divorce consultation in Saudi Arabia — court process, mahr refund & wife's rights under Personal Status Law. Online via WhatsApp or email, 24/7.",
+      descAr: "استشارة قانونية في الخلع بالمملكة العربية السعودية — الإجراءات القضائية وردّ المهر وحقوق الزوجة. أونلاين عبر واتساب أو البريد الإلكتروني، 24/7.",
+      kw: "khul lawyer Saudi Arabia, khul divorce KSA, wife-initiated divorce Saudi, mahr refund, khul court Saudi, women divorce rights Saudi",
+      kwAr: "محامي خلع السعودية, خلع المملكة العربية السعودية, الخلع القضائي, رد المهر, استشارة خلع أونلاين",
+    },
+    "alimony": {
+      desc: "Alimony & child support legal consultation in Saudi Arabia — nafaqah calculation, court orders & enforcement rights. Online via WhatsApp or email, 24/7.",
+      descAr: "استشارة قانونية في النفقة ودعم الأبناء بالمملكة — حساب النفقة والأوامر القضائية وتنفيذ حقوق النفقة. أونلاين 24/7.",
+      kw: "alimony lawyer Saudi Arabia, nafaqah Saudi, child maintenance KSA, spousal support Saudi, support enforcement online",
+      kwAr: "محامي نفقة السعودية, نفقة الزوجة والأبناء, نفقة شرعية, نفقة المحاكم السعودية, استشارة نفقة أونلاين",
+    },
+    "child-custody": {
+      desc: "Child custody legal advice in Saudi Arabia — custody rights, visitation orders & enforcement under Saudi Personal Status Law. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في حضانة الأطفال بالمملكة — حقوق الحضانة وأوامر الزيارة وتنفيذها وفق نظام الأحوال الشخصية. أونلاين 24/7.",
+      kw: "child custody lawyer Saudi Arabia, custody rights KSA, visitation order Saudi, hadhanah Saudi law, child custody online",
+      kwAr: "محامي حضانة أطفال السعودية, حضانة الأطفال المملكة, حق الزيارة السعودية, حضانة شرعية, استشارة حضانة أونلاين",
+    },
+    "inheritance": {
+      desc: "Inheritance dispute & estate distribution legal advice in Saudi Arabia — Sharia law, court claims & heirs' rights. Online consultation via WhatsApp, 24/7.",
+      descAr: "استشارة قانونية في نزاعات الإرث وتوزيع التركات بالمملكة — الشريعة الإسلامية وحقوق الورثة والمطالبات القضائية. أونلاين 24/7.",
+      kw: "inheritance lawyer Saudi Arabia, estate dispute KSA, Islamic inheritance law, heirs rights Saudi, miras Saudi, probate online",
+      kwAr: "محامي إرث السعودية, نزاعات التركة, المواريث الإسلامية, حقوق الورثة, قسمة التركة, استشارة إرث أونلاين",
+    },
+    "marriage-contract": {
+      desc: "Marriage contract drafting & enforcement in Saudi Arabia — prenuptial conditions, mahr agreements & legal validity. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في عقد الزواج وشروطه بالمملكة — المهر والشروط الابتدائية والصحة القانونية للعقد. أونلاين 24/7.",
+      kw: "marriage contract lawyer Saudi Arabia, prenuptial agreement KSA, mahr legal advice, marriage conditions Saudi, online marriage contract consultation",
+      kwAr: "محامي عقد زواج السعودية, شروط عقد الزواج, المهر الشرعي, صداق الزواج, استشارة عقد زواج أونلاين",
+    },
+  };
+
+  const seoMeta = SEO_DATA[subId] ?? { desc: data.subtitle, descAr: data.subtitle, kw: "", kwAr: "" };
+  const seoDescription = isRTL ? seoMeta.descAr : seoMeta.desc;
+  const seoKeywords = isRTL ? seoMeta.kwAr : seoMeta.kw;
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -36,13 +80,25 @@ export default function FamilyLawSub() {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://qanoni.com/" },
+      { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://qanoni.com/services" },
+      { "@type": "ListItem", position: 3, name: isRTL ? "قانون الأسرة" : "Family Law", item: "https://qanoni.com/services/family-law" },
+      { "@type": "ListItem", position: 4, name: data.title, item: `https://qanoni.com/services/family-law/${subId}` },
+    ],
+  };
+
   return (
     <div className="w-full bg-background min-h-screen">
       <SEOHead
         title={data.seoTitle}
-        description={data.subtitle}
+        description={seoDescription}
         canonical={`/services/family-law/${subId}`}
-        schema={faqSchema}
+        keywords={seoKeywords}
+        schema={[faqSchema, breadcrumbSchema]}
       />
 
       {/* Breadcrumb */}

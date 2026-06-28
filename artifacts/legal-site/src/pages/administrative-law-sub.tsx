@@ -26,6 +26,62 @@ export default function AdministrativeLawSub() {
   }
 
   const otherAreas = rel.subAreas.filter((a) => a.id !== subId);
+
+  const SEO_DATA: Record<string, { desc: string; descAr: string; kw: string; kwAr: string }> = {
+    "board-of-grievances": {
+      desc: "Board of Grievances legal advice in Saudi Arabia — filing administrative claims, hearings & appealing government decisions. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في ديوان المظالم بالمملكة — تقديم الدعاوى الإدارية والجلسات والطعن في القرارات الحكومية. أونلاين 24/7.",
+      kw: "Board of Grievances lawyer Saudi Arabia, diwan al mazalim, administrative court Saudi, government appeal KSA, board of grievances online",
+      kwAr: "محامي ديوان المظالم السعودية, ديوان المظالم, المحكمة الإدارية, طعن حكومي, استشارة ديوان المظالم أونلاين",
+    },
+    "administrative-appeals": {
+      desc: "Administrative decision appeal legal advice in Saudi Arabia — challenging government & regulatory decisions. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في استئناف القرارات الإدارية بالمملكة — الطعن في القرارات الحكومية والتنظيمية. أونلاين 24/7.",
+      kw: "administrative appeal lawyer Saudi Arabia, government decision appeal KSA, regulatory ruling challenge Saudi, administrative court appeal online",
+      kwAr: "محامي استئناف قرارات إدارية السعودية, الطعن في القرارات الحكومية, استئناف إداري, استشارة إدارية أونلاين",
+    },
+    "government-contracts": {
+      desc: "Government contract dispute legal advice in Saudi Arabia — payment delays, performance disputes & Board of Grievances claims. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في نزاعات العقود الحكومية بالمملكة — تأخر المدفوعات ونزاعات الأداء ودعاوى ديوان المظالم. أونلاين 24/7.",
+      kw: "government contract lawyer Saudi Arabia, government contract dispute KSA, public works claim Saudi, Board of Grievances contract online",
+      kwAr: "محامي عقود حكومية السعودية, نزاعات العقود الحكومية, مطالبات الأشغال العامة, استشارة عقود حكومية أونلاين",
+    },
+    "public-procurement": {
+      desc: "Public procurement & government tender legal advice in Saudi Arabia — bidding disputes, exclusion challenges & contract awards. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في المشتريات الحكومية والمناقصات بالمملكة — نزاعات العطاءات والاستبعاد ومنح العقود. أونلاين 24/7.",
+      kw: "public procurement lawyer Saudi Arabia, government tender KSA, procurement dispute Saudi, tender exclusion appeal, public procurement online",
+      kwAr: "محامي مشتريات حكومية السعودية, مناقصات حكومية, نزاعات المناقصات, استبعاد مناقصة, استشارة مشتريات أونلاين",
+    },
+    "regulatory-licensing": {
+      desc: "Regulatory licensing dispute legal advice in Saudi Arabia — license refusals, suspensions & appeals before regulatory bodies. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في نزاعات التراخيص التنظيمية بالمملكة — رفض التراخيص والتعليق والطعن أمام الجهات التنظيمية. أونلاين 24/7.",
+      kw: "regulatory licensing lawyer Saudi Arabia, license refusal KSA, regulatory appeal Saudi, licensing dispute online, government license Saudi",
+      kwAr: "محامي تراخيص تنظيمية السعودية, رفض الترخيص, طعن في قرار تنظيمي, ترخيص حكومي, استشارة ترخيص أونلاين",
+    },
+    "customs-tax-disputes": {
+      desc: "Customs & tax dispute legal advice in Saudi Arabia — ZATCA claims, import duty disputes & administrative tax appeals. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في نزاعات الجمارك والضريبة بالمملكة — مطالبات هيئة الزكاة والضريبة وضريبة القيمة المضافة. أونلاين 24/7.",
+      kw: "customs dispute lawyer Saudi Arabia, ZATCA claim KSA, tax dispute Saudi, import duty dispute, VAT appeal Saudi online",
+      kwAr: "محامي نزاعات جمارك السعودية, هيئة الزكاة والضريبة والجمارك, ضريبة القيمة المضافة, رسوم جمركية, استشارة ضريبية أونلاين",
+    },
+    "disciplinary-proceedings": {
+      desc: "Professional disciplinary & government employment legal advice in Saudi Arabia — suspension defence, dismissal & appeals. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في الإجراءات التأديبية والوظيفة الحكومية بالمملكة — التعليق والفصل والطعن في القرارات. أونلاين 24/7.",
+      kw: "disciplinary proceedings lawyer Saudi Arabia, government employee defence KSA, civil service suspension Saudi, disciplinary appeal online",
+      kwAr: "محامي تأديبية السعودية, موظف حكومي دفاع, إجراءات تأديبية, فصل موظف حكومي, استشارة تأديبية أونلاين",
+    },
+    "government-compensation": {
+      desc: "Government compensation claim legal advice in Saudi Arabia — expropriation, public works harm & administrative damages. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في مطالبات التعويض من الحكومة بالمملكة — نزع الملكية وأضرار الأشغال العامة والتعويض الإداري. أونلاين 24/7.",
+      kw: "government compensation lawyer Saudi Arabia, expropriation claim KSA, public works damage Saudi, administrative compensation online",
+      kwAr: "محامي تعويض حكومي السعودية, نزع الملكية, أضرار الأشغال العامة, تعويض إداري, استشارة تعويض حكومي أونلاين",
+    },
+  };
+
+  const seoMeta = SEO_DATA[subId] ?? { desc: data.subtitle, descAr: data.subtitle, kw: "", kwAr: "" };
+  const seoDescription = isRTL ? seoMeta.descAr : seoMeta.desc;
+  const seoKeywords = isRTL ? seoMeta.kwAr : seoMeta.kw;
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -36,13 +92,25 @@ export default function AdministrativeLawSub() {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://qanoni.com/" },
+      { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://qanoni.com/services" },
+      { "@type": "ListItem", position: 3, name: isRTL ? "القانون الإداري" : "Administrative Law", item: "https://qanoni.com/services/administrative-law" },
+      { "@type": "ListItem", position: 4, name: data.title, item: `https://qanoni.com/services/administrative-law/${subId}` },
+    ],
+  };
+
   return (
     <div className="w-full bg-background min-h-screen">
       <SEOHead
         title={data.seoTitle}
-        description={data.subtitle}
+        description={seoDescription}
         canonical={`/services/administrative-law/${subId}`}
-        schema={faqSchema}
+        keywords={seoKeywords}
+        schema={[faqSchema, breadcrumbSchema]}
       />
 
       {/* Breadcrumb */}

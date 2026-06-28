@@ -26,6 +26,68 @@ export default function ForeignInvestmentSub() {
   }
 
   const otherAreas = rel.subAreas.filter((a) => a.id !== subId);
+
+  const SEO_DATA: Record<string, { desc: string; descAr: string; kw: string; kwAr: string }> = {
+    "investment-disputes": {
+      desc: "Foreign investment dispute legal advice in Saudi Arabia — joint venture disputes, partner conflicts & regulatory claims. Online via WhatsApp or email, 24/7.",
+      descAr: "استشارة قانونية في نزاعات الاستثمار الأجنبي بالمملكة — نزاعات المشاريع المشتركة والشركاء والمطالبات التنظيمية. أونلاين 24/7.",
+      kw: "investment dispute lawyer Saudi Arabia, joint venture dispute KSA, foreign investor rights Saudi, MISA dispute online",
+      kwAr: "محامي نزاعات استثمار السعودية, نزاعات المشاريع المشتركة, حقوق المستثمر الأجنبي, نزاع هيئة الاستثمار أونلاين",
+    },
+    "investment-appeals": {
+      desc: "Foreign investment decision appeal legal advice in Saudi Arabia — appealing MISA decisions, court rulings & regulatory orders. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في استئناف قرارات الاستثمار الأجنبي بالمملكة — قرارات هيئة الاستثمار والأحكام القضائية. أونلاين 24/7.",
+      kw: "investment appeal lawyer Saudi Arabia, MISA appeal KSA, regulatory decision appeal Saudi, investment ruling appeal online",
+      kwAr: "محامي استئناف استثماري السعودية, استئناف قرارات هيئة الاستثمار, استئناف قرار تنظيمي, استشارة استثمار أونلاين",
+    },
+    "investment-licensing": {
+      desc: "Foreign investment license legal advice in Saudi Arabia — MISA licensing, conditions, restrictions & Vision 2030 compliance. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في ترخيص الاستثمار الأجنبي بالمملكة — ترخيص هيئة الاستثمار وشروطه ومتطلبات رؤية 2030. أونلاين 24/7.",
+      kw: "MISA license lawyer Saudi Arabia, foreign investment license KSA, investment licensing Saudi, Vision 2030 compliance online",
+      kwAr: "محامي ترخيص استثمار أجنبي السعودية, ترخيص هيئة الاستثمار, استثمار أجنبي رؤية 2030, استشارة ترخيص أونلاين",
+    },
+    "license-renewal": {
+      desc: "Foreign investment license renewal & amendment in Saudi Arabia — MISA renewals, activity changes & compliance updates. Online legal advice, 24/7.",
+      descAr: "استشارة قانونية في تجديد وتعديل ترخيص الاستثمار الأجنبي بالمملكة — تجديد هيئة الاستثمار وتغيير النشاط. أونلاين 24/7.",
+      kw: "investment license renewal Saudi Arabia, MISA renewal KSA, license amendment Saudi, investment activity change online",
+      kwAr: "محامي تجديد ترخيص استثمار السعودية, تجديد ترخيص هيئة الاستثمار, تعديل ترخيص, استشارة تجديد أونلاين",
+    },
+    "license-cancellation": {
+      desc: "Challenging MISA license cancellation & suspension in Saudi Arabia — defend your foreign investment rights & appeal decisions. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في الطعن بإلغاء وتعليق ترخيص الاستثمار الأجنبي بالمملكة — الدفاع عن حقوق المستثمر. أونلاين 24/7.",
+      kw: "license cancellation lawyer Saudi Arabia, MISA suspension KSA, license revocation challenge Saudi, investment rights appeal online",
+      kwAr: "محامي إلغاء ترخيص استثمار السعودية, الطعن في قرار هيئة الاستثمار, تعليق الترخيص, استشارة استثمار أونلاين",
+    },
+    "company-formation": {
+      desc: "Foreign company formation legal advice in Saudi Arabia — company setup, licensing & branch registration under Vision 2030. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في تأسيس الشركات الأجنبية بالمملكة — الإنشاء والترخيص وتسجيل الفروع في إطار رؤية 2030. أونلاين 24/7.",
+      kw: "foreign company formation Saudi Arabia, company setup KSA, branch registration Saudi, Vision 2030 company formation online",
+      kwAr: "محامي تأسيس شركة أجنبية السعودية, إنشاء شركة في السعودية, تسجيل فرع, رؤية 2030 استثمار, استشارة تأسيس أونلاين",
+    },
+    "foreign-investment-dispute": {
+      desc: "Investor-state & bilateral investment treaty dispute legal advice in Saudi Arabia — BIT claims, arbitration & ICSID proceedings. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في نزاعات المستثمر مع الدولة ومعاهدات الاستثمار الثنائية بالمملكة — التحكيم الدولي والمطالبات. أونلاين 24/7.",
+      kw: "investor state dispute Saudi Arabia, BIT claim KSA, investment treaty arbitration Saudi, ICSID Saudi, foreign investor protection online",
+      kwAr: "محامي نزاعات المستثمر مع الدولة السعودية, معاهدة استثمار ثنائية, تحكيم دولي استثمار, استشارة استثمار أجنبي أونلاين",
+    },
+    "investor-compensation": {
+      desc: "Foreign investor compensation legal advice in Saudi Arabia — regulatory harm, expropriation & investment loss claims. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في تعويض المستثمر الأجنبي بالمملكة — الضرر التنظيمي ومصادرة الاستثمار ومطالبات الخسائر. أونلاين 24/7.",
+      kw: "investor compensation lawyer Saudi Arabia, expropriation claim KSA, regulatory harm Saudi, investment loss compensation online",
+      kwAr: "محامي تعويض مستثمر أجنبي السعودية, مصادرة الاستثمار, ضرر تنظيمي استثماري, استشارة تعويض أونلاين",
+    },
+    "share-transfer": {
+      desc: "Foreign company share transfer & ownership change in Saudi Arabia — MISA approval, transfer process & exit transactions. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في نقل أسهم الشركات الأجنبية وتغيير الملكية بالمملكة — موافقة هيئة الاستثمار وإجراءات النقل. أونلاين 24/7.",
+      kw: "share transfer lawyer Saudi Arabia, company ownership change KSA, MISA share transfer, exit transaction Saudi, share transfer online",
+      kwAr: "محامي نقل أسهم السعودية, تغيير ملكية الشركة, نقل أسهم هيئة الاستثمار, صفقة الخروج, استشارة نقل أسهم أونلاين",
+    },
+  };
+
+  const seoMeta = SEO_DATA[subId] ?? { desc: data.subtitle, descAr: data.subtitle, kw: "", kwAr: "" };
+  const seoDescription = isRTL ? seoMeta.descAr : seoMeta.desc;
+  const seoKeywords = isRTL ? seoMeta.kwAr : seoMeta.kw;
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -36,13 +98,25 @@ export default function ForeignInvestmentSub() {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://qanoni.com/" },
+      { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://qanoni.com/services" },
+      { "@type": "ListItem", position: 3, name: isRTL ? "الاستثمار الأجنبي" : "Foreign Investment", item: "https://qanoni.com/services/foreign-investment" },
+      { "@type": "ListItem", position: 4, name: data.title, item: `https://qanoni.com/services/foreign-investment/${subId}` },
+    ],
+  };
+
   return (
     <div className="w-full bg-background min-h-screen">
       <SEOHead
         title={data.seoTitle}
-        description={data.subtitle}
+        description={seoDescription}
         canonical={`/services/foreign-investment/${subId}`}
-        schema={faqSchema}
+        keywords={seoKeywords}
+        schema={[faqSchema, breadcrumbSchema]}
       />
 
       {/* Breadcrumb */}

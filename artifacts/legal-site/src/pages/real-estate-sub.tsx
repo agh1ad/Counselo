@@ -26,6 +26,50 @@ export default function RealEstateSub() {
   }
 
   const otherAreas = rel.subAreas.filter((a) => a.id !== subId);
+
+  const SEO_DATA: Record<string, { desc: string; descAr: string; kw: string; kwAr: string }> = {
+    "ownership-disputes": {
+      desc: "Property ownership dispute legal advice in Saudi Arabia — title deeds, contested ownership & court claims. Online via WhatsApp or email, 24/7.",
+      descAr: "استشارة قانونية في نزاعات ملكية العقار بالمملكة — صكوك الملكية والنزاعات المطعون بها والمطالبات القضائية. أونلاين 24/7.",
+      kw: "property dispute lawyer Saudi Arabia, ownership dispute KSA, title deed dispute Saudi, real estate ownership claim online",
+      kwAr: "محامي نزاعات ملكية عقار السعودية, صك الملكية, نزاعات ملكية العقار, استشارة عقارية أونلاين",
+    },
+    "sale-purchase-disputes": {
+      desc: "Real estate sale & purchase dispute legal advice in Saudi Arabia — contract breaches, buyer & seller rights & developer claims. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في نزاعات بيع وشراء العقار بالمملكة — إخلال العقود وحقوق المشتري والبائع. أونلاين 24/7.",
+      kw: "real estate dispute lawyer Saudi Arabia, property sale dispute KSA, buyer seller rights Saudi, developer dispute online",
+      kwAr: "محامي نزاعات بيع عقار السعودية, نزاعات المشتري والبائع, نزاع مطور عقاري, استشارة بيع عقار أونلاين",
+    },
+    "property-encroachment": {
+      desc: "Property encroachment & boundary dispute legal advice in Saudi Arabia — illegal structures, trespass & court remedies. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في التعدي على العقار ونزاعات الحدود بالمملكة — المنشآت غير النظامية والتعدي القضائي. أونلاين 24/7.",
+      kw: "property encroachment lawyer Saudi Arabia, boundary dispute KSA, illegal structure Saudi, trespass claim Saudi, property boundary online",
+      kwAr: "محامي تعدي عقار السعودية, نزاعات الحدود العقارية, التعدي على الملكية, منشآت غير نظامية, استشارة حدود أونلاين",
+    },
+    "landlord-tenant": {
+      desc: "Landlord & tenant dispute legal advice in Saudi Arabia — rent arrears, eviction, lease breaches & Ejar platform rights. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في نزاعات المالك والمستأجر بالمملكة — الإيجار المتأخر والإخلاء وانتهاكات العقد ومنصة إيجار. أونلاين 24/7.",
+      kw: "landlord tenant lawyer Saudi Arabia, eviction KSA, rent dispute Saudi, Ejar platform dispute, lease dispute online",
+      kwAr: "محامي نزاعات إيجار السعودية, الإخلاء السعودي, إيجار متأخر, منصة إيجار نزاع, استشارة إيجار أونلاين",
+    },
+    "registration-title-deed": {
+      desc: "Property registration & title deed legal advice in Saudi Arabia — missing deeds, registration disputes & title transfer. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في تسجيل العقارات والصكوك بالمملكة — الصكوك المفقودة والنزاعات ونقل الملكية. أونلاين 24/7.",
+      kw: "property registration lawyer Saudi Arabia, title deed Saudi, sakk registration, real estate title dispute, property deed online",
+      kwAr: "محامي تسجيل عقارات السعودية, صك ملكية, تسجيل الصك العقاري, نزاعات الصكوك, استشارة تسجيل عقار أونلاين",
+    },
+    "construction-disputes": {
+      desc: "Construction & contractor dispute legal advice in Saudi Arabia — defects, delays, payment claims & FIDIC contracts. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في نزاعات البناء والمقاولات بالمملكة — العيوب الإنشائية والتأخير ومطالبات الدفع. أونلاين 24/7.",
+      kw: "construction dispute lawyer Saudi Arabia, contractor claim KSA, construction defects Saudi, FIDIC contract dispute, building dispute online",
+      kwAr: "محامي نزاعات بناء السعودية, نزاعات المقاولات, عيوب البناء, مطالبات المقاول, استشارة بناء أونلاين",
+    },
+  };
+
+  const seoMeta = SEO_DATA[subId] ?? { desc: data.subtitle, descAr: data.subtitle, kw: "", kwAr: "" };
+  const seoDescription = isRTL ? seoMeta.descAr : seoMeta.desc;
+  const seoKeywords = isRTL ? seoMeta.kwAr : seoMeta.kw;
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -36,13 +80,25 @@ export default function RealEstateSub() {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://qanoni.com/" },
+      { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://qanoni.com/services" },
+      { "@type": "ListItem", position: 3, name: isRTL ? "القانون العقاري" : "Real Estate Law", item: "https://qanoni.com/services/real-estate" },
+      { "@type": "ListItem", position: 4, name: data.title, item: `https://qanoni.com/services/real-estate/${subId}` },
+    ],
+  };
+
   return (
     <div className="w-full bg-background min-h-screen">
       <SEOHead
         title={data.seoTitle}
-        description={data.subtitle}
+        description={seoDescription}
         canonical={`/services/real-estate/${subId}`}
-        schema={faqSchema}
+        keywords={seoKeywords}
+        schema={[faqSchema, breadcrumbSchema]}
       />
 
       {/* Breadcrumb */}

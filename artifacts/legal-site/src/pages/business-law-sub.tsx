@@ -26,6 +26,56 @@ export default function BusinessLawSub() {
   }
 
   const otherAreas = bld.subAreas.filter((a) => a.id !== subId);
+
+  const SEO_DATA: Record<string, { desc: string; descAr: string; kw: string; kwAr: string }> = {
+    "commercial-contracts": {
+      desc: "Commercial contract legal advice in Saudi Arabia — drafting, dispute resolution, breach remedies & enforcement. Online consultation via WhatsApp or email, 24/7.",
+      descAr: "استشارة قانونية في العقود التجارية بالمملكة — الصياغة وتسوية النزاعات والإخلال وإنفاذ العقود. أونلاين عبر واتساب أو البريد الإلكتروني، 24/7.",
+      kw: "commercial contract lawyer Saudi Arabia, contract dispute KSA, business contracts Saudi, contract enforcement online, breach of contract Saudi",
+      kwAr: "محامي عقود تجارية السعودية, نزاعات العقود التجارية, إنفاذ العقود, إخلال بالعقد, استشارة عقود أونلاين",
+    },
+    "commercial-instruments": {
+      desc: "Legal advice for dishonoured cheques, promissory notes & bills of exchange in Saudi Arabia. Online consultation via WhatsApp or email, 24/7.",
+      descAr: "استشارة قانونية في الأوراق التجارية بالمملكة — الشيكات المرتجعة والكمبيالات وسندات الأمر. أونلاين عبر واتساب أو البريد الإلكتروني، 24/7.",
+      kw: "cheque bounce lawyer Saudi Arabia, dishonoured cheque KSA, promissory note Saudi, bill of exchange dispute, commercial paper online",
+      kwAr: "محامي شيكات مرتجعة السعودية, الأوراق التجارية, كمبيالة, سند إذني, نزاعات أوراق تجارية أونلاين",
+    },
+    "commercial-agency": {
+      desc: "Commercial agency legal advice in Saudi Arabia — registration, disputes, termination & distributor rights. Online consultation via WhatsApp or email, 24/7.",
+      descAr: "استشارة قانونية في الوكالة التجارية بالمملكة — التسجيل والنزاعات والإنهاء وحقوق الوكيل التجاري. أونلاين 24/7.",
+      kw: "commercial agency lawyer Saudi Arabia, distributor dispute KSA, agency agreement Saudi, agency termination rights, commercial agent online",
+      kwAr: "محامي وكالة تجارية السعودية, نزاعات الوكالة التجارية, إنهاء الوكالة, حقوق الموزع, استشارة وكالة أونلاين",
+    },
+    "bankruptcy-liquidation": {
+      desc: "Bankruptcy, insolvency & company liquidation legal advice in Saudi Arabia — restructuring, creditor rights & court process. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في الإفلاس والتصفية بالمملكة — إعادة الهيكلة وحقوق الدائنين والإجراءات القضائية. أونلاين 24/7.",
+      kw: "bankruptcy lawyer Saudi Arabia, company liquidation KSA, insolvency Saudi, creditor rights Saudi, restructuring online consultation",
+      kwAr: "محامي إفلاس السعودية, تصفية الشركات, الإعسار المالي, إعادة الهيكلة, استشارة إفلاس أونلاين",
+    },
+    "company-partnership-disputes": {
+      desc: "Company & partnership dispute legal advice in Saudi Arabia — shareholder rights, deadlock, dissolution & governance. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في نزاعات الشركات والشراكات بالمملكة — حقوق المساهمين والحلول والحوكمة المؤسسية. أونلاين 24/7.",
+      kw: "company dispute lawyer Saudi Arabia, partnership dispute KSA, shareholder rights Saudi, founder dispute online, corporate governance Saudi",
+      kwAr: "محامي نزاعات شركات السعودية, نزاعات الشراكة, حقوق المساهمين, حوكمة الشركات, استشارة شركات أونلاين",
+    },
+    "unfair-competition-commercial-fraud": {
+      desc: "Legal protection against unfair competition & commercial fraud in Saudi Arabia — IP theft, trade secrets & market manipulation. Online consultation, 24/7.",
+      descAr: "حماية قانونية ضد المنافسة غير المشروعة والغش التجاري في المملكة — سرقة الملكية الفكرية والأسرار التجارية. أونلاين 24/7.",
+      kw: "unfair competition lawyer Saudi Arabia, commercial fraud KSA, IP theft Saudi, trade secret protection online, anti-competition Saudi",
+      kwAr: "محامي منافسة غير مشروعة السعودية, الغش التجاري, سرقة الملكية الفكرية, الأسرار التجارية, استشارة تجارية أونلاين",
+    },
+    "trademarks": {
+      desc: "Trademark registration, protection & infringement legal advice in Saudi Arabia — SAIP filings, brand disputes & enforcement. Online consultation, 24/7.",
+      descAr: "استشارة قانونية في تسجيل وحماية العلامات التجارية بالمملكة — طلبات هيئة الملكية الفكرية ونزاعات العلامات. أونلاين 24/7.",
+      kw: "trademark lawyer Saudi Arabia, trademark registration KSA, trademark infringement Saudi, SAIP filing, brand protection online",
+      kwAr: "محامي علامات تجارية السعودية, تسجيل العلامة التجارية, انتهاك العلامة التجارية, حماية العلامة, استشارة ملكية فكرية أونلاين",
+    },
+  };
+
+  const seoMeta = SEO_DATA[subId] ?? { desc: data.subtitle, descAr: data.subtitle, kw: "", kwAr: "" };
+  const seoDescription = isRTL ? seoMeta.descAr : seoMeta.desc;
+  const seoKeywords = isRTL ? seoMeta.kwAr : seoMeta.kw;
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -36,13 +86,25 @@ export default function BusinessLawSub() {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://qanoni.com/" },
+      { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://qanoni.com/services" },
+      { "@type": "ListItem", position: 3, name: isRTL ? "القانون التجاري" : "Commercial Law", item: "https://qanoni.com/services/business-law" },
+      { "@type": "ListItem", position: 4, name: data.title, item: `https://qanoni.com/services/business-law/${subId}` },
+    ],
+  };
+
   return (
     <div className="w-full bg-background min-h-screen">
       <SEOHead
         title={data.seoTitle}
-        description={data.subtitle}
+        description={seoDescription}
         canonical={`/services/business-law/${subId}`}
-        schema={faqSchema}
+        keywords={seoKeywords}
+        schema={[faqSchema, breadcrumbSchema]}
       />
 
       {/* Breadcrumb */}
