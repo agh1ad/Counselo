@@ -11,11 +11,26 @@ export default function Services() {
   const s = t.services;
 
   const seoTitle = isRTL
-    ? "مجالات الممارسة القانونية | محامي سعودي أونلاين | قانوني"
-    : "Legal Practice Areas Saudi Arabia | Online Lawyer | Qanoni — 30+ Years Experience";
+    ? "جميع الخدمات القانونية في السعودية | استشارة أونلاين | قانوني"
+    : "Legal Services Saudi Arabia | All Practice Areas | Online Consultation | Qanoni قانوني";
   const seoDesc = isRTL
-    ? "استكشف جميع مجالات قانوني القانونية في المملكة العربية السعودية: قانون الأسرة، القانون التجاري، القانون العقاري، قانون العمل، الاستثمار الأجنبي، والقانون الإداري — المحامي عمر البغدادي، أكثر من 30 عاماً وأكثر من 20,000 قضية. استشارة أونلاين عبر واتساب أو البريد الإلكتروني — 24/7."
-    : "All of Qanoni's legal practice areas in Saudi Arabia — Family Law, Commercial Law, Real Estate, Employment Law, Foreign Investment & Administrative Law. Led by Lawyer Omar Al-Baghdadi, Legal Counsel — 30+ years, 20,000+ cases. Consult online via WhatsApp or email, 24/7.";
+    ? "اكتشف خدمات قانوني القانونية في المملكة العربية السعودية: قانون الأسرة، القانون التجاري، القانون العقاري، قانون العمل، الاستثمار الأجنبي، والقانون الإداري. خبرة تزيد على 30 عاماً وأكثر من 20,000 قضية. استشارة أونلاين عبر واتساب أو البريد الإلكتروني — 24/7 بالعربية والإنجليزية."
+    : "Explore Qanoni's full range of legal services in Saudi Arabia: Family Law, Commercial Law, Real Estate, Employment Law, Foreign Investment & Administrative Law. 30+ years experience, 20,000+ cases. Consult online via WhatsApp or email — 24/7, in Arabic and English.";
+
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": isRTL ? "مجالات الممارسة القانونية — قانوني السعودية" : "Legal Practice Areas — Qanoni Saudi Arabia",
+    "url": "https://qanoni.com/services",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": isRTL ? "قانون الأسرة" : "Family Law", "url": "https://qanoni.com/services/family-law" },
+      { "@type": "ListItem", "position": 2, "name": isRTL ? "القانون التجاري" : "Commercial Law", "url": "https://qanoni.com/services/business-law" },
+      { "@type": "ListItem", "position": 3, "name": isRTL ? "القانون العقاري" : "Property Law", "url": "https://qanoni.com/services/real-estate" },
+      { "@type": "ListItem", "position": 4, "name": isRTL ? "قانون العمل" : "Employment Law", "url": "https://qanoni.com/services/employment-law" },
+      { "@type": "ListItem", "position": 5, "name": isRTL ? "الاستثمار الأجنبي" : "Foreign Investment", "url": "https://qanoni.com/services/foreign-investment" },
+      { "@type": "ListItem", "position": 6, "name": isRTL ? "القانون الإداري" : "Administrative Law", "url": "https://qanoni.com/services/administrative-law" },
+    ],
+  };
 
   return (
     <div className="w-full bg-background min-h-screen">
@@ -23,6 +38,10 @@ export default function Services() {
         title={seoTitle}
         description={seoDesc}
         canonical="/services"
+        keywords={isRTL
+          ? "خدمات قانونية السعودية, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل السعودي, القانون العقاري السعودي, الاستثمار الأجنبي, القانون الإداري, محامي أونلاين المملكة, قانوني"
+          : "legal services Saudi Arabia, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, property law KSA, foreign investment lawyer Saudi Arabia, administrative law Saudi Arabia, online lawyer KSA, Qanoni"}
+        schema={servicesSchema}
       />
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 10%) 0%, hsl(150 80% 15%) 100%)" }} />

@@ -27,12 +27,40 @@ export default function ServiceDetail() {
     <div className="w-full bg-background min-h-screen">
       <SEOHead
         title={isRTL
-          ? `${data.title} | استشارة قانونية أونلاين في السعودية | قانوني`
-          : `${data.title} Lawyer Saudi Arabia | Online Legal Consultation | Qanoni`}
+          ? `${data.title} في السعودية | استشارة قانونية أونلاين | قانوني`
+          : `${data.title} Saudi Arabia | Online Legal Consultation | Qanoni قانوني`}
         description={isRTL
-          ? `${data.subtitle} — المحامي والمستشار القانوني عمر البغدادي، أكثر من 30 عاماً وأكثر من 20,000 قضية. استشارة أونلاين عبر واتساب أو البريد الإلكتروني، على مدار الساعة.`
-          : `${data.subtitle} — Lawyer and Legal Counsel Omar Al-Baghdadi, 30+ years experience, 20,000+ cases handled. Consult online via WhatsApp or email, 24/7, in Arabic & English.`}
+          ? `${data.subtitle} — قانوني، المنصة الرائدة للاستشارات القانونية الأونلاين في المملكة. خبرة تزيد على 30 عاماً وأكثر من 20,000 قضية. استشارة أونلاين عبر واتساب أو البريد الإلكتروني، على مدار الساعة.`
+          : `${data.subtitle} — Qanoni, Saudi Arabia's leading online legal platform. 30+ years experience, 20,000+ cases handled. Consult online via WhatsApp or email, 24/7, in Arabic & English.`}
         canonical={`/services/${id}`}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Legal Consultation",
+            "name": isRTL ? `${data.title} — قانوني` : `${data.title} — Qanoni`,
+            "description": data.subtitle,
+            "provider": {
+              "@type": "LegalService",
+              "name": "Qanoni قانوني",
+              "url": "https://qanoni.com",
+              "telephone": "+966594850247",
+              "areaServed": "Saudi Arabia",
+            },
+            "url": `https://qanoni.com/services/${id}`,
+            "areaServed": { "@type": "Country", "name": "Saudi Arabia" },
+            "availableLanguage": ["Arabic", "English"],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://qanoni.com/" },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "الخدمات" : "Services", "item": "https://qanoni.com/services" },
+              { "@type": "ListItem", "position": 3, "name": data.title, "item": `https://qanoni.com/services/${id}` },
+            ],
+          },
+        ]}
       />
       {/* Breadcrumb */}
       <div className="bg-card border-b border-border py-4 mt-24">

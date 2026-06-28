@@ -51,12 +51,26 @@ export default function Blog() {
     <div className="w-full bg-background min-h-screen" dir={isRTL ? "rtl" : "ltr"}>
       <SEOHead
         title={isRTL
-          ? "مدونة قانونية سعودية | مقالات ودليل القانون السعودي | قانوني"
-          : "Saudi Arabian Law Blog | Legal Articles & Guides | Qanoni — Expert Legal Team"}
+          ? "مدونة قانونية سعودية | مقالات وإرشادات قانونية مجانية | قانوني"
+          : "Saudi Legal Blog | Free Legal Guides & Articles | Qanoni قانوني"}
         description={isRTL
-          ? "إرشادات قانونية عملية في قانون الأسرة السعودي وقانون العمل والعقارات والأعمال والاستثمار الأجنبي والقانون الإداري — بقلم فريق المحامي والمستشار القانوني عمر البغدادي، خبرة تزيد على 30 عاماً وأكثر من 20,000 قضية."
-          : "Practical legal articles on Saudi family law, employment law, real estate, commercial law, foreign investment, and administrative law — written by the team of Lawyer and Legal Counsel Omar Al-Baghdadi, 30+ years experience, 20,000+ cases handled across Saudi Arabia."}
+          ? "إرشادات قانونية مجانية وعملية في قانون الأسرة السعودي وقانون العمل والعقارات والقانون التجاري والاستثمار الأجنبي والقانون الإداري — مقالات معمّقة بقلم فريق قانوني القانوني المتخصص في المملكة العربية السعودية."
+          : "Free practical legal guides on Saudi family law, employment law, real estate, commercial law, foreign investment, and administrative law — in-depth articles from Qanoni's expert legal team in Saudi Arabia."}
         canonical="/blog"
+        keywords={isRTL
+          ? "مدونة قانونية سعودية, مقالات قانونية, إرشادات قانونية مجانية, قانون الأسرة السعودي, قانون العمل السعودي, القانون العقاري, القانون التجاري, الاستثمار الأجنبي, القانون الإداري, قانوني"
+          : "Saudi legal blog, free legal guides Saudi Arabia, family law articles, employment law KSA, real estate law guide, commercial law Saudi Arabia, foreign investment guide, administrative law, Qanoni blog"}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "name": isRTL ? "مدونة قانوني القانونية" : "Qanoni Legal Blog",
+          "description": isRTL
+            ? "إرشادات قانونية معمّقة للأفراد والشركات في المملكة العربية السعودية"
+            : "In-depth legal guides for individuals and businesses in Saudi Arabia",
+          "url": "https://qanoni.com/blog",
+          "publisher": { "@type": "Organization", "name": "Qanoni قانوني", "url": "https://qanoni.com" },
+          "inLanguage": [isRTL ? "ar" : "en"],
+        }}
       />
 
       {/* Hero */}

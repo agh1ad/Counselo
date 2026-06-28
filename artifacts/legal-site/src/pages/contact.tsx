@@ -76,9 +76,34 @@ export default function Contact() {
   return (
     <div className="w-full bg-background min-h-screen">
       <SEOHead
-        title="Contact an Online Lawyer in Saudi Arabia | Book a Consultation | Qanoni"
-        description="Contact Qanoni to book an online legal consultation in Saudi Arabia. Reach Lawyer Omar Al-Baghdadi — 30+ years experience — via WhatsApp (+966 59 485 0247) or email. Available 24/7 in Arabic and English."
+        title={isRTL
+          ? "تواصل معنا | احجز استشارة قانونية أونلاين في السعودية | قانوني"
+          : "Book Online Legal Consultation Saudi Arabia | Contact Qanoni قانوني"}
+        description={isRTL
+          ? "تواصل مع قانوني لحجز استشارة قانونية أونلاين في المملكة العربية السعودية. تواصل معنا عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. متاح 24/7 بالعربية والإنجليزية. استجابة خلال دقائق."
+          : "Book an online legal consultation in Saudi Arabia with Qanoni. Reach us via WhatsApp (+966 59 485 0247) or email — available 24/7 in Arabic and English. Response within minutes."}
         canonical="/contact"
+        keywords={isRTL
+          ? "احجز استشارة قانونية السعودية, تواصل مع محامي أونلاين, استشارة قانونية واتساب السعودية, مشورة قانونية فورية, قانوني اتصل"
+          : "book legal consultation Saudi Arabia, contact lawyer online KSA, WhatsApp legal consultation Saudi Arabia, online legal advice, Qanoni contact"}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": isRTL ? "تواصل مع قانوني" : "Contact Qanoni",
+          "description": isRTL
+            ? "احجز استشارة قانونية أونلاين في المملكة العربية السعودية"
+            : "Book an online legal consultation in Saudi Arabia",
+          "url": "https://qanoni.com/contact",
+          "mainEntity": {
+            "@type": "LegalService",
+            "name": "Qanoni قانوني",
+            "telephone": "+966594850247",
+            "email": "bagdadio@gmail.com",
+            "url": "https://qanoni.com",
+            "areaServed": "Saudi Arabia",
+            "availableLanguage": ["Arabic", "English"],
+          },
+        }}
       />
       {/* Hero */}
       <section className="relative py-28 border-b border-border">

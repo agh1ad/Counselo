@@ -9,9 +9,9 @@ export default function TermsOfService() {
 
   const content = {
     en: {
-      seoTitle: "Terms of Service | Qanoni — Online Legal Consultation Saudi Arabia",
+      seoTitle: "Terms of Service | Online Legal Consultation Process | Qanoni قانوني",
       seoDesc:
-        "Qanoni's terms of service for online legal consultations in Saudi Arabia. Understand our process: submit your information, receive a cost estimate, pay securely, and get your expert legal answer.",
+        "Qanoni's consultation terms and process for online legal advice in Saudi Arabia — how it works: submit your matter, receive a cost estimate, pay securely, and receive your expert legal answer. 24/7, Arabic and English.",
       eyebrow: "Legal Consultation Terms",
       heading: "Terms of Service",
       subheading:
@@ -71,9 +71,9 @@ export default function TermsOfService() {
       ctaBtn: "Contact Us Now",
     },
     ar: {
-      seoTitle: "شروط الخدمة | قانوني — استشارات قانونية أونلاين في السعودية",
+      seoTitle: "شروط الخدمة | آلية الاستشارة القانونية الأونلاين | قانوني",
       seoDesc:
-        "شروط خدمة الاستشارات القانونية الإلكترونية من قانوني في المملكة العربية السعودية. تعرّف على آلية عملنا: أرسل معلوماتك، احصل على تقدير التكلفة، ادفع بأمان، واستلم إجابتك القانونية.",
+        "شروط وآلية استشارات قانوني القانونية الأونلاين في المملكة العربية السعودية — كيفية العمل: أرسل قضيتك، احصل على تقدير التكلفة، ادفع بأمان، واستلم إجابتك القانونية. متاح 24/7 بالعربية والإنجليزية.",
       eyebrow: "شروط الاستشارة القانونية",
       heading: "شروط الخدمة",
       subheading:

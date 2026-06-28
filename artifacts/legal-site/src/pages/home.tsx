@@ -27,12 +27,27 @@ export default function Home() {
     <div className="w-full">
       <SEOHead
         title={isRTL
-          ? "استشارة قانونية أونلاين في السعودية | المحامي عمر البغدادي | 30+ عاماً | قانوني"
-          : "Online Legal Consultation Saudi Arabia | Lawyer Omar Al-Baghdadi | 30+ Years | Qanoni"}
+          ? "استشارة قانونية أونلاين في السعودية | 24/7 | قانوني"
+          : "Online Legal Consultation Saudi Arabia | 24/7 | Qanoni قانوني"}
         description={isRTL
-          ? "قانوني — المنصة القانونية الأونلاين الأكثر خبرةً في المملكة العربية السعودية. أسّسها المحامي والمستشار القانوني عمر البغدادي: أكثر من 30 عاماً وأكثر من 20,000 قضية. مشورة قانونية متخصصة عبر واتساب أو البريد الإلكتروني — 24/7، بالعربية والإنجليزية."
-          : "Qanoni — Saudi Arabia's leading online legal platform. Founded by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years practice, 20,000+ cases across Saudi Arabia, UAE and Syria. Expert legal advice via WhatsApp or email. Available 24/7. Arabic & English."}
+          ? "قانوني — المنصة الرائدة للاستشارات القانونية الأونلاين في المملكة العربية السعودية. مشورة قانونية متخصصة عبر واتساب أو البريد الإلكتروني للأفراد والشركات والمستثمرين. خبرة تزيد على 30 عاماً وأكثر من 20,000 قضية. متاحة 24/7 بالعربية والإنجليزية."
+          : "Qanoni is Saudi Arabia's leading online legal consultation platform — expert legal advice via WhatsApp or email for individuals, businesses and investors across the Kingdom. 30+ years experience, 20,000+ cases handled. Available 24/7 in Arabic and English."}
         canonical="/"
+        keywords={isRTL
+          ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة, مشورة قانونية فورية, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل, القانون العقاري, استثمار أجنبي, القانون الإداري, استشارة قانونية واتساب, قانوني"
+          : "online legal consultation Saudi Arabia, lawyer online Saudi Arabia, legal advice KSA 24/7, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law KSA, foreign investment lawyer Saudi Arabia, WhatsApp legal consultation, Qanoni"}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": isRTL ? "استشارة قانونية أونلاين في السعودية | قانوني" : "Online Legal Consultation Saudi Arabia | Qanoni",
+          "description": isRTL
+            ? "منصة الاستشارات القانونية الأونلاين الرائدة في المملكة العربية السعودية"
+            : "Saudi Arabia's leading online legal consultation platform",
+          "url": "https://qanoni.com/",
+          "inLanguage": [isRTL ? "ar" : "en"],
+          "isPartOf": { "@type": "WebSite", "name": "Qanoni قانوني", "url": "https://qanoni.com" },
+          "about": { "@type": "LegalService", "name": "Qanoni", "areaServed": "Saudi Arabia" },
+        }}
       />
 
       {/* ── HERO ── */}
