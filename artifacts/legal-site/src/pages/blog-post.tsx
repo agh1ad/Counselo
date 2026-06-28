@@ -1,15 +1,59 @@
 import { useParams, Link } from "wouter";
 import { motion } from "framer-motion";
 import { Clock, ArrowLeft, ArrowRight, Calendar, MessageCircle } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { getPostBySlug, formatDate } from "@/data/blog-posts";
+
+interface BlogSection {
+  heading?: string;
+  body: string;
+}
+
+interface ApiPost {
+  id: number;
+  slug: string;
+  date: string;
+  categoryEn: string;
+  categoryAr: string;
+  readTime: number;
+  titleEn: string;
+  titleAr: string;
+  excerptEn: string;
+  excerptAr: string;
+  seoTitleEn: string;
+  seoTitleAr: string;
+  seoDescriptionEn: string;
+  seoDescriptionAr: string;
+  contentEn: BlogSection[];
+  contentAr: BlogSection[];
+  published: boolean;
+}
+
+function formatDate(dateStr: string, lang: string) {
+  const date = new Date(dateStr);
+  if (isNaN(date.getTime())) return dateStr;
+  return date.toLocaleDateString(lang === "ar" ? "ar-SA" : "en-GB", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const { lang, isRTL } = useLanguage();
 
-  const post = getPostBySlug(slug ?? "");
+  const { data: post, isLoading, isError } = useQuery<ApiPost>({
+    queryKey: ["blog-post", slug],
+    queryFn: async () => {
+      const res = await fetch(`/api/blog/posts/${slug}`);
+      if (!res.ok) throw new Error("Not found");
+      return res.json() as Promise<ApiPost>;
+    },
+    staleTime: 60_000,
+    retry: false,
+  });
 
   const ui = {
     en: {
@@ -25,6 +69,7 @@ export default function BlogPost() {
       notFound: "Article Not Found",
       notFoundDesc: "This article does not exist or may have been moved.",
       backBlog: "Return to Blog",
+      loading: "Loading article…",
     },
     ar: {
       back: "العودة إلى المدونة",
@@ -39,12 +84,21 @@ export default function BlogPost() {
       notFound: "المقال غير موجود",
       notFoundDesc: "هذا المقال غير موجود أو ربما نُقل.",
       backBlog: "العودة إلى المدونة",
+      loading: "جارٍ تحميل المقال…",
     },
   }[lang];
 
   const BackArrow = isRTL ? ArrowRight : ArrowLeft;
 
-  if (!post) {
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center" dir={isRTL ? "rtl" : "ltr"}>
+        <p className="text-muted-foreground animate-pulse">{ui.loading}</p>
+      </div>
+    );
+  }
+
+  if (isError || !post) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-4" dir={isRTL ? "rtl" : "ltr"}>
         <h1 className="text-2xl font-serif font-bold text-foreground">{ui.notFound}</h1>
@@ -54,14 +108,18 @@ export default function BlogPost() {
     );
   }
 
-  const data = post[lang];
-  const category = post.category[lang];
+  const title = isRTL ? post.titleAr : post.titleEn;
+  const excerpt = isRTL ? post.excerptAr : post.excerptEn;
+  const seoTitle = isRTL ? (post.seoTitleAr || post.titleAr) : (post.seoTitleEn || post.titleEn);
+  const seoDesc = isRTL ? (post.seoDescriptionAr || post.excerptAr) : (post.seoDescriptionEn || post.excerptEn);
+  const category = isRTL ? post.categoryAr : post.categoryEn;
+  const content = isRTL ? post.contentAr : post.contentEn;
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": data.seoTitle,
-    "description": data.seoDescription,
+    "headline": seoTitle,
+    "description": seoDesc,
     "datePublished": post.date,
     "dateModified": post.date,
     "author": {
@@ -81,8 +139,8 @@ export default function BlogPost() {
   return (
     <div className="w-full bg-background min-h-screen" dir={isRTL ? "rtl" : "ltr"}>
       <SEOHead
-        title={data.seoTitle}
-        description={data.seoDescription}
+        title={seoTitle}
+        description={seoDesc}
         canonical={`/blog/${post.slug}`}
         extraSchemas={[articleSchema]}
       />
@@ -106,9 +164,9 @@ export default function BlogPost() {
               </span>
             </div>
             <h1 className="text-3xl md:text-4xl font-serif font-bold text-white leading-tight mb-4">
-              {data.title}
+              {title}
             </h1>
-            <p className="text-lg text-white/70 leading-relaxed">{data.excerpt}</p>
+            <p className="text-lg text-white/70 leading-relaxed">{excerpt}</p>
           </motion.div>
         </div>
       </section>
@@ -116,7 +174,6 @@ export default function BlogPost() {
       {/* Content + Sidebar */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid lg:grid-cols-3 gap-12">
-
           {/* Article body */}
           <motion.article
             initial={{ opacity: 0, y: 16 }}
@@ -125,7 +182,7 @@ export default function BlogPost() {
             className="lg:col-span-2"
           >
             <div className="prose prose-slate max-w-none">
-              {data.content.map((section, i) => (
+              {content.map((section, i) => (
                 <div key={i} className="mb-8">
                   {section.heading && (
                     <h2 className="text-xl font-serif font-bold text-foreground mb-3 mt-8 first:mt-0">
@@ -137,12 +194,9 @@ export default function BlogPost() {
               ))}
             </div>
 
-            {/* Disclaimer */}
             <div className="mt-10 p-4 bg-muted/50 border border-border text-xs text-muted-foreground leading-relaxed">
               {ui.disclaimer}
             </div>
-
-            {/* Back link */}
             <div className="mt-8">
               <Link href="/blog" className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm">
                 <BackArrow className="h-4 w-4" /> {ui.back}
@@ -181,7 +235,6 @@ export default function BlogPost() {
                 </div>
               </div>
 
-              {/* Author */}
               <div className="border border-border p-5">
                 <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-2">
                   {lang === "en" ? "Written by" : "بقلم"}

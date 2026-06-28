@@ -21,6 +21,7 @@ import AdministrativeLawSub from "@/pages/administrative-law-sub";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import TermsOfService from "@/pages/terms-of-service";
+import AdminCMS from "@/pages/admin";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,20 @@ function ScrollToTop() {
 }
 
 function Router() {
+  const [location] = useLocation();
+  const isAdmin = location.startsWith("/qanoni-admin");
+
+  if (isAdmin) {
+    return (
+      <>
+        <ScrollToTop />
+        <Switch>
+          <Route path="/qanoni-admin" component={AdminCMS} />
+        </Switch>
+      </>
+    );
+  }
+
   return (
     <>
       <ScrollToTop />
@@ -57,22 +72,40 @@ function Router() {
   );
 }
 
+function AppShell() {
+  const [location] = useLocation();
+  const isAdmin = location.startsWith("/qanoni-admin");
+
+  if (isAdmin) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Router />
+        <Toaster />
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen flex flex-col bg-background">
+      <Navbar />
+      <main className="flex-grow pt-24">
+        <Router />
+      </main>
+      <Footer />
+      <WhatsAppFloat />
+      <Toaster />
+    </div>
+  );
+}
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <LanguageProvider>
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-            <div className="min-h-screen flex flex-col bg-background">
-              <Navbar />
-              <main className="flex-grow pt-24">
-                <Router />
-              </main>
-              <Footer />
-            </div>
-            <WhatsAppFloat />
+            <AppShell />
           </WouterRouter>
-          <Toaster />
         </LanguageProvider>
       </TooltipProvider>
     </QueryClientProvider>
