@@ -78,7 +78,7 @@ export default function BlogPost() {
       minRead: "د قراءة",
       consultHeading: "هل تحتاج إلى مشورة قانونية؟",
       consultDesc:
-        "يقدم قانوني استشارات سرية عبر واتساب أو البريد الإلكتروني — دون الحاجة لزيارة مكتب. من تأسيس المحامي عمر البغدادي — خبرة قانونية سعودية تزيد على 30 عاماً.",
+        "يقدم قانوني استشارات سرية عبر واتساب أو البريد الإلكتروني — دون الحاجة لزيارة مكتب. من تأسيس المحامي والمستشار القانوني عمر البغدادي — خبرة قانونية سعودية تزيد على 30 عاماً.",
       whatsapp: "تواصل عبر واتساب",
       email: "أرسل بريداً إلكترونياً",
       disclaimer:
@@ -127,7 +127,7 @@ export default function BlogPost() {
     "dateModified": post.date,
     "author": {
       "@type": "Person",
-      "name": "Lawyer Omar Al-Baghdadi",
+      "name": "Lawyer and Legal Counsel Omar Al-Baghdadi",
       "jobTitle": "Lawyer and Legal Counsel — Founder of Qanoni",
       "worksFor": { "@type": "LegalService", "name": "Qanoni" },
     },
@@ -250,7 +250,7 @@ export default function BlogPost() {
                   {lang === "en" ? "Written by" : "بقلم"}
                 </p>
                 <p className="font-serif font-bold text-foreground">
-                  {lang === "en" ? "Lawyer Omar Al-Baghdadi" : "المحامي والمستشار القانوني عمر البغدادي"}
+                  {lang === "en" ? "Lawyer and Legal Counsel Omar Al-Baghdadi" : "المحامي والمستشار القانوني عمر البغدادي"}
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   {lang === "en"

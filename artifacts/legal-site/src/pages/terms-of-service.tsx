@@ -26,7 +26,7 @@ export default function TermsOfService() {
         {
           icon: CreditCard,
           title: "Step 2 — We Assess & Inform You of the Cost",
-          desc: "Our legal team — led by Lawyer Omar Al-Baghdadi — will review your matter and inform you of the consultation fee. The fee is determined by the complexity and scope of the legal question. We will not proceed without your explicit agreement to the quoted cost.",
+          desc: "Our legal team — led by Lawyer and Legal Counsel Omar Al-Baghdadi — will review your matter and inform you of the consultation fee. The fee is determined by the complexity and scope of the legal question. We will not proceed without your explicit agreement to the quoted cost.",
         },
         {
           icon: MessageCircle,
@@ -88,7 +88,7 @@ export default function TermsOfService() {
         {
           icon: CreditCard,
           title: "الخطوة الثانية — نقيّم الطلب ونخبرك بالتكلفة",
-          desc: "يراجع فريقنا القانوني — بقيادة المحامي عمر البغدادي — قضيتك ويُعلمك برسوم الاستشارة. تُحدَّد الرسوم بحسب تعقيد المسألة القانونية ونطاقها. لن نمضي قُدُماً إلا بعد موافقتك الصريحة على التكلفة المقدَّمة.",
+          desc: "يراجع فريقنا القانوني — بقيادة المحامي والمستشار القانوني عمر البغدادي — قضيتك ويُعلمك برسوم الاستشارة. تُحدَّد الرسوم بحسب تعقيد المسألة القانونية ونطاقها. لن نمضي قُدُماً إلا بعد موافقتك الصريحة على التكلفة المقدَّمة.",
         },
         {
           icon: MessageCircle,

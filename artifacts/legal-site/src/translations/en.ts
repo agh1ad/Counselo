@@ -77,12 +77,12 @@ export const en = {
     },
     about: {
       eyebrow: "About the Platform",
-      heading: "Founded by Lawyer Omar Al-Baghdadi",
-      p1: "Qanoni was founded by Lawyer Omar Al-Baghdadi — one of the region's most established senior advocates, with over 30 years of active legal practice and more than 20,000 cases handled across Saudi Arabia, the UAE and Syria. His career spans every major area of Saudi law, from commercial litigation and arbitration to family law, real estate, employment, foreign investment and administrative proceedings.",
-      p2: "Under his leadership, Qanoni brings together a professional legal team of experienced attorneys across multiple practice areas — all supervised and directed by Lawyer Al-Baghdadi, ensuring consistent quality and senior oversight on every consultation.",
+      heading: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi",
+      p1: "Qanoni was founded by Lawyer and Legal Counsel Omar Al-Baghdadi — one of the region's most established senior advocates, with over 30 years of active legal practice and more than 20,000 cases handled across Saudi Arabia, the UAE and Syria. His career spans every major area of Saudi law, from commercial litigation and arbitration to family law, real estate, employment, foreign investment and administrative proceedings.",
+      p2: "Under his leadership, Qanoni brings together a professional legal team of experienced attorneys across multiple practice areas — all supervised and directed by Lawyer and Legal Counsel Al-Baghdadi, ensuring consistent quality and senior oversight on every consultation.",
       p3: "Whether you are an individual, a business, or a foreign investor — Qanoni gives you direct access to a coordinated legal team led by a senior founder, delivered online, fast and without friction.",
       bullets: [
-        "Founded and led by Lawyer Omar Al-Baghdadi",
+        "Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi",
         "Professional legal team across all major practice areas",
         "Senior oversight on every matter — consistent, reliable quality",
         "All client types: individuals, businesses, investors, institutions",
@@ -102,13 +102,13 @@ export const en = {
       steps: [
         { step: "01", title: "Choose Your Method", desc: "Select WhatsApp or email — whichever suits your situation best." },
         { step: "02", title: "Describe Your Matter", desc: "Share your legal situation. All information is treated as strictly confidential." },
-        { step: "03", title: "Receive Expert Guidance", desc: "Qanoni's legal team, under Lawyer Al-Baghdadi's supervision, reviews your case and delivers a structured legal analysis — fast." },
+        { step: "03", title: "Receive Expert Guidance", desc: "Qanoni's legal team, under Lawyer and Legal Counsel Al-Baghdadi's supervision, reviews your case and delivers a structured legal analysis — fast." },
       ],
     },
     consultMethods: {
       eyebrow: "Available Online — Across Saudi Arabia",
       heading: "Two Ways to Consult with Us",
-      intro: "Hundreds of successful online consultations completed. Qanoni's professional legal team — founded and led by Lawyer Omar Al-Baghdadi — delivers structured legal analysis and practical guidance without the need for in-person attendance.",
+      intro: "Hundreds of successful online consultations completed. Qanoni's professional legal team — founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi — delivers structured legal analysis and practical guidance without the need for in-person attendance.",
       methods: [
         { badge: "Fastest", title: "WhatsApp Consultation", desc: "The fastest way to get legal guidance. Send your case details and receive a professional response directly from the Qanoni legal team." },
         { badge: "Most Detailed", title: "Email Legal Review", desc: "Submit your legal matter by email for a thorough written analysis. Ideal for complex commercial disputes requiring a detailed written opinion." },
@@ -146,7 +146,7 @@ export const en = {
       features: [
         { title: "Instant Access", desc: "No waiting rooms, no scheduling delays. Submit your matter and receive a professional response within minutes." },
         { title: "Reliable & Confidential", desc: "Strict professional confidentiality on every matter. Your legal information is never shared." },
-        { title: "Team Led by a Senior Founder", desc: "Qanoni was founded by Lawyer Omar Al-Baghdadi. His professional legal team operates under his direct supervision — ensuring senior-level quality on every matter." },
+        { title: "Team Led by a Senior Founder", desc: "Qanoni was founded by Lawyer and Legal Counsel Omar Al-Baghdadi. His professional legal team operates under his direct supervision — ensuring senior-level quality on every matter." },
         { title: "Arabic & English", desc: "Fully bilingual consultations. Legal guidance in your preferred language, with no barriers." },
       ],
     },
@@ -163,7 +163,7 @@ export const en = {
       eyebrow: "Saudi Arabia's Online Legal Platform",
       heading: "Get Expert Legal Advice — Fast.",
       desc: "Professional online legal consultations for individuals, businesses and investors across Saudi Arabia.",
-      subDesc: "Founded by Lawyer Omar Al-Baghdadi · Professional legal team · WhatsApp or email · Arabic & English",
+      subDesc: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi · Professional legal team · WhatsApp or email · Arabic & English",
       ctaBtn: "Book Your Consultation Now",
     },
   },
@@ -336,7 +336,7 @@ export const en = {
         subtitle: "Resolving commercial and regulatory investment disputes for foreign investors in Saudi Arabia.",
         overview1: "Investment disputes in Saudi Arabia — whether between investors, with local partners, or with government authorities — require specialist legal expertise spanning Saudi commercial law, foreign investment regulations, and international dispute resolution mechanisms. As Saudi Arabia's Vision 2030 transformation accelerates foreign investment inflows, the frequency and complexity of investment disputes has increased commensurately. Qanoni has advised and represented investors in Saudi investment disputes for over 30 years, with a track record across both domestic courts and international arbitration. Our online consultation service puts specialist investment dispute advice at your fingertips — via WhatsApp or email — within minutes.",
         overview2: "Investment disputes arise across many contexts: breach of joint venture agreements, partner deadlock, regulatory interference with investment operations, expropriation or regulatory taking, and contract disputes with Saudi government entities. Each requires a distinct legal strategy informed by the specific facts, the parties involved, and the available dispute resolution forums.",
-        experienceNote: "Lawyer Omar Al-Baghdadi's 30+ years of investment law practice spans Saudi Arabia, the UAE, and Syria — encompassing a wide range of commercial and investment disputes before Saudi courts, GCC arbitration bodies, and international tribunals. Qanoni brings this depth of multi-jurisdictional experience to every investment dispute.",
+        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of investment law practice spans Saudi Arabia, the UAE, and Syria — encompassing a wide range of commercial and investment disputes before Saudi courts, GCC arbitration bodies, and international tribunals. Qanoni brings this depth of multi-jurisdictional experience to every investment dispute.",
         covers: [
           "Joint venture partner disputes",
           "Shareholder deadlock and minority rights protection",
@@ -646,7 +646,7 @@ export const en = {
         subtitle: "Guiding you through divorce proceedings under Saudi Personal Status Law with sensitivity and expertise.",
         overview1: "Divorce is one of the most significant legal and personal events in a person's life, and navigating Saudi Arabia's Personal Status law — which governs divorce for Muslim families — requires both deep legal knowledge and genuine human sensitivity. Qanoni has guided hundreds of clients through divorce proceedings under Saudi law for over 30 years, with a thorough command of the Personal Status Courts, the MASAR digital family court system, and the Sharia-based legal principles that govern divorce in the Kingdom. Our fully online consultation service means you can seek expert guidance in complete privacy — via WhatsApp or email, from wherever you are.",
         overview2: "Saudi law recognises several forms of divorce — talaq (husband-initiated), khul (wife-initiated), judicial divorce (faskh), and separation by mutual agreement. Each has specific legal requirements, timelines, and financial consequences. Qanoni advises clients on the most appropriate form of divorce for their situation and manages the entire legal process with precision and care.",
-        experienceNote: "Lawyer Omar Al-Baghdadi's 30+ years of family law practice in Saudi Arabia, the UAE, and Syria has produced a deep and nuanced understanding of Islamic personal status law as applied in Saudi courts — enabling Qanoni clients to navigate even the most complex divorce matters with confidence.",
+        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of family law practice in Saudi Arabia, the UAE, and Syria has produced a deep and nuanced understanding of Islamic personal status law as applied in Saudi courts — enabling Qanoni clients to navigate even the most complex divorce matters with confidence.",
         covers: [
           "Talaq (husband-initiated divorce) proceedings",
           "Judicial divorce (faskh) on grounds of harm or absence",
@@ -770,7 +770,7 @@ export const en = {
         subtitle: "Resolving inheritance disputes and ensuring Sharia-compliant estate distribution across the Kingdom.",
         overview1: "Inheritance in Saudi Arabia is governed by Islamic law (Sharia) — with specific rules on the entitlement of each heir based on their relationship to the deceased. Despite this clear framework, inheritance disputes are extremely common — arising from contested heirs, missing wills, disputed property valuations, disagreements among co-heirs, and situations where the estate includes assets across multiple countries. Qanoni has resolved inheritance disputes for families across Saudi Arabia for over 30 years, combining precise knowledge of Islamic inheritance law with practical litigation experience before the Personal Status Courts and the general civil courts. Our online consultation service is available immediately — via WhatsApp or email.",
         overview2: "Inheritance disputes often involve deeply personal family dynamics alongside complex legal questions — including disputed paternity, contested relationships, valuation of business assets, and real estate holdings spanning multiple jurisdictions. Qanoni brings both the legal precision and the interpersonal sensitivity these cases demand.",
-        experienceNote: "Lawyer Omar Al-Baghdadi's 30+ years of practice across Saudi Arabia, the UAE, and Syria includes extensive experience with complex cross-border inheritance cases — including estates with assets in multiple GCC countries and disputes involving both Saudi and foreign nationals.",
+        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of practice across Saudi Arabia, the UAE, and Syria includes extensive experience with complex cross-border inheritance cases — including estates with assets in multiple GCC countries and disputes involving both Saudi and foreign nationals.",
         covers: [
           "Contested heirs and disputed heirship certificates",
           "Exclusion of rightful heirs from estate distribution",
@@ -863,7 +863,7 @@ export const en = {
         subtitle: "Recovering withheld salaries, delayed payments, and final settlements under Saudi Labour Law.",
         overview1: "Unpaid wages remain one of the most prevalent employment law violations in Saudi Arabia, affecting workers across industries from construction and domestic services to finance and healthcare. Saudi Labour Law imposes clear, enforceable obligations on employers to pay wages on time — backed by the Kingdom's Wage Protection System (WPS) and severe penalties for non-compliance. At Qanoni, our employment lawyers have recovered unpaid wages and final settlements for workers across the Kingdom for over 30 years, with a deep knowledge of the Saudi Labour Courts and the Ministry of Human Resources and Social Development (HRSD). Our online consultation service means you can speak to a specialist today — within minutes, via WhatsApp or email.",
         overview2: "Whether your employer has withheld monthly salary, delayed your final settlement after resignation or termination, deducted wages unlawfully, or failed to honour your contractual allowances, Qanoni pursues the fastest available legal route to recover every riyal you are owed — including statutory penalties that can double or treble the unpaid amount.",
-        experienceNote: "Lawyer Omar Al-Baghdadi's 30+ years of employment law experience includes hundreds of wage recovery cases for both individual workers and groups of employees — against employers ranging from small businesses to multinational corporations operating in the Kingdom.",
+        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of employment law experience includes hundreds of wage recovery cases for both individual workers and groups of employees — against employers ranging from small businesses to multinational corporations operating in the Kingdom.",
         covers: [
           "Withheld monthly salary",
           "Delayed final settlement after resignation or termination",
@@ -925,7 +925,7 @@ export const en = {
         subtitle: "Challenging wrongful termination and securing maximum compensation under Saudi Labour Law.",
         overview1: "Unfair or wrongful dismissal is one of the most serious employment law violations an employee can face in Saudi Arabia — with significant financial and career consequences. Saudi Labour Law provides strong protections for employees against arbitrary and unjustified termination, including mandatory compensation, reinstatement rights in certain cases, and the right to a full hearing before the Labour Courts. Qanoni has represented employees in unfair dismissal claims for over 30 years, recovering compensation awards from small businesses and multinational corporations alike. Our online consultation means you can speak to an unfair dismissal specialist today — without leaving your home.",
         overview2: "Saudi Labour Law distinguishes between termination 'for cause' (where the employer need not pay compensation) and dismissal without justification (which triggers mandatory compensation obligations). Many employers misuse 'for cause' termination to avoid paying end of service gratuity and compensation. Qanoni has extensive experience in challenging these dismissals before Labour Courts and securing the compensation employees are entitled to.",
-        experienceNote: "Lawyer Omar Al-Baghdadi's 30+ years of Saudi employment law practice includes hundreds of unfair dismissal cases — ranging from individual executive wrongful terminations to group redundancies at large Saudi and multinational employers.",
+        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of Saudi employment law practice includes hundreds of unfair dismissal cases — ranging from individual executive wrongful terminations to group redundancies at large Saudi and multinational employers.",
         covers: [
           "Wrongful termination without justification",
           "Misuse of 'for cause' dismissal to avoid compensation",
@@ -1080,7 +1080,7 @@ export const en = {
         subtitle: "Resolving contested property ownership and title disputes across the Kingdom.",
         overview1: "Property ownership disputes are among the most consequential legal matters in Saudi Arabia — involving land, residential, and commercial real estate worth potentially millions of riyals. At Qanoni, our real estate lawyers have handled ownership disputes across the Kingdom for over 30 years, building unparalleled expertise in Saudi title law, the Real Estate General Authority (REGA) framework, and the notarial and court systems that govern property rights in the Kingdom. We offer full online legal consultation for ownership disputes — you can speak with our team today via WhatsApp or email.",
         overview2: "Whether your dispute involves a contested inheritance of property, a fraudulent title transfer, a boundary conflict with a neighbour, or a disputed ownership registration, Qanoni provides decisive, experienced legal representation. We have successfully resolved hundreds of ownership disputes before Saudi courts and before the Ministry of Justice's real estate dispute committees.",
-        experienceNote: "Lawyer Omar Al-Baghdadi's 30+ years of experience spanning Saudi Arabia, the UAE, and Syria includes hundreds of property ownership cases — giving Qanoni's clients a decisive advantage grounded in deep knowledge of Saudi real estate law and court practice.",
+        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of experience spanning Saudi Arabia, the UAE, and Syria includes hundreds of property ownership cases — giving Qanoni's clients a decisive advantage grounded in deep knowledge of Saudi real estate law and court practice.",
         covers: [
           "Disputed property title & ownership registration",
           "Fraudulent title transfers",
@@ -1111,7 +1111,7 @@ export const en = {
         subtitle: "Protecting buyers, sellers, and developers in disputed Saudi real estate transactions.",
         overview1: "Real estate transactions in Saudi Arabia — whether off-plan purchases, completed property sales, or commercial acquisitions — frequently give rise to disputes over non-delivery, title defects, price disagreements, and contractual breaches. Qanoni has represented buyers, sellers, and developers in hundreds of sale and purchase disputes before Saudi courts and arbitration tribunals over more than 30 years, with experience spanning residential, commercial, and mixed-use real estate across the Kingdom. Our online legal consultation service means you can speak to a specialist today — without leaving your home or office.",
         overview2: "Saudi Arabia's real estate market has grown dramatically under Vision 2030, creating both opportunity and increased dispute risk. Whether you have paid for a property that was not delivered, discovered defects after purchase, or face a developer refusing to complete a sale, Qanoni provides the experienced legal firepower to protect your investment.",
-        experienceNote: "Over 30 years, Lawyer Omar Al-Baghdadi has led dozens of major real estate transaction disputes — including landmark cases involving large-scale residential developments and commercial property investments across Saudi Arabia.",
+        experienceNote: "Over 30 years, Lawyer and Legal Counsel Omar Al-Baghdadi has led dozens of major real estate transaction disputes — including landmark cases involving large-scale residential developments and commercial property investments across Saudi Arabia.",
         covers: [
           "Off-plan property non-delivery claims",
           "Title defect & encumbrance claims",
@@ -1235,7 +1235,7 @@ export const en = {
         subtitle: "Protecting property owners, developers, and contractors in Saudi construction disputes.",
         overview1: "Construction disputes are among the most financially significant legal matters in Saudi Arabia's booming real estate and infrastructure market. From contractor defaults and defective workmanship to project delays and payment disputes, these cases demand legal counsel with both construction expertise and deep familiarity with Saudi contract law and courts. Qanoni has represented property owners, developers, main contractors, and subcontractors in construction disputes for over 30 years — across residential, commercial, and infrastructure projects throughout the Kingdom. Our online legal consultation service means you can speak to a construction disputes specialist today — from your site, your office, or your home.",
         overview2: "Saudi Arabia's construction industry has seen an explosion of activity under Vision 2030, with hundreds of megaprojects underway across the Kingdom. This scale of activity brings a parallel increase in construction disputes. Whether your project has stalled, a contractor has abandoned works, or you are facing a defective construction claim, Qanoni provides the decisive legal response your situation demands.",
-        experienceNote: "Qanoni's construction dispute practice combines Lawyer Omar Al-Baghdadi's 30+ years of Saudi commercial litigation experience with specific expertise in FIDIC-based contracts, Saudi construction law, and the expert determination and arbitration processes commonly used in the Kingdom's major construction projects.",
+        experienceNote: "Qanoni's construction dispute practice combines Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of Saudi commercial litigation experience with specific expertise in FIDIC-based contracts, Saudi construction law, and the expert determination and arbitration processes commonly used in the Kingdom's major construction projects.",
         covers: [
           "Contractor abandonment & default",
           "Defective construction & workmanship claims",
@@ -1298,7 +1298,7 @@ export const en = {
         subtitle: "Protecting Saudi businesses through precise, enforceable commercial agreements.",
         overview1: "Commercial contracts are the foundation of every business relationship in the Kingdom of Saudi Arabia — yet poorly drafted agreements remain one of the leading causes of costly commercial litigation. At Qanoni, our commercial contracts practice is built on over 30 years of hands-on experience drafting, negotiating, and litigating commercial agreements before Saudi courts and arbitration tribunals. We have handled over 20,000 cases across the Kingdom, the UAE, and Syria, giving us unmatched insight into how Saudi courts interpret and enforce contractual language.",
         overview2: "Whether you are a Saudi company entering a major supply agreement, a foreign investor structuring a joint venture, or a business facing a contract dispute, Qanoni provides the precise legal architecture to protect your interests. We draft contracts that anticipate disputes before they arise, and we litigate relentlessly when the other side fails to perform.",
-        experienceNote: "Lawyer Omar Al-Baghdadi has personally overseen hundreds of complex contract disputes before Saudi commercial courts and arbitration panels, giving Qanoni's clients a decisive advantage in both drafting and litigation strategy.",
+        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi has personally overseen hundreds of complex contract disputes before Saudi commercial courts and arbitration panels, giving Qanoni's clients a decisive advantage in both drafting and litigation strategy.",
         covers: [
           "Commercial contract drafting & review",
           "Breach of contract claims & remedies",
@@ -1359,7 +1359,7 @@ export const en = {
         subtitle: "Expert representation for commercial agents, principals, and distributors across the Kingdom.",
         overview1: "Saudi Arabia's Commercial Agency Law imposes strict, non-waivable protections on commercial agents operating in the Kingdom. Foreign principals entering the Saudi market often underestimate the legal obligations they assume when appointing a Saudi commercial agent — obligations that can result in significant compensation claims upon termination. Qanoni has advised both Saudi commercial agents and foreign principals for over 30 years, giving us a uniquely balanced perspective on agency disputes.",
         overview2: "Whether you are a Saudi agent seeking compensation for wrongful termination, a foreign company restructuring its distribution arrangements, or a business entering the Saudi market for the first time, Qanoni provides decisive guidance grounded in decades of direct experience with the Saudi Ministry of Commerce (MOCI) and Commercial Courts.",
-        experienceNote: "Lawyer Omar Al-Baghdadi's extensive experience spanning Saudi Arabia, the UAE, and Syria means Qanoni clients benefit from a cross-jurisdictional understanding of agency law that pure domestic practitioners cannot match.",
+        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's extensive experience spanning Saudi Arabia, the UAE, and Syria means Qanoni clients benefit from a cross-jurisdictional understanding of agency law that pure domestic practitioners cannot match.",
         covers: [
           "Commercial agency agreement drafting & review",
           "MOCI agency registration & compliance",
@@ -1389,7 +1389,7 @@ export const en = {
         subtitle: "Strategic restructuring and creditor protection under Saudi Arabia's modern insolvency framework.",
         overview1: "Saudi Arabia's Bankruptcy Law (Royal Decree No. M/50 of 2018) introduced a sophisticated, internationally aligned insolvency framework designed to give financially distressed businesses a genuine second chance while protecting creditor rights. Since the Law's enactment, Qanoni has guided Saudi and foreign businesses through restructuring, preventive settlement, and formal liquidation proceedings — combining deep knowledge of the new framework with decades of Saudi commercial court experience.",
         overview2: "Whether your business faces an acute liquidity crisis, a hostile creditor action, or a need to wind down operations cleanly, Qanoni provides the decisive, expert-level guidance that this complex area of law demands. We also represent creditors seeking maximum recovery from insolvent debtors.",
-        experienceNote: "Qanoni's bankruptcy practice draws on Lawyer Omar Al-Baghdadi's 30+ years of Saudi commercial litigation experience, combined with deep familiarity with the Kingdom's evolving insolvency framework under Vision 2030.",
+        experienceNote: "Qanoni's bankruptcy practice draws on Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of Saudi commercial litigation experience, combined with deep familiarity with the Kingdom's evolving insolvency framework under Vision 2030.",
         covers: [
           "Preventive settlement proceedings",
           "Financial restructuring plans",
@@ -1513,7 +1513,7 @@ export const en = {
   contact: {
     hero: {
       heading: "Contact Us",
-      subheading: "30+ years of legal experience — discreet, authoritative counsel is a message away. Reach Lawyer Omar Al-Baghdadi's team via WhatsApp or email, 24/7.",
+      subheading: "30+ years of legal experience — discreet, authoritative counsel is a message away. Reach Lawyer and Legal Counsel Omar Al-Baghdadi's team via WhatsApp or email, 24/7.",
     },
     firmDetails: {
       heading: "Firm Details",
@@ -1587,7 +1587,7 @@ export const en = {
         subtitle: "Expert litigation before Saudi Arabia's primary administrative court — online consultations available.",
         overview1: "The Board of Grievances (Diwan Al-Mazalim) is Saudi Arabia's specialized administrative court system, with jurisdiction over disputes between individuals or businesses and government authorities. Whether you are challenging an unlawful administrative decision, pursuing a government entity for breach of contract, or seeking compensation for a government action that caused you loss, the Board of Grievances is the primary forum for your claim — and Qanoni has been representing clients before it for over 30 years. Our online consultation service means specialist Board of Grievances legal advice is available via WhatsApp or email — within minutes, from anywhere.",
         overview2: "Board of Grievances proceedings follow specific procedural rules, strict timelines, and require precise legal submissions. An experienced specialist is essential from the outset — not only to build a strong substantive case, but to navigate the procedural requirements that determine whether your claim is heard at all. Qanoni's 30+ years of Board of Grievances litigation experience means we know exactly what it takes to succeed.",
-        experienceNote: "Lawyer Omar Al-Baghdadi has litigated before the Board of Grievances across a wide range of cases — government contract disputes, regulatory challenges, administrative compensation claims, and public procurement matters — over more than three decades. This depth of experience, available online for immediate consultation, is what Qanoni brings to every Board of Grievances case.",
+        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi has litigated before the Board of Grievances across a wide range of cases — government contract disputes, regulatory challenges, administrative compensation claims, and public procurement matters — over more than three decades. This depth of experience, available online for immediate consultation, is what Qanoni brings to every Board of Grievances case.",
         covers: [
           "Claims against government ministries and agencies",
           "Challenges to unlawful administrative decisions",

@@ -23,7 +23,7 @@ export default function PrivacyPolicy() {
           icon: Shield,
           title: "1. Who We Are",
           content:
-            "Qanoni (قانوني) is an online legal consultation platform operated and founded by Lawyer Omar Al-Baghdadi, a Saudi-licensed senior advocate with over 30 years of legal practice. We provide professional legal consultation services in Saudi Arabia via WhatsApp and email, in Arabic and English. Our registered business address is Riyadh, Kingdom of Saudi Arabia.",
+            "Qanoni (قانوني) is an online legal consultation platform founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with over 30 years of legal practice. We provide professional legal consultation services across Saudi Arabia via WhatsApp and email, in Arabic and English.",
         },
         {
           icon: Database,
@@ -182,7 +182,7 @@ export default function PrivacyPolicy() {
           icon: Shield,
           title: "١. من نحن",
           content:
-            "قانوني منصة للاستشارات القانونية الأونلاين، أسّسها وأدارها المحامي عمر البغدادي، المحامي السعودي المرخّص ذو الخبرة التي تتجاوز 30 عاماً. نقدّم خدمات الاستشارة القانونية المهنية في المملكة العربية السعودية عبر واتساب والبريد الإلكتروني بالعربية والإنجليزية. عنوان مقرّنا المسجّل: الرياض، المملكة العربية السعودية.",
+            "قانوني منصة للاستشارات القانونية الأونلاين، أسّسها ويقودها المحامي والمستشار القانوني عمر البغدادي بخبرة تتجاوز 30 عاماً. نقدّم خدمات الاستشارة القانونية المهنية عبر واتساب والبريد الإلكتروني بالعربية والإنجليزية.",
         },
         {
           icon: Database,
