@@ -49,6 +49,91 @@
     <lastmod>2026-06-28</lastmod>
   </url>
 
+  <!-- ===== CONTRACTS SERVICE MAIN PAGE ===== -->
+  <url>
+    <loc>https://qanoni.com/services/contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+
+  <!-- ===== CONTRACTS SUB-PAGES ===== -->
+  <url>
+    <loc>https://qanoni.com/services/contracts/contract-drafting</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/contract-drafting"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/contract-drafting"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/contract-drafting"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/contracts/contract-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/contract-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/contract-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/contract-disputes"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/contracts/government-contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/government-contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/government-contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/government-contracts"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/contracts/real-estate-contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/real-estate-contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/real-estate-contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/real-estate-contracts"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/contracts/employment-contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/employment-contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/employment-contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/employment-contracts"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/contracts/partnership-agreements</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/partnership-agreements"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/partnership-agreements"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/partnership-agreements"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/contracts/international-contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/international-contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/international-contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/international-contracts"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/contracts/contract-enforcement</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/contract-enforcement"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/contract-enforcement"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/contract-enforcement"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+
   <!-- ===== SERVICE MAIN PAGES ===== -->
   <url>
     <loc>https://qanoni.com/services/family-law</loc>

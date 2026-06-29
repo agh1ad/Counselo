@@ -21,6 +21,7 @@ import AdministrativeLawSub from "@/pages/administrative-law-sub";
 import ArbitrationSub from "@/pages/arbitration-sub";
 import EnforcementSub from "@/pages/enforcement-sub";
 import CompaniesLawSub from "@/pages/companies-law-sub";
+import ContractsSub from "@/pages/contracts-sub";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import TermsOfService from "@/pages/terms-of-service";
@@ -68,6 +69,7 @@ function Router() {
         <Route path="/services/arbitration/:subId" component={ArbitrationSub} />
         <Route path="/services/enforcement/:subId" component={EnforcementSub} />
         <Route path="/services/companies-law/:subId" component={CompaniesLawSub} />
+        <Route path="/services/contracts/:subId" component={ContractsSub} />
         <Route path="/services/:id" component={ServiceDetail} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/blog" component={Blog} />
