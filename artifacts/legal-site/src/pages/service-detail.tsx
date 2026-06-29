@@ -272,6 +272,25 @@ export default function ServiceDetail() {
             </div>
           )}
 
+          {/* Companies Law Sub-Areas Grid */}
+          {id === "companies-law" && (
+            <div className="lg:col-span-8 mt-16">
+              <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
+                {t.companiesLawDetail.relatedHeading.replace("Other ", "").replace(" الأخرى", "").replace("أخرى ", "").replace("أخرى", "").trim()}
+              </h2>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في نظام الشركات — كلٌّ منها مدعوم بأكثر من 30 عاماً من الخبرة أمام المحاكم التجارية السعودية ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist Companies Law practice areas — each backed by 30+ years of Saudi Commercial Court experience and available for online consultation today."}</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {t.companiesLawDetail.subAreas.map((area) => (
+                  <Link key={area.id} href={`/services/companies-law/${area.id}`}
+                    className="group flex items-center justify-between gap-4 bg-card border border-border px-6 py-5 hover:border-primary/60 hover:bg-primary/5 transition-all">
+                    <span className="font-semibold text-foreground group-hover:text-primary transition-colors">{area.label}</span>
+                    <ArrowRight className={`h-4 w-4 text-primary shrink-0 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180 group-hover:-translate-x-1 group-hover:translate-x-0" : ""}`} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Sidebar */}
           <div className="lg:col-span-4">
             <motion.div initial={{ opacity: 0, x: isRTL ? -20 : 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
