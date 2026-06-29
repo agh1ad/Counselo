@@ -272,6 +272,25 @@ export default function ServiceDetail() {
             </div>
           )}
 
+          {/* Contracts Sub-Areas Grid */}
+          {id === "contracts" && (
+            <div className="lg:col-span-8 mt-16">
+              <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
+                {isRTL ? "مجالات ممارستنا في العقود" : "Contracts Practice Areas"}
+              </h2>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في العقود — كلٌّ منها مدعوم بأكثر من 30 عاماً من الخبرة في القانون التعاقدي السعودي ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist Contracts practice areas — each backed by 30+ years of Saudi contract law experience and available for online consultation today."}</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {t.contractsDetail.subAreas.map((area) => (
+                  <Link key={area.id} href={`/services/contracts/${area.id}`}
+                    className="group flex items-center justify-between gap-4 bg-card border border-border px-6 py-5 hover:border-primary/60 hover:bg-primary/5 transition-all">
+                    <span className="font-semibold text-foreground group-hover:text-primary transition-colors">{area.label}</span>
+                    <ArrowRight className={`h-4 w-4 text-primary shrink-0 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180 group-hover:-translate-x-1 group-hover:translate-x-0" : ""}`} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Companies Law Sub-Areas Grid */}
           {id === "companies-law" && (
             <div className="lg:col-span-8 mt-16">
