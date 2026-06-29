@@ -17,7 +17,7 @@ export const ar: typeof en = {
       { name: "التحكيم والوساطة", href: "/services/arbitration" },
       { name: "التنفيذ وتحصيل الديون", href: "/services/enforcement" },
       { name: "نظام الشركات", href: "/services/companies-law" },
-      { name: "قانون العقود", href: "/services/contracts" },
+      { name: "العقود", href: "/services/contracts" },
     ],
   },
   footer: {
@@ -36,7 +36,7 @@ export const ar: typeof en = {
       { label: "التحكيم والوساطة", href: "/services/arbitration" },
       { label: "التنفيذ وتحصيل الديون", href: "/services/enforcement" },
       { label: "نظام الشركات", href: "/services/companies-law" },
-      { label: "قانون العقود", href: "/services/contracts" },
+      { label: "العقود", href: "/services/contracts" },
     ],
     address: "الرياض، المملكة العربية السعودية",
     phone: "+966 59 485 0247",

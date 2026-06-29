@@ -15,7 +15,7 @@ export const en = {
       { name: "Arbitration & Mediation", href: "/services/arbitration" },
       { name: "Enforcement & Debt Collection", href: "/services/enforcement" },
       { name: "Companies Law", href: "/services/companies-law" },
-      { name: "Contracts Law", href: "/services/contracts" },
+      { name: "Contracts", href: "/services/contracts" },
     ],
   },
   footer: {
@@ -34,7 +34,7 @@ export const en = {
       { label: "Arbitration & Mediation", href: "/services/arbitration" },
       { label: "Enforcement & Debt Collection", href: "/services/enforcement" },
       { label: "Companies Law", href: "/services/companies-law" },
-      { label: "Contracts Law", href: "/services/contracts" },
+      { label: "Contracts", href: "/services/contracts" },
     ],
     address: "Riyadh, Saudi Arabia",
     phone: "+966 59 485 0247",

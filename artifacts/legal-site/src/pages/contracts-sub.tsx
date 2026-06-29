@@ -98,7 +98,7 @@ export default function ContractsSub() {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://qanoni.com/" },
       { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://qanoni.com/services" },
-      { "@type": "ListItem", position: 3, name: isRTL ? "قانون العقود" : "Contracts Law", item: "https://qanoni.com/services/contracts" },
+      { "@type": "ListItem", position: 3, name: isRTL ? "العقود" : "Contracts", item: "https://qanoni.com/services/contracts" },
       { "@type": "ListItem", position: 4, name: data.title, item: `https://qanoni.com/services/contracts/${subId}` },
     ],
   };
