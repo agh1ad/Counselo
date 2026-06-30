@@ -27,14 +27,14 @@ export default function Home() {
       <SEOHead
         title={isRTL
           ? "كاونسلو | منصة المملكة للاستشارات القانونية الأونلاين | استجابة خلال 24 ساعة"
-          : "CounselO | Online Legal Consultation — Saudi Arabia & Syria | Response Within 24 Hours"}
+          : "CounselO | Online Legal Consultation — Saudi Arabia | Response Within 24 Hours"}
         description={isRTL
           ? "قانوني — منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني للأفراد والشركات والمستثمرين. 18 مجالاً قانونياً، خبرة تزيد على 30 عاماً، أكثر من 20,000 قضية. بإشراف المحامي والمستشار القانوني عمر البغدادي. متاحة بالعربية والإنجليزية في الجبيل والرياض وجدة والدمام وجميع مناطق المملكة. رؤية 2030."
-          : "CounselO is an online legal consultation platform serving Saudi Arabia and Syria — professional legal response within 24 hours via WhatsApp or email. 18 practice areas covering family law, commercial law, employment, real estate, foreign investment, administrative law, criminal law, banking, tax, and more. Founded by Lawyer and Legal Counsel Omar Al-Baghdadi. 30+ years experience, 20,000+ cases. Serving Saudi Arabia and Syria. Vision 2030 aligned."}
+          : "CounselO is Saudi Arabia's online legal consultation platform — professional legal response within 24 hours via WhatsApp or email. 18 practice areas covering family law, commercial law, employment, real estate, foreign investment, administrative law, criminal law, banking, tax, and more. Founded by Lawyer and Legal Counsel Omar Al-Baghdadi. 30+ years experience, 20,000+ cases. Vision 2030 aligned."}
         canonical="/"
         keywords={isRTL
           ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة, مشورة قانونية خلال 24 ساعة, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل, القانون العقاري, استثمار أجنبي, القانون الإداري, استشارة قانونية واتساب, قانون جنائي سعودي, قانون ضريبي زكاة, مشورة قانونية الجبيل, عمر البغدادي, رؤية 2030, قانوني"
-          : "online legal consultation Saudi Arabia, online legal consultation Syria, Saudi Arabia online legal platform, lawyer online Saudi Arabia, legal advice within 24 hours KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law KSA, foreign investment lawyer Saudi Arabia, administrative law KSA, criminal law Saudi Arabia, banking finance law, tax zakat lawyer, medical malpractice KSA, WhatsApp legal consultation, Omar Al-Baghdadi, Jubail lawyer, Vision 2030 legal, CounselO, online legal advice Syria, استشارة قانونية سوريا, محامي أونلاين سوريا"}
+          : "online legal consultation Saudi Arabia, Saudi Arabia online legal platform, lawyer online Saudi Arabia, legal advice within 24 hours KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law KSA, foreign investment lawyer Saudi Arabia, administrative law KSA, criminal law Saudi Arabia, banking finance law, tax zakat lawyer, medical malpractice KSA, WhatsApp legal consultation, Omar Al-Baghdadi, Jubail lawyer, Vision 2030 legal, CounselO"}
         schema={{
           "@context": "https://schema.org",
           "@type": "LegalService",
@@ -42,7 +42,7 @@ export default function Home() {
           "alternateName": "CounselO Online Legal Consultations",
           "description": isRTL
             ? "منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين — 18 مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي"
-            : "online legal consultation platform for Saudi Arabia & Syria — 18 practice areas, professional response within 24 hours, founded by Lawyer Omar Al-Baghdadi",
+            : "Saudi Arabia's online legal consultation platform — 18 practice areas, professional response within 24 hours, founded by Lawyer Omar Al-Baghdadi",
           "url": "https://counselo.com/",
           "logo": "https://counselo.com/logo.png",
           "founder": {
@@ -153,7 +153,7 @@ export default function Home() {
                   </div>
                 ))}
                 <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                  <div className="text-white/40 text-xs">Trusted across Saudi Arabia & Syria</div>
+                  <div className="text-white/40 text-xs">Trusted across Saudi Arabia</div>
                   <div className="flex">
                     {[...Array(5)].map((_, i) => <Star key={i} className="h-3.5 w-3.5 text-yellow-400 fill-yellow-400" />)}
                   </div>
