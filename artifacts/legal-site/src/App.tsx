@@ -60,14 +60,14 @@ function GAInit() {
 
 function Router() {
   const [location] = useLocation();
-  const isAdmin = location.startsWith("/qanoni-admin");
+  const isAdmin = location.startsWith("/counselo-admin");
 
   if (isAdmin) {
     return (
       <>
         <ScrollToTop />
         <Switch>
-          <Route path="/qanoni-admin" component={AdminCMS} />
+          <Route path="/counselo-admin" component={AdminCMS} />
         </Switch>
       </>
     );
@@ -112,7 +112,7 @@ function Router() {
 
 function AppShell() {
   const [location] = useLocation();
-  const isAdmin = location.startsWith("/qanoni-admin");
+  const isAdmin = location.startsWith("/counselo-admin");
 
   if (isAdmin) {
     return (

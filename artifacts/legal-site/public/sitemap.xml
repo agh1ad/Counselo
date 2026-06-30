@@ -4,46 +4,46 @@
 
   <!-- ===== CORE PAGES ===== -->
   <url>
-    <loc>https://qanoni.com/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/"/>
+    <loc>https://counselo.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services"/>
+    <loc>https://counselo.com/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/contact</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/contact"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/contact"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/contact"/>
+    <loc>https://counselo.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/contact"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/blog</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/blog"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/blog"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/blog"/>
+    <loc>https://counselo.com/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/blog"/>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/terms-of-service</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/terms-of-service"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/terms-of-service"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/terms-of-service"/>
+    <loc>https://counselo.com/terms-of-service</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/terms-of-service"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
     <lastmod>2026-06-30</lastmod>
@@ -51,10 +51,10 @@
 
   <!-- ===== CONTRACTS SERVICE MAIN PAGE ===== -->
   <url>
-    <loc>https://qanoni.com/services/contracts</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts"/>
+    <loc>https://counselo.com/services/contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/contracts"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
@@ -62,73 +62,73 @@
 
   <!-- ===== CONTRACTS SUB-PAGES ===== -->
   <url>
-    <loc>https://qanoni.com/services/contracts/contract-drafting</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/contract-drafting"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/contract-drafting"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/contract-drafting"/>
+    <loc>https://counselo.com/services/contracts/contract-drafting</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/contracts/contract-drafting"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/contracts/contract-drafting"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/contracts/contract-drafting"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/contracts/contract-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/contract-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/contract-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/contract-disputes"/>
+    <loc>https://counselo.com/services/contracts/contract-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/contracts/contract-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/contracts/contract-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/contracts/contract-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/contracts/government-contracts</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/government-contracts"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/government-contracts"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/government-contracts"/>
+    <loc>https://counselo.com/services/contracts/government-contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/contracts/government-contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/contracts/government-contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/contracts/government-contracts"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/contracts/real-estate-contracts</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/real-estate-contracts"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/real-estate-contracts"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/real-estate-contracts"/>
+    <loc>https://counselo.com/services/contracts/real-estate-contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/contracts/real-estate-contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/contracts/real-estate-contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/contracts/real-estate-contracts"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/contracts/employment-contracts</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/employment-contracts"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/employment-contracts"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/employment-contracts"/>
+    <loc>https://counselo.com/services/contracts/employment-contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/contracts/employment-contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/contracts/employment-contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/contracts/employment-contracts"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/contracts/partnership-agreements</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/partnership-agreements"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/partnership-agreements"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/partnership-agreements"/>
+    <loc>https://counselo.com/services/contracts/partnership-agreements</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/contracts/partnership-agreements"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/contracts/partnership-agreements"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/contracts/partnership-agreements"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/contracts/international-contracts</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/international-contracts"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/international-contracts"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/international-contracts"/>
+    <loc>https://counselo.com/services/contracts/international-contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/contracts/international-contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/contracts/international-contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/contracts/international-contracts"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/contracts/contract-enforcement</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/contracts/contract-enforcement"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/contracts/contract-enforcement"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/contract-enforcement"/>
+    <loc>https://counselo.com/services/contracts/contract-enforcement</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/contracts/contract-enforcement"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/contracts/contract-enforcement"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/contracts/contract-enforcement"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <lastmod>2026-06-30</lastmod>
@@ -136,55 +136,55 @@
 
   <!-- ===== SERVICE MAIN PAGES ===== -->
   <url>
-    <loc>https://qanoni.com/services/family-law</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/family-law"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/family-law"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/family-law"/>
+    <loc>https://counselo.com/services/family-law</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/family-law"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/family-law"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/family-law"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/business-law</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/business-law"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/business-law"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law"/>
+    <loc>https://counselo.com/services/business-law</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/business-law"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/business-law"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/business-law"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/real-estate</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/real-estate"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/real-estate"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/real-estate"/>
+    <loc>https://counselo.com/services/real-estate</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/real-estate"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/real-estate"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/real-estate"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/employment-law</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/employment-law"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/employment-law"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/employment-law"/>
+    <loc>https://counselo.com/services/employment-law</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/employment-law"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/employment-law"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/employment-law"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/foreign-investment</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/foreign-investment"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/foreign-investment"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment"/>
+    <loc>https://counselo.com/services/foreign-investment</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/foreign-investment"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/foreign-investment"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/foreign-investment"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/administrative-law</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/administrative-law"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/administrative-law"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law"/>
+    <loc>https://counselo.com/services/administrative-law</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/administrative-law"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/administrative-law"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/administrative-law"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
@@ -192,82 +192,82 @@
 
   <!-- ===== FOREIGN INVESTMENT SUB-PAGES ===== -->
   <url>
-    <loc>https://qanoni.com/services/foreign-investment/investment-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/foreign-investment/investment-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/foreign-investment/investment-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/investment-disputes"/>
+    <loc>https://counselo.com/services/foreign-investment/investment-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/foreign-investment/investment-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/foreign-investment/investment-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/foreign-investment/investment-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/foreign-investment/investment-appeals</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/foreign-investment/investment-appeals"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/foreign-investment/investment-appeals"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/investment-appeals"/>
+    <loc>https://counselo.com/services/foreign-investment/investment-appeals</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/foreign-investment/investment-appeals"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/foreign-investment/investment-appeals"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/foreign-investment/investment-appeals"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/foreign-investment/investment-licensing</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/foreign-investment/investment-licensing"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/foreign-investment/investment-licensing"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/investment-licensing"/>
+    <loc>https://counselo.com/services/foreign-investment/investment-licensing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/foreign-investment/investment-licensing"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/foreign-investment/investment-licensing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/foreign-investment/investment-licensing"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/foreign-investment/license-renewal</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/foreign-investment/license-renewal"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/foreign-investment/license-renewal"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/license-renewal"/>
+    <loc>https://counselo.com/services/foreign-investment/license-renewal</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/foreign-investment/license-renewal"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/foreign-investment/license-renewal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/foreign-investment/license-renewal"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/foreign-investment/license-cancellation</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/foreign-investment/license-cancellation"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/foreign-investment/license-cancellation"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/license-cancellation"/>
+    <loc>https://counselo.com/services/foreign-investment/license-cancellation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/foreign-investment/license-cancellation"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/foreign-investment/license-cancellation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/foreign-investment/license-cancellation"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/foreign-investment/company-formation</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/foreign-investment/company-formation"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/foreign-investment/company-formation"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/company-formation"/>
+    <loc>https://counselo.com/services/foreign-investment/company-formation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/foreign-investment/company-formation"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/foreign-investment/company-formation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/foreign-investment/company-formation"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/foreign-investment/foreign-investment-dispute</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/foreign-investment/foreign-investment-dispute"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/foreign-investment/foreign-investment-dispute"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/foreign-investment-dispute"/>
+    <loc>https://counselo.com/services/foreign-investment/foreign-investment-dispute</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/foreign-investment/foreign-investment-dispute"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/foreign-investment/foreign-investment-dispute"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/foreign-investment/foreign-investment-dispute"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/foreign-investment/investor-compensation</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/foreign-investment/investor-compensation"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/foreign-investment/investor-compensation"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/investor-compensation"/>
+    <loc>https://counselo.com/services/foreign-investment/investor-compensation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/foreign-investment/investor-compensation"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/foreign-investment/investor-compensation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/foreign-investment/investor-compensation"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/foreign-investment/share-transfer</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/foreign-investment/share-transfer"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/foreign-investment/share-transfer"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/share-transfer"/>
+    <loc>https://counselo.com/services/foreign-investment/share-transfer</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/foreign-investment/share-transfer"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/foreign-investment/share-transfer"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/foreign-investment/share-transfer"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
@@ -275,55 +275,55 @@
 
   <!-- ===== FAMILY LAW SUB-PAGES ===== -->
   <url>
-    <loc>https://qanoni.com/services/family-law/divorce</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/family-law/divorce"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/family-law/divorce"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/family-law/divorce"/>
+    <loc>https://counselo.com/services/family-law/divorce</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/family-law/divorce"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/family-law/divorce"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/family-law/divorce"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/family-law/khul</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/family-law/khul"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/family-law/khul"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/family-law/khul"/>
+    <loc>https://counselo.com/services/family-law/khul</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/family-law/khul"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/family-law/khul"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/family-law/khul"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/family-law/alimony</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/family-law/alimony"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/family-law/alimony"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/family-law/alimony"/>
+    <loc>https://counselo.com/services/family-law/alimony</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/family-law/alimony"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/family-law/alimony"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/family-law/alimony"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/family-law/child-custody</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/family-law/child-custody"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/family-law/child-custody"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/family-law/child-custody"/>
+    <loc>https://counselo.com/services/family-law/child-custody</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/family-law/child-custody"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/family-law/child-custody"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/family-law/child-custody"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/family-law/inheritance</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/family-law/inheritance"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/family-law/inheritance"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/family-law/inheritance"/>
+    <loc>https://counselo.com/services/family-law/inheritance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/family-law/inheritance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/family-law/inheritance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/family-law/inheritance"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/family-law/marriage-contract</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/family-law/marriage-contract"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/family-law/marriage-contract"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/family-law/marriage-contract"/>
+    <loc>https://counselo.com/services/family-law/marriage-contract</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/family-law/marriage-contract"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/family-law/marriage-contract"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/family-law/marriage-contract"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
@@ -331,55 +331,55 @@
 
   <!-- ===== EMPLOYMENT LAW SUB-PAGES ===== -->
   <url>
-    <loc>https://qanoni.com/services/employment-law/unpaid-wages</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/employment-law/unpaid-wages"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/employment-law/unpaid-wages"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/employment-law/unpaid-wages"/>
+    <loc>https://counselo.com/services/employment-law/unpaid-wages</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/employment-law/unpaid-wages"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/employment-law/unpaid-wages"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/employment-law/unpaid-wages"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/employment-law/labor-compensation</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/employment-law/labor-compensation"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/employment-law/labor-compensation"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/employment-law/labor-compensation"/>
+    <loc>https://counselo.com/services/employment-law/labor-compensation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/employment-law/labor-compensation"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/employment-law/labor-compensation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/employment-law/labor-compensation"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/employment-law/unfair-dismissal</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/employment-law/unfair-dismissal"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/employment-law/unfair-dismissal"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/employment-law/unfair-dismissal"/>
+    <loc>https://counselo.com/services/employment-law/unfair-dismissal</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/employment-law/unfair-dismissal"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/employment-law/unfair-dismissal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/employment-law/unfair-dismissal"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/employment-law/end-of-service</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/employment-law/end-of-service"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/employment-law/end-of-service"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/employment-law/end-of-service"/>
+    <loc>https://counselo.com/services/employment-law/end-of-service</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/employment-law/end-of-service"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/employment-law/end-of-service"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/employment-law/end-of-service"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/employment-law/employment-contract</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/employment-law/employment-contract"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/employment-law/employment-contract"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/employment-law/employment-contract"/>
+    <loc>https://counselo.com/services/employment-law/employment-contract</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/employment-law/employment-contract"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/employment-law/employment-contract"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/employment-law/employment-contract"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/employment-law/workplace-discrimination</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/employment-law/workplace-discrimination"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/employment-law/workplace-discrimination"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/employment-law/workplace-discrimination"/>
+    <loc>https://counselo.com/services/employment-law/workplace-discrimination</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/employment-law/workplace-discrimination"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/employment-law/workplace-discrimination"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/employment-law/workplace-discrimination"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
@@ -387,55 +387,55 @@
 
   <!-- ===== REAL ESTATE SUB-PAGES ===== -->
   <url>
-    <loc>https://qanoni.com/services/real-estate/ownership-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/real-estate/ownership-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/real-estate/ownership-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/real-estate/ownership-disputes"/>
+    <loc>https://counselo.com/services/real-estate/ownership-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/real-estate/ownership-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/real-estate/ownership-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/real-estate/ownership-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/real-estate/sale-purchase-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/real-estate/sale-purchase-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/real-estate/sale-purchase-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/real-estate/sale-purchase-disputes"/>
+    <loc>https://counselo.com/services/real-estate/sale-purchase-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/real-estate/sale-purchase-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/real-estate/sale-purchase-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/real-estate/sale-purchase-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/real-estate/property-encroachment</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/real-estate/property-encroachment"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/real-estate/property-encroachment"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/real-estate/property-encroachment"/>
+    <loc>https://counselo.com/services/real-estate/property-encroachment</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/real-estate/property-encroachment"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/real-estate/property-encroachment"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/real-estate/property-encroachment"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/real-estate/landlord-tenant</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/real-estate/landlord-tenant"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/real-estate/landlord-tenant"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/real-estate/landlord-tenant"/>
+    <loc>https://counselo.com/services/real-estate/landlord-tenant</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/real-estate/landlord-tenant"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/real-estate/landlord-tenant"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/real-estate/landlord-tenant"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/real-estate/registration-title-deed</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/real-estate/registration-title-deed"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/real-estate/registration-title-deed"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/real-estate/registration-title-deed"/>
+    <loc>https://counselo.com/services/real-estate/registration-title-deed</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/real-estate/registration-title-deed"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/real-estate/registration-title-deed"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/real-estate/registration-title-deed"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/real-estate/construction-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/real-estate/construction-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/real-estate/construction-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/real-estate/construction-disputes"/>
+    <loc>https://counselo.com/services/real-estate/construction-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/real-estate/construction-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/real-estate/construction-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/real-estate/construction-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
@@ -443,64 +443,64 @@
 
   <!-- ===== BUSINESS LAW SUB-PAGES ===== -->
   <url>
-    <loc>https://qanoni.com/services/business-law/commercial-contracts</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/business-law/commercial-contracts"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/business-law/commercial-contracts"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law/commercial-contracts"/>
+    <loc>https://counselo.com/services/business-law/commercial-contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/business-law/commercial-contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/business-law/commercial-contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/business-law/commercial-contracts"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/business-law/commercial-instruments</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/business-law/commercial-instruments"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/business-law/commercial-instruments"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law/commercial-instruments"/>
+    <loc>https://counselo.com/services/business-law/commercial-instruments</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/business-law/commercial-instruments"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/business-law/commercial-instruments"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/business-law/commercial-instruments"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/business-law/commercial-agency</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/business-law/commercial-agency"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/business-law/commercial-agency"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law/commercial-agency"/>
+    <loc>https://counselo.com/services/business-law/commercial-agency</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/business-law/commercial-agency"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/business-law/commercial-agency"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/business-law/commercial-agency"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/business-law/bankruptcy-liquidation</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/business-law/bankruptcy-liquidation"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/business-law/bankruptcy-liquidation"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law/bankruptcy-liquidation"/>
+    <loc>https://counselo.com/services/business-law/bankruptcy-liquidation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/business-law/bankruptcy-liquidation"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/business-law/bankruptcy-liquidation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/business-law/bankruptcy-liquidation"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/business-law/company-partnership-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/business-law/company-partnership-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/business-law/company-partnership-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law/company-partnership-disputes"/>
+    <loc>https://counselo.com/services/business-law/company-partnership-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/business-law/company-partnership-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/business-law/company-partnership-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/business-law/company-partnership-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/business-law/unfair-competition-commercial-fraud</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/business-law/unfair-competition-commercial-fraud"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/business-law/unfair-competition-commercial-fraud"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law/unfair-competition-commercial-fraud"/>
+    <loc>https://counselo.com/services/business-law/unfair-competition-commercial-fraud</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/business-law/unfair-competition-commercial-fraud"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/business-law/unfair-competition-commercial-fraud"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/business-law/unfair-competition-commercial-fraud"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/business-law/trademarks</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/business-law/trademarks"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/business-law/trademarks"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law/trademarks"/>
+    <loc>https://counselo.com/services/business-law/trademarks</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/business-law/trademarks"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/business-law/trademarks"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/business-law/trademarks"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
@@ -508,73 +508,73 @@
 
   <!-- ===== ADMINISTRATIVE LAW SUB-PAGES ===== -->
   <url>
-    <loc>https://qanoni.com/services/administrative-law/board-of-grievances</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/administrative-law/board-of-grievances"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/administrative-law/board-of-grievances"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/board-of-grievances"/>
+    <loc>https://counselo.com/services/administrative-law/board-of-grievances</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/administrative-law/board-of-grievances"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/administrative-law/board-of-grievances"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/administrative-law/board-of-grievances"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/administrative-law/administrative-appeals</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/administrative-law/administrative-appeals"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/administrative-law/administrative-appeals"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/administrative-appeals"/>
+    <loc>https://counselo.com/services/administrative-law/administrative-appeals</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/administrative-law/administrative-appeals"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/administrative-law/administrative-appeals"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/administrative-law/administrative-appeals"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/administrative-law/government-contracts</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/administrative-law/government-contracts"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/administrative-law/government-contracts"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/government-contracts"/>
+    <loc>https://counselo.com/services/administrative-law/government-contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/administrative-law/government-contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/administrative-law/government-contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/administrative-law/government-contracts"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/administrative-law/public-procurement</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/administrative-law/public-procurement"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/administrative-law/public-procurement"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/public-procurement"/>
+    <loc>https://counselo.com/services/administrative-law/public-procurement</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/administrative-law/public-procurement"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/administrative-law/public-procurement"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/administrative-law/public-procurement"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/administrative-law/regulatory-licensing</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/administrative-law/regulatory-licensing"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/administrative-law/regulatory-licensing"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/regulatory-licensing"/>
+    <loc>https://counselo.com/services/administrative-law/regulatory-licensing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/administrative-law/regulatory-licensing"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/administrative-law/regulatory-licensing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/administrative-law/regulatory-licensing"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/administrative-law/customs-tax-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/administrative-law/customs-tax-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/administrative-law/customs-tax-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/customs-tax-disputes"/>
+    <loc>https://counselo.com/services/administrative-law/customs-tax-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/administrative-law/customs-tax-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/administrative-law/customs-tax-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/administrative-law/customs-tax-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/administrative-law/disciplinary-proceedings</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/administrative-law/disciplinary-proceedings"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/administrative-law/disciplinary-proceedings"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/disciplinary-proceedings"/>
+    <loc>https://counselo.com/services/administrative-law/disciplinary-proceedings</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/administrative-law/disciplinary-proceedings"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/administrative-law/disciplinary-proceedings"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/administrative-law/disciplinary-proceedings"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/administrative-law/government-compensation</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/administrative-law/government-compensation"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/administrative-law/government-compensation"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/government-compensation"/>
+    <loc>https://counselo.com/services/administrative-law/government-compensation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/administrative-law/government-compensation"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/administrative-law/government-compensation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/administrative-law/government-compensation"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
@@ -582,19 +582,19 @@
 
   <!-- ===== LEGAL PAGES ===== -->
   <url>
-    <loc>https://qanoni.com/privacy-policy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/privacy-policy"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/privacy-policy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/privacy-policy"/>
+    <loc>https://counselo.com/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/privacy-policy"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/terms-of-service</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/terms-of-service"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/terms-of-service"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/terms-of-service"/>
+    <loc>https://counselo.com/terms-of-service</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/terms-of-service"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <lastmod>2026-06-30</lastmod>
@@ -602,55 +602,55 @@
 
   <!-- ===== ARBITRATION & MEDIATION MAIN + SUB-PAGES ===== -->
   <url>
-    <loc>https://qanoni.com/services/arbitration</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/arbitration"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/arbitration"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration"/>
+    <loc>https://counselo.com/services/arbitration</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/arbitration"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/arbitration"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/arbitration"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/arbitration/domestic-arbitration</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/arbitration/domestic-arbitration"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/arbitration/domestic-arbitration"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration/domestic-arbitration"/>
+    <loc>https://counselo.com/services/arbitration/domestic-arbitration</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/arbitration/domestic-arbitration"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/arbitration/domestic-arbitration"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/arbitration/domestic-arbitration"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/arbitration/international-arbitration</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/arbitration/international-arbitration"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/arbitration/international-arbitration"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration/international-arbitration"/>
+    <loc>https://counselo.com/services/arbitration/international-arbitration</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/arbitration/international-arbitration"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/arbitration/international-arbitration"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/arbitration/international-arbitration"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/arbitration/mediation-adr</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/arbitration/mediation-adr"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/arbitration/mediation-adr"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration/mediation-adr"/>
+    <loc>https://counselo.com/services/arbitration/mediation-adr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/arbitration/mediation-adr"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/arbitration/mediation-adr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/arbitration/mediation-adr"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/arbitration/award-enforcement</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/arbitration/award-enforcement"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/arbitration/award-enforcement"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration/award-enforcement"/>
+    <loc>https://counselo.com/services/arbitration/award-enforcement</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/arbitration/award-enforcement"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/arbitration/award-enforcement"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/arbitration/award-enforcement"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/arbitration/investment-arbitration</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/arbitration/investment-arbitration"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/arbitration/investment-arbitration"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration/investment-arbitration"/>
+    <loc>https://counselo.com/services/arbitration/investment-arbitration</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/arbitration/investment-arbitration"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/arbitration/investment-arbitration"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/arbitration/investment-arbitration"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
@@ -658,892 +658,892 @@
 
   <!-- ===== ENFORCEMENT & DEBT COLLECTION MAIN + SUB-PAGES ===== -->
   <url>
-    <loc>https://qanoni.com/services/enforcement</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/enforcement"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/enforcement"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement"/>
+    <loc>https://counselo.com/services/enforcement</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/enforcement"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/enforcement"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/enforcement"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/enforcement/judgment-enforcement</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/enforcement/judgment-enforcement"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/enforcement/judgment-enforcement"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement/judgment-enforcement"/>
+    <loc>https://counselo.com/services/enforcement/judgment-enforcement</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/enforcement/judgment-enforcement"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/enforcement/judgment-enforcement"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/enforcement/judgment-enforcement"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/enforcement/debt-recovery</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/enforcement/debt-recovery"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/enforcement/debt-recovery"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement/debt-recovery"/>
+    <loc>https://counselo.com/services/enforcement/debt-recovery</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/enforcement/debt-recovery"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/enforcement/debt-recovery"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/enforcement/debt-recovery"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/enforcement/asset-attachment</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/enforcement/asset-attachment"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/enforcement/asset-attachment"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement/asset-attachment"/>
+    <loc>https://counselo.com/services/enforcement/asset-attachment</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/enforcement/asset-attachment"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/enforcement/asset-attachment"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/enforcement/asset-attachment"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/enforcement/travel-bans</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/enforcement/travel-bans"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/enforcement/travel-bans"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement/travel-bans"/>
+    <loc>https://counselo.com/services/enforcement/travel-bans</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/enforcement/travel-bans"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/enforcement/travel-bans"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/enforcement/travel-bans"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/enforcement/enforcement-against-government</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/enforcement/enforcement-against-government"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/enforcement/enforcement-against-government"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement/enforcement-against-government"/>
+    <loc>https://counselo.com/services/enforcement/enforcement-against-government</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/enforcement/enforcement-against-government"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/enforcement/enforcement-against-government"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/enforcement/enforcement-against-government"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law"/>
+    <loc>https://counselo.com/services/companies-law</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/company-formation-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/company-formation-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/company-formation-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/company-formation-disputes"/>
+    <loc>https://counselo.com/services/companies-law/company-formation-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/company-formation-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/company-formation-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/company-formation-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/share-equity-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/share-equity-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/share-equity-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/share-equity-disputes"/>
+    <loc>https://counselo.com/services/companies-law/share-equity-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/share-equity-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/share-equity-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/share-equity-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/partner-shareholder-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/partner-shareholder-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/partner-shareholder-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/partner-shareholder-disputes"/>
+    <loc>https://counselo.com/services/companies-law/partner-shareholder-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/partner-shareholder-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/partner-shareholder-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/partner-shareholder-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/director-liability</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/director-liability"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/director-liability"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/director-liability"/>
+    <loc>https://counselo.com/services/companies-law/director-liability</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/director-liability"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/director-liability"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/director-liability"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/general-assembly-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/general-assembly-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/general-assembly-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/general-assembly-disputes"/>
+    <loc>https://counselo.com/services/companies-law/general-assembly-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/general-assembly-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/general-assembly-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/general-assembly-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/assembly-resolution-nullity</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/assembly-resolution-nullity"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/assembly-resolution-nullity"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/assembly-resolution-nullity"/>
+    <loc>https://counselo.com/services/companies-law/assembly-resolution-nullity</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/assembly-resolution-nullity"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/assembly-resolution-nullity"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/assembly-resolution-nullity"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/capital-change-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/capital-change-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/capital-change-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/capital-change-disputes"/>
+    <loc>https://counselo.com/services/companies-law/capital-change-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/capital-change-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/capital-change-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/capital-change-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/profit-distribution-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/profit-distribution-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/profit-distribution-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/profit-distribution-disputes"/>
+    <loc>https://counselo.com/services/companies-law/profit-distribution-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/profit-distribution-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/profit-distribution-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/profit-distribution-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/conflict-of-interest</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/conflict-of-interest"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/conflict-of-interest"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/conflict-of-interest"/>
+    <loc>https://counselo.com/services/companies-law/conflict-of-interest</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/conflict-of-interest"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/conflict-of-interest"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/conflict-of-interest"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/director-removal-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/director-removal-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/director-removal-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/director-removal-disputes"/>
+    <loc>https://counselo.com/services/companies-law/director-removal-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/director-removal-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/director-removal-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/director-removal-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/company-records-access</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/company-records-access"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/company-records-access"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/company-records-access"/>
+    <loc>https://counselo.com/services/companies-law/company-records-access</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/company-records-access"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/company-records-access"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/company-records-access"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/share-transfer-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/share-transfer-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/share-transfer-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/share-transfer-disputes"/>
+    <loc>https://counselo.com/services/companies-law/share-transfer-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/share-transfer-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/share-transfer-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/share-transfer-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/partner-entry-exit</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/partner-entry-exit"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/partner-entry-exit"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/partner-entry-exit"/>
+    <loc>https://counselo.com/services/companies-law/partner-entry-exit</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/partner-entry-exit"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/partner-entry-exit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/partner-entry-exit"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/merger-conversion-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/merger-conversion-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/merger-conversion-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/merger-conversion-disputes"/>
+    <loc>https://counselo.com/services/companies-law/merger-conversion-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/merger-conversion-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/merger-conversion-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/merger-conversion-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/company-dissolution-liquidation</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/company-dissolution-liquidation"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/company-dissolution-liquidation"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/company-dissolution-liquidation"/>
+    <loc>https://counselo.com/services/companies-law/company-dissolution-liquidation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/company-dissolution-liquidation"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/company-dissolution-liquidation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/company-dissolution-liquidation"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/liquidator-liability</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/liquidator-liability"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/liquidator-liability"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/liquidator-liability"/>
+    <loc>https://counselo.com/services/companies-law/liquidator-liability</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/liquidator-liability"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/liquidator-liability"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/liquidator-liability"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/shareholder-compensation-claims</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/shareholder-compensation-claims"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/shareholder-compensation-claims"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/shareholder-compensation-claims"/>
+    <loc>https://counselo.com/services/companies-law/shareholder-compensation-claims</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/shareholder-compensation-claims"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/shareholder-compensation-claims"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/shareholder-compensation-claims"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/family-company-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/family-company-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/family-company-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/family-company-disputes"/>
+    <loc>https://counselo.com/services/companies-law/family-company-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/family-company-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/family-company-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/family-company-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/shareholder-agreements-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/shareholder-agreements-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/shareholder-agreements-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/shareholder-agreements-disputes"/>
+    <loc>https://counselo.com/services/companies-law/shareholder-agreements-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/shareholder-agreements-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/shareholder-agreements-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/shareholder-agreements-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/companies-law/articles-of-association-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/companies-law/articles-of-association-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/companies-law/articles-of-association-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/articles-of-association-disputes"/>
+    <loc>https://counselo.com/services/companies-law/articles-of-association-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/companies-law/articles-of-association-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/companies-law/articles-of-association-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/companies-law/articles-of-association-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/criminal-law</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <lastmod>2026-06-30</lastmod>
-  </url>
-  <url>
-    <loc>https://qanoni.com/services/criminal-law/criminal-defense</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/criminal-defense"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/criminal-defense"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/criminal-defense"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-30</lastmod>
-  </url>
-  <url>
-    <loc>https://qanoni.com/services/criminal-law/bail-release</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/bail-release"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/bail-release"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/bail-release"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-30</lastmod>
-  </url>
-  <url>
-    <loc>https://qanoni.com/services/criminal-law/criminal-appeals</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/criminal-appeals"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/criminal-appeals"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/criminal-appeals"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-30</lastmod>
-  </url>
-  <url>
-    <loc>https://qanoni.com/services/criminal-law/cybercrime-cases</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/cybercrime-cases"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/cybercrime-cases"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/cybercrime-cases"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-30</lastmod>
-  </url>
-  <url>
-    <loc>https://qanoni.com/services/criminal-law/financial-crimes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/financial-crimes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/financial-crimes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/financial-crimes"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-30</lastmod>
-  </url>
-  <url>
-    <loc>https://qanoni.com/services/criminal-law/drug-offenses</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/drug-offenses"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/drug-offenses"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/drug-offenses"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-30</lastmod>
-  </url>
-  <url>
-    <loc>https://qanoni.com/services/criminal-law/criminal-investigations</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/criminal-investigations"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/criminal-investigations"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/criminal-investigations"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-30</lastmod>
-  </url>
-  <url>
-    <loc>https://qanoni.com/services/criminal-law/public-order</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/public-order"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/public-order"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/public-order"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <lastmod>2026-06-30</lastmod>
-  </url>
-  <url>
-    <loc>https://qanoni.com/services/banking-finance</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance"/>
+    <loc>https://counselo.com/services/criminal-law</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/criminal-law"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/criminal-law"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/criminal-law"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/banking-finance/islamic-finance</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/islamic-finance"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/islamic-finance"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/islamic-finance"/>
+    <loc>https://counselo.com/services/criminal-law/criminal-defense</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/criminal-law/criminal-defense"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/criminal-law/criminal-defense"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/criminal-law/criminal-defense"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/banking-finance/banking-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/banking-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/banking-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/banking-disputes"/>
+    <loc>https://counselo.com/services/criminal-law/bail-release</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/criminal-law/bail-release"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/criminal-law/bail-release"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/criminal-law/bail-release"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/banking-finance/loan-agreements</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/loan-agreements"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/loan-agreements"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/loan-agreements"/>
+    <loc>https://counselo.com/services/criminal-law/criminal-appeals</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/criminal-law/criminal-appeals"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/criminal-law/criminal-appeals"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/criminal-law/criminal-appeals"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/banking-finance/financial-regulatory</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/financial-regulatory"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/financial-regulatory"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/financial-regulatory"/>
+    <loc>https://counselo.com/services/criminal-law/cybercrime-cases</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/criminal-law/cybercrime-cases"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/criminal-law/cybercrime-cases"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/criminal-law/cybercrime-cases"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/banking-finance/sukuk-bonds</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/sukuk-bonds"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/sukuk-bonds"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/sukuk-bonds"/>
+    <loc>https://counselo.com/services/criminal-law/financial-crimes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/criminal-law/financial-crimes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/criminal-law/financial-crimes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/criminal-law/financial-crimes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/banking-finance/banking-fraud</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/banking-fraud"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/banking-fraud"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/banking-fraud"/>
+    <loc>https://counselo.com/services/criminal-law/drug-offenses</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/criminal-law/drug-offenses"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/criminal-law/drug-offenses"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/criminal-law/drug-offenses"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/banking-finance/credit-facilities</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/credit-facilities"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/credit-facilities"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/credit-facilities"/>
+    <loc>https://counselo.com/services/criminal-law/criminal-investigations</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/criminal-law/criminal-investigations"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/criminal-law/criminal-investigations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/criminal-law/criminal-investigations"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/banking-finance/investment-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/investment-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/investment-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/investment-disputes"/>
+    <loc>https://counselo.com/services/criminal-law/public-order</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/criminal-law/public-order"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/criminal-law/public-order"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/criminal-law/public-order"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/intellectual-property</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property"/>
+    <loc>https://counselo.com/services/banking-finance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/banking-finance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/banking-finance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/banking-finance"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/intellectual-property/trademark-registration</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/trademark-registration"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/trademark-registration"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/trademark-registration"/>
+    <loc>https://counselo.com/services/banking-finance/islamic-finance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/banking-finance/islamic-finance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/banking-finance/islamic-finance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/banking-finance/islamic-finance"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/intellectual-property/patent-protection</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/patent-protection"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/patent-protection"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/patent-protection"/>
+    <loc>https://counselo.com/services/banking-finance/banking-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/banking-finance/banking-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/banking-finance/banking-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/banking-finance/banking-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/intellectual-property/copyright-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/copyright-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/copyright-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/copyright-disputes"/>
+    <loc>https://counselo.com/services/banking-finance/loan-agreements</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/banking-finance/loan-agreements"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/banking-finance/loan-agreements"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/banking-finance/loan-agreements"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/intellectual-property/trade-secrets</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/trade-secrets"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/trade-secrets"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/trade-secrets"/>
+    <loc>https://counselo.com/services/banking-finance/financial-regulatory</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/banking-finance/financial-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/banking-finance/financial-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/banking-finance/financial-regulatory"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/intellectual-property/ip-licensing</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/ip-licensing"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/ip-licensing"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/ip-licensing"/>
+    <loc>https://counselo.com/services/banking-finance/sukuk-bonds</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/banking-finance/sukuk-bonds"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/banking-finance/sukuk-bonds"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/banking-finance/sukuk-bonds"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/intellectual-property/brand-protection</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/brand-protection"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/brand-protection"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/brand-protection"/>
+    <loc>https://counselo.com/services/banking-finance/banking-fraud</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/banking-finance/banking-fraud"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/banking-finance/banking-fraud"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/banking-finance/banking-fraud"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/intellectual-property/ip-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/ip-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/ip-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/ip-disputes"/>
+    <loc>https://counselo.com/services/banking-finance/credit-facilities</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/banking-finance/credit-facilities"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/banking-finance/credit-facilities"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/banking-finance/credit-facilities"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/intellectual-property/ip-due-diligence</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/ip-due-diligence"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/ip-due-diligence"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/ip-due-diligence"/>
+    <loc>https://counselo.com/services/banking-finance/investment-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/banking-finance/investment-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/banking-finance/investment-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/banking-finance/investment-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/tax-zakat</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat"/>
+    <loc>https://counselo.com/services/intellectual-property</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/intellectual-property"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/intellectual-property"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/intellectual-property"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/tax-zakat/vat-compliance</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/vat-compliance"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/vat-compliance"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/vat-compliance"/>
+    <loc>https://counselo.com/services/intellectual-property/trademark-registration</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/intellectual-property/trademark-registration"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/intellectual-property/trademark-registration"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/intellectual-property/trademark-registration"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/tax-zakat/zakat-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/zakat-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/zakat-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/zakat-disputes"/>
+    <loc>https://counselo.com/services/intellectual-property/patent-protection</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/intellectual-property/patent-protection"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/intellectual-property/patent-protection"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/intellectual-property/patent-protection"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/tax-zakat/zatca-appeals</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/zatca-appeals"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/zatca-appeals"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/zatca-appeals"/>
+    <loc>https://counselo.com/services/intellectual-property/copyright-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/intellectual-property/copyright-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/intellectual-property/copyright-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/intellectual-property/copyright-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/tax-zakat/corporate-tax</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/corporate-tax"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/corporate-tax"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/corporate-tax"/>
+    <loc>https://counselo.com/services/intellectual-property/trade-secrets</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/intellectual-property/trade-secrets"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/intellectual-property/trade-secrets"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/intellectual-property/trade-secrets"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/tax-zakat/transfer-pricing</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/transfer-pricing"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/transfer-pricing"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/transfer-pricing"/>
+    <loc>https://counselo.com/services/intellectual-property/ip-licensing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/intellectual-property/ip-licensing"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/intellectual-property/ip-licensing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/intellectual-property/ip-licensing"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/tax-zakat/customs-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/customs-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/customs-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/customs-disputes"/>
+    <loc>https://counselo.com/services/intellectual-property/brand-protection</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/intellectual-property/brand-protection"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/intellectual-property/brand-protection"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/intellectual-property/brand-protection"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/tax-zakat/tax-advisory</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/tax-advisory"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/tax-advisory"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/tax-advisory"/>
+    <loc>https://counselo.com/services/intellectual-property/ip-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/intellectual-property/ip-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/intellectual-property/ip-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/intellectual-property/ip-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/tax-zakat/excise-tax</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/excise-tax"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/excise-tax"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/excise-tax"/>
+    <loc>https://counselo.com/services/intellectual-property/ip-due-diligence</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/intellectual-property/ip-due-diligence"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/intellectual-property/ip-due-diligence"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/intellectual-property/ip-due-diligence"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/cyber-law</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law"/>
+    <loc>https://counselo.com/services/tax-zakat</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/tax-zakat"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/tax-zakat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/tax-zakat"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/cyber-law/cybercrime-defense</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/cybercrime-defense"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/cybercrime-defense"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/cybercrime-defense"/>
+    <loc>https://counselo.com/services/tax-zakat/vat-compliance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/tax-zakat/vat-compliance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/tax-zakat/vat-compliance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/tax-zakat/vat-compliance"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/cyber-law/data-protection</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/data-protection"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/data-protection"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/data-protection"/>
+    <loc>https://counselo.com/services/tax-zakat/zakat-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/tax-zakat/zakat-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/tax-zakat/zakat-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/tax-zakat/zakat-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/cyber-law/online-fraud</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/online-fraud"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/online-fraud"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/online-fraud"/>
+    <loc>https://counselo.com/services/tax-zakat/zatca-appeals</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/tax-zakat/zatca-appeals"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/tax-zakat/zatca-appeals"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/tax-zakat/zatca-appeals"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/cyber-law/hacking-defense</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/hacking-defense"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/hacking-defense"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/hacking-defense"/>
+    <loc>https://counselo.com/services/tax-zakat/corporate-tax</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/tax-zakat/corporate-tax"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/tax-zakat/corporate-tax"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/tax-zakat/corporate-tax"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/cyber-law/online-defamation</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/online-defamation"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/online-defamation"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/online-defamation"/>
+    <loc>https://counselo.com/services/tax-zakat/transfer-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/tax-zakat/transfer-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/tax-zakat/transfer-pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/tax-zakat/transfer-pricing"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/cyber-law/ecommerce-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/ecommerce-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/ecommerce-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/ecommerce-disputes"/>
+    <loc>https://counselo.com/services/tax-zakat/customs-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/tax-zakat/customs-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/tax-zakat/customs-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/tax-zakat/customs-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/cyber-law/digital-privacy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/digital-privacy"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/digital-privacy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/digital-privacy"/>
+    <loc>https://counselo.com/services/tax-zakat/tax-advisory</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/tax-zakat/tax-advisory"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/tax-zakat/tax-advisory"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/tax-zakat/tax-advisory"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/cyber-law/it-contracts</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/it-contracts"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/it-contracts"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/it-contracts"/>
+    <loc>https://counselo.com/services/tax-zakat/excise-tax</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/tax-zakat/excise-tax"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/tax-zakat/excise-tax"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/tax-zakat/excise-tax"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/medical-malpractice</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice"/>
+    <loc>https://counselo.com/services/cyber-law</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/cyber-law"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/cyber-law"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/cyber-law"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/medical-malpractice/medical-negligence</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/medical-negligence"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/medical-negligence"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/medical-negligence"/>
+    <loc>https://counselo.com/services/cyber-law/cybercrime-defense</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/cyber-law/cybercrime-defense"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/cyber-law/cybercrime-defense"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/cyber-law/cybercrime-defense"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/medical-malpractice/surgical-errors</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/surgical-errors"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/surgical-errors"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/surgical-errors"/>
+    <loc>https://counselo.com/services/cyber-law/data-protection</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/cyber-law/data-protection"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/cyber-law/data-protection"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/cyber-law/data-protection"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/medical-malpractice/misdiagnosis</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/misdiagnosis"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/misdiagnosis"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/misdiagnosis"/>
+    <loc>https://counselo.com/services/cyber-law/online-fraud</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/cyber-law/online-fraud"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/cyber-law/online-fraud"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/cyber-law/online-fraud"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/medical-malpractice/hospital-liability</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/hospital-liability"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/hospital-liability"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/hospital-liability"/>
+    <loc>https://counselo.com/services/cyber-law/hacking-defense</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/cyber-law/hacking-defense"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/cyber-law/hacking-defense"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/cyber-law/hacking-defense"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/medical-malpractice/pharmaceutical-claims</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/pharmaceutical-claims"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/pharmaceutical-claims"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/pharmaceutical-claims"/>
+    <loc>https://counselo.com/services/cyber-law/online-defamation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/cyber-law/online-defamation"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/cyber-law/online-defamation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/cyber-law/online-defamation"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/medical-malpractice/dental-malpractice</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/dental-malpractice"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/dental-malpractice"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/dental-malpractice"/>
+    <loc>https://counselo.com/services/cyber-law/ecommerce-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/cyber-law/ecommerce-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/cyber-law/ecommerce-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/cyber-law/ecommerce-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/medical-malpractice/healthcare-regulatory</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/healthcare-regulatory"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/healthcare-regulatory"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/healthcare-regulatory"/>
+    <loc>https://counselo.com/services/cyber-law/digital-privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/cyber-law/digital-privacy"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/cyber-law/digital-privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/cyber-law/digital-privacy"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/medical-malpractice/patient-rights</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/patient-rights"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/patient-rights"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/patient-rights"/>
+    <loc>https://counselo.com/services/cyber-law/it-contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/cyber-law/it-contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/cyber-law/it-contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/cyber-law/it-contracts"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/insurance-law</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law"/>
+    <loc>https://counselo.com/services/medical-malpractice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/medical-malpractice"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/medical-malpractice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/medical-malpractice"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/insurance-law/insurance-disputes</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/insurance-disputes"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/insurance-disputes"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/insurance-disputes"/>
+    <loc>https://counselo.com/services/medical-malpractice/medical-negligence</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/medical-malpractice/medical-negligence"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/medical-malpractice/medical-negligence"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/medical-malpractice/medical-negligence"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/insurance-law/health-insurance</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/health-insurance"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/health-insurance"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/health-insurance"/>
+    <loc>https://counselo.com/services/medical-malpractice/surgical-errors</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/medical-malpractice/surgical-errors"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/medical-malpractice/surgical-errors"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/medical-malpractice/surgical-errors"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/insurance-law/property-insurance</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/property-insurance"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/property-insurance"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/property-insurance"/>
+    <loc>https://counselo.com/services/medical-malpractice/misdiagnosis</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/medical-malpractice/misdiagnosis"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/medical-malpractice/misdiagnosis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/medical-malpractice/misdiagnosis"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/insurance-law/motor-insurance</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/motor-insurance"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/motor-insurance"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/motor-insurance"/>
+    <loc>https://counselo.com/services/medical-malpractice/hospital-liability</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/medical-malpractice/hospital-liability"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/medical-malpractice/hospital-liability"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/medical-malpractice/hospital-liability"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/insurance-law/life-insurance</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/life-insurance"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/life-insurance"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/life-insurance"/>
+    <loc>https://counselo.com/services/medical-malpractice/pharmaceutical-claims</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/medical-malpractice/pharmaceutical-claims"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/medical-malpractice/pharmaceutical-claims"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/medical-malpractice/pharmaceutical-claims"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/insurance-law/commercial-insurance</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/commercial-insurance"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/commercial-insurance"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/commercial-insurance"/>
+    <loc>https://counselo.com/services/medical-malpractice/dental-malpractice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/medical-malpractice/dental-malpractice"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/medical-malpractice/dental-malpractice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/medical-malpractice/dental-malpractice"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/insurance-law/insurance-bad-faith</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/insurance-bad-faith"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/insurance-bad-faith"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/insurance-bad-faith"/>
+    <loc>https://counselo.com/services/medical-malpractice/healthcare-regulatory</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/medical-malpractice/healthcare-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/medical-malpractice/healthcare-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/medical-malpractice/healthcare-regulatory"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/insurance-law/insurance-regulatory</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/insurance-regulatory"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/insurance-regulatory"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/insurance-regulatory"/>
+    <loc>https://counselo.com/services/medical-malpractice/patient-rights</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/medical-malpractice/patient-rights"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/medical-malpractice/patient-rights"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/medical-malpractice/patient-rights"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/immigration-law</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law"/>
+    <loc>https://counselo.com/services/insurance-law</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/insurance-law"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/insurance-law"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/insurance-law"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/immigration-law/iqama-residency</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/iqama-residency"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/iqama-residency"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/iqama-residency"/>
+    <loc>https://counselo.com/services/insurance-law/insurance-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/insurance-law/insurance-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/insurance-law/insurance-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/insurance-law/insurance-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/immigration-law/work-visas</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/work-visas"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/work-visas"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/work-visas"/>
+    <loc>https://counselo.com/services/insurance-law/health-insurance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/insurance-law/health-insurance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/insurance-law/health-insurance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/insurance-law/health-insurance"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/immigration-law/kafala-transfer</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/kafala-transfer"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/kafala-transfer"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/kafala-transfer"/>
+    <loc>https://counselo.com/services/insurance-law/property-insurance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/insurance-law/property-insurance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/insurance-law/property-insurance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/insurance-law/property-insurance"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/immigration-law/deportation-defense</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/deportation-defense"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/deportation-defense"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/deportation-defense"/>
+    <loc>https://counselo.com/services/insurance-law/motor-insurance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/insurance-law/motor-insurance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/insurance-law/motor-insurance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/insurance-law/motor-insurance"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/immigration-law/family-visas</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/family-visas"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/family-visas"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/family-visas"/>
+    <loc>https://counselo.com/services/insurance-law/life-insurance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/insurance-law/life-insurance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/insurance-law/life-insurance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/insurance-law/life-insurance"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/immigration-law/premium-residency</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/premium-residency"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/premium-residency"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/premium-residency"/>
+    <loc>https://counselo.com/services/insurance-law/commercial-insurance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/insurance-law/commercial-insurance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/insurance-law/commercial-insurance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/insurance-law/commercial-insurance"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/immigration-law/business-visas</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/business-visas"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/business-visas"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/business-visas"/>
+    <loc>https://counselo.com/services/insurance-law/insurance-bad-faith</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/insurance-law/insurance-bad-faith"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/insurance-law/insurance-bad-faith"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/insurance-law/insurance-bad-faith"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>
   </url>
   <url>
-    <loc>https://qanoni.com/services/immigration-law/immigration-violations</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/immigration-violations"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/immigration-violations"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/immigration-violations"/>
+    <loc>https://counselo.com/services/insurance-law/insurance-regulatory</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/insurance-law/insurance-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/insurance-law/insurance-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/insurance-law/insurance-regulatory"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo.com/services/immigration-law</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/immigration-law"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/immigration-law"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/immigration-law"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo.com/services/immigration-law/iqama-residency</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/immigration-law/iqama-residency"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/immigration-law/iqama-residency"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/immigration-law/iqama-residency"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo.com/services/immigration-law/work-visas</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/immigration-law/work-visas"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/immigration-law/work-visas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/immigration-law/work-visas"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo.com/services/immigration-law/kafala-transfer</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/immigration-law/kafala-transfer"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/immigration-law/kafala-transfer"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/immigration-law/kafala-transfer"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo.com/services/immigration-law/deportation-defense</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/immigration-law/deportation-defense"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/immigration-law/deportation-defense"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/immigration-law/deportation-defense"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo.com/services/immigration-law/family-visas</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/immigration-law/family-visas"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/immigration-law/family-visas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/immigration-law/family-visas"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo.com/services/immigration-law/premium-residency</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/immigration-law/premium-residency"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/immigration-law/premium-residency"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/immigration-law/premium-residency"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo.com/services/immigration-law/business-visas</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/immigration-law/business-visas"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/immigration-law/business-visas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/immigration-law/business-visas"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo.com/services/immigration-law/immigration-violations</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo.com/services/immigration-law/immigration-violations"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo.com/services/immigration-law/immigration-violations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo.com/services/immigration-law/immigration-violations"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <lastmod>2026-06-30</lastmod>

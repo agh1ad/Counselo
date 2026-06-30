@@ -29,37 +29,37 @@ export default function EmploymentLawSub() {
 
   const SEO_DATA: Record<string, { desc: string; descAr: string; kw: string; kwAr: string }> = {
     "unpaid-wages": {
-      desc: "Unpaid wages & salary recovery legal advice in Saudi Arabia — HRSD claims, Labour Court & employee rights. Professional response within 24 hours via WhatsApp or email — Qanoni Saudi Arabia.",
+      desc: "Unpaid wages & salary recovery legal advice in Saudi Arabia — HRSD claims, Labour Court & employee rights. Professional response within 24 hours via WhatsApp or email — CounselO Saudi Arabia.",
       descAr: "استشارة قانونية في استرداد الأجور غير المدفوعة بالمملكة — مطالبات وزارة الموارد البشرية ومحاكم العمل. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "unpaid wages lawyer Saudi Arabia, salary claim KSA, HRSD complaint Saudi, delayed salary Saudi, wage recovery online",
       kwAr: "محامي أجور غير مدفوعة السعودية, استرداد الراتب, شكوى وزارة الموارد البشرية, مطالبات عمالية أونلاين",
     },
     "labor-compensation": {
-      desc: "Workplace injury & labour compensation legal advice in Saudi Arabia — GOSI entitlements, occupational diseases & court claims. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Workplace injury & labour compensation legal advice in Saudi Arabia — GOSI entitlements, occupational diseases & court claims. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "استشارة قانونية في التعويضات العمالية وإصابات العمل بالمملكة — مطالبات التأمينات الاجتماعية وأمراض المهنة. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "work injury lawyer Saudi Arabia, GOSI claim KSA, labour compensation Saudi, occupational disease claim, workplace injury online",
       kwAr: "محامي تعويضات عمالية السعودية, إصابات العمل, التأمينات الاجتماعية GOSI, تعويض عمالي أونلاين",
     },
     "unfair-dismissal": {
-      desc: "Unfair dismissal & wrongful termination legal advice in Saudi Arabia — reinstatement rights, compensation & Labour Court claims. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Unfair dismissal & wrongful termination legal advice in Saudi Arabia — reinstatement rights, compensation & Labour Court claims. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "استشارة قانونية في الفصل التعسفي وإنهاء الخدمة غير المشروع بالمملكة — التعويض وحقوق الموظف. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "wrongful termination lawyer Saudi Arabia, unfair dismissal KSA, dismissed employee rights Saudi, Labour Court claim online",
       kwAr: "محامي فصل تعسفي السعودية, إنهاء خدمة غير مشروع, حقوق الموظف المفصول, تعويض الفصل, استشارة فصل أونلاين",
     },
     "end-of-service": {
-      desc: "End of service gratuity legal advice in Saudi Arabia — calculation, disputes & recovery under Saudi Labour Law. Professional response within 24 hours via WhatsApp — Qanoni Saudi Arabia.",
+      desc: "End of service gratuity legal advice in Saudi Arabia — calculation, disputes & recovery under Saudi Labour Law. Professional response within 24 hours via WhatsApp — CounselO Saudi Arabia.",
       descAr: "استشارة قانونية في مكافأة نهاية الخدمة بالمملكة — الحساب الصحيح والنزاعات والاسترداد وفق نظام العمل. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "end of service lawyer Saudi Arabia, gratuity claim KSA, end of service calculation Saudi, labour law gratuity Saudi, end of service online",
       kwAr: "محامي مكافأة نهاية الخدمة السعودية, حساب نهاية الخدمة, نزاع مكافأة نهاية الخدمة, استشارة عمالية أونلاين",
     },
     "contract-disputes": {
-      desc: "Employment contract dispute legal advice in Saudi Arabia — non-compete clauses, notice periods & breach remedies under Saudi Labour Law. Professional response within 24 hours via WhatsApp or email — Qanoni Saudi Arabia.",
+      desc: "Employment contract dispute legal advice in Saudi Arabia — non-compete clauses, notice periods & breach remedies under Saudi Labour Law. Professional response within 24 hours via WhatsApp or email — CounselO Saudi Arabia.",
       descAr: "استشارة قانونية في نزاعات عقد العمل بالمملكة — شروط عدم المنافسة وفترة الإشعار والإخلال. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "employment contract lawyer Saudi Arabia, non-compete clause KSA, notice period dispute Saudi, employment agreement online",
       kwAr: "محامي عقد العمل السعودية, شرط عدم المنافسة, فترة الإشعار, نزاع عقد العمل, استشارة عقد عمل أونلاين",
     },
     "workplace-discrimination": {
-      desc: "Workplace discrimination & harassment legal advice in Saudi Arabia — employee rights, retaliation & Labour Court claims. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Workplace discrimination & harassment legal advice in Saudi Arabia — employee rights, retaliation & Labour Court claims. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "استشارة قانونية في التمييز والتحرش في بيئة العمل بالمملكة — حقوق الموظف والمطالبات القضائية. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "workplace discrimination lawyer Saudi Arabia, harassment claim KSA, employee rights Saudi, workplace retaliation, discrimination claim online",
       kwAr: "محامي تمييز في العمل السعودية, تحرش في بيئة العمل, حقوق الموظف, بيئة العمل, استشارة تمييز أونلاين",
@@ -84,10 +84,10 @@ export default function EmploymentLawSub() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://qanoni.com/" },
-      { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://qanoni.com/services" },
-      { "@type": "ListItem", position: 3, name: isRTL ? "قانون العمل" : "Employment Law", item: "https://qanoni.com/services/employment-law" },
-      { "@type": "ListItem", position: 4, name: data.title, item: `https://qanoni.com/services/employment-law/${subId}` },
+      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://counselo.com/" },
+      { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://counselo.com/services" },
+      { "@type": "ListItem", position: 3, name: isRTL ? "قانون العمل" : "Employment Law", item: "https://counselo.com/services/employment-law" },
+      { "@type": "ListItem", position: 4, name: data.title, item: `https://counselo.com/services/employment-law/${subId}` },
     ],
   };
 
@@ -96,13 +96,13 @@ export default function EmploymentLawSub() {
     "@type": "LegalService",
     "name": data.seoTitle,
     "description": seoDescription,
-    "url": `https://qanoni.com/services/employment-law/${subId}`,
+    "url": `https://counselo.com/services/employment-law/${subId}`,
     "areaServed": { "@type": "Country", "name": "Saudi Arabia" },
     "availableLanguage": ["Arabic", "English"],
     "provider": {
       "@type": "LegalService",
-      "name": "Qanoni قانوني",
-      "url": "https://qanoni.com",
+      "name": "CounselO قانوني",
+      "url": "https://counselo.com",
       "telephone": "+966594850247",
       "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
       "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "847", "bestRating": "5" },

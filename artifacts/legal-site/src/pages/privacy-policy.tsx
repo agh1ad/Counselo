@@ -9,21 +9,21 @@ export default function PrivacyPolicy() {
 
   const content = {
     en: {
-      seoTitle: "Privacy Policy | How Qanoni Protects Your Data | Qanoni قانوني",
+      seoTitle: "Privacy Policy | How CounselO Protects Your Data | CounselO قانوني",
       seoDesc:
-        "Qanoni's Privacy Policy — how we collect, use and protect your personal data and legal information. Strict professional confidentiality on all consultations. Saudi Arabia's online legal platform.",
+        "CounselO's Privacy Policy — how we collect, use and protect your personal data and legal information. Strict professional confidentiality on all consultations. Saudi Arabia's online legal platform.",
       canonical: "/privacy-policy",
       eyebrow: "Data Protection & Privacy",
       heading: "Privacy Policy",
       subheading:
-        "Qanoni is committed to protecting your privacy and the confidentiality of your legal information. This policy explains what data we collect, how we use it, and the strict protections that apply to everything you share with us.",
+        "CounselO is committed to protecting your privacy and the confidentiality of your legal information. This policy explains what data we collect, how we use it, and the strict protections that apply to everything you share with us.",
       lastUpdated: "Last updated: 28 June 2026",
       sections: [
         {
           icon: Shield,
           title: "1. Who We Are",
           content:
-            "Qanoni (قانوني) is an online legal consultation platform founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with over 30 years of legal practice. We provide professional legal consultation services across Saudi Arabia via WhatsApp and email, in Arabic and English.",
+            "CounselO (قانوني) is an online legal consultation platform founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with over 30 years of legal practice. We provide professional legal consultation services across Saudi Arabia via WhatsApp and email, in Arabic and English.",
         },
         {
           icon: Database,
@@ -56,10 +56,10 @@ export default function PrivacyPolicy() {
           icon: Lock,
           title: "4. Professional Legal Confidentiality",
           content:
-            "All information you share with Qanoni is subject to strict professional confidentiality — the same lawyer-client privilege that governs all legal practice in the Kingdom of Saudi Arabia. This means:",
+            "All information you share with CounselO is subject to strict professional confidentiality — the same lawyer-client privilege that governs all legal practice in the Kingdom of Saudi Arabia. This means:",
           list: [
             "We will never share your legal matter details, documents, or personal information with any third party without your explicit written consent",
-            "Your information is accessible only to the members of the Qanoni legal team directly responsible for your consultation",
+            "Your information is accessible only to the members of the CounselO legal team directly responsible for your consultation",
             "Professional secrecy obligations continue in perpetuity — even after your consultation is concluded",
             "We do not sell, rent, or trade your personal information to any person, company, or data broker",
           ],
@@ -72,7 +72,7 @@ export default function PrivacyPolicy() {
           list: [
             "WhatsApp messages are transmitted via Meta's encrypted infrastructure — please review WhatsApp's own privacy policy for information on their data practices",
             "Email communications may be subject to standard internet transmission risks — we recommend using secure email where possible for highly sensitive matters",
-            "All consultation content received by Qanoni through any channel is treated as strictly confidential regardless of transmission method",
+            "All consultation content received by CounselO through any channel is treated as strictly confidential regardless of transmission method",
             "We do not proactively contact you by WhatsApp or email for marketing purposes without your consent",
           ],
         },
@@ -144,7 +144,7 @@ export default function PrivacyPolicy() {
           content:
             "We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, loss, or disclosure:",
           list: [
-            "Access to consultation files is restricted to authorised Qanoni legal team members only",
+            "Access to consultation files is restricted to authorised CounselO legal team members only",
             "Electronic communications are handled through encrypted channels where available",
             "Our website uses HTTPS encryption for all data transmitted between your browser and our server",
             "We conduct regular reviews of our data security practices and update them as necessary",
@@ -158,7 +158,7 @@ export default function PrivacyPolicy() {
           list: [
             "The updated policy will be published on this page with a revised 'Last updated' date",
             "For material changes, we will notify active clients via email",
-            "Your continued use of Qanoni's services after any update constitutes your acceptance of the revised policy",
+            "Your continued use of CounselO's services after any update constitutes your acceptance of the revised policy",
           ],
         },
       ],
@@ -334,24 +334,24 @@ export default function PrivacyPolicy() {
         canonical="/privacy-policy"
         keywords={isRTL
           ? "سياسة الخصوصية قانوني, حماية البيانات الشخصية السعودية, سرية الاستشارة القانونية, نظام PDPL السعودي, خصوصية المستخدم"
-          : "Qanoni privacy policy, data protection Saudi Arabia, legal consultation confidentiality, PDPL Saudi Arabia, client data privacy"}
+          : "CounselO privacy policy, data protection Saudi Arabia, legal consultation confidentiality, PDPL Saudi Arabia, client data privacy"}
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": isRTL ? "سياسة الخصوصية — قانوني" : "Privacy Policy — Qanoni",
+            "name": isRTL ? "سياسة الخصوصية — قانوني" : "Privacy Policy — CounselO",
             "description": content.seoDesc,
-            "url": "https://qanoni.com/privacy-policy",
-            "isPartOf": { "@type": "WebSite", "name": "Qanoni قانوني", "url": "https://qanoni.com" },
+            "url": "https://counselo.com/privacy-policy",
+            "isPartOf": { "@type": "WebSite", "name": "CounselO قانوني", "url": "https://counselo.com" },
             "inLanguage": isRTL ? "ar" : "en",
-            "about": { "@type": "LegalService", "name": "Qanoni", "url": "https://qanoni.com" },
+            "about": { "@type": "LegalService", "name": "CounselO", "url": "https://counselo.com" },
           },
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://qanoni.com/" },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "سياسة الخصوصية" : "Privacy Policy", "item": "https://qanoni.com/privacy-policy" },
+              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo.com/" },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "سياسة الخصوصية" : "Privacy Policy", "item": "https://counselo.com/privacy-policy" },
             ],
           },
         ]}

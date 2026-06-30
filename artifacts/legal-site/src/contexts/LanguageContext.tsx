@@ -13,7 +13,7 @@ interface LanguageContextType {
   isRTL: boolean;
 }
 
-const STORAGE_KEY = "qanoni-lang";
+const STORAGE_KEY = "counselo-lang";
 
 function getSavedLang(): Lang {
   try {

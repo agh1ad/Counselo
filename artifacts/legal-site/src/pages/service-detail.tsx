@@ -28,27 +28,27 @@ export default function ServiceDetail() {
       <SEOHead
         title={isRTL
           ? `${data.title} في السعودية | استشارة قانونية أونلاين | قانوني`
-          : `${data.title} Saudi Arabia | Online Legal Consultation | Qanoni قانوني`}
+          : `${data.title} Saudi Arabia | Online Legal Consultation | CounselO قانوني`}
         description={isRTL
           ? `${data.subtitle} — قانوني، أكبر منصة للاستشارات القانونية الأونلاين في المملكة. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. خبرة تزيد على 30 عاماً وأكثر من 20,000 قضية. لا حاجة لزيارة مكتب.`
-          : `${data.subtitle} — Qanoni, Saudi Arabia's largest online legal platform. Professional response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases handled. No office visit needed.`}
+          : `${data.subtitle} — CounselO, Saudi Arabia's largest online legal platform. Professional response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases handled. No office visit needed.`}
         canonical={`/services/${id}`}
         keywords={isRTL
           ? `${data.title} محامي المملكة العربية السعودية, استشارة قانونية ${data.title} أونلاين, محامي ${data.title} قانوني, مشورة قانونية واتساب المملكة`
-          : `${data.title} lawyer Saudi Arabia, online ${data.title} legal advice KSA, ${data.title} attorney Qanoni, legal consultation WhatsApp Saudi`}
+          : `${data.title} lawyer Saudi Arabia, online ${data.title} legal advice KSA, ${data.title} attorney CounselO, legal consultation WhatsApp Saudi`}
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "LegalService",
-            "name": isRTL ? `${data.title} — قانوني` : `${data.title} — Qanoni`,
+            "name": isRTL ? `${data.title} — قانوني` : `${data.title} — CounselO`,
             "description": data.subtitle,
-            "url": `https://qanoni.com/services/${id}`,
+            "url": `https://counselo.com/services/${id}`,
             "areaServed": { "@type": "Country", "name": "Saudi Arabia" },
             "availableLanguage": ["Arabic", "English"],
             "provider": {
               "@type": "LegalService",
-              "name": "Qanoni قانوني",
-              "url": "https://qanoni.com",
+              "name": "CounselO قانوني",
+              "url": "https://counselo.com",
               "telephone": "+966594850247",
               "email": "bagdadio@gmail.com",
               "address": { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA" },
@@ -60,9 +60,9 @@ export default function ServiceDetail() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://qanoni.com/" },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "الخدمات" : "Services", "item": "https://qanoni.com/services" },
-              { "@type": "ListItem", "position": 3, "name": data.title, "item": `https://qanoni.com/services/${id}` },
+              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo.com/" },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "الخدمات" : "Services", "item": "https://counselo.com/services" },
+              { "@type": "ListItem", "position": 3, "name": data.title, "item": `https://counselo.com/services/${id}` },
             ],
           },
         ]}

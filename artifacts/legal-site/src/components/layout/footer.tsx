@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { MapPin, Phone, Mail, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import logoHorizontal from "@assets/Screen_Shot_2026-06-28_at_4.58.49_AM_1782608643526.png";
+import counseloLogo from "@assets/Screen_Shot_2026-07-01_at_12.26.11_AM_1782851175169.png";
 
 export function Footer() {
   const { t } = useLanguage();
@@ -13,7 +13,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-6">
-              <img src={logoHorizontal} alt="Qanoni — Online Legal Consultations" className="h-16 w-auto object-contain" />
+              <img src={counseloLogo} alt="CounselO — Online Legal Consultations" className="h-16 w-auto object-contain" />
             </Link>
             <p className="text-white/70 text-sm mb-6 leading-relaxed">{f.tagline}</p>
             <div className="flex space-x-4 rtl:space-x-reverse text-white/60">
@@ -74,7 +74,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-white/60">
-            &copy; {new Date().getFullYear()} Qanoni. {f.copyright}
+            &copy; {new Date().getFullYear()} CounselO. {f.copyright}
           </p>
           <div className="flex gap-4 text-sm text-white/60">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">{f.privacy}</Link>

@@ -29,31 +29,31 @@ export default function ArbitrationSub() {
 
   const SEO_DATA: Record<string, { desc: string; descAr: string; kw: string; kwAr: string }> = {
     "commercial-arbitration": {
-      desc: "Commercial arbitration lawyer in Saudi Arabia — SCCA arbitration, ad hoc arbitration, award enforcement & set-aside. Professional response within 24 hours via WhatsApp or email — Qanoni Saudi Arabia.",
+      desc: "Commercial arbitration lawyer in Saudi Arabia — SCCA arbitration, ad hoc arbitration, award enforcement & set-aside. Professional response within 24 hours via WhatsApp or email — CounselO Saudi Arabia.",
       descAr: "محامي تحكيم تجاري في المملكة العربية السعودية — تحكيم المركز السعودي، تحكيم حر، تنفيذ الأحكام. استشارة استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "commercial arbitration lawyer Saudi Arabia, SCCA arbitration KSA, Saudi arbitration law, commercial arbitration online, arbitration clause Saudi, ad hoc arbitration Saudi Arabia",
       kwAr: "محامي تحكيم تجاري السعودية, تحكيم المركز السعودي, نظام التحكيم السعودي, تحكيم أونلاين, شرط التحكيم السعودي",
     },
     "mediation-adr": {
-      desc: "Commercial mediation and ADR legal advice in Saudi Arabia — SCCA mediation, settlement agreements & dispute resolution strategy. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Commercial mediation and ADR legal advice in Saudi Arabia — SCCA mediation, settlement agreements & dispute resolution strategy. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "استشارة قانونية في الوساطة التجارية وتسوية النزاعات البديلة في المملكة — وساطة المركز السعودي واتفاقيات التسوية. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "mediation lawyer Saudi Arabia, commercial ADR KSA, SCCA mediation Saudi, dispute resolution Saudi, settlement agreement KSA, mediation online Saudi Arabia",
       kwAr: "محامي وساطة السعودية, تسوية نزاعات بديلة المملكة, وساطة المركز السعودي, حل النزاعات السعودية, اتفاقية تسوية, وساطة أونلاين",
     },
     "award-enforcement": {
-      desc: "Arbitral award enforcement lawyer in Saudi Arabia — domestic and foreign award recognition under the New York Convention. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Arbitral award enforcement lawyer in Saudi Arabia — domestic and foreign award recognition under the New York Convention. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "محامي تنفيذ أحكام التحكيم في المملكة العربية السعودية — الاعتراف بالأحكام المحلية والأجنبية بموجب اتفاقية نيويورك. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "arbitral award enforcement Saudi Arabia, New York Convention KSA, foreign award recognition Saudi, enforce arbitration award Saudi, award set-aside Saudi Arabia",
       kwAr: "تنفيذ حكم تحكيم السعودية, اتفاقية نيويورك المملكة, الاعتراف بحكم تحكيم أجنبي, محامي تنفيذ تحكيم السعودية, الطعن في حكم التحكيم",
     },
     "international-arbitration": {
-      desc: "International arbitration lawyer for Saudi disputes — ICC, LCIA, UNCITRAL & SCCA arbitration with Saudi law expertise. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "International arbitration lawyer for Saudi disputes — ICC, LCIA, UNCITRAL & SCCA arbitration with Saudi law expertise. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "محامي تحكيم دولي للنزاعات السعودية — ICC وLCIA وUNCITRAL والمركز السعودي مع خبرة متعمقة في القانون السعودي. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "international arbitration lawyer Saudi Arabia, ICC arbitration KSA, LCIA Saudi Arabia, UNCITRAL Saudi, Saudi law international arbitration, cross-border arbitration Saudi",
       kwAr: "محامي تحكيم دولي السعودية, تحكيم ICC السعودية, تحكيم دولي القانون السعودي, نزاع عابر للحدود السعودية, تحكيم LCIA السعودية",
     },
     "investment-arbitration": {
-      desc: "Investment arbitration lawyer in Saudi Arabia — ICSID, BIT claims, investor-state disputes & expropriation claims. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Investment arbitration lawyer in Saudi Arabia — ICSID, BIT claims, investor-state disputes & expropriation claims. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "محامي تحكيم استثماري في المملكة — ICSID ومطالبات معاهدات الاستثمار ونزاعات المستثمر والدولة ومطالبات الاستملاك. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "investment arbitration Saudi Arabia, ICSID Saudi Arabia, BIT claim Saudi, investor state dispute KSA, expropriation claim Saudi, investment treaty arbitration",
       kwAr: "تحكيم استثماري السعودية, ICSID السعودية, مطالبة معاهدة استثمار, نزاع مستثمر ودولة السعودية, مطالبة استملاك السعودية",
@@ -78,25 +78,25 @@ export default function ArbitrationSub() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://qanoni.com/" },
-      { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://qanoni.com/services" },
-      { "@type": "ListItem", position: 3, name: isRTL ? "التحكيم والوساطة" : "Arbitration & Mediation", item: "https://qanoni.com/services/arbitration" },
-      { "@type": "ListItem", position: 4, name: data.title, item: `https://qanoni.com/services/arbitration/${subId}` },
+      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://counselo.com/" },
+      { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://counselo.com/services" },
+      { "@type": "ListItem", position: 3, name: isRTL ? "التحكيم والوساطة" : "Arbitration & Mediation", item: "https://counselo.com/services/arbitration" },
+      { "@type": "ListItem", position: 4, name: data.title, item: `https://counselo.com/services/arbitration/${subId}` },
     ],
   };
 
   const legalServiceSchema = {
     "@context": "https://schema.org",
     "@type": "LegalService",
-    name: isRTL ? `${data.title} — قانوني` : `${data.title} — Qanoni`,
+    name: isRTL ? `${data.title} — قانوني` : `${data.title} — CounselO`,
     description: seoDescription,
-    url: `https://qanoni.com/services/arbitration/${subId}`,
+    url: `https://counselo.com/services/arbitration/${subId}`,
     areaServed: { "@type": "Country", name: "Saudi Arabia" },
     availableLanguage: ["Arabic", "English"],
     provider: {
       "@type": "LegalService",
-      name: "Qanoni قانوني",
-      url: "https://qanoni.com",
+      name: "CounselO قانوني",
+      url: "https://counselo.com",
       telephone: "+966594850247",
     },
   };

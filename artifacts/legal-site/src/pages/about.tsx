@@ -17,9 +17,9 @@ export default function About() {
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Qanoni قانوني",
-      "url": "https://qanoni.com",
-      "logo": "https://qanoni.com/logo.png",
+      "name": "CounselO قانوني",
+      "url": "https://counselo.com",
+      "logo": "https://counselo.com/logo.png",
       "description": isRTL
         ? "أكبر منصة للاستشارات القانونية الأونلاين في المملكة العربية السعودية — تأسست على يد المحامي عمر البغدادي"
         : "Saudi Arabia's largest online legal consultation platform — founded by Lawyer Omar Al-Baghdadi",
@@ -40,16 +40,16 @@ export default function About() {
       "@type": "Person",
       "name": "Omar Al-Baghdadi",
       "jobTitle": "Lawyer & Legal Counsel",
-      "worksFor": { "@type": "Organization", "name": "Qanoni قانوني" },
+      "worksFor": { "@type": "Organization", "name": "CounselO قانوني" },
       "alumniOf": { "@type": "EducationalOrganization", "name": "Faculty of Law, Damascus University" },
-      "description": "Senior advocate and legal counsel with 30+ years experience across Saudi Arabia, UAE and Syria. Founder of Qanoni.",
+      "description": "Senior advocate and legal counsel with 30+ years experience across Saudi Arabia, UAE and Syria. Founder of CounselO.",
       "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
     },
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": isRTL ? "عن قانوني" : "About Qanoni",
-      "url": "https://qanoni.com/about",
+      "name": isRTL ? "عن قانوني" : "About CounselO",
+      "url": "https://counselo.com/about",
       "description": a.seoDesc,
     },
   ];
@@ -142,7 +142,7 @@ export default function About() {
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {isRTL
                     ? "قانوني منصة رقمية تُجسّد أهداف رؤية 2030 في التحول الرقمي وتيسير الوصول إلى العدالة وتمكين المواطنين والمستثمرين."
-                    : "Qanoni embodies Vision 2030's goals of digital transformation, access to justice, and empowering citizens and investors across the Kingdom."}
+                    : "CounselO embodies Vision 2030's goals of digital transformation, access to justice, and empowering citizens and investors across the Kingdom."}
                 </p>
               </div>
             </motion.div>
@@ -169,7 +169,7 @@ export default function About() {
                   <div className="w-36 h-44 border-4 border-primary/20 overflow-hidden shadow-xl">
                     <img
                       src={founderPhoto}
-                      alt="Lawyer Omar Al-Baghdadi — Founder of Qanoni"
+                      alt="Lawyer Omar Al-Baghdadi — Founder of CounselO"
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
@@ -261,7 +261,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Why Qanoni ── */}
+      {/* ── Why CounselO ── */}
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://qanoni.com/sitemap.xml
+Sitemap: https://counselo.com/sitemap.xml

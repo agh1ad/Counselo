@@ -96,10 +96,10 @@ export default function MedicalMalpracticeSub() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://qanoni.com/" },
-      { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://qanoni.com/services" },
-      { "@type": "ListItem", position: 3, name: isRTL ? "الأخطاء الطبية" : "Medical Malpractice", item: "https://qanoni.com/services/medical-malpractice" },
-      { "@type": "ListItem", position: 4, name: data.title, item: `https://qanoni.com/services/medical-malpractice/${subId}` },
+      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://counselo.com/" },
+      { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://counselo.com/services" },
+      { "@type": "ListItem", position: 3, name: isRTL ? "الأخطاء الطبية" : "Medical Malpractice", item: "https://counselo.com/services/medical-malpractice" },
+      { "@type": "ListItem", position: 4, name: data.title, item: `https://counselo.com/services/medical-malpractice/${subId}` },
     ],
   };
 
@@ -108,9 +108,9 @@ export default function MedicalMalpracticeSub() {
     "@type": "LegalService",
     name: data.seoTitle,
     description: seoDescription,
-    url: `https://qanoni.com/services/medical-malpractice/${subId}`,
+    url: `https://counselo.com/services/medical-malpractice/${subId}`,
     areaServed: { "@type": "Country", name: "Saudi Arabia" },
-    provider: { "@type": "Organization", name: "Qanoni", url: "https://qanoni.com" },
+    provider: { "@type": "Organization", name: "CounselO", url: "https://counselo.com" },
   };
 
   return (

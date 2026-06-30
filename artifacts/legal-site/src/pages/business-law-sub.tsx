@@ -29,43 +29,43 @@ export default function BusinessLawSub() {
 
   const SEO_DATA: Record<string, { desc: string; descAr: string; kw: string; kwAr: string }> = {
     "commercial-contracts": {
-      desc: "Commercial contract legal advice in Saudi Arabia — drafting, dispute resolution, breach remedies & enforcement. Professional response within 24 hours via WhatsApp or email — Qanoni Saudi Arabia.",
+      desc: "Commercial contract legal advice in Saudi Arabia — drafting, dispute resolution, breach remedies & enforcement. Professional response within 24 hours via WhatsApp or email — CounselO Saudi Arabia.",
       descAr: "استشارة قانونية في العقود التجارية بالمملكة — الصياغة وتسوية النزاعات والإخلال وإنفاذ العقود. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "commercial contract lawyer Saudi Arabia, contract dispute KSA, business contracts Saudi, contract enforcement online, breach of contract Saudi",
       kwAr: "محامي عقود تجارية السعودية, نزاعات العقود التجارية, إنفاذ العقود, إخلال بالعقد, استشارة عقود أونلاين",
     },
     "commercial-instruments": {
-      desc: "Legal advice for dishonoured cheques, promissory notes & bills of exchange in Saudi Arabia. Professional response within 24 hours via WhatsApp or email — Qanoni Saudi Arabia.",
+      desc: "Legal advice for dishonoured cheques, promissory notes & bills of exchange in Saudi Arabia. Professional response within 24 hours via WhatsApp or email — CounselO Saudi Arabia.",
       descAr: "استشارة قانونية في الأوراق التجارية بالمملكة — الشيكات المرتجعة والكمبيالات وسندات الأمر. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "cheque bounce lawyer Saudi Arabia, dishonoured cheque KSA, promissory note Saudi, bill of exchange dispute, commercial paper online",
       kwAr: "محامي شيكات مرتجعة السعودية, الأوراق التجارية, كمبيالة, سند إذني, نزاعات أوراق تجارية أونلاين",
     },
     "commercial-agency": {
-      desc: "Commercial agency legal advice in Saudi Arabia — registration, disputes, termination & distributor rights. Professional response within 24 hours via WhatsApp or email — Qanoni Saudi Arabia.",
+      desc: "Commercial agency legal advice in Saudi Arabia — registration, disputes, termination & distributor rights. Professional response within 24 hours via WhatsApp or email — CounselO Saudi Arabia.",
       descAr: "استشارة قانونية في الوكالة التجارية بالمملكة — التسجيل والنزاعات والإنهاء وحقوق الوكيل التجاري. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "commercial agency lawyer Saudi Arabia, distributor dispute KSA, agency agreement Saudi, agency termination rights, commercial agent online",
       kwAr: "محامي وكالة تجارية السعودية, نزاعات الوكالة التجارية, إنهاء الوكالة, حقوق الموزع, استشارة وكالة أونلاين",
     },
     "bankruptcy-liquidation": {
-      desc: "Bankruptcy, insolvency & company liquidation legal advice in Saudi Arabia — restructuring, creditor rights & court process. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Bankruptcy, insolvency & company liquidation legal advice in Saudi Arabia — restructuring, creditor rights & court process. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "استشارة قانونية في الإفلاس والتصفية بالمملكة — إعادة الهيكلة وحقوق الدائنين والإجراءات القضائية. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "bankruptcy lawyer Saudi Arabia, company liquidation KSA, insolvency Saudi, creditor rights Saudi, restructuring online consultation",
       kwAr: "محامي إفلاس السعودية, تصفية الشركات, الإعسار المالي, إعادة الهيكلة, استشارة إفلاس أونلاين",
     },
     "company-partnership-disputes": {
-      desc: "Company & partnership dispute legal advice in Saudi Arabia — shareholder rights, deadlock, dissolution & governance. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Company & partnership dispute legal advice in Saudi Arabia — shareholder rights, deadlock, dissolution & governance. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "استشارة قانونية في نزاعات الشركات والشراكات بالمملكة — حقوق المساهمين والحلول والحوكمة المؤسسية. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "company dispute lawyer Saudi Arabia, partnership dispute KSA, shareholder rights Saudi, founder dispute online, corporate governance Saudi",
       kwAr: "محامي نزاعات شركات السعودية, نزاعات الشراكة, حقوق المساهمين, حوكمة الشركات, استشارة شركات أونلاين",
     },
     "unfair-competition-commercial-fraud": {
-      desc: "Legal protection against unfair competition & commercial fraud in Saudi Arabia — IP theft, trade secrets & market manipulation. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Legal protection against unfair competition & commercial fraud in Saudi Arabia — IP theft, trade secrets & market manipulation. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "حماية قانونية ضد المنافسة غير المشروعة والغش التجاري في المملكة — سرقة الملكية الفكرية والأسرار التجارية. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "unfair competition lawyer Saudi Arabia, commercial fraud KSA, IP theft Saudi, trade secret protection online, anti-competition Saudi",
       kwAr: "محامي منافسة غير مشروعة السعودية, الغش التجاري, سرقة الملكية الفكرية, الأسرار التجارية, استشارة تجارية أونلاين",
     },
     "trademarks": {
-      desc: "Trademark registration, protection & infringement legal advice in Saudi Arabia — SAIP filings, brand disputes & enforcement. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Trademark registration, protection & infringement legal advice in Saudi Arabia — SAIP filings, brand disputes & enforcement. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "استشارة قانونية في تسجيل وحماية العلامات التجارية بالمملكة — طلبات هيئة الملكية الفكرية ونزاعات العلامات. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "trademark lawyer Saudi Arabia, trademark registration KSA, trademark infringement Saudi, SAIP filing, brand protection online",
       kwAr: "محامي علامات تجارية السعودية, تسجيل العلامة التجارية, انتهاك العلامة التجارية, حماية العلامة, استشارة ملكية فكرية أونلاين",
@@ -90,10 +90,10 @@ export default function BusinessLawSub() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://qanoni.com/" },
-      { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://qanoni.com/services" },
-      { "@type": "ListItem", position: 3, name: isRTL ? "القانون التجاري" : "Commercial Law", item: "https://qanoni.com/services/business-law" },
-      { "@type": "ListItem", position: 4, name: data.title, item: `https://qanoni.com/services/business-law/${subId}` },
+      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://counselo.com/" },
+      { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://counselo.com/services" },
+      { "@type": "ListItem", position: 3, name: isRTL ? "القانون التجاري" : "Commercial Law", item: "https://counselo.com/services/business-law" },
+      { "@type": "ListItem", position: 4, name: data.title, item: `https://counselo.com/services/business-law/${subId}` },
     ],
   };
 
@@ -102,13 +102,13 @@ export default function BusinessLawSub() {
     "@type": "LegalService",
     "name": data.seoTitle,
     "description": seoDescription,
-    "url": `https://qanoni.com/services/business-law/${subId}`,
+    "url": `https://counselo.com/services/business-law/${subId}`,
     "areaServed": { "@type": "Country", "name": "Saudi Arabia" },
     "availableLanguage": ["Arabic", "English"],
     "provider": {
       "@type": "LegalService",
-      "name": "Qanoni قانوني",
-      "url": "https://qanoni.com",
+      "name": "CounselO قانوني",
+      "url": "https://counselo.com",
       "telephone": "+966594850247",
       "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
       "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "847", "bestRating": "5" },

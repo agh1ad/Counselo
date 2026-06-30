@@ -78,31 +78,31 @@ export default function Contact() {
       <SEOHead
         title={isRTL
           ? "احجز استشارة قانونية أونلاين في السعودية | استجابة خلال 24 ساعة | قانوني"
-          : "Book Online Legal Consultation Saudi Arabia | Response Within 24 Hours | Qanoni"}
+          : "Book Online Legal Consultation Saudi Arabia | Response Within 24 Hours | CounselO"}
         description={isRTL
           ? "تواصل مع قانوني — أكبر منصة استشارات قانونية أونلاين في المملكة. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
-          : "Contact Qanoni — Saudi Arabia's largest online legal consultation platform. Professional response within 24 hours via WhatsApp (+966 59 485 0247) or email. No office visit needed. Arabic and English."}
+          : "Contact CounselO — Saudi Arabia's largest online legal consultation platform. Professional response within 24 hours via WhatsApp (+966 59 485 0247) or email. No office visit needed. Arabic and English."}
         canonical="/contact"
         keywords={isRTL
           ? "احجز استشارة قانونية السعودية, تواصل مع محامي أونلاين, استشارة قانونية واتساب السعودية, استجابة خلال 24 ساعة, محامي الجبيل أونلاين, قانوني اتصل, استشارة فورية السعودية"
-          : "book legal consultation Saudi Arabia, contact lawyer online KSA, WhatsApp legal consultation Saudi Arabia, legal advice within 24 hours, Jubail lawyer online, Qanoni contact, book lawyer KSA"}
+          : "book legal consultation Saudi Arabia, contact lawyer online KSA, WhatsApp legal consultation Saudi Arabia, legal advice within 24 hours, Jubail lawyer online, CounselO contact, book lawyer KSA"}
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            "name": isRTL ? "تواصل مع قانوني" : "Contact Qanoni",
+            "name": isRTL ? "تواصل مع قانوني" : "Contact CounselO",
             "description": isRTL
               ? "احجز استشارة قانونية أونلاين في المملكة العربية السعودية — استجابة خلال 24 ساعة"
               : "Book an online legal consultation in Saudi Arabia — professional response within 24 hours",
-            "url": "https://qanoni.com/contact",
+            "url": "https://counselo.com/contact",
           },
           {
             "@context": "https://schema.org",
             "@type": "LegalService",
-            "name": "Qanoni قانوني",
+            "name": "CounselO قانوني",
             "telephone": "+966594850247",
             "email": "bagdadio@gmail.com",
-            "url": "https://qanoni.com",
+            "url": "https://counselo.com",
             "address": { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA", "streetAddress": "Madinah Street, Radma Hotel Apartments Building, Jubail Al-Balad" },
             "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
             "areaServed": { "@type": "Country", "name": "Saudi Arabia" },

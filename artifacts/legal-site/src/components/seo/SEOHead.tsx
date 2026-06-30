@@ -20,17 +20,17 @@ export function SEOHead({ title, description, canonical, keywords, schema, extra
   const locale = isArabic ? "ar_SA" : "en_US";
   const alternateLocale = isArabic ? "en_US" : "ar_SA";
 
-  const fullTitle = title.endsWith("| Qanoni") || title.endsWith("| قانوني") || title.endsWith("قانوني")
+  const fullTitle = title.endsWith("| CounselO") || title.endsWith("| كاونسلو") || title.endsWith("كاونسلو")
     ? title
     : isArabic
-      ? `${title} | قانوني`
-      : `${title} | Qanoni`;
+      ? `${title} | كاونسلو`
+      : `${title} | CounselO`;
 
-  const canonicalUrl = canonical ? `https://qanoni.com${canonical}` : "https://qanoni.com";
-  const ogImage = "https://qanoni.com/opengraph.jpg";
+  const canonicalUrl = canonical ? `https://counselo.com${canonical}` : "https://counselo.com";
+  const ogImage = "https://counselo.com/opengraph.jpg";
 
-  const defaultKeywordsEn = "online legal consultation Saudi Arabia, lawyer Saudi Arabia online, legal advice KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law Saudi Arabia, foreign investment lawyer KSA, administrative law Saudi Arabia, Qanoni";
-  const defaultKeywordsAr = "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة العربية السعودية, مشورة قانونية إلكترونية, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل السعودي, القانون العقاري السعودي, استثمار أجنبي محامي, القانون الإداري السعودي, قانوني";
+  const defaultKeywordsEn = "online legal consultation Saudi Arabia, lawyer Saudi Arabia online, legal advice KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law Saudi Arabia, foreign investment lawyer KSA, administrative law Saudi Arabia, CounselO";
+  const defaultKeywordsAr = "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة العربية السعودية, مشورة قانونية إلكترونية, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل السعودي, القانون العقاري السعودي, استثمار أجنبي محامي, القانون الإداري السعودي, كاونسلو";
   const finalKeywords = keywords ?? (isArabic ? defaultKeywordsAr : defaultKeywordsEn);
 
   useEffect(() => {
@@ -75,22 +75,22 @@ export function SEOHead({ title, description, canonical, keywords, schema, extra
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
-      <meta property="og:site_name" content="Qanoni قانوني" />
+      <meta property="og:site_name" content="CounselO كاونسلو" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Qanoni — Online Legal Consultation Saudi Arabia" />
+      <meta property="og:image:alt" content="CounselO — Online Legal Consultation Saudi Arabia" />
       <meta property="og:locale" content={locale} />
       <meta property="og:locale:alternate" content={alternateLocale} />
 
       {/* Twitter / X */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@QanoniLegal" />
+      <meta name="twitter:site" content="@CounselOLegal" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:image:alt" content="Qanoni — Online Legal Consultation Saudi Arabia" />
+      <meta name="twitter:image:alt" content="CounselO — Online Legal Consultation Saudi Arabia" />
     </Helmet>
   );
 }

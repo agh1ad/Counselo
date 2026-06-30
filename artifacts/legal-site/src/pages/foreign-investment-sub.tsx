@@ -29,19 +29,19 @@ export default function ForeignInvestmentSub() {
 
   const SEO_DATA: Record<string, { desc: string; descAr: string; kw: string; kwAr: string }> = {
     "investment-disputes": {
-      desc: "Foreign investment dispute legal advice in Saudi Arabia — joint venture disputes, partner conflicts & regulatory claims. Professional response within 24 hours via WhatsApp or email — Qanoni Saudi Arabia.",
+      desc: "Foreign investment dispute legal advice in Saudi Arabia — joint venture disputes, partner conflicts & regulatory claims. Professional response within 24 hours via WhatsApp or email — CounselO Saudi Arabia.",
       descAr: "استشارة قانونية في نزاعات الاستثمار الأجنبي بالمملكة — نزاعات المشاريع المشتركة والشركاء والمطالبات التنظيمية. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "investment dispute lawyer Saudi Arabia, joint venture dispute KSA, foreign investor rights Saudi, MISA dispute online",
       kwAr: "محامي نزاعات استثمار السعودية, نزاعات المشاريع المشتركة, حقوق المستثمر الأجنبي, نزاع هيئة الاستثمار أونلاين",
     },
     "investment-appeals": {
-      desc: "Foreign investment decision appeal legal advice in Saudi Arabia — appealing MISA decisions, court rulings & regulatory orders. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Foreign investment decision appeal legal advice in Saudi Arabia — appealing MISA decisions, court rulings & regulatory orders. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "استشارة قانونية في استئناف قرارات الاستثمار الأجنبي بالمملكة — قرارات هيئة الاستثمار والأحكام القضائية. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "investment appeal lawyer Saudi Arabia, MISA appeal KSA, regulatory decision appeal Saudi, investment ruling appeal online",
       kwAr: "محامي استئناف استثماري السعودية, استئناف قرارات هيئة الاستثمار, استئناف قرار تنظيمي, استشارة استثمار أونلاين",
     },
     "investment-licensing": {
-      desc: "Foreign investment license legal advice in Saudi Arabia — MISA licensing, conditions, restrictions & Vision 2030 compliance. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Foreign investment license legal advice in Saudi Arabia — MISA licensing, conditions, restrictions & Vision 2030 compliance. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "استشارة قانونية في ترخيص الاستثمار الأجنبي بالمملكة — ترخيص هيئة الاستثمار وشروطه ومتطلبات رؤية 2030. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "MISA license lawyer Saudi Arabia, foreign investment license KSA, investment licensing Saudi, Vision 2030 compliance online",
       kwAr: "محامي ترخيص استثمار أجنبي السعودية, ترخيص هيئة الاستثمار, استثمار أجنبي رؤية 2030, استشارة ترخيص أونلاين",
@@ -53,31 +53,31 @@ export default function ForeignInvestmentSub() {
       kwAr: "محامي تجديد ترخيص استثمار السعودية, تجديد ترخيص هيئة الاستثمار, تعديل ترخيص, استشارة تجديد أونلاين",
     },
     "license-cancellation": {
-      desc: "Challenging MISA license cancellation & suspension in Saudi Arabia — defend your foreign investment rights & appeal decisions. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Challenging MISA license cancellation & suspension in Saudi Arabia — defend your foreign investment rights & appeal decisions. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "استشارة قانونية في الطعن بإلغاء وتعليق ترخيص الاستثمار الأجنبي بالمملكة — الدفاع عن حقوق المستثمر. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "license cancellation lawyer Saudi Arabia, MISA suspension KSA, license revocation challenge Saudi, investment rights appeal online",
       kwAr: "محامي إلغاء ترخيص استثمار السعودية, الطعن في قرار هيئة الاستثمار, تعليق الترخيص, استشارة استثمار أونلاين",
     },
     "company-formation": {
-      desc: "Foreign company formation legal advice in Saudi Arabia — company setup, licensing & branch registration under Vision 2030. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Foreign company formation legal advice in Saudi Arabia — company setup, licensing & branch registration under Vision 2030. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "استشارة قانونية في تأسيس الشركات الأجنبية بالمملكة — الإنشاء والترخيص وتسجيل الفروع في إطار رؤية 2030. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "foreign company formation Saudi Arabia, company setup KSA, branch registration Saudi, Vision 2030 company formation online",
       kwAr: "محامي تأسيس شركة أجنبية السعودية, إنشاء شركة في السعودية, تسجيل فرع, رؤية 2030 استثمار, استشارة تأسيس أونلاين",
     },
     "foreign-investment-dispute": {
-      desc: "Investor-state & bilateral investment treaty dispute legal advice in Saudi Arabia — BIT claims, arbitration & ICSID proceedings. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Investor-state & bilateral investment treaty dispute legal advice in Saudi Arabia — BIT claims, arbitration & ICSID proceedings. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "استشارة قانونية في نزاعات المستثمر مع الدولة ومعاهدات الاستثمار الثنائية بالمملكة — التحكيم الدولي والمطالبات. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "investor state dispute Saudi Arabia, BIT claim KSA, investment treaty arbitration Saudi, ICSID Saudi, foreign investor protection online",
       kwAr: "محامي نزاعات المستثمر مع الدولة السعودية, معاهدة استثمار ثنائية, تحكيم دولي استثمار, استشارة استثمار أجنبي أونلاين",
     },
     "investor-compensation": {
-      desc: "Foreign investor compensation legal advice in Saudi Arabia — regulatory harm, expropriation & investment loss claims. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Foreign investor compensation legal advice in Saudi Arabia — regulatory harm, expropriation & investment loss claims. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "استشارة قانونية في تعويض المستثمر الأجنبي بالمملكة — الضرر التنظيمي ومصادرة الاستثمار ومطالبات الخسائر. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "investor compensation lawyer Saudi Arabia, expropriation claim KSA, regulatory harm Saudi, investment loss compensation online",
       kwAr: "محامي تعويض مستثمر أجنبي السعودية, مصادرة الاستثمار, ضرر تنظيمي استثماري, استشارة تعويض أونلاين",
     },
     "share-transfer": {
-      desc: "Foreign company share transfer & ownership change in Saudi Arabia — MISA approval, transfer process & exit transactions. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      desc: "Foreign company share transfer & ownership change in Saudi Arabia — MISA approval, transfer process & exit transactions. Professional response within 24 hours via WhatsApp or email — CounselO.",
       descAr: "استشارة قانونية في نقل أسهم الشركات الأجنبية وتغيير الملكية بالمملكة — موافقة هيئة الاستثمار وإجراءات النقل. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "share transfer lawyer Saudi Arabia, company ownership change KSA, MISA share transfer, exit transaction Saudi, share transfer online",
       kwAr: "محامي نقل أسهم السعودية, تغيير ملكية الشركة, نقل أسهم هيئة الاستثمار, صفقة الخروج, استشارة نقل أسهم أونلاين",
@@ -102,10 +102,10 @@ export default function ForeignInvestmentSub() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://qanoni.com/" },
-      { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://qanoni.com/services" },
-      { "@type": "ListItem", position: 3, name: isRTL ? "الاستثمار الأجنبي" : "Foreign Investment", item: "https://qanoni.com/services/foreign-investment" },
-      { "@type": "ListItem", position: 4, name: data.title, item: `https://qanoni.com/services/foreign-investment/${subId}` },
+      { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: "https://counselo.com/" },
+      { "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: "https://counselo.com/services" },
+      { "@type": "ListItem", position: 3, name: isRTL ? "الاستثمار الأجنبي" : "Foreign Investment", item: "https://counselo.com/services/foreign-investment" },
+      { "@type": "ListItem", position: 4, name: data.title, item: `https://counselo.com/services/foreign-investment/${subId}` },
     ],
   };
 
@@ -114,13 +114,13 @@ export default function ForeignInvestmentSub() {
     "@type": "LegalService",
     "name": data.seoTitle,
     "description": seoDescription,
-    "url": `https://qanoni.com/services/foreign-investment/${subId}`,
+    "url": `https://counselo.com/services/foreign-investment/${subId}`,
     "areaServed": { "@type": "Country", "name": "Saudi Arabia" },
     "availableLanguage": ["Arabic", "English"],
     "provider": {
       "@type": "LegalService",
-      "name": "Qanoni قانوني",
-      "url": "https://qanoni.com",
+      "name": "CounselO قانوني",
+      "url": "https://counselo.com",
       "telephone": "+966594850247",
       "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
       "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "847", "bestRating": "5" },

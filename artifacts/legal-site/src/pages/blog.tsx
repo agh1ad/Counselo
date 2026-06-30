@@ -89,32 +89,32 @@ export default function Blog() {
       <SEOHead
         title={isRTL
           ? "مدونة قانونية سعودية | مقالات وإرشادات قانونية مجانية | قانوني"
-          : "Saudi Legal Blog | Free Legal Guides & Articles | Qanoni قانوني"}
+          : "Saudi Legal Blog | Free Legal Guides & Articles | CounselO قانوني"}
         description={isRTL
           ? "إرشادات قانونية مجانية وعملية في قانون الأسرة السعودي وقانون العمل والعقارات والقانون التجاري والاستثمار الأجنبي والقانون الإداري — مقالات معمّقة بقلم فريق قانوني المتخصص في المملكة العربية السعودية."
-          : "Free practical legal guides on Saudi family law, employment law, real estate, commercial law, foreign investment, and administrative law — in-depth articles from Qanoni's expert legal team in Saudi Arabia."}
+          : "Free practical legal guides on Saudi family law, employment law, real estate, commercial law, foreign investment, and administrative law — in-depth articles from CounselO's expert legal team in Saudi Arabia."}
         canonical="/blog"
         keywords={isRTL
           ? "مدونة قانونية سعودية, مقالات قانونية, إرشادات قانونية مجانية, قانون الأسرة السعودي, قانون العمل السعودي, القانون العقاري, القانون التجاري, الاستثمار الأجنبي, القانون الإداري, قانوني"
-          : "Saudi legal blog, free legal guides Saudi Arabia, family law articles, employment law KSA, real estate law guide, commercial law Saudi Arabia, foreign investment guide, administrative law, Qanoni blog"}
+          : "Saudi legal blog, free legal guides Saudi Arabia, family law articles, employment law KSA, real estate law guide, commercial law Saudi Arabia, foreign investment guide, administrative law, CounselO blog"}
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "Blog",
-            "name": isRTL ? "مدونة قانوني القانونية" : "Qanoni Legal Blog",
+            "name": isRTL ? "مدونة قانوني القانونية" : "CounselO Legal Blog",
             "description": isRTL
               ? "إرشادات قانونية معمّقة للأفراد والشركات في المملكة العربية السعودية"
               : "In-depth legal guides for individuals and businesses in Saudi Arabia",
-            "url": "https://qanoni.com/blog",
-            "publisher": { "@type": "Organization", "name": "Qanoni قانوني", "url": "https://qanoni.com" },
+            "url": "https://counselo.com/blog",
+            "publisher": { "@type": "Organization", "name": "CounselO قانوني", "url": "https://counselo.com" },
             "inLanguage": [isRTL ? "ar" : "en"],
           },
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://qanoni.com/" },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": "https://qanoni.com/blog" },
+              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo.com/" },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": "https://counselo.com/blog" },
             ],
           },
         ]}

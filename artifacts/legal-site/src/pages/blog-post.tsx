@@ -63,7 +63,7 @@ export default function BlogPost() {
       minRead: "min read",
       consultHeading: "Need Legal Advice?",
       consultDesc:
-        "Qanoni offers confidential online legal consultations via WhatsApp or email — no office visit required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of Saudi legal practice, 20,000+ cases handled across Saudi Arabia.",
+        "CounselO offers confidential online legal consultations via WhatsApp or email — no office visit required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of Saudi legal practice, 20,000+ cases handled across Saudi Arabia.",
       whatsapp: "Chat on WhatsApp",
       email: "Send an Email",
       disclaimer:
@@ -128,13 +128,13 @@ export default function BlogPost() {
     "author": {
       "@type": "Person",
       "name": "Lawyer and Legal Counsel Omar Al-Baghdadi",
-      "jobTitle": "Lawyer and Legal Counsel — Founder of Qanoni",
-      "worksFor": { "@type": "LegalService", "name": "Qanoni" },
+      "jobTitle": "Lawyer and Legal Counsel — Founder of CounselO",
+      "worksFor": { "@type": "LegalService", "name": "CounselO" },
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Qanoni",
-      "url": "https://qanoni.com",
+      "name": "CounselO",
+      "url": "https://counselo.com",
     },
     "about": { "@type": "LegalService", "areaServed": "Saudi Arabia" },
   };
@@ -147,7 +147,7 @@ export default function BlogPost() {
         canonical={`/blog/${post.slug}`}
         keywords={isRTL
           ? `${category}, مقالات قانونية سعودية, إرشادات قانونية مجانية, قانوني, مدونة قانوني القانونية`
-          : `${category}, Saudi legal articles, free legal guides Saudi Arabia, Qanoni blog, online legal advice KSA`}
+          : `${category}, Saudi legal articles, free legal guides Saudi Arabia, CounselO blog, online legal advice KSA`}
         extraSchemas={[articleSchema]}
       />
 
@@ -257,7 +257,7 @@ export default function BlogPost() {
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   {lang === "en"
-                    ? "Lawyer & Legal Counsel — Founder of Qanoni | 30+ years | 20,000+ cases"
+                    ? "Lawyer & Legal Counsel — Founder of CounselO | 30+ years | 20,000+ cases"
                     : "مؤسس قانوني ومستشار قانوني | أكثر من 30 عاماً وأكثر من 20,000 قضية"}
                 </p>
               </div>

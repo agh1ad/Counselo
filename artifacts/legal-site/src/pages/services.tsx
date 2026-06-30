@@ -12,47 +12,47 @@ export default function Services() {
 
   const seoTitle = isRTL
     ? "18 مجالاً قانونياً في السعودية | أكبر منصة استشارات قانونية أونلاين | قانوني"
-    : "18 Legal Practice Areas Saudi Arabia | Qanoni — Largest Online Legal Consultation Platform";
+    : "18 Legal Practice Areas Saudi Arabia | CounselO — Largest Online Legal Consultation Platform";
   const seoDesc = isRTL
     ? "قانوني — أكبر منصة للاستشارات القانونية الأونلاين في المملكة. 18 مجالاً قانونياً: قانون الأسرة، القانون التجاري، العقاري، العمل، الاستثمار الأجنبي، الإداري، الجنائي، البنوك، الضرائب، الإنترنت، الأخطاء الطبية، التأمين، الإقامة، التحكيم، التنفيذ، قانون الشركات، العقود، الملكية الفكرية. خبرة 30+ عاماً، 20,000+ قضية. استجابة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني."
-    : "Qanoni — Saudi Arabia's largest online legal consultation platform. 18 practice areas: Family Law, Commercial Law, Real Estate, Employment Law, Foreign Investment, Administrative Law, Criminal Law, Banking & Finance, Tax & Zakat, Cyber Law, Medical Malpractice, Insurance Law, Immigration & Residency, Arbitration, Enforcement Law, Companies Law, Contracts, Intellectual Property. 30+ years experience, 20,000+ cases. Professional response within 24 hours via WhatsApp or email.";
+    : "CounselO — Saudi Arabia's largest online legal consultation platform. 18 practice areas: Family Law, Commercial Law, Real Estate, Employment Law, Foreign Investment, Administrative Law, Criminal Law, Banking & Finance, Tax & Zakat, Cyber Law, Medical Malpractice, Insurance Law, Immigration & Residency, Arbitration, Enforcement Law, Companies Law, Contracts, Intellectual Property. 30+ years experience, 20,000+ cases. Professional response within 24 hours via WhatsApp or email.";
 
   const servicesSchema = [
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      "name": isRTL ? "18 مجالاً للممارسة القانونية — قانوني السعودية" : "18 Legal Practice Areas — Qanoni Saudi Arabia",
-      "url": "https://qanoni.com/services",
+      "name": isRTL ? "18 مجالاً للممارسة القانونية — قانوني السعودية" : "18 Legal Practice Areas — CounselO Saudi Arabia",
+      "url": "https://counselo.com/services",
       "numberOfItems": 18,
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": isRTL ? "قانون الأسرة" : "Family Law", "url": "https://qanoni.com/services/family-law" },
-        { "@type": "ListItem", "position": 2, "name": isRTL ? "القانون التجاري" : "Commercial Law", "url": "https://qanoni.com/services/business-law" },
-        { "@type": "ListItem", "position": 3, "name": isRTL ? "القانون العقاري" : "Property Law", "url": "https://qanoni.com/services/real-estate" },
-        { "@type": "ListItem", "position": 4, "name": isRTL ? "قانون العمل" : "Employment Law", "url": "https://qanoni.com/services/employment-law" },
-        { "@type": "ListItem", "position": 5, "name": isRTL ? "الاستثمار الأجنبي" : "Foreign Investment Law", "url": "https://qanoni.com/services/foreign-investment" },
-        { "@type": "ListItem", "position": 6, "name": isRTL ? "القانون الإداري" : "Administrative Law", "url": "https://qanoni.com/services/administrative-law" },
-        { "@type": "ListItem", "position": 7, "name": isRTL ? "قانون التنفيذ" : "Enforcement Law", "url": "https://qanoni.com/services/enforcement" },
-        { "@type": "ListItem", "position": 8, "name": isRTL ? "التحكيم" : "Arbitration", "url": "https://qanoni.com/services/arbitration" },
-        { "@type": "ListItem", "position": 9, "name": isRTL ? "قانون الشركات" : "Companies Law", "url": "https://qanoni.com/services/companies-law" },
-        { "@type": "ListItem", "position": 10, "name": isRTL ? "القانون الجنائي" : "Criminal Law", "url": "https://qanoni.com/services/criminal-law" },
-        { "@type": "ListItem", "position": 11, "name": isRTL ? "قانون البنوك والتمويل" : "Banking & Finance Law", "url": "https://qanoni.com/services/banking-finance" },
-        { "@type": "ListItem", "position": 12, "name": isRTL ? "الملكية الفكرية" : "Intellectual Property", "url": "https://qanoni.com/services/intellectual-property" },
-        { "@type": "ListItem", "position": 13, "name": isRTL ? "قانون الضرائب والزكاة" : "Tax & Zakat Law", "url": "https://qanoni.com/services/tax-zakat" },
-        { "@type": "ListItem", "position": 14, "name": isRTL ? "قانون الجرائم الإلكترونية" : "Cyber & IT Law", "url": "https://qanoni.com/services/cyber-law" },
-        { "@type": "ListItem", "position": 15, "name": isRTL ? "الأخطاء الطبية" : "Medical Malpractice", "url": "https://qanoni.com/services/medical-malpractice" },
-        { "@type": "ListItem", "position": 16, "name": isRTL ? "نظام التأمين" : "Insurance Law", "url": "https://qanoni.com/services/insurance-law" },
-        { "@type": "ListItem", "position": 17, "name": isRTL ? "الإقامة والتأشيرات" : "Immigration & Residency", "url": "https://qanoni.com/services/immigration-law" },
-        { "@type": "ListItem", "position": 18, "name": isRTL ? "العقود" : "Contracts Law", "url": "https://qanoni.com/services/contracts" },
+        { "@type": "ListItem", "position": 1, "name": isRTL ? "قانون الأسرة" : "Family Law", "url": "https://counselo.com/services/family-law" },
+        { "@type": "ListItem", "position": 2, "name": isRTL ? "القانون التجاري" : "Commercial Law", "url": "https://counselo.com/services/business-law" },
+        { "@type": "ListItem", "position": 3, "name": isRTL ? "القانون العقاري" : "Property Law", "url": "https://counselo.com/services/real-estate" },
+        { "@type": "ListItem", "position": 4, "name": isRTL ? "قانون العمل" : "Employment Law", "url": "https://counselo.com/services/employment-law" },
+        { "@type": "ListItem", "position": 5, "name": isRTL ? "الاستثمار الأجنبي" : "Foreign Investment Law", "url": "https://counselo.com/services/foreign-investment" },
+        { "@type": "ListItem", "position": 6, "name": isRTL ? "القانون الإداري" : "Administrative Law", "url": "https://counselo.com/services/administrative-law" },
+        { "@type": "ListItem", "position": 7, "name": isRTL ? "قانون التنفيذ" : "Enforcement Law", "url": "https://counselo.com/services/enforcement" },
+        { "@type": "ListItem", "position": 8, "name": isRTL ? "التحكيم" : "Arbitration", "url": "https://counselo.com/services/arbitration" },
+        { "@type": "ListItem", "position": 9, "name": isRTL ? "قانون الشركات" : "Companies Law", "url": "https://counselo.com/services/companies-law" },
+        { "@type": "ListItem", "position": 10, "name": isRTL ? "القانون الجنائي" : "Criminal Law", "url": "https://counselo.com/services/criminal-law" },
+        { "@type": "ListItem", "position": 11, "name": isRTL ? "قانون البنوك والتمويل" : "Banking & Finance Law", "url": "https://counselo.com/services/banking-finance" },
+        { "@type": "ListItem", "position": 12, "name": isRTL ? "الملكية الفكرية" : "Intellectual Property", "url": "https://counselo.com/services/intellectual-property" },
+        { "@type": "ListItem", "position": 13, "name": isRTL ? "قانون الضرائب والزكاة" : "Tax & Zakat Law", "url": "https://counselo.com/services/tax-zakat" },
+        { "@type": "ListItem", "position": 14, "name": isRTL ? "قانون الجرائم الإلكترونية" : "Cyber & IT Law", "url": "https://counselo.com/services/cyber-law" },
+        { "@type": "ListItem", "position": 15, "name": isRTL ? "الأخطاء الطبية" : "Medical Malpractice", "url": "https://counselo.com/services/medical-malpractice" },
+        { "@type": "ListItem", "position": 16, "name": isRTL ? "نظام التأمين" : "Insurance Law", "url": "https://counselo.com/services/insurance-law" },
+        { "@type": "ListItem", "position": 17, "name": isRTL ? "الإقامة والتأشيرات" : "Immigration & Residency", "url": "https://counselo.com/services/immigration-law" },
+        { "@type": "ListItem", "position": 18, "name": isRTL ? "العقود" : "Contracts Law", "url": "https://counselo.com/services/contracts" },
       ],
     },
     {
       "@context": "https://schema.org",
       "@type": "LegalService",
-      "name": "Qanoni قانوني",
+      "name": "CounselO قانوني",
       "description": isRTL
         ? "أكبر منصة للاستشارات القانونية الأونلاين في المملكة — 18 مجالاً، استجابة خلال 24 ساعة"
         : "Saudi Arabia's largest online legal consultation platform — 18 practice areas, response within 24 hours",
-      "url": "https://qanoni.com",
+      "url": "https://counselo.com",
       "telephone": "+966594850247",
       "address": { "@type": "PostalAddress", "addressLocality": "Jubail", "addressCountry": "SA" },
       "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
@@ -70,7 +70,7 @@ export default function Services() {
         canonical="/services"
         keywords={isRTL
           ? "خدمات قانونية السعودية, قانون الأسرة, القانون التجاري, قانون العمل, القانون العقاري, الاستثمار الأجنبي, القانون الإداري, القانون الجنائي, قانون البنوك, الضرائب والزكاة, قانون الجرائم الإلكترونية, الأخطاء الطبية, نظام التأمين, الإقامة والتأشيرات, التحكيم, التنفيذ, قانون الشركات, الملكية الفكرية, العقود, محامي أونلاين المملكة, قانوني الجبيل"
-          : "legal services Saudi Arabia, 18 practice areas KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, property law KSA, foreign investment lawyer Saudi Arabia, administrative law KSA, criminal law Saudi Arabia, banking finance law KSA, tax zakat lawyer Saudi, cyber law Saudi Arabia, medical malpractice KSA, insurance law Saudi, immigration residency Saudi, arbitration KSA, enforcement law Saudi, companies law KSA, intellectual property Saudi, online lawyer Jubail, Qanoni"}
+          : "legal services Saudi Arabia, 18 practice areas KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, property law KSA, foreign investment lawyer Saudi Arabia, administrative law KSA, criminal law Saudi Arabia, banking finance law KSA, tax zakat lawyer Saudi, cyber law Saudi Arabia, medical malpractice KSA, insurance law Saudi, immigration residency Saudi, arbitration KSA, enforcement law Saudi, companies law KSA, intellectual property Saudi, online lawyer Jubail, CounselO"}
         schema={servicesSchema}
       />
       <section className="relative py-28 overflow-hidden">

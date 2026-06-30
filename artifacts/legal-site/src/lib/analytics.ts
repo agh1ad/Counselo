@@ -1,5 +1,5 @@
-const STORE_KEY = "qanoni_analytics";
-const GA_ID_KEY = "qanoni_ga_measurement_id";
+const STORE_KEY = "counselo_analytics";
+const GA_ID_KEY = "counselo_ga_measurement_id";
 
 export interface EventLog {
   event: string;

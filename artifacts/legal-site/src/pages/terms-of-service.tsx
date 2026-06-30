@@ -9,13 +9,13 @@ export default function TermsOfService() {
 
   const content = {
     en: {
-      seoTitle: "Terms of Service | Online Legal Consultation Process | Qanoni قانوني",
+      seoTitle: "Terms of Service | Online Legal Consultation Process | CounselO قانوني",
       seoDesc:
-        "Qanoni's consultation terms and process for online legal advice in Saudi Arabia — how it works: submit your matter, receive a cost estimate, pay securely, and receive your expert legal answer. 24/7, Arabic and English.",
+        "CounselO's consultation terms and process for online legal advice in Saudi Arabia — how it works: submit your matter, receive a cost estimate, pay securely, and receive your expert legal answer. 24/7, Arabic and English.",
       eyebrow: "Legal Consultation Terms",
       heading: "Terms of Service",
       subheading:
-        "Please read these terms carefully before requesting a legal consultation. By contacting Qanoni, you agree to the process and payment terms below.",
+        "Please read these terms carefully before requesting a legal consultation. By contacting CounselO, you agree to the process and payment terms below.",
       processHeading: "How Our Consultation Process Works",
       steps: [
         {
@@ -31,7 +31,7 @@ export default function TermsOfService() {
         {
           icon: MessageCircle,
           title: "Step 3 — Payment Before the Answer",
-          desc: "Payment of the agreed consultation fee must be made in full before we issue your legal answer. Payment instructions will be provided upon your agreement to the fee. Qanoni will confirm receipt of payment before proceeding.",
+          desc: "Payment of the agreed consultation fee must be made in full before we issue your legal answer. Payment instructions will be provided upon your agreement to the fee. CounselO will confirm receipt of payment before proceeding.",
         },
         {
           icon: CheckCircle2,
@@ -43,7 +43,7 @@ export default function TermsOfService() {
       terms: [
         {
           title: "Confidentiality",
-          desc: "All information you share with Qanoni is treated as strictly confidential. We do not share your information with any third party without your consent.",
+          desc: "All information you share with CounselO is treated as strictly confidential. We do not share your information with any third party without your consent.",
         },
         {
           title: "Scope of Consultation",
@@ -63,7 +63,7 @@ export default function TermsOfService() {
         },
         {
           title: "Changes to Terms",
-          desc: "Qanoni reserves the right to update these terms at any time. The terms applicable to your consultation are those in effect at the time you request the service.",
+          desc: "CounselO reserves the right to update these terms at any time. The terms applicable to your consultation are those in effect at the time you request the service.",
         },
       ],
       ctaHeading: "Ready to Get Started?",
@@ -142,23 +142,23 @@ export default function TermsOfService() {
         canonical="/terms-of-service"
         keywords={isRTL
           ? "شروط الخدمة قانوني, كيفية الاستشارة القانونية أونلاين, استشارة قانونية بالواتساب السعودية, رسوم الاستشارة القانونية, محامي أونلاين"
-          : "Qanoni terms of service, how online legal consultation works Saudi Arabia, legal advice WhatsApp KSA, consultation fees lawyer, online legal process"}
+          : "CounselO terms of service, how online legal consultation works Saudi Arabia, legal advice WhatsApp KSA, consultation fees lawyer, online legal process"}
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": isRTL ? "شروط الخدمة | قانوني" : "Terms of Service | Qanoni",
+            "name": isRTL ? "شروط الخدمة | قانوني" : "Terms of Service | CounselO",
             "description": content.seoDesc,
-            "url": "https://qanoni.com/terms-of-service",
-            "isPartOf": { "@type": "WebSite", "name": "Qanoni قانوني", "url": "https://qanoni.com" },
-            "publisher": { "@type": "Organization", "name": "Qanoni قانوني", "url": "https://qanoni.com" },
+            "url": "https://counselo.com/terms-of-service",
+            "isPartOf": { "@type": "WebSite", "name": "CounselO قانوني", "url": "https://counselo.com" },
+            "publisher": { "@type": "Organization", "name": "CounselO قانوني", "url": "https://counselo.com" },
           },
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://qanoni.com/" },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "شروط الخدمة" : "Terms of Service", "item": "https://qanoni.com/terms-of-service" },
+              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo.com/" },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "شروط الخدمة" : "Terms of Service", "item": "https://counselo.com/terms-of-service" },
             ],
           },
         ]}

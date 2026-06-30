@@ -109,7 +109,7 @@ function SettingsPanel({ form, set, slugManual, setSlugManual, open }: {
             <input value={form.slug} onChange={(e) => { setSlugManual(true); set("slug", e.target.value); }} placeholder="article-url" className={inputCls + " font-mono"} />
             <button type="button" onClick={() => { setSlugManual(false); set("slug", slugify(form.titleEn || form.titleAr)); }} title="Auto-generate from title" className="shrink-0 px-2 text-[10px] text-green-700 font-bold border border-green-200 rounded-lg hover:bg-green-50">Auto</button>
           </div>
-          {form.slug && <p className="text-[10px] text-gray-400 mt-1 font-mono truncate">qanoni.com/blog/{form.slug}</p>}
+          {form.slug && <p className="text-[10px] text-gray-400 mt-1 font-mono truncate">counselo.com/blog/{form.slug}</p>}
         </div>
         <div>
           <label className={labelCls}>Publish Date</label>
@@ -212,7 +212,7 @@ function PostEditor({ initial, token, onSave, onBack }: {
               </div>
               <div className="px-10 py-5 border-t border-gray-50 bg-gray-50/50 text-xs text-gray-300 flex items-center gap-4">
                 <FileText size={12} />
-                {lang === "en" ? "Qanoni Legal Blog — English version" : "مدونة قانوني القانونية — النسخة العربية"}
+                {lang === "en" ? "CounselO Legal Blog — English version" : "مدونة قانوني القانونية — النسخة العربية"}
               </div>
             </div>
           </div>
@@ -367,7 +367,7 @@ function AnalyticsTab({ posts }: { posts: BlogPost[] }) {
           <div className="mt-4 space-y-2 border-t border-gray-50 pt-4">
             <p className="text-xs font-semibold text-gray-600">How to set up GA4 in 3 steps:</p>
             <ol className="text-xs text-gray-500 space-y-1 list-decimal list-inside">
-              <li>Go to <a href="https://analytics.google.com" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:underline">analytics.google.com</a> and create a new property for <strong>qanoni.com</strong></li>
+              <li>Go to <a href="https://analytics.google.com" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:underline">analytics.google.com</a> and create a new property for <strong>counselo.com</strong></li>
               <li>In Data Streams, add a Web stream → copy your Measurement ID (starts with G-)</li>
               <li>Paste it above and click Save — tracking activates immediately</li>
             </ol>
@@ -381,11 +381,11 @@ function AnalyticsTab({ posts }: { posts: BlogPost[] }) {
         <p className="text-xs text-gray-400 mb-3">Track keyword rankings, click-through rates, impressions, and index coverage</p>
         <div className="flex gap-2 flex-wrap">
           <a href="https://search.google.com/search-console" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-700 text-white text-xs font-semibold rounded-lg hover:bg-green-800">Open Search Console <ExternalLink size={11} /></a>
-          <button onClick={() => { void copyGA("https://qanoni.com/sitemap.xml"); setCopied(true); setTimeout(() => setCopied(false), 1500); }} className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 text-gray-600 text-xs font-medium rounded-lg hover:bg-gray-50">
+          <button onClick={() => { void copyGA("https://counselo.com/sitemap.xml"); setCopied(true); setTimeout(() => setCopied(false), 1500); }} className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 text-gray-600 text-xs font-medium rounded-lg hover:bg-gray-50">
             <Copy size={11} /> {copied ? "Copied!" : "Copy Sitemap URL"}
           </button>
         </div>
-        <p className="text-xs text-gray-400 mt-3">Sitemap to submit: <code className="font-mono text-green-700">https://qanoni.com/sitemap.xml</code></p>
+        <p className="text-xs text-gray-400 mt-3">Sitemap to submit: <code className="font-mono text-green-700">https://counselo.com/sitemap.xml</code></p>
       </div>
 
       {/* Clear data */}
@@ -404,8 +404,8 @@ const SEO_CHECKS = [
   { id: "hreflang", label: "hrefLang en/ar/x-default", desc: "Set on every page via SEOHead component", pass: true },
   { id: "canonical", label: "Canonical URLs on all pages", desc: "All 9 page types + 18 sub-areas", pass: true },
   { id: "keywords", label: "Keywords meta tag — all pages", desc: "Including blog posts, terms, privacy", pass: true },
-  { id: "twitter_card", label: "Twitter/X summary_large_image", desc: "twitter:site @QanoniLegal set", pass: true },
-  { id: "titles_145", label: "145 seoTitles — all branded", desc: "Every sub-page title ends with Qanoni suffix", pass: true },
+  { id: "twitter_card", label: "Twitter/X summary_large_image", desc: "twitter:site @CounselOLegal set", pass: true },
+  { id: "titles_145", label: "145 seoTitles — all branded", desc: "Every sub-page title ends with CounselO suffix", pass: true },
   { id: "sub_schema", label: "All 18 sub-pages — 3 schemas each", desc: "LegalService + FAQPage + BreadcrumbList", pass: true },
   { id: "no_247", label: "No 'Online, 24/7' in SEO descriptions", desc: "All replaced with '24 hours via WhatsApp'", pass: true },
   { id: "geo", label: "Geo meta tags — Jubail, SA-04", desc: "geo.region, geo.placename, geo.position", pass: true },
@@ -511,10 +511,10 @@ function SEOMonitorTab() {
         <p className="text-sm font-bold text-gray-900 mb-3">Validate on External Tools</p>
         <div className="grid grid-cols-2 gap-3">
           {[
-            { label: "Google Rich Results Test", url: "https://search.google.com/test/rich-results?url=https%3A%2F%2Fqanoni.com", icon: "✅" },
-            { label: "Schema Markup Validator", url: "https://validator.schema.org/#url=https%3A%2F%2Fqanoni.com", icon: "🔎" },
-            { label: "Google PageSpeed (Mobile)", url: "https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fqanoni.com&form_factor=mobile", icon: "📱" },
-            { label: "Google PageSpeed (Desktop)", url: "https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fqanoni.com&form_factor=desktop", icon: "💻" },
+            { label: "Google Rich Results Test", url: "https://search.google.com/test/rich-results?url=https%3A%2F%2Fcounselo.com", icon: "✅" },
+            { label: "Schema Markup Validator", url: "https://validator.schema.org/#url=https%3A%2F%2Fcounselo.com", icon: "🔎" },
+            { label: "Google PageSpeed (Mobile)", url: "https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fcounselo.com&form_factor=mobile", icon: "📱" },
+            { label: "Google PageSpeed (Desktop)", url: "https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fcounselo.com&form_factor=desktop", icon: "💻" },
           ].map((item) => (
             <a key={item.url} href={item.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 p-3 border border-gray-100 rounded-lg hover:bg-gray-50 hover:border-green-200 transition-colors text-sm text-gray-700 font-medium">
               <span>{item.icon}</span> {item.label} <ExternalLink size={11} className="ml-auto text-gray-300" />
@@ -533,19 +533,19 @@ const TOOLS = [
     items: [
       { name: "Google Search Console", desc: "Monitor rankings, clicks, impressions, index status", url: "https://search.google.com/search-console", icon: "🔍" },
       { name: "Google Analytics 4", desc: "Traffic, sessions, conversions, audience data", url: "https://analytics.google.com", icon: "📊" },
-      { name: "PageSpeed Insights", desc: "Core Web Vitals, performance score, mobile/desktop", url: "https://pagespeed.web.dev/?url=https%3A%2F%2Fqanoni.com", icon: "⚡" },
-      { name: "Rich Results Test", desc: "Verify schema markup and structured data eligibility", url: "https://search.google.com/test/rich-results?url=https%3A%2F%2Fqanoni.com", icon: "✅" },
-      { name: "Mobile-Friendly Test", desc: "Check if Google considers the site mobile-friendly", url: "https://search.google.com/test/mobile-friendly?url=https%3A%2F%2Fqanoni.com", icon: "📱" },
+      { name: "PageSpeed Insights", desc: "Core Web Vitals, performance score, mobile/desktop", url: "https://pagespeed.web.dev/?url=https%3A%2F%2Fcounselo.com", icon: "⚡" },
+      { name: "Rich Results Test", desc: "Verify schema markup and structured data eligibility", url: "https://search.google.com/test/rich-results?url=https%3A%2F%2Fcounselo.com", icon: "✅" },
+      { name: "Mobile-Friendly Test", desc: "Check if Google considers the site mobile-friendly", url: "https://search.google.com/test/mobile-friendly?url=https%3A%2F%2Fcounselo.com", icon: "📱" },
     ],
   },
   {
     category: "Schema & SEO",
     color: "green",
     items: [
-      { name: "Schema Markup Validator", desc: "Validate all schema.org structured data", url: "https://validator.schema.org/#url=https%3A%2F%2Fqanoni.com", icon: "🔖" },
+      { name: "Schema Markup Validator", desc: "Validate all schema.org structured data", url: "https://validator.schema.org/#url=https%3A%2F%2Fcounselo.com", icon: "🔖" },
       { name: "Bing Webmaster Tools", desc: "Bing index coverage, keywords, SEO reports", url: "https://www.bing.com/webmasters", icon: "🌐" },
       { name: "Ahrefs Webmaster Tools (Free)", desc: "Backlink profile, site health, organic keywords", url: "https://ahrefs.com/webmaster-tools", icon: "🔗" },
-      { name: "Open Graph Debugger", desc: "Preview how links appear on Facebook/LinkedIn", url: "https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fqanoni.com", icon: "🖼️" },
+      { name: "Open Graph Debugger", desc: "Preview how links appear on Facebook/LinkedIn", url: "https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fcounselo.com", icon: "🖼️" },
       { name: "Twitter Card Validator", desc: "Preview how links appear on X (Twitter)", url: "https://cards-dev.twitter.com/validator", icon: "🐦" },
     ],
   },
@@ -553,11 +553,11 @@ const TOOLS = [
     category: "Performance & Technical",
     color: "purple",
     items: [
-      { name: "GTmetrix", desc: "Detailed waterfall, LCP, TBT, CLS analysis", url: "https://gtmetrix.com/?url=https%3A%2F%2Fqanoni.com", icon: "📈" },
-      { name: "Sitemap.xml", desc: "View your live sitemap (169 URLs)", url: "https://qanoni.com/sitemap.xml", icon: "🗺️" },
-      { name: "Robots.txt", desc: "View crawl rules and sitemap directive", url: "https://qanoni.com/robots.txt", icon: "🤖" },
-      { name: "DNS Checker", desc: "Verify DNS propagation and domain health", url: "https://dnschecker.org/#A/qanoni.com", icon: "🔧" },
-      { name: "SSL Check", desc: "Verify HTTPS certificate is valid and trusted", url: "https://www.ssllabs.com/ssltest/analyze.html?d=qanoni.com", icon: "🔒" },
+      { name: "GTmetrix", desc: "Detailed waterfall, LCP, TBT, CLS analysis", url: "https://gtmetrix.com/?url=https%3A%2F%2Fcounselo.com", icon: "📈" },
+      { name: "Sitemap.xml", desc: "View your live sitemap (169 URLs)", url: "https://counselo.com/sitemap.xml", icon: "🗺️" },
+      { name: "Robots.txt", desc: "View crawl rules and sitemap directive", url: "https://counselo.com/robots.txt", icon: "🤖" },
+      { name: "DNS Checker", desc: "Verify DNS propagation and domain health", url: "https://dnschecker.org/#A/counselo.com", icon: "🔧" },
+      { name: "SSL Check", desc: "Verify HTTPS certificate is valid and trusted", url: "https://www.ssllabs.com/ssltest/analyze.html?d=counselo.com", icon: "🔒" },
     ],
   },
   {
@@ -565,9 +565,9 @@ const TOOLS = [
     color: "amber",
     items: [
       { name: "WhatsApp Test Click", desc: "Test the main WhatsApp consultation CTA", url: "https://wa.me/966594850247", icon: "💬" },
-      { name: "Live Site Preview", desc: "Open the live website in a new tab", url: "https://qanoni.com", icon: "🌍" },
+      { name: "Live Site Preview", desc: "Open the live website in a new tab", url: "https://counselo.com", icon: "🌍" },
       { name: "Screaming Frog (Free)", desc: "Crawl entire site for broken links, missing tags", url: "https://www.screamingfrog.co.uk/seo-spider/", icon: "🐸" },
-      { name: "Copyscape", desc: "Check for duplicate content across the web", url: "https://www.copyscape.com/?q=qanoni.com", icon: "📋" },
+      { name: "Copyscape", desc: "Check for duplicate content across the web", url: "https://www.copyscape.com/?q=counselo.com", icon: "📋" },
     ],
   },
 ];
@@ -638,7 +638,7 @@ function ToolsTab() {
 }
 
 export default function AdminCMS() {
-  const [token, setToken] = useState<string>(() => sessionStorage.getItem("qanoni_admin_token") ?? "");
+  const [token, setToken] = useState<string>(() => sessionStorage.getItem("counselo_admin_token") ?? "");
   const [password, setPassword] = useState("");
   const [showPw, setShowPw] = useState(false);
   const [loginErr, setLoginErr] = useState("");
@@ -670,7 +670,7 @@ export default function AdminCMS() {
     const res = await fetch(`${API}/admin/auth`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password }) });
     if (res.ok) {
       const { token: t } = await res.json() as { token: string };
-      sessionStorage.setItem("qanoni_admin_token", t);
+      sessionStorage.setItem("counselo_admin_token", t);
       setToken(t);
     } else {
       setLoginErr("Wrong password. Try again.");
@@ -678,7 +678,7 @@ export default function AdminCMS() {
   };
 
   const logout = () => {
-    sessionStorage.removeItem("qanoni_admin_token");
+    sessionStorage.removeItem("counselo_admin_token");
     setToken(""); setPosts([]);
   };
 
@@ -695,7 +695,7 @@ export default function AdminCMS() {
         <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-8">
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-50 mb-4 text-2xl">🔒</div>
-            <h1 className="text-xl font-bold text-gray-900">Qanoni Admin</h1>
+            <h1 className="text-xl font-bold text-gray-900">CounselO Admin</h1>
             <p className="text-sm text-gray-500 mt-1">Analytics · Blog · SEO · Tools</p>
           </div>
           <form onSubmit={login} className="space-y-4">
@@ -730,7 +730,7 @@ export default function AdminCMS() {
       <div className="bg-[#006C35] text-white shadow sticky top-0 z-20">
         <div className="px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="text-base font-bold">Qanoni Admin</span>
+            <span className="text-base font-bold">CounselO Admin</span>
             <ChevronRight size={14} className="opacity-40" />
             <span className="text-sm opacity-70">{TABS.find((t) => t.id === tab)?.label}</span>
           </div>
