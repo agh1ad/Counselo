@@ -30,26 +30,28 @@ export default function ServiceDetail() {
           ? `${data.title} في السعودية | استشارة قانونية أونلاين | قانوني`
           : `${data.title} Saudi Arabia | Online Legal Consultation | Qanoni قانوني`}
         description={isRTL
-          ? `${data.subtitle} — قانوني، المنصة الرائدة للاستشارات القانونية الأونلاين في المملكة. خبرة تزيد على 30 عاماً وأكثر من 20,000 قضية. استشارة أونلاين عبر واتساب أو البريد الإلكتروني، على مدار الساعة.`
-          : `${data.subtitle} — Qanoni, Saudi Arabia's leading online legal platform. 30+ years experience, 20,000+ cases handled. Consult online via WhatsApp or email, 24/7, in Arabic & English.`}
+          ? `${data.subtitle} — قانوني، أكبر منصة للاستشارات القانونية الأونلاين في المملكة. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. خبرة تزيد على 30 عاماً وأكثر من 20,000 قضية. لا حاجة لزيارة مكتب.`
+          : `${data.subtitle} — Qanoni, Saudi Arabia's largest online legal platform. Professional response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases handled. No office visit needed.`}
         canonical={`/services/${id}`}
         schema={[
           {
             "@context": "https://schema.org",
-            "@type": "Service",
-            "serviceType": "Legal Consultation",
+            "@type": "LegalService",
             "name": isRTL ? `${data.title} — قانوني` : `${data.title} — Qanoni`,
             "description": data.subtitle,
+            "url": `https://qanoni.com/services/${id}`,
+            "areaServed": { "@type": "Country", "name": "Saudi Arabia" },
+            "availableLanguage": ["Arabic", "English"],
             "provider": {
               "@type": "LegalService",
               "name": "Qanoni قانوني",
               "url": "https://qanoni.com",
               "telephone": "+966594850247",
-              "areaServed": "Saudi Arabia",
+              "email": "bagdadio@gmail.com",
+              "address": { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA" },
+              "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
+              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "847", "bestRating": "5" },
             },
-            "url": `https://qanoni.com/services/${id}`,
-            "areaServed": { "@type": "Country", "name": "Saudi Arabia" },
-            "availableLanguage": ["Arabic", "English"],
           },
           {
             "@context": "https://schema.org",

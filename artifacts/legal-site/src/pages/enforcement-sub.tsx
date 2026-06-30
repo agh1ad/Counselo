@@ -29,32 +29,32 @@ export default function EnforcementSub() {
 
   const SEO_DATA: Record<string, { desc: string; descAr: string; kw: string; kwAr: string }> = {
     "judgment-enforcement": {
-      desc: "Court judgment enforcement lawyer in Saudi Arabia — Saudi and foreign judgment enforcement, bank garnishment & asset attachment. Online consultation via WhatsApp or email, 24/7.",
-      descAr: "محامي تنفيذ أحكام قضائية في المملكة العربية السعودية — تنفيذ الأحكام المحلية والأجنبية والحجز المصرفي. استشارة أونلاين عبر واتساب أو البريد الإلكتروني، 24/7.",
+      desc: "Court judgment enforcement lawyer in Saudi Arabia — Saudi and foreign judgment enforcement, bank garnishment & asset attachment. Professional response within 24 hours via WhatsApp or email — Qanoni Saudi Arabia.",
+      descAr: "محامي تنفيذ أحكام قضائية في المملكة العربية السعودية — تنفيذ الأحكام المحلية والأجنبية والحجز المصرفي. استشارة استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "judgment enforcement lawyer Saudi Arabia, court order enforcement KSA, enforce judgment Saudi, Saudi enforcement court, bank garnishment Saudi Arabia, foreign judgment Saudi",
       kwAr: "محامي تنفيذ أحكام السعودية, تنفيذ حكم قضائي, محكمة التنفيذ السعودية, حجز مصرفي السعودية, تنفيذ حكم أجنبي السعودية",
     },
     "debt-recovery": {
-      desc: "Commercial debt recovery lawyer in Saudi Arabia — recovering unpaid debts, dishonoured cheques, contract debts & invoices. Online consultation via WhatsApp or email, 24/7.",
-      descAr: "محامي تحصيل الديون التجارية في المملكة — استرداد الديون غير المسددة والشيكات المرتجعة وديون العقود. أونلاين عبر واتساب أو البريد الإلكتروني، 24/7.",
+      desc: "Commercial debt recovery lawyer in Saudi Arabia — recovering unpaid debts, dishonoured cheques, contract debts & invoices. Professional response within 24 hours via WhatsApp or email — Qanoni Saudi Arabia.",
+      descAr: "محامي تحصيل الديون التجارية في المملكة — استرداد الديون غير المسددة والشيكات المرتجعة وديون العقود. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "debt recovery lawyer Saudi Arabia, commercial debt collection KSA, unpaid invoice Saudi, dishonoured cheque recovery, contract debt Saudi Arabia, debt enforcement online",
       kwAr: "محامي تحصيل ديون السعودية, استرداد الديون التجارية, شيك مرتجع السعودية, دين عقد تجاري, تحصيل فاتورة غير مسددة",
     },
     "asset-attachment": {
-      desc: "Asset attachment & freezing order lawyer in Saudi Arabia — precautionary bank account attachment, real estate freeze & property seizure. Online consultation, 24/7.",
-      descAr: "محامي الحجز على الأصول وأوامر التجميد في المملكة — الحجز الاحتياطي على الحسابات المصرفية والعقارات. أونلاين 24/7.",
+      desc: "Asset attachment & freezing order lawyer in Saudi Arabia — precautionary bank account attachment, real estate freeze & property seizure. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      descAr: "محامي الحجز على الأصول وأوامر التجميد في المملكة — الحجز الاحتياطي على الحسابات المصرفية والعقارات. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "asset attachment lawyer Saudi Arabia, bank account freeze KSA, precautionary attachment Saudi, real estate freezing order, property seizure Saudi Arabia, asset freezing online",
       kwAr: "محامي حجز أصول السعودية, تجميد حساب مصرفي السعودية, حجز احتياطي السعودية, أمر تجميد عقار, حجز ممتلكات السعودية",
     },
     "travel-bans": {
-      desc: "Travel ban lawyer in Saudi Arabia — applying for & defending against exit restriction and travel ban orders. Online consultation via WhatsApp or email, 24/7.",
-      descAr: "محامي منع السفر في المملكة العربية السعودية — طلب أوامر منع السفر والدفاع ضدها. أونلاين عبر واتساب أو البريد الإلكتروني، 24/7.",
+      desc: "Travel ban lawyer in Saudi Arabia — applying for & defending against exit restriction and travel ban orders. Professional response within 24 hours via WhatsApp or email — Qanoni Saudi Arabia.",
+      descAr: "محامي منع السفر في المملكة العربية السعودية — طلب أوامر منع السفر والدفاع ضدها. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "travel ban lawyer Saudi Arabia, mana al safar KSA, exit ban Saudi Arabia, lift travel ban Saudi, travel restriction enforcement, travel ban defense Saudi",
       kwAr: "محامي منع السفر السعودية, منع السفر مطالبة, رفع حظر السفر السعودية, أمر منع السفر, دفاع عن منع السفر, الخروج من السعودية",
     },
     "enforcement-against-government": {
-      desc: "Enforcement against Saudi government entities lawyer — enforcing judgments against ministries, authorities & state enterprises. Online consultation, 24/7.",
-      descAr: "محامي التنفيذ على الجهات الحكومية السعودية — تنفيذ الأحكام ضد الوزارات والهيئات والمؤسسات العامة. أونلاين 24/7.",
+      desc: "Enforcement against Saudi government entities lawyer — enforcing judgments against ministries, authorities & state enterprises. Professional response within 24 hours via WhatsApp or email — Qanoni.",
+      descAr: "محامي التنفيذ على الجهات الحكومية السعودية — تنفيذ الأحكام ضد الوزارات والهيئات والمؤسسات العامة. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "enforcement against Saudi government lawyer, judgment against Saudi ministry, government entity enforcement KSA, Board of Grievances enforcement, state enterprise judgment Saudi",
       kwAr: "محامي تنفيذ على جهات حكومية السعودية, حكم ضد وزارة سعودية, تنفيذ حكم ضد هيئة حكومية, ديوان المظالم تنفيذ, مؤسسة حكومية حكم قضائي",
     },

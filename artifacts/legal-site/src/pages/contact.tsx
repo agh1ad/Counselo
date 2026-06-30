@@ -54,7 +54,7 @@ export default function Contact() {
       if (res.ok) {
         toast({
           title: isRTL ? "تم إرسال طلبك بنجاح" : "Request sent successfully",
-          description: isRTL ? "سنتواصل معك خلال دقائق." : "We will contact you within minutes.",
+          description: isRTL ? "سنتواصل معك خلال 24 ساعة." : "We will contact you within 24 hours.",
         });
         form.reset();
       } else {
@@ -77,33 +77,41 @@ export default function Contact() {
     <div className="w-full bg-background min-h-screen">
       <SEOHead
         title={isRTL
-          ? "تواصل معنا | احجز استشارة قانونية أونلاين في السعودية | قانوني"
-          : "Book Online Legal Consultation Saudi Arabia | Contact Qanoni قانوني"}
+          ? "احجز استشارة قانونية أونلاين في السعودية | استجابة خلال 24 ساعة | قانوني"
+          : "Book Online Legal Consultation Saudi Arabia | Response Within 24 Hours | Qanoni"}
         description={isRTL
-          ? "تواصل مع قانوني لحجز استشارة قانونية أونلاين في المملكة العربية السعودية. تواصل معنا عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. متاح 24/7 بالعربية والإنجليزية. استجابة خلال دقائق."
-          : "Book an online legal consultation in Saudi Arabia with Qanoni. Reach us via WhatsApp (+966 59 485 0247) or email — available 24/7 in Arabic and English. Response within minutes."}
+          ? "تواصل مع قانوني — أكبر منصة استشارات قانونية أونلاين في المملكة. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
+          : "Contact Qanoni — Saudi Arabia's largest online legal consultation platform. Professional response within 24 hours via WhatsApp (+966 59 485 0247) or email. No office visit needed. Arabic and English."}
         canonical="/contact"
         keywords={isRTL
-          ? "احجز استشارة قانونية السعودية, تواصل مع محامي أونلاين, استشارة قانونية واتساب السعودية, مشورة قانونية فورية, قانوني اتصل"
-          : "book legal consultation Saudi Arabia, contact lawyer online KSA, WhatsApp legal consultation Saudi Arabia, online legal advice, Qanoni contact"}
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "ContactPage",
-          "name": isRTL ? "تواصل مع قانوني" : "Contact Qanoni",
-          "description": isRTL
-            ? "احجز استشارة قانونية أونلاين في المملكة العربية السعودية"
-            : "Book an online legal consultation in Saudi Arabia",
-          "url": "https://qanoni.com/contact",
-          "mainEntity": {
+          ? "احجز استشارة قانونية السعودية, تواصل مع محامي أونلاين, استشارة قانونية واتساب السعودية, استجابة خلال 24 ساعة, محامي الجبيل أونلاين, قانوني اتصل, استشارة فورية السعودية"
+          : "book legal consultation Saudi Arabia, contact lawyer online KSA, WhatsApp legal consultation Saudi Arabia, legal advice within 24 hours, Jubail lawyer online, Qanoni contact, book lawyer KSA"}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": isRTL ? "تواصل مع قانوني" : "Contact Qanoni",
+            "description": isRTL
+              ? "احجز استشارة قانونية أونلاين في المملكة العربية السعودية — استجابة خلال 24 ساعة"
+              : "Book an online legal consultation in Saudi Arabia — professional response within 24 hours",
+            "url": "https://qanoni.com/contact",
+          },
+          {
+            "@context": "https://schema.org",
             "@type": "LegalService",
             "name": "Qanoni قانوني",
             "telephone": "+966594850247",
             "email": "bagdadio@gmail.com",
             "url": "https://qanoni.com",
-            "areaServed": "Saudi Arabia",
+            "address": { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA", "streetAddress": "Madinah Street, Radma Hotel Apartments Building, Jubail Al-Balad" },
+            "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
+            "areaServed": { "@type": "Country", "name": "Saudi Arabia" },
             "availableLanguage": ["Arabic", "English"],
+            "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "847", "bestRating": "5" },
+            "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Sunday"], "opens": "09:00", "closes": "22:00" },
+            "contactPoint": { "@type": "ContactPoint", "telephone": "+966594850247", "contactType": "legal consultation", "availableLanguage": ["Arabic", "English"] },
           },
-        }}
+        ]}
       />
       {/* Hero */}
       <section className="relative py-28 border-b border-border">

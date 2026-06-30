@@ -186,17 +186,17 @@ export const en = {
       ],
     },
     cta: {
-      eyebrow: "Saudi Arabia's Online Legal Platform",
-      heading: "Get Expert Legal Advice — Fast.",
-      desc: "Professional online legal consultations for individuals, businesses and investors across Saudi Arabia.",
-      subDesc: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi · Professional legal team · WhatsApp or email · Arabic & English",
+      eyebrow: "Saudi Arabia's Largest Online Legal Platform",
+      heading: "Professional Legal Response Within 24 Hours.",
+      desc: "Expert online legal consultations for individuals, businesses and investors across Saudi Arabia — via WhatsApp or email, no office visit required. 18 practice areas. 30+ years experience.",
+      subDesc: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi · Jubail, Saudi Arabia · WhatsApp or email · Arabic & English",
       ctaBtn: "Book Your Consultation Now",
     },
   },
   services: {
     hero: {
-      heading: "Our Expertise",
-      desc: "Qanoni covers 18 practice areas — backed by 30+ years of Saudi legal experience and 20,000+ cases. Professional legal advice online via WhatsApp or email, 24/7, in Arabic and English.",
+      heading: "18 Legal Practice Areas",
+      desc: "Saudi Arabia's largest online legal consultation platform — 18 specialist practice areas covering family, commercial, employment, real estate, foreign investment, criminal, banking, tax, cyber, medical malpractice, insurance, immigration, arbitration, enforcement, companies law, contracts, IP, and administrative law. Professional response within 24 hours. No office visit needed.",
     },
     explorePrefix: "Explore ",
     items: [
@@ -1450,7 +1450,7 @@ export const en = {
     services: {
       "commercial-contracts": {
         title: "Commercial Contracts",
-        seoTitle: "Commercial Contracts Lawyer in Saudi Arabia",
+        seoTitle: "Commercial Contracts Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Protecting Saudi businesses through precise, enforceable commercial agreements.",
         overview1: "Commercial contracts are the foundation of every business relationship in the Kingdom of Saudi Arabia — yet poorly drafted agreements remain one of the leading causes of costly commercial litigation. At Qanoni, our commercial contracts practice is built on over 30 years of hands-on experience drafting, negotiating, and litigating commercial agreements before Saudi courts and arbitration tribunals. We have handled over 20,000 cases across the Kingdom, the UAE, and Syria, giving us unmatched insight into how Saudi courts interpret and enforce contractual language.",
         overview2: "Whether you are a Saudi company entering a major supply agreement, a foreign investor structuring a joint venture, or a business facing a contract dispute, Qanoni provides the precise legal architecture to protect your interests. We draft contracts that anticipate disputes before they arise, and we litigate relentlessly when the other side fails to perform.",
@@ -2399,7 +2399,7 @@ export const en = {
     services: {
       "company-formation-disputes": {
         title: "Company Formation Disputes & Nullity of Incorporation",
-        seoTitle: "Company Formation Disputes & Nullity of Incorporation Lawyer in Saudi Arabia",
+        seoTitle: "Company Formation Disputes Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Challenging defective incorporations and resolving founding partner disputes under Saudi Companies Law.",
         overview1: "Company formation disputes in Saudi Arabia arise when the founding process is tainted by fraud, misrepresentation, failure to satisfy statutory conditions, or breach of the founding agreement. Saudi Companies Law (Royal Decree No. M/3 of 1437H) provides specific grounds on which a company's incorporation may be challenged as null and void — including defects in the articles of association, failure to deposit share capital, involvement of legally incapacitated founders, or unlawful company objects. Qanoni has handled complex formation disputes across all types of Saudi business entity for over 30 years, from limited liability company formation challenges to disputes over JSC founding documents.",
         overview2: "Whether you are a founding partner who was deceived during incorporation, an investor challenging a defective formation, or a company defending against a nullity claim, Qanoni provides precise, authoritative counsel grounded in Saudi Companies Law and three decades of Commercial Court experience — available via WhatsApp or email within 24 hours.",
