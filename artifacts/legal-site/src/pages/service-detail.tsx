@@ -310,6 +310,101 @@ export default function ServiceDetail() {
             </div>
           )}
 
+          {/* Criminal Law Sub-Areas Grid */}
+          {id === "criminal-law" && (
+            <div className="lg:col-span-8 mt-16">
+              <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
+                {isRTL ? "مجالات ممارستنا في القانون الجزائي" : "Criminal Law Practice Areas"}
+              </h2>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في القانون الجزائي — كلٌّ منها مدعوم بأكثر من 30 عاماً من الخبرة أمام المحاكم الجزائية السعودية ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist Criminal Law practice areas — each backed by 30+ years of Saudi criminal court experience and available for urgent consultation today."}</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {t.criminalLawDetail.subAreas.map((area) => (
+                  <Link key={area.id} href={`/services/criminal-law/${area.id}`}
+                    className="group flex items-center justify-between gap-4 bg-card border border-border px-6 py-5 hover:border-primary/60 hover:bg-primary/5 transition-all">
+                    <span className="font-semibold text-foreground group-hover:text-primary transition-colors">{area.label}</span>
+                    <ArrowRight className={`h-4 w-4 text-primary shrink-0 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180 group-hover:-translate-x-1 group-hover:translate-x-0" : ""}`} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Banking & Finance Sub-Areas Grid */}
+          {id === "banking-finance" && (
+            <div className="lg:col-span-8 mt-16">
+              <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
+                {isRTL ? "مجالات ممارستنا في البنوك والتمويل" : "Banking & Finance Practice Areas"}
+              </h2>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في التمويل الإسلامي والبنوك — كلٌّ منها مدعوم بأكثر من 30 عاماً من الخبرة في القانون المالي السعودي ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist Banking & Finance practice areas — each backed by 30+ years of Saudi financial law experience and available for online consultation today."}</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {t.bankingFinanceDetail.subAreas.map((area) => (
+                  <Link key={area.id} href={`/services/banking-finance/${area.id}`}
+                    className="group flex items-center justify-between gap-4 bg-card border border-border px-6 py-5 hover:border-primary/60 hover:bg-primary/5 transition-all">
+                    <span className="font-semibold text-foreground group-hover:text-primary transition-colors">{area.label}</span>
+                    <ArrowRight className={`h-4 w-4 text-primary shrink-0 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180 group-hover:-translate-x-1 group-hover:translate-x-0" : ""}`} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Intellectual Property Sub-Areas Grid */}
+          {id === "intellectual-property" && (
+            <div className="lg:col-span-8 mt-16">
+              <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
+                {isRTL ? "مجالات ممارستنا في الملكية الفكرية" : "Intellectual Property Practice Areas"}
+              </h2>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في الملكية الفكرية — كلٌّ منها مدعوم بأكثر من 30 عاماً من الخبرة أمام هيئة الملكية الفكرية والمحاكم السعودية ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist Intellectual Property practice areas — each backed by 30+ years of Saudi IP law experience and available for online consultation today."}</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {t.intellectualPropertyDetail.subAreas.map((area) => (
+                  <Link key={area.id} href={`/services/intellectual-property/${area.id}`}
+                    className="group flex items-center justify-between gap-4 bg-card border border-border px-6 py-5 hover:border-primary/60 hover:bg-primary/5 transition-all">
+                    <span className="font-semibold text-foreground group-hover:text-primary transition-colors">{area.label}</span>
+                    <ArrowRight className={`h-4 w-4 text-primary shrink-0 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180 group-hover:-translate-x-1 group-hover:translate-x-0" : ""}`} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Tax & Zakat Sub-Areas Grid */}
+          {id === "tax-zakat" && (
+            <div className="lg:col-span-8 mt-16">
+              <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
+                {isRTL ? "مجالات ممارستنا في الزكاة والضريبة" : "Tax & Zakat Practice Areas"}
+              </h2>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في الزكاة والضريبة والجمارك — كلٌّ منها مدعوم بخبرة واسعة أمام هيئة الزكاة والضريبة والجمارك ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist Tax & Zakat practice areas — each backed by deep ZATCA expertise and available for online consultation today."}</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {t.taxZakatDetail.subAreas.map((area) => (
+                  <Link key={area.id} href={`/services/tax-zakat/${area.id}`}
+                    className="group flex items-center justify-between gap-4 bg-card border border-border px-6 py-5 hover:border-primary/60 hover:bg-primary/5 transition-all">
+                    <span className="font-semibold text-foreground group-hover:text-primary transition-colors">{area.label}</span>
+                    <ArrowRight className={`h-4 w-4 text-primary shrink-0 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180 group-hover:-translate-x-1 group-hover:translate-x-0" : ""}`} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Cyber & IT Law Sub-Areas Grid */}
+          {id === "cyber-law" && (
+            <div className="lg:col-span-8 mt-16">
+              <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
+                {isRTL ? "مجالات ممارستنا في الجرائم المعلوماتية وتقنية المعلومات" : "Cyber & IT Law Practice Areas"}
+              </h2>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في قانون الجرائم المعلوماتية وحماية البيانات — كلٌّ منها مدعوم بخبرة واسعة وفق نظام مكافحة الجرائم المعلوماتية ونظام حماية البيانات الشخصية ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist Cyber & IT Law practice areas — each backed by deep Saudi cybercrime and data protection law expertise and available for urgent consultation today."}</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {t.cyberLawDetail.subAreas.map((area) => (
+                  <Link key={area.id} href={`/services/cyber-law/${area.id}`}
+                    className="group flex items-center justify-between gap-4 bg-card border border-border px-6 py-5 hover:border-primary/60 hover:bg-primary/5 transition-all">
+                    <span className="font-semibold text-foreground group-hover:text-primary transition-colors">{area.label}</span>
+                    <ArrowRight className={`h-4 w-4 text-primary shrink-0 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180 group-hover:-translate-x-1 group-hover:translate-x-0" : ""}`} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Sidebar */}
           <div className="lg:col-span-4">
             <motion.div initial={{ opacity: 0, x: isRTL ? -20 : 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
