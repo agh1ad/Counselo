@@ -22,6 +22,11 @@ import ArbitrationSub from "@/pages/arbitration-sub";
 import EnforcementSub from "@/pages/enforcement-sub";
 import CompaniesLawSub from "@/pages/companies-law-sub";
 import ContractsSub from "@/pages/contracts-sub";
+import CriminalLawSub from "@/pages/criminal-law-sub";
+import BankingFinanceSub from "@/pages/banking-finance-sub";
+import IntellectualPropertySub from "@/pages/intellectual-property-sub";
+import TaxZakatSub from "@/pages/tax-zakat-sub";
+import CyberLawSub from "@/pages/cyber-law-sub";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import TermsOfService from "@/pages/terms-of-service";
@@ -70,6 +75,11 @@ function Router() {
         <Route path="/services/enforcement/:subId" component={EnforcementSub} />
         <Route path="/services/companies-law/:subId" component={CompaniesLawSub} />
         <Route path="/services/contracts/:subId" component={ContractsSub} />
+        <Route path="/services/criminal-law/:subId" component={CriminalLawSub} />
+        <Route path="/services/banking-finance/:subId" component={BankingFinanceSub} />
+        <Route path="/services/intellectual-property/:subId" component={IntellectualPropertySub} />
+        <Route path="/services/tax-zakat/:subId" component={TaxZakatSub} />
+        <Route path="/services/cyber-law/:subId" component={CyberLawSub} />
         <Route path="/services/:id" component={ServiceDetail} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/blog" component={Blog} />
