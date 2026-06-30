@@ -140,6 +140,28 @@ export default function TermsOfService() {
         title={content.seoTitle}
         description={content.seoDesc}
         canonical="/terms-of-service"
+        keywords={isRTL
+          ? "شروط الخدمة قانوني, كيفية الاستشارة القانونية أونلاين, استشارة قانونية بالواتساب السعودية, رسوم الاستشارة القانونية, محامي أونلاين"
+          : "Qanoni terms of service, how online legal consultation works Saudi Arabia, legal advice WhatsApp KSA, consultation fees lawyer, online legal process"}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": isRTL ? "شروط الخدمة | قانوني" : "Terms of Service | Qanoni",
+            "description": content.seoDesc,
+            "url": "https://qanoni.com/terms-of-service",
+            "isPartOf": { "@type": "WebSite", "name": "Qanoni قانوني", "url": "https://qanoni.com" },
+            "publisher": { "@type": "Organization", "name": "Qanoni قانوني", "url": "https://qanoni.com" },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://qanoni.com/" },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "شروط الخدمة" : "Terms of Service", "item": "https://qanoni.com/terms-of-service" },
+            ],
+          },
+        ]}
       />
 
       {/* Hero */}

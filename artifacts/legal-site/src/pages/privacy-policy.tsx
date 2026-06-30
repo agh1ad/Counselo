@@ -332,6 +332,9 @@ export default function PrivacyPolicy() {
         title={content.seoTitle}
         description={content.seoDesc}
         canonical="/privacy-policy"
+        keywords={isRTL
+          ? "سياسة الخصوصية قانوني, حماية البيانات الشخصية السعودية, سرية الاستشارة القانونية, نظام PDPL السعودي, خصوصية المستخدم"
+          : "Qanoni privacy policy, data protection Saudi Arabia, legal consultation confidentiality, PDPL Saudi Arabia, client data privacy"}
         schema={[
           {
             "@context": "https://schema.org",

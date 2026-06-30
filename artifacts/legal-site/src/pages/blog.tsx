@@ -97,17 +97,27 @@ export default function Blog() {
         keywords={isRTL
           ? "مدونة قانونية سعودية, مقالات قانونية, إرشادات قانونية مجانية, قانون الأسرة السعودي, قانون العمل السعودي, القانون العقاري, القانون التجاري, الاستثمار الأجنبي, القانون الإداري, قانوني"
           : "Saudi legal blog, free legal guides Saudi Arabia, family law articles, employment law KSA, real estate law guide, commercial law Saudi Arabia, foreign investment guide, administrative law, Qanoni blog"}
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "Blog",
-          "name": isRTL ? "مدونة قانوني القانونية" : "Qanoni Legal Blog",
-          "description": isRTL
-            ? "إرشادات قانونية معمّقة للأفراد والشركات في المملكة العربية السعودية"
-            : "In-depth legal guides for individuals and businesses in Saudi Arabia",
-          "url": "https://qanoni.com/blog",
-          "publisher": { "@type": "Organization", "name": "Qanoni قانوني", "url": "https://qanoni.com" },
-          "inLanguage": [isRTL ? "ar" : "en"],
-        }}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": isRTL ? "مدونة قانوني القانونية" : "Qanoni Legal Blog",
+            "description": isRTL
+              ? "إرشادات قانونية معمّقة للأفراد والشركات في المملكة العربية السعودية"
+              : "In-depth legal guides for individuals and businesses in Saudi Arabia",
+            "url": "https://qanoni.com/blog",
+            "publisher": { "@type": "Organization", "name": "Qanoni قانوني", "url": "https://qanoni.com" },
+            "inLanguage": [isRTL ? "ar" : "en"],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://qanoni.com/" },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": "https://qanoni.com/blog" },
+            ],
+          },
+        ]}
       />
 
       {/* Hero */}

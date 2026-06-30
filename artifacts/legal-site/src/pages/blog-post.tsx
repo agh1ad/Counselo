@@ -145,6 +145,9 @@ export default function BlogPost() {
         title={seoTitle}
         description={seoDesc}
         canonical={`/blog/${post.slug}`}
+        keywords={isRTL
+          ? `${category}, مقالات قانونية سعودية, إرشادات قانونية مجانية, قانوني, مدونة قانوني القانونية`
+          : `${category}, Saudi legal articles, free legal guides Saudi Arabia, Qanoni blog, online legal advice KSA`}
         extraSchemas={[articleSchema]}
       />
 

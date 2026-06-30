@@ -86,6 +86,7 @@ export function SEOHead({ title, description, canonical, keywords, schema, extra
 
       {/* Twitter / X */}
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@QanoniLegal" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
