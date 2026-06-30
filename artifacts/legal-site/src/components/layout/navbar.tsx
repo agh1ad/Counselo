@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import counseloLogo from "@assets/Screen_Shot_2026-07-01_at_12.26.11_AM_1782851175169.png";
 import saudiFlag from "@assets/image_1782789705620.jpeg";
+import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5x_1782856203372.jpg";
 
 export function Navbar() {
   const [location] = useLocation();
@@ -20,6 +21,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-3">
             <img src={counseloLogo} alt="CounselO — Online Legal Consultations" className="h-20 w-auto object-contain" />
             <img src={saudiFlag} alt="Saudi Arabia" className="h-6 w-auto object-cover rounded-sm shadow-sm border border-border" style={{ aspectRatio: "3/2", width: "36px" }} />
+            <img src={syrianFlag} alt="Syria" className="h-6 w-auto object-cover rounded-sm shadow-sm border border-border" style={{ aspectRatio: "3/2", width: "36px" }} />
           </Link>
 
           <div className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
