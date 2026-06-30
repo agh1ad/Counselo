@@ -5,6 +5,7 @@ import { CheckCircle2, ArrowRight, MapPin, Award, Users, Globe, Zap, Scale, Star
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import founderPhoto from "@assets/ChatGPT_Image_Mar_8,_2026,_04_53_46_PM_1782789204870.png";
+import saudiFlag from "@assets/image_1782789705620.jpeg";
 
 const whyIcons = [Scale, Globe, Award, Globe, Zap, Users];
 
@@ -65,10 +66,10 @@ export default function About() {
 
       {/* ── Hero ── */}
       <section className="relative py-28 overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 10%) 0%, hsl(150 80% 15%) 100%)" }} />
-        <div className="absolute end-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
-          <div className="w-full h-full" style={{ background: "radial-gradient(ellipse at 50% 50%, hsl(150 60% 60%) 0%, transparent 70%)" }} />
-        </div>
+        {/* Saudi flag as full background */}
+        <img src={saudiFlag} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover object-center" />
+        {/* Dark green overlay so text stays readable */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(0,40,20,0.88) 0%, rgba(0,60,30,0.80) 100%)" }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-2 mb-6">

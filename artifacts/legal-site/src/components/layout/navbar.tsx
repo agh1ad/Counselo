@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import logoWithText from "@assets/Screen_Shot_2026-06-28_at_4.58.35_AM_1782608505873.png";
+import saudiFlag from "@assets/image_1782789705620.jpeg";
 
 export function Navbar() {
   const [location] = useLocation();
@@ -16,8 +17,9 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-3">
             <img src={logoWithText} alt="Qanoni — Online Legal Consultations" className="h-20 w-auto object-contain" />
+            <img src={saudiFlag} alt="Saudi Arabia" className="h-6 w-auto object-cover rounded-sm shadow-sm border border-border" style={{ aspectRatio: "3/2", width: "36px" }} />
           </Link>
 
           <div className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
