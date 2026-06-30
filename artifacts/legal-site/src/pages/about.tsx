@@ -67,7 +67,7 @@ export default function About() {
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 10%) 0%, hsl(150 80% 15%) 100%)" }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Text */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-2 mb-6">
@@ -86,7 +86,7 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="hidden lg:flex flex-col items-center justify-center"
+              className="hidden md:flex flex-col items-center justify-center"
             >
               <div className="relative w-full max-w-sm mx-auto shadow-2xl border border-white/10" style={{ aspectRatio: "3/2" }}>
                 <svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
