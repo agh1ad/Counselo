@@ -4858,6 +4858,8 @@ export const en = {
       partnerName: "Lawyer Abdullah Al-Anzi",
       licenseNo: "License No. 37440",
       address: "Jubail Al-Balad — Madinah Street\nRadma Hotel Apartments Building\nEastern Province, Saudi Arabia",
+      mapsUrl: "https://www.google.com/maps/place/Radmah+Suites+Jubail/@27.0048993,49.6579789,17z",
+      mapsLabel: "View on Google Maps",
     },
     why: {
       eyebrow: "Why Qanoni",

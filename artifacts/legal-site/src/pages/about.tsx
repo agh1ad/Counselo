@@ -272,7 +272,16 @@ export default function About() {
                   </div>
                 </div>
                 <div className="border-t border-white/20 pt-6 mb-6">
-                  <p className="text-white/80 text-sm leading-relaxed whitespace-pre-line">{a.office.address}</p>
+                  <p className="text-white/80 text-sm leading-relaxed whitespace-pre-line mb-4">{a.office.address}</p>
+                  <a
+                    href={a.office.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs font-semibold px-4 py-2 transition-colors"
+                  >
+                    <MapPin className="h-3.5 w-3.5" />
+                    {a.office.mapsLabel}
+                  </a>
                 </div>
                 <div className="border-t border-white/20 pt-6 space-y-3">
                   {[
