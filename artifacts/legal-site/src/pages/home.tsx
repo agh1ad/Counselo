@@ -3,7 +3,8 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { Scale, ShieldCheck, Users, ArrowRight, CheckCircle2, Star, Quote, MessageCircle, Mail, Award, Globe, Zap, BadgeCheck, Wifi, Clock, Lock, MapPin } from "lucide-react";
-import heroBg from "@assets/Screen_Shot_2026-06-28_at_4.58.49_AM_1782608643526.png";
+import counseloLogo from "@assets/Screen_Shot_2026-07-01_at_12.26.11_AM_1782851175169.png";
+import counseloIcon from "@assets/Screen_Shot_2026-07-01_at_12.27.10_AM_1782851233874.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const fadeIn = {
@@ -86,17 +87,40 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        {/* Hero background image */}
-        <div className="absolute inset-0 z-0">
-          <img src={heroBg} alt="" aria-hidden="true" className="w-full h-full object-cover object-center" />
+        {/* Solid dark green base */}
+        <div className="absolute inset-0 z-0" style={{ background: "hsl(150 100% 5%)" }} />
+
+        {/* Radial glow — upper right */}
+        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at 75% 30%, hsl(150 60% 22% / 0.55) 0%, transparent 65%)" }} />
+
+        {/* CounselO icon — large decorative background mark */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+          <img
+            src={counseloIcon}
+            alt=""
+            aria-hidden="true"
+            className="absolute top-1/2 -translate-y-1/2 right-[-60px] lg:right-[5%] w-[580px] h-[580px] object-contain opacity-[0.13]"
+            style={{ filter: "brightness(2.5) saturate(0.6)" }}
+          />
         </div>
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 5% / 0.92) 0%, hsl(150 80% 10% / 0.85) 100%)" }} />
-        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at 80% 40%, hsl(150 60% 25% / 0.25) 0%, transparent 60%)" }} />
+
+        {/* CounselO full logo — bottom-left watermark stamp */}
+        <div className="absolute bottom-8 start-8 z-0 pointer-events-none select-none hidden lg:block">
+          <img
+            src={counseloLogo}
+            alt=""
+            aria-hidden="true"
+            className="w-48 object-contain opacity-[0.15]"
+            style={{ filter: "brightness(3) saturate(0)" }}
+          />
+        </div>
 
         {/* Decorative grid lines */}
-        <div className="absolute inset-0 z-0 opacity-5"
+        <div className="absolute inset-0 z-0 opacity-[0.04]"
           style={{ backgroundImage: "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
+
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 inset-x-0 h-32 z-0" style={{ background: "linear-gradient(to bottom, transparent, hsl(150 100% 5% / 0.8))" }} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-20">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
