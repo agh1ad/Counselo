@@ -1603,7 +1603,7 @@ export const en = {
       },
       "unfair-competition-commercial-fraud": {
         title: "Unfair Competition & Commercial Fraud",
-        seoTitle: "Unfair Competition & Commercial Fraud Lawyer in Saudi Arabia",
+        seoTitle: "Unfair Competition & Commercial Fraud Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Protecting Saudi businesses from predatory commercial practices, brand imitation, and fraud.",
         overview1: "Unfair competition and commercial fraud can devastate years of business-building in a matter of months. From competitors imitating your brand and products to fraudulent commercial practices that undermine market integrity, Saudi law provides powerful remedies — including criminal prosecution and civil damages. Qanoni's commercial fraud practice combines over 30 years of litigation experience with deep expertise in Saudi Arabia's Anti-Commercial Fraud Law, Competition Law, and related regulatory frameworks.",
         overview2: "Qanoni acts for Saudi businesses, multinational brands, and individual entrepreneurs who have been targeted by unfair commercial practices. We also advise businesses accused of unfair competition, ensuring robust defense before the Saudi Authority for Intellectual Property and the courts.",
@@ -2429,7 +2429,7 @@ export const en = {
       },
       "share-equity-disputes": {
         title: "Share & Equity Ownership Disputes",
-        seoTitle: "Share & Equity Ownership Disputes Lawyer in Saudi Arabia",
+        seoTitle: "Share & Equity Ownership Disputes Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Protecting and asserting share ownership rights for LLC partners and JSC shareholders across Saudi Arabia.",
         overview1: "Share and equity ownership disputes are among the most common and high-stakes corporate conflicts in Saudi Arabia. Disputes concerning LLC quotas or joint stock company shares arise from forged share transfers, undocumented transactions, contested inheritance, bad-faith competing claims, and disputes over the valuation and registration of equity interests. Saudi Companies Law and the Capital Market Law establish specific procedures for resolving equity ownership disputes — but navigating them effectively requires deep specialist expertise before Saudi Commercial Courts.",
         overview2: "Qanoni represents LLC partners, JSC shareholders, and investors in all forms of share and equity ownership dispute. With 30+ years of experience across thousands of corporate cases, we deliver rapid, results-focused representation to secure and protect your equity ownership rights — online via WhatsApp or email within 24 hours.",
@@ -2459,7 +2459,7 @@ export const en = {
       },
       "partner-shareholder-disputes": {
         title: "Partner & Shareholder Disputes",
-        seoTitle: "Partner & Shareholder Disputes Lawyer in Saudi Arabia",
+        seoTitle: "Partner & Shareholder Disputes Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Expert representation in partnership deadlocks, shareholder oppression, and corporate governance conflicts.",
         overview1: "Partner and shareholder disputes are among the most disruptive legal challenges a Saudi company can face — threatening business operations, destroying value, and damaging relationships that may span decades. Whether arising from a breakdown in trust between LLC partners, a deadlocked joint stock company board, or a minority shareholder being systematically excluded from company decisions, these disputes require immediate, strategic legal intervention. Saudi Companies Law provides specific remedies for shareholder oppression, governance failures, and partner deadlocks — but deploying them effectively demands specialist expertise.",
         overview2: "Qanoni represents both majority and minority shareholders and partners in all forms of corporate dispute. We move quickly to protect your position, preserve company value, and pursue resolution through negotiation, mediation, or Commercial Court litigation — whichever pathway produces the best outcome for your specific situation.",
@@ -2489,7 +2489,7 @@ export const en = {
       },
       "director-liability": {
         title: "Director & Board Member Liability Claims",
-        seoTitle: "Director & Board Member Liability Claims Lawyer in Saudi Arabia",
+        seoTitle: "Director & Board Member Liability Claims Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Pursuing and defending director liability claims for mismanagement, fraud, and breach of fiduciary duty.",
         overview1: "Directors and board members of Saudi companies owe strict fiduciary and statutory duties to the company and its shareholders under Saudi Companies Law. Where a director breaches those duties — through self-dealing, misappropriation of company assets, mismanagement, gross negligence, or fraud — they may be held personally liable to the company and its shareholders for resulting losses. Saudi Companies Law permits shareholders holding specific ownership thresholds to bring derivative actions on behalf of the company against delinquent directors.",
         overview2: "Qanoni represents companies, shareholders, and directors in all forms of director liability litigation — from derivative claims by shareholders against a rogue director to defences for board members facing unfounded accusations. Our 30+ years of Saudi commercial court experience means we understand both sides of these disputes.",
@@ -2519,7 +2519,7 @@ export const en = {
       },
       "general-assembly-disputes": {
         title: "General Assembly & Partner Resolution Disputes",
-        seoTitle: "General Assembly & Partner Resolution Disputes Lawyer in Saudi Arabia",
+        seoTitle: "General Assembly & Partner Resolution Disputes Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Expert legal representation in disputes arising from shareholder meetings, partner assemblies, and corporate resolutions.",
         overview1: "General assembly and partner resolution disputes are a frequent source of corporate conflict in Saudi Arabia. Whether arising from a disputed quorum, improper notice of meeting, exclusion of a shareholder from voting, or a resolution that exceeds the assembly's powers, these disputes require urgent legal intervention to prevent unlawful resolutions from taking effect. Saudi Companies Law imposes strict procedural requirements on the conduct of partner assemblies and general meetings — and any material violation creates grounds for legal challenge.",
         overview2: "Qanoni provides urgent pre-meeting injunctions to stop unlawful assemblies, and post-meeting nullity claims to set aside resolutions passed in breach of Saudi Companies Law. Our deep experience before Saudi Commercial Courts means we can intervene effectively at every stage of assembly and resolution disputes.",
@@ -2549,7 +2549,7 @@ export const en = {
       },
       "assembly-resolution-nullity": {
         title: "Assembly Resolution Nullity & Annulment Claims",
-        seoTitle: "Assembly Resolution Nullity & Annulment Claims Lawyer in Saudi Arabia",
+        seoTitle: "Assembly Resolution Nullity & Annulment Claims Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Challenging and annulling unlawful company resolutions under Saudi Companies Law.",
         overview1: "When a general assembly or partner meeting passes resolutions that violate Saudi Companies Law, the company's articles of association, or fundamental shareholder rights, those resolutions can be challenged and declared void before Saudi Commercial Courts. Nullity claims are among the most powerful tools available to protect minority shareholders, challenge hostile takeover resolutions, and reverse decisions made through fraud, procedural abuse, or breach of the company's constitutional documents.",
         overview2: "Qanoni has extensive experience filing assembly resolution nullity claims in Saudi Commercial Courts — from challenging resolutions approving unlawful related-party transactions to annulling decisions that disenfranchised minority shareholders. We move quickly to neutralize harmful resolutions before they are implemented.",
@@ -2579,7 +2579,7 @@ export const en = {
       },
       "capital-change-disputes": {
         title: "Capital Increase & Decrease Disputes",
-        seoTitle: "Capital Increase & Decrease Disputes Lawyer in Saudi Arabia",
+        seoTitle: "Capital Increase & Decrease Disputes Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Protecting shareholder rights against dilutive capital increases and unlawful capital reductions.",
         overview1: "Capital increase and decrease disputes arise when changes to a Saudi company's share capital are conducted in breach of Saudi Companies Law or in ways that unfairly prejudice existing shareholders. Unlawful capital increases can dilute minority shareholders without proper pre-emption rights; abusive capital reductions can deplete the company's financial base; and poorly structured capital changes can expose directors and the company itself to legal liability. These disputes require expert legal intervention to protect your equity position.",
         overview2: "Qanoni advises shareholders, partners, and companies across all types of capital change dispute — filing urgent injunctions to block unlawful capital increases before they are registered, and pursuing compensation claims where a shareholder's pre-emption rights have been violated or their ownership percentage unfairly reduced.",
@@ -2609,7 +2609,7 @@ export const en = {
       },
       "profit-distribution-disputes": {
         title: "Profit Distribution & Dividend Disputes",
-        seoTitle: "Profit Distribution & Dividend Disputes Lawyer in Saudi Arabia",
+        seoTitle: "Profit Distribution & Dividend Disputes Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Enforcing shareholder dividend rights and challenging unlawful withholding of company profits.",
         overview1: "Profit distribution disputes arise when a company's management or controlling shareholders withhold dividends that shareholders are entitled to receive — whether by refusing to declare dividends, manipulating financial statements to understate profits, or paying dividends selectively to favoured shareholders. Saudi Companies Law establishes minimum dividend entitlement rules for certain company types and prohibits discriminatory profit distribution among shareholders of the same class.",
         overview2: "Qanoni advises shareholders and partners in all types of profit distribution dispute — from demanding overdue dividends through formal legal proceedings to challenging manipulated accounts that artificially suppress distributable profits. Online consultation via WhatsApp or email is available within 24 hours.",
@@ -2639,7 +2639,7 @@ export const en = {
       },
       "conflict-of-interest": {
         title: "Conflict of Interest & Corporate Opportunity Disputes",
-        seoTitle: "Conflict of Interest & Corporate Opportunity Disputes Lawyer in Saudi Arabia",
+        seoTitle: "Conflict of Interest & Corporate Opportunity Disputes Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Holding directors and partners accountable for self-dealing, secret profits, and misappropriation of corporate opportunities.",
         overview1: "Conflict of interest and corporate opportunity disputes arise when a director, partner, or controlling shareholder exploits their position to benefit personally at the company's expense — entering into undisclosed related-party transactions, diverting business opportunities to personally owned companies, competing secretly with the company they manage, or receiving secret profits from third parties. Saudi Companies Law imposes strict disclosure and approval requirements for conflict of interest transactions, and directors who breach them face personal liability.",
         overview2: "Qanoni investigates and litigates conflict of interest and corporate opportunity claims — recovering profits unlawfully diverted from the company, holding fiduciaries personally liable, and structuring governance reforms to prevent recurrence. Our online consultation service means specialist advice is available via WhatsApp or email within 24 hours.",
@@ -2669,7 +2669,7 @@ export const en = {
       },
       "director-removal-disputes": {
         title: "Director & Board Member Removal Disputes",
-        seoTitle: "Director & Board Member Removal Disputes Lawyer in Saudi Arabia",
+        seoTitle: "Director & Board Member Removal Disputes Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Expert representation in wrongful director dismissal claims and contested board member removal proceedings.",
         overview1: "Director and board member removal disputes arise when a company purports to remove a director or manager without following the procedures required by Saudi Companies Law and the company's articles of association — or when a director is removed for improper reasons such as opposing majority shareholder misconduct or asserting their legal rights. The wrongful removal of a director can entitle them to compensation, reinstatement, and recognition of their continued authority pending legal proceedings.",
         overview2: "Qanoni represents both dismissed directors seeking reinstatement or compensation, and companies and shareholders seeking to properly remove a director who is acting against the company's interests. Our 30+ years of commercial court experience ensures your position is protected from the moment removal proceedings begin.",
@@ -2699,7 +2699,7 @@ export const en = {
       },
       "company-records-access": {
         title: "Company Records Access & Disclosure Claims",
-        seoTitle: "Company Records Access & Disclosure Claims Lawyer in Saudi Arabia",
+        seoTitle: "Company Records Access & Disclosure Claims Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Enforcing shareholder inspection rights and obtaining company financial records through Saudi courts.",
         overview1: "Saudi Companies Law grants shareholders and partners specific rights to inspect and obtain copies of company records — including financial statements, board minutes, shareholder registers, and underlying accounting records. When management or controlling shareholders obstruct access to these records, shareholders are deprived of the information they need to assess their investment, identify misconduct, and exercise their legal rights. Disclosure claims are often the first step in a larger corporate dispute.",
         overview2: "Qanoni files urgent court orders compelling companies to disclose records to entitled shareholders — and defends companies against improper or abusive disclosure demands from hostile parties. Our experience in Saudi Commercial Courts means disclosure orders are obtained efficiently and enforced effectively.",
@@ -2729,7 +2729,7 @@ export const en = {
       },
       "share-transfer-disputes": {
         title: "Share Sale & Transfer Disputes",
-        seoTitle: "Share Sale & Transfer Disputes Lawyer in Saudi Arabia",
+        seoTitle: "Share Sale & Transfer Disputes Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Resolving LLC quota transfers, JSC share sales, and pre-emption right disputes under Saudi Companies Law.",
         overview1: "Share and quota transfer disputes arise when a shareholder or partner seeks to sell or transfer their equity interest and encounters obstacles — whether from other partners exercising (or abusing) pre-emption rights, a company refusing to register a valid transfer, or a buyer and seller disputing the terms or completion of a share sale agreement. Saudi Companies Law imposes specific procedures for LLC quota transfers and JSC share sales — and any deviation from those procedures can invalidate the transfer or create grounds for a legal claim.",
         overview2: "Qanoni advises buyers, sellers, and companies in all forms of share and quota transfer dispute — from enforcing a completed share sale agreement to challenging an improper pre-emption exercise that is blocking a legitimate transfer. Online consultation via WhatsApp or email within 24 hours.",
@@ -2759,7 +2759,7 @@ export const en = {
       },
       "partner-entry-exit": {
         title: "Partner Entry & Exit Disputes",
-        seoTitle: "Partner Entry & Exit Disputes Lawyer in Saudi Arabia",
+        seoTitle: "Partner Entry & Exit Disputes Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Resolving disputes over new partner admission, partner withdrawal, and forced buyout valuations.",
         overview1: "Partner entry and exit disputes arise when the admission of a new partner is contested by existing partners, when a partner seeks to exit the company and cannot agree on the terms of exit with the remaining partners, or when a minority partner is being unlawfully forced out of the company. These disputes frequently involve contentious share valuations, pre-emption right exercises, and the relationship between the company's articles of association and any separate shareholders' agreement.",
         overview2: "Qanoni advises partners at every stage of entry and exit disputes — from structuring compliant admission of new partners to litigating forced buyout valuations and protecting minority partners from unlawful exclusion. Online consultation via WhatsApp or email within 24 hours.",
@@ -2789,7 +2789,7 @@ export const en = {
       },
       "merger-conversion-disputes": {
         title: "Merger, Conversion & Demerger Disputes",
-        seoTitle: "Company Merger, Conversion & Demerger Disputes Lawyer in Saudi Arabia",
+        seoTitle: "Company Merger, Conversion & Demerger Disputes Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Protecting shareholder rights in corporate restructuring, conversions, mergers, and demergers under Saudi Companies Law.",
         overview1: "Merger, conversion, and demerger transactions fundamentally alter the structure of a Saudi company — and when conducted improperly or without adequate protection for minority shareholders, they generate significant legal disputes. Saudi Companies Law Chapter on Conversion, Merger, and Division imposes specific procedures, creditor protections, and minority shareholder rights that must be strictly observed. Any violation of these requirements provides grounds to challenge the transaction before Saudi Commercial Courts.",
         overview2: "Qanoni advises shareholders, creditors, and companies in all forms of corporate restructuring dispute — from challenging a merger where minority shareholders received inadequate consideration to defending companies against groundless restructuring challenges. Online consultation via WhatsApp or email within 24 hours.",
@@ -2819,7 +2819,7 @@ export const en = {
       },
       "company-dissolution-liquidation": {
         title: "Company Dissolution & Liquidation Disputes",
-        seoTitle: "Company Dissolution & Liquidation Disputes Lawyer in Saudi Arabia",
+        seoTitle: "Company Dissolution & Liquidation Disputes Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Expert representation in company dissolution proceedings and liquidation asset distribution disputes.",
         overview1: "Company dissolution and liquidation disputes arise when a Saudi company is being wound up — whether voluntarily, by court order, or due to statutory grounds — and disagreements emerge over the process, the assets, or the distribution of proceeds. Shareholders, creditors, and liquidators all have conflicting interests in the liquidation process, and resolving these conflicts requires specialist expertise in both Saudi Companies Law and Saudi insolvency practice.",
         overview2: "Qanoni advises shareholders, creditors, and companies across all phases of dissolution and liquidation disputes — from contesting a judicial dissolution order to challenging an unfair distribution of liquidation proceeds. Online consultation via WhatsApp or email within 24 hours.",
@@ -2849,7 +2849,7 @@ export const en = {
       },
       "liquidator-liability": {
         title: "Liquidator Liability Disputes",
-        seoTitle: "Liquidator Liability Disputes Lawyer in Saudi Arabia",
+        seoTitle: "Liquidator Liability Disputes Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Holding liquidators accountable for misconduct, misappropriation, and negligent administration of company liquidations.",
         overview1: "Liquidators appointed to wind up Saudi companies owe strict duties to all stakeholders — including shareholders, creditors, and the company itself. When a liquidator breaches those duties through negligence, misappropriation of assets, fraudulent self-dealing, improper distributions, or failure to pursue valid company claims, they face personal liability to the parties who suffer as a result. Saudi Companies Law and Saudi courts recognize liquidator liability claims as a distinct category of corporate litigation.",
         overview2: "Qanoni pursues liquidator liability claims on behalf of shareholders and creditors who have suffered loss due to a liquidator's misconduct or negligence — and defends liquidators against unfounded accusations. Online consultation via WhatsApp or email within 24 hours.",
@@ -2879,7 +2879,7 @@ export const en = {
       },
       "shareholder-compensation-claims": {
         title: "Shareholder & Company Compensation Claims",
-        seoTitle: "Shareholder & Company Compensation Claims Lawyer in Saudi Arabia",
+        seoTitle: "Shareholder & Company Compensation Claims Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Recovering losses suffered by shareholders and companies from director misconduct, majority abuse, and corporate wrongdoing.",
         overview1: "Shareholders and companies may suffer significant financial losses from the wrongful conduct of directors, controlling shareholders, or other corporate fiduciaries. Saudi Companies Law provides direct compensation remedies for shareholders damaged by corporate misconduct — whether through director self-dealing, majority shareholder oppression, fraudulent misrepresentation, or negligent management of company affairs. These claims can be brought directly by individual shareholders or as derivative claims on behalf of the company.",
         overview2: "Qanoni pursues compensation claims for shareholders and companies across the full spectrum of corporate wrongdoing — from straightforward director misappropriation claims to complex multi-party compensation actions involving manipulated financial statements and systematic minority oppression. Online consultation via WhatsApp or email within 24 hours.",
@@ -2909,7 +2909,7 @@ export const en = {
       },
       "family-company-disputes": {
         title: "Family Company Disputes",
-        seoTitle: "Family Company Disputes Lawyer in Saudi Arabia",
+        seoTitle: "Family Company Disputes Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Expert legal representation in family business conflicts, succession disputes, and family company governance crises.",
         overview1: "Family company disputes are among the most complex and sensitive corporate conflicts in Saudi Arabia — combining company law, inheritance law (governed by Sharia principles), family dynamics, and decades of accumulated grievances. Disputes over management succession, profit distribution between family branches, exclusion of family members from company decisions, and the division of the family business following the founder's death require a lawyer with deep expertise in both Saudi Companies Law and the human dynamics of family business conflicts.",
         overview2: "Qanoni provides specialist representation in all forms of Saudi family company dispute — from governance crises between founding family members to post-death succession disputes involving multiple heirs. We understand both the legal and personal dimensions of these cases, and work to achieve practical, lasting resolutions. Online consultation via WhatsApp or email within 24 hours.",
@@ -2939,7 +2939,7 @@ export const en = {
       },
       "shareholder-agreements-disputes": {
         title: "Shareholder & Partner Agreements Disputes",
-        seoTitle: "Shareholder & Partner Agreements Disputes Lawyer in Saudi Arabia",
+        seoTitle: "Shareholder & Partner Agreements Disputes Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Enforcing and interpreting shareholder agreements, partner agreements, and joint venture contracts under Saudi law.",
         overview1: "Shareholder and partner agreements (SHA/PAs) are private contracts that govern the relationship between a company's shareholders or partners — covering matters such as dividend policy, management rights, transfer restrictions, drag-along and tag-along rights, and dispute resolution mechanisms. When these agreements are breached, disputed, or poorly drafted, they become the source of significant corporate conflict. Saudi courts enforce properly drafted shareholder and partner agreements — and Qanoni advises on both enforcement and defence in SHA/PA disputes.",
         overview2: "Qanoni advises shareholders, partners, and companies in all forms of shareholder and partner agreement dispute — from enforcing drag-along rights against a non-complying shareholder to defending against a bad-faith breach claim. Online consultation via WhatsApp or email within 24 hours.",
@@ -2969,7 +2969,7 @@ export const en = {
       },
       "articles-of-association-disputes": {
         title: "Articles of Association & Company Statute Violations",
-        seoTitle: "Articles of Association Violations Lawyer in Saudi Arabia",
+        seoTitle: "Articles of Association Violations Lawyer in Saudi Arabia | Online Legal Consultation | Qanoni",
         subtitle: "Challenging breaches of company constitutional documents and enforcing the company's articles of association.",
         overview1: "A company's articles of association (or equivalent founding document for different company types) is its constitutional document — governing how the company is managed, how decisions are made, what rights shareholders hold, and how disputes are resolved. When directors, managers, or controlling shareholders act in breach of the articles — whether by taking decisions outside their authority, excluding shareholders from required processes, or amending articles without proper procedure — those actions can be challenged before Saudi Commercial Courts.",
         overview2: "Qanoni advises shareholders, partners, and companies in all forms of articles of association dispute — from challenging management actions taken in excess of authority to enforcing specific articles provisions that protect minority shareholders. Online consultation via WhatsApp or email within 24 hours.",

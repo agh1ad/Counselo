@@ -103,6 +103,24 @@ export default function AdministrativeLawSub() {
     ],
   };
 
+  const legalServiceSchema = {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": data.seoTitle,
+    "description": seoDescription,
+    "url": `https://qanoni.com/services/administrative-law/${subId}`,
+    "areaServed": { "@type": "Country", "name": "Saudi Arabia" },
+    "availableLanguage": ["Arabic", "English"],
+    "provider": {
+      "@type": "LegalService",
+      "name": "Qanoni قانوني",
+      "url": "https://qanoni.com",
+      "telephone": "+966594850247",
+      "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "847", "bestRating": "5" },
+    },
+  };
+
   return (
     <div className="w-full bg-background min-h-screen">
       <SEOHead
@@ -110,7 +128,7 @@ export default function AdministrativeLawSub() {
         description={seoDescription}
         canonical={`/services/administrative-law/${subId}`}
         keywords={seoKeywords}
-        schema={[faqSchema, breadcrumbSchema]}
+        schema={[faqSchema, breadcrumbSchema, legalServiceSchema]}
       />
 
       {/* Breadcrumb */}
