@@ -135,22 +135,18 @@ export default function Contact() {
                 <h3 className="text-2xl font-serif font-bold text-foreground mb-8">{c.firmDetails.heading}</h3>
                 <div className="space-y-8">
                   {[
-                    { Icon: MapPin, label: c.firmDetails.addressTitle, value: c.firmDetails.address, ltr: false, href: "https://www.google.com/maps?q=27.004916826156617,49.657790303513934" },
-                    { Icon: Phone, label: c.firmDetails.phoneTitle, value: c.firmDetails.phone, ltr: true, href: `tel:${c.firmDetails.phone.replace(/\s/g, "")}` },
-                    { Icon: Mail, label: c.firmDetails.emailTitle, value: c.firmDetails.email, ltr: true, href: `mailto:${c.firmDetails.email}` },
-                    { Icon: Clock, label: c.firmDetails.hoursTitle, value: c.firmDetails.hours, ltr: false, href: undefined },
-                  ].map(({ Icon, label, value, ltr, href }, i) => (
+                    { Icon: MapPin, label: c.firmDetails.addressTitle, value: c.firmDetails.address, ltr: false },
+                    { Icon: Phone, label: c.firmDetails.phoneTitle, value: c.firmDetails.phone, ltr: true },
+                    { Icon: Mail, label: c.firmDetails.emailTitle, value: c.firmDetails.email, ltr: true },
+                    { Icon: Clock, label: c.firmDetails.hoursTitle, value: c.firmDetails.hours, ltr: false },
+                  ].map(({ Icon, label, value, ltr }, i) => (
                     <div key={i} className="flex items-start gap-4">
                       <div className="w-10 h-10 bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
                         <Icon className="h-5 w-5 text-primary" />
                       </div>
                       <div>
                         <h4 className="text-foreground font-medium mb-1">{label}</h4>
-                        {href ? (
-                          <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined} className="text-muted-foreground leading-relaxed whitespace-pre-line hover:text-primary transition-colors" dir={ltr ? "ltr" : undefined}>{value}</a>
-                        ) : (
-                          <p className="text-muted-foreground leading-relaxed whitespace-pre-line" dir={ltr ? "ltr" : undefined}>{value}</p>
-                        )}
+                        <p className="text-muted-foreground leading-relaxed whitespace-pre-line" dir={ltr ? "ltr" : undefined}>{value}</p>
                       </div>
                     </div>
                   ))}

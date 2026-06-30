@@ -57,8 +57,8 @@ export function Footer() {
             <h3 className="text-white font-serif font-semibold mb-6">{f.contactHeading}</h3>
             <ul className="space-y-4 text-sm text-white/70">
               <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-white/60 shrink-0 mt-0.5" />
-                <a href="https://www.google.com/maps?q=27.004916826156617,49.657790303513934" target="_blank" rel="noopener noreferrer" className="whitespace-pre-line hover:text-white transition-colors">{f.address}</a>
+                <MapPin className="h-5 w-5 text-white/60 shrink-0" />
+                <span className="whitespace-pre-line">{f.address}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-white/60 shrink-0" />

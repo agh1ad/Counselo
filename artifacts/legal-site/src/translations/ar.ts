@@ -4902,7 +4902,7 @@ export const ar: typeof en = {
       partnerName: "المحامي عبدالله العنزي",
       licenseNo: "رقم الترخيص 37440",
       address: "الجبيل البلد — شارع المدينة المنورة\nمبنى ردمه للشقق الفندقية\nالمنطقة الشرقية، المملكة العربية السعودية",
-      mapsUrl: "https://www.google.com/maps/place/Radmah+Suites+Jubail/@27.0048993,49.6579789,17z",
+      mapsUrl: "https://www.google.com/maps?q=27.004916826156617,49.657790303513934",
       mapsLabel: "عرض على خرائط جوجل",
     },
     why: {
