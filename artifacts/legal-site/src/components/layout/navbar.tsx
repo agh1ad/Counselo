@@ -46,6 +46,7 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
+            <Link href="/about" className={`text-sm font-medium transition-colors hover:text-primary ${location === "/about" ? "text-primary" : "text-muted-foreground"}`}>{t.nav.about}</Link>
             <Link href="/blog" className={`text-sm font-medium transition-colors hover:text-primary ${location.startsWith("/blog") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.blog}</Link>
             <Link href="/contact" className={`text-sm font-medium transition-colors hover:text-primary ${location === "/contact" ? "text-primary" : "text-muted-foreground"}`}>{t.nav.contact}</Link>
 
@@ -92,6 +93,7 @@ export function Navbar() {
                   </Link>
                 ))}
               </div>
+              <Link href="/about" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.about}</Link>
               <Link href="/blog" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.blog}</Link>
               <Link href="/contact" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.contact}</Link>
               <div className="px-3 pt-4">

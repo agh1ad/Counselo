@@ -30,6 +30,7 @@ import CyberLawSub from "@/pages/cyber-law-sub";
 import MedicalMalpracticeSub from "@/pages/medical-malpractice-sub";
 import InsuranceLawSub from "@/pages/insurance-law-sub";
 import ImmigrationLawSub from "@/pages/immigration-law-sub";
+import About from "@/pages/about";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import TermsOfService from "@/pages/terms-of-service";
@@ -88,6 +89,7 @@ function Router() {
         <Route path="/services/immigration-law/:subId" component={ImmigrationLawSub} />
         <Route path="/services/:id" component={ServiceDetail} />
         <Route path="/blog/:slug" component={BlogPost} />
+        <Route path="/about" component={About} />
         <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
         <Route path="/terms-of-service" component={TermsOfService} />
