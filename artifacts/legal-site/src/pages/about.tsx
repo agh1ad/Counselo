@@ -64,74 +64,23 @@ export default function About() {
       />
 
       {/* ── Hero ── */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 10%) 0%, hsl(150 80% 15%) 100%)" }} />
+        <div className="absolute end-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
+          <div className="w-full h-full" style={{ background: "radial-gradient(ellipse at 50% 50%, hsl(150 60% 60%) 0%, transparent 70%)" }} />
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Text */}
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-2 mb-6">
-                {a.hero.badge}
-              </span>
-              <p className="text-sm font-semibold uppercase tracking-widest text-white/60 mb-4">{a.hero.eyebrow}</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
-                {a.hero.heading}
-              </h1>
-              <div className="w-20 h-1 bg-white/40 mb-8" />
-              <p className="text-lg text-white/75 leading-relaxed">{a.hero.subheading}</p>
-            </motion.div>
-
-            {/* Saudi Arabia Flag */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="hidden md:flex flex-col items-center justify-center"
-            >
-              <div className="relative w-full max-w-sm mx-auto shadow-2xl border border-white/10" style={{ aspectRatio: "3/2" }}>
-                <svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  <rect width="900" height="600" fill="#006C35" />
-                  {/* Shahada text */}
-                  <text
-                    x="450" y="245"
-                    textAnchor="middle"
-                    fill="white"
-                    fontSize="72"
-                    fontFamily="'Traditional Arabic', 'Scheherazade New', 'Noto Naskh Arabic', serif"
-                    fontWeight="bold"
-                    direction="rtl"
-                  >
-                    لَا إِلَٰهَ إِلَّا ٱللَّٰهُ
-                  </text>
-                  <text
-                    x="450" y="330"
-                    textAnchor="middle"
-                    fill="white"
-                    fontSize="72"
-                    fontFamily="'Traditional Arabic', 'Scheherazade New', 'Noto Naskh Arabic', serif"
-                    fontWeight="bold"
-                    direction="rtl"
-                  >
-                    مُحَمَّدٌ رَّسُولُ ٱللَّٰهِ
-                  </text>
-                  {/* Sword — blade pointing right (LTR heraldic) */}
-                  {/* Blade */}
-                  <path d="M185,398 L685,390 L720,395 L685,400 L185,408 Z" fill="white" />
-                  {/* Tip */}
-                  <path d="M685,390 L735,395 L685,400 Z" fill="white" />
-                  {/* Guard */}
-                  <rect x="180" y="378" width="14" height="44" rx="3" fill="white" />
-                  {/* Grip */}
-                  <rect x="130" y="385" width="52" height="20" rx="4" fill="white" />
-                  {/* Pommel */}
-                  <ellipse cx="125" cy="395" rx="16" ry="18" fill="white" />
-                </svg>
-              </div>
-              <p className="mt-4 text-white/50 text-xs uppercase tracking-[0.25em] text-center">
-                {isRTL ? "المملكة العربية السعودية" : "Kingdom of Saudi Arabia"}
-              </p>
-            </motion.div>
-          </div>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">
+            <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-2 mb-6">
+              {a.hero.badge}
+            </span>
+            <p className="text-sm font-semibold uppercase tracking-widest text-white/60 mb-4">{a.hero.eyebrow}</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
+              {a.hero.heading}
+            </h1>
+            <div className="w-20 h-1 bg-white/40 mb-8" />
+            <p className="text-lg text-white/75 leading-relaxed max-w-2xl">{a.hero.subheading}</p>
+          </motion.div>
         </div>
       </section>
 
