@@ -52,8 +52,8 @@ export default function EmploymentLawSub() {
       kw: "end of service lawyer Saudi Arabia, gratuity claim KSA, end of service calculation Saudi, labour law gratuity Saudi, end of service online",
       kwAr: "محامي مكافأة نهاية الخدمة السعودية, حساب نهاية الخدمة, نزاع مكافأة نهاية الخدمة, استشارة عمالية أونلاين",
     },
-    "employment-contract": {
-      desc: "Employment contract dispute legal advice in Saudi Arabia — non-compete clauses, notice periods & breach remedies under Saudi Labour Law. Online, 24/7.",
+    "contract-disputes": {
+      desc: "Employment contract dispute legal advice in Saudi Arabia — non-compete clauses, notice periods & breach remedies under Saudi Labour Law. Professional response within 24 hours via WhatsApp or email — Qanoni Saudi Arabia.",
       descAr: "استشارة قانونية في نزاعات عقد العمل بالمملكة — شروط عدم المنافسة وفترة الإشعار والإخلال. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "employment contract lawyer Saudi Arabia, non-compete clause KSA, notice period dispute Saudi, employment agreement online",
       kwAr: "محامي عقد العمل السعودية, شرط عدم المنافسة, فترة الإشعار, نزاع عقد العمل, استشارة عقد عمل أونلاين",

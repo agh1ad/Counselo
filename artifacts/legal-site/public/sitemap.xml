@@ -10,7 +10,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services</loc>
@@ -19,7 +19,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/contact</loc>
@@ -28,7 +28,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/contact"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/blog</loc>
@@ -37,7 +37,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/blog"/>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/terms-of-service</loc>
@@ -46,7 +46,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/terms-of-service"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
 
   <!-- ===== CONTRACTS SERVICE MAIN PAGE ===== -->
@@ -57,7 +57,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
 
   <!-- ===== CONTRACTS SUB-PAGES ===== -->
@@ -68,7 +68,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/contract-drafting"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/contracts/contract-disputes</loc>
@@ -77,7 +77,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/contract-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/contracts/government-contracts</loc>
@@ -86,7 +86,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/government-contracts"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/contracts/real-estate-contracts</loc>
@@ -95,7 +95,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/real-estate-contracts"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/contracts/employment-contracts</loc>
@@ -104,7 +104,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/employment-contracts"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/contracts/partnership-agreements</loc>
@@ -113,7 +113,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/partnership-agreements"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/contracts/international-contracts</loc>
@@ -122,7 +122,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/international-contracts"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/contracts/contract-enforcement</loc>
@@ -131,7 +131,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/contracts/contract-enforcement"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
 
   <!-- ===== SERVICE MAIN PAGES ===== -->
@@ -142,7 +142,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/family-law"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/business-law</loc>
@@ -151,7 +151,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/real-estate</loc>
@@ -160,7 +160,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/real-estate"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/employment-law</loc>
@@ -169,7 +169,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/employment-law"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/foreign-investment</loc>
@@ -178,7 +178,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/administrative-law</loc>
@@ -187,7 +187,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
 
   <!-- ===== FOREIGN INVESTMENT SUB-PAGES ===== -->
@@ -198,7 +198,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/investment-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/foreign-investment/investment-appeals</loc>
@@ -207,7 +207,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/investment-appeals"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/foreign-investment/investment-licensing</loc>
@@ -216,7 +216,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/investment-licensing"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/foreign-investment/license-renewal</loc>
@@ -225,7 +225,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/license-renewal"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/foreign-investment/license-cancellation</loc>
@@ -234,7 +234,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/license-cancellation"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/foreign-investment/company-formation</loc>
@@ -243,7 +243,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/company-formation"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/foreign-investment/foreign-investment-dispute</loc>
@@ -252,7 +252,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/foreign-investment-dispute"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/foreign-investment/investor-compensation</loc>
@@ -261,7 +261,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/investor-compensation"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/foreign-investment/share-transfer</loc>
@@ -270,7 +270,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/foreign-investment/share-transfer"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
 
   <!-- ===== FAMILY LAW SUB-PAGES ===== -->
@@ -281,7 +281,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/family-law/divorce"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/family-law/khul</loc>
@@ -290,7 +290,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/family-law/khul"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/family-law/alimony</loc>
@@ -299,7 +299,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/family-law/alimony"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/family-law/child-custody</loc>
@@ -308,7 +308,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/family-law/child-custody"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/family-law/inheritance</loc>
@@ -317,7 +317,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/family-law/inheritance"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/family-law/marriage-contract</loc>
@@ -326,7 +326,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/family-law/marriage-contract"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
 
   <!-- ===== EMPLOYMENT LAW SUB-PAGES ===== -->
@@ -337,7 +337,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/employment-law/unpaid-wages"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/employment-law/labor-compensation</loc>
@@ -346,7 +346,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/employment-law/labor-compensation"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/employment-law/unfair-dismissal</loc>
@@ -355,7 +355,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/employment-law/unfair-dismissal"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/employment-law/end-of-service</loc>
@@ -364,7 +364,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/employment-law/end-of-service"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/employment-law/employment-contract</loc>
@@ -373,7 +373,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/employment-law/employment-contract"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/employment-law/workplace-discrimination</loc>
@@ -382,7 +382,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/employment-law/workplace-discrimination"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
 
   <!-- ===== REAL ESTATE SUB-PAGES ===== -->
@@ -393,7 +393,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/real-estate/ownership-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/real-estate/sale-purchase-disputes</loc>
@@ -402,7 +402,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/real-estate/sale-purchase-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/real-estate/property-encroachment</loc>
@@ -411,7 +411,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/real-estate/property-encroachment"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/real-estate/landlord-tenant</loc>
@@ -420,7 +420,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/real-estate/landlord-tenant"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/real-estate/registration-title-deed</loc>
@@ -429,7 +429,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/real-estate/registration-title-deed"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/real-estate/construction-disputes</loc>
@@ -438,7 +438,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/real-estate/construction-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
 
   <!-- ===== BUSINESS LAW SUB-PAGES ===== -->
@@ -449,7 +449,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law/commercial-contracts"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/business-law/commercial-instruments</loc>
@@ -458,7 +458,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law/commercial-instruments"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/business-law/commercial-agency</loc>
@@ -467,7 +467,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law/commercial-agency"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/business-law/bankruptcy-liquidation</loc>
@@ -476,7 +476,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law/bankruptcy-liquidation"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/business-law/company-partnership-disputes</loc>
@@ -485,7 +485,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law/company-partnership-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/business-law/unfair-competition-commercial-fraud</loc>
@@ -494,7 +494,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law/unfair-competition-commercial-fraud"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/business-law/trademarks</loc>
@@ -503,7 +503,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/business-law/trademarks"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
 
   <!-- ===== ADMINISTRATIVE LAW SUB-PAGES ===== -->
@@ -514,7 +514,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/board-of-grievances"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/administrative-law/administrative-appeals</loc>
@@ -523,7 +523,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/administrative-appeals"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/administrative-law/government-contracts</loc>
@@ -532,7 +532,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/government-contracts"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/administrative-law/public-procurement</loc>
@@ -541,7 +541,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/public-procurement"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/administrative-law/regulatory-licensing</loc>
@@ -550,7 +550,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/regulatory-licensing"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/administrative-law/customs-tax-disputes</loc>
@@ -559,7 +559,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/customs-tax-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/administrative-law/disciplinary-proceedings</loc>
@@ -568,7 +568,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/disciplinary-proceedings"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/administrative-law/government-compensation</loc>
@@ -577,7 +577,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/administrative-law/government-compensation"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
 
   <!-- ===== LEGAL PAGES ===== -->
@@ -588,7 +588,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/privacy-policy"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/terms-of-service</loc>
@@ -597,7 +597,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/terms-of-service"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
 
   <!-- ===== ARBITRATION & MEDIATION MAIN + SUB-PAGES ===== -->
@@ -608,7 +608,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/arbitration/domestic-arbitration</loc>
@@ -617,7 +617,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration/domestic-arbitration"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/arbitration/international-arbitration</loc>
@@ -626,7 +626,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration/international-arbitration"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/arbitration/mediation-adr</loc>
@@ -635,7 +635,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration/mediation-adr"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/arbitration/award-enforcement</loc>
@@ -644,7 +644,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration/award-enforcement"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/arbitration/investment-arbitration</loc>
@@ -653,7 +653,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/arbitration/investment-arbitration"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
 
   <!-- ===== ENFORCEMENT & DEBT COLLECTION MAIN + SUB-PAGES ===== -->
@@ -664,7 +664,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/enforcement/judgment-enforcement</loc>
@@ -673,7 +673,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement/judgment-enforcement"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/enforcement/debt-recovery</loc>
@@ -682,7 +682,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement/debt-recovery"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/enforcement/asset-attachment</loc>
@@ -691,7 +691,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement/asset-attachment"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/enforcement/travel-bans</loc>
@@ -700,7 +700,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement/travel-bans"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/enforcement/enforcement-against-government</loc>
@@ -709,7 +709,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/enforcement/enforcement-against-government"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law</loc>
@@ -718,7 +718,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law"/>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/company-formation-disputes</loc>
@@ -727,7 +727,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/company-formation-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/share-equity-disputes</loc>
@@ -736,7 +736,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/share-equity-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/partner-shareholder-disputes</loc>
@@ -745,7 +745,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/partner-shareholder-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/director-liability</loc>
@@ -754,7 +754,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/director-liability"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/general-assembly-disputes</loc>
@@ -763,7 +763,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/general-assembly-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/assembly-resolution-nullity</loc>
@@ -772,7 +772,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/assembly-resolution-nullity"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/capital-change-disputes</loc>
@@ -781,7 +781,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/capital-change-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/profit-distribution-disputes</loc>
@@ -790,7 +790,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/profit-distribution-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/conflict-of-interest</loc>
@@ -799,7 +799,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/conflict-of-interest"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/director-removal-disputes</loc>
@@ -808,7 +808,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/director-removal-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/company-records-access</loc>
@@ -817,7 +817,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/company-records-access"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/share-transfer-disputes</loc>
@@ -826,7 +826,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/share-transfer-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/partner-entry-exit</loc>
@@ -835,7 +835,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/partner-entry-exit"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/merger-conversion-disputes</loc>
@@ -844,7 +844,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/merger-conversion-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/company-dissolution-liquidation</loc>
@@ -853,7 +853,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/company-dissolution-liquidation"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/liquidator-liability</loc>
@@ -862,7 +862,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/liquidator-liability"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/shareholder-compensation-claims</loc>
@@ -871,7 +871,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/shareholder-compensation-claims"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/family-company-disputes</loc>
@@ -880,7 +880,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/family-company-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/shareholder-agreements-disputes</loc>
@@ -889,7 +889,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/shareholder-agreements-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
   <url>
     <loc>https://qanoni.com/services/companies-law/articles-of-association-disputes</loc>

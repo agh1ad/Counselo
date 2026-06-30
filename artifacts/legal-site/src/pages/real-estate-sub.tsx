@@ -46,13 +46,13 @@ export default function RealEstateSub() {
       kw: "property encroachment lawyer Saudi Arabia, boundary dispute KSA, illegal structure Saudi, trespass claim Saudi, property boundary online",
       kwAr: "محامي تعدي عقار السعودية, نزاعات الحدود العقارية, التعدي على الملكية, منشآت غير نظامية, استشارة حدود أونلاين",
     },
-    "landlord-tenant": {
+    "lease-rental-disputes": {
       desc: "Landlord & tenant dispute legal advice in Saudi Arabia — rent arrears, eviction, lease breaches & Ejar platform rights. Professional response within 24 hours via WhatsApp or email — Qanoni.",
       descAr: "استشارة قانونية في نزاعات المالك والمستأجر بالمملكة — الإيجار المتأخر والإخلاء وانتهاكات العقد ومنصة إيجار. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "landlord tenant lawyer Saudi Arabia, eviction KSA, rent dispute Saudi, Ejar platform dispute, lease dispute online",
       kwAr: "محامي نزاعات إيجار السعودية, الإخلاء السعودي, إيجار متأخر, منصة إيجار نزاع, استشارة إيجار أونلاين",
     },
-    "registration-title-deed": {
+    "real-estate-registration": {
       desc: "Property registration & title deed legal advice in Saudi Arabia — missing deeds, registration disputes & title transfer. Professional response within 24 hours via WhatsApp or email — Qanoni.",
       descAr: "استشارة قانونية في تسجيل العقارات والصكوك بالمملكة — الصكوك المفقودة والنزاعات ونقل الملكية. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني المملكة العربية السعودية.",
       kw: "property registration lawyer Saudi Arabia, title deed Saudi, sakk registration, real estate title dispute, property deed online",
