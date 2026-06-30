@@ -1,0 +1,1 @@
+- [LanguageContext Fast Refresh split](language-context-hmr.md) — LanguageContext must never define both a component and a hook in the same file or Vite HMR cascades crash the app.

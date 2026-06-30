@@ -1,23 +1,19 @@
 // @refresh reset
-import { createContext, useContext, useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import type { ReactNode } from "react";
 import { en } from "@/translations/en";
 import { ar } from "@/translations/ar";
 import { enSyr } from "@/translations/en-syr";
 import { arSyr } from "@/translations/ar-syr";
 import { useRegion } from "@/contexts/RegionContext";
+import { LanguageContext } from "@/contexts/LanguageContextCore";
 
-export type Lang = "en" | "ar";
-export type Translations = typeof en;
-
-interface LanguageContextType {
-  lang: Lang;
-  t: Translations;
-  toggleLang: () => void;
-  isRTL: boolean;
-}
+export type { Lang, Translations, LanguageContextType } from "@/contexts/LanguageContextCore";
+export { useLanguage } from "@/contexts/LanguageContextCore";
 
 const STORAGE_KEY = "counselo-lang";
+
+type Lang = "en" | "ar";
 
 function getSavedLang(): Lang {
   try {
@@ -26,8 +22,6 @@ function getSavedLang(): Lang {
   } catch {}
   return "en";
 }
-
-const LanguageContext = createContext<LanguageContextType | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>(getSavedLang);
@@ -42,7 +36,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const isRTL = lang === "ar";
 
-  const t = useMemo<Translations>(() => {
+  const t = useMemo(() => {
     if (region === "syr") return lang === "en" ? enSyr : arSyr;
     return lang === "en" ? en : ar;
   }, [region, lang]);
@@ -57,10 +51,4 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       {children}
     </LanguageContext.Provider>
   );
-}
-
-export function useLanguage() {
-  const ctx = useContext(LanguageContext);
-  if (!ctx) throw new Error("useLanguage must be used within LanguageProvider");
-  return ctx;
 }
