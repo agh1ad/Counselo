@@ -1,7 +1,10 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useMemo } from "react";
 import type { ReactNode } from "react";
 import { en } from "@/translations/en";
 import { ar } from "@/translations/ar";
+import { enSyr } from "@/translations/en-syr";
+import { arSyr } from "@/translations/ar-syr";
+import { useRegion } from "@/contexts/RegionContext";
 
 export type Lang = "en" | "ar";
 export type Translations = typeof en;
@@ -27,6 +30,7 @@ const LanguageContext = createContext<LanguageContextType | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>(getSavedLang);
+  const { region } = useRegion();
 
   const toggleLang = () =>
     setLang(prev => {
@@ -36,7 +40,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     });
 
   const isRTL = lang === "ar";
-  const t = lang === "en" ? en : ar;
+
+  const t = useMemo<Translations>(() => {
+    if (region === "syr") return lang === "en" ? enSyr : arSyr;
+    return lang === "en" ? en : ar;
+  }, [region, lang]);
 
   useEffect(() => {
     document.documentElement.dir = isRTL ? "rtl" : "ltr";

@@ -6,9 +6,11 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { RegionProvider } from "@/contexts/RegionContext";
 import { useEffect } from "react";
 import { trackPageview, getGAMeasurementId, injectGA } from "@/lib/analytics";
 
+import RegionPicker from "@/pages/region-picker";
 import Home from "@/pages/home";
 import Services from "@/pages/services";
 import Contact from "@/pages/contact";
@@ -77,8 +79,68 @@ function Router() {
     <>
       <ScrollToTop />
       <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/services" component={Services} />
+        {/* Region picker */}
+        <Route path="/" component={RegionPicker} />
+
+        {/* SA sub-service routes */}
+        <Route path="/sa/services/business-law/:subId" component={BusinessLawSub} />
+        <Route path="/sa/services/real-estate/:subId" component={RealEstateSub} />
+        <Route path="/sa/services/employment-law/:subId" component={EmploymentLawSub} />
+        <Route path="/sa/services/family-law/:subId" component={FamilyLawSub} />
+        <Route path="/sa/services/foreign-investment/:subId" component={ForeignInvestmentSub} />
+        <Route path="/sa/services/administrative-law/:subId" component={AdministrativeLawSub} />
+        <Route path="/sa/services/arbitration/:subId" component={ArbitrationSub} />
+        <Route path="/sa/services/enforcement/:subId" component={EnforcementSub} />
+        <Route path="/sa/services/companies-law/:subId" component={CompaniesLawSub} />
+        <Route path="/sa/services/contracts/:subId" component={ContractsSub} />
+        <Route path="/sa/services/criminal-law/:subId" component={CriminalLawSub} />
+        <Route path="/sa/services/banking-finance/:subId" component={BankingFinanceSub} />
+        <Route path="/sa/services/intellectual-property/:subId" component={IntellectualPropertySub} />
+        <Route path="/sa/services/tax-zakat/:subId" component={TaxZakatSub} />
+        <Route path="/sa/services/cyber-law/:subId" component={CyberLawSub} />
+        <Route path="/sa/services/medical-malpractice/:subId" component={MedicalMalpracticeSub} />
+        <Route path="/sa/services/insurance-law/:subId" component={InsuranceLawSub} />
+        <Route path="/sa/services/immigration-law/:subId" component={ImmigrationLawSub} />
+        <Route path="/sa/services/:id" component={ServiceDetail} />
+        <Route path="/sa/services" component={Services} />
+        <Route path="/sa/about" component={About} />
+        <Route path="/sa/blog/:slug" component={BlogPost} />
+        <Route path="/sa/blog" component={Blog} />
+        <Route path="/sa/contact" component={Contact} />
+        <Route path="/sa/terms-of-service" component={TermsOfService} />
+        <Route path="/sa/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/sa" component={Home} />
+
+        {/* SYR sub-service routes */}
+        <Route path="/syr/services/business-law/:subId" component={BusinessLawSub} />
+        <Route path="/syr/services/real-estate/:subId" component={RealEstateSub} />
+        <Route path="/syr/services/employment-law/:subId" component={EmploymentLawSub} />
+        <Route path="/syr/services/family-law/:subId" component={FamilyLawSub} />
+        <Route path="/syr/services/foreign-investment/:subId" component={ForeignInvestmentSub} />
+        <Route path="/syr/services/administrative-law/:subId" component={AdministrativeLawSub} />
+        <Route path="/syr/services/arbitration/:subId" component={ArbitrationSub} />
+        <Route path="/syr/services/enforcement/:subId" component={EnforcementSub} />
+        <Route path="/syr/services/companies-law/:subId" component={CompaniesLawSub} />
+        <Route path="/syr/services/contracts/:subId" component={ContractsSub} />
+        <Route path="/syr/services/criminal-law/:subId" component={CriminalLawSub} />
+        <Route path="/syr/services/banking-finance/:subId" component={BankingFinanceSub} />
+        <Route path="/syr/services/intellectual-property/:subId" component={IntellectualPropertySub} />
+        <Route path="/syr/services/tax-zakat/:subId" component={TaxZakatSub} />
+        <Route path="/syr/services/cyber-law/:subId" component={CyberLawSub} />
+        <Route path="/syr/services/medical-malpractice/:subId" component={MedicalMalpracticeSub} />
+        <Route path="/syr/services/insurance-law/:subId" component={InsuranceLawSub} />
+        <Route path="/syr/services/immigration-law/:subId" component={ImmigrationLawSub} />
+        <Route path="/syr/services/:id" component={ServiceDetail} />
+        <Route path="/syr/services" component={Services} />
+        <Route path="/syr/about" component={About} />
+        <Route path="/syr/blog/:slug" component={BlogPost} />
+        <Route path="/syr/blog" component={Blog} />
+        <Route path="/syr/contact" component={Contact} />
+        <Route path="/syr/terms-of-service" component={TermsOfService} />
+        <Route path="/syr/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/syr" component={Home} />
+
+        {/* Legacy routes (no prefix → defaults to SA) */}
         <Route path="/services/business-law/:subId" component={BusinessLawSub} />
         <Route path="/services/real-estate/:subId" component={RealEstateSub} />
         <Route path="/services/employment-law/:subId" component={EmploymentLawSub} />
@@ -98,6 +160,7 @@ function Router() {
         <Route path="/services/insurance-law/:subId" component={InsuranceLawSub} />
         <Route path="/services/immigration-law/:subId" component={ImmigrationLawSub} />
         <Route path="/services/:id" component={ServiceDetail} />
+        <Route path="/services" component={Services} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/about" component={About} />
         <Route path="/blog" component={Blog} />
@@ -113,6 +176,7 @@ function Router() {
 function AppShell() {
   const [location] = useLocation();
   const isAdmin = location.startsWith("/counselo-admin");
+  const isRegionPicker = location === "/";
 
   if (isAdmin) {
     return (
@@ -120,6 +184,15 @@ function AppShell() {
         <Router />
         <Toaster />
       </div>
+    );
+  }
+
+  if (isRegionPicker) {
+    return (
+      <>
+        <Router />
+        <Toaster />
+      </>
     );
   }
 
@@ -141,11 +214,13 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <LanguageProvider>
-          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-            <AppShell />
-          </WouterRouter>
-        </LanguageProvider>
+        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+          <RegionProvider>
+            <LanguageProvider>
+              <AppShell />
+            </LanguageProvider>
+          </RegionProvider>
+        </WouterRouter>
       </TooltipProvider>
     </QueryClientProvider>
   );

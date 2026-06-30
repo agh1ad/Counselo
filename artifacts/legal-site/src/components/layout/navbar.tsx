@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useRegion } from "@/contexts/RegionContext";
 import counseloLogo from "@assets/Screen_Shot_2026-07-01_at_12.26.11_AM_1782851175169.png";
 import saudiFlag from "@assets/image_1782789705620.jpeg";
 import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5x_1782856203372.jpg";
@@ -13,22 +14,36 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const { t, lang, toggleLang } = useLanguage();
+  const { region, regionPrefix } = useRegion();
+
+  const flag = region === "syr" ? syrianFlag : saudiFlag;
+  const flagAlt = region === "syr" ? "Syria" : "Saudi Arabia";
+
+  const p = (path: string) => regionPrefix + path;
+
+  const isActive = (path: string) =>
+    path === "" ? location === regionPrefix || location === regionPrefix + "/"
+    : location.startsWith(regionPrefix + path);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href={regionPrefix} className="flex items-center gap-3">
             <img src={counseloLogo} alt="CounselO — Online Legal Consultations" className="h-20 w-auto object-contain" />
-            <img src={saudiFlag} alt="Saudi Arabia" className="h-6 w-auto object-cover rounded-sm shadow-sm border border-border" style={{ aspectRatio: "3/2", width: "36px" }} />
-            <img src={syrianFlag} alt="Syria" className="h-6 w-auto object-cover rounded-sm shadow-sm border border-border" style={{ aspectRatio: "3/2", width: "36px" }} />
+            <img
+              src={flag}
+              alt={flagAlt}
+              className="h-6 w-auto object-cover rounded-sm shadow-sm border border-border"
+              style={{ aspectRatio: "3/2", width: "36px" }}
+            />
           </Link>
 
           <div className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
-            <Link href="/" className={`text-sm font-medium transition-colors hover:text-primary ${location === "/" ? "text-primary" : "text-muted-foreground"}`}>{t.nav.home}</Link>
+            <Link href={regionPrefix} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.home}</Link>
 
             <div className="relative group" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-              <Link href="/services" className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${location.startsWith("/services") ? "text-primary" : "text-muted-foreground"}`}>
+              <Link href={p("/services")} className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${isActive("/services") ? "text-primary" : "text-muted-foreground"}`}>
                 {t.nav.services} <ChevronDown className="w-4 h-4" />
               </Link>
               <AnimatePresence>
@@ -41,7 +56,7 @@ export function Navbar() {
                     className="absolute start-0 mt-2 w-56 bg-background border border-border shadow-lg py-2 z-50"
                   >
                     {t.nav.servicesList.map((service) => (
-                      <Link key={service.href} href={service.href} className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary transition-colors">
+                      <Link key={service.href} href={regionPrefix + service.href} className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary transition-colors">
                         {service.name}
                       </Link>
                     ))}
@@ -50,9 +65,9 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
-            <Link href="/about" className={`text-sm font-medium transition-colors hover:text-primary ${location === "/about" ? "text-primary" : "text-muted-foreground"}`}>{t.nav.about}</Link>
-            <Link href="/blog" className={`text-sm font-medium transition-colors hover:text-primary ${location.startsWith("/blog") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.blog}</Link>
-            <Link href="/contact" className={`text-sm font-medium transition-colors hover:text-primary ${location === "/contact" ? "text-primary" : "text-muted-foreground"}`}>{t.nav.contact}</Link>
+            <Link href={p("/about")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/about") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.about}</Link>
+            <Link href={p("/blog")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/blog") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.blog}</Link>
+            <Link href={p("/contact")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/contact") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.contact}</Link>
 
             <button
               onClick={toggleLang}
@@ -63,7 +78,7 @@ export function Navbar() {
               {lang === "en" ? "عربي" : "English"}
             </button>
 
-            <Link href="/contact">
+            <Link href={p("/contact")}>
               <Button className="font-medium bg-primary text-white hover:bg-primary/90">{t.nav.bookConsultation}</Button>
             </Link>
           </div>
@@ -88,20 +103,20 @@ export function Navbar() {
             className="md:hidden overflow-hidden bg-background border-b border-border"
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
-              <Link href="/" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.home}</Link>
+              <Link href={regionPrefix} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.home}</Link>
               <div className="px-3 py-2 text-base font-medium text-foreground">{t.nav.services}</div>
               <div className="ps-6 space-y-1">
                 {t.nav.servicesList.map((service) => (
-                  <Link key={service.href} href={service.href} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary">
+                  <Link key={service.href} href={regionPrefix + service.href} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary">
                     {service.name}
                   </Link>
                 ))}
               </div>
-              <Link href="/about" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.about}</Link>
-              <Link href="/blog" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.blog}</Link>
-              <Link href="/contact" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.contact}</Link>
+              <Link href={p("/about")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.about}</Link>
+              <Link href={p("/blog")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.blog}</Link>
+              <Link href={p("/contact")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.contact}</Link>
               <div className="px-3 pt-4">
-                <Link href="/contact" onClick={() => setIsOpen(false)}>
+                <Link href={p("/contact")} onClick={() => setIsOpen(false)}>
                   <Button className="w-full bg-primary text-white hover:bg-primary/90">{t.nav.bookConsultation}</Button>
                 </Link>
               </div>
