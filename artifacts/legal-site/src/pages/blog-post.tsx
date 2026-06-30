@@ -63,7 +63,7 @@ export default function BlogPost() {
       minRead: "min read",
       consultHeading: "Need Legal Advice?",
       consultDesc:
-        "Qanoni offers confidential online legal consultations via WhatsApp or email — no office visit required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of Saudi legal practice, 20,000+ cases handled across Saudi Arabia, UAE and Syria.",
+        "Qanoni offers confidential online legal consultations via WhatsApp or email — no office visit required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of Saudi legal practice, 20,000+ cases handled across Saudi Arabia.",
       whatsapp: "Chat on WhatsApp",
       email: "Send an Email",
       disclaimer:
