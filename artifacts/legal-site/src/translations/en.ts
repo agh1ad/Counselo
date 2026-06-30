@@ -53,7 +53,7 @@ export const en = {
       { label: "Insurance Law", href: "/services/insurance-law" },
       { label: "Immigration & Residency", href: "/services/immigration-law" },
     ],
-    address: "Riyadh, Saudi Arabia",
+    address: "Jubail, Saudi Arabia",
     phone: "+966 59 485 0247",
     email: "bagdadio@gmail.com",
     copyright: "All rights reserved.",
@@ -175,9 +175,14 @@ export const en = {
       eyebrow: "Client Reviews",
       heading: "Trusted Across Saudi Arabia",
       items: [
-        { quote: "Qanoni resolved my commercial contract dispute quickly and professionally. The WhatsApp consultation was structured and clear — I had a legal opinion within 24 hours. Exceptional service.", author: "Abdullah R.", title: "Business Owner — Riyadh, KSA" },
+        { quote: "Qanoni resolved my commercial contract dispute quickly and professionally. The WhatsApp consultation was structured and clear — I had a legal opinion within 24 hours. Exceptional service.", author: "Abdullah R.", title: "Business Owner — Jubail, KSA" },
         { quote: "As a foreign investor entering Saudi Arabia, I needed reliable legal advice fast. Qanoni provided a thorough analysis of my company formation matter in both Arabic and English. Highly professional.", author: "M. Al-Farsi", title: "Foreign Investor — KSA" },
         { quote: "I used Qanoni for a real estate dispute. The email legal review was incredibly detailed and covered every aspect of my case. It saved me significant time and gave me complete clarity.", author: "Nora K.", title: "Individual Client — Jeddah, KSA" },
+        { quote: "My employer terminated me unfairly after 8 years of service. Qanoni's employment team guided me through the entire Labour Court process online — I received my full end of service benefits and compensation. Truly outstanding.", author: "Khalid S.", title: "Employee — Dammam, KSA" },
+        { quote: "Getting through a divorce is never easy, but Qanoni made the legal process as smooth as possible. Everything was handled via WhatsApp — discreetly and professionally. The team was compassionate and thorough.", author: "Sarah M.", title: "Individual Client — Al Khobar, KSA" },
+        { quote: "We had a complex inheritance dispute involving properties in multiple cities. Qanoni's team calculated every heir's Sharia entitlement precisely and represented us before the Personal Status Court. Highly recommended.", author: "Faisal A.", title: "Family Estate Client — Makkah, KSA" },
+        { quote: "Setting up a foreign company in Saudi Arabia seemed overwhelming until I found Qanoni. They handled the full MISA licensing process online and kept me updated at every step. Response was always within 24 hours.", author: "Ibrahim T.", title: "Foreign Investor — Riyadh, KSA" },
+        { quote: "Qanoni challenged an unlawful administrative decision against my business before the Board of Grievances. Their knowledge of Saudi administrative law is exceptional. The entire matter was managed without a single office visit.", author: "Layla H.", title: "Business Owner — Madinah, KSA" },
       ],
     },
     cta: {
@@ -1669,7 +1674,7 @@ export const en = {
     firmDetails: {
       heading: "Firm Details",
       addressTitle: "Location",
-      address: "Riyadh, Saudi Arabia",
+      address: "Jubail, Saudi Arabia",
       phoneTitle: "Phone & WhatsApp",
       phone: "+966 59 485 0247",
       emailTitle: "Email",

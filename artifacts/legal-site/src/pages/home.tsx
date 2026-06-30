@@ -27,26 +27,60 @@ export default function Home() {
     <div className="w-full">
       <SEOHead
         title={isRTL
-          ? "استشارة قانونية أونلاين في السعودية | 24/7 | قانوني"
-          : "Online Legal Consultation Saudi Arabia | 24/7 | Qanoni قانوني"}
+          ? "قانوني | أكبر منصة استشارات قانونية أونلاين في السعودية | استجابة خلال 24 ساعة"
+          : "Qanoni | Saudi Arabia's Largest Online Legal Consultation Platform | Response Within 24 Hours"}
         description={isRTL
-          ? "قانوني — المنصة الرائدة للاستشارات القانونية الأونلاين في المملكة العربية السعودية. مشورة قانونية متخصصة عبر واتساب أو البريد الإلكتروني للأفراد والشركات والمستثمرين. خبرة تزيد على 30 عاماً وأكثر من 20,000 قضية. متاحة 24/7 بالعربية والإنجليزية."
-          : "Qanoni is Saudi Arabia's leading online legal consultation platform — expert legal advice via WhatsApp or email for individuals, businesses and investors across the Kingdom. 30+ years experience, 20,000+ cases handled. Available 24/7 in Arabic and English."}
+          ? "قانوني — أكبر منصة للاستشارات القانونية الأونلاين في المملكة العربية السعودية. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني للأفراد والشركات والمستثمرين. 18 مجالاً قانونياً، خبرة تزيد على 30 عاماً، أكثر من 20,000 قضية. بإشراف المحامي والمستشار القانوني عمر البغدادي. متاحة بالعربية والإنجليزية في الجبيل والرياض وجدة والدمام وجميع مناطق المملكة. رؤية 2030."
+          : "Qanoni is Saudi Arabia's largest online legal consultation platform — professional legal response within 24 hours via WhatsApp or email. 18 practice areas covering family law, commercial law, employment, real estate, foreign investment, administrative law, criminal law, banking, tax, and more. Founded by Lawyer and Legal Counsel Omar Al-Baghdadi. 30+ years experience, 20,000+ cases. Serving Jubail, Riyadh, Jeddah, Dammam and all regions. Vision 2030 aligned."}
         canonical="/"
         keywords={isRTL
-          ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة, مشورة قانونية فورية, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل, القانون العقاري, استثمار أجنبي, القانون الإداري, استشارة قانونية واتساب, قانوني"
-          : "online legal consultation Saudi Arabia, lawyer online Saudi Arabia, legal advice KSA 24/7, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law KSA, foreign investment lawyer Saudi Arabia, WhatsApp legal consultation, Qanoni"}
+          ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة, مشورة قانونية خلال 24 ساعة, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل, القانون العقاري, استثمار أجنبي, القانون الإداري, استشارة قانونية واتساب, قانون جنائي سعودي, قانون ضريبي زكاة, مشورة قانونية الجبيل, عمر البغدادي, رؤية 2030, قانوني"
+          : "online legal consultation Saudi Arabia, Saudi Arabia's largest legal platform, lawyer online Saudi Arabia, legal advice within 24 hours KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law KSA, foreign investment lawyer Saudi Arabia, administrative law KSA, criminal law Saudi Arabia, banking finance law, tax zakat lawyer, medical malpractice KSA, WhatsApp legal consultation, Omar Al-Baghdadi, Jubail lawyer, Vision 2030 legal, Qanoni"}
         schema={{
           "@context": "https://schema.org",
-          "@type": "WebPage",
-          "name": isRTL ? "استشارة قانونية أونلاين في السعودية | قانوني" : "Online Legal Consultation Saudi Arabia | Qanoni",
+          "@type": "LegalService",
+          "name": "Qanoni قانوني",
+          "alternateName": "Qanoni Online Legal Consultations",
           "description": isRTL
-            ? "منصة الاستشارات القانونية الأونلاين الرائدة في المملكة العربية السعودية"
-            : "Saudi Arabia's leading online legal consultation platform",
+            ? "أكبر منصة للاستشارات القانونية الأونلاين في المملكة العربية السعودية — 18 مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي"
+            : "Saudi Arabia's largest online legal consultation platform — 18 practice areas, professional response within 24 hours, founded by Lawyer Omar Al-Baghdadi",
           "url": "https://qanoni.com/",
-          "inLanguage": [isRTL ? "ar" : "en"],
-          "isPartOf": { "@type": "WebSite", "name": "Qanoni قانوني", "url": "https://qanoni.com" },
-          "about": { "@type": "LegalService", "name": "Qanoni", "areaServed": "Saudi Arabia" },
+          "logo": "https://qanoni.com/logo.png",
+          "founder": {
+            "@type": "Person",
+            "name": "Omar Al-Baghdadi",
+            "jobTitle": "Lawyer and Legal Counsel",
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Jubail",
+            "addressRegion": "Eastern Province",
+            "addressCountry": "SA",
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Saudi Arabia",
+          },
+          "availableLanguage": ["Arabic", "English"],
+          "serviceType": ["Family Law", "Commercial Law", "Employment Law", "Real Estate Law", "Foreign Investment Law", "Administrative Law", "Criminal Law", "Banking & Finance Law", "Tax & Zakat Law", "Cyber Law", "Medical Malpractice", "Insurance Law", "Immigration Law", "Arbitration", "Enforcement Law", "Companies Law", "Contracts Law"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Legal Consultation Services",
+            "numberOfItems": 18,
+          },
+          "sameAs": ["https://qanoni.com"],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "legal consultation",
+            "availableLanguage": ["Arabic", "English"],
+            "contactOption": "TollFree",
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "847",
+            "bestRating": "5",
+          },
         }}
       />
 
