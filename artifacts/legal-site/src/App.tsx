@@ -27,6 +27,9 @@ import BankingFinanceSub from "@/pages/banking-finance-sub";
 import IntellectualPropertySub from "@/pages/intellectual-property-sub";
 import TaxZakatSub from "@/pages/tax-zakat-sub";
 import CyberLawSub from "@/pages/cyber-law-sub";
+import MedicalMalpracticeSub from "@/pages/medical-malpractice-sub";
+import InsuranceLawSub from "@/pages/insurance-law-sub";
+import ImmigrationLawSub from "@/pages/immigration-law-sub";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import TermsOfService from "@/pages/terms-of-service";
@@ -80,6 +83,9 @@ function Router() {
         <Route path="/services/intellectual-property/:subId" component={IntellectualPropertySub} />
         <Route path="/services/tax-zakat/:subId" component={TaxZakatSub} />
         <Route path="/services/cyber-law/:subId" component={CyberLawSub} />
+        <Route path="/services/medical-malpractice/:subId" component={MedicalMalpracticeSub} />
+        <Route path="/services/insurance-law/:subId" component={InsuranceLawSub} />
+        <Route path="/services/immigration-law/:subId" component={ImmigrationLawSub} />
         <Route path="/services/:id" component={ServiceDetail} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/blog" component={Blog} />

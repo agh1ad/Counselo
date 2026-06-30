@@ -898,7 +898,655 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/companies-law/articles-of-association-disputes"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/criminal-law</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/criminal-law/criminal-defense</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/criminal-defense"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/criminal-defense"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/criminal-defense"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/criminal-law/bail-release</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/bail-release"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/bail-release"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/bail-release"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/criminal-law/criminal-appeals</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/criminal-appeals"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/criminal-appeals"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/criminal-appeals"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/criminal-law/cybercrime-cases</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/cybercrime-cases"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/cybercrime-cases"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/cybercrime-cases"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/criminal-law/financial-crimes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/financial-crimes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/financial-crimes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/financial-crimes"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/criminal-law/drug-offenses</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/drug-offenses"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/drug-offenses"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/drug-offenses"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/criminal-law/criminal-investigations</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/criminal-investigations"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/criminal-investigations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/criminal-investigations"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/criminal-law/public-order</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/criminal-law/public-order"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/criminal-law/public-order"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/criminal-law/public-order"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/banking-finance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/banking-finance/islamic-finance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/islamic-finance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/islamic-finance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/islamic-finance"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/banking-finance/banking-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/banking-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/banking-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/banking-disputes"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/banking-finance/loan-agreements</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/loan-agreements"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/loan-agreements"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/loan-agreements"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/banking-finance/financial-regulatory</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/financial-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/financial-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/financial-regulatory"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/banking-finance/sukuk-bonds</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/sukuk-bonds"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/sukuk-bonds"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/sukuk-bonds"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/banking-finance/banking-fraud</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/banking-fraud"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/banking-fraud"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/banking-fraud"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/banking-finance/credit-facilities</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/credit-facilities"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/credit-facilities"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/credit-facilities"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/banking-finance/investment-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/banking-finance/investment-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/banking-finance/investment-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/banking-finance/investment-disputes"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/intellectual-property</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/intellectual-property/trademark-registration</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/trademark-registration"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/trademark-registration"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/trademark-registration"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/intellectual-property/patent-protection</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/patent-protection"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/patent-protection"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/patent-protection"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/intellectual-property/copyright-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/copyright-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/copyright-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/copyright-disputes"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/intellectual-property/trade-secrets</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/trade-secrets"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/trade-secrets"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/trade-secrets"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/intellectual-property/ip-licensing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/ip-licensing"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/ip-licensing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/ip-licensing"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/intellectual-property/brand-protection</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/brand-protection"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/brand-protection"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/brand-protection"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/intellectual-property/ip-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/ip-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/ip-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/ip-disputes"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/intellectual-property/ip-due-diligence</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/intellectual-property/ip-due-diligence"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/intellectual-property/ip-due-diligence"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/intellectual-property/ip-due-diligence"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/tax-zakat</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/tax-zakat/vat-compliance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/vat-compliance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/vat-compliance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/vat-compliance"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/tax-zakat/zakat-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/zakat-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/zakat-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/zakat-disputes"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/tax-zakat/zatca-appeals</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/zatca-appeals"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/zatca-appeals"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/zatca-appeals"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/tax-zakat/corporate-tax</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/corporate-tax"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/corporate-tax"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/corporate-tax"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/tax-zakat/transfer-pricing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/transfer-pricing"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/transfer-pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/transfer-pricing"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/tax-zakat/customs-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/customs-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/customs-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/customs-disputes"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/tax-zakat/tax-advisory</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/tax-advisory"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/tax-advisory"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/tax-advisory"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/tax-zakat/excise-tax</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/tax-zakat/excise-tax"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/tax-zakat/excise-tax"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/tax-zakat/excise-tax"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/cyber-law</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/cyber-law/cybercrime-defense</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/cybercrime-defense"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/cybercrime-defense"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/cybercrime-defense"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/cyber-law/data-protection</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/data-protection"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/data-protection"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/data-protection"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/cyber-law/online-fraud</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/online-fraud"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/online-fraud"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/online-fraud"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/cyber-law/hacking-defense</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/hacking-defense"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/hacking-defense"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/hacking-defense"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/cyber-law/online-defamation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/online-defamation"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/online-defamation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/online-defamation"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/cyber-law/ecommerce-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/ecommerce-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/ecommerce-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/ecommerce-disputes"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/cyber-law/digital-privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/digital-privacy"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/digital-privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/digital-privacy"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/cyber-law/it-contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/cyber-law/it-contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/cyber-law/it-contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/cyber-law/it-contracts"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/medical-malpractice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/medical-malpractice/medical-negligence</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/medical-negligence"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/medical-negligence"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/medical-negligence"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/medical-malpractice/surgical-errors</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/surgical-errors"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/surgical-errors"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/surgical-errors"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/medical-malpractice/misdiagnosis</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/misdiagnosis"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/misdiagnosis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/misdiagnosis"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/medical-malpractice/hospital-liability</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/hospital-liability"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/hospital-liability"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/hospital-liability"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/medical-malpractice/pharmaceutical-claims</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/pharmaceutical-claims"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/pharmaceutical-claims"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/pharmaceutical-claims"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/medical-malpractice/dental-malpractice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/dental-malpractice"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/dental-malpractice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/dental-malpractice"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/medical-malpractice/healthcare-regulatory</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/healthcare-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/healthcare-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/healthcare-regulatory"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/medical-malpractice/patient-rights</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/medical-malpractice/patient-rights"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/medical-malpractice/patient-rights"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/medical-malpractice/patient-rights"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/insurance-law</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/insurance-law/insurance-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/insurance-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/insurance-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/insurance-disputes"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/insurance-law/health-insurance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/health-insurance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/health-insurance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/health-insurance"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/insurance-law/property-insurance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/property-insurance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/property-insurance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/property-insurance"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/insurance-law/motor-insurance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/motor-insurance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/motor-insurance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/motor-insurance"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/insurance-law/life-insurance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/life-insurance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/life-insurance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/life-insurance"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/insurance-law/commercial-insurance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/commercial-insurance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/commercial-insurance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/commercial-insurance"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/insurance-law/insurance-bad-faith</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/insurance-bad-faith"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/insurance-bad-faith"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/insurance-bad-faith"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/insurance-law/insurance-regulatory</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/insurance-law/insurance-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/insurance-law/insurance-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/insurance-law/insurance-regulatory"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/immigration-law</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/immigration-law/iqama-residency</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/iqama-residency"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/iqama-residency"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/iqama-residency"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/immigration-law/work-visas</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/work-visas"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/work-visas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/work-visas"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/immigration-law/kafala-transfer</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/kafala-transfer"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/kafala-transfer"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/kafala-transfer"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/immigration-law/deportation-defense</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/deportation-defense"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/deportation-defense"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/deportation-defense"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/immigration-law/family-visas</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/family-visas"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/family-visas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/family-visas"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/immigration-law/premium-residency</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/premium-residency"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/premium-residency"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/premium-residency"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/immigration-law/business-visas</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/business-visas"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/business-visas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/business-visas"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
+  </url>
+  <url>
+    <loc>https://qanoni.com/services/immigration-law/immigration-violations</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qanoni.com/services/immigration-law/immigration-violations"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://qanoni.com/services/immigration-law/immigration-violations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qanoni.com/services/immigration-law/immigration-violations"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-06-30</lastmod>
   </url>
 
 </urlset>

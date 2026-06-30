@@ -405,6 +405,60 @@ export default function ServiceDetail() {
             </div>
           )}
 
+          {id === "medical-malpractice" && (
+            <div className="lg:col-span-8 mt-16">
+              <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
+                {isRTL ? "مجالات ممارستنا في الأخطاء الطبية والقانون الصحي" : "Medical Malpractice & Healthcare Law Practice Areas"}
+              </h2>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في الأخطاء الطبية والقانون الصحي — كلٌّ منها مدعوم بخبرة واسعة وفق أنظمة وزارة الصحة السعودية ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist Medical Malpractice & Healthcare Law practice areas — each backed by deep Saudi MOH regulatory and healthcare litigation expertise."}</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {t.medicalMalpracticeDetail.subAreas.map((area) => (
+                  <Link key={area.id} href={`/services/medical-malpractice/${area.id}`}
+                    className="group flex items-center justify-between gap-4 bg-card border border-border px-6 py-5 hover:border-primary/60 hover:bg-primary/5 transition-all">
+                    <span className="font-semibold text-foreground group-hover:text-primary transition-colors">{area.label}</span>
+                    <ArrowRight className={`h-4 w-4 text-primary shrink-0 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180 group-hover:-translate-x-1 group-hover:translate-x-0" : ""}`} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {id === "insurance-law" && (
+            <div className="lg:col-span-8 mt-16">
+              <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
+                {isRTL ? "مجالات ممارستنا في قانون التأمين" : "Insurance Law Practice Areas"}
+              </h2>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في نزاعات التأمين — كلٌّ منها مدعوم بخبرة واسعة وفق أنظمة مؤسسة النقد العربي السعودي (ساما) ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist Insurance Law practice areas — each backed by deep SAMA and CCHI regulatory expertise and available for urgent consultation today."}</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {t.insuranceLawDetail.subAreas.map((area) => (
+                  <Link key={area.id} href={`/services/insurance-law/${area.id}`}
+                    className="group flex items-center justify-between gap-4 bg-card border border-border px-6 py-5 hover:border-primary/60 hover:bg-primary/5 transition-all">
+                    <span className="font-semibold text-foreground group-hover:text-primary transition-colors">{area.label}</span>
+                    <ArrowRight className={`h-4 w-4 text-primary shrink-0 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180 group-hover:-translate-x-1 group-hover:translate-x-0" : ""}`} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {id === "immigration-law" && (
+            <div className="lg:col-span-8 mt-16">
+              <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
+                {isRTL ? "مجالات ممارستنا في قانون الإقامة والهجرة" : "Immigration & Residency Law Practice Areas"}
+              </h2>
+              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في الإقامة والهجرة والتأشيرات — كلٌّ منها مدعوم بخبرة واسعة وفق أنظمة الجوازات والإقامة السعودية ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist Immigration & Residency Law practice areas — each backed by deep Saudi Passports & Residency regulatory expertise and available for urgent consultation today."}</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {t.immigrationLawDetail.subAreas.map((area) => (
+                  <Link key={area.id} href={`/services/immigration-law/${area.id}`}
+                    className="group flex items-center justify-between gap-4 bg-card border border-border px-6 py-5 hover:border-primary/60 hover:bg-primary/5 transition-all">
+                    <span className="font-semibold text-foreground group-hover:text-primary transition-colors">{area.label}</span>
+                    <ArrowRight className={`h-4 w-4 text-primary shrink-0 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180 group-hover:-translate-x-1 group-hover:translate-x-0" : ""}`} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Sidebar */}
           <div className="lg:col-span-4">
             <motion.div initial={{ opacity: 0, x: isRTL ? -20 : 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
