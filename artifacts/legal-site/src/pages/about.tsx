@@ -262,19 +262,22 @@ export default function About() {
             </motion.div>
             <motion.div initial={{ opacity: 0, x: isRTL ? -20 : 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <div className="bg-primary p-10 text-white">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-white/15 border border-white/25 flex items-center justify-center">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-14 h-14 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
                     <MapPin className="h-7 w-7 text-white" />
                   </div>
                   <div>
-                    <div className="font-serif font-bold text-xl">{a.office.city}</div>
-                    <div className="text-white/70 text-sm">{a.office.region}</div>
+                    <div className="font-serif font-bold text-xl">{a.office.partnerName}</div>
+                    <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mt-1">{a.office.licenseNo}</div>
                   </div>
+                </div>
+                <div className="border-t border-white/20 pt-6 mb-6">
+                  <p className="text-white/80 text-sm leading-relaxed whitespace-pre-line">{a.office.address}</p>
                 </div>
                 <div className="border-t border-white/20 pt-6 space-y-3">
                   {[
-                    isRTL ? "حضور قانوني ميداني في المنطقة الشرقية" : "Physical legal presence in the Eastern Province",
-                    isRTL ? "خدمة المحاكم والتوثيق والتمثيل الميداني" : "Court attendance, notarisation & in-person representation",
+                    isRTL ? "مكتب محاماة مرخَّص في المنطقة الشرقية" : "Licensed law office in the Eastern Province",
+                    isRTL ? "حضور شخصي أمام المحاكم وتوثيق الوثائق" : "Court attendance & official document processing",
                     isRTL ? "متكامل مع الخدمة الرقمية الأونلاين" : "Integrated with our full online digital service",
                     isRTL ? "يخدم عملاء جميع أنحاء المملكة" : "Serving clients across all of Saudi Arabia",
                   ].map((item, i) => (
