@@ -27,7 +27,7 @@ export const en = {
     ],
   },
   footer: {
-    tagline: "Fast, reliable online legal consultations for individuals, businesses and investors across Saudi Arabia and Syria. Professional legal response within 24 hours — in Arabic or English.",
+    tagline: "Fast, reliable online legal consultations for individuals, businesses and investors across Saudi Arabia. Professional legal response within 24 hours — in Arabic or English.",
     practiceAreasHeading: "Practice Areas",
     quickLinksHeading: "Quick Links",
     contactHeading: "Contact Us",
@@ -60,15 +60,15 @@ export const en = {
   },
   home: {
     hero: {
-      badge: "Online Legal Consultation Platform — Saudi Arabia & Syria · Vision 2030",
+      badge: "Online Legal Consultation Platform — Saudi Arabia · Vision 2030",
       availableNow: "🟢 Available Now",
       responseTag: "Professional Response Within 24 Hours",
       h1a: "Online Legal Consultation",
-      h1b: "for Saudi Arabia & Syria — Fast & Reliable.",
-      desc: "CounselO is an online legal consultation platform serving Saudi Arabia and Syria — delivering expert legal guidance for individuals, businesses and investors, aligned with Vision 2030's digital transformation agenda",
+      h1b: "for Saudi Arabia — Fast & Reliable.",
+      desc: "CounselO is an online legal consultation platform serving Saudi Arabia — delivering expert legal guidance for individuals, businesses and investors, aligned with Vision 2030's digital transformation agenda",
       descBold: "without leaving your desk.",
       descEnd: "",
-      subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Saudi Arabia or Syria — professional legal response within 24 hours, guaranteed. 30+ years experience, 20,000+ cases.",
+      subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Saudi Arabia — professional legal response within 24 hours, guaranteed. 30+ years experience, 20,000+ cases.",
       chips: ["✓ 20,000+ Cases Handled", "✓ Bilingual Arabic & English", "✓ All Client Types", "✓ Response Within 24 Hours"],
       bookBtn: "Start a Consultation",
       servicesBtn: "Our Practice Areas",
@@ -86,9 +86,9 @@ export const en = {
     platform: {
       eyebrow: "Why Online with CounselO",
       heading: "No Office. No Waiting Room. No Commute.",
-      subheading: "CounselO is a fully digital legal platform serving Saudi Arabia and Syria. Expert legal guidance from anywhere — instantly, securely, and professionally.",
+      subheading: "CounselO is a fully digital legal platform serving Saudi Arabia. Expert legal guidance from anywhere in the Kingdom — instantly, securely, and professionally.",
       advantages: [
-        { icon: "wifi", title: "Fully Online — Saudi Arabia & Syria", desc: "Consult from anywhere in Saudi Arabia or Syria — no office visit, no parking, no waiting room." },
+        { icon: "wifi", title: "Fully Online — Across Saudi Arabia", desc: "Consult from anywhere in Saudi Arabia — no office visit, no parking, no waiting room." },
         { icon: "clock", title: "Professional Response Within 24 Hours", desc: "Submit your legal matter and receive a structured, professional legal response from our expert team — guaranteed within 24 hours." },
         { icon: "lock", title: "Secure & Confidential", desc: "All consultations are handled with strict professional confidentiality. Your legal matters stay private." },
         { icon: "globe", title: "Arabic & English", desc: "Fully bilingual platform. Legal advice in the language you think and work in — no barriers." },
@@ -108,7 +108,7 @@ export const en = {
       ],
       founderRole: "Lawyer & Legal Counsel",
       founderName: "Omar Al-Baghdadi",
-      founderTeamLine: "Leading a professional legal team across Saudi Arabia, UAE & Syria",
+      founderTeamLine: "Leading a professional legal team across Saudi Arabia & the UAE",
       founderNote: "Mentor to 40+ Lawyers",
       caseStat: "20,000+",
       caseLabel: "Cases Handled Across the Region",
@@ -126,7 +126,7 @@ export const en = {
       ],
     },
     consultMethods: {
-      eyebrow: "Available Online — Saudi Arabia & Syria",
+      eyebrow: "Available Online — Across Saudi Arabia",
       heading: "Two Ways to Consult with Us",
       intro: "Hundreds of successful online consultations completed. CounselO's professional legal team — founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi — delivers structured legal analysis and practical guidance without the need for in-person attendance.",
       methods: [
@@ -138,7 +138,7 @@ export const en = {
     whoWeServe: {
       eyebrow: "All Client Types",
       heading: "Legal Expertise for Every Client",
-      subheading: "CounselO serves all client types across Saudi Arabia and Syria — from individuals navigating personal legal matters to corporations handling complex commercial disputes.",
+      subheading: "CounselO serves all client types across Saudi Arabia — from individuals navigating personal legal matters to corporations handling complex commercial disputes.",
       clients: [
         { title: "Individuals", desc: "Personal legal matters including family law, real estate, employment disputes and debt recovery." },
         { title: "Businesses", desc: "Commercial contracts, corporate disputes, company formation and regulatory compliance in Saudi Arabia." },
@@ -148,8 +148,8 @@ export const en = {
     },
     practiceAreas: {
       eyebrow: "Our Legal Expertise",
-      heading: "Core Practice Areas — Saudi Arabia & Syria",
-      subheading: "30+ years of courtroom litigation and arbitration across Saudi Arabia and Syria — comprehensive legal representation across all major practice areas.",
+      heading: "Core Practice Areas — Saudi Arabia",
+      subheading: "30+ years of courtroom litigation and arbitration across Saudi Arabia — comprehensive legal representation across all major practice areas.",
       areas: [
         { title: "Commercial Law & Litigation", desc: "Contract disputes, shareholder conflicts, corporate governance, banking and commercial agency disputes before Saudi courts and arbitration tribunals.", path: "/services/business-law" },
         { title: "Arbitration & Dispute Resolution", desc: "Domestic and international commercial arbitration, enforcement of arbitral awards, SCCA proceedings and investment dispute resolution.", path: "/services/arbitration" },
@@ -172,7 +172,7 @@ export const en = {
     },
     testimonials: {
       eyebrow: "Client Reviews",
-      heading: "Trusted Across Saudi Arabia & Syria",
+      heading: "Trusted Across Saudi Arabia",
       items: [
         { quote: "CounselO resolved my commercial contract dispute quickly and professionally. The WhatsApp consultation was structured and clear — I had a legal opinion within 24 hours. Exceptional service.", author: "Abdullah R.", title: "Business Owner — Jubail, KSA" },
         { quote: "As a foreign investor entering Saudi Arabia, I needed reliable legal advice fast. CounselO provided a thorough analysis of my company formation matter in both Arabic and English. Highly professional.", author: "M. Al-Farsi", title: "Foreign Investor — KSA" },
@@ -185,17 +185,17 @@ export const en = {
       ],
     },
     cta: {
-      eyebrow: "Online Legal Consultation Platform — Saudi Arabia & Syria",
+      eyebrow: "Online Legal Consultation Platform — Saudi Arabia",
       heading: "Professional Legal Response Within 24 Hours.",
-      desc: "Expert online legal consultations for individuals, businesses and investors across Saudi Arabia and Syria — via WhatsApp or email, no office visit required. 18 practice areas. 30+ years experience.",
-      subDesc: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi · Jubail, Saudi Arabia · Syria · WhatsApp or email · Arabic & English",
+      desc: "Expert online legal consultations for individuals, businesses and investors across Saudi Arabia — via WhatsApp or email, no office visit required. 18 practice areas. 30+ years experience.",
+      subDesc: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi · Jubail, Saudi Arabia · WhatsApp or email · Arabic & English",
       ctaBtn: "Book Your Consultation Now",
     },
   },
   services: {
     hero: {
       heading: "17 Legal Practice Areas",
-      desc: "An online legal consultation platform serving Saudi Arabia and Syria — 17 specialist practice areas covering family, commercial, employment, real estate, foreign investment, criminal, banking, tax, cyber, medical malpractice, insurance, arbitration, enforcement, companies law, contracts, IP, and administrative law. Professional response within 24 hours. No office visit needed.",
+      desc: "Saudi Arabia's online legal consultation platform — 18 specialist practice areas covering family, commercial, employment, real estate, foreign investment, criminal, banking, tax, cyber, medical malpractice, insurance, arbitration, enforcement, companies law, contracts, IP, administrative law and immigration. Professional response within 24 hours. No office visit needed.",
     },
     explorePrefix: "Explore ",
     items: [
