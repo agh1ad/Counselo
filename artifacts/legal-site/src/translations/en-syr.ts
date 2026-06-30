@@ -599,7 +599,6 @@ export const enSyr: typeof en = {
     },
     subAreas: [
       { id: "vat-compliance", label: "VAT & Income Tax Compliance" },
-      { id: "zakat-disputes", label: "Income Tax Disputes" },
       { id: "zatca-appeals", label: "Tax Authority Appeals" },
       { id: "corporate-tax", label: "Corporate Income Tax" },
       { id: "transfer-pricing", label: "Transfer Pricing" },
@@ -608,7 +607,7 @@ export const enSyr: typeof en = {
       { id: "excise-tax", label: "Tax Compliance" },
     ],
     services: Object.fromEntries(
-      Object.entries(en.taxZakatDetail.services).map(([id, svc]) => [id, {
+      Object.entries(en.taxZakatDetail.services).filter(([id]) => id !== 'zakat-disputes').map(([id, svc]) => [id, {
         ...svc,
         seoTitle: svc.seoTitle.replace(/Saudi Arabia/g, "Syria").replace(/ZATCA/g, "General Tax Authority").replace(/Zakat.*?Objections/g, "Income Tax Disputes").replace(/Zakat/g, "Tax"),
         subtitle: svc.subtitle.replace(/Saudi Arabia/g, "Syria").replace(/Saudi law/g, "Syrian law").replace(/ZATCA/g, "General Tax Authority").replace(/[Zz]akat/g, "tax"),
@@ -689,7 +688,7 @@ export const enSyr: typeof en = {
     breadcrumb: { home: "Home", services: "Services", parent: "Immigration & Residency Law — Syria" },
     experienceBadge: "30+ Years Regional Experience · 20,000+ Cases · Online Consultations Available",
     services: Object.fromEntries(
-      Object.entries(en.immigrationLawDetail.services).map(([id, svc]) => [id, {
+      Object.entries(en.immigrationLawDetail.services).filter(([id]) => !['kafala-transfer', 'premium-residency'].includes(id)).map(([id, svc]) => [id, {
         ...svc,
         seoTitle: svc.seoTitle.replace(/Saudi Arabia/g, "Syria"),
         subtitle: svc.subtitle.replace(/Saudi Arabia/g, "Syria").replace(/Saudi law/g, "Syrian law").replace(/Jawazat/g, "Migration and Passports Directorate").replace(/iqama/g, "residency permit"),
