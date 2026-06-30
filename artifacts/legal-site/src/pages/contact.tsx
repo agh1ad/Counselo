@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, Phone, CreditCard } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 
@@ -212,6 +212,11 @@ export default function Contact() {
                         <FormMessage />
                       </FormItem>
                     )} />
+                    {/* Paid service notice */}
+                    <div className="flex items-start gap-3 bg-primary/8 border border-primary/25 p-4">
+                      <CreditCard className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <p className="text-sm text-foreground/80 leading-relaxed">{f.paymentNotice}</p>
+                    </div>
                     <Button type="submit" size="lg" disabled={submitting} className="w-full py-6 text-lg rounded-none bg-primary text-white hover:bg-primary/90 disabled:opacity-70">
                       {submitting ? (isRTL ? "جارٍ الإرسال…" : "Sending…") : f.submitBtn}
                     </Button>

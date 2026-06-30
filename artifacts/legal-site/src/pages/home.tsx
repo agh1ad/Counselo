@@ -142,7 +142,7 @@ export default function Home() {
             {/* Right — platform card */}
             <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.2 }} className="hidden lg:block">
               <div className="bg-white/5 border border-white/15 p-8 space-y-5 backdrop-blur-sm">
-                <div className="text-white/50 text-xs uppercase tracking-widest mb-6">How it works in 3 steps</div>
+                <div className="text-white/50 text-xs uppercase tracking-widest mb-6">How it works in 4 steps</div>
                 {h.howItWorks.steps.map((s, i) => (
                   <div key={i} className="flex items-start gap-4 group">
                     <div className="w-9 h-9 bg-primary/80 border border-white/10 flex items-center justify-center text-white font-serif font-bold text-sm shrink-0">{s.step}</div>

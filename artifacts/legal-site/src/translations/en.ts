@@ -117,11 +117,12 @@ export const en = {
     howItWorks: {
       eyebrow: "Simple & Fast",
       heading: "How to Get Your Legal Consultation",
-      subheading: "Three straightforward steps to professional legal advice — no waiting room required.",
+      subheading: "Four straightforward steps to professional legal advice — no waiting room required.",
       steps: [
         { step: "01", title: "Choose Your Method", desc: "Select WhatsApp or email — whichever suits your situation best." },
         { step: "02", title: "Describe Your Matter", desc: "Share your legal situation. All information is treated as strictly confidential." },
-        { step: "03", title: "Receive Expert Guidance", desc: "Qanoni's legal team, under Lawyer and Legal Counsel Al-Baghdadi's supervision, reviews your case and delivers a structured legal analysis — fast." },
+        { step: "03", title: "Complete Payment", desc: "Our team will send you the consultation fee and bank transfer details via WhatsApp. Payment is required before the legal answer is delivered." },
+        { step: "04", title: "Receive Expert Guidance", desc: "Once payment is confirmed, Qanoni's legal team — under Lawyer and Legal Counsel Al-Baghdadi's supervision — delivers a structured legal analysis within 24 hours." },
       ],
     },
     consultMethods: {
@@ -1700,6 +1701,7 @@ export const en = {
       messagePlaceholder: "Please provide a brief overview of your legal situation...",
       submitBtn: "Submit Consultation Request",
       disclaimer: "All submissions are confidential. A member of our team will respond within 24 hours.",
+      paymentNotice: "This is a paid consultation service. After reviewing your request, our team will send you the consultation fee and bank transfer details via WhatsApp. Your legal answer will be delivered once payment is confirmed.",
     },
   },
   administrativeLawDetail: {
