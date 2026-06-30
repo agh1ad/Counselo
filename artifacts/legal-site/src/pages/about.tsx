@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, ArrowRight, MapPin, Award, Users, Globe, Zap, Scale, Star, Building2 } from "lucide-react";
+import { CheckCircle2, ArrowRight, MapPin, Award, Users, Globe, Zap, Scale, Star, Building2, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEOHead } from "@/components/seo/SEOHead";
+import founderPhoto from "@assets/ChatGPT_Image_Mar_8,_2026,_04_53_46_PM_1782789204870.png";
 
 const whyIcons = [Scale, Globe, Award, Globe, Zap, Users];
 
@@ -63,23 +64,74 @@ export default function About() {
       />
 
       {/* ── Hero ── */}
-      <section className="relative py-28 overflow-hidden">
+      <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 10%) 0%, hsl(150 80% 15%) 100%)" }} />
-        <div className="absolute end-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
-          <div className="w-full h-full" style={{ background: "radial-gradient(ellipse at 50% 50%, hsl(150 60% 60%) 0%, transparent 70%)" }} />
-        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-2 mb-6">
-              {a.hero.badge}
-            </span>
-            <p className="text-sm font-semibold uppercase tracking-widest text-white/60 mb-4">{a.hero.eyebrow}</p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
-              {a.hero.heading}
-            </h1>
-            <div className="w-20 h-1 bg-white/40 mb-8" />
-            <p className="text-lg text-white/75 leading-relaxed max-w-2xl">{a.hero.subheading}</p>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Text */}
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+              <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-2 mb-6">
+                {a.hero.badge}
+              </span>
+              <p className="text-sm font-semibold uppercase tracking-widest text-white/60 mb-4">{a.hero.eyebrow}</p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
+                {a.hero.heading}
+              </h1>
+              <div className="w-20 h-1 bg-white/40 mb-8" />
+              <p className="text-lg text-white/75 leading-relaxed">{a.hero.subheading}</p>
+            </motion.div>
+
+            {/* Saudi Arabia Flag */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="hidden lg:flex flex-col items-center justify-center"
+            >
+              <div className="relative w-full max-w-sm mx-auto shadow-2xl border border-white/10" style={{ aspectRatio: "3/2" }}>
+                <svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                  <rect width="900" height="600" fill="#006C35" />
+                  {/* Shahada text */}
+                  <text
+                    x="450" y="245"
+                    textAnchor="middle"
+                    fill="white"
+                    fontSize="72"
+                    fontFamily="'Traditional Arabic', 'Scheherazade New', 'Noto Naskh Arabic', serif"
+                    fontWeight="bold"
+                    direction="rtl"
+                  >
+                    لَا إِلَٰهَ إِلَّا ٱللَّٰهُ
+                  </text>
+                  <text
+                    x="450" y="330"
+                    textAnchor="middle"
+                    fill="white"
+                    fontSize="72"
+                    fontFamily="'Traditional Arabic', 'Scheherazade New', 'Noto Naskh Arabic', serif"
+                    fontWeight="bold"
+                    direction="rtl"
+                  >
+                    مُحَمَّدٌ رَّسُولُ ٱللَّٰهِ
+                  </text>
+                  {/* Sword — blade pointing right (LTR heraldic) */}
+                  {/* Blade */}
+                  <path d="M185,398 L685,390 L720,395 L685,400 L185,408 Z" fill="white" />
+                  {/* Tip */}
+                  <path d="M685,390 L735,395 L685,400 Z" fill="white" />
+                  {/* Guard */}
+                  <rect x="180" y="378" width="14" height="44" rx="3" fill="white" />
+                  {/* Grip */}
+                  <rect x="130" y="385" width="52" height="20" rx="4" fill="white" />
+                  {/* Pommel */}
+                  <ellipse cx="125" cy="395" rx="16" ry="18" fill="white" />
+                </svg>
+              </div>
+              <p className="mt-4 text-white/50 text-xs uppercase tracking-[0.25em] text-center">
+                {isRTL ? "المملكة العربية السعودية" : "Kingdom of Saudi Arabia"}
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -159,7 +211,43 @@ export default function About() {
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Left col: photo + bio */}
             <motion.div initial={{ opacity: 0, x: isRTL ? 20 : -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+              {/* Founder Photo */}
+              <div className="mb-10 flex items-start gap-6">
+                <div className="relative shrink-0">
+                  <div className="w-36 h-44 border-4 border-primary/20 overflow-hidden shadow-xl">
+                    <img
+                      src={founderPhoto}
+                      alt="Lawyer Omar Al-Baghdadi — Founder of Qanoni"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <div className="absolute -bottom-3 -end-3 bg-primary px-3 py-1.5">
+                    <p className="text-white text-xs font-bold uppercase tracking-wider">
+                      {isRTL ? "المؤسس" : "Founder"}
+                    </p>
+                  </div>
+                </div>
+                <div className="pt-2">
+                  <h3 className="text-xl font-serif font-bold text-foreground mb-1">
+                    {isRTL ? "المحامي عمر البغدادي" : "Omar Al-Baghdadi"}
+                  </h3>
+                  <p className="text-primary text-sm font-medium mb-3">
+                    {isRTL ? "محامٍ ومستشار قانوني" : "Lawyer & Legal Counsel"}
+                  </p>
+                  <a
+                    href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors border border-border hover:border-primary px-3 py-1.5"
+                  >
+                    <Linkedin className="h-3.5 w-3.5" />
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+
               <p className="text-muted-foreground leading-relaxed mb-5 text-lg">{t.aboutPage.founder.bio1}</p>
               <p className="text-muted-foreground leading-relaxed mb-5">{t.aboutPage.founder.bio2}</p>
               <p className="text-muted-foreground leading-relaxed mb-5">{t.aboutPage.founder.bio3}</p>
