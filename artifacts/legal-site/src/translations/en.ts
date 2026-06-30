@@ -24,7 +24,6 @@ export const en = {
       { name: "Cyber & IT Law", href: "/services/cyber-law" },
       { name: "Medical Malpractice", href: "/services/medical-malpractice" },
       { name: "Insurance Law", href: "/services/insurance-law" },
-      { name: "Immigration & Residency", href: "/services/immigration-law" },
     ],
   },
   footer: {
@@ -51,7 +50,6 @@ export const en = {
       { label: "Cyber & IT Law", href: "/services/cyber-law" },
       { label: "Medical Malpractice", href: "/services/medical-malpractice" },
       { label: "Insurance Law", href: "/services/insurance-law" },
-      { label: "Immigration & Residency", href: "/services/immigration-law" },
     ],
     address: "Jubail, Saudi Arabia",
     phone: "+966 59 485 0247",
@@ -62,12 +60,12 @@ export const en = {
   },
   home: {
     hero: {
-      badge: "Saudi Arabia's Largest Online Legal Consultation Platform · Vision 2030",
+      badge: "Saudi Arabia's Specialized Online Legal Consultation Platform · Vision 2030",
       availableNow: "🟢 Available Now",
       responseTag: "Professional Response Within 24 Hours",
       h1a: "Online Legal Consultation",
       h1b: "in Saudi Arabia — Fast & Reliable.",
-      desc: "Qanoni is Saudi Arabia's largest online legal consultation platform — delivering expert legal guidance for individuals, businesses and investors, aligned with Vision 2030's digital transformation agenda",
+      desc: "Qanoni is Saudi Arabia's specialized online legal consultation platform — delivering expert legal guidance for individuals, businesses and investors, aligned with Vision 2030's digital transformation agenda",
       descBold: "without leaving your desk.",
       descEnd: "",
       subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Saudi Arabia — professional legal response within 24 hours, guaranteed. 30+ years experience, 20,000+ cases.",
@@ -186,7 +184,7 @@ export const en = {
       ],
     },
     cta: {
-      eyebrow: "Saudi Arabia's Largest Online Legal Platform",
+      eyebrow: "Saudi Arabia's Specialized Online Legal Consultation Platform",
       heading: "Professional Legal Response Within 24 Hours.",
       desc: "Expert online legal consultations for individuals, businesses and investors across Saudi Arabia — via WhatsApp or email, no office visit required. 18 practice areas. 30+ years experience.",
       subDesc: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi · Jubail, Saudi Arabia · WhatsApp or email · Arabic & English",
@@ -195,8 +193,8 @@ export const en = {
   },
   services: {
     hero: {
-      heading: "18 Legal Practice Areas",
-      desc: "Saudi Arabia's largest online legal consultation platform — 18 specialist practice areas covering family, commercial, employment, real estate, foreign investment, criminal, banking, tax, cyber, medical malpractice, insurance, immigration, arbitration, enforcement, companies law, contracts, IP, and administrative law. Professional response within 24 hours. No office visit needed.",
+      heading: "17 Legal Practice Areas",
+      desc: "Saudi Arabia's specialized online legal consultation platform — 17 specialist practice areas covering family, commercial, employment, real estate, foreign investment, criminal, banking, tax, cyber, medical malpractice, insurance, arbitration, enforcement, companies law, contracts, IP, and administrative law. Professional response within 24 hours. No office visit needed.",
     },
     explorePrefix: "Explore ",
     items: [
@@ -207,7 +205,7 @@ export const en = {
       { id: "foreign-investment", title: "Foreign Investment & Business Law", longDesc: "Expert guidance for foreign investors entering the Saudi market — from MISA licensing and company formation to investment disputes and investor compensation under Vision 2030 and the Saudi Foreign Investment Law." },
       { id: "administrative-law", title: "Administrative Law", longDesc: "Specialist representation before the Board of Grievances, administrative tribunals, and Saudi government authorities — challenging unlawful administrative decisions, government contract disputes, and regulatory enforcement actions." },
       { id: "arbitration", title: "Arbitration & Mediation", longDesc: "Expert representation in domestic and international arbitration, mediation, and alternative dispute resolution — including enforcement of arbitral awards and investment arbitration before Saudi and international tribunals." },
-      { id: "enforcement", title: "Enforcement & Debt Collection", longDesc: "Specialist enforcement lawyers enforcing court judgments, collecting commercial debts, and applying for asset attachment, travel bans, and property enforcement orders across Saudi Arabia." },
+      { id: "enforcement", title: "Enforcement & Debt Collection", longDesc: "Specialist enforcement lawyers enforcing court judgments, collecting commercial debts, and applying for asset attachment and property enforcement orders across Saudi Arabia." },
       { id: "companies-law", title: "Companies Law", longDesc: "Specialist legal representation for all company disputes under Saudi Companies Law — from formation nullity and shareholder disputes to director liability, capital changes, mergers, dissolution, and family company conflicts." },
       { id: "contracts", title: "Contracts", longDesc: "Expert contract lawyers in Saudi Arabia — drafting, review, dispute resolution and enforcement across all contract types including commercial, government, real estate, employment, and international contracts under Saudi law." },
       { id: "criminal-law", title: "Criminal Law", longDesc: "Expert criminal defense lawyers in Saudi Arabia — representing individuals and businesses in all criminal proceedings before Saudi courts, from investigation and bail through trial, appeal, and judgment enforcement." },
@@ -215,9 +213,8 @@ export const en = {
       { id: "intellectual-property", title: "Intellectual Property", longDesc: "Expert IP lawyers in Saudi Arabia — trademark registration, patent protection, copyright disputes, brand protection, trade secret litigation, and IP enforcement before SAIP and Saudi courts under Vision 2030." },
       { id: "tax-zakat", title: "Tax & Zakat Law", longDesc: "Specialist ZATCA lawyers in Saudi Arabia — VAT compliance, zakat disputes, corporate income tax, ZATCA objections and appeals, transfer pricing, customs duties disputes, and tax advisory for businesses and investors." },
       { id: "cyber-law", title: "Cyber & IT Law", longDesc: "Expert cybercrime lawyers in Saudi Arabia — defense under the Anti-Cybercrime Law, data protection under PDPL, online fraud cases, hacking defense, online defamation, and IT contract disputes. Professional consultation within 24 hours via WhatsApp or email." },
-      { id: "medical-malpractice", title: "Medical Malpractice & Healthcare Law", longDesc: "Expert medical malpractice lawyers in Saudi Arabia — negligence claims, surgical errors, misdiagnosis, hospital liability, pharmaceutical claims, dental malpractice, and patient rights. MOH and CCHI regulatory experience." },
+      { id: "medical-malpractice", title: "Medical Malpractice & Healthcare Law", longDesc: "Expert medical malpractice lawyers in Saudi Arabia — negligence claims, surgical errors, and misdiagnosis." },
       { id: "insurance-law", title: "Insurance Law", longDesc: "Specialist insurance dispute lawyers in Saudi Arabia — health, property, motor, life, and commercial insurance claim disputes, bad faith rejections, SAMA/CCHI regulatory compliance, and insurance litigation before Saudi courts." },
-      { id: "immigration-law", title: "Immigration & Residency Law", longDesc: "Expert immigration lawyers in Saudi Arabia — iqama residency permits, work visas, kafala sponsorship transfer, deportation defense, family visas, premium residency (green card), and immigration violation defense." },
     ],
   },
   serviceDetail: {
@@ -240,7 +237,7 @@ export const en = {
         title: "Family Law",
         subtitle: "Protecting what matters most with discretion and resolve.",
         overview: "Family law in Saudi Arabia is governed by Islamic law principles and the Kingdom's Personal Status regulations. At Qanoni, we understand that family disputes are among the most stressful experiences our clients face. We provide strategic, clear-headed counsel rooted in Saudi family law — protecting your assets, your relationship with your children, and your future before Saudi courts.",
-        covers: ["High-Net-Worth Divorce & Asset Tracing", "Contentious Child Custody Disputes", "Prenuptial & Postnuptial Agreements", "Alimony & Spousal Support Negotiation", "Complex Adoption Proceedings"],
+        covers: ["Contentious Child Custody Disputes", "Prenuptial & Postnuptial Agreements", "Alimony & Spousal Support Negotiation"],
         process: [
           { title: "Initial Strategy Session", desc: "A confidential review of your situation to identify immediate vulnerabilities and long-term goals." },
           { title: "Asset & Case Analysis", desc: "Meticulous documentation and forensic accounting to build an unshakeable foundation." },
@@ -264,11 +261,10 @@ export const en = {
         title: "Property Law",
         subtitle: "Securing and protecting high-value property transactions.",
         overview: "Saudi real estate transactions involve massive capital and complex regulations under Saudi property law and the Real Estate General Authority framework. A single overlooked clause can unravel a deal or lead to years of litigation before Saudi courts. Qanoni brings exacting precision to commercial and residential real estate transactions across the Kingdom.",
-        covers: ["Commercial Lease Negotiation", "High-Value Residential Closings", "Zoning & Land Use Disputes", "Construction Defect Litigation", "Complex Landlord-Tenant Disputes"],
+        covers: ["Commercial Lease Negotiation", "Zoning & Land Use Disputes", "Construction Defect Litigation", "Complex Landlord-Tenant Disputes"],
         process: [
           { title: "Due Diligence", desc: "Exhaustive review of title, zoning, and encumbrances to ensure a clean transaction." },
           { title: "Contract Drafting", desc: "Creating airtight agreements that anticipate and neutralize future disputes." },
-          { title: "Closing Execution", desc: "Flawless management of the transaction timeline and escrow mechanics." },
           { title: "Litigation Strategy", desc: "Swift, decisive action when real estate disputes cannot be resolved via negotiation." },
         ],
       },
@@ -312,7 +308,7 @@ export const en = {
         title: "Arbitration & Mediation",
         subtitle: "Expert representation in commercial arbitration, mediation, and alternative dispute resolution across Saudi Arabia and internationally.",
         overview: "Saudi Arabia has become a leading arbitration hub in the region — anchored by the Saudi Centre for Commercial Arbitration (SCCA), a modernised Arbitration Law, and a judiciary that actively enforces domestic and foreign arbitral awards. Qanoni provides expert representation across all aspects of arbitration and dispute resolution: domestic commercial arbitration, international arbitration, mediation, award enforcement, and investment arbitration. With over 30 years of experience handling disputes before Saudi and international tribunals, our online consultation service delivers specialist arbitration advice via WhatsApp or email — fast and without the need for an office visit.",
-        covers: ["Commercial Arbitration (SCCA & ad hoc)", "International Arbitration (ICC, LCIA, ICSID)", "Mediation & ADR", "Arbitral Award Enforcement", "Investment Arbitration", "Emergency Arbitrator Applications"],
+        covers: ["Commercial Arbitration (SCCA)", "International Arbitration (ICC, LCIA, ICSID)", "Mediation & ADR", "Arbitral Award Enforcement", "Investment Arbitration", "Emergency Arbitrator Applications"],
         process: [
           { title: "Dispute & Clause Assessment", desc: "Reviewing the arbitration agreement, the applicable rules, the governing law, and the optimal forum — and advising on strategy before proceedings begin." },
           { title: "Arbitration Filing & Tribunal Constitution", desc: "Preparing and filing the arbitration request, managing arbitrator selection and challenge, and constituting the tribunal efficiently." },
@@ -322,14 +318,14 @@ export const en = {
       },
       "enforcement": {
         title: "Enforcement & Debt Collection",
-        subtitle: "Specialist enforcement lawyers enforcing court judgments, collecting commercial debts, and securing asset attachment and travel ban orders across Saudi Arabia.",
+        subtitle: "Specialist enforcement lawyers enforcing court judgments, collecting commercial debts, and securing asset attachment across Saudi Arabia.",
         overview: "Obtaining a court judgment or arbitral award is only the first step — enforcing it and recovering what you are owed requires specialist enforcement expertise. Saudi Arabia's enforcement courts, established under the Saudi Enforcement Law (Royal Decree M/53), provide a dedicated and powerful legal framework for judgment enforcement, debt collection, asset attachment, travel bans, and real estate enforcement. Qanoni brings over 30 years of enforcement experience — acting for Saudi businesses, banks, and individuals to convert favorable judgments into real recovery, and moving urgently to secure debtors' assets before they can be dissipated. Our online consultation service means specialist enforcement advice is available via WhatsApp or email within 24 hours.",
-        covers: ["Court judgment enforcement", "Commercial debt collection", "Asset attachment & freezing orders", "Travel ban applications", "Real estate & property enforcement", "Bank account garnishment"],
+        covers: ["Court judgment enforcement", "Commercial debt collection", "Asset attachment", "Real estate & property enforcement", "Bank account garnishment"],
         process: [
           { title: "Enforcement Strategy Assessment", desc: "We assess your judgment or award, identify the debtor's known assets, and develop the fastest enforcement strategy to convert your entitlement into real recovery." },
           { title: "Urgent Asset Preservation", desc: "Before formal enforcement, we apply for precautionary attachment of the debtor's assets — bank accounts, real estate, and commercial property — to prevent dissipation." },
           { title: "Enforcement Court Filing", desc: "We file comprehensive enforcement applications before the Saudi enforcement court, satisfying all procedural requirements and anticipating debtor objections." },
-          { title: "Recovery & Collection", desc: "We pursue all enforcement tools available — garnishment, real estate registration, travel bans — through to full recovery of what you are owed." },
+          { title: "Recovery & Collection", desc: "We pursue all enforcement tools available — garnishment and real estate registration — through to full recovery of what you are owed." },
         ],
       },
       "contracts": {
@@ -418,9 +414,9 @@ export const en = {
       },
       "medical-malpractice": {
         title: "Medical Malpractice & Healthcare Law",
-        subtitle: "Expert medical malpractice lawyers in Saudi Arabia — securing compensation for victims of medical negligence, surgical errors, misdiagnosis, and hospital liability.",
+        subtitle: "Expert medical malpractice lawyers in Saudi Arabia — securing compensation for victims of medical negligence, surgical errors, and misdiagnosis.",
         overview: "Medical malpractice in Saudi Arabia is governed by the Saudi Medical Practitioners Disciplinary Regulations and the Healthcare Law, with claims pursued before civil courts or the Board of Grievances for government hospitals. At Qanoni, we represent patients, families, and healthcare providers in all categories of medical malpractice and healthcare law disputes — including negligence claims, surgical error cases, misdiagnosis, pharmaceutical liability, dental malpractice, and MOH and CCHI regulatory proceedings. Online consultation available via WhatsApp or email — 24/7, in Arabic and English.",
-        covers: ["Medical Negligence Claims & Compensation", "Surgical Error & Anaesthesia Claims", "Misdiagnosis & Diagnostic Error Cases", "Hospital & Clinic Liability", "Pharmaceutical & Medication Injury Claims", "Dental Malpractice Claims", "Healthcare Regulatory Defense (MOH/CCHI)", "Patient Rights & Wrongful Death Claims"],
+        covers: ["Medical Negligence Claims & Compensation", "Surgical Error & Anaesthesia Claims", "Misdiagnosis & Diagnostic Error Cases"],
         process: [
           { title: "Case Evaluation", desc: "We assess the medical care received against the professional standard of care — working with independent medical experts to determine whether actionable negligence occurred." },
           { title: "Evidence & Expert Coordination", desc: "We gather medical records, commission independent expert reports, and build the evidentiary foundation required for a successful claim." },
@@ -2009,8 +2005,6 @@ export const en = {
     subAreas: [
       { id: "judgment-enforcement", label: "Court Judgment Enforcement" },
       { id: "debt-recovery", label: "Commercial Debt Recovery" },
-      { id: "asset-attachment", label: "Asset Attachment & Freezing Orders" },
-      { id: "travel-bans", label: "Travel Bans & Exit Restriction Orders" },
       { id: "enforcement-against-government", label: "Enforcement Against Government Entities" },
     ],
     services: {
@@ -4313,7 +4307,7 @@ export const en = {
         title: "Surgical Error Claims",
         seoTitle: "Surgical Error Lawyer in Saudi Arabia — Surgical Malpractice Compensation Claims | Qanoni قانوني",
         subtitle: "Legal representation for patients harmed by surgical errors — pursuing compensation for surgical negligence in Saudi Arabia.",
-        overview1: "Surgical errors — wrong-site surgery, damage to surrounding structures, anaesthetic errors, post-operative infections caused by surgical negligence, retained surgical instruments, and surgical technique failures — are among the most serious categories of medical malpractice. When a surgical error occurs in Saudi Arabia, the harm is often severe and the path to compensation requires expert medical evidence, careful case preparation, and specialist legal representation before Saudi courts.",
+        overview1: "Surgical errors — wrong-site surgery, anaesthetic errors, post-operative infections caused by surgical negligence, retained surgical instruments, and surgical technique failures — are among the most serious categories of medical malpractice. When a surgical error occurs in Saudi Arabia, the harm is often severe and the path to compensation requires expert medical evidence, careful case preparation, and specialist legal representation before Saudi courts.",
         overview2: "At Qanoni, our surgical malpractice team represents patients and families who have suffered harm from surgical errors — assessing the case against the applicable surgical standard of care, obtaining specialist surgical expert evidence, and pursuing full compensation before Saudi civil courts or the Board of Grievances. We have experience across all categories of surgical specialty — general surgery, orthopaedics, cardiac surgery, neurosurgery, and plastic and cosmetic surgery.",
         experienceNote: "Qanoni has pursued surgical error claims against hospitals and surgeons across Saudi Arabia — coordinating expert evidence from specialist surgeons and presenting complex surgical negligence cases before Saudi courts at all levels.",
         covers: ["Wrong-site surgery claims", "Surgical instrument retention claims", "Nerve and organ damage during surgery", "Anaesthetic error claims", "Post-operative infection negligence", "Unnecessary surgical procedure claims", "Surgical technique failure claims", "Cosmetic and plastic surgery negligence"],
@@ -4806,12 +4800,12 @@ export const en = {
     },
   },
   aboutPage: {
-    seoTitle: "About Qanoni — Saudi Arabia's Largest Online Legal Consultation Platform",
-    seoDesc: "Qanoni is Saudi Arabia's largest online legal consultation platform — founded by Lawyer Omar Al-Baghdadi, with 30+ years experience, 20,000+ cases handled, 18 practice areas, Vision 2030 aligned.",
-    seoKeywords: "about Qanoni, online legal platform Saudi Arabia, lawyer Omar Al-Baghdadi, largest legal platform KSA, Vision 2030 legal services, online legal consultation Saudi Arabia",
+    seoTitle: "About Qanoni — Saudi Arabia's Specialized Online Legal Consultation Platform",
+    seoDesc: "Qanoni is Saudi Arabia's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi, with 30+ years experience, 20,000+ cases handled, 17 practice areas, Vision 2030 aligned.",
+    seoKeywords: "about Qanoni, online legal platform Saudi Arabia, lawyer Omar Al-Baghdadi, specialized legal platform KSA, Vision 2030 legal services, online legal consultation Saudi Arabia",
     hero: {
       eyebrow: "About Qanoni",
-      heading: "Saudi Arabia's Largest Online Legal Consultation Platform",
+      heading: "Saudi Arabia's Specialized Online Legal Consultation Platform",
       subheading: "Qanoni is transforming access to professional legal services in Saudi Arabia — delivering expert legal guidance online, fast and affordably, aligned with Saudi Vision 2030's digital transformation and access-to-justice agenda.",
       badge: "Vision 2030 · Digital Legal Services",
     },
@@ -4825,7 +4819,7 @@ export const en = {
       eyebrow: "Our Mission",
       heading: "Democratising Legal Access in Saudi Arabia",
       p1: "Qanoni was established with a clear mission: to make expert legal advice accessible to every individual, business and investor in Saudi Arabia — online, instantly, and without the barriers of traditional legal practice. No office visits, no waiting rooms, no geographic limitations. One platform. All practice areas. Professional quality on every consultation.",
-      p2: "Saudi Vision 2030 has placed digital transformation and access to justice at the heart of the Kingdom's development agenda. Qanoni is proud to be part of that transformation — bringing professional legal expertise directly to citizens and businesses through digital channels, 24/7, in both Arabic and English. We are Saudi Arabia's largest dedicated online legal consultation platform — with 18 major practice areas, a professional legal team led by a 30-year senior advocate, and the ability to serve any client, anywhere in the Kingdom, within 24 hours.",
+      p2: "Saudi Vision 2030 has placed digital transformation and access to justice at the heart of the Kingdom's development agenda. Qanoni is proud to be part of that transformation — bringing professional legal expertise directly to citizens and businesses through digital channels, 24/7, in both Arabic and English. We are Saudi Arabia's specialized online legal consultation platform — with 17 major practice areas, a professional legal team led by a 30-year senior advocate, and the ability to serve any client, anywhere in the Kingdom, within 24 hours.",
       p3: "From a single consultation to complex multi-jurisdictional disputes, Qanoni delivers structured legal analysis, practical guidance, and expert representation across all major areas of Saudi law — online, fast, and with the professional quality that every client deserves.",
       vision2030Badge: "Aligned with Saudi Vision 2030",
       vision2030Desc: "Part of Saudi Arabia's digital transformation journey — making professional legal guidance accessible to all.",
@@ -4856,8 +4850,8 @@ export const en = {
     office: {
       eyebrow: "Physical Presence",
       heading: "Jubail Office — Lawyer Abdullah Al-Anzi",
-      p1: "In addition to its fully digital platform, Qanoni cooperates with the law office of Lawyer Abdullah Al-Anzi (License No. 37440) in Jubail, Saudi Arabia — located in Jubail Al-Balad on Madinah Street, Radma Hotel Apartments Building. This physical presence in the Eastern Province means that when your matter requires in-person court attendance, official document processing, or face-to-face legal representation, you have a licensed local office ready to assist.",
-      p2: "Qanoni clients across Saudi Arabia benefit from both the speed and convenience of our online consultation service and the full-service legal representation available through our licensed Jubail office when the matter demands it. Digital convenience — backed by a physical office presence when you need it.",
+      p1: "Qanoni provides online legal consultation services, document analysis, and remote legal opinion preparation — enabling clients across all regions of the Kingdom to access professional legal services without the need for in-person attendance.",
+      p2: "Where a case requires court representation, appearances before courts or competent authorities, or document notarization and procedures requiring physical presence, coordination is arranged — with the client's consent — with the office of Lawyer Abdullah Al-Anzi (License No. 37440), a licensed law firm located in Jubail Al-Balad, Eastern Province, to handle judicial representation proceedings in accordance with the regulations applicable in the Kingdom of Saudi Arabia.",
       city: "Jubail Al-Balad, Saudi Arabia",
       region: "Eastern Province · Madinah Street, Radma Hotel Apartments Building",
       partnerName: "Lawyer Abdullah Al-Anzi",
@@ -4870,17 +4864,12 @@ export const en = {
       eyebrow: "Why Qanoni",
       heading: "The Qanoni Difference",
       points: [
-        { title: "Saudi Arabia's Largest Platform", desc: "18 practice areas. 20,000+ cases. One professional team. Qanoni is the most comprehensive dedicated online legal consultation platform in the Kingdom." },
-        { title: "Vision 2030 Aligned", desc: "Qanoni supports Saudi Arabia's digital transformation agenda — making professional legal guidance accessible to all citizens and businesses, online, without barriers." },
-        { title: "Senior Leadership on Every Consultation", desc: "Every matter is handled by a professional team led by Lawyer Omar Al-Baghdadi — one of the region's most experienced advocates, with 30+ years and 20,000+ cases." },
-        { title: "Fully Bilingual", desc: "Complete Arabic and English service — no translation barriers, no delays. Professional legal advice in the language you think and work in." },
-        { title: "Online, Fast, 24/7", desc: "No office visits. No waiting rooms. Expert legal guidance via WhatsApp or email — from anywhere in Saudi Arabia, within 24 hours, around the clock." },
-        { title: "All 18 Practice Areas", desc: "Family law, commercial disputes, immigration, insurance, medical malpractice, and 13 more — comprehensive legal coverage across every major area of Saudi law." },
+        { title: "Access to Justice", desc: "Qanoni supports Saudi Arabia's digital transformation agenda — making professional legal guidance accessible to all citizens and businesses, online, without barriers." },
       ],
     },
     cta: {
       eyebrow: "Get Expert Legal Advice Today",
-      heading: "Consult Saudi Arabia's Largest Online Legal Platform",
+      heading: "Consult Qanoni — Your Specialized Online Legal Consultation Platform",
       desc: "Professional legal guidance delivered online — fast, confidential, and backed by 30+ years of Saudi legal experience. Start your consultation today via WhatsApp or email.",
       ctaBtn: "Start Your Consultation",
       learnMoreBtn: "View All Services",
