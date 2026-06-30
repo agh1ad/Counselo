@@ -3,8 +3,6 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { Scale, ShieldCheck, Users, ArrowRight, CheckCircle2, Star, Quote, MessageCircle, Mail, Award, Globe, Zap, BadgeCheck, Wifi, Clock, Lock, MapPin } from "lucide-react";
-import counseloLogo from "@assets/Screen_Shot_2026-07-01_at_12.26.11_AM_1782851175169.png";
-import counseloIcon from "@assets/Screen_Shot_2026-07-01_at_12.27.10_AM_1782851233874.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const fadeIn = {
@@ -28,23 +26,23 @@ export default function Home() {
     <div className="w-full">
       <SEOHead
         title={isRTL
-          ? "قانوني | أكبر منصة استشارات قانونية أونلاين في السعودية | استجابة خلال 24 ساعة"
-          : "CounselO | Saudi Arabia's Largest Online Legal Consultation Platform | Response Within 24 Hours"}
+          ? "كاونسلو | منصة المملكة للاستشارات القانونية الأونلاين | استجابة خلال 24 ساعة"
+          : "CounselO | Saudi Arabia's Online Legal Consultation Platform | Response Within 24 Hours"}
         description={isRTL
-          ? "قانوني — أكبر منصة للاستشارات القانونية الأونلاين في المملكة العربية السعودية. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني للأفراد والشركات والمستثمرين. 18 مجالاً قانونياً، خبرة تزيد على 30 عاماً، أكثر من 20,000 قضية. بإشراف المحامي والمستشار القانوني عمر البغدادي. متاحة بالعربية والإنجليزية في الجبيل والرياض وجدة والدمام وجميع مناطق المملكة. رؤية 2030."
-          : "CounselO is Saudi Arabia's largest online legal consultation platform — professional legal response within 24 hours via WhatsApp or email. 18 practice areas covering family law, commercial law, employment, real estate, foreign investment, administrative law, criminal law, banking, tax, and more. Founded by Lawyer and Legal Counsel Omar Al-Baghdadi. 30+ years experience, 20,000+ cases. Serving Jubail, Riyadh, Jeddah, Dammam and all regions. Vision 2030 aligned."}
+          ? "قانوني — منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني للأفراد والشركات والمستثمرين. 18 مجالاً قانونياً، خبرة تزيد على 30 عاماً، أكثر من 20,000 قضية. بإشراف المحامي والمستشار القانوني عمر البغدادي. متاحة بالعربية والإنجليزية في الجبيل والرياض وجدة والدمام وجميع مناطق المملكة. رؤية 2030."
+          : "CounselO is Saudi Arabia's online legal consultation platform — professional legal response within 24 hours via WhatsApp or email. 18 practice areas covering family law, commercial law, employment, real estate, foreign investment, administrative law, criminal law, banking, tax, and more. Founded by Lawyer and Legal Counsel Omar Al-Baghdadi. 30+ years experience, 20,000+ cases. Serving Jubail, Riyadh, Jeddah, Dammam and all regions. Vision 2030 aligned."}
         canonical="/"
         keywords={isRTL
           ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة, مشورة قانونية خلال 24 ساعة, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل, القانون العقاري, استثمار أجنبي, القانون الإداري, استشارة قانونية واتساب, قانون جنائي سعودي, قانون ضريبي زكاة, مشورة قانونية الجبيل, عمر البغدادي, رؤية 2030, قانوني"
-          : "online legal consultation Saudi Arabia, Saudi Arabia's largest legal platform, lawyer online Saudi Arabia, legal advice within 24 hours KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law KSA, foreign investment lawyer Saudi Arabia, administrative law KSA, criminal law Saudi Arabia, banking finance law, tax zakat lawyer, medical malpractice KSA, WhatsApp legal consultation, Omar Al-Baghdadi, Jubail lawyer, Vision 2030 legal, CounselO"}
+          : "online legal consultation Saudi Arabia, Saudi Arabia's online legal platform, lawyer online Saudi Arabia, legal advice within 24 hours KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law KSA, foreign investment lawyer Saudi Arabia, administrative law KSA, criminal law Saudi Arabia, banking finance law, tax zakat lawyer, medical malpractice KSA, WhatsApp legal consultation, Omar Al-Baghdadi, Jubail lawyer, Vision 2030 legal, CounselO"}
         schema={{
           "@context": "https://schema.org",
           "@type": "LegalService",
           "name": "CounselO قانوني",
           "alternateName": "CounselO Online Legal Consultations",
           "description": isRTL
-            ? "أكبر منصة للاستشارات القانونية الأونلاين في المملكة العربية السعودية — 18 مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي"
-            : "Saudi Arabia's largest online legal consultation platform — 18 practice areas, professional response within 24 hours, founded by Lawyer Omar Al-Baghdadi",
+            ? "منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين — 18 مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي"
+            : "Saudi Arabia's online legal consultation platform — 18 practice areas, professional response within 24 hours, founded by Lawyer Omar Al-Baghdadi",
           "url": "https://counselo.com/",
           "logo": "https://counselo.com/logo.png",
           "founder": {
@@ -92,28 +90,6 @@ export default function Home() {
 
         {/* Radial glow — upper right */}
         <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at 75% 30%, hsl(150 60% 22% / 0.55) 0%, transparent 65%)" }} />
-
-        {/* CounselO icon — large decorative background mark */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-          <img
-            src={counseloIcon}
-            alt=""
-            aria-hidden="true"
-            className="absolute top-1/2 -translate-y-1/2 right-[-60px] lg:right-[5%] w-[580px] h-[580px] object-contain opacity-[0.13]"
-            style={{ filter: "brightness(2.5) saturate(0.6)" }}
-          />
-        </div>
-
-        {/* CounselO full logo — bottom-left watermark stamp */}
-        <div className="absolute bottom-8 start-8 z-0 pointer-events-none select-none hidden lg:block">
-          <img
-            src={counseloLogo}
-            alt=""
-            aria-hidden="true"
-            className="w-48 object-contain opacity-[0.15]"
-            style={{ filter: "brightness(3) saturate(0)" }}
-          />
-        </div>
 
         {/* Decorative grid lines */}
         <div className="absolute inset-0 z-0 opacity-[0.04]"
