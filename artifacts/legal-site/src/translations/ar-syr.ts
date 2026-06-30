@@ -278,6 +278,13 @@ export const arSyr: typeof ar = {
     },
   },
 
+  nav: {
+    ...ar.nav,
+    servicesList: ar.nav.servicesList.map((item: { name: string; href: string }) =>
+      item.href === "/services/tax-zakat" ? { ...item, name: "قانون الضرائب" } : item
+    ),
+  },
+
   familyLawDetail: {
     ...ar.familyLawDetail,
     parentTitle: "قانون الأسرة — سوريا",
@@ -286,6 +293,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.familyLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/في المملكة/g, "في سوريا"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/المحاكم السعودية/g, "المحاكم السورية")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/محاكم الأحوال الشخصية السعودية/g, "محاكم الأحوال الشخصية السورية"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -304,6 +314,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.businessLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/في المملكة/g, "في سوريا"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/SCCA|هيئة التحكيم السعودية/g, "تحكيم غرفة تجارة دمشق")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/رؤية 2030/g, "إصلاحات القانون التجاري السوري").replace(/ديوان المظالم/g, "مجلس الدولة").replace(/SCCA|هيئة التحكيم السعودية/g, "تحكيم غرفة تجارة دمشق"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -322,6 +335,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.realEstateLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/الهيئة العامة للعقار|REGA/g, "مديرية السجل العقاري"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/الهيئة العامة للعقار|REGA/g, "مديرية السجل العقاري")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/الهيئة العامة للعقار|REGA/g, "مديرية السجل العقاري"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -340,6 +356,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.employmentLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/نظام العمل السعودي/g, "قانون العمل السوري رقم 17/2010"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/نظام العمل السعودي|قانون العمل السعودي/g, "قانون العمل السوري رقم 17/2010").replace(/محاكم العمل السعودية/g, "محاكم العمل السورية")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/نظام العمل السعودي|قانون العمل السعودي/g, "قانون العمل السوري رقم 17/2010").replace(/القانون السعودي/g, "القانون السوري").replace(/محاكم العمل السعودية/g, "محاكم العمل السورية"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -358,6 +377,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.foreignInvestmentDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/رؤية 2030/g, "قانون الاستثمار السوري رقم 18\/2021").replace(/وزارة الاستثمار|MISA/g, "هيئة الاستثمار السورية"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/وزارة الاستثمار|MISA/g, "هيئة الاستثمار السورية").replace(/رؤية 2030/g, "قانون الاستثمار السوري").replace(/ديوان المظالم/g, "مجلس الدولة السوري")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/رؤية 2030/g, "قانون الاستثمار السوري رقم 18\/2021").replace(/وزارة الاستثمار|MISA/g, "هيئة الاستثمار السورية").replace(/ديوان المظالم/g, "مجلس الدولة السوري"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/رؤية 2030/g, "قانون الاستثمار السوري").replace(/MISA/g, "هيئة الاستثمار السورية") : svc.overview2,
         experienceNote: svc.experienceNote ? svc.experienceNote.replace(/المملكة العربية السعودية/g, "سوريا").replace(/MISA/g, "هيئة الاستثمار السورية").replace(/رؤية 2030/g, "قانون الاستثمار السوري") : svc.experienceNote,
@@ -374,9 +396,22 @@ export const arSyr: typeof ar = {
     parentTitle: "القانون الإداري — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "القانون الإداري — سوريا" },
     experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    subAreas: [
+      { id: "board-of-grievances", label: "التقاضي أمام مجلس الدولة السوري" },
+      { id: "administrative-appeals", label: "الطعن في القرارات الإدارية" },
+      { id: "government-contracts", label: "نزاعات العقود الحكومية" },
+      { id: "public-procurement", label: "نزاعات المشتريات الحكومية" },
+      { id: "regulatory-licensing", label: "النزاعات التنظيمية والترخيص" },
+      { id: "customs-tax-disputes", label: "نزاعات الجمارك وهيئة الضرائب" },
+      { id: "disciplinary-proceedings", label: "الإجراءات التأديبية المهنية" },
+      { id: "government-compensation", label: "مطالبات التعويض ضد الحكومة" },
+    ],
     services: Object.fromEntries(
       Object.entries(ar.administrativeLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا").replace(/ديوان المظالم/g, "مجلس الدولة السوري"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/ديوان المظالم/g, "مجلس الدولة السوري"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/ديوان المظالم/g, "مجلس الدولة السوري").replace(/ZATCA|هيئة الزكاة/g, "هيئة الضرائب والرسوم")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/ديوان المظالم/g, "مجلس الدولة السوري"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/ديوان المظالم/g, "مجلس الدولة السوري") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -395,6 +430,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.arbitrationDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا").replace(/SCCA/g, "غرفة تجارة دمشق"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/SCCA|المركز السعودي للتحكيم/g, "مركز تحكيم غرفة تجارة دمشق"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/SCCA|المركز السعودي للتحكيم التجاري/g, "مركز تحكيم غرفة تجارة دمشق")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/SCCA|المركز السعودي للتحكيم التجاري/g, "مركز تحكيم غرفة تجارة دمشق").replace(/رؤية 2030/g, "قانون التحكيم السوري رقم 4\/2008"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/SCCA/g, "مركز تحكيم غرفة تجارة دمشق") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -413,6 +451,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.enforcementDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا").replace(/السعودية/g, "السورية"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/الحكومة السعودية/g, "الحكومة السورية")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/نظام التنفيذ \(المرسوم الملكي م\/53\)/g, "قانون الإجراءات المدنية السوري"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -431,6 +472,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.companiesLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/نظام الشركات السعودي/g, "قانون الشركات السوري رقم 29\/2011"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/نظام الشركات السعودي/g, "قانون الشركات السوري رقم 29\/2011").replace(/SCCA/g, "تحكيم غرفة تجارة دمشق")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/نظام الشركات السعودي/g, "قانون الشركات السوري رقم 29\/2011").replace(/SCCA/g, "تحكيم غرفة تجارة دمشق"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -449,6 +493,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.contractsDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/نظام المعاملات المدنية/g, "القانون المدني السوري رقم 84\/1949"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/نظام المعاملات المدنية/g, "القانون المدني السوري رقم 84\/1949")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون المدني السوري").replace(/نظام المعاملات المدنية/g, "القانون المدني السوري رقم 84\/1949"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -467,6 +514,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.criminalLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/المحكمة العليا/g, "محكمة النقض السورية"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/المحكمة العليا/g, "محكمة النقض السورية")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/نظام الإجراءات الجزائية/g, "قانون أصول المحاكمات الجزائية السوري").replace(/المحكمة العليا/g, "محكمة النقض السورية"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -485,6 +535,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.bankingFinanceDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا").replace(/ساما|SAMA/g, "مصرف سوريا المركزي"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/ساما|SAMA/g, "مصرف سوريا المركزي"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/مؤسسة النقد|ساما|SAMA/g, "مصرف سوريا المركزي").replace(/هيئة السوق المالية|CMA/g, "وزارة الاقتصاد")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/مؤسسة النقد العربي السعودي|ساما|SAMA/g, "مصرف سوريا المركزي").replace(/هيئة السوق المالية|CMA/g, "هيئة الإشراف على التأمين"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/ساما|SAMA/g, "مصرف سوريا المركزي") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -503,6 +556,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.intellectualPropertyDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا").replace(/الهيئة السعودية للملكية الفكرية|SAIP/g, "وزارة الاقتصاد السورية"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/الهيئة السعودية للملكية الفكرية|SAIP/g, "وزارة الاقتصاد (قسم الملكية الفكرية)"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/الهيئة السعودية للملكية الفكرية|SAIP/g, "وزارة الاقتصاد (قسم الملكية الفكرية)").replace(/رؤية 2030/g, "إصلاحات الملكية الفكرية السورية")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/الهيئة السعودية للملكية الفكرية|SAIP/g, "وزارة الاقتصاد والتجارة الخارجية (قسم الملكية الفكرية)").replace(/رؤية 2030/g, "إصلاحات الملكية الفكرية السورية"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/SAIP/g, "وزارة الاقتصاد السورية") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -518,9 +574,33 @@ export const arSyr: typeof ar = {
     parentTitle: "قانون الضرائب — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "قانون الضرائب — سوريا" },
     experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    notFoundLink: "العودة إلى قانون الضرائب",
+    relatedHeading: "خدمات ضريبية أخرى",
+    sidebar: {
+      heading: "هل تحتاج إلى محامٍ ضريبي في سوريا؟",
+      desc: "احصل على استشارة قانونية متخصصة في الضرائب السورية — نزاعات ضريبة الدخل والطعون أمام هيئة الضرائب والرسوم والاستشارات الضريبية. استشارة إلكترونية متاحة.",
+      ctaBtn: "ابدأ استشارة",
+      whatsapp: "واتساب",
+      email: "بريد إلكتروني",
+      callLabel: "اتصل بنا",
+      phone: "+963 11 XXX XXXX",
+    },
+    subAreas: [
+      { id: "vat-compliance", label: "ضريبة القيمة المضافة وضريبة الدخل" },
+      { id: "zakat-disputes", label: "نزاعات ضريبة الدخل" },
+      { id: "zatca-appeals", label: "الطعون أمام هيئة الضرائب" },
+      { id: "corporate-tax", label: "ضريبة الدخل على الشركات" },
+      { id: "transfer-pricing", label: "تسعير التحويل" },
+      { id: "customs-disputes", label: "نزاعات الرسوم الجمركية" },
+      { id: "tax-advisory", label: "الاستشارات والهيكلة الضريبية" },
+      { id: "excise-tax", label: "الامتثال الضريبي" },
+    ],
     services: Object.fromEntries(
       Object.entries(ar.taxZakatDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا").replace(/هيئة الزكاة والضريبة والجمارك|ZATCA/g, "هيئة الضرائب والرسوم").replace(/الزكاة/g, "ضريبة الدخل"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/هيئة الزكاة والضريبة والجمارك|ZATCA/g, "هيئة الضرائب والرسوم").replace(/الزكاة/g, "ضريبة الدخل"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/هيئة الزكاة والضريبة والجمارك|ZATCA|هيئة الزكاة/g, "هيئة الضرائب والرسوم").replace(/الزكاة/g, "ضريبة الدخل")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/هيئة الزكاة والضريبة والجمارك|ZATCA/g, "هيئة الضرائب والرسوم السورية").replace(/الزكاة/g, "ضريبة الدخل"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/ZATCA|هيئة الزكاة/g, "هيئة الضرائب والرسوم") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -539,6 +619,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.cyberLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/نظام مكافحة الجرائم المعلوماتية/g, "قانون الجرائم المعلوماتية السوري (المرسوم رقم 17\/2012)"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/نظام مكافحة الجرائم المعلوماتية/g, "قانون الجرائم المعلوماتية السوري").replace(/نظام حماية البيانات الشخصية|PDPL/g, "قانون حماية البيانات السوري")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/نظام مكافحة الجرائم المعلوماتية السعودي/g, "قانون الجرائم المعلوماتية السوري (المرسوم رقم 17\/2012)").replace(/نظام حماية البيانات الشخصية|PDPL/g, "قانون حماية البيانات السوري"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -556,6 +639,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.medicalMalpracticeDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/ديوان المظالم/g, "المحاكم المدنية السورية").replace(/وزارة الصحة السعودية|MOH/g, "وزارة الصحة السورية")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/ديوان المظالم/g, "المحاكم المدنية السورية").replace(/وزارة الصحة السعودية|MOH/g, "وزارة الصحة السورية"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -573,6 +659,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.insuranceLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا").replace(/ساما|SAMA/g, "هيئة الإشراف على التأمين"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/ساما|SAMA/g, "هيئة الإشراف على التأمين"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/مؤسسة النقد|ساما|SAMA/g, "هيئة الإشراف على التأمين")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/مؤسسة النقد العربي السعودي|ساما|SAMA/g, "هيئة الإشراف على التأمين").replace(/نظام التأمين \(المرسوم الملكي م\/32\)/g, "قانون التأمين السوري رقم 68\/2001"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/ساما|SAMA/g, "هيئة الإشراف على التأمين") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
@@ -590,6 +679,9 @@ export const arSyr: typeof ar = {
     services: Object.fromEntries(
       Object.entries(ar.immigrationLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
+        seoTitle: svc.seoTitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/في المملكة/g, "في سوريا"),
+        subtitle: svc.subtitle.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/الجوازات/g, "الإدارة العامة للهجرة والجوازات"),
+        covers: svc.covers.map((c: string) => c.replace(/المملكة العربية السعودية/g, "سوريا").replace(/الجوازات/g, "الإدارة العامة للهجرة والجوازات").replace(/وزارة الموارد البشرية/g, "وزارة الداخلية")),
         overview1: svc.overview1.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري").replace(/الجوازات|الكفالة/g, "الإدارة العامة للهجرة والجوازات").replace(/وزارة الموارد البشرية/g, "وزارة الداخلية"),
         overview2: svc.overview2 ? svc.overview2.replace(/المملكة العربية السعودية/g, "سوريا").replace(/القانون السعودي/g, "القانون السوري") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
