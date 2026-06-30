@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { trackEvent } from "@/lib/analytics";
+import { useLocation } from "wouter";
 
 const WHATSAPP_NUMBER = "966594850247";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -8,6 +10,7 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 export function WhatsAppFloat() {
   const [hovered, setHovered] = useState(false);
   const { isRTL } = useLanguage();
+  const [location] = useLocation();
 
   const label = isRTL ? "تواصل عبر واتساب" : "Chat on WhatsApp";
 
@@ -38,6 +41,7 @@ export function WhatsAppFloat() {
         aria-label={label}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        onClick={() => trackEvent("whatsapp_click", location)}
       >
         <motion.div
           initial={{ scale: 0, opacity: 0 }}

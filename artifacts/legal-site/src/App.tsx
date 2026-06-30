@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/footer";
 import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { useEffect } from "react";
+import { trackPageview, getGAMeasurementId, injectGA } from "@/lib/analytics";
 
 import Home from "@/pages/home";
 import Services from "@/pages/services";
@@ -44,7 +45,16 @@ function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
+    trackPageview(location);
   }, [location]);
+  return null;
+}
+
+function GAInit() {
+  useEffect(() => {
+    const id = getGAMeasurementId();
+    if (id) injectGA(id);
+  }, []);
   return null;
 }
 
@@ -115,6 +125,7 @@ function AppShell() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <GAInit />
       <Navbar />
       <main className="flex-grow pt-24">
         <Router />
