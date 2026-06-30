@@ -21,6 +21,9 @@ export const en = {
       { name: "Intellectual Property", href: "/services/intellectual-property" },
       { name: "Tax & Zakat", href: "/services/tax-zakat" },
       { name: "Cyber & IT Law", href: "/services/cyber-law" },
+      { name: "Medical Malpractice", href: "/services/medical-malpractice" },
+      { name: "Insurance Law", href: "/services/insurance-law" },
+      { name: "Immigration & Residency", href: "/services/immigration-law" },
     ],
   },
   footer: {
@@ -45,6 +48,9 @@ export const en = {
       { label: "Intellectual Property", href: "/services/intellectual-property" },
       { label: "Tax & Zakat", href: "/services/tax-zakat" },
       { label: "Cyber & IT Law", href: "/services/cyber-law" },
+      { label: "Medical Malpractice", href: "/services/medical-malpractice" },
+      { label: "Insurance Law", href: "/services/insurance-law" },
+      { label: "Immigration & Residency", href: "/services/immigration-law" },
     ],
     address: "Riyadh, Saudi Arabia",
     phone: "+966 59 485 0247",
@@ -184,7 +190,7 @@ export const en = {
   services: {
     hero: {
       heading: "Our Expertise",
-      desc: "Qanoni covers six core practice areas — backed by 30+ years of Saudi legal experience and 20,000+ cases. Professional legal advice online via WhatsApp or email, 24/7, in Arabic and English.",
+      desc: "Qanoni covers 18 practice areas — backed by 30+ years of Saudi legal experience and 20,000+ cases. Professional legal advice online via WhatsApp or email, 24/7, in Arabic and English.",
     },
     explorePrefix: "Explore ",
     items: [
@@ -402,6 +408,42 @@ export const en = {
           { title: "Investigation Stage Support", desc: "We represent you during CITC or law enforcement investigation — protecting your rights, managing digital evidence issues, and preventing unnecessary escalation." },
           { title: "Defense & Litigation", desc: "We defend cybercrime charges before Saudi criminal courts — challenging digital evidence, jurisdiction, and the legal elements of each alleged offense." },
           { title: "Compliance & Prevention", desc: "For businesses, we implement data protection frameworks and IT contract structures that prevent cybercrime exposure before it arises." },
+        ],
+      },
+      "medical-malpractice": {
+        title: "Medical Malpractice & Healthcare Law",
+        subtitle: "Expert medical malpractice lawyers in Saudi Arabia — securing compensation for victims of medical negligence, surgical errors, misdiagnosis, and hospital liability.",
+        overview: "Medical malpractice in Saudi Arabia is governed by the Saudi Medical Practitioners Disciplinary Regulations and the Healthcare Law, with claims pursued before civil courts or the Board of Grievances for government hospitals. At Qanoni, we represent patients, families, and healthcare providers in all categories of medical malpractice and healthcare law disputes — including negligence claims, surgical error cases, misdiagnosis, pharmaceutical liability, dental malpractice, and MOH and CCHI regulatory proceedings. Online consultation available via WhatsApp or email — 24/7, in Arabic and English.",
+        covers: ["Medical Negligence Claims & Compensation", "Surgical Error & Anaesthesia Claims", "Misdiagnosis & Diagnostic Error Cases", "Hospital & Clinic Liability", "Pharmaceutical & Medication Injury Claims", "Dental Malpractice Claims", "Healthcare Regulatory Defense (MOH/CCHI)", "Patient Rights & Wrongful Death Claims"],
+        process: [
+          { title: "Case Evaluation", desc: "We assess the medical care received against the professional standard of care — working with independent medical experts to determine whether actionable negligence occurred." },
+          { title: "Evidence & Expert Coordination", desc: "We gather medical records, commission independent expert reports, and build the evidentiary foundation required for a successful claim." },
+          { title: "Filing & Court Proceedings", desc: "We file the claim before the competent court — whether civil court or Board of Grievances — and represent you through all hearings and proceedings." },
+          { title: "Compensation Recovery", desc: "We pursue full compensation for physical injury, pain and suffering, financial losses, and wrongful death — through judgment or negotiated settlement." },
+        ],
+      },
+      "insurance-law": {
+        title: "Insurance Law",
+        subtitle: "Specialist insurance dispute lawyers in Saudi Arabia — challenging wrongful claim rejections and recovering insurance proceeds across all lines of insurance.",
+        overview: "Saudi Arabia's insurance sector is regulated by the Saudi Central Bank (SAMA) under the Insurance Law (Royal Decree M/32) and its Implementing Regulations. When insurers wrongfully reject or underpay valid claims — whether for health, property, motor, life, or commercial insurance — policyholders have the right to challenge those decisions through SAMA's complaint mechanisms and before Saudi courts. At Qanoni, we represent policyholders, beneficiaries, and insured parties in all categories of insurance dispute across all lines of insurance. Online consultation via WhatsApp or email, 24/7.",
+        covers: ["Health Insurance Claim Disputes", "Property & Home Insurance Claims", "Motor Insurance Disputes", "Life Insurance & Beneficiary Claims", "Commercial & Business Insurance Disputes", "Bad Faith Insurance Practices", "SAMA Regulatory Complaints", "Insurance Policy Interpretation & Coverage Disputes"],
+        process: [
+          { title: "Policy Review", desc: "We review your insurance policy, the insurer's rejection letter, and all relevant documentation to assess the validity of the rejection and the strength of your claim." },
+          { title: "SAMA Complaint", desc: "We file a formal SAMA complaint against the insurer — a mandatory first step in insurance disputes that often produces a resolution without litigation." },
+          { title: "Litigation", desc: "Where SAMA does not resolve the dispute, we file proceedings before Saudi courts — presenting expert evidence and legal argument to compel payment of the insurance proceeds." },
+          { title: "Recovery", desc: "We pursue the full insurance proceeds owed — plus any additional damages where the insurer acted in bad faith or caused additional loss by wrongful rejection." },
+        ],
+      },
+      "immigration-law": {
+        title: "Immigration & Residency Law",
+        subtitle: "Expert immigration lawyers in Saudi Arabia — iqama residency, work visas, kafala transfer, deportation defense, and premium residency (green card) applications.",
+        overview: "Saudi Arabia's immigration system is governed by the Residency Law (Royal Decree M/17 of 1952 and its amendments), the Labor Law, and the Kafala sponsorship system — with enforcement by the Jawazat (Passport Department) and the Ministry of Human Resources. Immigration violations carry serious consequences including fines, detention, and deportation. At Qanoni, we advise and represent individuals, families, and employers on the full range of Saudi immigration and residency matters — from iqama applications and renewals to deportation defense, kafala sponsorship transfer, and Saudi premium residency (green card) applications. Online consultation available 24/7.",
+        covers: ["Iqama Residency Permit Applications & Renewals", "Work Visa Applications & Employer Sponsorship", "Kafala Sponsorship Transfer", "Deportation Defense & Immigration Violations", "Family Visas & Dependent Residency", "Saudi Premium Residency (Green Card) Applications", "Exit & Re-entry Visa Issues", "Immigration Violation Defense & Fines"],
+        process: [
+          { title: "Immigration Assessment", desc: "We assess your immigration status, identify any violations or risks, and advise on the most effective legal pathway — whether for a new application, renewal, transfer, or defense." },
+          { title: "Document Preparation", desc: "We prepare and review all required documentation — ensuring applications are complete, compliant, and submitted correctly to Jawazat or the relevant authority." },
+          { title: "Authority Representation", desc: "We represent you before Jawazat, the Ministry of Human Resources, or other Saudi government authorities — managing the application, appeal, or defense proceedings on your behalf." },
+          { title: "Resolution", desc: "We pursue the best available outcome — whether approval of residency or visa, successful kafala transfer, dropped violation charges, or prevention of deportation." },
         ],
       },
     },
