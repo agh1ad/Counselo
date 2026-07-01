@@ -36,7 +36,7 @@ export default function About() {
         ? { "@type": "Country", "name": "Syria" }
         : { "@type": "Country", "name": "Saudi Arabia" },
       "telephone": "+966594850247",
-      "email": "legal@counselo.com",
+      "email": "info@counselo-legal.com",
       "address": region === "syr"
         ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
         : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA" },

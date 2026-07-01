@@ -162,7 +162,7 @@ export default function Contact() {
             "@type": "LegalService",
             "name": "CounselO",
             "telephone": "+966594850247",
-            "email": "legal@counselo.com",
+            "email": "info@counselo-legal.com",
             "url": "https://counselo.com",
             "address": region === "syr"
               ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
@@ -182,7 +182,7 @@ export default function Contact() {
       {/* Native form — invisible, actual formsubmit.co multipart submission */}
       <form
         ref={nativeFormRef}
-        action="https://formsubmit.co/legal@counselo.com"
+        action="https://formsubmit.co/info@counselo-legal.com"
         method="POST"
         encType="multipart/form-data"
         style={{ display: "none" }}

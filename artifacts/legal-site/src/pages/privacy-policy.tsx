@@ -139,7 +139,7 @@ export default function PrivacyPolicy() {
             "Right of deletion: to request deletion of your personal data where we no longer have a legal basis to retain it",
             "Right to withdraw consent: where processing is based on consent, you may withdraw it at any time",
             "Right to object: to object to our processing of your data in certain circumstances",
-            "To exercise any of these rights, contact us via email at legal@counselo.com — we will respond within 30 days",
+            "To exercise any of these rights, contact us via email at info@counselo-legal.com — we will respond within 30 days",
           ],
         },
         {
@@ -298,7 +298,7 @@ export default function PrivacyPolicy() {
             "حق الحذف: طلب حذف بياناتك الشخصية حيثما لا يعود لدينا أساس قانوني للاحتفاظ بها",
             "حق سحب الموافقة: يمكنك سحب موافقتك في أي وقت حيثما استُند إليها أساساً للمعالجة",
             "حق الاعتراض: الاعتراض على معالجتنا لبياناتك في حالات معينة",
-            "لممارسة أي من هذه الحقوق، تواصل معنا عبر البريد الإلكتروني legal@counselo.com — سنردّ خلال 30 يوماً",
+            "لممارسة أي من هذه الحقوق، تواصل معنا عبر البريد الإلكتروني info@counselo-legal.com — سنردّ خلال 30 يوماً",
           ],
         },
         {
@@ -447,9 +447,9 @@ export default function PrivacyPolicy() {
               <MessageCircle className="h-4 w-4" />
               <span dir="ltr">+966 59 485 0247</span>
             </a>
-            <a href="mailto:legal@counselo.com" className="flex items-center gap-2 hover:text-white transition-colors">
+            <a href="mailto:info@counselo-legal.com" className="flex items-center gap-2 hover:text-white transition-colors">
               <Mail className="h-4 w-4" />
-              <span>legal@counselo.com</span>
+              <span>info@counselo-legal.com</span>
             </a>
           </div>
         </motion.section>
