@@ -11,9 +11,12 @@ export default function TermsOfService() {
 
   const content = {
     en: {
-      seoTitle: "Terms of Service | Online Legal Consultation Process | CounselO",
-      seoDesc:
-        "CounselO's consultation terms and process for online legal advice in Saudi Arabia — how it works: submit your matter, receive a cost estimate, pay securely, and receive your expert legal answer. 24/7, Arabic and English.",
+      seoTitle: region === "syr"
+        ? "Terms of Service | Online Legal Consultation Process | CounselO"
+        : "Terms of Service | Online Legal Consultation Process | CounselO",
+      seoDesc: region === "syr"
+        ? "CounselO's consultation terms and process for online legal advice in Syria — how it works: submit your matter, receive a cost estimate, pay securely, and receive your expert legal answer. 24/7, Arabic and English."
+        : "CounselO's consultation terms and process for online legal advice in Saudi Arabia — how it works: submit your matter, receive a cost estimate, pay securely, and receive your expert legal answer. 24/7, Arabic and English.",
       eyebrow: "Legal Consultation Terms",
       heading: "Terms of Service",
       subheading:
@@ -60,10 +63,6 @@ export default function TermsOfService() {
           desc: "A consultation does not automatically create a mandate to represent you in court or before any authority. Court representation or ongoing legal representation requires a separate written agreement.",
         },
         {
-          title: "Jurisdiction",
-          desc: "These terms are governed by the laws of the Kingdom of Saudi Arabia. Any dispute arising from the consultation service shall be subject to the jurisdiction of the competent Saudi courts.",
-        },
-        {
           title: "Changes to Terms",
           desc: "CounselO reserves the right to update these terms at any time. The terms applicable to your consultation are those in effect at the time you request the service.",
         },
@@ -74,8 +73,9 @@ export default function TermsOfService() {
     },
     ar: {
       seoTitle: "شروط الخدمة | آلية الاستشارة القانونية الأونلاين | كاونسلو",
-      seoDesc:
-        "شروط وآلية استشارات كاونسلو القانونية الأونلاين في المملكة العربية السعودية — كيفية العمل: أرسل قضيتك، احصل على تقدير التكلفة، ادفع بأمان، واستلم إجابتك القانونية. متاح 24/7 بالعربية والإنجليزية.",
+      seoDesc: region === "syr"
+        ? "شروط وآلية استشارات كاونسلو القانونية الأونلاين في سوريا — كيفية العمل: أرسل قضيتك، احصل على تقدير التكلفة، ادفع بأمان، واستلم إجابتك القانونية. متاح 24/7 بالعربية والإنجليزية."
+        : "شروط وآلية استشارات كاونسلو القانونية الأونلاين في المملكة العربية السعودية — كيفية العمل: أرسل قضيتك، احصل على تقدير التكلفة، ادفع بأمان، واستلم إجابتك القانونية. متاح 24/7 بالعربية والإنجليزية.",
       eyebrow: "شروط الاستشارة القانونية",
       heading: "شروط الخدمة",
       subheading:
@@ -120,10 +120,6 @@ export default function TermsOfService() {
         {
           title: "الاستشارة لا تعني التمثيل القانوني",
           desc: "لا تُنشئ الاستشارة تلقائياً تفويضاً بتمثيلك أمام المحاكم أو أي جهة رسمية. ويستلزم التمثيل القضائي أو الاستشاري المستمر إبرام اتفاق خطي منفصل.",
-        },
-        {
-          title: "الاختصاص القضائي",
-          desc: "تخضع هذه الشروط لأحكام نظام المملكة العربية السعودية، وأي نزاع ينشأ عن الخدمة يُحال إلى المحاكم السعودية المختصة.",
         },
         {
           title: "تعديل الشروط",
