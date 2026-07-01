@@ -7,6 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { SYR_SEO_DATA } from "@/lib/seo-data-syr";
+import { SUB_SERVICE_MAP } from "@/lib/sub-service-map";
 
 export default function ServiceDetail() {
   const params = useParams();
@@ -31,12 +32,20 @@ export default function ServiceDetail() {
   const isSyr = region === "syr";
   const syrSeo = isSyr ? SYR_SEO_DATA[id] : undefined;
 
+  const d = data as Record<string, unknown>;
+  const overview       = typeof d.overview      === "string" ? d.overview      : null;
+  const overview1      = typeof d.overview1     === "string" ? d.overview1     : null;
+  const overview2      = typeof d.overview2     === "string" ? d.overview2     : null;
+  const experienceNote = typeof d.experienceNote=== "string" ? d.experienceNote: null;
+  const dataSeoTitle   = typeof d.seoTitle      === "string" ? d.seoTitle      : null;
+  const subServices    = SUB_SERVICE_MAP[id] ?? [];
+
   const seoTitle = isRTL
     ? (syrSeo
         ? `${data.title} في سوريا | استشارة قانونية أونلاين | قانوني`
         : `${data.title} في السعودية | استشارة قانونية أونلاين | قانوني`)
-    : (syrSeo
-        ? `${data.title} Lawyer in Syria | Online Legal Consultation | CounselO`
+    : (isSyr
+        ? (dataSeoTitle ?? `${data.title} Lawyer in Syria | Online Legal Consultation | CounselO`)
         : `${data.title} Lawyer in Saudi Arabia | Online Legal Consultation | CounselO`);
 
   const seoDesc = isRTL
@@ -66,7 +75,7 @@ export default function ServiceDetail() {
       "url": canonicalUrlFull,
       "areaServed": { "@type": "Country", "name": isSyr ? "Syria" : "Saudi Arabia" },
       "availableLanguage": ["Arabic", "English"],
-      "serviceType": isRTL ? data.title : data.title,
+      "serviceType": data.title,
       "provider": {
         "@type": "LegalService",
         "name": isRTL ? "قانوني كاونسلو" : "CounselO",
@@ -158,8 +167,23 @@ export default function ServiceDetail() {
                   : `${data.title} Lawyer in ${isSyr ? "Syria" : "Saudi Arabia"}`}
               </h1>
               <p className="text-2xl text-primary font-serif italic mb-10">{data.subtitle}</p>
+
+              {/* Overview — handles both single-string and multi-paragraph formats */}
               <div className="prose prose-green max-w-none mb-16 speakable-overview">
-                <p className="text-lg text-muted-foreground leading-relaxed">{data.overview}</p>
+                {overview && (
+                  <p className="text-lg text-muted-foreground leading-relaxed">{overview}</p>
+                )}
+                {overview1 && (
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">{overview1}</p>
+                )}
+                {overview2 && (
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">{overview2}</p>
+                )}
+                {experienceNote && (
+                  <p className="text-base text-muted-foreground italic border-s-4 border-primary/40 ps-4 mt-4">
+                    {experienceNote}
+                  </p>
+                )}
               </div>
 
               <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">{sd.coversHeading}</h2>
@@ -212,6 +236,31 @@ export default function ServiceDetail() {
                           </div>
                         )}
                       </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Sub-services grid — shown for parent practice areas */}
+              {subServices.length > 0 && (
+                <div className="mt-16">
+                  <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">
+                    {isRTL
+                      ? `مجالات ${data.title} التفصيلية`
+                      : `${data.title} Practice Areas`}
+                  </h2>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {subServices.map((sub) => (
+                      <Link
+                        key={sub.id}
+                        href={`${regionPrefix}/services/${sub.id}`}
+                        className="group flex items-center justify-between bg-card border border-border px-5 py-4 hover:border-primary hover:bg-primary/5 transition-all"
+                      >
+                        <span className="font-medium text-foreground group-hover:text-primary transition-colors leading-snug">
+                          {isRTL ? sub.titleAr : sub.titleEn}
+                        </span>
+                        <ChevronRight className={`h-4 w-4 text-muted-foreground group-hover:text-primary shrink-0 transition-colors ms-3 ${isRTL ? "rotate-180" : ""}`} />
+                      </Link>
                     ))}
                   </div>
                 </div>
