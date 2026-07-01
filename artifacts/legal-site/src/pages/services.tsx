@@ -71,6 +71,14 @@ export default function Services() {
         : { "@type": "Country", "name": "Saudi Arabia" },
       "availableLanguage": ["Arabic", "English"],
     },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": baseUrl },
+        { "@type": "ListItem", "position": 2, "name": isRTL ? "الخدمات" : "Services", "item": `${baseUrl}/services` },
+      ],
+    },
   ];
 
   return (

@@ -140,6 +140,13 @@ export default function Home() {
             "bestRating": "5",
           },
         }}
+        extraSchemas={[{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": region === "syr" ? "https://counselo.com/syr" : "https://counselo.com/sa" },
+          ],
+        }]}
       />
 
       {/* ── HERO ── */}
