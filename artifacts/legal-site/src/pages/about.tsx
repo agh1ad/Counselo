@@ -23,7 +23,7 @@ export default function About() {
       "@type": "Organization",
       "name": "CounselO",
       "url": "https://counselo.com",
-      "logo": "https://counselo.com/images/counselo-icon.png",
+      "logo": "https://counselo.com/logo.png",
       "description": region === "syr"
         ? (isRTL
           ? "منصة الاستشارات القانونية الإلكترونية المتخصصة في سوريا — تأسست على يد المحامي عمر البغدادي بخبرة 30+ عاماً في القانون السوري"
