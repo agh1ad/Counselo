@@ -123,31 +123,31 @@ export default function Contact() {
       <SEOHead
         title={region === "syr"
           ? (isRTL
-            ? "احجز استشارة قانونية أونلاين في سوريا | استجابة خلال 24 ساعة | قانوني"
+            ? "احجز استشارة قانونية أونلاين في سوريا | استجابة خلال 24 ساعة | كاونسلو"
             : "Book Online Legal Consultation Syria | Response Within 24 Hours | CounselO")
           : (isRTL
-            ? "احجز استشارة قانونية أونلاين في السعودية | استجابة خلال 24 ساعة | قانوني"
+            ? "احجز استشارة قانونية أونلاين في السعودية | استجابة خلال 24 ساعة | كاونسلو"
             : "Book Online Legal Consultation Saudi Arabia | Response Within 24 Hours | CounselO")}
         description={region === "syr"
           ? (isRTL
-            ? "تواصل مع قانوني — منصة الاستشارات القانونية الأونلاين في سوريا. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
+            ? "تواصل مع كاونسلو — منصة الاستشارات القانونية الأونلاين في سوريا. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
             : "Contact CounselO — Syria's online legal consultation platform. Professional response within 24 hours via WhatsApp (+966 59 485 0247) or email. No office visit needed. Arabic and English.")
           : (isRTL
-            ? "تواصل مع قانوني — أكبر منصة استشارات قانونية أونلاين في المملكة. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
+            ? "تواصل مع كاونسلو — أكبر منصة استشارات قانونية أونلاين في المملكة. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
             : "Contact CounselO — Saudi Arabia's largest online legal consultation platform. Professional response within 24 hours via WhatsApp (+966 59 485 0247) or email. No office visit needed. Arabic and English.")}
         canonical="/contact"
         keywords={region === "syr"
           ? (isRTL
-            ? "احجز استشارة قانونية سوريا, تواصل مع محامي أونلاين سوريا, استشارة قانونية واتساب سوريا, استجابة خلال 24 ساعة, محامي دمشق أونلاين, قانوني اتصل سوريا, استشارة قانونية إلكترونية سوريا"
+            ? "احجز استشارة قانونية سوريا, تواصل مع محامي أونلاين سوريا, استشارة قانونية واتساب سوريا, استجابة خلال 24 ساعة, محامي دمشق أونلاين, كاونسلو اتصل سوريا, استشارة قانونية إلكترونية سوريا"
             : "book legal consultation Syria, contact lawyer online Syria, WhatsApp legal consultation Syria, legal advice within 24 hours Syria, Damascus lawyer online, CounselO contact Syria, book lawyer Syria")
           : (isRTL
-            ? "احجز استشارة قانونية السعودية, تواصل مع محامي أونلاين, استشارة قانونية واتساب السعودية, استجابة خلال 24 ساعة, محامي الجبيل أونلاين, قانوني اتصل, استشارة فورية السعودية"
+            ? "احجز استشارة قانونية السعودية, تواصل مع محامي أونلاين, استشارة قانونية واتساب السعودية, استجابة خلال 24 ساعة, محامي الجبيل أونلاين, كاونسلو اتصل, استشارة فورية السعودية"
             : "book legal consultation Saudi Arabia, contact lawyer online KSA, WhatsApp legal consultation Saudi Arabia, legal advice within 24 hours, Jubail lawyer online, CounselO contact, book lawyer KSA")}
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            "name": isRTL ? "تواصل مع قانوني" : "Contact CounselO",
+            "name": isRTL ? "تواصل مع كاونسلو" : "Contact CounselO",
             "description": region === "syr"
               ? (isRTL
                 ? "احجز استشارة قانونية أونلاين في سوريا — استجابة احترافية خلال 24 ساعة"

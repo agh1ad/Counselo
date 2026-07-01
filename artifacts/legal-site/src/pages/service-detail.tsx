@@ -42,18 +42,18 @@ export default function ServiceDetail() {
 
   const seoTitle = isRTL
     ? (syrSeo
-        ? `${data.title} في سوريا | استشارة قانونية أونلاين | قانوني`
-        : `${data.title} في السعودية | استشارة قانونية أونلاين | قانوني`)
+        ? `${data.title} في سوريا | استشارة قانونية أونلاين | كاونسلو`
+        : `${data.title} في السعودية | استشارة قانونية أونلاين | كاونسلو`)
     : (isSyr
         ? (dataSeoTitle ?? `${data.title} Lawyer in Syria | Online Legal Consultation | CounselO`)
         : `${data.title} Lawyer in Saudi Arabia | Online Legal Consultation | CounselO`);
 
   const seoDesc = isRTL
-    ? (syrSeo?.descAr ?? `${data.subtitle} — قانوني، منصة متخصصة للاستشارات القانونية الأونلاين في ${isSyr ? "سوريا" : "المملكة"}. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. خبرة تزيد على 30 عاماً.`)
+    ? (syrSeo?.descAr ?? `${data.subtitle} — كاونسلو، منصة متخصصة للاستشارات القانونية الأونلاين في ${isSyr ? "سوريا" : "المملكة"}. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. خبرة تزيد على 30 عاماً.`)
     : (syrSeo?.desc ?? `${data.subtitle} — CounselO, ${isSyr ? "Syria's specialized online legal platform" : "Saudi Arabia's largest online legal platform"}. Professional response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases handled.`);
 
   const seoKeywords = isRTL
-    ? (syrSeo?.kwAr ?? `${data.title} محامي ${isSyr ? "سوريا" : "المملكة العربية السعودية"}, استشارة قانونية ${data.title} أونلاين, محامي ${data.title} قانوني`)
+    ? (syrSeo?.kwAr ?? `${data.title} محامي ${isSyr ? "سوريا" : "المملكة العربية السعودية"}, استشارة قانونية ${data.title} أونلاين, محامي ${data.title} كاونسلو`)
     : (syrSeo?.kw ?? `${data.title} lawyer ${isSyr ? "Syria" : "Saudi Arabia"}, online ${data.title} legal advice ${isSyr ? "Syria" : "KSA"}, ${data.title} attorney CounselO`);
 
   const serviceAddress = isSyr
@@ -70,7 +70,7 @@ export default function ServiceDetail() {
     {
       "@context": "https://schema.org",
       "@type": "LegalService",
-      "name": isRTL ? `${data.title} — قانوني` : `${data.title} — CounselO`,
+      "name": isRTL ? `${data.title} — كاونسلو` : `${data.title} — CounselO`,
       "description": isRTL ? (syrSeo?.descAr ?? data.subtitle) : (syrSeo?.desc ?? data.subtitle),
       "url": canonicalUrlFull,
       "areaServed": { "@type": "Country", "name": isSyr ? "Syria" : "Saudi Arabia" },
@@ -78,7 +78,7 @@ export default function ServiceDetail() {
       "serviceType": data.title,
       "provider": {
         "@type": "LegalService",
-        "name": isRTL ? "قانوني كاونسلو" : "CounselO",
+        "name": isRTL ? "كاونسلو كاونسلو" : "CounselO",
         "url": "https://counselo.com",
         "telephone": "+966594850247",
         "email": "bagdadio@gmail.com",

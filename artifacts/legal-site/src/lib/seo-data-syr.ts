@@ -8,7 +8,7 @@ export const SYR_SEO_DATA: Record<string, {
   // ── Administrative Law ─────────────────────────────────────────────────
   "board-of-grievances": {
     desc: "Administrative court lawyer in Syria — filing claims before the Syrian State Council and Administrative Courts. Professional response within 24 hours via WhatsApp or email — CounselO.",
-    descAr: "محامٍ في المحاكم الإدارية السورية — تقديم الدعاوى أمام مجلس الدولة السوري والمحاكم الإدارية. استجابة مهنية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — قانوني.",
+    descAr: "محامٍ في المحاكم الإدارية السورية — تقديم الدعاوى أمام مجلس الدولة السوري والمحاكم الإدارية. استجابة مهنية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني — كاونسلو.",
     kw: "administrative court lawyer Syria, Syrian State Council, administrative claim Syria, government dispute Syria, State Council Damascus, Syrian administrative court appeal",
     kwAr: "محامي محاكم إدارية سوريا, مجلس الدولة السوري, دعوى إدارية سوريا, نزاع حكومي سوريا, محكمة إدارية دمشق",
   },
@@ -16,7 +16,7 @@ export const SYR_SEO_DATA: Record<string, {
     desc: "Administrative decision appeal lawyer in Syria — challenging government & regulatory decisions before Syrian Administrative Courts and State Council. Online 24/7.",
     descAr: "محامٍ استئناف قرارات إدارية في سوريا — الطعن في قرارات الجهات الحكومية والتنظيمية أمام المحاكم الإدارية ومجلس الدولة السوري. أونلاين.",
     kw: "administrative appeal Syria, government decision challenge Syria, State Council Syria, regulatory appeal lawyer Syria, administrative court Damascus",
-    kwAr: "استئناف إداري سوريا, الطعن في القرارات الحكومية سوريا, محكمة إدارية دمشق, مجلس الدولة سوريا, قانوني سوريا",
+    kwAr: "استئناف إداري سوريا, الطعن في القرارات الحكومية سوريا, محكمة إدارية دمشق, مجلس الدولة سوريا, كاونسلو سوريا",
   },
   "government-contracts": {
     desc: "Government contract dispute lawyer in Syria — payment delays, breach of public contracts & claims before Syrian Administrative Courts. Online 24 hours via WhatsApp.",
@@ -38,19 +38,19 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "customs-tax-disputes": {
     desc: "Customs & tax dispute lawyer in Syria — General Tax Authority (GTA) claims, customs duty disputes & income tax objections. Online legal advice — CounselO.",
-    descAr: "محامٍ نزاعات جمركية وضريبية في سوريا — دعاوى الهيئة العامة للضرائب ونزاعات الجمارك والاعتراض على ضريبة الدخل. قانوني.",
+    descAr: "محامٍ نزاعات جمركية وضريبية في سوريا — دعاوى الهيئة العامة للضرائب ونزاعات الجمارك والاعتراض على ضريبة الدخل. كاونسلو.",
     kw: "tax dispute lawyer Syria, General Tax Authority Syria, GTA appeal Syria, customs dispute Syria, income tax objection Syria, Syrian customs lawyer",
     kwAr: "محامي ضرائب سوريا, الهيئة العامة للضرائب سوريا, اعتراض ضريبي سوريا, نزاع جمركي سوريا",
   },
   "disciplinary-proceedings": {
     desc: "Civil service disciplinary defence lawyer in Syria — suspension, dismissal & appeal before Syrian administrative authorities. Online legal advice — CounselO.",
-    descAr: "محامٍ دفاع تأديبي في الوظائف الحكومية بسوريا — تعليق الخدمة والفصل والطعن أمام الجهات الإدارية السورية. استشارة قانونية أونلاين — قانوني.",
+    descAr: "محامٍ دفاع تأديبي في الوظائف الحكومية بسوريا — تعليق الخدمة والفصل والطعن أمام الجهات الإدارية السورية. استشارة قانونية أونلاين — كاونسلو.",
     kw: "disciplinary proceedings lawyer Syria, civil service defence Syria, government employee lawyer Syria, disciplinary appeal Damascus, Syrian civil service law",
     kwAr: "محامي تأديب وظيفي سوريا, دفاع موظف حكومي سوريا, طعن تأديبي سوريا, فصل وظيفي دمشق",
   },
   "government-compensation": {
     desc: "Government compensation claim lawyer in Syria — expropriation, public works damage & administrative liability claims. Online legal advice — CounselO.",
-    descAr: "محامٍ تعويضات حكومية في سوريا — نزع الملكية وأضرار الأشغال العامة والمسؤولية الإدارية. استشارة قانونية أونلاين — قانوني.",
+    descAr: "محامٍ تعويضات حكومية في سوريا — نزع الملكية وأضرار الأشغال العامة والمسؤولية الإدارية. استشارة قانونية أونلاين — كاونسلو.",
     kw: "government compensation lawyer Syria, expropriation claim Syria, public works damage Syria, administrative liability Syria, compensation claim Damascus",
     kwAr: "محامي تعويضات حكومية سوريا, نزع الملكية سوريا, أضرار أشغال عامة سوريا, مسؤولية إدارية سوريا",
   },
@@ -64,7 +64,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "mediation-adr": {
     desc: "Commercial mediation & ADR legal advice in Syria — mediation, conciliation and settlement agreements under Syrian law. Online legal advice — CounselO.",
-    descAr: "استشارة قانونية في الوساطة التجارية وحل النزاعات بديلاً في سوريا — الوساطة والتوفيق واتفاقيات التسوية. قانوني.",
+    descAr: "استشارة قانونية في الوساطة التجارية وحل النزاعات بديلاً في سوريا — الوساطة والتوفيق واتفاقيات التسوية. كاونسلو.",
     kw: "mediation lawyer Syria, commercial ADR Syria, dispute resolution Syria, settlement agreement Syria, conciliation Syria, mediation Damascus",
     kwAr: "محامي وساطة سوريا, حل نزاعات بديل سوريا, وساطة تجارية سوريا, اتفاقية تسوية سوريا, توفيق دمشق",
   },
@@ -76,7 +76,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "international-arbitration": {
     desc: "International arbitration lawyer for Syria-related disputes — ICC, LCIA and UNCITRAL proceedings with Syrian law expertise. Online consultation — CounselO.",
-    descAr: "محامٍ تحكيم دولي في النزاعات المتعلقة بسوريا — إجراءات ICC وLCIA وأونسيترال مع خبرة في القانون السوري. استشارة أونلاين — قانوني.",
+    descAr: "محامٍ تحكيم دولي في النزاعات المتعلقة بسوريا — إجراءات ICC وLCIA وأونسيترال مع خبرة في القانون السوري. استشارة أونلاين — كاونسلو.",
     kw: "international arbitration Syria, ICC arbitration Syria, LCIA Syria, UNCITRAL Syria, cross-border arbitration Syrian law, international dispute Syria",
     kwAr: "تحكيم دولي سوريا, محامي ICC سوريا, LCIA سوريا, تحكيم أونسيترال سوريا, نزاع دولي سوريا",
   },
@@ -96,7 +96,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "banking-disputes": {
     desc: "Banking dispute lawyer in Syria — disputes with Syrian banks, Central Bank of Syria regulatory actions & account freezes. Online legal advice 24/7 — CounselO.",
-    descAr: "محامٍ نزاعات مصرفية في سوريا — نزاعات مع المصارف السورية وإجراءات مصرف سوريا المركزي وتجميد الحسابات. استشارة أونلاين — قانوني.",
+    descAr: "محامٍ نزاعات مصرفية في سوريا — نزاعات مع المصارف السورية وإجراءات مصرف سوريا المركزي وتجميد الحسابات. استشارة أونلاين — كاونسلو.",
     kw: "banking dispute lawyer Syria, Syrian bank dispute, Central Bank of Syria, bank account dispute Syria, banking litigation Damascus, Syrian banking law",
     kwAr: "محامي نزاعات مصرفية سوريا, نزاع مع بنك سوري, مصرف سوريا المركزي, نزاع حساب مصرفي سوريا",
   },
@@ -108,7 +108,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "financial-regulatory": {
     desc: "Financial regulatory lawyer in Syria — Central Bank of Syria compliance, banking licence disputes & regulatory enforcement. Online legal advice — CounselO.",
-    descAr: "محامٍ تنظيم مالي في سوريا — الامتثال لمصرف سوريا المركزي ونزاعات الترخيص المصرفي والتطبيق التنظيمي. قانوني.",
+    descAr: "محامٍ تنظيم مالي في سوريا — الامتثال لمصرف سوريا المركزي ونزاعات الترخيص المصرفي والتطبيق التنظيمي. كاونسلو.",
     kw: "financial regulatory lawyer Syria, Central Bank Syria compliance, banking licence Syria, financial regulation Damascus, Syrian financial law",
     kwAr: "محامي تنظيم مالي سوريا, امتثال مصرف سوريا المركزي, ترخيص مصرفي سوريا, قانون مالي سوريا",
   },
@@ -132,7 +132,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "investment-disputes": {
     desc: "Investment dispute lawyer in Syria — securities, fund and investment contract disputes under Syrian civil and commercial law. Online legal advice — CounselO.",
-    descAr: "محامٍ نزاعات استثمارية في سوريا — نزاعات الأوراق المالية والصناديق وعقود الاستثمار وفق القانون المدني والتجاري السوري. قانوني.",
+    descAr: "محامٍ نزاعات استثمارية في سوريا — نزاعات الأوراق المالية والصناديق وعقود الاستثمار وفق القانون المدني والتجاري السوري. كاونسلو.",
     kw: "investment dispute lawyer Syria, securities dispute Syria, fund dispute Syria, investment contract Syria, financial litigation Damascus, Syrian investment law",
     kwAr: "محامي نزاعات استثمار سوريا, نزاع أوراق مالية سوريا, نزاع صندوق استثمار سوريا, قانون الاستثمار السوري",
   },
@@ -178,7 +178,7 @@ export const SYR_SEO_DATA: Record<string, {
   // ── Companies Law ──────────────────────────────────────────────────────
   "company-formation-disputes": {
     desc: "Company formation dispute & incorporation nullity legal advice in Syria — under Syrian Companies Law (Legislative Decree No. 29/2011). Online advice — CounselO.",
-    descAr: "استشارة في نزاعات تأسيس الشركات وبطلان التأسيس في سوريا — وفق قانون الشركات السوري (المرسوم التشريعي رقم 29/2011). قانوني.",
+    descAr: "استشارة في نزاعات تأسيس الشركات وبطلان التأسيس في سوريا — وفق قانون الشركات السوري (المرسوم التشريعي رقم 29/2011). كاونسلو.",
     kw: "company formation dispute Syria, incorporation nullity Syria, Syrian Companies Law 29/2011, founding dispute Damascus, company lawyer Syria",
     kwAr: "نزاع تأسيس شركة سوريا, بطلان تأسيس شركة سوريا, قانون الشركات السوري 29/2011, محامي شركات دمشق",
   },
@@ -190,7 +190,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "partner-shareholder-disputes": {
     desc: "Partner & shareholder dispute lawyer in Syria — deadlocks, minority rights & partnership conflicts under Syrian Companies Law. Online legal advice — CounselO.",
-    descAr: "محامٍ نزاعات شركاء ومساهمين في سوريا — حالات الجمود وحقوق الأقلية وصراعات الشراكة وفق قانون الشركات السوري. قانوني.",
+    descAr: "محامٍ نزاعات شركاء ومساهمين في سوريا — حالات الجمود وحقوق الأقلية وصراعات الشراكة وفق قانون الشركات السوري. كاونسلو.",
     kw: "shareholder dispute lawyer Syria, partner conflict Syria, minority rights Syria, deadlock Syria, Syrian Companies Law shareholder",
     kwAr: "محامي نزاعات مساهمين سوريا, صراع شركاء سوريا, حقوق أقلية سوريا, جمود إدارة شركة سوريا",
   },
@@ -202,7 +202,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "general-assembly-disputes": {
     desc: "General assembly & shareholders' meeting dispute lawyer in Syria — challenging resolutions & AGM irregularities under Syrian Companies Law. Online advice.",
-    descAr: "محامٍ نزاعات الجمعية العمومية في سوريا — الطعن في القرارات وعدم انتظام الاجتماعات وفق قانون الشركات السوري. قانوني.",
+    descAr: "محامٍ نزاعات الجمعية العمومية في سوريا — الطعن في القرارات وعدم انتظام الاجتماعات وفق قانون الشركات السوري. كاونسلو.",
     kw: "general assembly dispute Syria, AGM challenge Syria, shareholder resolution Syria, Syrian Companies Law meeting, general meeting dispute",
     kwAr: "نزاع جمعية عمومية سوريا, الطعن في قرار الجمعية سوريا, اجتماع عام شركة سوريا, قانون الشركات السوري",
   },
@@ -238,7 +238,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "company-records-access": {
     desc: "Company records & documents access legal advice in Syria — shareholder rights to inspect books under Syrian Companies Law. Online advice — CounselO.",
-    descAr: "استشارة في حق الوصول إلى سجلات الشركة في سوريا — حق المساهم في الاطلاع على الدفاتر والوثائق وفق قانون الشركات السوري. قانوني.",
+    descAr: "استشارة في حق الوصول إلى سجلات الشركة في سوريا — حق المساهم في الاطلاع على الدفاتر والوثائق وفق قانون الشركات السوري. كاونسلو.",
     kw: "company records access Syria, shareholder inspection rights Syria, book access Syria, Syrian Companies Law records, corporate transparency Syria",
     kwAr: "حق الاطلاع على سجلات الشركة سوريا, حق مساهم فحص دفاتر سوريا, شفافية شركات سوريا",
   },
@@ -280,7 +280,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "family-company-disputes": {
     desc: "Family business dispute lawyer in Syria — succession conflicts, family shareholder disputes & governance under Syrian law. Online legal advice — CounselO.",
-    descAr: "محامٍ نزاعات الشركات العائلية في سوريا — صراعات الخلافة ونزاعات المساهمين من العائلة والحوكمة وفق القانون السوري. قانوني.",
+    descAr: "محامٍ نزاعات الشركات العائلية في سوريا — صراعات الخلافة ونزاعات المساهمين من العائلة والحوكمة وفق القانون السوري. كاونسلو.",
     kw: "family business dispute Syria, family company Syria, succession conflict Syria, family shareholder Syria, governance Syria, family business Damascus",
     kwAr: "نزاع شركة عائلية سوريا, صراع خلافة عائلية سوريا, مساهمون عائلة سوريا, حوكمة شركة عائلية سوريا",
   },
@@ -386,7 +386,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "public-order": {
     desc: "Public order & security offence defence lawyer in Syria — representation against public order charges under Syrian Penal Code. Online legal advice — CounselO.",
-    descAr: "محامٍ دفاع عن جرائم النظام العام في سوريا — تمثيل في تهم الإخلال بالنظام العام وفق قانون العقوبات السوري. قانوني.",
+    descAr: "محامٍ دفاع عن جرائم النظام العام في سوريا — تمثيل في تهم الإخلال بالنظام العام وفق قانون العقوبات السوري. كاونسلو.",
     kw: "public order offence Syria, security offence Syria, public order lawyer Syria, Syrian Penal Code public order, order breach defence Damascus",
     kwAr: "جريمة إخلال بالنظام العام سوريا, جريمة أمنية سوريا, محامي نظام عام سوريا, قانون عقوبات سوريا",
   },
@@ -476,7 +476,7 @@ export const SYR_SEO_DATA: Record<string, {
   // ── Enforcement Law ────────────────────────────────────────────────────
   "judgment-enforcement": {
     desc: "Court judgment enforcement lawyer in Syria — enforcing Syrian and foreign judgments, bank garnishment & asset attachment. Online 24 hours via WhatsApp — CounselO.",
-    descAr: "محامٍ تنفيذ أحكام قضائية في سوريا — تنفيذ الأحكام السورية والأجنبية والحجز على الحسابات والأصول. أونلاين 24 ساعة — قانوني.",
+    descAr: "محامٍ تنفيذ أحكام قضائية في سوريا — تنفيذ الأحكام السورية والأجنبية والحجز على الحسابات والأصول. أونلاين 24 ساعة — كاونسلو.",
     kw: "judgment enforcement Syria, court order enforcement Syria, enforce judgment Damascus, bank garnishment Syria, asset attachment Syria, Syrian enforcement law",
     kwAr: "تنفيذ حكم قضائي سوريا, تنفيذ أمر محكمة سوريا, حجز مصرفي سوريا, حجز على أصول سوريا",
   },
@@ -494,13 +494,13 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "travel-bans": {
     desc: "Travel ban & exit ban legal advice in Syria — challenging court-imposed travel restrictions & requesting judicial lifting. Online legal advice 24/7.",
-    descAr: "استشارة في منع السفر وحظر الخروج في سوريا — الطعن في قيود السفر القضائية وطلب رفعها. استشارة قانونية أونلاين. قانوني.",
+    descAr: "استشارة في منع السفر وحظر الخروج في سوريا — الطعن في قيود السفر القضائية وطلب رفعها. استشارة قانونية أونلاين. كاونسلو.",
     kw: "travel ban Syria, exit ban Syria, travel restriction lawyer Syria, lift travel ban Syria, border ban Syria, travel restriction Damascus",
     kwAr: "منع سفر سوريا, حظر خروج سوريا, رفع منع سفر سوريا, قيود سفر سوريا, محامي منع سفر سوريا",
   },
   "enforcement-against-government": {
     desc: "Enforcement against government & public bodies in Syria — executing judgments against state entities under Syrian administrative and civil law. Online advice.",
-    descAr: "تنفيذ ضد الحكومة والجهات العامة في سوريا — تنفيذ الأحكام ضد الجهات الحكومية وفق القانون الإداري والمدني السوري. قانوني.",
+    descAr: "تنفيذ ضد الحكومة والجهات العامة في سوريا — تنفيذ الأحكام ضد الجهات الحكومية وفق القانون الإداري والمدني السوري. كاونسلو.",
     kw: "enforcement against government Syria, execute judgment against state Syria, government debt Syria, administrative execution Syria, state liability Syria",
     kwAr: "تنفيذ ضد الحكومة سوريا, تنفيذ حكم ضد الدولة سوريا, دين حكومي سوريا, تنفيذ إداري سوريا",
   },
@@ -546,7 +546,7 @@ export const SYR_SEO_DATA: Record<string, {
   // ── Foreign Investment ─────────────────────────────────────────────────
   "investment-appeals": {
     desc: "Investment decision appeal lawyer in Syria — challenging Syrian Investment Commission decisions & investor rights disputes. Online legal advice — CounselO.",
-    descAr: "محامٍ طعن في قرارات الاستثمار في سوريا — الطعن في قرارات هيئة الاستثمار السورية ونزاعات حقوق المستثمرين. قانوني.",
+    descAr: "محامٍ طعن في قرارات الاستثمار في سوريا — الطعن في قرارات هيئة الاستثمار السورية ونزاعات حقوق المستثمرين. كاونسلو.",
     kw: "investment appeal Syria, Syrian Investment Commission appeal, investor rights Syria, investment decision challenge Syria",
     kwAr: "طعن في قرار استثماري سوريا, هيئة الاستثمار السورية, حقوق مستثمر سوريا",
   },
@@ -558,13 +558,13 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "license-renewal": {
     desc: "Investment licence renewal legal advice in Syria — renewing investment approvals, compliance & regulatory disputes. Online legal advice — CounselO.",
-    descAr: "استشارة في تجديد ترخيص الاستثمار في سوريا — تجديد موافقات الاستثمار والامتثال والنزاعات التنظيمية. قانوني.",
+    descAr: "استشارة في تجديد ترخيص الاستثمار في سوريا — تجديد موافقات الاستثمار والامتثال والنزاعات التنظيمية. كاونسلو.",
     kw: "investment licence renewal Syria, renew investment approval Syria, investment compliance Syria, Syrian investment regulatory",
     kwAr: "تجديد ترخيص استثماري سوريا, تجديد موافقة استثمار سوريا, امتثال استثماري سوريا",
   },
   "license-cancellation": {
     desc: "Investment licence revocation defence lawyer in Syria — challenging revocation of investment approvals before Syrian authorities. Online advice — CounselO.",
-    descAr: "محامٍ دفاع ضد إلغاء ترخيص الاستثمار في سوريا — الطعن في إلغاء موافقات الاستثمار أمام السلطات السورية. قانوني.",
+    descAr: "محامٍ دفاع ضد إلغاء ترخيص الاستثمار في سوريا — الطعن في إلغاء موافقات الاستثمار أمام السلطات السورية. كاونسلو.",
     kw: "investment licence revocation Syria, licence cancellation Syria, investment permit cancelled Syria, challenge revocation Syria",
     kwAr: "إلغاء ترخيص استثماري سوريا, الطعن في سحب موافقة استثمار سوريا, سحب تصريح استثماري سوريا",
   },
@@ -576,19 +576,19 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "foreign-investment-dispute": {
     desc: "Foreign investor dispute lawyer in Syria — protecting investor rights and pursuing claims under Syrian investment legislation. Online consultation — CounselO.",
-    descAr: "محامٍ نزاعات مستثمرين أجانب في سوريا — حماية حقوق المستثمرين والسعي في المطالبات وفق تشريعات الاستثمار السورية. قانوني.",
+    descAr: "محامٍ نزاعات مستثمرين أجانب في سوريا — حماية حقوق المستثمرين والسعي في المطالبات وفق تشريعات الاستثمار السورية. كاونسلو.",
     kw: "foreign investor dispute Syria, investor protection Syria, foreign investment claim Syria, Syrian investment legislation",
     kwAr: "نزاع مستثمر أجنبي سوريا, حماية مستثمر سوريا, مطالبة استثمار أجنبي سوريا, تشريع استثماري سوريا",
   },
   "investor-compensation": {
     desc: "Investor compensation claim lawyer in Syria — compensation for losses, expropriation & regulatory taking under Syrian investment law. Online advice — CounselO.",
-    descAr: "محامٍ مطالبات تعويض المستثمرين في سوريا — التعويض عن الخسائر ونزع الملكية والحرمان التنظيمي وفق قانون الاستثمار السوري. قانوني.",
+    descAr: "محامٍ مطالبات تعويض المستثمرين في سوريا — التعويض عن الخسائر ونزع الملكية والحرمان التنظيمي وفق قانون الاستثمار السوري. كاونسلو.",
     kw: "investor compensation Syria, expropriation claim Syria, investment loss Syria, regulatory taking Syria, investor damages Syria",
     kwAr: "تعويض مستثمر سوريا, مطالبة نزع ملكية استثمار سوريا, خسارة استثمارية سوريا",
   },
   "share-transfer": {
     desc: "Share transfer & foreign ownership legal advice in Syria — foreign investor share transfers and ownership approvals under Syrian law. Online advice — CounselO.",
-    descAr: "استشارة قانونية في نقل الأسهم والملكية الأجنبية في سوريا — نقل أسهم المستثمر الأجنبي وموافقات الملكية وفق القانون السوري. قانوني.",
+    descAr: "استشارة قانونية في نقل الأسهم والملكية الأجنبية في سوريا — نقل أسهم المستثمر الأجنبي وموافقات الملكية وفق القانون السوري. كاونسلو.",
     kw: "share transfer Syria, foreign ownership Syria, investor share transfer Syria, Syrian investment approval, ownership transfer Damascus",
     kwAr: "نقل أسهم سوريا, ملكية أجنبية سوريا, نقل أسهم مستثمر أجنبي سوريا, موافقة ملكية سوريا",
   },
@@ -602,7 +602,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "work-visas": {
     desc: "Work visa & work permit legal advice in Syria — obtaining and renewing work authorisations under Syrian labour and immigration law. Online advice 24/7.",
-    descAr: "استشارة قانونية في تأشيرات العمل وتصاريح العمل في سوريا — الحصول على تصاريح العمل وتجديدها وفق قانوني العمل والهجرة السوريين. أونلاين.",
+    descAr: "استشارة قانونية في تأشيرات العمل وتصاريح العمل في سوريا — الحصول على تصاريح العمل وتجديدها وفق كاونسلو العمل والهجرة السوريين. أونلاين.",
     kw: "work permit Syria, work visa Syria, work authorisation Syria, Syrian labour immigration, employment permit Syria",
     kwAr: "تصريح عمل سوريا, تأشيرة عمل سوريا, ترخيص عمل سوريا, قانون هجرة عمالية سوريا",
   },
@@ -676,7 +676,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "commercial-insurance": {
     desc: "Commercial & business insurance dispute legal advice in Syria — business interruption, liability and property claims. Online consultation 24/7 — CounselO.",
-    descAr: "استشارة قانونية في نزاعات التأمين التجاري في سوريا — مطالبات انقطاع الأعمال والمسؤولية والممتلكات. أونلاين — قانوني.",
+    descAr: "استشارة قانونية في نزاعات التأمين التجاري في سوريا — مطالبات انقطاع الأعمال والمسؤولية والممتلكات. أونلاين — كاونسلو.",
     kw: "commercial insurance Syria, business insurance dispute Syria, business interruption insurance Syria, liability insurance Syria, corporate insurance Syria",
     kwAr: "تأمين تجاري سوريا, نزاع تأمين أعمال سوريا, تأمين انقطاع أعمال سوريا, تأمين مسؤولية سوريا",
   },
@@ -688,7 +688,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "insurance-regulatory": {
     desc: "Insurance regulatory legal advice in Syria — Syrian Insurance Supervisory Commission (SISC) compliance, licensing & regulatory disputes. Online advice — CounselO.",
-    descAr: "استشارة قانونية في تنظيم التأمين في سوريا — الامتثال لهيئة الإشراف على التأمين السورية والترخيص والنزاعات التنظيمية. قانوني.",
+    descAr: "استشارة قانونية في تنظيم التأمين في سوريا — الامتثال لهيئة الإشراف على التأمين السورية والترخيص والنزاعات التنظيمية. كاونسلو.",
     kw: "insurance regulatory Syria, SISC Syria, Syrian Insurance Supervisory Commission, insurance licence Syria, insurance compliance Syria",
     kwAr: "تنظيم تأمين سوريا, هيئة الإشراف على التأمين السورية, ترخيص تأمين سوريا, امتثال تأميني سوريا",
   },
@@ -738,7 +738,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "ip-due-diligence": {
     desc: "IP due diligence legal advice for Syria — reviewing IP portfolios, freedom to operate & IP risk for Syrian and cross-border deals. Online advice — CounselO.",
-    descAr: "استشارة قانونية في العناية الواجبة للملكية الفكرية في سوريا — مراجعة محافظ الملكية الفكرية وحرية العمل ومخاطر الملكية الفكرية. قانوني.",
+    descAr: "استشارة قانونية في العناية الواجبة للملكية الفكرية في سوريا — مراجعة محافظ الملكية الفكرية وحرية العمل ومخاطر الملكية الفكرية. كاونسلو.",
     kw: "IP due diligence Syria, IP portfolio review Syria, freedom to operate Syria, IP risk Syria, M&A IP Syria",
     kwAr: "عناية واجبة ملكية فكرية سوريا, مراجعة محفظة IP سوريا, حرية العمل ملكية فكرية سوريا",
   },
@@ -776,13 +776,13 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "healthcare-regulatory": {
     desc: "Healthcare regulatory legal advice in Syria — Syrian Ministry of Health licensing, facility registration & regulatory compliance. Online advice — CounselO.",
-    descAr: "استشارة قانونية في التنظيم الصحي في سوريا — ترخيص وزارة الصحة السورية وتسجيل المنشآت والامتثال التنظيمي. قانوني.",
+    descAr: "استشارة قانونية في التنظيم الصحي في سوريا — ترخيص وزارة الصحة السورية وتسجيل المنشآت والامتثال التنظيمي. كاونسلو.",
     kw: "healthcare regulatory Syria, Ministry of Health Syria, health facility licence Syria, medical regulatory compliance Syria, hospital licence Syria",
     kwAr: "تنظيم صحي سوريا, وزارة الصحة السورية, ترخيص منشأة صحية سوريا, امتثال صحي تنظيمي سوريا",
   },
   "patient-rights": {
     desc: "Patient rights legal advice in Syria — enforcing patient rights, informed consent & healthcare standards under Syrian medical law. Online advice — CounselO.",
-    descAr: "استشارة قانونية في حقوق المريض في سوريا — تطبيق حقوق المريض والموافقة المستنيرة ومعايير الرعاية الصحية وفق القانون الطبي السوري. قانوني.",
+    descAr: "استشارة قانونية في حقوق المريض في سوريا — تطبيق حقوق المريض والموافقة المستنيرة ومعايير الرعاية الصحية وفق القانون الطبي السوري. كاونسلو.",
     kw: "patient rights Syria, informed consent Syria, healthcare standards Syria, patient rights lawyer Syria, Syrian medical law",
     kwAr: "حقوق المريض سوريا, الموافقة المستنيرة سوريا, معايير الرعاية الصحية سوريا, قانون طبي سوريا",
   },
@@ -828,7 +828,7 @@ export const SYR_SEO_DATA: Record<string, {
   // ── Tax & Zakat ────────────────────────────────────────────────────────
   "vat-compliance": {
     desc: "Tax compliance & advisory in Syria — income tax, General Tax Authority (GTA) requirements and dispute resolution. Online consultation 24/7 — CounselO.",
-    descAr: "الامتثال الضريبي والاستشارة في سوريا — ضريبة الدخل ومتطلبات الهيئة العامة للضرائب وحل النزاعات الضريبية. أونلاين — قانوني.",
+    descAr: "الامتثال الضريبي والاستشارة في سوريا — ضريبة الدخل ومتطلبات الهيئة العامة للضرائب وحل النزاعات الضريبية. أونلاين — كاونسلو.",
     kw: "tax compliance Syria, income tax Syria, General Tax Authority Syria, GTA Syria, tax advice Damascus, Syrian tax law",
     kwAr: "امتثال ضريبي سوريا, ضريبة دخل سوريا, الهيئة العامة للضرائب سوريا, استشارة ضريبية دمشق",
   },
@@ -864,7 +864,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "tax-advisory": {
     desc: "Tax advisory & planning legal advice in Syria — optimising tax position, planning & General Tax Authority compliance. Online consultation 24/7.",
-    descAr: "استشارة وتخطيط ضريبي في سوريا — تحسين الوضع الضريبي والتخطيط والامتثال للهيئة العامة للضرائب. أونلاين — قانوني.",
+    descAr: "استشارة وتخطيط ضريبي في سوريا — تحسين الوضع الضريبي والتخطيط والامتثال للهيئة العامة للضرائب. أونلاين — كاونسلو.",
     kw: "tax advisory Syria, tax planning Syria, GTA compliance Syria, Syrian tax advice, income tax planning Damascus, tax optimisation Syria",
     kwAr: "استشارة ضريبية سوريا, تخطيط ضريبي سوريا, امتثال ضريبي سوريا, الهيئة العامة للضرائب سوريا",
   },
@@ -934,13 +934,13 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "civil-appeal": {
     desc: "Civil appeal lawyer in Syria — appealing first-instance judgments before Syrian Courts of Appeal. Professional online legal advice — CounselO.",
-    descAr: "محامٍ استئناف مدني في سوريا — الطعن في أحكام محاكم الدرجة الأولى أمام محاكم الاستئناف السورية. استشارة قانونية أونلاين — قانوني.",
+    descAr: "محامٍ استئناف مدني في سوريا — الطعن في أحكام محاكم الدرجة الأولى أمام محاكم الاستئناف السورية. استشارة قانونية أونلاين — كاونسلو.",
     kw: "civil appeal Syria, Court of Appeal Syria, appeal first instance Syria, civil judgment appeal Damascus, Syrian civil appeal",
     kwAr: "استئناف مدني سوريا, محكمة الاستئناف السورية, الطعن في حكم ابتدائي سوريا, استئناف مدني دمشق",
   },
   "civil-cassation": {
     desc: "Court of Cassation appeal (civil) in Syria — cassation petitions against final civil judgments before Syrian Court of Cassation. Online advice — CounselO.",
-    descAr: "طعن النقض المدني في سوريا — طلبات النقض ضد الأحكام المدنية النهائية أمام محكمة النقض السورية. استشارة قانونية أونلاين — قانوني.",
+    descAr: "طعن النقض المدني في سوريا — طلبات النقض ضد الأحكام المدنية النهائية أمام محكمة النقض السورية. استشارة قانونية أونلاين — كاونسلو.",
     kw: "Court of Cassation Syria, cassation petition Syria, civil cassation Syria, final judgment appeal Syria, Syrian Court of Cassation",
     kwAr: "محكمة النقض السورية, طعن نقض مدني سوريا, طلب نقض حكم مدني سوريا, نقض حكم نهائي سوريا",
   },
@@ -966,7 +966,7 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "criminal-trial": {
     desc: "Criminal trial defence lawyer in Syria — representation before Syrian Courts of First Instance and criminal courts. Professional online legal advice — CounselO.",
-    descAr: "محامٍ دفاع في المحاكمة الجزائية في سوريا — التمثيل أمام محاكم الدرجة الأولى السورية والمحاكم الجزائية. استشارة أونلاين — قانوني.",
+    descAr: "محامٍ دفاع في المحاكمة الجزائية في سوريا — التمثيل أمام محاكم الدرجة الأولى السورية والمحاكم الجزائية. استشارة أونلاين — كاونسلو.",
     kw: "criminal trial Syria, criminal court lawyer Syria, first instance criminal Syria, criminal defence Damascus, Syrian criminal trial",
     kwAr: "محاكمة جزائية سوريا, محامي محكمة جزائية سوريا, محكمة بداية جزائية سوريا, دفاع جنائي دمشق",
   },
@@ -978,13 +978,13 @@ export const SYR_SEO_DATA: Record<string, {
   },
   "criminal-cassation": {
     desc: "Criminal cassation lawyer in Syria — cassation petitions against final criminal convictions before Syrian Court of Cassation. Online legal advice — CounselO.",
-    descAr: "محامٍ نقض جزائي في سوريا — طلبات النقض ضد الأحكام الجزائية النهائية أمام محكمة النقض السورية. استشارة قانونية أونلاين — قانوني.",
+    descAr: "محامٍ نقض جزائي في سوريا — طلبات النقض ضد الأحكام الجزائية النهائية أمام محكمة النقض السورية. استشارة قانونية أونلاين — كاونسلو.",
     kw: "criminal cassation Syria, Court of Cassation Syria criminal, cassation petition Syria, final conviction appeal Syria",
     kwAr: "نقض جزائي سوريا, محكمة النقض السورية جزائية, طلب نقض جزائي سوريا, طعن حكم جزائي نهائي سوريا",
   },
   "civil-in-criminal": {
     desc: "Civil rights claim within criminal proceedings in Syria — pursuing compensation as a civil party (mudda'i madani) in Syrian criminal courts. Online advice.",
-    descAr: "مطالبة الحقوق المدنية في الدعوى الجزائية في سوريا — المطالبة بالتعويض كمدعٍ مدني في المحاكم الجزائية السورية. أونلاني — قانوني.",
+    descAr: "مطالبة الحقوق المدنية في الدعوى الجزائية في سوريا — المطالبة بالتعويض كمدعٍ مدني في المحاكم الجزائية السورية. أونلاني — كاونسلو.",
     kw: "civil party criminal Syria, mudda'i madani Syria, civil in criminal Syria, compensation criminal court Syria, civil rights criminal Syria",
     kwAr: "مدعي مدني في دعوى جزائية سوريا, حقوق مدنية في المحكمة الجزائية سوريا, تعويض في قضية جنائية سوريا",
   },
@@ -992,127 +992,127 @@ export const SYR_SEO_DATA: Record<string, {
   // ── Parent service pages ────────────────────────────────────────────────
   "family-law": {
     desc: "Family lawyer in Syria — divorce, custody, alimony & inheritance under Syrian Personal Status Law (Law No. 59/1953). Online legal advice via WhatsApp or email, 24 hours — CounselO.",
-    descAr: "محامٍ قانون أسرة في سوريا — طلاق وحضانة ونفقة وميراث وفق قانون الأحوال الشخصية السوري رقم 59/1953. استشارة قانونية أونلاين عبر واتساب أو البريد الإلكتروني خلال 24 ساعة — قانوني.",
+    descAr: "محامٍ قانون أسرة في سوريا — طلاق وحضانة ونفقة وميراث وفق قانون الأحوال الشخصية السوري رقم 59/1953. استشارة قانونية أونلاين عبر واتساب أو البريد الإلكتروني خلال 24 ساعة — كاونسلو.",
     kw: "family lawyer Syria, divorce lawyer Syria, custody lawyer Syria, alimony Syria, inheritance Syria, Syrian Personal Status Law 59/1953, family law Damascus, family lawyer Aleppo, child custody Syria online, online family legal advice Syria",
     kwAr: "محامي أسرة سوريا, محامي طلاق سوريا, محامي حضانة سوريا, نفقة سوريا, ميراث سوريا, قانون الأحوال الشخصية السوري 59/1953, محامي أسرة دمشق, محامي أسرة حلب, حضانة أطفال سوريا أونلاين",
   },
   "business-law": {
     desc: "Commercial lawyer in Syria — company formation, commercial contracts & corporate disputes under Syrian Companies Law No. 29/2011 and Syrian Civil Code. Online 24/7 — CounselO.",
-    descAr: "محامٍ تجاري في سوريا — تأسيس الشركات والعقود التجارية والنزاعات الشركاتية وفق قانون الشركات السوري رقم 29/2011 والقانون المدني السوري. استشارة أونلاين — قانوني.",
+    descAr: "محامٍ تجاري في سوريا — تأسيس الشركات والعقود التجارية والنزاعات الشركاتية وفق قانون الشركات السوري رقم 29/2011 والقانون المدني السوري. استشارة أونلاين — كاونسلو.",
     kw: "commercial lawyer Syria, business lawyer Syria, company formation Syria, Syrian Companies Law 29/2011, commercial dispute Syria, corporate lawyer Damascus, business lawyer Aleppo, commercial contract Syria, online business legal advice Syria",
     kwAr: "محامي تجاري سوريا, محامي أعمال سوريا, تأسيس شركة سوريا, قانون الشركات السوري 29/2011, نزاع تجاري سوريا, محامي أعمال دمشق, محامي تجاري حلب, عقد تجاري سوريا",
   },
   "real-estate": {
     desc: "Property lawyer in Syria — real estate transactions, lease disputes, property ownership & Syrian Real Estate Law. Online legal advice 24 hours via WhatsApp — CounselO.",
-    descAr: "محامٍ عقاري في سوريا — صفقات العقارات ونزاعات الإيجار وملكية العقارات وفق القانون العقاري السوري. استشارة أونلاين عبر واتساب خلال 24 ساعة — قانوني.",
+    descAr: "محامٍ عقاري في سوريا — صفقات العقارات ونزاعات الإيجار وملكية العقارات وفق القانون العقاري السوري. استشارة أونلاين عبر واتساب خلال 24 ساعة — كاونسلو.",
     kw: "property lawyer Syria, real estate lawyer Syria, property dispute Syria, lease dispute Syria, Syrian real estate law, property lawyer Damascus, real estate Aleppo, property ownership Syria, landlord tenant Syria, online real estate advice Syria",
     kwAr: "محامي عقاري سوريا, محامي ملكية سوريا, نزاع عقاري سوريا, نزاع إيجار سوريا, قانون عقاري سوري, محامي عقاري دمشق, عقارات حلب, ملكية عقار سوريا, مالك مستأجر سوريا",
   },
   "employment-law": {
     desc: "Employment lawyer in Syria — wrongful dismissal, unpaid wages, end-of-service benefits & Syrian Labour Law (Law No. 17/2010). Online 24 hours via WhatsApp — CounselO.",
-    descAr: "محامٍ عمالي في سوريا — فصل تعسفي وأجور غير مدفوعة ومكافأة نهاية خدمة وفق قانون العمل السوري رقم 17/2010. أونلاين عبر واتساب خلال 24 ساعة — قانوني.",
+    descAr: "محامٍ عمالي في سوريا — فصل تعسفي وأجور غير مدفوعة ومكافأة نهاية خدمة وفق قانون العمل السوري رقم 17/2010. أونلاين عبر واتساب خلال 24 ساعة — كاونسلو.",
     kw: "employment lawyer Syria, labour lawyer Syria, wrongful dismissal Syria, unpaid wages Syria, end of service Syria, Syrian Labour Law 17/2010, labour court Syria, employment lawyer Damascus, worker rights Syria, online employment advice Syria",
     kwAr: "محامي عمالي سوريا, محامي عمل سوريا, فصل تعسفي سوريا, أجور غير مدفوعة سوريا, نهاية خدمة سوريا, قانون العمل السوري 17/2010, محكمة عمل سوريا, محامي عمالي دمشق, حقوق عامل سوريا",
   },
   "foreign-investment": {
     desc: "Foreign investment lawyer in Syria — business entry, joint ventures, investment disputes & Syrian foreign investment law. Online legal advice 24 hours — CounselO.",
-    descAr: "محامٍ استثمار أجنبي في سوريا — دخول الأعمال والمشاريع المشتركة ونزاعات الاستثمار وقانون الاستثمار الأجنبي السوري. استشارة قانونية أونلاين — قانوني.",
+    descAr: "محامٍ استثمار أجنبي في سوريا — دخول الأعمال والمشاريع المشتركة ونزاعات الاستثمار وقانون الاستثمار الأجنبي السوري. استشارة قانونية أونلاين — كاونسلو.",
     kw: "foreign investment lawyer Syria, invest in Syria, Syria investment law, joint venture Syria, investment dispute Syria, business entry Syria, foreign investor Syria, invest Damascus, foreign company Syria, online investment advice Syria",
     kwAr: "محامي استثمار أجنبي سوريا, استثمار في سوريا, قانون الاستثمار السوري, مشروع مشترك سوريا, نزاع استثماري سوريا, دخول أعمال سوريا, مستثمر أجنبي سوريا, استثمار دمشق",
   },
   "administrative-law": {
     desc: "Administrative lawyer in Syria — government decision challenges, State Council claims & administrative appeals under Syrian administrative law. Online advice 24/7 — CounselO.",
-    descAr: "محامٍ إداري في سوريا — الطعن في قرارات حكومية ودعاوى مجلس الدولة والاستئنافات الإدارية وفق القانون الإداري السوري. استشارة أونلاين — قانوني.",
+    descAr: "محامٍ إداري في سوريا — الطعن في قرارات حكومية ودعاوى مجلس الدولة والاستئنافات الإدارية وفق القانون الإداري السوري. استشارة أونلاين — كاونسلو.",
     kw: "administrative lawyer Syria, government decision challenge Syria, Syrian State Council, administrative appeal Syria, administrative court Damascus, regulatory dispute Syria, government claim Syria, online administrative advice Syria",
     kwAr: "محامي إداري سوريا, الطعن في قرار حكومي سوريا, مجلس الدولة السوري, استئناف إداري سوريا, محكمة إدارية دمشق, نزاع تنظيمي سوريا, دعوى ضد الحكومة سوريا",
   },
   "arbitration": {
     desc: "Arbitration lawyer in Syria — commercial arbitration, mediation & award enforcement under Syrian Arbitration Law (Decree No. 4/2008). Online consultation 24/7 — CounselO.",
-    descAr: "محامٍ تحكيم في سوريا — تحكيم تجاري ووساطة وتنفيذ أحكام وفق قانون التحكيم السوري (المرسوم رقم 4/2008). استشارة أونلاين — قانوني.",
+    descAr: "محامٍ تحكيم في سوريا — تحكيم تجاري ووساطة وتنفيذ أحكام وفق قانون التحكيم السوري (المرسوم رقم 4/2008). استشارة أونلاين — كاونسلو.",
     kw: "arbitration lawyer Syria, commercial arbitration Syria, arbitration Damascus, Syrian arbitration law decree 4/2008, mediation Syria, ADR Syria, arbitral award Syria, award enforcement Syria, online arbitration advice Syria",
     kwAr: "محامي تحكيم سوريا, تحكيم تجاري سوريا, تحكيم دمشق, قانون التحكيم السوري مرسوم 4/2008, وساطة سوريا, تنفيذ حكم تحكيمي سوريا, استشارة تحكيم أونلاين سوريا",
   },
   "enforcement": {
     desc: "Enforcement lawyer in Syria — court judgment enforcement, debt collection & asset attachment under Syrian civil procedure law. Online advice 24 hours — CounselO.",
-    descAr: "محامٍ تنفيذ في سوريا — تنفيذ أحكام قضائية وتحصيل ديون وحجز على الأصول وفق قانون أصول المحاكمات المدنية السوري. استشارة أونلاين — قانوني.",
+    descAr: "محامٍ تنفيذ في سوريا — تنفيذ أحكام قضائية وتحصيل ديون وحجز على الأصول وفق قانون أصول المحاكمات المدنية السوري. استشارة أونلاين — كاونسلو.",
     kw: "enforcement lawyer Syria, judgment enforcement Syria, debt collection Syria, asset attachment Syria, Syrian civil procedure enforcement, court order Syria, debt recovery Damascus, enforce judgment Aleppo, online enforcement advice Syria",
     kwAr: "محامي تنفيذ سوريا, تنفيذ حكم قضائي سوريا, تحصيل ديون سوريا, حجز على أصول سوريا, تنفيذ قضائي دمشق, تنفيذ حكم حلب, استشارة تنفيذ أونلاين سوريا",
   },
   "contracts": {
     desc: "Contract lawyer in Syria — contract drafting, review, disputes & enforcement under Syrian Civil Code (Law No. 84/1949). Online legal advice 24 hours — CounselO.",
-    descAr: "محامٍ عقود في سوريا — صياغة ومراجعة ونزاعات وتنفيذ العقود وفق القانون المدني السوري (القانون رقم 84/1949). استشارة قانونية أونلاين — قانوني.",
+    descAr: "محامٍ عقود في سوريا — صياغة ومراجعة ونزاعات وتنفيذ العقود وفق القانون المدني السوري (القانون رقم 84/1949). استشارة قانونية أونلاين — كاونسلو.",
     kw: "contract lawyer Syria, contract dispute Syria, contract drafting Syria, Syrian Civil Code 84/1949, breach of contract Syria, contract enforcement Syria, commercial contract Damascus, contract lawyer Aleppo, online contract advice Syria",
     kwAr: "محامي عقود سوريا, نزاع عقود سوريا, صياغة عقود سوريا, القانون المدني السوري 84/1949, إخلال بالعقد سوريا, تنفيذ عقد سوريا, عقود تجارية دمشق, محامي عقود حلب",
   },
   "companies-law": {
     desc: "Companies lawyer in Syria — shareholder disputes, corporate governance & company formation under Syrian Companies Law No. 29/2011. Online advice 24/7 — CounselO.",
-    descAr: "محامٍ قانون شركات في سوريا — نزاعات المساهمين وحوكمة الشركات وتأسيس الشركات وفق قانون الشركات السوري رقم 29/2011. استشارة أونلاين — قانوني.",
+    descAr: "محامٍ قانون شركات في سوريا — نزاعات المساهمين وحوكمة الشركات وتأسيس الشركات وفق قانون الشركات السوري رقم 29/2011. استشارة أونلاين — كاونسلو.",
     kw: "companies lawyer Syria, shareholder dispute Syria, corporate governance Syria, Syrian Companies Law 29/2011, company formation Syria, director dispute Syria, LLC Syria, joint stock Syria, corporate lawyer Damascus, online company advice Syria",
     kwAr: "محامي شركات سوريا, نزاع مساهمين سوريا, حوكمة شركات سوريا, قانون الشركات السوري 29/2011, تأسيس شركة سوريا, نزاع مديرين سوريا, شركة محدودة سوريا, محامي شركات دمشق",
   },
   "criminal-law": {
     desc: "Criminal lawyer in Syria — expert criminal defence in Syrian courts under Syrian Penal Code (Decree No. 148/1949). Online 24/7 — CounselO.",
-    descAr: "محامٍ جنائي في سوريا — دفاع جنائي متخصص أمام المحاكم السورية وفق قانون العقوبات السوري (المرسوم رقم 148/1949). أونلاين — قانوني.",
+    descAr: "محامٍ جنائي في سوريا — دفاع جنائي متخصص أمام المحاكم السورية وفق قانون العقوبات السوري (المرسوم رقم 148/1949). أونلاين — كاونسلو.",
     kw: "criminal lawyer Syria, criminal defence Syria, Syrian Penal Code 148/1949, criminal court Syria, criminal lawyer Damascus, criminal lawyer Aleppo, criminal lawyer Homs, criminal defence Lattakia, online criminal advice Syria",
     kwAr: "محامي جنائي سوريا, دفاع جنائي سوريا, قانون العقوبات السوري 148/1949, محكمة جزائية سوريا, محامي جنائي دمشق, محامي جنائي حلب, محامي جنائي حمص, دفاع جنائي اللاذقية",
   },
   "banking-finance": {
     desc: "Banking & finance lawyer in Syria — bank disputes, loan agreements & financial regulatory matters under Syrian banking law. Online advice 24 hours — CounselO.",
-    descAr: "محامٍ مصرفي وتمويل في سوريا — نزاعات مصرفية واتفاقيات قروض وشؤون تنظيمية مالية وفق القانون المصرفي السوري. استشارة أونلاين — قانوني.",
+    descAr: "محامٍ مصرفي وتمويل في سوريا — نزاعات مصرفية واتفاقيات قروض وشؤون تنظيمية مالية وفق القانون المصرفي السوري. استشارة أونلاين — كاونسلو.",
     kw: "banking lawyer Syria, finance lawyer Syria, bank dispute Syria, loan agreement Syria, Syrian banking law, credit dispute Syria, bank lawyer Damascus, financial regulatory Syria, online banking advice Syria",
     kwAr: "محامي مصرفي سوريا, محامي تمويل سوريا, نزاع مصرفي سوريا, اتفاقية قرض سوريا, قانون مصرفي سوري, نزاع ائتمان سوريا, محامي مصرفي دمشق",
   },
   "intellectual-property": {
     desc: "Intellectual property lawyer in Syria — trademark, copyright & patent protection under Syrian IP law. Online legal advice 24 hours via WhatsApp — CounselO.",
-    descAr: "محامٍ ملكية فكرية في سوريا — حماية العلامات التجارية وحق المؤلف وبراءات الاختراع وفق قانون الملكية الفكرية السوري. استشارة أونلاين — قانوني.",
+    descAr: "محامٍ ملكية فكرية في سوريا — حماية العلامات التجارية وحق المؤلف وبراءات الاختراع وفق قانون الملكية الفكرية السوري. استشارة أونلاين — كاونسلو.",
     kw: "intellectual property lawyer Syria, trademark lawyer Syria, copyright Syria, patent Syria, Syrian IP law, trademark registration Syria, IP dispute Damascus, brand protection Syria, online IP advice Syria",
     kwAr: "محامي ملكية فكرية سوريا, محامي علامات تجارية سوريا, حق مؤلف سوريا, براءة اختراع سوريا, قانون الملكية الفكرية السوري, تسجيل علامة تجارية سوريا, نزاع ملكية فكرية دمشق",
   },
   "tax-zakat": {
     desc: "Tax lawyer in Syria — General Tax Authority (GTA) disputes, income tax objections & customs tax claims under Syrian tax law. Online advice 24/7 — CounselO.",
-    descAr: "محامٍ ضريبي في سوريا — نزاعات الهيئة العامة للضرائب والاعتراض على ضريبة الدخل ومطالبات الجمارك وفق قانون الضرائب السوري. استشارة أونلاين — قانوني.",
+    descAr: "محامٍ ضريبي في سوريا — نزاعات الهيئة العامة للضرائب والاعتراض على ضريبة الدخل ومطالبات الجمارك وفق قانون الضرائب السوري. استشارة أونلاين — كاونسلو.",
     kw: "tax lawyer Syria, General Tax Authority Syria, GTA dispute Syria, income tax objection Syria, Syrian tax law, customs duty Syria, tax appeal Damascus, tax dispute Aleppo, online tax advice Syria",
     kwAr: "محامي ضرائب سوريا, الهيئة العامة للضرائب سوريا, نزاع ضريبي سوريا, اعتراض ضريبة دخل سوريا, قانون الضرائب السوري, رسوم جمركية سوريا, طعن ضريبي دمشق",
   },
   "cyber-law": {
     desc: "Cyber & IT law lawyer in Syria — cybercrime defence, data protection & online fraud under Syrian law. Online advice 24 hours via WhatsApp — CounselO.",
-    descAr: "محامٍ قانون سيبراني وتقنية المعلومات في سوريا — دفاع عن جرائم إلكترونية وحماية بيانات واحتيال أونلاين وفق القانون السوري. استشارة أونلاين — قانوني.",
+    descAr: "محامٍ قانون سيبراني وتقنية المعلومات في سوريا — دفاع عن جرائم إلكترونية وحماية بيانات واحتيال أونلاين وفق القانون السوري. استشارة أونلاين — كاونسلو.",
     kw: "cyber lawyer Syria, cybercrime lawyer Syria, IT law Syria, online fraud Syria, data protection Syria, electronic crime Syria, cybercrime defence Damascus, online defamation Syria, digital law Syria",
     kwAr: "محامي سيبراني سوريا, محامي جرائم إلكترونية سوريا, قانون تقنية المعلومات سوريا, احتيال أونلاين سوريا, حماية بيانات سوريا, جريمة إلكترونية سوريا, دفاع جرائم إلكترونية دمشق",
   },
   "medical-malpractice": {
     desc: "Medical malpractice lawyer in Syria — negligence claims, surgical errors & misdiagnosis compensation under Syrian law. Online advice 24 hours — CounselO.",
-    descAr: "محامٍ أخطاء طبية في سوريا — مطالبات الإهمال الطبي وأخطاء الجراحة والتشخيص الخاطئ وفق القانون السوري. استشارة أونلاين — قانوني.",
+    descAr: "محامٍ أخطاء طبية في سوريا — مطالبات الإهمال الطبي وأخطاء الجراحة والتشخيص الخاطئ وفق القانون السوري. استشارة أونلاين — كاونسلو.",
     kw: "medical malpractice lawyer Syria, medical negligence Syria, surgical error Syria, misdiagnosis Syria, hospital claim Syria, doctor negligence Damascus, medical malpractice Aleppo, patient compensation Syria, online medical legal advice Syria",
     kwAr: "محامي أخطاء طبية سوريا, إهمال طبي سوريا, خطأ جراحي سوريا, تشخيص خاطئ سوريا, مطالبة مستشفى سوريا, إهمال طبي دمشق, أخطاء طبية حلب, تعويض مريض سوريا",
   },
   "insurance-law": {
     desc: "Insurance lawyer in Syria — claim rejections, policy disputes & insurance recovery under Syrian insurance law. Online legal advice 24 hours — CounselO.",
-    descAr: "محامٍ تأمين في سوريا — رفض المطالبات ونزاعات البوالص واسترداد التأمين وفق قانون التأمين السوري. استشارة قانونية أونلاين — قانوني.",
+    descAr: "محامٍ تأمين في سوريا — رفض المطالبات ونزاعات البوالص واسترداد التأمين وفق قانون التأمين السوري. استشارة قانونية أونلاين — كاونسلو.",
     kw: "insurance lawyer Syria, insurance dispute Syria, claim rejection Syria, insurance claim Syria, Syrian insurance law, policy dispute Damascus, health insurance Syria, motor insurance Syria, online insurance advice Syria",
     kwAr: "محامي تأمين سوريا, نزاع تأمين سوريا, رفض مطالبة تأمين سوريا, مطالبة تأمين سوريا, قانون التأمين السوري, نزاع بوليصة دمشق, تأمين صحي سوريا, تأمين سيارة سوريا",
   },
   "immigration-law": {
     desc: "Immigration lawyer in Syria — residency, work permits, deportation defence & travel bans under Syrian immigration law. Online advice 24/7 — CounselO.",
-    descAr: "محامٍ هجرة في سوريا — إقامة وتصاريح عمل ودفاع ضد الترحيل ومنع السفر وفق قانون الهجرة السوري. استشارة أونلاين — قانوني.",
+    descAr: "محامٍ هجرة في سوريا — إقامة وتصاريح عمل ودفاع ضد الترحيل ومنع السفر وفق قانون الهجرة السوري. استشارة أونلاين — كاونسلو.",
     kw: "immigration lawyer Syria, residency permit Syria, work permit Syria, deportation defence Syria, travel ban Syria, Syrian immigration law, residency Damascus, immigration lawyer Aleppo, online immigration advice Syria",
     kwAr: "محامي هجرة سوريا, إقامة سوريا, تصريح عمل سوريا, دفاع ضد ترحيل سوريا, منع سفر سوريا, قانون الهجرة السوري, إقامة دمشق, محامي هجرة حلب",
   },
   "civil-law": {
     desc: "Civil lawyer in Syria — civil liability, property rights, civil obligations & inheritance under Syrian Civil Code (Law No. 84/1949). Online advice 24/7 — CounselO.",
-    descAr: "محامٍ قانون مدني في سوريا — مسؤولية مدنية وحقوق عينية والتزامات مدنية وميراث وفق القانون المدني السوري رقم 84/1949. استشارة أونلاين — قانوني.",
+    descAr: "محامٍ قانون مدني في سوريا — مسؤولية مدنية وحقوق عينية والتزامات مدنية وميراث وفق القانون المدني السوري رقم 84/1949. استشارة أونلاين — كاونسلو.",
     kw: "civil lawyer Syria, civil liability Syria, Syrian Civil Code 84/1949, civil law Damascus, civil rights Syria, property rights Syria, civil damages Syria, inheritance Syria civil, civil lawyer Aleppo, online civil advice Syria",
     kwAr: "محامي مدني سوريا, مسؤولية مدنية سوريا, القانون المدني السوري 84/1949, قانون مدني دمشق, حقوق مدنية سوريا, حقوق عينية سوريا, تعويض مدني سوريا, محامي مدني حلب",
   },
   "civil-procedure": {
     desc: "Civil procedure lawyer in Syria — filing civil claims, interim measures, appeals & cassation under Syrian Code of Civil Procedure. Online advice 24/7 — CounselO.",
-    descAr: "محامٍ أصول محاكمات مدنية في سوريا — تقديم الدعاوى المدنية والتدابير المؤقتة والاستئناف والنقض وفق قانون أصول المحاكمات المدنية السوري. استشارة أونلاين — قانوني.",
+    descAr: "محامٍ أصول محاكمات مدنية في سوريا — تقديم الدعاوى المدنية والتدابير المؤقتة والاستئناف والنقض وفق قانون أصول المحاكمات المدنية السوري. استشارة أونلاين — كاونسلو.",
     kw: "civil procedure lawyer Syria, civil litigation Syria, civil claim Syria, civil appeal Syria, cassation Syria civil, Syrian Code of Civil Procedure, civil court Damascus, civil lawyer Aleppo Homs, online civil procedure advice Syria",
     kwAr: "محامي أصول محاكمات مدنية سوريا, تقاضي مدني سوريا, دعوى مدنية سوريا, استئناف مدني سوريا, نقض مدني سوريا, قانون أصول المحاكمات المدنية السوري, محكمة مدنية دمشق",
   },
   "criminal-procedure": {
     desc: "Criminal procedure lawyer in Syria — criminal defence at investigation, trial, appeal & cassation stages under Syrian Code of Criminal Procedure. Online 24/7 — CounselO.",
-    descAr: "محامٍ أصول محاكمات جزائية في سوريا — دفاع جنائي في مراحل التحقيق والمحاكمة والاستئناف والنقض وفق قانون أصول المحاكمات الجزائية السوري. أونلاين — قانوني.",
+    descAr: "محامٍ أصول محاكمات جزائية في سوريا — دفاع جنائي في مراحل التحقيق والمحاكمة والاستئناف والنقض وفق قانون أصول المحاكمات الجزائية السوري. أونلاين — كاونسلو.",
     kw: "criminal procedure lawyer Syria, criminal defence Syria, Syrian criminal court, criminal investigation Syria, criminal appeal Syria, Court of Cassation Syria, criminal lawyer Damascus, criminal lawyer Aleppo Homs Lattakia, online criminal advice Syria",
     kwAr: "محامي أصول محاكمات جزائية سوريا, دفاع جنائي سوريا, محكمة جزائية سورية, تحقيق جنائي سوريا, استئناف جنائي سوريا, محكمة النقض السورية, محامي جنائي دمشق, محامي جنائي حلب حمص اللاذقية",
   },
