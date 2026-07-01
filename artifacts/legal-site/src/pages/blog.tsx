@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Clock, ArrowRight, BookOpen } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 
 interface ApiPost {
@@ -31,6 +32,7 @@ function formatDate(dateStr: string, lang: string) {
 
 export default function Blog() {
   const { lang, isRTL } = useLanguage();
+  const { region } = useRegion();
 
   const { data: posts = [], isLoading } = useQuery<ApiPost[]>({
     queryKey: ["blog-posts"],
@@ -42,12 +44,15 @@ export default function Blog() {
     staleTime: 60_000,
   });
 
+  const country = region === "syr" ? "Syrian" : "Saudi";
+  const countryAr = region === "syr" ? "السورية" : "السعودية";
+
   const ui = {
     en: {
       eyebrow: "Legal Insights",
       heading: "Articles & Guides",
       subheading:
-        "Practical legal guidance on Saudi family law, employment, real estate, business, foreign investment, and administrative law — written by the team of Lawyer and Legal Counsel Omar Al-Baghdadi.",
+        `Practical legal guidance on ${country} family law, employment, real estate, business, foreign investment, and administrative law — written by the team of Lawyer and Legal Counsel Omar Al-Baghdadi.`,
       readMore: "Read Article",
       minRead: "min read",
       ctaHeading: "Have a Legal Question?",
@@ -59,7 +64,7 @@ export default function Blog() {
       eyebrow: "رؤى قانونية",
       heading: "مقالات وأدلة",
       subheading:
-        "إرشادات قانونية عملية في قانون الأسرة السعودي والعمل والعقارات والأعمال والاستثمار الأجنبي والقانون الإداري — من فريق المحامي والمستشار القانوني عمر البغدادي.",
+        `إرشادات قانونية عملية في قانون الأسرة ${countryAr} والعمل والعقارات والأعمال والاستثمار الأجنبي والقانون الإداري — من فريق المحامي والمستشار القانوني عمر البغدادي.`,
       readMore: "اقرأ المقال",
       minRead: "د قراءة",
       ctaHeading: "هل لديك سؤال قانوني؟",
@@ -88,23 +93,23 @@ export default function Blog() {
     <div className="w-full bg-background min-h-screen" dir={isRTL ? "rtl" : "ltr"}>
       <SEOHead
         title={isRTL
-          ? "مدونة قانونية سعودية | مقالات وإرشادات قانونية مجانية | قانوني"
-          : "Saudi Legal Blog | Free Legal Guides & Articles | CounselO قانوني"}
+          ? `مدونة قانونية ${countryAr} | مقالات وإرشادات قانونية مجانية | قانوني`
+          : `${country} Legal Blog | Free Legal Guides & Articles | CounselO قانوني`}
         description={isRTL
-          ? "إرشادات قانونية مجانية وعملية في قانون الأسرة السعودي وقانون العمل والعقارات والقانون التجاري والاستثمار الأجنبي والقانون الإداري — مقالات معمّقة بقلم فريق قانوني المتخصص في المملكة العربية السعودية."
-          : "Free practical legal guides on Saudi family law, employment law, real estate, commercial law, foreign investment, and administrative law — in-depth articles from CounselO's expert legal team in Saudi Arabia."}
+          ? `إرشادات قانونية مجانية وعملية في قانون الأسرة ${countryAr} وقانون العمل والعقارات والقانون التجاري والاستثمار الأجنبي والقانون الإداري — مقالات معمّقة بقلم فريق قانوني.`
+          : `Free practical legal guides on ${country} family law, employment law, real estate, commercial law, foreign investment, and administrative law — in-depth articles from CounselO's expert legal team.`}
         canonical="/blog"
         keywords={isRTL
-          ? "مدونة قانونية سعودية, مقالات قانونية, إرشادات قانونية مجانية, قانون الأسرة السعودي, قانون العمل السعودي, القانون العقاري, القانون التجاري, الاستثمار الأجنبي, القانون الإداري, قانوني"
-          : "Saudi legal blog, free legal guides Saudi Arabia, family law articles, employment law KSA, real estate law guide, commercial law Saudi Arabia, foreign investment guide, administrative law, CounselO blog"}
+          ? `مدونة قانونية ${countryAr}, مقالات قانونية, إرشادات قانونية مجانية, قانون الأسرة ${countryAr}, قانون العمل ${countryAr}, القانون العقاري, القانون التجاري, الاستثمار الأجنبي, القانون الإداري, قانوني`
+          : `${country} legal blog, free legal guides ${country === "Syrian" ? "Syria" : "Saudi Arabia"}, family law articles, employment law, real estate law guide, commercial law, foreign investment guide, administrative law, CounselO blog`}
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "Blog",
             "name": isRTL ? "مدونة قانوني القانونية" : "CounselO Legal Blog",
             "description": isRTL
-              ? "إرشادات قانونية معمّقة للأفراد والشركات في المملكة العربية السعودية"
-              : "In-depth legal guides for individuals and businesses in Saudi Arabia",
+              ? `إرشادات قانونية معمّقة للأفراد والشركات في ${region === "syr" ? "سوريا" : "المملكة العربية السعودية"}`
+              : `In-depth legal guides for individuals and businesses in ${region === "syr" ? "Syria" : "Saudi Arabia"}`,
             "url": "https://counselo.com/blog",
             "publisher": { "@type": "Organization", "name": "CounselO قانوني", "url": "https://counselo.com" },
             "inLanguage": [isRTL ? "ar" : "en"],

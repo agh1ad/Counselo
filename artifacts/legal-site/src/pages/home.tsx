@@ -27,9 +27,13 @@ export default function Home() {
   return (
     <div className="w-full">
       <SEOHead
-        title={isRTL
-          ? "كاونسلو | منصة المملكة للاستشارات القانونية الأونلاين | استجابة خلال 24 ساعة"
-          : "CounselO | Online Legal Consultation — Saudi Arabia | Response Within 24 Hours"}
+        title={region === "syr"
+          ? (isRTL
+            ? "كاونسلو | منصة سوريا للاستشارات القانونية الأونلاين | استجابة خلال 24 ساعة"
+            : "CounselO | Online Legal Consultation — Syria | Response Within 24 Hours")
+          : (isRTL
+            ? "كاونسلو | منصة المملكة للاستشارات القانونية الأونلاين | استجابة خلال 24 ساعة"
+            : "CounselO | Online Legal Consultation — Saudi Arabia | Response Within 24 Hours")}
         description={isRTL
           ? "قانوني — منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني للأفراد والشركات والمستثمرين. 18 مجالاً قانونياً، خبرة تزيد على 30 عاماً، أكثر من 20,000 قضية. بإشراف المحامي والمستشار القانوني عمر البغدادي. متاحة بالعربية والإنجليزية في الجبيل والرياض وجدة والدمام وجميع مناطق المملكة. رؤية 2030."
           : "CounselO is Saudi Arabia's online legal consultation platform — professional legal response within 24 hours via WhatsApp or email. 18 practice areas covering family law, commercial law, employment, real estate, foreign investment, administrative law, criminal law, banking, tax, and more. Founded by Lawyer and Legal Counsel Omar Al-Baghdadi. 30+ years experience, 20,000+ cases. Vision 2030 aligned."}

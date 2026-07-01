@@ -3,6 +3,54 @@ import { Helmet } from "react-helmet-async";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 
+const SYR_TEXT_MAP: [RegExp, string][] = [
+  [/Saudi Arabia/gi, "Syria"],
+  [/\bKSA\b/g, "Syria"],
+  [/Saudi law\b/gi, "Syrian law"],
+  [/Saudi courts?\b/gi, "Syrian courts"],
+  [/Saudi authorities\b/gi, "Syrian authorities"],
+  [/Saudi MOH\b/gi, "Syrian Ministry of Health"],
+  [/\bBoard of Grievances\b/gi, "Syrian Administrative Courts"],
+  [/\bdiwan al mazalim\b/gi, "Syrian administrative courts"],
+  [/\bSAMA\b/g, "Central Bank of Syria"],
+  [/\bZATCA\b/g, "General Tax Authority"],
+  [/\bSAIP\b/g, "Syrian IP Office"],
+  [/\bCCHI\b/g, "Insurance Authority"],
+  [/\bNDMO\b/g, "Syrian data authority"],
+  [/\bPDPL\b/g, "Syrian data protection law"],
+  [/\bSCCA\b/g, "Syrian Arbitration Center"],
+  [/\bCITC\b/g, "Syrian authorities"],
+  [/\bCMA\b/g, "Syrian financial authorities"],
+  [/المملكة العربية السعودية/g, "سوريا"],
+  [/في المملكة\b/g, "في سوريا"],
+  [/قانوني المملكة العربية السعودية/g, "قانوني سوريا"],
+  [/ساما\b/g, "مصرف سوريا المركزي"],
+  [/هيئة الزكاة والضريبة والجمارك/g, "هيئة الضرائب والرسوم"],
+];
+
+function syriafyText(text: string): string {
+  let out = text;
+  for (const [pat, rep] of SYR_TEXT_MAP) out = out.replace(pat, rep);
+  return out;
+}
+
+function syriafyObj(val: unknown): unknown {
+  if (typeof val === "string") return syriafyText(val);
+  if (Array.isArray(val)) return val.map(syriafyObj);
+  if (val !== null && typeof val === "object") {
+    const out: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(val as Record<string, unknown>)) {
+      if (k === "addressCountry" && v === "SA") out[k] = "SY";
+      else if (k === "telephone" && typeof v === "string" && v.startsWith("+966")) out[k] = "+963114000000";
+      else if (k === "addressLocality" && v === "Jubail") out[k] = "Hama";
+      else if (k === "addressRegion" && v === "Eastern Province") out[k] = "Hama Governorate";
+      else out[k] = syriafyObj(v);
+    }
+    return out;
+  }
+  return val;
+}
+
 interface SEOHeadProps {
   title: string;
   description: string;
@@ -88,13 +136,22 @@ export function SEOHead({
       ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة العربية السعودية, مشورة قانونية إلكترونية, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل السعودي, القانون العقاري السعودي, استثمار أجنبي محامي, القانون الإداري السعودي, كاونسلو"
       : "استشارة قانونية أونلاين سوريا, محامي أونلاين سوريا, مشورة قانونية إلكترونية سوريا, قانون الأسرة السوري, القانون التجاري السوري, قانون العمل السوري, القانون العقاري السوري, كاونسلو";
 
-  const finalKeywords =
-    keywords ?? (isArabic ? defaultKeywordsAr : defaultKeywordsEn);
+  const rawKeywords = keywords ?? (isArabic ? defaultKeywordsAr : defaultKeywordsEn);
+
+  const isSyr = region === "syr";
+  const finalDescription = isSyr ? syriafyText(description) : description;
+  const finalKeywords = isSyr ? syriafyText(rawKeywords) : rawKeywords;
+  const finalSchema = isSyr && schema
+    ? (Array.isArray(schema) ? schema.map((s) => syriafyObj(s) as object) : syriafyObj(schema) as object)
+    : schema;
+  const finalExtraSchemas = isSyr && extraSchemas
+    ? extraSchemas.map((s) => syriafyObj(s) as object)
+    : extraSchemas;
 
   useEffect(() => {
     const schemas: object[] = [
-      ...(schema ? (Array.isArray(schema) ? schema : [schema]) : []),
-      ...(extraSchemas ?? []),
+      ...(finalSchema ? (Array.isArray(finalSchema) ? finalSchema : [finalSchema]) : []),
+      ...(finalExtraSchemas ?? []),
     ];
 
     const prev = injectedRef.current;
@@ -113,13 +170,13 @@ export function SEOHead({
       injectedRef.current.forEach((el) => el.parentNode?.removeChild(el));
       injectedRef.current = [];
     };
-  }, [schema, extraSchemas]);
+  }, [finalSchema, finalExtraSchemas]);
 
   return (
     <Helmet>
       <html lang={lang} dir={isArabic ? "rtl" : "ltr"} />
       <title>{fullTitle}</title>
-      <meta name="description" content={description} />
+      <meta name="description" content={finalDescription} />
       <meta name="keywords" content={finalKeywords} />
       <meta
         name="robots"
@@ -152,7 +209,7 @@ export function SEOHead({
 
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
+      <meta property="og:description" content={finalDescription} />
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content="CounselO كاونسلو" />
       <meta property="og:url" content={canonicalUrl} />

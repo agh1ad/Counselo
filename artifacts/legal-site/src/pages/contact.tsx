@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { Clock, Mail, MapPin, Phone, CreditCard } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 
 const formSchema = z.object({
@@ -24,6 +25,7 @@ const formSchema = z.object({
 export default function Contact() {
   const { toast } = useToast();
   const { t, isRTL } = useLanguage();
+  const { region } = useRegion();
   const c = t.contact;
   const f = c.form;
   const [submitting, setSubmitting] = useState(false);
@@ -76,12 +78,20 @@ export default function Contact() {
   return (
     <div className="w-full bg-background min-h-screen">
       <SEOHead
-        title={isRTL
-          ? "احجز استشارة قانونية أونلاين في السعودية | استجابة خلال 24 ساعة | قانوني"
-          : "Book Online Legal Consultation Saudi Arabia | Response Within 24 Hours | CounselO"}
-        description={isRTL
-          ? "تواصل مع قانوني — أكبر منصة استشارات قانونية أونلاين في المملكة. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
-          : "Contact CounselO — Saudi Arabia's largest online legal consultation platform. Professional response within 24 hours via WhatsApp (+966 59 485 0247) or email. No office visit needed. Arabic and English."}
+        title={region === "syr"
+          ? (isRTL
+            ? "احجز استشارة قانونية أونلاين في سوريا | استجابة خلال 24 ساعة | قانوني"
+            : "Book Online Legal Consultation Syria | Response Within 24 Hours | CounselO")
+          : (isRTL
+            ? "احجز استشارة قانونية أونلاين في السعودية | استجابة خلال 24 ساعة | قانوني"
+            : "Book Online Legal Consultation Saudi Arabia | Response Within 24 Hours | CounselO")}
+        description={region === "syr"
+          ? (isRTL
+            ? "تواصل مع قانوني — منصة الاستشارات القانونية الأونلاين في سوريا. استجابة احترافية خلال 24 ساعة عبر واتساب (+963 11 400 0000) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
+            : "Contact CounselO — Syria's online legal consultation platform. Professional response within 24 hours via WhatsApp (+963 11 400 0000) or email. No office visit needed. Arabic and English.")
+          : (isRTL
+            ? "تواصل مع قانوني — أكبر منصة استشارات قانونية أونلاين في المملكة. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
+            : "Contact CounselO — Saudi Arabia's largest online legal consultation platform. Professional response within 24 hours via WhatsApp (+966 59 485 0247) or email. No office visit needed. Arabic and English.")}
         canonical="/contact"
         keywords={isRTL
           ? "احجز استشارة قانونية السعودية, تواصل مع محامي أونلاين, استشارة قانونية واتساب السعودية, استجابة خلال 24 ساعة, محامي الجبيل أونلاين, قانوني اتصل, استشارة فورية السعودية"

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Clock, ArrowLeft, ArrowRight, Calendar, MessageCircle } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 
 interface BlogSection {
@@ -45,6 +46,7 @@ function formatDate(dateStr: string, lang: string) {
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const { lang, isRTL } = useLanguage();
+  const { region } = useRegion();
 
   const { data: post, isLoading, isError } = useQuery<ApiPost>({
     queryKey: ["blog-post", slug],
@@ -63,7 +65,9 @@ export default function BlogPost() {
       minRead: "min read",
       consultHeading: "Need Legal Advice?",
       consultDesc:
-        "CounselO offers confidential online legal consultations via WhatsApp or email — no office visit required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of Saudi legal practice, 20,000+ cases handled across Saudi Arabia.",
+        region === "syr"
+          ? "CounselO offers confidential online legal consultations via WhatsApp or email — no office visit required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of legal practice, 20,000+ cases handled."
+          : "CounselO offers confidential online legal consultations via WhatsApp or email — no office visit required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of Saudi legal practice, 20,000+ cases handled across Saudi Arabia.",
       whatsapp: "Chat on WhatsApp",
       email: "Send an Email",
       disclaimer:
@@ -78,7 +82,9 @@ export default function BlogPost() {
       minRead: "د قراءة",
       consultHeading: "هل تحتاج إلى مشورة قانونية؟",
       consultDesc:
-        "يقدم قانوني استشارات سرية عبر واتساب أو البريد الإلكتروني — دون الحاجة لزيارة مكتب. من تأسيس المحامي والمستشار القانوني عمر البغدادي — خبرة قانونية سعودية تزيد على 30 عاماً.",
+        region === "syr"
+          ? "يقدم قانوني استشارات سرية عبر واتساب أو البريد الإلكتروني — دون الحاجة لزيارة مكتب. من تأسيس المحامي والمستشار القانوني عمر البغدادي — خبرة قانونية تزيد على 30 عاماً."
+          : "يقدم قانوني استشارات سرية عبر واتساب أو البريد الإلكتروني — دون الحاجة لزيارة مكتب. من تأسيس المحامي والمستشار القانوني عمر البغدادي — خبرة قانونية سعودية تزيد على 30 عاماً.",
       whatsapp: "تواصل عبر واتساب",
       email: "أرسل بريداً إلكترونياً",
       disclaimer:
