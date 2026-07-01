@@ -265,7 +265,7 @@ export default function BlogPost() {
                     {ui.whatsapp}
                   </a>
                   <a
-                    href="mailto:bagdadio@gmail.com"
+                    href="mailto:legal@counselo.com"
                     className="flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-white font-semibold py-2.5 text-sm hover:bg-white/20 transition-colors"
                   >
                     {ui.email}

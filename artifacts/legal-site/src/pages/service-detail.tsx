@@ -81,7 +81,7 @@ export default function ServiceDetail() {
         "name": isRTL ? "كاونسلو كاونسلو" : "CounselO",
         "url": "https://counselo.com",
         "telephone": "+966594850247",
-        "email": "bagdadio@gmail.com",
+        "email": "legal@counselo.com",
         "address": serviceAddress,
         "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel", "honorificPrefix": "Lawyer" },
         "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "847", "bestRating": "5", "worstRating": "1" },

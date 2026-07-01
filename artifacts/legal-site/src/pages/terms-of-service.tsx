@@ -249,9 +249,9 @@ export default function TermsOfService() {
               <MessageCircle className="h-4 w-4" />
               <span dir="ltr">+966 59 485 0247</span>
             </a>
-            <a href="mailto:bagdadio@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
+            <a href="mailto:legal@counselo.com" className="flex items-center gap-2 hover:text-white transition-colors">
               <Mail className="h-4 w-4" />
-              <span>bagdadio@gmail.com</span>
+              <span>legal@counselo.com</span>
             </a>
           </div>
         </motion.section>
