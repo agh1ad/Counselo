@@ -65,7 +65,7 @@ export const en = {
       responseTag: "Professional Response Within 24 Hours",
       h1a: "Online Legal Consultation",
       h1b: "for Saudi Arabia — Fast & Reliable.",
-      desc: "CounselO is an online legal consultation platform serving Saudi Arabia — delivering expert legal guidance for individuals, businesses and investors, aligned with Vision 2030's digital transformation agenda",
+      desc: "CounselO is an online legal consultation platform serving Saudi Arabia — delivering expert legal guidance for individuals, businesses and investors, directly to your phone or inbox.",
       descBold: "without leaving your desk.",
       descEnd: "",
       subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Saudi Arabia — professional legal response within 24 hours, guaranteed. 30+ years experience, 20,000+ cases and consultations.",
@@ -121,7 +121,7 @@ export const en = {
       steps: [
         { step: "01", title: "Choose Your Method", desc: "Select WhatsApp or email — whichever suits your situation best." },
         { step: "02", title: "Describe Your Matter", desc: "Share your legal situation. All information is treated as strictly confidential." },
-        { step: "03", title: "Complete Payment", desc: "Our team will send you the consultation fee and bank transfer details via WhatsApp. Payment is required before the legal answer is delivered." },
+        { step: "03", title: "Complete Payment", desc: "Our team will send you the consultation fee and secure payment details via WhatsApp or email. The fee is confirmed in advance — before any work begins." },
         { step: "04", title: "Receive Expert Guidance", desc: "Once payment is confirmed, CounselO's legal team — under Lawyer and Legal Counsel Al-Baghdadi's supervision — delivers a structured legal analysis within 24 hours." },
       ],
     },
@@ -187,7 +187,7 @@ export const en = {
     cta: {
       eyebrow: "Online Legal Consultation Platform — Saudi Arabia",
       heading: "Professional Legal Response Within 24 Hours.",
-      desc: "Expert online legal consultations for individuals, businesses and investors across Saudi Arabia — via WhatsApp or email, no office visit required. 18 practice areas. 30+ years experience.",
+      desc: "Expert online legal consultations for individuals, businesses and investors across Saudi Arabia — via WhatsApp or email, no office visit required. 17 practice areas. 30+ years experience.",
       subDesc: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi · Jubail, Saudi Arabia · WhatsApp or email · Arabic & English",
       ctaBtn: "Book Your Consultation Now",
     },
@@ -195,7 +195,7 @@ export const en = {
   services: {
     hero: {
       heading: "17 Legal Practice Areas",
-      desc: "Saudi Arabia's online legal consultation platform — 18 specialist practice areas covering family, commercial, employment, real estate, foreign investment, criminal, banking, tax, cyber, medical malpractice, insurance, arbitration, enforcement, companies law, contracts, IP, administrative law and immigration. Professional response within 24 hours. No office visit needed.",
+      desc: "Saudi Arabia's online legal consultation platform — 17 specialist practice areas covering family, commercial, employment, real estate, foreign investment, criminal, banking, tax, cyber, medical malpractice, insurance, arbitration, enforcement, companies law, contracts, intellectual property, and administrative law. Professional response within 24 hours. No office visit needed.",
     },
     explorePrefix: "Explore ",
     items: [
@@ -214,7 +214,7 @@ export const en = {
       { id: "intellectual-property", title: "Intellectual Property", longDesc: "Expert IP lawyers in Saudi Arabia — trademark registration, patent protection, copyright disputes, brand protection, trade secret litigation, and IP enforcement before SAIP and Saudi courts under Vision 2030." },
       { id: "tax-zakat", title: "Tax & Zakat Law", longDesc: "Specialist ZATCA lawyers in Saudi Arabia — VAT compliance, zakat disputes, corporate income tax, ZATCA objections and appeals, transfer pricing, customs duties disputes, and tax advisory for businesses and investors." },
       { id: "cyber-law", title: "Cyber & IT Law", longDesc: "Expert cybercrime lawyers in Saudi Arabia — defense under the Anti-Cybercrime Law, data protection under PDPL, online fraud cases, hacking defense, online defamation, and IT contract disputes. Professional consultation within 24 hours via WhatsApp or email." },
-      { id: "medical-malpractice", title: "Medical Malpractice & Healthcare Law", longDesc: "Expert medical malpractice lawyers in Saudi Arabia — negligence claims, surgical errors, and misdiagnosis." },
+      { id: "medical-malpractice", title: "Medical Malpractice & Healthcare Law", longDesc: "Expert medical malpractice lawyers in Saudi Arabia — representing patients and families in negligence claims, surgical errors, misdiagnosis, pharmaceutical liability, and MOH regulatory proceedings before Saudi courts and the Board of Grievances." },
       { id: "insurance-law", title: "Insurance Law", longDesc: "Specialist insurance dispute lawyers in Saudi Arabia — health, property, motor, life, and commercial insurance claim disputes, bad faith rejections, SAMA/CCHI regulatory compliance, and insurance litigation before Saudi courts." },
     ],
   },
@@ -1701,8 +1701,8 @@ export const en = {
   },
   contact: {
     hero: {
-      heading: "Contact Us",
-      subheading: "30+ years of legal experience — discreet, authoritative counsel is a message away. Reach Lawyer and Legal Counsel Omar Al-Baghdadi's team via WhatsApp or email, 24/7.",
+      heading: "Start Your Consultation",
+      subheading: "Describe your matter via WhatsApp or email and receive a structured legal response within 24 hours — from a team with 30+ years of experience and 20,000+ cases handled. Fully confidential.",
     },
     firmDetails: {
       heading: "Firm Details",
@@ -1718,9 +1718,9 @@ export const en = {
     form: {
       heading: "Request a Consultation",
       nameLabel: "Full Name",
-      namePlaceholder: "John Smith",
+      namePlaceholder: "e.g. Ali Al-Ghamdi",
       emailLabel: "Email Address",
-      emailPlaceholder: "john@example.com",
+      emailPlaceholder: "your@email.com",
       phoneLabel: "Phone Number",
       phonePlaceholder: "+966 5x xxx xxxx",
       serviceLabel: "Practice Area",
@@ -1732,6 +1732,17 @@ export const en = {
         { value: "employment-law", label: "Employment Law" },
         { value: "foreign-investment", label: "Foreign Investment & Business Law" },
         { value: "administrative-law", label: "Administrative Law" },
+        { value: "arbitration", label: "Arbitration & Mediation" },
+        { value: "enforcement", label: "Enforcement & Debt Collection" },
+        { value: "companies-law", label: "Companies Law & Corporate Disputes" },
+        { value: "contracts", label: "Contracts & Commercial Agreements" },
+        { value: "criminal-law", label: "Criminal Law" },
+        { value: "banking-finance", label: "Banking & Finance Law" },
+        { value: "intellectual-property", label: "Intellectual Property Law" },
+        { value: "tax-zakat", label: "Tax & Zakat Law" },
+        { value: "cyber-law", label: "Cyber & IT Law" },
+        { value: "medical-malpractice", label: "Medical Malpractice & Healthcare Law" },
+        { value: "insurance-law", label: "Insurance Law" },
       ],
       messageLabel: "Brief Description of Your Matter",
       messagePlaceholder: "Please provide a brief overview of your legal situation...",
@@ -1741,7 +1752,7 @@ export const en = {
       uploadRemove: "Remove",
       submitBtn: "Submit Consultation Request",
       disclaimer: "All submissions are confidential. A member of our team will respond within 24 hours.",
-      paymentNotice: "This is a paid consultation service. After reviewing your request, our team will send you the consultation fee and bank transfer details via WhatsApp. Your legal answer will be delivered once payment is confirmed.",
+      paymentNotice: "After reviewing your request, our team will contact you via WhatsApp to confirm the consultation fee — which varies by matter type and is agreed in advance. Your legal answer is delivered once payment is confirmed.",
     },
   },
   administrativeLawDetail: {
@@ -4854,7 +4865,7 @@ export const en = {
     stats: [
       { stat: "20,000+", label: "Cases & Consultations Handled" },
       { stat: "30+", label: "Years of Legal Experience" },
-      { stat: "18", label: "Practice Areas" },
+      { stat: "17", label: "Practice Areas" },
       { stat: "40+", label: "Lawyers Mentored" },
     ],
     mission: {

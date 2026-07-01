@@ -1,0 +1,42 @@
+Audit the entire website/app content for clarity, conversion, trust, SEO relevance, and user experience.
+
+Please review every visible page, section, heading, paragraph, button label, form label, error message, navigation item, footer item, and call-to-action.
+
+Check specifically for:
+
+1. Clear homepage value proposition
+2. Strong hero headline and subheadline
+3. Clear explanation of what the product/service does
+4. Clear explanation of who it is for
+5. Clear benefits, not just features
+6. Strong calls-to-action on every important page
+7. Consistent brand voice and tone
+8. Grammar, spelling, and punctuation issues
+9. Repetitive, vague, or generic wording
+10. Missing trust elements, such as testimonials, reviews, guarantees, credentials, case studies, or social proof
+11. Missing FAQ content
+12. Missing About section or weak About content
+13. Missing Contact/support information
+14. Weak product/service descriptions
+15. Unclear pricing, plans, packages, or next steps
+16. Confusing navigation labels
+17. Weak button text, such as “Submit” or “Learn More” where more specific text would convert better
+18. Thin pages with too little useful content
+19. Keyword relevance and natural SEO-friendly phrasing
+20. Content gaps compared with what users would expect before trusting or buying
+21. Readability for the target audience
+22. Mobile readability: short paragraphs, scannable sections, clear CTAs
+23. Accessibility of content, including descriptive link text and form labels
+24. Consistency between page titles, headings, and body content
+25. Any legal or credibility content that may be needed, such as privacy policy, terms, refund policy, disclaimer, or service area information
+
+After auditing, give me:
+
+* A score from 1–10 for content quality and conversion readiness
+* A list of missing or weak content areas
+* The exact pages/files/components that need content changes
+* Rewritten improved copy for each weak section
+* A prioritized action plan to reach 10/10 content quality
+* A list of any business-specific information you need from me before finalizing the content
+
+Do not change the visual design unless required for readability or content structure. Focus on content quality, clarity, trust, conversion, SEO relevance, and user experience.

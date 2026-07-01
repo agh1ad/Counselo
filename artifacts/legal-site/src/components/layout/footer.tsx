@@ -78,7 +78,6 @@ export function Footer() {
           <p className="text-sm text-white/60">
             &copy; {new Date().getFullYear()} CounselO. {f.copyright}
           </p>
-          <p className="text-xs text-white/30 italic">By Aghiad Albaghdadi &nbsp;·&nbsp; من أغيد البغدادي</p>
           <div className="flex gap-4 text-sm text-white/60">
             <Link href={p("/privacy-policy")} className="hover:text-white transition-colors">{f.privacy}</Link>
             <span className="text-white/20">|</span>
