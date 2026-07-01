@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Clock, Mail, MapPin, Phone, CreditCard, Paperclip, X, FileText, ImageIcon } from "lucide-react";
+import { Clock, Mail, MapPin, Phone, CreditCard, Paperclip, X, FileText, ImageIcon, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
@@ -37,33 +37,48 @@ export default function Contact() {
   const { region } = useRegion();
   const c = t.contact;
   const f = c.form;
-  const [submitting, setSubmitting] = useState(false);
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const nativeFormRef = useRef<HTMLFormElement>(null);
 
   const searchParams = new URLSearchParams(window.location.search);
   const defaultService = searchParams.get("service") || "";
+  const wasSent = searchParams.get("sent") === "1";
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: { name: "", email: "", phone: "", service: defaultService, message: "" },
   });
 
+  useEffect(() => {
+    if (wasSent) {
+      window.history.replaceState({}, "", window.location.pathname);
+    }
+  }, [wasSent]);
+
+  const syncFilesToInput = useCallback((fileList: File[]) => {
+    if (!fileInputRef.current) return;
+    try {
+      const dt = new DataTransfer();
+      fileList.forEach((f) => dt.items.add(f));
+      fileInputRef.current.files = dt.files;
+    } catch {
+      /* DataTransfer not supported — files still submitted from state */
+    }
+  }, []);
+
   const handleFiles = useCallback((incoming: FileList | null) => {
     if (!incoming) return;
     const valid: File[] = [];
     const skipped: string[] = [];
     Array.from(incoming).forEach((file) => {
-      if (!ACCEPTED.includes(file.type)) {
-        skipped.push(file.name);
-      } else if (file.size > MAX_SIZE_MB * 1024 * 1024) {
-        skipped.push(file.name);
-      } else {
-        valid.push(file);
-      }
+      if (!ACCEPTED.includes(file.type)) { skipped.push(file.name); return; }
+      if (file.size > MAX_SIZE_MB * 1024 * 1024) { skipped.push(file.name); return; }
+      valid.push(file);
     });
     setFiles((prev) => {
       const combined = [...prev, ...valid].slice(0, MAX_FILES);
+      syncFilesToInput(combined);
       return combined;
     });
     if (skipped.length > 0) {
@@ -71,54 +86,32 @@ export default function Contact() {
         title: isRTL ? "بعض الملفات لم تُضَف" : "Some files were skipped",
         description: isRTL
           ? `${skipped.join(", ")} — تحقق من النوع والحجم`
-          : `${skipped.join(", ")} — check file type and size`,
+          : `${skipped.join(", ")} — check type and size`,
         variant: "destructive",
       });
     }
-  }, [isRTL, toast]);
+  }, [isRTL, toast, syncFilesToInput]);
 
   const removeFile = (idx: number) => {
-    setFiles((prev) => prev.filter((_, i) => i !== idx));
+    setFiles((prev) => {
+      const updated = prev.filter((_, i) => i !== idx);
+      syncFilesToInput(updated);
+      return updated;
+    });
   };
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    setSubmitting(true);
-    try {
-      const fd = new FormData();
-      fd.append("_subject", `New Legal Consultation — ${values.service} — ${values.name}`);
-      fd.append("name", values.name);
-      fd.append("email", values.email);
-      fd.append("phone", values.phone);
-      fd.append("service", values.service);
-      fd.append("message", values.message);
-      files.forEach((file) => fd.append("attachment", file));
-
-      const res = await fetch("https://formsubmit.co/ajax/bagdadio@gmail.com", {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: fd,
-      });
-      if (res.ok) {
-        toast({
-          title: isRTL ? "تم إرسال طلبك بنجاح" : "Request sent successfully",
-          description: isRTL ? "سنتواصل معك خلال 24 ساعة." : "We will contact you within 24 hours.",
-        });
-        form.reset();
-        setFiles([]);
-      } else {
-        throw new Error("Failed");
-      }
-    } catch {
-      toast({
-        title: isRTL ? "حدث خطأ" : "Submission error",
-        description: isRTL
-          ? "يُرجى المحاولة مجدداً أو التواصل عبر واتساب."
-          : "Please try again or contact us via WhatsApp.",
-        variant: "destructive",
-      });
-    } finally {
-      setSubmitting(false);
-    }
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    const nf = nativeFormRef.current;
+    if (!nf) return;
+    const get = (name: string) => nf.querySelector<HTMLInputElement>(`[data-field="${name}"]`)!;
+    get("_subject").value = `New Legal Consultation — ${values.service} — ${values.name}`;
+    get("_next").value = `${window.location.origin}${window.location.pathname}?sent=1`;
+    get("name").value = values.name;
+    get("email").value = values.email;
+    get("phone").value = values.phone;
+    get("service").value = values.service;
+    get("message").value = values.message;
+    nf.submit();
   }
 
   return (
@@ -181,6 +174,35 @@ export default function Contact() {
           },
         ]}
       />
+
+      {/* Native form — invisible, actual formsubmit.co multipart submission */}
+      <form
+        ref={nativeFormRef}
+        action="https://formsubmit.co/bagdadio@gmail.com"
+        method="POST"
+        encType="multipart/form-data"
+        style={{ display: "none" }}
+      >
+        <input type="hidden" data-field="_subject" name="_subject" defaultValue="" />
+        <input type="hidden" data-field="_next" name="_next" defaultValue="" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" data-field="name" name="name" defaultValue="" />
+        <input type="hidden" data-field="email" name="email" defaultValue="" />
+        <input type="hidden" data-field="phone" name="phone" defaultValue="" />
+        <input type="hidden" data-field="service" name="service" defaultValue="" />
+        <input type="hidden" data-field="message" name="message" defaultValue="" />
+        {/* Real file input — files selected via the visible UI land here */}
+        <input
+          ref={fileInputRef}
+          type="file"
+          name="attachment"
+          multiple
+          accept="image/*,.pdf"
+          onChange={(e) => handleFiles(e.target.files)}
+          onClick={(e) => { (e.target as HTMLInputElement).value = ""; }}
+        />
+      </form>
+
       {/* Hero */}
       <section className="relative py-28 border-b border-border">
         <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 10%) 0%, hsl(150 80% 15%) 100%)" }} />
@@ -193,6 +215,20 @@ export default function Contact() {
           </motion.div>
         </div>
       </section>
+
+      {/* Success banner */}
+      {wasSent && (
+        <div className="bg-primary/10 border-b border-primary/30 py-5">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3">
+            <CheckCircle className="h-6 w-6 text-primary shrink-0" />
+            <p className="text-foreground font-medium">
+              {isRTL
+                ? "تم إرسال طلبك بنجاح. سنتواصل معك خلال 24 ساعة."
+                : "Your request was sent successfully. We will contact you within 24 hours."}
+            </p>
+          </div>
+        </div>
+      )}
 
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -294,15 +330,6 @@ export default function Contact() {
                         <span className="text-sm font-medium text-foreground">{f.uploadBtn}</span>
                         <span className="text-xs text-muted-foreground text-center">{f.uploadHint}</span>
                       </button>
-                      <input
-                        ref={fileInputRef}
-                        type="file"
-                        multiple
-                        accept="image/*,.pdf"
-                        className="hidden"
-                        onChange={(e) => handleFiles(e.target.files)}
-                        onClick={(e) => { (e.target as HTMLInputElement).value = ""; }}
-                      />
                       {files.length > 0 && (
                         <ul className="space-y-2">
                           {files.map((file, idx) => (
@@ -331,8 +358,8 @@ export default function Contact() {
                       <CreditCard className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                       <p className="text-sm text-foreground/80 leading-relaxed">{f.paymentNotice}</p>
                     </div>
-                    <Button type="submit" size="lg" disabled={submitting} className="w-full py-6 text-lg rounded-none bg-primary text-white hover:bg-primary/90 disabled:opacity-70">
-                      {submitting ? (isRTL ? "جارٍ الإرسال…" : "Sending…") : f.submitBtn}
+                    <Button type="submit" size="lg" className="w-full py-6 text-lg rounded-none bg-primary text-white hover:bg-primary/90">
+                      {f.submitBtn}
                     </Button>
                     <p className="text-xs text-muted-foreground text-center">{f.disclaimer}</p>
                   </form>
