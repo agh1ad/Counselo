@@ -7,7 +7,7 @@ import { SEOHead } from "@/components/seo/SEOHead";
 
 export default function TermsOfService() {
   const { isRTL } = useLanguage();
-  const { region } = useRegion();
+  const { region, regionPrefix } = useRegion();
 
   const content = {
     en: {
@@ -242,7 +242,7 @@ export default function TermsOfService() {
         >
           <h2 className="text-2xl font-serif font-bold text-white mb-3">{content.ctaHeading}</h2>
           <p className="text-white/70 mb-8 leading-relaxed">{content.ctaDesc}</p>
-          <Link href="/contact">
+          <Link href={`${regionPrefix}/contact`}>
             <span className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-4 hover:bg-white/90 transition-colors cursor-pointer">
               {content.ctaBtn}
               <ArrowRight className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />

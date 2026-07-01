@@ -32,7 +32,7 @@ function formatDate(dateStr: string, lang: string) {
 
 export default function Blog() {
   const { lang, isRTL } = useLanguage();
-  const { region } = useRegion();
+  const { region, regionPrefix } = useRegion();
 
   const { data: posts = [], isLoading } = useQuery<ApiPost[]>({
     queryKey: ["blog-posts"],
@@ -209,7 +209,7 @@ export default function Blog() {
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-serif font-bold text-foreground mb-3">{ui.ctaHeading}</h2>
           <p className="text-muted-foreground mb-6">{ui.ctaDesc}</p>
-          <Link href="/contact">
+          <Link href={`${regionPrefix}/contact`}>
             <button className="bg-primary text-white font-semibold px-8 py-3 hover:bg-primary/90 transition-colors">
               {ui.ctaBtn}
             </button>

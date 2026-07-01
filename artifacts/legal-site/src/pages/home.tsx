@@ -21,7 +21,7 @@ const channelColors = ["bg-[#25D366]", "bg-white/15 border border-white/30"];
 
 export default function Home() {
   const { t, isRTL } = useLanguage();
-  const { region } = useRegion();
+  const { region, regionPrefix } = useRegion();
   const h = t.home;
 
   return (
@@ -174,10 +174,10 @@ export default function Home() {
 
               {/* Primary CTA */}
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/contact">
+                <Link href={`${regionPrefix}/contact`}>
                   <Button size="lg" className="text-base px-8 py-6 rounded-none w-full sm:w-auto bg-white text-primary hover:bg-white/90 font-semibold shadow-lg">{h.hero.bookBtn}</Button>
                 </Link>
-                <Link href="/services">
+                <Link href={`${regionPrefix}/services`}>
                   <Button size="lg" variant="outline" className="text-base px-8 py-6 rounded-none w-full sm:w-auto border-white/30 text-white hover:bg-white/10">{h.hero.servicesBtn}</Button>
                 </Link>
               </div>
@@ -187,7 +187,7 @@ export default function Home() {
                 {h.hero.channels.map((ch, i) => {
                   const Icon = channelIcons[i];
                   return (
-                    <Link key={i} href="/contact"
+                    <Link key={i} href={`${regionPrefix}/contact`}
                       className={`flex items-center gap-2.5 ${channelColors[i]} text-white px-4 py-2.5 text-sm font-semibold hover:opacity-90 transition-opacity`}>
                       <Icon className="h-4 w-4 shrink-0" />
                       <span>{ch.label}</span>
@@ -307,7 +307,7 @@ export default function Home() {
                   <Icon className="h-10 w-10 text-white/70 mb-6" />
                   <h3 className="text-xl font-serif font-bold text-white mb-3">{method.title}</h3>
                   <p className="text-white/70 leading-relaxed text-sm mb-6">{method.desc}</p>
-                  <Link href="/contact" className="inline-flex items-center gap-2 text-white text-sm font-semibold border-b border-white/40 pb-0.5 hover:border-white transition-colors">
+                  <Link href={`${regionPrefix}/contact`} className="inline-flex items-center gap-2 text-white text-sm font-semibold border-b border-white/40 pb-0.5 hover:border-white transition-colors">
                     {h.consultMethods.ctaBtn} <ArrowRight className="h-3.5 w-3.5 rtl:rotate-180" />
                   </Link>
                 </motion.div>
@@ -315,7 +315,7 @@ export default function Home() {
             })}
           </div>
           <div className="text-center">
-            <Link href="/contact">
+            <Link href={`${regionPrefix}/contact`}>
               <Button size="lg" className="text-lg px-12 py-6 rounded-none bg-white text-primary hover:bg-white/90 font-semibold">{h.consultMethods.ctaBtn}</Button>
             </Link>
           </div>
@@ -409,7 +409,7 @@ export default function Home() {
                 className="group bg-card border border-border p-8 hover:border-primary/50 hover:shadow-md transition-all">
                 <h3 className="text-xl font-serif font-bold text-foreground mb-4 group-hover:text-primary transition-colors">{area.title}</h3>
                 <p className="text-muted-foreground mb-6 text-sm leading-relaxed">{area.desc}</p>
-                <Link href={area.path} className="inline-flex items-center text-primary text-sm font-medium group-hover:underline underline-offset-4">
+                <Link href={regionPrefix + area.path} className="inline-flex items-center text-primary text-sm font-medium group-hover:underline underline-offset-4">
                   <span>{h.practiceAreas.viewAllBtn.split(" ")[0]}</span>
                   <ArrowRight className="ms-2 h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
                 </Link>
@@ -417,7 +417,7 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-12 text-center">
-            <Link href="/services">
+            <Link href={`${regionPrefix}/services`}>
               <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white rounded-none px-8">{h.practiceAreas.viewAllBtn}</Button>
             </Link>
           </div>
@@ -488,14 +488,14 @@ export default function Home() {
               {h.hero.channels.map((ch, i) => {
                 const Icon = channelIcons[i];
                 return (
-                  <Link key={i} href="/contact"
+                  <Link key={i} href={`${regionPrefix}/contact`}
                     className="flex items-center gap-2 bg-white/15 border border-white/25 text-white px-5 py-3 text-sm font-semibold hover:bg-white/20 transition-colors">
                     <Icon className="h-4 w-4" /> {ch.label}
                   </Link>
                 );
               })}
             </div>
-            <Link href="/contact">
+            <Link href={`${regionPrefix}/contact`}>
               <Button size="lg" className="text-lg px-12 py-8 rounded-none bg-white text-primary hover:bg-white/90 shadow-xl font-semibold">{h.cta.ctaBtn}</Button>
             </Link>
           </motion.div>

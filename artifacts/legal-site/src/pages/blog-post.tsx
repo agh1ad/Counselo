@@ -46,7 +46,7 @@ function formatDate(dateStr: string, lang: string) {
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const { lang, isRTL } = useLanguage();
-  const { region } = useRegion();
+  const { region, regionPrefix } = useRegion();
 
   const { data: post, isLoading, isError } = useQuery<ApiPost>({
     queryKey: ["blog-post", slug],
@@ -111,7 +111,7 @@ export default function BlogPost() {
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-4" dir={isRTL ? "rtl" : "ltr"}>
         <h1 className="text-2xl font-serif font-bold text-foreground">{ui.notFound}</h1>
         <p className="text-muted-foreground">{ui.notFoundDesc}</p>
-        <Link href="/blog" className="text-primary font-medium hover:underline">{ui.backBlog}</Link>
+        <Link href={`${regionPrefix}/blog`} className="text-primary font-medium hover:underline">{ui.backBlog}</Link>
       </div>
     );
   }
@@ -165,7 +165,7 @@ export default function BlogPost() {
       <section className="bg-primary text-white py-16 px-4">
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Link href="/blog" className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium mb-8 transition-colors">
+            <Link href={`${regionPrefix}/blog`} className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium mb-8 transition-colors">
               <BackArrow className="h-4 w-4" /> {ui.back}
             </Link>
             <div className="flex items-center gap-3 mb-4 flex-wrap">
@@ -221,7 +221,7 @@ export default function BlogPost() {
               {ui.disclaimer}
             </div>
             <div className="mt-8">
-              <Link href="/blog" className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm">
+              <Link href={`${regionPrefix}/blog`} className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm">
                 <BackArrow className="h-4 w-4" /> {ui.back}
               </Link>
             </div>

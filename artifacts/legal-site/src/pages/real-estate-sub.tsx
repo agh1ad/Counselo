@@ -128,7 +128,7 @@ export default function RealEstateSub() {
           <div className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
             <Link href="/" className="hover:text-primary transition-colors">{rel.breadcrumb.home}</Link>
             <ChevronRight className={`h-3.5 w-3.5 shrink-0 ${isRTL ? "rotate-180" : ""}`} />
-            <Link href="/services" className="hover:text-primary transition-colors">{rel.breadcrumb.services}</Link>
+            <Link href={`${regionPrefix}/services`} className="hover:text-primary transition-colors">{rel.breadcrumb.services}</Link>
             <ChevronRight className={`h-3.5 w-3.5 shrink-0 ${isRTL ? "rotate-180" : ""}`} />
             <Link href={`${regionPrefix}/services/real-estate`} className="hover:text-primary transition-colors">{rel.breadcrumb.parent}</Link>
             <ChevronRight className={`h-3.5 w-3.5 shrink-0 ${isRTL ? "rotate-180" : ""}`} />
@@ -269,7 +269,7 @@ export default function RealEstateSub() {
                     { icon: MessageCircle, label: rel.sidebar.whatsapp },
                     { icon: Mail, label: rel.sidebar.email },
                   ].map(({ icon: Icon, label }, i) => (
-                    <Link key={i} href="/contact"
+                    <Link key={i} href={`${regionPrefix}/contact`}
                       className="flex flex-col items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 py-3 px-2 transition-colors">
                       <Icon className="h-4 w-4 text-white" />
                       <span className="text-white/80 text-xs font-medium text-center leading-tight">{label}</span>

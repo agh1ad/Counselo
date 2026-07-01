@@ -7,7 +7,7 @@ import { SEOHead } from "@/components/seo/SEOHead";
 
 export default function PrivacyPolicy() {
   const { isRTL } = useLanguage();
-  const { region } = useRegion();
+  const { region, regionPrefix } = useRegion();
 
   const content = {
     en: {
@@ -427,7 +427,7 @@ export default function PrivacyPolicy() {
         >
           <h2 className="text-2xl font-serif font-bold text-white mb-3">{content.contactHeading}</h2>
           <p className="text-white/70 mb-8 leading-relaxed max-w-lg mx-auto">{content.contactDesc}</p>
-          <Link href="/contact">
+          <Link href={`${regionPrefix}/contact`}>
             <span className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-4 hover:bg-white/90 transition-colors cursor-pointer">
               {content.contactBtn}
               <ArrowRight className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
@@ -452,7 +452,7 @@ export default function PrivacyPolicy() {
 
         {/* Back link */}
         <div className="mt-10 text-center">
-          <Link href="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+          <Link href={regionPrefix} className="text-sm text-muted-foreground hover:text-primary transition-colors">
             ← {isRTL ? "العودة إلى الرئيسية" : "Back to Homepage"}
           </Link>
         </div>

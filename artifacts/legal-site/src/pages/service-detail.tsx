@@ -10,7 +10,7 @@ export default function ServiceDetail() {
   const params = useParams();
   const id = params.id as string;
   const { t, isRTL } = useLanguage();
-  const { region } = useRegion();
+  const { region, regionPrefix } = useRegion();
   const sd = t.serviceDetail;
   const data = sd.services[id as keyof typeof sd.services];
 
@@ -19,7 +19,7 @@ export default function ServiceDetail() {
       <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
         <div className="text-center">
           <h1 className="text-4xl font-serif mb-4">{sd.notFound}</h1>
-          <Link href="/services" className="text-primary hover:underline">{sd.notFoundLink}</Link>
+          <Link href={`${regionPrefix}/services`} className="text-primary hover:underline">{sd.notFoundLink}</Link>
         </div>
       </div>
     );
@@ -75,9 +75,9 @@ export default function ServiceDetail() {
       <div className="bg-card border-b border-border py-4 mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center text-sm text-muted-foreground">
-            <Link href="/" className="hover:text-primary transition-colors">{sd.breadcrumb.home}</Link>
+            <Link href={regionPrefix} className="hover:text-primary transition-colors">{sd.breadcrumb.home}</Link>
             <ChevronRight className={`h-4 w-4 mx-2 ${isRTL ? "rotate-180" : ""}`} />
-            <Link href="/services" className="hover:text-primary transition-colors">{sd.breadcrumb.services}</Link>
+            <Link href={`${regionPrefix}/services`} className="hover:text-primary transition-colors">{sd.breadcrumb.services}</Link>
             <ChevronRight className={`h-4 w-4 mx-2 ${isRTL ? "rotate-180" : ""}`} />
             <span className="text-foreground font-medium">{data.title}</span>
           </div>
@@ -88,7 +88,7 @@ export default function ServiceDetail() {
         <div className="grid lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <Link href="/services" className="inline-flex items-center text-primary mb-8 hover:underline underline-offset-4 text-sm font-medium">
+              <Link href={`${regionPrefix}/services`} className="inline-flex items-center text-primary mb-8 hover:underline underline-offset-4 text-sm font-medium">
                 <ArrowLeft className={`me-2 h-4 w-4 ${isRTL ? "rotate-180" : ""}`} /> {sd.backLink}
               </Link>
               <h1 className="text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
