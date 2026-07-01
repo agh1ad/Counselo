@@ -151,16 +151,16 @@ export default function TermsOfService() {
             "@type": "WebPage",
             "name": isRTL ? "شروط الخدمة | كاونسلو" : "Terms of Service | CounselO",
             "description": content.seoDesc,
-            "url": "https://counselo.com/terms-of-service",
-            "isPartOf": { "@type": "WebSite", "name": "CounselO", "url": "https://counselo.com" },
-            "publisher": { "@type": "Organization", "name": "CounselO", "url": "https://counselo.com" },
+            "url": "https://counselo-legal.com/terms-of-service",
+            "isPartOf": { "@type": "WebSite", "name": "CounselO", "url": "https://counselo-legal.com" },
+            "publisher": { "@type": "Organization", "name": "CounselO", "url": "https://counselo-legal.com" },
           },
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo.com/" },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "شروط الخدمة" : "Terms of Service", "item": "https://counselo.com/terms-of-service" },
+              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "شروط الخدمة" : "Terms of Service", "item": "https://counselo-legal.com/terms-of-service" },
             ],
           },
         ]}

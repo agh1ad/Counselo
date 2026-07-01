@@ -62,7 +62,7 @@ export default function ServiceDetail() {
   const faqs = hasFaqs ? (data as Record<string, unknown>).faqs as { q: string; a: string }[] : [];
 
   const canonicalPath = `/services/${id}`;
-  const canonicalUrlFull = `https://counselo.com${isSyr ? "/syr" : "/sa"}${canonicalPath}`;
+  const canonicalUrlFull = `https://counselo-legal.com${isSyr ? "/syr" : "/sa"}${canonicalPath}`;
 
   const schemas: object[] = [
     {
@@ -77,7 +77,7 @@ export default function ServiceDetail() {
       "provider": {
         "@type": "LegalService",
         "name": isRTL ? "كاونسلو كاونسلو" : "CounselO",
-        "url": "https://counselo.com",
+        "url": "https://counselo-legal.com",
         "telephone": "+966594850247",
         "email": "info@counselo-legal.com",
         "address": serviceAddress,
@@ -89,8 +89,8 @@ export default function ServiceDetail() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo.com/" },
-        { "@type": "ListItem", "position": 2, "name": isRTL ? "الخدمات" : "Services", "item": `https://counselo.com${isSyr ? "/syr" : "/sa"}/services` },
+        { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
+        { "@type": "ListItem", "position": 2, "name": isRTL ? "الخدمات" : "Services", "item": `https://counselo-legal.com${isSyr ? "/syr" : "/sa"}/services` },
         { "@type": "ListItem", "position": 3, "name": data.title, "item": canonicalUrlFull },
       ],
     },
@@ -109,7 +109,7 @@ export default function ServiceDetail() {
       "publisher": {
         "@type": "LegalService",
         "name": "CounselO",
-        "url": "https://counselo.com",
+        "url": "https://counselo-legal.com",
       },
     },
   ];

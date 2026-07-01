@@ -142,14 +142,14 @@ export function SEOHead({
 
   const basePath = canonical === "/" ? "" : canonical ?? "";
   const prefixedPath = `${geo.pathPrefix}${basePath}`;
-  const canonicalUrl = `https://counselo.com${prefixedPath}`;
+  const canonicalUrl = `https://counselo-legal.com${prefixedPath}`;
 
   const altRegion = region === "sa" ? "syr" : "sa";
   const altGeo = GEO[altRegion];
-  const altCanonicalUrl = `https://counselo.com${altGeo.pathPrefix}${basePath}`;
-  const xDefaultUrl = "https://counselo.com/";
+  const altCanonicalUrl = `https://counselo-legal.com${altGeo.pathPrefix}${basePath}`;
+  const xDefaultUrl = "https://counselo-legal.com/";
 
-  const ogImage = "https://counselo.com/opengraph.jpg";
+  const ogImage = "https://counselo-legal.com/opengraph.jpg";
   const locale = isArabic ? geo.ogLocaleAr : geo.ogLocaleEn;
   const alternateLocale = isArabic ? geo.ogLocaleEn : geo.ogLocaleAr;
 

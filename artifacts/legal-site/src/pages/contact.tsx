@@ -155,7 +155,7 @@ export default function Contact() {
               : (isRTL
                 ? "احجز استشارة قانونية أونلاين في المملكة العربية السعودية — استجابة خلال 24 ساعة"
                 : "Book an online legal consultation in Saudi Arabia — professional response within 24 hours"),
-            "url": region === "syr" ? "https://counselo.com/syr/contact" : "https://counselo.com/sa/contact",
+            "url": region === "syr" ? "https://counselo-legal.com/syr/contact" : "https://counselo-legal.com/sa/contact",
           },
           {
             "@context": "https://schema.org",
@@ -163,7 +163,7 @@ export default function Contact() {
             "name": "CounselO",
             "telephone": "+966594850247",
             "email": "info@counselo-legal.com",
-            "url": "https://counselo.com",
+            "url": "https://counselo-legal.com",
             "address": region === "syr"
               ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
               : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA", "streetAddress": "Madinah Street, Radma Hotel Apartments Building, Jubail Al-Balad" },
@@ -180,8 +180,8 @@ export default function Contact() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": region === "syr" ? "https://counselo.com/syr" : "https://counselo.com/sa" },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "اتصل بنا" : "Contact", "item": region === "syr" ? "https://counselo.com/syr/contact" : "https://counselo.com/sa/contact" },
+              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": region === "syr" ? "https://counselo-legal.com/syr" : "https://counselo-legal.com/sa" },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "اتصل بنا" : "Contact", "item": region === "syr" ? "https://counselo-legal.com/syr/contact" : "https://counselo-legal.com/sa/contact" },
             ],
           },
         ]}

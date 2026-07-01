@@ -26,4 +26,4 @@ User-agent: cohere-ai
 Allow: /
 
 # Sitemap
-Sitemap: https://counselo.com/sitemap.xml
+Sitemap: https://counselo-legal.com/sitemap.xml

@@ -57,8 +57,8 @@ export default function Home() {
           "description": isRTL
             ? "منصة سوريا للاستشارات القانونية الأونلاين — 18 مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي — خبرة أكثر من 30 عاماً في القانون السوري"
             : "Syria's online legal consultation platform — 18 practice areas, professional response within 24 hours, founded by Lawyer Omar Al-Baghdadi — 30+ years Syrian law expertise",
-          "url": "https://counselo.com/syr",
-          "logo": "https://counselo.com/logo.png",
+          "url": "https://counselo-legal.com/syr",
+          "logo": "https://counselo-legal.com/logo.png",
           "founder": {
             "@type": "Person",
             "name": "Omar Al-Baghdadi",
@@ -81,7 +81,7 @@ export default function Home() {
             "name": "Legal Consultation Services Syria",
             "numberOfItems": 18,
           },
-          "sameAs": ["https://counselo.com"],
+          "sameAs": ["https://counselo-legal.com"],
           "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+966594850247",
@@ -102,8 +102,8 @@ export default function Home() {
           "description": isRTL
             ? "منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين — 18 مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي"
             : "Saudi Arabia's online legal consultation platform — 18 practice areas, professional response within 24 hours, founded by Lawyer Omar Al-Baghdadi",
-          "url": "https://counselo.com/sa",
-          "logo": "https://counselo.com/logo.png",
+          "url": "https://counselo-legal.com/sa",
+          "logo": "https://counselo-legal.com/logo.png",
           "founder": {
             "@type": "Person",
             "name": "Omar Al-Baghdadi",
@@ -126,7 +126,7 @@ export default function Home() {
             "name": "Legal Consultation Services Saudi Arabia",
             "numberOfItems": 18,
           },
-          "sameAs": ["https://counselo.com"],
+          "sameAs": ["https://counselo-legal.com"],
           "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+966594850247",
@@ -144,7 +144,7 @@ export default function Home() {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": region === "syr" ? "https://counselo.com/syr" : "https://counselo.com/sa" },
+            { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": region === "syr" ? "https://counselo-legal.com/syr" : "https://counselo-legal.com/sa" },
           ],
         }]}
       />

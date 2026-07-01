@@ -1,4 +1,4 @@
-export const BASE_URL = "https://counselo.com";
+export const BASE_URL = "https://counselo-legal.com";
 export const TODAY = new Date().toISOString().slice(0, 10);
 
 export const CORE_PAGES = [

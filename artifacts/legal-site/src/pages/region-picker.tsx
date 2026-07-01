@@ -9,18 +9,18 @@ const regionPickerSchema = {
   "@type": "WebSite",
   "name": "CounselO",
   "alternateName": "CounselO Online Legal Consultations",
-  "url": "https://counselo.com/",
+  "url": "https://counselo-legal.com/",
   "description": "Online legal consultation platform serving Saudi Arabia and Syria — professional Arabic & English legal advice within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases.",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://counselo.com/{search_term_string}",
+    "target": "https://counselo-legal.com/{search_term_string}",
     "query-input": "required name=search_term_string",
   },
   "publisher": {
     "@type": "Organization",
     "name": "CounselO",
-    "url": "https://counselo.com",
-    "logo": "https://counselo.com/logo.png",
+    "url": "https://counselo-legal.com",
+    "logo": "https://counselo-legal.com/logo.png",
     "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
     "areaServed": [
       { "@type": "Country", "name": "Saudi Arabia" },
@@ -41,25 +41,25 @@ export default function RegionPicker() {
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="geo.region" content="MENA" />
         <meta name="geo.placename" content="Middle East" />
-        <link rel="canonical" href="https://counselo.com/" />
-        <link rel="alternate" hrefLang="ar-SA" href="https://counselo.com/sa" />
-        <link rel="alternate" hrefLang="en-SA" href="https://counselo.com/sa" />
-        <link rel="alternate" hrefLang="ar-SY" href="https://counselo.com/syr" />
-        <link rel="alternate" hrefLang="en-SY" href="https://counselo.com/syr" />
-        <link rel="alternate" hrefLang="x-default" href="https://counselo.com/" />
+        <link rel="canonical" href="https://counselo-legal.com/" />
+        <link rel="alternate" hrefLang="ar-SA" href="https://counselo-legal.com/sa" />
+        <link rel="alternate" hrefLang="en-SA" href="https://counselo-legal.com/sa" />
+        <link rel="alternate" hrefLang="ar-SY" href="https://counselo-legal.com/syr" />
+        <link rel="alternate" hrefLang="en-SY" href="https://counselo-legal.com/syr" />
+        <link rel="alternate" hrefLang="x-default" href="https://counselo-legal.com/" />
         <meta property="og:title" content="CounselO | Online Legal Consultation — Saudi Arabia & Syria" />
         <meta property="og:description" content="Professional online legal consultations for Saudi Arabia and Syria — Arabic & English, response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases." />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="CounselO كاونسلو" />
-        <meta property="og:url" content="https://counselo.com/" />
-        <meta property="og:image" content="https://counselo.com/opengraph.jpg" />
+        <meta property="og:url" content="https://counselo-legal.com/" />
+        <meta property="og:image" content="https://counselo-legal.com/opengraph.jpg" />
         <meta property="og:locale" content="ar_SA" />
         <meta property="og:locale:alternate" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@CounselOLegal" />
         <meta name="twitter:title" content="CounselO | Online Legal Consultation — Saudi Arabia & Syria" />
         <meta name="twitter:description" content="Professional online legal consultations for Saudi Arabia and Syria — Arabic & English, response within 24 hours." />
-        <meta name="twitter:image" content="https://counselo.com/opengraph.jpg" />
+        <meta name="twitter:image" content="https://counselo-legal.com/opengraph.jpg" />
         <script type="application/ld+json">{JSON.stringify(regionPickerSchema)}</script>
       </Helmet>
       <div className="flex flex-col items-center gap-10 max-w-2xl w-full text-center">

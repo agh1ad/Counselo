@@ -22,8 +22,8 @@ export default function About() {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "CounselO",
-      "url": "https://counselo.com",
-      "logo": "https://counselo.com/logo.png",
+      "url": "https://counselo-legal.com",
+      "logo": "https://counselo-legal.com/logo.png",
       "description": region === "syr"
         ? (isRTL
           ? "منصة الاستشارات القانونية الإلكترونية المتخصصة في سوريا — تأسست على يد المحامي عمر البغدادي بخبرة 30+ عاماً في القانون السوري"
@@ -56,13 +56,13 @@ export default function About() {
       "@context": "https://schema.org",
       "@type": "WebPage",
       "name": isRTL ? "عن كاونسلو" : "About CounselO",
-      "url": region === "syr" ? "https://counselo.com/syr/about" : "https://counselo.com/sa/about",
+      "url": region === "syr" ? "https://counselo-legal.com/syr/about" : "https://counselo-legal.com/sa/about",
       "description": a.seoDesc,
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo.com/" },
-          { "@type": "ListItem", "position": 2, "name": isRTL ? "عن كاونسلو" : "About CounselO", "item": region === "syr" ? "https://counselo.com/syr/about" : "https://counselo.com/sa/about" },
+          { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
+          { "@type": "ListItem", "position": 2, "name": isRTL ? "عن كاونسلو" : "About CounselO", "item": region === "syr" ? "https://counselo-legal.com/syr/about" : "https://counselo-legal.com/sa/about" },
         ],
       },
     },

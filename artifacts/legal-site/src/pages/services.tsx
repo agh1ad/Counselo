@@ -21,7 +21,7 @@ export default function Services() {
     ? `قانوني — منصة متخصصة للاستشارات القانونية الأونلاين في ${country}. 18 مجالاً قانونياً: قانون الأسرة، القانون التجاري، العقاري، العمل، الاستثمار الأجنبي، الإداري، الجنائي، البنوك، الضرائب، الإنترنت، الأخطاء الطبية، التأمين، الإقامة، التحكيم، التنفيذ، قانون الشركات، العقود، الملكية الفكرية. خبرة 30+ عاماً، 20,000+ قضية. استجابة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني.`
     : `CounselO — ${country}'s specialized online legal consultation platform. 18 practice areas: Family Law, Commercial Law, Real Estate, Employment Law, Foreign Investment, Administrative Law, Criminal Law, Banking & Finance, Tax Law, Cyber Law, Medical Malpractice, Insurance Law, Immigration, Arbitration, Enforcement, Companies Law, Contracts, Intellectual Property. 30+ years experience, 20,000+ cases.`;
 
-  const baseUrl = region === "syr" ? "https://counselo.com/syr" : "https://counselo.com/sa";
+  const baseUrl = region === "syr" ? "https://counselo-legal.com/syr" : "https://counselo-legal.com/sa";
   const servicesSchema = [
     {
       "@context": "https://schema.org",
@@ -59,7 +59,7 @@ export default function Services() {
       "description": region === "syr"
         ? (isRTL ? "منصة سوريا للاستشارات القانونية الأونلاين — 18 مجالاً، استجابة خلال 24 ساعة — القانون المدني السوري، قانون الشركات 29/2011، قانون العمل 17/2010" : "Syria's online legal consultation platform — 18 practice areas, response within 24 hours — Syrian Civil Code, Companies Law 29/2011, Labour Law 17/2010")
         : (isRTL ? "أكبر منصة للاستشارات القانونية الأونلاين في المملكة — 18 مجالاً، استجابة خلال 24 ساعة" : "Saudi Arabia's largest online legal consultation platform — 18 practice areas, response within 24 hours"),
-      "url": "https://counselo.com",
+      "url": "https://counselo-legal.com",
       "telephone": "+966594850247",
       "address": region === "syr"
         ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
