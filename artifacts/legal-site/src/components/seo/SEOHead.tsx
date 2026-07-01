@@ -1,4 +1,14 @@
-import { useEffect, useRef } from "react";
+/**
+ * SEOHead — renders all per-route head tags via react-helmet-async.
+ *
+ * SSR note: every tag here (title, meta, link, script) is rendered by
+ * Helmet's renderToString capture, so the prerender script can extract
+ * and inject them into the static HTML template. The previous approach of
+ * injecting JSON-LD schemas via useEffect+DOM was invisible to renderToString;
+ * schemas are now rendered as <script type="application/ld+json"> inside
+ * <Helmet> so they appear in the prerendered HTML source.
+ */
+
 import { Helmet } from "react-helmet-async";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
@@ -48,6 +58,14 @@ function syriafyObj(val: unknown): unknown {
     return out;
   }
   return val;
+}
+
+/**
+ * Serialize a schema object to a JSON string safe for inline <script> tags.
+ * Escapes </script> to prevent the tag from being prematurely closed.
+ */
+function schemaJson(obj: object): string {
+  return JSON.stringify(obj).replace(/<\/script>/gi, "<\\/script>");
 }
 
 interface SEOHeadProps {
@@ -107,7 +125,6 @@ export function SEOHead({
 }: SEOHeadProps) {
   const { lang } = useLanguage();
   const { region } = useRegion();
-  const injectedRef = useRef<HTMLScriptElement[]>([]);
 
   const geo = GEO[region];
   const isArabic = lang === "ar";
@@ -157,29 +174,12 @@ export function SEOHead({
     ? extraSchemas.map((s) => syriafyObj(s) as object)
     : extraSchemas;
 
-  useEffect(() => {
-    const schemas: object[] = [
-      ...(finalSchema ? (Array.isArray(finalSchema) ? finalSchema : [finalSchema]) : []),
-      ...(finalExtraSchemas ?? []),
-    ];
-
-    const prev = injectedRef.current;
-    prev.forEach((el) => el.parentNode?.removeChild(el));
-    injectedRef.current = [];
-
-    schemas.forEach((s) => {
-      const el = document.createElement("script");
-      el.type = "application/ld+json";
-      el.textContent = JSON.stringify(s);
-      document.head.appendChild(el);
-      injectedRef.current.push(el);
-    });
-
-    return () => {
-      injectedRef.current.forEach((el) => el.parentNode?.removeChild(el));
-      injectedRef.current = [];
-    };
-  }, [finalSchema, finalExtraSchemas]);
+  // All schemas to embed as JSON-LD. Rendered via Helmet <script> tags so
+  // they are captured by renderToString during SSR prerendering.
+  const schemas: object[] = [
+    ...(finalSchema ? (Array.isArray(finalSchema) ? finalSchema : [finalSchema]) : []),
+    ...(finalExtraSchemas ?? []),
+  ];
 
   return (
     <Helmet>
@@ -192,15 +192,12 @@ export function SEOHead({
         content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
       />
 
-      {/* Geo-targeting */}
+      {/* Geo-targeting — region-specific coordinates and country code */}
       <meta name="geo.region" content={geo.region} />
       <meta name="geo.placename" content={geo.placename} />
       <meta name="geo.position" content={geo.position} />
       <meta name="ICBM" content={geo.icbm} />
-      <meta
-        httpEquiv="content-language"
-        content={isArabic ? lang : "en"}
-      />
+      <meta httpEquiv="content-language" content={isArabic ? lang : "en"} />
 
       {/* Canonical */}
       <link rel="canonical" href={canonicalUrl} />
@@ -253,6 +250,19 @@ export function SEOHead({
       {ogType === "article" && articleSection && (
         <meta property="article:section" content={articleSection} />
       )}
+
+      {/*
+        JSON-LD structured data schemas.
+        Using Helmet <script> tags (not useEffect+DOM) ensures these are
+        captured by renderToString and appear in prerendered HTML source,
+        making them immediately readable by Googlebot and schema validators
+        without JavaScript execution.
+      */}
+      {schemas.map((s, i) => (
+        <script key={i} type="application/ld+json">
+          {schemaJson(s)}
+        </script>
+      ))}
     </Helmet>
   );
 }

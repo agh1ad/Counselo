@@ -162,11 +162,29 @@ function AppShell() {
   );
 }
 
-function App() {
+interface AppProps {
+  /**
+   * SSR-only: the URL being rendered server-side. When provided, wouter uses a
+   * static location hook instead of the browser's window.location, so the
+   * component tree renders correctly during renderToString in the prerender
+   * pipeline. Leave undefined on the client (default wouter behaviour applies).
+   */
+  ssrUrl?: string;
+}
+
+function App({ ssrUrl }: AppProps = {}) {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+        {/*
+          ssrPath tells wouter which URL to use during server-side rendering.
+          On the client ssrPath is undefined so wouter uses window.location.
+          This is wouter's official SSR API (v3.10+).
+        */}
+        <WouterRouter
+          base={import.meta.env.BASE_URL.replace(/\/$/, "")}
+          ssrPath={ssrUrl}
+        >
           <RegionProvider>
             <LanguageProvider>
               <AppShell />

@@ -16,6 +16,10 @@ const STORAGE_KEY = "counselo-lang";
 type Lang = "en" | "ar";
 
 function getSavedLang(): Lang {
+  // Guard: localStorage is not available during server-side rendering.
+  // SSR always defaults to English; the browser rehydrates with the user's
+  // real preference on first client render.
+  if (typeof window === "undefined") return "en";
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved === "ar" || saved === "en") return saved;

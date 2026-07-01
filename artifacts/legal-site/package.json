@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
-    "build": "vite build --config vite.config.ts",
+    "build": "pnpm run build:client && pnpm run build:ssr && pnpm run build:prerender",
+    "build:client": "vite build --config vite.config.ts",
+    "build:ssr": "VITE_SSR=true vite build --config vite.config.ts",
+    "build:prerender": "tsx src/scripts/prerender.ts",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "generate-sitemap": "tsx src/scripts/generate-sitemap.ts"

@@ -3,191 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CounselO | Online Legal Consultation — Saudi Arabia | 18 Practice Areas</title>
-    <meta name="description" content="CounselO is Saudi Arabia's online legal consultation platform — 18 practice areas, professional response within 24 hours via WhatsApp or email, no office visit needed. Led by Lawyer and Legal Counsel Omar Al-Baghdadi — 30+ years, 20,000+ cases. Arabic &amp; English. Vision 2030 aligned." />
-    <meta name="keywords" content="online legal consultation Saudi Arabia, online legal platform KSA, lawyer online Saudi Arabia, legal advice 24 hours, استشارة قانونية اون لاين المملكة, محامي أونلاين المملكة, family law Saudi Arabia, commercial law Saudi Arabia, property law Saudi Arabia, employment law KSA, foreign investment lawyer Saudi Arabia, administrative law Saudi Arabia, Omar Al-Baghdadi lawyer, CounselO, قانوني, Vision 2030 legal" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="author" content="CounselO — Lawyer and Legal Counsel Omar Al-Baghdadi" />
 
-    <!-- Geo-targeting: Saudi Arabia -->
-    <meta name="geo.region" content="SA" />
-    <meta name="geo.placename" content="Saudi Arabia" />
-    <meta name="geo.position" content="24.774265;46.738586" />
-    <meta name="ICBM" content="24.774265, 46.738586" />
+    <!--
+      SSR / Prerender architecture
+      ════════════════════════════
+      This file is the HTML template for both development and production.
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="CounselO | Online Legal Consultation — Saudi Arabia | 18 Practice Areas" />
-    <meta property="og:description" content="Saudi Arabia's online legal consultation platform — 18 practice areas, professional response within 24 hours via WhatsApp or email. Lawyer and Legal Counsel Omar Al-Baghdadi — 30+ years, 20,000+ cases. Arabic &amp; English." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://counselo.com/sa/" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="ar_SA" />
-    <meta property="og:site_name" content="CounselO كاونسلو" />
-    <meta property="og:image" content="https://counselo.com/opengraph.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="CounselO — Online Legal Consultation Saudi Arabia" />
+      In DEVELOPMENT (Vite dev server):
+        • The <!--app-head--> placeholder stays empty.
+        • react-helmet-async injects title/meta/OG/schemas dynamically via JS.
+        • createRoot mounts the app into <div id="root">.
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@CounselOLegal" />
-    <meta name="twitter:title" content="CounselO | Online Legal Consultation — Saudi Arabia" />
-    <meta name="twitter:description" content="18 practice areas. 30+ years experience. 20,000+ cases. Professional legal advice via WhatsApp or email within 24 hours. Arabic &amp; English." />
-    <meta name="twitter:image" content="https://counselo.com/opengraph.jpg" />
-    <meta name="twitter:image:alt" content="CounselO — Online Legal Consultation Saudi Arabia" />
+      In PRODUCTION (after `pnpm run build`):
+        • vite build        → processes this file into dist/public/index.html
+                              (adds hashed CSS + JS asset links).
+        • vite build --ssr  → compiles src/entry-server.tsx into
+                              dist/server/entry-server.js (Node ESM bundle).
+        • prerender.ts      → for each public route, calls render(url),
+                              replaces <!--app-head--> with per-route head tags,
+                              and injects server-rendered HTML into #root.
+                              Writes dist/public/{route}/index.html.
 
-    <!-- Canonical + hreflang -->
-    <link rel="canonical" href="https://counselo.com/sa/" />
-    <link rel="alternate" hrefLang="en-SA" href="https://counselo.com/sa/" />
-    <link rel="alternate" hrefLang="ar-SA" href="https://counselo.com/sa/" />
-    <link rel="alternate" hrefLang="en-SY" href="https://counselo.com/syr/" />
-    <link rel="alternate" hrefLang="ar-SY" href="https://counselo.com/syr/" />
-    <link rel="alternate" hrefLang="x-default" href="https://counselo.com/" />
+      Googlebot and AI crawlers (Perplexity, ChatGPT Search, ClaudeBot) fetch
+      the raw HTML. With prerendering, they receive full title, meta, canonical,
+      OG tags, JSON-LD schemas, and visible body text on the first byte —
+      no JavaScript execution required.
 
-    <!-- Sitemap -->
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+      Static tags below (theme-color, favicon, fonts) apply to every route.
+      All route-specific tags (title, description, canonical, OG, schemas)
+      come exclusively from react-helmet-async via <!--app-head-->.
+    -->
 
-    <!-- Schema.org structured data -->
-    <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "CounselO",
-        "alternateName": "كاونسلو",
-        "url": "https://counselo.com",
-        "logo": "https://counselo.com/images/counselo-icon.png",
-        "description": "Saudi Arabia's online legal consultation platform. Founded by Lawyer and Legal Counsel Omar Al-Baghdadi with over 30 years of experience and 20,000+ cases handled. Vision 2030 aligned.",
-        "foundingDate": "2020",
-        "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
-        "areaServed": { "@type": "Country", "name": "Saudi Arabia" },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+966594850247",
-          "email": "bagdadio@gmail.com",
-          "contactType": "Legal Consultation",
-          "availableLanguage": ["English", "Arabic"],
-          "hoursAvailable": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-            "opens": "00:00",
-            "closes": "23:59"
-          }
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Jubail",
-          "addressRegion": "Eastern Province",
-          "addressCountry": "SA"
-        }
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "LegalService",
-        "name": "CounselO — Online Legal Consultations Saudi Arabia",
-        "alternateName": "كاونسلو — استشارات قانونية أونلاين المملكة",
-        "description": "Saudi Arabia's online legal consultation platform. 18 practice areas. Founded by Lawyer and Legal Counsel Omar Al-Baghdadi — 30+ years, 20,000+ cases. Expert legal advice via WhatsApp or email. Available in Arabic and English.",
-        "url": "https://counselo.com/sa/",
-        "telephone": "+966594850247",
-        "email": "bagdadio@gmail.com",
-        "priceRange": "$$",
-        "areaServed": { "@type": "Country", "name": "Saudi Arabia" },
-        "availableLanguage": ["English", "Arabic"],
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-          "opens": "00:00",
-          "closes": "23:59"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Jubail",
-          "addressRegion": "Eastern Province",
-          "addressCountry": "SA"
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Legal Services — Saudi Arabia",
-          "itemListElement": [
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Family Law Consultation — Saudi Arabia"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Law Consultation — Saudi Arabia"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Property Law Consultation — Saudi Arabia"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Employment Law Consultation — Saudi Arabia"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Foreign Investment Law Consultation — Saudi Arabia"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Administrative Law Consultation — Saudi Arabia"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Arbitration & Mediation — Saudi Arabia"}},
-            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Enforcement & Debt Collection — Saudi Arabia"}}
-          ]
-        },
-        "founder": {
-          "@type": "Person",
-          "name": "Omar Al-Baghdadi",
-          "alternateName": "عمر البغدادي",
-          "jobTitle": "Lawyer and Legal Counsel — Founder of CounselO",
-          "description": "Saudi Arabia's senior advocate with 30+ years of legal practice and 20,000+ cases handled across Saudi Arabia and the UAE.",
-          "worksFor": {"@type": "Organization", "name": "CounselO"},
-          "sameAs": "https://www.linkedin.com/in/lawyeromarbaghdadi/"
-        }
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": "https://counselo.com/#website",
-        "name": "CounselO قانوني",
-        "alternateName": "CounselO — Online Legal Consultation Saudi Arabia",
-        "url": "https://counselo.com",
-        "description": "Saudi Arabia's most experienced online legal consultation platform. Expert legal advice via WhatsApp or email. 30+ years experience, 20,000+ cases. Available in Arabic and English.",
-        "inLanguage": ["ar", "en"],
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://counselo.com/sa/services?q={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "CounselO",
-          "url": "https://counselo.com"
-        }
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": "https://counselo.com/#founder",
-        "name": "Omar Al-Baghdadi",
-        "alternateName": ["عمر البغدادي", "Lawyer and Legal Counsel Omar Al-Baghdadi", "المحامي عمر البغدادي"],
-        "jobTitle": "Lawyer and Legal Counsel",
-        "description": "Founder of CounselO. Senior advocate with over 30 years of legal practice across Saudi Arabia and the UAE. Over 20,000 cases spanning family law, commercial litigation, property law, foreign investment, employment law and administrative law.",
-        "sameAs": "https://www.linkedin.com/in/lawyeromarbaghdadi/",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "CounselO",
-          "url": "https://counselo.com"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Jubail",
-          "addressRegion": "Eastern Province",
-          "addressCountry": "SA"
-        },
-        "knowsAbout": [
-          "Saudi Family Law", "Saudi Commercial Law", "Saudi Property Law",
-          "Saudi Employment Law", "Foreign Investment Law Saudi Arabia",
-          "Saudi Administrative Law", "Commercial Litigation", "Arbitration",
-          "Saudi Personal Status Law", "MISA Licensing", "Board of Grievances"
-        ],
-        "hasCredential": {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "License",
-          "name": "Saudi Licensed Advocate",
-          "recognizedBy": {"@type": "Organization", "name": "Saudi Ministry of Justice"}
-        }
-      }
-    ]
-    </script>
-
+    <!-- Static infrastructure — identical on every route -->
     <meta name="theme-color" content="#00521a" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="application-name" content="CounselO" />
@@ -197,11 +44,21 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="icon" type="image/png" href="/images/counselo-icon.png" />
     <link rel="apple-touch-icon" href="/images/counselo-icon.png" />
+
+    <!--app-head-->
+
+    <!-- Google Fonts — loaded after app-head so route head tags come first -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
   </head>
   <body>
+    <!--
+      In dev mode: React mounts into this empty div (createRoot).
+      In production: prerender.ts injects server-rendered HTML here before
+      shipping to the client; React then hydrates (hydrateRoot) without
+      replacing the existing DOM, preserving the SEO-critical content.
+    -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
