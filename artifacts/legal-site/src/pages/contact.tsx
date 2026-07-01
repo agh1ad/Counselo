@@ -41,24 +41,23 @@ export default function Contact() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const nativeFormRef = useRef<HTMLFormElement>(null);
 
-  // Guard window.location — renderToString runs in Node where window is undefined
-  const searchParams =
-    typeof window !== "undefined"
-      ? new URLSearchParams(window.location.search)
-      : new URLSearchParams();
-  const defaultService = searchParams.get("service") || "";
-  const wasSent = searchParams.get("sent") === "1";
+  const [wasSent, setWasSent] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: { name: "", email: "", phone: "", service: defaultService, message: "" },
+    defaultValues: { name: "", email: "", phone: "", service: "", message: "" },
   });
 
   useEffect(() => {
-    if (wasSent) {
+    const params = new URLSearchParams(window.location.search);
+    const svc = params.get("service") || "";
+    if (svc) form.setValue("service", svc);
+    if (params.get("sent") === "1") {
+      setWasSent(true);
       window.history.replaceState({}, "", window.location.pathname);
     }
-  }, [wasSent]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const syncFilesToInput = useCallback((fileList: File[]) => {
     if (!fileInputRef.current) return;
@@ -228,21 +227,43 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Success banner */}
+      {/* Success screen */}
       {wasSent && (
-        <div className="bg-primary/10 border-b border-primary/30 py-5">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3">
-            <CheckCircle className="h-6 w-6 text-primary shrink-0" />
-            <p className="text-foreground font-medium">
-              {isRTL
-                ? "تم إرسال طلبك بنجاح. سنتواصل معك خلال 24 ساعة."
-                : "Your request was sent successfully. We will contact you within 24 hours."}
-            </p>
+        <section className="py-24 bg-background">
+          <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="border border-border bg-card p-12 flex flex-col items-center gap-6"
+            >
+              <div className="w-20 h-20 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center">
+                <CheckCircle className="h-10 w-10 text-primary" />
+              </div>
+              <div className="space-y-3">
+                <h2 className="text-3xl font-serif font-bold text-foreground">
+                  {isRTL ? "شكراً لتواصلك معنا!" : "Thank You!"}
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {isRTL
+                    ? "تم استلام طلبك بنجاح. سيتواصل معك فريقنا القانوني خلال 24 ساعة."
+                    : "Your consultation request has been received. Our legal team will contact you within 24 hours."}
+                </p>
+              </div>
+              <div className="w-full bg-primary/5 border border-primary/20 rounded-sm px-6 py-4 flex items-center gap-3">
+                <Clock className="h-5 w-5 text-primary shrink-0" />
+                <p className="text-sm text-foreground/80 font-medium">
+                  {isRTL
+                    ? "وقت الاستجابة المتوقع: خلال 24 ساعة — عبر واتساب أو البريد الإلكتروني"
+                    : "Expected response time: within 24 hours — via WhatsApp or email"}
+                </p>
+              </div>
+            </motion.div>
           </div>
-        </div>
+        </section>
       )}
 
-      <section className="py-24 bg-background">
+      {!wasSent && <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-16">
             {/* Info */}
@@ -380,7 +401,7 @@ export default function Contact() {
             </div>
           </div>
         </div>
-      </section>
+      </section>}
     </div>
   );
 }
