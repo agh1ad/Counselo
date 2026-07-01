@@ -97,12 +97,13 @@ export function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.22, ease: "easeInOut" }}
-            className="md:hidden fixed inset-0 top-24 z-40 bg-background border-b border-border overflow-y-auto"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden bg-background border-b border-border overflow-hidden"
           >
+            <div className="overflow-y-auto max-h-[calc(100svh-6rem)]">
             <div className="px-4 pt-2 pb-10 space-y-1">
               <Link href={regionPrefix} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.home}</Link>
               <div className="px-3 py-2 text-base font-medium text-foreground">{t.nav.services}</div>
@@ -121,6 +122,7 @@ export function Navbar() {
                   <Button className="w-full bg-primary text-white hover:bg-primary/90">{t.nav.bookConsultation}</Button>
                 </Link>
               </div>
+            </div>
             </div>
           </motion.div>
         )}
