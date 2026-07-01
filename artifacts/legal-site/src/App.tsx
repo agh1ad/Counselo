@@ -108,6 +108,17 @@ function Router() {
           {(params) => <Redirect to={`/services/${params.id}`} replace />}
         </Route>
 
+        {/* Catch-all: redirect blog sub-path URLs to their parent blog post page */}
+        <Route path="/sa/blog/:slug/:rest*">
+          {(params) => <Redirect to={`/sa/blog/${params.slug}`} replace />}
+        </Route>
+        <Route path="/syr/blog/:slug/:rest*">
+          {(params) => <Redirect to={`/syr/blog/${params.slug}`} replace />}
+        </Route>
+        <Route path="/blog/:slug/:rest*">
+          {(params) => <Redirect to={`/blog/${params.slug}`} replace />}
+        </Route>
+
         <Route component={NotFound} />
       </Switch>
     </>
