@@ -3,12 +3,14 @@ import { useParams, Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, CheckCircle2, ChevronRight, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 
 export default function ServiceDetail() {
   const params = useParams();
   const id = params.id as string;
   const { t, isRTL } = useLanguage();
+  const { region } = useRegion();
   const sd = t.serviceDetail;
   const data = sd.services[id as keyof typeof sd.services];
 
@@ -27,15 +29,15 @@ export default function ServiceDetail() {
     <div className="w-full bg-background min-h-screen">
       <SEOHead
         title={isRTL
-          ? `${data.title} في السعودية | استشارة قانونية أونلاين | قانوني`
-          : `${data.title} Saudi Arabia | Online Legal Consultation | CounselO قانوني`}
+          ? `${data.title} في ${region === "syr" ? "سوريا" : "السعودية"} | استشارة قانونية أونلاين | قانوني`
+          : `${data.title} ${region === "syr" ? "Syria" : "Saudi Arabia"} | Online Legal Consultation | CounselO قانوني`}
         description={isRTL
-          ? `${data.subtitle} — قانوني، أكبر منصة للاستشارات القانونية الأونلاين في المملكة. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. خبرة تزيد على 30 عاماً وأكثر من 20,000 قضية. لا حاجة لزيارة مكتب.`
-          : `${data.subtitle} — CounselO, Saudi Arabia's largest online legal platform. Professional response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases handled. No office visit needed.`}
+          ? `${data.subtitle} — قانوني، ${region === "syr" ? "منصة متخصصة للاستشارات القانونية الأونلاين في سوريا" : "أكبر منصة للاستشارات القانونية الأونلاين في المملكة"}. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. خبرة تزيد على 30 عاماً وأكثر من 20,000 قضية.`
+          : `${data.subtitle} — CounselO, ${region === "syr" ? "Syria's specialized online legal platform" : "Saudi Arabia's largest online legal platform"}. Professional response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases handled.`}
         canonical={`/services/${id}`}
         keywords={isRTL
-          ? `${data.title} محامي المملكة العربية السعودية, استشارة قانونية ${data.title} أونلاين, محامي ${data.title} قانوني, مشورة قانونية واتساب المملكة`
-          : `${data.title} lawyer Saudi Arabia, online ${data.title} legal advice KSA, ${data.title} attorney CounselO, legal consultation WhatsApp Saudi`}
+          ? `${data.title} محامي ${region === "syr" ? "سوريا" : "المملكة العربية السعودية"}, استشارة قانونية ${data.title} أونلاين, محامي ${data.title} قانوني`
+          : `${data.title} lawyer ${region === "syr" ? "Syria" : "Saudi Arabia"}, online ${data.title} legal advice ${region === "syr" ? "Syria" : "KSA"}, ${data.title} attorney CounselO`}
         schema={[
           {
             "@context": "https://schema.org",
@@ -43,15 +45,17 @@ export default function ServiceDetail() {
             "name": isRTL ? `${data.title} — قانوني` : `${data.title} — CounselO`,
             "description": data.subtitle,
             "url": `https://counselo.com/services/${id}`,
-            "areaServed": { "@type": "Country", "name": "Saudi Arabia" },
+            "areaServed": { "@type": "Country", "name": region === "syr" ? "Syria" : "Saudi Arabia" },
             "availableLanguage": ["Arabic", "English"],
             "provider": {
               "@type": "LegalService",
               "name": "CounselO قانوني",
               "url": "https://counselo.com",
-              "telephone": "+966594850247",
+              "telephone": region === "syr" ? "+963114000000" : "+966594850247",
               "email": "bagdadio@gmail.com",
-              "address": { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA" },
+              "address": region === "syr"
+                ? { "@type": "PostalAddress", "addressLocality": "Hama", "addressRegion": "Hama Governorate", "addressCountry": "SY" }
+                : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA" },
               "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
               "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "847", "bestRating": "5" },
             },
@@ -88,7 +92,9 @@ export default function ServiceDetail() {
                 <ArrowLeft className={`me-2 h-4 w-4 ${isRTL ? "rotate-180" : ""}`} /> {sd.backLink}
               </Link>
               <h1 className="text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
-                {isRTL ? `${data.title} في المملكة العربية السعودية` : `${data.title} Lawyer in Saudi Arabia`}
+                {isRTL
+                  ? `${data.title} في ${region === "syr" ? "سوريا" : "المملكة العربية السعودية"}`
+                  : `${data.title} Lawyer in ${region === "syr" ? "Syria" : "Saudi Arabia"}`}
               </h1>
               <p className="text-2xl text-primary font-serif italic mb-10">{data.subtitle}</p>
               <div className="prose prose-green max-w-none mb-16">
@@ -378,7 +384,14 @@ export default function ServiceDetail() {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
                 {isRTL ? "مجالات ممارستنا في الزكاة والضريبة" : "Tax & Zakat Practice Areas"}
               </h2>
-              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في الزكاة والضريبة والجمارك — كلٌّ منها مدعوم بخبرة واسعة أمام هيئة الزكاة والضريبة والجمارك ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist Tax & Zakat practice areas — each backed by deep ZATCA expertise and available for online consultation today."}</p>
+              <p className="text-muted-foreground mb-8">{isRTL
+                ? (region === "syr"
+                  ? "استكشف مجالات ممارستنا المتخصصة في الضرائب السورية — كلٌّ منها مدعوم بخبرة واسعة أمام هيئة الضرائب والرسوم ومتاح للاستشارة عبر الإنترنت."
+                  : "استكشف مجالات ممارستنا المتخصصة في الزكاة والضريبة والجمارك — كلٌّ منها مدعوم بخبرة واسعة أمام هيئة الزكاة والضريبة والجمارك ومتاح للاستشارة عبر الإنترنت.")
+                : (region === "syr"
+                  ? "Explore our specialist Tax practice areas in Syria — each backed by deep expertise and available for online consultation today."
+                  : "Explore our specialist Tax & Zakat practice areas — each backed by deep ZATCA expertise and available for online consultation today.")
+              }</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {t.taxZakatDetail.subAreas.map((area) => (
                   <Link key={area.id} href={`/services/tax-zakat/${area.id}`}
@@ -397,7 +410,10 @@ export default function ServiceDetail() {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
                 {isRTL ? "مجالات ممارستنا في الجرائم المعلوماتية وتقنية المعلومات" : "Cyber & IT Law Practice Areas"}
               </h2>
-              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في قانون الجرائم المعلوماتية وحماية البيانات — كلٌّ منها مدعوم بخبرة واسعة وفق نظام مكافحة الجرائم المعلوماتية ونظام حماية البيانات الشخصية ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist Cyber & IT Law practice areas — each backed by deep Saudi cybercrime and data protection law expertise and available for urgent consultation today."}</p>
+              <p className="text-muted-foreground mb-8">{isRTL
+                ? "استكشف مجالات ممارستنا المتخصصة في قانون الجرائم المعلوماتية وحماية البيانات — كلٌّ منها مدعوم بخبرة واسعة ومتاح للاستشارة عبر الإنترنت."
+                : "Explore our specialist Cyber & IT Law practice areas — each backed by deep cybercrime and data protection law expertise and available for urgent consultation today."
+              }</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {t.cyberLawDetail.subAreas.map((area) => (
                   <Link key={area.id} href={`/services/cyber-law/${area.id}`}
@@ -415,7 +431,10 @@ export default function ServiceDetail() {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
                 {isRTL ? "مجالات ممارستنا في الأخطاء الطبية والقانون الصحي" : "Medical Malpractice & Healthcare Law Practice Areas"}
               </h2>
-              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في الأخطاء الطبية والقانون الصحي — كلٌّ منها مدعوم بخبرة واسعة وفق أنظمة وزارة الصحة السعودية ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist Medical Malpractice & Healthcare Law practice areas — each backed by deep Saudi MOH regulatory and healthcare litigation expertise."}</p>
+              <p className="text-muted-foreground mb-8">{isRTL
+                ? "استكشف مجالات ممارستنا المتخصصة في الأخطاء الطبية والقانون الصحي — كلٌّ منها مدعوم بخبرة واسعة في التقاضي الصحي ومتاح للاستشارة عبر الإنترنت."
+                : "Explore our specialist Medical Malpractice & Healthcare Law practice areas — each backed by deep healthcare regulatory and litigation expertise."
+              }</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {t.medicalMalpracticeDetail.subAreas.map((area) => (
                   <Link key={area.id} href={`/services/medical-malpractice/${area.id}`}
@@ -433,7 +452,10 @@ export default function ServiceDetail() {
               <h2 className="text-3xl font-serif font-bold text-foreground mb-3 border-b border-border pb-4">
                 {isRTL ? "مجالات ممارستنا في قانون التأمين" : "Insurance Law Practice Areas"}
               </h2>
-              <p className="text-muted-foreground mb-8">{isRTL ? "استكشف مجالات ممارستنا المتخصصة في نزاعات التأمين — كلٌّ منها مدعوم بخبرة واسعة وفق أنظمة مؤسسة النقد العربي السعودي (ساما) ومتاح للاستشارة عبر الإنترنت." : "Explore our specialist Insurance Law practice areas — each backed by deep SAMA and CCHI regulatory expertise and available for urgent consultation today."}</p>
+              <p className="text-muted-foreground mb-8">{isRTL
+                ? "استكشف مجالات ممارستنا المتخصصة في نزاعات التأمين — كلٌّ منها مدعوم بخبرة واسعة في قانون التأمين ومتاح للاستشارة عبر الإنترنت."
+                : "Explore our specialist Insurance Law practice areas — each backed by deep insurance regulatory and litigation expertise and available for urgent consultation today."
+              }</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {t.insuranceLawDetail.subAreas.map((area) => (
                   <Link key={area.id} href={`/services/insurance-law/${area.id}`}

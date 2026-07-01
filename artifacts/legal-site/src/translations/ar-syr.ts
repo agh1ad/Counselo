@@ -611,6 +611,15 @@ export const arSyr: typeof ar = {
     parentTitle: "قانون المصارف والتمويل — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "قانون المصارف والتمويل — سوريا" },
     experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    sidebar: {
+      heading: "هل تحتاج إلى محامٍ في قانون المصارف والتمويل؟",
+      desc: "احصل على استشارة قانونية متخصصة في قانون المصارف والتمويل السوري — أنظمة مصرف سوريا المركزي ونزاعات المصارف والتمويل الإسلامي وفق القانون السوري. استشارة إلكترونية متاحة.",
+      ctaBtn: "ابدأ استشارة",
+      whatsapp: "واتساب",
+      email: "بريد إلكتروني",
+      callLabel: "اتصل بنا",
+      phone: "+963 11 XXX XXXX",
+    },
     services: Object.fromEntries(
       Object.entries(ar.bankingFinanceDetail.services).map(([id, svc]) => [id, fixNizam({
         ...svc,
@@ -632,6 +641,15 @@ export const arSyr: typeof ar = {
     parentTitle: "الملكية الفكرية — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "الملكية الفكرية — سوريا" },
     experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    sidebar: {
+      heading: "هل تحتاج إلى محامٍ ملكية فكرية في سوريا؟",
+      desc: "احصل على استشارة قانونية متخصصة في الملكية الفكرية — تسجيل العلامات التجارية وبراءات الاختراع وحقوق التأليف والنزاعات وفق القانون السوري. استجابة خلال 24 ساعة.",
+      ctaBtn: "ابدأ استشارة",
+      whatsapp: "واتساب",
+      email: "بريد إلكتروني",
+      callLabel: "اتصل بنا",
+      phone: "+963 11 XXX XXXX",
+    },
     services: Object.fromEntries(
       Object.entries(ar.intellectualPropertyDetail.services).map(([id, svc]) => [id, fixNizam({
         ...svc,
@@ -694,6 +712,15 @@ export const arSyr: typeof ar = {
     parentTitle: "القانون الإلكتروني — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "القانون الإلكتروني — سوريا" },
     experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    sidebar: {
+      heading: "هل تحتاج إلى محامٍ جرائم إلكترونية؟",
+      desc: "احصل على استشارة عاجلة في قانون الجرائم المعلوماتية في سوريا — عبر واتساب أو البريد الإلكتروني وفق قانون الجرائم المعلوماتية السوري (المرسوم 17/2012). استجابة سرية وسريعة.",
+      ctaBtn: "ابدأ استشارة",
+      whatsapp: "واتساب",
+      email: "بريد إلكتروني",
+      callLabel: "اتصل بنا",
+      phone: "+963 11 XXX XXXX",
+    },
     services: Object.fromEntries(
       Object.entries(ar.cyberLawDetail.services).map(([id, svc]) => [id, fixNizam({
         ...svc,
@@ -714,6 +741,15 @@ export const arSyr: typeof ar = {
     ...ar.medicalMalpracticeDetail,
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "المسؤولية الطبية — سوريا" },
     experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    sidebar: {
+      heading: "هل تحتاج إلى محامٍ مسؤولية طبية؟",
+      desc: "احصل على استشارة قانونية متخصصة في المسؤولية الطبية وقانون الصحة في سوريا — عبر واتساب أو البريد الإلكتروني. استشارة سرية وفق أنظمة نقابة الأطباء السورية. استجابة خلال 24 ساعة.",
+      ctaBtn: "ابدأ استشارة",
+      whatsapp: "واتساب",
+      email: "بريد إلكتروني",
+      callLabel: "اتصل بنا",
+      phone: "+963 11 XXX XXXX",
+    },
     services: Object.fromEntries(
       Object.entries(ar.medicalMalpracticeDetail.services).map(([id, svc]) => [id, fixNizam({
         ...svc,
@@ -734,6 +770,15 @@ export const arSyr: typeof ar = {
     ...ar.insuranceLawDetail,
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "قانون التأمين — سوريا" },
     experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    sidebar: {
+      heading: "هل تحتاج إلى محامٍ نزاعات تأمين؟",
+      desc: "احصل على استشارة قانونية متخصصة في نزاعات التأمين في سوريا وفق قانون التأمين رقم 68/2001 — عبر واتساب أو البريد الإلكتروني. استجابة خلال 24 ساعة.",
+      ctaBtn: "ابدأ استشارة",
+      whatsapp: "واتساب",
+      email: "بريد إلكتروني",
+      callLabel: "اتصل بنا",
+      phone: "+963 11 XXX XXXX",
+    },
     services: Object.fromEntries(
       Object.entries(ar.insuranceLawDetail.services).map(([id, svc]) => [id, fixNizam({
         ...svc,

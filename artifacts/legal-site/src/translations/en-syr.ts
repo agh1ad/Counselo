@@ -612,6 +612,15 @@ export const enSyr: typeof en = {
     parentTitle: "Banking & Finance Law — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Banking & Finance Law — Syria" },
     experienceBadge: "30+ Years Regional Experience · 20,000+ Cases · Online Consultations Available",
+    sidebar: {
+      heading: "Need a Banking & Finance Lawyer?",
+      desc: "Get expert Syrian banking and finance law advice — Central Bank of Syria regulations, banking disputes, and Islamic finance under Syrian law. Online consultation available.",
+      ctaBtn: "Start a Consultation",
+      whatsapp: "WhatsApp",
+      email: "Email",
+      callLabel: "Or call us directly at:",
+      phone: "+963 11 XXX XXXX",
+    },
     services: Object.fromEntries(
       Object.entries(en.bankingFinanceDetail.services).map(([id, svc]) => [id, {
         ...svc,
@@ -633,6 +642,15 @@ export const enSyr: typeof en = {
     parentTitle: "Intellectual Property — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Intellectual Property — Syria" },
     experienceBadge: "30+ Years Regional Experience · 20,000+ Cases · Online Consultations Available",
+    sidebar: {
+      heading: "Need an IP Lawyer in Syria?",
+      desc: "Get expert intellectual property advice online — trademark registration, patent protection, copyright, and IP disputes under Syrian law. Response within 24 hours.",
+      ctaBtn: "Start a Consultation",
+      whatsapp: "WhatsApp",
+      email: "Email",
+      callLabel: "Or call us directly at:",
+      phone: "+963 11 XXX XXXX",
+    },
     services: Object.fromEntries(
       Object.entries(en.intellectualPropertyDetail.services).map(([id, svc]) => [id, {
         ...svc,
@@ -695,6 +713,15 @@ export const enSyr: typeof en = {
     parentTitle: "Cyber & IT Law — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Cyber & IT Law — Syria" },
     experienceBadge: "30+ Years Regional Experience · 20,000+ Cases · Online Consultations Available",
+    sidebar: {
+      heading: "Need a Cybercrime Lawyer?",
+      desc: "Get urgent cybercrime law advice in Syria — online via WhatsApp or email under the Syrian Cybercrime Law (Decree 17/2012). Confidential, rapid response for digital legal emergencies.",
+      ctaBtn: "Start a Consultation",
+      whatsapp: "WhatsApp",
+      email: "Email",
+      callLabel: "Or call us directly at:",
+      phone: "+963 11 XXX XXXX",
+    },
     services: Object.fromEntries(
       Object.entries(en.cyberLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
@@ -715,6 +742,15 @@ export const enSyr: typeof en = {
     ...en.medicalMalpracticeDetail,
     breadcrumb: { home: "Home", services: "Services", parent: "Medical Malpractice — Syria" },
     experienceBadge: "30+ Years Regional Experience · 20,000+ Cases · Online Consultations Available",
+    sidebar: {
+      heading: "Need a Medical Malpractice Lawyer?",
+      desc: "Get expert advice on medical negligence and healthcare law in Syria — online via WhatsApp or email. Confidential consultation under Syrian Medical Association regulations. Response within 24 hours.",
+      ctaBtn: "Start a Consultation",
+      whatsapp: "WhatsApp",
+      email: "Email",
+      callLabel: "Or call us directly at:",
+      phone: "+963 11 XXX XXXX",
+    },
     services: Object.fromEntries(
       Object.entries(en.medicalMalpracticeDetail.services).map(([id, svc]) => [id, {
         ...svc,
@@ -735,6 +771,15 @@ export const enSyr: typeof en = {
     ...en.insuranceLawDetail,
     breadcrumb: { home: "Home", services: "Services", parent: "Insurance Law — Syria" },
     experienceBadge: "30+ Years Regional Experience · 20,000+ Cases · Online Consultations Available",
+    sidebar: {
+      heading: "Need an Insurance Dispute Lawyer?",
+      desc: "Get expert advice on insurance claim disputes in Syria under Insurance Law No. 68/2001 — online via WhatsApp or email. Response within 24 hours.",
+      ctaBtn: "Start a Consultation",
+      whatsapp: "WhatsApp",
+      email: "Email",
+      callLabel: "Or call us directly at:",
+      phone: "+963 11 XXX XXXX",
+    },
     services: Object.fromEntries(
       Object.entries(en.insuranceLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
