@@ -33,6 +33,9 @@ import CyberLawSub from "@/pages/cyber-law-sub";
 import MedicalMalpracticeSub from "@/pages/medical-malpractice-sub";
 import InsuranceLawSub from "@/pages/insurance-law-sub";
 import ImmigrationLawSub from "@/pages/immigration-law-sub";
+import CivilLawSub from "@/pages/civil-law-sub";
+import CivilProcedureSub from "@/pages/civil-procedure-sub";
+import CriminalProcedureSub from "@/pages/criminal-procedure-sub";
 import About from "@/pages/about";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
@@ -130,6 +133,9 @@ function Router() {
         <Route path="/syr/services/medical-malpractice/:subId" component={MedicalMalpracticeSub} />
         <Route path="/syr/services/insurance-law/:subId" component={InsuranceLawSub} />
         <Route path="/syr/services/immigration-law/:subId" component={ImmigrationLawSub} />
+        <Route path="/syr/services/civil-law/:subId" component={CivilLawSub} />
+        <Route path="/syr/services/civil-procedure/:subId" component={CivilProcedureSub} />
+        <Route path="/syr/services/criminal-procedure/:subId" component={CriminalProcedureSub} />
         <Route path="/syr/services/:id" component={ServiceDetail} />
         <Route path="/syr/services" component={Services} />
         <Route path="/syr/about" component={About} />

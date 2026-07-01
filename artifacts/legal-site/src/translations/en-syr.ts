@@ -5,6 +5,29 @@ export const enSyr: typeof en = {
 
   footer: {
     ...en.footer,
+    practiceAreaLinks: [
+      { label: "Family Law", href: "/services/family-law" },
+      { label: "Commercial Law", href: "/services/business-law" },
+      { label: "Property Law", href: "/services/real-estate" },
+      { label: "Employment Law", href: "/services/employment-law" },
+      { label: "Foreign Investment Law", href: "/services/foreign-investment" },
+      { label: "Administrative Law", href: "/services/administrative-law" },
+      { label: "Arbitration & Mediation", href: "/services/arbitration" },
+      { label: "Enforcement & Debt Collection", href: "/services/enforcement" },
+      { label: "Companies Law", href: "/services/companies-law" },
+      { label: "Contracts", href: "/services/contracts" },
+      { label: "Criminal Law", href: "/services/criminal-law" },
+      { label: "Banking & Finance Law", href: "/services/banking-finance" },
+      { label: "Intellectual Property", href: "/services/intellectual-property" },
+      { label: "Tax Law", href: "/services/tax-zakat" },
+      { label: "Cyber & IT Law", href: "/services/cyber-law" },
+      { label: "Medical Malpractice", href: "/services/medical-malpractice" },
+      { label: "Insurance Law", href: "/services/insurance-law" },
+      { label: "Immigration & Residency Law", href: "/services/immigration-law" },
+      { label: "Civil Law", href: "/services/civil-law" },
+      { label: "Civil Procedure", href: "/services/civil-procedure" },
+      { label: "Criminal Procedure", href: "/services/criminal-procedure" },
+    ],
     tagline: "Fast, reliable online legal consultations for individuals, businesses and investors across Syria. Professional legal response within 24 hours — in Arabic or English.",
     address: "Damascus, Syria",
   },
@@ -78,7 +101,7 @@ export const enSyr: typeof en = {
     cta: {
       ...en.home.cta,
       eyebrow: "Syria's Specialized Online Legal Consultation Platform",
-      desc: "Expert online legal consultations for individuals, businesses and investors across Syria — via WhatsApp or email, no office visit required. 18 practice areas. 30+ years regional experience.",
+      desc: "Expert online legal consultations for individuals, businesses and investors across Syria — via WhatsApp or email, no office visit required. 21 practice areas. 30+ years regional experience.",
       subDesc: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi · Damascus, Syria · WhatsApp or email · Arabic & English",
     },
   },
@@ -86,8 +109,8 @@ export const enSyr: typeof en = {
   services: {
     ...en.services,
     hero: {
-      heading: "18 Legal Practice Areas",
-      desc: "Syria's specialized online legal consultation platform — 18 specialist practice areas covering family law, commercial law, employment, real estate, foreign investment, criminal law, banking, tax, cyber law, medical malpractice, insurance, arbitration, enforcement, companies law, contracts, IP, administrative law, and immigration. Professional response within 24 hours. No office visit needed.",
+      heading: "21 Legal Practice Areas",
+      desc: "Syria's specialized online legal consultation platform — 21 specialist practice areas covering family law, commercial law, employment, real estate, foreign investment, criminal law, banking, tax, cyber law, medical malpractice, insurance, arbitration, enforcement, companies law, contracts, IP, administrative law, immigration, civil law, civil procedure, and criminal procedure. Professional response within 24 hours. No office visit needed.",
     },
     items: [
       { id: "family-law", title: "Family Law", longDesc: "When your personal life intersects with Syrian law — divorce, custody, inheritance — the stakes couldn't be higher. We handle complex personal status matters under Syrian Personal Status Law No. 59/1953 with absolute discretion before Syrian Personal Status Courts." },
@@ -108,6 +131,9 @@ export const enSyr: typeof en = {
       { id: "medical-malpractice", title: "Medical Malpractice & Healthcare Law", longDesc: "Expert medical malpractice lawyers in Syria — negligence claims, surgical errors, and misdiagnosis under Syrian civil liability law, with representation before Syrian civil courts." },
       { id: "insurance-law", title: "Insurance Law", longDesc: "Specialist insurance dispute lawyers in Syria — health, property, motor, life, and commercial insurance claim disputes, wrongful rejections, and insurance litigation before Syrian courts." },
       { id: "immigration-law", title: "Immigration & Residency Law", longDesc: "Expert immigration lawyers for Syria — residency permit applications, nationality matters, foreigner registration, and legal issues for Syrians abroad under Syrian Nationality Law." },
+      { id: "civil-law", title: "Civil Law", longDesc: "Expert legal advice on Syrian Civil Code No. 84/1949 — civil liability, real rights, obligations, inheritance, wills, neighbor disputes, and legal capacity." },
+      { id: "civil-procedure", title: "Civil Procedure", longDesc: "Expert guidance on Syrian civil court proceedings under Legislative Decree No. 84/1953 — filing claims, interim measures, evidence, civil appeal, cassation, and foreign judgment enforcement in Syria." },
+      { id: "criminal-procedure", title: "Criminal Procedure", longDesc: "Expert criminal defense under Syrian Criminal Procedure Code (Legislative Decree No. 112/1950) — investigation, detention, bail, trial defense, criminal appeal, cassation, and civil action in criminal proceedings." },
     ],
   },
 
@@ -263,6 +289,42 @@ export const enSyr: typeof en = {
         covers: ["Health Insurance Claim Disputes", "Property & Home Insurance Claims", "Motor Insurance Disputes", "Life Insurance & Beneficiary Claims", "Commercial Insurance Disputes", "Insurance Policy Interpretation"],
         process: en.serviceDetail.services["insurance-law"].process,
       },
+      "civil-law": {
+        title: "Civil Law",
+        subtitle: "Expert legal advice on Syrian Civil Code No. 84/1949 — covering civil liability, real rights, obligations, inheritance, and legal capacity.",
+        overview: "The Syrian Civil Code No. 84/1949 governs civil relationships between individuals — including tort liability, real rights, civil obligations, inheritance, and legal capacity. CounselO provides comprehensive civil law advice for individuals, businesses, and investors across Syria.",
+        covers: ["Civil Liability & Damages", "Real Rights & Ownership", "Civil Obligations & Contracts", "Inheritance & Wills", "Neighbor Disputes & Easements", "Legal Capacity & Civil Status"],
+        process: [
+          { title: "Initial consultation", desc: "Review your civil law matter under Syrian law and identify your rights and best course of action." },
+          { title: "Documentation", desc: "Gather evidence and documents required for proceedings before Syrian civil courts." },
+          { title: "Litigation or negotiation", desc: "File the civil claim before the competent court or pursue amicable settlement." },
+          { title: "Enforcement", desc: "Enforce the judgment in your favor under Syrian civil procedure." },
+        ],
+      },
+      "civil-procedure": {
+        title: "Civil Procedure",
+        subtitle: "Expert guidance on Syrian civil court proceedings under Legislative Decree No. 84/1953.",
+        overview: "Legislative Decree No. 84/1953 (Syrian Civil Procedure Code) governs civil court proceedings in Syria — from filing claims and interim measures through evidence, appeal, cassation, and enforcement of foreign judgments. CounselO provides procedural guidance to ensure your case proceeds correctly.",
+        covers: ["Filing a Civil Claim", "Interim & Provisional Measures", "Evidence & Proof", "Civil Appeals", "Civil Cassation", "Foreign Judgment Enforcement"],
+        process: [
+          { title: "Procedural assessment", desc: "Identify the correct court and procedure under the Syrian Civil Procedure Code." },
+          { title: "Document preparation", desc: "Draft petitions and documents meeting Syrian court procedural requirements." },
+          { title: "Case management", desc: "Manage the case through each stage from filing to judgment." },
+          { title: "Challenge or enforce", desc: "Appeal unsatisfactory judgments or enforce favorable ones." },
+        ],
+      },
+      "criminal-procedure": {
+        title: "Criminal Procedure",
+        subtitle: "Expert criminal defense at every stage of Syrian criminal proceedings under Legislative Decree No. 112/1950.",
+        overview: "Legislative Decree No. 112/1950 (Syrian Criminal Procedure Code) governs criminal proceedings in Syria — from investigation through trial, appeal, cassation, and civil action. CounselO provides comprehensive criminal defense at every stage of Syrian criminal proceedings.",
+        covers: ["Preliminary Investigation Defense", "Detention & Bail", "Criminal Trial & Defense", "Criminal Appeal", "Criminal Cassation", "Civil Action in Criminal Proceedings"],
+        process: [
+          { title: "Immediate intervention", desc: "Contact CounselO upon summons or detention — we respond 24/7." },
+          { title: "Case assessment and strategy", desc: "Review the charges and build the defense strategy from day one." },
+          { title: "Trial representation", desc: "Full defense representation before Syrian criminal courts at all stages." },
+          { title: "Appeal if necessary", desc: "File appeal or cassation immediately after any adverse judgment." },
+        ],
+      },
       "immigration-law": {
         title: "Immigration, Residency & Nationality Law",
         subtitle: "Expert lawyers for Syrian nationality, residency permits, foreigner registration, and legal issues for Syrians abroad.",
@@ -280,9 +342,29 @@ export const enSyr: typeof en = {
 
   nav: {
     ...en.nav,
-    servicesList: en.nav.servicesList.map((item: { name: string; href: string }) =>
-      item.href === "/services/tax-zakat" ? { ...item, name: "Tax Law" } : item
-    ),
+    servicesList: [
+      { name: "Family Law", href: "/services/family-law" },
+      { name: "Commercial Law", href: "/services/business-law" },
+      { name: "Property Law", href: "/services/real-estate" },
+      { name: "Employment Law", href: "/services/employment-law" },
+      { name: "Foreign Investment Law", href: "/services/foreign-investment" },
+      { name: "Administrative Law", href: "/services/administrative-law" },
+      { name: "Arbitration & Mediation", href: "/services/arbitration" },
+      { name: "Enforcement & Debt Collection", href: "/services/enforcement" },
+      { name: "Companies Law", href: "/services/companies-law" },
+      { name: "Contracts", href: "/services/contracts" },
+      { name: "Criminal Law", href: "/services/criminal-law" },
+      { name: "Banking & Finance Law", href: "/services/banking-finance" },
+      { name: "Intellectual Property", href: "/services/intellectual-property" },
+      { name: "Tax Law", href: "/services/tax-zakat" },
+      { name: "Cyber & IT Law", href: "/services/cyber-law" },
+      { name: "Medical Malpractice", href: "/services/medical-malpractice" },
+      { name: "Insurance Law", href: "/services/insurance-law" },
+      { name: "Immigration & Residency Law", href: "/services/immigration-law" },
+      { name: "Civil Law", href: "/services/civil-law" },
+      { name: "Civil Procedure", href: "/services/civil-procedure" },
+      { name: "Criminal Procedure", href: "/services/criminal-procedure" },
+    ],
   },
 
   familyLawDetail: {
