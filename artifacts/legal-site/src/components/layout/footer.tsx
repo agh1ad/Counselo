@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { MapPin, Phone, Mail, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
-import counseloLogo from "@assets/Screen_Shot_2026-07-01_at_12.26.11_AM_1782851175169.png";
+const counseloLogo = "/logo.png";
 
 export function Footer() {
   const { t } = useLanguage();

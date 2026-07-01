@@ -346,7 +346,8 @@ export default function Home() {
             <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col gap-0">
               <div className="aspect-[4/5] relative shadow-2xl border border-border overflow-hidden">
                 <img src="/omar-baghdadi.jpg" alt="Lawyer Omar Al-Baghdadi — Lawyer and Legal Counsel, Founder of CounselO — 30+ years, 20,000+ cases"
-                  className="w-full h-full object-cover object-top" />
+                  className="w-full h-full object-cover object-top"
+                  width="800" height="1200" loading="lazy" decoding="async" />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent px-6 pb-6 pt-20">
                   <div className="text-white/60 uppercase tracking-widest text-xs mb-1">{h.about.founderRole}</div>
                   <div className="text-xl font-serif font-bold text-white leading-tight">{h.about.founderName}</div>

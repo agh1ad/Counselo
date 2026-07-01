@@ -201,6 +201,7 @@ export default function About() {
                       src={founderPhoto}
                       alt="Lawyer Omar Al-Baghdadi — Founder of CounselO"
                       className="w-full h-full object-cover object-top"
+                      width="144" height="176" loading="lazy" decoding="async"
                     />
                   </div>
                   <div className="absolute -bottom-3 -end-3 bg-primary px-3 py-1.5">
