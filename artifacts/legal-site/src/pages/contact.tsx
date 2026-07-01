@@ -87,8 +87,8 @@ export default function Contact() {
             : "Book Online Legal Consultation Saudi Arabia | Response Within 24 Hours | CounselO")}
         description={region === "syr"
           ? (isRTL
-            ? "تواصل مع قانوني — منصة الاستشارات القانونية الأونلاين في سوريا. استجابة احترافية خلال 24 ساعة عبر واتساب (+963 11 400 0000) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
-            : "Contact CounselO — Syria's online legal consultation platform. Professional response within 24 hours via WhatsApp (+963 11 400 0000) or email. No office visit needed. Arabic and English.")
+            ? "تواصل مع قانوني — منصة الاستشارات القانونية الأونلاين في سوريا. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
+            : "Contact CounselO — Syria's online legal consultation platform. Professional response within 24 hours via WhatsApp (+966 59 485 0247) or email. No office visit needed. Arabic and English.")
           : (isRTL
             ? "تواصل مع قانوني — أكبر منصة استشارات قانونية أونلاين في المملكة. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
             : "Contact CounselO — Saudi Arabia's largest online legal consultation platform. Professional response within 24 hours via WhatsApp (+966 59 485 0247) or email. No office visit needed. Arabic and English.")}
