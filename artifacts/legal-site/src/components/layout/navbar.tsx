@@ -29,15 +29,19 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
-          <Link href={regionPrefix} className="flex items-center gap-3">
-            <img src={navbarBrand} alt="CounselO — Online Legal Consultations" className="h-20 w-auto object-contain" />
-            <img
-              src={flag}
-              alt={flagAlt}
-              className="h-6 w-auto object-cover rounded-sm shadow-sm border border-border"
-              style={{ aspectRatio: "3/2", width: "36px" }}
-            />
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link href={regionPrefix}>
+              <img src={navbarBrand} alt="CounselO — Online Legal Consultations" className="h-20 w-auto object-contain" />
+            </Link>
+            <Link href="/" title="Change region">
+              <img
+                src={flag}
+                alt={flagAlt}
+                className="h-6 w-auto object-cover rounded-sm shadow-sm border border-border hover:opacity-80 transition-opacity cursor-pointer"
+                style={{ aspectRatio: "3/2", width: "36px" }}
+              />
+            </Link>
+          </div>
 
           <div className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
             <Link href={regionPrefix} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.home}</Link>
