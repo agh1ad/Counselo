@@ -23,13 +23,12 @@ export const enSyr: typeof en = {
       { label: "Cyber & IT Law", href: "/services/cyber-law" },
       { label: "Medical Malpractice", href: "/services/medical-malpractice" },
       { label: "Insurance Law", href: "/services/insurance-law" },
-      { label: "Immigration & Residency Law", href: "/services/immigration-law" },
       { label: "Civil Law", href: "/services/civil-law" },
       { label: "Civil Procedure", href: "/services/civil-procedure" },
       { label: "Criminal Procedure", href: "/services/criminal-procedure" },
     ],
     tagline: "Fast, reliable online legal consultations for individuals, businesses and investors across Syria. Professional legal response within 24 hours — in Arabic or English.",
-    address: "Damascus, Syria",
+    address: "Hama, Syria",
   },
 
   home: {
@@ -54,8 +53,8 @@ export const enSyr: typeof en = {
     },
     about: {
       ...en.home.about,
-      p1: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi — one of the region's most established senior advocates, with over 30 years of active legal practice and more than 20,000 cases handled across Syria, Saudi Arabia and the region. His career spans every major area of law — from commercial litigation and arbitration to family law, real estate, employment, foreign investment and administrative proceedings.",
-      founderTeamLine: "Leading a professional legal team across Syria, Saudi Arabia & the region",
+      p1: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi — one of the region's most established senior advocates, with over 30 years of active legal practice and more than 20,000 cases handled across Syria and the region. His career spans every major area of law — from commercial litigation and arbitration to family law, real estate, employment, foreign investment and administrative proceedings.",
+      founderTeamLine: "Leading a professional legal team across Syria & the region",
     },
     consultMethods: {
       ...en.home.consultMethods,
@@ -101,16 +100,16 @@ export const enSyr: typeof en = {
     cta: {
       ...en.home.cta,
       eyebrow: "Syria's Specialized Online Legal Consultation Platform",
-      desc: "Expert online legal consultations for individuals, businesses and investors across Syria — via WhatsApp or email, no office visit required. 21 practice areas. 30+ years regional experience.",
-      subDesc: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi · Damascus, Syria · WhatsApp or email · Arabic & English",
+      desc: "Expert online legal consultations for individuals, businesses and investors across Syria — via WhatsApp or email, no office visit required. 20 practice areas. 30+ years regional experience.",
+      subDesc: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi · Hama, Syria · WhatsApp or email · Arabic & English",
     },
   },
 
   services: {
     ...en.services,
     hero: {
-      heading: "21 Legal Practice Areas",
-      desc: "Syria's specialized online legal consultation platform — 21 specialist practice areas covering family law, commercial law, employment, real estate, foreign investment, criminal law, banking, tax, cyber law, medical malpractice, insurance, arbitration, enforcement, companies law, contracts, IP, administrative law, immigration, civil law, civil procedure, and criminal procedure. Professional response within 24 hours. No office visit needed.",
+      heading: "20 Legal Practice Areas",
+      desc: "Syria's specialized online legal consultation platform — 20 specialist practice areas covering family law, commercial law, employment, real estate, foreign investment, criminal law, banking, tax, cyber law, medical malpractice, insurance, arbitration, enforcement, companies law, contracts, IP, administrative law, civil law, civil procedure, and criminal procedure. Professional response within 24 hours. No office visit needed.",
     },
     items: [
       { id: "family-law", title: "Family Law", longDesc: "When your personal life intersects with Syrian law — divorce, custody, inheritance — the stakes couldn't be higher. We handle complex personal status matters under Syrian Personal Status Law No. 59/1953 with absolute discretion before Syrian Personal Status Courts." },
@@ -130,7 +129,6 @@ export const enSyr: typeof en = {
       { id: "cyber-law", title: "Cyber & IT Law", longDesc: "Expert cybercrime lawyers in Syria — defense under Syrian Cybercrime Law (Legislative Decree No. 17/2012), data protection, online fraud cases, hacking defense, and IT contract disputes." },
       { id: "medical-malpractice", title: "Medical Malpractice & Healthcare Law", longDesc: "Expert medical malpractice lawyers in Syria — negligence claims, surgical errors, and misdiagnosis under Syrian civil liability law, with representation before Syrian civil courts." },
       { id: "insurance-law", title: "Insurance Law", longDesc: "Specialist insurance dispute lawyers in Syria — health, property, motor, life, and commercial insurance claim disputes, wrongful rejections, and insurance litigation before Syrian courts." },
-      { id: "immigration-law", title: "Immigration & Residency Law", longDesc: "Expert immigration lawyers for Syria — residency permit applications, nationality matters, foreigner registration, and legal issues for Syrians abroad under Syrian Nationality Law." },
       { id: "civil-law", title: "Civil Law", longDesc: "Expert legal advice on Syrian Civil Code No. 84/1949 — civil liability, real rights, obligations, inheritance, wills, neighbor disputes, and legal capacity." },
       { id: "civil-procedure", title: "Civil Procedure", longDesc: "Expert guidance on Syrian civil court proceedings under Legislative Decree No. 84/1953 — filing claims, interim measures, evidence, civil appeal, cassation, and foreign judgment enforcement in Syria." },
       { id: "criminal-procedure", title: "Criminal Procedure", longDesc: "Expert criminal defense under Syrian Criminal Procedure Code (Legislative Decree No. 112/1950) — investigation, detention, bail, trial defense, criminal appeal, cassation, and civil action in criminal proceedings." },
@@ -325,18 +323,7 @@ export const enSyr: typeof en = {
           { title: "Appeal if necessary", desc: "File appeal or cassation immediately after any adverse judgment." },
         ],
       },
-      "immigration-law": {
-        title: "Immigration, Residency & Nationality Law",
-        subtitle: "Expert lawyers for Syrian nationality, residency permits, foreigner registration, and legal issues for Syrians abroad.",
-        overview: "Syria's immigration and nationality framework is governed by the Syrian Nationality Law (Legislative Decree No. 276 of 1969) and the Foreigners' Entry and Stay Law. The General Directorate of Migration and Passports (الإدارة العامة للهجرة والجوازات) handles residency permits, entry visas, and travel documents. At CounselO, we advise and represent individuals, families, and employers across the full range of Syrian immigration and residency matters — from foreigner residency applications to nationality issues, property-related legal matters for the Syrian diaspora, and return and repatriation legal needs. Online consultation available 24/7.",
-        covers: ["Residency Permit Applications & Renewals (Foreigners in Syria)", "Syrian Nationality Matters & Documentation", "Diaspora Property & Inheritance Legal Services", "Foreigner Work Permit Applications", "Return & Repatriation Legal Support", "Syrian Family Documentation Issues"],
-        process: [
-          { title: "Immigration Assessment", desc: "We assess your immigration status, identify any issues or risks, and advise on the most effective legal pathway under Syrian immigration law." },
-          { title: "Document Preparation", desc: "We prepare and review all required documentation — ensuring applications are complete and submitted correctly to the Migration and Passports Directorate." },
-          { title: "Authority Representation", desc: "We represent you before the Syrian Migration and Passports Directorate or other government authorities — managing the application or defense on your behalf." },
-          { title: "Resolution", desc: "We pursue the best available outcome — whether approval of residency, nationality documentation, or legal resolution of diaspora property and inheritance matters." },
-        ],
-      },
+      "immigration-law": en.serviceDetail.services["immigration-law"],
     },
   },
 
@@ -360,7 +347,6 @@ export const enSyr: typeof en = {
       { name: "Cyber & IT Law", href: "/services/cyber-law" },
       { name: "Medical Malpractice", href: "/services/medical-malpractice" },
       { name: "Insurance Law", href: "/services/insurance-law" },
-      { name: "Immigration & Residency Law", href: "/services/immigration-law" },
       { name: "Civil Law", href: "/services/civil-law" },
       { name: "Civil Procedure", href: "/services/civil-procedure" },
       { name: "Criminal Procedure", href: "/services/criminal-procedure" },
@@ -765,30 +751,29 @@ export const enSyr: typeof en = {
     ) as typeof en.insuranceLawDetail.services,
   },
 
-  immigrationLawDetail: {
-    ...en.immigrationLawDetail,
-    breadcrumb: { home: "Home", services: "Services", parent: "Immigration & Residency Law — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases · Online Consultations Available",
-    services: Object.fromEntries(
-      Object.entries(en.immigrationLawDetail.services).filter(([id]) => !['kafala-transfer', 'premium-residency'].includes(id)).map(([id, svc]) => [id, {
-        ...svc,
-        seoTitle: svc.seoTitle.replace(/Saudi Arabia/g, "Syria"),
-        subtitle: svc.subtitle.replace(/Saudi Arabia/g, "Syria").replace(/Saudi law/g, "Syrian law").replace(/Jawazat/g, "Migration and Passports Directorate").replace(/iqama/g, "residency permit"),
-        covers: svc.covers.map((c: string) => c.replace(/Saudi Arabia/g, "Syria").replace(/Jawazat/g, "Migration and Passports Directorate").replace(/iqama/g, "residency permit").replace(/kafala/g, "sponsorship").replace(/Ministry of Human Resources/g, "Ministry of Interior")),
-        overview1: svc.overview1.replace(/Saudi Arabia/g, "Syria").replace(/Saudi law/g, "Syrian law").replace(/KSA/g, "Syria").replace(/Jawazat|iqama|kafala/g, (m) => m === "iqama" ? "residency permit" : m === "kafala" ? "sponsorship system" : "Migration and Passports Directorate").replace(/Ministry of Human Resources/g, "Ministry of Interior").replace(/premium residency|green card/g, "Syrian nationality"),
-        overview2: svc.overview2 ? svc.overview2.replace(/Saudi Arabia/g, "Syria").replace(/Saudi law/g, "Syrian law").replace(/KSA/g, "Syria") : svc.overview2,
-        faqs: svc.faqs.map(faq => ({
-          q: faq.q.replace(/Saudi Arabia/g, "Syria").replace(/Saudi law/g, "Syrian law").replace(/KSA/g, "Syria"),
-          a: faq.a.replace(/Saudi Arabia/g, "Syria").replace(/Saudi law/g, "Syrian law").replace(/KSA/g, "Syria"),
-        })),
-      }])
-    ) as typeof en.immigrationLawDetail.services,
+
+  contact: {
+    ...en.contact,
+    firmDetails: {
+      ...en.contact.firmDetails,
+      address: "Hama, Syria",
+    },
+    form: {
+      ...en.contact.form,
+      phonePlaceholder: "+963 9xx xxx xxxx",
+    },
   },
 
   aboutPage: {
     ...en.aboutPage,
+    stats: [
+      { stat: "20,000+", label: "Cases Handled" },
+      { stat: "30+", label: "Years of Legal Experience" },
+      { stat: "20", label: "Practice Areas" },
+      { stat: "40+", label: "Lawyers Mentored" },
+    ],
     seoTitle: "About CounselO — Syria's Specialized Online Legal Consultation Platform",
-    seoDesc: "CounselO is Syria's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi, with 30+ years regional experience and 20,000+ cases handled across Syria, Saudi Arabia and the region.",
+    seoDesc: "CounselO is Syria's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi, with 30+ years regional experience and 20,000+ cases handled across Syria and the region.",
     hero: {
       ...en.aboutPage.hero,
       badge: "Syria's Specialized Online Legal Consultation Platform · CounselO",
@@ -797,7 +782,21 @@ export const enSyr: typeof en = {
     },
     founder: {
       ...en.aboutPage.founder,
-      subheading: "Senior Advocate · Regional Legal Authority · Syria, Saudi Arabia & the Region",
+      subheading: "Senior Advocate · Regional Legal Authority · Syria & the Region",
+    },
+    office: {
+      ...en.aboutPage.office,
+      eyebrow: "Physical Presence",
+      heading: "Hama Office — Al-Baghdadi Law Firm",
+      p1: "CounselO provides online legal consultation services, document analysis, and remote legal opinion preparation — enabling clients across all of Syria to access professional legal services without the need for in-person attendance.",
+      p2: "Where a case requires court representation, appearances before courts or competent authorities, or document notarization and procedures requiring physical presence, CounselO works through Al-Baghdadi Law Firm — located in Hama, Syria — to handle judicial representation proceedings before Syrian courts and government authorities.",
+      city: "Hama, Syria",
+      region: "Hama City, Syria",
+      partnerName: "Al-Baghdadi Law Firm",
+      licenseNo: "Licensed in Syria",
+      address: "Al-Baghdadi Law Firm\nHama, Syria",
+      mapsUrl: "https://www.google.com/maps?q=35.1333,36.75",
+      mapsLabel: "View on Google Maps",
     },
   },
 };

@@ -132,7 +132,6 @@ function Router() {
         <Route path="/syr/services/cyber-law/:subId" component={CyberLawSub} />
         <Route path="/syr/services/medical-malpractice/:subId" component={MedicalMalpracticeSub} />
         <Route path="/syr/services/insurance-law/:subId" component={InsuranceLawSub} />
-        <Route path="/syr/services/immigration-law/:subId" component={ImmigrationLawSub} />
         <Route path="/syr/services/civil-law/:subId" component={CivilLawSub} />
         <Route path="/syr/services/civil-procedure/:subId" component={CivilProcedureSub} />
         <Route path="/syr/services/criminal-procedure/:subId" component={CriminalProcedureSub} />

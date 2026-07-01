@@ -4,12 +4,14 @@ import { useParams, Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ChevronRight, ArrowLeft, MessageCircle, Mail, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 
 export default function CompaniesLawSub() {
   const params = useParams();
   const subId = params.subId as string;
   const { t, isRTL } = useLanguage();
+  const { regionPrefix } = useRegion();
   const cld = t.companiesLawDetail;
   const data = cld.services[subId as keyof typeof cld.services];
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -19,7 +21,7 @@ export default function CompaniesLawSub() {
       <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
         <div className="text-center">
           <h1 className="text-4xl font-serif mb-4">{cld.notFound}</h1>
-          <Link href="/services/companies-law" className="text-primary hover:underline">{cld.notFoundLink}</Link>
+          <Link href={`${regionPrefix}/services/companies-law`} className="text-primary hover:underline">{cld.notFoundLink}</Link>
         </div>
       </div>
     );
@@ -216,7 +218,7 @@ export default function CompaniesLawSub() {
             <ChevronRight className={`h-3.5 w-3.5 shrink-0 ${isRTL ? "rotate-180" : ""}`} />
             <Link href="/services" className="hover:text-primary transition-colors">{cld.breadcrumb.services}</Link>
             <ChevronRight className={`h-3.5 w-3.5 shrink-0 ${isRTL ? "rotate-180" : ""}`} />
-            <Link href="/services/companies-law" className="hover:text-primary transition-colors">{cld.breadcrumb.parent}</Link>
+            <Link href={`${regionPrefix}/services/companies-law`} className="hover:text-primary transition-colors">{cld.breadcrumb.parent}</Link>
             <ChevronRight className={`h-3.5 w-3.5 shrink-0 ${isRTL ? "rotate-180" : ""}`} />
             <span className="text-foreground font-medium">{data.title}</span>
           </div>
@@ -230,7 +232,7 @@ export default function CompaniesLawSub() {
           style={{ backgroundImage: "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Link href="/services/companies-law"
+            <Link href={`${regionPrefix}/services/companies-law`}
               className="inline-flex items-center text-white/60 hover:text-white text-sm mb-8 transition-colors">
               <ArrowLeft className={`me-2 h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
               {cld.backLink}
@@ -369,7 +371,7 @@ export default function CompaniesLawSub() {
                 <h4 className="text-sm font-bold text-foreground uppercase tracking-wider mb-4">{cld.relatedHeading}</h4>
                 <div className="space-y-1">
                   {otherAreas.map((area) => (
-                    <Link key={area.id} href={`/services/companies-law/${area.id}`}
+                    <Link key={area.id} href={`${regionPrefix}/services/companies-law/${area.id}`}
                       className="flex items-center justify-between gap-3 px-3 py-2.5 hover:bg-primary/5 hover:text-primary transition-colors group text-sm">
                       <span className="text-muted-foreground group-hover:text-primary transition-colors font-medium">{area.label}</span>
                       <ChevronRight className={`h-3.5 w-3.5 text-muted-foreground/50 group-hover:text-primary shrink-0 transition-colors ${isRTL ? "rotate-180" : ""}`} />
