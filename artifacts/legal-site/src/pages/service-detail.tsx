@@ -7,7 +7,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { SYR_SEO_DATA } from "@/lib/seo-data-syr";
-import { SUB_SERVICE_MAP } from "@/lib/sub-service-map";
 
 export default function ServiceDetail() {
   const params = useParams();
@@ -38,7 +37,6 @@ export default function ServiceDetail() {
   const overview2      = typeof d.overview2     === "string" ? d.overview2     : null;
   const experienceNote = typeof d.experienceNote=== "string" ? d.experienceNote: null;
   const dataSeoTitle   = typeof d.seoTitle      === "string" ? d.seoTitle      : null;
-  const subServices    = SUB_SERVICE_MAP[id] ?? [];
 
   const seoTitle = isRTL
     ? (syrSeo
@@ -236,31 +234,6 @@ export default function ServiceDetail() {
                           </div>
                         )}
                       </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Sub-services grid — shown for parent practice areas */}
-              {subServices.length > 0 && (
-                <div className="mt-16">
-                  <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">
-                    {isRTL
-                      ? `مجالات ${data.title} التفصيلية`
-                      : `${data.title} Practice Areas`}
-                  </h2>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    {subServices.map((sub) => (
-                      <Link
-                        key={sub.id}
-                        href={`${regionPrefix}/services/${sub.id}`}
-                        className="group flex items-center justify-between bg-card border border-border px-5 py-4 hover:border-primary hover:bg-primary/5 transition-all"
-                      >
-                        <span className="font-medium text-foreground group-hover:text-primary transition-colors leading-snug">
-                          {isRTL ? sub.titleAr : sub.titleEn}
-                        </span>
-                        <ChevronRight className={`h-4 w-4 text-muted-foreground group-hover:text-primary shrink-0 transition-colors ms-3 ${isRTL ? "rotate-180" : ""}`} />
-                      </Link>
                     ))}
                   </div>
                 </div>
