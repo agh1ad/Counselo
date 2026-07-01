@@ -142,7 +142,7 @@ export default function BlogPost() {
       "name": "CounselO",
       "url": "https://counselo.com",
     },
-    "about": { "@type": "LegalService", "areaServed": "Saudi Arabia" },
+    "about": { "@type": "LegalService", "areaServed": region === "syr" ? "Syria" : "Saudi Arabia" },
   };
 
   return (
@@ -152,8 +152,12 @@ export default function BlogPost() {
         description={seoDesc}
         canonical={`/blog/${post.slug}`}
         keywords={isRTL
-          ? `${category}, مقالات قانونية سعودية, إرشادات قانونية مجانية, قانوني, مدونة قانوني القانونية`
-          : `${category}, Saudi legal articles, free legal guides Saudi Arabia, CounselO blog, online legal advice KSA`}
+          ? region === "syr"
+            ? `${category}, مقالات قانونية سورية, إرشادات قانونية مجانية سوريا, كاونسلو, مدونة قانوني القانونية, استشارة قانونية أونلاين سوريا`
+            : `${category}, مقالات قانونية سعودية, إرشادات قانونية مجانية, قانوني, مدونة قانوني القانونية`
+          : region === "syr"
+            ? `${category}, Syrian legal articles, free legal guides Syria, CounselO blog, online legal advice Syria, Syrian law`
+            : `${category}, Saudi legal articles, free legal guides Saudi Arabia, CounselO blog, online legal advice KSA`}
         extraSchemas={[articleSchema]}
       />
 

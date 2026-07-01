@@ -41,9 +41,8 @@ function syriafyObj(val: unknown): unknown {
     const out: Record<string, unknown> = {};
     for (const [k, v] of Object.entries(val as Record<string, unknown>)) {
       if (k === "addressCountry" && v === "SA") out[k] = "SY";
-      else if (k === "telephone" && typeof v === "string" && v.startsWith("+966")) out[k] = "+963114000000";
-      else if (k === "addressLocality" && v === "Jubail") out[k] = "Hama";
-      else if (k === "addressRegion" && v === "Eastern Province") out[k] = "Hama Governorate";
+      else if (k === "addressLocality" && v === "Jubail") out[k] = "Damascus";
+      else if (k === "addressRegion" && v === "Eastern Province") out[k] = "Damascus Governorate";
       else out[k] = syriafyObj(v);
     }
     return out;
@@ -103,15 +102,17 @@ export function SEOHead({
 
   const geo = GEO[region];
   const isArabic = lang === "ar";
+  const isSyr = region === "syr";
 
+  const rawTitle = isSyr ? syriafyText(title) : title;
   const fullTitle =
-    title.endsWith("| CounselO") ||
-    title.endsWith("| كاونسلو") ||
-    title.endsWith("كاونسلو")
-      ? title
+    rawTitle.endsWith("| CounselO") ||
+    rawTitle.endsWith("| كاونسلو") ||
+    rawTitle.endsWith("كاونسلو")
+      ? rawTitle
       : isArabic
-        ? `${title} | كاونسلو`
-        : `${title} | CounselO`;
+        ? `${rawTitle} | كاونسلو`
+        : `${rawTitle} | CounselO`;
 
   const basePath = canonical === "/" ? "" : canonical ?? "";
   const prefixedPath = `${geo.pathPrefix}${basePath}`;
@@ -138,7 +139,6 @@ export function SEOHead({
 
   const rawKeywords = keywords ?? (isArabic ? defaultKeywordsAr : defaultKeywordsEn);
 
-  const isSyr = region === "syr";
   const finalDescription = isSyr ? syriafyText(description) : description;
   const finalKeywords = isSyr ? syriafyText(rawKeywords) : rawKeywords;
   const finalSchema = isSyr && schema
