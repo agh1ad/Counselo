@@ -41,7 +41,11 @@ export default function Contact() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const nativeFormRef = useRef<HTMLFormElement>(null);
 
-  const searchParams = new URLSearchParams(window.location.search);
+  // Guard window.location — renderToString runs in Node where window is undefined
+  const searchParams =
+    typeof window !== "undefined"
+      ? new URLSearchParams(window.location.search)
+      : new URLSearchParams();
   const defaultService = searchParams.get("service") || "";
   const wasSent = searchParams.get("sent") === "1";
 

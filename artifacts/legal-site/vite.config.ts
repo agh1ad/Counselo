@@ -109,11 +109,11 @@ export default defineConfig({
     host: "0.0.0.0",
     allowedHosts: true,
   },
-  // Ensure Node built-ins and react-dom/server are treated as external in SSR
-  // so they don't get bundled into the server entry.
-  ...(isSSR && {
-    ssr: {
-      noExternal: ["react-helmet-async"],
-    },
-  }),
+  // SSR build: do NOT add noExternal for react-helmet-async.
+  // Its canUseDOM static field reads `typeof window !== "undefined"` at module
+  // load time. If Vite bundles it (noExternal), its browser-target transform
+  // replaces typeof-window with `true`, making canUseDOM=true → Helmet skips
+  // SSR context population entirely. Leaving it external lets Node.js require()
+  // it at runtime where window is genuinely undefined → canUseDOM=false → SSR
+  // context is populated correctly after renderToString.
 });

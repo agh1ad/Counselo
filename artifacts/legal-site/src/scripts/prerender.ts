@@ -86,43 +86,20 @@ const ROUTES: string[] = [
 // Helpers
 // ---------------------------------------------------------------------------
 
-/** Escape </script> in JSON so it cannot break the surrounding <script> tag. */
-function safeJson(obj: object): string {
-  return JSON.stringify(obj).replace(/<\/script>/gi, "<\\/script>");
-}
-
-function buildHeadTags(helmet: RenderResult["helmet"]): string {
-  return [
-    helmet.title?.toString() ?? "",
-    helmet.priority?.toString() ?? "",
-    helmet.meta?.toString() ?? "",
-    helmet.link?.toString() ?? "",
-    helmet.script?.toString() ?? "",
-    helmet.noscript?.toString() ?? "",
-    helmet.style?.toString() ?? "",
-  ]
-    .filter(Boolean)
-    .join("\n    ");
-}
-
 function writeRoute(
   route: string,
   template: string,
   render: (url: string) => RenderResult,
 ): void {
-  const { html: appHtml, helmet } = render(route);
+  const { head, body } = render(route);
 
-  const headTags = buildHeadTags(helmet);
-  const htmlAttrs = helmet.htmlAttributes?.toString() ?? 'lang="en"';
-
-  let routeHtml = template
-    // Replace <html> attributes with per-route lang/dir from Helmet
-    .replace(/<html[^>]*>/, `<html ${htmlAttrs}>`)
+  const routeHtml = template
     // Inject per-route head tags (title, meta, canonical, OG, schemas)
-    .replace("<!--app-head-->", headTags)
+    // React 19 hoists these to the front of renderToString output.
+    .replace("<!--app-head-->", head)
     // Inject server-rendered app HTML into the root div.
     // data-ssr signals entry-client.tsx to use hydrateRoot instead of createRoot.
-    .replace(/<div id="root"><\/div>/, `<div id="root" data-ssr="true">${appHtml}</div>`);
+    .replace(/<div id="root"><\/div>/, `<div id="root" data-ssr="true">${body}</div>`);
 
   const outputPath =
     route === "/"

@@ -1,2 +1,3 @@
 - [LanguageContext Fast Refresh split](language-context-hmr.md) — LanguageContext must never define both a component and a hook in the same file or Vite HMR cascades crash the app.
 - [CounselO SEO architecture](counselo-seo.md) — dual-region SA/SYR site; Syria sub-page SEO lives in seo-data-syr.ts; region picker at `/` uses Helmet directly (no region dep) targeting Middle East; all schemas are region-conditional.
+- [React 19 + react-helmet-async v3 SSR](react19-helmet-ssr.md) — HelmetProvider context is never populated in React 19; head tags appear at the start of renderToString output instead.
