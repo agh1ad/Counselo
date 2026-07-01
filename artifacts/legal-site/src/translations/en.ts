@@ -68,8 +68,8 @@ export const en = {
       desc: "CounselO is an online legal consultation platform serving Saudi Arabia — delivering expert legal guidance for individuals, businesses and investors, aligned with Vision 2030's digital transformation agenda",
       descBold: "without leaving your desk.",
       descEnd: "",
-      subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Saudi Arabia — professional legal response within 24 hours, guaranteed. 30+ years experience, 20,000+ cases.",
-      chips: ["✓ 20,000+ Cases Handled", "✓ Bilingual Arabic & English", "✓ All Client Types", "✓ Response Within 24 Hours"],
+      subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Saudi Arabia — professional legal response within 24 hours, guaranteed. 30+ years experience, 20,000+ cases and consultations.",
+      chips: ["✓ 20,000+ Cases & Consultations Handled", "✓ Bilingual Arabic & English", "✓ All Client Types", "✓ Response Within 24 Hours"],
       bookBtn: "Start a Consultation",
       servicesBtn: "Our Practice Areas",
       channels: [
@@ -78,7 +78,7 @@ export const en = {
       ],
     },
     stats: [
-      { stat: "20,000+", label: "Cases Handled" },
+      { stat: "20,000+", label: "Cases & Consultations Handled" },
       { stat: "< 24h", label: "Professional Response" },
       { stat: "30+ Years", label: "Legal Experience" },
       { stat: "100% Online", label: "No Office Visit Needed" },
@@ -97,7 +97,7 @@ export const en = {
     about: {
       eyebrow: "About the Platform",
       heading: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi",
-      p1: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi — one of the region's most established senior advocates, with over 30 years of active legal practice and more than 20,000 cases handled across Saudi Arabia. His career spans every major area of Saudi law, from commercial litigation and arbitration to family law, real estate, employment, foreign investment and administrative proceedings.",
+      p1: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi — one of the region's most established senior advocates, with over 30 years of active legal practice and more than 20,000 cases and consultations handled across Saudi Arabia. His career spans every major area of Saudi law, from commercial litigation and arbitration to family law, real estate, employment, foreign investment and administrative proceedings.",
       p2: "Under his leadership, CounselO brings together a professional legal team of experienced attorneys across multiple practice areas — all supervised and directed by Lawyer and Legal Counsel Al-Baghdadi, ensuring consistent quality and senior oversight on every consultation.",
       p3: "Whether you are an individual, a business, or a foreign investor — CounselO gives you direct access to a coordinated legal team led by a senior founder, delivered online, fast and without friction.",
       bullets: [
@@ -332,7 +332,7 @@ export const en = {
       "contracts": {
         title: "Contracts",
         subtitle: "Expert contract lawyers for drafting, disputes, and enforcement across all contract types in Saudi Arabia.",
-        overview: "Saudi Arabia's contract law — rooted in Islamic Sharia principles and codified across the Civil Transactions Law, Commercial Courts Law, and sector-specific regulations — governs every commercial and personal obligation in the Kingdom. At CounselO, our contracts practice covers the full lifecycle of a contract: from drafting and negotiation through to dispute resolution, specific performance, and enforcement. With 30+ years of Saudi legal experience and over 20,000 cases handled, CounselO's contracts team provides decisive, practical guidance to individuals, businesses, and investors across the Kingdom.",
+        overview: "Saudi Arabia's contract law — rooted in Islamic Sharia principles and codified across the Civil Transactions Law, Commercial Courts Law, and sector-specific regulations — governs every commercial and personal obligation in the Kingdom. At CounselO, our contracts practice covers the full lifecycle of a contract: from drafting and negotiation through to dispute resolution, specific performance, and enforcement. With 30+ years of Saudi legal experience and over 20,000 cases and consultations handled, CounselO's contracts team provides decisive, practical guidance to individuals, businesses, and investors across the Kingdom.",
         covers: ["Commercial Contract Drafting & Review", "Contract Disputes & Breach of Contract Claims", "Government & Public Procurement Contracts", "Real Estate & Property Contracts", "Employment & Labour Contracts", "Partnership & Joint Venture Agreements", "International & Cross-Border Contracts", "Contract Enforcement & Specific Performance"],
         process: [
           { title: "Contract Assessment", desc: "We review your contract or dispute to identify legal risks, enforceability issues, and your strongest position under Saudi law." },
@@ -344,7 +344,7 @@ export const en = {
       "companies-law": {
         title: "Companies Law & Corporate Disputes",
         subtitle: "Specialist legal representation across all company disputes under Saudi Companies Law.",
-        overview: "Saudi Arabia's Companies Law (Royal Decree No. M/3 of 1437H, as comprehensively amended) governs every aspect of corporate life in the Kingdom — from formation and governance to capital structure, dissolution, and liability. CounselO's companies law practice covers the full spectrum of corporate disputes before Saudi Commercial Courts, with 30+ years of experience and 20,000+ cases across the Kingdom. We provide decisive, results-oriented representation for shareholders, partners, directors, liquidators, and companies across all forms of Saudi business entity — limited liability companies (LLCs), joint stock companies (JSCs), and partnerships. Online specialist advice via WhatsApp or email within 24 hours.",
+        overview: "Saudi Arabia's Companies Law (Royal Decree No. M/3 of 1437H, as comprehensively amended) governs every aspect of corporate life in the Kingdom — from formation and governance to capital structure, dissolution, and liability. CounselO's companies law practice covers the full spectrum of corporate disputes before Saudi Commercial Courts, with 30+ years of experience and 20,000+ cases and consultations across the Kingdom. We provide decisive, results-oriented representation for shareholders, partners, directors, liquidators, and companies across all forms of Saudi business entity — limited liability companies (LLCs), joint stock companies (JSCs), and partnerships. Online specialist advice via WhatsApp or email within 24 hours.",
         covers: ["Partner & Shareholder Disputes", "Director & Board Member Liability", "Company Formation Disputes & Nullity", "Capital Increase & Decrease Disputes", "Merger, Conversion & Demerger Disputes", "Company Dissolution & Liquidation", "Shareholder Agreements Disputes", "Family Company Disputes"],
         process: [
           { title: "Case Assessment & Strategy", desc: "We review the company's constitutional documents, shareholder register, and the specific dispute to identify your strongest legal position under Saudi Companies Law." },
@@ -498,7 +498,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Foreign Investment Practice Areas",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     sidebar: {
       heading: "Consult a Foreign Investment Lawyer Today",
       desc: "Get expert foreign investment legal advice online — via WhatsApp or email. No office visit needed. Response within 24 hours.",
@@ -811,7 +811,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Family Law Practice Areas",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     sidebar: {
       heading: "Consult a Family Lawyer Today",
       desc: "Get sensitive, expert family legal advice online — via WhatsApp or email. Completely confidential. No office visit needed.",
@@ -1028,7 +1028,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Employment Law Practice Areas",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     sidebar: {
       heading: "Consult an Employment Lawyer Today",
       desc: "Get expert employment legal advice online — via WhatsApp or email. No office visit needed. Response within 24 hours.",
@@ -1245,7 +1245,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Real Estate Practice Areas",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     sidebar: {
       heading: "Consult a Real Estate Lawyer Today",
       desc: "Get expert real estate legal advice online — via WhatsApp or email. No office visit needed. Response within 24 hours.",
@@ -1462,7 +1462,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Business Law Practice Areas",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases Handled",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations Handled",
     sidebar: {
       heading: "Speak to a Specialist Today",
       desc: "Our legal team responds within 24 hours. Consult via WhatsApp or email — no office visit needed.",
@@ -1485,7 +1485,7 @@ export const en = {
         title: "Commercial Contracts",
         seoTitle: "Commercial Contracts Lawyer in Saudi Arabia | Online Legal Consultation | CounselO",
         subtitle: "Protecting Saudi businesses through precise, enforceable commercial agreements.",
-        overview1: "Commercial contracts are the foundation of every business relationship in the Kingdom of Saudi Arabia — yet poorly drafted agreements remain one of the leading causes of costly commercial litigation. At CounselO, our commercial contracts practice is built on over 30 years of hands-on experience drafting, negotiating, and litigating commercial agreements before Saudi courts and arbitration tribunals. We have handled over 20,000 cases across the Kingdom, giving us unmatched insight into how Saudi courts interpret and enforce contractual language.",
+        overview1: "Commercial contracts are the foundation of every business relationship in the Kingdom of Saudi Arabia — yet poorly drafted agreements remain one of the leading causes of costly commercial litigation. At CounselO, our commercial contracts practice is built on over 30 years of hands-on experience drafting, negotiating, and litigating commercial agreements before Saudi courts and arbitration tribunals. We have handled over 20,000 cases and consultations across the Kingdom, giving us unmatched insight into how Saudi courts interpret and enforce contractual language.",
         overview2: "Whether you are a Saudi company entering a major supply agreement, a foreign investor structuring a joint venture, or a business facing a contract dispute, CounselO provides the precise legal architecture to protect your interests. We draft contracts that anticipate disputes before they arise, and we litigate relentlessly when the other side fails to perform.",
         experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi has personally overseen hundreds of complex contract disputes before Saudi commercial courts and arbitration panels, giving CounselO's clients a decisive advantage in both drafting and litigation strategy.",
         covers: [
@@ -1751,7 +1751,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Administrative Law Practice Areas",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     sidebar: {
       heading: "Consult an Administrative Law Lawyer Today",
       desc: "Get expert administrative law advice online — via WhatsApp or email. No office visit needed. Response within 24 hours.",
@@ -2032,7 +2032,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Enforcement Practice Areas",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     sidebar: {
       heading: "Consult an Enforcement Lawyer Today",
       desc: "Get specialist enforcement and debt collection legal advice online — via WhatsApp or email. No office visit needed. Response within 24 hours.",
@@ -2214,7 +2214,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Arbitration Practice Areas",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     sidebar: {
       heading: "Consult an Arbitration Lawyer Today",
       desc: "Get expert arbitration and mediation legal advice online — via WhatsApp or email. No office visit needed. Response within 24 hours.",
@@ -2398,7 +2398,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Companies Law Practice Areas",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases Handled",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations Handled",
     sidebar: {
       heading: "Speak to a Specialist Today",
       desc: "Our legal team responds within 24 hours. Consult via WhatsApp or email — no office visit needed.",
@@ -3042,7 +3042,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Contracts Practice Areas",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases Handled · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations Handled · Online Consultations Available",
     sidebar: {
       heading: "Speak to a Contracts Lawyer Today",
       desc: "Our legal team responds within 24 hours. Consult via WhatsApp or email — no office visit needed.",
@@ -3097,7 +3097,7 @@ export const en = {
         title: "Contract Disputes & Breach of Contract",
         seoTitle: "Contract Disputes Lawyer in Saudi Arabia — Breach of Contract & Commercial Litigation | CounselO قانوني",
         subtitle: "Decisive representation in contract disputes, breach of contract claims, and commercial litigation before Saudi courts and arbitration panels.",
-        overview1: "Contract disputes are among the most common and commercially significant legal matters in Saudi Arabia — and how you respond to a breach of contract can determine whether you recover your full entitlement or lose it entirely. At CounselO, our contract disputes practice is built on over 30 years of Saudi commercial litigation experience, with more than 20,000 cases handled across Saudi Arabia. We represent claimants and respondents in all forms of commercial contract dispute — from straightforward payment defaults to complex multi-party construction and supply chain disputes before Saudi Commercial Courts and arbitration tribunals.",
+        overview1: "Contract disputes are among the most common and commercially significant legal matters in Saudi Arabia — and how you respond to a breach of contract can determine whether you recover your full entitlement or lose it entirely. At CounselO, our contract disputes practice is built on over 30 years of Saudi commercial litigation experience, with more than 20,000 cases and consultations handled across Saudi Arabia. We represent claimants and respondents in all forms of commercial contract dispute — from straightforward payment defaults to complex multi-party construction and supply chain disputes before Saudi Commercial Courts and arbitration tribunals.",
         overview2: "Saudi contract law provides a range of remedies for breach — specific performance, damages, contract rescission, and penalty clause enforcement — but the correct remedy depends on the nature of the breach, the contract terms, and your commercial objectives. CounselO assesses your position immediately and pursues the most effective remedy with urgency and precision.",
         experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi has personally represented clients in some of Saudi Arabia's most complex contract disputes — including multi-party commercial disputes where recovery required coordinating parallel proceedings before Commercial Courts, Labour Tribunals, and enforcement courts simultaneously.",
         covers: [
@@ -3330,7 +3330,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Criminal Law Services",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     sidebar: {
       heading: "Need a Criminal Defense Lawyer?",
       desc: "Get urgent expert criminal law advice in Saudi Arabia — online via WhatsApp or email. Confidential consultation. Response within 24 hours.",
@@ -3525,7 +3525,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Banking & Finance Services",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     sidebar: {
       heading: "Need a Banking & Finance Lawyer?",
       desc: "Get expert Islamic finance and banking legal advice in Saudi Arabia — online via WhatsApp or email. Response within 24 hours.",
@@ -3719,7 +3719,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Intellectual Property Services",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     sidebar: {
       heading: "Need an IP Lawyer in Saudi Arabia?",
       desc: "Get expert intellectual property advice online — trademark registration, patent protection, and IP disputes in Saudi Arabia. Response within 24 hours.",
@@ -3913,7 +3913,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Tax & Zakat Services",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     sidebar: {
       heading: "Need a Tax & Zakat Lawyer?",
       desc: "Get expert ZATCA advice in Saudi Arabia — VAT disputes, zakat objections, and tax tribunal representation. Online consultation available.",
@@ -4107,7 +4107,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Cyber & IT Law Services",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     sidebar: {
       heading: "Need a Cybercrime Lawyer?",
       desc: "Get urgent expert cybercrime law advice in Saudi Arabia — online via WhatsApp or email. Confidential, rapid response for digital legal emergencies.",
@@ -4297,7 +4297,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Healthcare Law Services",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     notFound: "Practice Area Not Found",
     notFoundLink: "Return to Medical Malpractice Law",
     sidebar: {
@@ -4483,7 +4483,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Insurance Law Services",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     notFound: "Practice Area Not Found",
     notFoundLink: "Return to Insurance Law",
     sidebar: {
@@ -4661,7 +4661,7 @@ export const en = {
     processHeading: "Our Process",
     faqHeading: "Frequently Asked Questions",
     relatedHeading: "Other Immigration Law Services",
-    experienceBadge: "30+ Years of Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years of Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     notFound: "Practice Area Not Found",
     notFoundLink: "Return to Immigration Law",
     sidebar: {
@@ -4839,7 +4839,7 @@ export const en = {
   },
   aboutPage: {
     seoTitle: "About CounselO — Saudi Arabia's Specialized Online Legal Consultation Platform",
-    seoDesc: "CounselO is Saudi Arabia's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi, with 30+ years experience, 20,000+ cases handled, 17 practice areas, Vision 2030 aligned.",
+    seoDesc: "CounselO is Saudi Arabia's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi, with 30+ years experience, 20,000+ cases and consultations handled, 17 practice areas, Vision 2030 aligned.",
     seoKeywords: "about CounselO, online legal platform Saudi Arabia, lawyer Omar Al-Baghdadi, specialized legal platform KSA, Vision 2030 legal services, online legal consultation Saudi Arabia",
     hero: {
       eyebrow: "About CounselO",
@@ -4848,7 +4848,7 @@ export const en = {
       badge: "Vision 2030 · Digital Legal Services",
     },
     stats: [
-      { stat: "20,000+", label: "Cases Handled" },
+      { stat: "20,000+", label: "Cases & Consultations Handled" },
       { stat: "30+", label: "Years of Legal Experience" },
       { stat: "18", label: "Practice Areas" },
       { stat: "40+", label: "Lawyers Mentored" },
@@ -4868,19 +4868,19 @@ export const en = {
       subheading: "Senior Advocate · Regional Legal Authority · Mentor to 40+ Lawyers",
       bio1: "Lawyer and Legal Counsel Omar Al-Baghdadi is one of the most distinguished senior advocates in the region — with over 30 years of active legal practice spanning litigation, commercial disputes, arbitration, and dispute resolution across Saudi Arabia, the UAE, and Syria. He is widely regarded as a prominent legal authority at the regional level.",
       bio2: "Omar Al-Baghdadi graduated from the Faculty of Law at Damascus University in 1996 and began his professional career under the guidance of his father, the esteemed Lawyer Riyad Al-Baghdadi — founder of Al-Baghdadi Law Firm, established in 1957. Raised in a distinguished legal family of this calibre, he acquired early mastery of litigation strategy, case management, and the nuances of civil, commercial, and administrative law.",
-      bio3: "Throughout his career, Omar Al-Baghdadi has managed and personally represented more than 20,000 cases — for major corporations, investors, institutions, and individuals across the Saudi Arabian courts, UAE courts, and Syrian courts. His track record spans commercial litigation, contract disputes, arbitration proceedings, administrative matters, cross-border enforcement, and investor dispute resolution.",
+      bio3: "Throughout his career, Omar Al-Baghdadi has managed and personally represented more than 20,000 cases and consultations — for major corporations, investors, institutions, and individuals across the Saudi Arabian courts, UAE courts, and Syrian courts. His track record spans commercial litigation, contract disputes, arbitration proceedings, administrative matters, cross-border enforcement, and investor dispute resolution.",
       bio4: "Beyond his courtroom practice, Omar Al-Baghdadi is recognised as a regional legal mentor and educator — having trained and supervised more than 40 lawyers across Syria, the UAE, and Saudi Arabia. This rare combination of senior advocacy, cross-jurisdictional expertise, and leadership of a professional legal team makes CounselO uniquely positioned to deliver premium legal services to clients across the Kingdom.",
       credentials: [
         "Graduate, Faculty of Law — Damascus University (1996)",
         "Senior Advocate & Legal Counsel across Saudi Arabia, UAE and Syria",
-        "20,000+ cases across civil, commercial, administrative, arbitration and criminal law",
+        "20,000+ cases and consultations across civil, commercial, administrative, arbitration and criminal law",
         "Mentor and supervisor to 40+ licensed lawyers across three jurisdictions",
         "Son of Lawyer Riyad Al-Baghdadi, founder of Al-Baghdadi Law Firm (est. 1957)",
         "Expert in cross-border disputes, foreign judgment enforcement and multi-jurisdictional matters",
       ],
       stats: [
         { stat: "1996", label: "Licensed to Practice" },
-        { stat: "20,000+", label: "Cases Handled" },
+        { stat: "20,000+", label: "Cases & Consultations Handled" },
         { stat: "40+", label: "Lawyers Trained" },
         { stat: "3", label: "Jurisdictions" },
       ],
@@ -4916,7 +4916,7 @@ export const en = {
   civilLawDetail: {
     parentTitle: "Civil Law — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Civil Law — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     notFound: "Service not found",
     notFoundLink: "Return to Civil Law",
     backLink: "Return to Civil Law",
@@ -4945,7 +4945,7 @@ export const en = {
   civilProcedureDetail: {
     parentTitle: "Civil Procedure — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Civil Procedure — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     notFound: "Service not found",
     notFoundLink: "Return to Civil Procedure",
     backLink: "Return to Civil Procedure",
@@ -4974,7 +4974,7 @@ export const en = {
   criminalProcedureDetail: {
     parentTitle: "Criminal Procedure — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Criminal Procedure — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases · Online Consultations Available",
+    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
     notFound: "Service not found",
     notFoundLink: "Return to Criminal Procedure",
     backLink: "Return to Criminal Procedure",
