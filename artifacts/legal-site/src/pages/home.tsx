@@ -58,7 +58,7 @@ export default function Home() {
             ? "منصة سوريا للاستشارات القانونية الأونلاين — 18 مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي — خبرة أكثر من 30 عاماً في القانون السوري"
             : "Syria's online legal consultation platform — 18 practice areas, professional response within 24 hours, founded by Lawyer Omar Al-Baghdadi — 30+ years Syrian law expertise",
           "url": "https://counselo.com/syr",
-          "logo": "https://counselo.com/logo.png",
+          "logo": "https://counselo.com/images/counselo-icon.png",
           "founder": {
             "@type": "Person",
             "name": "Omar Al-Baghdadi",
@@ -103,7 +103,7 @@ export default function Home() {
             ? "منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين — 18 مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي"
             : "Saudi Arabia's online legal consultation platform — 18 practice areas, professional response within 24 hours, founded by Lawyer Omar Al-Baghdadi",
           "url": "https://counselo.com/sa",
-          "logo": "https://counselo.com/logo.png",
+          "logo": "https://counselo.com/images/counselo-icon.png",
           "founder": {
             "@type": "Person",
             "name": "Omar Al-Baghdadi",

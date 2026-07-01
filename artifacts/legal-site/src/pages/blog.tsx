@@ -110,7 +110,7 @@ export default function Blog() {
             "description": isRTL
               ? `إرشادات قانونية معمّقة للأفراد والشركات في ${region === "syr" ? "سوريا" : "المملكة العربية السعودية"}`
               : `In-depth legal guides for individuals and businesses in ${region === "syr" ? "Syria" : "Saudi Arabia"}`,
-            "url": "https://counselo.com/blog",
+            "url": region === "syr" ? "https://counselo.com/syr/blog" : "https://counselo.com/sa/blog",
             "publisher": { "@type": "Organization", "name": "CounselO", "url": "https://counselo.com" },
             "inLanguage": [isRTL ? "ar" : "en"],
           },
@@ -119,7 +119,7 @@ export default function Blog() {
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo.com/" },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": "https://counselo.com/blog" },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": region === "syr" ? "https://counselo.com/syr/blog" : "https://counselo.com/sa/blog" },
             ],
           },
         ]}
@@ -189,7 +189,7 @@ export default function Blog() {
                     <div className="flex items-center justify-between pt-4 border-t border-border">
                       <span className="text-xs text-muted-foreground">{formatDate(post.date, lang)}</span>
                       <Link
-                        href={`/blog/${post.slug}`}
+                        href={`${regionPrefix}/blog/${post.slug}`}
                         className="flex items-center gap-1.5 text-primary text-sm font-semibold hover:gap-2.5 transition-all"
                       >
                         {ui.readMore}

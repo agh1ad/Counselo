@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { MapPin, Phone, Mail, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import counseloLogo from "@assets/Screen_Shot_2026-07-01_at_12.26.11_AM_1782851175169.png";
@@ -21,8 +21,7 @@ export function Footer() {
             </Link>
             <p className="text-white/70 text-sm mb-6 leading-relaxed">{f.tagline}</p>
             <div className="flex space-x-4 rtl:space-x-reverse text-white/60">
-              <a href="#" className="hover:text-white transition-colors"><Facebook className="h-5 w-5" /></a>
-              <a href="#" className="hover:text-white transition-colors"><Twitter className="h-5 w-5" /></a>
+              {/* TODO: Replace with real social media page URLs when accounts are created */}
               <a
                 href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
                 target="_blank"
@@ -32,7 +31,6 @@ export function Footer() {
               >
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="hover:text-white transition-colors"><Instagram className="h-5 w-5" /></a>
             </div>
           </div>
 

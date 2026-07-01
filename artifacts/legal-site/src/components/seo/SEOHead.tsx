@@ -58,6 +58,12 @@ interface SEOHeadProps {
   schema?: object | object[];
   extraSchemas?: object[];
   ogType?: string;
+  /** For blog/article pages: ISO date string (e.g. post.date) */
+  articlePublishedTime?: string;
+  /** For blog/article pages: author display name */
+  articleAuthor?: string;
+  /** For blog/article pages: article section/category */
+  articleSection?: string;
 }
 
 const GEO = {
@@ -95,6 +101,9 @@ export function SEOHead({
   schema,
   extraSchemas,
   ogType = "website",
+  articlePublishedTime,
+  articleAuthor,
+  articleSection,
 }: SEOHeadProps) {
   const { lang } = useLanguage();
   const { region } = useRegion();
@@ -220,13 +229,30 @@ export function SEOHead({
       <meta property="og:locale" content={locale} />
       <meta property="og:locale:alternate" content={alternateLocale} />
 
+      {/* Author */}
+      <meta name="author" content="CounselO — Lawyer and Legal Counsel Omar Al-Baghdadi" />
+
       {/* Twitter / X */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@CounselOLegal" />
       <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:description" content={finalDescription} />
       <meta name="twitter:image" content={ogImage} />
       <meta name="twitter:image:alt" content={geo.imgAlt} />
+
+      {/* Article-specific Open Graph (blog posts) */}
+      {ogType === "article" && articlePublishedTime && (
+        <meta property="article:published_time" content={articlePublishedTime} />
+      )}
+      {ogType === "article" && articlePublishedTime && (
+        <meta property="article:modified_time" content={articlePublishedTime} />
+      )}
+      {ogType === "article" && articleAuthor && (
+        <meta property="article:author" content={articleAuthor} />
+      )}
+      {ogType === "article" && articleSection && (
+        <meta property="article:section" content={articleSection} />
+      )}
     </Helmet>
   );
 }

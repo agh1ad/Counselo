@@ -80,7 +80,7 @@ export default function ServiceDetail() {
         "@type": "LegalService",
         "name": isRTL ? "قانوني كاونسلو" : "CounselO",
         "url": "https://counselo.com",
-        "telephone": isSyr ? "+963114000000" : "+966594850247",
+        "telephone": "+966594850247",
         "email": "bagdadio@gmail.com",
         "address": serviceAddress,
         "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel", "honorificPrefix": "Lawyer" },
@@ -277,7 +277,7 @@ export default function ServiceDetail() {
               <p className="text-white/75 mb-8 leading-relaxed">
                 {sd.sidebar.descPrefix}{data.title.toLowerCase()}{sd.sidebar.descSuffix}
               </p>
-              <Link href={`/contact?service=${id}`}>
+              <Link href={`${regionPrefix}/contact?service=${id}`}>
                 <Button className="w-full py-6 text-lg rounded-none bg-white text-primary hover:bg-white/90">{sd.sidebar.ctaBtn}</Button>
               </Link>
               <div className="mt-6 pt-6 border-t border-white/20">

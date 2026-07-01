@@ -145,6 +145,17 @@ export default function BlogPost() {
     "about": { "@type": "LegalService", "areaServed": region === "syr" ? "Syria" : "Saudi Arabia" },
   };
 
+  const regionBase = region === "syr" ? "https://counselo.com/syr" : "https://counselo.com/sa";
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo.com/" },
+      { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": `${regionBase}/blog` },
+      { "@type": "ListItem", "position": 3, "name": seoTitle, "item": `${regionBase}/blog/${post.slug}` },
+    ],
+  };
+
   return (
     <div className="w-full bg-background min-h-screen" dir={isRTL ? "rtl" : "ltr"}>
       <SEOHead
@@ -158,7 +169,11 @@ export default function BlogPost() {
           : region === "syr"
             ? `${category}, Syrian legal articles, free legal guides Syria, CounselO blog, online legal advice Syria, Syrian law`
             : `${category}, Saudi legal articles, free legal guides Saudi Arabia, CounselO blog, online legal advice KSA`}
-        extraSchemas={[articleSchema]}
+        ogType="article"
+        articlePublishedTime={post.date}
+        articleAuthor={isRTL ? "المحامي والمستشار القانوني عمر البغدادي" : "Lawyer and Legal Counsel Omar Al-Baghdadi"}
+        articleSection={category}
+        extraSchemas={[articleSchema, breadcrumbSchema]}
       />
 
       {/* Hero */}

@@ -20,7 +20,7 @@ const regionPickerSchema = {
     "@type": "Organization",
     "name": "CounselO",
     "url": "https://counselo.com",
-    "logo": "https://counselo.com/logo.png",
+    "logo": "https://counselo.com/images/counselo-icon.png",
     "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
     "areaServed": [
       { "@type": "Country", "name": "Saudi Arabia" },
