@@ -2,20 +2,24 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, BookOpen, Building2, Gavel, Home as HomeIcon, Map, Shield, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 
 const icons = [Users, Building2, Shield, HomeIcon, Map, BookOpen, Gavel];
 
 export default function Services() {
   const { t, isRTL } = useLanguage();
+  const { region, regionPrefix } = useRegion();
   const s = t.services;
 
+  const country = region === "syr" ? (isRTL ? "سوريا" : "Syria") : (isRTL ? "السعودية" : "Saudi Arabia");
+
   const seoTitle = isRTL
-    ? "18 مجالاً قانونياً في السعودية | أكبر منصة استشارات قانونية أونلاين | قانوني"
-    : "18 Legal Practice Areas Saudi Arabia | CounselO — Largest Online Legal Consultation Platform";
+    ? `18 مجالاً قانونياً في ${country} | منصة استشارات قانونية أونلاين | قانوني`
+    : `18 Legal Practice Areas ${country} | CounselO — Online Legal Consultation Platform`;
   const seoDesc = isRTL
-    ? "قانوني — أكبر منصة للاستشارات القانونية الأونلاين في المملكة. 18 مجالاً قانونياً: قانون الأسرة، القانون التجاري، العقاري، العمل، الاستثمار الأجنبي، الإداري، الجنائي، البنوك، الضرائب، الإنترنت، الأخطاء الطبية، التأمين، الإقامة، التحكيم، التنفيذ، قانون الشركات، العقود، الملكية الفكرية. خبرة 30+ عاماً، 20,000+ قضية. استجابة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني."
-    : "CounselO — Saudi Arabia's largest online legal consultation platform. 18 practice areas: Family Law, Commercial Law, Real Estate, Employment Law, Foreign Investment, Administrative Law, Criminal Law, Banking & Finance, Tax & Zakat, Cyber Law, Medical Malpractice, Insurance Law, Immigration & Residency, Arbitration, Enforcement Law, Companies Law, Contracts, Intellectual Property. 30+ years experience, 20,000+ cases. Professional response within 24 hours via WhatsApp or email.";
+    ? `قانوني — منصة متخصصة للاستشارات القانونية الأونلاين في ${country}. 18 مجالاً قانونياً: قانون الأسرة، القانون التجاري، العقاري، العمل، الاستثمار الأجنبي، الإداري، الجنائي، البنوك، الضرائب، الإنترنت، الأخطاء الطبية، التأمين، الإقامة، التحكيم، التنفيذ، قانون الشركات، العقود، الملكية الفكرية. خبرة 30+ عاماً، 20,000+ قضية. استجابة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني.`
+    : `CounselO — ${country}'s specialized online legal consultation platform. 18 practice areas: Family Law, Commercial Law, Real Estate, Employment Law, Foreign Investment, Administrative Law, Criminal Law, Banking & Finance, Tax Law, Cyber Law, Medical Malpractice, Insurance Law, Immigration, Arbitration, Enforcement, Companies Law, Contracts, Intellectual Property. 30+ years experience, 20,000+ cases.`;
 
   const servicesSchema = [
     {
@@ -98,7 +102,7 @@ export default function Services() {
                   <Icon className="h-12 w-12 text-primary mb-6" />
                   <h2 className="text-2xl font-serif font-bold text-foreground mb-4">{service.title}</h2>
                   <p className="text-muted-foreground mb-8 flex-grow leading-relaxed">{service.longDesc}</p>
-                  <Link href={`/services/${service.id}`} className="inline-flex items-center text-primary font-medium group-hover:underline underline-offset-4 mt-auto">
+                  <Link href={`${regionPrefix}/services/${service.id}`} className="inline-flex items-center text-primary font-medium group-hover:underline underline-offset-4 mt-auto">
                     {s.explorePrefix}{service.title}
                     <ArrowRight className="ms-2 h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
                   </Link>
