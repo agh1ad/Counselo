@@ -2,17 +2,21 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Clock, Mail, MapPin, Phone, CreditCard } from "lucide-react";
+import { Clock, Mail, MapPin, Phone, CreditCard, Paperclip, X, FileText, ImageIcon } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
+
+const MAX_FILES = 10;
+const MAX_SIZE_MB = 10;
+const ACCEPTED = ["image/jpeg", "image/png", "image/gif", "image/webp", "application/pdf"];
 
 const formSchema = z.object({
   name: z.string().min(2),
@@ -22,6 +26,11 @@ const formSchema = z.object({
   message: z.string().min(10),
 });
 
+function FileIcon({ type }: { type: string }) {
+  if (type === "application/pdf") return <FileText className="h-4 w-4 text-primary shrink-0" />;
+  return <ImageIcon className="h-4 w-4 text-primary shrink-0" />;
+}
+
 export default function Contact() {
   const { toast } = useToast();
   const { t, isRTL } = useLanguage();
@@ -29,6 +38,8 @@ export default function Contact() {
   const c = t.contact;
   const f = c.form;
   const [submitting, setSubmitting] = useState(false);
+  const [files, setFiles] = useState<File[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const searchParams = new URLSearchParams(window.location.search);
   const defaultService = searchParams.get("service") || "";
@@ -38,20 +49,54 @@ export default function Contact() {
     defaultValues: { name: "", email: "", phone: "", service: defaultService, message: "" },
   });
 
+  const handleFiles = useCallback((incoming: FileList | null) => {
+    if (!incoming) return;
+    const valid: File[] = [];
+    const skipped: string[] = [];
+    Array.from(incoming).forEach((file) => {
+      if (!ACCEPTED.includes(file.type)) {
+        skipped.push(file.name);
+      } else if (file.size > MAX_SIZE_MB * 1024 * 1024) {
+        skipped.push(file.name);
+      } else {
+        valid.push(file);
+      }
+    });
+    setFiles((prev) => {
+      const combined = [...prev, ...valid].slice(0, MAX_FILES);
+      return combined;
+    });
+    if (skipped.length > 0) {
+      toast({
+        title: isRTL ? "بعض الملفات لم تُضَف" : "Some files were skipped",
+        description: isRTL
+          ? `${skipped.join(", ")} — تحقق من النوع والحجم`
+          : `${skipped.join(", ")} — check file type and size`,
+        variant: "destructive",
+      });
+    }
+  }, [isRTL, toast]);
+
+  const removeFile = (idx: number) => {
+    setFiles((prev) => prev.filter((_, i) => i !== idx));
+  };
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setSubmitting(true);
     try {
+      const fd = new FormData();
+      fd.append("_subject", `New Legal Consultation — ${values.service} — ${values.name}`);
+      fd.append("name", values.name);
+      fd.append("email", values.email);
+      fd.append("phone", values.phone);
+      fd.append("service", values.service);
+      fd.append("message", values.message);
+      files.forEach((file) => fd.append("attachment", file));
+
       const res = await fetch("https://formsubmit.co/ajax/bagdadio@gmail.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          _subject: `New Legal Consultation — ${values.service} — ${values.name}`,
-          name: values.name,
-          email: values.email,
-          phone: values.phone,
-          service: values.service,
-          message: values.message,
-        }),
+        headers: { Accept: "application/json" },
+        body: fd,
       });
       if (res.ok) {
         toast({
@@ -59,6 +104,7 @@ export default function Contact() {
           description: isRTL ? "سنتواصل معك خلال 24 ساعة." : "We will contact you within 24 hours.",
         });
         form.reset();
+        setFiles([]);
       } else {
         throw new Error("Failed");
       }
@@ -234,6 +280,52 @@ export default function Contact() {
                         <FormMessage />
                       </FormItem>
                     )} />
+
+                    {/* File upload */}
+                    <div className="space-y-3">
+                      <p className="text-sm font-medium text-foreground">{f.uploadLabel}</p>
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        disabled={files.length >= MAX_FILES}
+                        className="w-full flex flex-col items-center justify-center gap-2 border-2 border-dashed border-border hover:border-primary/60 bg-muted/30 hover:bg-primary/5 transition-colors py-6 px-4 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        <Paperclip className="h-6 w-6 text-muted-foreground" />
+                        <span className="text-sm font-medium text-foreground">{f.uploadBtn}</span>
+                        <span className="text-xs text-muted-foreground text-center">{f.uploadHint}</span>
+                      </button>
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        multiple
+                        accept="image/*,.pdf"
+                        className="hidden"
+                        onChange={(e) => handleFiles(e.target.files)}
+                        onClick={(e) => { (e.target as HTMLInputElement).value = ""; }}
+                      />
+                      {files.length > 0 && (
+                        <ul className="space-y-2">
+                          {files.map((file, idx) => (
+                            <li key={idx} className="flex items-center gap-3 border border-border bg-muted/20 px-3 py-2">
+                              <FileIcon type={file.type} />
+                              <span className="flex-1 text-sm text-foreground truncate" dir="ltr">{file.name}</span>
+                              <span className="text-xs text-muted-foreground shrink-0">
+                                {(file.size / 1024 / 1024).toFixed(1)} MB
+                              </span>
+                              <button
+                                type="button"
+                                onClick={() => removeFile(idx)}
+                                className="text-muted-foreground hover:text-destructive transition-colors shrink-0"
+                                aria-label={f.uploadRemove}
+                              >
+                                <X className="h-4 w-4" />
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+
                     {/* Paid service notice */}
                     <div className="flex items-start gap-3 bg-primary/8 border border-primary/25 p-4">
                       <CreditCard className="h-5 w-5 text-primary shrink-0 mt-0.5" />
