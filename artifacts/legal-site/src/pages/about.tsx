@@ -21,7 +21,7 @@ export default function About() {
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "CounselO قانوني",
+      "name": "CounselO",
       "url": "https://counselo.com",
       "logo": "https://counselo.com/logo.png",
       "description": region === "syr"
@@ -47,7 +47,7 @@ export default function About() {
       "@type": "Person",
       "name": "Omar Al-Baghdadi",
       "jobTitle": "Lawyer & Legal Counsel",
-      "worksFor": { "@type": "Organization", "name": "CounselO قانوني" },
+      "worksFor": { "@type": "Organization", "name": "CounselO" },
       "alumniOf": { "@type": "EducationalOrganization", "name": "Faculty of Law, Damascus University" },
       "description": "Senior advocate and legal counsel with 30+ years experience across Saudi Arabia, UAE and Syria. Founder of CounselO.",
       "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
@@ -55,7 +55,7 @@ export default function About() {
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": isRTL ? "عن قانوني" : "About CounselO",
+      "name": isRTL ? "عن كاونسلو" : "About CounselO",
       "url": "https://counselo.com/about",
       "description": a.seoDesc,
     },
@@ -162,7 +162,7 @@ export default function About() {
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {isRTL
-                        ? "قانوني منصة رقمية تُجسّد أهداف رؤية 2030 في التحول الرقمي وتيسير الوصول إلى العدالة وتمكين المواطنين والمستثمرين."
+                        ? "كاونسلو منصة رقمية تُجسّد أهداف رؤية 2030 في التحول الرقمي وتيسير الوصول إلى العدالة وتمكين المواطنين والمستثمرين."
                         : "CounselO embodies Vision 2030's goals of digital transformation, access to justice, and empowering citizens and investors across the Kingdom."}
                     </p>
                   </>

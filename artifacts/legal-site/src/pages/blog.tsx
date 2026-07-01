@@ -94,7 +94,7 @@ export default function Blog() {
       <SEOHead
         title={isRTL
           ? `مدونة قانونية ${countryAr} | مقالات وإرشادات قانونية مجانية | قانوني`
-          : `${country} Legal Blog | Free Legal Guides & Articles | CounselO قانوني`}
+          : `${country} Legal Blog | Free Legal Guides & Articles | CounselO`}
         description={isRTL
           ? `إرشادات قانونية مجانية وعملية في قانون الأسرة ${countryAr} وقانون العمل والعقارات والقانون التجاري والاستثمار الأجنبي والقانون الإداري — مقالات معمّقة بقلم فريق قانوني.`
           : `Free practical legal guides on ${country} family law, employment law, real estate, commercial law, foreign investment, and administrative law — in-depth articles from CounselO's expert legal team.`}
@@ -111,7 +111,7 @@ export default function Blog() {
               ? `إرشادات قانونية معمّقة للأفراد والشركات في ${region === "syr" ? "سوريا" : "المملكة العربية السعودية"}`
               : `In-depth legal guides for individuals and businesses in ${region === "syr" ? "Syria" : "Saudi Arabia"}`,
             "url": "https://counselo.com/blog",
-            "publisher": { "@type": "Organization", "name": "CounselO قانوني", "url": "https://counselo.com" },
+            "publisher": { "@type": "Organization", "name": "CounselO", "url": "https://counselo.com" },
             "inLanguage": [isRTL ? "ar" : "en"],
           },
           {

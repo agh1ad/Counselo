@@ -117,7 +117,7 @@ export default function Contact() {
           {
             "@context": "https://schema.org",
             "@type": "LegalService",
-            "name": "CounselO قانوني",
+            "name": "CounselO",
             "telephone": "+966594850247",
             "email": "bagdadio@gmail.com",
             "url": "https://counselo.com",

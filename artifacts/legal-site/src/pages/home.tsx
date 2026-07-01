@@ -52,7 +52,7 @@ export default function Home() {
         schema={region === "syr" ? {
           "@context": "https://schema.org",
           "@type": "LegalService",
-          "name": "CounselO قانوني",
+          "name": "CounselO",
           "alternateName": "CounselO Online Legal Consultations",
           "description": isRTL
             ? "منصة سوريا للاستشارات القانونية الأونلاين — 18 مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي — خبرة أكثر من 30 عاماً في القانون السوري"
@@ -97,7 +97,7 @@ export default function Home() {
         } : {
           "@context": "https://schema.org",
           "@type": "LegalService",
-          "name": "CounselO قانوني",
+          "name": "CounselO",
           "alternateName": "CounselO Online Legal Consultations",
           "description": isRTL
             ? "منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين — 18 مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي"

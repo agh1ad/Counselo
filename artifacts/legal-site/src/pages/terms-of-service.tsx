@@ -11,7 +11,7 @@ export default function TermsOfService() {
 
   const content = {
     en: {
-      seoTitle: "Terms of Service | Online Legal Consultation Process | CounselO قانوني",
+      seoTitle: "Terms of Service | Online Legal Consultation Process | CounselO",
       seoDesc:
         "CounselO's consultation terms and process for online legal advice in Saudi Arabia — how it works: submit your matter, receive a cost estimate, pay securely, and receive your expert legal answer. 24/7, Arabic and English.",
       eyebrow: "Legal Consultation Terms",
@@ -156,8 +156,8 @@ export default function TermsOfService() {
             "name": isRTL ? "شروط الخدمة | قانوني" : "Terms of Service | CounselO",
             "description": content.seoDesc,
             "url": "https://counselo.com/terms-of-service",
-            "isPartOf": { "@type": "WebSite", "name": "CounselO قانوني", "url": "https://counselo.com" },
-            "publisher": { "@type": "Organization", "name": "CounselO قانوني", "url": "https://counselo.com" },
+            "isPartOf": { "@type": "WebSite", "name": "CounselO", "url": "https://counselo.com" },
+            "publisher": { "@type": "Organization", "name": "CounselO", "url": "https://counselo.com" },
           },
           {
             "@context": "https://schema.org",

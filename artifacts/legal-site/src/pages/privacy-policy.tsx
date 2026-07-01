@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
 
   const content = {
     en: {
-      seoTitle: "Privacy Policy | How CounselO Protects Your Data | CounselO قانوني",
+      seoTitle: "Privacy Policy | How CounselO Protects Your Data | CounselO",
       seoDesc:
         "CounselO's Privacy Policy — how we collect, use and protect your personal data and legal information. Strict professional confidentiality on all consultations. Saudi Arabia's online legal platform.",
       canonical: "/privacy-policy",
@@ -348,7 +348,7 @@ export default function PrivacyPolicy() {
             "name": isRTL ? "سياسة الخصوصية — قانوني" : "Privacy Policy — CounselO",
             "description": content.seoDesc,
             "url": "https://counselo.com/privacy-policy",
-            "isPartOf": { "@type": "WebSite", "name": "CounselO قانوني", "url": "https://counselo.com" },
+            "isPartOf": { "@type": "WebSite", "name": "CounselO", "url": "https://counselo.com" },
             "inLanguage": isRTL ? "ar" : "en",
             "about": { "@type": "LegalService", "name": "CounselO", "url": "https://counselo.com" },
           },

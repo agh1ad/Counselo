@@ -55,7 +55,7 @@ export default function Services() {
     {
       "@context": "https://schema.org",
       "@type": "LegalService",
-      "name": "CounselO قانوني",
+      "name": "CounselO",
       "description": region === "syr"
         ? (isRTL ? "منصة سوريا للاستشارات القانونية الأونلاين — 18 مجالاً، استجابة خلال 24 ساعة — القانون المدني السوري، قانون الشركات 29/2011، قانون العمل 17/2010" : "Syria's online legal consultation platform — 18 practice areas, response within 24 hours — Syrian Civil Code, Companies Law 29/2011, Labour Law 17/2010")
         : (isRTL ? "أكبر منصة للاستشارات القانونية الأونلاين في المملكة — 18 مجالاً، استجابة خلال 24 ساعة" : "Saudi Arabia's largest online legal consultation platform — 18 practice areas, response within 24 hours"),

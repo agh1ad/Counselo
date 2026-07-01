@@ -7,7 +7,7 @@ import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5
 const regionPickerSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "CounselO قانوني",
+  "name": "CounselO",
   "alternateName": "CounselO Online Legal Consultations",
   "url": "https://counselo.com/",
   "description": "Online legal consultation platform serving Saudi Arabia and Syria — professional Arabic & English legal advice within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases.",
@@ -18,7 +18,7 @@ const regionPickerSchema = {
   },
   "publisher": {
     "@type": "Organization",
-    "name": "CounselO قانوني",
+    "name": "CounselO",
     "url": "https://counselo.com",
     "logo": "https://counselo.com/logo.png",
     "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
@@ -35,9 +35,9 @@ export default function RegionPicker() {
     <div className="min-h-screen bg-[#162b20] flex flex-col items-center justify-center px-4 py-16">
       <Helmet>
         <html lang="ar" dir="rtl" />
-        <title>CounselO قانوني | استشارة قانونية أونلاين — السعودية وسوريا | Saudi Arabia & Syria Online Legal Consultation</title>
+        <title>CounselO | استشارة قانونية أونلاين — السعودية وسوريا | Saudi Arabia & Syria Online Legal Consultation</title>
         <meta name="description" content="CounselO — منصة الاستشارات القانونية الأونلاين للمملكة العربية السعودية وسوريا. مشورة قانونية احترافية باللغتين العربية والإنجليزية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. Online legal consultations for Saudi Arabia and Syria — Arabic & English, response within 24 hours." />
-        <meta name="keywords" content="online legal consultation Saudi Arabia Syria, استشارة قانونية أونلاين السعودية سوريا, lawyer Saudi Arabia online, محامي أونلاين المملكة, محامي أونلاين سوريا, legal advice Middle East, مشورة قانونية الشرق الأوسط, CounselO قانوني, Omar Al-Baghdadi" />
+        <meta name="keywords" content="online legal consultation Saudi Arabia Syria, استشارة قانونية أونلاين السعودية سوريا, lawyer Saudi Arabia online, محامي أونلاين المملكة, محامي أونلاين سوريا, legal advice Middle East, مشورة قانونية الشرق الأوسط, CounselO, Omar Al-Baghdadi" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="geo.region" content="MENA" />
         <meta name="geo.placename" content="Middle East" />
@@ -47,7 +47,7 @@ export default function RegionPicker() {
         <link rel="alternate" hrefLang="ar-SY" href="https://counselo.com/syr" />
         <link rel="alternate" hrefLang="en-SY" href="https://counselo.com/syr" />
         <link rel="alternate" hrefLang="x-default" href="https://counselo.com/" />
-        <meta property="og:title" content="CounselO قانوني | Online Legal Consultation — Saudi Arabia & Syria" />
+        <meta property="og:title" content="CounselO | Online Legal Consultation — Saudi Arabia & Syria" />
         <meta property="og:description" content="Professional online legal consultations for Saudi Arabia and Syria — Arabic & English, response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases." />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="CounselO كاونسلو" />
@@ -57,7 +57,7 @@ export default function RegionPicker() {
         <meta property="og:locale:alternate" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@CounselOLegal" />
-        <meta name="twitter:title" content="CounselO قانوني | Online Legal Consultation — Saudi Arabia & Syria" />
+        <meta name="twitter:title" content="CounselO | Online Legal Consultation — Saudi Arabia & Syria" />
         <meta name="twitter:description" content="Professional online legal consultations for Saudi Arabia and Syria — Arabic & English, response within 24 hours." />
         <meta name="twitter:image" content="https://counselo.com/opengraph.jpg" />
         <script type="application/ld+json">{JSON.stringify(regionPickerSchema)}</script>

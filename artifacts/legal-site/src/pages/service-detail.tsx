@@ -30,7 +30,7 @@ export default function ServiceDetail() {
       <SEOHead
         title={isRTL
           ? `${data.title} في ${region === "syr" ? "سوريا" : "السعودية"} | استشارة قانونية أونلاين | قانوني`
-          : `${data.title} ${region === "syr" ? "Syria" : "Saudi Arabia"} | Online Legal Consultation | CounselO قانوني`}
+          : `${data.title} ${region === "syr" ? "Syria" : "Saudi Arabia"} | Online Legal Consultation | CounselO`}
         description={isRTL
           ? `${data.subtitle} — قانوني، ${region === "syr" ? "منصة متخصصة للاستشارات القانونية الأونلاين في سوريا" : "أكبر منصة للاستشارات القانونية الأونلاين في المملكة"}. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. خبرة تزيد على 30 عاماً وأكثر من 20,000 قضية.`
           : `${data.subtitle} — CounselO, ${region === "syr" ? "Syria's specialized online legal platform" : "Saudi Arabia's largest online legal platform"}. Professional response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases handled.`}
@@ -49,7 +49,7 @@ export default function ServiceDetail() {
             "availableLanguage": ["Arabic", "English"],
             "provider": {
               "@type": "LegalService",
-              "name": "CounselO قانوني",
+              "name": "CounselO",
               "url": "https://counselo.com",
               "telephone": region === "syr" ? "+963114000000" : "+966594850247",
               "email": "bagdadio@gmail.com",

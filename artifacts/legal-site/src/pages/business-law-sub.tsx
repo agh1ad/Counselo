@@ -110,7 +110,7 @@ export default function BusinessLawSub() {
     "availableLanguage": ["Arabic", "English"],
     "provider": {
       "@type": "LegalService",
-      "name": "CounselO قانوني",
+      "name": "CounselO",
       "url": "https://counselo.com",
       "telephone": "+966594850247",
       "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },

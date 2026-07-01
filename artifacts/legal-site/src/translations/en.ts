@@ -521,7 +521,7 @@ export const en = {
     services: {
       "investment-disputes": {
         title: "Investment Disputes",
-        seoTitle: "Investment Dispute Lawyer in Saudi Arabia | Online Foreign Investment Legal Consultation | CounselO قانوني",
+        seoTitle: "Investment Dispute Lawyer in Saudi Arabia | Online Foreign Investment Legal Consultation | CounselO",
         subtitle: "Resolving commercial and regulatory investment disputes for foreign investors in Saudi Arabia.",
         overview1: "Investment disputes in Saudi Arabia — whether between investors, with local partners, or with government authorities — require specialist legal expertise spanning Saudi commercial law, foreign investment regulations, and international dispute resolution mechanisms. As Saudi Arabia's Vision 2030 transformation accelerates foreign investment inflows, the frequency and complexity of investment disputes has increased commensurately. CounselO has advised and represented investors in Saudi investment disputes for over 30 years, with a track record across both domestic courts and international arbitration. Our online consultation service puts specialist investment dispute advice at your fingertips — via WhatsApp or email — within 24 hours.",
         overview2: "Investment disputes arise across many contexts: breach of joint venture agreements, partner deadlock, regulatory interference with investment operations, expropriation or regulatory taking, and contract disputes with Saudi government entities. Each requires a distinct legal strategy informed by the specific facts, the parties involved, and the available dispute resolution forums.",
@@ -552,7 +552,7 @@ export const en = {
       },
       "investment-appeals": {
         title: "Investment Appeals",
-        seoTitle: "Investment Appeal Lawyer in Saudi Arabia | Online Foreign Investment Legal Consultation | CounselO قانوني",
+        seoTitle: "Investment Appeal Lawyer in Saudi Arabia | Online Foreign Investment Legal Consultation | CounselO",
         subtitle: "Appealing adverse investment decisions, regulatory rulings, and court judgments in Saudi Arabia.",
         overview1: "When an investment licensing decision, regulatory ruling, or court judgment goes against a foreign investor in Saudi Arabia, the right of appeal is a critical legal tool — and acting promptly and correctly is essential to preserving it. Saudi Arabia's legal system provides multiple levels of administrative and judicial appeal, each with strict procedural requirements and timelines. CounselO has managed investment-related appeals before Saudi administrative tribunals, courts of appeal, and the Supreme Court for over 30 years — with the procedural precision that successful appeals demand. Our online consultation means appeal advice is available immediately — via WhatsApp or email.",
         overview2: "Investment appeals require both substantive legal expertise — identifying the legal or factual errors in the original decision — and procedural precision — filing within prescribed timelines with the correct documentation. Missing an appeal deadline can permanently extinguish the right to challenge an adverse decision. CounselO acts urgently on investment appeal matters to protect this critical right.",
@@ -583,7 +583,7 @@ export const en = {
       },
       "investment-licensing": {
         title: "Foreign Investment Licensing",
-        seoTitle: "Foreign Investment License Lawyer in Saudi Arabia | Online Legal Consultation | CounselO قانوني",
+        seoTitle: "Foreign Investment License Lawyer in Saudi Arabia | Online Legal Consultation | CounselO",
         subtitle: "Securing MISA foreign investment licenses and navigating Saudi Arabia's investment regulatory framework.",
         overview1: "Obtaining a Foreign Investment License (FIL) from the Ministry of Investment of Saudi Arabia (MISA) is the essential first step for most foreign entities wishing to establish a presence and conduct business in the Kingdom. The MISA licensing process involves navigating sector-specific requirements, foreign ownership rules, minimum capital obligations, and a series of regulatory approvals that must be coordinated across multiple government entities. CounselO has guided foreign investors through the MISA licensing process for over 30 years — from single-entity applications to complex multi-entity investment structures under Vision 2030's giga-project frameworks. Our online consultation means licensing advice is available immediately — without a physical office visit.",
         overview2: "Saudi Arabia's foreign investment landscape has been significantly liberalised under Vision 2030 — with 100% foreign ownership now permitted in most sectors, expanded lists of permitted foreign investment activities, and new special economic zone frameworks. CounselO advises investors on the most efficient and compliant licensing route for their specific sector and investment structure.",
@@ -614,7 +614,7 @@ export const en = {
       },
       "license-renewal": {
         title: "License Renewal or Amendment",
-        seoTitle: "Foreign Investment License Renewal Lawyer in Saudi Arabia | Online Legal Consultation | CounselO قانوني",
+        seoTitle: "Foreign Investment License Renewal Lawyer in Saudi Arabia | Online Legal Consultation | CounselO",
         subtitle: "Managing MISA foreign investment license renewals, amendments, and activity expansions in Saudi Arabia.",
         overview1: "Maintaining a valid and properly scoped Foreign Investment License is a continuing regulatory obligation for foreign investors operating in Saudi Arabia. MISA licenses require periodic renewal and must be amended whenever the investor's activities, corporate structure, ownership, or capital change. Failure to renew on time or to amend a license to reflect actual activities can expose a foreign business to significant regulatory risk — including fines, operational disruption, and in serious cases license revocation. CounselO has managed MISA license renewals and amendments for foreign investors for over 30 years, ensuring continuous regulatory compliance and protecting ongoing investment operations. Our online service means compliance advice is available immediately.",
         overview2: "Beyond routine renewal and amendment, MISA licenses may need to be expanded to add new permitted activities as a business grows, or restructured as the investment's corporate structure evolves. CounselO advises on proactive license management — ensuring your MISA license stays aligned with your actual and planned operations at every stage.",
@@ -645,7 +645,7 @@ export const en = {
       },
       "license-cancellation": {
         title: "License Cancellation/Suspension",
-        seoTitle: "Foreign Investment License Cancellation Lawyer in Saudi Arabia | Online Legal Consultation | CounselO قانوني",
+        seoTitle: "Foreign Investment License Cancellation Lawyer in Saudi Arabia | Online Legal Consultation | CounselO",
         subtitle: "Challenging MISA license cancellations, suspensions, and defending foreign investment rights in Saudi Arabia.",
         overview1: "A MISA foreign investment license cancellation or suspension is one of the most serious regulatory actions a foreign investor can face in Saudi Arabia — with potentially devastating consequences for ongoing operations, commercial relationships, and investment assets. Saudi law provides foreign investors with important rights to challenge cancellation and suspension decisions, including administrative appeal rights and judicial review before the Board of Grievances. CounselO has defended foreign investors against license cancellation and suspension for over 30 years, with experience in both preventing adverse regulatory decisions through proactive compliance management and successfully challenging them when they occur. Our online consultation means urgent advice is available immediately.",
         overview2: "License cancellations and suspensions can occur for a range of reasons — from genuine regulatory non-compliance to contested administrative decisions where the investor has strong grounds to challenge. CounselO assesses the legal basis for the cancellation or suspension, advises on the strongest available challenge strategy, and acts urgently to protect the investor's legal rights and ongoing operations.",
@@ -676,7 +676,7 @@ export const en = {
       },
       "company-formation": {
         title: "Foreign Company Formation",
-        seoTitle: "Foreign Company Formation Lawyer in Saudi Arabia | Online Legal Consultation | CounselO قانوني",
+        seoTitle: "Foreign Company Formation Lawyer in Saudi Arabia | Online Legal Consultation | CounselO",
         subtitle: "Setting up foreign-owned companies and branches in Saudi Arabia under Vision 2030's liberalised investment regime.",
         overview1: "Establishing a foreign-owned business entity in Saudi Arabia — whether a wholly-owned limited liability company (LLC), a joint stock company, a branch office of a foreign corporation, or a Special Economic Zone entity — involves navigating a multi-step regulatory process across MISA, the Ministry of Commerce, the Saudi Authority for Accredited Valuators and Analysts, and sector-specific regulators. CounselO has established foreign company structures in Saudi Arabia for investors from across the world for over 30 years — making us one of the most experienced law firms in the Kingdom for foreign company formation. Our online service means you can begin the process today, without a physical office visit.",
         overview2: "Saudi Arabia's company law landscape has been significantly modernised under Vision 2030 — with the 2022 Companies Law introducing significant reforms including flexible LLC structures, enhanced minority shareholder protections, and more accessible capital market listings. CounselO advises on the optimal legal vehicle for each investor's specific commercial objectives and regulatory situation.",
@@ -707,7 +707,7 @@ export const en = {
       },
       "foreign-investment-dispute": {
         title: "Foreign Investment Dispute",
-        seoTitle: "Foreign Investment Dispute Lawyer in Saudi Arabia | Online Legal Consultation | CounselO قانوني",
+        seoTitle: "Foreign Investment Dispute Lawyer in Saudi Arabia | Online Legal Consultation | CounselO",
         subtitle: "Protecting foreign investors' rights in investor-state and bilateral investment treaty disputes in Saudi Arabia.",
         overview1: "Foreign investment disputes — particularly investor-state disputes where foreign investors assert rights against the Saudi government or its agencies under bilateral investment treaties (BITs) or international investment law principles — represent a specialised and high-stakes area of international law. Saudi Arabia is party to a network of bilateral investment treaties that provide foreign investors with substantive protections including fair and equitable treatment, protection from expropriation without compensation, and in many cases access to international arbitration forums such as ICSID (the World Bank's International Centre for Settlement of Investment Disputes). CounselO advises and represents foreign investors in investment treaty claims and investor-state disputes with over 30 years of cross-border investment law experience.",
         overview2: "Investment treaty disputes require a unique combination of international law expertise, commercial acumen, and deep knowledge of the Saudi regulatory environment. CounselO provides this integrated capability — advising on treaty entitlements, building the factual and legal record for treaty claims, and managing proceedings before international investment tribunals.",
@@ -738,7 +738,7 @@ export const en = {
       },
       "investor-compensation": {
         title: "Foreign Investor Compensation",
-        seoTitle: "Foreign Investor Compensation Lawyer in Saudi Arabia | Online Legal Consultation | CounselO قانوني",
+        seoTitle: "Foreign Investor Compensation Lawyer in Saudi Arabia | Online Legal Consultation | CounselO",
         subtitle: "Pursuing compensation for foreign investors for regulatory harm, expropriation, and investment losses in Saudi Arabia.",
         overview1: "Foreign investors in Saudi Arabia who suffer losses as a result of unlawful government action, expropriation, or the breach of investment agreements have legal rights to compensation — under Saudi domestic law, applicable bilateral investment treaties, and general principles of international investment law. Pursuing investor compensation requires specialist expertise in the applicable legal framework, the quantification of investment losses, and the selection and management of the appropriate legal proceedings. CounselO has pursued compensation claims for foreign investors for over 30 years — combining domestic Saudi law expertise with international investment law knowledge to maximise recovery. Our online consultation means specialist advice is available immediately.",
         overview2: "Investor compensation claims arise from a wide range of events: government expropriation or regulatory taking, breach of investment agreements, unlawful cancellation of licenses, discriminatory treatment, and failure to honour contractual commitments. Each requires precise identification of the legal basis for the claim and a rigorous quantification of the investor's losses — including both direct losses and foregone profits.",
@@ -769,7 +769,7 @@ export const en = {
       },
       "share-transfer": {
         title: "Company Share Transfer & Ownership Change",
-        seoTitle: "Company Share Transfer Lawyer in Saudi Arabia | Online Foreign Investment Legal Consultation | CounselO قانوني",
+        seoTitle: "Company Share Transfer Lawyer in Saudi Arabia | Online Foreign Investment Legal Consultation | CounselO",
         subtitle: "Managing foreign-owned company share transfers, ownership changes, and exit transactions in Saudi Arabia.",
         overview1: "Transferring shares in a foreign-owned Saudi company — whether to a new foreign investor, a Saudi national partner, or as part of a full exit transaction — involves regulatory approvals, MISA notifications, Commercial Registration amendments, and careful contractual management. Saudi company law imposes specific requirements on share transfers in LLCs, JSCs, and other entity types — including right of first refusal obligations for existing shareholders and regulatory approval requirements for foreign ownership changes. CounselO has managed share transfers and ownership changes for foreign-owned companies in Saudi Arabia for over 30 years, with specific expertise in cross-border acquisition transactions and foreign investor exit structures. Our online consultation means advice is available immediately.",
         overview2: "Share transfers in Saudi companies are not simply contractual transactions — they have regulatory dimensions that require coordination with MISA, the Ministry of Commerce, and in some cases sector-specific regulators. Failure to complete the regulatory steps alongside the contractual transaction can create significant legal and operational risk. CounselO manages both the contractual and regulatory dimensions of every share transfer transaction.",
@@ -831,7 +831,7 @@ export const en = {
     services: {
       "divorce": {
         title: "Divorce",
-        seoTitle: "Divorce Lawyer in Saudi Arabia | Online Family Legal Consultation | CounselO قانوني",
+        seoTitle: "Divorce Lawyer in Saudi Arabia | Online Family Legal Consultation | CounselO",
         subtitle: "Guiding you through divorce proceedings under Saudi Personal Status Law with sensitivity and expertise.",
         overview1: "Divorce is one of the most significant legal and personal events in a person's life, and navigating Saudi Arabia's Personal Status law — which governs divorce for Muslim families — requires both deep legal knowledge and genuine human sensitivity. CounselO has guided hundreds of clients through divorce proceedings under Saudi law for over 30 years, with a thorough command of the Personal Status Courts, the MASAR digital family court system, and the Sharia-based legal principles that govern divorce in the Kingdom. Our fully online consultation service means you can seek expert guidance in complete privacy — via WhatsApp or email, from wherever you are.",
         overview2: "Saudi law recognises several forms of divorce — talaq (husband-initiated), khul (wife-initiated), judicial divorce (faskh), and separation by mutual agreement. Each has specific legal requirements, timelines, and financial consequences. CounselO advises clients on the most appropriate form of divorce for their situation and manages the entire legal process with precision and care.",
@@ -862,7 +862,7 @@ export const en = {
       },
       "khul": {
         title: "Khul (Wife-Initiated Divorce)",
-        seoTitle: "Khul Divorce Lawyer in Saudi Arabia | Online Family Legal Consultation | CounselO قانوني",
+        seoTitle: "Khul Divorce Lawyer in Saudi Arabia | Online Family Legal Consultation | CounselO",
         subtitle: "Expert legal guidance for women seeking Khul divorce under Saudi Personal Status Law.",
         overview1: "Khul is a form of divorce under Islamic law that allows a wife to end her marriage without her husband's consent by returning the mahr (dowry) — or a part of it agreed by the court. Saudi Arabia's Personal Status Courts hear khul applications regularly, and the process has become more accessible to women under Saudi Arabia's ongoing judicial reforms. At CounselO, we have represented hundreds of women in khul proceedings over 30 years, with deep knowledge of the Personal Status Courts' procedures, timelines, and the evidentiary requirements that determine the outcome of khul applications. Our fully online consultation service provides expert, confidential guidance — via WhatsApp or email.",
         overview2: "Khul is often chosen by wives when the marital relationship has irretrievably broken down and the husband refuses to grant talaq. Saudi courts have the authority to grant khul even without the husband's agreement, provided the wife demonstrates her unwillingness to continue the marriage and returns the agreed portion of her mahr. CounselO advises women throughout this process — from the initial consultation through court proceedings and completion.",
@@ -893,7 +893,7 @@ export const en = {
       },
       "alimony": {
         title: "Alimony & Financial Support",
-        seoTitle: "Alimony & Financial Support Lawyer in Saudi Arabia | Online Family Legal Consultation | CounselO قانوني",
+        seoTitle: "Alimony & Financial Support Lawyer in Saudi Arabia | Online Family Legal Consultation | CounselO",
         subtitle: "Securing financial support rights for wives, children, and dependants under Saudi Personal Status Law.",
         overview1: "Financial support — known as nafaqa in Islamic law — is a fundamental right of wives and children under Saudi Personal Status Law. It encompasses spousal support, child maintenance, housing, clothing, medical expenses, and educational costs. Despite this clear legal framework, disputes over alimony and financial support are among the most common family law matters before Saudi courts. CounselO has represented clients in alimony and financial support proceedings for over 30 years, with specific expertise in calculating, establishing, and enforcing financial support obligations under Saudi law. Our online service means you can speak to a specialist today — confidentially and without a physical office visit.",
         overview2: "Saudi law requires husbands to maintain their wives and children to a standard commensurate with their social and financial position. Courts assess a husband's financial capacity and the family's accustomed standard of living when determining alimony. Failure to pay court-ordered alimony is a serious civil matter with significant enforcement consequences under Saudi law.",
@@ -924,7 +924,7 @@ export const en = {
       },
       "child-custody": {
         title: "Child Custody & Visitation",
-        seoTitle: "Child Custody Lawyer in Saudi Arabia | Online Family Legal Consultation | CounselO قانوني",
+        seoTitle: "Child Custody Lawyer in Saudi Arabia | Online Family Legal Consultation | CounselO",
         subtitle: "Protecting children's welfare and securing fair custody and visitation arrangements under Saudi law.",
         overview1: "Child custody disputes are among the most emotionally intense and legally consequential family law matters — with profound consequences for children, mothers, and fathers alike. Saudi Personal Status Law provides a detailed framework for custody (hadana) and visitation (ziyara) based on the child's best interests within an Islamic jurisprudential framework. At CounselO, we have represented parents in child custody and visitation proceedings for over 30 years, with deep knowledge of Saudi courts' approach to custody at every age and stage of a child's development. Our online consultation service provides expert guidance in complete confidentiality — from anywhere in Saudi Arabia or internationally.",
         overview2: "Saudi custody law follows age-based rules: young children (typically boys up to 7 and girls up to 9 under the basic framework, subject to court variation) remain in the mother's care, with custody transferring to the father at specified ages absent compelling circumstances. However, courts have broad discretion to deviate from these rules in the child's best interests. CounselO advises parents on the likely custody outcome in their specific case and pursues the arrangement that best protects their children.",
@@ -955,7 +955,7 @@ export const en = {
       },
       "inheritance-disputes": {
         title: "Inheritance & Estate Disputes",
-        seoTitle: "Inheritance Dispute Lawyer in Saudi Arabia | Online Family Legal Consultation | CounselO قانوني",
+        seoTitle: "Inheritance Dispute Lawyer in Saudi Arabia | Online Family Legal Consultation | CounselO",
         subtitle: "Resolving inheritance disputes and ensuring Sharia-compliant estate distribution across the Kingdom.",
         overview1: "Inheritance in Saudi Arabia is governed by Islamic law (Sharia) — with specific rules on the entitlement of each heir based on their relationship to the deceased. Despite this clear framework, inheritance disputes are extremely common — arising from contested heirs, missing wills, disputed property valuations, disagreements among co-heirs, and situations where the estate includes assets across multiple countries. CounselO has resolved inheritance disputes for families across Saudi Arabia for over 30 years, combining precise knowledge of Islamic inheritance law with practical litigation experience before the Personal Status Courts and the general civil courts. Our online consultation service is available immediately — via WhatsApp or email.",
         overview2: "Inheritance disputes often involve deeply personal family dynamics alongside complex legal questions — including disputed paternity, contested relationships, valuation of business assets, and real estate holdings spanning multiple jurisdictions. CounselO brings both the legal precision and the interpersonal sensitivity these cases demand.",
@@ -986,7 +986,7 @@ export const en = {
       },
       "marriage-contracts": {
         title: "Marriage Contracts & Prenuptials",
-        seoTitle: "Marriage Contract Lawyer in Saudi Arabia | Online Family Legal Consultation | CounselO قانوني",
+        seoTitle: "Marriage Contract Lawyer in Saudi Arabia | Online Family Legal Consultation | CounselO",
         subtitle: "Drafting and enforcing marriage contracts, prenuptial conditions, and mahr agreements under Saudi law.",
         overview1: "The marriage contract (aqd al-zawaj) in Saudi Arabia is a legally binding document that does far more than record the union — it can include conditions protecting the wife's rights, mahr arrangements, stipulations on residency and travel, and specific financial terms that govern the relationship and its dissolution. A well-drafted marriage contract with the right protective conditions can significantly improve a woman's legal position in the event of divorce. CounselO advises on and drafts marriage contracts and prenuptial conditions under Saudi Personal Status Law, drawing on over 30 years of family law experience in the Kingdom. Our online consultation service means expert advice is available immediately — without a physical office visit.",
         overview2: "Under Islamic law, a wife may include conditions in the marriage contract that the husband must honour — including the right to initiate divorce herself (ishtrat al-talaq), conditions on polygamy, specific financial arrangements, and residency and travel terms. Enforcing these conditions — or challenging a marriage contract's terms — requires specialist knowledge of Saudi Personal Status Law and court practice.",
@@ -1048,7 +1048,7 @@ export const en = {
     services: {
       "unpaid-wages": {
         title: "Unpaid Wages",
-        seoTitle: "Unpaid Wages Lawyer in Saudi Arabia | Online Employment Legal Consultation | CounselO قانوني",
+        seoTitle: "Unpaid Wages Lawyer in Saudi Arabia | Online Employment Legal Consultation | CounselO",
         subtitle: "Recovering withheld salaries, delayed payments, and final settlements under Saudi Labour Law.",
         overview1: "Unpaid wages remain one of the most prevalent employment law violations in Saudi Arabia, affecting workers across industries from construction and domestic services to finance and healthcare. Saudi Labour Law imposes clear, enforceable obligations on employers to pay wages on time — backed by the Kingdom's Wage Protection System (WPS) and severe penalties for non-compliance. At CounselO, our employment lawyers have recovered unpaid wages and final settlements for workers across the Kingdom for over 30 years, with a deep knowledge of the Saudi Labour Courts and the Ministry of Human Resources and Social Development (HRSD). Our online consultation service means you can speak to a specialist today — within 24 hours, via WhatsApp or email.",
         overview2: "Whether your employer has withheld monthly salary, delayed your final settlement after resignation or termination, deducted wages unlawfully, or failed to honour your contractual allowances, CounselO pursues the fastest available legal route to recover every riyal you are owed — including statutory penalties that can double or treble the unpaid amount.",
@@ -1079,7 +1079,7 @@ export const en = {
       },
       "labor-compensation": {
         title: "Labor Compensation",
-        seoTitle: "Labor Compensation Lawyer in Saudi Arabia | Online Employment Legal Consultation | CounselO قانوني",
+        seoTitle: "Labor Compensation Lawyer in Saudi Arabia | Online Employment Legal Consultation | CounselO",
         subtitle: "Claiming workplace injury compensation, GOSI entitlements, and occupational disease damages under Saudi Labour Law.",
         overview1: "Saudi Arabia's Labour Law and the General Organization for Social Insurance (GOSI) provide a comprehensive framework for worker compensation following workplace injuries, occupational diseases, and work-related disabilities. Despite these protections, many workers fail to receive their full entitlements — either because employers dispute liability, because GOSI assessments undervalue the injury, or because workers are unaware of the full scope of their legal rights. CounselO has represented injured workers and their families in labour compensation claims for over 30 years, with specific expertise in the intersection of Labour Law, GOSI regulations, and civil liability principles under Saudi law. Our online consultation service is available today — via WhatsApp or email.",
         overview2: "A workplace injury or occupational illness can have devastating financial consequences. Saudi Labour Law provides compensation entitlements that extend well beyond GOSI benefits — including full wage continuation during treatment, medical expense coverage, long-term disability compensation, and civil damages where employer negligence is established. CounselO ensures you receive every riyal you are legally entitled to.",
@@ -1110,7 +1110,7 @@ export const en = {
       },
       "unfair-dismissal": {
         title: "Unfair Dismissal",
-        seoTitle: "Unfair Dismissal Lawyer in Saudi Arabia | Online Employment Legal Consultation | CounselO قانوني",
+        seoTitle: "Unfair Dismissal Lawyer in Saudi Arabia | Online Employment Legal Consultation | CounselO",
         subtitle: "Challenging wrongful termination and securing maximum compensation under Saudi Labour Law.",
         overview1: "Unfair or wrongful dismissal is one of the most serious employment law violations an employee can face in Saudi Arabia — with significant financial and career consequences. Saudi Labour Law provides strong protections for employees against arbitrary and unjustified termination, including mandatory compensation, reinstatement rights in certain cases, and the right to a full hearing before the Labour Courts. CounselO has represented employees in unfair dismissal claims for over 30 years, recovering compensation awards from small businesses and multinational corporations alike. Our online consultation means you can speak to an unfair dismissal specialist today — without leaving your home.",
         overview2: "Saudi Labour Law distinguishes between termination 'for cause' (where the employer need not pay compensation) and dismissal without justification (which triggers mandatory compensation obligations). Many employers misuse 'for cause' termination to avoid paying end of service gratuity and compensation. CounselO has extensive experience in challenging these dismissals before Labour Courts and securing the compensation employees are entitled to.",
@@ -1141,7 +1141,7 @@ export const en = {
       },
       "end-of-service": {
         title: "End of Service Benefits",
-        seoTitle: "End of Service Benefits Lawyer in Saudi Arabia | Online Employment Legal Consultation | CounselO قانوني",
+        seoTitle: "End of Service Benefits Lawyer in Saudi Arabia | Online Employment Legal Consultation | CounselO",
         subtitle: "Calculating and recovering full end of service gratuity entitlements under Saudi Labour Law.",
         overview1: "End of Service Benefits (EOSB) — the gratuity payment owed to employees upon termination, resignation, or retirement — represent one of the most valuable financial entitlements under Saudi Labour Law. Despite this, disputes over EOSB calculation are among the most common employment complaints in the Kingdom, with employers frequently undercalculating gratuity, excluding allowances, or applying incorrect resignation-based reduction rules. CounselO has calculated and recovered End of Service Benefits for employees across Saudi Arabia for over 30 years — from individual workers to groups of employees affected by corporate restructurings. Our online service means you can verify your EOSB entitlement within 24 hours.",
         overview2: "Saudi Labour Law sets a precise formula for EOSB calculation — but correctly applying this formula requires careful analysis of your employment contract, salary components, service period, and the reason for termination. A one-month error in a senior employee's EOSB can mean tens of thousands of riyals lost. CounselO ensures your full entitlement is calculated accurately and recovered completely.",
@@ -1172,7 +1172,7 @@ export const en = {
       },
       "contract-disputes": {
         title: "Employment Contract Disputes",
-        seoTitle: "Employment Contract Dispute Lawyer in Saudi Arabia | Online Legal Consultation | CounselO قانوني",
+        seoTitle: "Employment Contract Dispute Lawyer in Saudi Arabia | Online Legal Consultation | CounselO",
         subtitle: "Resolving employment agreement disputes, non-compete clauses, and notice period breaches under Saudi Labour Law.",
         overview1: "Employment contract disputes in Saudi Arabia — whether involving breach of contract by the employer, enforcement of non-compete clauses, disputes over bonus and commission entitlements, or improper unilateral contract amendments — require specialist employment law expertise grounded in Saudi Labour Law's mandatory protections. CounselO has resolved employment contract disputes for both employees and employers in Saudi Arabia for over 30 years, appearing before Labour Courts across the Kingdom. Our online legal consultation service means you can speak to a specialist today, without a physical office visit.",
         overview2: "Saudi Labour Law provides a floor of mandatory rights that no employment contract can diminish — even if the employee agreed to lesser terms. Many employees are unaware that contractual provisions purporting to waive or limit their Labour Law rights are unenforceable. CounselO advises employees on which contractual terms can and cannot bind them, and pursues all available remedies for employer breach.",
@@ -1203,7 +1203,7 @@ export const en = {
       },
       "workplace-discrimination": {
         title: "Workplace Discrimination & Harassment",
-        seoTitle: "Workplace Discrimination & Harassment Lawyer in Saudi Arabia | Online Legal Consultation | CounselO قانوني",
+        seoTitle: "Workplace Discrimination & Harassment Lawyer in Saudi Arabia | Online Legal Consultation | CounselO",
         subtitle: "Protecting employees from unlawful workplace discrimination, sexual harassment, and retaliation under Saudi law.",
         overview1: "Workplace discrimination and harassment — including gender-based discrimination, disability discrimination, nationality-based mistreatment, and sexual harassment — are prohibited under Saudi law and increasingly taken seriously by Saudi courts, regulators, and employers operating under Vision 2030's workforce inclusion agenda. Saudi Arabia enacted specific Anti-Harassment legislation and HRSD has expanded its enforcement of anti-discrimination obligations on employers. At CounselO, we represent employees who have faced workplace discrimination and harassment, with the sensitivity and experience these cases demand. Our fully online consultation service means you can speak to a specialist confidentially — from wherever you are, within 24 hours.",
         overview2: "Discrimination and harassment cases require careful, confidential handling. Many employees are reluctant to come forward because of fear of retaliation or uncertainty about whether their experience constitutes a legally actionable wrong. CounselO advises employees on a confidential basis, helping them understand their rights and options — and when to act — before any formal steps are taken.",
@@ -1265,7 +1265,7 @@ export const en = {
     services: {
       "ownership-disputes": {
         title: "Property Ownership Disputes",
-        seoTitle: "Property Ownership Dispute Lawyer in Saudi Arabia | Online Legal Consultation | CounselO قانوني",
+        seoTitle: "Property Ownership Dispute Lawyer in Saudi Arabia | Online Legal Consultation | CounselO",
         subtitle: "Resolving contested property ownership and title disputes across the Kingdom.",
         overview1: "Property ownership disputes are among the most consequential legal matters in Saudi Arabia — involving land, residential, and commercial real estate worth potentially millions of riyals. At CounselO, our real estate lawyers have handled ownership disputes across the Kingdom for over 30 years, building unparalleled expertise in Saudi title law, the Real Estate General Authority (REGA) framework, and the notarial and court systems that govern property rights in the Kingdom. We offer full online legal consultation for ownership disputes — you can speak with our team today via WhatsApp or email.",
         overview2: "Whether your dispute involves a contested inheritance of property, a fraudulent title transfer, a boundary conflict with a neighbour, or a disputed ownership registration, CounselO provides decisive, experienced legal representation. We have successfully resolved hundreds of ownership disputes before Saudi courts and before the Ministry of Justice's real estate dispute committees.",
@@ -1296,7 +1296,7 @@ export const en = {
       },
       "sale-purchase-disputes": {
         title: "Sale & Purchase Disputes",
-        seoTitle: "Real Estate Sale & Purchase Dispute Lawyer in Saudi Arabia | Online Consultation | CounselO قانوني",
+        seoTitle: "Real Estate Sale & Purchase Dispute Lawyer in Saudi Arabia | Online Consultation | CounselO",
         subtitle: "Protecting buyers, sellers, and developers in disputed Saudi real estate transactions.",
         overview1: "Real estate transactions in Saudi Arabia — whether off-plan purchases, completed property sales, or commercial acquisitions — frequently give rise to disputes over non-delivery, title defects, price disagreements, and contractual breaches. CounselO has represented buyers, sellers, and developers in hundreds of sale and purchase disputes before Saudi courts and arbitration tribunals over more than 30 years, with experience spanning residential, commercial, and mixed-use real estate across the Kingdom. Our online legal consultation service means you can speak to a specialist today — without leaving your home or office.",
         overview2: "Saudi Arabia's real estate market has grown dramatically under Vision 2030, creating both opportunity and increased dispute risk. Whether you have paid for a property that was not delivered, discovered defects after purchase, or face a developer refusing to complete a sale, CounselO provides the experienced legal firepower to protect your investment.",
@@ -1327,7 +1327,7 @@ export const en = {
       },
       "property-encroachment": {
         title: "Property Encroachment",
-        seoTitle: "Property Encroachment Lawyer in Saudi Arabia | Online Real Estate Legal Consultation | CounselO قانوني",
+        seoTitle: "Property Encroachment Lawyer in Saudi Arabia | Online Real Estate Legal Consultation | CounselO",
         subtitle: "Defending your property boundaries against encroachment, illegal structures, and trespass in Saudi Arabia.",
         overview1: "Property encroachment — where a neighbour, developer, or government body builds onto, occupies, or otherwise intrudes upon your land — is one of the most common and damaging real estate disputes in Saudi Arabia. Saudi law provides strong remedies for property owners whose boundaries are violated, including removal orders, damages, and criminal referrals in serious cases. CounselO has handled hundreds of encroachment cases over 30+ years, appearing before Saudi courts and before specialist real estate committees across the Kingdom. Our online consultation service means you can speak to a real estate encroachment specialist today — from anywhere in Saudi Arabia.",
         overview2: "Encroachment disputes require swift legal action. The longer an encroachment continues, the more entrenched the encroaching party's position becomes — and in some cases, delay can affect your legal remedies. CounselO moves quickly to document the encroachment, seek interim court orders, and pursue the most effective legal pathway to restore your property rights.",
@@ -1358,7 +1358,7 @@ export const en = {
       },
       "lease-rental-disputes": {
         title: "Lease & Rental Disputes",
-        seoTitle: "Landlord Tenant Dispute Lawyer in Saudi Arabia | Online Real Estate Legal Consultation | CounselO قانوني",
+        seoTitle: "Landlord Tenant Dispute Lawyer in Saudi Arabia | Online Real Estate Legal Consultation | CounselO",
         subtitle: "Expert legal representation for landlords and tenants in Saudi Arabia's rental disputes.",
         overview1: "Saudi Arabia's rental market has grown significantly under Vision 2030 urbanisation, bringing with it an increasing volume of landlord-tenant disputes — from rent arrears and illegal evictions to Ejar platform disputes and contested lease renewals. CounselO represents both landlords and tenants in rental disputes, with over 30 years of experience before the Saudi Rental Dispute Committees and courts. Our online legal consultation service means you can get expert rental dispute advice within 24 hours — without visiting an office.",
         overview2: "Saudi Arabia's Rental Dispute Committees provide a relatively fast track for lease disputes, but procedural errors or inadequate documentation can cost you your case. CounselO's experienced team ensures your claim is properly structured, fully documented, and argued effectively — whether you are a landlord seeking to recover arrears and possession, or a tenant defending against unlawful eviction.",
@@ -1389,7 +1389,7 @@ export const en = {
       },
       "real-estate-registration": {
         title: "Real Estate Registration & Title",
-        seoTitle: "Real Estate Registration & Title Deed Lawyer in Saudi Arabia | Online Legal Consultation | CounselO قانوني",
+        seoTitle: "Real Estate Registration & Title Deed Lawyer in Saudi Arabia | Online Legal Consultation | CounselO",
         subtitle: "Resolving title registration errors, deed disputes, and ownership documentation problems in Saudi Arabia.",
         overview1: "Real estate registration and title deed issues are at the heart of many of Saudi Arabia's most serious property disputes. From errors in the Ministry of Justice's title registry to disputes over inheritance-based title transfers and defective sale registrations, these matters demand the precise legal expertise that CounselO has built over 30+ years of Saudi real estate practice. CounselO provides specialist online legal consultation for registration and title problems — with same-day response via WhatsApp or email.",
         overview2: "Saudi Arabia's title registration system has undergone significant digitalisation under Vision 2030, creating both new opportunities and new sources of error. CounselO's team is current on all recent reforms to REGA's registration procedures, the Ministry of Justice's notarial system, and the online real estate services platform.",
@@ -1420,7 +1420,7 @@ export const en = {
       },
       "construction-disputes": {
         title: "Construction & Contractor Disputes",
-        seoTitle: "Construction Dispute Lawyer in Saudi Arabia | Online Legal Consultation | CounselO قانوني",
+        seoTitle: "Construction Dispute Lawyer in Saudi Arabia | Online Legal Consultation | CounselO",
         subtitle: "Protecting property owners, developers, and contractors in Saudi construction disputes.",
         overview1: "Construction disputes are among the most financially significant legal matters in Saudi Arabia's booming real estate and infrastructure market. From contractor defaults and defective workmanship to project delays and payment disputes, these cases demand legal counsel with both construction expertise and deep familiarity with Saudi contract law and courts. CounselO has represented property owners, developers, main contractors, and subcontractors in construction disputes for over 30 years — across residential, commercial, and infrastructure projects throughout the Kingdom. Our online legal consultation service means you can speak to a construction disputes specialist today — from your site, your office, or your home.",
         overview2: "Saudi Arabia's construction industry has seen an explosion of activity under Vision 2030, with hundreds of megaprojects underway across the Kingdom. This scale of activity brings a parallel increase in construction disputes. Whether your project has stalled, a contractor has abandoned works, or you are facing a defective construction claim, CounselO provides the decisive legal response your situation demands.",
@@ -1514,7 +1514,7 @@ export const en = {
       },
       "commercial-instruments": {
         title: "Commercial Instruments",
-        seoTitle: "Commercial Instruments Lawyer in Saudi Arabia — Checks, Bills of Exchange & Promissory Notes | CounselO قانوني",
+        seoTitle: "Commercial Instruments Lawyer in Saudi Arabia — Checks, Bills of Exchange & Promissory Notes | CounselO",
         subtitle: "Recovering value from dishonored checks, bills of exchange, and commercial paper in Saudi Arabia.",
         overview1: "Commercial instruments — checks, bills of exchange, and promissory notes — are the lifeblood of commercial transactions across Saudi Arabia. When a check is dishonored or a promissory note goes unpaid, businesses face immediate financial harm. CounselO brings over 30 years of experience enforcing and defending commercial instrument claims under the Saudi Commercial Court Law and the Saudi Commercial Papers Law, having handled thousands of such matters on behalf of Saudi businesses, banks, and individuals.",
         overview2: "Saudi law provides powerful remedies for victims of dishonored commercial instruments, including criminal complaints and expedited civil enforcement. Our team knows precisely how to deploy these tools to recover what you are owed — and how to defend against unjust instrument claims when you are the respondent.",
@@ -1544,7 +1544,7 @@ export const en = {
       },
       "commercial-agency": {
         title: "Commercial Agency",
-        seoTitle: "Commercial Agency Lawyer in Saudi Arabia — Agent Registration, Disputes & Termination | CounselO قانوني",
+        seoTitle: "Commercial Agency Lawyer in Saudi Arabia — Agent Registration, Disputes & Termination | CounselO",
         subtitle: "Expert representation for commercial agents, principals, and distributors across the Kingdom.",
         overview1: "Saudi Arabia's Commercial Agency Law imposes strict, non-waivable protections on commercial agents operating in the Kingdom. Foreign principals entering the Saudi market often underestimate the legal obligations they assume when appointing a Saudi commercial agent — obligations that can result in significant compensation claims upon termination. CounselO has advised both Saudi commercial agents and foreign principals for over 30 years, giving us a uniquely balanced perspective on agency disputes.",
         overview2: "Whether you are a Saudi agent seeking compensation for wrongful termination, a foreign company restructuring its distribution arrangements, or a business entering the Saudi market for the first time, CounselO provides decisive guidance grounded in decades of direct experience with the Saudi Ministry of Commerce (MOCI) and Commercial Courts.",
@@ -1574,7 +1574,7 @@ export const en = {
       },
       "bankruptcy-liquidation": {
         title: "Bankruptcy & Liquidation",
-        seoTitle: "Bankruptcy & Liquidation Lawyer in Saudi Arabia — Restructuring, Insolvency & Creditor Rights | CounselO قانوني",
+        seoTitle: "Bankruptcy & Liquidation Lawyer in Saudi Arabia — Restructuring, Insolvency & Creditor Rights | CounselO",
         subtitle: "Strategic restructuring and creditor protection under Saudi Arabia's modern insolvency framework.",
         overview1: "Saudi Arabia's Bankruptcy Law (Royal Decree No. M/50 of 2018) introduced a sophisticated, internationally aligned insolvency framework designed to give financially distressed businesses a genuine second chance while protecting creditor rights. Since the Law's enactment, CounselO has guided Saudi and foreign businesses through restructuring, preventive settlement, and formal liquidation proceedings — combining deep knowledge of the new framework with decades of Saudi commercial court experience.",
         overview2: "Whether your business faces an acute liquidity crisis, a hostile creditor action, or a need to wind down operations cleanly, CounselO provides the decisive, expert-level guidance that this complex area of law demands. We also represent creditors seeking maximum recovery from insolvent debtors.",
@@ -1605,7 +1605,7 @@ export const en = {
       },
       "company-partnership-disputes": {
         title: "Company & Partnership Disputes",
-        seoTitle: "Company & Partnership Disputes Lawyer in Saudi Arabia — Shareholder Disputes & Corporate Litigation | CounselO قانوني",
+        seoTitle: "Company & Partnership Disputes Lawyer in Saudi Arabia — Shareholder Disputes & Corporate Litigation | CounselO",
         subtitle: "Resolving shareholder conflicts, board deadlocks, and partnership disputes with decisive legal strategy.",
         overview1: "Internal business disputes — between shareholders, partners, or directors — can paralyze a company and destroy years of value in months. Saudi Arabia's Companies Law and Partnership Law provide a framework for resolving these disputes, but navigating that framework requires experienced, assertive legal representation. CounselO has handled hundreds of company and partnership disputes before Saudi courts and arbitration tribunals, representing majority and minority shareholders, corporate boards, and individual partners across all business structures.",
         overview2: "Whether you face a deadlocked board, a majority shareholder stripping assets, a partner in breach of the partnership agreement, or a dispute over profit distribution, CounselO moves swiftly to protect your position. With 30+ years of Saudi commercial litigation experience, we understand how Saudi courts approach these sensitive disputes — and we structure our strategy accordingly.",
@@ -1667,7 +1667,7 @@ export const en = {
       },
       "trademarks": {
         title: "Trademarks",
-        seoTitle: "Trademark Lawyer in Saudi Arabia — Registration, Protection & Infringement Litigation | CounselO قانوني",
+        seoTitle: "Trademark Lawyer in Saudi Arabia — Registration, Protection & Infringement Litigation | CounselO",
         subtitle: "Registering, protecting, and enforcing your brand across Saudi Arabia and the GCC.",
         overview1: "Your trademark is one of your most valuable business assets — and in Saudi Arabia's rapidly growing economy, brand protection is more important than ever. CounselO provides comprehensive trademark services from initial registration through aggressive enforcement litigation. Our trademark practice is grounded in over 30 years of experience working with Saudi Arabia's intellectual property system, including detailed knowledge of the Saudi Authority for Intellectual Property (SAIP) and the trademark landscape across the GCC.",
         overview2: "Whether you are registering a new brand, defending against an infringer, opposing a conflicting trademark application, or building a regional IP strategy, CounselO delivers the full-service trademark representation that protects and grows your brand's value in Saudi Arabia and beyond.",
@@ -1773,7 +1773,7 @@ export const en = {
     services: {
       "board-of-grievances": {
         title: "Board of Grievances Litigation",
-        seoTitle: "Board of Grievances Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO قانوني",
+        seoTitle: "Board of Grievances Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO",
         subtitle: "Expert litigation before Saudi Arabia's primary administrative court — online consultations available.",
         overview1: "The Board of Grievances (Diwan Al-Mazalim) is Saudi Arabia's specialized administrative court system, with jurisdiction over disputes between individuals or businesses and government authorities. Whether you are challenging an unlawful administrative decision, pursuing a government entity for breach of contract, or seeking compensation for a government action that caused you loss, the Board of Grievances is the primary forum for your claim — and CounselO has been representing clients before it for over 30 years. Our online consultation service means specialist Board of Grievances legal advice is available via WhatsApp or email — within 24 hours, from anywhere.",
         overview2: "Board of Grievances proceedings follow specific procedural rules, strict timelines, and require precise legal submissions. An experienced specialist is essential from the outset — not only to build a strong substantive case, but to navigate the procedural requirements that determine whether your claim is heard at all. CounselO's 30+ years of Board of Grievances litigation experience means we know exactly what it takes to succeed.",
@@ -1804,7 +1804,7 @@ export const en = {
       },
       "administrative-appeals": {
         title: "Administrative Decision Appeals",
-        seoTitle: "Administrative Appeal Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO قانوني",
+        seoTitle: "Administrative Appeal Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO",
         subtitle: "Challenging and appealing unlawful administrative decisions by Saudi government authorities.",
         overview1: "When a Saudi government ministry, regulatory body, or public authority issues a decision that adversely affects your rights — refusing a licence, imposing a penalty, cancelling a registration, or taking any adverse regulatory action — you have the right to challenge it. Saudi administrative law provides multiple avenues for challenging such decisions: internal administrative review, specialized administrative tribunals, and the Board of Grievances. Acting promptly and correctly is critical — administrative appeal deadlines are strict, and missing one can permanently extinguish your right to challenge. CounselO has managed administrative decision appeals across all sectors for over 30 years. Our online consultation service means urgent administrative appeal advice is available immediately.",
         overview2: "Successful administrative appeals require both a thorough understanding of administrative law principles — proportionality, due process, reasonableness, and the limits of government discretion — and precise procedural compliance. CounselO combines substantive expertise with procedural precision to give your appeal the strongest possible foundation.",
@@ -1835,7 +1835,7 @@ export const en = {
       },
       "government-contracts": {
         title: "Government Contract Disputes",
-        seoTitle: "Government Contract Dispute Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO قانوني",
+        seoTitle: "Government Contract Dispute Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO",
         subtitle: "Specialist representation in disputes between contractors, suppliers, and Saudi government entities.",
         overview1: "Government contracts in Saudi Arabia — whether for construction, infrastructure, supply, or services — are a vital source of business for many companies operating in the Kingdom. When a government entity breaches a contract, terminates without justification, withholds payment, imposes unlawful penalties, or disputes the scope of work, contractors and suppliers have legal rights that can be enforced — but doing so requires specialist expertise in Saudi administrative law, government contracting regulations, and Board of Grievances litigation. CounselO has represented contractors and suppliers in government contract disputes for over 30 years, across infrastructure, construction, technology, healthcare, and defence sectors.",
         overview2: "Government contract disputes in Saudi Arabia are subject to the Government Tenders and Procurement Law and its implementing regulations, and are litigated before the Board of Grievances. The process has specific requirements — including mandatory internal dispute resolution steps before filing with the Board — that must be followed carefully. CounselO's experience across hundreds of government contract disputes means we navigate this process with precision.",
@@ -1866,7 +1866,7 @@ export const en = {
       },
       "public-procurement": {
         title: "Public Procurement Disputes",
-        seoTitle: "Public Procurement Dispute Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO قانوني",
+        seoTitle: "Public Procurement Dispute Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO",
         subtitle: "Challenging unlawful tender decisions, disqualifications, and award disputes in Saudi government procurement.",
         overview1: "Saudi Arabia's government procurement market is one of the largest in the region — with billions of riyals of government contracts tendered annually across infrastructure, technology, healthcare, defence, and services. When a bidder is unlawfully disqualified, a tender is awarded in breach of the Government Tenders and Procurement Law, or a procurement process is conducted improperly, affected bidders have legal rights to challenge the outcome. CounselO has advised and represented companies in Saudi public procurement disputes for over 30 years — from initial bid protest through Board of Grievances litigation. Our online consultation puts specialist procurement dispute advice at your fingertips immediately.",
         overview2: "Saudi public procurement law provides specific rights and remedies for tenderers affected by unlawful procurement decisions — but the procedures for challenging tender outcomes are strict, the timelines are short, and urgency is often required to prevent contract award to an unlawful winner. CounselO acts swiftly and decisively to protect our clients' procurement rights.",
@@ -1897,7 +1897,7 @@ export const en = {
       },
       "regulatory-licensing": {
         title: "Regulatory & Licensing Disputes",
-        seoTitle: "Regulatory Dispute Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO قانوني",
+        seoTitle: "Regulatory Dispute Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO",
         subtitle: "Challenging regulatory enforcement actions, licence refusals, and sanctions by Saudi government authorities.",
         overview1: "Saudi Arabia's regulatory landscape is extensive and evolving — with sector regulators including MISA, the Ministry of Commerce, SAMA, the Capital Market Authority, the Communications and Space Commission, the General Authority for Health, and many others exercising significant power over businesses operating in the Kingdom. When a regulator refuses a licence, imposes a penalty, issues a compliance order, suspends or revokes an authorisation, or takes any other adverse regulatory action, CounselO has the specialist expertise to challenge it. With over 30 years of experience in Saudi administrative and regulatory law, our online consultation service puts specialist regulatory dispute advice at your fingertips — immediately.",
         overview2: "Regulatory disputes often involve complex questions of law — the scope of the regulator's powers, the applicable statutory requirements, the procedural protections afforded to regulated entities, and the proportionality of any sanction. CounselO's cross-sector regulatory experience means we approach each dispute with both the legal depth and the sector knowledge that effective regulatory challenges require.",
@@ -1928,7 +1928,7 @@ export const en = {
       },
       "customs-tax-disputes": {
         title: "Customs & Tax Authority Disputes",
-        seoTitle: "Customs & Tax Dispute Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO قانوني",
+        seoTitle: "Customs & Tax Dispute Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO",
         subtitle: "Expert representation in ZATCA customs, Zakat, and VAT disputes before Saudi administrative tribunals.",
         overview1: "The Zakat, Tax and Customs Authority (ZATCA) is one of Saudi Arabia's most active government authorities — with extensive powers to assess Zakat, corporate income tax, VAT, and customs duties, and to impose significant penalties for non-compliance. ZATCA disputes — whether over VAT assessments, Zakat obligations, customs duty classifications, or import prohibitions — can involve substantial financial exposure and require specialist legal and technical expertise. CounselO has represented businesses in ZATCA disputes for over 30 years, combining deep administrative law expertise with practical ZATCA procedure knowledge. Our online consultation means specialist ZATCA dispute advice is available immediately.",
         overview2: "ZATCA disputes follow a specific administrative process — including mandatory objection and internal review procedures before access to the Tax Dispute Resolution Committee and the courts. Each stage has strict timelines and specific procedural requirements. Missing a step or a deadline can prejudice your position significantly. CounselO manages the full ZATCA dispute process — from initial ZATCA assessment through to final court determination.",
@@ -1959,7 +1959,7 @@ export const en = {
       },
       "disciplinary-proceedings": {
         title: "Professional Disciplinary Proceedings",
-        seoTitle: "Professional Disciplinary Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO قانوني",
+        seoTitle: "Professional Disciplinary Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO",
         subtitle: "Expert defence in professional disciplinary proceedings before Saudi regulatory and professional bodies.",
         overview1: "Professional disciplinary proceedings before Saudi regulatory authorities and professional licensing bodies can have severe consequences — suspension or revocation of professional licence, financial penalties, public censure, or even criminal referral. Whether you are a lawyer, engineer, accountant, doctor, or licensed professional facing disciplinary action in Saudi Arabia, CounselO provides specialist defence representation. With over 30 years of experience in Saudi administrative law and disciplinary proceedings, our online consultation service puts specialist disciplinary defence advice at your fingertips — immediately.",
         overview2: "Disciplinary proceedings are adversarial processes governed by specific procedural rules. Effective defence requires both an understanding of the applicable professional standards and the procedural protections afforded to the respondent — including the right to be heard, the right to present evidence, and the right to appeal. CounselO brings rigorous procedural and substantive expertise to every professional disciplinary case.",
@@ -1990,7 +1990,7 @@ export const en = {
       },
       "government-compensation": {
         title: "Compensation Claims Against Government",
-        seoTitle: "Government Compensation Claim Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO قانوني",
+        seoTitle: "Government Compensation Claim Lawyer in Saudi Arabia | Online Administrative Law Consultation | CounselO",
         subtitle: "Pursuing compensation from Saudi government entities for unlawful acts, wrongful decisions, and administrative wrongs.",
         overview1: "When a Saudi government entity causes you loss through an unlawful act, wrongful administrative decision, negligence, or breach of a legal duty, Saudi administrative law provides the right to claim compensation before the Board of Grievances. Government compensation claims in Saudi Arabia can arise from a wide range of situations — unlawful administrative decisions that caused business loss, government project delays and interferences, wrongful property acquisition, regulatory negligence, and many others. CounselO has represented individuals and companies in government compensation claims for over 30 years, with the substantive and procedural expertise that these complex cases demand.",
         overview2: "Government compensation claims require establishing both the unlawfulness of the government act and the causal link between that act and the loss suffered — and quantifying that loss with evidence that the Board of Grievances will accept. CounselO manages every element of this process — from initial assessment of liability through expert-supported quantum evidence to final judgment and enforcement.",
@@ -3063,7 +3063,7 @@ export const en = {
     services: {
       "contract-drafting": {
         title: "Contract Drafting & Review",
-        seoTitle: "Contract Drafting Lawyer in Saudi Arabia — Bilingual Contract Drafting & Legal Review | CounselO قانوني",
+        seoTitle: "Contract Drafting Lawyer in Saudi Arabia — Bilingual Contract Drafting & Legal Review | CounselO",
         subtitle: "Precise, bilingual Arabic-English contracts that are immediately enforceable before Saudi courts and arbitration panels.",
         overview1: "A poorly drafted contract is one of the most common and costliest legal mistakes a business can make in Saudi Arabia. Ambiguous terms, missing clauses, and unenforceable provisions create disputes that are entirely avoidable — and that can take years to resolve before Saudi Commercial Courts. At CounselO, our contract drafting practice is built on over 30 years of hands-on experience structuring, drafting, and litigating contracts under Saudi law. We draft contracts that anticipate disputes, protect your core interests, and survive scrutiny before Saudi courts and arbitration tribunals.",
         overview2: "Saudi Arabia's legal framework requires contracts to be in Arabic — or accompanied by a certified Arabic translation — to be relied upon in court proceedings. CounselO drafts fully bilingual Arabic-English contracts that satisfy this requirement without compromising clarity in either language. Whether you are a Saudi business entering a major supplier agreement, a foreign investor structuring a joint venture, or an individual requiring a bespoke property or personal contract, CounselO provides contract drafting services across the full spectrum of Saudi law.",
@@ -3095,7 +3095,7 @@ export const en = {
       },
       "contract-disputes": {
         title: "Contract Disputes & Breach of Contract",
-        seoTitle: "Contract Disputes Lawyer in Saudi Arabia — Breach of Contract & Commercial Litigation | CounselO قانوني",
+        seoTitle: "Contract Disputes Lawyer in Saudi Arabia — Breach of Contract & Commercial Litigation | CounselO",
         subtitle: "Decisive representation in contract disputes, breach of contract claims, and commercial litigation before Saudi courts and arbitration panels.",
         overview1: "Contract disputes are among the most common and commercially significant legal matters in Saudi Arabia — and how you respond to a breach of contract can determine whether you recover your full entitlement or lose it entirely. At CounselO, our contract disputes practice is built on over 30 years of Saudi commercial litigation experience, with more than 20,000 cases and consultations handled across Saudi Arabia. We represent claimants and respondents in all forms of commercial contract dispute — from straightforward payment defaults to complex multi-party construction and supply chain disputes before Saudi Commercial Courts and arbitration tribunals.",
         overview2: "Saudi contract law provides a range of remedies for breach — specific performance, damages, contract rescission, and penalty clause enforcement — but the correct remedy depends on the nature of the breach, the contract terms, and your commercial objectives. CounselO assesses your position immediately and pursues the most effective remedy with urgency and precision.",
@@ -3127,7 +3127,7 @@ export const en = {
       },
       "government-contracts": {
         title: "Government & Public Sector Contracts",
-        seoTitle: "Government Contracts Lawyer in Saudi Arabia — Public Procurement & Tender Disputes | CounselO قانوني",
+        seoTitle: "Government Contracts Lawyer in Saudi Arabia — Public Procurement & Tender Disputes | CounselO",
         subtitle: "Specialist representation in government contract disputes, tender challenges, and public procurement proceedings before Saudi administrative courts.",
         overview1: "Government contracts in Saudi Arabia — governed by the Government Tenders and Procurement Law (Royal Decree No. M/128) and its implementing regulations — represent some of the largest and most complex contractual arrangements in the Kingdom. When the government fails to perform a contract, wrongfully terminates an agreement, or makes a procurement decision that violates the Tenders Law, affected contractors and suppliers have legal remedies — including claims before the Board of Grievances and applications to the competent Grievance Committee. CounselO brings over 30 years of experience in Saudi administrative and government contract proceedings to every government contract dispute.",
         overview2: "Government contract disputes require specialist expertise that spans both contract law and Saudi administrative law. Deadline compliance is critical — appeals against government procurement decisions must be filed within short limitation periods. CounselO acts immediately upon instruction to protect your rights and pursue all available remedies, including emergency suspension of unlawful procurement decisions.",
@@ -3159,7 +3159,7 @@ export const en = {
       },
       "real-estate-contracts": {
         title: "Real Estate Contracts",
-        seoTitle: "Real Estate Contract Lawyer in Saudi Arabia — Property Sale, Lease & Construction Contracts | CounselO قانوني",
+        seoTitle: "Real Estate Contract Lawyer in Saudi Arabia — Property Sale, Lease & Construction Contracts | CounselO",
         subtitle: "Expert legal guidance on real estate contract drafting, disputes, and enforcement across all property types in Saudi Arabia.",
         overview1: "Real estate contracts — including sale and purchase agreements, lease contracts, construction and fit-out agreements, and property management contracts — are among the highest-value legal documents that individuals and businesses execute in Saudi Arabia. A single overlooked clause, an ambiguous delivery obligation, or a missing termination mechanism can result in years of costly litigation before Saudi courts. CounselO's real estate contracts practice combines deep knowledge of Saudi property law, the Real Estate General Authority regulatory framework, and 30+ years of practical real estate litigation experience.",
         overview2: "From reviewing a residential purchase agreement to drafting a complex commercial lease or construction contract, CounselO provides the precise, commercially focused legal guidance that Saudi real estate transactions demand. We also represent landlords, tenants, buyers, sellers, and contractors in all forms of real estate contract dispute before Saudi courts — including urgent injunctions where a party is in breach of a critical real estate obligation.",
@@ -3191,7 +3191,7 @@ export const en = {
       },
       "employment-contracts": {
         title: "Employment & Labour Contracts",
-        seoTitle: "Employment Contract Lawyer in Saudi Arabia — Labour Contract Drafting, Review & Disputes | CounselO قانوني",
+        seoTitle: "Employment Contract Lawyer in Saudi Arabia — Labour Contract Drafting, Review & Disputes | CounselO",
         subtitle: "Specialist legal advice on employment contract drafting, review, breach, and Saudi Labour Court representation for employers and employees.",
         overview1: "Employment contracts in Saudi Arabia are governed by the Saudi Labour Law and its implementing regulations — and the terms of the employment contract determine every aspect of the employment relationship, including salary, notice periods, end-of-service benefits, non-compete obligations, and dispute resolution. A poorly drafted employment contract exposes employers to costly Labour Tribunal claims and deprives employees of protections they are legally entitled to. CounselO's employment contracts practice provides expert guidance to both employers and employees across the full lifecycle of the employment relationship.",
         overview2: "From advising on employment contract terms before signature to representing clients before Saudi Labour Tribunals in breach of contract disputes, CounselO's team brings over 30 years of Saudi labour law experience to every employment contract matter. We handle both individual employment disputes and multi-party employer restructuring — including mass layoff compliance, Saudization (Nitaqat) contract requirements, and executive employment agreement negotiation.",
@@ -3223,7 +3223,7 @@ export const en = {
       },
       "partnership-agreements": {
         title: "Partnership & Joint Venture Agreements",
-        seoTitle: "Partnership & Joint Venture Agreement Lawyer in Saudi Arabia — Drafting, Disputes & Dissolution | CounselO قانوني",
+        seoTitle: "Partnership & Joint Venture Agreement Lawyer in Saudi Arabia — Drafting, Disputes & Dissolution | CounselO",
         subtitle: "Expert legal guidance on partnership and joint venture agreement drafting, dispute resolution, and dissolution under Saudi law.",
         overview1: "Partnership and joint venture agreements govern some of the most complex and high-stakes business relationships in Saudi Arabia — aligning parties with different interests, contributions, and expectations into a shared commercial structure. When these relationships break down, the resulting disputes can be devastating: businesses paralysed, assets frozen, and years of accumulated value destroyed in months of litigation. CounselO's partnership and joint venture practice provides expert guidance at every stage — from initial structuring and agreement drafting through to dispute resolution and dissolution.",
         overview2: "Whether you are forming a new partnership with a Saudi or international counterpart, negotiating the terms of a joint venture entry, or facing a breakdown in a partnership relationship, CounselO brings over 30 years of Saudi commercial law experience to your matter. We draft partnership agreements that anticipate and prevent disputes — and when disputes arise, we resolve them decisively.",
@@ -3255,7 +3255,7 @@ export const en = {
       },
       "international-contracts": {
         title: "International & Cross-Border Contracts",
-        seoTitle: "International Contracts Lawyer in Saudi Arabia — Cross-Border Contract Disputes & Enforcement | CounselO قانوني",
+        seoTitle: "International Contracts Lawyer in Saudi Arabia — Cross-Border Contract Disputes & Enforcement | CounselO",
         subtitle: "Specialist advice on international contracts involving Saudi Arabia — governing law, jurisdiction, and cross-border dispute resolution.",
         overview1: "International contracts involving Saudi parties or Saudi-based performance present a unique set of legal challenges: which law governs the contract, which court or tribunal has jurisdiction, how will a foreign judgment be enforced in Saudi Arabia, and how do Saudi law mandatory provisions interact with a chosen foreign law? These questions are critical — and answering them incorrectly can render an international contract unenforceable or expose a party to unexpected liability. CounselO's international contracts practice provides specialist guidance on cross-border contracts involving Saudi Arabia from over 30 years of experience in Saudi law and cross-border commercial practice.",
         overview2: "Whether you are drafting an international supply agreement, reviewing a foreign-law contract for Saudi compliance, enforcing a foreign judgment in Saudi Arabia, or defending against an international arbitration claim, CounselO provides the specialist guidance that cross-border contracts demand. We advise on governing law selection, jurisdiction clauses, arbitration agreements, and Saudi law mandatory provisions that apply regardless of the chosen law.",
@@ -3287,7 +3287,7 @@ export const en = {
       },
       "contract-enforcement": {
         title: "Contract Enforcement & Performance Obligations",
-        seoTitle: "Contract Enforcement Lawyer in Saudi Arabia — Specific Performance & Enforcement Proceedings | CounselO قانوني",
+        seoTitle: "Contract Enforcement Lawyer in Saudi Arabia — Specific Performance & Enforcement Proceedings | CounselO",
         subtitle: "Expert legal representation to enforce contract performance obligations, obtain specific performance orders, and execute judgments against non-performing parties in Saudi Arabia.",
         overview1: "Winning a contract dispute is only the first step — enforcing the resulting judgment or obtaining an order compelling the other party to perform is often where the real legal work lies. Saudi Arabia's enforcement courts, established under the Enforcement Law (Royal Decree M/53), provide powerful mechanisms for enforcing court judgments and arbitral awards — including asset attachment, bank account garnishment, travel bans, and property enforcement. CounselO's contract enforcement practice combines deep litigation expertise with specialist enforcement court experience, giving our clients the most effective route from a favorable judgment to actual recovery.",
         overview2: "Contract enforcement also includes obtaining specific performance orders — court orders compelling the other party to actually perform their contractual obligations, rather than simply paying damages. Saudi courts have broad powers to grant specific performance where damages are inadequate. CounselO advises on when to seek specific performance versus damages, and pursues the remedy that best serves your commercial objectives.",
@@ -3353,7 +3353,7 @@ export const en = {
     services: {
       "criminal-defense": {
         title: "Criminal Defense",
-        seoTitle: "Criminal Defense Lawyer in Saudi Arabia — Expert Saudi Criminal Court Representation | CounselO قانوني",
+        seoTitle: "Criminal Defense Lawyer in Saudi Arabia — Expert Saudi Criminal Court Representation | CounselO",
         subtitle: "Decisive criminal defense representation for individuals and businesses facing criminal prosecution before Saudi courts.",
         overview1: "Saudi Arabia's criminal proceedings are governed by Islamic Sharia principles and the Code of Criminal Procedure (Royal Decree M/39), which sets out the rights of accused persons and the procedural requirements at every stage of a criminal case. Criminal matters move quickly in the Kingdom — from investigation through prosecution, first-instance judgment, and appeal — with strict deadlines that must be met to preserve your legal rights. Whether you face a misdemeanor, a discretionary (ta'zir) offense, or a serious felony, having experienced criminal defense counsel from the earliest possible moment is essential to achieving the best possible outcome.",
         overview2: "At CounselO, our criminal defense team has over 30 years of experience before Saudi criminal courts at every level — from first appearance before the Public Prosecution through trial hearings, the Court of Appeal, and the Supreme Court. We challenge prosecution evidence on legal and factual grounds, protect your procedural rights throughout every stage, and build comprehensive defense strategies tailored to your specific circumstances and the exact charges you face.",
@@ -3374,7 +3374,7 @@ export const en = {
       },
       "bail-release": {
         title: "Bail & Release Applications",
-        seoTitle: "Bail Application Lawyer in Saudi Arabia — Urgent Kafala Release from Saudi Detention | CounselO قانوني",
+        seoTitle: "Bail Application Lawyer in Saudi Arabia — Urgent Kafala Release from Saudi Detention | CounselO",
         subtitle: "Urgent bail and release applications for detained individuals before Saudi criminal courts and the Public Prosecution.",
         overview1: "Detention pending investigation or trial in Saudi Arabia — known as al-tawqif — can be ordered by the Public Prosecution or a criminal court during the investigation and prosecution phases of a criminal case. Saudi law permits detention to be substituted by kafala (guarantee) or bail in many circumstances, but the application must be presented correctly and promptly, with the right legal arguments, to be successful. Delay in seeking release can result in unnecessarily prolonged detention and prejudice to the underlying case.",
         overview2: "At CounselO, we move on an emergency basis to secure release of detained individuals — preparing and presenting kafala applications before the Public Prosecution and criminal courts with urgency and specialist criminal procedure expertise. We advise on the grounds for release, the conditions likely to be imposed, and how to comply with all release conditions to protect the ongoing defense of the underlying case.",
@@ -3394,7 +3394,7 @@ export const en = {
       },
       "criminal-appeals": {
         title: "Criminal Appeals",
-        seoTitle: "Criminal Appeal Lawyer in Saudi Arabia — Court of Appeal & Supreme Court Criminal Representation | CounselO قانوني",
+        seoTitle: "Criminal Appeal Lawyer in Saudi Arabia — Court of Appeal & Supreme Court Criminal Representation | CounselO",
         subtitle: "Expert criminal appellate representation before the Saudi Court of Appeal and Supreme Court — challenging wrongful convictions and excessive sentences.",
         overview1: "Criminal appeals in Saudi Arabia must be filed within strict time limits from the date of judgment — time limits that, if missed, can result in the judgment becoming final and enforceable. The Saudi Court of Appeal reviews first-instance criminal judgments for both factual and legal errors, and in serious cases the Supreme Court exercises further oversight. A well-prepared criminal appeal — identifying the strongest grounds and presenting them in the format and language required by Saudi appellate courts — is essential to success.",
         overview2: "At CounselO, our criminal appeals practice covers the full range of appellate work: from advising on the prospects for appeal immediately upon judgment, through drafting comprehensive appeal memoranda, to oral representation before the Court of Appeal and Supreme Court. We identify every available ground of appeal — procedural error, misapplication of law, factual error, or disproportionate sentence — and present each with full supporting argument and authority.",
@@ -3414,7 +3414,7 @@ export const en = {
       },
       "cybercrime-cases": {
         title: "Cybercrime Defense",
-        seoTitle: "Cybercrime Defense Lawyer in Saudi Arabia — Anti-Cybercrime Law (M/17) Expert Defense | CounselO قانوني",
+        seoTitle: "Cybercrime Defense Lawyer in Saudi Arabia — Anti-Cybercrime Law (M/17) Expert Defense | CounselO",
         subtitle: "Specialist criminal defense under Saudi Arabia's Anti-Cybercrime Law — defending individuals and businesses in all cybercrime proceedings.",
         overview1: "Saudi Arabia's Anti-Cybercrime Law (Royal Decree M/17, 1428H) criminalizes a wide range of online conduct — from unauthorized access to computer systems and networks through to online defamation, privacy violations, content offenses, and cybersecurity breaches. Penalties under the law are severe: custodial sentences of up to 1 year for unauthorized access (with significantly higher penalties for aggravated offenses) and fines of up to SAR 5 million. The CITC (Communications, Space & Technology Commission) and law enforcement agencies investigate cybercrime allegations urgently, and cases can move from allegation to formal charge quickly.",
         overview2: "At CounselO, our cybercrime defense team provides expert representation for individuals and businesses investigated or charged under the Anti-Cybercrime Law — from the investigation stage through trial and appeal. We challenge the digital evidence on which cybercrime prosecutions depend, advise on the procedural rights of accused persons, and present comprehensive legal defenses to every element of the prosecution's case.",
@@ -3434,7 +3434,7 @@ export const en = {
       },
       "financial-crimes": {
         title: "Financial Crimes Defense",
-        seoTitle: "Financial Crimes Defense Lawyer in Saudi Arabia — Fraud, Embezzlement & Commercial Crime Defense | CounselO قانوني",
+        seoTitle: "Financial Crimes Defense Lawyer in Saudi Arabia — Fraud, Embezzlement & Commercial Crime Defense | CounselO",
         subtitle: "Expert criminal defense for fraud, embezzlement, money laundering, and financial crime cases before Saudi courts.",
         overview1: "Financial crimes in Saudi Arabia — including fraud (tahayul), commercial forgery (tazweer), embezzlement (ikhtilas), bribery (rishwa), and money laundering (ghaseel al-amwal) — are treated seriously by Saudi courts and the Public Prosecution. The Saudi Anti-Money Laundering Law, the Anti-Bribery Law, and the Commercial Fraud Law impose severe criminal penalties — including lengthy custodial sentences and substantial fines — and financial crime investigations often involve multiple agencies including the Public Prosecution, SAMA, and ZATCA.",
         overview2: "At CounselO, our financial crimes defense practice covers the full range of criminal financial matters — from defending allegations of commercial fraud and embezzlement through to complex money laundering cases and bribery charges. We advise clients from the earliest investigation stage, challenge the prosecution's financial evidence, and present comprehensive defenses drawing on our deep understanding of Saudi criminal law and the financial regulatory framework.",
@@ -3454,7 +3454,7 @@ export const en = {
       },
       "drug-offenses": {
         title: "Drug Offense Defense",
-        seoTitle: "Drug Offense Lawyer in Saudi Arabia — Narcotics & Controlled Substance Criminal Defense | CounselO قانوني",
+        seoTitle: "Drug Offense Lawyer in Saudi Arabia — Narcotics & Controlled Substance Criminal Defense | CounselO",
         subtitle: "Urgent expert criminal defense for drug offense cases under Saudi Arabia's Narcotics and Psychotropic Substances Control Law.",
         overview1: "Saudi Arabia enforces some of the strictest anti-narcotics laws in the world. The Narcotics and Psychotropic Substances Control Law (Royal Decree M/39) imposes severe penalties — including the death penalty for drug trafficking in serious cases, and lengthy custodial sentences for possession, use, and lesser trafficking offenses. Drug offense investigations move rapidly from arrest through to formal charge, and the strength of your legal defense from the earliest moment of contact with law enforcement is critical to the outcome of your case.",
         overview2: "At CounselO, our criminal defense team provides urgent, expert representation for individuals arrested or charged with drug offenses in Saudi Arabia — covering possession, use, trafficking, and importation allegations. We advise on every stage of the case, challenge the prosecution's evidence on legal and procedural grounds, and present the strongest available defense to minimize criminal exposure and protect your rights throughout the process.",
@@ -3474,7 +3474,7 @@ export const en = {
       },
       "criminal-investigations": {
         title: "Criminal Investigations",
-        seoTitle: "Criminal Investigation Lawyer in Saudi Arabia — Public Prosecution Representation & Rights Protection | CounselO قانوني",
+        seoTitle: "Criminal Investigation Lawyer in Saudi Arabia — Public Prosecution Representation & Rights Protection | CounselO",
         subtitle: "Expert representation during criminal investigation stage — protecting your rights before the Saudi Public Prosecution and law enforcement.",
         overview1: "The investigation stage of a criminal case in Saudi Arabia — conducted by the Public Prosecution (al-Idda'a al-'Amma) — is a critical phase that shapes the entire course of the case. Evidence collected during investigation, statements made by accused persons, and procedural decisions taken at this stage all directly affect the outcome of any subsequent prosecution. Accused persons have legal rights during investigation — including the right to silence and the right to legal representation — but these rights must be actively asserted to be effective.",
         overview2: "At CounselO, we represent clients at the investigation stage of criminal cases — advising on the right to silence, attending investigative sessions, challenging unlawful detention, and managing the presentation of our client's position to the Public Prosecution. Early intervention at the investigation stage often provides the best opportunity to limit criminal exposure — and in some cases to prevent a formal charge being brought at all.",
@@ -3494,7 +3494,7 @@ export const en = {
       },
       "public-order": {
         title: "Public Order Offenses",
-        seoTitle: "Public Order & Morality Offense Lawyer in Saudi Arabia — Criminal Defense for Public Conduct Charges | CounselO قانوني",
+        seoTitle: "Public Order & Morality Offense Lawyer in Saudi Arabia — Criminal Defense for Public Conduct Charges | CounselO",
         subtitle: "Expert criminal defense for public order, public morality, and hate speech offenses under Saudi law.",
         overview1: "Public order and public morality offenses in Saudi Arabia cover a broad range of conduct — from violations of the rules regulating public gatherings and protests, through content offenses under the Anti-Cybercrime Law, to hate speech and sectarian incitement charges. Enforcement of public order laws has been active in Saudi Arabia, and charges in this category can carry significant criminal penalties including custodial sentences and fines. The precise scope of what constitutes a criminal offense in these areas requires careful legal analysis.",
         overview2: "At CounselO, our criminal defense team provides specialist representation for clients charged with public order and public morality offenses — from initial consultation through to trial and appeal. We analyze the specific charges carefully, identify all available legal defenses, and challenge both the factual basis and the legal characterization of the alleged conduct. Our defense practice covers all categories of public order offense, including matters arising from online activity, social media use, and participation in public gatherings.",
@@ -3548,7 +3548,7 @@ export const en = {
     services: {
       "islamic-finance": {
         title: "Islamic Finance Contracts",
-        seoTitle: "Islamic Finance Lawyer in Saudi Arabia — Murabaha, Ijara & Sharia-Compliant Finance Contracts | CounselO قانوني",
+        seoTitle: "Islamic Finance Lawyer in Saudi Arabia — Murabaha, Ijara & Sharia-Compliant Finance Contracts | CounselO",
         subtitle: "Specialist structuring and documentation of Islamic finance contracts — murabaha, ijara, musharaka, and istisna — fully compliant with Saudi law and Sharia.",
         overview1: "Saudi Arabia's financial system is built on Islamic finance principles, with the vast majority of consumer, corporate, and government financing structured through Sharia-compliant instruments — murabaha (cost-plus financing), ijara (leasing), musharaka (partnership financing), istisna (construction financing), and tawaruq (commodity financing). Each of these instruments has specific Sharia requirements and Saudi regulatory standards that must be precisely met for the transaction to be valid, enforceable, and compliant with SAMA requirements.",
         overview2: "At CounselO, our Islamic finance practice covers the full range of Sharia-compliant financing transactions — from initial structuring and Sharia board approval requirements through to documentation, regulatory filings, and dispute resolution. We advise both financiers and borrowers on all aspects of Islamic finance contract structuring, and provide bilingual Arabic-English documentation that is immediately enforceable before Saudi courts.",
@@ -3568,7 +3568,7 @@ export const en = {
       },
       "banking-disputes": {
         title: "Banking Disputes",
-        seoTitle: "Banking Dispute Lawyer in Saudi Arabia — Bank Litigation & Financial Dispute Resolution | CounselO قانوني",
+        seoTitle: "Banking Dispute Lawyer in Saudi Arabia — Bank Litigation & Financial Dispute Resolution | CounselO",
         subtitle: "Specialist litigation and dispute resolution for banking disputes before Saudi commercial courts and financial tribunals.",
         overview1: "Banking disputes in Saudi Arabia arise across a wide range of scenarios — from disputed financing agreements and unauthorized transactions to enforcement of security, bank guarantee calls, and disagreements over account operation. The Saudi financial sector is heavily regulated by SAMA, and banking disputes can involve both regulatory dimensions (complaint to SAMA's Consumer Protection Department) and litigation before Saudi commercial courts. Selecting the right forum and pursuing claims or defenses in the right sequence is critical to a successful outcome.",
         overview2: "At CounselO, our banking disputes practice covers both claimant and respondent representation in all categories of bank-customer and bank-bank disputes — including enforcement of security, challenge of unauthorized transactions, guarantee disputes, financing agreement disputes, and credit facility disagreements. We advise on the SAMA complaints process, assist in negotiated resolution where possible, and pursue litigation before Saudi commercial courts where settlement cannot be achieved.",
@@ -3588,7 +3588,7 @@ export const en = {
       },
       "loan-agreements": {
         title: "Loan & Financing Agreements",
-        seoTitle: "Loan & Financing Agreement Lawyer in Saudi Arabia — Islamic Finance Contract Drafting & Review | CounselO قانوني",
+        seoTitle: "Loan & Financing Agreement Lawyer in Saudi Arabia — Islamic Finance Contract Drafting & Review | CounselO",
         subtitle: "Expert drafting and review of Islamic finance and loan agreements — fully compliant with Saudi law, SAMA requirements, and Sharia principles.",
         overview1: "Financing agreements in Saudi Arabia — whether murabaha, ijara, musharaka, or tawaruq — must comply precisely with Sharia requirements and SAMA regulatory standards to be valid and enforceable before Saudi courts. A financing agreement that is drafted without specialist expertise can be challenged on Sharia compliance grounds, may be unenforceable in key provisions, or may fail to protect the rights of either party in the event of default or dispute. Specialist legal drafting of all financing agreements is essential.",
         overview2: "At CounselO, we provide full service financing agreement drafting and review — from initial term sheet review through to final execution versions of all transaction documents. We draft bilingual Arabic-English financing agreements that are immediately enforceable before Saudi courts without modification, and review financing agreements presented by counterparties to identify risks, non-standard provisions, and compliance issues before signing.",
@@ -3608,7 +3608,7 @@ export const en = {
       },
       "financial-regulatory": {
         title: "Financial Regulatory Compliance",
-        seoTitle: "Financial Regulatory Compliance Lawyer in Saudi Arabia — SAMA & CMA Regulatory Advice | CounselO قانوني",
+        seoTitle: "Financial Regulatory Compliance Lawyer in Saudi Arabia — SAMA & CMA Regulatory Advice | CounselO",
         subtitle: "Expert advice on SAMA and CMA financial regulatory compliance — licensing, regulatory approvals, and compliance program implementation.",
         overview1: "Saudi Arabia's financial sector is regulated by two principal authorities: the Saudi Central Bank (SAMA), which regulates banks, finance companies, payment service providers, and insurance entities; and the Capital Market Authority (CMA), which regulates investment activities, listed companies, and capital market participants. Both regulators maintain active supervisory programs, and compliance failures carry serious consequences — including regulatory sanctions, license suspension, and in serious cases criminal referral.",
         overview2: "At CounselO, our financial regulatory practice advises banks, finance companies, payment service providers, investment managers, and other regulated entities on all aspects of Saudi financial regulation — from initial licensing applications through ongoing compliance program management, regulatory investigations, and enforcement defense. We also advise on the regulatory implications of proposed transactions and corporate changes for regulated entities.",
@@ -3628,7 +3628,7 @@ export const en = {
       },
       "sukuk-bonds": {
         title: "Sukuk & Islamic Bonds",
-        seoTitle: "Sukuk Lawyer in Saudi Arabia — Islamic Bond Structuring, Documentation & Dispute Resolution | CounselO قانوني",
+        seoTitle: "Sukuk Lawyer in Saudi Arabia — Islamic Bond Structuring, Documentation & Dispute Resolution | CounselO",
         subtitle: "Specialist advice on sukuk issuance, structuring, and dispute resolution — covering all major sukuk structures used in Saudi Arabia.",
         overview1: "Sukuk — Islamic financial certificates that represent ownership interests in assets, usufructs, or projects — are the Islamic equivalent of bonds and are the primary capital market instrument used by Saudi corporates and the government to raise debt financing. Saudi Arabia is one of the world's largest sukuk markets, with both domestic and international sukuk issuances governed by CMA regulations and Sharia requirements. Properly structured sukuk are tradable on the Saudi Exchange (Tadawul) or privately placed, with specific regulatory and Sharia compliance requirements applying to each structure.",
         overview2: "At CounselO, our sukuk practice advises issuers, arrangers, and investors on all aspects of sukuk transactions — from selecting the appropriate sukuk structure through to documentation, CMA regulatory approval, and dispute resolution. We advise on the full range of sukuk structures used in the Saudi market: ijara sukuk, musharaka sukuk, murabaha sukuk, wakalah sukuk, and hybrid structures.",
@@ -3648,7 +3648,7 @@ export const en = {
       },
       "banking-fraud": {
         title: "Banking Fraud Cases",
-        seoTitle: "Banking Fraud Lawyer in Saudi Arabia — Bank Fraud Defense & Financial Crime Recovery | CounselO قانوني",
+        seoTitle: "Banking Fraud Lawyer in Saudi Arabia — Bank Fraud Defense & Financial Crime Recovery | CounselO",
         subtitle: "Specialist legal representation for banking fraud cases — defending accused parties and recovering losses for fraud victims before Saudi courts.",
         overview1: "Banking fraud in Saudi Arabia covers a wide range of conduct — from fraudulent account operations and identity theft through to credit facility fraud, false documentation presented to banks, and employee embezzlement from financial institutions. Banking fraud can give rise to both criminal prosecution and civil recovery proceedings, and in many cases both avenues are pursued simultaneously. The involvement of multiple parties — banks, borrowers, guarantors, and potentially regulators — makes banking fraud litigation complex.",
         overview2: "At CounselO, our banking fraud practice covers both sides of banking fraud litigation: defense representation for individuals and businesses accused of banking fraud offenses, and recovery representation for banks and individuals seeking to recover losses from banking fraud. We provide specialist expertise in both the criminal defense and civil recovery dimensions of banking fraud cases, maximizing the effectiveness of every legal avenue available.",
@@ -3668,7 +3668,7 @@ export const en = {
       },
       "credit-facilities": {
         title: "Credit Facilities & Guarantees",
-        seoTitle: "Credit Facility & Guarantee Lawyer in Saudi Arabia — Islamic Finance Facility & Bank Guarantee Disputes | CounselO قانوني",
+        seoTitle: "Credit Facility & Guarantee Lawyer in Saudi Arabia — Islamic Finance Facility & Bank Guarantee Disputes | CounselO",
         subtitle: "Expert advice on credit facility agreements, bank guarantees, and personal guarantee disputes under Saudi Islamic finance law.",
         overview1: "Credit facilities — whether revolving facilities, term facilities, or letters of credit — and bank guarantees are fundamental instruments in Saudi commercial life. Both are heavily used in corporate and project financing and in commercial transactions across all sectors. Disputes arising from credit facilities and guarantees — including calls on guarantees, facility defaults, and restructuring disagreements — are among the most commercially significant banking law matters in Saudi Arabia.",
         overview2: "At CounselO, our banking law practice covers the full range of credit facility and guarantee matters: drafting and reviewing facility and guarantee documentation; advising on the validity and enforceability of guarantee calls; defending guarantors against allegedly improper calls; and pursuing recovery under facilities or guarantees where counterparties default. We provide commercially focused, results-oriented advice for both creditors and debtors in credit and guarantee disputes.",
@@ -3688,7 +3688,7 @@ export const en = {
       },
       "investment-disputes": {
         title: "Investment Fund Disputes",
-        seoTitle: "Investment Fund Dispute Lawyer in Saudi Arabia — CMA Fund Litigation & Investor Recovery | CounselO قانوني",
+        seoTitle: "Investment Fund Dispute Lawyer in Saudi Arabia — CMA Fund Litigation & Investor Recovery | CounselO",
         subtitle: "Expert litigation and dispute resolution for investment fund disputes — representing investors, fund managers, and CMA-regulated entities.",
         overview1: "Saudi Arabia's investment fund industry — regulated by the Capital Market Authority (CMA) under the Investment Funds Regulations — encompasses public funds listed on Tadawul, private placement funds for qualified investors, and real estate investment trusts (REITs). Investment fund disputes arise from a range of circumstances: fund manager misconduct, misrepresentation of fund characteristics, unauthorized investment decisions, redemption refusals, and fund insolvency. The regulatory dimension of investment fund disputes — involving potential CMA enforcement alongside private litigation — makes specialist legal advice essential.",
         overview2: "At CounselO, our investment funds practice covers dispute resolution for all categories of fund-related dispute — representing both investors pursuing claims against fund managers and fund managers defending claims. We advise on the CMA regulatory framework applicable to fund disputes, the available litigation and arbitration routes, and the strategic sequencing of regulatory complaint and civil litigation to maximize the effectiveness of each.",
@@ -3742,7 +3742,7 @@ export const en = {
     services: {
       "trademark-registration": {
         title: "Trademark Registration",
-        seoTitle: "Trademark Registration Lawyer in Saudi Arabia — SAIP Trademark Filing & Protection | CounselO قانوني",
+        seoTitle: "Trademark Registration Lawyer in Saudi Arabia — SAIP Trademark Filing & Protection | CounselO",
         subtitle: "Comprehensive trademark registration services before the Saudi Authority for Intellectual Property (SAIP) — protecting your brand in Saudi Arabia.",
         overview1: "Saudi Arabia's trademark system is administered by the Saudi Authority for Intellectual Property (SAIP) under the Trademarks Law (Royal Decree M/21). Saudi Arabia is a member of the Madrid System for International Trademark Registration — allowing trademark holders to file a single international application covering Saudi Arabia alongside other member countries. A Saudi trademark registration provides the legal basis for enforcement against infringement, customs recordal to prevent import of counterfeit goods, and licensing to third parties.",
         overview2: "At CounselO, our trademark practice covers the complete registration process from trademark clearance searches through to registration certificate. We conduct availability searches before filing to assess registerability and conflict risk, prepare and file applications in both Arabic and English, manage the prosecution process through examination and opposition, and maintain registered trademarks through renewals and enforcement actions.",
@@ -3762,7 +3762,7 @@ export const en = {
       },
       "patent-protection": {
         title: "Patent Protection",
-        seoTitle: "Patent Lawyer in Saudi Arabia — Patent Filing, Protection & Enforcement with SAIP | CounselO قانوني",
+        seoTitle: "Patent Lawyer in Saudi Arabia — Patent Filing, Protection & Enforcement with SAIP | CounselO",
         subtitle: "Expert patent filing and protection services — securing your inventions and innovations under Saudi Arabia's Patent Law.",
         overview1: "Saudi Arabia's Patent Law (Royal Decree M/27) protects new inventions that are novel, inventive, and capable of industrial application. SAIP (the Saudi Authority for Intellectual Property) administers the patent registration system, and Saudi Arabia is a member of the Patent Cooperation Treaty (PCT) — allowing a single international patent application to cover Saudi Arabia alongside PCT member countries. Patent protection in Saudi Arabia is increasingly important under Vision 2030, which places innovation and IP protection at the center of economic diversification.",
         overview2: "At CounselO, our patent practice covers the complete patent protection lifecycle — from patentability assessment and prior art searches through to patent application drafting and prosecution before SAIP, maintenance, licensing, and enforcement against infringers. We work with inventors, research institutions, and companies to protect their innovations in Saudi Arabia and to build effective patent portfolios that support their commercial objectives.",
@@ -3782,7 +3782,7 @@ export const en = {
       },
       "copyright-disputes": {
         title: "Copyright Disputes",
-        seoTitle: "Copyright Lawyer in Saudi Arabia — Copyright Infringement & Intellectual Property Disputes | CounselO قانوني",
+        seoTitle: "Copyright Lawyer in Saudi Arabia — Copyright Infringement & Intellectual Property Disputes | CounselO",
         subtitle: "Expert copyright litigation and dispute resolution — protecting creative works and defending against copyright infringement claims in Saudi Arabia.",
         overview1: "Saudi Arabia's Copyright Law (Royal Decree M/41) protects original literary, artistic, scientific, and software works — granting creators exclusive rights to reproduce, distribute, adapt, and publicly perform their works. Copyright protection in Saudi Arabia is automatic upon creation (no registration is required, though registration with SAIP is available and advisable as evidence of ownership). Copyright infringement carries both civil liability (damages and injunctions) and criminal penalties under Saudi law.",
         overview2: "At CounselO, our copyright practice covers both pursuing copyright infringement claims and defending against copyright allegations — before Saudi courts and through the SAIP enforcement process. We advise on copyright ownership (particularly in employment and contractor contexts), copyright licensing, copyright assignment, and the specific copyright exceptions that may apply to the use of protected works.",
@@ -3802,7 +3802,7 @@ export const en = {
       },
       "trade-secrets": {
         title: "Trade Secret Protection",
-        seoTitle: "Trade Secret Lawyer in Saudi Arabia — Confidential Information & Trade Secret Protection | CounselO قانوني",
+        seoTitle: "Trade Secret Lawyer in Saudi Arabia — Confidential Information & Trade Secret Protection | CounselO",
         subtitle: "Expert protection of confidential information and trade secrets — preventing misappropriation and enforcing rights under Saudi law.",
         overview1: "Trade secrets — confidential business information including formulas, processes, designs, customer lists, and know-how — are protected in Saudi Arabia under the Competition Law, the Labor Law (imposing post-employment obligations on employees), and contractual confidentiality obligations. Unlike trademarks and patents, trade secrets derive their protection from confidentiality rather than registration. Loss of trade secret protection can be catastrophic for businesses — allowing competitors to use information that took years and significant investment to develop.",
         overview2: "At CounselO, our trade secret practice covers the full range of confidentiality and trade secret matters: drafting robust non-disclosure agreements (NDAs), advising on trade secret identification and protection programs, pursuing urgent injunctions against misappropriation, and litigating trade secret theft claims before Saudi courts. We also defend clients accused of misappropriating competitors' confidential information.",
@@ -3822,7 +3822,7 @@ export const en = {
       },
       "ip-licensing": {
         title: "IP Licensing Agreements",
-        seoTitle: "IP Licensing Lawyer in Saudi Arabia — Trademark, Patent & Copyright Licensing Agreement Drafting | CounselO قانوني",
+        seoTitle: "IP Licensing Lawyer in Saudi Arabia — Trademark, Patent & Copyright Licensing Agreement Drafting | CounselO",
         subtitle: "Expert IP licensing agreement drafting and negotiation — maximizing the commercial value of your intellectual property rights in Saudi Arabia.",
         overview1: "IP licensing — allowing others to use your intellectual property rights in exchange for royalties or other consideration — is an important avenue for commercializing IP assets in Saudi Arabia. Licensing arrangements must be carefully structured to protect the licensor's rights, ensure compliance with Saudi foreign investment and competition regulations, and address the specific requirements of the Saudi market including Sharia compliance considerations for royalty arrangements. Poorly drafted licensing agreements can result in loss of rights, unenforceable provisions, or unanticipated regulatory consequences.",
         overview2: "At CounselO, our IP licensing practice covers all categories of IP license — trademark licenses, patent licenses, copyright licenses, technology transfer agreements, and franchise agreements — providing bilingual Arabic-English documentation that is enforceable before Saudi courts. We advise both licensors (rights-holders granting licenses) and licensees (parties receiving licenses) on the structure, terms, and negotiation of IP licensing arrangements.",
@@ -3842,7 +3842,7 @@ export const en = {
       },
       "brand-protection": {
         title: "Brand Protection",
-        seoTitle: "Brand Protection Lawyer in Saudi Arabia — Anti-Counterfeiting & Brand Enforcement | CounselO قانوني",
+        seoTitle: "Brand Protection Lawyer in Saudi Arabia — Anti-Counterfeiting & Brand Enforcement | CounselO",
         subtitle: "Proactive brand protection and anti-counterfeiting enforcement — protecting your brand from imitation and counterfeit goods in Saudi Arabia.",
         overview1: "Brand protection in Saudi Arabia requires a multi-layered approach: trademark registration as the legal foundation; customs recordal to prevent import of counterfeit goods; active market monitoring to detect infringement and counterfeiting; and rapid enforcement action — through demand letters, customs seizures, and court proceedings — when infringement is discovered. The Saudi market, including major retail centers in Riyadh, Jeddah, and other cities, has historically been a target for counterfeit goods across many product categories.",
         overview2: "At CounselO, our brand protection practice provides the complete spectrum of brand protection services — from trademark registration strategy through to active monitoring, customs enforcement, and litigation against counterfeiters. We work with brand owners to develop and implement a brand protection program tailored to their specific exposure in the Saudi market and to pursue swift enforcement action when counterfeit or infringing products are identified.",
@@ -3862,7 +3862,7 @@ export const en = {
       },
       "ip-disputes": {
         title: "IP Disputes & Litigation",
-        seoTitle: "IP Litigation Lawyer in Saudi Arabia — Intellectual Property Dispute Resolution & Enforcement | CounselO قانوني",
+        seoTitle: "IP Litigation Lawyer in Saudi Arabia — Intellectual Property Dispute Resolution & Enforcement | CounselO",
         subtitle: "Expert IP litigation and dispute resolution — enforcing and defending intellectual property rights before Saudi courts and SAIP.",
         overview1: "Intellectual property disputes in Saudi Arabia — involving trademarks, patents, copyrights, or trade secrets — can arise from infringement, co-ownership disagreements, license breaches, or challenges to the validity of registered IP rights. Saudi IP disputes are litigated before specialized IP courts and the SAIP administrative process, each with specific procedural requirements and timelines. Understanding the most effective forum and sequence for IP dispute resolution in Saudi Arabia is essential to achieving the best outcome.",
         overview2: "At CounselO, our IP litigation practice covers the full range of IP disputes — from trademark infringement to patent validity challenges and trade secret misappropriation. We represent both rights-holders pursuing IP claims and parties defending against IP allegations. Our litigation approach combines a rigorous assessment of the legal and factual issues with strategic use of the available enforcement mechanisms — SAIP complaints, customs seizures, civil litigation, and criminal complaints — to maximize leverage and achieve efficient resolution.",
@@ -3882,7 +3882,7 @@ export const en = {
       },
       "ip-due-diligence": {
         title: "IP Due Diligence",
-        seoTitle: "IP Due Diligence Lawyer in Saudi Arabia — Intellectual Property M&A and Transaction Due Diligence | CounselO قانوني",
+        seoTitle: "IP Due Diligence Lawyer in Saudi Arabia — Intellectual Property M&A and Transaction Due Diligence | CounselO",
         subtitle: "Comprehensive IP due diligence for mergers, acquisitions, investments, and licensing transactions in Saudi Arabia.",
         overview1: "IP due diligence — the assessment of intellectual property assets and liabilities as part of a transaction — is an essential component of any merger, acquisition, investment, or major licensing transaction in Saudi Arabia. Target companies and brands increasingly derive significant value from their IP assets, and unidentified IP risks (ownership disputes, infringement exposure, unregistered rights, or encumbrances on IP assets) can fundamentally affect the value and risk profile of a transaction.",
         overview2: "At CounselO, our IP due diligence practice provides comprehensive assessment of IP assets in Saudi and regional transactions — covering trademark, patent, copyright, trade secret, and domain name assets. We provide clients with a clear IP due diligence report identifying owned IP assets, registration status, key risks, and recommended pre-closing and post-closing actions to protect the IP value of the transaction.",
@@ -3936,7 +3936,7 @@ export const en = {
     services: {
       "vat-compliance": {
         title: "VAT Compliance & Disputes",
-        seoTitle: "VAT Lawyer in Saudi Arabia — VAT Compliance, ZATCA Disputes & Tax Objections | CounselO قانوني",
+        seoTitle: "VAT Lawyer in Saudi Arabia — VAT Compliance, ZATCA Disputes & Tax Objections | CounselO",
         subtitle: "Specialist VAT compliance advice and dispute resolution — defending businesses against ZATCA VAT assessments and penalties in Saudi Arabia.",
         overview1: "Saudi Arabia introduced VAT in January 2018 and increased the rate to 15% in July 2020 — making VAT compliance a critical obligation for all businesses operating in the Kingdom with taxable supplies above the registration threshold (currently SAR 375,000). ZATCA (Zakat, Tax and Customs Authority) actively audits VAT returns and issues assessments for underpaid VAT and penalties — which can include a 5-25% late payment penalty and a 50-100% tax evasion penalty in serious cases. VAT disputes before ZATCA can have significant financial consequences and require specialist legal expertise.",
         overview2: "At CounselO, our VAT practice covers both compliance advisory (ensuring your VAT position is correct before ZATCA examines it) and dispute resolution (challenging ZATCA VAT assessments and penalties after they are issued). We advise on the VAT treatment of complex transactions, assist with VAT registration, prepare VAT return reviews, and represent taxpayers in ZATCA objection proceedings and before the Tax Dispute Resolution Committee.",
@@ -3956,7 +3956,7 @@ export const en = {
       },
       "zakat-disputes": {
         title: "Zakat Disputes & Objections",
-        seoTitle: "Zakat Dispute Lawyer in Saudi Arabia — ZATCA Zakat Assessment Objections & Appeals | CounselO قانوني",
+        seoTitle: "Zakat Dispute Lawyer in Saudi Arabia — ZATCA Zakat Assessment Objections & Appeals | CounselO",
         subtitle: "Specialist representation for zakat disputes — challenging ZATCA zakat assessments and securing favorable outcomes before Saudi tax authorities.",
         overview1: "Zakat — the Islamic obligation on wealth — is collected by ZATCA from Saudi and GCC-national owned businesses and individuals in Saudi Arabia. Zakat is calculated at 2.5% of the zakat base (broadly, the company's net worth attributable to Saudi and GCC national shareholders), and ZATCA regularly audits zakat returns and issues assessments claiming additional zakat. The calculation of the zakat base is complex, and ZATCA's methodology frequently differs from the taxpayer's own calculation — creating disputes that require specialist legal and accounting expertise to resolve.",
         overview2: "At CounselO, our zakat practice covers zakat compliance advisory (ensuring correct zakat calculation and filing) and zakat dispute resolution (challenging ZATCA zakat assessments). We advise on the correct methodology for calculating the zakat base, prepare objections to ZATCA assessments on both legal and accounting grounds, and represent businesses before the Tax Dispute Resolution Committee and courts in zakat disputes.",
@@ -3976,7 +3976,7 @@ export const en = {
       },
       "zatca-appeals": {
         title: "ZATCA Appeals & Tax Tribunal",
-        seoTitle: "ZATCA Appeal Lawyer in Saudi Arabia — Tax Dispute Resolution Committee & Administrative Court | CounselO قانوني",
+        seoTitle: "ZATCA Appeal Lawyer in Saudi Arabia — Tax Dispute Resolution Committee & Administrative Court | CounselO",
         subtitle: "Expert representation before ZATCA's objection departments, Tax Dispute Resolution Committees, and administrative courts in Saudi Arabia.",
         overview1: "The ZATCA dispute resolution process has multiple stages: first, a formal objection filed with ZATCA's internal objection department; if not resolved, escalation to the Tax Dispute Resolution Committee (TDRC); and further appeal to the administrative court system. Each stage has specific filing requirements, evidence rules, and timelines that must be carefully managed. The TDRC has the power to modify or overturn ZATCA assessments — and effective representation at the committee stage is often the key to achieving a favorable outcome.",
         overview2: "At CounselO, our tax dispute practice covers all stages of the ZATCA appeal process — from preparing and filing the initial objection through to full representation before the TDRC and administrative courts. We present comprehensive legal and factual arguments at each stage, engage tax accounting experts where necessary to support the financial analysis, and pursue the most effective route to reversal or reduction of ZATCA assessments.",
@@ -3996,7 +3996,7 @@ export const en = {
       },
       "corporate-tax": {
         title: "Corporate Income Tax",
-        seoTitle: "Corporate Tax Lawyer in Saudi Arabia — Corporate Income Tax Compliance & ZATCA Disputes | CounselO قانوني",
+        seoTitle: "Corporate Tax Lawyer in Saudi Arabia — Corporate Income Tax Compliance & ZATCA Disputes | CounselO",
         subtitle: "Specialist corporate income tax advice — compliance, ZATCA assessments, and corporate tax planning for businesses operating in Saudi Arabia.",
         overview1: "Corporate income tax in Saudi Arabia is levied at 20% on the taxable income of non-Saudi, non-GCC owned entities (including branches of foreign companies). Saudi and GCC owned companies pay zakat rather than income tax on the Saudi/GCC portion of their income. The Kingdom's expanded tax framework — including the introduction of corporate income tax on investment funds and certain other entities — has significantly increased the number of Saudi-based entities subject to corporate income tax requirements.",
         overview2: "At CounselO, our corporate tax practice covers the full range of corporate income tax matters: compliance advisory (ensuring correct calculation and filing), ZATCA corporate income tax audit defense, assessment challenges before the TDRC, and tax planning advice on corporate structure and transactions. We advise on the corporate income tax implications of common business transactions including asset disposals, intercompany transactions, and corporate reorganizations.",
@@ -4016,7 +4016,7 @@ export const en = {
       },
       "transfer-pricing": {
         title: "Transfer Pricing",
-        seoTitle: "Transfer Pricing Lawyer in Saudi Arabia — ZATCA Transfer Pricing Documentation & Disputes | CounselO قانوني",
+        seoTitle: "Transfer Pricing Lawyer in Saudi Arabia — ZATCA Transfer Pricing Documentation & Disputes | CounselO",
         subtitle: "Expert transfer pricing advice — documentation, ZATCA audits, and dispute resolution for intercompany transactions in Saudi Arabia.",
         overview1: "Saudi Arabia introduced transfer pricing regulations in 2019, requiring transactions between related parties (intercompany transactions) to be priced on an arm's length basis — as if the parties were independent. ZATCA's Transfer Pricing Guidelines and the OECD Transfer Pricing Guidelines (incorporated by reference) impose documentation obligations on businesses with related party transactions above specified thresholds, including a Local File, a Master File, and country-by-country reporting for large multinationals.",
         overview2: "At CounselO, our transfer pricing practice covers the full range of transfer pricing obligations in Saudi Arabia: assessing whether documentation is required, preparing compliant transfer pricing documentation, advising on transfer pricing policy for related party transactions, and representing businesses in ZATCA transfer pricing audits and disputes. We work with transfer pricing economic experts to prepare defensible arm's length analyses for complex intercompany transactions.",
@@ -4036,7 +4036,7 @@ export const en = {
       },
       "customs-disputes": {
         title: "Customs Duties Disputes",
-        seoTitle: "Customs Dispute Lawyer in Saudi Arabia — ZATCA Customs Duties & Tariff Classification Disputes | CounselO قانوني",
+        seoTitle: "Customs Dispute Lawyer in Saudi Arabia — ZATCA Customs Duties & Tariff Classification Disputes | CounselO",
         subtitle: "Specialist customs duties dispute resolution — challenging ZATCA customs assessments, tariff classifications, and customs penalties in Saudi Arabia.",
         overview1: "Customs duties in Saudi Arabia are administered by ZATCA following the merger of the General Authority of Customs with ZATCA in 2021. Saudi Arabia applies the GCC Common External Tariff to most imported goods, with specific duty rates depending on tariff classification. Customs disputes most commonly arise from tariff classification disagreements (which classification heading applies to specific goods), customs valuation disputes (the dutiable value of goods), and the application of preferential tariff rates under Saudi trade agreements.",
         overview2: "At CounselO, our customs disputes practice covers all types of customs duty dispute — tariff classification challenges, customs valuation disputes, origin-related disputes, anti-dumping duty challenges, and customs penalty defense. We advise importers and exporters on customs compliance, represent businesses in ZATCA customs audit proceedings, and challenge customs assessments and penalties through the formal dispute resolution process.",
@@ -4056,7 +4056,7 @@ export const en = {
       },
       "tax-advisory": {
         title: "Tax Advisory & Structuring",
-        seoTitle: "Tax Planning Lawyer in Saudi Arabia — Business Tax Advisory & Structure Optimization | CounselO قانوني",
+        seoTitle: "Tax Planning Lawyer in Saudi Arabia — Business Tax Advisory & Structure Optimization | CounselO",
         subtitle: "Proactive tax advisory and business structuring — optimizing your Saudi tax position before ZATCA examines it.",
         overview1: "Tax planning in Saudi Arabia — structuring business activities, transactions, and holding structures to minimize tax exposure lawfully — is an increasingly important part of business strategy in the Kingdom. Saudi Arabia's tax framework has expanded significantly since 2016, with VAT, corporate income tax, transfer pricing, and zakat all requiring active management. The interaction between these taxes — and the treatment of international transactions by Saudi entities — creates both planning opportunities and compliance risks.",
         overview2: "At CounselO, our tax advisory practice provides proactive, commercially focused advice on Saudi tax structuring — covering corporate structure optimization, transaction planning, holding company structuring, incentive zone exploitation, and ongoing tax compliance management. We advise both Saudi businesses and foreign investors entering the Saudi market on achieving the most tax-efficient business structure consistent with compliance.",
@@ -4076,7 +4076,7 @@ export const en = {
       },
       "excise-tax": {
         title: "Excise Tax Compliance",
-        seoTitle: "Excise Tax Lawyer in Saudi Arabia — Excise Tax Compliance & ZATCA Dispute Resolution | CounselO قانوني",
+        seoTitle: "Excise Tax Lawyer in Saudi Arabia — Excise Tax Compliance & ZATCA Dispute Resolution | CounselO",
         subtitle: "Expert excise tax compliance advice and ZATCA dispute resolution for businesses dealing in excise goods in Saudi Arabia.",
         overview1: "Saudi Arabia's Selective (Excise) Tax Law imposes excise duties on specific goods — including tobacco and tobacco products (100%), energy drinks (100%), carbonated drinks (50%), and sweetened beverages (50%). All manufacturers, importers, and retailers of excise goods in Saudi Arabia must register with ZATCA and comply with excise tax reporting and payment obligations. Excise tax compliance is complex — involving physical movement tracking, stockpiling rules, and specific supply chain documentation requirements.",
         overview2: "At CounselO, our excise tax practice covers excise tax registration, compliance advisory, ZATCA excise tax audit defense, and dispute resolution. We advise businesses across the full excise supply chain — manufacturers, importers, distributors, and retailers — on their excise tax obligations, and represent businesses in ZATCA excise tax disputes where assessments or penalties are challenged.",
@@ -4130,7 +4130,7 @@ export const en = {
     services: {
       "cybercrime-defense": {
         title: "Cybercrime Defense",
-        seoTitle: "Cybercrime Defense Lawyer in Saudi Arabia — Anti-Cybercrime Law Expert Defense | CounselO قانوني",
+        seoTitle: "Cybercrime Defense Lawyer in Saudi Arabia — Anti-Cybercrime Law Expert Defense | CounselO",
         subtitle: "Specialist criminal defense under Saudi Arabia's Anti-Cybercrime Law — protecting individuals and businesses from cybercrime prosecution.",
         overview1: "Saudi Arabia's Anti-Cybercrime Law (Royal Decree M/17, 1428H) criminalizes a broad range of online conduct — from unauthorized access to computer systems and hacking through to online content offenses, privacy violations, and cybersecurity breaches. Investigations under the Anti-Cybercrime Law are conducted by CITC (Communications, Space & Technology Commission) and law enforcement agencies, which have increasingly sophisticated technical capabilities for digital evidence collection. Cases under the Anti-Cybercrime Law can move from investigation to formal charge quickly.",
         overview2: "At CounselO, our cybercrime defense practice provides urgent, expert representation for individuals and businesses investigated or charged under the Anti-Cybercrime Law — from the investigation stage through trial and appeal. We challenge the digital evidence on which cybercrime prosecutions are built, advise on the procedural rights of accused persons at every stage, and present comprehensive legal defenses to every element of the prosecution's case.",
@@ -4150,7 +4150,7 @@ export const en = {
       },
       "data-protection": {
         title: "Data Protection & PDPL",
-        seoTitle: "Data Protection Lawyer in Saudi Arabia — PDPL Compliance & Personal Data Law Advice | CounselO قانوني",
+        seoTitle: "Data Protection Lawyer in Saudi Arabia — PDPL Compliance & Personal Data Law Advice | CounselO",
         subtitle: "Expert advice on Saudi Arabia's Personal Data Protection Law (PDPL) — compliance programs, regulatory investigations, and data breach response.",
         overview1: "Saudi Arabia's Personal Data Protection Law (Royal Decree M/19, 2021) — enforced by the National Data Management Office (NDMO) and the Saudi Data and Artificial Intelligence Authority (SDAIA) — imposes comprehensive obligations on organizations that collect, process, or transfer personal data of Saudi residents. The PDPL requires lawful basis for processing, privacy notices, data subject rights procedures, data breach notification, and in some cases data protection impact assessments. Violations carry administrative fines and in serious cases criminal penalties.",
         overview2: "At CounselO, our data protection practice covers PDPL compliance advisory, data protection impact assessments, regulatory investigation defense, and data breach response. We help organizations build PDPL-compliant data processing frameworks — including privacy policies, consent mechanisms, data subject rights procedures, and vendor data processing agreements — and advise on regulatory engagement when data breaches or complaints arise.",
@@ -4170,7 +4170,7 @@ export const en = {
       },
       "online-fraud": {
         title: "Online Fraud Cases",
-        seoTitle: "Online Fraud Lawyer in Saudi Arabia — Digital Fraud Defense & Victim Recovery | CounselO قانوني",
+        seoTitle: "Online Fraud Lawyer in Saudi Arabia — Digital Fraud Defense & Victim Recovery | CounselO",
         subtitle: "Expert legal representation for online fraud cases in Saudi Arabia — defending accused parties and recovering losses for fraud victims.",
         overview1: "Online fraud in Saudi Arabia — including phishing, social engineering, investment fraud, impersonation, and e-commerce fraud — is criminalized under the Anti-Cybercrime Law and general fraud provisions. The scale of online fraud in Saudi Arabia has grown significantly as digital commerce has expanded, and CITC and law enforcement actively investigate online fraud allegations. Both criminal prosecution (for those accused of online fraud) and civil recovery (for victims of online fraud) are available avenues in Saudi Arabia.",
         overview2: "At CounselO, our online fraud practice covers both sides of online fraud matters: defense representation for individuals and businesses accused of online fraud offenses, and recovery representation for victims of online fraud seeking to recover losses. We provide specialist expertise in both the criminal defense and civil recovery dimensions — moving urgently in fraud cases where speed is essential to protect position or maximize recovery.",
@@ -4190,7 +4190,7 @@ export const en = {
       },
       "hacking-defense": {
         title: "Hacking & Unauthorized Access",
-        seoTitle: "Hacking Defense Lawyer in Saudi Arabia — Unauthorized Access & Cybersecurity Breach Defense | CounselO قانوني",
+        seoTitle: "Hacking Defense Lawyer in Saudi Arabia — Unauthorized Access & Cybersecurity Breach Defense | CounselO",
         subtitle: "Expert criminal defense for hacking and unauthorized access charges under Saudi Arabia's Anti-Cybercrime Law.",
         overview1: "Hacking — accessing computer systems, networks, or data without authorization — is criminalized under Article 3 of Saudi Arabia's Anti-Cybercrime Law (Royal Decree M/17). Penalties range from SAR 500,000 and 1 year imprisonment for basic unauthorized access to SAR 5 million and 4 years imprisonment for access to government or financial institution systems. Cybersecurity incidents that CITC investigates can quickly escalate from technical matters to criminal investigations, and early legal intervention is essential.",
         overview2: "At CounselO, our hacking defense practice provides expert representation for individuals and organizations accused of unauthorized access or hacking under the Anti-Cybercrime Law. We challenge the technical evidence on which hacking charges are based, advise on the authorization question (whether access was lawful), and develop comprehensive defenses addressing every element of the prosecution's case.",
@@ -4210,7 +4210,7 @@ export const en = {
       },
       "online-defamation": {
         title: "Online Defamation Cases",
-        seoTitle: "Online Defamation Lawyer in Saudi Arabia — Digital Defamation Defense & Reputation Protection | CounselO قانوني",
+        seoTitle: "Online Defamation Lawyer in Saudi Arabia — Digital Defamation Defense & Reputation Protection | CounselO",
         subtitle: "Expert legal representation for online defamation cases — defending reputation and pursuing claims for digital defamation under Saudi law.",
         overview1: "Online defamation in Saudi Arabia — the publication of false, harmful statements through digital means — is addressed under both the Anti-Cybercrime Law (for online content that harms individuals) and general Sharia law principles of defamation. Online defamation can give rise to both criminal prosecution (under the Anti-Cybercrime Law or by private complaint) and civil liability for damages. Social media, messaging apps, and online platforms are the primary vehicles for online defamation claims in Saudi Arabia.",
         overview2: "At CounselO, our online defamation practice covers both pursuing claims for defamation victims and defending clients accused of online defamation. We advise on the legal elements required for a successful defamation claim, assess the truth and public interest defenses available to the accused, and provide strategic advice on whether criminal complaint or civil proceedings (or both) provide the most effective remedy.",
@@ -4230,7 +4230,7 @@ export const en = {
       },
       "ecommerce-disputes": {
         title: "E-Commerce Disputes",
-        seoTitle: "E-Commerce Lawyer in Saudi Arabia — Online Business Disputes & E-Commerce Law Compliance | CounselO قانوني",
+        seoTitle: "E-Commerce Lawyer in Saudi Arabia — Online Business Disputes & E-Commerce Law Compliance | CounselO",
         subtitle: "Expert legal advice for e-commerce disputes — consumer claims, platform disputes, and regulatory compliance for online businesses in Saudi Arabia.",
         overview1: "Saudi Arabia's e-commerce sector is one of the fastest-growing in the Middle East — regulated by the E-Commerce Law (Royal Decree M/69, 2019) and supervised by the Ministry of Commerce. E-commerce businesses operating in Saudi Arabia must comply with specific disclosure, consumer protection, refund, and dispute resolution requirements, and failure to comply carries regulatory sanctions. Consumer disputes arising from online purchases — including defective products, non-delivery, and unauthorized charges — are increasingly common in the Saudi market.",
         overview2: "At CounselO, our e-commerce practice covers both the regulatory compliance dimension (ensuring your e-commerce business meets Saudi legal requirements) and dispute resolution (defending businesses against consumer claims and pursuing claims against e-commerce counterparties). We advise Saudi and international e-commerce businesses on the specific requirements of the Saudi E-Commerce Law and represent businesses in disputes with consumers, platforms, payment processors, and suppliers.",
@@ -4250,7 +4250,7 @@ export const en = {
       },
       "digital-privacy": {
         title: "Digital Privacy Rights",
-        seoTitle: "Digital Privacy Lawyer in Saudi Arabia — Privacy Rights Protection & PDPL Violations | CounselO قانوني",
+        seoTitle: "Digital Privacy Lawyer in Saudi Arabia — Privacy Rights Protection & PDPL Violations | CounselO",
         subtitle: "Protecting digital privacy rights in Saudi Arabia — pursuing remedies for privacy violations and advising on digital privacy compliance.",
         overview1: "Digital privacy rights in Saudi Arabia are protected under the Personal Data Protection Law (PDPL), the Anti-Cybercrime Law (which criminalizes certain privacy violations), and Sharia law principles protecting honor and privacy. Privacy violations — including unauthorized use of personal data, location tracking, interception of communications, and disclosure of private information — give rise to both regulatory remedies (complaint to SDAIA) and legal remedies (civil damages and criminal prosecution).",
         overview2: "At CounselO, our digital privacy practice covers both the personal rights dimension (representing individuals whose privacy has been violated) and the corporate compliance dimension (ensuring organizations comply with PDPL data processing requirements and avoid privacy liability). We advise on the remedies available for privacy violations and represent individuals and organizations in digital privacy disputes.",
@@ -4270,7 +4270,7 @@ export const en = {
       },
       "it-contracts": {
         title: "IT Contract Disputes",
-        seoTitle: "IT Contract Lawyer in Saudi Arabia — Technology Agreement Disputes & Software Contract Law | CounselO قانوني",
+        seoTitle: "IT Contract Lawyer in Saudi Arabia — Technology Agreement Disputes & Software Contract Law | CounselO",
         subtitle: "Expert IT and technology contract drafting, review, and dispute resolution — protecting your interests in technology transactions in Saudi Arabia.",
         overview1: "IT and technology contracts — software development agreements, SaaS contracts, IT services agreements, system implementation contracts, and technology outsourcing arrangements — are increasingly important commercial documents in Saudi Arabia's digital economy. These contracts often involve complex technical specifications, milestone-based payment structures, intellectual property ownership provisions, and service level commitments that require specialist legal expertise to draft and, when they fail, to enforce or defend.",
         overview2: "At CounselO, our IT contracts practice covers both the transactional (drafting and review) and dispute resolution dimensions of IT and technology contracts. We draft and review IT contracts to protect our clients' interests, negotiate contract terms with technology vendors and customers, and represent clients in disputes arising from IT contract failures — including software development disputes, SaaS service failures, and technology outsourcing breakdowns.",
@@ -4322,7 +4322,7 @@ export const en = {
     services: {
       "medical-negligence": {
         title: "Medical Negligence Claims",
-        seoTitle: "Medical Negligence Lawyer in Saudi Arabia — Medical Malpractice Claims & Compensation | CounselO قانوني",
+        seoTitle: "Medical Negligence Lawyer in Saudi Arabia — Medical Malpractice Claims & Compensation | CounselO",
         subtitle: "Expert legal representation for victims of medical negligence — securing compensation for harm caused by substandard medical care in Saudi Arabia.",
         overview1: "Medical negligence in Saudi Arabia arises when a healthcare provider — doctor, surgeon, nurse, or hospital — falls below the standard of care required by the medical profession, causing harm to the patient. The Saudi Medical Practitioners Disciplinary Regulations (Royal Decree M/59) and the Healthcare Laws govern healthcare provider liability, while compensation claims are pursued before Saudi civil courts or the Board of Grievances (for government hospitals). Medical expert evidence is central to every successful negligence claim.",
         overview2: "At CounselO, we represent patients and their families in medical negligence claims — from the initial assessment of whether negligence occurred through obtaining independent medical expert evidence, filing the claim before the competent court, and securing full compensation for all proven harm. We handle every type of medical negligence: surgical errors, misdiagnosis, medication errors, failure to obtain informed consent, and post-operative negligence.",
@@ -4343,7 +4343,7 @@ export const en = {
       },
       "surgical-errors": {
         title: "Surgical Error Claims",
-        seoTitle: "Surgical Error Lawyer in Saudi Arabia — Surgical Malpractice Compensation Claims | CounselO قانوني",
+        seoTitle: "Surgical Error Lawyer in Saudi Arabia — Surgical Malpractice Compensation Claims | CounselO",
         subtitle: "Legal representation for patients harmed by surgical errors — pursuing compensation for surgical negligence in Saudi Arabia.",
         overview1: "Surgical errors — wrong-site surgery, anaesthetic errors, post-operative infections caused by surgical negligence, retained surgical instruments, and surgical technique failures — are among the most serious categories of medical malpractice. When a surgical error occurs in Saudi Arabia, the harm is often severe and the path to compensation requires expert medical evidence, careful case preparation, and specialist legal representation before Saudi courts.",
         overview2: "At CounselO, our surgical malpractice team represents patients and families who have suffered harm from surgical errors — assessing the case against the applicable surgical standard of care, obtaining specialist surgical expert evidence, and pursuing full compensation before Saudi civil courts or the Board of Grievances. We have experience across all categories of surgical specialty — general surgery, orthopaedics, cardiac surgery, neurosurgery, and plastic and cosmetic surgery.",
@@ -4362,7 +4362,7 @@ export const en = {
       },
       "misdiagnosis": {
         title: "Misdiagnosis & Diagnostic Errors",
-        seoTitle: "Misdiagnosis Lawyer in Saudi Arabia — Diagnostic Error & Delayed Diagnosis Compensation | CounselO قانوني",
+        seoTitle: "Misdiagnosis Lawyer in Saudi Arabia — Diagnostic Error & Delayed Diagnosis Compensation | CounselO",
         subtitle: "Legal representation for patients harmed by misdiagnosis, delayed diagnosis, or failure to diagnose in Saudi Arabia.",
         overview1: "Misdiagnosis and diagnostic errors — including failure to diagnose a serious condition, delayed diagnosis, wrong diagnosis, and failure to order appropriate investigations — are a major category of medical negligence in Saudi Arabia. When a doctor fails to diagnose cancer, heart disease, stroke, infection, or other serious condition in time, the consequences can be severe: delayed treatment, preventable deterioration, permanent disability, or death.",
         overview2: "At CounselO, we represent patients and families harmed by diagnostic failures — assessing whether the diagnosing physician met the standard of care expected of a reasonably competent doctor in the same specialty, obtaining expert diagnostic evidence, and pursuing compensation for all harm caused by the missed or delayed diagnosis. Diagnostic negligence cases require careful expert analysis of what a competent physician would have done with the clinical information available at the time.",
@@ -4381,7 +4381,7 @@ export const en = {
       },
       "hospital-liability": {
         title: "Hospital & Healthcare Provider Liability",
-        seoTitle: "Hospital Liability Lawyer in Saudi Arabia — Healthcare Provider Negligence Claims | CounselO قانوني",
+        seoTitle: "Hospital Liability Lawyer in Saudi Arabia — Healthcare Provider Negligence Claims | CounselO",
         subtitle: "Specialist legal representation for claims against hospitals, clinics, and healthcare organizations in Saudi Arabia.",
         overview1: "Hospitals and healthcare providers in Saudi Arabia bear direct liability for the negligence of their employees — including employed doctors, nurses, and allied health professionals — as well as institutional liability for failures of systems, equipment, facilities, and administration. Under the Saudi Healthcare Laws and the Civil Liability principles applicable in the Kingdom, hospitals can be held liable for a wide range of failures that go beyond the acts of individual practitioners.",
         overview2: "At CounselO, we pursue compensation claims against private hospitals, private clinics, polyclinics, and diagnostic centers before Saudi civil courts — and against government hospitals before the Board of Grievances. We assess all potential heads of institutional liability alongside individual practitioner negligence, ensuring the maximum available recovery for our clients.",
@@ -4400,7 +4400,7 @@ export const en = {
       },
       "pharmaceutical-claims": {
         title: "Pharmaceutical & Medication Claims",
-        seoTitle: "Pharmaceutical Injury Lawyer in Saudi Arabia — Medication Error & Drug Liability Claims | CounselO قانوني",
+        seoTitle: "Pharmaceutical Injury Lawyer in Saudi Arabia — Medication Error & Drug Liability Claims | CounselO",
         subtitle: "Expert legal representation for medication errors, prescription negligence, and pharmaceutical product liability claims in Saudi Arabia.",
         overview1: "Pharmaceutical and medication claims in Saudi Arabia cover two distinct categories: medication error negligence (where a healthcare provider prescribes, dispenses, or administers the wrong medication, dose, or route — causing harm to the patient); and product liability claims against pharmaceutical manufacturers for defective or dangerous drug products. Both categories require specialist legal expertise and expert evidence to pursue successfully.",
         overview2: "At CounselO, we represent patients harmed by medication errors and defective pharmaceutical products — assessing liability at each point in the medication chain, obtaining pharmacological and medical expert evidence, and pursuing compensation before Saudi courts for all resulting harm.",
@@ -4419,7 +4419,7 @@ export const en = {
       },
       "dental-malpractice": {
         title: "Dental Malpractice",
-        seoTitle: "Dental Malpractice Lawyer in Saudi Arabia — Dental Negligence & Compensation Claims | CounselO قانوني",
+        seoTitle: "Dental Malpractice Lawyer in Saudi Arabia — Dental Negligence & Compensation Claims | CounselO",
         subtitle: "Expert legal representation for patients harmed by dental negligence in Saudi Arabia — compensation for dental treatment errors.",
         overview1: "Dental malpractice in Saudi Arabia covers a wide range of dental treatment failures — negligent extractions, incorrect dental prosthetics, root canal errors, nerve damage during treatment, dental implant failures, orthodontic negligence, and failure to diagnose dental conditions. Dental negligence claims in Saudi Arabia are assessed against the standard of care of a reasonably competent dentist in the relevant specialty.",
         overview2: "At CounselO, we represent patients who have suffered harm from negligent dental treatment — obtaining dental expert evidence, pursuing claims before Saudi courts and the Board of Grievances, and securing compensation for all treatment harm, additional corrective treatment costs, and consequential losses.",
@@ -4438,7 +4438,7 @@ export const en = {
       },
       "healthcare-regulatory": {
         title: "Healthcare Regulatory Defense",
-        seoTitle: "Healthcare Regulatory Defense Lawyer Saudi Arabia — MOH & SCFHS Disciplinary Defense | CounselO قانوني",
+        seoTitle: "Healthcare Regulatory Defense Lawyer Saudi Arabia — MOH & SCFHS Disciplinary Defense | CounselO",
         subtitle: "Expert defense representation for healthcare professionals and organizations facing regulatory investigation or disciplinary proceedings in Saudi Arabia.",
         overview1: "Healthcare professionals in Saudi Arabia — doctors, surgeons, dentists, nurses, pharmacists, and allied health professionals — can face regulatory investigation and disciplinary proceedings before the Saudi Commission for Health Specialties (SCFHS), the Ministry of Health (MOH), or specialized healthcare disciplinary committees. Proceedings can result in suspension of license, revocation of registration, fines, and — in serious cases — referral to criminal authorities. Early expert legal representation at the investigation stage is critical to the best outcome.",
         overview2: "At CounselO, we defend healthcare professionals and healthcare organizations in regulatory investigations, disciplinary proceedings, and licensing disputes — from the initial investigation stage through disciplinary hearings, appeals, and judicial review before the Board of Grievances. We also advise healthcare organizations on compliance with Saudi healthcare regulations and the licensing requirements of SCFHS, CCHI, and MOH.",
@@ -4457,7 +4457,7 @@ export const en = {
       },
       "patient-rights": {
         title: "Patient Rights & Compensation",
-        seoTitle: "Patient Rights Lawyer Saudi Arabia — Patient Compensation & Healthcare Rights Claims | CounselO قانوني",
+        seoTitle: "Patient Rights Lawyer Saudi Arabia — Patient Compensation & Healthcare Rights Claims | CounselO",
         subtitle: "Expert legal representation for patients asserting their rights under Saudi healthcare law — compensation claims, informed consent, and healthcare access rights.",
         overview1: "The Saudi Patient Rights Charter and the Healthcare Laws establish a comprehensive framework of rights for patients receiving healthcare in Saudi Arabia — including the right to informed consent, the right to privacy and confidentiality of medical information, the right to receive appropriate treatment, the right to a second opinion, and the right to compensation for harm caused by negligent medical care. When these rights are violated, patients have legal recourse before Saudi courts and regulatory authorities.",
         overview2: "At CounselO, we represent patients asserting their healthcare rights — pursuing compensation claims for medical negligence, challenging unlawful disclosure of medical information, enforcing informed consent rights, and representing patients in disputes with hospitals and healthcare providers over treatment decisions and billing practices.",
@@ -4508,7 +4508,7 @@ export const en = {
     services: {
       "insurance-disputes": {
         title: "Insurance Claim Disputes",
-        seoTitle: "Insurance Dispute Lawyer Saudi Arabia — Insurance Claim Rejection & Coverage Disputes | CounselO قانوني",
+        seoTitle: "Insurance Dispute Lawyer Saudi Arabia — Insurance Claim Rejection & Coverage Disputes | CounselO",
         subtitle: "Expert legal representation for insurance claim disputes — challenging wrongful rejections and securing your insurance entitlements in Saudi Arabia.",
         overview1: "Insurance claim disputes in Saudi Arabia arise when an insurer wrongfully rejects or underpays a valid claim — whether for health, property, motor, life, or commercial insurance. The Saudi insurance sector is regulated by the Saudi Central Bank (SAMA) under the Insurance Law (Royal Decree M/32) and the Implementing Regulations for Insurance Companies. When an insurer refuses to pay a valid claim, policyholders have the right to challenge that decision through SAMA's complaint mechanisms and before Saudi courts.",
         overview2: "At CounselO, we represent policyholders and beneficiaries in insurance claim disputes — reviewing the policy wording, assessing the validity of the rejection, pursuing SAMA complaints, and litigating before Saudi courts to recover the insurance proceeds to which our clients are entitled. We handle all categories of insurance dispute across all lines of insurance.",
@@ -4527,7 +4527,7 @@ export const en = {
       },
       "health-insurance": {
         title: "Health Insurance Disputes",
-        seoTitle: "Health Insurance Dispute Lawyer Saudi Arabia — Medical Insurance Claim Rejection & CCHI Compliance | CounselO قانوني",
+        seoTitle: "Health Insurance Dispute Lawyer Saudi Arabia — Medical Insurance Claim Rejection & CCHI Compliance | CounselO",
         subtitle: "Expert legal representation for health insurance claim disputes — challenging wrongful rejections and enforcing medical coverage rights in Saudi Arabia.",
         overview1: "Health insurance in Saudi Arabia is mandatory for all employees and their dependants under the Cooperative Health Insurance Law (Royal Decree M/10), regulated by the Council of Cooperative Health Insurance (CCHI). Health insurance disputes arise when an insurer wrongfully rejects a medical treatment claim, refuses to authorize a procedure, denies coverage for a specific condition, or fails to reimburse expenses properly covered under the policy.",
         overview2: "At CounselO, we represent employees, dependants, and employers in health insurance disputes — challenging wrongful claim rejections, pursuing CCHI complaints, and enforcing health coverage entitlements before Saudi courts. We also advise employers on CCHI compliance obligations and the minimum benefits required under mandatory health insurance regulations.",
@@ -4546,7 +4546,7 @@ export const en = {
       },
       "property-insurance": {
         title: "Property Insurance Claims",
-        seoTitle: "Property Insurance Lawyer Saudi Arabia — Building & Contents Insurance Claim Disputes | CounselO قانوني",
+        seoTitle: "Property Insurance Lawyer Saudi Arabia — Building & Contents Insurance Claim Disputes | CounselO",
         subtitle: "Legal representation for property insurance claim disputes — challenging insurer rejections and recovering full property damage compensation in Saudi Arabia.",
         overview1: "Property insurance claims in Saudi Arabia — covering buildings, contents, fire damage, flood damage, theft, and related perils — are frequently subject to insurer disputes: rejected claims, undervaluation of losses, application of excessive policy excesses, or disputes over the cause of loss. Saudi property insurance is governed by the Insurance Law and SAMA regulations, and policyholders have clear rights to challenge insurer decisions through regulatory and judicial channels.",
         overview2: "At CounselO, we represent property owners and businesses in property insurance disputes — reviewing loss assessments, challenging insurer valuations, pursuing SAMA complaints, and litigating before Saudi courts to recover the full insurance entitlement for property losses.",
@@ -4564,7 +4564,7 @@ export const en = {
       },
       "motor-insurance": {
         title: "Motor Insurance Disputes",
-        seoTitle: "Motor Insurance Lawyer Saudi Arabia — Car Insurance Claim Disputes & Traffic Accident Compensation | CounselO قانوني",
+        seoTitle: "Motor Insurance Lawyer Saudi Arabia — Car Insurance Claim Disputes & Traffic Accident Compensation | CounselO",
         subtitle: "Expert legal representation for motor insurance disputes — challenging claim rejections and recovering full accident compensation in Saudi Arabia.",
         overview1: "Motor insurance is compulsory in Saudi Arabia, and motor insurance disputes are among the most common insurance disagreements in the Kingdom — arising from rejected claims, disputed accident fault assessments, inadequate repair cost coverage, total loss valuation disputes, and third-party liability disagreements. SAMA regulates motor insurance and provides dispute resolution mechanisms for policyholders.",
         overview2: "At CounselO, we represent drivers, vehicle owners, and accident victims in motor insurance disputes — challenging wrongful rejections, disputing fault assessments, pursuing third-party liability claims, and recovering full compensation for motor accident losses through SAMA complaints and court proceedings.",
@@ -4582,7 +4582,7 @@ export const en = {
       },
       "life-insurance": {
         title: "Life Insurance Claims",
-        seoTitle: "Life Insurance Claim Lawyer Saudi Arabia — Life & Term Insurance Dispute Resolution | CounselO قانوني",
+        seoTitle: "Life Insurance Claim Lawyer Saudi Arabia — Life & Term Insurance Dispute Resolution | CounselO",
         subtitle: "Legal representation for life insurance claim disputes — challenging wrongful rejections and enforcing policy entitlements for beneficiaries in Saudi Arabia.",
         overview1: "Life and term insurance claim disputes in Saudi Arabia arise when an insurer wrongfully rejects a death benefit claim — citing non-disclosure of health conditions, suicide exclusions, policy lapse, or other technical grounds. The Saudi Insurance Law and SAMA regulations provide important protections for life insurance beneficiaries, and wrongful rejection of life insurance claims can be challenged through SAMA and the courts.",
         overview2: "At CounselO, we represent life insurance beneficiaries in claim disputes — challenging wrongful rejections, addressing non-disclosure defenses, and pursuing life insurance benefits through SAMA complaints and court proceedings. We understand the sensitivity of these matters and provide compassionate, expert legal support for families at a difficult time.",
@@ -4600,7 +4600,7 @@ export const en = {
       },
       "commercial-insurance": {
         title: "Commercial Insurance Disputes",
-        seoTitle: "Commercial Insurance Lawyer Saudi Arabia — Business Insurance Claim Disputes & Liability Coverage | CounselO قانوني",
+        seoTitle: "Commercial Insurance Lawyer Saudi Arabia — Business Insurance Claim Disputes & Liability Coverage | CounselO",
         subtitle: "Specialist legal representation for commercial and business insurance disputes in Saudi Arabia.",
         overview1: "Commercial insurance disputes in Saudi Arabia — covering employer's liability, professional indemnity, public liability, goods in transit, marine cargo, and business interruption insurance — are frequently complex and high-value. Saudi businesses face particular challenges when insurers wrongfully reject large commercial claims, apply exclusion clauses aggressively, or dispute the quantification of business losses.",
         overview2: "At CounselO, we represent businesses in commercial insurance disputes — reviewing complex policy wording, challenging exclusion clause interpretations, pursuing SAMA complaints, and litigating large commercial insurance claims before Saudi courts. We bring commercial insurance expertise across all major business insurance lines.",
@@ -4618,7 +4618,7 @@ export const en = {
       },
       "insurance-bad-faith": {
         title: "Bad Faith Insurance Practices",
-        seoTitle: "Insurance Bad Faith Lawyer Saudi Arabia — Wrongful Claim Rejection & Unfair Insurance Practices | CounselO قانوني",
+        seoTitle: "Insurance Bad Faith Lawyer Saudi Arabia — Wrongful Claim Rejection & Unfair Insurance Practices | CounselO",
         subtitle: "Legal action against bad faith insurance practices — pursuing compensation for wrongful, unreasonable, or delayed claim handling in Saudi Arabia.",
         overview1: "Bad faith insurance practices in Saudi Arabia arise when an insurer acts unreasonably in handling a valid insurance claim — including: wrongful rejection without legal basis; unreasonable delay in processing and paying a valid claim; misrepresenting policy terms to avoid payment; failing to investigate a claim properly before rejecting it; and applying exclusion clauses that are inconsistent with the reasonable expectations of the policyholder. SAMA regulations impose obligations on insurers regarding fair and timely claim handling.",
         overview2: "At CounselO, we pursue policyholders' rights against bad faith insurance practices — filing regulatory complaints with SAMA, seeking the insurer to pay the valid claim, and in serious cases pursuing additional compensation for the harm caused by the insurer's unreasonable conduct. SAMA has supervisory authority over insurance companies and can take enforcement action against those that engage in unfair claim handling practices.",
@@ -4636,7 +4636,7 @@ export const en = {
       },
       "insurance-regulatory": {
         title: "Insurance Regulatory Compliance",
-        seoTitle: "Insurance Regulatory Compliance Lawyer Saudi Arabia — SAMA & CCHI Insurance Law Advisory | CounselO قانوني",
+        seoTitle: "Insurance Regulatory Compliance Lawyer Saudi Arabia — SAMA & CCHI Insurance Law Advisory | CounselO",
         subtitle: "Expert legal advice on insurance regulatory compliance for insurance companies, brokers, and businesses in Saudi Arabia.",
         overview1: "Insurance companies, insurance brokers, reinsurance companies, and self-insured businesses operating in Saudi Arabia must comply with a comprehensive regulatory framework — governed by the Insurance Law (Royal Decree M/32), SAMA implementing regulations, CCHI health insurance regulations, and SAMA supervisory guidance. Non-compliance can result in regulatory sanctions, license suspension, and significant financial penalties.",
         overview2: "At CounselO, we advise insurance companies, brokers, and corporate policyholders on insurance regulatory compliance in Saudi Arabia — covering licensing requirements, product approval, solvency and capital requirements, conduct of business rules, complaint handling obligations, and enforcement defense. We also advise foreign insurance groups entering the Saudi market on regulatory requirements.",
@@ -4686,7 +4686,7 @@ export const en = {
     services: {
       "iqama-residency": {
         title: "Iqama & Residency Permits",
-        seoTitle: "Iqama Lawyer Saudi Arabia — Residency Permit Renewal, Disputes & Expat Residency Rights | CounselO قانوني",
+        seoTitle: "Iqama Lawyer Saudi Arabia — Residency Permit Renewal, Disputes & Expat Residency Rights | CounselO",
         subtitle: "Expert legal advice and representation for iqama residency permit matters in Saudi Arabia — renewals, disputes, and expatriate residency rights.",
         overview1: "The iqama (residence permit) is the fundamental document governing the legal status of all foreign nationals residing in Saudi Arabia. Iqama matters — renewal disputes, processing delays, refusals, status changes, and residency right enforcement — are among the most pressing legal issues for expatriates in the Kingdom. The regulatory framework is governed by the Saudi Residency Regulations and implemented through the General Directorate of Passports (Jawazat).",
         overview2: "At CounselO, we advise and represent expatriate individuals and families on all iqama-related matters — from challenging refusals and administrative delays through to asserting residency rights against employers who have failed to renew iqamas on time. We also advise on the transition between iqama categories and the implications of status changes.",
@@ -4705,7 +4705,7 @@ export const en = {
       },
       "work-visas": {
         title: "Work Visas & Employment Permits",
-        seoTitle: "Work Visa Lawyer Saudi Arabia — Employment Permit & Iqama Work Authorization Disputes | CounselO قانوني",
+        seoTitle: "Work Visa Lawyer Saudi Arabia — Employment Permit & Iqama Work Authorization Disputes | CounselO",
         subtitle: "Expert legal advice on work visas, employment permits, and work authorization for foreign nationals in Saudi Arabia.",
         overview1: "Work authorization for foreign nationals in Saudi Arabia requires both a valid work visa and an iqama endorsed with the appropriate work permit. The Saudization (Nitaqat) program imposes minimum quotas for Saudi national employees across most business sectors, affecting the availability of work permits for foreign nationals. Work permit disputes, classification challenges under Nitaqat, and work authorization enforcement matters require specialist legal expertise.",
         overview2: "At CounselO, we advise employers and employees on work visa and employment permit matters in Saudi Arabia — including Nitaqat compliance, work permit applications, occupational classification disputes, and enforcement of work authorization rights. We also advise on the consequences of working without proper authorization and the remedies available to both employers and employees.",
@@ -4724,7 +4724,7 @@ export const en = {
       },
       "kafala-transfer": {
         title: "Kafala Transfer & Sponsorship",
-        seoTitle: "Kafala Transfer Lawyer Saudi Arabia — Sponsorship Transfer, Kafala Disputes & Absconding Reports | CounselO قانوني",
+        seoTitle: "Kafala Transfer Lawyer Saudi Arabia — Sponsorship Transfer, Kafala Disputes & Absconding Reports | CounselO",
         subtitle: "Expert legal advice on kafala sponsorship transfer, absconding reports, and kafala disputes for foreign nationals in Saudi Arabia.",
         overview1: "The kafala (sponsorship) system governs the residency and work authorization of most foreign workers in Saudi Arabia — tying the worker's legal status to a specific employer-sponsor. Kafala disputes are among the most serious immigration matters foreign workers face: employers filing false absconding reports, sponsors refusing to transfer kafala, and workers trapped with abusive employers due to kafala dependency. Recent Labour Reform Initiative changes have modified the kafala system, but disputes remain common.",
         overview2: "At CounselO, we advise and represent foreign workers in kafala disputes — challenging false absconding reports, pursuing kafala transfers, asserting worker rights against abusive sponsors, and navigating the Ministry of Human Resources' procedures for kafala change and dispute resolution. We also advise employers on their obligations and rights under the kafala framework.",
@@ -4743,7 +4743,7 @@ export const en = {
       },
       "deportation-defense": {
         title: "Deportation Defense",
-        seoTitle: "Deportation Defense Lawyer Saudi Arabia — Deportation Order Challenge & Expulsion Defense | CounselO قانوني",
+        seoTitle: "Deportation Defense Lawyer Saudi Arabia — Deportation Order Challenge & Expulsion Defense | CounselO",
         subtitle: "Urgent legal representation for foreign nationals facing deportation or expulsion orders in Saudi Arabia.",
         overview1: "Deportation orders in Saudi Arabia can be issued against foreign nationals for a range of reasons — immigration violations (overstaying, working without authorization), criminal convictions, national security grounds, or violations of the terms of residency. Deportation proceedings move quickly, and early legal intervention is critical to mounting an effective defense or challenging the legal basis of the deportation order.",
         overview2: "At CounselO, we provide urgent defense representation for foreign nationals facing deportation or expulsion — challenging deportation orders before the competent administrative and judicial authorities, asserting all available defenses, and pursuing the suspension of deportation orders pending appeal. We advise on all available grounds for challenging deportation, including humanitarian considerations and procedural errors.",
@@ -4762,7 +4762,7 @@ export const en = {
       },
       "family-visas": {
         title: "Family Visas & Reunion",
-        seoTitle: "Family Visa Lawyer Saudi Arabia — Dependent Visa, Family Reunion & Tabi'iya Permit Disputes | CounselO قانوني",
+        seoTitle: "Family Visa Lawyer Saudi Arabia — Dependent Visa, Family Reunion & Tabi'iya Permit Disputes | CounselO",
         subtitle: "Expert legal advice on family visas, dependent permits, and family reunion rights for expatriates in Saudi Arabia.",
         overview1: "Foreign workers in Saudi Arabia who wish to bring their families must apply for dependent (tabi'iya) iqamas — dependent residency permits that allow spouses and children to reside legally in the Kingdom. Family visa and dependent permit disputes — refusals, processing delays, eligibility issues, and disputes arising from changes in the sponsor's immigration status — are a significant concern for expatriate families.",
         overview2: "At CounselO, we advise expatriate workers and families on dependent visa and family reunion matters — including application procedures, eligibility requirements, documentation, challenges to refusals, and family reunification for expatriates with complex family situations.",
@@ -4781,7 +4781,7 @@ export const en = {
       },
       "premium-residency": {
         title: "Premium Residency (Saudi Green Card)",
-        seoTitle: "Saudi Premium Residency Lawyer — Saudi Green Card Application & Premium Residency Permit | CounselO قانوني",
+        seoTitle: "Saudi Premium Residency Lawyer — Saudi Green Card Application & Premium Residency Permit | CounselO",
         subtitle: "Expert legal advice on the Saudi Premium Residency permit — the Saudi 'green card' for long-term residency without a Saudi sponsor.",
         overview1: "Saudi Arabia's Premium Residency Permit (Iqama Mumayyaza) — colloquially known as the Saudi Green Card — provides qualifying foreign nationals with long-term residency rights in Saudi Arabia independent of employer sponsorship. Introduced under Vision 2030, the Premium Residency allows holders to live, work, and invest in Saudi Arabia with greater freedom and security than standard iqama holders. Two categories are available: permanent premium residency (without sponsor, indefinite duration) and temporary premium residency (renewable, annual fee).",
         overview2: "At CounselO, we advise foreign nationals and their families on Premium Residency eligibility, application procedures, the supporting documentation required, and challenges to refused or pending applications. We assist investors, business professionals, and skilled individuals in navigating the Premium Residency application process.",
@@ -4800,7 +4800,7 @@ export const en = {
       },
       "business-visas": {
         title: "Business & Investor Visas",
-        seoTitle: "Business Visa Lawyer Saudi Arabia — Investor Visa, Commercial Visit Visa & Business Entry | CounselO قانوني",
+        seoTitle: "Business Visa Lawyer Saudi Arabia — Investor Visa, Commercial Visit Visa & Business Entry | CounselO",
         subtitle: "Expert legal advice on business visas, investor visas, and commercial entry requirements for Saudi Arabia.",
         overview1: "Saudi Arabia offers multiple pathways for business visitors and investors seeking to enter the Kingdom for commercial purposes — including commercial visit visas, investor visas, and the multiple-entry business visa for regular business travelers. The requirements and authorization process differ depending on nationality, business purpose, and the duration and frequency of intended visits.",
         overview2: "At CounselO, we advise businesses and individuals on the appropriate visa category for their Saudi business activities — guiding them through the application process, advising on visa conditions and compliance, and resolving business visa issues including refusals and processing delays.",
@@ -4818,7 +4818,7 @@ export const en = {
       },
       "immigration-violations": {
         title: "Immigration Violations Defense",
-        seoTitle: "Immigration Violation Lawyer Saudi Arabia — Overstay, Illegal Work & Status Violation Defense | CounselO قانوني",
+        seoTitle: "Immigration Violation Lawyer Saudi Arabia — Overstay, Illegal Work & Status Violation Defense | CounselO",
         subtitle: "Urgent legal defense for foreign nationals facing immigration violations in Saudi Arabia — overstay, unauthorized work, and status violations.",
         overview1: "Immigration violations in Saudi Arabia — including overstaying a visa, working without authorization, residing without a valid iqama, and violating the terms of a visa or residency permit — carry serious consequences: fines, deportation, and in some cases a ban on re-entry. When immigration violations are discovered, whether through enforcement action or self-disclosure, urgent legal advice is essential to minimizing the consequences.",
         overview2: "At CounselO, we provide urgent defense for foreign nationals facing immigration enforcement action — advising on the applicable penalties, available defenses, voluntary departure options, and regularization pathways where these exist. We also advise individuals who discover they have inadvertently accumulated immigration violations and wish to regularize their status before enforcement action is taken.",
