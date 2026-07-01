@@ -6,12 +6,13 @@ import { CheckCircle2, ChevronRight, ArrowLeft, MessageCircle, Mail, ChevronDown
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { SYR_SEO_DATA } from "@/lib/seo-data-syr";
 
 export default function CompaniesLawSub() {
   const params = useParams();
   const subId = params.subId as string;
   const { t, isRTL } = useLanguage();
-  const { regionPrefix } = useRegion();
+  const { region, regionPrefix } = useRegion();
   const cld = t.companiesLawDetail;
   const data = cld.services[subId as keyof typeof cld.services];
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -152,7 +153,7 @@ export default function CompaniesLawSub() {
     },
   };
 
-  const seoMeta = SEO_DATA[subId] ?? { desc: data.subtitle, descAr: data.subtitle, kw: "", kwAr: "" };
+  const seoMeta = (region === "syr" ? SYR_SEO_DATA[subId] : undefined) ?? SEO_DATA[subId] ?? { desc: data.subtitle, descAr: data.subtitle, kw: "", kwAr: "" };
   const seoDescription = isRTL ? seoMeta.descAr : seoMeta.desc;
   const seoKeywords = isRTL ? seoMeta.kwAr : seoMeta.kw;
 
