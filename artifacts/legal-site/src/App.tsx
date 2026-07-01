@@ -1,4 +1,4 @@
-import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
+import { Switch, Route, Router as WouterRouter, useLocation, Redirect } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -24,6 +24,7 @@ import AdminCMS from "@/pages/admin";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
+
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -95,6 +96,18 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/terms-of-service" component={TermsOfService} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />
+
+        {/* Catch-all: redirect old sub-area URLs to their parent service page */}
+        <Route path="/sa/services/:id/:rest*">
+          {(params) => <Redirect to={`/sa/services/${params.id}`} replace />}
+        </Route>
+        <Route path="/syr/services/:id/:rest*">
+          {(params) => <Redirect to={`/syr/services/${params.id}`} replace />}
+        </Route>
+        <Route path="/services/:id/:rest*">
+          {(params) => <Redirect to={`/services/${params.id}`} replace />}
+        </Route>
+
         <Route component={NotFound} />
       </Switch>
     </>
