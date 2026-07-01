@@ -1,10 +1,12 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useParams, Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, CheckCircle2, ChevronRight } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ChevronRight, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { SYR_SEO_DATA } from "@/lib/seo-data-syr";
 
 export default function ServiceDetail() {
   const params = useParams();
@@ -13,6 +15,7 @@ export default function ServiceDetail() {
   const { region, regionPrefix } = useRegion();
   const sd = t.serviceDetail;
   const data = sd.services[id as keyof typeof sd.services];
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   if (!data) {
     return (
@@ -25,51 +28,109 @@ export default function ServiceDetail() {
     );
   }
 
+  const isSyr = region === "syr";
+  const syrSeo = isSyr ? SYR_SEO_DATA[id] : undefined;
+
+  const seoTitle = isRTL
+    ? (syrSeo
+        ? `${data.title} في سوريا | استشارة قانونية أونلاين | قانوني`
+        : `${data.title} في السعودية | استشارة قانونية أونلاين | قانوني`)
+    : (syrSeo
+        ? `${data.title} Lawyer in Syria | Online Legal Consultation | CounselO`
+        : `${data.title} Lawyer in Saudi Arabia | Online Legal Consultation | CounselO`);
+
+  const seoDesc = isRTL
+    ? (syrSeo?.descAr ?? `${data.subtitle} — قانوني، منصة متخصصة للاستشارات القانونية الأونلاين في ${isSyr ? "سوريا" : "المملكة"}. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. خبرة تزيد على 30 عاماً.`)
+    : (syrSeo?.desc ?? `${data.subtitle} — CounselO, ${isSyr ? "Syria's specialized online legal platform" : "Saudi Arabia's largest online legal platform"}. Professional response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases handled.`);
+
+  const seoKeywords = isRTL
+    ? (syrSeo?.kwAr ?? `${data.title} محامي ${isSyr ? "سوريا" : "المملكة العربية السعودية"}, استشارة قانونية ${data.title} أونلاين, محامي ${data.title} قانوني`)
+    : (syrSeo?.kw ?? `${data.title} lawyer ${isSyr ? "Syria" : "Saudi Arabia"}, online ${data.title} legal advice ${isSyr ? "Syria" : "KSA"}, ${data.title} attorney CounselO`);
+
+  const serviceAddress = isSyr
+    ? { "@type": "PostalAddress", "addressCountry": "SY" }
+    : { "@type": "PostalAddress", "addressCountry": "SA" };
+
+  const hasFaqs = "faqs" in data && Array.isArray((data as Record<string, unknown>).faqs) && ((data as Record<string, unknown>).faqs as unknown[]).length > 0;
+  const faqs = hasFaqs ? (data as Record<string, unknown>).faqs as { q: string; a: string }[] : [];
+
+  const canonicalPath = `/services/${id}`;
+  const canonicalUrlFull = `https://counselo.com${isSyr ? "/syr" : "/sa"}${canonicalPath}`;
+
+  const schemas: object[] = [
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": isRTL ? `${data.title} — قانوني` : `${data.title} — CounselO`,
+      "description": isRTL ? (syrSeo?.descAr ?? data.subtitle) : (syrSeo?.desc ?? data.subtitle),
+      "url": canonicalUrlFull,
+      "areaServed": { "@type": "Country", "name": isSyr ? "Syria" : "Saudi Arabia" },
+      "availableLanguage": ["Arabic", "English"],
+      "serviceType": isRTL ? data.title : data.title,
+      "provider": {
+        "@type": "LegalService",
+        "name": isRTL ? "قانوني كاونسلو" : "CounselO",
+        "url": "https://counselo.com",
+        "telephone": isSyr ? "+963114000000" : "+966594850247",
+        "email": "bagdadio@gmail.com",
+        "address": serviceAddress,
+        "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel", "honorificPrefix": "Lawyer" },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "847", "bestRating": "5", "worstRating": "1" },
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo.com/" },
+        { "@type": "ListItem", "position": 2, "name": isRTL ? "الخدمات" : "Services", "item": `https://counselo.com${isSyr ? "/syr" : "/sa"}/services` },
+        { "@type": "ListItem", "position": 3, "name": data.title, "item": canonicalUrlFull },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": canonicalUrlFull,
+      "url": canonicalUrlFull,
+      "name": seoTitle,
+      "description": seoDesc,
+      "inLanguage": isRTL ? "ar" : "en",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".speakable-overview", ".speakable-covers"],
+      },
+      "publisher": {
+        "@type": "LegalService",
+        "name": "CounselO",
+        "url": "https://counselo.com",
+      },
+    },
+  ];
+
+  if (hasFaqs && faqs.length > 0) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a,
+        },
+      })),
+    });
+  }
+
   return (
     <div className="w-full bg-background min-h-screen">
       <SEOHead
-        title={isRTL
-          ? `${data.title} في ${region === "syr" ? "سوريا" : "السعودية"} | استشارة قانونية أونلاين | قانوني`
-          : `${data.title} ${region === "syr" ? "Syria" : "Saudi Arabia"} | Online Legal Consultation | CounselO`}
-        description={isRTL
-          ? `${data.subtitle} — قانوني، ${region === "syr" ? "منصة متخصصة للاستشارات القانونية الأونلاين في سوريا" : "أكبر منصة للاستشارات القانونية الأونلاين في المملكة"}. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. خبرة تزيد على 30 عاماً وأكثر من 20,000 قضية.`
-          : `${data.subtitle} — CounselO, ${region === "syr" ? "Syria's specialized online legal platform" : "Saudi Arabia's largest online legal platform"}. Professional response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases handled.`}
-        canonical={`/services/${id}`}
-        keywords={isRTL
-          ? `${data.title} محامي ${region === "syr" ? "سوريا" : "المملكة العربية السعودية"}, استشارة قانونية ${data.title} أونلاين, محامي ${data.title} قانوني`
-          : `${data.title} lawyer ${region === "syr" ? "Syria" : "Saudi Arabia"}, online ${data.title} legal advice ${region === "syr" ? "Syria" : "KSA"}, ${data.title} attorney CounselO`}
-        schema={[
-          {
-            "@context": "https://schema.org",
-            "@type": "LegalService",
-            "name": isRTL ? `${data.title} — قانوني` : `${data.title} — CounselO`,
-            "description": data.subtitle,
-            "url": `https://counselo.com/services/${id}`,
-            "areaServed": { "@type": "Country", "name": region === "syr" ? "Syria" : "Saudi Arabia" },
-            "availableLanguage": ["Arabic", "English"],
-            "provider": {
-              "@type": "LegalService",
-              "name": "CounselO",
-              "url": "https://counselo.com",
-              "telephone": region === "syr" ? "+963114000000" : "+966594850247",
-              "email": "bagdadio@gmail.com",
-              "address": region === "syr"
-                ? { "@type": "PostalAddress", "addressLocality": "Hama", "addressRegion": "Hama Governorate", "addressCountry": "SY" }
-                : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA" },
-              "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
-              "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "847", "bestRating": "5" },
-            },
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo.com/" },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "الخدمات" : "Services", "item": "https://counselo.com/services" },
-              { "@type": "ListItem", "position": 3, "name": data.title, "item": `https://counselo.com/services/${id}` },
-            ],
-          },
-        ]}
+        title={seoTitle}
+        description={seoDesc}
+        canonical={canonicalPath}
+        keywords={seoKeywords}
+        schema={schemas}
+        ogType="website"
       />
       {/* Breadcrumb */}
       <div className="bg-card border-b border-border py-4 mt-24">
@@ -93,16 +154,16 @@ export default function ServiceDetail() {
               </Link>
               <h1 className="text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
                 {isRTL
-                  ? `${data.title} في ${region === "syr" ? "سوريا" : "المملكة العربية السعودية"}`
-                  : `${data.title} Lawyer in ${region === "syr" ? "Syria" : "Saudi Arabia"}`}
+                  ? `${data.title} في ${isSyr ? "سوريا" : "المملكة العربية السعودية"}`
+                  : `${data.title} Lawyer in ${isSyr ? "Syria" : "Saudi Arabia"}`}
               </h1>
               <p className="text-2xl text-primary font-serif italic mb-10">{data.subtitle}</p>
-              <div className="prose prose-green max-w-none mb-16">
+              <div className="prose prose-green max-w-none mb-16 speakable-overview">
                 <p className="text-lg text-muted-foreground leading-relaxed">{data.overview}</p>
               </div>
 
               <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">{sd.coversHeading}</h2>
-              <div className="grid sm:grid-cols-2 gap-6 mb-16">
+              <div className="grid sm:grid-cols-2 gap-6 mb-16 speakable-covers">
                 {data.covers.map((item, i) => (
                   <div key={i} className="flex items-start gap-3 bg-card border border-border p-4 hover:border-primary/40 transition-colors">
                     <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
@@ -112,7 +173,7 @@ export default function ServiceDetail() {
               </div>
 
               <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">{sd.processHeading}</h2>
-              <div className="space-y-8">
+              <div className="space-y-8 mb-16">
                 {data.process.map((step, i) => (
                   <div key={i} className="flex gap-6 relative">
                     {i !== data.process.length - 1 && (
@@ -128,6 +189,33 @@ export default function ServiceDetail() {
                   </div>
                 ))}
               </div>
+
+              {hasFaqs && faqs.length > 0 && (
+                <div className="mt-4">
+                  <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">
+                    {isRTL ? "الأسئلة الشائعة" : "Frequently Asked Questions"}
+                  </h2>
+                  <div className="space-y-3">
+                    {faqs.map((faq, i) => (
+                      <div key={i} className="border border-border bg-card">
+                        <button
+                          className="w-full flex items-center justify-between p-5 text-start hover:bg-muted/30 transition-colors"
+                          onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                          aria-expanded={openFaq === i}
+                        >
+                          <span className="font-semibold text-foreground leading-snug pe-4">{faq.q}</span>
+                          <ChevronDown className={`h-5 w-5 text-primary shrink-0 transition-transform duration-200 ${openFaq === i ? "rotate-180" : ""}`} />
+                        </button>
+                        {openFaq === i && (
+                          <div className="px-5 pb-5">
+                            <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </motion.div>
           </div>
 
