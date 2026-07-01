@@ -4,35 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--
-      SSR / Prerender architecture
-      ════════════════════════════
-      This file is the HTML template for both development and production.
-
-      In DEVELOPMENT (Vite dev server):
-        • The <!--app-head--> placeholder stays empty.
-        • react-helmet-async injects title/meta/OG/schemas dynamically via JS.
-        • createRoot mounts the app into <div id="root">.
-
-      In PRODUCTION (after `pnpm run build`):
-        • vite build        → processes this file into dist/public/index.html
-                              (adds hashed CSS + JS asset links).
-        • vite build --ssr  → compiles src/entry-server.tsx into
-                              dist/server/entry-server.js (Node ESM bundle).
-        • prerender.ts      → for each public route, calls render(url),
-                              replaces <!--app-head--> with per-route head tags,
-                              and injects server-rendered HTML into #root.
-                              Writes dist/public/{route}/index.html.
-
-      Googlebot and AI crawlers (Perplexity, ChatGPT Search, ClaudeBot) fetch
-      the raw HTML. With prerendering, they receive full title, meta, canonical,
-      OG tags, JSON-LD schemas, and visible body text on the first byte —
-      no JavaScript execution required.
-
-      Static tags below (theme-color, favicon, fonts) apply to every route.
-      All route-specific tags (title, description, canonical, OG, schemas)
-      come exclusively from react-helmet-async via <!--app-head-->.
-    -->
 
     <!-- Static infrastructure — identical on every route -->
     <meta name="theme-color" content="#00521a" />
