@@ -93,18 +93,26 @@ export default function Contact() {
             ? "تواصل مع قانوني — أكبر منصة استشارات قانونية أونلاين في المملكة. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
             : "Contact CounselO — Saudi Arabia's largest online legal consultation platform. Professional response within 24 hours via WhatsApp (+966 59 485 0247) or email. No office visit needed. Arabic and English.")}
         canonical="/contact"
-        keywords={isRTL
-          ? "احجز استشارة قانونية السعودية, تواصل مع محامي أونلاين, استشارة قانونية واتساب السعودية, استجابة خلال 24 ساعة, محامي الجبيل أونلاين, قانوني اتصل, استشارة فورية السعودية"
-          : "book legal consultation Saudi Arabia, contact lawyer online KSA, WhatsApp legal consultation Saudi Arabia, legal advice within 24 hours, Jubail lawyer online, CounselO contact, book lawyer KSA"}
+        keywords={region === "syr"
+          ? (isRTL
+            ? "احجز استشارة قانونية سوريا, تواصل مع محامي أونلاين سوريا, استشارة قانونية واتساب سوريا, استجابة خلال 24 ساعة, محامي دمشق أونلاين, قانوني اتصل سوريا, استشارة قانونية إلكترونية سوريا"
+            : "book legal consultation Syria, contact lawyer online Syria, WhatsApp legal consultation Syria, legal advice within 24 hours Syria, Damascus lawyer online, CounselO contact Syria, book lawyer Syria")
+          : (isRTL
+            ? "احجز استشارة قانونية السعودية, تواصل مع محامي أونلاين, استشارة قانونية واتساب السعودية, استجابة خلال 24 ساعة, محامي الجبيل أونلاين, قانوني اتصل, استشارة فورية السعودية"
+            : "book legal consultation Saudi Arabia, contact lawyer online KSA, WhatsApp legal consultation Saudi Arabia, legal advice within 24 hours, Jubail lawyer online, CounselO contact, book lawyer KSA")}
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "ContactPage",
             "name": isRTL ? "تواصل مع قانوني" : "Contact CounselO",
-            "description": isRTL
-              ? "احجز استشارة قانونية أونلاين في المملكة العربية السعودية — استجابة خلال 24 ساعة"
-              : "Book an online legal consultation in Saudi Arabia — professional response within 24 hours",
-            "url": "https://counselo.com/contact",
+            "description": region === "syr"
+              ? (isRTL
+                ? "احجز استشارة قانونية أونلاين في سوريا — استجابة احترافية خلال 24 ساعة"
+                : "Book an online legal consultation in Syria — professional response within 24 hours")
+              : (isRTL
+                ? "احجز استشارة قانونية أونلاين في المملكة العربية السعودية — استجابة خلال 24 ساعة"
+                : "Book an online legal consultation in Saudi Arabia — professional response within 24 hours"),
+            "url": region === "syr" ? "https://counselo.com/syr/contact" : "https://counselo.com/sa/contact",
           },
           {
             "@context": "https://schema.org",
@@ -113,9 +121,13 @@ export default function Contact() {
             "telephone": "+966594850247",
             "email": "bagdadio@gmail.com",
             "url": "https://counselo.com",
-            "address": { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA", "streetAddress": "Madinah Street, Radma Hotel Apartments Building, Jubail Al-Balad" },
+            "address": region === "syr"
+              ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
+              : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA", "streetAddress": "Madinah Street, Radma Hotel Apartments Building, Jubail Al-Balad" },
             "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
-            "areaServed": { "@type": "Country", "name": "Saudi Arabia" },
+            "areaServed": region === "syr"
+              ? { "@type": "Country", "name": "Syria" }
+              : { "@type": "Country", "name": "Saudi Arabia" },
             "availableLanguage": ["Arabic", "English"],
             "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "847", "bestRating": "5" },
             "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Sunday"], "opens": "09:00", "closes": "22:00" },

@@ -34,14 +34,67 @@ export default function Home() {
           : (isRTL
             ? "كاونسلو | منصة المملكة للاستشارات القانونية الأونلاين | استجابة خلال 24 ساعة"
             : "CounselO | Online Legal Consultation — Saudi Arabia | Response Within 24 Hours")}
-        description={isRTL
-          ? "قانوني — منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني للأفراد والشركات والمستثمرين. 18 مجالاً قانونياً، خبرة تزيد على 30 عاماً، أكثر من 20,000 قضية. بإشراف المحامي والمستشار القانوني عمر البغدادي. متاحة بالعربية والإنجليزية في الجبيل والرياض وجدة والدمام وجميع مناطق المملكة. رؤية 2030."
-          : "CounselO is Saudi Arabia's online legal consultation platform — professional legal response within 24 hours via WhatsApp or email. 18 practice areas covering family law, commercial law, employment, real estate, foreign investment, administrative law, criminal law, banking, tax, and more. Founded by Lawyer and Legal Counsel Omar Al-Baghdadi. 30+ years experience, 20,000+ cases. Vision 2030 aligned."}
+        description={region === "syr"
+          ? (isRTL
+            ? "قانوني — منصة سوريا للاستشارات القانونية الأونلاين. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. 18 مجالاً قانونياً وفق القانون المدني السوري وقانون الشركات 29/2011 وقانون العمل 17/2010. خبرة تزيد على 30 عاماً، أكثر من 20,000 قضية. بإشراف المحامي عمر البغدادي. بالعربية والإنجليزية."
+            : "CounselO is Syria's online legal consultation platform — professional legal response within 24 hours via WhatsApp or email. 18 practice areas under Syrian Civil Code, Companies Law 29/2011, Labour Law 17/2010, Personal Status Law. Founded by Lawyer Omar Al-Baghdadi. 30+ years experience, 20,000+ cases.")
+          : (isRTL
+            ? "قانوني — منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني للأفراد والشركات والمستثمرين. 18 مجالاً قانونياً، خبرة تزيد على 30 عاماً، أكثر من 20,000 قضية. بإشراف المحامي والمستشار القانوني عمر البغدادي. متاحة بالعربية والإنجليزية في الجبيل والرياض وجدة والدمام وجميع مناطق المملكة. رؤية 2030."
+            : "CounselO is Saudi Arabia's online legal consultation platform — professional legal response within 24 hours via WhatsApp or email. 18 practice areas covering family law, commercial law, employment, real estate, foreign investment, administrative law, criminal law, banking, tax, and more. Founded by Lawyer and Legal Counsel Omar Al-Baghdadi. 30+ years experience, 20,000+ cases. Vision 2030 aligned.")}
         canonical="/"
-        keywords={isRTL
-          ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة, مشورة قانونية خلال 24 ساعة, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل, القانون العقاري, استثمار أجنبي, القانون الإداري, استشارة قانونية واتساب, قانون جنائي سعودي, قانون ضريبي زكاة, مشورة قانونية الجبيل, عمر البغدادي, رؤية 2030, قانوني"
-          : "online legal consultation Saudi Arabia, Saudi Arabia online legal platform, lawyer online Saudi Arabia, legal advice within 24 hours KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law KSA, foreign investment lawyer Saudi Arabia, administrative law KSA, criminal law Saudi Arabia, banking finance law, tax zakat lawyer, medical malpractice KSA, WhatsApp legal consultation, Omar Al-Baghdadi, Jubail lawyer, Vision 2030 legal, CounselO"}
-        schema={{
+        keywords={region === "syr"
+          ? (isRTL
+            ? "استشارة قانونية أونلاين سوريا, محامي أونلاين سوريا, مشورة قانونية خلال 24 ساعة, القانون المدني السوري, قانون الأسرة السوري 59/1953, قانون الشركات السوري 29/2011, قانون العمل السوري 17/2010, القانون العقاري سوريا, مصرف سوريا المركزي, هيئة الضرائب العامة سوريا, عمر البغدادي, محامي دمشق أونلاين, محامي حلب, قانوني سوريا"
+            : "online legal consultation Syria, Syria legal consultation platform, lawyer online Syria, legal advice within 24 hours Syria, Syrian Civil Code, family law Syria, companies law Syria 29/2011, employment law Syria 17/2010, real estate law Syria, Central Bank of Syria, General Tax Authority Syria, Omar Al-Baghdadi, Damascus lawyer online, CounselO Syria")
+          : (isRTL
+            ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة, مشورة قانونية خلال 24 ساعة, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل, القانون العقاري, استثمار أجنبي, القانون الإداري, استشارة قانونية واتساب, قانون جنائي سعودي, قانون ضريبي زكاة, مشورة قانونية الجبيل, عمر البغدادي, رؤية 2030, قانوني"
+            : "online legal consultation Saudi Arabia, Saudi Arabia online legal platform, lawyer online Saudi Arabia, legal advice within 24 hours KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law KSA, foreign investment lawyer Saudi Arabia, administrative law KSA, criminal law Saudi Arabia, banking finance law, tax zakat lawyer, medical malpractice KSA, WhatsApp legal consultation, Omar Al-Baghdadi, Jubail lawyer, Vision 2030 legal, CounselO")}
+        schema={region === "syr" ? {
+          "@context": "https://schema.org",
+          "@type": "LegalService",
+          "name": "CounselO قانوني",
+          "alternateName": "CounselO Online Legal Consultations",
+          "description": isRTL
+            ? "منصة سوريا للاستشارات القانونية الأونلاين — 18 مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي — خبرة أكثر من 30 عاماً في القانون السوري"
+            : "Syria's online legal consultation platform — 18 practice areas, professional response within 24 hours, founded by Lawyer Omar Al-Baghdadi — 30+ years Syrian law expertise",
+          "url": "https://counselo.com/syr",
+          "logo": "https://counselo.com/logo.png",
+          "founder": {
+            "@type": "Person",
+            "name": "Omar Al-Baghdadi",
+            "jobTitle": "Lawyer and Legal Counsel",
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Damascus",
+            "addressRegion": "Damascus Governorate",
+            "addressCountry": "SY",
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Syria",
+          },
+          "availableLanguage": ["Arabic", "English"],
+          "serviceType": ["Family Law", "Civil Law", "Employment Law", "Real Estate Law", "Foreign Investment Law", "Administrative Law", "Criminal Law", "Banking & Finance Law", "Tax Law", "Cyber Law", "Medical Malpractice", "Insurance Law", "Immigration Law", "Arbitration", "Enforcement Law", "Companies Law", "Contracts Law"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Legal Consultation Services Syria",
+            "numberOfItems": 18,
+          },
+          "sameAs": ["https://counselo.com"],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+966594850247",
+            "contactType": "legal consultation",
+            "availableLanguage": ["Arabic", "English"],
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "847",
+            "bestRating": "5",
+          },
+        } : {
           "@context": "https://schema.org",
           "@type": "LegalService",
           "name": "CounselO قانوني",
@@ -49,7 +102,7 @@ export default function Home() {
           "description": isRTL
             ? "منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين — 18 مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي"
             : "Saudi Arabia's online legal consultation platform — 18 practice areas, professional response within 24 hours, founded by Lawyer Omar Al-Baghdadi",
-          "url": "https://counselo.com/",
+          "url": "https://counselo.com/sa",
           "logo": "https://counselo.com/logo.png",
           "founder": {
             "@type": "Person",

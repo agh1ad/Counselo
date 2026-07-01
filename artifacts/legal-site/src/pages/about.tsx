@@ -24,19 +24,22 @@ export default function About() {
       "name": "CounselO قانوني",
       "url": "https://counselo.com",
       "logo": "https://counselo.com/logo.png",
-      "description": isRTL
-        ? "أكبر منصة للاستشارات القانونية الأونلاين في المملكة العربية السعودية — تأسست على يد المحامي عمر البغدادي"
-        : "Saudi Arabia's largest online legal consultation platform — founded by Lawyer Omar Al-Baghdadi",
+      "description": region === "syr"
+        ? (isRTL
+          ? "منصة الاستشارات القانونية الإلكترونية المتخصصة في سوريا — تأسست على يد المحامي عمر البغدادي بخبرة 30+ عاماً في القانون السوري"
+          : "Syria's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi with 30+ years of Syrian law expertise")
+        : (isRTL
+          ? "أكبر منصة للاستشارات القانونية الأونلاين في المملكة العربية السعودية — تأسست على يد المحامي عمر البغدادي"
+          : "Saudi Arabia's largest online legal consultation platform — founded by Lawyer Omar Al-Baghdadi"),
       "foundingDate": "2020",
-      "areaServed": { "@type": "Country", "name": "Saudi Arabia" },
+      "areaServed": region === "syr"
+        ? { "@type": "Country", "name": "Syria" }
+        : { "@type": "Country", "name": "Saudi Arabia" },
       "telephone": "+966594850247",
       "email": "bagdadio@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Jubail",
-        "addressRegion": "Eastern Province",
-        "addressCountry": "SA",
-      },
+      "address": region === "syr"
+        ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
+        : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA" },
       "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
     },
     {

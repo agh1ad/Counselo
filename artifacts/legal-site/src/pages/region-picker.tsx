@@ -1,11 +1,67 @@
 import { Link } from "wouter";
+import { Helmet } from "react-helmet-async";
 import counseloLogo from "@assets/Screen_Shot_2026-07-01_at_12.26.11_AM_1782851175169.png";
 import saudiFlag from "@assets/image_1782789705620.jpeg";
 import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5x_1782856203372.jpg";
 
+const regionPickerSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CounselO قانوني",
+  "alternateName": "CounselO Online Legal Consultations",
+  "url": "https://counselo.com/",
+  "description": "Online legal consultation platform serving Saudi Arabia and Syria — professional Arabic & English legal advice within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://counselo.com/{search_term_string}",
+    "query-input": "required name=search_term_string",
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CounselO قانوني",
+    "url": "https://counselo.com",
+    "logo": "https://counselo.com/logo.png",
+    "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
+    "areaServed": [
+      { "@type": "Country", "name": "Saudi Arabia" },
+      { "@type": "Country", "name": "Syria" },
+    ],
+    "availableLanguage": ["Arabic", "English"],
+  },
+};
+
 export default function RegionPicker() {
   return (
     <div className="min-h-screen bg-[#162b20] flex flex-col items-center justify-center px-4 py-16">
+      <Helmet>
+        <html lang="ar" dir="rtl" />
+        <title>CounselO قانوني | استشارة قانونية أونلاين — السعودية وسوريا | Saudi Arabia & Syria Online Legal Consultation</title>
+        <meta name="description" content="CounselO — منصة الاستشارات القانونية الأونلاين للمملكة العربية السعودية وسوريا. مشورة قانونية احترافية باللغتين العربية والإنجليزية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. Online legal consultations for Saudi Arabia and Syria — Arabic & English, response within 24 hours." />
+        <meta name="keywords" content="online legal consultation Saudi Arabia Syria, استشارة قانونية أونلاين السعودية سوريا, lawyer Saudi Arabia online, محامي أونلاين المملكة, محامي أونلاين سوريا, legal advice Middle East, مشورة قانونية الشرق الأوسط, CounselO قانوني, Omar Al-Baghdadi" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="geo.region" content="MENA" />
+        <meta name="geo.placename" content="Middle East" />
+        <link rel="canonical" href="https://counselo.com/" />
+        <link rel="alternate" hrefLang="ar-SA" href="https://counselo.com/sa" />
+        <link rel="alternate" hrefLang="en-SA" href="https://counselo.com/sa" />
+        <link rel="alternate" hrefLang="ar-SY" href="https://counselo.com/syr" />
+        <link rel="alternate" hrefLang="en-SY" href="https://counselo.com/syr" />
+        <link rel="alternate" hrefLang="x-default" href="https://counselo.com/" />
+        <meta property="og:title" content="CounselO قانوني | Online Legal Consultation — Saudi Arabia & Syria" />
+        <meta property="og:description" content="Professional online legal consultations for Saudi Arabia and Syria — Arabic & English, response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases." />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="CounselO كاونسلو" />
+        <meta property="og:url" content="https://counselo.com/" />
+        <meta property="og:image" content="https://counselo.com/opengraph.jpg" />
+        <meta property="og:locale" content="ar_SA" />
+        <meta property="og:locale:alternate" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@CounselOLegal" />
+        <meta name="twitter:title" content="CounselO قانوني | Online Legal Consultation — Saudi Arabia & Syria" />
+        <meta name="twitter:description" content="Professional online legal consultations for Saudi Arabia and Syria — Arabic & English, response within 24 hours." />
+        <meta name="twitter:image" content="https://counselo.com/opengraph.jpg" />
+        <script type="application/ld+json">{JSON.stringify(regionPickerSchema)}</script>
+      </Helmet>
       <div className="flex flex-col items-center gap-10 max-w-2xl w-full text-center">
         <img
           src={counseloLogo}

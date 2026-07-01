@@ -2,10 +2,12 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Shield, Eye, Lock, Database, Globe, UserCheck, Bell, Trash2, MessageCircle, Mail, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 
 export default function PrivacyPolicy() {
   const { isRTL } = useLanguage();
+  const { region } = useRegion();
 
   const content = {
     en: {
@@ -332,9 +334,13 @@ export default function PrivacyPolicy() {
         title={content.seoTitle}
         description={content.seoDesc}
         canonical="/privacy-policy"
-        keywords={isRTL
-          ? "سياسة الخصوصية قانوني, حماية البيانات الشخصية السعودية, سرية الاستشارة القانونية, نظام PDPL السعودي, خصوصية المستخدم"
-          : "CounselO privacy policy, data protection Saudi Arabia, legal consultation confidentiality, PDPL Saudi Arabia, client data privacy"}
+        keywords={region === "syr"
+          ? (isRTL
+            ? "سياسة الخصوصية قانوني, حماية البيانات الشخصية سوريا, سرية الاستشارة القانونية, حماية البيانات السورية, خصوصية المستخدم سوريا"
+            : "CounselO privacy policy, data protection Syria, legal consultation confidentiality Syria, Syrian data protection law, client data privacy Syria")
+          : (isRTL
+            ? "سياسة الخصوصية قانوني, حماية البيانات الشخصية السعودية, سرية الاستشارة القانونية, نظام PDPL السعودي, خصوصية المستخدم"
+            : "CounselO privacy policy, data protection Saudi Arabia, legal consultation confidentiality, PDPL Saudi Arabia, client data privacy")}
         schema={[
           {
             "@context": "https://schema.org",

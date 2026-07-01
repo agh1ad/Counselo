@@ -2,10 +2,12 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { CheckCircle2, MessageCircle, Mail, CreditCard, FileText, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 
 export default function TermsOfService() {
   const { isRTL } = useLanguage();
+  const { region } = useRegion();
 
   const content = {
     en: {
@@ -140,9 +142,13 @@ export default function TermsOfService() {
         title={content.seoTitle}
         description={content.seoDesc}
         canonical="/terms-of-service"
-        keywords={isRTL
-          ? "شروط الخدمة قانوني, كيفية الاستشارة القانونية أونلاين, استشارة قانونية بالواتساب السعودية, رسوم الاستشارة القانونية, محامي أونلاين"
-          : "CounselO terms of service, how online legal consultation works Saudi Arabia, legal advice WhatsApp KSA, consultation fees lawyer, online legal process"}
+        keywords={region === "syr"
+          ? (isRTL
+            ? "شروط الخدمة قانوني, كيفية الاستشارة القانونية أونلاين سوريا, استشارة قانونية بالواتساب سوريا, رسوم الاستشارة القانونية, محامي أونلاين سوريا"
+            : "CounselO terms of service, how online legal consultation works Syria, legal advice WhatsApp Syria, consultation fees lawyer Syria, online legal process Syria")
+          : (isRTL
+            ? "شروط الخدمة قانوني, كيفية الاستشارة القانونية أونلاين, استشارة قانونية بالواتساب السعودية, رسوم الاستشارة القانونية, محامي أونلاين"
+            : "CounselO terms of service, how online legal consultation works Saudi Arabia, legal advice WhatsApp KSA, consultation fees lawyer, online legal process")}
         schema={[
           {
             "@context": "https://schema.org",
