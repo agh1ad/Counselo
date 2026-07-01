@@ -123,15 +123,15 @@ export default function Home() {
           "serviceType": ["Family Law", "Commercial Law", "Employment Law", "Real Estate Law", "Foreign Investment Law", "Administrative Law", "Criminal Law", "Banking & Finance Law", "Tax & Zakat Law", "Cyber Law", "Medical Malpractice", "Insurance Law", "Immigration Law", "Arbitration", "Enforcement Law", "Companies Law", "Contracts Law"],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "Legal Consultation Services",
+            "name": "Legal Consultation Services Saudi Arabia",
             "numberOfItems": 18,
           },
           "sameAs": ["https://counselo.com"],
           "contactPoint": {
             "@type": "ContactPoint",
+            "telephone": "+966594850247",
             "contactType": "legal consultation",
             "availableLanguage": ["Arabic", "English"],
-            "contactOption": "TollFree",
           },
           "aggregateRating": {
             "@type": "AggregateRating",
