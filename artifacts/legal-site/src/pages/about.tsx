@@ -221,6 +221,24 @@ export default function About() {
                 </div>
               </div>
 
+              {/* Brother card */}
+              <div className="flex items-center gap-4 mb-10 border border-primary/20 bg-primary/5 px-5 py-4">
+                <div className="w-10 h-10 bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0">
+                  <Award className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider mb-0.5">
+                    {isRTL ? "شقيقه" : "Brother"}
+                  </p>
+                  <p className="font-serif font-bold text-foreground text-base">
+                    {isRTL ? "المحامي مسعف بغدادي" : "Lawyer Mus'af Al-Baghdadi"}
+                  </p>
+                  <p className="text-primary text-xs font-medium">
+                    {isRTL ? "محامٍ — مكتب البغدادي للمحاماة" : "Lawyer — Al-Baghdadi Law Office"}
+                  </p>
+                </div>
+              </div>
+
               <p className="text-muted-foreground leading-relaxed mb-5 text-lg">{t.aboutPage.founder.bio1}</p>
               <p className="text-muted-foreground leading-relaxed mb-5">{t.aboutPage.founder.bio2}</p>
               <p className="text-muted-foreground leading-relaxed mb-5">{t.aboutPage.founder.bio3}</p>
