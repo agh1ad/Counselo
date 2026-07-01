@@ -7,8 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import saudiFlag from "@assets/image_1782789705620.jpeg";
 import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5x_1782856203372.jpg";
-
-const counseloLogo = "/logo.png";
+import navbarBrand from "@assets/Screen_Shot_2026-07-02_at_12.27.45_AM_1782937671982.png";
 
 export function Navbar() {
   const [location] = useLocation();
@@ -31,7 +30,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           <Link href={regionPrefix} className="flex items-center gap-3">
-            <img src={counseloLogo} alt="CounselO — Online Legal Consultations" className="h-20 w-auto object-contain" />
+            <img src={navbarBrand} alt="CounselO — Online Legal Consultations" className="h-20 w-auto object-contain" />
             <img
               src={flag}
               alt={flagAlt}
