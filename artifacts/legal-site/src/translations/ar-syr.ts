@@ -50,7 +50,7 @@ export const arSyr: typeof ar = {
       h1a: "استشارة قانونية إلكترونية",
       h1b: "في سوريا — سريعة وموثوقة.",
       desc: "كاونسلو منصة استشارات قانونية إلكترونية متخصصة تخدم سوريا — تقدّم إرشادات قانونية احترافية للأفراد والشركات والمستثمرين في جميع مجالات القانون السوري",
-      subDesc: "لا حاجة لزيارة مكتب. استشر عبر واتساب أو البريد الإلكتروني من أي مكان في سوريا — ردّ قانوني احترافي خلال 24 ساعة مضمون. خبرة إقليمية تتجاوز 30 عاماً، وأكثر من 20,000 قضية.",
+      subDesc: "لا حاجة لزيارة مكتب. استشر عبر واتساب أو البريد الإلكتروني من أي مكان في سوريا — ردّ قانوني احترافي خلال 24 ساعة مضمون. خبرة إقليمية تتجاوز 30 عاماً، وأكثر من 20,000 قضية واستشارة قانونية.",
     },
     platform: {
       ...ar.home.platform,
@@ -64,7 +64,7 @@ export const arSyr: typeof ar = {
     },
     about: {
       ...ar.home.about,
-      p1: "تأسست كاونسلو على يد المحامي والمستشار القانوني عمر البغدادي — أحد أبرز المحامين الأقدم في المنطقة، بخبرة تتجاوز 30 عاماً في الممارسة القانونية الفعلية وأكثر من 20,000 قضية متنوعة في سوريا والمنطقة.",
+      p1: "تأسست كاونسلو على يد المحامي والمستشار القانوني عمر البغدادي — أحد أبرز المحامين الأقدم في المنطقة، بخبرة تتجاوز 30 عاماً في الممارسة القانونية الفعلية وأكثر من 20,000 قضية واستشارة قانونية في سوريا والمنطقة.",
       founderTeamLine: "يقود فريقاً قانونياً احترافياً عبر سوريا والمنطقة",
     },
     consultMethods: {
@@ -368,7 +368,7 @@ export const arSyr: typeof ar = {
     ...ar.familyLawDetail,
     parentTitle: "قانون الأسرة — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "قانون الأسرة — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     services: Object.fromEntries(
       Object.entries(ar.familyLawDetail.services).map(([id, svc]) => [id, fixNizam({
         ...svc,
@@ -389,7 +389,7 @@ export const arSyr: typeof ar = {
     ...ar.businessLawDetail,
     parentTitle: "القانون التجاري — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "القانون التجاري — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     services: Object.fromEntries(
       Object.entries(ar.businessLawDetail.services).map(([id, svc]) => [id, fixNizam({
         ...svc,
@@ -410,7 +410,7 @@ export const arSyr: typeof ar = {
     ...ar.realEstateLawDetail,
     parentTitle: "قانون الملكية — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "قانون الملكية — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     services: Object.fromEntries(
       Object.entries(ar.realEstateLawDetail.services).map(([id, svc]) => [id, fixNizam({
         ...svc,
@@ -431,7 +431,7 @@ export const arSyr: typeof ar = {
     ...ar.employmentLawDetail,
     parentTitle: "قانون العمل — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "قانون العمل — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     services: Object.fromEntries(
       Object.entries(ar.employmentLawDetail.services).map(([id, svc]) => [id, fixNizam({
         ...svc,
@@ -452,7 +452,7 @@ export const arSyr: typeof ar = {
     ...ar.foreignInvestmentDetail,
     parentTitle: "الاستثمار الأجنبي — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "الاستثمار الأجنبي — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     services: Object.fromEntries(
       Object.entries(ar.foreignInvestmentDetail.services).map(([id, svc]) => [id, fixNizam({
         ...svc,
@@ -474,7 +474,7 @@ export const arSyr: typeof ar = {
     ...ar.administrativeLawDetail,
     parentTitle: "القانون الإداري — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "القانون الإداري — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     subAreas: [
       { id: "board-of-grievances", label: "التقاضي أمام مجلس الدولة السوري" },
       { id: "administrative-appeals", label: "الطعن في القرارات الإدارية" },
@@ -505,7 +505,7 @@ export const arSyr: typeof ar = {
     ...ar.arbitrationDetail,
     parentTitle: "التحكيم والوساطة — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "التحكيم والوساطة — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     services: Object.fromEntries(
       Object.entries(ar.arbitrationDetail.services).map(([id, svc]) => [id, fixNizam({
         ...svc,
@@ -526,7 +526,7 @@ export const arSyr: typeof ar = {
     ...ar.enforcementDetail,
     parentTitle: "التنفيذ وتحصيل الديون — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "التنفيذ وتحصيل الديون — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     services: Object.fromEntries(
       Object.entries(ar.enforcementDetail.services).map(([id, svc]) => [id, fixNizam({
         ...svc,
@@ -547,7 +547,7 @@ export const arSyr: typeof ar = {
     ...ar.companiesLawDetail,
     parentTitle: "قانون الشركات — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "قانون الشركات — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     services: Object.fromEntries(
       Object.entries(ar.companiesLawDetail.services).map(([id, svc]) => [id, fixNizam({
         ...svc,
@@ -568,7 +568,7 @@ export const arSyr: typeof ar = {
     ...ar.contractsDetail,
     parentTitle: "العقود — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "العقود — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     services: Object.fromEntries(
       Object.entries(ar.contractsDetail.services).map(([id, svc]) => [id, fixNizam({
         ...svc,
@@ -589,7 +589,7 @@ export const arSyr: typeof ar = {
     ...ar.criminalLawDetail,
     parentTitle: "القانون الجنائي — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "القانون الجنائي — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     services: Object.fromEntries(
       Object.entries(ar.criminalLawDetail.services).map(([id, svc]) => [id, fixNizam({
         ...svc,
@@ -610,7 +610,7 @@ export const arSyr: typeof ar = {
     ...ar.bankingFinanceDetail,
     parentTitle: "قانون المصارف والتمويل — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "قانون المصارف والتمويل — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     sidebar: {
       heading: "هل تحتاج إلى محامٍ في قانون المصارف والتمويل؟",
       desc: "احصل على استشارة قانونية متخصصة في قانون المصارف والتمويل السوري — أنظمة مصرف سوريا المركزي ونزاعات المصارف والتمويل الإسلامي وفق القانون السوري. استشارة إلكترونية متاحة.",
@@ -640,7 +640,7 @@ export const arSyr: typeof ar = {
     ...ar.intellectualPropertyDetail,
     parentTitle: "الملكية الفكرية — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "الملكية الفكرية — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     sidebar: {
       heading: "هل تحتاج إلى محامٍ ملكية فكرية في سوريا؟",
       desc: "احصل على استشارة قانونية متخصصة في الملكية الفكرية — تسجيل العلامات التجارية وبراءات الاختراع وحقوق التأليف والنزاعات وفق القانون السوري. استجابة خلال 24 ساعة.",
@@ -670,7 +670,7 @@ export const arSyr: typeof ar = {
     ...ar.taxZakatDetail,
     parentTitle: "قانون الضرائب — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "قانون الضرائب — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     notFoundLink: "العودة إلى قانون الضرائب",
     relatedHeading: "خدمات ضريبية أخرى",
     sidebar: {
@@ -711,7 +711,7 @@ export const arSyr: typeof ar = {
     ...ar.cyberLawDetail,
     parentTitle: "القانون الإلكتروني — سوريا",
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "القانون الإلكتروني — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     sidebar: {
       heading: "هل تحتاج إلى محامٍ جرائم إلكترونية؟",
       desc: "احصل على استشارة عاجلة في قانون الجرائم المعلوماتية في سوريا — عبر واتساب أو البريد الإلكتروني وفق قانون الجرائم المعلوماتية السوري (المرسوم 17/2012). استجابة سرية وسريعة.",
@@ -740,7 +740,7 @@ export const arSyr: typeof ar = {
   medicalMalpracticeDetail: {
     ...ar.medicalMalpracticeDetail,
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "المسؤولية الطبية — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     sidebar: {
       heading: "هل تحتاج إلى محامٍ مسؤولية طبية؟",
       desc: "احصل على استشارة قانونية متخصصة في المسؤولية الطبية وقانون الصحة في سوريا — عبر واتساب أو البريد الإلكتروني. استشارة سرية وفق أنظمة نقابة الأطباء السورية. استجابة خلال 24 ساعة.",
@@ -769,7 +769,7 @@ export const arSyr: typeof ar = {
   insuranceLawDetail: {
     ...ar.insuranceLawDetail,
     breadcrumb: { home: "الرئيسية", services: "الخدمات", parent: "قانون التأمين — سوريا" },
-    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية · استشارات إلكترونية متاحة",
+    experienceBadge: "خبرة إقليمية تتجاوز 30 عاماً · أكثر من 20,000 قضية واستشارة قانونية · استشارات إلكترونية متاحة",
     sidebar: {
       heading: "هل تحتاج إلى محامٍ نزاعات تأمين؟",
       desc: "احصل على استشارة قانونية متخصصة في نزاعات التأمين في سوريا وفق قانون التأمين رقم 68/2001 — عبر واتساب أو البريد الإلكتروني. استجابة خلال 24 ساعة.",
@@ -817,7 +817,7 @@ export const arSyr: typeof ar = {
       { stat: "40+", label: "محامٍ تلقّى التوجيه" },
     ],
     seoTitle: "عن كاونسلو — منصة الاستشارات القانونية الإلكترونية المتخصصة في سوريا",
-    seoDesc: "كاونسلو منصة الاستشارات القانونية الإلكترونية المتخصصة في سوريا — أسسها المحامي عمر البغدادي بخبرة إقليمية تتجاوز 30 عاماً وأكثر من 20,000 قضية في سوريا والمنطقة.",
+    seoDesc: "كاونسلو منصة الاستشارات القانونية الإلكترونية المتخصصة في سوريا — أسسها المحامي عمر البغدادي بخبرة إقليمية تتجاوز 30 عاماً وأكثر من 20,000 قضية واستشارة قانونية في سوريا والمنطقة.",
     seoKeywords: "عن كاونسلو, منصة قانونية إلكترونية سوريا, المحامي عمر البغدادي, منصة قانونية متخصصة سوريا, استشارات قانونية إلكترونية سوريا, خبير قانوني سوري",
     hero: {
       ...ar.aboutPage.hero,
