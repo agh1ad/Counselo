@@ -139,15 +139,31 @@ export default function About() {
                 </div>
               </div>
               <div className="mt-6 bg-card border border-border p-8">
-                <div className="text-4xl font-serif font-bold text-primary mb-2">2030</div>
-                <p className="text-foreground font-semibold mb-2">
-                  {isRTL ? "رؤية السعودية 2030 — الشريك القانوني الرقمي" : "Saudi Vision 2030 — Digital Legal Partner"}
-                </p>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {isRTL
-                    ? "قانوني منصة رقمية تُجسّد أهداف رؤية 2030 في التحول الرقمي وتيسير الوصول إلى العدالة وتمكين المواطنين والمستثمرين."
-                    : "CounselO embodies Vision 2030's goals of digital transformation, access to justice, and empowering citizens and investors across the Kingdom."}
-                </p>
+                {region === "syr" ? (
+                  <>
+                    <div className="text-4xl font-serif font-bold text-primary mb-2">1957</div>
+                    <p className="text-foreground font-semibold mb-2">
+                      {isRTL ? "مكتب البغدادي للمحاماة — تأسس عام 1957" : "Al-Baghdadi Law Firm — Est. 1957"}
+                    </p>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {isRTL
+                        ? "إرث قانوني عريق يمتد لأكثر من 67 عاماً في سوريا — خبرة متوارثة من جيل إلى جيل في التقاضي والمشورة القانونية."
+                        : "A distinguished legal legacy spanning over 67 years in Syria — expertise passed from generation to generation in litigation and legal counsel."}
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <div className="text-4xl font-serif font-bold text-primary mb-2">2030</div>
+                    <p className="text-foreground font-semibold mb-2">
+                      {isRTL ? "رؤية السعودية 2030 — الشريك القانوني الرقمي" : "Saudi Vision 2030 — Digital Legal Partner"}
+                    </p>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {isRTL
+                        ? "قانوني منصة رقمية تُجسّد أهداف رؤية 2030 في التحول الرقمي وتيسير الوصول إلى العدالة وتمكين المواطنين والمستثمرين."
+                        : "CounselO embodies Vision 2030's goals of digital transformation, access to justice, and empowering citizens and investors across the Kingdom."}
+                    </p>
+                  </>
+                )}
               </div>
             </motion.div>
           </div>

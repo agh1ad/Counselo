@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { Scale, ShieldCheck, Users, ArrowRight, CheckCircle2, Star, Quote, MessageCircle, Mail, Award, Globe, Zap, BadgeCheck, Wifi, Clock, Lock, MapPin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useRegion } from "@/contexts/RegionContext";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -20,6 +21,7 @@ const channelColors = ["bg-[#25D366]", "bg-white/15 border border-white/30"];
 
 export default function Home() {
   const { t, isRTL } = useLanguage();
+  const { region } = useRegion();
   const h = t.home;
 
   return (
@@ -153,7 +155,7 @@ export default function Home() {
                   </div>
                 ))}
                 <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                  <div className="text-white/40 text-xs">Trusted across Saudi Arabia</div>
+                  <div className="text-white/40 text-xs">{region === "syr" ? (isRTL ? "موثوق به في سوريا" : "Trusted across Syria") : (isRTL ? "موثوق به في السعودية" : "Trusted across Saudi Arabia")}</div>
                   <div className="flex">
                     {[...Array(5)].map((_, i) => <Star key={i} className="h-3.5 w-3.5 text-yellow-400 fill-yellow-400" />)}
                   </div>

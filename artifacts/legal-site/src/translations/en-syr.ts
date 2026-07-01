@@ -774,15 +774,39 @@ export const enSyr: typeof en = {
     ],
     seoTitle: "About CounselO — Syria's Specialized Online Legal Consultation Platform",
     seoDesc: "CounselO is Syria's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi, with 30+ years regional experience and 20,000+ cases handled across Syria and the region.",
+    seoKeywords: "about CounselO, online legal platform Syria, lawyer Omar Al-Baghdadi, specialized legal platform Syria, online legal consultation Syria, Syrian law expert",
     hero: {
       ...en.aboutPage.hero,
       badge: "Syria's Specialized Online Legal Consultation Platform · CounselO",
       heading: "Syria's Specialized Online Legal Consultation Platform",
       subheading: "CounselO delivers expert legal guidance online for individuals, businesses and investors across Syria — fast, professionally, and in both Arabic and English.",
     },
+    mission: {
+      eyebrow: "Our Mission",
+      heading: "Democratising Legal Access in Syria",
+      p1: "CounselO was established with a clear mission: to make expert legal advice accessible to every individual, business and investor in Syria — online, instantly, and without the barriers of traditional legal practice. No office visits, no waiting rooms, no geographic limitations. One platform. All practice areas. Professional quality on every consultation.",
+      p2: "Syria's legal landscape demands experienced, reliable counsel — for individuals navigating personal status matters, businesses protecting their commercial interests, and foreign investors entering the Syrian market. CounselO puts specialist expertise within reach of every client across Syria, via WhatsApp or email, 24/7, in both Arabic and English. We are Syria's specialized online legal consultation platform — with 20 major practice areas, a professional legal team led by a 30-year senior advocate, and the ability to serve any client, anywhere in Syria, within 24 hours.",
+      p3: "From a single consultation to complex multi-jurisdictional disputes, CounselO delivers structured legal analysis, practical guidance, and expert representation across all major areas of Syrian law — online, fast, and with the professional quality that every client deserves.",
+      vision2030Badge: "Syria's Legal Experts",
+      vision2030Desc: "Making professional Syrian legal guidance accessible to individuals, businesses and investors — wherever they are.",
+    },
     founder: {
       ...en.aboutPage.founder,
       subheading: "Senior Advocate · Regional Legal Authority · Syria & the Region",
+    },
+    why: {
+      eyebrow: "Why CounselO",
+      heading: "The CounselO Difference",
+      points: [
+        { title: "Access to Justice", desc: "CounselO makes professional legal guidance accessible to all individuals, businesses and investors across Syria — online, without barriers, in both Arabic and English." },
+      ],
+    },
+    cta: {
+      eyebrow: "Get Expert Legal Advice Today",
+      heading: "Consult CounselO — Syria's Specialized Online Legal Consultation Platform",
+      desc: "Professional legal guidance delivered online — fast, confidential, and backed by 30+ years of regional legal experience across Syria and the Arab world. Start your consultation today via WhatsApp or email.",
+      ctaBtn: "Start Your Consultation",
+      learnMoreBtn: "View All Services",
     },
     office: {
       ...en.aboutPage.office,
