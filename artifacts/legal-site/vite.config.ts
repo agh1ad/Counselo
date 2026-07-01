@@ -2,7 +2,20 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
+import { execSync } from "child_process";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+
+function sitemapPlugin() {
+  return {
+    name: "generate-sitemap",
+    buildStart() {
+      execSync("pnpm run generate-sitemap", {
+        cwd: import.meta.dirname,
+        stdio: "inherit",
+      });
+    },
+  };
+}
 
 const rawPort = process.env.PORT;
 
@@ -29,6 +42,7 @@ if (!basePath) {
 export default defineConfig({
   base: basePath,
   plugins: [
+    sitemapPlugin(),
     react(),
     tailwindcss(),
     runtimeErrorOverlay(),
