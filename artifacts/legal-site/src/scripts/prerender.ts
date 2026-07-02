@@ -102,6 +102,12 @@ const ROUTES: string[] = [
 // Helpers
 // ---------------------------------------------------------------------------
 
+// Convert a route path to its flat prerendered filename, e.g.
+// "/sa/services/family-law" -> "sa-services-family-law.html"
+export function routeToFlatFilename(route: string): string {
+  return `${route.slice(1).replace(/\//g, "-")}.html`;
+}
+
 function writeRoute(
   route: string,
   template: string,
@@ -117,10 +123,23 @@ function writeRoute(
     // data-ssr signals entry-client.tsx to use hydrateRoot instead of createRoot.
     .replace(/<div id="root"><\/div>/, `<div id="root" data-ssr="true">${body}</div>`);
 
+  // Root route keeps the standard index.html (needed by the static server as
+  // both the "/" page and the SPA-fallback template for unprerendered paths
+  // like /counselo-admin).
+  //
+  // Every other route is written as a FLAT file (not route/index.html). This
+  // avoids the static server's implicit directory + trailing-slash redirect
+  // behavior: when a nested "route/index.html" exists, requesting the bare
+  // path 301-redirects to "route/" — but the server then fails to resolve
+  // that nested index.html and silently falls back to serving the root
+  // index.html instead (wrong content, wrong canonical). Flat files plus
+  // explicit rewrites in artifact.toml sidestep that bug entirely: no
+  // directory exists to trigger a redirect, so the exact-path rewrite serves
+  // the correct file directly with a 200.
   const outputPath =
     route === "/"
       ? resolve(publicDir, "index.html")
-      : resolve(publicDir, route.slice(1), "index.html");
+      : resolve(publicDir, "__pages", routeToFlatFilename(route));
 
   if (route !== "/") {
     mkdirSync(dirname(outputPath), { recursive: true });
