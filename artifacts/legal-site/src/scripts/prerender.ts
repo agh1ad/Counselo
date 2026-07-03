@@ -60,10 +60,7 @@ const SYRIA_ONLY_SERVICE_SLUGS = [
   "criminal-procedure",
 ] as const;
 
-const ROUTES: string[] = [
-  // Region picker (x-default landing)
-  "/",
-
+const ENGLISH_ROUTES: string[] = [
   // Saudi Arabia core pages
   "/sa",
   "/sa/services",
@@ -104,6 +101,24 @@ const ROUTES: string[] = [
   "/syr/blog/board-of-grievances-saudi-arabia",
   "/syr/blog/real-estate-disputes-saudi-arabia",
   "/syr/blog/child-custody-saudi-arabia",
+];
+
+// Arabic is a real URL segment, not a client-side-only toggle: every English
+// route above has a matching "/ar" variant (e.g. "/sa/about" -> "/sa/ar/about")
+// so Arabic content is a genuinely distinct, crawlable page. This is required
+// for hreflang annotations to point to real content in that language.
+function toArabicRoute(route: string): string {
+  const match = route.match(/^\/(sa|syr)(.*)$/);
+  if (!match) return route;
+  const [, region, rest] = match;
+  return `/${region}/ar${rest}`;
+}
+
+const ROUTES: string[] = [
+  // Region picker (x-default landing)
+  "/",
+  ...ENGLISH_ROUTES,
+  ...ENGLISH_ROUTES.map(toArabicRoute),
 ];
 
 // ---------------------------------------------------------------------------

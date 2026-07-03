@@ -1,7 +1,14 @@
 export const BASE_URL = "https://counselo-legal.com";
 export const TODAY = new Date().toISOString().slice(0, 10);
 
-export const CORE_PAGES = [
+type CorePage = {
+  path: string;
+  changefreq: string;
+  priority: string;
+  isRoot?: boolean;
+};
+
+const CORE_PAGES_EN: CorePage[] = [
   { path: "", changefreq: "weekly", priority: "1.0", isRoot: true },
   { path: "/sa", changefreq: "weekly", priority: "0.95" },
   { path: "/sa/services", changefreq: "monthly", priority: "0.9" },
@@ -17,4 +24,15 @@ export const CORE_PAGES = [
   { path: "/syr/blog", changefreq: "weekly", priority: "0.8" },
   { path: "/syr/terms-of-service", changefreq: "yearly", priority: "0.4" },
   { path: "/syr/privacy-policy", changefreq: "yearly", priority: "0.4" },
+] as const;
+
+// Arabic is a real URL segment (e.g. "/sa/ar/about"), not a client-only
+// toggle — every English core page gets a matching "/ar" sitemap entry so
+// Arabic content is indexed as its own distinct, crawlable URL.
+export const CORE_PAGES = [
+  ...CORE_PAGES_EN,
+  ...CORE_PAGES_EN.filter((p) => !p.isRoot).map((p) => ({
+    ...p,
+    path: p.path.replace(/^\/(sa|syr)/, "/$1/ar"),
+  })),
 ] as const;

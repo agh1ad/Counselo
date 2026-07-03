@@ -22,31 +22,33 @@ const SYR_SERVICE_SLUGS: string[] = enSyr.nav.servicesList.map((s) =>
   slugFromHref(s.href),
 );
 
+// Arabic is a real URL segment (e.g. "/sa/ar/about"), not a client-only
+// toggle, so every entry emits all 4 region x language combos pointing at
+// their own real, distinct URLs, plus x-default — required for hreflang to
+// actually route crawlers/users to matching-language content.
 function hreflang(path: string): string {
-  const isSyr = path.startsWith("/syr");
   const isRoot = path === "";
   if (isRoot) {
     return [
       `    <xhtml:link rel="alternate" hrefLang="x-default" href="${BASE_URL}/"/>`,
       `    <xhtml:link rel="alternate" hrefLang="en-SA"     href="${BASE_URL}/sa"/>`,
-      `    <xhtml:link rel="alternate" hrefLang="ar-SA"     href="${BASE_URL}/sa"/>`,
+      `    <xhtml:link rel="alternate" hrefLang="ar-SA"     href="${BASE_URL}/sa/ar"/>`,
       `    <xhtml:link rel="alternate" hrefLang="en-SY"     href="${BASE_URL}/syr"/>`,
-      `    <xhtml:link rel="alternate" hrefLang="ar-SY"     href="${BASE_URL}/syr"/>`,
+      `    <xhtml:link rel="alternate" hrefLang="ar-SY"     href="${BASE_URL}/syr/ar"/>`,
     ].join("\n");
   }
-  const counterpart = isSyr
-    ? path.replace(/^\/syr/, "/sa")
-    : path.replace(/^\/sa/, "/syr");
-  const myLangs = isSyr ? ["en-SY", "ar-SY"] : ["en-SA", "ar-SA"];
-  const otherLangs = isSyr ? ["en-SA", "ar-SA"] : ["en-SY", "ar-SY"];
+
+  const basePath = path.replace(/^\/(sa|syr)(\/ar)?/, "");
+  const combos: Array<[string, string]> = [
+    ["en-SA", `/sa${basePath}`],
+    ["ar-SA", `/sa/ar${basePath}`],
+    ["en-SY", `/syr${basePath}`],
+    ["ar-SY", `/syr/ar${basePath}`],
+  ];
   return [
-    ...myLangs.map(
-      (l) =>
-        `    <xhtml:link rel="alternate" hrefLang="${l}"     href="${BASE_URL}${path}"/>`,
-    ),
-    ...otherLangs.map(
-      (l) =>
-        `    <xhtml:link rel="alternate" hrefLang="${l}"     href="${BASE_URL}${counterpart}"/>`,
+    ...combos.map(
+      ([l, p]) =>
+        `    <xhtml:link rel="alternate" hrefLang="${l}"     href="${BASE_URL}${p}"/>`,
     ),
     `    <xhtml:link rel="alternate" hrefLang="x-default" href="${BASE_URL}/"/>`,
   ].join("\n");
@@ -81,11 +83,13 @@ for (const page of CORE_PAGES) {
 entries.push("\n  <!-- ===== SA SERVICE PAGES ===== -->");
 for (const slug of SA_SERVICE_SLUGS) {
   entries.push(urlEntry(`/sa/services/${slug}`, "monthly", "0.9", TODAY));
+  entries.push(urlEntry(`/sa/ar/services/${slug}`, "monthly", "0.9", TODAY));
 }
 
 entries.push("\n  <!-- ===== SYR SERVICE PAGES ===== -->");
 for (const slug of SYR_SERVICE_SLUGS) {
   entries.push(urlEntry(`/syr/services/${slug}`, "monthly", "0.9", TODAY));
+  entries.push(urlEntry(`/syr/ar/services/${slug}`, "monthly", "0.9", TODAY));
 }
 
 if (blogPosts.length > 0) {
@@ -95,7 +99,13 @@ if (blogPosts.length > 0) {
       urlEntry(`/sa/blog/${post.slug}`, "monthly", "0.7", post.date),
     );
     entries.push(
+      urlEntry(`/sa/ar/blog/${post.slug}`, "monthly", "0.7", post.date),
+    );
+    entries.push(
       urlEntry(`/syr/blog/${post.slug}`, "monthly", "0.7", post.date),
+    );
+    entries.push(
+      urlEntry(`/syr/ar/blog/${post.slug}`, "monthly", "0.7", post.date),
     );
   }
 }

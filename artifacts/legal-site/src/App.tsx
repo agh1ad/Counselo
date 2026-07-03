@@ -43,6 +43,36 @@ function GAInit() {
   return null;
 }
 
+// Every region + language combination gets its own real URL prefix, e.g.
+// "/sa/ar/about", so Arabic is a genuinely distinct, crawlable page rather
+// than a client-only toggle sharing the English URL.
+const REGION_LANG_PREFIXES = ["/sa", "/sa/ar", "/syr", "/syr/ar"];
+
+function buildRegionRoutes() {
+  return REGION_LANG_PREFIXES.flatMap((prefix) => [
+    <Route key={`${prefix}-services-id`} path={`${prefix}/services/:id`} component={ServiceDetail} />,
+    <Route key={`${prefix}-services`} path={`${prefix}/services`} component={Services} />,
+    <Route key={`${prefix}-about`} path={`${prefix}/about`} component={About} />,
+    <Route key={`${prefix}-blog-slug`} path={`${prefix}/blog/:slug`} component={BlogPost} />,
+    <Route key={`${prefix}-blog`} path={`${prefix}/blog`} component={Blog} />,
+    <Route key={`${prefix}-contact`} path={`${prefix}/contact`} component={Contact} />,
+    <Route key={`${prefix}-tos`} path={`${prefix}/terms-of-service`} component={TermsOfService} />,
+    <Route key={`${prefix}-privacy`} path={`${prefix}/privacy-policy`} component={PrivacyPolicy} />,
+    <Route key={`${prefix}-home`} path={prefix} component={Home} />,
+  ]);
+}
+
+function buildRegionRedirects() {
+  return REGION_LANG_PREFIXES.flatMap((prefix) => [
+    <Route key={`${prefix}-services-redirect`} path={`${prefix}/services/:id/:rest*`}>
+      {(params: { id: string }) => <Redirect to={`${prefix}/services/${params.id}`} replace />}
+    </Route>,
+    <Route key={`${prefix}-blog-redirect`} path={`${prefix}/blog/:slug/:rest*`}>
+      {(params: { slug: string }) => <Redirect to={`${prefix}/blog/${params.slug}`} replace />}
+    </Route>,
+  ]);
+}
+
 function Router() {
   const [location] = useLocation();
   const isAdmin = location.startsWith("/counselo-admin");
@@ -65,29 +95,10 @@ function Router() {
         {/* Region picker */}
         <Route path="/" component={RegionPicker} />
 
-        {/* SA routes */}
-        <Route path="/sa/services/:id" component={ServiceDetail} />
-        <Route path="/sa/services" component={Services} />
-        <Route path="/sa/about" component={About} />
-        <Route path="/sa/blog/:slug" component={BlogPost} />
-        <Route path="/sa/blog" component={Blog} />
-        <Route path="/sa/contact" component={Contact} />
-        <Route path="/sa/terms-of-service" component={TermsOfService} />
-        <Route path="/sa/privacy-policy" component={PrivacyPolicy} />
-        <Route path="/sa" component={Home} />
+        {/* SA + Syria routes, English and Arabic */}
+        {buildRegionRoutes()}
 
-        {/* SYR routes */}
-        <Route path="/syr/services/:id" component={ServiceDetail} />
-        <Route path="/syr/services" component={Services} />
-        <Route path="/syr/about" component={About} />
-        <Route path="/syr/blog/:slug" component={BlogPost} />
-        <Route path="/syr/blog" component={Blog} />
-        <Route path="/syr/contact" component={Contact} />
-        <Route path="/syr/terms-of-service" component={TermsOfService} />
-        <Route path="/syr/privacy-policy" component={PrivacyPolicy} />
-        <Route path="/syr" component={Home} />
-
-        {/* Legacy routes (no prefix → defaults to SA) */}
+        {/* Legacy routes (no prefix → defaults to SA/English) */}
         <Route path="/services/:id" component={ServiceDetail} />
         <Route path="/services" component={Services} />
         <Route path="/blog/:slug" component={BlogPost} />
@@ -97,23 +108,10 @@ function Router() {
         <Route path="/terms-of-service" component={TermsOfService} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />
 
-        {/* Catch-all: redirect old sub-area URLs to their parent service page */}
-        <Route path="/sa/services/:id/:rest*">
-          {(params) => <Redirect to={`/sa/services/${params.id}`} replace />}
-        </Route>
-        <Route path="/syr/services/:id/:rest*">
-          {(params) => <Redirect to={`/syr/services/${params.id}`} replace />}
-        </Route>
+        {/* Catch-all: redirect old sub-area URLs to their parent service/blog page */}
+        {buildRegionRedirects()}
         <Route path="/services/:id/:rest*">
           {(params) => <Redirect to={`/services/${params.id}`} replace />}
-        </Route>
-
-        {/* Catch-all: redirect blog sub-path URLs to their parent blog post page */}
-        <Route path="/sa/blog/:slug/:rest*">
-          {(params) => <Redirect to={`/sa/blog/${params.slug}`} replace />}
-        </Route>
-        <Route path="/syr/blog/:slug/:rest*">
-          {(params) => <Redirect to={`/syr/blog/${params.slug}`} replace />}
         </Route>
         <Route path="/blog/:slug/:rest*">
           {(params) => <Redirect to={`/blog/${params.slug}`} replace />}

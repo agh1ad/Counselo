@@ -1,6 +1,7 @@
 // @refresh reset
-import { useState, useEffect, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import type { ReactNode } from "react";
+import { useLocation } from "wouter";
 import { en } from "@/translations/en";
 import { ar } from "@/translations/ar";
 import { enSyr } from "@/translations/en-syr";
@@ -11,32 +12,22 @@ import { LanguageContext } from "@/contexts/LanguageContextCore";
 export type { Lang, Translations, LanguageContextType } from "@/contexts/LanguageContextCore";
 export { useLanguage } from "@/contexts/LanguageContextCore";
 
-const STORAGE_KEY = "counselo-lang";
-
-type Lang = "en" | "ar";
-
-function getSavedLang(): Lang {
-  // Guard: localStorage is not available during server-side rendering.
-  // SSR always defaults to English; the browser rehydrates with the user's
-  // real preference on first client render.
-  if (typeof window === "undefined") return "en";
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === "ar" || saved === "en") return saved;
-  } catch {}
-  return "en";
-}
-
+/**
+ * Language is derived entirely from the URL (via RegionContext) so that
+ * SSR/prerendered HTML and client hydration always agree, and so Arabic has
+ * a real, distinct, crawlable URL rather than being a client-only toggle.
+ * See RegionContext.tsx for the /ar URL-segment detection logic.
+ */
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>(getSavedLang);
-  const { region } = useRegion();
+  const { region, lang, regionPrefix } = useRegion();
+  const [location, navigate] = useLocation();
 
-  const toggleLang = () =>
-    setLang(prev => {
-      const next = prev === "en" ? "ar" : "en";
-      try { localStorage.setItem(STORAGE_KEY, next); } catch {}
-      return next;
-    });
+  const toggleLang = () => {
+    const next = lang === "en" ? "ar" : "en";
+    const rest = location.slice(regionPrefix.length);
+    const nextPrefix = `/${region}${next === "ar" ? "/ar" : ""}`;
+    navigate(`${nextPrefix}${rest}`);
+  };
 
   const isRTL = lang === "ar";
 

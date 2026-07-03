@@ -141,12 +141,24 @@ export function SEOHead({
         : `${rawTitle} | CounselO`;
 
   const basePath = canonical === "/" ? "" : canonical ?? "";
-  const prefixedPath = `${geo.pathPrefix}${basePath}`;
+  const langSegment = isArabic ? "/ar" : "";
+  const prefixedPath = `${geo.pathPrefix}${langSegment}${basePath}`;
   const canonicalUrl = `https://counselo-legal.com${prefixedPath}`;
 
-  const altRegion = region === "sa" ? "syr" : "sa";
-  const altGeo = GEO[altRegion];
-  const altCanonicalUrl = `https://counselo-legal.com${altGeo.pathPrefix}${basePath}`;
+  // All 4 region x language combinations, each a real, distinct, crawlable
+  // URL — required for hreflang to actually route users/crawlers to
+  // matching-language content instead of pointing multiple language tags
+  // at a single URL that only ever renders one language.
+  const HREFLANG_COMBOS = [
+    { region: "sa" as const, isArabic: false, hrefLang: GEO.sa.hrefLangEn },
+    { region: "sa" as const, isArabic: true, hrefLang: GEO.sa.hrefLangAr },
+    { region: "syr" as const, isArabic: false, hrefLang: GEO.syr.hrefLangEn },
+    { region: "syr" as const, isArabic: true, hrefLang: GEO.syr.hrefLangAr },
+  ];
+  const hreflangAlternates = HREFLANG_COMBOS.map((c) => ({
+    hrefLang: c.hrefLang,
+    href: `https://counselo-legal.com${GEO[c.region].pathPrefix}${c.isArabic ? "/ar" : ""}${basePath}`,
+  }));
   const xDefaultUrl = "https://counselo-legal.com/";
 
   const ogImage = "https://counselo-legal.com/og-image.png";
@@ -197,18 +209,18 @@ export function SEOHead({
       <meta name="geo.placename" content={geo.placename} />
       <meta name="geo.position" content={geo.position} />
       <meta name="ICBM" content={geo.icbm} />
-      <meta httpEquiv="content-language" content={isArabic ? lang : "en"} />
+      <meta httpEquiv="content-language" content={lang} />
 
       {/* Canonical */}
       <link rel="canonical" href={canonicalUrl} />
 
-      {/* hreflang — current region (both languages share same URL) */}
-      <link rel="alternate" hrefLang={geo.hrefLangEn} href={canonicalUrl} />
-      <link rel="alternate" hrefLang={geo.hrefLangAr} href={canonicalUrl} />
-
-      {/* hreflang — alternate region */}
-      <link rel="alternate" hrefLang={altGeo.hrefLangEn} href={altCanonicalUrl} />
-      <link rel="alternate" hrefLang={altGeo.hrefLangAr} href={altCanonicalUrl} />
+      {/*
+        hreflang — all 4 region x language combinations, each a real,
+        distinct URL (self-referencing entry included, as Google requires).
+      */}
+      {hreflangAlternates.map((a) => (
+        <link key={a.hrefLang} rel="alternate" hrefLang={a.hrefLang} href={a.href} />
+      ))}
 
       {/* hreflang — x-default (region picker) */}
       <link rel="alternate" hrefLang="x-default" href={xDefaultUrl} />

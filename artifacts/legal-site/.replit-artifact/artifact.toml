@@ -275,6 +275,258 @@ from = "/syr/blog/child-custody-saudi-arabia"
 to = "/__pages/syr-blog-child-custody-saudi-arabia.html"
 
 [[services.production.rewrites]]
+from = "/sa/ar"
+to = "/__pages/sa-ar.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services"
+to = "/__pages/sa-ar-services.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/about"
+to = "/__pages/sa-ar-about.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/contact"
+to = "/__pages/sa-ar-contact.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/blog"
+to = "/__pages/sa-ar-blog.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/terms-of-service"
+to = "/__pages/sa-ar-terms-of-service.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/privacy-policy"
+to = "/__pages/sa-ar-privacy-policy.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar"
+to = "/__pages/syr-ar.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services"
+to = "/__pages/syr-ar-services.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/about"
+to = "/__pages/syr-ar-about.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/contact"
+to = "/__pages/syr-ar-contact.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/blog"
+to = "/__pages/syr-ar-blog.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/terms-of-service"
+to = "/__pages/syr-ar-terms-of-service.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/privacy-policy"
+to = "/__pages/syr-ar-privacy-policy.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/family-law"
+to = "/__pages/sa-ar-services-family-law.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/business-law"
+to = "/__pages/sa-ar-services-business-law.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/real-estate"
+to = "/__pages/sa-ar-services-real-estate.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/employment-law"
+to = "/__pages/sa-ar-services-employment-law.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/foreign-investment"
+to = "/__pages/sa-ar-services-foreign-investment.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/administrative-law"
+to = "/__pages/sa-ar-services-administrative-law.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/arbitration"
+to = "/__pages/sa-ar-services-arbitration.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/enforcement"
+to = "/__pages/sa-ar-services-enforcement.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/companies-law"
+to = "/__pages/sa-ar-services-companies-law.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/contracts"
+to = "/__pages/sa-ar-services-contracts.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/criminal-law"
+to = "/__pages/sa-ar-services-criminal-law.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/banking-finance"
+to = "/__pages/sa-ar-services-banking-finance.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/intellectual-property"
+to = "/__pages/sa-ar-services-intellectual-property.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/tax-zakat"
+to = "/__pages/sa-ar-services-tax-zakat.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/cyber-law"
+to = "/__pages/sa-ar-services-cyber-law.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/medical-malpractice"
+to = "/__pages/sa-ar-services-medical-malpractice.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/services/insurance-law"
+to = "/__pages/sa-ar-services-insurance-law.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/family-law"
+to = "/__pages/syr-ar-services-family-law.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/business-law"
+to = "/__pages/syr-ar-services-business-law.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/real-estate"
+to = "/__pages/syr-ar-services-real-estate.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/employment-law"
+to = "/__pages/syr-ar-services-employment-law.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/foreign-investment"
+to = "/__pages/syr-ar-services-foreign-investment.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/administrative-law"
+to = "/__pages/syr-ar-services-administrative-law.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/arbitration"
+to = "/__pages/syr-ar-services-arbitration.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/enforcement"
+to = "/__pages/syr-ar-services-enforcement.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/companies-law"
+to = "/__pages/syr-ar-services-companies-law.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/contracts"
+to = "/__pages/syr-ar-services-contracts.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/criminal-law"
+to = "/__pages/syr-ar-services-criminal-law.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/banking-finance"
+to = "/__pages/syr-ar-services-banking-finance.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/intellectual-property"
+to = "/__pages/syr-ar-services-intellectual-property.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/tax-zakat"
+to = "/__pages/syr-ar-services-tax-zakat.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/cyber-law"
+to = "/__pages/syr-ar-services-cyber-law.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/medical-malpractice"
+to = "/__pages/syr-ar-services-medical-malpractice.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/insurance-law"
+to = "/__pages/syr-ar-services-insurance-law.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/civil-law"
+to = "/__pages/syr-ar-services-civil-law.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/civil-procedure"
+to = "/__pages/syr-ar-services-civil-procedure.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/services/criminal-procedure"
+to = "/__pages/syr-ar-services-criminal-procedure.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/blog/divorce-in-saudi-arabia"
+to = "/__pages/sa-ar-blog-divorce-in-saudi-arabia.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/blog/wrongful-termination-saudi-labor-law"
+to = "/__pages/sa-ar-blog-wrongful-termination-saudi-labor-law.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/blog/foreign-company-registration-saudi-arabia"
+to = "/__pages/sa-ar-blog-foreign-company-registration-saudi-arabia.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/blog/board-of-grievances-saudi-arabia"
+to = "/__pages/sa-ar-blog-board-of-grievances-saudi-arabia.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/blog/real-estate-disputes-saudi-arabia"
+to = "/__pages/sa-ar-blog-real-estate-disputes-saudi-arabia.html"
+
+[[services.production.rewrites]]
+from = "/sa/ar/blog/child-custody-saudi-arabia"
+to = "/__pages/sa-ar-blog-child-custody-saudi-arabia.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/blog/divorce-in-saudi-arabia"
+to = "/__pages/syr-ar-blog-divorce-in-saudi-arabia.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/blog/wrongful-termination-saudi-labor-law"
+to = "/__pages/syr-ar-blog-wrongful-termination-saudi-labor-law.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/blog/foreign-company-registration-saudi-arabia"
+to = "/__pages/syr-ar-blog-foreign-company-registration-saudi-arabia.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/blog/board-of-grievances-saudi-arabia"
+to = "/__pages/syr-ar-blog-board-of-grievances-saudi-arabia.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/blog/real-estate-disputes-saudi-arabia"
+to = "/__pages/syr-ar-blog-real-estate-disputes-saudi-arabia.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/blog/child-custody-saudi-arabia"
+to = "/__pages/syr-ar-blog-child-custody-saudi-arabia.html"
+
+[[services.production.rewrites]]
 from = "/*"
 to = "/index.html"
 
