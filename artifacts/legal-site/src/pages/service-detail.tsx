@@ -61,6 +61,12 @@ export default function ServiceDetail() {
   const hasFaqs = "faqs" in data && Array.isArray((data as Record<string, unknown>).faqs) && ((data as Record<string, unknown>).faqs as unknown[]).length > 0;
   const faqs = hasFaqs ? (data as Record<string, unknown>).faqs as { q: string; a: string }[] : [];
 
+  const allServices = t.services.items;
+  const currentIdx = allServices.findIndex((s) => s.id === id);
+  const relatedServices = currentIdx === -1
+    ? []
+    : [1, 2, 3].map((offset) => allServices[(currentIdx + offset) % allServices.length]);
+
   const canonicalPath = `/services/${id}`;
   const canonicalUrlFull = `https://counselo-legal.com${isSyr ? "/syr" : "/sa"}${canonicalPath}`;
 
@@ -76,7 +82,7 @@ export default function ServiceDetail() {
       "serviceType": data.title,
       "provider": {
         "@type": "LegalService",
-        "name": isRTL ? "كاونسلو كاونسلو" : "CounselO",
+        "name": isRTL ? "كاونسلو" : "CounselO",
         "url": "https://counselo-legal.com",
         "telephone": "+966594850247",
         "email": "info@counselo-legal.com",
@@ -213,7 +219,7 @@ export default function ServiceDetail() {
               </div>
 
               {hasFaqs && faqs.length > 0 && (
-                <div className="mt-4">
+                <div className="mt-4 mb-16">
                   <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">
                     {isRTL ? "الأسئلة الشائعة" : "Frequently Asked Questions"}
                   </h2>
@@ -238,6 +244,47 @@ export default function ServiceDetail() {
                   </div>
                 </div>
               )}
+
+              {/* What to prepare */}
+              <div className="mb-16">
+                <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">
+                  {isRTL ? "ما تحتاج إلى تجهيزه" : "What You'll Need to Prepare"}
+                </h2>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  {isRTL
+                    ? "لتسريع تقييم قضيتك، يرجى تجهيز ما يلي قبل حجز استشارتك:"
+                    : "To help us assess your matter quickly, please have the following ready before your consultation:"}
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {(isRTL
+                    ? ["إثبات الهوية (بطاقة أو جواز سفر)", "أي عقود أو مستندات أو مراسلات ذات صلة بالقضية", "نسخ من أي إشعارات أو مطالبات أو أحكام قضائية سابقة", "ملخص موجز بالوقائع والتواريخ المهمة بترتيب زمني"]
+                    : ["A valid ID or passport", "Any contracts, documents, or correspondence relevant to your matter", "Copies of any prior notices, claims, or court judgments", "A brief written timeline of key facts and dates"]
+                  ).map((item, i) => (
+                    <div key={i} className="flex items-start gap-3 bg-card border border-border p-4">
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span className="text-foreground text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Related practice areas */}
+              {relatedServices.length > 0 && (
+                <div>
+                  <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">
+                    {isRTL ? "مجالات ممارسة ذات صلة" : "Related Practice Areas"}
+                  </h2>
+                  <div className="grid sm:grid-cols-3 gap-4">
+                    {relatedServices.map((svc) => (
+                      <Link key={svc.id} href={`${regionPrefix}/services/${svc.id}`}
+                        className="group flex items-center justify-between bg-card border border-border p-4 hover:border-primary/40 transition-colors">
+                        <span className="text-foreground font-medium text-sm">{svc.title}</span>
+                        <ChevronRight className={`h-4 w-4 text-primary shrink-0 group-hover:translate-x-0.5 transition-transform ${isRTL ? "rotate-180 group-hover:-translate-x-0.5" : ""}`} />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </motion.div>
           </div>
 
@@ -256,6 +303,20 @@ export default function ServiceDetail() {
               <div className="mt-6 pt-6 border-t border-white/20">
                 <p className="text-sm text-white/60 mb-2">{sd.sidebar.callLabel}</p>
                 <p className="text-white font-mono font-medium text-lg" dir="ltr">{sd.sidebar.phone}</p>
+              </div>
+              <div className="mt-6 pt-6 border-t border-white/20 grid grid-cols-3 gap-3 text-center">
+                <div>
+                  <div className="text-lg font-serif font-bold text-white">30+</div>
+                  <div className="text-[10px] text-white/60 uppercase tracking-wide">{isRTL ? "سنة خبرة" : "Years Exp."}</div>
+                </div>
+                <div>
+                  <div className="text-lg font-serif font-bold text-white">20K+</div>
+                  <div className="text-[10px] text-white/60 uppercase tracking-wide">{isRTL ? "قضية" : "Cases"}</div>
+                </div>
+                <div>
+                  <div className="text-lg font-serif font-bold text-white">4.9★</div>
+                  <div className="text-[10px] text-white/60 uppercase tracking-wide">{isRTL ? "تقييم" : "Rating"}</div>
+                </div>
               </div>
             </motion.div>
           </div>

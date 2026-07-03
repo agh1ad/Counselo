@@ -22,6 +22,18 @@ export default function PrivacyPolicy() {
       subheading:
         "CounselO is committed to protecting your privacy and the confidentiality of your legal information. This policy explains what data we collect, how we use it, and the strict protections that apply to everything you share with us.",
       lastUpdated: "Last updated: 28 June 2026",
+      tldr: {
+        heading: "The Short Version",
+        points: [
+          "We only collect what's needed to handle your legal matter — never more.",
+          "Everything you share is protected by lawyer-client confidentiality, indefinitely.",
+          "We never sell your data, and only share it with third parties when the law requires it or you explicitly ask us to.",
+          "You can request a copy of your data, ask us to correct it, or request deletion at any time — email info@counselo-legal.com.",
+        ],
+      },
+      dpoName: "Data Protection Contact: Lawyer Omar Al-Baghdadi",
+      dpoEmail: "info@counselo-legal.com",
+      requestDataBtn: "Request Your Data",
       sections: [
         {
           icon: Shield,
@@ -165,6 +177,30 @@ export default function PrivacyPolicy() {
             "Your continued use of CounselO's services after any update constitutes your acceptance of the revised policy",
           ],
         },
+        {
+          icon: Bell,
+          title: "13. Data Breach Notification",
+          content:
+            "In the unlikely event of a data breach affecting your personal information, we follow a clear notification process:",
+          list: [
+            `We will notify the relevant ${isSyr ? "Syrian" : "Saudi"} regulatory authority within the timeframe required by applicable law once we become aware of a qualifying breach`,
+            "If the breach poses a significant risk to your rights or confidentiality, we will notify you directly by email or WhatsApp without undue delay",
+            "Our notification will describe the nature of the breach, the data affected, and the steps we are taking to contain it",
+            "We maintain an internal incident log of any security event, whether or not it meets the threshold for external notification",
+          ],
+        },
+        {
+          icon: UserCheck,
+          title: "14. Children's Privacy",
+          content:
+            "CounselO's services are intended for adults seeking legal consultation and are not directed at children:",
+          list: [
+            "We do not knowingly collect personal data from individuals under the age of 18",
+            "Legal matters involving a minor (for example, custody or guardianship cases) are handled through the minor's parent or legal guardian, who provides and controls the relevant information",
+            "If we become aware that we have inadvertently collected data directly from a child, we will delete it promptly",
+            "Parents or guardians who believe their child has provided us with personal data directly may contact us at info@counselo-legal.com to request deletion",
+          ],
+        },
       ],
       contactHeading: "Privacy Questions or Concerns?",
       contactDesc:
@@ -182,6 +218,18 @@ export default function PrivacyPolicy() {
       subheading:
         "تلتزم منصة كاونسلو بحماية خصوصيتك وسرية معلوماتك القانونية. توضّح هذه السياسة البيانات التي نجمعها وكيفية استخدامها والضمانات الصارمة التي تحكم كل ما تشاركنا إياه.",
       lastUpdated: "آخر تحديث: 28 يونيو 2026",
+      tldr: {
+        heading: "الخلاصة السريعة",
+        points: [
+          "نجمع فقط ما تستلزمه معالجة قضيتك القانونية — لا أكثر.",
+          "كل ما تشاركه محمي بسرية العلاقة بين المحامي وموكله، إلى أجل غير مسمى.",
+          "لا نبيع بياناتك أبداً، ولا نشاركها مع أطراف ثالثة إلا حين يستلزم القانون ذلك أو بطلب صريح منك.",
+          "يمكنك طلب نسخة من بياناتك أو تصحيحها أو حذفها في أي وقت — راسلنا على info@counselo-legal.com.",
+        ],
+      },
+      dpoName: "جهة الاتصال بشأن حماية البيانات: المحامي عمر البغدادي",
+      dpoEmail: "info@counselo-legal.com",
+      requestDataBtn: "اطلب بياناتك",
       sections: [
         {
           icon: Shield,
@@ -324,6 +372,30 @@ export default function PrivacyPolicy() {
             "يُعدّ استمرار استخدامك لخدمات كاونسلو بعد أي تحديث قبولاً للسياسة المعدَّلة",
           ],
         },
+        {
+          icon: Bell,
+          title: "١٣. الإبلاغ عن اختراق البيانات",
+          content:
+            "في الحالة النادرة لحدوث اختراق لبياناتك الشخصية، نتّبع إجراءً واضحاً للإبلاغ:",
+          list: [
+            `نُبلّغ الجهة التنظيمية ${isSyr ? "السورية" : "السعودية"} المختصة خلال المهلة التي يحدّدها النظام المعمول به فور علمنا بأي اختراق مؤهَّل للإبلاغ`,
+            "إذا شكّل الاختراق خطراً جوهرياً على حقوقك أو سرية بياناتك، سنبلغك مباشرةً عبر البريد الإلكتروني أو واتساب دون تأخير غير مبرر",
+            "يتضمن إشعارنا وصفاً لطبيعة الاختراق والبيانات المتأثرة والخطوات التي نتخذها لاحتوائه",
+            "نحتفظ بسجل داخلي لأي حادثة أمنية، سواء بلغت عتبة الإبلاغ الخارجي أم لا",
+          ],
+        },
+        {
+          icon: UserCheck,
+          title: "١٤. خصوصية الأطفال",
+          content:
+            "خدمات كاونسلو موجَّهة للبالغين الباحثين عن استشارة قانونية وليست موجَّهة للأطفال:",
+          list: [
+            "لا نجمع عن قصد بيانات شخصية من أفراد تقل أعمارهم عن 18 عاماً",
+            "تُعالَج القضايا القانونية المتعلقة بقاصر (كقضايا الحضانة أو الولاية) عبر ولي أمر القاصر أو وصيّه الشرعي، الذي يزوّدنا بالمعلومات ذات الصلة ويتحكم بها",
+            "إذا علمنا أننا جمعنا عن غير قصد بيانات مباشرة من طفل، فسنحذفها فوراً",
+            "يمكن لأولياء الأمور أو الأوصياء الذين يعتقدون أن طفلهم قدّم لنا بيانات شخصية مباشرة التواصل معنا على info@counselo-legal.com لطلب الحذف",
+          ],
+        },
       ],
       contactHeading: "لديك سؤال أو استفسار حول الخصوصية؟",
       contactDesc:
@@ -385,6 +457,24 @@ export default function PrivacyPolicy() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
 
+        {/* TL;DR */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-16 bg-primary/5 border border-primary/20 p-8"
+        >
+          <h2 className="text-lg font-serif font-bold text-foreground mb-4">{content.tldr.heading}</h2>
+          <ul className="space-y-2.5">
+            {content.tldr.points.map((point, i) => (
+              <li key={i} className="flex items-start gap-3 text-foreground text-sm leading-relaxed">
+                <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-primary" />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+
         {/* Sections */}
         <div className="space-y-12">
           {content.sections.map((section, i) => {
@@ -431,12 +521,22 @@ export default function PrivacyPolicy() {
         >
           <h2 className="text-2xl font-serif font-bold text-white mb-3">{content.contactHeading}</h2>
           <p className="text-white/70 mb-8 leading-relaxed max-w-lg mx-auto">{content.contactDesc}</p>
-          <Link href={`${regionPrefix}/contact`}>
-            <span className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-4 hover:bg-white/90 transition-colors cursor-pointer">
-              {content.contactBtn}
-              <ArrowRight className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
-            </span>
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href={`${regionPrefix}/contact`}>
+              <span className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-4 hover:bg-white/90 transition-colors cursor-pointer">
+                {content.contactBtn}
+                <ArrowRight className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
+              </span>
+            </Link>
+            <a
+              href={`mailto:${content.dpoEmail}?subject=${encodeURIComponent(isRTL ? "طلب بيانات شخصية — كاونسلو" : "Personal Data Request — CounselO")}`}
+              className="inline-flex items-center gap-2 border border-white/40 text-white font-semibold px-8 py-4 hover:bg-white/10 transition-colors"
+            >
+              <Mail className="h-4 w-4" />
+              {content.requestDataBtn}
+            </a>
+          </div>
+          <p className="mt-6 text-xs text-white/40">{content.dpoName}</p>
           <div className="mt-8 pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/60">
             <a
               href="https://wa.me/966594850247"

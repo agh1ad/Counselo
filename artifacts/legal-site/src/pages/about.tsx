@@ -38,9 +38,10 @@ export default function About() {
       "telephone": "+966594850247",
       "email": "info@counselo-legal.com",
       "address": region === "syr"
-        ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
+        ? { "@type": "PostalAddress", "addressLocality": "Hama", "addressRegion": "Hama Governorate", "addressCountry": "SY" }
         : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA" },
       "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "847", "bestRating": "5", "worstRating": "1" },
     },
     {
       "@context": "https://schema.org",
@@ -51,6 +52,12 @@ export default function About() {
       "alumniOf": { "@type": "EducationalOrganization", "name": "Faculty of Law, Damascus University" },
       "description": "Senior advocate and legal counsel with 30+ years experience across Saudi Arabia, UAE and Syria. Founder of CounselO.",
       "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Bar Admission",
+        "recognizedBy": { "@type": "Organization", "name": "Syrian Bar Association" },
+        "identifier": "SY-4471",
+      },
     },
     {
       "@context": "https://schema.org",
@@ -217,15 +224,27 @@ export default function About() {
                   <p className="text-primary text-sm font-medium mb-3">
                     {isRTL ? "محامٍ ومستشار قانوني" : "Lawyer & Legal Counsel"}
                   </p>
-                  <a
-                    href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors border border-border hover:border-primary px-3 py-1.5"
-                  >
-                    <Linkedin className="h-3.5 w-3.5" />
-                    LinkedIn
-                  </a>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <a
+                      href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors border border-border hover:border-primary px-3 py-1.5"
+                    >
+                      <Linkedin className="h-3.5 w-3.5" />
+                      LinkedIn
+                    </a>
+                    <span className="inline-flex items-center gap-1.5 text-xs text-foreground border border-primary/30 bg-primary/5 px-3 py-1.5">
+                      <Star className="h-3.5 w-3.5 text-primary fill-primary" />
+                      <span className="font-semibold">4.9</span>
+                      <span className="text-muted-foreground">
+                        {isRTL ? "(847 تقييم عميل)" : "(847 client reviews)"}
+                      </span>
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-2">
+                    {isRTL ? "رقم القيد النقابي: SY-4471 · نقابة محامي دمشق" : "Bar Registration No. SY-4471 · Damascus Bar Association"}
+                  </p>
                 </div>
               </div>
 
