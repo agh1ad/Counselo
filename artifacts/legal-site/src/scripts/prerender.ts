@@ -53,6 +53,13 @@ const SERVICE_SLUGS = [
   "insurance-law",
 ] as const;
 
+// Syria has 3 additional service pages beyond the shared list above.
+const SYRIA_ONLY_SERVICE_SLUGS = [
+  "civil-law",
+  "civil-procedure",
+  "criminal-procedure",
+] as const;
+
 const ROUTES: string[] = [
   // Region picker (x-default landing)
   "/",
@@ -78,8 +85,9 @@ const ROUTES: string[] = [
   // Saudi Arabia service detail pages
   ...SERVICE_SLUGS.map((s) => `/sa/services/${s}`),
 
-  // Syria service detail pages
+  // Syria service detail pages (shared slugs + 3 Syria-only slugs)
   ...SERVICE_SLUGS.map((s) => `/syr/services/${s}`),
+  ...SYRIA_ONLY_SERVICE_SLUGS.map((s) => `/syr/services/${s}`),
 
   // Saudi Arabia blog post pages
   "/sa/blog/divorce-in-saudi-arabia",

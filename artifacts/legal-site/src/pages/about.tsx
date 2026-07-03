@@ -354,10 +354,14 @@ export default function About() {
                 </div>
                 <div className="border-t border-white/20 pt-6 space-y-3">
                   {[
-                    isRTL ? "مكتب محاماة مرخَّص في المنطقة الشرقية" : "Licensed law office in the Eastern Province",
+                    region === "syr"
+                      ? (isRTL ? "مكتب محاماة مرخَّص في سوريا" : "Licensed law office in Syria")
+                      : (isRTL ? "مكتب محاماة مرخَّص في المنطقة الشرقية" : "Licensed law office in the Eastern Province"),
                     isRTL ? "حضور شخصي أمام المحاكم وتوثيق الوثائق" : "Court attendance & official document processing",
                     isRTL ? "متكامل مع الخدمة الرقمية الأونلاين" : "Integrated with our full online digital service",
-                    isRTL ? "يخدم عملاء جميع أنحاء المملكة" : "Serving clients across all of Saudi Arabia",
+                    region === "syr"
+                      ? (isRTL ? "يخدم عملاء جميع أنحاء سوريا" : "Serving clients across all of Syria")
+                      : (isRTL ? "يخدم عملاء جميع أنحاء المملكة" : "Serving clients across all of Saudi Arabia"),
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <CheckCircle2 className="h-4 w-4 text-white/60 shrink-0" />

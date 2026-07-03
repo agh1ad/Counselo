@@ -215,6 +215,18 @@ from = "/syr/services/insurance-law"
 to = "/__pages/syr-services-insurance-law.html"
 
 [[services.production.rewrites]]
+from = "/syr/services/civil-law"
+to = "/__pages/syr-services-civil-law.html"
+
+[[services.production.rewrites]]
+from = "/syr/services/civil-procedure"
+to = "/__pages/syr-services-civil-procedure.html"
+
+[[services.production.rewrites]]
+from = "/syr/services/criminal-procedure"
+to = "/__pages/syr-services-criminal-procedure.html"
+
+[[services.production.rewrites]]
 from = "/sa/blog/divorce-in-saudi-arabia"
 to = "/__pages/sa-blog-divorce-in-saudi-arabia.html"
 

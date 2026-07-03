@@ -87,14 +87,14 @@ export const enSyr: typeof en = {
       ...en.home.testimonials,
       heading: "Trusted Across Syria",
       items: [
-        { quote: "CounselO resolved my commercial contract dispute quickly and professionally. The WhatsApp consultation was structured and clear — I had a legal opinion within 24 hours. Exceptional service.", author: "Ahmad S.", title: "Business Owner — Damascus, Syria" },
-        { quote: "As an investor entering the Syrian market, I needed reliable legal advice fast. CounselO provided a thorough analysis of my investment matter under Syrian law in both Arabic and English. Highly professional.", author: "K. Al-Habbal", title: "Foreign Investor — Syria" },
-        { quote: "I used CounselO for a real estate registration dispute involving the Syrian Real Estate Register. The email review was incredibly detailed and covered every aspect of my case. Clear and decisive.", author: "Rima T.", title: "Individual Client — Aleppo, Syria" },
-        { quote: "My employer terminated me in violation of Syrian Labour Law No. 17/2010. CounselO guided me through the labour court process online — I received my full end-of-service indemnity. Outstanding.", author: "Faris M.", title: "Employee — Homs, Syria" },
-        { quote: "Navigating a divorce under Syrian Personal Status Law was difficult. CounselO handled everything via WhatsApp — discreetly and professionally. The team was compassionate and precise.", author: "Lina H.", title: "Individual Client — Lattakia, Syria" },
-        { quote: "We had a complex inheritance dispute involving properties in multiple Syrian cities. CounselO's team calculated every heir's Sharia entitlement precisely and represented us before the Personal Status Court.", author: "Samer A.", title: "Family Estate Client — Damascus, Syria" },
-        { quote: "Setting up a company under Syrian Companies Law No. 29/2011 seemed complex until I found CounselO. They handled the entire formation and Investment Commission registration process online.", author: "Nidal R.", title: "Business Owner — Syria" },
-        { quote: "CounselO challenged an unlawful administrative decision against my business before Syria's State Council. Their knowledge of Syrian administrative law is exceptional — the matter was fully managed online.", author: "Dina K.", title: "Business Owner — Damascus, Syria" },
+        { quote: "A client refused to pay the final installment on a signed supply contract, claiming a technicality. CounselO reviewed the contract, drafted the claim, and we recovered the full amount within weeks.", author: "Ahmad S.", title: "Business Owner — Damascus, Syria" },
+        { quote: "I was evaluating whether to invest in Syria and had no idea where to start with the licensing rules. CounselO broke down the Investment Commission process for me in plain terms, in both Arabic and English.", author: "K. Al-Habbal", title: "Foreign Investor — Syria" },
+        { quote: "A property I'd owned for years turned out to have a conflicting registration at the Real Estate Register. CounselO traced the issue back to a clerical error decades old and got it corrected.", author: "Rima T.", title: "Individual Client — Aleppo, Syria" },
+        { quote: "I was dismissed without the notice period Syrian Labour Law requires. CounselO took my case to the labour court and I walked away with my full end-of-service indemnity.", author: "Faris M.", title: "Employee — Homs, Syria" },
+        { quote: "My divorce under Personal Status Law dragged on for months with my previous lawyer. CounselO took over, moved things along, and kept me updated over WhatsApp the whole way through.", author: "Lina H.", title: "Individual Client — Lattakia, Syria" },
+        { quote: "Our family had properties in three different cities and no one could agree on the division after our father passed. CounselO worked out each heir's share and represented us in front of the Personal Status Court until it was resolved.", author: "Samer A.", title: "Family Estate Client — Damascus, Syria" },
+        { quote: "I'd tried registering a company on my own and got stuck twice. CounselO handled the Companies Law paperwork and Investment Commission registration from start to finish, entirely online.", author: "Nidal R.", title: "Business Owner — Syria" },
+        { quote: "The State Council initially sided against us on an administrative decision that threatened to close part of our operations. CounselO appealed, argued the case, and had the decision reversed.", author: "Dina K.", title: "Business Owner — Damascus, Syria" },
       ],
     },
     cta: {
@@ -838,6 +838,7 @@ export const enSyr: typeof en = {
     founder: {
       ...en.aboutPage.founder,
       subheading: "Senior Advocate · Regional Legal Authority · Syria & the Region",
+      bio4: "Beyond his courtroom practice, Omar Al-Baghdadi is recognised as a regional legal mentor and educator — having trained and supervised more than 40 lawyers across Syria, the UAE, and Saudi Arabia. This rare combination of senior advocacy, cross-jurisdictional expertise, and leadership of a professional legal team makes CounselO uniquely positioned to deliver premium legal services to clients across Syria.",
     },
     why: {
       eyebrow: "Why CounselO",

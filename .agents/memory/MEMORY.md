@@ -3,3 +3,4 @@
 - [React 19 + react-helmet-async v3 SSR](react19-helmet-ssr.md) — HelmetProvider context is never populated in React 19; head tags appear at the start of renderToString output instead.
 - [index.html nested comment gotcha](nested-comment-html-gotcha.md) — <!--tag--> inside a doc comment breaks HTML parse5; renders raw text instead of React app.
 - [Static server trailing-slash redirect](static-server-trailing-slash-redirect.md) — prerendered nested routes must use flat files + explicit rewrites, not route/index.html, or prod static serving silently serves the home page.
+- [Region translation shallow spreads](region-translation-overrides.md) — `{...base, override}` in region-variant translation files (e.g. `en-syr.ts`) silently leaks base-region content on unoverridden subfields; audit every nested field, and derive counts (e.g. practice-area totals) from `array.length` instead of hardcoding.
