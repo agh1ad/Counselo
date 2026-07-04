@@ -376,6 +376,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── COOPERATING OFFICE / PHYSICAL PRESENCE ── */}
+      <section className="py-24 bg-primary/5 border-y border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div {...fadeIn}>
+              <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{h.cooperation.eyebrow}</p>
+              <h2 className="text-3xl font-serif font-bold text-foreground mb-6">{h.cooperation.heading}</h2>
+              <div className="w-16 h-1 bg-primary mb-8" />
+              <p className="text-muted-foreground text-lg leading-relaxed">{h.cooperation.desc}</p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+              <div className="bg-primary p-10 text-white">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-14 h-14 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
+                    <MapPin className="h-7 w-7 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-1">{h.cooperation.officeLabel}</div>
+                    <div className="font-serif font-bold text-xl">{h.cooperation.officeName}</div>
+                  </div>
+                </div>
+                <div className="border-t border-white/20 pt-6">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-white/60 shrink-0 mt-0.5" />
+                    <span className="text-white/80 text-sm leading-relaxed">{h.cooperation.officeDetail}</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* ── WHO WE SERVE ── */}
       <section className="py-24 bg-card border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -105,7 +105,6 @@ export const en = {
         "Professional legal team across all major practice areas",
         "Senior oversight on every matter — consistent, reliable quality",
         "All client types: individuals, businesses, investors, institutions",
-        "In cooperation with Al-Baghdadi Law Firm — established 1957",
       ],
       founderRole: "Lawyer & Legal Counsel",
       founderName: "Omar Al-Baghdadi",
@@ -191,6 +190,14 @@ export const en = {
       desc: "Expert online legal consultations for individuals, businesses and investors across Saudi Arabia — via WhatsApp or email, no office visit required. 17 practice areas. 30+ years experience.",
       subDesc: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi · Jubail, Saudi Arabia · WhatsApp or email · Arabic & English",
       ctaBtn: "Book Your Consultation Now",
+    },
+    cooperation: {
+      eyebrow: "Physical Presence",
+      heading: "When a Matter Requires In-Person Presence",
+      desc: "CounselO handles the vast majority of legal matters entirely online — consultations, document review, and legal opinions, with no need to visit an office. When a case requires court representation, appearances before competent authorities, or document notarization, CounselO coordinates with a licensed cooperating law office to handle the in-person proceedings on your behalf.",
+      officeLabel: "Cooperating Office",
+      officeName: "Lawyer Abdullah Al-Anzi",
+      officeDetail: "License No. 37440 — Licensed law office in Saudi Arabia, serving clients across the Kingdom",
     },
   },
   services: {

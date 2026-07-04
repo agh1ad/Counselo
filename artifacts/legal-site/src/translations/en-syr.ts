@@ -103,6 +103,12 @@ export const enSyr: typeof en = {
       desc: "Expert online legal consultations for individuals, businesses and investors across Syria — via WhatsApp or email, no office visit required. 20 practice areas. 30+ years regional experience.",
       subDesc: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi · Hama, Syria · WhatsApp or email · Arabic & English",
     },
+    cooperation: {
+      ...en.home.cooperation,
+      desc: "CounselO handles the vast majority of legal matters entirely online — consultations, document review, and legal opinions, with no need to visit an office. When a case requires court representation, appearances before competent authorities, or document notarization, CounselO works through Al-Baghdadi Law Firm to handle the in-person proceedings on your behalf.",
+      officeName: "Al-Baghdadi Law Firm",
+      officeDetail: "Licensed in Syria — serving clients across all of Syria",
+    },
   },
 
   services: {
