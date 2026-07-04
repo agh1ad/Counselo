@@ -101,10 +101,11 @@ export const en = {
       p2: "Under his leadership, CounselO brings together a professional legal team of experienced attorneys across multiple practice areas — all supervised and directed by Lawyer and Legal Counsel Al-Baghdadi, ensuring consistent quality and senior oversight on every consultation.",
       p3: "Whether you are an individual, a business, or a foreign investor — CounselO gives you direct access to a coordinated legal team led by a senior founder, delivered online, fast and without friction.",
       bullets: [
-        "Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi",
+        "Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi — Licensed Lawyer, Syria (License No. 289)",
         "Professional legal team across all major practice areas",
         "Senior oversight on every matter — consistent, reliable quality",
         "All client types: individuals, businesses, investors, institutions",
+        "In cooperation with Al-Baghdadi Law Firm — established 1957",
       ],
       founderRole: "Lawyer & Legal Counsel",
       founderName: "Omar Al-Baghdadi",
