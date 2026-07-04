@@ -4887,6 +4887,7 @@ export const en = {
       bio4: "Beyond his courtroom practice, Omar Al-Baghdadi is recognised as a regional legal mentor and educator — having trained and supervised more than 40 lawyers across Syria, the UAE, and Saudi Arabia. This rare combination of senior advocacy, cross-jurisdictional expertise, and leadership of a professional legal team makes CounselO uniquely positioned to deliver premium legal services to clients across the Kingdom.",
       credentials: [
         "Graduate, Faculty of Law — Damascus University (1996)",
+        "Licensed Lawyer, Syria — License No. 289",
         "Senior Advocate & Legal Counsel across Saudi Arabia, UAE and Syria",
         "20,000+ cases and consultations across civil, commercial, administrative, arbitration and criminal law",
         "Mentor and supervisor to 40+ licensed lawyers across three jurisdictions",
