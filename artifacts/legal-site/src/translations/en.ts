@@ -4896,6 +4896,7 @@ export const en = {
       credentials: [
         "Graduate, Faculty of Law — Damascus University (1996)",
         "Licensed Lawyer, Syria — License No. 289",
+        "Holder of the title \"Ustaz\" (Senior Counsel), conferred by the Syrian Bar Association",
         "Senior Advocate & Legal Counsel across Saudi Arabia, UAE and Syria",
         "20,000+ cases and consultations across civil, commercial, administrative, arbitration and criminal law",
         "Mentor and supervisor to 40+ licensed lawyers across three jurisdictions",
