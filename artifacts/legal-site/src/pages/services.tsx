@@ -89,7 +89,7 @@ export default function Services() {
           <div className="w-full h-full" style={{ background: "radial-gradient(ellipse at 50% 50%, hsl(150 60% 60%) 0%, transparent 70%)" }} />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div initial={{ y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">{s.hero.heading}</h1>
             <div className="w-20 h-1 bg-white/40 mb-8" />
             <p className="text-xl text-white/75 leading-relaxed">{s.hero.desc}</p>
@@ -103,7 +103,7 @@ export default function Services() {
             {s.items.map((service, index) => {
               const Icon = icons[index] ?? Users;
               return (
-                <motion.div key={service.id} initial={{ y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}
+                <motion.div key={service.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-card border border-border p-10 hover:border-primary/50 hover:shadow-md transition-all flex flex-col h-full group">
                   <Icon className="h-12 w-12 text-primary mb-6" />
                   <h2 className="text-2xl font-serif font-bold text-foreground mb-4">{service.title}</h2>

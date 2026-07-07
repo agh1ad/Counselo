@@ -1,9 +1,7 @@
 - [LanguageContext Fast Refresh split](language-context-hmr.md) — LanguageContext must never define both a component and a hook in the same file or Vite HMR cascades crash the app.
-- [Tailwind v4 CSS import ordering](tailwind-v4-css-import-order.md) — @import "tailwindcss" must be first in index.css; npm CSS @imports before it silently strip all Tailwind styles in production.
 - [CounselO SEO architecture](counselo-seo.md) — dual-region SA/SYR site; Syria sub-page SEO lives in seo-data-syr.ts; region picker at `/` uses Helmet directly (no region dep) targeting Middle East; all schemas are region-conditional.
 - [React 19 + react-helmet-async v3 SSR](react19-helmet-ssr.md) — HelmetProvider context is never populated in React 19; head tags appear at the start of renderToString output instead.
 - [index.html nested comment gotcha](nested-comment-html-gotcha.md) — <!--tag--> inside a doc comment breaks HTML parse5; renders raw text instead of React app.
 - [Static server trailing-slash redirect](static-server-trailing-slash-redirect.md) — prerendered nested routes must use flat files + explicit rewrites, not route/index.html, or prod static serving silently serves the home page.
 - [Region translation shallow spreads](region-translation-overrides.md) — `{...base, override}` in region-variant translation files (e.g. `en-syr.ts`) silently leaks base-region content on unoverridden subfields; audit every nested field, and derive counts (e.g. practice-area totals) from `array.length` instead of hardcoding.
 - [CounselO bilingual URL routing](counselo-bilingual-urls.md) — Arabic/English is a real `/ar` URL segment (via RegionContext), not a client-side toggle, so hreflang/prerendering are truthful.
-- [Framer Motion v12 + hydrateRoot blank content](framer-motion-hydrate-blank.md) — hydrateRoot suppresses Framer Motion v12 initial→animate transitions; always use createRoot for this site.

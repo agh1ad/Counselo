@@ -12,34 +12,34 @@
  * (main.tsx re-exports this logic to keep the HTML entry point filename stable.)
  */
 
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App";
 import "./index.css";
-// Self-hosted fonts — JS imports processed by Vite independently of the CSS
-// pipeline, so @import "tailwindcss" stays first in index.css (required by Tailwind v4)
-import "@fontsource-variable/inter";
-import "@fontsource/playfair-display/400.css";
-import "@fontsource/playfair-display/600.css";
-import "@fontsource/playfair-display/700.css";
-import "@fontsource/tajawal/300.css";
-import "@fontsource/tajawal/400.css";
-import "@fontsource/tajawal/500.css";
-import "@fontsource/tajawal/700.css";
 
 const rootEl = document.getElementById("root")!;
 
-// Always mount fresh via createRoot. The prerendered HTML (data-ssr="true")
-// remains in the DOM for SEO crawlers that don't execute JS. React replaces
-// it with the live render immediately after the bundle loads, at which point
-// Framer Motion animations run exactly as in dev mode.
-//
-// We intentionally do NOT use hydrateRoot: Framer Motion v12 SSR initial
-// states (opacity:0 etc.) baked into the prerendered HTML cause content to
-// remain invisible when hydrateRoot is used, because the hydration context
-// prevents Framer Motion from triggering its initial→animate transitions.
-createRoot(rootEl).render(
-  <HelmetProvider>
-    <App />
-  </HelmetProvider>,
-);
+// Detect prerendered content via a data attribute stamped by prerender.ts.
+// Checking innerHTML is unreliable: Replit dev plugins inject DOM content
+// before the app mounts, causing false positives in dev mode.
+// Only hydrate in production builds where the attribute is guaranteed to
+// be present (set by the prerender script on every rendered route).
+const isPrerendered = import.meta.env.PROD && rootEl.hasAttribute("data-ssr");
+
+if (isPrerendered) {
+  // Prerendered HTML is present — hydrate to attach React event handlers
+  // without discarding the server-rendered DOM nodes.
+  hydrateRoot(
+    rootEl,
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>,
+  );
+} else {
+  // Dev mode, or production page without prerender — mount fresh.
+  createRoot(rootEl).render(
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>,
+  );
+}

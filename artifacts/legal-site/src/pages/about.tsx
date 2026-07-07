@@ -96,7 +96,7 @@ export default function About() {
         {/* Dark green overlay so text stays readable */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(0,40,20,0.88) 0%, rgba(0,60,30,0.80) 100%)" }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div initial={{ y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-2 mb-6">
               {a.hero.badge}
             </span>
@@ -115,7 +115,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {a.stats.map((s, i) => (
-              <motion.div key={i} initial={{ y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
+              <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
                 <div className="text-3xl md:text-4xl font-serif font-bold text-white mb-1">{s.stat}</div>
                 <div className="text-sm text-white/70 uppercase tracking-wider">{s.label}</div>
               </motion.div>
@@ -128,7 +128,7 @@ export default function About() {
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <motion.div initial={{ x: isRTL ? 20 : -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <motion.div initial={{ opacity: 0, x: isRTL ? 20 : -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{a.mission.eyebrow}</p>
               <h2 className="text-4xl font-serif font-bold text-foreground mb-6">{a.mission.heading}</h2>
               <div className="w-16 h-1 bg-primary/40 mb-8" />
@@ -136,7 +136,7 @@ export default function About() {
               <p className="text-muted-foreground leading-relaxed mb-5">{a.mission.p2}</p>
               <p className="text-muted-foreground leading-relaxed">{a.mission.p3}</p>
             </motion.div>
-            <motion.div initial={{ x: isRTL ? -20 : 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <motion.div initial={{ opacity: 0, x: isRTL ? -20 : 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <div className="bg-primary p-10 text-white">
                 <div className="flex items-center gap-3 mb-6">
                   <Star className="h-8 w-8 text-white/80" />
@@ -194,7 +194,7 @@ export default function About() {
       {/* ── Founder Biography ── */}
       <section className="py-24 bg-card border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
             <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{t.aboutPage.founder.eyebrow}</p>
             <h2 className="text-4xl font-serif font-bold text-foreground mb-4">{t.aboutPage.founder.heading}</h2>
             <p className="text-muted-foreground text-lg">{t.aboutPage.founder.subheading}</p>
@@ -203,7 +203,7 @@ export default function About() {
 
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left col: photo + bio */}
-            <motion.div initial={{ x: isRTL ? 20 : -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <motion.div initial={{ opacity: 0, x: isRTL ? 20 : -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               {/* Founder Photo */}
               <div className="mb-10 flex items-start gap-6">
                 <div className="relative shrink-0">
@@ -255,7 +255,7 @@ export default function About() {
               </div>
             </motion.div>
 
-            <motion.div initial={{ x: isRTL ? -20 : 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <motion.div initial={{ opacity: 0, x: isRTL ? -20 : 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <div className="bg-primary p-8 text-white mb-6">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-14 h-14 bg-white/15 border border-white/25 flex items-center justify-center">
@@ -306,7 +306,7 @@ export default function About() {
       {/* ── Why CounselO ── */}
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
             <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{a.why.eyebrow}</p>
             <h2 className="text-4xl font-serif font-bold text-foreground mb-4">{a.why.heading}</h2>
             <div className="w-16 h-1 bg-primary/30 mx-auto" />
@@ -315,7 +315,7 @@ export default function About() {
             {a.why.points.map((point, i) => {
               const Icon = whyIcons[i] ?? Scale;
               return (
-                <motion.div key={i} initial={{ y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
+                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
                   className="bg-card border border-border p-8 hover:border-primary/40 transition-colors">
                   <div className="w-12 h-12 bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
                     <Icon className="h-6 w-6 text-primary" />
@@ -333,14 +333,14 @@ export default function About() {
       <section className="py-20 bg-card border-t border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div initial={{ x: isRTL ? 20 : -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+            <motion.div initial={{ opacity: 0, x: isRTL ? 20 : -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{a.office.eyebrow}</p>
               <h2 className="text-3xl font-serif font-bold text-foreground mb-6">{a.office.heading}</h2>
               <div className="w-16 h-1 bg-primary/30 mb-8" />
               <p className="text-muted-foreground leading-relaxed mb-5">{a.office.p1}</p>
               <p className="text-muted-foreground leading-relaxed">{a.office.p2}</p>
             </motion.div>
-            <motion.div initial={{ x: isRTL ? -20 : 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+            <motion.div initial={{ opacity: 0, x: isRTL ? -20 : 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <div className="bg-primary p-10 text-white">
                 <div className="flex items-start gap-4 mb-6">
                   <div className="w-14 h-14 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
@@ -389,7 +389,7 @@ export default function About() {
       {/* ── CTA ── */}
       <section className="py-24 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial={{ y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <p className="text-primary font-medium uppercase tracking-widest text-sm mb-4">{a.cta.eyebrow}</p>
             <h2 className="text-4xl font-serif font-bold text-foreground mb-6">{a.cta.heading}</h2>
             <div className="w-20 h-1 bg-primary/30 mx-auto mb-8" />
