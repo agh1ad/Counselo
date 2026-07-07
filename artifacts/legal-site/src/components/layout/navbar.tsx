@@ -168,13 +168,13 @@ export function Navbar() {
       </div>
 
       {/*
-        Mobile menu — CSS max-height transition instead of Framer Motion height animation.
-        Framer Motion's height:0→"auto" requires DOM measurement; on some deployed
-        environments this measurement can fail, keeping the menu stuck at height:0.
-        CSS max-height avoids that entirely and always works.
+        Mobile menu — inline styles for maxHeight + opacity so Tailwind's scanner
+        doesn't have to pick up dynamic class strings (which it misses in ternaries).
+        transition-all on static className handles the CSS animation.
       */}
       <div
-        className={`md:hidden bg-background border-b border-border overflow-hidden transition-all duration-200 ease-in-out ${isOpen ? "max-h-[calc(100svh-6rem)] opacity-100" : "max-h-0 opacity-0"}`}
+        className="md:hidden bg-background border-b border-border overflow-hidden transition-all duration-200 ease-in-out"
+        style={{ maxHeight: isOpen ? "100svh" : "0px", opacity: isOpen ? 1 : 0 }}
         aria-hidden={!isOpen}
       >
         <div className="overflow-y-auto max-h-[calc(100svh-6rem)]">
