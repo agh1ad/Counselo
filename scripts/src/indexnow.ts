@@ -1,8 +1,12 @@
 /**
  * IndexNow ping script — submits all counselo-legal.com URLs to IndexNow.
  *
- * Run manually:
+ * Run manually (standalone ping using existing sitemap):
  *   pnpm --filter @workspace/scripts run indexnow
+ *
+ * To publish a new blog post and ping in one step:
+ *   pnpm --filter @workspace/scripts run publish-post
+ * This regenerates the sitemap from blog-posts.ts then immediately pings IndexNow.
  *
  * IndexNow notifies Bing, Yandex, Seznam, and other compatible engines
  * immediately, so pages are crawled/indexed within minutes instead of

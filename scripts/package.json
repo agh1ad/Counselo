@@ -6,6 +6,7 @@
   "scripts": {
     "hello": "tsx ./src/hello.ts",
     "indexnow": "tsx src/indexnow.ts",
+    "publish-post": "INDEXNOW_PING=true pnpm --filter @workspace/legal-site run generate-sitemap",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {
