@@ -23,7 +23,12 @@ export default function About() {
       "@type": "Organization",
       "name": "CounselO",
       "url": "https://counselo-legal.com",
-      "logo": "https://counselo-legal.com/logo.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://counselo-legal.com/logo.png",
+        "width": 512,
+        "height": 512,
+      },
       "description": region === "syr"
         ? (isRTL
           ? "منصة الاستشارات القانونية الإلكترونية المتخصصة في سوريا — تأسست على يد المحامي عمر البغدادي بخبرة 30+ عاماً في القانون السوري"
@@ -49,6 +54,12 @@ export default function About() {
       "jobTitle": "Lawyer & Legal Counsel",
       "worksFor": { "@type": "Organization", "name": "CounselO" },
       "alumniOf": { "@type": "EducationalOrganization", "name": "Faculty of Law, Damascus University" },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://counselo-legal.com/omar-baghdadi.jpg",
+        "width": 800,
+        "height": 1200,
+      },
       "description": "Senior advocate and legal counsel with 30+ years experience across Saudi Arabia, UAE and Syria. Founder of CounselO.",
       "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
     },

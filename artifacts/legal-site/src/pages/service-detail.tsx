@@ -76,7 +76,7 @@ export default function ServiceDetail() {
       "serviceType": data.title,
       "provider": {
         "@type": "LegalService",
-        "name": isRTL ? "كاونسلو كاونسلو" : "CounselO",
+        "name": isRTL ? "كاونسلو" : "CounselO",
         "url": "https://counselo-legal.com",
         "telephone": "+966594850247",
         "email": "info@counselo-legal.com",

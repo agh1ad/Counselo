@@ -158,16 +158,34 @@ export default function BlogPost() {
     "description": seoDesc,
     "datePublished": post.date,
     "dateModified": post.date,
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://counselo-legal.com/og-image.png",
+      "width": 1200,
+      "height": 630,
+    },
     "author": {
       "@type": "Person",
       "name": "Lawyer and Legal Counsel Omar Al-Baghdadi",
       "jobTitle": "Lawyer and Legal Counsel — Founder of CounselO",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://counselo-legal.com/omar-baghdadi.jpg",
+        "width": 800,
+        "height": 1200,
+      },
       "worksFor": { "@type": "LegalService", "name": "CounselO" },
     },
     "publisher": {
       "@type": "Organization",
       "name": "CounselO",
       "url": "https://counselo-legal.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://counselo-legal.com/logo.png",
+        "width": 512,
+        "height": 512,
+      },
     },
     "about": { "@type": "LegalService", "areaServed": region === "syr" ? "Syria" : "Saudi Arabia" },
   };

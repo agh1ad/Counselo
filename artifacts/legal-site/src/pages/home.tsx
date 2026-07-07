@@ -59,7 +59,12 @@ export default function Home() {
             ? `منصة سوريا للاستشارات القانونية الأونلاين — ${servicesAreaCount} مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي — خبرة أكثر من 30 عاماً في القانون السوري`
             : `Syria's online legal consultation platform — ${servicesAreaCount} practice areas, professional response within 24 hours, founded by Lawyer Omar Al-Baghdadi — 30+ years Syrian law expertise`,
           "url": "https://counselo-legal.com/syr",
-          "logo": "https://counselo-legal.com/logo.png",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://counselo-legal.com/logo.png",
+            "width": 512,
+            "height": 512,
+          },
           "founder": {
             "@type": "Person",
             "name": "Omar Al-Baghdadi",
@@ -94,6 +99,7 @@ export default function Home() {
             "ratingValue": "4.9",
             "reviewCount": "847",
             "bestRating": "5",
+            "worstRating": "1",
           },
         } : {
           "@context": "https://schema.org",
@@ -104,7 +110,12 @@ export default function Home() {
             ? `منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين — ${servicesAreaCount} مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي`
             : `Saudi Arabia's online legal consultation platform — ${servicesAreaCount} practice areas, professional response within 24 hours, founded by Lawyer Omar Al-Baghdadi`,
           "url": "https://counselo-legal.com/sa",
-          "logo": "https://counselo-legal.com/logo.png",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://counselo-legal.com/logo.png",
+            "width": 512,
+            "height": 512,
+          },
           "founder": {
             "@type": "Person",
             "name": "Omar Al-Baghdadi",
@@ -139,6 +150,7 @@ export default function Home() {
             "ratingValue": "4.9",
             "reviewCount": "847",
             "bestRating": "5",
+            "worstRating": "1",
           },
         }}
         extraSchemas={[{
