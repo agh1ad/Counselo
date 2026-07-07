@@ -16,16 +16,6 @@ import { createRoot, hydrateRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App";
 import "./index.css";
-// Self-hosted fonts — imported as JS modules so Vite processes them
-// independently of the CSS pipeline (avoids Tailwind v4 @import ordering conflict)
-import "@fontsource-variable/inter";
-import "@fontsource/playfair-display/400.css";
-import "@fontsource/playfair-display/600.css";
-import "@fontsource/playfair-display/700.css";
-import "@fontsource/tajawal/300.css";
-import "@fontsource/tajawal/400.css";
-import "@fontsource/tajawal/500.css";
-import "@fontsource/tajawal/700.css";
 
 const rootEl = document.getElementById("root")!;
 
