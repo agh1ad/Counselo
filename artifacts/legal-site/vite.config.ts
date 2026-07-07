@@ -61,9 +61,7 @@ export default defineConfig({
     sitemapPlugin(),
     react(),
     tailwindcss(),
-    ...(process.env.NODE_ENV !== "production"
-      ? [runtimeErrorOverlay()]
-      : []),
+    runtimeErrorOverlay(),
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined
       ? [
@@ -93,10 +91,6 @@ export default defineConfig({
       ? path.resolve(import.meta.dirname, "dist/server")
       : path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
-    // Target modern browsers — smaller output, fewer polyfills, better tree-shaking
-    target: "es2020",
-    // Skip gzip size reporting in CI — no user benefit, slows the build
-    reportCompressedSize: false,
     // SSR entry — builds src/entry-server.tsx as a Node-compatible ESM bundle.
     // Falsy value (undefined) uses the normal client build entry (index.html).
     ssr: isSSR ? "src/entry-server.tsx" : undefined,
@@ -117,10 +111,6 @@ export default defineConfig({
         },
       },
     },
-  },
-  esbuild: {
-    // Strip debugger statements from production bundles
-    drop: process.env.NODE_ENV === "production" ? ["debugger"] : [],
   },
   server: {
     port: port || undefined,
