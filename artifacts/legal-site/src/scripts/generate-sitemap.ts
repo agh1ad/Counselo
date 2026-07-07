@@ -1,12 +1,62 @@
 import { writeFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { z } from "zod";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, "../..");
 
+const BlogSectionSchema = z.object({
+  heading: z.string().optional(),
+  body: z.string().min(1, "body must not be empty"),
+});
+
+const BlogLocaleSchema = z.object({
+  title: z.string().min(1, "title must not be empty"),
+  excerpt: z.string().min(1, "excerpt must not be empty"),
+  seoTitle: z.string().min(1, "seoTitle must not be empty"),
+  seoDescription: z.string().min(1, "seoDescription must not be empty"),
+  content: z.array(BlogSectionSchema).min(1, "content must have at least one section"),
+});
+
+const BlogPostSchema = z.object({
+  slug: z
+    .string()
+    .min(1, "slug must not be empty")
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "slug must be kebab-case (a-z, 0-9, hyphens only)"),
+  date: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, "date must be in YYYY-MM-DD format"),
+  category: z.object({
+    en: z.string().min(1, "category.en must not be empty"),
+    ar: z.string().min(1, "category.ar must not be empty"),
+  }),
+  readTime: z.number().int().positive("readTime must be a positive integer"),
+  en: BlogLocaleSchema,
+  ar: BlogLocaleSchema,
+});
+
 const { BASE_URL, TODAY, CORE_PAGES } = await import("../data/sitemap-sources.js");
 const { blogPosts } = await import("../data/blog-posts.js");
+
+if (blogPosts.length > 0) {
+  const errors: string[] = [];
+  for (let i = 0; i < blogPosts.length; i++) {
+    const result = BlogPostSchema.safeParse(blogPosts[i]);
+    if (!result.success) {
+      const slug = (blogPosts[i] as { slug?: unknown }).slug ?? `(index ${i})`;
+      for (const issue of result.error.issues) {
+        errors.push(`  [${slug}] ${issue.path.join(".")}: ${issue.message}`);
+      }
+    }
+  }
+  if (errors.length > 0) {
+    console.error(
+      `[sitemap] ERROR: ${errors.length} validation error(s) found in blog-posts.ts. Fix them before the sitemap is written:\n${errors.join("\n")}`,
+    );
+    process.exit(1);
+  }
+}
 
 const { en } = await import("../translations/en.js");
 const { enSyr } = await import("../translations/en-syr.js");
