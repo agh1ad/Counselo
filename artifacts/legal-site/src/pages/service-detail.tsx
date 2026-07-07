@@ -7,6 +7,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { SYR_SEO_DATA } from "@/lib/seo-data-syr";
+import { RELATED_SERVICES, SERVICE_TO_BLOG_SLUGS } from "@/lib/internal-links";
+import { staticBlogPosts } from "@/data/blog-posts";
 
 export default function ServiceDetail() {
   const params = useParams();
@@ -60,6 +62,12 @@ export default function ServiceDetail() {
 
   const hasFaqs = "faqs" in data && Array.isArray((data as Record<string, unknown>).faqs) && ((data as Record<string, unknown>).faqs as unknown[]).length > 0;
   const faqs = hasFaqs ? (data as Record<string, unknown>).faqs as { q: string; a: string }[] : [];
+
+  const relatedServiceIds = (RELATED_SERVICES[id] ?? []).filter(
+    rid => rid in sd.services
+  );
+  const relatedPostSlugs = SERVICE_TO_BLOG_SLUGS[id] ?? [];
+  const relatedPosts = staticBlogPosts.filter(p => relatedPostSlugs.includes(p.slug));
 
   const canonicalPath = `/services/${id}`;
   const canonicalUrlFull = `https://counselo-legal.com${isSyr ? "/syr" : "/sa"}${canonicalPath}`;
@@ -235,6 +243,50 @@ export default function ServiceDetail() {
                         )}
                       </div>
                     ))}
+                  </div>
+                </div>
+              )}
+              {/* Related Practice Areas */}
+              {relatedServiceIds.length > 0 && (
+                <div className="mt-16">
+                  <h2 className="text-2xl font-serif font-bold text-foreground mb-6 border-b border-border pb-4">
+                    {isRTL ? "مجالات قانونية ذات صلة" : "Related Practice Areas"}
+                  </h2>
+                  <div className="grid sm:grid-cols-3 gap-4">
+                    {relatedServiceIds.map(rid => {
+                      const rdata = sd.services[rid as keyof typeof sd.services];
+                      if (!rdata) return null;
+                      return (
+                        <Link key={rid} href={`${regionPrefix}/services/${rid}`} className="group block border border-border bg-card hover:border-primary/50 p-4 transition-colors">
+                          <div className="font-serif font-semibold text-foreground group-hover:text-primary transition-colors text-sm">{rdata.title}</div>
+                          <div className="text-xs text-muted-foreground mt-1 line-clamp-2 leading-relaxed">{rdata.subtitle}</div>
+                          <div className="text-xs text-primary mt-3 font-medium">{isRTL ? "← اعرف المزيد" : "Learn more →"}</div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* Related Legal Guides */}
+              {relatedPosts.length > 0 && (
+                <div className="mt-10">
+                  <h2 className="text-2xl font-serif font-bold text-foreground mb-6 border-b border-border pb-4">
+                    {isRTL ? "مقالات قانونية ذات صلة" : "Related Legal Guides"}
+                  </h2>
+                  <div className="space-y-3">
+                    {relatedPosts.map(post => {
+                      const ptitle = isRTL ? post.ar.title : post.en.title;
+                      const pexcerpt = isRTL ? post.ar.excerpt : post.en.excerpt;
+                      return (
+                        <Link key={post.slug} href={`${regionPrefix}/blog/${post.slug}`} className="group flex gap-4 border border-border bg-card hover:border-primary/50 p-4 transition-colors">
+                          <div>
+                            <div className="font-serif font-semibold text-foreground group-hover:text-primary transition-colors text-sm leading-snug mb-1">{ptitle}</div>
+                            <div className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">{pexcerpt}</div>
+                          </div>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               )}
