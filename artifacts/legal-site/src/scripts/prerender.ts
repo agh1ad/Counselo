@@ -86,21 +86,6 @@ const ENGLISH_ROUTES: string[] = [
   ...SERVICE_SLUGS.map((s) => `/syr/services/${s}`),
   ...SYRIA_ONLY_SERVICE_SLUGS.map((s) => `/syr/services/${s}`),
 
-  // Saudi Arabia blog post pages
-  "/sa/blog/divorce-in-saudi-arabia",
-  "/sa/blog/wrongful-termination-saudi-labor-law",
-  "/sa/blog/foreign-company-registration-saudi-arabia",
-  "/sa/blog/board-of-grievances-saudi-arabia",
-  "/sa/blog/real-estate-disputes-saudi-arabia",
-  "/sa/blog/child-custody-saudi-arabia",
-
-  // Syria blog post pages
-  "/syr/blog/divorce-in-saudi-arabia",
-  "/syr/blog/wrongful-termination-saudi-labor-law",
-  "/syr/blog/foreign-company-registration-saudi-arabia",
-  "/syr/blog/board-of-grievances-saudi-arabia",
-  "/syr/blog/real-estate-disputes-saudi-arabia",
-  "/syr/blog/child-custody-saudi-arabia",
 ];
 
 // Arabic is a real URL segment, not a client-side-only toggle: every English
