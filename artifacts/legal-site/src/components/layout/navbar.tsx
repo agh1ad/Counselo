@@ -27,7 +27,6 @@ export function Navbar() {
       ? location === regionPrefix || location === regionPrefix + "/"
       : location.startsWith(regionPrefix + path);
 
-  // Next-language href — works as a plain link before JS loads on the deployed site
   const nextLangHref = (() => {
     const next = lang === "en" ? "ar" : "en";
     const rest = location.slice(regionPrefix.length);
@@ -74,7 +73,7 @@ export function Navbar() {
               {t.nav.home}
             </Link>
 
-            {/* Services — hover to open */}
+            {/* Services — hover to open, AnimatePresence for slide animation */}
             <div
               className="relative group"
               onMouseEnter={() => setServicesOpen(true)}
@@ -89,10 +88,10 @@ export function Navbar() {
               <AnimatePresence>
                 {servicesOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.15 }}
                     className="absolute start-0 mt-2 w-56 bg-background border border-border shadow-lg py-2 z-50"
                   >
                     {t.nav.servicesList.map((service) => (
@@ -128,7 +127,6 @@ export function Navbar() {
               {t.nav.contact}
             </Link>
 
-            {/* Language toggle — <a href> works before JS loads on the deployed site */}
             <a
               href={nextLangHref}
               onClick={(e) => { e.preventDefault(); toggleLang(); }}
@@ -158,8 +156,10 @@ export function Navbar() {
             </a>
             <button
               type="button"
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-muted-foreground hover:text-primary"
+              onClick={() => setIsOpen((v) => !v)}
+              aria-expanded={isOpen}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              className="text-muted-foreground hover:text-primary p-1"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -167,73 +167,71 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden bg-background border-b border-border overflow-hidden"
-          >
-            <div className="overflow-y-auto max-h-[calc(100svh-6rem)]">
-              <div className="px-4 pt-2 pb-10 space-y-1">
-                <Link
-                  href={regionPrefix}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary"
-                >
-                  {t.nav.home}
-                </Link>
-                <div className="px-3 py-2 text-base font-medium text-foreground">
-                  {t.nav.services}
-                </div>
-                <div className="ps-6 space-y-1">
-                  {t.nav.servicesList.map((service) => (
-                    <Link
-                      key={service.href}
-                      href={regionPrefix + service.href}
-                      onClick={() => setIsOpen(false)}
-                      className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary"
-                    >
-                      {service.name}
-                    </Link>
-                  ))}
-                </div>
-                <Link
-                  href={p("/about")}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary"
-                >
-                  {t.nav.about}
-                </Link>
-                <Link
-                  href={p("/blog")}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary"
-                >
-                  {t.nav.blog}
-                </Link>
-                <Link
-                  href={p("/contact")}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary"
-                >
-                  {t.nav.contact}
-                </Link>
-                <div className="px-3 pt-4">
-                  <Link href={p("/contact")} onClick={() => setIsOpen(false)}>
-                    <Button className="w-full bg-primary text-white hover:bg-primary/90">
-                      {t.nav.bookConsultation}
-                    </Button>
-                  </Link>
-                </div>
-              </div>
+      {/*
+        Mobile menu — CSS max-height transition instead of Framer Motion height animation.
+        Framer Motion's height:0→"auto" requires DOM measurement; on some deployed
+        environments this measurement can fail, keeping the menu stuck at height:0.
+        CSS max-height avoids that entirely and always works.
+      */}
+      <div
+        className={`md:hidden bg-background border-b border-border overflow-hidden transition-all duration-200 ease-in-out ${isOpen ? "max-h-[calc(100svh-6rem)] opacity-100" : "max-h-0 opacity-0"}`}
+        aria-hidden={!isOpen}
+      >
+        <div className="overflow-y-auto max-h-[calc(100svh-6rem)]">
+          <div className="px-4 pt-2 pb-10 space-y-1">
+            <Link
+              href={regionPrefix}
+              onClick={() => setIsOpen(false)}
+              className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary"
+            >
+              {t.nav.home}
+            </Link>
+            <div className="px-3 py-2 text-base font-medium text-foreground">
+              {t.nav.services}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            <div className="ps-6 space-y-1">
+              {t.nav.servicesList.map((service) => (
+                <Link
+                  key={service.href}
+                  href={regionPrefix + service.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary"
+                >
+                  {service.name}
+                </Link>
+              ))}
+            </div>
+            <Link
+              href={p("/about")}
+              onClick={() => setIsOpen(false)}
+              className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary"
+            >
+              {t.nav.about}
+            </Link>
+            <Link
+              href={p("/blog")}
+              onClick={() => setIsOpen(false)}
+              className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary"
+            >
+              {t.nav.blog}
+            </Link>
+            <Link
+              href={p("/contact")}
+              onClick={() => setIsOpen(false)}
+              className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary"
+            >
+              {t.nav.contact}
+            </Link>
+            <div className="px-3 pt-4">
+              <Link href={p("/contact")} onClick={() => setIsOpen(false)}>
+                <Button className="w-full bg-primary text-white hover:bg-primary/90">
+                  {t.nav.bookConsultation}
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
   );
 }
