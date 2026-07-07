@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
-const saudiFlag = "/saudi-flag.jpg";
-const syrianFlag = "/syrian-flag.jpg";
-const navbarBrand = "/navbar-brand.webp";
+import saudiFlag from "@assets/image_1782789705620.jpeg";
+import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5x_1782856203372.jpg";
+import navbarBrand from "@assets/Screen_Shot_2026-07-02_at_12.27.45_AM_1782937671982.png";
 
 export function Navbar() {
   const [location] = useLocation();
@@ -26,20 +26,19 @@ export function Navbar() {
     : location.startsWith(regionPrefix + path);
 
   return (
-    <nav aria-label="Main navigation" className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           <div className="flex items-center gap-3">
             <Link href={regionPrefix}>
-              <img src={navbarBrand} alt="CounselO — Online Legal Consultations" className="h-20 w-auto object-contain" width="606" height="235" fetchPriority="high" decoding="async" />
+              <img src={navbarBrand} alt="CounselO — Online Legal Consultations" className="h-20 w-auto object-contain" />
             </Link>
             <Link href="/" title="Change region">
               <img
                 src={flag}
                 alt={flagAlt}
                 className="h-6 w-auto object-cover rounded-sm shadow-sm border border-border hover:opacity-80 transition-opacity cursor-pointer"
-                width="36" height="24"
-                loading="lazy" decoding="async"
+                style={{ aspectRatio: "3/2", width: "36px" }}
               />
             </Link>
           </div>
@@ -89,7 +88,7 @@ export function Navbar() {
           </div>
 
           <div className="md:hidden flex items-center gap-3">
-            <button onClick={toggleLang} className="text-muted-foreground hover:text-primary text-sm font-medium border border-border px-2 py-1" aria-label="Toggle language">
+            <button onClick={toggleLang} className="text-muted-foreground hover:text-primary text-sm font-medium border border-border px-2 py-1">
               {lang === "en" ? "ع" : "EN"}
             </button>
             <button onClick={() => setIsOpen(!isOpen)} className="text-muted-foreground hover:text-primary">

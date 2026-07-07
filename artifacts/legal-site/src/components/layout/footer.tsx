@@ -17,7 +17,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1">
             <Link href={regionPrefix} className="flex items-center gap-2 mb-6">
-              <img src={counseloLogo} alt="CounselO — Online Legal Consultations" className="h-16 w-auto object-contain" width="512" height="512" loading="lazy" decoding="async" />
+              <img src={counseloLogo} alt="CounselO — Online Legal Consultations" className="h-16 w-auto object-contain" />
             </Link>
             <p className="text-white/70 text-sm mb-6 leading-relaxed">{f.tagline}</p>
             <div className="flex space-x-4 rtl:space-x-reverse text-white/60">

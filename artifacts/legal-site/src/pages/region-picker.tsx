@@ -1,9 +1,8 @@
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
-
-const counseloLogo = "/counselo-logo-hero.jpg";
-const saudiFlag = "/saudi-flag.jpg";
-const syrianFlag = "/syrian-flag.jpg";
+import counseloLogo from "@assets/Screen_Shot_2026-07-01_at_12.26.11_AM_1782851175169.png";
+import saudiFlag from "@assets/image_1782789705620.jpeg";
+import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5x_1782856203372.jpg";
 
 const regionPickerSchema = {
   "@context": "https://schema.org",
@@ -21,12 +20,7 @@ const regionPickerSchema = {
     "@type": "Organization",
     "name": "CounselO",
     "url": "https://counselo-legal.com",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://counselo-legal.com/logo.png",
-      "width": 512,
-      "height": 512,
-    },
+    "logo": "https://counselo-legal.com/logo.png",
     "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
     "areaServed": [
       { "@type": "Country", "name": "Saudi Arabia" },
@@ -73,8 +67,6 @@ export default function RegionPicker() {
           src={counseloLogo}
           alt="CounselO — Online Legal Consultations"
           className="h-24 w-auto object-contain"
-          width="606" height="235"
-          fetchPriority="high" decoding="async"
         />
 
         <div>
@@ -93,8 +85,7 @@ export default function RegionPicker() {
                 src={saudiFlag}
                 alt="Saudi Arabia"
                 className="h-12 w-auto object-cover rounded-sm shadow border border-white/20"
-                width="72" height="48"
-                loading="lazy" decoding="async"
+                style={{ aspectRatio: "3/2", width: "72px" }}
               />
               <div>
                 <div className="text-white font-semibold text-base mb-0.5">Saudi Arabia</div>
@@ -112,8 +103,7 @@ export default function RegionPicker() {
                 src={syrianFlag}
                 alt="Syria"
                 className="h-12 w-auto object-cover rounded-sm shadow border border-white/20"
-                width="72" height="48"
-                loading="lazy" decoding="async"
+                style={{ aspectRatio: "3/2", width: "72px" }}
               />
               <div>
                 <div className="text-white font-semibold text-base mb-0.5">Syria</div>

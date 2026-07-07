@@ -26,9 +26,7 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [];
 
-export const staticBlogPosts: BlogPost[] = [];
-
-const _unused: BlogPost[] = [
+export const staticBlogPosts: BlogPost[] = [
   {
     slug: "divorce-in-saudi-arabia",
     date: "2026-06-15",

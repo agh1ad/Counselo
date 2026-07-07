@@ -6,7 +6,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { staticBlogPosts } from "@/data/blog-posts";
-import { BLOG_CATEGORY_TO_SERVICE } from "@/lib/internal-links";
 
 interface BlogSection {
   heading?: string;
@@ -47,7 +46,7 @@ function formatDate(dateStr: string, lang: string) {
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
-  const { t, lang, isRTL } = useLanguage();
+  const { lang, isRTL } = useLanguage();
   const { region, regionPrefix } = useRegion();
 
   const staticPost = staticBlogPosts.find((p) => p.slug === slug);
@@ -151,15 +150,6 @@ export default function BlogPost() {
   const category = isRTL ? post.categoryAr : post.categoryEn;
   const body = isRTL ? post.bodyAr : post.bodyEn;
   const content = isRTL ? post.contentAr : post.contentEn;
-
-  const relatedServiceId = BLOG_CATEGORY_TO_SERVICE[post.categoryEn] ?? null;
-  const sd = t.serviceDetail;
-  const relatedServiceData = relatedServiceId && relatedServiceId in sd.services
-    ? sd.services[relatedServiceId as keyof typeof sd.services]
-    : null;
-  const relatedArticles = staticBlogPosts.filter(
-    p => p.slug !== post.slug && p.category.en === post.categoryEn
-  ).slice(0, 2);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -290,27 +280,6 @@ export default function BlogPost() {
             <div className="mt-10 p-4 bg-muted/50 border border-border text-xs text-muted-foreground leading-relaxed">
               {ui.disclaimer}
             </div>
-            {/* Related Articles */}
-            {relatedArticles.length > 0 && (
-              <div className="mt-12 border-t border-border pt-10">
-                <h2 className="text-xl font-serif font-bold text-foreground mb-6">
-                  {lang === "en" ? "Related Articles" : "مقالات ذات صلة"}
-                </h2>
-                <div className="space-y-4">
-                  {relatedArticles.map(rpost => {
-                    const rtitle = isRTL ? rpost.ar.title : rpost.en.title;
-                    const rexcerpt = isRTL ? rpost.ar.excerpt : rpost.en.excerpt;
-                    return (
-                      <Link key={rpost.slug} href={`${regionPrefix}/blog/${rpost.slug}`} className="group block border border-border hover:border-primary/50 bg-card p-4 transition-colors">
-                        <div className="font-serif font-semibold text-foreground group-hover:text-primary transition-colors text-sm leading-snug mb-1">{rtitle}</div>
-                        <div className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">{rexcerpt}</div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
             <div className="mt-8">
               <Link href={`${regionPrefix}/blog`} className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm">
                 <BackArrow className="h-4 w-4" /> {ui.back}
@@ -362,26 +331,6 @@ export default function BlogPost() {
                     : "مؤسس كاونسلو ومستشار قانوني | أكثر من 30 عاماً وأكثر من 20,000 قضية"}
                 </p>
               </div>
-
-              {/* Related service page link */}
-              {relatedServiceData && relatedServiceId && (
-                <div className="border border-border p-5 mt-4">
-                  <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-2">
-                    {lang === "en" ? "Practice Area" : "مجال التخصص"}
-                  </p>
-                  <Link href={`${regionPrefix}/services/${relatedServiceId}`} className="block group">
-                    <span className="font-serif font-bold text-foreground group-hover:text-primary transition-colors block leading-snug">
-                      {relatedServiceData.title}
-                    </span>
-                    <span className="text-xs text-muted-foreground mt-1 block line-clamp-2 leading-relaxed">
-                      {relatedServiceData.subtitle}
-                    </span>
-                    <span className="text-xs text-primary font-medium mt-3 block group-hover:underline">
-                      {lang === "en" ? "View service page →" : "← عرض صفحة الخدمة"}
-                    </span>
-                  </Link>
-                </div>
-              )}
             </div>
           </motion.aside>
         </div>
