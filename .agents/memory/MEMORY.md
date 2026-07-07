@@ -1,4 +1,5 @@
 - [LanguageContext Fast Refresh split](language-context-hmr.md) — LanguageContext must never define both a component and a hook in the same file or Vite HMR cascades crash the app.
+- [Tailwind v4 CSS import ordering](tailwind-v4-css-import-order.md) — @import "tailwindcss" must be first in index.css; npm CSS @imports before it silently strip all Tailwind styles in production.
 - [CounselO SEO architecture](counselo-seo.md) — dual-region SA/SYR site; Syria sub-page SEO lives in seo-data-syr.ts; region picker at `/` uses Helmet directly (no region dep) targeting Middle East; all schemas are region-conditional.
 - [React 19 + react-helmet-async v3 SSR](react19-helmet-ssr.md) — HelmetProvider context is never populated in React 19; head tags appear at the start of renderToString output instead.
 - [index.html nested comment gotcha](nested-comment-html-gotcha.md) — <!--tag--> inside a doc comment breaks HTML parse5; renders raw text instead of React app.
