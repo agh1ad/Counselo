@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Languages } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -16,7 +16,6 @@ export function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const { t, lang, toggleLang } = useLanguage();
   const { region, regionPrefix } = useRegion();
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const flag = region === "syr" ? syrianFlag : saudiFlag;
   const flagAlt = region === "syr" ? "Syria" : "Saudi Arabia";
@@ -28,9 +27,7 @@ export function Navbar() {
       ? location === regionPrefix || location === regionPrefix + "/"
       : location.startsWith(regionPrefix + path);
 
-  // Compute the next-language href for progressive enhancement:
-  // before JS loads on the deployed site, this <a> navigates as a
-  // normal link so the correct prerendered page loads immediately.
+  // Next-language href — works as a plain link before JS loads on the deployed site
   const nextLangHref = (() => {
     const next = lang === "en" ? "ar" : "en";
     const rest = location.slice(regionPrefix.length);
@@ -38,19 +35,7 @@ export function Navbar() {
     return `${nextPrefix}${rest || ""}`;
   })();
 
-  // Close the desktop dropdown when clicking outside it
-  useEffect(() => {
-    if (!servicesOpen) return;
-    const handler = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setServicesOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, [servicesOpen]);
-
-  // Close the desktop dropdown on Escape
+  // Close dropdown on Escape
   useEffect(() => {
     if (!servicesOpen) return;
     const handler = (e: KeyboardEvent) => {
@@ -99,8 +84,8 @@ export function Navbar() {
               {t.nav.home}
             </Link>
 
-            {/* Services — click-to-toggle dropdown */}
-            <div ref={dropdownRef} className="relative">
+            {/* Services dropdown — click to open, backdrop to close */}
+            <div className="relative">
               <button
                 type="button"
                 onClick={() => setServicesOpen((v) => !v)}
@@ -114,15 +99,18 @@ export function Navbar() {
                 />
               </button>
 
-              <AnimatePresence>
-                {servicesOpen && (
-                  <motion.div
+              {servicesOpen && (
+                <>
+                  {/* Invisible full-screen backdrop — clicking outside closes dropdown */}
+                  <div
+                    className="fixed inset-0 z-40"
+                    aria-hidden="true"
+                    onClick={() => setServicesOpen(false)}
+                  />
+                  {/* Dropdown panel */}
+                  <div
                     role="menu"
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute start-0 mt-2 w-56 bg-background border border-border shadow-lg py-2 z-50"
+                    className="absolute start-0 top-full mt-2 w-56 bg-background border border-border shadow-lg py-2 z-50"
                   >
                     {t.nav.servicesList.map((service) => (
                       <Link
@@ -134,9 +122,9 @@ export function Navbar() {
                         {service.name}
                       </Link>
                     ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                  </div>
+                </>
+              )}
             </div>
 
             <Link
@@ -158,7 +146,7 @@ export function Navbar() {
               {t.nav.contact}
             </Link>
 
-            {/* Language toggle — <a href> so it works before JS loads */}
+            {/* Language toggle — <a href> works before JS loads on the deployed site */}
             <a
               href={nextLangHref}
               onClick={(e) => { e.preventDefault(); toggleLang(); }}
