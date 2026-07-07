@@ -1,8 +1,9 @@
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
-import counseloLogo from "@assets/Screen_Shot_2026-07-01_at_12.26.11_AM_1782851175169.png";
-import saudiFlag from "@assets/image_1782789705620.jpeg";
-import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5x_1782856203372.jpg";
+
+const counseloLogo = "/counselo-logo-hero.jpg";
+const saudiFlag = "/saudi-flag.jpg";
+const syrianFlag = "/syrian-flag.jpg";
 
 const regionPickerSchema = {
   "@context": "https://schema.org",
@@ -20,7 +21,12 @@ const regionPickerSchema = {
     "@type": "Organization",
     "name": "CounselO",
     "url": "https://counselo-legal.com",
-    "logo": "https://counselo-legal.com/logo.png",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://counselo-legal.com/logo.png",
+      "width": 512,
+      "height": 512,
+    },
     "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
     "areaServed": [
       { "@type": "Country", "name": "Saudi Arabia" },

@@ -5,9 +5,9 @@ import { CheckCircle2, ArrowRight, MapPin, Award, Users, Globe, Zap, Scale, Star
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
-import founderPhoto from "@assets/ChatGPT_Image_Mar_8,_2026,_04_53_46_PM_1782789204870.png";
-import saudiFlag from "@assets/image_1782789705620.jpeg";
-import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5x_1782856203372.jpg";
+const founderPhoto = "/omar-baghdadi.jpg";
+const saudiFlag = "/saudi-flag.jpg";
+const syrianFlag = "/syrian-flag.jpg";
 
 const whyIcons = [Scale, Globe, Award, Globe, Zap, Users];
 
