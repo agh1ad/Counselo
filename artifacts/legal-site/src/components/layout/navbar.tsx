@@ -174,10 +174,10 @@ export function Navbar() {
       */}
       <div
         className="md:hidden bg-background border-b border-border overflow-hidden transition-all duration-200 ease-in-out"
-        style={{ maxHeight: isOpen ? "100svh" : "0px", opacity: isOpen ? 1 : 0 }}
+        style={{ maxHeight: isOpen ? "9999px" : "0px", opacity: isOpen ? 1 : 0 }}
         aria-hidden={!isOpen}
       >
-        <div className="overflow-y-auto max-h-[calc(100svh-6rem)]">
+        <div className="overflow-y-auto" style={{ maxHeight: "calc(100vh - 6rem)" }}>
           <div className="px-4 pt-2 pb-10 space-y-1">
             <Link
               href={regionPrefix}
