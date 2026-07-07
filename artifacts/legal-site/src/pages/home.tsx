@@ -7,7 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 
 const fadeIn = {
-  initial: { opacity: 0, y: 20 },
+  initial: { y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
   transition: { duration: 0.6 },
@@ -181,7 +181,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
             {/* Left — text */}
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <motion.div initial={{ y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-6">
                 {h.hero.h1a}<br />
                 <span className="text-white/70 italic">{h.hero.h1b}</span>
@@ -219,7 +219,7 @@ export default function Home() {
             </motion.div>
 
             {/* Right — platform card */}
-            <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.2 }} className="hidden lg:block">
+            <motion.div initial={{ x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.2 }} className="hidden lg:block">
               <div className="bg-white/5 border border-white/15 p-8 space-y-5 backdrop-blur-sm">
                 <div className="text-white/50 text-xs uppercase tracking-widest mb-6">How it works in 4 steps</div>
                 {h.howItWorks.steps.map((s, i) => (
@@ -249,7 +249,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x rtl:divide-x-reverse divide-border">
             {h.stats.map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="text-center px-4">
+              <motion.div key={i} initial={{ y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="text-center px-4">
                 <div className="text-3xl md:text-4xl font-serif font-bold text-primary mb-2 leading-tight">{item.stat}</div>
                 <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider leading-snug">{item.label}</div>
               </motion.div>
@@ -271,7 +271,7 @@ export default function Home() {
             {h.platform.advantages.map((adv, i) => {
               const Icon = platformIcons[adv.icon as keyof typeof platformIcons] ?? Globe;
               return (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                <motion.div key={i} initial={{ y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="bg-card border border-border p-8 hover:border-primary/50 hover:shadow-md transition-all group">
                   <div className="w-12 h-12 bg-primary flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
                     <Icon className="h-6 w-6 text-white" />
@@ -296,7 +296,7 @@ export default function Home() {
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8">
             {h.howItWorks.steps.map((s, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
+              <motion.div key={i} initial={{ y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
                 className="relative bg-background border border-border p-8 hover:border-primary/50 hover:shadow-md transition-all">
                 <div className="text-6xl font-serif font-bold text-primary/10 absolute top-4 end-6 leading-none select-none">{s.step}</div>
                 <div className="text-primary font-mono text-sm font-bold mb-4">{s.step}</div>
@@ -321,7 +321,7 @@ export default function Home() {
             {h.consultMethods.methods.map((method, i) => {
               const Icon = channelIcons[i];
               return (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                <motion.div key={i} initial={{ y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="bg-white/10 border border-white/20 p-8 relative hover:bg-white/15 transition-colors">
                   <div className="absolute top-4 end-4 bg-white/20 text-white text-xs font-semibold px-2 py-1 uppercase tracking-wider">{method.badge}</div>
                   <Icon className="h-10 w-10 text-white/70 mb-6" />
@@ -363,7 +363,7 @@ export default function Home() {
               </ul>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col gap-0">
+            <motion.div initial={{ scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col gap-0">
               <div className="aspect-[4/5] relative shadow-2xl border border-border overflow-hidden">
                 <img src="/omar-baghdadi.jpg" alt="Lawyer Omar Al-Baghdadi — Lawyer and Legal Counsel, Founder of CounselO — 30+ years, 20,000+ cases"
                   className="w-full h-full object-cover object-top"
@@ -398,7 +398,7 @@ export default function Home() {
               <div className="w-16 h-1 bg-primary mb-8" />
               <p className="text-muted-foreground text-lg leading-relaxed">{h.cooperation.desc}</p>
             </motion.div>
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+            <motion.div initial={{ scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <div className="bg-primary p-10 text-white">
                 <div className="flex items-start gap-4 mb-6">
                   <div className="w-14 h-14 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
@@ -434,7 +434,7 @@ export default function Home() {
             {h.whoWeServe.clients.map((client, i) => {
               const Icon = clientIcons[i];
               return (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                <motion.div key={i} initial={{ y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="bg-background border border-border p-8 hover:border-primary/50 hover:shadow-md transition-all text-center">
                   <div className="w-14 h-14 bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6">
                     <Icon className="h-7 w-7 text-primary" />
@@ -459,7 +459,7 @@ export default function Home() {
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {h.practiceAreas.areas.map((area, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+              <motion.div key={i} initial={{ y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group bg-card border border-border p-8 hover:border-primary/50 hover:shadow-md transition-all">
                 <h3 className="text-xl font-serif font-bold text-foreground mb-4 group-hover:text-primary transition-colors">{area.title}</h3>
                 <p className="text-muted-foreground mb-6 text-sm leading-relaxed">{area.desc}</p>
@@ -490,7 +490,7 @@ export default function Home() {
             {h.whyAdlix.features.map((feature, i) => {
               const Icon = whyIcons[i];
               return (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="text-center">
+                <motion.div key={i} initial={{ y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="text-center">
                   <div className="w-14 h-14 bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6">
                     <Icon className="h-7 w-7 text-primary" />
                   </div>
@@ -513,7 +513,7 @@ export default function Home() {
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8">
             {h.testimonials.items.map((testimonial, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+              <motion.div key={i} initial={{ y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-card border border-border p-8 relative hover:shadow-md transition-shadow">
                 <Quote className="h-8 w-8 text-primary/15 absolute top-8 start-8" />
                 <div className="flex mb-6 mt-2 relative z-10 ps-10">

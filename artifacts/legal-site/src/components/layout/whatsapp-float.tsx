@@ -44,7 +44,7 @@ export function WhatsAppFloat() {
         onClick={() => trackEvent("whatsapp_click", location)}
       >
         <motion.div
-          initial={{ scale: 0, opacity: 0 }}
+          initial={{ scale: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.6 }}
           whileHover={{ scale: 1.1 }}

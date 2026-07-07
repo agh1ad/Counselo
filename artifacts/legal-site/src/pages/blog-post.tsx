@@ -234,7 +234,7 @@ export default function BlogPost() {
       {/* Hero */}
       <section className="bg-primary text-white py-16 px-4">
         <div className="max-w-3xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <motion.div initial={{ y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Link href={`${regionPrefix}/blog`} className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium mb-8 transition-colors">
               <BackArrow className="h-4 w-4" /> {ui.back}
             </Link>
@@ -262,7 +262,7 @@ export default function BlogPost() {
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Article body */}
           <motion.article
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
             className="lg:col-span-2"
@@ -320,7 +320,7 @@ export default function BlogPost() {
 
           {/* Sidebar */}
           <motion.aside
-            initial={{ opacity: 0, x: isRTL ? -20 : 20 }}
+            initial={{ x: isRTL ? -20 : 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
             className="lg:col-span-1"
