@@ -124,3 +124,41 @@ writeFileSync(outPath, xml, "utf-8");
 console.log(
   `[sitemap] wrote ${outPath} (${SA_SERVICE_SLUGS.length} SA services, ${SYR_SERVICE_SLUGS.length} SYR services, ${blogPosts.length} blog posts)`,
 );
+
+const shouldPing =
+  process.env["NODE_ENV"] === "production" ||
+  process.env["INDEXNOW_PING"] === "true";
+
+if (shouldPing) {
+  const INDEXNOW_KEY = "fc82de857e07c9a2f89982c0e825dee1";
+  const HOST = "counselo-legal.com";
+  const urlList = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) =>
+    m[1].trim(),
+  );
+  console.log(
+    `[sitemap] auto-pinging IndexNow with ${urlList.length} URLs…`,
+  );
+  try {
+    const res = await fetch("https://api.indexnow.org/indexnow", {
+      method: "POST",
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      body: JSON.stringify({
+        host: HOST,
+        key: INDEXNOW_KEY,
+        keyLocation: `https://${HOST}/${INDEXNOW_KEY}.txt`,
+        urlList,
+      }),
+    });
+    if (res.status === 200 || res.status === 202) {
+      console.log(
+        `[sitemap] IndexNow accepted — HTTP ${res.status}`,
+      );
+    } else {
+      console.warn(
+        `[sitemap] IndexNow unexpected response — HTTP ${res.status}`,
+      );
+    }
+  } catch (err) {
+    console.warn(`[sitemap] IndexNow ping failed:`, err);
+  }
+}
