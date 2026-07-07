@@ -73,6 +73,8 @@ export default function RegionPicker() {
           src={counseloLogo}
           alt="CounselO — Online Legal Consultations"
           className="h-24 w-auto object-contain"
+          width="606" height="235"
+          fetchPriority="high" decoding="async"
         />
 
         <div>
@@ -91,7 +93,8 @@ export default function RegionPicker() {
                 src={saudiFlag}
                 alt="Saudi Arabia"
                 className="h-12 w-auto object-cover rounded-sm shadow border border-white/20"
-                style={{ aspectRatio: "3/2", width: "72px" }}
+                width="72" height="48"
+                loading="lazy" decoding="async"
               />
               <div>
                 <div className="text-white font-semibold text-base mb-0.5">Saudi Arabia</div>
@@ -109,7 +112,8 @@ export default function RegionPicker() {
                 src={syrianFlag}
                 alt="Syria"
                 className="h-12 w-auto object-cover rounded-sm shadow border border-white/20"
-                style={{ aspectRatio: "3/2", width: "72px" }}
+                width="72" height="48"
+                loading="lazy" decoding="async"
               />
               <div>
                 <div className="text-white font-semibold text-base mb-0.5">Syria</div>
