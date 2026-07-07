@@ -27,3 +27,6 @@ Allow: /
 
 # Sitemap
 Sitemap: https://counselo-legal.com/sitemap.xml
+
+# LLMs.txt — AI-readable site summary (llmstxt.org standard)
+# Full reference: https://counselo-legal.com/llms-full.txt
