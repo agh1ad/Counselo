@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Languages } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -34,16 +34,6 @@ export function Navbar() {
     const nextPrefix = `/${region}${next === "ar" ? "/ar" : ""}`;
     return `${nextPrefix}${rest || ""}`;
   })();
-
-  // Close dropdown on Escape
-  useEffect(() => {
-    if (!servicesOpen) return;
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setServicesOpen(false);
-    };
-    document.addEventListener("keydown", handler);
-    return () => document.removeEventListener("keydown", handler);
-  }, [servicesOpen]);
 
   return (
     <nav
@@ -84,47 +74,39 @@ export function Navbar() {
               {t.nav.home}
             </Link>
 
-            {/* Services dropdown — click to open, backdrop to close */}
-            <div className="relative">
-              <button
-                type="button"
-                onClick={() => setServicesOpen((v) => !v)}
-                aria-expanded={servicesOpen}
-                aria-haspopup="menu"
+            {/* Services — hover to open */}
+            <div
+              className="relative group"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              <Link
+                href={p("/services")}
                 className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${isActive("/services") ? "text-primary" : "text-muted-foreground"}`}
               >
-                {t.nav.services}
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
-                />
-              </button>
-
-              {servicesOpen && (
-                <>
-                  {/* Invisible full-screen backdrop — clicking outside closes dropdown */}
-                  <div
-                    className="fixed inset-0 z-40"
-                    aria-hidden="true"
-                    onClick={() => setServicesOpen(false)}
-                  />
-                  {/* Dropdown panel */}
-                  <div
-                    role="menu"
-                    className="absolute start-0 top-full mt-2 w-56 bg-background border border-border shadow-lg py-2 z-50"
+                {t.nav.services} <ChevronDown className="w-4 h-4" />
+              </Link>
+              <AnimatePresence>
+                {servicesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute start-0 mt-2 w-56 bg-background border border-border shadow-lg py-2 z-50"
                   >
                     {t.nav.servicesList.map((service) => (
                       <Link
                         key={service.href}
                         href={regionPrefix + service.href}
-                        onClick={() => setServicesOpen(false)}
                         className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary transition-colors"
                       >
                         {service.name}
                       </Link>
                     ))}
-                  </div>
-                </>
-              )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
             <Link
@@ -177,8 +159,6 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              aria-expanded={isOpen}
-              aria-label={isOpen ? "Close menu" : "Open menu"}
               className="text-muted-foreground hover:text-primary"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
