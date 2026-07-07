@@ -94,6 +94,23 @@ export default defineConfig({
     // SSR entry — builds src/entry-server.tsx as a Node-compatible ESM bundle.
     // Falsy value (undefined) uses the normal client build entry (index.html).
     ssr: isSSR ? "src/entry-server.tsx" : undefined,
+    rollupOptions: isSSR ? {} : {
+      output: {
+        manualChunks: {
+          "vendor-react": ["react", "react-dom"],
+          "vendor-motion": ["framer-motion"],
+          "vendor-query": ["@tanstack/react-query"],
+          "vendor-ui": [
+            "@radix-ui/react-accordion",
+            "@radix-ui/react-dialog",
+            "@radix-ui/react-dropdown-menu",
+            "@radix-ui/react-select",
+            "@radix-ui/react-tooltip",
+            "@radix-ui/react-toast",
+          ],
+        },
+      },
+    },
   },
   server: {
     port: port || undefined,

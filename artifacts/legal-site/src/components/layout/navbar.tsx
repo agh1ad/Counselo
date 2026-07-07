@@ -31,14 +31,14 @@ export function Navbar() {
         <div className="flex justify-between items-center h-24">
           <div className="flex items-center gap-3">
             <Link href={regionPrefix}>
-              <img src={navbarBrand} alt="CounselO — Online Legal Consultations" className="h-20 w-auto object-contain" />
+              <img src={navbarBrand} alt="CounselO — Online Legal Consultations" className="h-20 w-auto object-contain" width="240" height="80" />
             </Link>
             <Link href="/" title="Change region">
               <img
                 src={flag}
                 alt={flagAlt}
                 className="h-6 w-auto object-cover rounded-sm shadow-sm border border-border hover:opacity-80 transition-opacity cursor-pointer"
-                style={{ aspectRatio: "3/2", width: "36px" }}
+                width="36" height="24" style={{ aspectRatio: "3/2" }}
               />
             </Link>
           </div>

@@ -180,8 +180,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-20">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-            {/* Left — text */}
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            {/* Left — text: start at opacity:1 so SSR-rendered text is immediately visible for LCP */}
+            <motion.div initial={{ opacity: 1, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-6">
                 {h.hero.h1a}<br />
                 <span className="text-white/70 italic">{h.hero.h1b}</span>
@@ -219,7 +219,7 @@ export default function Home() {
             </motion.div>
 
             {/* Right — platform card */}
-            <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.2 }} className="hidden lg:block">
+            <motion.div initial={{ opacity: 1, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="hidden lg:block">
               <div className="bg-white/5 border border-white/15 p-8 space-y-5 backdrop-blur-sm">
                 <div className="text-white/50 text-xs uppercase tracking-widest mb-6">How it works in 4 steps</div>
                 {h.howItWorks.steps.map((s, i) => (

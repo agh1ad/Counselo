@@ -7,7 +7,7 @@ import { Footer } from "@/components/layout/footer";
 import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { RegionProvider } from "@/contexts/RegionContext";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { trackPageview, getGAMeasurementId, injectGA } from "@/lib/analytics";
 
 import RegionPicker from "@/pages/region-picker";
@@ -20,8 +20,9 @@ import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import TermsOfService from "@/pages/terms-of-service";
 import PrivacyPolicy from "@/pages/privacy-policy";
-import AdminCMS from "@/pages/admin";
 import NotFound from "@/pages/not-found";
+
+const AdminCMS = lazy(() => import("@/pages/admin"));
 
 const queryClient = new QueryClient();
 
@@ -81,9 +82,11 @@ function Router() {
     return (
       <>
         <ScrollToTop />
-        <Switch>
-          <Route path="/counselo-admin" component={AdminCMS} />
-        </Switch>
+        <Suspense fallback={<div className="min-h-screen bg-gray-50" />}>
+          <Switch>
+            <Route path="/counselo-admin" component={AdminCMS} />
+          </Switch>
+        </Suspense>
       </>
     );
   }
