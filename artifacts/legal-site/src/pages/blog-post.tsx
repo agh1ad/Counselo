@@ -165,16 +165,15 @@ export default function BlogPost() {
       "height": 630,
     },
     "author": {
-      "@type": "Person",
-      "name": "Lawyer and Legal Counsel Omar Al-Baghdadi",
-      "jobTitle": "Lawyer and Legal Counsel — Founder of CounselO",
-      "image": {
+      "@type": "Organization",
+      "name": "CounselO",
+      "url": "https://counselo-legal.com",
+      "logo": {
         "@type": "ImageObject",
-        "url": "https://counselo-legal.com/omar-baghdadi.jpg",
-        "width": 800,
-        "height": 1200,
+        "url": "https://counselo-legal.com/logo.png",
+        "width": 512,
+        "height": 512,
       },
-      "worksFor": { "@type": "LegalService", "name": "CounselO" },
     },
     "publisher": {
       "@type": "Organization",
@@ -216,7 +215,7 @@ export default function BlogPost() {
             : `${category}, Saudi legal articles, free legal guides Saudi Arabia, CounselO blog, online legal advice KSA`}
         ogType="article"
         articlePublishedTime={post.date}
-        articleAuthor={isRTL ? "المحامي والمستشار القانوني عمر البغدادي" : "Lawyer and Legal Counsel Omar Al-Baghdadi"}
+        articleAuthor={isRTL ? "فريق كاونسلو" : "CounselO Team"}
         articleSection={category}
         extraSchemas={[articleSchema, breadcrumbSchema]}
       />
@@ -323,12 +322,12 @@ export default function BlogPost() {
                   {lang === "en" ? "Written by" : "بقلم"}
                 </p>
                 <p className="font-serif font-bold text-foreground">
-                  {lang === "en" ? "Lawyer and Legal Counsel Omar Al-Baghdadi" : "المحامي والمستشار القانوني عمر البغدادي"}
+                  {lang === "en" ? "CounselO Team" : "فريق كاونسلو"}
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   {lang === "en"
-                    ? "Lawyer & Legal Counsel — Founder of CounselO | 30+ years | 20,000+ cases"
-                    : "مؤسس كاونسلو ومستشار قانوني | أكثر من 30 عاماً وأكثر من 20,000 قضية"}
+                    ? "Online Legal Consultations — Saudi Arabia & Syria"
+                    : "استشارات قانونية أونلاين — السعودية وسوريا"}
                 </p>
               </div>
             </div>
