@@ -94,7 +94,7 @@ export default function BlogPost() {
       consultDesc:
         region === "syr"
           ? "CounselO offers confidential online legal consultations via WhatsApp or email — no office visit required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of legal practice, 20,000+ cases handled."
-          : "CounselO offers confidential online legal consultations via WhatsApp or email — no office visit required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of Saudi legal practice, 20,000+ cases handled across Saudi Arabia.",
+          : "CounselO offers confidential online legal consultations via WhatsApp or email — no office visit required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of legal practice, 20,000+ cases handled across Saudi Arabia.",
       whatsapp: "Chat on WhatsApp",
       consultation: "Start Consultation",
       disclaimer:
