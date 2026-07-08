@@ -50,6 +50,14 @@ if (isPrerendered) {
   // Dev mode, URL mismatch (catch-all fallback), or production page without
   // prerender (e.g. /counselo-admin) — mount fresh with createRoot so React
   // renders the correct content for the actual URL.
+  //
+  // If stale prerendered HTML is present (e.g. the region-picker index.html
+  // was served as the catch-all for a dynamic blog post URL), wipe it before
+  // React mounts. Without this the user briefly sees the wrong page (e.g. the
+  // region picker) while createRoot is initialising — the flash the user reported.
+  if (rootEl.hasAttribute("data-ssr")) {
+    rootEl.innerHTML = "";
+  }
   createRoot(rootEl).render(
     <HelmetProvider>
       <App />
