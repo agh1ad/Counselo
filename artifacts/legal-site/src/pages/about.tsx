@@ -92,11 +92,11 @@ export default function About() {
       {/* ── Hero ── */}
       <section className="relative py-28 overflow-hidden">
         {/* Country flag as full background */}
-        <img src={heroFlag} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover object-center" width="1920" height="1080" />
+        <img src={heroFlag} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover object-center" />
         {/* Dark green overlay so text stays readable */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(0,40,20,0.88) 0%, rgba(0,60,30,0.80) 100%)" }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div initial={{ opacity: 1, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-3xl">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-2 mb-6">
               {a.hero.badge}
             </span>
