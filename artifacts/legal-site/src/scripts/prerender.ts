@@ -131,6 +131,23 @@ export function routeToFlatFilename(route: string): string {
   return `${route.slice(1).replace(/\//g, "-")}.html`;
 }
 
+/**
+ * Tag every SSR-injected head element with data-rh="true" so that
+ * react-helmet-async can recognise and remove them on client mount/hydration
+ * before it inserts its own managed copies. Without this attribute, Helmet
+ * cannot tell that the static prerendered tags were placed by a previous
+ * Helmet render, so it leaves them in place and appends a second set —
+ * producing the "multiple conflicting canonical URLs" SEO warning.
+ *
+ * Covers both paired tags (title, script, style, noscript) and void/self-
+ * closing tags (meta, link, base).
+ */
+function addDataRh(head: string): string {
+  return head
+    .replace(/<(title|script|style|noscript)(\s|>)/gi, '<$1 data-rh="true"$2')
+    .replace(/<(meta|link|base)(\s)/gi, '<$1 data-rh="true"$2');
+}
+
 function writeRoute(
   route: string,
   template: string,
@@ -139,9 +156,10 @@ function writeRoute(
   const { head, body } = render(route);
 
   const routeHtml = template
-    // Inject per-route head tags (title, meta, canonical, OG, schemas)
-    // React 19 hoists these to the front of renderToString output.
-    .replace("<!--app-head-->", head)
+    // Inject per-route head tags (title, meta, canonical, OG, schemas).
+    // Each tag gets data-rh="true" so react-helmet-async cleans them up on
+    // client mount, preventing duplicate canonical / og:url / title tags.
+    .replace("<!--app-head-->", addDataRh(head))
     // Inject server-rendered app HTML into the root div.
     // data-ssr signals entry-client.tsx to use hydrateRoot instead of createRoot.
     // data-ssr-url records which URL was prerendered — entry-client compares this
