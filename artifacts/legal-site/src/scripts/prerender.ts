@@ -144,7 +144,12 @@ function writeRoute(
     .replace("<!--app-head-->", head)
     // Inject server-rendered app HTML into the root div.
     // data-ssr signals entry-client.tsx to use hydrateRoot instead of createRoot.
-    .replace(/<div id="root"><\/div>/, `<div id="root" data-ssr="true">${body}</div>`);
+    // data-ssr-url records which URL was prerendered — entry-client compares this
+    // against window.location.pathname so that when index.html is served as the
+    // SPA catch-all fallback for an unprerendered path (e.g. a new dynamic blog
+    // post), it detects the mismatch and uses createRoot instead of hydrateRoot,
+    // rendering the correct page fresh rather than fighting the wrong SSR HTML.
+    .replace(/<div id="root"><\/div>/, `<div id="root" data-ssr="true" data-ssr-url="${route}">${body}</div>`);
 
   // Root route keeps the standard index.html (needed by the static server as
   // both the "/" page and the SPA-fallback template for unprerendered paths
