@@ -341,7 +341,7 @@ export const en = {
       "contracts": {
         title: "Contracts",
         subtitle: "Expert contract lawyers for drafting, disputes, and enforcement across all contract types in Saudi Arabia.",
-        overview: "Saudi Arabia's contract law — rooted in Islamic Sharia principles and codified across the Civil Transactions Law, Commercial Courts Law, and sector-specific regulations — governs every commercial and personal obligation in the Kingdom. At CounselO, our contracts practice covers the full lifecycle of a contract: from drafting and negotiation through to dispute resolution, specific performance, and enforcement. With 30+ years of Saudi legal experience and over 20,000 cases and consultations handled, CounselO's contracts team provides decisive, practical guidance to individuals, businesses, and investors across the Kingdom.",
+        overview: "Saudi Arabia's contract law — rooted in Islamic Sharia principles and codified across the Civil Transactions Law, Commercial Courts Law, and sector-specific regulations — governs every commercial and personal obligation in the Kingdom. At CounselO, our contracts practice covers the full lifecycle of a contract: from drafting and negotiation through to dispute resolution, specific performance, and enforcement. With 30+ years of legal experience and over 20,000 cases and consultations handled, CounselO's contracts team provides decisive, practical guidance to individuals, businesses, and investors across the Kingdom.",
         covers: ["Commercial Contract Drafting & Review", "Contract Disputes & Breach of Contract Claims", "Government & Public Procurement Contracts", "Real Estate & Property Contracts", "Employment & Labour Contracts", "Partnership & Joint Venture Agreements", "International & Cross-Border Contracts", "Contract Enforcement & Specific Performance"],
         process: [
           { title: "Contract Assessment", desc: "We review your contract or dispute to identify legal risks, enforceability issues, and your strongest position under Saudi law." },
@@ -4934,7 +4934,7 @@ export const en = {
     cta: {
       eyebrow: "Get Expert Legal Advice Today",
       heading: "Consult CounselO — Your Specialized Online Legal Consultation Platform",
-      desc: "Professional legal guidance delivered online — fast, confidential, and backed by 30+ years of Saudi legal experience. Start your consultation today via WhatsApp or email.",
+      desc: "Professional legal guidance delivered online — fast, confidential, and backed by 30+ years of legal experience. Start your consultation today via WhatsApp or email.",
       ctaBtn: "Start Your Consultation",
       learnMoreBtn: "View All Services",
     },
