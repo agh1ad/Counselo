@@ -50,7 +50,12 @@ function buildOgHtml(
   lang: string,
 ): string {
   const locale = lang === "ar" ? "ar_SA" : "en_US";
+  // Include the canonical here so the static HTML served to crawlers has the
+  // correct canonical. Without this, the prerendered index.html canonical
+  // (https://counselo-legal.com/) would conflict with og:url, causing
+  // "Multiple conflicting canonical URLs" in Google Search Console.
   const ogTags = `\n    <title>${esc(title)}</title>
+    <link rel="canonical" href="${esc(url)}" />
     <meta name="description" content="${esc(description)}" />
     <meta property="og:title" content="${esc(title)}" />
     <meta property="og:description" content="${esc(description)}" />
@@ -68,11 +73,16 @@ function buildOgHtml(
   if (!indexHtml) {
     return `<!DOCTYPE html><html lang="${lang}"><head><meta charset="UTF-8" />${ogTags}</head><body><div id="root"></div></body></html>`;
   }
-  // Inject OG tags immediately after <head> so they appear FIRST in the document.
-  // Social media crawlers (Facebook, WhatsApp) use the first occurrence of each
-  // og:* property — this ensures page-specific tags take priority over any
-  // homepage-level tags that the prerendered index.html already contains.
-  return indexHtml.replace("<head>", `<head>${ogTags}`);
+
+  // Strip the prerendered root canonical from index.html — it belongs to the
+  // region-picker page ("/"), not to this CMS blog post. We inject the correct
+  // canonical above via ogTags, so removing the stale one prevents both the
+  // static-HTML conflict Google sees and the client-side duplicate after hydration.
+  const stripped = indexHtml.replace(/<link[^>]*\brel=["']canonical["'][^>]*\/?>/gi, "");
+
+  // Inject page-specific tags immediately after <head>. Crawlers that use the
+  // first occurrence of each og:* / canonical take the injected values.
+  return stripped.replace("<head>", `<head>${ogTags}`);
 }
 
 /**
