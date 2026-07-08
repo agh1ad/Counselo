@@ -1,37 +1,41 @@
 # CounselO — Online Legal Consultation Platform
 
-CounselO (counselo-legal.com) is an online legal consultation platform serving Saudi Arabia and Syria. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi with 30+ years of experience and 20,000+ cases handled.
+CounselO is an online legal consultation platform serving Saudi Arabia and Syria. Clients submit their legal question via WhatsApp or email and receive a professional written response within 24 hours. No office visit required. Available in Arabic and English.
+
+## Key Pages
+
+- [Home — Saudi Arabia (English)](https://counselo-legal.com/sa)
+- [Home — Saudi Arabia (Arabic)](https://counselo-legal.com/sa/ar)
+- [Home — Syria (English)](https://counselo-legal.com/syr)
+- [Home — Syria (Arabic)](https://counselo-legal.com/syr/ar)
+- [Services — Saudi Arabia](https://counselo-legal.com/sa/services)
+- [Services — Syria](https://counselo-legal.com/syr/services)
+- [Blog — Saudi Arabia](https://counselo-legal.com/sa/blog)
+- [Blog — Syria](https://counselo-legal.com/syr/blog)
+- [About](https://counselo-legal.com/sa/about)
+- [Contact](https://counselo-legal.com/sa/contact)
 
 ## Services
-- Family Law (divorce, custody, inheritance)
-- Business & Commercial Law
-- Employment Law
-- Real Estate Law
-- Foreign Investment Law
-- Administrative Law
-- Criminal Law
-- Banking & Finance Law
-- Tax Law
-- Cyber Law
-- Medical Malpractice
-- Insurance Law
-- Immigration Law
-- Arbitration
-- Enforcement Law
-- Companies Law
-- Contracts Law
 
-## How it works
-Clients submit their legal question via WhatsApp or email and receive a professional written response within 24 hours. No office visit required. Available in Arabic and English.
+- [Family Law](https://counselo-legal.com/sa/services/family-law) — divorce, custody, inheritance
+- [Business & Commercial Law](https://counselo-legal.com/sa/services/business-law)
+- [Employment Law](https://counselo-legal.com/sa/services/employment-law)
+- [Real Estate Law](https://counselo-legal.com/sa/services/real-estate)
+- [Foreign Investment Law](https://counselo-legal.com/sa/services/foreign-investment)
+- [Administrative Law](https://counselo-legal.com/sa/services/administrative-law)
+- [Criminal Law](https://counselo-legal.com/sa/services/criminal-law)
+- [Banking & Finance Law](https://counselo-legal.com/sa/services/banking-finance)
+- [Tax Law](https://counselo-legal.com/sa/services/tax-zakat)
+- [Cyber Law](https://counselo-legal.com/sa/services/cyber-law)
+- [Medical Malpractice](https://counselo-legal.com/sa/services/medical-malpractice)
+- [Insurance Law](https://counselo-legal.com/sa/services/insurance-law)
+- [Arbitration](https://counselo-legal.com/sa/services/arbitration)
+- [Enforcement Law](https://counselo-legal.com/sa/services/enforcement)
+- [Companies Law](https://counselo-legal.com/sa/services/companies-law)
+- [Contracts Law](https://counselo-legal.com/sa/services/contracts)
 
 ## Contact
+
 - WhatsApp / Phone: +966 59 485 0247
 - Email: info@counselo-legal.com
-- Website: https://counselo-legal.com
-
-## Regions
-- Saudi Arabia: https://counselo-legal.com/sa
-- Syria: https://counselo-legal.com/syr
-
-## Languages
-Arabic and English (bilingual site with region-specific legal content).
+- [Start a Consultation](https://counselo-legal.com/sa/contact)

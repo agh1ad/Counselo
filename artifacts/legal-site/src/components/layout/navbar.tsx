@@ -88,10 +88,10 @@ export function Navbar() {
           </div>
 
           <div className="md:hidden flex items-center gap-3">
-            <button onClick={toggleLang} className="text-muted-foreground hover:text-primary text-sm font-medium border border-border px-2 py-1">
+            <button onClick={toggleLang} aria-label={lang === "en" ? "Switch to Arabic" : "Switch to English"} className="text-muted-foreground hover:text-primary text-sm font-medium border border-border px-2 py-1">
               {lang === "en" ? "ع" : "EN"}
             </button>
-            <button onClick={() => setIsOpen(!isOpen)} className="text-muted-foreground hover:text-primary">
+            <button onClick={() => setIsOpen(!isOpen)} aria-label={isOpen ? "Close menu" : "Open menu"} aria-expanded={isOpen} className="text-muted-foreground hover:text-primary">
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
