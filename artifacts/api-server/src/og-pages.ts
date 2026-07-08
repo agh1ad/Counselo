@@ -1,8 +1,9 @@
-import { type Express } from "express";
+import { type Express, type Request, type Response } from "express";
 import { db, blogPostsTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import * as fs from "fs";
 import * as path from "path";
+import * as http from "http";
 import { logger } from "./lib/logger.js";
 
 // In production, the process runs from workspace root.
@@ -92,21 +93,54 @@ function findPrerenderedFile(urlPath: string): string | null {
   return fs.existsSync(filePath) ? filePath : null;
 }
 
+const IS_DEV = process.env.NODE_ENV !== "production";
+// Vite dev server port for the legal-site artifact
+const VITE_PORT = parseInt(process.env.LEGAL_SITE_DEV_PORT ?? "24438", 10);
+
+/**
+ * In development, proxy the request to the Vite dev server so the full
+ * HMR / React dev experience is preserved. In production the Vite server
+ * does not run — we serve the prerendered files directly.
+ */
+function proxyToVite(req: Request, res: Response): void {
+  const options: http.RequestOptions = {
+    hostname: "localhost",
+    port: VITE_PORT,
+    path: req.url,
+    method: req.method,
+    headers: { ...req.headers, host: `localhost:${VITE_PORT}` },
+  };
+  const proxyReq = http.request(options, (proxyRes) => {
+    res.writeHead(proxyRes.statusCode ?? 200, proxyRes.headers);
+    proxyRes.pipe(res, { end: true });
+  });
+  proxyReq.on("error", () => {
+    res.status(503).send("Legal-site dev server not ready — is the legal-site workflow running?");
+  });
+  req.pipe(proxyReq, { end: true });
+}
+
 export function registerOgPageRoutes(app: Express): void {
   /**
    * Unified handler for all /sa/* and /syr/* paths.
    *
-   * Priority order:
+   * In development: proxy to the Vite dev server (port 24438) so HMR
+   * and client-side React work normally.
+   *
+   * In production — priority order:
    *   1. Serve the prerendered flat file if it exists — it already has
    *      page-specific OG tags injected by the prerender pipeline.
    *   2. For blog post paths: look up the post in the DB and inject OG tags
    *      (handles CMS-created posts that aren't prerendered).
    *   3. Fall back to index.html for any completely unknown path.
-   *
-   * This replaces the old blog-only routes and ensures every shareable URL
-   * serves its own OG metadata to WhatsApp, Facebook, and other crawlers.
    */
   app.get(["/sa{/*path}", "/syr{/*path}"], async (req, res) => {
+    // ── Dev mode: proxy to Vite ──────────────────────────────────────────────
+    if (IS_DEV) {
+      proxyToVite(req, res);
+      return;
+    }
+
     const reqPath = req.path;
 
     // ── 1. Prerendered file ──────────────────────────────────────────────────

@@ -4,15 +4,16 @@ import Underline from "@tiptap/extension-underline";
 import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
 import { TextStyle } from "@tiptap/extension-text-style";
+import { Color } from "@tiptap/extension-color";
 import Link from "@tiptap/extension-link";
 import Placeholder from "@tiptap/extension-placeholder";
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import {
   Bold, Italic, Underline as UnderlineIcon, Strikethrough,
   Heading1, Heading2, Heading3, List, ListOrdered,
   AlignLeft, AlignCenter, AlignRight, AlignJustify,
   Highlighter, Link as LinkIcon, Minus, RotateCcw, RotateCw,
-  Type, RemoveFormatting,
+  Type, RemoveFormatting, Baseline,
 } from "lucide-react";
 
 interface Props {
@@ -22,6 +23,11 @@ interface Props {
   dir?: "ltr" | "rtl";
   minHeight?: number;
 }
+
+const PRESET_COLORS = [
+  "#1a1a1a", "#006C35", "#c0392b", "#2980b9",
+  "#8e44ad", "#e67e22", "#16a085", "#7f8c8d",
+];
 
 function ToolBtn({
   onClick,
@@ -60,12 +66,72 @@ function Sep() {
   return <div className="w-px h-5 bg-gray-200 mx-1 self-center shrink-0" />;
 }
 
+function ColorPicker({ editor }: { editor: ReturnType<typeof useEditor> }) {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  if (!editor) return null;
+
+  const currentColor = (editor.getAttributes("textStyle").color as string | undefined) ?? "#1a1a1a";
+
+  const applyColor = (color: string) => {
+    editor.chain().focus().setColor(color).run();
+  };
+
+  return (
+    <div className="flex items-center gap-0.5">
+      {/* Preset swatches */}
+      {PRESET_COLORS.map((c) => (
+        <button
+          key={c}
+          type="button"
+          title={c}
+          onMouseDown={(e) => { e.preventDefault(); applyColor(c); }}
+          className="w-4 h-4 rounded-sm border border-gray-300 hover:scale-110 transition-transform shrink-0"
+          style={{ backgroundColor: c }}
+        />
+      ))}
+      {/* Custom color input */}
+      <div className="relative ml-0.5" title="Custom color">
+        <button
+          type="button"
+          onMouseDown={(e) => { e.preventDefault(); inputRef.current?.click(); }}
+          className="flex items-center gap-1 p-1.5 rounded text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+        >
+          <Baseline size={14} />
+          <span
+            className="w-3 h-1.5 rounded-sm border border-gray-300"
+            style={{ backgroundColor: currentColor }}
+          />
+        </button>
+        <input
+          ref={inputRef}
+          type="color"
+          value={currentColor}
+          onChange={(e) => applyColor(e.target.value)}
+          className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
+          tabIndex={-1}
+        />
+      </div>
+      {/* Remove color */}
+      <button
+        type="button"
+        title="Remove color"
+        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().unsetColor().run(); }}
+        className="p-1.5 rounded text-gray-400 hover:bg-gray-100 hover:text-gray-900 transition-colors text-[10px] font-bold leading-none"
+      >
+        ✕
+      </button>
+    </div>
+  );
+}
+
 export function RichTextEditor({ value, onChange, placeholder, dir = "ltr", minHeight = 320 }: Props) {
   const editor = useEditor({
     extensions: [
       StarterKit.configure({ heading: { levels: [1, 2, 3] } }),
       Underline,
       TextStyle,
+      Color,
       Highlight.configure({ multicolor: false }),
       TextAlign.configure({ types: ["heading", "paragraph"] }),
       Link.configure({ openOnClick: false, autolink: true }),
@@ -165,6 +231,11 @@ export function RichTextEditor({ value, onChange, placeholder, dir = "ltr", minH
         <ToolBtn title="Highlight" active={editor.isActive("highlight")} onClick={() => editor.chain().focus().toggleHighlight().run()}>
           <Highlighter size={14} />
         </ToolBtn>
+
+        <Sep />
+
+        {/* Font color */}
+        <ColorPicker editor={editor} />
 
         <Sep />
 

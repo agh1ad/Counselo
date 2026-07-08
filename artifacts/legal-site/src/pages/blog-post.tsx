@@ -98,7 +98,7 @@ export default function BlogPost() {
       whatsapp: "Chat on WhatsApp",
       consultation: "Start Consultation",
       disclaimer:
-        "This article is for informational purposes only and does not constitute legal advice. For advice on your specific situation, please consult a qualified lawyer.",
+        "This article is for awareness purposes only and does not constitute legal advice. For advice on your specific situation, please consult a qualified lawyer.",
       notFound: "Article Not Found",
       notFoundDesc: "This article does not exist or may have been moved.",
       backBlog: "Return to Blog",
@@ -112,7 +112,7 @@ export default function BlogPost() {
       whatsapp: "تواصل عبر واتساب",
       consultation: "ابدأ الاستشارة",
       disclaimer:
-        "هذا المقال لأغراض إعلامية فحسب ولا يُعدّ مشورة قانونية. للحصول على نصيحة في وضعك المحدد، يرجى التواصل مع محامٍ متخصص.",
+        "هذا المقال لأغراض توعوية فحسب ولا يُعدّ مشورة قانونية. للحصول على نصيحة في وضعك المحدد، يرجى التواصل مع محامٍ متخصص.",
       notFound: "المقال غير موجود",
       notFoundDesc: "هذا المقال غير موجود أو ربما نُقل.",
       backBlog: "العودة إلى المدونة",
@@ -277,6 +277,9 @@ export default function BlogPost() {
 
             <div className="mt-10 p-4 bg-muted/50 border border-border text-xs text-muted-foreground leading-relaxed">
               {ui.disclaimer}
+            </div>
+            <div className="mt-4 text-xs text-muted-foreground text-center font-medium" dir="rtl">
+              حقوق النشر والملكية محفوظة لكاونسيلو
             </div>
             <div className="mt-8">
               <Link href={`${regionPrefix}/blog`} className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm">
