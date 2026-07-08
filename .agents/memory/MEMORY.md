@@ -5,3 +5,5 @@
 - [Static server trailing-slash redirect](static-server-trailing-slash-redirect.md) — prerendered nested routes must use flat files + explicit rewrites, not route/index.html, or prod static serving silently serves the home page.
 - [Region translation shallow spreads](region-translation-overrides.md) — `{...base, override}` in region-variant translation files (e.g. `en-syr.ts`) silently leaks base-region content on unoverridden subfields; audit every nested field, and derive counts (e.g. practice-area totals) from `array.length` instead of hardcoding.
 - [CounselO bilingual URL routing](counselo-bilingual-urls.md) — Arabic/English is a real `/ar` URL segment (via RegionContext), not a client-side toggle, so hreflang/prerendering are truthful.
+- [Express 5 path-to-regexp v8 wildcards](express5-path-wildcards.md) — use `{/*param}` for catch-all routes; `/*` and `:name*` both throw at startup.
+- [CounselO OG proxy architecture](counselo-og-proxy.md) — all /sa/* and /syr/* routed through API server; og-pages.ts serves prerendered flat files first (correct OG tags), then DB for CMS posts, then index.html fallback.

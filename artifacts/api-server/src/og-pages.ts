@@ -15,7 +15,7 @@ function findLegalDist(): string {
   return path.resolve(process.cwd(), "../../artifacts/legal-site/dist/public");
 }
 const LEGAL_DIST = findLegalDist();
-const DEFAULT_OG_IMAGE = "https://counselo-legal.com/logo.png";
+const DEFAULT_OG_IMAGE = "https://counselo-legal.com/og-image.png";
 const SITE_NAME = "CounselO";
 
 let indexHtmlCache: string | null = null;
@@ -69,80 +69,94 @@ function buildOgHtml(
   }
   // Inject OG tags immediately after <head> so they appear FIRST in the document.
   // Social media crawlers (Facebook, WhatsApp) use the first occurrence of each
-  // og:* property — this ensures blog-post tags take priority over any
+  // og:* property — this ensures page-specific tags take priority over any
   // homepage-level tags that the prerendered index.html already contains.
   return indexHtml.replace("<head>", `<head>${ogTags}`);
 }
 
+/**
+ * Convert a URL path to its flat prerendered filename.
+ * e.g. "/sa/services/family-law" → "sa-services-family-law.html"
+ */
+function pathToPrerenderedFile(urlPath: string): string {
+  return `${urlPath.slice(1).replace(/\//g, "-")}.html`;
+}
+
+/**
+ * Try to find and return a prerendered HTML file for the given path.
+ * Returns the absolute file path if it exists, null otherwise.
+ */
+function findPrerenderedFile(urlPath: string): string | null {
+  const fileName = pathToPrerenderedFile(urlPath);
+  const filePath = path.join(LEGAL_DIST, "__pages", fileName);
+  return fs.existsSync(filePath) ? filePath : null;
+}
+
 export function registerOgPageRoutes(app: Express): void {
-  const BLOG_LISTING_PATHS = [
-    "/sa/blog",
-    "/sa/ar/blog",
-    "/syr/blog",
-    "/syr/ar/blog",
-  ];
+  /**
+   * Unified handler for all /sa/* and /syr/* paths.
+   *
+   * Priority order:
+   *   1. Serve the prerendered flat file if it exists — it already has
+   *      page-specific OG tags injected by the prerender pipeline.
+   *   2. For blog post paths: look up the post in the DB and inject OG tags
+   *      (handles CMS-created posts that aren't prerendered).
+   *   3. Fall back to index.html for any completely unknown path.
+   *
+   * This replaces the old blog-only routes and ensures every shareable URL
+   * serves its own OG metadata to WhatsApp, Facebook, and other crawlers.
+   */
+  app.get(["/sa{/*path}", "/syr{/*path}"], async (req, res) => {
+    const reqPath = req.path;
 
-  const BLOG_DETAIL_PATHS = [
-    "/sa/blog/:slug",
-    "/sa/ar/blog/:slug",
-    "/syr/blog/:slug",
-    "/syr/ar/blog/:slug",
-  ];
-
-  app.get(BLOG_LISTING_PATHS, (req, res) => {
-    const fileName = req.path.slice(1).replace(/\//g, "-") + ".html";
-    const filePath = path.join(LEGAL_DIST, "__pages", fileName);
-
-    if (fs.existsSync(filePath)) {
-      res.sendFile(filePath);
+    // ── 1. Prerendered file ──────────────────────────────────────────────────
+    const prerenderedFile = findPrerenderedFile(reqPath);
+    if (prerenderedFile) {
+      res.sendFile(prerenderedFile);
       return;
     }
+
+    // ── 2. CMS blog post (not prerendered) ──────────────────────────────────
+    const blogMatch = reqPath.match(/^\/(sa|syr)(?:\/ar)?\/blog\/([^/]+)$/);
+    if (blogMatch) {
+      const slug = String(blogMatch[2]);
+      const isArabic = reqPath.includes("/ar/blog/");
+      const lang = isArabic ? "ar" : "en";
+      const fullUrl = `https://counselo-legal.com${reqPath}`;
+
+      try {
+        const [post] = await db
+          .select()
+          .from(blogPostsTable)
+          .where(eq(blogPostsTable.slug, slug));
+
+        if (post && post.published) {
+          const title =
+            lang === "ar"
+              ? post.seoTitleAr || post.titleAr || post.seoTitleEn || post.titleEn || SITE_NAME
+              : post.seoTitleEn || post.titleEn || post.seoTitleAr || post.titleAr || SITE_NAME;
+          const description =
+            lang === "ar"
+              ? post.seoDescriptionAr || post.excerptAr || post.seoDescriptionEn || post.excerptEn || ""
+              : post.seoDescriptionEn || post.excerptEn || post.seoDescriptionAr || post.excerptAr || "";
+
+          const html = buildOgHtml(title, description, fullUrl, lang);
+          res.setHeader("Content-Type", "text/html; charset=utf-8");
+          res.send(html);
+          return;
+        }
+      } catch (err) {
+        logger.error({ err }, "Error serving OG blog page");
+      }
+    }
+
+    // ── 3. Fallback: SPA shell ───────────────────────────────────────────────
     const indexHtml = getIndexHtml();
     if (indexHtml) {
       res.setHeader("Content-Type", "text/html; charset=utf-8");
       res.send(indexHtml);
     } else {
       res.status(503).send("Service starting up…");
-    }
-  });
-
-  app.get(BLOG_DETAIL_PATHS, async (req, res) => {
-    const slug = String(req.params["slug"] ?? "");
-    const isArabic = req.path.includes("/ar/blog/");
-    const lang = isArabic ? "ar" : "en";
-    const fullUrl = `https://counselo-legal.com${req.path}`;
-
-    try {
-      const [post] = await db
-        .select()
-        .from(blogPostsTable)
-        .where(eq(blogPostsTable.slug, slug));
-
-      if (!post || !post.published) {
-        const indexHtml = getIndexHtml();
-        res.setHeader("Content-Type", "text/html; charset=utf-8");
-        res.send(indexHtml ?? "Not found");
-        return;
-      }
-
-      // Fall back cross-language if the requested language's fields are empty
-      const title =
-        lang === "ar"
-          ? post.seoTitleAr || post.titleAr || post.seoTitleEn || post.titleEn || SITE_NAME
-          : post.seoTitleEn || post.titleEn || post.seoTitleAr || post.titleAr || SITE_NAME;
-      const description =
-        lang === "ar"
-          ? post.seoDescriptionAr || post.excerptAr || post.seoDescriptionEn || post.excerptEn || ""
-          : post.seoDescriptionEn || post.excerptEn || post.seoDescriptionAr || post.excerptAr || "";
-
-      const html = buildOgHtml(title, description, fullUrl, lang);
-      res.setHeader("Content-Type", "text/html; charset=utf-8");
-      res.send(html);
-    } catch (err) {
-      logger.error({ err }, "Error serving OG blog page");
-      const indexHtml = getIndexHtml();
-      res.setHeader("Content-Type", "text/html; charset=utf-8");
-      res.send(indexHtml ?? "Server error");
     }
   });
 }
