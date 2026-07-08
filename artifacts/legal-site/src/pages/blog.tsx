@@ -159,9 +159,11 @@ export default function Blog() {
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post, i) => {
-              const title = isRTL ? post.titleAr : post.titleEn;
-              const excerpt = isRTL ? post.excerptAr : post.excerptEn;
-              const category = isRTL ? post.categoryAr : post.categoryEn;
+              const hasEnglish = !!(post.titleEn && post.titleEn.trim());
+              const useAr = isRTL || !hasEnglish;
+              const title = useAr ? post.titleAr : post.titleEn;
+              const excerpt = useAr ? post.excerptAr : (post.excerptEn || post.excerptAr);
+              const category = useAr ? post.categoryAr : (post.categoryEn || post.categoryAr);
               return (
                 <motion.article
                   key={post.slug}
@@ -180,10 +182,10 @@ export default function Blog() {
                         <Clock className="h-3 w-3" /> {post.readTime} {ui.minRead}
                       </span>
                     </div>
-                    <h2 className="text-lg font-serif font-bold text-foreground mb-3 leading-snug group-hover:text-primary transition-colors">
+                    <h2 dir={useAr ? "rtl" : "ltr"} className="text-lg font-serif font-bold text-foreground mb-3 leading-snug group-hover:text-primary transition-colors">
                       {title}
                     </h2>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
+                    <p dir={useAr ? "rtl" : "ltr"} className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
                       {excerpt}
                     </p>
                     <div className="flex items-center justify-between pt-4 border-t border-border">

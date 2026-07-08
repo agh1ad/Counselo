@@ -140,13 +140,18 @@ export default function BlogPost() {
     );
   }
 
-  const title = isRTL ? post.titleAr : post.titleEn;
-  const excerpt = isRTL ? post.excerptAr : post.excerptEn;
-  const seoTitle = isRTL ? (post.seoTitleAr || post.titleAr) : (post.seoTitleEn || post.titleEn);
-  const seoDesc = isRTL ? (post.seoDescriptionAr || post.excerptAr) : (post.seoDescriptionEn || post.excerptEn);
-  const category = isRTL ? post.categoryAr : post.categoryEn;
-  const body = isRTL ? post.bodyAr : post.bodyEn;
-  const content = isRTL ? post.contentAr : post.contentEn;
+  // If post has no English content, fall back to Arabic even on English pages
+  const hasEnglish = !!(post.titleEn && post.titleEn.trim());
+  const useAr = isRTL || !hasEnglish;
+  const contentDir = useAr ? "rtl" : "ltr";
+
+  const title = useAr ? post.titleAr : post.titleEn;
+  const excerpt = useAr ? post.excerptAr : (post.excerptEn || post.excerptAr);
+  const seoTitle = useAr ? (post.seoTitleAr || post.titleAr) : (post.seoTitleEn || post.titleEn || post.seoTitleAr || post.titleAr);
+  const seoDesc = useAr ? (post.seoDescriptionAr || post.excerptAr) : (post.seoDescriptionEn || post.excerptEn || post.seoDescriptionAr || post.excerptAr);
+  const category = useAr ? post.categoryAr : (post.categoryEn || post.categoryAr);
+  const body = useAr ? post.bodyAr : (post.bodyEn || post.bodyAr);
+  const content = useAr ? post.contentAr : (post.contentEn?.length ? post.contentEn : post.contentAr);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -235,10 +240,10 @@ export default function BlogPost() {
                 <Clock className="h-3.5 w-3.5" /> {post.readTime} {ui.minRead}
               </span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-serif font-bold text-white leading-tight mb-4">
+            <h1 dir={contentDir} className="text-3xl md:text-4xl font-serif font-bold text-white leading-tight mb-4">
               {title}
             </h1>
-            <p className="text-lg text-white/70 leading-relaxed">{excerpt}</p>
+            <p dir={contentDir} className="text-lg text-white/70 leading-relaxed">{excerpt}</p>
           </motion.div>
         </div>
       </section>
@@ -253,12 +258,9 @@ export default function BlogPost() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="lg:col-span-2"
           >
-            <div className="prose prose-slate max-w-none tiptap-content">
+            <div className="prose prose-slate max-w-none tiptap-content" dir={contentDir}>
               {body ? (
-                <div
-                  dir={isRTL ? "rtl" : "ltr"}
-                  dangerouslySetInnerHTML={{ __html: body }}
-                />
+                <div dangerouslySetInnerHTML={{ __html: body }} />
               ) : (
                 content.map((section, i) => (
                   <div key={i} className="mb-8">
