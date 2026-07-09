@@ -212,7 +212,7 @@ function PostEditor({ initial, token, onSave, onBack }: {
               </div>
               <div className="px-10 py-5 border-t border-gray-50 bg-gray-50/50 text-xs text-gray-300 flex items-center gap-4">
                 <FileText size={12} />
-                {lang === "en" ? "CounselO Legal Blog — English version" : "مدونة قانوني القانونية — النسخة العربية"}
+                {lang === "en" ? "CounselO Legal Blog — English version" : "مدونة كاونسلو القانونية — النسخة العربية"}
               </div>
             </div>
           </div>

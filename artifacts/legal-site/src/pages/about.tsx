@@ -34,8 +34,8 @@ export default function About() {
           ? "منصة الاستشارات القانونية الإلكترونية المتخصصة في سوريا — تأسست على يد المحامي عمر البغدادي بخبرة 30+ عاماً في القانون السوري"
           : "Syria's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi with 30+ years of Syrian law expertise")
         : (isRTL
-          ? "أكبر منصة للاستشارات القانونية الأونلاين في المملكة العربية السعودية — تأسست على يد المحامي عمر البغدادي"
-          : "Saudi Arabia's largest online legal consultation platform — founded by Lawyer Omar Al-Baghdadi"),
+          ? "منصة متخصصة للاستشارات القانونية الأونلاين في المملكة العربية السعودية — تأسست على يد المحامي عمر البغدادي"
+          : "Saudi Arabia's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi"),
       "foundingDate": "2020",
       "areaServed": region === "syr"
         ? { "@type": "Country", "name": "Syria" }
@@ -66,14 +66,16 @@ export default function About() {
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
+      "@id": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/about#webpage`,
       "name": isRTL ? "عن كاونسلو" : "About CounselO",
-      "url": region === "syr" ? "https://counselo-legal.com/syr/about" : "https://counselo-legal.com/sa/about",
+      "url": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/about`,
       "description": a.seoDesc,
+      "inLanguage": isRTL ? (region === "syr" ? "ar-SY" : "ar-SA") : (region === "syr" ? "en-SY" : "en-SA"),
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
-          { "@type": "ListItem", "position": 2, "name": isRTL ? "عن كاونسلو" : "About CounselO", "item": region === "syr" ? "https://counselo-legal.com/syr/about" : "https://counselo-legal.com/sa/about" },
+          { "@type": "ListItem", "position": 2, "name": isRTL ? "عن كاونسلو" : "About CounselO", "item": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/about` },
         ],
       },
     },

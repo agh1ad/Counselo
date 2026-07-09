@@ -45,14 +45,13 @@ export default function Services() {
       "name": "CounselO",
       "description": region === "syr"
         ? (isRTL ? `منصة سوريا للاستشارات القانونية الأونلاين — ${areaCount} مجالاً، استجابة خلال 24 ساعة — القانون المدني السوري، قانون الشركات 29/2011، قانون العمل 17/2010` : `Syria's online legal consultation platform — ${areaCount} practice areas, response within 24 hours — Syrian Civil Code, Companies Law 29/2011, Labour Law 17/2010`)
-        : (isRTL ? `أكبر منصة للاستشارات القانونية الأونلاين في المملكة — ${areaCount} مجالاً، استجابة خلال 24 ساعة` : `Saudi Arabia's largest online legal consultation platform — ${areaCount} practice areas, response within 24 hours`),
+        : (isRTL ? `منصة متخصصة للاستشارات القانونية الأونلاين في المملكة — ${areaCount} مجالاً، استجابة خلال 24 ساعة` : `Saudi Arabia's specialized online legal consultation platform — ${areaCount} practice areas, response within 24 hours`),
       "url": "https://counselo-legal.com",
       "telephone": "+966594850247",
       "address": region === "syr"
         ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
         : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressCountry": "SA" },
       "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "847", "bestRating": "5" },
       "areaServed": region === "syr"
         ? { "@type": "Country", "name": "Syria" }
         : { "@type": "Country", "name": "Saudi Arabia" },

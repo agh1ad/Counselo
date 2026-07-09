@@ -48,7 +48,7 @@ export default function ServiceDetail() {
 
   const seoDesc = isRTL
     ? (syrSeo?.descAr ?? `${data.subtitle} — كاونسلو، منصة متخصصة للاستشارات القانونية الأونلاين في ${isSyr ? "سوريا" : "المملكة"}. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. خبرة تزيد على 30 عاماً.`)
-    : (syrSeo?.desc ?? `${data.subtitle} — CounselO, ${isSyr ? "Syria's specialized online legal platform" : "Saudi Arabia's largest online legal platform"}. Professional response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases handled.`);
+    : (syrSeo?.desc ?? `${data.subtitle} — CounselO, ${isSyr ? "Syria's specialized online legal platform" : "Saudi Arabia's specialized online legal platform"}. Professional response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases handled.`);
 
   const seoKeywords = isRTL
     ? (syrSeo?.kwAr ?? `${data.title} محامي ${isSyr ? "سوريا" : "المملكة العربية السعودية"}, استشارة قانونية ${data.title} أونلاين, محامي ${data.title} كاونسلو`)
@@ -62,7 +62,11 @@ export default function ServiceDetail() {
   const faqs = hasFaqs ? (data as Record<string, unknown>).faqs as { q: string; a: string }[] : [];
 
   const canonicalPath = `/services/${id}`;
-  const canonicalUrlFull = `https://counselo-legal.com${isSyr ? "/syr" : "/sa"}${canonicalPath}`;
+  const langSeg = isRTL ? "/ar" : "";
+  const regionSeg = isSyr ? "/syr" : "/sa";
+  const canonicalUrlFull = `https://counselo-legal.com${regionSeg}${langSeg}${canonicalPath}`;
+  const regionBase = `https://counselo-legal.com${regionSeg}${langSeg}`;
+  const inLanguage = isRTL ? (isSyr ? "ar-SY" : "ar-SA") : (isSyr ? "en-SY" : "en-SA");
 
   const schemas: object[] = [
     {
@@ -82,7 +86,6 @@ export default function ServiceDetail() {
         "email": "info@counselo-legal.com",
         "address": serviceAddress,
         "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel", "honorificPrefix": "Lawyer" },
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "847", "bestRating": "5", "worstRating": "1" },
       },
     },
     {
@@ -90,22 +93,18 @@ export default function ServiceDetail() {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
-        { "@type": "ListItem", "position": 2, "name": isRTL ? "الخدمات" : "Services", "item": `https://counselo-legal.com${isSyr ? "/syr" : "/sa"}/services` },
+        { "@type": "ListItem", "position": 2, "name": isRTL ? "الخدمات" : "Services", "item": `${regionBase}/services` },
         { "@type": "ListItem", "position": 3, "name": data.title, "item": canonicalUrlFull },
       ],
     },
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "@id": canonicalUrlFull,
+      "@id": `${canonicalUrlFull}#webpage`,
       "url": canonicalUrlFull,
       "name": seoTitle,
       "description": seoDesc,
-      "inLanguage": isRTL ? "ar" : "en",
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": ["h1", ".speakable-overview", ".speakable-covers"],
-      },
+      "inLanguage": inLanguage,
       "publisher": {
         "@type": "LegalService",
         "name": "CounselO",

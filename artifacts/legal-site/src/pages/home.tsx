@@ -81,11 +81,11 @@ export default function Home() {
             "name": "Syria",
           },
           "availableLanguage": ["Arabic", "English"],
-          "serviceType": ["Family Law", "Civil Law", "Employment Law", "Real Estate Law", "Foreign Investment Law", "Administrative Law", "Criminal Law", "Banking & Finance Law", "Tax Law", "Cyber Law", "Medical Malpractice", "Insurance Law", "Immigration Law", "Arbitration", "Enforcement Law", "Companies Law", "Contracts Law"],
+          "serviceType": ["Family Law", "Civil Law", "Employment Law", "Real Estate Law", "Foreign Investment Law", "Administrative Law", "Criminal Law", "Banking & Finance Law", "Tax Law", "Cyber Law", "Medical Malpractice", "Insurance Law", "Arbitration", "Enforcement Law", "Companies Law", "Contracts Law"],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Legal Consultation Services Syria",
-            "numberOfItems": 18,
+            "numberOfItems": 17,
           },
           "sameAs": ["https://counselo-legal.com"],
           "contactPoint": {
@@ -93,13 +93,6 @@ export default function Home() {
             "telephone": "+966594850247",
             "contactType": "legal consultation",
             "availableLanguage": ["Arabic", "English"],
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "847",
-            "bestRating": "5",
-            "worstRating": "1",
           },
         } : {
           "@context": "https://schema.org",
@@ -132,11 +125,11 @@ export default function Home() {
             "name": "Saudi Arabia",
           },
           "availableLanguage": ["Arabic", "English"],
-          "serviceType": ["Family Law", "Commercial Law", "Employment Law", "Real Estate Law", "Foreign Investment Law", "Administrative Law", "Criminal Law", "Banking & Finance Law", "Tax & Zakat Law", "Cyber Law", "Medical Malpractice", "Insurance Law", "Immigration Law", "Arbitration", "Enforcement Law", "Companies Law", "Contracts Law"],
+          "serviceType": ["Family Law", "Commercial Law", "Employment Law", "Real Estate Law", "Foreign Investment Law", "Administrative Law", "Criminal Law", "Banking & Finance Law", "Tax & Zakat Law", "Cyber Law", "Medical Malpractice", "Insurance Law", "Arbitration", "Enforcement Law", "Companies Law", "Contracts Law"],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Legal Consultation Services Saudi Arabia",
-            "numberOfItems": 18,
+            "numberOfItems": 17,
           },
           "sameAs": ["https://counselo-legal.com"],
           "contactPoint": {
@@ -144,13 +137,6 @@ export default function Home() {
             "telephone": "+966594850247",
             "contactType": "legal consultation",
             "availableLanguage": ["Arabic", "English"],
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "847",
-            "bestRating": "5",
-            "worstRating": "1",
           },
         }}
         extraSchemas={[{

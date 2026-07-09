@@ -198,14 +198,14 @@ export default function BlogPost() {
     "about": { "@type": "LegalService", "areaServed": region === "syr" ? "Syria" : "Saudi Arabia" },
   };
 
-  const regionBase = region === "syr" ? "https://counselo-legal.com/syr" : "https://counselo-legal.com/sa";
+  const regionBaseUrl = `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}`;
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
-      { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": `${regionBase}/blog` },
-      { "@type": "ListItem", "position": 3, "name": seoTitle, "item": `${regionBase}/blog/${post.slug}` },
+      { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": `${regionBaseUrl}/blog` },
+      { "@type": "ListItem", "position": 3, "name": seoTitle, "item": `${regionBaseUrl}/blog/${slug}` },
     ],
   };
 

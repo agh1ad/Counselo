@@ -32,11 +32,18 @@ const SYR_TEXT_MAP: [RegExp, string][] = [
   [/\bSCCA\b/g, "Syrian Arbitration Center"],
   [/\bCITC\b/g, "Syrian authorities"],
   [/\bCMA\b/g, "Syrian financial authorities"],
+  [/MISA License Guide/g, "Business Licensing Guide"],
+  [/MISA license/gi, "business licensing"],
+  [/Saudi Labor Law/g, "Syrian Labor Law"],
+  [/Saudi employment lawyer/gi, "Syrian employment lawyer"],
   [/المملكة العربية السعودية/g, "سوريا"],
   [/في المملكة\b/g, "في سوريا"],
   [/كاونسلو المملكة العربية السعودية/g, "كاونسلو سوريا"],
   [/ساما\b/g, "مصرف سوريا المركزي"],
   [/هيئة الزكاة والضريبة والجمارك/g, "هيئة الضرائب والرسوم"],
+  [/ترخيص مساند/g, "الترخيص التجاري"],
+  [/نظام العمل السعودي/g, "قانون العمل السوري"],
+  [/محامي عمل سعودي/g, "محامي عمل في سوريا"],
 ];
 
 function syriafyText(text: string): string {

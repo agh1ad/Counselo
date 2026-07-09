@@ -157,6 +157,44 @@ function addDataRh(head: string): string {
     .replace(/<(meta|link|base)(\s)/gi, '<$1 data-rh="true"$2');
 }
 
+/**
+ * React SSR escapes & as &amp; in all text content and attribute values.
+ * In <title> tags and <meta content="..."> this produces &amp; that some
+ * SEO crawlers flag as a HTML-entity artifact even though it is technically
+ * valid HTML. Unescape back to & so crawlers see the intended character.
+ *
+ * We only touch <title> inner text and content="..." attribute values —
+ * never URL hrefs or JSON-LD script bodies — to avoid breaking other content.
+ */
+function unescapeHeadEntities(head: string): string {
+  return head
+    // <title data-rh="true">Some Title &amp; More</title>
+    .replace(/(<title[^>]*>)([^<]*?)(<\/title>)/g, (_, open, text, close) =>
+      `${open}${text.replace(/&amp;/g, "&")}${close}`,
+    )
+    // <meta ... content="Some &amp; Value" ...>
+    .replace(/(<meta\b[^>]+\bcontent=")([^"]*?)(")/g, (_, pre, val, post) =>
+      `${pre}${val.replace(/&amp;/g, "&")}${post}`,
+    );
+}
+
+/**
+ * Determine the correct lang + dir attributes for the root <html> element
+ * based on the route. React 19 does not hoist <html> element attribute
+ * changes from Helmet into the renderToString output, so we patch the
+ * static template manually here.
+ *
+ * - "/" (region picker) → ar / rtl  (region-picker.tsx Helmet sets this)
+ * - Routes with /ar path segment    → ar / rtl
+ * - All other routes                → en / ltr
+ */
+function htmlTag(route: string): string {
+  const isArabic = route === "/" || route.includes("/ar/") || route.endsWith("/ar");
+  return isArabic
+    ? '<html lang="ar" dir="rtl">'
+    : '<html lang="en" dir="ltr">';
+}
+
 function writeRoute(
   route: string,
   template: string,
@@ -165,10 +203,14 @@ function writeRoute(
   const { head, body } = render(route);
 
   const routeHtml = template
+    // Patch the static <html lang="en"> to the correct lang + dir for this route.
+    .replace('<html lang="en">', htmlTag(route))
     // Inject per-route head tags (title, meta, canonical, OG, schemas).
     // Each tag gets data-rh="true" so react-helmet-async cleans them up on
     // client mount, preventing duplicate canonical / og:url / title tags.
-    .replace("<!--app-head-->", addDataRh(head))
+    // unescapeHeadEntities restores & from React's &amp; escaping in title
+    // and meta content so SEO crawlers see the intended character.
+    .replace("<!--app-head-->", unescapeHeadEntities(addDataRh(head)))
     // Inject server-rendered app HTML into the root div.
     // data-ssr signals entry-client.tsx to use hydrateRoot instead of createRoot.
     // data-ssr-url records which URL was prerendered — entry-client compares this

@@ -106,20 +106,20 @@ export default function Blog() {
           {
             "@context": "https://schema.org",
             "@type": "Blog",
-            "name": isRTL ? "مدونة قانوني القانونية" : "CounselO Legal Blog",
+            "name": isRTL ? "مدونة كاونسلو القانونية" : "CounselO Legal Blog",
             "description": isRTL
               ? `إرشادات قانونية معمّقة للأفراد والشركات في ${region === "syr" ? "سوريا" : "المملكة العربية السعودية"}`
               : `In-depth legal guides for individuals and businesses in ${region === "syr" ? "Syria" : "Saudi Arabia"}`,
-            "url": region === "syr" ? "https://counselo-legal.com/syr/blog" : "https://counselo-legal.com/sa/blog",
+            "url": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/blog`,
             "publisher": { "@type": "Organization", "name": "CounselO", "url": "https://counselo-legal.com" },
-            "inLanguage": [isRTL ? "ar" : "en"],
+            "inLanguage": [isRTL ? (region === "syr" ? "ar-SY" : "ar-SA") : (region === "syr" ? "en-SY" : "en-SA")],
           },
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": region === "syr" ? "https://counselo-legal.com/syr/blog" : "https://counselo-legal.com/sa/blog" },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/blog` },
             ],
           },
         ]}

@@ -274,7 +274,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "Get 24-hour online administrative law advice in Saudi Arabia on government decisions, objections, and administrative court strategy.",
   },
   "/sa/services/arbitration": {
-    title: "Arbitration & Mediation Consultation in Saudi Arabia | CounselO",
+    title: "Arbitration Consultation in Saudi Arabia | CounselO",
     description:
       "Get 24-hour online arbitration and mediation advice in Saudi Arabia on commercial arbitration, mediation, settlements, and award enforcement.",
   },
@@ -314,7 +314,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "Get 24-hour online employment law advice in Saudi Arabia on termination, unpaid wages, contracts, workplace disputes, and labor claims.",
   },
   "/sa/services/enforcement": {
-    title: "Enforcement & Debt Collection Lawyer in Saudi Arabia | CounselO",
+    title: "Debt Collection Lawyer in Saudi Arabia | CounselO",
     description:
       "Get 24-hour online enforcement and debt collection advice in Saudi Arabia on judgment enforcement, debt recovery, payment claims, and execution steps.",
   },
@@ -601,7 +601,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "Get 24-hour online administrative law advice in Syria on government decisions, objections, and administrative court strategy.",
   },
   "/syr/services/arbitration": {
-    title: "Arbitration & Mediation Consultation in Syria | CounselO",
+    title: "Arbitration Consultation in Syria | CounselO",
     description:
       "Get 24-hour online arbitration and mediation advice in Syria on commercial arbitration, mediation, settlements, and award enforcement.",
   },
@@ -656,7 +656,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "Get 24-hour online employment law advice in Syria on termination, unpaid wages, contracts, workplace disputes, and labor claims.",
   },
   "/syr/services/enforcement": {
-    title: "Enforcement & Debt Collection Consultation in Syria | CounselO",
+    title: "Debt Collection Consultation in Syria | CounselO",
     description:
       "Get 24-hour online enforcement and debt collection advice in Syria on judgment enforcement, debt recovery, payment claims, and execution steps.",
   },

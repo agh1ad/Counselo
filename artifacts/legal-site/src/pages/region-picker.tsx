@@ -11,11 +11,6 @@ const regionPickerSchema = {
   "alternateName": "CounselO Online Legal Consultations",
   "url": "https://counselo-legal.com/",
   "description": "Online legal consultation platform serving Saudi Arabia and Syria — professional Arabic & English legal advice within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://counselo-legal.com/{search_term_string}",
-    "query-input": "required name=search_term_string",
-  },
   "publisher": {
     "@type": "Organization",
     "name": "CounselO",
