@@ -1,0 +1,229 @@
+P1 — STRENGTHEN SERVICE PAGES ONLY WHERE IT AFFECTS RANKING AND LEADS
+
+────────────────────────────────────────
+
+Every service page is a money page. Do not leave service pages thin.
+
+For every service page in each region/language:
+
+- one clear H1
+
+- jurisdiction-specific intro
+
+- what CounselO helps with
+
+- common client scenarios
+
+- documents/evidence to prepare
+
+- how online consultation works
+
+- 3–5 visible FAQs
+
+- clear WhatsApp CTA
+
+- clear email/contact CTA
+
+- links to:
+
+  - service hub
+
+  - contact page
+
+  - 2 related services
+
+  - 1–3 relevant blog articles
+
+Use real anchor links, not JS-only navigation.
+
+Acceptance criteria:
+
+- Every service page has at least 5 crawlable internal links.
+
+- Every service page has at least 2 visible CTAs.
+
+- Every service page has service-specific and jurisdiction-specific content.
+
+- No service page has only generic short text.
+
+- FAQPage schema is added only if FAQs are visible on the page.
+
+────────────────────────────────────────
+
+P1 — ADD CONVERSION CTAS ON RANKING PAGES
+
+────────────────────────────────────────
+
+Add or verify clear conversion CTAs on:
+
+- regional home pages
+
+- service pages
+
+- blog articles
+
+- blog hubs
+
+- contact pages
+
+Each money page must include:
+
+- WhatsApp CTA
+
+- email/contact CTA
+
+- consultation CTA near top
+
+- consultation CTA near bottom
+
+Use localized CTA text.
+
+English examples:
+
+- Book an online legal consultation
+
+- Send your case details on WhatsApp
+
+- Contact CounselO for legal advice
+
+Arabic examples:
+
+- احجز استشارة قانونية أونلاين
+
+- أرسل تفاصيل قضيتك عبر واتساب
+
+- تواصل مع كاونسلو للحصول على استشارة قانونية
+
+Add data attributes for future conversion tracking:
+
+- data-cta="whatsapp"
+
+- data-cta="email"
+
+- data-cta="contact"
+
+- data-region="sa" or "syr"
+
+- data-lang="en" or "ar"
+
+Acceptance criteria:
+
+- Users can contact CounselO from every service page and article page.
+
+- CTAs are visible without relying on hidden menus only.
+
+- CTA links work.
+
+- WhatsApp links use the correct number and message context.
+
+- Syria pages do not misleadingly present the Saudi number as a Syria local number.
+
+────────────────────────────────────────
+
+P1 — FIX INTERNAL LINKING BETWEEN ARTICLES AND SERVICE PAGES
+
+────────────────────────────────────────
+
+This affects ranking and customers.
+
+For each article:
+
+- link to the relevant service page
+
+- link to contact page
+
+- link to 1–2 related articles
+
+- link back to blog hub
+
+For each service page:
+
+- link to relevant articles
+
+- link to related services
+
+- link to contact page
+
+Examples:
+
+- Divorce article -> Family Law service -> Contact
+
+- Child custody article -> Family Law service -> Contact
+
+- Wrongful termination article -> Employment Law service -> Contact
+
+- Real estate disputes article -> Real Estate service -> Contact
+
+- Foreign company registration article -> Foreign Investment / Companies Law service -> Contact
+
+- Administrative disputes article -> Administrative Law service -> Contact
+
+Acceptance criteria:
+
+- No article is isolated.
+
+- No service page is isolated.
+
+- Internal links use descriptive anchor text.
+
+- Links are real crawlable <a href=""> links.
+
+────────────────────────────────────────
+
+P1 — IMPLEMENT ONLY ESSENTIAL VALIDATION
+
+────────────────────────────────────────
+
+Add one validation command:
+
+npm run seo:validate
+
+This command must check only the issues that directly affect crawling, indexing, ranking eligibility, AI retrieval, and lead conversion.
+
+It must validate:
+
+- all canonical routes return 200
+
+- no deep route renders the region selector
+
+- robots.txt exists and allows Googlebot, Bingbot, OAI-SearchBot
+
+- sitemap.xml exists and includes only canonical 200 URLs
+
+- every page has one title, one meta description, one canonical
+
+- hreflang is complete and reciprocal
+
+- Arabic pages have rtl and correct language
+
+- English pages have ltr and correct language
+
+- JSON-LD parses
+
+- schema matches page type
+
+- blog hubs link to articles
+
+- service pages link to contact page
+
+- articles link to relevant service pages
+
+- no Syria Arabic page contains Saudi-only “المملكة” language unless explicitly allowed
+
+- no broken internal links
+
+- every money page has a visible CTA
+
+Generate:
+
+- seo-validation-report.md
+
+- seo-validation-report.json
+
+Acceptance criteria:
+
+- npm run seo:validate exits with code 0 only when all P0/P1 checks pass.
+
+- If validation fails, fix the issue and rerun.
+
+─────────────────

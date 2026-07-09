@@ -10,8 +10,10 @@ export type OptimizedMeta = {
   description: string;
   /** When present, overrides the computed canonical URL (used for 301-redirect source pages). */
   canonicalOverride?: string;
+};
 
-  // New canonical Syria blog URLs (redirect targets for the Saudi-worded slugs)
+export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
+  // Syria canonical blog URLs
   "/syr/blog/administrative-court-disputes-syria": {
     title: "Administrative Court Disputes in Syria",
     description: "Learn how administrative disputes in Syria are handled, including challenges to public authority decisions, deadlines, evidence, and legal strategy.",
@@ -60,9 +62,6 @@ export type OptimizedMeta = {
     title: "الفصل التعسفي في سوريا | حقوق العامل",
     description: "تعرف على حقوق العامل عند الفصل التعسفي في سوريا، والتعويضات والأدلة والمواعيد قبل طلب استشارة قانونية.",
   },
-};
-
-export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   "/": {
     title: "CounselO | Online Legal Consultation in Saudi Arabia & Syria",
     description:

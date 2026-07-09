@@ -1,0 +1,433 @@
+REPLIT AGENT COMMAND — COUNSELO HIGHEST-PRIORITY SEO / AI CRAWLING / CUSTOMER-GAIN FIXES ONLY
+
+Website:
+
+https://counselo-legal.com
+
+Goal:
+
+Apply ONLY the changes that directly affect Google ranking eligibility, Google AI Search visibility, Bing/Copilot/ChatGPT crawling, indexation, internal discovery, legal topical authority, and customer lead conversion.
+
+Do NOT spend time on low-priority items such as visual polish, social sharing polish, llms.txt, IndexNow, meta keywords cleanup, generic animations, non-critical image swaps, or cosmetic schema unless they directly block crawling, indexing, ranking trust, or lead conversion.
+
+Current SEO export already includes many pages, canonicals, hreflang, robots meta, LegalService schema, Article schema, Blog schema, service pages, blog pages, and regional/language routes. The highest-priority fixes are routing/rendering, blog discovery, canonical/sitemap/robots, jurisdiction accuracy, schema/content consistency, and conversion CTAs.  [oai_citation:3‡counselo-seo-export-final.json](sediment://file_00000000c29471f4919baf285b5f52c8)
+
+────────────────────────────────────────
+
+P0 — FIX ROUTING AND BOT-RENDERED CONTENT
+
+────────────────────────────────────────
+
+This is the most important task.
+
+Problem to fix:
+
+Some deep blog URLs, especially Syria blog article URLs, may render the region selector or wrong fallback page instead of the actual article content.
+
+Fix:
+
+Inspect the router, server fallback, static build output, and deployment routing. Ensure every valid localized route renders its real content for users and bots.
+
+Required route families:
+
+- /
+
+- /sa
+
+- /sa/ar
+
+- /syr
+
+- /syr/ar
+
+- /sa/services
+
+- /sa/ar/services
+
+- /syr/services
+
+- /syr/ar/services
+
+- /sa/services/*
+
+- /sa/ar/services/*
+
+- /syr/services/*
+
+- /syr/ar/services/*
+
+- /sa/blog
+
+- /sa/ar/blog
+
+- /syr/blog
+
+- /syr/ar/blog
+
+- /sa/blog/*
+
+- /sa/ar/blog/*
+
+- /syr/blog/*
+
+- /syr/ar/blog/*
+
+- all about/contact/privacy/terms pages in each region/language
+
+Acceptance criteria:
+
+- Every valid canonical URL returns HTTP 200.
+
+- No valid deep URL renders the homepage or region selector.
+
+- Every blog article URL renders the correct H1, article title, article body, canonical, hreflang, and Article JSON-LD.
+
+- Every service URL renders the correct H1, service body, canonical, hreflang, and LegalService JSON-LD.
+
+- Test with these user agents:
+
+  - normal browser
+
+  - Googlebot
+
+  - Bingbot
+
+  - OAI-SearchBot
+
+- Bot user agents must receive the same meaningful content as users.
+
+Do not continue to lower-priority fixes until this passes.
+
+────────────────────────────────────────
+
+P0 — FIX BLOG HUB DISCOVERY
+
+────────────────────────────────────────
+
+Problem:
+
+Blog hub pages must not be thin CTA pages. They must list the articles so Google, Bing, and AI search crawlers can discover and understand the topical clusters.
+
+Fix these pages:
+
+- /sa/blog
+
+- /sa/ar/blog
+
+- /syr/blog
+
+- /syr/ar/blog
+
+Each blog hub must include crawlable HTML links using real anchor tags:
+
+<a href="/sa/blog/example-article">Article title</a>
+
+Do not rely only on JavaScript click handlers.
+
+Each article card must include:
+
+- article title
+
+- short summary
+
+- category/practice area
+
+- jurisdiction
+
+- publish or updated date
+
+- direct link to the article
+
+- CTA after the article list
+
+Add ItemList schema on blog hubs listing the same visible articles.
+
+Acceptance criteria:
+
+- Every article is linked from its matching blog hub.
+
+- Blog hub links are visible in rendered HTML.
+
+- Blog hubs do not depend on JS-only navigation.
+
+- Blog hubs include Blog or WebPage schema + ItemList schema + BreadcrumbList schema.
+
+- Every blog hub is in sitemap.xml.
+
+────────────────────────────────────────
+
+P0 — FIX ROBOTS.TXT AND SITEMAP.XML
+
+────────────────────────────────────────
+
+Fix /robots.txt:
+
+Required content:
+
+User-agent: *
+
+Allow: /
+
+User-agent: Googlebot
+
+Allow: /
+
+User-agent: Bingbot
+
+Allow: /
+
+User-agent: OAI-SearchBot
+
+Allow: /
+
+User-agent: ChatGPT-User
+
+Allow: /
+
+Sitemap: https://counselo-legal.com/sitemap.xml
+
+Do not block:
+
+- /sa
+
+- /sa/ar
+
+- /syr
+
+- /syr/ar
+
+- /services
+
+- /blog
+
+- article pages
+
+- service pages
+
+- JS/CSS/assets needed to render the page
+
+Fix /sitemap.xml:
+
+- Include only canonical URLs.
+
+- Include only URLs returning 200.
+
+- Exclude redirected URLs.
+
+- Exclude 404s.
+
+- Exclude fallback/selector-only pages except / if / is intentionally indexable.
+
+- Include all service pages, blog hubs, blog articles, contact pages, about pages, and regional home pages.
+
+- Add accurate lastmod where content dates exist.
+
+Acceptance criteria:
+
+- /robots.txt returns 200 text/plain.
+
+- /sitemap.xml returns 200 XML.
+
+- Every sitemap URL returns 200.
+
+- No redirected URL appears in the sitemap.
+
+- No canonical page is missing from the sitemap.
+
+- OAI-SearchBot is explicitly allowed.
+
+────────────────────────────────────────
+
+P0 — FIX CANONICALS AND HREFLANG
+
+────────────────────────────────────────
+
+Fix all canonical and hreflang output.
+
+Every canonical page must have:
+
+- one absolute self-referencing canonical
+
+- complete hreflang cluster where equivalent pages exist:
+
+  - en-SA
+
+  - ar-SA
+
+  - en-SY
+
+  - ar-SY
+
+  - x-default
+
+- hreflang URLs must return 200
+
+- hreflang URLs must not redirect
+
+- hreflang must be reciprocal
+
+- Saudi pages must not canonicalize to Syria pages
+
+- Syria pages must not canonicalize to Saudi pages
+
+- Arabic pages must have:
+
+  - html lang="ar-SA" or lang="ar-SY"
+
+  - dir="rtl"
+
+- English pages must have:
+
+  - html lang="en-SA" or lang="en-SY"
+
+  - dir="ltr"
+
+Acceptance criteria:
+
+- No canonical points to the wrong region.
+
+- No hreflang points to a redirect.
+
+- No hreflang points to a 404.
+
+- All equivalent language/region pages reference each other consistently.
+
+────────────────────────────────────────
+
+P0 — FIX JURISDICTION MISMATCHES AND STALE YEARS
+
+────────────────────────────────────────
+
+This affects legal trust, AI extraction, and user conversion.
+
+Fix all Syria pages so they do not contain Saudi-only wording unless the article explicitly compares Saudi Arabia and Syria.
+
+Required fixes:
+
+1. /syr/ar/blog/divorce-in-syria
+
+Replace any schema or visible text saying:
+
+- الطلاق بالمملكة
+
+with Syria-specific wording:
+
+- الطلاق في سوريا
+
+- القانون السوري
+
+- المحاكم السورية
+
+2. /syr/ar/blog/foreign-company-registration-syria
+
+Replace any schema headline or visible heading saying:
+
+- تسجيل شركة أجنبية في المملكة
+
+with:
+
+- تسجيل شركة أجنبية في سوريا: دليل الترخيص التجاري | كاونسلو
+
+3. /syr/ar/blog/real-estate-disputes-syria
+
+Replace:
+
+- النزاعات العقارية في المملكة
+
+with:
+
+- النزاعات العقارية في سوريا: الحقوق القانونية وسبل الإنصاف | كاونسلو
+
+4. /syr/ar/blog/wrongful-termination-syrian-labor-law
+
+Replace:
+
+- الفصل التعسفي في المملكة
+
+with:
+
+- الفصل التعسفي في سوريا: حقوق العامل وقانون العمل السوري | كاونسلو
+
+5. Foreign company registration Saudi pages:
+
+Fix stale “2025” if article dates are 2026.
+
+Use either evergreen title:
+
+- Foreign Company Registration in Saudi Arabia: MISA License Guide | CounselO
+
+- تسجيل شركة أجنبية في السعودية: دليل ترخيص ميسا | كاونسلو
+
+or, only if the page is maintained as a yearly guide:
+
+- Foreign Company Registration in Saudi Arabia 2026: MISA License Guide | CounselO
+
+- تسجيل شركة أجنبية في السعودية 2026: دليل ترخيص ميسا | كاونسلو
+
+Important:
+
+Do not change slugs unless redirects are also implemented.
+
+Acceptance criteria:
+
+- Syria pages do not say “المملكة” unless explicitly comparing another country.
+
+- Saudi pages remain Saudi-specific.
+
+- Syria pages remain Syria-specific.
+
+- Article titles, H1s, meta titles, schema headlines, and breadcrumbs agree.
+
+- No 2025 title remains on a 2026 article unless historically intentional.
+
+────────────────────────────────────────
+
+P1 — FIX STRUCTURED DATA THAT DIRECTLY AFFECTS TRUST AND AI UNDERSTANDING
+
+────────────────────────────────────────
+
+Do not add decorative schema. Fix only schema that improves entity clarity, legal trust, and content consistency.
+
+Create stable schema IDs:
+
+- WebSite: https://counselo-legal.com/#website
+
+- Organization: https://counselo-legal.com/#organization
+
+- Omar Al-Baghdadi Person: https://counselo-legal.com/#omar-al-baghdadi
+
+- Saudi LegalService: https://counselo-legal.com/sa#legalservice
+
+- Syria LegalService: https://counselo-legal.com/syr#legalservice
+
+- Article: articleURL#article
+
+- WebPage: pageURL#webpage
+
+For all Article pages:
+
+- Article schema must match visible page content.
+
+- headline must match the visible article topic.
+
+- description must match the visible article.
+
+- datePublished/dateModified must match the page.
+
+- inLanguage must match the route.
+
+- mainEntityOfPage must point to the current page.
+
+- publisher must be CounselO.
+
+- author may be CounselO Legal Team if that is accurate.
+
+- reviewedBy Omar Al-Baghdadi only if this review claim is visible and true.
+
+- about must identify the correct jurisdiction and practice area.
+
+For LegalService pages:
+
+- Saudi LegalService must use Saudi Arabia as areaServed.
+
+- Syria LegalService must use Syria as areaServed

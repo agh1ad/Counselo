@@ -5,6 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { staticBlogPosts } from "@/data/blog-posts";
+import { SYR_DB_SLUG_TO_NEW_SLUG } from "@/lib/syr-blog-slug-aliases";
 
 interface ApiPost {
   id: number;
@@ -34,13 +36,28 @@ export default function Blog() {
   const { lang, isRTL } = useLanguage();
   const { region, regionPrefix } = useRegion();
 
+  const staticInitialData: ApiPost[] = staticBlogPosts.map((p) => ({
+    id: 0,
+    slug: region === "syr" ? (SYR_DB_SLUG_TO_NEW_SLUG[p.slug] ?? p.slug) : p.slug,
+    date: p.date,
+    categoryEn: p.category.en,
+    categoryAr: p.category.ar,
+    readTime: p.readTime,
+    titleEn: p.en.title,
+    titleAr: p.ar.title,
+    excerptEn: p.en.excerpt,
+    excerptAr: p.ar.excerpt,
+    published: true,
+  }));
+
   const { data: posts = [], isLoading } = useQuery<ApiPost[]>({
-    queryKey: ["blog-posts"],
+    queryKey: ["blog-posts", region],
     queryFn: async () => {
       const res = await fetch("/api/blog/posts");
       if (!res.ok) throw new Error("Failed to fetch posts");
       return res.json() as Promise<ApiPost[]>;
     },
+    initialData: staticInitialData,
     staleTime: 60_000,
   });
 
@@ -121,6 +138,18 @@ export default function Blog() {
               { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
               { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/blog` },
             ],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": isRTL ? "مقالات المدونة القانونية" : "Legal Blog Articles",
+            "numberOfItems": staticInitialData.length,
+            "itemListElement": staticInitialData.map((p, i) => ({
+              "@type": "ListItem",
+              "position": i + 1,
+              "name": isRTL ? p.titleAr : p.titleEn,
+              "url": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/blog/${p.slug}`,
+            })),
           },
         ]}
       />

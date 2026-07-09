@@ -3,6 +3,15 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
 # Allow AI/LLM crawlers that respect robots.txt
 User-agent: GPTBot
 Allow: /

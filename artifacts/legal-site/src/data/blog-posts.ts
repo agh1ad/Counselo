@@ -185,7 +185,7 @@ export const staticBlogPosts: BlogPost[] = [
       excerpt:
         "Vision 2030 has transformed Saudi Arabia's investment landscape. Foreign investors can now own 100% of companies across most sectors — but navigating the MISA licensing process and Commercial Registration requires careful planning.",
       seoTitle:
-        "Foreign Company Registration Saudi Arabia 2025: MISA License Guide | CounselO",
+        "Foreign Company Registration in Saudi Arabia 2026: MISA License Guide | CounselO",
       seoDescription:
         "Step-by-step guide to registering a foreign company in Saudi Arabia. MISA license, Commercial Registration, company types, and common pitfalls. Expert legal advice from CounselO — 30+ years experience.",
       content: [
@@ -219,7 +219,7 @@ export const staticBlogPosts: BlogPost[] = [
       excerpt:
         "أحدثت رؤية 2030 تحولاً جذرياً في مناخ الاستثمار السعودي. يمكن للمستثمرين الأجانب الآن امتلاك 100% من شركاتهم في معظم القطاعات، لكن الحصول على ترخيص وزارة الاستثمار (مساند) والتسجيل التجاري يستلزم تخطيطاً دقيقاً.",
       seoTitle:
-        "تسجيل شركة أجنبية في المملكة 2025: دليل ترخيص مساند | كاونسلو",
+        "تسجيل شركة أجنبية في المملكة 2026: دليل ترخيص مساند | كاونسلو",
       seoDescription:
         "دليل خطوة بخطوة لتسجيل شركة أجنبية في المملكة العربية السعودية. ترخيص مساند والسجل التجاري وأنواع الشركات والأخطاء الشائعة. مشورة قانونية متخصصة من كاونسلو — خبرة 30+ عاماً.",
       content: [
