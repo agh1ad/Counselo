@@ -48,8 +48,8 @@ export default function RegionPicker() {
         <meta property="og:site_name" content="CounselO كاونسلو" />
         <meta property="og:url" content="https://counselo-legal.com/" />
         <meta property="og:image" content="https://counselo-legal.com/opengraph.jpg" />
-        <meta property="og:locale" content="ar_SA" />
-        <meta property="og:locale:alternate" content="en_US" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale:alternate" content="ar_SA" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@CounselOLegal" />
         <meta name="twitter:title" content="CounselO | Online Legal Consultation in Saudi Arabia & Syria" />

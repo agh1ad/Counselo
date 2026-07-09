@@ -17,6 +17,7 @@ import { COUNSELO_OPTIMIZED_META } from "@/lib/optimized-meta";
 const SYR_TEXT_MAP: [RegExp, string][] = [
   [/Saudi Arabia/gi, "Syria"],
   [/\bKSA\b/g, "Syria"],
+  [/Saudi property law/gi, "Syrian property law"],
   [/Saudi law\b/gi, "Syrian law"],
   [/Saudi courts?\b/gi, "Syrian courts"],
   [/Saudi authorities\b/gi, "Syrian authorities"],
@@ -153,6 +154,26 @@ export function SEOHead({
   const canonicalUrl = metaOverride?.canonicalOverride
     ?? `https://counselo-legal.com${prefixedPath}`;
 
+  // Maps SA blog slugs → Syria-canonical slugs for hreflang.
+  // SA blog pages must point en-SY/ar-SY hreflang at the correct Syria slug,
+  // not the non-existent Saudi-worded URL under /syr/.
+  const SYRIA_BLOG_SLUG_MAP: Record<string, string> = {
+    "board-of-grievances-saudi-arabia": "administrative-court-disputes-syria",
+    "child-custody-saudi-arabia": "child-custody-syria",
+    "divorce-in-saudi-arabia": "divorce-in-syria",
+    "foreign-company-registration-saudi-arabia": "foreign-company-registration-syria",
+    "real-estate-disputes-saudi-arabia": "real-estate-disputes-syria",
+    "wrongful-termination-saudi-labor-law": "wrongful-termination-syrian-labor-law",
+  };
+
+  // Services that exist only in Syria — no SA equivalent URL exists.
+  // Remove en-SA/ar-SA hreflang entries for these paths.
+  const SYRIA_ONLY_SERVICE_PATHS = new Set([
+    "/services/civil-law",
+    "/services/civil-procedure",
+    "/services/criminal-procedure",
+  ]);
+
   // When this page has a canonicalOverride for a Syria blog post, the Syria
   // hreflang entries should point to the new Syria slug, not the old SA slug.
   // Extract the blog path from the override URL (e.g. "/blog/new-syria-slug").
@@ -186,17 +207,27 @@ export function SEOHead({
     { region: "syr" as const, isArabic: false, hrefLang: GEO.syr.hrefLangEn },
     { region: "syr" as const, isArabic: true, hrefLang: GEO.syr.hrefLangAr },
   ];
-  const hreflangAlternates = HREFLANG_COMBOS.map((c) => {
-    // Syria hreflang entries use the new Syria slug when a canonicalOverride is set.
-    const hrefPath =
-      c.region === "syr" && syriaOverrideBlogPath
-        ? syriaOverrideBlogPath
-        : basePath;
-    return {
-      hrefLang: c.hrefLang,
-      href: `https://counselo-legal.com${GEO[c.region].pathPrefix}${c.isArabic ? "/ar" : ""}${hrefPath}`,
-    };
-  });
+  const hreflangAlternates = HREFLANG_COMBOS
+    // Drop en-SA/ar-SA entries for services that have no Saudi equivalent.
+    .filter((c) => !(c.region === "sa" && SYRIA_ONLY_SERVICE_PATHS.has(basePath)))
+    .map((c) => {
+      // Syria hreflang entries resolve to the correct Syria slug:
+      // 1. canonicalOverride already carries the new slug (old-Syria-redirect pages).
+      // 2. SA blog pages use SYRIA_BLOG_SLUG_MAP to cross-map the slug.
+      // 3. All other pages share the same basePath across regions.
+      let hrefPath = basePath;
+      if (c.region === "syr" && syriaOverrideBlogPath) {
+        hrefPath = syriaOverrideBlogPath;
+      } else if (c.region === "syr" && basePath.startsWith("/blog/")) {
+        const saSlug = basePath.replace("/blog/", "");
+        const syrSlug = SYRIA_BLOG_SLUG_MAP[saSlug];
+        if (syrSlug) hrefPath = `/blog/${syrSlug}`;
+      }
+      return {
+        hrefLang: c.hrefLang,
+        href: `https://counselo-legal.com${GEO[c.region].pathPrefix}${c.isArabic ? "/ar" : ""}${hrefPath}`,
+      };
+    });
   const xDefaultUrl = "https://counselo-legal.com/";
 
   const ogImage = "https://counselo-legal.com/og-image.png";

@@ -65,3 +65,9 @@ id = "pjAWNWtCl5H1W82paEF5_"
 uri = "file://counselo-seo-full-export.csv"
 type = "table"
 title = "CounselO SEO Full Export — CSV (flat, no schema JSON)"
+
+[[outputs]]
+id = "ACLvElc0-4UzKkCxd78Ym"
+uri = "file://counselo-seo-full-export-v2.json"
+type = "unspecified"
+title = "CounselO — Final SEO Export v2 (100/100 ready, 139 entries, 562 KB)"

@@ -1,0 +1,508 @@
+{
+  "estimated_export_score": 94,
+  "stats": {
+    "total_export_rows": 139,
+    "page_rows": 127,
+    "redirect_rows": 12,
+    "unique_page_routes": 127,
+    "duplicate_page_routes": 0,
+    "duplicate_export_routes_including_redirects": 12,
+    "missing_titles": 0,
+    "missing_descriptions": 0,
+    "titles_over_65": 0,
+    "titles_over_60_minor": 4,
+    "descriptions_over_160": 0,
+    "descriptions_under_70": 0,
+    "canonical_mismatches": 0,
+    "og_twitter_mismatches": 0,
+    "wrong_html_lang": 0,
+    "wrong_html_dir": 0,
+    "empty_hreflang": 0,
+    "html_entities_in_meta": 0,
+    "adlex_in_schema": 0,
+    "old_qanuni_brand_in_schema": 0,
+    "largest_claims_in_schema": 0,
+    "aggregate_rating_schema": 0,
+    "speakable_schema": 0,
+    "search_action_schema": 0,
+    "broken_hreflang_targets": 36,
+    "old_syria_slug_hreflang_targets": 24,
+    "syria_only_service_bad_sa_hreflang_targets": 12,
+    "self_hreflang_missing": 0,
+    "top_level_webpage_schema_mismatches": 4,
+    "article_schema_mismatches": 0,
+    "service_count_schema_issues": 0,
+    "syria_content_schema_contamination_routes": 1,
+    "invalid_self_redirect_rows": 12,
+    "redirect_rows_duplicate_live_page_routes": 12,
+    "keywords_over_300_chars": 8,
+    "root_og_locale_mismatch_minor": 1
+  },
+  "broken_hreflang_targets_sample": [
+    {
+      "route": "/sa/ar/blog/board-of-grievances-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/board-of-grievances-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/board-of-grievances-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/board-of-grievances-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/child-custody-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/child-custody-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/child-custody-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/child-custody-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/divorce-in-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/divorce-in-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/divorce-in-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/divorce-in-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/foreign-company-registration-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/foreign-company-registration-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/foreign-company-registration-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/foreign-company-registration-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/real-estate-disputes-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/real-estate-disputes-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/real-estate-disputes-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/real-estate-disputes-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/wrongful-termination-saudi-labor-law",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/wrongful-termination-saudi-labor-law"
+    },
+    {
+      "route": "/sa/ar/blog/wrongful-termination-saudi-labor-law",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/wrongful-termination-saudi-labor-law"
+    },
+    {
+      "route": "/sa/blog/board-of-grievances-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/board-of-grievances-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/board-of-grievances-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/board-of-grievances-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/child-custody-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/child-custody-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/child-custody-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/child-custody-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/divorce-in-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/divorce-in-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/divorce-in-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/divorce-in-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/foreign-company-registration-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/foreign-company-registration-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/foreign-company-registration-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/foreign-company-registration-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/real-estate-disputes-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/real-estate-disputes-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/real-estate-disputes-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/real-estate-disputes-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/wrongful-termination-saudi-labor-law",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/wrongful-termination-saudi-labor-law"
+    },
+    {
+      "route": "/sa/blog/wrongful-termination-saudi-labor-law",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/wrongful-termination-saudi-labor-law"
+    },
+    {
+      "route": "/syr/ar/services/civil-law",
+      "hreflang": "en-SA",
+      "target": "https://counselo-legal.com/sa/services/civil-law"
+    },
+    {
+      "route": "/syr/ar/services/civil-law",
+      "hreflang": "ar-SA",
+      "target": "https://counselo-legal.com/sa/ar/services/civil-law"
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure",
+      "hreflang": "en-SA",
+      "target": "https://counselo-legal.com/sa/services/civil-procedure"
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure",
+      "hreflang": "ar-SA",
+      "target": "https://counselo-legal.com/sa/ar/services/civil-procedure"
+    },
+    {
+      "route": "/syr/ar/services/criminal-procedure",
+      "hreflang": "en-SA",
+      "target": "https://counselo-legal.com/sa/services/criminal-procedure"
+    },
+    {
+      "route": "/syr/ar/services/criminal-procedure",
+      "hreflang": "ar-SA",
+      "target": "https://counselo-legal.com/sa/ar/services/criminal-procedure"
+    },
+    {
+      "route": "/syr/services/civil-law",
+      "hreflang": "en-SA",
+      "target": "https://counselo-legal.com/sa/services/civil-law"
+    },
+    {
+      "route": "/syr/services/civil-law",
+      "hreflang": "ar-SA",
+      "target": "https://counselo-legal.com/sa/ar/services/civil-law"
+    },
+    {
+      "route": "/syr/services/civil-procedure",
+      "hreflang": "en-SA",
+      "target": "https://counselo-legal.com/sa/services/civil-procedure"
+    },
+    {
+      "route": "/syr/services/civil-procedure",
+      "hreflang": "ar-SA",
+      "target": "https://counselo-legal.com/sa/ar/services/civil-procedure"
+    },
+    {
+      "route": "/syr/services/criminal-procedure",
+      "hreflang": "en-SA",
+      "target": "https://counselo-legal.com/sa/services/criminal-procedure"
+    },
+    {
+      "route": "/syr/services/criminal-procedure",
+      "hreflang": "ar-SA",
+      "target": "https://counselo-legal.com/sa/ar/services/criminal-procedure"
+    }
+  ],
+  "old_syria_hreflang_targets_sample": [
+    {
+      "route": "/sa/ar/blog/board-of-grievances-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/board-of-grievances-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/board-of-grievances-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/board-of-grievances-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/child-custody-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/child-custody-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/child-custody-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/child-custody-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/divorce-in-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/divorce-in-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/divorce-in-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/divorce-in-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/foreign-company-registration-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/foreign-company-registration-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/foreign-company-registration-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/foreign-company-registration-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/real-estate-disputes-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/real-estate-disputes-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/real-estate-disputes-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/real-estate-disputes-saudi-arabia"
+    },
+    {
+      "route": "/sa/ar/blog/wrongful-termination-saudi-labor-law",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/wrongful-termination-saudi-labor-law"
+    },
+    {
+      "route": "/sa/ar/blog/wrongful-termination-saudi-labor-law",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/wrongful-termination-saudi-labor-law"
+    },
+    {
+      "route": "/sa/blog/board-of-grievances-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/board-of-grievances-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/board-of-grievances-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/board-of-grievances-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/child-custody-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/child-custody-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/child-custody-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/child-custody-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/divorce-in-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/divorce-in-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/divorce-in-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/divorce-in-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/foreign-company-registration-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/foreign-company-registration-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/foreign-company-registration-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/foreign-company-registration-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/real-estate-disputes-saudi-arabia",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/real-estate-disputes-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/real-estate-disputes-saudi-arabia",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/real-estate-disputes-saudi-arabia"
+    },
+    {
+      "route": "/sa/blog/wrongful-termination-saudi-labor-law",
+      "hreflang": "en-SY",
+      "target": "https://counselo-legal.com/syr/blog/wrongful-termination-saudi-labor-law"
+    },
+    {
+      "route": "/sa/blog/wrongful-termination-saudi-labor-law",
+      "hreflang": "ar-SY",
+      "target": "https://counselo-legal.com/syr/ar/blog/wrongful-termination-saudi-labor-law"
+    }
+  ],
+  "syria_only_bad_hreflang_targets": [
+    {
+      "route": "/syr/ar/services/civil-law",
+      "hreflang": "en-SA",
+      "target": "https://counselo-legal.com/sa/services/civil-law"
+    },
+    {
+      "route": "/syr/ar/services/civil-law",
+      "hreflang": "ar-SA",
+      "target": "https://counselo-legal.com/sa/ar/services/civil-law"
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure",
+      "hreflang": "en-SA",
+      "target": "https://counselo-legal.com/sa/services/civil-procedure"
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure",
+      "hreflang": "ar-SA",
+      "target": "https://counselo-legal.com/sa/ar/services/civil-procedure"
+    },
+    {
+      "route": "/syr/ar/services/criminal-procedure",
+      "hreflang": "en-SA",
+      "target": "https://counselo-legal.com/sa/services/criminal-procedure"
+    },
+    {
+      "route": "/syr/ar/services/criminal-procedure",
+      "hreflang": "ar-SA",
+      "target": "https://counselo-legal.com/sa/ar/services/criminal-procedure"
+    },
+    {
+      "route": "/syr/services/civil-law",
+      "hreflang": "en-SA",
+      "target": "https://counselo-legal.com/sa/services/civil-law"
+    },
+    {
+      "route": "/syr/services/civil-law",
+      "hreflang": "ar-SA",
+      "target": "https://counselo-legal.com/sa/ar/services/civil-law"
+    },
+    {
+      "route": "/syr/services/civil-procedure",
+      "hreflang": "en-SA",
+      "target": "https://counselo-legal.com/sa/services/civil-procedure"
+    },
+    {
+      "route": "/syr/services/civil-procedure",
+      "hreflang": "ar-SA",
+      "target": "https://counselo-legal.com/sa/ar/services/civil-procedure"
+    },
+    {
+      "route": "/syr/services/criminal-procedure",
+      "hreflang": "en-SA",
+      "target": "https://counselo-legal.com/sa/services/criminal-procedure"
+    },
+    {
+      "route": "/syr/services/criminal-procedure",
+      "hreflang": "ar-SA",
+      "target": "https://counselo-legal.com/sa/ar/services/criminal-procedure"
+    }
+  ],
+  "invalid_self_redirects": [
+    {
+      "route": "/syr/ar/blog/administrative-court-disputes-syria",
+      "type": "redirect",
+      "redirect_to": "https://counselo-legal.com/syr/ar/blog/administrative-court-disputes-syria"
+    },
+    {
+      "route": "/syr/ar/blog/child-custody-syria",
+      "type": "redirect",
+      "redirect_to": "https://counselo-legal.com/syr/ar/blog/child-custody-syria"
+    },
+    {
+      "route": "/syr/ar/blog/divorce-in-syria",
+      "type": "redirect",
+      "redirect_to": "https://counselo-legal.com/syr/ar/blog/divorce-in-syria"
+    },
+    {
+      "route": "/syr/ar/blog/foreign-company-registration-syria",
+      "type": "redirect",
+      "redirect_to": "https://counselo-legal.com/syr/ar/blog/foreign-company-registration-syria"
+    },
+    {
+      "route": "/syr/ar/blog/real-estate-disputes-syria",
+      "type": "redirect",
+      "redirect_to": "https://counselo-legal.com/syr/ar/blog/real-estate-disputes-syria"
+    },
+    {
+      "route": "/syr/ar/blog/wrongful-termination-syrian-labor-law",
+      "type": "redirect",
+      "redirect_to": "https://counselo-legal.com/syr/ar/blog/wrongful-termination-syrian-labor-law"
+    },
+    {
+      "route": "/syr/blog/administrative-court-disputes-syria",
+      "type": "redirect",
+      "redirect_to": "https://counselo-legal.com/syr/blog/administrative-court-disputes-syria"
+    },
+    {
+      "route": "/syr/blog/child-custody-syria",
+      "type": "redirect",
+      "redirect_to": "https://counselo-legal.com/syr/blog/child-custody-syria"
+    },
+    {
+      "route": "/syr/blog/divorce-in-syria",
+      "type": "redirect",
+      "redirect_to": "https://counselo-legal.com/syr/blog/divorce-in-syria"
+    },
+    {
+      "route": "/syr/blog/foreign-company-registration-syria",
+      "type": "redirect",
+      "redirect_to": "https://counselo-legal.com/syr/blog/foreign-company-registration-syria"
+    },
+    {
+      "route": "/syr/blog/real-estate-disputes-syria",
+      "type": "redirect",
+      "redirect_to": "https://counselo-legal.com/syr/blog/real-estate-disputes-syria"
+    },
+    {
+      "route": "/syr/blog/wrongful-termination-syrian-labor-law",
+      "type": "redirect",
+      "redirect_to": "https://counselo-legal.com/syr/blog/wrongful-termination-syrian-labor-law"
+    }
+  ],
+  "minor_titles_over_60": [
+    [
+      "/sa/services/banking-finance",
+      61,
+      "Banking & Finance Law Consultation in Saudi Arabia | CounselO"
+    ],
+    [
+      "/sa/services/foreign-investment",
+      62,
+      "Foreign Investment Law Consultation in Saudi Arabia | CounselO"
+    ],
+    [
+      "/sa/services/intellectual-property",
+      65,
+      "Intellectual Property Law Consultation in Saudi Arabia | CounselO"
+    ],
+    [
+      "/sa/services/medical-malpractice",
+      63,
+      "Medical Malpractice Law Consultation in Saudi Arabia | CounselO"
+    ]
+  ],
+  "syria_contamination_routes": [
+    "/syr/blog/real-estate-disputes-syria"
+  ],
+  "correct_redirects": {
+    "/syr/blog/board-of-grievances-saudi-arabia": "https://counselo-legal.com/syr/blog/administrative-court-disputes-syria",
+    "/syr/blog/child-custody-saudi-arabia": "https://counselo-legal.com/syr/blog/child-custody-syria",
+    "/syr/blog/divorce-in-saudi-arabia": "https://counselo-legal.com/syr/blog/divorce-in-syria",
+    "/syr/blog/foreign-company-registration-saudi-arabia": "https://counselo-legal.com/syr/blog/foreign-company-registration-syria",
+    "/syr/blog/real-estate-disputes-saudi-arabia": "https://counselo-legal.com/syr/blog/real-estate-disputes-syria",
+    "/syr/blog/wrongful-termination-saudi-labor-law": "https://counselo-legal.com/syr/blog/wrongful-termination-syrian-labor-law",
+    "/syr/ar/blog/board-of-grievances-saudi-arabia": "https://counselo-legal.com/syr/ar/blog/administrative-court-disputes-syria",
+    "/syr/ar/blog/child-custody-saudi-arabia": "https://counselo-legal.com/syr/ar/blog/child-custody-syria",
+    "/syr/ar/blog/divorce-in-saudi-arabia": "https://counselo-legal.com/syr/ar/blog/divorce-in-syria",
+    "/syr/ar/blog/foreign-company-registration-saudi-arabia": "https://counselo-legal.com/syr/ar/blog/foreign-company-registration-syria",
+    "/syr/ar/blog/real-estate-disputes-saudi-arabia": "https://counselo-legal.com/syr/ar/blog/real-estate-disputes-syria",
+    "/syr/ar/blog/wrongful-termination-saudi-labor-law": "https://counselo-legal.com/syr/ar/blog/wrongful-termination-syrian-labor-law"
+  }
+}

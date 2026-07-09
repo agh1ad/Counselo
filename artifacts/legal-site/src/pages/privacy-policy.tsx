@@ -354,7 +354,7 @@ export default function PrivacyPolicy() {
             "description": content.seoDesc,
             "url": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/privacy-policy`,
             "isPartOf": { "@type": "WebSite", "name": "CounselO", "url": "https://counselo-legal.com" },
-            "inLanguage": isRTL ? "ar" : "en",
+            "inLanguage": isRTL ? (isSyr ? "ar-SY" : "ar-SA") : (isSyr ? "en-SY" : "en-SA"),
             "about": { "@type": "LegalService", "name": "CounselO", "url": "https://counselo-legal.com" },
           },
           {

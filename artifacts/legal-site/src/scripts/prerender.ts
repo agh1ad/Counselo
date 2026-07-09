@@ -266,7 +266,7 @@ function writeRedirectRoute(fromRoute: string, toRoute: string): void {
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="refresh" content="0; url=${targetUrl}">
-  <link rel="canonical" href="${targetUrl}">
+  <meta name="x-source-route" content="${fromRoute}">
   <meta name="robots" content="noindex, nofollow">
   <title>Redirecting…</title>
   <script>window.location.replace(${JSON.stringify(targetUrl)});</script>

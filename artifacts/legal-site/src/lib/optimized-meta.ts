@@ -279,7 +279,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "Get 24-hour online arbitration and mediation advice in Saudi Arabia on commercial arbitration, mediation, settlements, and award enforcement.",
   },
   "/sa/services/banking-finance": {
-    title: "Banking & Finance Law Consultation in Saudi Arabia | CounselO",
+    title: "Banking & Finance Consultation in Saudi Arabia | CounselO",
     description:
       "Get 24-hour online banking and finance law advice in Saudi Arabia on bank disputes, finance contracts, Islamic finance, and regulation.",
   },
@@ -324,7 +324,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "Get 24-hour online family law advice in Saudi Arabia on divorce, custody, alimony, visitation, inheritance, and personal status matters.",
   },
   "/sa/services/foreign-investment": {
-    title: "Foreign Investment Law Consultation in Saudi Arabia | CounselO",
+    title: "Foreign Investment Consultation in Saudi Arabia | CounselO",
     description:
       "Get 24-hour online foreign investment law advice in Saudi Arabia on foreign company setup, licensing, registration, compliance, and business entry.",
   },
@@ -334,12 +334,12 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "Get 24-hour online insurance law advice in Saudi Arabia on claim denial, policy disputes, compensation, insurer liability, and settlements.",
   },
   "/sa/services/intellectual-property": {
-    title: "Intellectual Property Law Consultation in Saudi Arabia | CounselO",
+    title: "IP Law Consultation in Saudi Arabia | CounselO",
     description:
       "Get 24-hour online intellectual property law advice in Saudi Arabia on trademarks, copyrights, patents, trade secrets, infringement, and IP protection.",
   },
   "/sa/services/medical-malpractice": {
-    title: "Medical Malpractice Law Consultation in Saudi Arabia | CounselO",
+    title: "Medical Malpractice Consultation in Saudi Arabia | CounselO",
     description:
       "Get 24-hour online medical malpractice law advice in Saudi Arabia on medical negligence, surgical errors, misdiagnosis, liability, and compensation.",
   },
