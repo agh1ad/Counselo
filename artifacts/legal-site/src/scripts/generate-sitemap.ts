@@ -37,7 +37,7 @@ const BlogPostSchema = z.object({
 });
 
 const { BASE_URL, TODAY, CORE_PAGES } = await import("../data/sitemap-sources.js");
-const { blogPosts } = await import("../data/blog-posts.js");
+const { staticBlogPosts: blogPosts } = await import("../data/blog-posts.js");
 
 if (blogPosts.length > 0) {
   const errors: string[] = [];
@@ -132,6 +132,47 @@ ${hreflang(path)}
   </url>`;
 }
 
+function urlEntrySyrOnly(
+  path: string,
+  changefreq: string,
+  priority: string,
+  lastmod: string,
+): string {
+  return `  <url>
+    <loc>${BASE_URL}${path}</loc>
+${hreflangSyrOnly(path)}
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+    <lastmod>${lastmod}</lastmod>
+  </url>`;
+}
+
+// Services that exist only in Syria — no Saudi equivalent URL exists.
+// Their sitemap entries must omit en-SA / ar-SA hreflang to avoid broken targets.
+const SYRIA_ONLY_SERVICE_SLUGS = new Set([
+  "civil-law",
+  "civil-procedure",
+  "criminal-procedure",
+]);
+
+/**
+ * hreflang for Syria-only services: en-SY, ar-SY, x-default only.
+ */
+function hreflangSyrOnly(path: string): string {
+  const basePath = path.replace(/^\/(sa|syr)(\/ar)?/, "");
+  const combos: Array<[string, string]> = [
+    ["en-SY", `/syr${basePath}`],
+    ["ar-SY", `/syr/ar${basePath}`],
+  ];
+  return [
+    ...combos.map(
+      ([l, p]) =>
+        `    <xhtml:link rel="alternate" hrefLang="${l}"     href="${BASE_URL}${p}"/>`,
+    ),
+    `    <xhtml:link rel="alternate" hrefLang="x-default" href="${BASE_URL}/"/>`,
+  ].join("\n");
+}
+
 /**
  * Blog-post-specific hreflang: SA variants use saSlug, Syria variants use syrSlug.
  * Required because Syria blog posts have been migrated to Syria-specific slugs while
@@ -186,8 +227,9 @@ for (const slug of SA_SERVICE_SLUGS) {
 
 entries.push("\n  <!-- ===== SYR SERVICE PAGES ===== -->");
 for (const slug of SYR_SERVICE_SLUGS) {
-  entries.push(urlEntry(`/syr/services/${slug}`, "monthly", "0.9", TODAY));
-  entries.push(urlEntry(`/syr/ar/services/${slug}`, "monthly", "0.9", TODAY));
+  const fn = SYRIA_ONLY_SERVICE_SLUGS.has(slug) ? urlEntrySyrOnly : urlEntry;
+  entries.push(fn(`/syr/services/${slug}`, "monthly", "0.9", TODAY));
+  entries.push(fn(`/syr/ar/services/${slug}`, "monthly", "0.9", TODAY));
 }
 
 if (blogPosts.length > 0) {

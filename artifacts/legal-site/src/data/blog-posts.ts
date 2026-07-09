@@ -474,7 +474,7 @@ export const staticBlogPosts: BlogPost[] = [
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
-  return blogPosts.find((p) => p.slug === slug);
+  return staticBlogPosts.find((p) => p.slug === slug);
 }
 
 export function formatDate(dateStr: string, lang: "en" | "ar"): string {
