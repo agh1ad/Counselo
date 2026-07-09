@@ -22,14 +22,14 @@ export default function Services() {
     ? `قانوني — منصة متخصصة للاستشارات القانونية الأونلاين في ${country}. ${areaCount} مجالاً قانونياً: ${s.items.map((item) => item.title).join("، ")}. خبرة 30+ عاماً، 20,000+ قضية. استجابة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني.`
     : `CounselO — ${country}'s specialized online legal consultation platform. ${areaCount} practice areas: ${s.items.map((item) => item.title).join(", ")}. 30+ years experience, 20,000+ cases.`;
 
-  const baseUrl = region === "syr" ? "https://counselo-legal.com/syr" : "https://counselo-legal.com/sa";
+  const baseUrl = `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}`;
   const servicesSchema = [
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
       "name": region === "syr"
         ? (isRTL ? `${areaCount} مجالاً للممارسة القانونية — قانوني سوريا` : `${areaCount} Legal Practice Areas — CounselO Syria`)
-        : (isRTL ? `${areaCount} مجالاً للممارسة القانونية — قانوني السعودية` : `${areaCount} Legal Practice Areas — CounselO Saudi Arabia`),
+        : (isRTL ? `${areaCount} مجالاً للممارسة القانونية — كاونسلو السعودية` : `${areaCount} Legal Practice Areas — CounselO Saudi Arabia`),
       "url": `${baseUrl}/services`,
       "numberOfItems": areaCount,
       "itemListElement": s.items.map((item, index) => ({

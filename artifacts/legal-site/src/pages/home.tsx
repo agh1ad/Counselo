@@ -81,11 +81,11 @@ export default function Home() {
             "name": "Syria",
           },
           "availableLanguage": ["Arabic", "English"],
-          "serviceType": ["Family Law", "Civil Law", "Employment Law", "Real Estate Law", "Foreign Investment Law", "Administrative Law", "Criminal Law", "Banking & Finance Law", "Tax Law", "Cyber Law", "Medical Malpractice", "Insurance Law", "Arbitration", "Enforcement Law", "Companies Law", "Contracts Law"],
+          "serviceType": ["Family Law", "Commercial Law", "Civil Law", "Employment Law", "Real Estate Law", "Foreign Investment Law", "Administrative Law", "Criminal Law", "Banking & Finance Law", "Tax Law", "Cyber Law", "Medical Malpractice", "Insurance Law", "Intellectual Property", "Arbitration", "Enforcement Law", "Companies Law", "Contracts Law", "Civil Procedure", "Criminal Procedure"],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Legal Consultation Services Syria",
-            "numberOfItems": 17,
+            "numberOfItems": 20,
           },
           "sameAs": ["https://counselo-legal.com"],
           "contactPoint": {
@@ -125,7 +125,7 @@ export default function Home() {
             "name": "Saudi Arabia",
           },
           "availableLanguage": ["Arabic", "English"],
-          "serviceType": ["Family Law", "Commercial Law", "Employment Law", "Real Estate Law", "Foreign Investment Law", "Administrative Law", "Criminal Law", "Banking & Finance Law", "Tax & Zakat Law", "Cyber Law", "Medical Malpractice", "Insurance Law", "Arbitration", "Enforcement Law", "Companies Law", "Contracts Law"],
+          "serviceType": ["Family Law", "Commercial Law", "Employment Law", "Real Estate Law", "Foreign Investment Law", "Administrative Law", "Criminal Law", "Banking & Finance Law", "Tax & Zakat Law", "Cyber Law", "Medical Malpractice", "Insurance Law", "Intellectual Property", "Arbitration", "Enforcement Law", "Companies Law", "Contracts Law"],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Legal Consultation Services Saudi Arabia",

@@ -349,9 +349,10 @@ export default function PrivacyPolicy() {
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
+            "@id": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/privacy-policy#webpage`,
             "name": isRTL ? "سياسة الخصوصية — كاونسلو" : "Privacy Policy — CounselO",
             "description": content.seoDesc,
-            "url": "https://counselo-legal.com/privacy-policy",
+            "url": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/privacy-policy`,
             "isPartOf": { "@type": "WebSite", "name": "CounselO", "url": "https://counselo-legal.com" },
             "inLanguage": isRTL ? "ar" : "en",
             "about": { "@type": "LegalService", "name": "CounselO", "url": "https://counselo-legal.com" },
@@ -360,8 +361,8 @@ export default function PrivacyPolicy() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "سياسة الخصوصية" : "Privacy Policy", "item": "https://counselo-legal.com/privacy-policy" },
+              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}` },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "سياسة الخصوصية" : "Privacy Policy", "item": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/privacy-policy` },
             ],
           },
         ]}

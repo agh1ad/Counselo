@@ -160,9 +160,12 @@ export default function BlogPost() {
   const body = useAr ? post.bodyAr : (post.bodyEn || post.bodyAr);
   const content = useAr ? post.contentAr : (post.contentEn?.length ? post.contentEn : post.contentAr);
 
+  const canonicalArticleUrl = `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/blog/${slug}`;
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
+    "@id": `${canonicalArticleUrl}#article`,
+    "mainEntityOfPage": { "@type": "WebPage", "@id": `${canonicalArticleUrl}#webpage` },
     "headline": seoTitle,
     "description": seoDesc,
     "datePublished": post.date,

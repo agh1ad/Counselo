@@ -37,6 +37,7 @@ const SYR_TEXT_MAP: [RegExp, string][] = [
   [/Saudi Labor Law/g, "Syrian Labor Law"],
   [/Saudi employment lawyer/gi, "Syrian employment lawyer"],
   [/المملكة العربية السعودية/g, "سوريا"],
+  [/المحاكم السعودية/g, "المحاكم السورية"],
   [/في المملكة\b/g, "في سوريا"],
   [/كاونسلو المملكة العربية السعودية/g, "كاونسلو سوريا"],
   [/ساما\b/g, "مصرف سوريا المركزي"],

@@ -1,0 +1,236 @@
+{
+  "estimatedExportOnlyScore": 90,
+  "stats": {
+    "total_rows": 139,
+    "unique_routes": 139,
+    "duplicate_route_rows": 0,
+    "missing_titles": 0,
+    "missing_descriptions": 0,
+    "titles_over_65": 0,
+    "descriptions_over_160": 0,
+    "og_twitter_mismatches": 0,
+    "og_url_mismatches": 0,
+    "hreflang_empty_rows": 0,
+    "canonical_route_mismatches_old_redirects": 12,
+    "old_syria_saudi_slug_routes_still_rendering": 12,
+    "root_lang_dir_mismatch": 1,
+    "html_entities_in_visible_metadata": 3,
+    "schema_adlex": 0,
+    "schema_old_qanuni": 1,
+    "aggregate_rating": 0,
+    "speakable": 0,
+    "search_action": 0,
+    "webpage_schema_policy_mismatches": 8,
+    "article_schema_missing_id_or_mainEntity": 36,
+    "arabic_schema_wrong_language_url_routes": 4,
+    "arabic_schema_wrong_language_url_pairs": 45,
+    "arabic_breadcrumb_wrong_language_routes": 4,
+    "offer_catalog_count_issues": 2,
+    "home_serviceType_count_issues": 4,
+    "syria_child_custody_schema_saudi_text_routes": 2,
+    "syria_about_person_text_typo_routes": 2
+  },
+  "oldSyriaRoutesStillRendering": {
+    "/syr/blog/board-of-grievances-saudi-arabia": "/syr/blog/administrative-court-disputes-syria",
+    "/syr/blog/child-custody-saudi-arabia": "/syr/blog/child-custody-syria",
+    "/syr/blog/divorce-in-saudi-arabia": "/syr/blog/divorce-in-syria",
+    "/syr/blog/foreign-company-registration-saudi-arabia": "/syr/blog/foreign-company-registration-syria",
+    "/syr/blog/real-estate-disputes-saudi-arabia": "/syr/blog/real-estate-disputes-syria",
+    "/syr/blog/wrongful-termination-saudi-labor-law": "/syr/blog/wrongful-termination-syrian-labor-law",
+    "/syr/ar/blog/board-of-grievances-saudi-arabia": "/syr/ar/blog/administrative-court-disputes-syria",
+    "/syr/ar/blog/child-custody-saudi-arabia": "/syr/ar/blog/child-custody-syria",
+    "/syr/ar/blog/divorce-in-saudi-arabia": "/syr/ar/blog/divorce-in-syria",
+    "/syr/ar/blog/foreign-company-registration-saudi-arabia": "/syr/ar/blog/foreign-company-registration-syria",
+    "/syr/ar/blog/real-estate-disputes-saudi-arabia": "/syr/ar/blog/real-estate-disputes-syria",
+    "/syr/ar/blog/wrongful-termination-saudi-labor-law": "/syr/ar/blog/wrongful-termination-syrian-labor-law"
+  },
+  "policySchemaFix": {
+    "/sa/terms-of-service": {
+      "url": "https://counselo-legal.com/sa/terms-of-service",
+      "@id": "https://counselo-legal.com/sa/terms-of-service#webpage"
+    },
+    "/sa/privacy-policy": {
+      "url": "https://counselo-legal.com/sa/privacy-policy",
+      "@id": "https://counselo-legal.com/sa/privacy-policy#webpage"
+    },
+    "/syr/terms-of-service": {
+      "url": "https://counselo-legal.com/syr/terms-of-service",
+      "@id": "https://counselo-legal.com/syr/terms-of-service#webpage"
+    },
+    "/syr/privacy-policy": {
+      "url": "https://counselo-legal.com/syr/privacy-policy",
+      "@id": "https://counselo-legal.com/syr/privacy-policy#webpage"
+    },
+    "/sa/ar/terms-of-service": {
+      "url": "https://counselo-legal.com/sa/ar/terms-of-service",
+      "@id": "https://counselo-legal.com/sa/ar/terms-of-service#webpage"
+    },
+    "/sa/ar/privacy-policy": {
+      "url": "https://counselo-legal.com/sa/ar/privacy-policy",
+      "@id": "https://counselo-legal.com/sa/ar/privacy-policy#webpage"
+    },
+    "/syr/ar/terms-of-service": {
+      "url": "https://counselo-legal.com/syr/ar/terms-of-service",
+      "@id": "https://counselo-legal.com/syr/ar/terms-of-service#webpage"
+    },
+    "/syr/ar/privacy-policy": {
+      "url": "https://counselo-legal.com/syr/ar/privacy-policy",
+      "@id": "https://counselo-legal.com/syr/ar/privacy-policy#webpage"
+    }
+  },
+  "serviceTypeFix": {
+    "/sa": [
+      "Family Law",
+      "Commercial Law",
+      "Employment Law",
+      "Real Estate Law",
+      "Foreign Investment Law",
+      "Administrative Law",
+      "Criminal Law",
+      "Banking & Finance Law",
+      "Tax & Zakat Law",
+      "Cyber Law",
+      "Medical Malpractice",
+      "Insurance Law",
+      "Arbitration",
+      "Enforcement Law",
+      "Companies Law",
+      "Contracts Law",
+      "Intellectual Property"
+    ],
+    "/sa/ar": [
+      "Family Law",
+      "Commercial Law",
+      "Employment Law",
+      "Real Estate Law",
+      "Foreign Investment Law",
+      "Administrative Law",
+      "Criminal Law",
+      "Banking & Finance Law",
+      "Tax & Zakat Law",
+      "Cyber Law",
+      "Medical Malpractice",
+      "Insurance Law",
+      "Arbitration",
+      "Enforcement Law",
+      "Companies Law",
+      "Contracts Law",
+      "Intellectual Property"
+    ],
+    "/syr": [
+      "Family Law",
+      "Commercial Law",
+      "Civil Law",
+      "Civil Procedure",
+      "Employment Law",
+      "Real Estate Law",
+      "Foreign Investment Law",
+      "Administrative Law",
+      "Criminal Law",
+      "Criminal Procedure",
+      "Banking & Finance Law",
+      "Tax Law",
+      "Cyber Law",
+      "Medical Malpractice",
+      "Insurance Law",
+      "Arbitration",
+      "Enforcement Law",
+      "Companies Law",
+      "Contracts Law",
+      "Intellectual Property"
+    ],
+    "/syr/ar": [
+      "Family Law",
+      "Commercial Law",
+      "Civil Law",
+      "Civil Procedure",
+      "Employment Law",
+      "Real Estate Law",
+      "Foreign Investment Law",
+      "Administrative Law",
+      "Criminal Law",
+      "Criminal Procedure",
+      "Banking & Finance Law",
+      "Tax Law",
+      "Cyber Law",
+      "Medical Malpractice",
+      "Insurance Law",
+      "Arbitration",
+      "Enforcement Law",
+      "Companies Law",
+      "Contracts Law",
+      "Intellectual Property"
+    ]
+  },
+  "offerCatalogIssues": [
+    [
+      "/syr",
+      17,
+      20
+    ],
+    [
+      "/syr/ar",
+      17,
+      20
+    ]
+  ],
+  "serviceTypeCountIssues": [
+    [
+      "/sa",
+      16,
+      17
+    ],
+    [
+      "/syr",
+      16,
+      20
+    ],
+    [
+      "/sa/ar",
+      16,
+      17
+    ],
+    [
+      "/syr/ar",
+      16,
+      20
+    ]
+  ],
+  "htmlEntityRows": [
+    [
+      "/sa/terms-of-service",
+      "description",
+      "Review CounselO Saudi Arabia&#x27;s consultation process, including submission, fee confirmation, payment, delivery, and clarification policy."
+    ],
+    [
+      "/syr/terms-of-service",
+      "description",
+      "Review CounselO Syria&#x27;s consultation process, including submission, fee confirmation, payment, delivery, and clarification policy."
+    ],
+    [
+      "/sa/blog/board-of-grievances-saudi-arabia",
+      "description",
+      "Learn when and how to challenge government decisions before Saudi Arabia&#x27;s Board of Grievances, including deadlines, evidence, and legal strategy."
+    ]
+  ],
+  "schemaArabicWrongUrlRoutes": [
+    "/sa/ar/contact",
+    "/sa/ar/services",
+    "/syr/ar/contact",
+    "/syr/ar/services"
+  ],
+  "breadcrumbArabicWrongRoutes": [
+    "/sa/ar/contact",
+    "/sa/ar/services",
+    "/syr/ar/contact",
+    "/syr/ar/services"
+  ],
+  "syriaBadSchemaRoutes": [
+    "/syr/ar/blog/child-custody-saudi-arabia",
+    "/syr/ar/blog/child-custody-syria"
+  ],
+  "syriaAboutTypoRoutes": [
+    "/syr/about",
+    "/syr/ar/about"
+  ]
+}

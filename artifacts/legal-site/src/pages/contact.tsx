@@ -154,7 +154,9 @@ export default function Contact() {
               : (isRTL
                 ? "احجز استشارة قانونية أونلاين في المملكة العربية السعودية — استجابة خلال 24 ساعة"
                 : "Book an online legal consultation in Saudi Arabia — professional response within 24 hours"),
-            "url": region === "syr" ? "https://counselo-legal.com/syr/contact" : "https://counselo-legal.com/sa/contact",
+            "url": region === "syr"
+              ? `https://counselo-legal.com/syr${isRTL ? "/ar" : ""}/contact`
+              : `https://counselo-legal.com/sa${isRTL ? "/ar" : ""}/contact`,
           },
           {
             "@context": "https://schema.org",
@@ -178,8 +180,8 @@ export default function Contact() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": region === "syr" ? "https://counselo-legal.com/syr" : "https://counselo-legal.com/sa" },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "اتصل بنا" : "Contact", "item": region === "syr" ? "https://counselo-legal.com/syr/contact" : "https://counselo-legal.com/sa/contact" },
+              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": region === "syr" ? `https://counselo-legal.com/syr${isRTL ? "/ar" : ""}` : `https://counselo-legal.com/sa${isRTL ? "/ar" : ""}` },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "اتصل بنا" : "Contact", "item": region === "syr" ? `https://counselo-legal.com/syr${isRTL ? "/ar" : ""}/contact` : `https://counselo-legal.com/sa${isRTL ? "/ar" : ""}/contact` },
             ],
           },
         ]}

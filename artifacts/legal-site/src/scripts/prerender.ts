@@ -94,16 +94,7 @@ const ENGLISH_ROUTES: string[] = [
   "/sa/blog/real-estate-disputes-saudi-arabia",
   "/sa/blog/child-custody-saudi-arabia",
 
-  // Syria blog post pages — old SA-worded slugs kept as redirect source pages
-  // (canonicalOverride in optimized-meta.ts points crawlers to the new slug).
-  "/syr/blog/divorce-in-saudi-arabia",
-  "/syr/blog/wrongful-termination-saudi-labor-law",
-  "/syr/blog/foreign-company-registration-saudi-arabia",
-  "/syr/blog/board-of-grievances-saudi-arabia",
-  "/syr/blog/real-estate-disputes-saudi-arabia",
-  "/syr/blog/child-custody-saudi-arabia",
-
-  // New Syria-specific canonical blog URLs (the redirect targets, served as real pages).
+  // New Syria-specific canonical blog URLs.
   "/syr/blog/divorce-in-syria",
   "/syr/blog/wrongful-termination-syrian-labor-law",
   "/syr/blog/foreign-company-registration-syria",
@@ -170,11 +161,11 @@ function unescapeHeadEntities(head: string): string {
   return head
     // <title data-rh="true">Some Title &amp; More</title>
     .replace(/(<title[^>]*>)([^<]*?)(<\/title>)/g, (_, open, text, close) =>
-      `${open}${text.replace(/&amp;/g, "&")}${close}`,
+      `${open}${text.replace(/&amp;/g, "&").replace(/&#x27;/g, "'")}${close}`,
     )
     // <meta ... content="Some &amp; Value" ...>
     .replace(/(<meta\b[^>]+\bcontent=")([^"]*?)(")/g, (_, pre, val, post) =>
-      `${pre}${val.replace(/&amp;/g, "&")}${post}`,
+      `${pre}${val.replace(/&amp;/g, "&").replace(/&#x27;/g, "'")}${post}`,
     );
 }
 
@@ -184,12 +175,13 @@ function unescapeHeadEntities(head: string): string {
  * changes from Helmet into the renderToString output, so we patch the
  * static template manually here.
  *
- * - "/" (region picker) → ar / rtl  (region-picker.tsx Helmet sets this)
- * - Routes with /ar path segment    → ar / rtl
- * - All other routes                → en / ltr
+ * - Routes with /ar path segment → ar / rtl
+ * - All other routes (including "/") → en / ltr
+ *   The root "/" region-picker is primarily English UI + bilingual links;
+ *   setting lang="en" is more truthful for crawlers.
  */
 function htmlTag(route: string): string {
-  const isArabic = route === "/" || route.includes("/ar/") || route.endsWith("/ar");
+  const isArabic = route.includes("/ar/") || route.endsWith("/ar");
   return isArabic
     ? '<html lang="ar" dir="rtl">'
     : '<html lang="en" dir="ltr">';
@@ -246,6 +238,50 @@ function writeRoute(
 }
 
 // ---------------------------------------------------------------------------
+// 301 redirect routes — old Syria blog slugs that contained Saudi wording.
+// These are no longer prerendered as full pages; instead we write a minimal
+// HTML file that immediately redirects the browser (and informs crawlers via
+// canonical + noindex) to the new Syria-specific canonical URL.
+// ---------------------------------------------------------------------------
+
+const REDIRECT_ROUTES: Record<string, string> = {
+  "/syr/blog/divorce-in-saudi-arabia":                    "/syr/blog/divorce-in-syria",
+  "/syr/blog/wrongful-termination-saudi-labor-law":       "/syr/blog/wrongful-termination-syrian-labor-law",
+  "/syr/blog/foreign-company-registration-saudi-arabia":  "/syr/blog/foreign-company-registration-syria",
+  "/syr/blog/board-of-grievances-saudi-arabia":           "/syr/blog/administrative-court-disputes-syria",
+  "/syr/blog/real-estate-disputes-saudi-arabia":          "/syr/blog/real-estate-disputes-syria",
+  "/syr/blog/child-custody-saudi-arabia":                 "/syr/blog/child-custody-syria",
+  "/syr/ar/blog/divorce-in-saudi-arabia":                 "/syr/ar/blog/divorce-in-syria",
+  "/syr/ar/blog/wrongful-termination-saudi-labor-law":    "/syr/ar/blog/wrongful-termination-syrian-labor-law",
+  "/syr/ar/blog/foreign-company-registration-saudi-arabia": "/syr/ar/blog/foreign-company-registration-syria",
+  "/syr/ar/blog/board-of-grievances-saudi-arabia":        "/syr/ar/blog/administrative-court-disputes-syria",
+  "/syr/ar/blog/real-estate-disputes-saudi-arabia":       "/syr/ar/blog/real-estate-disputes-syria",
+  "/syr/ar/blog/child-custody-saudi-arabia":              "/syr/ar/blog/child-custody-syria",
+};
+
+function writeRedirectRoute(fromRoute: string, toRoute: string): void {
+  const targetUrl = `https://counselo-legal.com${toRoute}`;
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url=${targetUrl}">
+  <link rel="canonical" href="${targetUrl}">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Redirecting…</title>
+  <script>window.location.replace(${JSON.stringify(targetUrl)});</script>
+</head>
+<body>
+  <p><a href="${targetUrl}">Click here if you are not redirected automatically.</a></p>
+</body>
+</html>`;
+
+  const outputPath = resolve(publicDir, "__pages", routeToFlatFilename(fromRoute));
+  mkdirSync(dirname(outputPath), { recursive: true });
+  writeFileSync(outputPath, html, "utf-8");
+}
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
@@ -287,6 +323,13 @@ async function prerender(): Promise<void> {
   if (failed.length > 0) {
     console.error(`\n❌ ${failed.length} route(s) failed:\n${failed.join("\n")}`);
     process.exit(1);
+  }
+
+  // Write redirect-only HTML files for old Syria blog URLs.
+  console.log(`\n🔀 Writing ${Object.keys(REDIRECT_ROUTES).length} redirect pages…\n`);
+  for (const [from, to] of Object.entries(REDIRECT_ROUTES)) {
+    writeRedirectRoute(from, to);
+    console.log(`  ↩ ${from} → ${to}`);
   }
 }
 

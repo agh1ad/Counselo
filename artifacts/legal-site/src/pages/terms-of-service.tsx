@@ -149,9 +149,10 @@ export default function TermsOfService() {
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
+            "@id": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/terms-of-service#webpage`,
             "name": isRTL ? "شروط الخدمة | كاونسلو" : "Terms of Service | CounselO",
             "description": content.seoDesc,
-            "url": "https://counselo-legal.com/terms-of-service",
+            "url": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/terms-of-service`,
             "isPartOf": { "@type": "WebSite", "name": "CounselO", "url": "https://counselo-legal.com" },
             "publisher": { "@type": "Organization", "name": "CounselO", "url": "https://counselo-legal.com" },
           },
@@ -159,8 +160,8 @@ export default function TermsOfService() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "شروط الخدمة" : "Terms of Service", "item": "https://counselo-legal.com/terms-of-service" },
+              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}` },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "شروط الخدمة" : "Terms of Service", "item": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/terms-of-service` },
             ],
           },
         ]}

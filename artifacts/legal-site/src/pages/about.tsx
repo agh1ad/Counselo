@@ -60,7 +60,9 @@ export default function About() {
         "width": 800,
         "height": 1200,
       },
-      "description": "Senior advocate and legal counsel with 30+ years experience across Saudi Arabia, UAE and Syria. Founder of CounselO.",
+      "description": region === "syr"
+        ? "Senior advocate and legal counsel with 30+ years experience across Syria, the UAE and the Arab world. Founder of CounselO."
+        : "Senior advocate and legal counsel with 30+ years experience across Saudi Arabia, UAE and Syria. Founder of CounselO.",
       "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
     },
     {
