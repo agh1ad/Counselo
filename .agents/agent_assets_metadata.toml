@@ -35,3 +35,9 @@ id = "F0zEFrkOB3l5mytkGGbN4"
 uri = "file://counselo-seo-export.json"
 type = "unspecified"
 title = "CounselO — Full SEO Export (127 pages)"
+
+[[outputs]]
+id = "eT0Qfqv6J5XRa0lBUh2mX"
+uri = "file://counselo-seo-export-v2.json"
+type = "unspecified"
+title = "CounselO SEO Export v2 — 127 pages (optimized)"
