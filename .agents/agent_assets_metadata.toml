@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "cPx-ADgHSZ31HmPJninMD"
@@ -30,3 +29,9 @@ id = "h7keYvG7zX9HDZcp8xVaw"
 uri = "file://artifacts/legal-site/public/images/services.png"
 type = "image"
 title = "Legal documents"
+
+[[outputs]]
+id = "F0zEFrkOB3l5mytkGGbN4"
+uri = "file://counselo-seo-export.json"
+type = "unspecified"
+title = "CounselO — Full SEO Export (127 pages)"
