@@ -11,7 +11,8 @@
     "build:prerender": "tsx src/scripts/prerender.ts",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "generate-sitemap": "tsx src/scripts/generate-sitemap.ts"
+    "generate-sitemap": "tsx src/scripts/generate-sitemap.ts",
+    "seo:validate": "tsx src/scripts/seo-validate.ts"
   },
   "devDependencies": {
     "tsx": "catalog:",
