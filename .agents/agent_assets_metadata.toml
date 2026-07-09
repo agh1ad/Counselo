@@ -77,3 +77,9 @@ id = "Yag-klHEuSrBNnLpJJHW5"
 uri = "file://counselo-seo-export-final.json"
 type = "unspecified"
 title = "CounselO — Full SEO Export (139 entries — 127 pages + 12 redirects, 562 KB)"
+
+[[outputs]]
+id = "AwsT7KxN3p_ujbdailXTN"
+uri = "file://counselo-full-export.json"
+type = "unspecified"
+title = "CounselO — Full Site Export (139 entries, 1.5 MB)"
