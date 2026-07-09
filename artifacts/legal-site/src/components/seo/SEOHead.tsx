@@ -12,6 +12,7 @@
 import { Helmet } from "react-helmet-async";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
+import { COUNSELO_OPTIMIZED_META } from "@/lib/optimized-meta";
 
 const SYR_TEXT_MAP: [RegExp, string][] = [
   [/Saudi Arabia/gi, "Syria"],
@@ -130,7 +131,17 @@ export function SEOHead({
   const isArabic = lang === "ar";
   const isSyr = region === "syr";
 
-  const rawTitle = isSyr ? syriafyText(title) : title;
+  // Compute the prefixed path first so we can look up the optimized meta map.
+  const basePath = canonical === "/" ? "" : canonical ?? "";
+  const langSegment = isArabic ? "/ar" : "";
+  const prefixedPath = `${geo.pathPrefix}${langSegment}${basePath}`;
+  const canonicalUrl = `https://counselo-legal.com${prefixedPath}`;
+
+  // If an optimized entry exists for this path, use it directly without
+  // applying syriafyText — the Syria entries already contain correct text.
+  const metaOverride = COUNSELO_OPTIMIZED_META[prefixedPath as keyof typeof COUNSELO_OPTIMIZED_META];
+
+  const rawTitle = metaOverride ? metaOverride.title : (isSyr ? syriafyText(title) : title);
   const fullTitle =
     rawTitle.endsWith("| CounselO") ||
     rawTitle.endsWith("| كاونسلو") ||
@@ -139,11 +150,6 @@ export function SEOHead({
       : isArabic
         ? `${rawTitle} | كاونسلو`
         : `${rawTitle} | CounselO`;
-
-  const basePath = canonical === "/" ? "" : canonical ?? "";
-  const langSegment = isArabic ? "/ar" : "";
-  const prefixedPath = `${geo.pathPrefix}${langSegment}${basePath}`;
-  const canonicalUrl = `https://counselo-legal.com${prefixedPath}`;
 
   // All 4 region x language combinations, each a real, distinct, crawlable
   // URL — required for hreflang to actually route users/crawlers to
@@ -177,13 +183,31 @@ export function SEOHead({
 
   const rawKeywords = keywords ?? (isArabic ? defaultKeywordsAr : defaultKeywordsEn);
 
-  const finalDescription = isSyr ? syriafyText(description) : description;
+  const finalDescription = metaOverride
+    ? metaOverride.description
+    : (isSyr ? syriafyText(description) : description);
   const finalKeywords = isSyr ? syriafyText(rawKeywords) : rawKeywords;
-  const finalSchema = isSyr && schema
-    ? (Array.isArray(schema) ? schema.map((s) => syriafyObj(s) as object) : syriafyObj(schema) as object)
+
+  // Apply syriafyObj for Syria pages, then patch any WebPage schema's name +
+  // description with the overridden values so structured data stays in sync.
+  const applyWebPagePatch = (s: object): object => {
+    const typed = s as Record<string, unknown>;
+    if (typed["@type"] === "WebPage") {
+      return { ...typed, name: fullTitle, description: finalDescription };
+    }
+    return s;
+  };
+
+  const processSchema = (s: object): object => {
+    const syrified = isSyr ? (syriafyObj(s) as object) : s;
+    return metaOverride ? applyWebPagePatch(syrified) : syrified;
+  };
+
+  const finalSchema = schema
+    ? (Array.isArray(schema) ? schema.map(processSchema) : processSchema(schema))
     : schema;
-  const finalExtraSchemas = isSyr && extraSchemas
-    ? extraSchemas.map((s) => syriafyObj(s) as object)
+  const finalExtraSchemas = extraSchemas
+    ? extraSchemas.map(processSchema)
     : extraSchemas;
 
   // All schemas to embed as JSON-LD. Rendered via Helmet <script> tags so

@@ -35,8 +35,8 @@ export default function RegionPicker() {
     <div className="min-h-screen bg-[#162b20] flex flex-col items-center justify-center px-4 py-16">
       <Helmet>
         <html lang="ar" dir="rtl" />
-        <title>CounselO | استشارة قانونية أونلاين — السعودية وسوريا | Saudi Arabia & Syria Online Legal Consultation</title>
-        <meta name="description" content="CounselO — منصة الاستشارات القانونية الأونلاين للمملكة العربية السعودية وسوريا. مشورة قانونية احترافية باللغتين العربية والإنجليزية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. Online legal consultations for Saudi Arabia and Syria — Arabic & English, response within 24 hours." />
+        <title>CounselO | Online Legal Consultation in Saudi Arabia & Syria</title>
+        <meta name="description" content="Get online legal consultation for Saudi Arabia or Syria in Arabic or English. Senior lawyer-led answers within 24 hours via WhatsApp or email." />
         <meta name="keywords" content="online legal consultation Saudi Arabia Syria, استشارة قانونية أونلاين السعودية سوريا, lawyer Saudi Arabia online, محامي أونلاين المملكة, محامي أونلاين سوريا, legal advice Middle East, مشورة قانونية الشرق الأوسط, CounselO, Omar Al-Baghdadi" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="geo.region" content="MENA" />
@@ -47,8 +47,8 @@ export default function RegionPicker() {
         <link rel="alternate" hrefLang="en-SY" href="https://counselo-legal.com/syr" />
         <link rel="alternate" hrefLang="ar-SY" href="https://counselo-legal.com/syr/ar" />
         <link rel="alternate" hrefLang="x-default" href="https://counselo-legal.com/" />
-        <meta property="og:title" content="CounselO | Online Legal Consultation — Saudi Arabia & Syria" />
-        <meta property="og:description" content="Professional online legal consultations for Saudi Arabia and Syria — Arabic & English, response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases." />
+        <meta property="og:title" content="CounselO | Online Legal Consultation in Saudi Arabia & Syria" />
+        <meta property="og:description" content="Get online legal consultation for Saudi Arabia or Syria in Arabic or English. Senior lawyer-led answers within 24 hours via WhatsApp or email." />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="CounselO كاونسلو" />
         <meta property="og:url" content="https://counselo-legal.com/" />
@@ -57,8 +57,8 @@ export default function RegionPicker() {
         <meta property="og:locale:alternate" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@CounselOLegal" />
-        <meta name="twitter:title" content="CounselO | Online Legal Consultation — Saudi Arabia & Syria" />
-        <meta name="twitter:description" content="Professional online legal consultations for Saudi Arabia and Syria — Arabic & English, response within 24 hours." />
+        <meta name="twitter:title" content="CounselO | Online Legal Consultation in Saudi Arabia & Syria" />
+        <meta name="twitter:description" content="Get online legal consultation for Saudi Arabia or Syria in Arabic or English. Senior lawyer-led answers within 24 hours via WhatsApp or email." />
         <meta name="twitter:image" content="https://counselo-legal.com/opengraph.jpg" />
         <script type="application/ld+json">{JSON.stringify(regionPickerSchema)}</script>
       </Helmet>
