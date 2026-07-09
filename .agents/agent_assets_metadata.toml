@@ -53,3 +53,15 @@ id = "zxuFvHEPM3ibzS3cQpZyz"
 uri = "file://artifacts/legal-site/dist/public/counselo-seo-export.json"
 type = "unspecified"
 title = "CounselO SEO Export (JSON — full schemas included)"
+
+[[outputs]]
+id = "QAIBTiQfk2KOuFiNuvyRf"
+uri = "file://counselo-seo-full-export.json"
+type = "unspecified"
+title = "CounselO SEO Full Export — JSON (all fields + schemas)"
+
+[[outputs]]
+id = "pjAWNWtCl5H1W82paEF5_"
+uri = "file://counselo-seo-full-export.csv"
+type = "table"
+title = "CounselO SEO Full Export — CSV (flat, no schema JSON)"
