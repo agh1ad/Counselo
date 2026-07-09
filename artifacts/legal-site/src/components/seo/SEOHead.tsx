@@ -135,11 +135,25 @@ export function SEOHead({
   const basePath = canonical === "/" ? "" : canonical ?? "";
   const langSegment = isArabic ? "/ar" : "";
   const prefixedPath = `${geo.pathPrefix}${langSegment}${basePath}`;
-  const canonicalUrl = `https://counselo-legal.com${prefixedPath}`;
 
   // If an optimized entry exists for this path, use it directly without
   // applying syriafyText — the Syria entries already contain correct text.
   const metaOverride = COUNSELO_OPTIMIZED_META[prefixedPath as keyof typeof COUNSELO_OPTIMIZED_META];
+
+  // Use canonicalOverride when present (redirect source pages point crawlers to
+  // the new canonical URL rather than their own URL).
+  const canonicalUrl = metaOverride?.canonicalOverride
+    ?? `https://counselo-legal.com${prefixedPath}`;
+
+  // When this page has a canonicalOverride for a Syria blog post, the Syria
+  // hreflang entries should point to the new Syria slug, not the old SA slug.
+  // Extract the blog path from the override URL (e.g. "/blog/new-syria-slug").
+  const syriaOverrideBlogPath: string | null = (() => {
+    const co = metaOverride?.canonicalOverride;
+    if (!co) return null;
+    const m = co.match(/^https:\/\/counselo-legal\.com\/syr(?:\/ar)?(\/blog\/.+)$/);
+    return m ? m[1] : null;
+  })();
 
   const rawTitle = metaOverride ? metaOverride.title : (isSyr ? syriafyText(title) : title);
   // Optimized meta titles are already final — never append a suffix to them.
@@ -164,10 +178,17 @@ export function SEOHead({
     { region: "syr" as const, isArabic: false, hrefLang: GEO.syr.hrefLangEn },
     { region: "syr" as const, isArabic: true, hrefLang: GEO.syr.hrefLangAr },
   ];
-  const hreflangAlternates = HREFLANG_COMBOS.map((c) => ({
-    hrefLang: c.hrefLang,
-    href: `https://counselo-legal.com${GEO[c.region].pathPrefix}${c.isArabic ? "/ar" : ""}${basePath}`,
-  }));
+  const hreflangAlternates = HREFLANG_COMBOS.map((c) => {
+    // Syria hreflang entries use the new Syria slug when a canonicalOverride is set.
+    const hrefPath =
+      c.region === "syr" && syriaOverrideBlogPath
+        ? syriaOverrideBlogPath
+        : basePath;
+    return {
+      hrefLang: c.hrefLang,
+      href: `https://counselo-legal.com${GEO[c.region].pathPrefix}${c.isArabic ? "/ar" : ""}${hrefPath}`,
+    };
+  });
   const xDefaultUrl = "https://counselo-legal.com/";
 
   const ogImage = "https://counselo-legal.com/og-image.png";

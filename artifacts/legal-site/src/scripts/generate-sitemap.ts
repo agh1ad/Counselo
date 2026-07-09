@@ -61,6 +61,18 @@ if (blogPosts.length > 0) {
 const { en } = await import("../translations/en.js");
 const { enSyr } = await import("../translations/en-syr.js");
 
+// Maps old SA-worded Syria blog slugs to new Syria-specific canonical slugs.
+// The sitemap only emits the new Syria slugs as canonical; the old slugs have
+// canonicalOverride set in optimized-meta.ts so they are not indexed directly.
+const SYRIA_SLUG_OVERRIDES: Record<string, string> = {
+  "board-of-grievances-saudi-arabia": "administrative-court-disputes-syria",
+  "child-custody-saudi-arabia": "child-custody-syria",
+  "divorce-in-saudi-arabia": "divorce-in-syria",
+  "foreign-company-registration-saudi-arabia": "foreign-company-registration-syria",
+  "real-estate-disputes-saudi-arabia": "real-estate-disputes-syria",
+  "wrongful-termination-saudi-labor-law": "wrongful-termination-syrian-labor-law",
+};
+
 function slugFromHref(href: string): string {
   return href.replace(/^\/services\//, "");
 }
@@ -120,6 +132,42 @@ ${hreflang(path)}
   </url>`;
 }
 
+/**
+ * Blog-post-specific hreflang: SA variants use saSlug, Syria variants use syrSlug.
+ * Required because Syria blog posts have been migrated to Syria-specific slugs while
+ * the SA blog posts retain the original slugs.
+ */
+function hreflangBlogPost(saSlug: string, syrSlug: string): string {
+  const combos: Array<[string, string]> = [
+    ["en-SA", `/sa/blog/${saSlug}`],
+    ["ar-SA", `/sa/ar/blog/${saSlug}`],
+    ["en-SY", `/syr/blog/${syrSlug}`],
+    ["ar-SY", `/syr/ar/blog/${syrSlug}`],
+  ];
+  return [
+    ...combos.map(
+      ([l, p]) =>
+        `    <xhtml:link rel="alternate" hrefLang="${l}"     href="${BASE_URL}${p}"/>`,
+    ),
+    `    <xhtml:link rel="alternate" hrefLang="x-default" href="${BASE_URL}/"/>`,
+  ].join("\n");
+}
+
+function urlEntryBlogPost(
+  path: string,
+  saSlug: string,
+  syrSlug: string,
+  lastmod: string,
+): string {
+  return `  <url>
+    <loc>${BASE_URL}${path}</loc>
+${hreflangBlogPost(saSlug, syrSlug)}
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>${lastmod}</lastmod>
+  </url>`;
+}
+
 const entries: string[] = [];
 
 entries.push("  <!-- ===== ROOT & CORE PAGES ===== -->");
@@ -145,18 +193,13 @@ for (const slug of SYR_SERVICE_SLUGS) {
 if (blogPosts.length > 0) {
   entries.push("\n  <!-- ===== BLOG POSTS ===== -->");
   for (const post of blogPosts) {
-    entries.push(
-      urlEntry(`/sa/blog/${post.slug}`, "monthly", "0.7", post.date),
-    );
-    entries.push(
-      urlEntry(`/sa/ar/blog/${post.slug}`, "monthly", "0.7", post.date),
-    );
-    entries.push(
-      urlEntry(`/syr/blog/${post.slug}`, "monthly", "0.7", post.date),
-    );
-    entries.push(
-      urlEntry(`/syr/ar/blog/${post.slug}`, "monthly", "0.7", post.date),
-    );
+    // SA blog posts keep the original slug unchanged.
+    entries.push(urlEntryBlogPost(`/sa/blog/${post.slug}`, post.slug, SYRIA_SLUG_OVERRIDES[post.slug] ?? post.slug, post.date));
+    entries.push(urlEntryBlogPost(`/sa/ar/blog/${post.slug}`, post.slug, SYRIA_SLUG_OVERRIDES[post.slug] ?? post.slug, post.date));
+    // Syria blog posts use the new Syria-specific canonical slug.
+    const syrSlug = SYRIA_SLUG_OVERRIDES[post.slug] ?? post.slug;
+    entries.push(urlEntryBlogPost(`/syr/blog/${syrSlug}`, post.slug, syrSlug, post.date));
+    entries.push(urlEntryBlogPost(`/syr/ar/blog/${syrSlug}`, post.slug, syrSlug, post.date));
   }
 }
 

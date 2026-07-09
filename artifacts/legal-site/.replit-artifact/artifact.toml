@@ -526,6 +526,55 @@ to = "/__pages/syr-ar-blog-real-estate-disputes-saudi-arabia.html"
 from = "/syr/ar/blog/child-custody-saudi-arabia"
 to = "/__pages/syr-ar-blog-child-custody-saudi-arabia.html"
 
+
+[[services.production.rewrites]]
+from = "/syr/blog/divorce-in-syria"
+to = "/__pages/syr-blog-divorce-in-syria.html"
+
+[[services.production.rewrites]]
+from = "/syr/blog/wrongful-termination-syrian-labor-law"
+to = "/__pages/syr-blog-wrongful-termination-syrian-labor-law.html"
+
+[[services.production.rewrites]]
+from = "/syr/blog/foreign-company-registration-syria"
+to = "/__pages/syr-blog-foreign-company-registration-syria.html"
+
+[[services.production.rewrites]]
+from = "/syr/blog/administrative-court-disputes-syria"
+to = "/__pages/syr-blog-administrative-court-disputes-syria.html"
+
+[[services.production.rewrites]]
+from = "/syr/blog/real-estate-disputes-syria"
+to = "/__pages/syr-blog-real-estate-disputes-syria.html"
+
+[[services.production.rewrites]]
+from = "/syr/blog/child-custody-syria"
+to = "/__pages/syr-blog-child-custody-syria.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/blog/divorce-in-syria"
+to = "/__pages/syr-ar-blog-divorce-in-syria.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/blog/wrongful-termination-syrian-labor-law"
+to = "/__pages/syr-ar-blog-wrongful-termination-syrian-labor-law.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/blog/foreign-company-registration-syria"
+to = "/__pages/syr-ar-blog-foreign-company-registration-syria.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/blog/administrative-court-disputes-syria"
+to = "/__pages/syr-ar-blog-administrative-court-disputes-syria.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/blog/real-estate-disputes-syria"
+to = "/__pages/syr-ar-blog-real-estate-disputes-syria.html"
+
+[[services.production.rewrites]]
+from = "/syr/ar/blog/child-custody-syria"
+to = "/__pages/syr-ar-blog-child-custody-syria.html"
+
 [[services.production.rewrites]]
 from = "/*"
 to = "/index.html"

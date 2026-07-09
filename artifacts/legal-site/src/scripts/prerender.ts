@@ -94,13 +94,22 @@ const ENGLISH_ROUTES: string[] = [
   "/sa/blog/real-estate-disputes-saudi-arabia",
   "/sa/blog/child-custody-saudi-arabia",
 
-  // Syria blog post pages
+  // Syria blog post pages — old SA-worded slugs kept as redirect source pages
+  // (canonicalOverride in optimized-meta.ts points crawlers to the new slug).
   "/syr/blog/divorce-in-saudi-arabia",
   "/syr/blog/wrongful-termination-saudi-labor-law",
   "/syr/blog/foreign-company-registration-saudi-arabia",
   "/syr/blog/board-of-grievances-saudi-arabia",
   "/syr/blog/real-estate-disputes-saudi-arabia",
   "/syr/blog/child-custody-saudi-arabia",
+
+  // New Syria-specific canonical blog URLs (the redirect targets, served as real pages).
+  "/syr/blog/divorce-in-syria",
+  "/syr/blog/wrongful-termination-syrian-labor-law",
+  "/syr/blog/foreign-company-registration-syria",
+  "/syr/blog/administrative-court-disputes-syria",
+  "/syr/blog/real-estate-disputes-syria",
+  "/syr/blog/child-custody-syria",
 ];
 
 // Arabic is a real URL segment, not a client-side-only toggle: every English

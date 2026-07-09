@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { staticBlogPosts } from "@/data/blog-posts";
+import { SYR_BLOG_SLUG_TO_DB_SLUG } from "@/lib/syr-blog-slug-aliases";
 
 interface BlogSection {
   heading?: string;
@@ -49,7 +50,13 @@ export default function BlogPost() {
   const { lang, isRTL } = useLanguage();
   const { region, regionPrefix } = useRegion();
 
-  const staticPost = staticBlogPosts.find((p) => p.slug === slug);
+  // Syria blog posts migrated to Syria-specific slugs. When the URL uses a new
+  // Syria slug, look up the original database slug so content loads correctly.
+  const dbSlug = (region === "syr" && SYR_BLOG_SLUG_TO_DB_SLUG[slug ?? ""])
+    ? SYR_BLOG_SLUG_TO_DB_SLUG[slug!]
+    : (slug ?? "");
+
+  const staticPost = staticBlogPosts.find((p) => p.slug === dbSlug);
   const ssrInitialData: ApiPost | undefined = staticPost
     ? {
         id: 0,
@@ -75,9 +82,9 @@ export default function BlogPost() {
     : undefined;
 
   const { data: post, isLoading, isError } = useQuery<ApiPost>({
-    queryKey: ["blog-post", slug],
+    queryKey: ["blog-post", dbSlug],
     queryFn: async () => {
-      const res = await fetch(`/api/blog/posts/${slug}`);
+      const res = await fetch(`/api/blog/posts/${dbSlug}`);
       if (!res.ok) throw new Error("Not found");
       return res.json() as Promise<ApiPost>;
     },

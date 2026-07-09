@@ -1,0 +1,114 @@
+/**
+ * CounselO v2 final SEO metadata patch.
+ *
+ * Apply this after the current v2 metadata.
+ *
+ * For every route in COUNSELO_DESCRIPTION_PATCH:
+ * - meta description = description
+ * - openGraph.description = description
+ * - twitter.description = description
+ * - schema.WebPage.description = description
+ *
+ * For every route in COUNSELO_SYRIA_BLOG_REDIRECTS:
+ * - add HTTP 301 redirect
+ * - update canonical, og:url, twitter URL if used, sitemap URL, and schema @id/url to the target URL
+ * - remove the old Saudi-worded route from sitemap
+ */
+
+export const COUNSELO_DESCRIPTION_PATCH: Record<string, string> = {
+  "/sa/ar/services/administrative-law": "استشارة أونلاين خلال 24 ساعة في القانون الإداري داخل السعودية: قرارات حكومية، اعتراضات، ومنازعات إدارية.",
+  "/sa/ar/services/arbitration": "استشارة أونلاين خلال 24 ساعة في التحكيم والوساطة داخل السعودية: تحكيم تجاري، وساطة، تسوية، وتنفيذ أحكام.",
+  "/sa/ar/services/banking-finance": "استشارة أونلاين خلال 24 ساعة في المصارف والتمويل داخل السعودية: نزاعات مصرفية، عقود تمويل، وتمويل إسلامي.",
+  "/sa/ar/services/business-law": "استشارة أونلاين خلال 24 ساعة في القانون التجاري داخل السعودية: نزاعات تجارية، عقود، معاملات، ومسؤولية.",
+  "/sa/ar/services/companies-law": "استشارة أونلاين خلال 24 ساعة في قانون الشركات داخل السعودية: تأسيس شركات، نزاعات شركاء، حوكمة، ومسؤولية.",
+  "/sa/ar/services/contracts": "استشارة أونلاين خلال 24 ساعة في العقود داخل السعودية: صياغة العقود، مراجعتها، الإخلال، الفسخ، والتنفيذ.",
+  "/sa/ar/services/criminal-law": "استشارة أونلاين خلال 24 ساعة في القانون الجزائي داخل السعودية: شكاوى جزائية، تحقيق، دفاع، أدلة، وإجراءات محكمة.",
+  "/sa/ar/services/cyber-law": "استشارة أونلاين خلال 24 ساعة في الجرائم الإلكترونية داخل السعودية: جرائم إلكترونية، تشهير، حماية بيانات، وأدلة رقمية.",
+  "/sa/ar/services/employment-law": "استشارة أونلاين خلال 24 ساعة في قانون العمل داخل السعودية: فصل، أجور متأخرة، عقود عمل، ومنازعات عمالية.",
+  "/sa/ar/services/enforcement": "استشارة أونلاين خلال 24 ساعة في التنفيذ وتحصيل الديون داخل السعودية: تنفيذ أحكام، تحصيل ديون، مطالبات مالية، وإجراءات تنفيذ.",
+  "/sa/ar/services/family-law": "استشارة أونلاين خلال 24 ساعة في الأحوال الشخصية داخل السعودية: طلاق، حضانة، نفقة، زيارة، ميراث، ومسائل أسرية.",
+  "/sa/ar/services/foreign-investment": "استشارة أونلاين خلال 24 ساعة في الاستثمار الأجنبي داخل السعودية: تأسيس شركات أجنبية، ترخيص، سجل تجاري، وامتثال.",
+  "/sa/ar/services/insurance-law": "استشارة أونلاين خلال 24 ساعة في قانون التأمين داخل السعودية: رفض تعويضات، منازعات وثائق، مسؤولية تأمينية، وتسوية.",
+  "/sa/ar/services/intellectual-property": "استشارة أونلاين خلال 24 ساعة في الملكية الفكرية داخل السعودية: علامات تجارية، حقوق مؤلف، براءات، وأسرار تجارية.",
+  "/sa/ar/services/medical-malpractice": "استشارة أونلاين خلال 24 ساعة في الأخطاء الطبية داخل السعودية: إهمال طبي، أخطاء جراحية، سوء تشخيص، وتعويض.",
+  "/sa/ar/services/real-estate": "استشارة أونلاين خلال 24 ساعة في القانون العقاري داخل السعودية: نزاعات ملكية، إيجارات، عيوب بناء، وعقود عقارية.",
+  "/sa/ar/services/tax-zakat": "استشارة أونلاين خلال 24 ساعة في الضرائب والزكاة داخل السعودية: تقييمات ضريبية، زكاة، قيمة مضافة، جمارك، واعتراضات.",
+  "/sa/services/administrative-law": "Get 24-hour online administrative law advice in Saudi Arabia on government decisions, objections, and administrative court strategy.",
+  "/sa/services/arbitration": "Get 24-hour online arbitration and mediation advice in Saudi Arabia on commercial arbitration, mediation, settlements, and award enforcement.",
+  "/sa/services/banking-finance": "Get 24-hour online banking and finance law advice in Saudi Arabia on bank disputes, finance contracts, Islamic finance, and regulation.",
+  "/sa/services/business-law": "Get 24-hour online commercial law advice in Saudi Arabia on commercial disputes, contracts, transactions, liability, and risk.",
+  "/sa/services/companies-law": "Get 24-hour online companies law advice in Saudi Arabia on company formation, shareholder disputes, governance, and corporate claims.",
+  "/sa/services/contracts": "Get 24-hour online contract law advice in Saudi Arabia on drafting, review, breach, termination, enforcement, and negotiation.",
+  "/sa/services/criminal-law": "Get 24-hour online criminal law advice in Saudi Arabia on complaints, investigation, defense strategy, evidence, and court procedures.",
+  "/sa/services/cyber-law": "Get 24-hour online cybercrime and IT law advice in Saudi Arabia on cybercrime, online defamation, data protection, digital evidence, and IT disputes.",
+  "/sa/services/employment-law": "Get 24-hour online employment law advice in Saudi Arabia on termination, unpaid wages, contracts, workplace disputes, and labor claims.",
+  "/sa/services/enforcement": "Get 24-hour online enforcement and debt collection advice in Saudi Arabia on judgment enforcement, debt recovery, payment claims, and execution steps.",
+  "/sa/services/family-law": "Get 24-hour online family law advice in Saudi Arabia on divorce, custody, alimony, visitation, inheritance, and personal status matters.",
+  "/sa/services/foreign-investment": "Get 24-hour online foreign investment law advice in Saudi Arabia on foreign company setup, licensing, registration, compliance, and business entry.",
+  "/sa/services/insurance-law": "Get 24-hour online insurance law advice in Saudi Arabia on claim denial, policy disputes, compensation, insurer liability, and settlements.",
+  "/sa/services/intellectual-property": "Get 24-hour online intellectual property law advice in Saudi Arabia on trademarks, copyrights, patents, trade secrets, infringement, and IP protection.",
+  "/sa/services/medical-malpractice": "Get 24-hour online medical malpractice law advice in Saudi Arabia on medical negligence, surgical errors, misdiagnosis, liability, and compensation.",
+  "/sa/services/real-estate": "Get 24-hour online real estate law advice in Saudi Arabia on ownership disputes, leases, construction defects, sale contracts, and property claims.",
+  "/sa/services/tax-zakat": "Get 24-hour online tax and zakat law advice in Saudi Arabia on tax assessments, zakat, VAT, customs, objections, and compliance.",
+  "/syr/ar/services/administrative-law": "استشارة أونلاين خلال 24 ساعة في القانون الإداري داخل سوريا: قرارات حكومية، اعتراضات، ومنازعات إدارية.",
+  "/syr/ar/services/arbitration": "استشارة أونلاين خلال 24 ساعة في التحكيم والوساطة داخل سوريا: تحكيم تجاري، وساطة، تسوية، وتنفيذ أحكام.",
+  "/syr/ar/services/banking-finance": "استشارة أونلاين خلال 24 ساعة في المصارف والتمويل داخل سوريا: نزاعات مصرفية، عقود تمويل، وتمويل إسلامي.",
+  "/syr/ar/services/business-law": "استشارة أونلاين خلال 24 ساعة في القانون التجاري داخل سوريا: نزاعات تجارية، عقود، معاملات، ومسؤولية.",
+  "/syr/ar/services/civil-law": "استشارة أونلاين خلال 24 ساعة في القانون المدني داخل سوريا: دعاوى مدنية، التزامات، تعويض، وحقوق خاصة.",
+  "/syr/ar/services/civil-procedure": "استشارة أونلاين خلال 24 ساعة في أصول المحاكمات المدنية داخل سوريا: إجراءات التقاضي، المواعيد، الاختصاص، والطعون.",
+  "/syr/ar/services/companies-law": "استشارة أونلاين خلال 24 ساعة في قانون الشركات داخل سوريا: تأسيس شركات، نزاعات شركاء، حوكمة، ومسؤولية.",
+  "/syr/ar/services/contracts": "استشارة أونلاين خلال 24 ساعة في العقود داخل سوريا: صياغة العقود، مراجعتها، الإخلال، الفسخ، والتنفيذ.",
+  "/syr/ar/services/criminal-law": "استشارة أونلاين خلال 24 ساعة في القانون الجزائي داخل سوريا: شكاوى جزائية، تحقيق، دفاع، أدلة، وإجراءات محكمة.",
+  "/syr/ar/services/criminal-procedure": "استشارة أونلاين خلال 24 ساعة في أصول المحاكمات الجزائية داخل سوريا: تحقيق، توقيف، أدلة، طعون، وحقوق إجرائية.",
+  "/syr/ar/services/cyber-law": "استشارة أونلاين خلال 24 ساعة في الجرائم الإلكترونية داخل سوريا: جرائم إلكترونية، تشهير، حماية بيانات، وأدلة رقمية.",
+  "/syr/ar/services/employment-law": "استشارة أونلاين خلال 24 ساعة في قانون العمل داخل سوريا: فصل، أجور متأخرة، عقود عمل، ومنازعات عمالية.",
+  "/syr/ar/services/enforcement": "استشارة أونلاين خلال 24 ساعة في التنفيذ وتحصيل الديون داخل سوريا: تنفيذ أحكام، تحصيل ديون، مطالبات مالية، وإجراءات تنفيذ.",
+  "/syr/ar/services/family-law": "استشارة أونلاين خلال 24 ساعة في الأحوال الشخصية داخل سوريا: طلاق، حضانة، نفقة، زيارة، ميراث، ومسائل أسرية.",
+  "/syr/ar/services/foreign-investment": "استشارة أونلاين خلال 24 ساعة في الاستثمار الأجنبي داخل سوريا: تأسيس شركات أجنبية، ترخيص، سجل تجاري، وامتثال.",
+  "/syr/ar/services/insurance-law": "استشارة أونلاين خلال 24 ساعة في قانون التأمين داخل سوريا: رفض تعويضات، منازعات وثائق، مسؤولية تأمينية، وتسوية.",
+  "/syr/ar/services/intellectual-property": "استشارة أونلاين خلال 24 ساعة في الملكية الفكرية داخل سوريا: علامات تجارية، حقوق مؤلف، براءات، وأسرار تجارية.",
+  "/syr/ar/services/medical-malpractice": "استشارة أونلاين خلال 24 ساعة في الأخطاء الطبية داخل سوريا: إهمال طبي، أخطاء جراحية، سوء تشخيص، وتعويض.",
+  "/syr/ar/services/real-estate": "استشارة أونلاين خلال 24 ساعة في القانون العقاري داخل سوريا: نزاعات ملكية، إيجارات، عيوب بناء، وعقود عقارية.",
+  "/syr/ar/services/tax-zakat": "استشارة أونلاين خلال 24 ساعة في الضرائب والزكاة داخل سوريا: تقييمات ضريبية، زكاة، قيمة مضافة، جمارك، واعتراضات.",
+  "/syr/services/administrative-law": "Get 24-hour online administrative law advice in Syria on government decisions, objections, and administrative court strategy.",
+  "/syr/services/arbitration": "Get 24-hour online arbitration and mediation advice in Syria on commercial arbitration, mediation, settlements, and award enforcement.",
+  "/syr/services/banking-finance": "Get 24-hour online banking and finance law advice in Syria on bank disputes, finance contracts, Islamic finance, and regulation.",
+  "/syr/services/business-law": "Get 24-hour online commercial law advice in Syria on commercial disputes, contracts, transactions, liability, and risk.",
+  "/syr/services/civil-law": "Get 24-hour online civil law advice in Syria on civil claims, obligations, compensation, property rights, and private disputes.",
+  "/syr/services/civil-procedure": "Get 24-hour online civil procedure advice in Syria on filings, deadlines, evidence, jurisdiction, appeals, and litigation steps.",
+  "/syr/services/companies-law": "Get 24-hour online companies law advice in Syria on company formation, shareholder disputes, governance, and corporate claims.",
+  "/syr/services/contracts": "Get 24-hour online contract law advice in Syria on drafting, review, breach, termination, enforcement, and negotiation.",
+  "/syr/services/criminal-law": "Get 24-hour online criminal law advice in Syria on complaints, investigation, defense strategy, evidence, and court procedures.",
+  "/syr/services/criminal-procedure": "Get 24-hour online criminal procedure advice in Syria on investigation, detention, evidence, appeals, and procedural rights.",
+  "/syr/services/cyber-law": "Get 24-hour online cybercrime and IT law advice in Syria on cybercrime, online defamation, data protection, digital evidence, and IT disputes.",
+  "/syr/services/employment-law": "Get 24-hour online employment law advice in Syria on termination, unpaid wages, contracts, workplace disputes, and labor claims.",
+  "/syr/services/enforcement": "Get 24-hour online enforcement and debt collection advice in Syria on judgment enforcement, debt recovery, payment claims, and execution steps.",
+  "/syr/services/family-law": "Get 24-hour online family law advice in Syria on divorce, custody, alimony, visitation, inheritance, and personal status matters.",
+  "/syr/services/foreign-investment": "Get 24-hour online foreign investment law advice in Syria on foreign company setup, licensing, registration, compliance, and business entry.",
+  "/syr/services/insurance-law": "Get 24-hour online insurance law advice in Syria on claim denial, policy disputes, compensation, insurer liability, and settlements.",
+  "/syr/services/intellectual-property": "Get 24-hour online intellectual property law advice in Syria on trademarks, copyrights, patents, trade secrets, infringement, and IP protection.",
+  "/syr/services/medical-malpractice": "Get 24-hour online medical malpractice law advice in Syria on medical negligence, surgical errors, misdiagnosis, liability, and compensation.",
+  "/syr/services/real-estate": "Get 24-hour online real estate law advice in Syria on ownership disputes, leases, construction defects, sale contracts, and property claims.",
+  "/syr/services/tax-zakat": "Get 24-hour online tax and zakat law advice in Syria on tax assessments, zakat, VAT, customs, objections, and compliance.",
+  "/sa/privacy-policy": "Learn how CounselO collects, protects, and handles Saudi Arabia legal consultation data while preserving client confidentiality.",
+  "/syr/privacy-policy": "Learn how CounselO collects, protects, and handles Syria legal consultation data while preserving client confidentiality.",
+  "/sa/terms-of-service": "Review CounselO Saudi Arabia’s consultation process, including submission, fee confirmation, payment, delivery, and clarification policy.",
+  "/syr/terms-of-service": "Review CounselO Syria’s consultation process, including submission, fee confirmation, payment, delivery, and clarification policy.",
+  "/sa/ar/terms-of-service": "تعرف على آلية طلب الاستشارة القانونية في السعودية عبر كاونسلو، من إرسال التفاصيل إلى الدفع واستلام الرد القانوني.",
+  "/syr/ar/terms-of-service": "تعرف على آلية طلب الاستشارة القانونية في سوريا عبر كاونسلو، من إرسال التفاصيل إلى الدفع واستلام الرد القانوني."
+};
+
+export const COUNSELO_SYRIA_BLOG_REDIRECTS: Record<string, string> = {
+  "/syr/blog/board-of-grievances-saudi-arabia": "/syr/blog/administrative-court-disputes-syria",
+  "/syr/blog/child-custody-saudi-arabia": "/syr/blog/child-custody-syria",
+  "/syr/blog/divorce-in-saudi-arabia": "/syr/blog/divorce-in-syria",
+  "/syr/blog/foreign-company-registration-saudi-arabia": "/syr/blog/foreign-company-registration-syria",
+  "/syr/blog/real-estate-disputes-saudi-arabia": "/syr/blog/real-estate-disputes-syria",
+  "/syr/blog/wrongful-termination-saudi-labor-law": "/syr/blog/wrongful-termination-syrian-labor-law",
+  "/syr/ar/blog/board-of-grievances-saudi-arabia": "/syr/ar/blog/administrative-court-disputes-syria",
+  "/syr/ar/blog/child-custody-saudi-arabia": "/syr/ar/blog/child-custody-syria",
+  "/syr/ar/blog/divorce-in-saudi-arabia": "/syr/ar/blog/divorce-in-syria",
+  "/syr/ar/blog/foreign-company-registration-saudi-arabia": "/syr/ar/blog/foreign-company-registration-syria",
+  "/syr/ar/blog/real-estate-disputes-saudi-arabia": "/syr/ar/blog/real-estate-disputes-syria",
+  "/syr/ar/blog/wrongful-termination-saudi-labor-law": "/syr/ar/blog/wrongful-termination-syrian-labor-law"
+};
