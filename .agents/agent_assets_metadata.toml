@@ -41,3 +41,15 @@ id = "eT0Qfqv6J5XRa0lBUh2mX"
 uri = "file://counselo-seo-export-v2.json"
 type = "unspecified"
 title = "CounselO SEO Export v2 — 127 pages (optimized)"
+
+[[outputs]]
+id = "tYuTGIK5lIWdEfUqLl0ih"
+uri = "file://artifacts/legal-site/dist/public/counselo-seo-export.csv"
+type = "table"
+title = "CounselO SEO Export (CSV — open in Excel / Google Sheets)"
+
+[[outputs]]
+id = "zxuFvHEPM3ibzS3cQpZyz"
+uri = "file://artifacts/legal-site/dist/public/counselo-seo-export.json"
+type = "unspecified"
+title = "CounselO SEO Export (JSON — full schemas included)"
