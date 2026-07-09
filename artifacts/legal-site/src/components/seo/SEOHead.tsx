@@ -142,14 +142,17 @@ export function SEOHead({
   const metaOverride = COUNSELO_OPTIMIZED_META[prefixedPath as keyof typeof COUNSELO_OPTIMIZED_META];
 
   const rawTitle = metaOverride ? metaOverride.title : (isSyr ? syriafyText(title) : title);
-  const fullTitle =
-    rawTitle.endsWith("| CounselO") ||
-    rawTitle.endsWith("| كاونسلو") ||
-    rawTitle.endsWith("كاونسلو")
-      ? rawTitle
-      : isArabic
-        ? `${rawTitle} | كاونسلو`
-        : `${rawTitle} | CounselO`;
+  // Optimized meta titles are already final — never append a suffix to them.
+  // For fallback (non-map) titles, append "| CounselO" only if not already present.
+  const fullTitle = metaOverride
+    ? rawTitle
+    : (rawTitle.endsWith("| CounselO") ||
+        rawTitle.endsWith("| كاونسلو") ||
+        rawTitle.endsWith("كاونسلو")
+          ? rawTitle
+          : isArabic
+            ? `${rawTitle} | كاونسلو`
+            : `${rawTitle} | CounselO`);
 
   // All 4 region x language combinations, each a real, distinct, crawlable
   // URL — required for hreflang to actually route users/crawlers to
