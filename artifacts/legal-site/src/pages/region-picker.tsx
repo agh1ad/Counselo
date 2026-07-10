@@ -240,14 +240,11 @@ export default function RegionPicker() {
           Online Legal Consultation for<br />
           <span className="text-white/80">Saudi Arabia &amp; Syria</span>
         </h1>
-        <p className="text-white/60 text-lg mb-2 max-w-xl leading-relaxed">
+        <p className="text-white/60 text-lg mb-10 max-w-xl leading-relaxed">
           Expert, confidential legal advice in Arabic &amp; English — within 24 hours.
         </p>
-        <p className="text-white/40 text-base mb-10 font-arabic" dir="rtl">
-          استشارات قانونية احترافية بالعربية والإنجليزية · خلال 24 ساعة
-        </p>
 
-        <p className="text-white/50 text-sm mb-6 uppercase tracking-widest">Select your region · اختر منطقتك</p>
+        <p className="text-white/50 text-sm mb-6 uppercase tracking-widest">Select your region</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full max-w-lg mb-6">
           <Link href="/sa">
@@ -259,8 +256,7 @@ export default function RegionPicker() {
                 style={{ aspectRatio: "3/2", width: "72px" }}
               />
               <div>
-                <div className="text-white font-semibold text-base mb-0.5">Saudi Arabia</div>
-                <div className="text-white/60 text-sm">المملكة العربية السعودية</div>
+                <div className="text-white font-semibold text-base">Saudi Arabia</div>
               </div>
               <div className="text-white/40 text-xs group-hover:text-white/70 transition-colors">
                 Enter →
@@ -277,8 +273,7 @@ export default function RegionPicker() {
                 style={{ aspectRatio: "3/2", width: "72px" }}
               />
               <div>
-                <div className="text-white font-semibold text-base mb-0.5">Syria</div>
-                <div className="text-white/60 text-sm">سوريا</div>
+                <div className="text-white font-semibold text-base">Syria</div>
               </div>
               <div className="text-white/40 text-xs group-hover:text-white/70 transition-colors">
                 Enter →
@@ -323,17 +318,11 @@ export default function RegionPicker() {
             <strong className="text-white">30 years of legal practice</strong> and more than{" "}
             <strong className="text-white">20,000 cases</strong> handled across Saudi Arabia and Syria.
           </p>
-          <p className="text-white/70 leading-relaxed mb-4">
+          <p className="text-white/70 leading-relaxed">
             We make professional legal advice accessible to everyone — individuals, families, and businesses —
             without the need for an office visit. Consultations are conducted securely via WhatsApp or email,
             in <strong className="text-white">Arabic or English</strong>, with a response guaranteed{" "}
             <strong className="text-white">within 24 hours</strong>.
-          </p>
-          <p className="text-white/70 leading-relaxed" dir="rtl">
-            <strong className="text-white">كاونسلو</strong> منصة استشارات قانونية إلكترونية يقودها المحامي والمستشار القانوني{" "}
-            <strong className="text-white">عمر البغدادي</strong>، بخبرة تمتد لأكثر من{" "}
-            <strong className="text-white">30 عاماً</strong> وأكثر من{" "}
-            <strong className="text-white">20,000 قضية</strong> في السعودية وسوريا. نقدم استشاراتنا عبر الواتساب أو البريد الإلكتروني خلال 24 ساعة.
           </p>
         </div>
 
@@ -371,14 +360,13 @@ export default function RegionPicker() {
             Practice Areas
           </h2>
           <p className="text-white/50 text-center mb-10 text-sm">
-            Available in Saudi Arabia and Syria · متاح في السعودية وسوريا
+            Available in Saudi Arabia and Syria
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-8">
             {SERVICES.map(({ slug, en, ar }) => (
               <div key={slug} className="bg-white/5 border border-white/10 p-4 hover:border-white/30 transition-colors">
-                <div className="font-semibold text-white text-sm mb-1">{en}</div>
-                <div className="text-white/50 text-xs mb-3" dir="rtl">{ar}</div>
+                <div className="font-semibold text-white text-sm mb-3">{en}</div>
                 <div className="flex gap-2 flex-wrap">
                   <Link
                     href={`/sa/services/${slug}`}

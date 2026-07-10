@@ -195,14 +195,11 @@ export default function ArRegionPicker() {
           <br />
           <span className="text-white/80">للسعودية وسوريا</span>
         </h1>
-        <p className="text-white/60 text-lg mb-2 max-w-xl leading-relaxed">
+        <p className="text-white/60 text-lg mb-10 max-w-xl leading-relaxed">
           استشارات قانونية احترافية وسرية بالعربية والإنجليزية — خلال 24 ساعة.
         </p>
-        <p className="text-white/40 text-base mb-10 font-sans" dir="ltr">
-          Expert legal advice in Arabic &amp; English · Response within 24 hours
-        </p>
 
-        <p className="text-white/50 text-sm mb-6 tracking-widest">اختر منطقتك · Select your region</p>
+        <p className="text-white/50 text-sm mb-6 tracking-widest">اختر منطقتك</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full max-w-lg mb-6">
           <Link href="/sa/ar">
@@ -214,8 +211,7 @@ export default function ArRegionPicker() {
                 style={{ aspectRatio: "3/2", width: "72px" }}
               />
               <div>
-                <div className="text-white font-semibold text-base mb-0.5">المملكة العربية السعودية</div>
-                <div className="text-white/60 text-sm" dir="ltr">Saudi Arabia</div>
+                <div className="text-white font-semibold text-base">المملكة العربية السعودية</div>
               </div>
               <div className="text-white/40 text-xs group-hover:text-white/70 transition-colors">
                 ادخل ←
@@ -232,8 +228,7 @@ export default function ArRegionPicker() {
                 style={{ aspectRatio: "3/2", width: "72px" }}
               />
               <div>
-                <div className="text-white font-semibold text-base mb-0.5">سوريا</div>
-                <div className="text-white/60 text-sm" dir="ltr">Syria</div>
+                <div className="text-white font-semibold text-base">سوريا</div>
               </div>
               <div className="text-white/40 text-xs group-hover:text-white/70 transition-colors">
                 ادخل ←
@@ -243,11 +238,11 @@ export default function ArRegionPicker() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-4 text-sm text-white/40">
-          <Link href="/" className="hover:text-white/70 transition-colors" dir="ltr">English</Link>
+          <Link href="/" className="hover:text-white/70 transition-colors">الإنجليزية</Link>
           <span className="text-white/20">·</span>
-          <Link href="/sa" className="hover:text-white/70 transition-colors" dir="ltr">English — Saudi Arabia</Link>
+          <Link href="/sa" className="hover:text-white/70 transition-colors">السعودية — إنجليزي</Link>
           <span className="text-white/20">·</span>
-          <Link href="/syr" className="hover:text-white/70 transition-colors" dir="ltr">English — Syria</Link>
+          <Link href="/syr" className="hover:text-white/70 transition-colors">سوريا — إنجليزي</Link>
         </div>
       </section>
 
@@ -286,10 +281,6 @@ export default function ArRegionPicker() {
             <strong className="text-white">بالعربية أو الإنجليزية</strong>، مع ضمان الرد{" "}
             <strong className="text-white">خلال 24 ساعة</strong>.
           </p>
-          <p className="text-white/60 text-sm leading-relaxed" dir="ltr">
-            CounselO is an online legal consultation platform founded by Lawyer Omar Al-Baghdadi (30+ years, 20,000+ cases).
-            Expert Arabic &amp; English legal advice for Saudi Arabia and Syria — within 24 hours.
-          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -313,15 +304,14 @@ export default function ArRegionPicker() {
           <h2 id="services-heading-ar" className="text-2xl md:text-3xl font-serif font-bold text-white mb-2 text-center">
             مجالات الممارسة القانونية
           </h2>
-          <p className="text-white/50 text-center mb-10 text-sm" dir="ltr">
-            Available in Saudi Arabia and Syria · متاح في السعودية وسوريا
+          <p className="text-white/50 text-center mb-10 text-sm">
+            متاحة في المملكة العربية السعودية وسوريا
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-8">
             {SERVICES.map(({ slug, ar, en }) => (
               <div key={slug} className="bg-white/5 border border-white/10 p-4 hover:border-white/30 transition-colors">
-                <div className="font-semibold text-white text-sm mb-1">{ar}</div>
-                <div className="text-white/50 text-xs mb-3" dir="ltr">{en}</div>
+                <div className="font-semibold text-white text-sm mb-3">{ar}</div>
                 <div className="flex gap-2 flex-wrap">
                   <Link
                     href={`/sa/ar/services/${slug}`}
@@ -390,8 +380,8 @@ export default function ArRegionPicker() {
           <h2 id="blog-heading-ar" className="text-2xl md:text-3xl font-serif font-bold text-white mb-2 text-center">
             مقالات قانونية مجانية
           </h2>
-          <p className="text-white/50 text-center mb-10 text-sm" dir="ltr">
-            In-depth legal articles for Saudi Arabia and Syria
+          <p className="text-white/50 text-center mb-10 text-sm">
+            مقالات قانونية معمّقة للسعودية وسوريا
           </p>
 
           <div className="grid sm:grid-cols-2 gap-4 mb-8">
