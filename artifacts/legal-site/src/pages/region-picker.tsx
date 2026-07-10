@@ -460,14 +460,15 @@ export default function RegionPicker() {
             <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">Simple Process</p>
             <h2 id="how-heading" className="text-4xl font-serif font-bold text-foreground mb-4">How It Works</h2>
             <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-            <p className="text-muted-foreground">Three steps to expert legal advice</p>
+            <p className="text-muted-foreground">Four steps to expert legal advice</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {[
               { step: "01", title: "Choose Your Jurisdiction", body: "Select Saudi Arabia or Syria. Each region has jurisdiction-specific legal advice, service pages, and guides tailored to local law." },
               { step: "02", title: "Describe Your Legal Matter", body: "Send your legal question via WhatsApp or the contact form — in Arabic or English. Include any relevant documents if needed." },
-              { step: "03", title: "Receive Expert Advice",   body: "Lawyer Omar Al-Baghdadi or a qualified CounselO team member reviews your matter and responds within 24 hours." },
+              { step: "03", title: "Pay the Consultation Fee",  body: "Payment is made by bank transfer before you receive the legal opinion. You will receive a payment confirmation and expected response time." },
+              { step: "04", title: "Receive Expert Advice",     body: "Lawyer Omar Al-Baghdadi or a qualified CounselO team member reviews your matter and responds within 24 hours." },
             ].map(({ step, title, body }, i) => (
               <motion.div key={step} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
                 className="relative bg-card border border-border p-8 hover:border-primary/50 hover:shadow-md transition-all">

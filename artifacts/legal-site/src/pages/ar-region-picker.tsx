@@ -415,14 +415,15 @@ export default function ArRegionPicker() {
             <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">خطوات بسيطة</p>
             <h2 id="how-heading-ar" className="text-4xl font-serif font-bold text-foreground mb-4">كيف تعمل الخدمة؟</h2>
             <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-            <p className="text-muted-foreground">ثلاث خطوات للحصول على استشارة قانونية متخصصة</p>
+            <p className="text-muted-foreground">أربع خطوات للحصول على استشارة قانونية متخصصة</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {[
               { step: "01", title: "اختر نطاقك القضائي",   body: "اختر المملكة العربية السعودية أو سوريا. لكل منطقة صفحات خدمات وأدلة قانونية مخصصة وفق القانون المحلي." },
               { step: "02", title: "صف قضيتك القانونية",   body: "أرسل سؤالك القانوني عبر الواتساب أو نموذج التواصل — بالعربية أو الإنجليزية. أرفق المستندات إن لزم." },
-              { step: "03", title: "احصل على رأي قانوني",  body: "يراجع المحامي عمر البغدادي أو أحد أعضاء فريق كاونسلو قضيتك ويردّ خلال 24 ساعة." },
+              { step: "03", title: "ادفع رسوم الاستشارة",   body: "تُسدَّد رسوم الاستشارة عبر التحويل المصرفي قبل استلام الرأي القانوني. يُرسَل إليك تأكيد الدفع وموعد الرد المتوقع." },
+              { step: "04", title: "احصل على رأي قانوني",  body: "يراجع المحامي عمر البغدادي أو أحد أعضاء فريق كاونسلو قضيتك ويردّ خلال 24 ساعة." },
             ].map(({ step, title, body }, i) => (
               <motion.div key={step} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
                 className="relative bg-card border border-border p-8 hover:border-primary/50 hover:shadow-md transition-all">
