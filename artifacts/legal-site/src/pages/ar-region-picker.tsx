@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
+import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowLeft, MessageCircle, CheckCircle2 } from "lucide-react";
 import counseloLogo from "@assets/Screen_Shot_2026-07-01_at_12.26.11_AM_1782851175169.png";
 import saudiFlag from "@assets/image_1782789705620.jpeg";
 import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5x_1782856203372.jpg";
@@ -136,11 +138,20 @@ const FAQS = [
   { q: "ما مجالات القانون التي يغطيها كاونسلو؟", a: "قانون الأسرة والطلاق، قانون العمل، القانون العقاري، القانون التجاري، الاستثمار الأجنبي، الجنائي، الإداري، العقود، البنوك، الملكية الفكرية، الضرائب، قانون التقنية، الأخطاء الطبية، التأمين، التحكيم، وقانون الشركات." },
 ];
 
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6 },
+};
+
+const serviceIcons = [Scale, ShieldCheck, Globe, Clock, Lock, CheckCircle2, Globe, Scale, ShieldCheck, Globe, Clock, Lock, CheckCircle2, Globe, Scale, ShieldCheck, Clock];
+
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function ArRegionPicker() {
   return (
-    <div className="min-h-screen bg-[#162b20] text-white" dir="rtl">
+    <div className="w-full bg-background" dir="rtl">
       <Helmet>
         <html lang="ar" dir="rtl" />
         <title>كاونسلو | استشارة قانونية أونلاين — السعودية وسوريا</title>
@@ -180,495 +191,382 @@ export default function ArRegionPicker() {
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
-      {/* ── Top accent bar ────────────────────────────────────────────────── */}
-      <div style={{ height: "3px", background: "linear-gradient(90deg, #C9A84C 0%, #e8c96a 50%, #C9A84C 100%)" }} />
-
-      {/* ── Hero ──────────────────────────────────────────────────────────── */}
-      <section
-        className="relative flex flex-col items-center justify-center px-4 pt-16 pb-20 text-center overflow-hidden"
-        aria-label="اختيار المنطقة"
-      >
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse 70% 55% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 70%)" }}
-        />
-
-        <Link href="/sa/ar">
-          <img
-            src={counseloLogo}
-            alt="كاونسلو — استشارات قانونية أونلاين للسعودية وسوريا"
-            className="relative h-20 w-auto object-contain mb-8 hover:opacity-90 transition-opacity"
-          />
-        </Link>
-
-        {/* credential badge */}
-        <div
-          className="relative inline-flex items-center gap-2 mb-6 px-4 py-1.5 text-xs tracking-widest"
-          style={{ border: "1px solid rgba(201,168,76,0.35)", color: "#C9A84C" }}
-        >
-          <span style={{ width: "20px", height: "1px", background: "#C9A84C", display: "inline-block" }} />
-          مستشار قانوني معتمد · السعودية وسوريا
-          <span style={{ width: "20px", height: "1px", background: "#C9A84C", display: "inline-block" }} />
+      {/* ── HERO ── */}
+      <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-4 pt-16 pb-20 text-center overflow-hidden" aria-label="اختيار المنطقة">
+        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 10%) 0%, hsl(150 80% 15%) 100%)" }} />
+        <div className="absolute start-0 top-0 w-1/2 h-full opacity-10 pointer-events-none z-0">
+          <div className="w-full h-full" style={{ background: "radial-gradient(ellipse at 50% 50%, hsl(150 60% 60%) 0%, transparent 70%)" }} />
         </div>
+        <div className="absolute inset-0 z-0 opacity-[0.04]"
+          style={{ backgroundImage: "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
 
-        <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-5 leading-tight max-w-3xl">
-          استشارة قانونية أونلاين
-          <br />
-          <span style={{ color: "#C9A84C" }}>السعودية وسوريا</span>
-        </h1>
-
-        <p className="relative text-lg mb-10 max-w-lg leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
-          استشارات قانونية احترافية وسرية بالعربية والإنجليزية — ضمان الرد خلال 24 ساعة.
-        </p>
-
-        {/* trust badges */}
-        <div className="relative flex flex-wrap justify-center gap-4 mb-10">
-          {[
-            "السرية المهنية بين المحامي والموكّل",
-            "ضمان الرد خلال 24 ساعة",
-            "بالعربية والإنجليزية",
-          ].map((label) => (
-            <div
-              key={label}
-              className="px-4 py-2 text-xs"
-              style={{ background: "rgba(201,168,76,0.07)", border: "1px solid rgba(201,168,76,0.2)", color: "rgba(255,255,255,0.7)" }}
-            >
-              {label}
-            </div>
-          ))}
-        </div>
-
-        <p className="relative text-xs mb-5 uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.35)" }}>اختر نطاق قضائك</p>
-
-        {/* region cards */}
-        <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md mb-6">
-          {[
-            { href: "/sa/ar",  flag: saudiFlag,  label: "المملكة العربية السعودية", alt: "السعودية — استشارة قانونية" },
-            { href: "/syr/ar", flag: syrianFlag, label: "سوريا",                    alt: "سوريا — استشارة قانونية" },
-          ].map(({ href, flag, label, alt }) => (
-            <Link key={href} href={href}>
-              <div
-                className="group cursor-pointer flex flex-col items-center gap-4 p-8 transition-all duration-200"
-                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.12)" }}
-                onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(201,168,76,0.5)"; (e.currentTarget as HTMLDivElement).style.background = "rgba(201,168,76,0.06)"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.12)"; (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.03)"; }}
-              >
-                <img
-                  src={flag}
-                  alt={alt}
-                  className="object-cover shadow-lg"
-                  style={{ width: "72px", height: "48px", borderRadius: "2px", border: "1px solid rgba(255,255,255,0.15)" }}
-                />
-                <div className="text-white font-semibold text-base">{label}</div>
-                <div className="text-xs tracking-widest transition-colors" style={{ color: "rgba(201,168,76,0.6)" }}>
-                  ادخل ←
-                </div>
-              </div>
+        <div className="relative z-10 w-full max-w-4xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="flex flex-col items-center">
+            <Link href="/sa/ar">
+              <img
+                src={counseloLogo}
+                alt="كاونسلو — استشارات قانونية أونلاين للسعودية وسوريا"
+                className="h-20 w-auto object-contain mb-10 hover:opacity-90 transition-opacity"
+              />
             </Link>
-          ))}
-        </div>
 
-        {/* language switcher */}
-        <div className="relative flex flex-wrap justify-center gap-4 text-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
-          <Link href="/" className="hover:text-white/60 transition-colors">English</Link>
-          <span style={{ color: "rgba(255,255,255,0.15)" }}>·</span>
-          <Link href="/sa" className="hover:text-white/60 transition-colors">السعودية — إنجليزي</Link>
-          <span style={{ color: "rgba(255,255,255,0.15)" }}>·</span>
-          <Link href="/syr" className="hover:text-white/60 transition-colors">سوريا — إنجليزي</Link>
-        </div>
-      </section>
+            <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-2 mb-8">
+              مستشار قانوني معتمد · السعودية وسوريا
+            </span>
 
-      {/* ── Stats bar ─────────────────────────────────────────────────────── */}
-      <section
-        aria-label="أبرز أرقام كاونسلو"
-        style={{ borderTop: "1px solid rgba(201,168,76,0.15)", borderBottom: "1px solid rgba(201,168,76,0.15)", background: "rgba(201,168,76,0.04)" }}
-        className="py-10 px-4"
-      >
-        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {[
-            { stat: "+30",      label: "عاماً من الخبرة القانونية" },
-            { stat: "+20,000",  label: "قضية تمت معالجتها" },
-            { stat: "24 ساعة", label: "ضمان الرد" },
-            { stat: "2",        label: "دولتان: السعودية وسوريا" },
-          ].map(({ stat, label }) => (
-            <div key={stat}>
-              <div className="text-3xl md:text-4xl font-serif font-bold mb-1" style={{ color: "#C9A84C" }} dir="ltr">{stat}</div>
-              <div className="text-xs uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.45)" }}>{label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight mb-6 max-w-3xl">
+              استشارة قانونية أونلاين
+              <br />
+              <span className="text-white/70 italic">السعودية وسوريا</span>
+            </h1>
 
-      {/* ── Founder & About ───────────────────────────────────────────────── */}
-      <section className="max-w-4xl mx-auto px-4 py-20" aria-labelledby="about-heading-ar">
-        <div className="grid md:grid-cols-5 gap-10 items-start">
+            <div className="w-20 h-1 bg-white/40 mb-8" />
 
-          {/* founder card */}
-          <div
-            className="md:col-span-2 p-8 text-center"
-            style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(201,168,76,0.2)" }}
-          >
-            <div
-              className="mx-auto mb-5 flex items-center justify-center text-2xl font-serif font-bold"
-              style={{ width: "80px", height: "80px", borderRadius: "50%", border: "2px solid rgba(201,168,76,0.4)", background: "rgba(201,168,76,0.08)", color: "#C9A84C" }}
-            >
-              ع.ب
-            </div>
-            <div className="text-white font-serif font-bold text-lg mb-1">عمر البغدادي</div>
-            <div className="text-xs uppercase tracking-widest mb-4" style={{ color: "#C9A84C" }}>محامٍ ومستشار قانوني</div>
-            <div
-              className="text-xs leading-relaxed mb-5"
-              style={{ color: "rgba(255,255,255,0.5)", borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "1rem" }}
-            >
-              أكثر من 30 عاماً من الممارسة القانونية في السعودية وسوريا. متخصص في القانون المدني والتجاري والأسري والإداري.
-            </div>
-            <a
-              href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs transition-opacity hover:opacity-80"
-              style={{ color: "#C9A84C" }}
-              dir="ltr"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-              LinkedIn Profile
-            </a>
-          </div>
-
-          {/* about text */}
-          <div className="md:col-span-3">
-            <div className="text-xs uppercase tracking-widest mb-3" style={{ color: "#C9A84C" }}>عن كاونسلو</div>
-            <h2 id="about-heading-ar" className="text-2xl md:text-3xl font-serif font-bold text-white mb-5 leading-snug">
-              استشارة قانونية احترافية<br />عبر الإنترنت
-            </h2>
-            <p className="leading-relaxed mb-5" style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.95rem" }}>
-              <strong className="text-white">كاونسلو</strong> منصة استشارات قانونية إلكترونية أسسها وقادها{" "}
-              <strong className="text-white">المحامي والمستشار القانوني عمر البغدادي</strong>، صاحب خبرة تمتد لأكثر من{" "}
-              <strong className="text-white">30 عاماً</strong> وأكثر من{" "}
-              <strong className="text-white">20,000 قضية</strong> في السعودية وسوريا.
-            </p>
-            <p className="leading-relaxed mb-7" style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.95rem" }}>
-              نجعل الاستشارة القانونية المتخصصة في متناول الجميع — أفراداً وأسراً وشركات — دون الحاجة لزيارة المكتب. الاستشارات عبر الواتساب أو البريد الإلكتروني{" "}
-              <strong className="text-white">بالعربية أو الإنجليزية</strong>، مع ضمان الرد{" "}
-              <strong className="text-white">خلال 24 ساعة</strong>.
+            <p className="text-xl text-white/75 mb-10 max-w-xl leading-relaxed font-light">
+              استشارات قانونية احترافية وسرية بالعربية والإنجليزية —{" "}
+              <strong className="text-white font-semibold">ضمان الرد خلال 24 ساعة.</strong>
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {[
-                { title: "سرية تامة", body: "تُطبَّق قواعد السرية المهنية بين المحامي والموكّل. معلوماتك القانونية لا تُشارَك مع أي طرف ثالث." },
-                { title: "رد خلال 24 ساعة", body: "قدّم سؤالك القانوني واحصل على رد متخصص خلال 24 ساعة — والحالات العاجلة تُعطى أولوية." },
-                { title: "أونلاين — دون مكتب", body: "استشِر من أي مكان عبر الواتساب أو البريد الإلكتروني. لا تنقل، لا انتظار، لا مواعيد." },
-              ].map(({ title, body }) => (
-                <div
-                  key={title}
-                  className="p-4"
-                  style={{ background: "rgba(255,255,255,0.03)", borderRight: "2px solid rgba(201,168,76,0.35)" }}
-                >
-                  <div className="text-white font-semibold text-sm mb-2">{title}</div>
-                  <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>{body}</p>
-                </div>
+            <div className="flex flex-wrap justify-center gap-3 mb-12">
+              {["السرية المهنية بين المحامي والموكّل", "ضمان الرد خلال 24 ساعة", "بالعربية والإنجليزية"].map((label) => (
+                <span key={label} className="bg-white/10 border border-white/20 text-white/80 text-xs font-medium px-4 py-2 uppercase tracking-wider">
+                  {label}
+                </span>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ── Practice Areas ────────────────────────────────────────────────── */}
-      <section
-        className="py-20 px-4"
-        aria-labelledby="services-heading-ar"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}
-      >
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-xs uppercase tracking-widest mb-3" style={{ color: "#C9A84C" }}>الخدمات القانونية</div>
-            <h2 id="services-heading-ar" className="text-2xl md:text-3xl font-serif font-bold text-white mb-3">
-              مجالات الممارسة القانونية
-            </h2>
-            <p className="text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>متاحة في المملكة العربية السعودية وسوريا</p>
-          </div>
+            <p className="text-white/40 text-xs mb-5 uppercase tracking-widest">اختر نطاق قضائك</p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-10">
-            {SERVICES.map(({ slug, ar }) => (
-              <div
-                key={slug}
-                className="transition-all duration-150"
-                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}
-                onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(201,168,76,0.35)"; (e.currentTarget as HTMLDivElement).style.background = "rgba(201,168,76,0.05)"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.08)"; (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.03)"; }}
-              >
-                <div className="p-4">
-                  <div className="font-semibold text-white text-sm mb-3 leading-snug">{ar}</div>
-                  <div className="flex gap-2 flex-wrap">
-                    <Link
-                      href={`/sa/ar/services/${slug}`}
-                      className="text-xs px-2 py-0.5 transition-colors"
-                      style={{ color: "rgba(201,168,76,0.7)", border: "1px solid rgba(201,168,76,0.2)" }}
-                    >
-                      SA
-                    </Link>
-                    <Link
-                      href={`/syr/ar/services/${slug}`}
-                      className="text-xs px-2 py-0.5 transition-colors"
-                      style={{ color: "rgba(201,168,76,0.7)", border: "1px solid rgba(201,168,76,0.2)" }}
-                    >
-                      SYR
-                    </Link>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md mb-8">
+              {[
+                { href: "/syr/ar", flag: syrianFlag, label: "سوريا",                    alt: "سوريا — استشارة قانونية" },
+                { href: "/sa/ar",  flag: saudiFlag,  label: "المملكة العربية السعودية", alt: "السعودية — استشارة قانونية" },
+              ].map(({ href, flag, label, alt }) => (
+                <Link key={href} href={href}>
+                  <div className="group cursor-pointer flex flex-col items-center gap-4 p-8 bg-white/5 border border-white/15 hover:bg-white/10 hover:border-white/40 transition-all duration-200">
+                    <img src={flag} alt={alt} className="object-cover shadow-lg" style={{ width: "72px", height: "48px", borderRadius: "2px", border: "1px solid rgba(255,255,255,0.2)" }} />
+                    <div className="text-white font-semibold text-base">{label}</div>
+                    <div className="flex items-center gap-1 text-white/50 text-xs group-hover:text-white/80 transition-colors">
+                      <ArrowLeft className="h-3 w-3" /> ادخل
+                    </div>
                   </div>
-                </div>
-              </div>
+                </Link>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-4 text-xs text-white/35">
+              <Link href="/" className="hover:text-white/60 transition-colors">English</Link>
+              <span className="text-white/15">·</span>
+              <Link href="/sa" className="hover:text-white/60 transition-colors">السعودية — إنجليزي</Link>
+              <span className="text-white/15">·</span>
+              <Link href="/syr" className="hover:text-white/60 transition-colors">سوريا — إنجليزي</Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── STATS BAR ── */}
+      <section aria-label="أبرز أرقام كاونسلو" className="py-12 bg-card border-y border-border">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x rtl:divide-x-reverse divide-border">
+            {[
+              { stat: "+30",      label: "عاماً من الخبرة القانونية" },
+              { stat: "+20,000",  label: "قضية تمت معالجتها" },
+              { stat: "24 ساعة", label: "ضمان الرد" },
+              { stat: "2",        label: "دولتان: السعودية وسوريا" },
+            ].map(({ stat, label }) => (
+              <motion.div key={stat} {...fadeIn} className="text-center px-4">
+                <div className="text-3xl md:text-4xl font-serif font-bold text-primary mb-2 leading-tight" dir="ltr">{stat}</div>
+                <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{label}</div>
+              </motion.div>
             ))}
           </div>
-
-          <div className="flex justify-center gap-5 flex-wrap">
-            <Link
-              href="/sa/ar/services"
-              className="text-sm font-semibold px-6 py-3 transition-opacity hover:opacity-80"
-              style={{ background: "rgba(201,168,76,0.12)", border: "1px solid rgba(201,168,76,0.3)", color: "#C9A84C" }}
-            >
-              جميع خدمات السعودية ←
-            </Link>
-            <Link
-              href="/syr/ar/services"
-              className="text-sm font-semibold px-6 py-3 transition-all hover:bg-white/10"
-              style={{ border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.6)" }}
-            >
-              جميع خدمات سوريا ←
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* ── How It Works ──────────────────────────────────────────────────── */}
-      <section className="max-w-4xl mx-auto px-4 py-20" aria-labelledby="how-heading-ar">
-        <div className="text-center mb-12">
-          <div className="text-xs uppercase tracking-widest mb-3" style={{ color: "#C9A84C" }}>خطوات بسيطة</div>
-          <h2 id="how-heading-ar" className="text-2xl md:text-3xl font-serif font-bold text-white">
-            كيف تعمل المنصة؟
-          </h2>
-        </div>
+      {/* ── ABOUT / FOUNDER ── */}
+      <section className="py-24 bg-background" aria-labelledby="about-heading-ar">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-5 gap-16 items-start">
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {[
-            { step: "01", title: "اختر نطاقك القضائي", body: "اختر المملكة العربية السعودية أو سوريا. لكل منطقة استشارات متخصصة وفق نظامها القانوني وصفحات خدمات مفصّلة." },
-            { step: "02", title: "صِف مسألتك القانونية", body: "أرسل سؤالك القانوني عبر الواتساب أو نموذج التواصل بالعربية أو الإنجليزية. يمكنك إرفاق المستندات ذات الصلة." },
-            { step: "03", title: "احصل على استشارة متخصصة", body: "يراجع المحامي عمر البغدادي أو أحد أعضاء فريق كاونسلو المؤهلين مسألتك ويرد عليها خلال 24 ساعة." },
-          ].map(({ step, title, body }) => (
-            <div key={step} className="text-center">
-              <div className="text-6xl font-serif font-bold mb-4 leading-none" style={{ color: "rgba(201,168,76,0.12)" }} dir="ltr">{step}</div>
-              <h3 className="font-serif font-bold text-white text-base mb-2">{title}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>{body}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex justify-center gap-4 flex-wrap">
-          <a
-            href="https://wa.me/966592850247"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 font-semibold px-7 py-3 text-sm transition-opacity hover:opacity-90"
-            style={{ background: "#25D366", color: "#fff" }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-            تواصل عبر الواتساب
-          </a>
-          <Link
-            href="/sa/ar/contact"
-            className="font-semibold px-7 py-3 text-sm transition-all hover:bg-white/8"
-            style={{ border: "1px solid rgba(255,255,255,0.18)", color: "rgba(255,255,255,0.7)" }}
-          >
-            نموذج التواصل
-          </Link>
-        </div>
-      </section>
-
-      {/* ── Legal Blog ────────────────────────────────────────────────────── */}
-      <section
-        className="py-20 px-4"
-        aria-labelledby="blog-heading-ar"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}
-      >
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="text-xs uppercase tracking-widest mb-3" style={{ color: "#C9A84C" }}>مركز المعرفة</div>
-            <h2 id="blog-heading-ar" className="text-2xl md:text-3xl font-serif font-bold text-white mb-3">
-              مقالات قانونية مجانية
-            </h2>
-            <p className="text-sm" style={{ color: "rgba(255,255,255,0.4)" }}>
-              مقالات قانونية معمّقة للسعودية وسوريا
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-4 mb-8">
-            {BLOG_POSTS.map(({ saSlug, syrSlug, ar }) => (
-              <div
-                key={saSlug}
-                className="p-5 transition-all duration-150"
-                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}
-                onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(201,168,76,0.25)"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.08)"; }}
-              >
-                <div className="text-xs uppercase tracking-widest mb-2" style={{ color: "rgba(201,168,76,0.6)" }}>مقال قانوني</div>
-                <h3 className="font-serif font-semibold text-white text-sm leading-snug mb-4">{ar}</h3>
-                <div className="flex gap-3">
-                  <Link
-                    href={`/sa/ar/blog/${saSlug}`}
-                    className="text-xs px-3 py-1 transition-colors"
-                    style={{ color: "rgba(201,168,76,0.8)", border: "1px solid rgba(201,168,76,0.25)" }}
-                  >
-                    السعودية ←
-                  </Link>
-                  <Link
-                    href={`/syr/ar/blog/${syrSlug}`}
-                    className="text-xs px-3 py-1 transition-colors"
-                    style={{ color: "rgba(255,255,255,0.45)", border: "1px solid rgba(255,255,255,0.12)" }}
-                  >
-                    سوريا ←
-                  </Link>
-                </div>
+            {/* About text — comes first in RTL so shows on right */}
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-3">
+              <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">عن كاونسلو</p>
+              <h2 id="about-heading-ar" className="text-4xl font-serif font-bold text-foreground mb-6">
+                استشارة قانونية احترافية<br />عبر الإنترنت
+              </h2>
+              <div className="w-16 h-1 bg-primary/40 mb-8" />
+              <p className="text-muted-foreground leading-relaxed mb-5">
+                <strong className="text-foreground">كاونسلو</strong> منصة استشارات قانونية إلكترونية أسسها وقادها{" "}
+                <strong className="text-foreground">المحامي والمستشار القانوني عمر البغدادي</strong>، صاحب خبرة تمتد لأكثر من{" "}
+                <strong className="text-foreground">30 عاماً</strong> وأكثر من{" "}
+                <strong className="text-foreground">20,000 قضية</strong> في السعودية وسوريا.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                نجعل الاستشارة القانونية المتخصصة في متناول الجميع — أفراداً وأسراً وشركات — دون الحاجة لزيارة المكتب. الاستشارات عبر الواتساب أو البريد الإلكتروني{" "}
+                <strong className="text-foreground">بالعربية أو الإنجليزية</strong>، مع ضمان الرد{" "}
+                <strong className="text-foreground">خلال 24 ساعة</strong>.
+              </p>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {[
+                  { Icon: Lock,  title: "سرية تامة",          body: "تُطبَّق قواعد السرية المهنية بين المحامي والموكّل. معلوماتك القانونية لا تُشارَك مع أي طرف ثالث." },
+                  { Icon: Clock, title: "رد خلال 24 ساعة",    body: "قدّم سؤالك القانوني واحصل على رد متخصص خلال 24 ساعة — والحالات العاجلة تُعطى أولوية." },
+                  { Icon: Globe, title: "أونلاين — دون مكتب", body: "استشِر من أي مكان عبر الواتساب أو البريد الإلكتروني. لا تنقل، لا انتظار، لا مواعيد." },
+                ].map(({ Icon, title, body }) => (
+                  <div key={title} className="bg-card border border-border p-5 border-r-2 border-r-primary">
+                    <Icon className="h-5 w-5 text-primary mb-3" />
+                    <div className="font-semibold text-foreground text-sm mb-1">{title}</div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{body}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </motion.div>
 
-          <div className="flex justify-center gap-5 flex-wrap">
-            <Link
-              href="/sa/ar/blog"
-              className="text-sm font-semibold px-6 py-3 transition-opacity hover:opacity-80"
-              style={{ background: "rgba(201,168,76,0.12)", border: "1px solid rgba(201,168,76,0.3)", color: "#C9A84C" }}
-            >
-              مدونة السعودية القانونية ←
-            </Link>
-            <Link
-              href="/syr/ar/blog"
-              className="text-sm px-6 py-3 transition-all hover:bg-white/10"
-              style={{ border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.5)" }}
-            >
-              مدونة سوريا القانونية ←
-            </Link>
+            {/* Founder card */}
+            <motion.div {...fadeIn} className="lg:col-span-2 bg-primary p-10 text-white">
+              <div className="w-20 h-20 rounded-full border-2 border-white/30 bg-white/10 flex items-center justify-center text-2xl font-serif font-bold text-white mx-auto mb-6">
+                ع.ب
+              </div>
+              <div className="text-center">
+                <div className="font-serif font-bold text-xl mb-1">عمر البغدادي</div>
+                <div className="text-white/60 text-sm uppercase tracking-wider mb-6">محامٍ ومستشار قانوني</div>
+                <div className="border-t border-white/20 pt-6 text-white/70 text-sm leading-relaxed mb-6">
+                  أكثر من 30 عاماً من الممارسة القانونية في السعودية وسوريا. متخصص في القانون المدني والتجاري والأسري والإداري.
+                </div>
+                <a
+                  href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-white/70 hover:text-white text-xs transition-colors border-b border-white/30 pb-0.5"
+                  dir="ltr"
+                >
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  LinkedIn Profile
+                </a>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ── FAQ ───────────────────────────────────────────────────────────── */}
-      <section className="max-w-3xl mx-auto px-4 py-20" aria-labelledby="faq-heading-ar">
-        <div className="text-center mb-12">
-          <div className="text-xs uppercase tracking-widest mb-3" style={{ color: "#C9A84C" }}>الدعم</div>
-          <h2 id="faq-heading-ar" className="text-2xl md:text-3xl font-serif font-bold text-white">
-            الأسئلة الشائعة
-          </h2>
-        </div>
-        <div className="space-y-3">
-          {FAQS.map(({ q, a }) => (
-            <div
-              key={q}
-              className="p-6"
-              style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRightWidth: "2px", borderRightColor: "rgba(201,168,76,0.4)" }}
-            >
-              <h3 className="font-serif font-semibold text-white text-sm mb-2">{q}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>{a}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* ── PRACTICE AREAS ── */}
+      <section className="py-24 bg-card border-y border-border" aria-labelledby="services-heading-ar">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
+            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">الخدمات القانونية</p>
+            <h2 id="services-heading-ar" className="text-4xl font-serif font-bold text-foreground mb-4">مجالات الممارسة القانونية</h2>
+            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
+            <p className="text-muted-foreground">متاحة في المملكة العربية السعودية وسوريا</p>
+          </motion.div>
 
-      {/* ── Final CTA ─────────────────────────────────────────────────────── */}
-      <section
-        className="py-20 px-4 text-center"
-        aria-label="الدعوة للعمل"
-        style={{ borderTop: "1px solid rgba(201,168,76,0.15)", background: "rgba(201,168,76,0.03)" }}
-      >
-        <div className="max-w-2xl mx-auto mb-10">
-          <div className="text-xs uppercase tracking-widest mb-4" style={{ color: "#C9A84C" }}>ابدأ الآن</div>
-          <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4">
-            هل أنت مستعد للحصول على استشارة قانونية؟
-          </h2>
-          <p className="mb-8 leading-relaxed" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.95rem" }}>
-            اختر منطقتك للوصول إلى الخدمات القانونية المتخصصة والمقالات وحجز الاستشارة.
-          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
+            {SERVICES.map(({ slug, ar }, index) => {
+              const Icon = serviceIcons[index] ?? Scale;
+              return (
+                <motion.div key={slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: (index % 8) * 0.05 }}
+                  className="bg-background border border-border p-5 hover:border-primary/50 hover:shadow-md transition-all group">
+                  <Icon className="h-6 w-6 text-primary mb-3" />
+                  <div className="font-semibold text-foreground text-sm mb-3 leading-snug">{ar}</div>
+                  <div className="flex gap-2 flex-wrap">
+                    <Link href={`/sa/ar/services/${slug}`} className="text-xs px-2 py-0.5 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors">السعودية</Link>
+                    <Link href={`/syr/ar/services/${slug}`} className="text-xs px-2 py-0.5 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors">سوريا</Link>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
           <div className="flex justify-center gap-4 flex-wrap">
-            <Link
-              href="/sa/ar"
-              className="font-bold px-10 py-3.5 text-sm transition-opacity hover:opacity-90"
-              style={{ background: "#C9A84C", color: "#162b20" }}
-            >
-              المملكة العربية السعودية ←
+            <Link href="/sa/ar/services" className="inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-8 py-3 hover:bg-primary/90 transition-colors">
+              <ArrowLeft className="h-4 w-4" /> جميع خدمات السعودية
             </Link>
-            <Link
-              href="/syr/ar"
-              className="font-bold px-10 py-3.5 text-sm transition-all hover:bg-white/10"
-              style={{ border: "1px solid rgba(255,255,255,0.2)", color: "rgba(255,255,255,0.8)" }}
-            >
-              سوريا ←
+            <Link href="/syr/ar/services" className="inline-flex items-center gap-2 border border-border text-foreground text-sm font-semibold px-8 py-3 hover:border-primary/50 hover:shadow-sm transition-all">
+              <ArrowLeft className="h-4 w-4" /> جميع خدمات سوريا
             </Link>
           </div>
         </div>
+      </section>
 
-        {/* footer nav */}
-        <nav
-          className="max-w-4xl mx-auto pt-12 text-right"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
-          aria-label="روابط الموقع"
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
-            <div>
-              <div className="font-semibold mb-3 text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>السعودية</div>
-              <ul className="space-y-2">
-                <li><Link href="/sa/ar" className="hover:text-white transition-colors">الرئيسية — SA</Link></li>
-                <li><Link href="/sa/ar/services" className="hover:text-white transition-colors">جميع الخدمات</Link></li>
-                <li><Link href="/sa/ar/blog" className="hover:text-white transition-colors">المدونة القانونية</Link></li>
-                <li><Link href="/sa/ar/about" className="hover:text-white transition-colors">من نحن</Link></li>
-                <li><Link href="/sa/ar/contact" className="hover:text-white transition-colors">تواصل معنا</Link></li>
-                <li><Link href="/sa" className="hover:text-white transition-colors" dir="ltr">English</Link></li>
-              </ul>
-            </div>
-            <div>
-              <div className="font-semibold mb-3 text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>سوريا</div>
-              <ul className="space-y-2">
-                <li><Link href="/syr/ar" className="hover:text-white transition-colors">الرئيسية — SYR</Link></li>
-                <li><Link href="/syr/ar/services" className="hover:text-white transition-colors">جميع الخدمات</Link></li>
-                <li><Link href="/syr/ar/blog" className="hover:text-white transition-colors">المدونة القانونية</Link></li>
-                <li><Link href="/syr/ar/about" className="hover:text-white transition-colors">من نحن</Link></li>
-                <li><Link href="/syr/ar/contact" className="hover:text-white transition-colors">تواصل معنا</Link></li>
-                <li><Link href="/syr" className="hover:text-white transition-colors" dir="ltr">English</Link></li>
-              </ul>
-            </div>
-            <div>
-              <div className="font-semibold mb-3 text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>أبرز الخدمات</div>
-              <ul className="space-y-2">
-                <li><Link href="/sa/ar/services/family-law" className="hover:text-white transition-colors">قانون الأسرة</Link></li>
-                <li><Link href="/sa/ar/services/employment-law" className="hover:text-white transition-colors">قانون العمل</Link></li>
-                <li><Link href="/sa/ar/services/real-estate" className="hover:text-white transition-colors">القانون العقاري</Link></li>
-                <li><Link href="/sa/ar/services/business-law" className="hover:text-white transition-colors">القانون التجاري</Link></li>
-                <li><Link href="/sa/ar/services/foreign-investment" className="hover:text-white transition-colors">الاستثمار الأجنبي</Link></li>
-                <li><Link href="/sa/ar/services/criminal-law" className="hover:text-white transition-colors">القانون الجنائي</Link></li>
-              </ul>
-            </div>
-            <div>
-              <div className="font-semibold mb-3 text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>مقالات قانونية</div>
-              <ul className="space-y-2">
-                <li><Link href="/sa/ar/blog/divorce-in-saudi-arabia" className="hover:text-white transition-colors">الطلاق في المملكة</Link></li>
-                <li><Link href="/sa/ar/blog/child-custody-saudi-arabia" className="hover:text-white transition-colors">الحضانة في المملكة</Link></li>
-                <li><Link href="/sa/ar/blog/wrongful-termination-saudi-labor-law" className="hover:text-white transition-colors">الفصل التعسفي</Link></li>
-                <li><Link href="/sa/ar/blog/foreign-company-registration-saudi-arabia" className="hover:text-white transition-colors">تسجيل شركة أجنبية</Link></li>
-                <li><Link href="/syr/ar/blog/divorce-in-syria" className="hover:text-white transition-colors">الطلاق في سوريا</Link></li>
-                <li><Link href="/syr/ar/blog/wrongful-termination-syrian-labor-law" className="hover:text-white transition-colors">الفصل التعسفي — سوريا</Link></li>
-              </ul>
-            </div>
+      {/* ── HOW IT WORKS ── */}
+      <section className="py-24 bg-background" aria-labelledby="how-heading-ar">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
+            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">خطوات بسيطة</p>
+            <h2 id="how-heading-ar" className="text-4xl font-serif font-bold text-foreground mb-4">كيف تعمل الخدمة؟</h2>
+            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
+            <p className="text-muted-foreground">ثلاث خطوات للحصول على استشارة قانونية متخصصة</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {[
+              { step: "01", title: "اختر نطاقك القضائي",   body: "اختر المملكة العربية السعودية أو سوريا. لكل منطقة صفحات خدمات وأدلة قانونية مخصصة وفق القانون المحلي." },
+              { step: "02", title: "صف قضيتك القانونية",   body: "أرسل سؤالك القانوني عبر الواتساب أو نموذج التواصل — بالعربية أو الإنجليزية. أرفق المستندات إن لزم." },
+              { step: "03", title: "احصل على رأي قانوني",  body: "يراجع المحامي عمر البغدادي أو أحد أعضاء فريق كاونسلو قضيتك ويردّ خلال 24 ساعة." },
+            ].map(({ step, title, body }, i) => (
+              <motion.div key={step} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
+                className="relative bg-card border border-border p-8 hover:border-primary/50 hover:shadow-md transition-all">
+                <div className="text-6xl font-serif font-bold text-primary/10 absolute top-4 start-6 leading-none select-none" dir="ltr">{step}</div>
+                <div className="text-primary font-mono text-sm font-bold mb-4" dir="ltr">{step}</div>
+                <h3 className="text-xl font-serif font-bold text-foreground mb-3">{title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">{body}</p>
+              </motion.div>
+            ))}
           </div>
-        </nav>
 
-        <div
-          className="max-w-4xl mx-auto mt-10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.25)" }}
-        >
-          <span>© 2026 كاونسلو. جميع الحقوق محفوظة.</span>
-          <div className="flex gap-4">
-            <Link href="/sa/ar/privacy-policy" className="hover:text-white/50 transition-colors">سياسة الخصوصية</Link>
-            <span>·</span>
-            <Link href="/sa/ar/terms-of-service" className="hover:text-white/50 transition-colors">شروط الخدمة</Link>
-            <span>·</span>
-            <a href="https://www.linkedin.com/in/lawyeromarbaghdadi/" target="_blank" rel="noopener noreferrer" className="hover:text-white/50 transition-colors" dir="ltr">LinkedIn</a>
+          <div className="flex justify-center gap-4 flex-wrap">
+            <a href="https://wa.me/966592850247" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 bg-[#25D366] text-white font-semibold px-7 py-3 text-sm hover:opacity-90 transition-opacity">
+              <MessageCircle className="h-4 w-4" />
+              تواصل عبر الواتساب
+            </a>
+            <Link href="/sa/ar/contact" className="inline-flex items-center gap-2 border border-border text-foreground font-semibold px-7 py-3 text-sm hover:border-primary/50 hover:shadow-sm transition-all">
+              <ArrowLeft className="h-4 w-4" /> نموذج التواصل
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── LEGAL BLOG ── */}
+      <section className="py-24 bg-card border-y border-border" aria-labelledby="blog-heading-ar">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
+            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">مركز المعرفة القانونية</p>
+            <h2 id="blog-heading-ar" className="text-4xl font-serif font-bold text-foreground mb-4">أدلة قانونية مجانية</h2>
+            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
+            <p className="text-muted-foreground">مقالات قانونية معمّقة للسعودية وسوريا</p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 gap-6 mb-10">
+            {BLOG_POSTS.map(({ saSlug, syrSlug, ar }, i) => (
+              <motion.div key={saSlug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-background border border-border p-6 hover:border-primary/50 hover:shadow-md transition-all">
+                <p className="text-primary font-medium text-xs uppercase tracking-widest mb-3">دليل قانوني</p>
+                <h3 className="font-serif font-bold text-foreground text-base leading-snug mb-5">{ar}</h3>
+                <div className="flex gap-3">
+                  <Link href={`/sa/ar/blog/${saSlug}`} className="inline-flex items-center gap-1 text-xs border border-border text-muted-foreground px-3 py-1.5 hover:border-primary hover:text-primary transition-colors">
+                    <ArrowLeft className="h-3 w-3" /> السعودية
+                  </Link>
+                  <Link href={`/syr/ar/blog/${syrSlug}`} className="inline-flex items-center gap-1 text-xs border border-border text-muted-foreground px-3 py-1.5 hover:border-primary hover:text-primary transition-colors">
+                    <ArrowLeft className="h-3 w-3" /> سوريا
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="flex justify-center gap-4 flex-wrap">
+            <Link href="/sa/ar/blog" className="inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-8 py-3 hover:bg-primary/90 transition-colors">
+              <ArrowLeft className="h-4 w-4" /> مدونة السعودية القانونية
+            </Link>
+            <Link href="/syr/ar/blog" className="inline-flex items-center gap-2 border border-border text-foreground text-sm font-semibold px-8 py-3 hover:border-primary/50 hover:shadow-sm transition-all">
+              <ArrowLeft className="h-4 w-4" /> مدونة سوريا القانونية
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="py-24 bg-background" aria-labelledby="faq-heading-ar">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeIn} className="text-center mb-16">
+            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">الدعم والمساعدة</p>
+            <h2 id="faq-heading-ar" className="text-4xl font-serif font-bold text-foreground mb-4">الأسئلة الشائعة</h2>
+            <div className="w-20 h-1 bg-primary mx-auto" />
+          </motion.div>
+          <div className="space-y-4">
+            {FAQS.map(({ q, a }, i) => (
+              <motion.div key={q} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }}
+                className="bg-card border border-border border-r-2 border-r-primary p-6">
+                <h3 className="font-serif font-semibold text-foreground mb-2">{q}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{a}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-24 bg-primary" aria-label="دعوة للتواصل">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div {...fadeIn}>
+            <p className="text-white/60 uppercase tracking-widest text-sm font-medium mb-3">ابدأ الآن</p>
+            <h2 className="text-4xl font-serif font-bold text-white mb-4">هل أنت مستعد للحصول على استشارة قانونية متخصصة؟</h2>
+            <div className="w-20 h-1 bg-white/30 mx-auto mb-8" />
+            <p className="text-white/70 text-lg leading-relaxed mb-10">
+              اختر نطاقك القضائي للوصول إلى الخدمات القانونية المتخصصة والأدلة المجانية وحجز الاستشارات.
+            </p>
+            <div className="flex justify-center gap-4 flex-wrap">
+              <Link href="/sa/ar" className="inline-flex items-center gap-2 bg-white text-primary font-bold px-10 py-3.5 text-sm hover:bg-white/90 transition-colors">
+                <ArrowLeft className="h-4 w-4" /> المملكة العربية السعودية
+              </Link>
+              <Link href="/syr/ar" className="inline-flex items-center gap-2 border border-white/30 text-white font-bold px-10 py-3.5 text-sm hover:bg-white/10 transition-colors">
+                <ArrowLeft className="h-4 w-4" /> سوريا
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── FOOTER NAV ── */}
+      <section className="py-16 bg-card border-t border-border">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav aria-label="روابط التنقل في الموقع">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm text-muted-foreground mb-12">
+              <div>
+                <div className="font-semibold text-foreground mb-4">السعودية</div>
+                <ul className="space-y-2.5">
+                  <li><Link href="/sa/ar" className="hover:text-primary transition-colors">الرئيسية — السعودية</Link></li>
+                  <li><Link href="/sa/ar/services" className="hover:text-primary transition-colors">جميع الخدمات</Link></li>
+                  <li><Link href="/sa/ar/blog" className="hover:text-primary transition-colors">المدونة القانونية</Link></li>
+                  <li><Link href="/sa/ar/about" className="hover:text-primary transition-colors">من نحن</Link></li>
+                  <li><Link href="/sa/ar/contact" className="hover:text-primary transition-colors">تواصل معنا</Link></li>
+                  <li><Link href="/sa" className="hover:text-primary transition-colors">English</Link></li>
+                </ul>
+              </div>
+              <div>
+                <div className="font-semibold text-foreground mb-4">سوريا</div>
+                <ul className="space-y-2.5">
+                  <li><Link href="/syr/ar" className="hover:text-primary transition-colors">الرئيسية — سوريا</Link></li>
+                  <li><Link href="/syr/ar/services" className="hover:text-primary transition-colors">جميع الخدمات</Link></li>
+                  <li><Link href="/syr/ar/blog" className="hover:text-primary transition-colors">المدونة القانونية</Link></li>
+                  <li><Link href="/syr/ar/about" className="hover:text-primary transition-colors">من نحن</Link></li>
+                  <li><Link href="/syr/ar/contact" className="hover:text-primary transition-colors">تواصل معنا</Link></li>
+                  <li><Link href="/syr" className="hover:text-primary transition-colors">English</Link></li>
+                </ul>
+              </div>
+              <div>
+                <div className="font-semibold text-foreground mb-4">أبرز الخدمات</div>
+                <ul className="space-y-2.5">
+                  <li><Link href="/sa/ar/services/family-law" className="hover:text-primary transition-colors">قانون الأسرة</Link></li>
+                  <li><Link href="/sa/ar/services/employment-law" className="hover:text-primary transition-colors">قانون العمل</Link></li>
+                  <li><Link href="/sa/ar/services/real-estate" className="hover:text-primary transition-colors">القانون العقاري</Link></li>
+                  <li><Link href="/sa/ar/services/business-law" className="hover:text-primary transition-colors">القانون التجاري</Link></li>
+                  <li><Link href="/sa/ar/services/foreign-investment" className="hover:text-primary transition-colors">الاستثمار الأجنبي</Link></li>
+                  <li><Link href="/sa/ar/services/criminal-law" className="hover:text-primary transition-colors">القانون الجنائي</Link></li>
+                </ul>
+              </div>
+              <div>
+                <div className="font-semibold text-foreground mb-4">أدلة قانونية</div>
+                <ul className="space-y-2.5">
+                  <li><Link href="/sa/ar/blog/divorce-in-saudi-arabia" className="hover:text-primary transition-colors">الطلاق في السعودية</Link></li>
+                  <li><Link href="/sa/ar/blog/child-custody-saudi-arabia" className="hover:text-primary transition-colors">الحضانة</Link></li>
+                  <li><Link href="/sa/ar/blog/wrongful-termination-saudi-labor-law" className="hover:text-primary transition-colors">الفصل التعسفي</Link></li>
+                  <li><Link href="/sa/ar/blog/foreign-company-registration-saudi-arabia" className="hover:text-primary transition-colors">تسجيل الشركات</Link></li>
+                  <li><Link href="/syr/ar/blog/divorce-in-syria" className="hover:text-primary transition-colors">الطلاق في سوريا</Link></li>
+                  <li><Link href="/syr/ar/blog/wrongful-termination-syrian-labor-law" className="hover:text-primary transition-colors">فصل العمال — سوريا</Link></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
+            <span>© 2026 كاونسلو. جميع الحقوق محفوظة.</span>
+            <div className="flex gap-4" dir="ltr">
+              <Link href="/sa/ar/privacy-policy" className="hover:text-primary transition-colors">سياسة الخصوصية</Link>
+              <span>·</span>
+              <Link href="/sa/ar/terms-of-service" className="hover:text-primary transition-colors">شروط الاستخدام</Link>
+              <span>·</span>
+              <a href="https://www.linkedin.com/in/lawyeromarbaghdadi/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
+            </div>
           </div>
         </div>
       </section>
