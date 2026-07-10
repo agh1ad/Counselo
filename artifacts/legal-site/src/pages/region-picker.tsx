@@ -314,16 +314,16 @@ export default function RegionPicker() {
       {/* ── STATS BAR ── */}
       <section aria-label="Key credentials of CounselO" className="py-12 bg-card border-y border-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-border">
+          <div className="grid grid-cols-2 md:grid-cols-4">
             {[
               { stat: "30+",     label: "Years of Legal Practice" },
               { stat: "20,000+", label: "Cases Handled" },
               { stat: "24 h",    label: "Guaranteed Response" },
               { stat: "2",       label: "Jurisdictions" },
-            ].map(({ stat, label }) => (
-              <motion.div key={stat} {...fadeIn} className="text-center px-4">
-                <div className="text-3xl md:text-4xl font-serif font-bold text-primary mb-2 leading-tight">{stat}</div>
-                <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{label}</div>
+            ].map(({ stat, label }, i, arr) => (
+              <motion.div key={stat} {...fadeIn} className={`text-center px-4 py-2 ${i < arr.length - 1 ? "border-r border-border" : ""}`}>
+                <div className="text-3xl md:text-4xl font-serif font-bold text-primary mb-2 leading-tight text-center">{stat}</div>
+                <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider text-center">{label}</div>
               </motion.div>
             ))}
           </div>
@@ -336,25 +336,63 @@ export default function RegionPicker() {
           <div className="grid lg:grid-cols-5 gap-16 items-start">
 
             {/* Founder card */}
-            <motion.div {...fadeIn} className="lg:col-span-2 bg-primary p-10 text-white">
-              <div className="w-20 h-20 rounded-full border-2 border-white/30 bg-white/10 flex items-center justify-center text-2xl font-serif font-bold text-white mx-auto mb-6">
-                OB
-              </div>
-              <div className="text-center">
-                <div className="font-serif font-bold text-xl mb-1">Omar Al-Baghdadi</div>
-                <div className="text-white/60 text-sm uppercase tracking-wider mb-6">Lawyer &amp; Legal Counsel</div>
-                <div className="border-t border-white/20 pt-6 text-white/70 text-sm leading-relaxed mb-6">
-                  30+ years of legal practice across Saudi Arabia and Syria. Expert in civil, commercial, family, and administrative law.
+            <motion.div {...fadeIn} className="lg:col-span-2 bg-primary text-white">
+              {/* Header */}
+              <div className="p-8 text-center border-b border-white/20">
+                <div className="w-20 h-20 rounded-full border-2 border-white/30 bg-white/10 flex items-center justify-center text-2xl font-serif font-bold text-white mx-auto mb-5">
+                  OB
                 </div>
+                <div className="font-serif font-bold text-xl mb-1">Omar Al-Baghdadi</div>
+                <div className="text-white/60 text-sm mb-4">Lawyer &amp; Legal Counsel</div>
                 <a
                   href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-white/70 hover:text-white text-xs transition-colors border-b border-white/30 pb-0.5"
+                  className="inline-flex items-center gap-1.5 text-white/60 hover:text-white text-xs transition-colors"
                 >
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  LinkedIn Profile
+                  linkedin.com/in/lawyeromarbaghdadi
                 </a>
+              </div>
+              {/* Credential badges */}
+              <div className="grid grid-cols-2 border-b border-white/20">
+                {[
+                  { n: "30+",    l: "Years Practice" },
+                  { n: "20K+",   l: "Cases Handled" },
+                  { n: "2",      l: "Jurisdictions" },
+                  { n: "2",      l: "Languages" },
+                ].map(({ n, l }, i) => (
+                  <div key={l} className={`text-center py-4 px-3 ${i % 2 === 0 ? "border-r border-white/20" : ""} ${i < 2 ? "border-b border-white/20" : ""}`}>
+                    <div className="text-xl font-serif font-bold text-white">{n}</div>
+                    <div className="text-white/55 text-xs mt-0.5">{l}</div>
+                  </div>
+                ))}
+              </div>
+              {/* Specialisations */}
+              <div className="p-6">
+                <div className="text-white/50 text-xs uppercase tracking-widest mb-3">Practice Areas</div>
+                <ul className="space-y-2">
+                  {["Family Law & Divorce", "Employment & Labour Law", "Real Estate & Property", "Business & Commercial Law", "Foreign Investment", "Criminal Law", "Administrative Law"].map((area) => (
+                    <li key={area} className="flex items-center gap-2 text-white/75 text-sm">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-white/40 shrink-0" />
+                      <span>{area}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-5 pt-5 border-t border-white/15">
+                  <div className="text-white/50 text-xs uppercase tracking-widest mb-2">Licensed In</div>
+                  <div className="flex gap-2 flex-wrap">
+                    {["Saudi Arabia", "Syria"].map((j) => (
+                      <span key={j} className="text-xs bg-white/10 border border-white/20 text-white/80 px-3 py-1">{j}</span>
+                    ))}
+                  </div>
+                  <div className="text-white/50 text-xs uppercase tracking-widest mt-3 mb-2">Languages</div>
+                  <div className="flex gap-2 flex-wrap">
+                    {["Arabic", "English"].map((l) => (
+                      <span key={l} className="text-xs bg-white/10 border border-white/20 text-white/80 px-3 py-1">{l}</span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
 
