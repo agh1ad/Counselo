@@ -1,6 +1,6 @@
 # CounselO SEO Validation Report
 
-_Generated: 2026-07-09 23:53:05 UTC_
+_Generated: 2026-07-10 00:50:50 UTC_
 
 ## Summary
 
@@ -12,7 +12,7 @@ _Generated: 2026-07-09 23:53:05 UTC_
 | ⚠️  Warn-only pages | 5 |
 | ❌ Error pages  | 0 |
 | Total errors    | 0 |
-| Total warnings  | 5 |
+| Total warnings  | 6 |
 | SEO score       | **98/100** |
 
 > ✅ **No errors found.** All pages pass critical SEO checks.
@@ -22,12 +22,14 @@ _Generated: 2026-07-09 23:53:05 UTC_
 | Rule | Errors | Warnings |
 |------|--------|----------|
 | `schema-no-breadcrumb` | — | 5 |
+| `desc-too-long` | — | 1 |
 
 ## ⚠️  Pages with Warnings Only
 
 ### `/`
-_Title: CounselO | Online Legal Consultation in Saudi Arabia & Syria_
+_Title: CounselO | Online Legal Consultation — Saudi Arabia & Syria_
 
+- ⚠️  **desc-too-long**: 200 chars (max 170)
 - ⚠️  **schema-no-breadcrumb**: No BreadcrumbList schema
 
 ### `/sa/about`

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-09 23:53:05 UTC",
+  "generatedAt": "2026-07-10 00:50:50 UTC",
   "summary": {
     "pages": 127,
     "redirects": 12,
@@ -7,10 +7,14 @@
     "warnOnly": 5,
     "errors": 0,
     "totalErrors": 0,
-    "totalWarnings": 5,
+    "totalWarnings": 6,
     "score": 98
   },
   "ruleFrequency": {
+    "desc-too-long": {
+      "errors": 0,
+      "warns": 1
+    },
     "schema-no-breadcrumb": {
       "errors": 0,
       "warns": 5
@@ -25,9 +29,14 @@
       "file": "index.html",
       "route": "/",
       "isRedirect": false,
-      "title": "CounselO | Online Legal Consultation in Saudi Arabia & Syria",
-      "description": "Get online legal consultation for Saudi Arabia or Syria in Arabic or English. Senior lawyer-led answers within 24 hours via WhatsApp or email.",
+      "title": "CounselO | Online Legal Consultation — Saudi Arabia & Syria",
+      "description": "Get confidential online legal consultation for Saudi Arabia or Syria. Expert lawyer-led answers in Arabic & English within 24 hours. Family law, employment, real estate, business, criminal law & more.",
       "issues": [
+        {
+          "severity": "warn",
+          "rule": "desc-too-long",
+          "detail": "200 chars (max 170)"
+        },
         {
           "severity": "warn",
           "rule": "schema-no-breadcrumb",
@@ -35,10 +44,12 @@
         }
       ],
       "schemaTypes": [
-        "WebSite"
+        "WebSite",
+        "LegalService",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 2
+      "internalLinkCount": 60
     },
     {
       "file": "sa-about.html",
