@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
-import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowLeft, MessageCircle, CheckCircle2 } from "lucide-react";
+import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowLeft, MessageCircle, CheckCircle2, Award, Building2 } from "lucide-react";
 import counseloLogo from "@assets/Screen_Shot_2026-07-01_at_12.26.11_AM_1782851175169.png";
 import saudiFlag from "@assets/image_1782789705620.jpeg";
 import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5x_1782856203372.jpg";
@@ -323,64 +323,56 @@ export default function ArRegionPicker() {
             </motion.div>
 
             {/* Founder card */}
-            <motion.div {...fadeIn} className="lg:col-span-2 bg-primary text-white">
-              {/* Header */}
-              <div className="p-8 text-center border-b border-white/20">
-                <div className="w-20 h-20 rounded-full border-2 border-white/30 bg-white/10 flex items-center justify-center text-2xl font-serif font-bold text-white mx-auto mb-5">
-                  ع.ب
-                </div>
-                <div className="font-serif font-bold text-xl mb-1">عمر البغدادي</div>
-                <div className="text-white/60 text-sm mb-4">محامٍ ومستشار قانوني</div>
-                <a
-                  href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-white/60 hover:text-white text-xs transition-colors"
-                  dir="ltr"
-                >
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                  linkedin.com/in/lawyeromarbaghdadi
-                </a>
-              </div>
-              {/* Credential grid */}
-              <div className="grid grid-cols-2 border-b border-white/20">
-                {[
-                  { n: "+30",    l: "عاماً من الخبرة" },
-                  { n: "+20K",   l: "قضية معالَجة" },
-                  { n: "2",      l: "نطاقان قضائيان" },
-                  { n: "2",      l: "لغتان" },
-                ].map(({ n, l }, i) => (
-                  <div key={l} className={`text-center py-4 px-3 ${i % 2 === 0 ? "border-l border-white/20" : ""} ${i < 2 ? "border-b border-white/20" : ""}`}>
-                    <div className="text-xl font-serif font-bold text-white">{n}</div>
-                    <div className="text-white/55 text-xs mt-0.5">{l}</div>
+            <motion.div {...fadeIn} className="lg:col-span-2">
+              <div className="bg-primary p-8 text-white mb-6">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
+                    <Award className="h-7 w-7 text-white" />
                   </div>
-                ))}
-              </div>
-              {/* Specialisations */}
-              <div className="p-6">
-                <div className="text-white/50 text-xs uppercase tracking-widest mb-3">مجالات التخصص</div>
-                <ul className="space-y-2">
-                  {["قانون الأسرة والطلاق", "قانون العمل والتوظيف", "العقارات والملكية", "القانون التجاري والأعمال", "الاستثمار الأجنبي", "القانون الجنائي", "القانون الإداري"].map((area) => (
-                    <li key={area} className="flex items-center gap-2 text-white/75 text-sm">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-white/40 shrink-0" />
-                      <span>{area}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-5 pt-5 border-t border-white/15">
-                  <div className="text-white/50 text-xs uppercase tracking-widest mb-2">مرخَّص في</div>
-                  <div className="flex gap-2 flex-wrap">
-                    {["المملكة العربية السعودية", "سوريا"].map((j) => (
-                      <span key={j} className="text-xs bg-white/10 border border-white/20 text-white/80 px-3 py-1">{j}</span>
-                    ))}
-                  </div>
-                  <div className="text-white/50 text-xs uppercase tracking-widest mt-3 mb-2">اللغات</div>
-                  <div className="flex gap-2 flex-wrap">
-                    {["العربية", "الإنجليزية"].map((l) => (
-                      <span key={l} className="text-xs bg-white/10 border border-white/20 text-white/80 px-3 py-1">{l}</span>
-                    ))}
+                  <div>
+                    <div className="font-serif font-bold text-lg">محامٍ ومستشار قانوني</div>
+                    <div className="text-white/70 text-sm mb-2">عمر البغدادي</div>
+                    <a
+                      href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-white/55 hover:text-white text-xs transition-colors border border-white/25 hover:border-white/50 px-2 py-1"
+                      dir="ltr"
+                    >
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                      LinkedIn
+                    </a>
                   </div>
                 </div>
+                <div className="border-t border-white/20 pt-6">
+                  <p className="text-white/80 text-xs font-semibold uppercase tracking-wider mb-4">المؤهلات والإنجازات</p>
+                  <ul className="space-y-3">
+                    {[
+                      "خريج كلية الحقوق — جامعة دمشق (1996)",
+                      "محامٍ مرخّص في سوريا — رقم الترخيص 289",
+                      "حاصل على لقب «الأستاذ» من نقابة المحامين في سوريا",
+                      "محامٍ أول ومستشار قانوني في المملكة والإمارات وسوريا",
+                      "أكثر من 20,000 قضية واستشارة في القانون المدني والتجاري والإداري والجزائي والتحكيم",
+                      "أشرف على تأهيل أكثر من 40 محامياً مرخصاً في ثلاث ولايات قضائية",
+                      "نجل المحامي رياض البغدادي، مؤسس مكتب البغدادي للمحاماة (تأسس 1957)",
+                      "خبير في النزاعات العابرة للحدود والقضايا متعددة الولايات",
+                    ].map((c, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-4 w-4 text-white/60 shrink-0 mt-0.5" />
+                        <span className="text-white/80 text-sm leading-relaxed">{c}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="bg-card border border-border p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <Building2 className="h-5 w-5 text-primary shrink-0" />
+                  <span className="font-semibold text-foreground text-sm">مكتب البغدادي للمحاماة — تأسس 1957</span>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  تأسس مكتب البغدادي للمحاماة عام 1957 على يد المحامي رياض البغدادي — والد المحامي عمر البغدادي. نشأة عمر في كنف هذا الإرث القانوني العريق أرست دعائم خبرته الاستثنائية وعمقه القانوني الفريد.
+                </p>
               </div>
             </motion.div>
           </div>
