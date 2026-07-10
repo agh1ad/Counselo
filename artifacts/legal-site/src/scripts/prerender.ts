@@ -115,8 +115,9 @@ function toArabicRoute(route: string): string {
 }
 
 const ROUTES: string[] = [
-  // Region picker (x-default landing)
+  // Region picker — English (x-default) and Arabic
   "/",
+  "/ar",
   ...ENGLISH_ROUTES,
   ...ENGLISH_ROUTES.map(toArabicRoute),
 ];

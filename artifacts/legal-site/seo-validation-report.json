@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-07-10 00:50:50 UTC",
+  "generatedAt": "2026-07-10 00:56:55 UTC",
   "summary": {
-    "pages": 127,
+    "pages": 128,
     "redirects": 12,
     "ok": 122,
-    "warnOnly": 5,
+    "warnOnly": 6,
     "errors": 0,
     "totalErrors": 0,
-    "totalWarnings": 6,
+    "totalWarnings": 7,
     "score": 98
   },
   "ruleFrequency": {
@@ -17,7 +17,7 @@
     },
     "schema-no-breadcrumb": {
       "errors": 0,
-      "warns": 5
+      "warns": 6
     },
     "blog-hub-articles": {
       "errors": 0,
@@ -48,8 +48,29 @@
         "LegalService",
         "FAQPage"
       ],
-      "hreflangCount": 5,
+      "hreflangCount": 7,
       "internalLinkCount": 60
+    },
+    {
+      "file": "ar.html",
+      "route": "/ar",
+      "isRedirect": false,
+      "title": "كاونسلو | استشارة قانونية أونلاين — السعودية وسوريا",
+      "description": "احصل على استشارة قانونية سرية في السعودية أو سوريا. استشارات بالعربية والإنجليزية خلال 24 ساعة. قانون الأسرة، العمل، العقارات، التجارة، الجنائي وأكثر.",
+      "issues": [
+        {
+          "severity": "warn",
+          "rule": "schema-no-breadcrumb",
+          "detail": "No BreadcrumbList schema"
+        }
+      ],
+      "schemaTypes": [
+        "WebSite",
+        "LegalService",
+        "FAQPage"
+      ],
+      "hreflangCount": 7,
+      "internalLinkCount": 61
     },
     {
       "file": "sa-about.html",

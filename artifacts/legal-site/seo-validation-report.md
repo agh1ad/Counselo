@@ -1,18 +1,18 @@
 # CounselO SEO Validation Report
 
-_Generated: 2026-07-10 00:50:50 UTC_
+_Generated: 2026-07-10 00:56:55 UTC_
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| Pages validated | 127 |
+| Pages validated | 128 |
 | Redirect pages  | 12 |
 | ✅ Clean pages  | 122 |
-| ⚠️  Warn-only pages | 5 |
+| ⚠️  Warn-only pages | 6 |
 | ❌ Error pages  | 0 |
 | Total errors    | 0 |
-| Total warnings  | 6 |
+| Total warnings  | 7 |
 | SEO score       | **98/100** |
 
 > ✅ **No errors found.** All pages pass critical SEO checks.
@@ -21,7 +21,7 @@ _Generated: 2026-07-10 00:50:50 UTC_
 
 | Rule | Errors | Warnings |
 |------|--------|----------|
-| `schema-no-breadcrumb` | — | 5 |
+| `schema-no-breadcrumb` | — | 6 |
 | `desc-too-long` | — | 1 |
 
 ## ⚠️  Pages with Warnings Only
@@ -30,6 +30,11 @@ _Generated: 2026-07-10 00:50:50 UTC_
 _Title: CounselO | Online Legal Consultation — Saudi Arabia & Syria_
 
 - ⚠️  **desc-too-long**: 200 chars (max 170)
+- ⚠️  **schema-no-breadcrumb**: No BreadcrumbList schema
+
+### `/ar`
+_Title: كاونسلو | استشارة قانونية أونلاين — السعودية وسوريا_
+
 - ⚠️  **schema-no-breadcrumb**: No BreadcrumbList schema
 
 ### `/sa/about`

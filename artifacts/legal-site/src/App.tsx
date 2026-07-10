@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { trackPageview, getGAMeasurementId, injectGA } from "@/lib/analytics";
 
 import RegionPicker from "@/pages/region-picker";
+import ArRegionPicker from "@/pages/ar-region-picker";
 import Home from "@/pages/home";
 import Services from "@/pages/services";
 import Contact from "@/pages/contact";
@@ -92,8 +93,9 @@ function Router() {
     <>
       <ScrollToTop />
       <Switch>
-        {/* Region picker */}
+        {/* Region picker — English (x-default) and Arabic */}
         <Route path="/" component={RegionPicker} />
+        <Route path="/ar" component={ArRegionPicker} />
 
         {/* SA + Syria routes, English and Arabic */}
         {buildRegionRoutes()}
@@ -126,7 +128,7 @@ function Router() {
 function AppShell() {
   const [location] = useLocation();
   const isAdmin = location.startsWith("/counselo-admin");
-  const isRegionPicker = location === "/";
+  const isRegionPicker = location === "/" || location === "/ar";
 
   if (isAdmin) {
     return (

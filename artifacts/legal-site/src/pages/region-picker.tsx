@@ -197,6 +197,8 @@ export default function RegionPicker() {
         <meta name="geo.region" content="MENA" />
         <meta name="geo.placename" content="Middle East" />
         <link rel="canonical" href="https://counselo-legal.com/" />
+        <link rel="alternate" hrefLang="en" href="https://counselo-legal.com/" />
+        <link rel="alternate" hrefLang="ar" href="https://counselo-legal.com/ar" />
         <link rel="alternate" hrefLang="en-SA" href="https://counselo-legal.com/sa" />
         <link rel="alternate" hrefLang="ar-SA" href="https://counselo-legal.com/sa/ar" />
         <link rel="alternate" hrefLang="en-SY" href="https://counselo-legal.com/syr" />
