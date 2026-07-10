@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
-import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowLeft, MessageCircle, CheckCircle2, Award, Building2 } from "lucide-react";
+import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowLeft, MessageCircle, CheckCircle2, Award } from "lucide-react";
 import counseloLogo from "@assets/Screen_Shot_2026-07-01_at_12.26.11_AM_1782851175169.png";
 import saudiFlag from "@assets/image_1782789705620.jpeg";
 import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5x_1782856203372.jpg";
@@ -364,15 +364,6 @@ export default function ArRegionPicker() {
                     ))}
                   </ul>
                 </div>
-              </div>
-              <div className="bg-card border border-border p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <Building2 className="h-5 w-5 text-primary shrink-0" />
-                  <span className="font-semibold text-foreground text-sm">مكتب البغدادي للمحاماة — تأسس 1957</span>
-                </div>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  تأسس مكتب البغدادي للمحاماة عام 1957 على يد المحامي رياض البغدادي — والد المحامي عمر البغدادي. نشأة عمر في كنف هذا الإرث القانوني العريق أرست دعائم خبرته الاستثنائية وعمقه القانوني الفريد.
-                </p>
               </div>
             </motion.div>
           </div>

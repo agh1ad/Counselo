@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
-import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowRight, MessageCircle, CheckCircle2, Award, Building2 } from "lucide-react";
+import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowRight, MessageCircle, CheckCircle2, Award } from "lucide-react";
 import counseloLogo from "@assets/Screen_Shot_2026-07-01_at_12.26.11_AM_1782851175169.png";
 import saudiFlag from "@assets/image_1782789705620.jpeg";
 import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5x_1782856203372.jpg";
@@ -376,15 +376,6 @@ export default function RegionPicker() {
                     ))}
                   </ul>
                 </div>
-              </div>
-              <div className="bg-card border border-border p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <Building2 className="h-5 w-5 text-primary shrink-0" />
-                  <span className="font-semibold text-foreground text-sm">Al-Baghdadi Law Firm — Est. 1957</span>
-                </div>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Al-Baghdadi Law Firm was founded in 1957 by Lawyer Riyad Al-Baghdadi — father of Lawyer Omar Al-Baghdadi. Omar's upbringing within this distinguished legal legacy laid the foundation for his exceptional expertise and depth of legal knowledge.
-                </p>
               </div>
             </motion.div>
 
