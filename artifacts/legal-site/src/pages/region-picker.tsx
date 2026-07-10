@@ -143,23 +143,23 @@ const faqSchema = {
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const SERVICES = [
-  { slug: "family-law",            en: "Family Law",                    icon: "⚖" },
-  { slug: "employment-law",        en: "Employment Law",                icon: "📋" },
-  { slug: "real-estate",           en: "Real Estate Law",               icon: "🏛" },
-  { slug: "business-law",          en: "Business Law",                  icon: "💼" },
-  { slug: "foreign-investment",    en: "Foreign Investment",            icon: "🌐" },
-  { slug: "criminal-law",          en: "Criminal Law",                  icon: "🔏" },
-  { slug: "administrative-law",    en: "Administrative Law",            icon: "📜" },
-  { slug: "contracts",             en: "Contracts",                     icon: "✍" },
-  { slug: "arbitration",           en: "Arbitration & Mediation",       icon: "🤝" },
-  { slug: "companies-law",         en: "Companies Law",                 icon: "🏢" },
-  { slug: "banking-finance",       en: "Banking & Finance",             icon: "🏦" },
-  { slug: "intellectual-property", en: "Intellectual Property",         icon: "💡" },
-  { slug: "tax-zakat",             en: "Tax & Zakat",                   icon: "📊" },
-  { slug: "cyber-law",             en: "Cyber & IT Law",                icon: "🛡" },
-  { slug: "medical-malpractice",   en: "Medical Malpractice",           icon: "⚕" },
-  { slug: "insurance-law",         en: "Insurance Law",                 icon: "📑" },
-  { slug: "enforcement",           en: "Enforcement & Debt Collection", icon: "⚡" },
+  { slug: "family-law",            en: "Family Law" },
+  { slug: "employment-law",        en: "Employment Law" },
+  { slug: "real-estate",           en: "Real Estate Law" },
+  { slug: "business-law",          en: "Business Law" },
+  { slug: "foreign-investment",    en: "Foreign Investment" },
+  { slug: "criminal-law",          en: "Criminal Law" },
+  { slug: "administrative-law",    en: "Administrative Law" },
+  { slug: "contracts",             en: "Contracts" },
+  { slug: "arbitration",           en: "Arbitration & Mediation" },
+  { slug: "companies-law",         en: "Companies Law" },
+  { slug: "banking-finance",       en: "Banking & Finance" },
+  { slug: "intellectual-property", en: "Intellectual Property" },
+  { slug: "tax-zakat",             en: "Tax & Zakat" },
+  { slug: "cyber-law",             en: "Cyber & IT Law" },
+  { slug: "medical-malpractice",   en: "Medical Malpractice" },
+  { slug: "insurance-law",         en: "Insurance Law" },
+  { slug: "enforcement",           en: "Enforcement & Debt Collection" },
 ];
 
 const BLOG_POSTS = [
@@ -182,14 +182,13 @@ const FAQS = [
   { q: "What areas of law does CounselO cover?", a: "Family law, divorce, custody, employment, real estate, business law, foreign investment, criminal law, administrative law, contracts, banking, IP, tax, cyber law, medical malpractice, insurance, arbitration, and more." },
 ];
 
-// ── Accent colour token ───────────────────────────────────────────────────────
-// Gold: #C9A84C  |  Muted gold: #a88a3a  |  Dark bg: #0f1e14  |  Card bg: #1a3020
+// ── Accent colour: Gold #C9A84C ───────────────────────────────────────────────
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function RegionPicker() {
   return (
-    <div className="min-h-screen text-white" style={{ background: "#0f1e14" }}>
+    <div className="min-h-screen bg-[#162b20] text-white">
       <Helmet>
         <html lang="en" dir="ltr" />
         <title>CounselO | Online Legal Consultation — Saudi Arabia &amp; Syria</title>
@@ -274,17 +273,16 @@ export default function RegionPicker() {
         {/* trust badges row */}
         <div className="relative flex flex-wrap justify-center gap-4 mb-10">
           {[
-            { icon: "🔒", label: "Attorney-Client Privilege" },
-            { icon: "⚡", label: "24-Hour Response" },
-            { icon: "🌐", label: "Arabic & English" },
-          ].map(({ icon, label }) => (
+            "Attorney-Client Privilege",
+            "24-Hour Response",
+            "Arabic & English",
+          ].map((label) => (
             <div
               key={label}
-              className="flex items-center gap-2 px-4 py-2 text-xs"
+              className="px-4 py-2 text-xs tracking-wide"
               style={{ background: "rgba(201,168,76,0.07)", border: "1px solid rgba(201,168,76,0.2)", color: "rgba(255,255,255,0.7)" }}
             >
-              <span>{icon}</span>
-              <span className="tracking-wide">{label}</span>
+              {label}
             </div>
           ))}
         </div>
@@ -413,16 +411,15 @@ export default function RegionPicker() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { icon: "🔒", title: "Fully Confidential", body: "Attorney-client privilege on every consultation. Your information is never shared." },
-                { icon: "⚡", title: "24-Hour Response", body: "Expert legal response within 24 hours. Urgent matters prioritised." },
-                { icon: "🌐", title: "Online — No Office", body: "Consult from anywhere via WhatsApp or email. No travel, no waiting room." },
-              ].map(({ icon, title, body }) => (
+                { title: "Fully Confidential", body: "Attorney-client privilege on every consultation. Your information is never shared." },
+                { title: "24-Hour Response", body: "Expert legal response within 24 hours. Urgent matters prioritised." },
+                { title: "Online — No Office", body: "Consult from anywhere via WhatsApp or email. No travel, no waiting room." },
+              ].map(({ title, body }) => (
                 <div
                   key={title}
                   className="p-4"
                   style={{ background: "rgba(255,255,255,0.03)", borderLeft: "2px solid rgba(201,168,76,0.35)" }}
                 >
-                  <div className="text-lg mb-2">{icon}</div>
                   <div className="text-white font-semibold text-sm mb-1">{title}</div>
                   <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>{body}</p>
                 </div>
@@ -450,7 +447,7 @@ export default function RegionPicker() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-10">
-            {SERVICES.map(({ slug, en, icon }) => (
+            {SERVICES.map(({ slug, en }) => (
               <div
                 key={slug}
                 className="group transition-all duration-150"
@@ -459,7 +456,6 @@ export default function RegionPicker() {
                 onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.08)"; (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.03)"; }}
               >
                 <div className="p-4">
-                  <div className="text-xl mb-2">{icon}</div>
                   <div className="font-semibold text-white text-sm mb-3 leading-snug">{en}</div>
                   <div className="flex gap-2 flex-wrap">
                     <Link
