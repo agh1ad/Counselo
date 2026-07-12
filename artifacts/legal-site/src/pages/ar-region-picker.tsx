@@ -42,7 +42,7 @@ const organizationSchema = {
   "availableLanguage": ["Arabic", "English"],
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+966592850247",
+    "telephone": "+966594850247",
     "contactType": "customer service",
     "areaServed": ["SA", "SY"],
     "availableLanguage": ["Arabic", "English"],
@@ -86,7 +86,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "كيف أبدأ استشارتي مع كاونسلو؟",
-      "acceptedAnswer": { "@type": "Answer", "text": "الأمر بسيط: (1) اختر منطقتك — السعودية أو سوريا. (2) تصفح الخدمة المناسبة أو تواصل معنا مباشرة. (3) أرسل سؤالك القانوني عبر الواتساب (+966 59 285 0247) أو نموذج التواصل. ستحصل على رد قانوني سري ومتخصص خلال 24 ساعة." },
+      "acceptedAnswer": { "@type": "Answer", "text": "الأمر بسيط: (1) اختر منطقتك — السعودية أو سوريا. (2) تصفح الخدمة المناسبة أو تواصل معنا مباشرة. (3) أرسل سؤالك القانوني عبر الواتساب (+966 59 485 0247) أو نموذج التواصل. ستحصل على رد قانوني سري ومتخصص خلال 24 ساعة." },
     },
     {
       "@type": "Question",
@@ -151,7 +151,7 @@ const serviceIcons = [Scale, ShieldCheck, Globe, Clock, Lock, CheckCircle2, Glob
 
 export default function ArRegionPicker() {
   return (
-    <div className="w-full bg-background" dir="rtl">
+    <main className="w-full bg-background" dir="rtl" id="main-content">
       <Helmet>
         <html lang="ar" dir="rtl" />
         <title>كاونسلو | استشارة قانونية أونلاين — السعودية وسوريا</title>
@@ -436,7 +436,7 @@ export default function ArRegionPicker() {
           </div>
 
           <div className="flex justify-center gap-4 flex-wrap">
-            <a href="https://wa.me/966592850247" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/966594850247" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 bg-[#25D366] text-white font-semibold px-7 py-3 text-sm hover:opacity-90 transition-opacity">
               <MessageCircle className="h-4 w-4" />
               تواصل عبر الواتساب
@@ -592,6 +592,6 @@ export default function ArRegionPicker() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

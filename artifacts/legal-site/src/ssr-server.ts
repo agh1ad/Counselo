@@ -15,7 +15,11 @@
  *   5. Catch-all → index.html (SPA hydration for unknown routes)
  */
 
-import express, { type Request, type Response, type NextFunction } from "express";
+import express, {
+  type Request,
+  type Response,
+  type NextFunction,
+} from "express";
 import { existsSync, readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -33,13 +37,19 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicDir = resolve(__dirname, "public");
 const pagesDir = resolve(publicDir, "__pages");
 const indexHtml = resolve(publicDir, "index.html");
+const shellHtml = resolve(__dirname, "ssr-template.html");
 const ssrBundle = resolve(__dirname, "server/entry-server.js");
 
 const PORT = parseInt(process.env.PORT ?? "24438", 10);
 
 // API server port — the SSR server fetches blog post data directly from the
 // API so it can build accurate meta tags without React async data fetching.
-const API_PORT = process.env.API_PORT ?? "8080";
+const apiOrigin = (
+  process.env.API_ORIGIN ??
+  (process.env.NODE_ENV === "production"
+    ? "https://counselo-legal.com"
+    : `http://localhost:${process.env.API_PORT ?? "8080"}`)
+).replace(/\/$/, "");
 
 // ---------------------------------------------------------------------------
 // Blog post type (mirrors ApiPost in blog-post.tsx)
@@ -79,7 +89,10 @@ function escapeHtml(s: string): string {
 }
 
 function stripHtml(html: string): string {
-  return html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  return html
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 type FetchResult =
@@ -90,7 +103,7 @@ type FetchResult =
 async function fetchBlogPost(slug: string): Promise<FetchResult> {
   try {
     const res = await fetch(
-      `http://localhost:${API_PORT}/api/blog/posts/${encodeURIComponent(slug)}`,
+      `${apiOrigin}/api/blog/posts/${encodeURIComponent(slug)}`,
     );
     if (res.status === 404) return { status: "notfound" };
     if (!res.ok) return { status: "error" };
@@ -102,7 +115,7 @@ async function fetchBlogPost(slug: string): Promise<FetchResult> {
 }
 
 function buildBlogHtml(slug: string, post: ApiPost): string {
-  const template = readFileSync(indexHtml, "utf-8");
+  const template = readFileSync(shellHtml, "utf-8");
 
   const seoTitleEn =
     post.seoTitleEn || post.titleEn || post.seoTitleAr || post.titleAr;
@@ -149,8 +162,18 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://counselo-legal.com/" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://counselo-legal.com/blog" },
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://counselo-legal.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://counselo-legal.com/blog",
+      },
       { "@type": "ListItem", position: 3, name: primaryTitle, item: canonical },
     ],
   });
@@ -190,19 +213,21 @@ function addDataRh(head: string): string {
 
 function unescapeHeadEntities(head: string): string {
   return head
-    .replace(/(<title[^>]*>)([^<]*?)(<\/title>)/g, (_, open, text, close) =>
-      `${open}${text.replace(/&amp;/g, "&").replace(/&#x27;/g, "'")}${close}`,
+    .replace(
+      /(<title[^>]*>)([^<]*?)(<\/title>)/g,
+      (_, open, text, close) =>
+        `${open}${text.replace(/&amp;/g, "&").replace(/&#x27;/g, "'")}${close}`,
     )
-    .replace(/(<meta\b[^>]+\bcontent=")([^"]*?)(")/g, (_, pre, val, post) =>
-      `${pre}${val.replace(/&amp;/g, "&").replace(/&#x27;/g, "'")}${post}`,
+    .replace(
+      /(<meta\b[^>]+\bcontent=")([^"]*?)(")/g,
+      (_, pre, val, post) =>
+        `${pre}${val.replace(/&amp;/g, "&").replace(/&#x27;/g, "'")}${post}`,
     );
 }
 
 function htmlTag(route: string): string {
   const isArabic = route.includes("/ar/") || route.endsWith("/ar");
-  return isArabic
-    ? '<html lang="ar" dir="rtl">'
-    : '<html lang="en" dir="ltr">';
+  return isArabic ? '<html lang="ar" dir="rtl">' : '<html lang="en" dir="ltr">';
 }
 
 // ---------------------------------------------------------------------------
@@ -213,11 +238,13 @@ let _render: ((url: string) => RenderResult) | null = null;
 
 async function ssrRender(url: string): Promise<string> {
   if (!_render) {
-    const mod = (await import(ssrBundle)) as { render: (url: string) => RenderResult };
+    const mod = (await import(ssrBundle)) as {
+      render: (url: string) => RenderResult;
+    };
     _render = mod.render;
   }
 
-  const template = readFileSync(indexHtml, "utf-8");
+  const template = readFileSync(shellHtml, "utf-8");
   const { head, body } = _render(url);
 
   return template
@@ -235,6 +262,18 @@ async function ssrRender(url: string): Promise<string> {
 
 const app = express();
 
+app.disable("x-powered-by");
+app.use((_req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("X-Frame-Options", "DENY");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  res.setHeader(
+    "Permissions-Policy",
+    "camera=(), microphone=(), geolocation=()",
+  );
+  next();
+});
+
 // 1. Static assets — JS, CSS, images, fonts, robots.txt, sitemap.xml, etc.
 //    index:false so we handle "/" ourselves (with the prerendered HTML).
 app.use(
@@ -250,6 +289,20 @@ app.use(
     },
   }),
 );
+
+function spaShell(title: string, robots: string): string {
+  return readFileSync(shellHtml, "utf-8").replace(
+    "<!--app-head-->",
+    `<title>${escapeHtml(title)}</title><meta name="robots" content="${robots}">`,
+  );
+}
+
+app.get("/counselo-admin", (_req: Request, res: Response) => {
+  res.setHeader("Cache-Control", "no-store");
+  res
+    .status(200)
+    .send(spaShell("CounselO Admin", "noindex, nofollow, noarchive"));
+});
 
 // 2. Root "/" — serve the prerendered homepage
 app.get("/", (_req: Request, res: Response) => {
@@ -273,9 +326,10 @@ app.get("/blog/:slug", async (req: Request, res: Response) => {
   const result = await fetchBlogPost(slug);
 
   if (result.status === "notfound") {
-    // Post doesn't exist — let React show the 404 page.
     res.setHeader("Cache-Control", "no-store");
-    return res.sendFile(indexHtml);
+    return res
+      .status(404)
+      .send(spaShell("Article Not Found | CounselO", "noindex, nofollow"));
   }
 
   if (result.status === "found") {
@@ -316,9 +370,12 @@ app.use((req: Request, res: Response, _next: NextFunction) => {
     }
   }
 
-  // SPA catch-all — React app will render the correct route client-side.
-  res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
-  res.sendFile(indexHtml);
+  // Unknown routes render the client-side 404 page with a real HTTP 404 and
+  // no indexable homepage metadata.
+  res.setHeader("Cache-Control", "no-store");
+  res
+    .status(404)
+    .send(spaShell("Page Not Found | CounselO", "noindex, nofollow"));
 });
 
 app.listen(PORT, "0.0.0.0", () => {

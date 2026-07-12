@@ -20,6 +20,12 @@ interface ApiPost {
   published: boolean;
 }
 
+declare global {
+  interface Window {
+    __SSR_POSTS__?: ApiPost[];
+  }
+}
+
 function formatDate(dateStr: string, lang: string) {
   const date = new Date(dateStr);
   if (isNaN(date.getTime())) return dateStr;
@@ -41,6 +47,8 @@ export default function Blog() {
       if (!res.ok) throw new Error("Failed to fetch posts");
       return res.json() as Promise<ApiPost[]>;
     },
+    initialData: () =>
+      typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined,
     staleTime: 60_000,
   });
 
@@ -51,24 +59,24 @@ export default function Blog() {
     en: {
       eyebrow: "Legal Insights",
       heading: "Articles & Guides",
-      subheading:
-        `Practical legal guidance on ${country} family law, employment, real estate, business, foreign investment, and administrative law — written by the team of Lawyer and Legal Counsel Omar Al-Baghdadi.`,
+      subheading: `Practical legal guidance on ${country} family law, employment, real estate, business, foreign investment, and administrative law — written by the team of Lawyer and Legal Counsel Omar Al-Baghdadi.`,
       readMore: "Read Article",
       minRead: "min read",
       ctaHeading: "Have a Legal Question?",
-      ctaDesc: "Our team answers online — via WhatsApp or email. No office visit required.",
+      ctaDesc:
+        "Our team answers online — via WhatsApp or email. No office visit required.",
       ctaBtn: "Book a Consultation",
       empty: "New articles are coming soon. Check back shortly.",
     },
     ar: {
       eyebrow: "رؤى قانونية",
       heading: "مقالات وأدلة",
-      subheading:
-        `إرشادات قانونية عملية في قانون الأسرة ${countryAr} والعمل والعقارات والأعمال والاستثمار الأجنبي والقانون الإداري — من فريق المحامي والمستشار القانوني عمر البغدادي.`,
+      subheading: `إرشادات قانونية عملية في قانون الأسرة ${countryAr} والعمل والعقارات والأعمال والاستثمار الأجنبي والقانون الإداري — من فريق المحامي والمستشار القانوني عمر البغدادي.`,
       readMore: "اقرأ المقال",
       minRead: "د قراءة",
       ctaHeading: "هل لديك سؤال قانوني؟",
-      ctaDesc: "فريقنا يجيب أونلاين — عبر واتساب أو البريد الإلكتروني. دون الحاجة لزيارة مكتب.",
+      ctaDesc:
+        "فريقنا يجيب أونلاين — عبر واتساب أو البريد الإلكتروني. دون الحاجة لزيارة مكتب.",
       ctaBtn: "احجز استشارة",
       empty: "مقالات جديدة قادمة قريباً. تابعنا.",
     },
@@ -90,49 +98,72 @@ export default function Blog() {
   };
 
   return (
-    <div className="w-full bg-background min-h-screen" dir={isRTL ? "rtl" : "ltr"}>
+    <div
+      className="w-full bg-background min-h-screen"
+      dir={isRTL ? "rtl" : "ltr"}
+    >
       <SEOHead
-        title={isRTL
-          ? "مدونة كاونسلو القانونية | مقالات وإرشادات قانونية | كاونسلو"
-          : "Legal Blog | Articles & Guides | CounselO"}
-        description={isRTL
-          ? "إرشادات قانونية مجانية وعملية في قانون الأسرة وقانون العمل والعقارات والقانون التجاري والاستثمار الأجنبي والقانون الإداري للسعودية وسوريا — مقالات معمّقة بقلم فريق المحامي والمستشار القانوني عمر البغدادي."
-          : "Free practical legal guides on family law, employment, real estate, commercial law, and foreign investment for Saudi Arabia and Syria — in-depth articles from lawyer and legal counsel Omar Al-Baghdadi."}
+        title={
+          isRTL
+            ? "مدونة كاونسلو القانونية | مقالات وإرشادات قانونية | كاونسلو"
+            : "Legal Blog | Articles & Guides | CounselO"
+        }
+        description={
+          isRTL
+            ? "إرشادات قانونية عملية ومجانية في قانون الأسرة والعمل والعقارات والتجارة والاستثمار الأجنبي في السعودية وسوريا، من فريق المحامي عمر البغدادي."
+            : "Practical legal guides on family, employment, real estate, commercial law, and foreign investment in Saudi Arabia and Syria from CounselO's legal team."
+        }
         canonical="/blog"
         noRegionPrefix
-        keywords={isRTL
-          ? "مدونة قانونية, مقالات قانونية, إرشادات قانونية مجانية, قانون الأسرة, قانون العمل, القانون العقاري, القانون التجاري, الاستثمار الأجنبي, القانون الإداري, كاونسلو"
-          : "legal blog, free legal guides Saudi Arabia Syria, family law articles, employment law, real estate law guide, commercial law, foreign investment guide, administrative law, CounselO blog"}
+        keywords={
+          isRTL
+            ? "مدونة قانونية, مقالات قانونية, إرشادات قانونية مجانية, قانون الأسرة, قانون العمل, القانون العقاري, القانون التجاري, الاستثمار الأجنبي, القانون الإداري, كاونسلو"
+            : "legal blog, free legal guides Saudi Arabia Syria, family law articles, employment law, real estate law guide, commercial law, foreign investment guide, administrative law, CounselO blog"
+        }
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "Blog",
-            "name": isRTL ? "مدونة كاونسلو القانونية" : "CounselO Legal Blog",
-            "description": isRTL
+            name: isRTL ? "مدونة كاونسلو القانونية" : "CounselO Legal Blog",
+            description: isRTL
               ? "إرشادات قانونية معمّقة للأفراد والشركات في المملكة العربية السعودية وسوريا"
               : "In-depth legal guides for individuals and businesses in Saudi Arabia and Syria",
-            "url": "https://counselo-legal.com/blog",
-            "publisher": { "@type": "Organization", "name": "CounselO", "url": "https://counselo-legal.com" },
-            "inLanguage": ["ar", "en"],
+            url: "https://counselo-legal.com/blog",
+            publisher: {
+              "@type": "Organization",
+              name: "CounselO",
+              url: "https://counselo-legal.com",
+            },
+            inLanguage: ["ar", "en"],
           },
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": "https://counselo-legal.com/blog" },
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: isRTL ? "الرئيسية" : "Home",
+                item: "https://counselo-legal.com/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: isRTL ? "المدونة" : "Blog",
+                item: "https://counselo-legal.com/blog",
+              },
             ],
           },
           {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            "name": isRTL ? "مقالات المدونة القانونية" : "Legal Blog Articles",
-            "numberOfItems": posts.length,
-            "itemListElement": posts.map((p, i) => ({
+            name: isRTL ? "مقالات المدونة القانونية" : "Legal Blog Articles",
+            numberOfItems: posts.length,
+            itemListElement: posts.map((p, i) => ({
               "@type": "ListItem",
-              "position": i + 1,
-              "name": isRTL ? p.titleAr : p.titleEn,
-              "url": `https://counselo-legal.com/blog/${p.slug}`,
+              position: i + 1,
+              name: isRTL ? p.titleAr : p.titleEn,
+              url: `https://counselo-legal.com/blog/${p.slug}`,
             })),
           },
         ]}
@@ -141,10 +172,16 @@ export default function Blog() {
       {/* Hero */}
       <section className="bg-primary text-white py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="flex items-center justify-center gap-2 mb-4">
               <BookOpen className="h-5 w-5 text-white/60" />
-              <span className="text-white/60 text-sm font-medium uppercase tracking-widest">{ui.eyebrow}</span>
+              <span className="text-white/60 text-sm font-medium uppercase tracking-widest">
+                {ui.eyebrow}
+              </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4 leading-tight">
               {ui.heading}
@@ -161,7 +198,10 @@ export default function Blog() {
         {isLoading ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-white border border-border h-72 animate-pulse rounded" />
+              <div
+                key={i}
+                className="bg-white border border-border h-72 animate-pulse rounded"
+              />
             ))}
           </div>
         ) : posts.length === 0 ? (
@@ -175,8 +215,12 @@ export default function Blog() {
               const hasEnglish = !!(post.titleEn && post.titleEn.trim());
               const useAr = isRTL || !hasEnglish;
               const title = useAr ? post.titleAr : post.titleEn;
-              const excerpt = useAr ? post.excerptAr : (post.excerptEn || post.excerptAr);
-              const category = useAr ? post.categoryAr : (post.categoryEn || post.categoryAr);
+              const excerpt = useAr
+                ? post.excerptAr
+                : post.excerptEn || post.excerptAr;
+              const category = useAr
+                ? post.categoryAr
+                : post.categoryEn || post.categoryAr;
               return (
                 <motion.article
                   key={post.slug}
@@ -188,27 +232,40 @@ export default function Blog() {
                   <div className="h-1 bg-primary w-full" />
                   <div className="p-6 flex flex-col flex-1">
                     <div className="flex items-center gap-3 mb-4 flex-wrap">
-                      <span className={`text-xs font-medium px-2.5 py-1 border rounded-full ${categoryColors[category] ?? "bg-muted text-muted-foreground border-border"}`}>
+                      <span
+                        className={`text-xs font-medium px-2.5 py-1 border rounded-full ${categoryColors[category] ?? "bg-muted text-muted-foreground border-border"}`}
+                      >
                         {category}
                       </span>
                       <span className="text-muted-foreground text-xs flex items-center gap-1">
-                        <Clock className="h-3 w-3" /> {post.readTime} {ui.minRead}
+                        <Clock className="h-3 w-3" /> {post.readTime}{" "}
+                        {ui.minRead}
                       </span>
                     </div>
-                    <h2 dir={useAr ? "rtl" : "ltr"} className="text-lg font-serif font-bold text-foreground mb-3 leading-snug group-hover:text-primary transition-colors">
+                    <h2
+                      dir={useAr ? "rtl" : "ltr"}
+                      className="text-lg font-serif font-bold text-foreground mb-3 leading-snug group-hover:text-primary transition-colors"
+                    >
                       {title}
                     </h2>
-                    <p dir={useAr ? "rtl" : "ltr"} className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
+                    <p
+                      dir={useAr ? "rtl" : "ltr"}
+                      className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1 line-clamp-3"
+                    >
                       {excerpt}
                     </p>
                     <div className="flex items-center justify-between pt-4 border-t border-border">
-                      <span className="text-xs text-muted-foreground">{formatDate(post.date, lang)}</span>
+                      <span className="text-xs text-muted-foreground">
+                        {formatDate(post.date, lang)}
+                      </span>
                       <Link
                         href={`/blog/${post.slug}`}
                         className="flex items-center gap-1.5 text-primary text-sm font-semibold hover:gap-2.5 transition-all"
                       >
                         {ui.readMore}
-                        <ArrowRight className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
+                        <ArrowRight
+                          className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`}
+                        />
                       </Link>
                     </div>
                   </div>
@@ -222,7 +279,9 @@ export default function Blog() {
       {/* CTA */}
       <section className="bg-primary/5 border-t border-border py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl font-serif font-bold text-foreground mb-3">{ui.ctaHeading}</h2>
+          <h2 className="text-2xl font-serif font-bold text-foreground mb-3">
+            {ui.ctaHeading}
+          </h2>
           <p className="text-muted-foreground mb-6">{ui.ctaDesc}</p>
           <Link href={`${regionPrefix}/contact`}>
             <button className="bg-primary text-white font-semibold px-8 py-3 hover:bg-primary/90 transition-colors">

@@ -16,10 +16,12 @@ function findLegalDist(): string {
   return path.resolve(process.cwd(), "../../artifacts/legal-site/dist/public");
 }
 const LEGAL_DIST = findLegalDist();
+const LEGAL_TEMPLATE = path.resolve(LEGAL_DIST, "../ssr-template.html");
 const DEFAULT_OG_IMAGE = "https://counselo-legal.com/og-image.png";
 const SITE_NAME = "CounselO";
 
 let indexHtmlCache: string | null = null;
+let shellHtmlCache: string | null = null;
 
 function getIndexHtml(): string | null {
   if (indexHtmlCache !== null) return indexHtmlCache;
@@ -32,6 +34,16 @@ function getIndexHtml(): string | null {
     return indexHtmlCache;
   } catch {
     return null; // Don't cache null — retry on next request
+  }
+}
+
+function getShellHtml(): string | null {
+  if (shellHtmlCache !== null) return shellHtmlCache;
+  try {
+    shellHtmlCache = fs.readFileSync(LEGAL_TEMPLATE, "utf-8");
+    return shellHtmlCache;
+  } catch {
+    return null;
   }
 }
 
@@ -153,6 +165,13 @@ export function registerOgPageRoutes(app: Express): void {
 
     const reqPath = req.path;
 
+    // Region-prefixed blog URLs are legacy aliases for the single /blog URL.
+    // Use a real permanent redirect instead of serving a 200 meta-refresh page.
+    if (/^\/(?:sa|syr)(?:\/ar)?\/blog(?:\/.*)?$/.test(reqPath)) {
+      res.redirect(308, "/blog");
+      return;
+    }
+
     // ── 1. Prerendered file ──────────────────────────────────────────────────
     const prerenderedFile = findPrerenderedFile(reqPath);
     if (prerenderedFile) {
@@ -195,10 +214,15 @@ export function registerOgPageRoutes(app: Express): void {
     }
 
     // ── 3. Fallback: SPA shell ───────────────────────────────────────────────
-    const indexHtml = getIndexHtml();
-    if (indexHtml) {
+    const shellHtml = getShellHtml();
+    if (shellHtml) {
       res.setHeader("Content-Type", "text/html; charset=utf-8");
-      res.send(indexHtml);
+      res.status(404).send(
+        shellHtml.replace(
+          "<!--app-head-->",
+          '<title>Page Not Found | CounselO</title><meta name="robots" content="noindex, nofollow">',
+        ),
+      );
     } else {
       res.status(503).send("Service starting up…");
     }

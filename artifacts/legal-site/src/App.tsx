@@ -1,4 +1,10 @@
-import { Switch, Route, Router as WouterRouter, useLocation, Redirect } from "wouter";
+import {
+  Switch,
+  Route,
+  Router as WouterRouter,
+  useLocation,
+  Redirect,
+} from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,7 +13,8 @@ import { Footer } from "@/components/layout/footer";
 import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { RegionProvider } from "@/contexts/RegionContext";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { trackPageview, getGAMeasurementId, injectGA } from "@/lib/analytics";
 
 import RegionPicker from "@/pages/region-picker";
@@ -21,11 +28,34 @@ import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import TermsOfService from "@/pages/terms-of-service";
 import PrivacyPolicy from "@/pages/privacy-policy";
-import AdminCMS from "@/pages/admin";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
+const AdminCMS = lazy(() => import("@/pages/admin"));
 
+export interface InitialBlogPost {
+  id: number;
+  slug: string;
+  date: string;
+  categoryEn: string;
+  categoryAr: string;
+  readTime: number;
+  titleEn: string;
+  titleAr: string;
+  excerptEn: string;
+  excerptAr: string;
+  published: boolean;
+  [key: string]: unknown;
+}
+
+function createSsrQueryClient(posts: InitialBlogPost[]): QueryClient {
+  const client = new QueryClient();
+  client.setQueryData(["blog-posts"], posts);
+  for (const post of posts) {
+    client.setQueryData(["blog-post", post.slug], post);
+  }
+  return client;
+}
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -51,26 +81,59 @@ const REGION_LANG_PREFIXES = ["/sa", "/sa/ar", "/syr", "/syr/ar"];
 
 function buildRegionRoutes() {
   return REGION_LANG_PREFIXES.flatMap((prefix) => [
-    <Route key={`${prefix}-services-id`} path={`${prefix}/services/:id`} component={ServiceDetail} />,
-    <Route key={`${prefix}-services`} path={`${prefix}/services`} component={Services} />,
-    <Route key={`${prefix}-about`} path={`${prefix}/about`} component={About} />,
-    <Route key={`${prefix}-contact`} path={`${prefix}/contact`} component={Contact} />,
-    <Route key={`${prefix}-tos`} path={`${prefix}/terms-of-service`} component={TermsOfService} />,
-    <Route key={`${prefix}-privacy`} path={`${prefix}/privacy-policy`} component={PrivacyPolicy} />,
+    <Route
+      key={`${prefix}-services-id`}
+      path={`${prefix}/services/:id`}
+      component={ServiceDetail}
+    />,
+    <Route
+      key={`${prefix}-services`}
+      path={`${prefix}/services`}
+      component={Services}
+    />,
+    <Route
+      key={`${prefix}-about`}
+      path={`${prefix}/about`}
+      component={About}
+    />,
+    <Route
+      key={`${prefix}-contact`}
+      path={`${prefix}/contact`}
+      component={Contact}
+    />,
+    <Route
+      key={`${prefix}-tos`}
+      path={`${prefix}/terms-of-service`}
+      component={TermsOfService}
+    />,
+    <Route
+      key={`${prefix}-privacy`}
+      path={`${prefix}/privacy-policy`}
+      component={PrivacyPolicy}
+    />,
     <Route key={`${prefix}-home`} path={prefix} component={Home} />,
   ]);
 }
 
 function buildRegionRedirects() {
   return REGION_LANG_PREFIXES.flatMap((prefix) => [
-    <Route key={`${prefix}-services-redirect`} path={`${prefix}/services/:id/:rest*`}>
-      {(params: { id: string }) => <Redirect to={`${prefix}/services/${params.id}`} replace />}
+    <Route
+      key={`${prefix}-services-redirect`}
+      path={`${prefix}/services/:id/:rest*`}
+    >
+      {(params: { id: string }) => (
+        <Redirect to={`${prefix}/services/${params.id}`} replace />
+      )}
     </Route>,
     <Route key={`${prefix}-blog-redirect`} path={`${prefix}/blog/:slug/:rest*`}>
-      {(params: { slug: string }) => <Redirect to={`/blog/${params.slug}`} replace />}
+      {(params: { slug: string }) => (
+        <Redirect to={`/blog/${params.slug}`} replace />
+      )}
     </Route>,
     <Route key={`${prefix}-blog-slug-redirect`} path={`${prefix}/blog/:slug`}>
-      {(params: { slug: string }) => <Redirect to={`/blog/${params.slug}`} replace />}
+      {(params: { slug: string }) => (
+        <Redirect to={`/blog/${params.slug}`} replace />
+      )}
     </Route>,
     <Route key={`${prefix}-blog-redirect-index`} path={`${prefix}/blog`}>
       {() => <Redirect to="/blog" replace />}
@@ -87,7 +150,13 @@ function Router() {
       <>
         <ScrollToTop />
         <Switch>
-          <Route path="/counselo-admin" component={AdminCMS} />
+          <Route path="/counselo-admin">
+            <Suspense
+              fallback={<div className="min-h-screen" aria-live="polite" />}
+            >
+              <AdminCMS />
+            </Suspense>
+          </Route>
         </Switch>
       </>
     );
@@ -137,6 +206,10 @@ function AppShell() {
   if (isAdmin) {
     return (
       <div className="min-h-screen bg-gray-50">
+        <Helmet>
+          <title>CounselO Admin</title>
+          <meta name="robots" content="noindex, nofollow, noarchive" />
+        </Helmet>
         <Router />
         <Toaster />
       </div>
@@ -154,9 +227,15 @@ function AppShell() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-background focus:text-foreground focus:px-4 focus:py-2 focus:border focus:border-border"
+      >
+        Skip to main content
+      </a>
       <GAInit />
       <Navbar />
-      <main className="flex-grow pt-24">
+      <main className="flex-grow pt-24" id="main-content">
         <Router />
       </main>
       <Footer />
@@ -174,11 +253,16 @@ interface AppProps {
    * pipeline. Leave undefined on the client (default wouter behaviour applies).
    */
   ssrUrl?: string;
+  /** Published posts supplied by the prerender pipeline for first-byte HTML. */
+  initialBlogPosts?: InitialBlogPost[];
 }
 
-function App({ ssrUrl }: AppProps = {}) {
+function App({ ssrUrl, initialBlogPosts = [] }: AppProps = {}) {
+  const activeQueryClient = ssrUrl
+    ? createSsrQueryClient(initialBlogPosts)
+    : queryClient;
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={activeQueryClient}>
       <TooltipProvider>
         {/*
           ssrPath tells wouter which URL to use during server-side rendering.

@@ -32,8 +32,14 @@ function decode(s: string): string {
 
 function meta(html: string, attr: string, name: string): string {
   for (const pat of [
-    new RegExp(`<meta\\b[^>]*\\b${attr}="${escapeRe(name)}"[^>]*\\bcontent="([^"]*)"`, "i"),
-    new RegExp(`<meta\\b[^>]*\\bcontent="([^"]*)"[^>]*\\b${attr}="${escapeRe(name)}"`, "i"),
+    new RegExp(
+      `<meta\\b[^>]*\\b${attr}="${escapeRe(name)}"[^>]*\\bcontent="([^"]*)"`,
+      "i",
+    ),
+    new RegExp(
+      `<meta\\b[^>]*\\bcontent="([^"]*)"[^>]*\\b${attr}="${escapeRe(name)}"`,
+      "i",
+    ),
   ]) {
     const m = html.match(pat);
     if (m) return decode(m[1]);
@@ -86,7 +92,11 @@ function schemas(html: string): object[] {
   const out: object[] = [];
   let m: RegExpExecArray | null;
   while ((m = re.exec(html)) !== null) {
-    try { out.push(JSON.parse(m[1])); } catch { /* skip malformed */ }
+    try {
+      out.push(JSON.parse(m[1]));
+    } catch {
+      /* skip malformed */
+    }
   }
   return out;
 }
@@ -102,7 +112,9 @@ function imagesWithoutAlt(html: string): number {
 }
 
 function internalLinksFromBody(html: string): string[] {
-  const body = html.replace(/<nav\b[\s\S]*?<\/nav>/gi, "").replace(/<footer\b[\s\S]*?<\/footer>/gi, "");
+  const body = html
+    .replace(/<nav\b[\s\S]*?<\/nav>/gi, "")
+    .replace(/<footer\b[\s\S]*?<\/footer>/gi, "");
   const re = /<a\b[^>]*\bhref="(\/[^"]*)"/gi;
   const out: string[] = [];
   let m: RegExpExecArray | null;
@@ -142,9 +154,12 @@ function validatePage(filepath: string): PageResult {
 
   if (isRedirect) {
     const redir = html.match(/content="0;\s*url=([^"]+)"/i)?.[1] ?? "";
+    const sourceRoute =
+      meta(html, "name", "x-source-route") ||
+      `/${path.basename(filepath, ".html").replace(/-/g, "/")}`;
     return {
       file: path.basename(filepath),
-      route: redir.replace(BASE, "") || "/redirect",
+      route: sourceRoute,
       isRedirect: true,
       redirectTo: redir,
       title: "",
@@ -159,6 +174,7 @@ function validatePage(filepath: string): PageResult {
   const ogUrl = meta(html, "property", "og:url");
   const route = ogUrl ? ogUrl.replace(BASE, "") || "/" : "/";
   const isSyr = route.startsWith("/syr");
+  const isSingleUrlBlog = route === "/blog" || route.startsWith("/blog/");
   const isAr = route.includes("/ar/") || route.endsWith("/ar");
 
   // ── core meta ──
@@ -169,93 +185,238 @@ function validatePage(filepath: string): PageResult {
   const ogTitle = meta(html, "property", "og:title");
   const ogDesc = meta(html, "property", "og:description");
 
-  if (!t)    issues.push({ severity: "error", rule: "title-missing",       detail: "No <title> tag" });
-  if (!desc) issues.push({ severity: "error", rule: "description-missing",  detail: "No meta description" });
-  if (!canon) issues.push({ severity: "error", rule: "canonical-missing",   detail: "No canonical link" });
+  if (!t)
+    issues.push({
+      severity: "error",
+      rule: "title-missing",
+      detail: "No <title> tag",
+    });
+  if (!desc)
+    issues.push({
+      severity: "error",
+      rule: "description-missing",
+      detail: "No meta description",
+    });
+  if (!canon)
+    issues.push({
+      severity: "error",
+      rule: "canonical-missing",
+      detail: "No canonical link",
+    });
   if (robots && /noindex/i.test(robots))
-              issues.push({ severity: "error", rule: "noindexed",           detail: `robots: ${robots}` });
+    issues.push({
+      severity: "error",
+      rule: "noindexed",
+      detail: `robots: ${robots}`,
+    });
 
   // ── title/desc length ──
   const tLen = [...t].length;
   const dLen = [...desc].length;
-  if (t && tLen < 20)  issues.push({ severity: "warn",  rule: "title-too-short",     detail: `${tLen} chars (min 20)` });
-  if (t && tLen > 70)  issues.push({ severity: "warn",  rule: "title-too-long",       detail: `${tLen} chars (max 70)` });
-  if (desc && dLen < 80)  issues.push({ severity: "warn", rule: "desc-too-short",     detail: `${dLen} chars (min 80)` });
-  if (desc && dLen > 170) issues.push({ severity: "warn", rule: "desc-too-long",      detail: `${dLen} chars (max 170)` });
+  if (t && tLen < 20)
+    issues.push({
+      severity: "warn",
+      rule: "title-too-short",
+      detail: `${tLen} chars (min 20)`,
+    });
+  if (t && tLen > 70)
+    issues.push({
+      severity: "warn",
+      rule: "title-too-long",
+      detail: `${tLen} chars (max 70)`,
+    });
+  if (desc && dLen < 80)
+    issues.push({
+      severity: "warn",
+      rule: "desc-too-short",
+      detail: `${dLen} chars (min 80)`,
+    });
+  if (desc && dLen > 170)
+    issues.push({
+      severity: "warn",
+      rule: "desc-too-long",
+      detail: `${dLen} chars (max 170)`,
+    });
 
   // ── OG ──
-  if (!ogTitle) issues.push({ severity: "warn", rule: "og-title-missing",  detail: "No og:title" });
-  if (!ogDesc)  issues.push({ severity: "warn", rule: "og-desc-missing",   detail: "No og:description" });
+  if (!ogTitle)
+    issues.push({
+      severity: "warn",
+      rule: "og-title-missing",
+      detail: "No og:title",
+    });
+  if (!ogDesc)
+    issues.push({
+      severity: "warn",
+      rule: "og-desc-missing",
+      detail: "No og:description",
+    });
 
   // ── hreflang ──
   const hl = hreflangTags(html);
   const hlCount = Object.keys(hl).length;
-  if (hlCount === 0)        issues.push({ severity: "error", rule: "hreflang-missing",  detail: "No hreflang links" });
-  if (!hl["x-default"])     issues.push({ severity: "warn",  rule: "hreflang-no-xdefault", detail: "Missing x-default hreflang" });
+  if (hlCount === 0)
+    issues.push({
+      severity: "error",
+      rule: "hreflang-missing",
+      detail: "No hreflang links",
+    });
+  if (!hl["x-default"])
+    issues.push({
+      severity: "warn",
+      rule: "hreflang-no-xdefault",
+      detail: "Missing x-default hreflang",
+    });
 
   // ── H1 ──
   const allH1 = h1s(html);
-  if (allH1.length === 0)   issues.push({ severity: "error", rule: "h1-missing",        detail: "No H1 found" });
-  if (allH1.length > 1)     issues.push({ severity: "warn",  rule: "h1-multiple",        detail: `${allH1.length} H1s found` });
+  if (allH1.length === 0)
+    issues.push({
+      severity: "error",
+      rule: "h1-missing",
+      detail: "No H1 found",
+    });
+  if (allH1.length > 1)
+    issues.push({
+      severity: "warn",
+      rule: "h1-multiple",
+      detail: `${allH1.length} H1s found`,
+    });
 
   // ── structured data ──
   const sc = schemas(html);
   const schemaTypes = sc.map((s: any) => s["@type"] ?? "unknown");
-  if (sc.length === 0)      issues.push({ severity: "warn", rule: "schema-missing",    detail: "No JSON-LD schema" });
+  if (sc.length === 0)
+    issues.push({
+      severity: "warn",
+      rule: "schema-missing",
+      detail: "No JSON-LD schema",
+    });
   if (!schemaTypes.includes("BreadcrumbList"))
-                            issues.push({ severity: "warn", rule: "schema-no-breadcrumb", detail: "No BreadcrumbList schema" });
+    issues.push({
+      severity: "warn",
+      rule: "schema-no-breadcrumb",
+      detail: "No BreadcrumbList schema",
+    });
 
   // ── images ──
   const noAlt = imagesWithoutAlt(html);
-  if (noAlt > 0)            issues.push({ severity: "warn", rule: "img-missing-alt",   detail: `${noAlt} image(s) without alt` });
+  if (noAlt > 0)
+    issues.push({
+      severity: "warn",
+      rule: "img-missing-alt",
+      detail: `${noAlt} image(s) without alt`,
+    });
 
   // ── geo ──
   const geoRegion = meta(html, "name", "geo.region");
-  if (!geoRegion)           issues.push({ severity: "warn", rule: "geo-region-missing", detail: "No geo.region meta" });
+  if (!geoRegion)
+    issues.push({
+      severity: "warn",
+      rule: "geo-region-missing",
+      detail: "No geo.region meta",
+    });
 
   // ── Syria-specific ──
-  if (isSyr) {
+  if (isSyr && !isSingleUrlBlog) {
     const syrTitle = meta(html, "property", "og:title") + " " + t;
     if (/المملكة/.test(syrTitle))
-      issues.push({ severity: "error", rule: "syr-ksa-title-leak", detail: `"المملكة" found in title/og:title on Syria page` });
+      issues.push({
+        severity: "error",
+        rule: "syr-ksa-title-leak",
+        detail: `"المملكة" found in title/og:title on Syria page`,
+      });
     if (/Saudi Arabia/i.test(t) && !/Syria/i.test(t))
-      issues.push({ severity: "warn", rule: "syr-sa-title-en", detail: `"Saudi Arabia" in title without "Syria"` });
+      issues.push({
+        severity: "warn",
+        rule: "syr-sa-title-en",
+        detail: `"Saudi Arabia" in title without "Syria"`,
+      });
 
-    if (!hl["en-SY"])       issues.push({ severity: "error", rule: "syr-hreflang-en-sy-missing", detail: "Missing en-SY hreflang" });
-    if (!hl["ar-SY"])       issues.push({ severity: "error", rule: "syr-hreflang-ar-sy-missing", detail: "Missing ar-SY hreflang" });
+    if (!hl["en-SY"])
+      issues.push({
+        severity: "error",
+        rule: "syr-hreflang-en-sy-missing",
+        detail: "Missing en-SY hreflang",
+      });
+    if (!hl["ar-SY"])
+      issues.push({
+        severity: "error",
+        rule: "syr-hreflang-ar-sy-missing",
+        detail: "Missing ar-SY hreflang",
+      });
   }
 
   // ── SA-specific ──
-  if (!isSyr) {
-    if (!hl["en-SA"])       issues.push({ severity: "error", rule: "sa-hreflang-en-sa-missing",  detail: "Missing en-SA hreflang" });
-    if (!hl["ar-SA"])       issues.push({ severity: "error", rule: "sa-hreflang-ar-sa-missing",  detail: "Missing ar-SA hreflang" });
+  if (!isSyr && !isSingleUrlBlog) {
+    if (!hl["en-SA"])
+      issues.push({
+        severity: "error",
+        rule: "sa-hreflang-en-sa-missing",
+        detail: "Missing en-SA hreflang",
+      });
+    if (!hl["ar-SA"])
+      issues.push({
+        severity: "error",
+        rule: "sa-hreflang-ar-sa-missing",
+        detail: "Missing ar-SA hreflang",
+      });
   }
 
   // ── blog hubs — must have article links ──
-  if (route === "/sa/blog" || route === "/syr/blog" ||
-      route === "/sa/ar/blog" || route === "/syr/ar/blog") {
+  if (
+    route === "/blog" ||
+    route === "/sa/blog" ||
+    route === "/syr/blog" ||
+    route === "/sa/ar/blog" ||
+    route === "/syr/ar/blog"
+  ) {
     const links = internalLinksFromBody(html);
-    const articleLinks = links.filter(l => l.includes("/blog/") && l !== route);
+    const articleLinks = links.filter(
+      (l) => l.includes("/blog/") && l !== route,
+    );
     if (articleLinks.length === 0)
-      issues.push({ severity: "error", rule: "blog-hub-no-articles", detail: "Blog hub has no crawlable article links" });
+      issues.push({
+        severity: "error",
+        rule: "blog-hub-no-articles",
+        detail: "Blog hub has no crawlable article links",
+      });
     else
-      issues.push({ severity: "info",  rule: "blog-hub-articles",    detail: `${articleLinks.length} article link(s)` });
+      issues.push({
+        severity: "info",
+        rule: "blog-hub-articles",
+        detail: `${articleLinks.length} article link(s)`,
+      });
 
     if (!schemaTypes.includes("ItemList"))
-      issues.push({ severity: "warn", rule: "blog-hub-no-itemlist", detail: "Blog hub missing ItemList schema" });
+      issues.push({
+        severity: "warn",
+        rule: "blog-hub-no-itemlist",
+        detail: "Blog hub missing ItemList schema",
+      });
   }
 
   // ── blog posts — must have Article schema ──
   if (/\/blog\/[^/]+$/.test(route)) {
     if (!schemaTypes.includes("Article"))
-      issues.push({ severity: "warn", rule: "blog-post-no-article-schema", detail: "Blog post missing Article schema" });
+      issues.push({
+        severity: "warn",
+        rule: "blog-post-no-article-schema",
+        detail: "Blog post missing Article schema",
+      });
   }
 
   // ── service pages — should have LegalService or Service schema ──
   if (/\/services\/[^/]+$/.test(route)) {
-    const hasServiceSchema = schemaTypes.some(t => /legal|service|organization/i.test(t));
+    const hasServiceSchema = schemaTypes.some((t) =>
+      /legal|service|organization/i.test(t),
+    );
     if (!hasServiceSchema)
-      issues.push({ severity: "warn", rule: "service-no-schema", detail: "Service page missing LegalService/Service schema" });
+      issues.push({
+        severity: "warn",
+        rule: "service-no-schema",
+        detail: "Service page missing LegalService/Service schema",
+      });
   }
 
   const bodyLinks = internalLinksFromBody(html);
@@ -291,25 +452,43 @@ function main() {
   }
 
   const results: PageResult[] = files.map(validatePage);
-  const pages = results.filter(r => !r.isRedirect);
-  const redirects = results.filter(r => r.isRedirect);
+  const pages = results.filter((r) => !r.isRedirect);
+  const redirects = results.filter((r) => r.isRedirect);
 
   // ── counts ──
-  const errors = pages.flatMap(p => p.issues.filter(i => i.severity === "error"));
-  const warns  = pages.flatMap(p => p.issues.filter(i => i.severity === "warn"));
-  const infos  = pages.flatMap(p => p.issues.filter(i => i.severity === "info"));
+  const errors = pages.flatMap((p) =>
+    p.issues.filter((i) => i.severity === "error"),
+  );
+  const warns = pages.flatMap((p) =>
+    p.issues.filter((i) => i.severity === "warn"),
+  );
+  const infos = pages.flatMap((p) =>
+    p.issues.filter((i) => i.severity === "info"),
+  );
 
-  const errorPages = pages.filter(p => p.issues.some(i => i.severity === "error"));
-  const warnPages  = pages.filter(p => p.issues.some(i => i.severity === "warn") && !p.issues.some(i => i.severity === "error"));
-  const okPages    = pages.filter(p => !p.issues.some(i => i.severity === "error" || i.severity === "warn"));
+  const errorPages = pages.filter((p) =>
+    p.issues.some((i) => i.severity === "error"),
+  );
+  const warnPages = pages.filter(
+    (p) =>
+      p.issues.some((i) => i.severity === "warn") &&
+      !p.issues.some((i) => i.severity === "error"),
+  );
+  const okPages = pages.filter(
+    (p) =>
+      !p.issues.some((i) => i.severity === "error" || i.severity === "warn"),
+  );
 
-  const score = Math.round(((okPages.length + warnPages.length * 0.5) / pages.length) * 100);
+  const score = Math.round(
+    ((okPages.length + warnPages.length * 0.5) / pages.length) * 100,
+  );
 
   // ── rule frequency ──
   const ruleCount: Record<string, { errors: number; warns: number }> = {};
   for (const p of pages) {
     for (const issue of p.issues) {
-      if (!ruleCount[issue.rule]) ruleCount[issue.rule] = { errors: 0, warns: 0 };
+      if (!ruleCount[issue.rule])
+        ruleCount[issue.rule] = { errors: 0, warns: 0 };
       if (issue.severity === "error") ruleCount[issue.rule].errors++;
       else if (issue.severity === "warn") ruleCount[issue.rule].warns++;
     }
@@ -335,20 +514,24 @@ function main() {
   lines.push(``);
 
   if (errors.length === 0) {
-    lines.push(`> ✅ **No errors found.** All pages pass critical SEO checks.\n`);
+    lines.push(
+      `> ✅ **No errors found.** All pages pass critical SEO checks.\n`,
+    );
   }
 
   // ── rule summary ──
   const ruleRows = Object.entries(ruleCount)
     .filter(([, v]) => v.errors + v.warns > 0)
-    .sort((a, b) => (b[1].errors - a[1].errors) || (b[1].warns - a[1].warns));
+    .sort((a, b) => b[1].errors - a[1].errors || b[1].warns - a[1].warns);
 
   if (ruleRows.length > 0) {
     lines.push(`## Issues by Rule\n`);
     lines.push(`| Rule | Errors | Warnings |`);
     lines.push(`|------|--------|----------|`);
     for (const [rule, counts] of ruleRows) {
-      lines.push(`| \`${rule}\` | ${counts.errors || "—"} | ${counts.warns || "—"} |`);
+      lines.push(
+        `| \`${rule}\` | ${counts.errors || "—"} | ${counts.warns || "—"} |`,
+      );
     }
     lines.push(``);
   }
@@ -359,10 +542,10 @@ function main() {
     for (const p of errorPages.sort((a, b) => a.route.localeCompare(b.route))) {
       lines.push(`### \`${p.route}\``);
       if (p.title) lines.push(`_Title: ${p.title}_\n`);
-      for (const issue of p.issues.filter(i => i.severity === "error")) {
+      for (const issue of p.issues.filter((i) => i.severity === "error")) {
         lines.push(`- ❌ **${issue.rule}**: ${issue.detail}`);
       }
-      for (const issue of p.issues.filter(i => i.severity === "warn")) {
+      for (const issue of p.issues.filter((i) => i.severity === "warn")) {
         lines.push(`- ⚠️  **${issue.rule}**: ${issue.detail}`);
       }
       lines.push(``);
@@ -375,7 +558,7 @@ function main() {
     for (const p of warnPages.sort((a, b) => a.route.localeCompare(b.route))) {
       lines.push(`### \`${p.route}\``);
       if (p.title) lines.push(`_Title: ${p.title}_\n`);
-      for (const issue of p.issues.filter(i => i.severity === "warn")) {
+      for (const issue of p.issues.filter((i) => i.severity === "warn")) {
         lines.push(`- ⚠️  **${issue.rule}**: ${issue.detail}`);
       }
       lines.push(``);
@@ -386,7 +569,9 @@ function main() {
   if (okPages.length > 0) {
     lines.push(`## ✅ Clean Pages (${okPages.length})\n`);
     for (const p of okPages.sort((a, b) => a.route.localeCompare(b.route))) {
-      lines.push(`- \`${p.route}\` — schemas: ${p.schemaTypes.join(", ") || "none"}`);
+      lines.push(
+        `- \`${p.route}\` — schemas: ${p.schemaTypes.join(", ") || "none"}`,
+      );
     }
     lines.push(``);
   }
@@ -406,16 +591,35 @@ function main() {
   fs.writeFileSync(mdOut, lines.join("\n"), "utf-8");
   console.log(`📝  ${mdOut}`);
 
-  fs.writeFileSync(jsonOut, JSON.stringify({
-    generatedAt: now,
-    summary: { pages: pages.length, redirects: redirects.length, ok: okPages.length, warnOnly: warnPages.length, errors: errorPages.length, totalErrors: errors.length, totalWarnings: warns.length, score },
-    ruleFrequency: ruleCount,
-    pages: results,
-  }, null, 2), "utf-8");
+  fs.writeFileSync(
+    jsonOut,
+    JSON.stringify(
+      {
+        generatedAt: now,
+        summary: {
+          pages: pages.length,
+          redirects: redirects.length,
+          ok: okPages.length,
+          warnOnly: warnPages.length,
+          errors: errorPages.length,
+          totalErrors: errors.length,
+          totalWarnings: warns.length,
+          score,
+        },
+        ruleFrequency: ruleCount,
+        pages: results,
+      },
+      null,
+      2,
+    ),
+    "utf-8",
+  );
   console.log(`📊  ${jsonOut}`);
 
   console.log(`\n${"─".repeat(50)}`);
-  console.log(`Pages: ${pages.length}  |  ✅ ${okPages.length}  ⚠️  ${warnPages.length}  ❌ ${errorPages.length}`);
+  console.log(
+    `Pages: ${pages.length}  |  ✅ ${okPages.length}  ⚠️  ${warnPages.length}  ❌ ${errorPages.length}`,
+  );
   console.log(`Errors: ${errors.length}  Warnings: ${warns.length}`);
   console.log(`Score: ${score}/100`);
 
