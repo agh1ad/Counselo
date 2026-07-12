@@ -2,7 +2,7 @@ import { Router } from "express";
 import { db, blogPostsTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import { requireAdmin } from "../middlewares/auth.js";
-import { notifyGoogleUrls, blogPostUrls } from "../lib/google-indexing.js";
+import { notifyGoogleUrls, notifyPublished } from "../lib/google-indexing.js";
 
 const router = Router();
 
@@ -80,7 +80,7 @@ router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
     .values(extractBody(body))
     .returning();
   if (post.published) {
-    void notifyGoogleUrls(blogPostUrls(post.slug));
+    notifyPublished(post.slug);
   }
   res.status(201).json(post);
 });
@@ -102,7 +102,7 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
     return;
   }
   if (post.published && !before?.published) {
-    void notifyGoogleUrls(blogPostUrls(post.slug));
+    notifyPublished(post.slug);
   }
   res.json(post);
 });

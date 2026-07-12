@@ -1,6 +1,10 @@
 import { createSign } from "node:crypto";
 import { logger } from "./logger.js";
 
+const BASE = "https://counselo-legal.com";
+const INDEXNOW_KEY = "fc82de857e07c9a2f89982c0e825dee1";
+const INDEXNOW_URL = "https://api.indexnow.org/indexnow";
+
 const INDEXING_SCOPE = "https://www.googleapis.com/auth/indexing";
 const TOKEN_URL = "https://oauth2.googleapis.com/token";
 const INDEXING_URL = "https://indexing.googleapis.com/v3/urlNotifications:publish";
@@ -38,6 +42,34 @@ async function getAccessToken(saJson: string): Promise<string> {
   return data.access_token;
 }
 
+/**
+ * Ping IndexNow with the given URLs so Bing, Yandex, and other participating
+ * engines pick them up within minutes. IndexNow is forwarded to Google Search
+ * by the other engines but is not a direct Google signal — we also call the
+ * Google Indexing API separately for that.
+ */
+async function pingIndexNow(urls: string[]): Promise<void> {
+  try {
+    const res = await fetch(INDEXNOW_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      body: JSON.stringify({
+        host: "counselo-legal.com",
+        key: INDEXNOW_KEY,
+        keyLocation: `${BASE}/${INDEXNOW_KEY}.txt`,
+        urlList: urls,
+      }),
+    });
+    if (res.status === 200 || res.status === 202) {
+      logger.info({ count: urls.length }, "[indexnow] accepted");
+    } else {
+      logger.warn({ status: res.status }, "[indexnow] unexpected response");
+    }
+  } catch (err) {
+    logger.warn({ err }, "[indexnow] ping failed — non-fatal");
+  }
+}
+
 export async function notifyGoogleUrls(urls: string[]): Promise<void> {
   const saJson = process.env["GOOGLE_INDEXING_SA_KEY"];
   if (!saJson) {
@@ -68,12 +100,25 @@ export async function notifyGoogleUrls(urls: string[]): Promise<void> {
   }
 }
 
+/**
+ * Returns the canonical URLs to notify when a blog post is published.
+ * Includes the post page itself and the blog index (which now lists the post).
+ * Only the single canonical URL is used — region-prefixed variants redirect
+ * and must not be submitted directly to indexing APIs.
+ */
 export function blogPostUrls(slug: string): string[] {
-  const BASE = "https://counselo-legal.com";
   return [
-    `${BASE}/sa/blog/${slug}`,
-    `${BASE}/sa/ar/blog/${slug}`,
-    `${BASE}/syr/blog/${slug}`,
-    `${BASE}/syr/ar/blog/${slug}`,
+    `${BASE}/blog/${slug}`,
+    `${BASE}/blog`,
   ];
+}
+
+/**
+ * Fire-and-forget: notifies both the Google Indexing API and IndexNow
+ * immediately when a post is published. Call this after any publish event.
+ */
+export function notifyPublished(slug: string): void {
+  const urls = blogPostUrls(slug);
+  void notifyGoogleUrls(urls);
+  void pingIndexNow(urls);
 }
