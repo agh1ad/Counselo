@@ -335,53 +335,6 @@ function writeRedirectRoute(fromRoute: string, toRoute: string): void {
   writeFileSync(outputPath, html, "utf-8");
 }
 
-// ---------------------------------------------------------------------------
-// artifact.toml helpers — keep blog post rewrites in sync at build time.
-// ---------------------------------------------------------------------------
-
-const artifactTomlPath = resolve(__dirname, "../../.replit-artifact/artifact.toml");
-
-/**
- * Ensure artifact.toml has a rewrite entry for each prerendered blog post.
- * Only adds entries that are not already present; leaves the rest untouched.
- * New entries are inserted just before the catch-all "/*" → "/index.html".
- */
-function syncBlogRewritesToArtifactToml(slugs: string[]): void {
-  if (slugs.length === 0) return;
-
-  let toml = readFileSync(artifactTomlPath, "utf-8");
-
-  const newEntries: string[] = [];
-  for (const slug of slugs) {
-    const fromPath = `/blog/${slug}`;
-    const toPath = `/__pages/blog-${slug}.html`;
-    const marker = `from = "${fromPath}"`;
-    if (!toml.includes(marker)) {
-      newEntries.push(
-        `[[services.production.rewrites]]\nfrom = "${fromPath}"\nto = "${toPath}"`,
-      );
-    }
-  }
-
-  if (newEntries.length === 0) return;
-
-  // Insert before the catch-all "/*" entry so specific routes take precedence.
-  const catchAll = `[[services.production.rewrites]]\nfrom = "/*"`;
-  const insertAt = toml.indexOf(catchAll);
-  if (insertAt === -1) {
-    console.warn("  ⚠ Could not find /*  catch-all in artifact.toml; blog rewrites not added.");
-    return;
-  }
-
-  toml =
-    toml.slice(0, insertAt) +
-    newEntries.join("\n\n") +
-    "\n\n" +
-    toml.slice(insertAt);
-
-  writeFileSync(artifactTomlPath, toml, "utf-8");
-  console.log(`  📝 Added ${newEntries.length} blog post rewrite(s) to artifact.toml`);
-}
 
 // ---------------------------------------------------------------------------
 // Main
@@ -435,13 +388,6 @@ async function prerender(): Promise<void> {
   if (failed.length > 0) {
     console.error(`\n❌ ${failed.length} route(s) failed:\n${failed.join("\n")}`);
     process.exit(1);
-  }
-
-  // Sync blog post rewrites into artifact.toml so the static server can
-  // serve the prerendered HTML files for each known post.
-  if (blogSlugs.length > 0) {
-    console.log("\n📝 Syncing blog post rewrites into artifact.toml…");
-    syncBlogRewritesToArtifactToml(blogSlugs);
   }
 
   // Write redirect-only HTML files for old region-prefixed blog URLs.
