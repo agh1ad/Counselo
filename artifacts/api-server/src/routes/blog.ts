@@ -2,6 +2,7 @@ import { Router } from "express";
 import { db, blogPostsTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import { requireAdmin } from "../middlewares/auth.js";
+import { notifyGoogleUrls, blogPostUrls } from "../lib/google-indexing.js";
 
 const router = Router();
 
@@ -78,12 +79,19 @@ router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
     .insert(blogPostsTable)
     .values(extractBody(body))
     .returning();
+  if (post.published) {
+    void notifyGoogleUrls(blogPostUrls(post.slug));
+  }
   res.status(201).json(post);
 });
 
 router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
   const id = Number(req.params["id"]);
   const body = req.body as Record<string, unknown>;
+  const [before] = await db
+    .select({ published: blogPostsTable.published })
+    .from(blogPostsTable)
+    .where(eq(blogPostsTable.id, id));
   const [post] = await db
     .update(blogPostsTable)
     .set({ ...extractBody(body), updatedAt: new Date() })
@@ -92,6 +100,9 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
   if (!post) {
     res.status(404).json({ error: "Not found" });
     return;
+  }
+  if (post.published && !before?.published) {
+    void notifyGoogleUrls(blogPostUrls(post.slug));
   }
   res.json(post);
 });
