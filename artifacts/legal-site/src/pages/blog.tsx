@@ -93,26 +93,27 @@ export default function Blog() {
     <div className="w-full bg-background min-h-screen" dir={isRTL ? "rtl" : "ltr"}>
       <SEOHead
         title={isRTL
-          ? `مدونة قانونية ${countryAr} | مقالات وإرشادات قانونية مجانية | قانوني`
-          : `${country} Legal Blog | Free Legal Guides & Articles | CounselO`}
+          ? "مدونة كاونسلو القانونية | مقالات وإرشادات قانونية | كاونسلو"
+          : "Legal Blog | Articles & Guides | CounselO"}
         description={isRTL
-          ? `إرشادات قانونية مجانية وعملية في قانون الأسرة ${countryAr} وقانون العمل والعقارات والقانون التجاري والاستثمار الأجنبي والقانون الإداري — مقالات معمّقة بقلم فريق قانوني.`
-          : `Free practical legal guides on ${country} family law, employment law, real estate, commercial law, foreign investment, and administrative law — in-depth articles from CounselO's expert legal team.`}
+          ? "إرشادات قانونية مجانية وعملية في قانون الأسرة وقانون العمل والعقارات والقانون التجاري والاستثمار الأجنبي والقانون الإداري للسعودية وسوريا — مقالات معمّقة بقلم فريق المحامي والمستشار القانوني عمر البغدادي."
+          : "Free practical legal guides on family law, employment, real estate, commercial law, and foreign investment for Saudi Arabia and Syria — in-depth articles from lawyer and legal counsel Omar Al-Baghdadi."}
         canonical="/blog"
+        noRegionPrefix
         keywords={isRTL
-          ? `مدونة قانونية ${countryAr}, مقالات قانونية, إرشادات قانونية مجانية, قانون الأسرة ${countryAr}, قانون العمل ${countryAr}, القانون العقاري, القانون التجاري, الاستثمار الأجنبي, القانون الإداري, قانوني`
-          : `${country} legal blog, free legal guides ${country === "Syrian" ? "Syria" : "Saudi Arabia"}, family law articles, employment law, real estate law guide, commercial law, foreign investment guide, administrative law, CounselO blog`}
+          ? "مدونة قانونية, مقالات قانونية, إرشادات قانونية مجانية, قانون الأسرة, قانون العمل, القانون العقاري, القانون التجاري, الاستثمار الأجنبي, القانون الإداري, كاونسلو"
+          : "legal blog, free legal guides Saudi Arabia Syria, family law articles, employment law, real estate law guide, commercial law, foreign investment guide, administrative law, CounselO blog"}
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "Blog",
             "name": isRTL ? "مدونة كاونسلو القانونية" : "CounselO Legal Blog",
             "description": isRTL
-              ? `إرشادات قانونية معمّقة للأفراد والشركات في ${region === "syr" ? "سوريا" : "المملكة العربية السعودية"}`
-              : `In-depth legal guides for individuals and businesses in ${region === "syr" ? "Syria" : "Saudi Arabia"}`,
+              ? "إرشادات قانونية معمّقة للأفراد والشركات في المملكة العربية السعودية وسوريا"
+              : "In-depth legal guides for individuals and businesses in Saudi Arabia and Syria",
             "url": "https://counselo-legal.com/blog",
             "publisher": { "@type": "Organization", "name": "CounselO", "url": "https://counselo-legal.com" },
-            "inLanguage": [isRTL ? (region === "syr" ? "ar-SY" : "ar-SA") : (region === "syr" ? "en-SY" : "en-SA")],
+            "inLanguage": ["ar", "en"],
           },
           {
             "@context": "https://schema.org",

@@ -184,14 +184,13 @@ export default function BlogPost() {
     "about": { "@type": "LegalService", "areaServed": region === "syr" ? "Syria" : "Saudi Arabia" },
   };
 
-  const regionBaseUrl = `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}`;
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
-      { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": `${regionBaseUrl}/blog` },
-      { "@type": "ListItem", "position": 3, "name": seoTitle, "item": `${regionBaseUrl}/blog/${slug}` },
+      { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": "https://counselo-legal.com/blog" },
+      { "@type": "ListItem", "position": 3, "name": seoTitle, "item": `https://counselo-legal.com/blog/${slug}` },
     ],
   };
 
@@ -201,13 +200,10 @@ export default function BlogPost() {
         title={seoTitle}
         description={seoDesc}
         canonical={`/blog/${post.slug}`}
+        noRegionPrefix
         keywords={isRTL
-          ? region === "syr"
-            ? `${category}, مقالات قانونية سورية, إرشادات قانونية مجانية سوريا, كاونسلو, مدونة كاونسلو القانونية, استشارة قانونية أونلاين سوريا`
-            : `${category}, مقالات قانونية سعودية, إرشادات قانونية مجانية, كاونسلو, مدونة كاونسلو القانونية`
-          : region === "syr"
-            ? `${category}, Syrian legal articles, free legal guides Syria, CounselO blog, online legal advice Syria, Syrian law`
-            : `${category}, Saudi legal articles, free legal guides Saudi Arabia, CounselO blog, online legal advice KSA`}
+          ? `${category}, مقالات قانونية, إرشادات قانونية مجانية, كاونسلو, مدونة كاونسلو القانونية, استشارة قانونية أونلاين`
+          : `${category}, legal articles, free legal guides, CounselO blog, online legal advice, CounselO`}
         ogType="article"
         articlePublishedTime={post.date}
         articleAuthor={isRTL ? "فريق كاونسلو" : "CounselO Team"}
@@ -219,7 +215,7 @@ export default function BlogPost() {
       <section className="bg-primary text-white py-16 px-4">
         <div className="max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Link href={`${regionPrefix}/blog`} className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium mb-8 transition-colors">
+            <Link href="/blog" className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium mb-8 transition-colors">
               <BackArrow className="h-4 w-4" /> {ui.back}
             </Link>
             <div className="flex items-center gap-3 mb-4 flex-wrap">

@@ -14,17 +14,22 @@ const CORE_PAGES_EN: CorePage[] = [
   { path: "/sa/services", changefreq: "monthly", priority: "0.9" },
   { path: "/sa/contact", changefreq: "monthly", priority: "0.9" },
   { path: "/sa/about", changefreq: "monthly", priority: "0.8" },
-  { path: "/sa/blog", changefreq: "weekly", priority: "0.8" },
   { path: "/sa/terms-of-service", changefreq: "yearly", priority: "0.4" },
   { path: "/sa/privacy-policy", changefreq: "yearly", priority: "0.4" },
   { path: "/syr", changefreq: "weekly", priority: "0.95" },
   { path: "/syr/services", changefreq: "monthly", priority: "0.9" },
   { path: "/syr/contact", changefreq: "monthly", priority: "0.9" },
   { path: "/syr/about", changefreq: "monthly", priority: "0.8" },
-  { path: "/syr/blog", changefreq: "weekly", priority: "0.8" },
   { path: "/syr/terms-of-service", changefreq: "yearly", priority: "0.4" },
   { path: "/syr/privacy-policy", changefreq: "yearly", priority: "0.4" },
 ] as const;
+
+/**
+ * The blog lives at a single, region-agnostic URL /blog (and /blog/:slug).
+ * Listed separately so the sitemap emits it with x-default-only hreflang,
+ * not with region-prefixed alternates that would redirect.
+ */
+export const BLOG_BASE_PATH = "/blog";
 
 // Arabic is a real URL segment (e.g. "/sa/ar/about"), not a client-only
 // toggle — every English core page gets a matching "/ar" sitemap entry so

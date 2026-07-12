@@ -36,7 +36,7 @@ const BlogPostSchema = z.object({
   ar: BlogLocaleSchema,
 });
 
-const { BASE_URL, TODAY, CORE_PAGES } = await import("../data/sitemap-sources.js");
+const { BASE_URL, TODAY, CORE_PAGES, BLOG_BASE_PATH } = await import("../data/sitemap-sources.js");
 
 const { en } = await import("../translations/en.js");
 const { enSyr } = await import("../translations/en-syr.js");
@@ -154,37 +154,26 @@ function hreflangSyrOnly(path: string): string {
 }
 
 /**
- * Blog-post-specific hreflang: SA variants use saSlug, Syria variants use syrSlug.
- * Required because Syria blog posts have been migrated to Syria-specific slugs while
- * the SA blog posts retain the original slugs.
+ * hreflang for single-URL pages (blog index, blog posts).
+ * The blog lives at one URL for all regions and languages — emitting
+ * per-region alternates would point to redirect URLs, which Google penalises.
+ * x-default points to the page itself.
  */
-function hreflangBlogPost(saSlug: string, syrSlug: string): string {
-  const combos: Array<[string, string]> = [
-    ["en-SA", `/sa/blog/${saSlug}`],
-    ["ar-SA", `/sa/ar/blog/${saSlug}`],
-    ["en-SY", `/syr/blog/${syrSlug}`],
-    ["ar-SY", `/syr/ar/blog/${syrSlug}`],
-  ];
-  return [
-    ...combos.map(
-      ([l, p]) =>
-        `    <xhtml:link rel="alternate" hrefLang="${l}"     href="${BASE_URL}${p}"/>`,
-    ),
-    `    <xhtml:link rel="alternate" hrefLang="x-default" href="${BASE_URL}/"/>`,
-  ].join("\n");
+function hreflangSingleUrl(fullUrl: string): string {
+  return `    <xhtml:link rel="alternate" hrefLang="x-default" href="${fullUrl}"/>`;
 }
 
-function urlEntryBlogPost(
-  path: string,
-  saSlug: string,
-  syrSlug: string,
+function urlEntrySingleUrl(
+  fullUrl: string,
+  changefreq: string,
+  priority: string,
   lastmod: string,
 ): string {
   return `  <url>
-    <loc>${BASE_URL}${path}</loc>
-${hreflangBlogPost(saSlug, syrSlug)}
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>${fullUrl}</loc>
+${hreflangSingleUrl(fullUrl)}
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
     <lastmod>${lastmod}</lastmod>
   </url>`;
 }
@@ -212,6 +201,47 @@ for (const slug of SYR_SERVICE_SLUGS) {
   entries.push(fn(`/syr/ar/services/${slug}`, "monthly", "0.9", TODAY));
 }
 
+// Blog index — single URL shared by all regions/languages.
+entries.push("\n  <!-- ===== BLOG ===== -->");
+entries.push(
+  urlEntrySingleUrl(`${BASE_URL}${BLOG_BASE_PATH}`, "weekly", "0.8", TODAY),
+);
+
+// Blog posts — fetch live slugs and dates from the API.
+// The API server runs at localhost:80 via the shared proxy in all environments.
+// If the server is unreachable (e.g. offline build), blog posts are skipped
+// gracefully — they will appear on the next sitemap regeneration.
+try {
+  const BlogPostRowSchema = z.object({
+    slug: z.string(),
+    date: z.string(),
+  });
+  const res = await fetch("http://localhost:80/api/blog/posts", {
+    signal: AbortSignal.timeout(8_000),
+  });
+  if (res.ok) {
+    const raw = await res.json() as unknown[];
+    const posts = raw
+      .map((p) => BlogPostRowSchema.safeParse(p))
+      .filter((r) => r.success)
+      .map((r) => r.data);
+    for (const post of posts) {
+      entries.push(
+        urlEntrySingleUrl(
+          `${BASE_URL}${BLOG_BASE_PATH}/${post.slug}`,
+          "monthly",
+          "0.7",
+          post.date,
+        ),
+      );
+    }
+    console.log(`[sitemap] added ${posts.length} blog post(s) to sitemap`);
+  } else {
+    console.warn(`[sitemap] blog API returned HTTP ${res.status} — skipping post entries`);
+  }
+} catch (err) {
+  console.warn(`[sitemap] could not fetch blog posts (${(err as Error).message}) — skipping`);
+}
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"

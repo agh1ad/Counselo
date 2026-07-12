@@ -93,6 +93,13 @@ interface SEOHeadProps {
   articleAuthor?: string;
   /** For blog/article pages: article section/category */
   articleSection?: string;
+  /**
+   * When true, the canonical URL is built from the `canonical` prop as-is
+   * (no region/language prefix is prepended). hreflang alternates are omitted
+   * and x-default points to this canonical. Use for single-URL pages such as
+   * /blog and /blog/:slug that are shared across all regions and languages.
+   */
+  noRegionPrefix?: boolean;
 }
 
 const GEO = {
@@ -133,6 +140,7 @@ export function SEOHead({
   articlePublishedTime,
   articleAuthor,
   articleSection,
+  noRegionPrefix = false,
 }: SEOHeadProps) {
   const { lang } = useLanguage();
   const { region } = useRegion();
@@ -141,19 +149,27 @@ export function SEOHead({
   const isArabic = lang === "ar";
   const isSyr = region === "syr";
 
-  // Compute the prefixed path first so we can look up the optimized meta map.
   const basePath = canonical === "/" ? "" : canonical ?? "";
   const langSegment = isArabic ? "/ar" : "";
-  const prefixedPath = `${geo.pathPrefix}${langSegment}${basePath}`;
+
+  // For single-URL pages (blog), skip the region/language prefix so the
+  // canonical URL and meta lookups use the path exactly as provided.
+  const prefixedPath = noRegionPrefix
+    ? basePath
+    : `${geo.pathPrefix}${langSegment}${basePath}`;
 
   // If an optimized entry exists for this path, use it directly without
   // applying syriafyText — the Syria entries already contain correct text.
-  const metaOverride = COUNSELO_OPTIMIZED_META[prefixedPath as keyof typeof COUNSELO_OPTIMIZED_META];
+  // noRegionPrefix pages have no prefixed key in the map, so skip the lookup.
+  const metaOverride = noRegionPrefix
+    ? undefined
+    : COUNSELO_OPTIMIZED_META[prefixedPath as keyof typeof COUNSELO_OPTIMIZED_META];
 
-  // Use canonicalOverride when present (redirect source pages point crawlers to
-  // the new canonical URL rather than their own URL).
-  const canonicalUrl = metaOverride?.canonicalOverride
-    ?? `https://counselo-legal.com${prefixedPath}`;
+  // For noRegionPrefix pages the canonical is exactly the given path.
+  // For region-prefixed pages, honour any canonicalOverride in the meta map.
+  const canonicalUrl = noRegionPrefix
+    ? `https://counselo-legal.com${basePath}`
+    : (metaOverride?.canonicalOverride ?? `https://counselo-legal.com${prefixedPath}`);
 
   // Maps SA blog slugs → Syria-canonical slugs for hreflang.
   // SA blog pages must point en-SY/ar-SY hreflang at the correct Syria slug,
@@ -198,38 +214,45 @@ export function SEOHead({
             ? `${rawTitle} | كاونسلو`
             : `${rawTitle} | CounselO`);
 
-  // All 4 region x language combinations, each a real, distinct, crawlable
-  // URL — required for hreflang to actually route users/crawlers to
-  // matching-language content instead of pointing multiple language tags
-  // at a single URL that only ever renders one language.
+  // Single-URL pages (noRegionPrefix=true, e.g. /blog, /blog/:slug) live at one
+  // canonical URL shared by all regions and languages.  hreflang with per-region
+  // alternates would point to non-existent (or redirect) URLs, which Google
+  // penalises.  For these pages we emit no alternates and let x-default carry
+  // the canonical — the correct approach for a single shared URL.
+  //
+  // All other pages have 4 real, distinct, crawlable region×language URLs so
+  // hreflang correctly routes crawlers to matching-language content.
   const HREFLANG_COMBOS = [
     { region: "sa" as const, isArabic: false, hrefLang: GEO.sa.hrefLangEn },
     { region: "sa" as const, isArabic: true, hrefLang: GEO.sa.hrefLangAr },
     { region: "syr" as const, isArabic: false, hrefLang: GEO.syr.hrefLangEn },
     { region: "syr" as const, isArabic: true, hrefLang: GEO.syr.hrefLangAr },
   ];
-  const hreflangAlternates = HREFLANG_COMBOS
-    // Drop en-SA/ar-SA entries for services that have no Saudi equivalent.
-    .filter((c) => !(c.region === "sa" && SYRIA_ONLY_SERVICE_PATHS.has(basePath)))
-    .map((c) => {
-      // Syria hreflang entries resolve to the correct Syria slug:
-      // 1. canonicalOverride already carries the new slug (old-Syria-redirect pages).
-      // 2. SA blog pages use SYRIA_BLOG_SLUG_MAP to cross-map the slug.
-      // 3. All other pages share the same basePath across regions.
-      let hrefPath = basePath;
-      if (c.region === "syr" && syriaOverrideBlogPath) {
-        hrefPath = syriaOverrideBlogPath;
-      } else if (c.region === "syr" && basePath.startsWith("/blog/")) {
-        const saSlug = basePath.replace("/blog/", "");
-        const syrSlug = SYRIA_BLOG_SLUG_MAP[saSlug];
-        if (syrSlug) hrefPath = `/blog/${syrSlug}`;
-      }
-      return {
-        hrefLang: c.hrefLang,
-        href: `https://counselo-legal.com${GEO[c.region].pathPrefix}${c.isArabic ? "/ar" : ""}${hrefPath}`,
-      };
-    });
-  const xDefaultUrl = "https://counselo-legal.com/";
+  const hreflangAlternates = noRegionPrefix
+    ? []
+    : HREFLANG_COMBOS
+        // Drop en-SA/ar-SA entries for services that have no Saudi equivalent.
+        .filter((c) => !(c.region === "sa" && SYRIA_ONLY_SERVICE_PATHS.has(basePath)))
+        .map((c) => {
+          // Syria hreflang entries resolve to the correct Syria slug:
+          // 1. canonicalOverride already carries the new slug (old-Syria-redirect pages).
+          // 2. SA blog pages use SYRIA_BLOG_SLUG_MAP to cross-map the slug.
+          // 3. All other pages share the same basePath across regions.
+          let hrefPath = basePath;
+          if (c.region === "syr" && syriaOverrideBlogPath) {
+            hrefPath = syriaOverrideBlogPath;
+          } else if (c.region === "syr" && basePath.startsWith("/blog/")) {
+            const saSlug = basePath.replace("/blog/", "");
+            const syrSlug = SYRIA_BLOG_SLUG_MAP[saSlug];
+            if (syrSlug) hrefPath = `/blog/${syrSlug}`;
+          }
+          return {
+            hrefLang: c.hrefLang,
+            href: `https://counselo-legal.com${GEO[c.region].pathPrefix}${c.isArabic ? "/ar" : ""}${hrefPath}`,
+          };
+        });
+  // x-default: region picker for normal pages; the canonical itself for single-URL pages.
+  const xDefaultUrl = noRegionPrefix ? canonicalUrl : "https://counselo-legal.com/";
 
   const ogImage = "https://counselo-legal.com/og-image.png";
   const locale = isArabic ? geo.ogLocaleAr : geo.ogLocaleEn;
