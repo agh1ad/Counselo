@@ -191,383 +191,383 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── SA ENGLISH SERVICE PAGES ────────────────────────────────────────────
 
   "/sa/services/family-law": {
-    title: "Family Law Consultation in Saudi Arabia | Counselo",
+    title: "Family Law Lawyer in Saudi Arabia | Counselo",
     description:
-      "Book a confidential online family law consultation in Saudi Arabia. Get professional guidance on divorce, custody, alimony, and personal status matters.",
+      "Book an online legal consultation with an experienced family law lawyer in Saudi Arabia. Get professional guidance on divorce, custody, alimony, and personal status matters.",
   },
   "/sa/services/employment-law": {
-    title: "Employment Law Consultation in Saudi Arabia | Counselo",
+    title: "Employment Law Lawyer in Saudi Arabia | Counselo",
     description:
-      "Get online legal guidance in Saudi Arabia for employment contracts, termination, wages, workplace disputes, employee rights, and employer obligations.",
+      "Book an online legal consultation with an employment lawyer in Saudi Arabia for employment contracts, termination, wages, workplace disputes, and labor rights.",
   },
   "/sa/services/business-law": {
-    title: "Business Law Consultation in Saudi Arabia | Counselo",
+    title: "Commercial Law Lawyer in Saudi Arabia | Counselo",
     description:
-      "Book an online business law consultation in Saudi Arabia. Get professional guidance on commercial disputes, contracts, trading practices, and liability claims.",
+      "Book an online legal consultation with a commercial lawyer in Saudi Arabia for business disputes, contracts, trading practices, and commercial liability claims.",
   },
   "/sa/services/real-estate": {
-    title: "Real Estate Legal Consultation in Saudi Arabia | Counselo",
+    title: "Real Estate Lawyer in Saudi Arabia | Counselo",
     description:
-      "Book an online real estate consultation in Saudi Arabia for property ownership, sale contracts, leases, registration, and construction disputes.",
+      "Book an online legal consultation with a real estate lawyer in Saudi Arabia for property ownership, sale contracts, leases, registration, and construction disputes.",
   },
   "/sa/services/foreign-investment": {
-    title: "Immigration Legal Consultation in Saudi Arabia | Counselo",
+    title: "Immigration Lawyer in Saudi Arabia | Counselo",
     description:
-      "Get online legal guidance in Saudi Arabia for residency, visas, sponsorship, immigration procedures, documentation, and related legal matters.",
+      "Book an online legal consultation with an immigration lawyer in Saudi Arabia for residency, visas, sponsorship, immigration procedures, and documentation.",
   },
   "/sa/services/administrative-law": {
-    title: "Administrative Law Consultation in Saudi Arabia | Counselo",
+    title: "Administrative Law Lawyer in Saudi Arabia | Counselo",
     description:
-      "Get online legal guidance in Saudi Arabia on government decisions, administrative objections, regulatory compliance, and public authority disputes.",
+      "Book an online legal consultation with an administrative lawyer in Saudi Arabia on government decisions, administrative objections, and public authority disputes.",
   },
   "/sa/services/arbitration": {
-    title: "Arbitration & Mediation Consultation in Saudi Arabia | Counselo",
+    title: "Arbitration Lawyer in Saudi Arabia | Counselo",
     description:
-      "Book an online arbitration consultation in Saudi Arabia for commercial disputes, mediation procedures, award enforcement, and settlement agreements.",
+      "Book an online legal consultation with an arbitration lawyer in Saudi Arabia for commercial disputes, mediation procedures, award enforcement, and settlements.",
   },
   "/sa/services/enforcement": {
-    title: "Debt Enforcement Consultation in Saudi Arabia | Counselo",
+    title: "Debt Recovery Lawyer in Saudi Arabia | Counselo",
     description:
-      "Book an online debt enforcement consultation in Saudi Arabia. Get professional guidance on judgment execution, debt recovery, and payment claims.",
+      "Book an online legal consultation with a debt recovery lawyer in Saudi Arabia for judgment execution, debt collection, payment claims, and enforcement procedures.",
   },
   "/sa/services/companies-law": {
-    title: "Corporate Law Consultation in Saudi Arabia | Counselo",
+    title: "Corporate Law Lawyer in Saudi Arabia | Counselo",
     description:
-      "Book an online corporate law consultation in Saudi Arabia for company formation, commercial contracts, governance, compliance, and business disputes.",
+      "Book an online legal consultation with a corporate lawyer in Saudi Arabia for company formation, commercial contracts, governance, compliance, and business disputes.",
   },
   "/sa/services/contracts": {
-    title: "Contract Law Consultation in Saudi Arabia | Counselo",
+    title: "Contract Lawyer in Saudi Arabia | Counselo",
     description:
-      "Get confidential online legal guidance in Saudi Arabia for contract drafting, review, breach of contract, termination, negotiation, and disputes.",
+      "Book an online legal consultation with a contract lawyer in Saudi Arabia for contract drafting, review, breach of contract, termination, and negotiation.",
   },
   "/sa/services/criminal-law": {
-    title: "Criminal Law Consultation in Saudi Arabia | Counselo",
+    title: "Criminal Defense Lawyer in Saudi Arabia | Counselo",
     description:
-      "Get confidential online legal guidance in Saudi Arabia regarding criminal complaints, investigations, procedures, defense options, and related matters.",
+      "Book a confidential online legal consultation with a criminal lawyer in Saudi Arabia for criminal complaints, investigations, defense options, and court procedures.",
   },
   "/sa/services/banking-finance": {
-    title: "Banking & Finance Legal Consultation in Saudi Arabia | Counselo",
+    title: "Banking & Finance Lawyer in Saudi Arabia | Counselo",
     description:
-      "Book a confidential online consultation in Saudi Arabia for banking disputes, finance contracts, regulatory compliance, and Islamic finance matters.",
+      "Book an online legal consultation with a banking lawyer in Saudi Arabia for bank disputes, finance contracts, regulatory compliance, and Islamic finance matters.",
   },
   "/sa/services/intellectual-property": {
-    title: "Intellectual Property Consultation in Saudi Arabia | Counselo",
+    title: "Intellectual Property Lawyer in Saudi Arabia | Counselo",
     description:
-      "Book a confidential online intellectual property consultation in Saudi Arabia for trademarks, copyrights, patents, and IP protection matters.",
+      "Book an online legal consultation with an intellectual property lawyer in Saudi Arabia for trademarks, copyrights, patents, and IP protection matters.",
   },
   "/sa/services/tax-zakat": {
-    title: "Tax & Zakat Legal Consultation in Saudi Arabia | Counselo",
+    title: "Tax & Zakat Lawyer in Saudi Arabia | Counselo",
     description:
-      "Book a confidential online tax consultation in Saudi Arabia for VAT compliance, zakat obligations, customs duties, tax assessments, and objections.",
+      "Book an online legal consultation with a tax lawyer in Saudi Arabia for VAT compliance, zakat obligations, customs duties, tax assessments, and objections.",
   },
   "/sa/services/cyber-law": {
-    title: "Cybercrime Legal Consultation in Saudi Arabia | Counselo",
+    title: "Cybercrime Lawyer in Saudi Arabia | Counselo",
     description:
-      "Get confidential online legal consultation in Saudi Arabia for cybercrime, online defamation, data protection violations, and digital evidence matters.",
+      "Book a confidential online legal consultation with a cybercrime lawyer in Saudi Arabia for cybercrime, online defamation, data protection, and digital evidence.",
   },
   "/sa/services/medical-malpractice": {
-    title: "Medical Malpractice Consultation in Saudi Arabia | Counselo",
+    title: "Medical Malpractice Lawyer in Saudi Arabia | Counselo",
     description:
-      "Book a confidential online medical malpractice consultation in Saudi Arabia for negligence claims, misdiagnosis, and compensation matters.",
+      "Book an online legal consultation with a medical malpractice lawyer in Saudi Arabia for negligence claims, misdiagnosis, surgical errors, and compensation.",
   },
   "/sa/services/insurance-law": {
-    title: "Insurance Law Consultation in Saudi Arabia | Counselo",
+    title: "Insurance Lawyer in Saudi Arabia | Counselo",
     description:
-      "Book a confidential online insurance law consultation in Saudi Arabia for claim denial, policy disputes, and insurer liability matters.",
+      "Book an online legal consultation with an insurance lawyer in Saudi Arabia for claim denial, policy disputes, insurer liability, and settlement matters.",
   },
 
   // ─── SA ARABIC SERVICE PAGES ─────────────────────────────────────────────
 
   "/sa/ar/services/family-law": {
-    title: "استشارة قانونية في الأحوال الشخصية بالسعودية | كاونسلو",
+    title: "محامي أحوال شخصية في السعودية | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في قضايا الأحوال الشخصية بالسعودية، بما يشمل الطلاق والحضانة والنفقة والزواج، عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي أحوال شخصية في السعودية، للحصول على توجيه مهني في الطلاق والحضانة والنفقة والزواج.",
   },
   "/sa/ar/services/employment-law": {
-    title: "استشارة قانونية في نظام العمل السعودي | كاونسلو",
+    title: "محامي عمالي في السعودية | كاونسلو",
     description:
-      "احصل على استشارة قانونية أونلاين بشأن عقود العمل والفصل والرواتب والنزاعات العمالية وحقوق الموظفين في السعودية عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي عمالي في السعودية بشأن عقود العمل والفصل والرواتب والنزاعات العمالية وحقوق الموظفين.",
   },
   "/sa/ar/services/business-law": {
-    title: "استشارة قانونية في النزاعات التجارية بالسعودية | كاونسلو",
+    title: "محامي تجاري في السعودية | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في النزاعات التجارية والعقود والمعاملات التجارية والمسؤولية القانونية في السعودية عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي تجاري في السعودية للحصول على توجيه في النزاعات التجارية والعقود والمعاملات والمسؤولية.",
   },
   "/sa/ar/services/real-estate": {
-    title: "استشارة قانونية في العقارات بالسعودية | كاونسلو",
+    title: "محامي عقاري في السعودية | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في قضايا العقارات بالسعودية، بما يشمل نزاعات الملكية والإيجار والبيع والتسجيل وعيوب البناء.",
+      "احجز استشارة قانونية أونلاين مع محامي عقاري في السعودية في نزاعات الملكية والإيجار والبيع والتسجيل وعيوب البناء.",
   },
   "/sa/ar/services/foreign-investment": {
-    title: "استشارة قانونية في الإقامة والهجرة بالسعودية | كاونسلو",
+    title: "محامي إقامة وهجرة في السعودية | كاونسلو",
     description:
-      "احصل على استشارة قانونية أونلاين بشأن الإقامة والتأشيرات والكفالة وإجراءات الهجرة والمستندات القانونية في السعودية عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي إقامة وهجرة في السعودية بشأن التأشيرات والكفالة والإقامة وإجراءات الهجرة والمستندات.",
   },
   "/sa/ar/services/administrative-law": {
-    title: "استشارة قانونية في القانون الإداري بالسعودية | كاونسلو",
+    title: "محامي إداري في السعودية | كاونسلو",
     description:
-      "احصل على استشارة قانونية أونلاين بشأن القرارات الحكومية والطعون الإدارية والمنازعات مع الجهات العامة في السعودية عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي إداري في السعودية بشأن القرارات الحكومية والطعون الإدارية والمنازعات مع الجهات العامة.",
   },
   "/sa/ar/services/arbitration": {
-    title: "استشارة قانونية في التحكيم والوساطة بالسعودية | كاونسلو",
+    title: "محامي تحكيم في السعودية | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في التحكيم التجاري والوساطة وتسوية النزاعات وتنفيذ الأحكام التحكيمية في السعودية عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي تحكيم في السعودية في التحكيم التجاري والوساطة وتسوية النزاعات وتنفيذ الأحكام.",
   },
   "/sa/ar/services/enforcement": {
-    title: "استشارة قانونية في التنفيذ وتحصيل الديون بالسعودية | كاونسلو",
+    title: "محامي تنفيذ وتحصيل ديون في السعودية | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في تنفيذ الأحكام وتحصيل الديون والمطالبات المالية وإجراءات التنفيذ القضائي في السعودية عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي تنفيذ في السعودية لتنفيذ الأحكام وتحصيل الديون والمطالبات المالية وإجراءات التنفيذ.",
   },
   "/sa/ar/services/companies-law": {
-    title: "استشارة قانونية في نظام الشركات بالسعودية | كاونسلو",
+    title: "محامي شركات في السعودية | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في تأسيس الشركات والعقود التجارية والحوكمة والامتثال والنزاعات التجارية في السعودية عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي شركات في السعودية في تأسيس الشركات والعقود التجارية والحوكمة والامتثال والنزاعات.",
   },
   "/sa/ar/services/contracts": {
-    title: "استشارة قانونية في العقود بالسعودية | كاونسلو",
+    title: "محامي عقود في السعودية | كاونسلو",
     description:
-      "احصل على استشارة قانونية أونلاين في صياغة العقود ومراجعتها والإخلال بالعقد والفسخ والتنفيذ القانوني في السعودية عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي عقود في السعودية في صياغة العقود ومراجعتها والإخلال بالعقد والفسخ والتنفيذ.",
   },
   "/sa/ar/services/criminal-law": {
-    title: "استشارة قانونية في القضايا الجزائية بالسعودية | كاونسلو",
+    title: "محامي جزائي في السعودية | كاونسلو",
     description:
-      "احصل على استشارة قانونية أونلاين بسرية في القضايا الجزائية بالسعودية، بما يشمل الشكاوى والتحقيقات والإجراءات والخيارات القانونية.",
+      "احجز استشارة قانونية أونلاين بسرية مع محامي جزائي في السعودية في الشكاوى الجزائية والتحقيقات والإجراءات والخيارات القانونية.",
   },
   "/sa/ar/services/banking-finance": {
-    title: "استشارة قانونية في المصارف والتمويل بالسعودية | كاونسلو",
+    title: "محامي مصرفي وتمويل في السعودية | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في النزاعات المصرفية وعقود التمويل والامتثال التنظيمي والتمويل الإسلامي في السعودية عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي مصرفي في السعودية في النزاعات البنكية وعقود التمويل والامتثال والتمويل الإسلامي.",
   },
   "/sa/ar/services/intellectual-property": {
-    title: "استشارة قانونية في الملكية الفكرية بالسعودية | كاونسلو",
+    title: "محامي ملكية فكرية في السعودية | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في الملكية الفكرية بالسعودية، بما يشمل العلامات التجارية وحقوق المؤلف والبراءات والأسرار التجارية.",
+      "احجز استشارة قانونية أونلاين مع محامي ملكية فكرية في السعودية في العلامات التجارية وحقوق المؤلف والبراءات والأسرار التجارية.",
   },
   "/sa/ar/services/tax-zakat": {
-    title: "استشارة قانونية في الضرائب والزكاة بالسعودية | كاونسلو",
+    title: "محامي ضرائب وزكاة في السعودية | كاونسلو",
     description:
-      "احصل على استشارة قانونية أونلاين بشأن ضريبة القيمة المضافة والزكاة والجمارك وتقييمات الدخل وإجراءات الاعتراض في السعودية عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي ضرائب في السعودية بشأن ضريبة القيمة المضافة والزكاة والجمارك وتقييمات الدخل والاعتراضات.",
   },
   "/sa/ar/services/cyber-law": {
-    title: "استشارة قانونية في الجرائم الإلكترونية بالسعودية | كاونسلو",
+    title: "محامي جرائم إلكترونية في السعودية | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في الجرائم الإلكترونية والتشهير الرقمي وحماية البيانات والأدلة الإلكترونية في السعودية عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي جرائم إلكترونية في السعودية في الجرائم الرقمية والتشهير وحماية البيانات والأدلة الإلكترونية.",
   },
   "/sa/ar/services/medical-malpractice": {
-    title: "استشارة قانونية في الأخطاء الطبية بالسعودية | كاونسلو",
+    title: "محامي أخطاء طبية في السعودية | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في دعاوى الإهمال الطبي والأخطاء الجراحية وسوء التشخيص والتعويضات الطبية في السعودية عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي أخطاء طبية في السعودية في الإهمال الطبي والأخطاء الجراحية وسوء التشخيص والتعويضات.",
   },
   "/sa/ar/services/insurance-law": {
-    title: "استشارة قانونية في التأمين بالسعودية | كاونسلو",
+    title: "محامي تأمين في السعودية | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في رفض التعويضات ومنازعات وثائق التأمين والمسؤولية التأمينية والتسوية في السعودية عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي تأمين في السعودية في رفض التعويضات ومنازعات وثائق التأمين والمسؤولية التأمينية.",
   },
 
   // ─── SYRIA ENGLISH SERVICE PAGES ─────────────────────────────────────────
 
   "/syr/services/family-law": {
-    title: "Family Law Consultation in Syria | Counselo",
+    title: "Family Law Lawyer in Syria | Counselo",
     description:
-      "Book a confidential online family law consultation in Syria. Receive professional guidance on divorce, custody, alimony, and personal status matters.",
+      "Book an online legal consultation with a family law lawyer in Syria. Get professional guidance on divorce, custody, alimony, and personal status matters.",
   },
   "/syr/services/employment-law": {
-    title: "Employment Law Consultation in Syria | Counselo",
+    title: "Employment Law Lawyer in Syria | Counselo",
     description:
-      "Get confidential online legal guidance in Syria for employment contracts, wrongful termination, unpaid wages, workplace disputes, and labor rights.",
+      "Book an online legal consultation with an employment lawyer in Syria for employment contracts, wrongful termination, unpaid wages, and workplace disputes.",
   },
   "/syr/services/business-law": {
-    title: "Business Law Consultation in Syria | Counselo",
+    title: "Commercial Law Lawyer in Syria | Counselo",
     description:
-      "Book a confidential online business law consultation in Syria for commercial disputes, contracts, trading practices, and commercial liability matters.",
+      "Book an online legal consultation with a commercial lawyer in Syria for business disputes, contracts, trading practices, and commercial liability matters.",
   },
   "/syr/services/real-estate": {
-    title: "Real Estate Law Consultation in Syria | Counselo",
+    title: "Real Estate Lawyer in Syria | Counselo",
     description:
-      "Book an online real estate law consultation in Syria for property ownership, sales, leases, inheritance, registration, and property disputes.",
+      "Book an online legal consultation with a real estate lawyer in Syria for property ownership, sales, leases, inheritance, registration, and property disputes.",
   },
   "/syr/services/foreign-investment": {
-    title: "Foreign Investment Consultation in Syria | Counselo",
+    title: "Foreign Investment Lawyer in Syria | Counselo",
     description:
-      "Book a confidential online foreign investment consultation in Syria for company registration, business licensing, regulatory compliance, and entry procedures.",
+      "Book an online legal consultation with a foreign investment lawyer in Syria for company registration, business licensing, compliance, and entry procedures.",
   },
   "/syr/services/administrative-law": {
-    title: "Administrative Law Consultation in Syria | Counselo",
+    title: "Administrative Law Lawyer in Syria | Counselo",
     description:
-      "Get online legal guidance in Syria on administrative decisions, public authority disputes, objection procedures, and regulatory compliance matters.",
+      "Book an online legal consultation with an administrative lawyer in Syria on government decisions, public authority disputes, and objection procedures.",
   },
   "/syr/services/arbitration": {
-    title: "Arbitration & Mediation Consultation in Syria | Counselo",
+    title: "Arbitration Lawyer in Syria | Counselo",
     description:
-      "Book an online arbitration consultation in Syria for commercial disputes, mediation procedures, award enforcement, and alternative dispute settlement.",
+      "Book an online legal consultation with an arbitration lawyer in Syria for commercial disputes, mediation procedures, award enforcement, and settlements.",
   },
   "/syr/services/enforcement": {
-    title: "Debt Enforcement Consultation in Syria | Counselo",
+    title: "Debt Recovery Lawyer in Syria | Counselo",
     description:
-      "Book an online debt enforcement consultation in Syria. Get professional guidance on judgment execution, debt recovery, and payment claims.",
+      "Book an online legal consultation with a debt recovery lawyer in Syria for judgment execution, debt collection, payment claims, and enforcement procedures.",
   },
   "/syr/services/companies-law": {
-    title: "Corporate Law Consultation in Syria | Counselo",
+    title: "Corporate Law Lawyer in Syria | Counselo",
     description:
-      "Book an online corporate law consultation in Syria for company formation, shareholder disputes, governance, compliance, and business dissolution.",
+      "Book an online legal consultation with a corporate lawyer in Syria for company formation, shareholder disputes, governance, compliance, and dissolution.",
   },
   "/syr/services/contracts": {
-    title: "Contract Law Consultation in Syria | Counselo",
+    title: "Contract Lawyer in Syria | Counselo",
     description:
-      "Get confidential online legal guidance in Syria for contract drafting, review, breach of contract, termination, negotiation, and contractual disputes.",
+      "Book an online legal consultation with a contract lawyer in Syria for contract drafting, review, breach of contract, termination, and negotiation.",
   },
   "/syr/services/criminal-law": {
-    title: "Criminal Law Consultation in Syria | Counselo",
+    title: "Criminal Defense Lawyer in Syria | Counselo",
     description:
-      "Get confidential online legal guidance in Syria regarding criminal complaints, investigations, procedures, defense options, and related legal matters.",
+      "Book a confidential online legal consultation with a criminal lawyer in Syria for criminal complaints, investigations, defense options, and court procedures.",
   },
   "/syr/services/banking-finance": {
-    title: "Banking & Finance Legal Consultation in Syria | Counselo",
+    title: "Banking & Finance Lawyer in Syria | Counselo",
     description:
-      "Book a confidential online banking and finance consultation in Syria for bank disputes, finance contracts, regulatory compliance, and credit matters.",
+      "Book an online legal consultation with a banking lawyer in Syria for bank disputes, finance contracts, regulatory compliance, and credit matters.",
   },
   "/syr/services/intellectual-property": {
-    title: "Intellectual Property Consultation in Syria | Counselo",
+    title: "Intellectual Property Lawyer in Syria | Counselo",
     description:
-      "Book a confidential online intellectual property consultation in Syria for trademarks, copyrights, patents, trade secrets, and infringement claims.",
+      "Book an online legal consultation with an intellectual property lawyer in Syria for trademarks, copyrights, patents, trade secrets, and infringement claims.",
   },
   "/syr/services/tax-zakat": {
-    title: "Tax Law Consultation in Syria | Counselo",
+    title: "Tax Lawyer in Syria | Counselo",
     description:
-      "Book a confidential online tax consultation in Syria for income tax compliance, customs duties, tax assessments, objection procedures, and fiscal disputes.",
+      "Book an online legal consultation with a tax lawyer in Syria for income tax compliance, customs duties, tax assessments, objection procedures, and fiscal disputes.",
   },
   "/syr/services/cyber-law": {
-    title: "Cybercrime Legal Consultation in Syria | Counselo",
+    title: "Cybercrime Lawyer in Syria | Counselo",
     description:
-      "Get confidential online legal guidance in Syria for cybercrime matters, online defamation, data protection violations, and digital evidence disputes.",
+      "Book a confidential online legal consultation with a cybercrime lawyer in Syria for cybercrime, online defamation, data protection, and digital evidence.",
   },
   "/syr/services/medical-malpractice": {
-    title: "Medical Malpractice Consultation in Syria | Counselo",
+    title: "Medical Malpractice Lawyer in Syria | Counselo",
     description:
-      "Book a confidential online medical malpractice consultation in Syria for negligence claims, misdiagnosis, surgical errors, and compensation matters.",
+      "Book an online legal consultation with a medical malpractice lawyer in Syria for negligence claims, misdiagnosis, surgical errors, and compensation matters.",
   },
   "/syr/services/insurance-law": {
-    title: "Insurance Law Consultation in Syria | Counselo",
+    title: "Insurance Lawyer in Syria | Counselo",
     description:
-      "Book a confidential online insurance law consultation in Syria for claim denial, policy disputes, insurer liability, and settlement negotiations.",
+      "Book an online legal consultation with an insurance lawyer in Syria for claim denial, policy disputes, insurer liability, and settlement negotiations.",
   },
   "/syr/services/civil-law": {
-    title: "Civil Law Consultation in Syria | Counselo",
+    title: "Civil Law Lawyer in Syria | Counselo",
     description:
-      "Book an online civil law consultation in Syria for civil claims, contractual obligations, compensation, property rights, and private legal disputes.",
+      "Book an online legal consultation with a civil law lawyer in Syria for civil claims, contractual obligations, compensation, and private legal disputes.",
   },
   "/syr/services/civil-procedure": {
-    title: "Civil Procedure Consultation in Syria | Counselo",
+    title: "Civil Procedure Lawyer in Syria | Counselo",
     description:
-      "Book an online civil procedure consultation in Syria for litigation steps, filing requirements, evidence rules, jurisdiction, appeals, and court deadlines.",
+      "Book an online legal consultation with a civil procedure lawyer in Syria for litigation steps, filing requirements, evidence rules, appeals, and court deadlines.",
   },
   "/syr/services/criminal-procedure": {
-    title: "Criminal Procedure Consultation in Syria | Counselo",
+    title: "Criminal Procedure Lawyer in Syria | Counselo",
     description:
-      "Get online legal guidance in Syria on criminal investigation procedures, detention rights, evidence rules, appeal processes, and procedural safeguards.",
+      "Book an online legal consultation with a criminal procedure lawyer in Syria on investigation rights, detention, evidence rules, and appeals.",
   },
 
   // ─── SYRIA ARABIC SERVICE PAGES ──────────────────────────────────────────
 
   "/syr/ar/services/family-law": {
-    title: "استشارة قانونية في قانون الأسرة في سوريا | كاونسلو",
+    title: "محامي أحوال شخصية في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في قضايا الأسرة في سوريا، بما يشمل الطلاق والحضانة والنفقة والزيارة والميراث والأحوال الشخصية.",
+      "احجز استشارة قانونية أونلاين مع محامي أحوال شخصية في سوريا للحصول على توجيه مهني في الطلاق والحضانة والنفقة والميراث.",
   },
   "/syr/ar/services/employment-law": {
-    title: "استشارة قانونية في قانون العمل في سوريا | كاونسلو",
+    title: "محامي عمالي في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في قانون العمل في سوريا، بما يشمل عقود العمل والفصل والأجور والنزاعات العمالية وحقوق الموظف.",
+      "احجز استشارة قانونية أونلاين مع محامي عمالي في سوريا بشأن عقود العمل والفصل التعسفي والأجور والنزاعات العمالية وحقوق الموظف.",
   },
   "/syr/ar/services/business-law": {
-    title: "استشارة قانونية في النزاعات التجارية في سوريا | كاونسلو",
+    title: "محامي تجاري في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في النزاعات التجارية والعقود والمعاملات التجارية والمسؤولية القانونية في سوريا عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي تجاري في سوريا في النزاعات التجارية والعقود والمعاملات التجارية والمسؤولية القانونية.",
   },
   "/syr/ar/services/real-estate": {
-    title: "استشارة قانونية عقارية في سوريا | كاونسلو",
+    title: "محامي عقاري في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في قضايا العقارات في سوريا، بما يشمل البيع والشراء والإيجار والتسجيل والملكية والنزاعات العقارية.",
+      "احجز استشارة قانونية أونلاين مع محامي عقاري في سوريا في البيع والشراء والإيجار والتسجيل ونزاعات الملكية العقارية.",
   },
   "/syr/ar/services/foreign-investment": {
-    title: "استشارة قانونية في الاستثمار الأجنبي في سوريا | كاونسلو",
+    title: "محامي استثمار أجنبي في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين بشأن الاستثمار الأجنبي في سوريا، بما يشمل تسجيل الشركات والترخيص والامتثال التنظيمي والدخول التجاري.",
+      "احجز استشارة قانونية أونلاين مع محامي استثمار أجنبي في سوريا بشأن تسجيل الشركات والترخيص والامتثال التنظيمي والدخول التجاري.",
   },
   "/syr/ar/services/administrative-law": {
-    title: "استشارة قانونية في القانون الإداري في سوريا | كاونسلو",
+    title: "محامي إداري في سوريا | كاونسلو",
     description:
-      "احصل على استشارة قانونية أونلاين في القرارات الحكومية والطعون الإدارية والمنازعات مع الجهات العامة في سوريا عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي إداري في سوريا بشأن القرارات الحكومية والطعون الإدارية والمنازعات مع الجهات العامة.",
   },
   "/syr/ar/services/arbitration": {
-    title: "استشارة قانونية في التحكيم والوساطة في سوريا | كاونسلو",
+    title: "محامي تحكيم في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في التحكيم التجاري والوساطة وتسوية النزاعات وتنفيذ الأحكام التحكيمية في سوريا عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي تحكيم في سوريا في التحكيم التجاري والوساطة وتسوية النزاعات وتنفيذ الأحكام التحكيمية.",
   },
   "/syr/ar/services/enforcement": {
-    title: "استشارة قانونية في التنفيذ وتحصيل الديون في سوريا | كاونسلو",
+    title: "محامي تنفيذ وتحصيل ديون في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في تنفيذ الأحكام وتحصيل الديون والمطالبات المالية وإجراءات التنفيذ القضائي في سوريا عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي تنفيذ في سوريا لتنفيذ الأحكام وتحصيل الديون والمطالبات المالية وإجراءات التنفيذ القضائي.",
   },
   "/syr/ar/services/companies-law": {
-    title: "استشارة قانونية في نظام الشركات في سوريا | كاونسلو",
+    title: "محامي شركات في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في تأسيس الشركات ونزاعات الشركاء والحوكمة والامتثال وتصفية الشركات في سوريا عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي شركات في سوريا في تأسيس الشركات ونزاعات الشركاء والحوكمة والامتثال وتصفية الشركات.",
   },
   "/syr/ar/services/contracts": {
-    title: "استشارة قانونية في العقود في سوريا | كاونسلو",
+    title: "محامي عقود في سوريا | كاونسلو",
     description:
-      "احصل على استشارة قانونية أونلاين في صياغة العقود ومراجعتها والإخلال بالعقد والفسخ والتنفيذ القانوني في سوريا عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي عقود في سوريا في صياغة العقود ومراجعتها والإخلال بالعقد والفسخ والتنفيذ القانوني.",
   },
   "/syr/ar/services/criminal-law": {
-    title: "استشارة قانونية في القضايا الجزائية بسوريا | كاونسلو",
+    title: "محامي جزائي في سوريا | كاونسلو",
     description:
-      "احصل على استشارة قانونية أونلاين بسرية في القضايا الجزائية بسوريا، بما يشمل الشكاوى والتحقيقات والإجراءات والخيارات القانونية المتاحة.",
+      "احجز استشارة قانونية أونلاين بسرية مع محامي جزائي في سوريا في الشكاوى الجزائية والتحقيقات والإجراءات والخيارات القانونية المتاحة.",
   },
   "/syr/ar/services/banking-finance": {
-    title: "استشارة قانونية في المصارف والتمويل في سوريا | كاونسلو",
+    title: "محامي مصرفي وتمويل في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في النزاعات المصرفية وعقود التمويل والامتثال التنظيمي والقانون المصرفي في سوريا عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي مصرفي في سوريا في النزاعات البنكية وعقود التمويل والامتثال التنظيمي والقانون المصرفي.",
   },
   "/syr/ar/services/intellectual-property": {
-    title: "استشارة قانونية في الملكية الفكرية في سوريا | كاونسلو",
+    title: "محامي ملكية فكرية في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في الملكية الفكرية في سوريا، بما يشمل العلامات التجارية وحقوق المؤلف والبراءات والأسرار التجارية.",
+      "احجز استشارة قانونية أونلاين مع محامي ملكية فكرية في سوريا في العلامات التجارية وحقوق المؤلف والبراءات والأسرار التجارية.",
   },
   "/syr/ar/services/tax-zakat": {
-    title: "استشارة قانونية في الضرائب في سوريا | كاونسلو",
+    title: "محامي ضرائب في سوريا | كاونسلو",
     description:
-      "احصل على استشارة قانونية أونلاين بشأن ضريبة الدخل والجمارك والتقييمات الضريبية وإجراءات الاعتراض الضريبي في سوريا عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي ضرائب في سوريا بشأن ضريبة الدخل والجمارك والتقييمات الضريبية وإجراءات الاعتراض.",
   },
   "/syr/ar/services/cyber-law": {
-    title: "استشارة قانونية في الجرائم الإلكترونية في سوريا | كاونسلو",
+    title: "محامي جرائم إلكترونية في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في الجرائم الإلكترونية والتشهير الرقمي وحماية البيانات والأدلة الإلكترونية في سوريا عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي جرائم إلكترونية في سوريا في الجرائم الرقمية والتشهير وحماية البيانات والأدلة الإلكترونية.",
   },
   "/syr/ar/services/medical-malpractice": {
-    title: "استشارة قانونية في الأخطاء الطبية في سوريا | كاونسلو",
+    title: "محامي أخطاء طبية في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في دعاوى الإهمال الطبي والأخطاء الجراحية وسوء التشخيص والتعويضات الطبية في سوريا عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي أخطاء طبية في سوريا في الإهمال الطبي والأخطاء الجراحية وسوء التشخيص والتعويضات.",
   },
   "/syr/ar/services/insurance-law": {
-    title: "استشارة قانونية في التأمين في سوريا | كاونسلو",
+    title: "محامي تأمين في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في رفض التعويضات ومنازعات التأمين والمسؤولية التأمينية والتسوية في سوريا عبر كاونسلو.",
+      "احجز استشارة قانونية أونلاين مع محامي تأمين في سوريا في رفض التعويضات ومنازعات وثائق التأمين والمسؤولية التأمينية والتسوية.",
   },
   "/syr/ar/services/civil-law": {
-    title: "استشارة قانونية في القانون المدني في سوريا | كاونسلو",
+    title: "محامي قانون مدني في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في القانون المدني في سوريا، بما يشمل الدعاوى المدنية والالتزامات والتعويض وحقوق الملكية الخاصة.",
+      "احجز استشارة قانونية أونلاين مع محامي قانون مدني في سوريا في الدعاوى المدنية والالتزامات والتعويض وحقوق الملكية الخاصة.",
   },
   "/syr/ar/services/civil-procedure": {
-    title: "استشارة قانونية في أصول المحاكمات المدنية في سوريا | كاونسلو",
+    title: "محامي أصول محاكمات مدنية في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في أصول المحاكمات المدنية في سوريا، بما يشمل الإجراءات والمواعيد والأدلة والاختصاص والطعون.",
+      "احجز استشارة قانونية أونلاين مع محامي في أصول المحاكمات المدنية في سوريا بشأن الإجراءات والمواعيد والأدلة والاختصاص والطعون.",
   },
   "/syr/ar/services/criminal-procedure": {
-    title: "استشارة قانونية في أصول المحاكمات الجزائية في سوريا | كاونسلو",
+    title: "محامي أصول محاكمات جزائية في سوريا | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين في أصول المحاكمات الجزائية في سوريا، بما يشمل التحقيق والتوقيف والأدلة والطعون والحقوق الإجرائية.",
+      "احجز استشارة قانونية أونلاين مع محامي في أصول المحاكمات الجزائية في سوريا بشأن التحقيق والتوقيف والأدلة والطعون والحقوق الإجرائية.",
   },
 
   // ─── SA ENGLISH BLOG POSTS ────────────────────────────────────────────────
