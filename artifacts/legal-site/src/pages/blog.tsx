@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { SYR_DB_SLUG_TO_NEW_SLUG } from "@/lib/syr-blog-slug-aliases";
 
 interface ApiPost {
   id: number;
@@ -36,7 +35,7 @@ export default function Blog() {
   const { region, regionPrefix } = useRegion();
 
   const { data: posts = [], isLoading } = useQuery<ApiPost[]>({
-    queryKey: ["blog-posts", region],
+    queryKey: ["blog-posts"],
     queryFn: async () => {
       const res = await fetch("/api/blog/posts");
       if (!res.ok) throw new Error("Failed to fetch posts");
@@ -111,7 +110,7 @@ export default function Blog() {
             "description": isRTL
               ? `إرشادات قانونية معمّقة للأفراد والشركات في ${region === "syr" ? "سوريا" : "المملكة العربية السعودية"}`
               : `In-depth legal guides for individuals and businesses in ${region === "syr" ? "Syria" : "Saudi Arabia"}`,
-            "url": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/blog`,
+            "url": "https://counselo-legal.com/blog",
             "publisher": { "@type": "Organization", "name": "CounselO", "url": "https://counselo-legal.com" },
             "inLanguage": [isRTL ? (region === "syr" ? "ar-SY" : "ar-SA") : (region === "syr" ? "en-SY" : "en-SA")],
           },
@@ -120,7 +119,7 @@ export default function Blog() {
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/blog` },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": "https://counselo-legal.com/blog" },
             ],
           },
           {
@@ -132,7 +131,7 @@ export default function Blog() {
               "@type": "ListItem",
               "position": i + 1,
               "name": isRTL ? p.titleAr : p.titleEn,
-              "url": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/blog/${p.slug}`,
+              "url": `https://counselo-legal.com/blog/${p.slug}`,
             })),
           },
         ]}
@@ -204,7 +203,7 @@ export default function Blog() {
                     <div className="flex items-center justify-between pt-4 border-t border-border">
                       <span className="text-xs text-muted-foreground">{formatDate(post.date, lang)}</span>
                       <Link
-                        href={`${regionPrefix}/blog/${post.slug}`}
+                        href={`/blog/${post.slug}`}
                         className="flex items-center gap-1.5 text-primary text-sm font-semibold hover:gap-2.5 transition-all"
                       >
                         {ui.readMore}

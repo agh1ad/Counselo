@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { SYR_BLOG_SLUG_TO_DB_SLUG } from "@/lib/syr-blog-slug-aliases";
 
 const BLOG_CATEGORY_TO_SERVICE: Record<string, { slug: string; nameEn: string; nameAr: string }> = {
   "Family Law":        { slug: "family-law",       nameEn: "Family Law Services",              nameAr: "خدمات قانون الأسرة" },
@@ -64,11 +63,7 @@ export default function BlogPost() {
   const { lang, isRTL } = useLanguage();
   const { region, regionPrefix } = useRegion();
 
-  // Syria blog posts migrated to Syria-specific slugs. When the URL uses a new
-  // Syria slug, look up the original database slug so content loads correctly.
-  const dbSlug = (region === "syr" && SYR_BLOG_SLUG_TO_DB_SLUG[slug ?? ""])
-    ? SYR_BLOG_SLUG_TO_DB_SLUG[slug!]
-    : (slug ?? "");
+  const dbSlug = slug ?? "";
 
   const { data: post, isLoading, isError } = useQuery<ApiPost>({
     queryKey: ["blog-post", dbSlug],
@@ -130,7 +125,7 @@ export default function BlogPost() {
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-4" dir={isRTL ? "rtl" : "ltr"}>
         <h1 className="text-2xl font-serif font-bold text-foreground">{ui.notFound}</h1>
         <p className="text-muted-foreground">{ui.notFoundDesc}</p>
-        <Link href={`${regionPrefix}/blog`} className="text-primary font-medium hover:underline">{ui.backBlog}</Link>
+        <Link href="/blog" className="text-primary font-medium hover:underline">{ui.backBlog}</Link>
       </div>
     );
   }
@@ -148,7 +143,7 @@ export default function BlogPost() {
   const body = useAr ? post.bodyAr : (post.bodyEn || post.bodyAr);
   const content = useAr ? post.contentAr : (post.contentEn?.length ? post.contentEn : post.contentAr);
 
-  const canonicalArticleUrl = `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/blog/${slug}`;
+  const canonicalArticleUrl = `https://counselo-legal.com/blog/${slug}`;
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",

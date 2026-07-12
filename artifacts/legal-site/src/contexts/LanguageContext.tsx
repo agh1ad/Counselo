@@ -17,16 +17,24 @@ export { useLanguage } from "@/contexts/LanguageContextCore";
  * SSR/prerendered HTML and client hydration always agree, and so Arabic has
  * a real, distinct, crawlable URL rather than being a client-only toggle.
  * See RegionContext.tsx for the /ar URL-segment detection logic.
+ *
+ * Exception: the blog is at a single URL (/blog). On blog pages the language
+ * is stored in localStorage and toggled client-side without URL navigation.
  */
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const { region, lang, regionPrefix } = useRegion();
+  const { region, lang, regionPrefix, isBlogPath, setBlogLang } = useRegion();
   const [location, navigate] = useLocation();
 
   const toggleLang = () => {
     const next = lang === "en" ? "ar" : "en";
-    const rest = location.slice(regionPrefix.length);
-    const nextPrefix = `/${region}${next === "ar" ? "/ar" : ""}`;
-    navigate(`${nextPrefix}${rest}`);
+    if (isBlogPath) {
+      // Blog has a single URL — switch language client-side via localStorage.
+      setBlogLang(next);
+    } else {
+      const rest = location.slice(regionPrefix.length);
+      const nextPrefix = `/${region}${next === "ar" ? "/ar" : ""}`;
+      navigate(`${nextPrefix}${rest}`);
+    }
   };
 
   const isRTL = lang === "ar";

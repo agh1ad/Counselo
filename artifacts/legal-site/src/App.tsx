@@ -54,8 +54,6 @@ function buildRegionRoutes() {
     <Route key={`${prefix}-services-id`} path={`${prefix}/services/:id`} component={ServiceDetail} />,
     <Route key={`${prefix}-services`} path={`${prefix}/services`} component={Services} />,
     <Route key={`${prefix}-about`} path={`${prefix}/about`} component={About} />,
-    <Route key={`${prefix}-blog-slug`} path={`${prefix}/blog/:slug`} component={BlogPost} />,
-    <Route key={`${prefix}-blog`} path={`${prefix}/blog`} component={Blog} />,
     <Route key={`${prefix}-contact`} path={`${prefix}/contact`} component={Contact} />,
     <Route key={`${prefix}-tos`} path={`${prefix}/terms-of-service`} component={TermsOfService} />,
     <Route key={`${prefix}-privacy`} path={`${prefix}/privacy-policy`} component={PrivacyPolicy} />,
@@ -69,7 +67,13 @@ function buildRegionRedirects() {
       {(params: { id: string }) => <Redirect to={`${prefix}/services/${params.id}`} replace />}
     </Route>,
     <Route key={`${prefix}-blog-redirect`} path={`${prefix}/blog/:slug/:rest*`}>
-      {(params: { slug: string }) => <Redirect to={`${prefix}/blog/${params.slug}`} replace />}
+      {(params: { slug: string }) => <Redirect to={`/blog/${params.slug}`} replace />}
+    </Route>,
+    <Route key={`${prefix}-blog-slug-redirect`} path={`${prefix}/blog/:slug`}>
+      {(params: { slug: string }) => <Redirect to={`/blog/${params.slug}`} replace />}
+    </Route>,
+    <Route key={`${prefix}-blog-redirect-index`} path={`${prefix}/blog`}>
+      {() => <Redirect to="/blog" replace />}
     </Route>,
   ]);
 }
