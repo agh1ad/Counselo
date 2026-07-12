@@ -580,6 +580,10 @@ from = "/syr/ar/blog/child-custody-syria"
 to = "/__pages/syr-ar-blog-child-custody-syria.html"
 
 [[services.production.rewrites]]
+from = "/blog"
+to = "/__pages/blog.html"
+
+[[services.production.rewrites]]
 from = "/*"
 to = "/index.html"
 

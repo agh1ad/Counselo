@@ -20,6 +20,27 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { RenderResult } from "../entry-server.js";
 
+// ---------------------------------------------------------------------------
+// Fetch published blog post slugs from the running API at build time.
+// Falls back to an empty array with a warning so the build never hard-fails
+// just because the API isn't reachable (e.g. local dev without the server).
+// ---------------------------------------------------------------------------
+async function fetchBlogSlugs(): Promise<string[]> {
+  try {
+    const res = await fetch("http://localhost:80/api/blog/posts?limit=200");
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = (await res.json()) as { posts?: Array<{ slug: string; status?: string }> };
+    const posts = data.posts ?? (data as unknown as Array<{ slug: string; status?: string }>);
+    return Array.isArray(posts)
+      ? posts.filter((p) => !p.status || p.status === "published").map((p) => p.slug)
+      : [];
+  } catch (err) {
+    console.warn(`  ⚠ Could not fetch blog posts from API: ${err instanceof Error ? err.message : String(err)}`);
+    console.warn("    Blog post pages will not be prerendered this build.");
+    return [];
+  }
+}
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Resolve dist/ relative to this script (src/scripts/ → ../../dist)
@@ -66,7 +87,6 @@ const ENGLISH_ROUTES: string[] = [
   "/sa/services",
   "/sa/about",
   "/sa/contact",
-  "/sa/blog",
   "/sa/terms-of-service",
   "/sa/privacy-policy",
 
@@ -75,7 +95,6 @@ const ENGLISH_ROUTES: string[] = [
   "/syr/services",
   "/syr/about",
   "/syr/contact",
-  "/syr/blog",
   "/syr/terms-of-service",
   "/syr/privacy-policy",
 
@@ -85,22 +104,13 @@ const ENGLISH_ROUTES: string[] = [
   // Syria service detail pages (shared slugs + 3 Syria-only slugs)
   ...SERVICE_SLUGS.map((s) => `/syr/services/${s}`),
   ...SYRIA_ONLY_SERVICE_SLUGS.map((s) => `/syr/services/${s}`),
+];
 
-  // Saudi Arabia blog post pages
-  "/sa/blog/divorce-in-saudi-arabia",
-  "/sa/blog/wrongful-termination-saudi-labor-law",
-  "/sa/blog/foreign-company-registration-saudi-arabia",
-  "/sa/blog/board-of-grievances-saudi-arabia",
-  "/sa/blog/real-estate-disputes-saudi-arabia",
-  "/sa/blog/child-custody-saudi-arabia",
-
-  // New Syria-specific canonical blog URLs.
-  "/syr/blog/divorce-in-syria",
-  "/syr/blog/wrongful-termination-syrian-labor-law",
-  "/syr/blog/foreign-company-registration-syria",
-  "/syr/blog/administrative-court-disputes-syria",
-  "/syr/blog/real-estate-disputes-syria",
-  "/syr/blog/child-custody-syria",
+// Single-URL routes: not region-prefixed, no Arabic variant.
+// The blog lives at /blog for all regions and languages.
+// DB blog post routes are fetched and added dynamically in prerender().
+const SINGLE_URL_ROUTES: string[] = [
+  "/blog",
 ];
 
 // Arabic is a real URL segment, not a client-side-only toggle: every English
@@ -114,12 +124,15 @@ function toArabicRoute(route: string): string {
   return `/${region}/ar${rest}`;
 }
 
+// ROUTES is extended at runtime with DB blog post slugs (see prerender()).
 const ROUTES: string[] = [
   // Region picker — English (x-default) and Arabic
   "/",
   "/ar",
   ...ENGLISH_ROUTES,
   ...ENGLISH_ROUTES.map(toArabicRoute),
+  // Single-URL pages: blog index (+ post pages added dynamically below)
+  ...SINGLE_URL_ROUTES,
 ];
 
 // ---------------------------------------------------------------------------
@@ -239,25 +252,65 @@ function writeRoute(
 }
 
 // ---------------------------------------------------------------------------
-// 301 redirect routes — old Syria blog slugs that contained Saudi wording.
-// These are no longer prerendered as full pages; instead we write a minimal
-// HTML file that immediately redirects the browser (and informs crawlers via
-// canonical + noindex) to the new Syria-specific canonical URL.
+// Redirect routes — old region-prefixed blog URLs that no longer exist.
+// Every path below gets a minimal HTML redirect page (noindex + meta-refresh
+// + JS redirect) pointing at the new canonical URL.  The static server has
+// an explicit rewrite for each path pointing to its /__pages/*.html file.
 // ---------------------------------------------------------------------------
 
 const REDIRECT_ROUTES: Record<string, string> = {
-  "/syr/blog/divorce-in-saudi-arabia":                    "/syr/blog/divorce-in-syria",
-  "/syr/blog/wrongful-termination-saudi-labor-law":       "/syr/blog/wrongful-termination-syrian-labor-law",
-  "/syr/blog/foreign-company-registration-saudi-arabia":  "/syr/blog/foreign-company-registration-syria",
-  "/syr/blog/board-of-grievances-saudi-arabia":           "/syr/blog/administrative-court-disputes-syria",
-  "/syr/blog/real-estate-disputes-saudi-arabia":          "/syr/blog/real-estate-disputes-syria",
-  "/syr/blog/child-custody-saudi-arabia":                 "/syr/blog/child-custody-syria",
-  "/syr/ar/blog/divorce-in-saudi-arabia":                 "/syr/ar/blog/divorce-in-syria",
-  "/syr/ar/blog/wrongful-termination-saudi-labor-law":    "/syr/ar/blog/wrongful-termination-syrian-labor-law",
-  "/syr/ar/blog/foreign-company-registration-saudi-arabia": "/syr/ar/blog/foreign-company-registration-syria",
-  "/syr/ar/blog/board-of-grievances-saudi-arabia":        "/syr/ar/blog/administrative-court-disputes-syria",
-  "/syr/ar/blog/real-estate-disputes-saudi-arabia":       "/syr/ar/blog/real-estate-disputes-syria",
-  "/syr/ar/blog/child-custody-saudi-arabia":              "/syr/ar/blog/child-custody-syria",
+  // Old region-prefixed blog index pages → new single-URL blog index
+  "/sa/blog":    "/blog",
+  "/syr/blog":   "/blog",
+  "/sa/ar/blog": "/blog",
+  "/syr/ar/blog": "/blog",
+
+  // Old SA-region blog post slugs (both EN and AR) → blog index
+  // (these posts are removed from the DB; redirect to /blog rather than 404)
+  "/sa/blog/divorce-in-saudi-arabia":                       "/blog",
+  "/sa/blog/wrongful-termination-saudi-labor-law":          "/blog",
+  "/sa/blog/foreign-company-registration-saudi-arabia":     "/blog",
+  "/sa/blog/board-of-grievances-saudi-arabia":              "/blog",
+  "/sa/blog/real-estate-disputes-saudi-arabia":             "/blog",
+  "/sa/blog/child-custody-saudi-arabia":                    "/blog",
+
+  "/sa/ar/blog/divorce-in-saudi-arabia":                    "/blog",
+  "/sa/ar/blog/wrongful-termination-saudi-labor-law":       "/blog",
+  "/sa/ar/blog/foreign-company-registration-saudi-arabia":  "/blog",
+  "/sa/ar/blog/board-of-grievances-saudi-arabia":           "/blog",
+  "/sa/ar/blog/real-estate-disputes-saudi-arabia":          "/blog",
+  "/sa/ar/blog/child-custody-saudi-arabia":                 "/blog",
+
+  // Old SYR-region SA-named slugs → blog index (collapsed from two hops)
+  "/syr/blog/divorce-in-saudi-arabia":                      "/blog",
+  "/syr/blog/wrongful-termination-saudi-labor-law":         "/blog",
+  "/syr/blog/foreign-company-registration-saudi-arabia":    "/blog",
+  "/syr/blog/board-of-grievances-saudi-arabia":             "/blog",
+  "/syr/blog/real-estate-disputes-saudi-arabia":            "/blog",
+  "/syr/blog/child-custody-saudi-arabia":                   "/blog",
+
+  "/syr/ar/blog/divorce-in-saudi-arabia":                   "/blog",
+  "/syr/ar/blog/wrongful-termination-saudi-labor-law":      "/blog",
+  "/syr/ar/blog/foreign-company-registration-saudi-arabia": "/blog",
+  "/syr/ar/blog/board-of-grievances-saudi-arabia":          "/blog",
+  "/syr/ar/blog/real-estate-disputes-saudi-arabia":         "/blog",
+  "/syr/ar/blog/child-custody-saudi-arabia":                "/blog",
+
+  // Old SYR-region Syria-named canonical slugs → blog index
+  // (these static posts are also removed from DB)
+  "/syr/blog/divorce-in-syria":                             "/blog",
+  "/syr/blog/wrongful-termination-syrian-labor-law":        "/blog",
+  "/syr/blog/foreign-company-registration-syria":           "/blog",
+  "/syr/blog/administrative-court-disputes-syria":          "/blog",
+  "/syr/blog/real-estate-disputes-syria":                   "/blog",
+  "/syr/blog/child-custody-syria":                          "/blog",
+
+  "/syr/ar/blog/divorce-in-syria":                          "/blog",
+  "/syr/ar/blog/wrongful-termination-syrian-labor-law":     "/blog",
+  "/syr/ar/blog/foreign-company-registration-syria":        "/blog",
+  "/syr/ar/blog/administrative-court-disputes-syria":       "/blog",
+  "/syr/ar/blog/real-estate-disputes-syria":                "/blog",
+  "/syr/ar/blog/child-custody-syria":                       "/blog",
 };
 
 function writeRedirectRoute(fromRoute: string, toRoute: string): void {
@@ -283,6 +336,54 @@ function writeRedirectRoute(fromRoute: string, toRoute: string): void {
 }
 
 // ---------------------------------------------------------------------------
+// artifact.toml helpers — keep blog post rewrites in sync at build time.
+// ---------------------------------------------------------------------------
+
+const artifactTomlPath = resolve(__dirname, "../../.replit-artifact/artifact.toml");
+
+/**
+ * Ensure artifact.toml has a rewrite entry for each prerendered blog post.
+ * Only adds entries that are not already present; leaves the rest untouched.
+ * New entries are inserted just before the catch-all "/*" → "/index.html".
+ */
+function syncBlogRewritesToArtifactToml(slugs: string[]): void {
+  if (slugs.length === 0) return;
+
+  let toml = readFileSync(artifactTomlPath, "utf-8");
+
+  const newEntries: string[] = [];
+  for (const slug of slugs) {
+    const fromPath = `/blog/${slug}`;
+    const toPath = `/__pages/blog-${slug}.html`;
+    const marker = `from = "${fromPath}"`;
+    if (!toml.includes(marker)) {
+      newEntries.push(
+        `[[services.production.rewrites]]\nfrom = "${fromPath}"\nto = "${toPath}"`,
+      );
+    }
+  }
+
+  if (newEntries.length === 0) return;
+
+  // Insert before the catch-all "/*" entry so specific routes take precedence.
+  const catchAll = `[[services.production.rewrites]]\nfrom = "/*"`;
+  const insertAt = toml.indexOf(catchAll);
+  if (insertAt === -1) {
+    console.warn("  ⚠ Could not find /*  catch-all in artifact.toml; blog rewrites not added.");
+    return;
+  }
+
+  toml =
+    toml.slice(0, insertAt) +
+    newEntries.join("\n\n") +
+    "\n\n" +
+    toml.slice(insertAt);
+
+  writeFileSync(artifactTomlPath, toml, "utf-8");
+  console.log(`  📝 Added ${newEntries.length} blog post rewrite(s) to artifact.toml`);
+}
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
@@ -302,12 +403,22 @@ async function prerender(): Promise<void> {
     );
   }
 
-  console.log(`\n🚀 Prerendering ${ROUTES.length} routes…\n`);
+  // Fetch published blog post slugs from the API and add their routes.
+  console.log("\n🔍 Fetching blog post slugs from API…");
+  const blogSlugs = await fetchBlogSlugs();
+  const blogPostRoutes = blogSlugs.map((slug) => `/blog/${slug}`);
+  if (blogSlugs.length > 0) {
+    console.log(`  Found ${blogSlugs.length} post(s): ${blogSlugs.join(", ")}`);
+    ROUTES.push(...blogPostRoutes);
+  }
+
+  const allRoutes = ROUTES;
+  console.log(`\n🚀 Prerendering ${allRoutes.length} routes…\n`);
 
   let succeeded = 0;
   const failed: string[] = [];
 
-  for (const route of ROUTES) {
+  for (const route of allRoutes) {
     try {
       writeRoute(route, template, render);
       console.log(`  ✓ ${route}`);
@@ -319,14 +430,21 @@ async function prerender(): Promise<void> {
     }
   }
 
-  console.log(`\n✅ Prerendered ${succeeded}/${ROUTES.length} routes.`);
+  console.log(`\n✅ Prerendered ${succeeded}/${allRoutes.length} routes.`);
 
   if (failed.length > 0) {
     console.error(`\n❌ ${failed.length} route(s) failed:\n${failed.join("\n")}`);
     process.exit(1);
   }
 
-  // Write redirect-only HTML files for old Syria blog URLs.
+  // Sync blog post rewrites into artifact.toml so the static server can
+  // serve the prerendered HTML files for each known post.
+  if (blogSlugs.length > 0) {
+    console.log("\n📝 Syncing blog post rewrites into artifact.toml…");
+    syncBlogRewritesToArtifactToml(blogSlugs);
+  }
+
+  // Write redirect-only HTML files for old region-prefixed blog URLs.
   console.log(`\n🔀 Writing ${Object.keys(REDIRECT_ROUTES).length} redirect pages…\n`);
   for (const [from, to] of Object.entries(REDIRECT_ROUTES)) {
     writeRedirectRoute(from, to);
