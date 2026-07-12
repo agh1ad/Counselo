@@ -58,6 +58,12 @@ function formatDate(dateStr: string, lang: string) {
   });
 }
 
+declare global {
+  interface Window {
+    __SSR_POST__?: ApiPost;
+  }
+}
+
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const { lang, isRTL } = useLanguage();
@@ -71,6 +77,18 @@ export default function BlogPost() {
       const res = await fetch(`/api/blog/posts/${dbSlug}`);
       if (!res.ok) throw new Error("Not found");
       return res.json() as Promise<ApiPost>;
+    },
+    // Use server-injected data (window.__SSR_POST__) as the initial value so
+    // the page renders instantly on first load without a loading flash.
+    initialData: () => {
+      if (
+        typeof window !== "undefined" &&
+        window.__SSR_POST__ &&
+        window.__SSR_POST__.slug === dbSlug
+      ) {
+        return window.__SSR_POST__;
+      }
+      return undefined;
     },
     staleTime: 60_000,
     retry: false,

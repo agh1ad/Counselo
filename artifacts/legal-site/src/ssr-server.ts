@@ -37,6 +37,147 @@ const ssrBundle = resolve(__dirname, "server/entry-server.js");
 
 const PORT = parseInt(process.env.PORT ?? "24438", 10);
 
+// API server port — the SSR server fetches blog post data directly from the
+// API so it can build accurate meta tags without React async data fetching.
+const API_PORT = process.env.API_PORT ?? "8080";
+
+// ---------------------------------------------------------------------------
+// Blog post type (mirrors ApiPost in blog-post.tsx)
+// ---------------------------------------------------------------------------
+
+interface ApiPost {
+  id: number;
+  slug: string;
+  date: string;
+  titleEn: string;
+  titleAr: string;
+  excerptEn: string;
+  excerptAr: string;
+  seoTitleEn: string;
+  seoTitleAr: string;
+  seoDescriptionEn: string;
+  seoDescriptionAr: string;
+  bodyEn: string;
+  bodyAr: string;
+  categoryEn: string;
+  categoryAr: string;
+  readTime: number;
+  published: boolean;
+  updatedAt?: string;
+}
+
+// ---------------------------------------------------------------------------
+// Meta tag helpers
+// ---------------------------------------------------------------------------
+
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+type FetchResult =
+  | { status: "found"; post: ApiPost }
+  | { status: "notfound" }
+  | { status: "error" };
+
+async function fetchBlogPost(slug: string): Promise<FetchResult> {
+  try {
+    const res = await fetch(
+      `http://localhost:${API_PORT}/api/blog/posts/${encodeURIComponent(slug)}`,
+    );
+    if (res.status === 404) return { status: "notfound" };
+    if (!res.ok) return { status: "error" };
+    const post = (await res.json()) as ApiPost;
+    return { status: "found", post };
+  } catch {
+    return { status: "error" };
+  }
+}
+
+function buildBlogHtml(slug: string, post: ApiPost): string {
+  const template = readFileSync(indexHtml, "utf-8");
+
+  const seoTitleEn =
+    post.seoTitleEn || post.titleEn || post.seoTitleAr || post.titleAr;
+  const seoTitleAr =
+    post.seoTitleAr || post.titleAr || post.seoTitleEn || post.titleEn;
+  const seoDescEn =
+    post.seoDescriptionEn ||
+    post.excerptEn ||
+    stripHtml(post.bodyEn || "").slice(0, 160);
+  const seoDescAr =
+    post.seoDescriptionAr ||
+    post.excerptAr ||
+    stripHtml(post.bodyAr || "").slice(0, 160);
+
+  const canonical = `https://counselo-legal.com/blog/${slug}`;
+  const primaryTitle = seoTitleEn || seoTitleAr;
+  const primaryDesc = (seoDescEn || seoDescAr).slice(0, 160);
+
+  const articleSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: primaryTitle,
+    description: primaryDesc,
+    datePublished: post.date,
+    dateModified: post.updatedAt ?? post.date,
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+    author: {
+      "@type": "Organization",
+      name: "CounselO",
+      url: "https://counselo-legal.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "CounselO",
+      url: "https://counselo-legal.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://counselo-legal.com/logo.png",
+      },
+    },
+  });
+
+  const breadcrumbSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://counselo-legal.com/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://counselo-legal.com/blog" },
+      { "@type": "ListItem", position: 3, name: primaryTitle, item: canonical },
+    ],
+  });
+
+  const headTags = [
+    `<title data-rh="true">${escapeHtml(primaryTitle)} | Counselo</title>`,
+    `<meta data-rh="true" name="description" content="${escapeHtml(primaryDesc)}">`,
+    `<meta data-rh="true" property="og:title" content="${escapeHtml(primaryTitle)}">`,
+    `<meta data-rh="true" property="og:description" content="${escapeHtml(primaryDesc)}">`,
+    `<meta data-rh="true" property="og:url" content="${escapeHtml(canonical)}">`,
+    `<meta data-rh="true" property="og:type" content="article">`,
+    `<meta data-rh="true" property="og:image" content="https://counselo-legal.com/og-image.png">`,
+    `<meta data-rh="true" name="twitter:card" content="summary_large_image">`,
+    `<meta data-rh="true" name="twitter:title" content="${escapeHtml(primaryTitle)}">`,
+    `<meta data-rh="true" name="twitter:description" content="${escapeHtml(primaryDesc)}">`,
+    `<link data-rh="true" rel="canonical" href="${escapeHtml(canonical)}">`,
+    `<script data-rh="true" type="application/ld+json">${articleSchema}</script>`,
+    `<script data-rh="true" type="application/ld+json">${breadcrumbSchema}</script>`,
+    // Inject post data for instant client-side hydration (no loading flash)
+    `<script>window.__SSR_POST__=${JSON.stringify(post)};</script>`,
+  ].join("\n");
+
+  return template
+    .replace("<!--app-head-->", headTags)
+    .replace(/<div id="root"><\/div>/, `<div id="root" data-ssr="true"></div>`);
+}
+
 // ---------------------------------------------------------------------------
 // SSR helpers (mirrors prerender.ts — kept local to avoid a shared bundle dep)
 // ---------------------------------------------------------------------------
@@ -116,7 +257,8 @@ app.get("/", (_req: Request, res: Response) => {
   res.sendFile(indexHtml);
 });
 
-// 3. "/blog/:slug" — prerendered file if available, else SSR on-demand
+// 3. "/blog/:slug" — prerendered file if available, else fetch from API +
+//    build accurate meta tags, injecting window.__SSR_POST__ for hydration.
 app.get("/blog/:slug", async (req: Request, res: Response) => {
   const { slug } = req.params;
   const prerendered = resolve(pagesDir, `blog-${slug}.html`);
@@ -126,14 +268,35 @@ app.get("/blog/:slug", async (req: Request, res: Response) => {
     return res.sendFile(prerendered);
   }
 
-  // No prerendered file — render on demand so crawlers always get full HTML.
+  // Fetch post data from the API server so we can build proper meta tags.
+  // This handles posts published after the last deployment with no redeployment.
+  const result = await fetchBlogPost(slug);
+
+  if (result.status === "notfound") {
+    // Post doesn't exist — let React show the 404 page.
+    res.setHeader("Cache-Control", "no-store");
+    return res.sendFile(indexHtml);
+  }
+
+  if (result.status === "found") {
+    try {
+      const html = buildBlogHtml(slug, result.post);
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
+      res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
+      return res.send(html);
+    } catch (err) {
+      console.error(`Failed to build blog HTML for /blog/${slug}:`, err);
+    }
+  }
+
+  // Fallback when API is unreachable: React SSR (loading skeleton).
   try {
     const html = await ssrRender(`/blog/${slug}`);
     res.setHeader("Content-Type", "text/html; charset=utf-8");
     res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
-    res.send(html);
+    return res.send(html);
   } catch (err) {
-    console.error(`SSR failed for /blog/${slug}:`, err);
+    console.error(`SSR fallback failed for /blog/${slug}:`, err);
     res.setHeader("Cache-Control", "no-store");
     res.sendFile(indexHtml);
   }

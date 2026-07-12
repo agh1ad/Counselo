@@ -50,23 +50,37 @@ router.get("/admin/blog/posts", requireAdmin, async (_req, res) => {
   res.json(posts.reverse());
 });
 
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+}
+
 function extractBody(body: Record<string, unknown>) {
+  const titleEn = String(body["titleEn"] ?? "");
+  const titleAr = String(body["titleAr"] ?? "");
+  const bodyEn = String(body["bodyEn"] ?? "");
+  const bodyAr = String(body["bodyAr"] ?? "");
+  const plainEn = stripHtml(bodyEn);
+  const plainAr = stripHtml(bodyAr);
+
   return {
     slug: String(body["slug"] ?? ""),
     date: String(body["date"] ?? new Date().toISOString().slice(0, 10)),
     categoryEn: String(body["categoryEn"] ?? ""),
     categoryAr: String(body["categoryAr"] ?? ""),
     readTime: Number(body["readTime"] ?? 5),
-    titleEn: String(body["titleEn"] ?? ""),
-    titleAr: String(body["titleAr"] ?? ""),
-    excerptEn: String(body["excerptEn"] ?? ""),
-    excerptAr: String(body["excerptAr"] ?? ""),
-    seoTitleEn: String(body["seoTitleEn"] ?? ""),
-    seoTitleAr: String(body["seoTitleAr"] ?? ""),
-    seoDescriptionEn: String(body["seoDescriptionEn"] ?? ""),
-    seoDescriptionAr: String(body["seoDescriptionAr"] ?? ""),
-    bodyEn: String(body["bodyEn"] ?? ""),
-    bodyAr: String(body["bodyAr"] ?? ""),
+    titleEn,
+    titleAr,
+    // Auto-fill excerpt from body if the admin left it blank
+    excerptEn: String(body["excerptEn"] ?? "") || plainEn.slice(0, 250),
+    excerptAr: String(body["excerptAr"] ?? "") || plainAr.slice(0, 250),
+    // Auto-fill SEO title from article title if blank
+    seoTitleEn: String(body["seoTitleEn"] ?? "") || titleEn,
+    seoTitleAr: String(body["seoTitleAr"] ?? "") || titleAr,
+    // Auto-fill SEO description from body plain text if blank
+    seoDescriptionEn: String(body["seoDescriptionEn"] ?? "") || plainEn.slice(0, 160),
+    seoDescriptionAr: String(body["seoDescriptionAr"] ?? "") || plainAr.slice(0, 160),
+    bodyEn,
+    bodyAr,
     contentEn: (body["contentEn"] as never[]) ?? [],
     contentAr: (body["contentAr"] as never[]) ?? [],
     published: body["published"] === true || body["published"] === "true",
