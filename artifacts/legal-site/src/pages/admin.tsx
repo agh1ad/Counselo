@@ -66,6 +66,10 @@ function slugify(text: string) {
     .replace(/-+/g, "-");
 }
 
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+}
+
 function Toast({ msg, type, onClose }: { msg: string; type: "success" | "error"; onClose: () => void }) {
   useEffect(() => { const t = setTimeout(onClose, 3500); return () => clearTimeout(t); }, [onClose]);
   return (
@@ -77,9 +81,10 @@ function Toast({ msg, type, onClose }: { msg: string; type: "success" | "error";
   );
 }
 
-function SettingsPanel({ form, set, slugManual, setSlugManual, open }: {
+function SettingsPanel({ form, set, slugManual, setSlugManual, open, manualFields, markManual }: {
   form: FormData; set: (k: keyof FormData, v: unknown) => void;
   slugManual: boolean; setSlugManual: (v: boolean) => void; open: boolean;
+  manualFields: Set<string>; markManual: (f: string) => void;
 }) {
   const [seoOpen, setSeoOpen] = useState(false);
   const inputCls = "w-full border border-gray-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-green-600 bg-white";
@@ -130,10 +135,36 @@ function SettingsPanel({ form, set, slugManual, setSlugManual, open }: {
           </button>
           {seoOpen && (
             <div className="p-3 space-y-3">
-              <div><label className={labelCls}>SEO Title (EN)</label><input value={form.seoTitleEn} onChange={(e) => set("seoTitleEn", e.target.value)} placeholder="SEO title in English" className={inputCls} /></div>
-              <div><label className={labelCls}>SEO Description (EN)</label><textarea value={form.seoDescriptionEn} onChange={(e) => set("seoDescriptionEn", e.target.value)} rows={2} placeholder="≤160 chars" className={inputCls + " resize-none"} /></div>
-              <div><label className={labelCls}>عنوان SEO (AR)</label><input value={form.seoTitleAr} onChange={(e) => set("seoTitleAr", e.target.value)} dir="rtl" placeholder="عنوان SEO بالعربية" className={inputCls} /></div>
-              <div><label className={labelCls}>وصف SEO (AR)</label><textarea value={form.seoDescriptionAr} onChange={(e) => set("seoDescriptionAr", e.target.value)} rows={2} dir="rtl" placeholder="≤160 حرف" className={inputCls + " resize-none"} /></div>
+              <div>
+                <div className="flex items-center justify-between mb-1">
+                  <label className={labelCls + " mb-0"}>SEO Title (EN)</label>
+                  {!manualFields.has("seoTitleEn") && <span className="text-[9px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded">AUTO</span>}
+                </div>
+                <input value={form.seoTitleEn} onChange={(e) => { markManual("seoTitleEn"); set("seoTitleEn", e.target.value); }} placeholder="SEO title in English" className={inputCls} />
+              </div>
+              <div>
+                <div className="flex items-center justify-between mb-1">
+                  <label className={labelCls + " mb-0"}>SEO Description (EN)</label>
+                  {!manualFields.has("seoDescriptionEn") && <span className="text-[9px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded">AUTO</span>}
+                </div>
+                <textarea value={form.seoDescriptionEn} onChange={(e) => { markManual("seoDescriptionEn"); set("seoDescriptionEn", e.target.value); }} rows={2} placeholder="≤160 chars" className={inputCls + " resize-none"} />
+                <p className={`text-[9px] mt-0.5 ${(form.seoDescriptionEn?.length ?? 0) > 160 ? "text-red-500" : "text-gray-400"}`}>{form.seoDescriptionEn?.length ?? 0}/160</p>
+              </div>
+              <div>
+                <div className="flex items-center justify-between mb-1">
+                  <label className={labelCls + " mb-0"}>عنوان SEO (AR)</label>
+                  {!manualFields.has("seoTitleAr") && <span className="text-[9px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded">AUTO</span>}
+                </div>
+                <input value={form.seoTitleAr} onChange={(e) => { markManual("seoTitleAr"); set("seoTitleAr", e.target.value); }} dir="rtl" placeholder="عنوان SEO بالعربية" className={inputCls} />
+              </div>
+              <div>
+                <div className="flex items-center justify-between mb-1">
+                  <label className={labelCls + " mb-0"}>وصف SEO (AR)</label>
+                  {!manualFields.has("seoDescriptionAr") && <span className="text-[9px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded">AUTO</span>}
+                </div>
+                <textarea value={form.seoDescriptionAr} onChange={(e) => { markManual("seoDescriptionAr"); set("seoDescriptionAr", e.target.value); }} rows={2} dir="rtl" placeholder="≤160 حرف" className={inputCls + " resize-none"} />
+                <p className={`text-[9px] mt-0.5 text-right ${(form.seoDescriptionAr?.length ?? 0) > 160 ? "text-red-500" : "text-gray-400"}`}>{form.seoDescriptionAr?.length ?? 0}/160</p>
+              </div>
             </div>
           )}
         </div>
@@ -151,11 +182,43 @@ function PostEditor({ initial, token, onSave, onBack }: {
   const [settingsOpen, setSettingsOpen] = useState(true);
   const [slugManual, setSlugManual] = useState(!!initial.id);
   const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
+  // Track which SEO / excerpt fields the admin has typed in manually.
+  // For existing posts, start with all fields locked (don't overwrite saved data).
+  // For new posts, all fields start as AUTO (populated from title/body).
+  const [manualFields, setManualFields] = useState<Set<string>>(
+    () => initial.id
+      ? new Set(["seoTitleEn", "seoTitleAr", "seoDescriptionEn", "seoDescriptionAr", "excerptEn", "excerptAr"])
+      : new Set<string>(),
+  );
+  const markManual = (field: string) =>
+    setManualFields((prev) => new Set(prev).add(field));
 
   const set = (key: keyof FormData, value: unknown) => setForm((f) => ({ ...f, [key]: value }));
+
   const handleTitleChange = (v: string, l: "en" | "ar") => {
-    if (l === "en") { set("titleEn", v); if (!slugManual) set("slug", slugify(v)); }
-    else { set("titleAr", v); if (!slugManual && !form.titleEn) set("slug", slugify(v)); }
+    if (l === "en") {
+      set("titleEn", v);
+      if (!slugManual) set("slug", slugify(v));
+      if (!manualFields.has("seoTitleEn")) set("seoTitleEn", v);
+    } else {
+      set("titleAr", v);
+      if (!slugManual && !form.titleEn) set("slug", slugify(v));
+      if (!manualFields.has("seoTitleAr")) set("seoTitleAr", v);
+    }
+  };
+
+  const handleBodyChange = (html: string, l: "en" | "ar") => {
+    if (l === "en") {
+      set("bodyEn", html);
+      const plain = stripHtml(html);
+      if (!manualFields.has("excerptEn")) set("excerptEn", plain.slice(0, 250));
+      if (!manualFields.has("seoDescriptionEn")) set("seoDescriptionEn", plain.slice(0, 160));
+    } else {
+      set("bodyAr", html);
+      const plain = stripHtml(html);
+      if (!manualFields.has("excerptAr")) set("excerptAr", plain.slice(0, 250));
+      if (!manualFields.has("seoDescriptionAr")) set("seoDescriptionAr", plain.slice(0, 160));
+    }
   };
 
   const save = useCallback(async (publishState?: boolean) => {
@@ -205,10 +268,10 @@ function PostEditor({ initial, token, onSave, onBack }: {
             <div className="bg-white shadow-lg rounded-xl overflow-hidden" style={{ fontFamily: "'Tajawal', 'Georgia', serif" }}>
               <div className={`px-10 pt-10 pb-4 border-b border-gray-100 ${lang === "ar" ? "rtl" : ""}`} dir={lang === "ar" ? "rtl" : "ltr"}>
                 <textarea value={lang === "en" ? form.titleEn : form.titleAr} onChange={(e) => handleTitleChange(e.target.value, lang)} placeholder={lang === "en" ? "Article Title" : "عنوان المقال"} dir={lang === "ar" ? "rtl" : "ltr"} rows={1} className="w-full text-3xl font-bold text-gray-900 placeholder-gray-300 focus:outline-none resize-none overflow-hidden leading-tight border-0 bg-transparent" style={{ fontFamily: "inherit" }} onInput={(e) => { const t = e.target as HTMLTextAreaElement; t.style.height = "auto"; t.style.height = t.scrollHeight + "px"; }} />
-                <textarea value={lang === "en" ? form.excerptEn : form.excerptAr} onChange={(e) => set(lang === "en" ? "excerptEn" : "excerptAr", e.target.value)} placeholder={lang === "en" ? "Short excerpt shown in the blog listing…" : "مقتطف قصير يظهر في قائمة المدونة…"} dir={lang === "ar" ? "rtl" : "ltr"} rows={2} className="w-full mt-3 text-base text-gray-500 placeholder-gray-300 focus:outline-none resize-none leading-relaxed border-0 bg-transparent" style={{ fontFamily: "inherit" }} />
+                <textarea value={lang === "en" ? form.excerptEn : form.excerptAr} onChange={(e) => { markManual(lang === "en" ? "excerptEn" : "excerptAr"); set(lang === "en" ? "excerptEn" : "excerptAr", e.target.value); }} placeholder={lang === "en" ? "Short excerpt shown in the blog listing…" : "مقتطف قصير يظهر في قائمة المدونة…"} dir={lang === "ar" ? "rtl" : "ltr"} rows={2} className="w-full mt-3 text-base text-gray-500 placeholder-gray-300 focus:outline-none resize-none leading-relaxed border-0 bg-transparent" style={{ fontFamily: "inherit" }} />
               </div>
               <div className="px-6 py-4" dir={lang === "ar" ? "rtl" : "ltr"}>
-                {lang === "en" ? <RichTextEditor key="en" value={form.bodyEn} onChange={(html) => set("bodyEn", html)} placeholder="Start writing your article here…" dir="ltr" minHeight={420} /> : <RichTextEditor key="ar" value={form.bodyAr} onChange={(html) => set("bodyAr", html)} placeholder="ابدأ كتابة مقالك هنا…" dir="rtl" minHeight={420} />}
+                {lang === "en" ? <RichTextEditor key="en" value={form.bodyEn} onChange={(html) => handleBodyChange(html, "en")} placeholder="Start writing your article here…" dir="ltr" minHeight={420} /> : <RichTextEditor key="ar" value={form.bodyAr} onChange={(html) => handleBodyChange(html, "ar")} placeholder="ابدأ كتابة مقالك هنا…" dir="rtl" minHeight={420} />}
               </div>
               <div className="px-10 py-5 border-t border-gray-50 bg-gray-50/50 text-xs text-gray-300 flex items-center gap-4">
                 <FileText size={12} />
@@ -217,7 +280,7 @@ function PostEditor({ initial, token, onSave, onBack }: {
             </div>
           </div>
         </div>
-        <SettingsPanel form={form} set={set} slugManual={slugManual} setSlugManual={setSlugManual} open={settingsOpen} />
+        <SettingsPanel form={form} set={set} slugManual={slugManual} setSlugManual={setSlugManual} open={settingsOpen} manualFields={manualFields} markManual={markManual} />
       </div>
     </div>
   );

@@ -260,7 +260,7 @@ app.get("/", (_req: Request, res: Response) => {
 // 3. "/blog/:slug" — prerendered file if available, else fetch from API +
 //    build accurate meta tags, injecting window.__SSR_POST__ for hydration.
 app.get("/blog/:slug", async (req: Request, res: Response) => {
-  const { slug } = req.params;
+  const slug = String(req.params["slug"] ?? "");
   const prerendered = resolve(pagesDir, `blog-${slug}.html`);
 
   if (existsSync(prerendered)) {
