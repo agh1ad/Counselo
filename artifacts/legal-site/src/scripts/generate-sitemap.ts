@@ -37,26 +37,6 @@ const BlogPostSchema = z.object({
 });
 
 const { BASE_URL, TODAY, CORE_PAGES } = await import("../data/sitemap-sources.js");
-const { staticBlogPosts: blogPosts } = await import("../data/blog-posts.js");
-
-if (blogPosts.length > 0) {
-  const errors: string[] = [];
-  for (let i = 0; i < blogPosts.length; i++) {
-    const result = BlogPostSchema.safeParse(blogPosts[i]);
-    if (!result.success) {
-      const slug = (blogPosts[i] as { slug?: unknown }).slug ?? `(index ${i})`;
-      for (const issue of result.error.issues) {
-        errors.push(`  [${slug}] ${issue.path.join(".")}: ${issue.message}`);
-      }
-    }
-  }
-  if (errors.length > 0) {
-    console.error(
-      `[sitemap] ERROR: ${errors.length} validation error(s) found in blog-posts.ts. Fix them before the sitemap is written:\n${errors.join("\n")}`,
-    );
-    process.exit(1);
-  }
-}
 
 const { en } = await import("../translations/en.js");
 const { enSyr } = await import("../translations/en-syr.js");
@@ -232,18 +212,6 @@ for (const slug of SYR_SERVICE_SLUGS) {
   entries.push(fn(`/syr/ar/services/${slug}`, "monthly", "0.9", TODAY));
 }
 
-if (blogPosts.length > 0) {
-  entries.push("\n  <!-- ===== BLOG POSTS ===== -->");
-  for (const post of blogPosts) {
-    // SA blog posts keep the original slug unchanged.
-    entries.push(urlEntryBlogPost(`/sa/blog/${post.slug}`, post.slug, SYRIA_SLUG_OVERRIDES[post.slug] ?? post.slug, post.date));
-    entries.push(urlEntryBlogPost(`/sa/ar/blog/${post.slug}`, post.slug, SYRIA_SLUG_OVERRIDES[post.slug] ?? post.slug, post.date));
-    // Syria blog posts use the new Syria-specific canonical slug.
-    const syrSlug = SYRIA_SLUG_OVERRIDES[post.slug] ?? post.slug;
-    entries.push(urlEntryBlogPost(`/syr/blog/${syrSlug}`, post.slug, syrSlug, post.date));
-    entries.push(urlEntryBlogPost(`/syr/ar/blog/${syrSlug}`, post.slug, syrSlug, post.date));
-  }
-}
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -257,7 +225,7 @@ ${entries.join("\n")}
 const outPath = resolve(rootDir, "public/sitemap.xml");
 writeFileSync(outPath, xml, "utf-8");
 console.log(
-  `[sitemap] wrote ${outPath} (${SA_SERVICE_SLUGS.length} SA services, ${SYR_SERVICE_SLUGS.length} SYR services, ${blogPosts.length} blog posts)`,
+  `[sitemap] wrote ${outPath} (${SA_SERVICE_SLUGS.length} SA services, ${SYR_SERVICE_SLUGS.length} SYR services)`,
 );
 
 const shouldPing =

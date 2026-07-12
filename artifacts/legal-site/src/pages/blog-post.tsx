@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { staticBlogPosts } from "@/data/blog-posts";
 import { SYR_BLOG_SLUG_TO_DB_SLUG } from "@/lib/syr-blog-slug-aliases";
 
 const BLOG_CATEGORY_TO_SERVICE: Record<string, { slug: string; nameEn: string; nameAr: string }> = {
@@ -71,31 +70,6 @@ export default function BlogPost() {
     ? SYR_BLOG_SLUG_TO_DB_SLUG[slug!]
     : (slug ?? "");
 
-  const staticPost = staticBlogPosts.find((p) => p.slug === dbSlug);
-  const ssrInitialData: ApiPost | undefined = staticPost
-    ? {
-        id: 0,
-        slug: staticPost.slug,
-        date: staticPost.date,
-        categoryEn: staticPost.category.en,
-        categoryAr: staticPost.category.ar,
-        readTime: staticPost.readTime,
-        titleEn: staticPost.en.title,
-        titleAr: staticPost.ar.title,
-        excerptEn: staticPost.en.excerpt,
-        excerptAr: staticPost.ar.excerpt,
-        seoTitleEn: staticPost.en.seoTitle,
-        seoTitleAr: staticPost.ar.seoTitle,
-        seoDescriptionEn: staticPost.en.seoDescription,
-        seoDescriptionAr: staticPost.ar.seoDescription,
-        bodyEn: "",
-        bodyAr: "",
-        contentEn: staticPost.en.content,
-        contentAr: staticPost.ar.content,
-        published: true,
-      }
-    : undefined;
-
   const { data: post, isLoading, isError } = useQuery<ApiPost>({
     queryKey: ["blog-post", dbSlug],
     queryFn: async () => {
@@ -103,7 +77,6 @@ export default function BlogPost() {
       if (!res.ok) throw new Error("Not found");
       return res.json() as Promise<ApiPost>;
     },
-    initialData: ssrInitialData,
     staleTime: 60_000,
     retry: false,
   });

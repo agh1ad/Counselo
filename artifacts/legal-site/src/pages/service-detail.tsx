@@ -2,22 +2,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useParams, Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, BookOpen, CheckCircle2, ChevronRight, ChevronDown } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ChevronRight, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { SYR_SEO_DATA } from "@/lib/seo-data-syr";
-import { staticBlogPosts } from "@/data/blog-posts";
-import { SYR_DB_SLUG_TO_NEW_SLUG } from "@/lib/syr-blog-slug-aliases";
 
-const SERVICE_RELATED_POSTS: Record<string, string[]> = {
-  "family-law":        ["divorce-in-saudi-arabia", "child-custody-saudi-arabia"],
-  "employment-law":    ["wrongful-termination-saudi-labor-law"],
-  "real-estate":       ["real-estate-disputes-saudi-arabia"],
-  "foreign-investment":["foreign-company-registration-saudi-arabia"],
-  "companies-law":     ["foreign-company-registration-saudi-arabia"],
-  "administrative-law":["board-of-grievances-saudi-arabia"],
-};
 
 export default function ServiceDetail() {
   const params = useParams();
@@ -249,51 +239,6 @@ export default function ServiceDetail() {
                 </div>
               )}
 
-              {(() => {
-                const relSlugs = SERVICE_RELATED_POSTS[id] ?? [];
-                const relPosts = relSlugs.flatMap(saSlug => {
-                  const post = staticBlogPosts.find(p => p.slug === saSlug);
-                  if (!post) return [];
-                  const blogSlug = isSyr ? (SYR_DB_SLUG_TO_NEW_SLUG[post.slug] ?? post.slug) : post.slug;
-                  return [{ title: isRTL ? post.ar.title : post.en.title, href: `${regionPrefix}/blog/${blogSlug}` }];
-                });
-                if (relPosts.length === 0) return null;
-                return (
-                  <div className="mt-12">
-                    <h2 className="text-2xl font-serif font-bold text-foreground mb-6 border-b border-border pb-4">
-                      {isRTL ? "مقالات ذات صلة" : "Related Articles"}
-                    </h2>
-                    <div className="space-y-3">
-                      {relPosts.map((p, i) => (
-                        <Link
-                          key={i}
-                          href={p.href}
-                          className="flex items-center gap-3 p-4 border border-border bg-card hover:border-primary/40 hover:bg-primary/5 transition-colors group"
-                        >
-                          <BookOpen className="h-4 w-4 text-primary shrink-0" />
-                          <span className="font-medium text-foreground group-hover:text-primary transition-colors leading-snug">
-                            {p.title}
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                    <div className="mt-5 flex flex-wrap gap-4">
-                      <Link
-                        href={`${regionPrefix}/blog`}
-                        className="text-sm text-primary font-medium hover:underline"
-                      >
-                        {isRTL ? "← جميع المقالات القانونية" : "View all legal articles →"}
-                      </Link>
-                      <Link
-                        href={`${regionPrefix}/services`}
-                        className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {isRTL ? "← جميع الخدمات القانونية" : "All legal services →"}
-                      </Link>
-                    </div>
-                  </div>
-                );
-              })()}
             </motion.div>
           </div>
 
