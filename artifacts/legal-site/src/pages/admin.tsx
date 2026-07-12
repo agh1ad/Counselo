@@ -432,8 +432,26 @@ const PRACTICE_AREAS = [
   { name: "Immigration Law", slug: "immigration-law", subs: 8 },
 ];
 
-function SEOMonitorTab() {
+function SEOMonitorTab({ token }: { token: string }) {
   const totalSubs = PRACTICE_AREAS.reduce((s, a) => s + a.subs, 0);
+  const [reindexState, setReindexState] = useState<"idle" | "loading" | "done" | "error">("idle");
+  const [reindexCount, setReindexCount] = useState(0);
+
+  async function handleReindexAll() {
+    setReindexState("loading");
+    try {
+      const res = await fetch(`${API}/admin/reindex-all`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json() as { queued?: number; error?: string };
+      if (!res.ok) throw new Error(data.error ?? "Unknown error");
+      setReindexCount(data.queued ?? 0);
+      setReindexState("done");
+    } catch {
+      setReindexState("error");
+    }
+  }
 
   return (
     <div className="p-6 space-y-6 max-w-6xl mx-auto">
@@ -442,9 +460,28 @@ function SEOMonitorTab() {
           <h2 className="text-xl font-bold text-gray-900">SEO Monitor</h2>
           <p className="text-sm text-gray-500 mt-0.5">Site-wide SEO health — checked against all pages and configurations</p>
         </div>
-        <div className="flex items-center gap-2 bg-green-50 border border-green-200 px-4 py-2 rounded-xl">
-          <CheckCircle2 size={16} className="text-green-600" />
-          <span className="text-sm font-bold text-green-700">All checks passing</span>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => { void handleReindexAll(); }}
+            disabled={reindexState === "loading"}
+            className="flex items-center gap-2 bg-[#006C35] text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-green-800 transition-colors disabled:opacity-60"
+          >
+            {reindexState === "loading" ? <><RefreshCw size={14} className="animate-spin" /> Notifying Google…</> : <><Zap size={14} /> Re-index All Pages</>}
+          </button>
+          {reindexState === "done" && (
+            <span className="text-xs text-green-700 font-semibold bg-green-50 border border-green-200 px-3 py-1.5 rounded-lg">
+              {reindexCount} URLs sent to Google
+            </span>
+          )}
+          {reindexState === "error" && (
+            <span className="text-xs text-red-700 font-semibold bg-red-50 border border-red-200 px-3 py-1.5 rounded-lg">
+              Request failed — check API logs
+            </span>
+          )}
+          <div className="flex items-center gap-2 bg-green-50 border border-green-200 px-4 py-2 rounded-xl">
+            <CheckCircle2 size={16} className="text-green-600" />
+            <span className="text-sm font-bold text-green-700">All checks passing</span>
+          </div>
         </div>
       </div>
 
@@ -748,7 +785,7 @@ export default function AdminCMS() {
 
       {/* Tab content */}
       {tab === "analytics" && <AnalyticsTab posts={posts} />}
-      {tab === "seo" && <SEOMonitorTab />}
+      {tab === "seo" && <SEOMonitorTab token={token} />}
       {tab === "tools" && <ToolsTab />}
 
       {tab === "blog" && (
