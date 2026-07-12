@@ -1,0 +1,363 @@
+Please perform a complete SEO metadata optimization for the entire Counselo website.
+
+Counselo is an online platform for legal consultations. It is not a law firm and should not be described as one. The website serves users in Saudi Arabia and Syria in both English and Arabic.
+
+Brand naming:
+- English: Counselo
+- Arabic: كاونسلو
+
+Main goals:
+1. Improve organic search visibility.
+2. Increase click-through rate from Google.
+3. Attract users looking for online legal consultations.
+4. Ensure every page has unique and relevant metadata.
+5. Avoid duplicate titles and descriptions across country, language, service, and article pages.
+
+Do not make unsupported claims such as:
+- “best lawyers”
+- “guaranteed results”
+- “top law firm”
+- “win your case”
+- “instant legal solution”
+
+Do not describe Counselo as a law firm. Use wording such as:
+- online legal consultation platform
+- book an online legal consultation
+- connect with experienced legal professionals
+- receive professional legal guidance
+
+==================================================
+1. HOMEPAGE METADATA
+==================================================
+
+For the main English homepage, use:
+
+Meta title:
+Online Legal Consultations in Saudi Arabia & Syria | Counselo
+
+Meta description:
+Book confidential online legal consultations and receive professional legal guidance across Saudi Arabia and Syria through Counselo’s secure and convenient platform.
+
+For the main Arabic homepage, use:
+
+Meta title:
+استشارات قانونية أونلاين في السعودية وسوريا | كاونسلو
+
+Meta description:
+احجز استشارة قانونية أونلاين بسرية وأمان، واحصل على توجيه قانوني مهني في السعودية وسوريا عبر منصة كاونسلو بسهولة وموثوقية.
+
+==================================================
+2. COUNTRY LANDING PAGES
+==================================================
+
+Saudi Arabia English page:
+
+Meta title:
+Online Legal Consultations in Saudi Arabia | Counselo
+
+Meta description:
+Book confidential online legal consultations in Saudi Arabia and receive professional guidance on family, employment, business, immigration, and other legal matters.
+
+Saudi Arabia Arabic page:
+
+Meta title:
+استشارات قانونية أونلاين في السعودية | كاونسلو
+
+Meta description:
+احجز استشارة قانونية أونلاين في السعودية بسرية وأمان، واحصل على توجيه مهني في قضايا الأسرة والعمل والشركات والهجرة وغيرها.
+
+Syria English page:
+
+Meta title:
+Online Legal Consultations in Syria | Counselo
+
+Meta description:
+Get confidential online legal consultations in Syria and receive professional guidance for family, business, employment, property, and other legal matters.
+
+Syria Arabic page:
+
+Meta title:
+استشارات قانونية أونلاين في سوريا | كاونسلو
+
+Meta description:
+احجز استشارة قانونية أونلاين في سوريا واحصل على توجيه قانوني مهني في قضايا الأسرة والعمل والعقارات والشركات وغيرها بسرية وأمان.
+
+==================================================
+3. SERVICE PAGE METADATA
+==================================================
+
+Generate unique metadata for every service page using the actual:
+- service name
+- country
+- language
+- page content
+- user search intent
+
+Do not reuse identical titles or descriptions across multiple pages.
+
+English service-page title format:
+
+{Service} Legal Consultation in {Country} | Counselo
+
+Alternative format when the title is too long:
+
+Online {Service} Consultation in {Country} | Counselo
+
+Arabic service-page title format:
+
+استشارة قانونية في {Service} في {Country} | كاونسلو
+
+Use natural Arabic wording. Do not translate service names word-for-word if a more common legal term exists.
+
+English service-page description format:
+
+Get confidential online legal consultation for {Service} matters in {Country}. Receive professional guidance tailored to your legal needs through Counselo.
+
+Arabic service-page description format:
+
+احصل على استشارة قانونية أونلاين في قضايا {Service} في {Country} عبر منصة كاونسلو، مع توجيه مهني وسري يناسب احتياجاتك القانونية.
+
+Each description must be customized to the actual service. Do not use the same description everywhere.
+
+==================================================
+4. SERVICE PAGE EXAMPLES
+==================================================
+
+Family Law — Saudi Arabia — English
+
+Meta title:
+Family Law Consultation in Saudi Arabia | Counselo
+
+Meta description:
+Book a confidential online family law consultation in Saudi Arabia. Get professional guidance on divorce, custody, maintenance, marriage, and related matters.
+
+Family Law — Saudi Arabia — Arabic
+
+Meta title:
+استشارة قانونية في الأحوال الشخصية بالسعودية | كاونسلو
+
+Meta description:
+احجز استشارة قانونية أونلاين في قضايا الأحوال الشخصية بالسعودية، بما يشمل الطلاق والحضانة والنفقة والزواج، عبر كاونسلو.
+
+Employment Law — Saudi Arabia — English
+
+Meta title:
+Employment Law Consultation in Saudi Arabia | Counselo
+
+Meta description:
+Get online legal guidance in Saudi Arabia for employment contracts, termination, wages, workplace disputes, employee rights, and employer obligations.
+
+Employment Law — Saudi Arabia — Arabic
+
+Meta title:
+استشارة قانونية في نظام العمل السعودي | كاونسلو
+
+Meta description:
+احصل على استشارة قانونية أونلاين بشأن عقود العمل والفصل والرواتب والنزاعات العمالية وحقوق الموظفين في السعودية عبر كاونسلو.
+
+Corporate Law — Saudi Arabia — English
+
+Meta title:
+Corporate Law Consultation in Saudi Arabia | Counselo
+
+Meta description:
+Book an online corporate law consultation in Saudi Arabia for company formation, commercial contracts, governance, compliance, and business disputes.
+
+Corporate Law — Saudi Arabia — Arabic
+
+Meta title:
+استشارة قانونية في نظام الشركات بالسعودية | كاونسلو
+
+Meta description:
+احجز استشارة قانونية أونلاين في تأسيس الشركات والعقود التجارية والحوكمة والامتثال والنزاعات التجارية في السعودية عبر كاونسلو.
+
+Immigration Law — Saudi Arabia — English
+
+Meta title:
+Immigration Legal Consultation in Saudi Arabia | Counselo
+
+Meta description:
+Get online legal guidance in Saudi Arabia for residency, visas, sponsorship, immigration procedures, documentation, and related legal matters.
+
+Immigration Law — Saudi Arabia — Arabic
+
+Meta title:
+استشارة قانونية في الإقامة والهجرة بالسعودية | كاونسلو
+
+Meta description:
+احصل على استشارة قانونية أونلاين بشأن الإقامة والتأشيرات والكفالة وإجراءات الهجرة والمستندات القانونية في السعودية عبر كاونسلو.
+
+Real Estate Law — Syria — English
+
+Meta title:
+Real Estate Law Consultation in Syria | Counselo
+
+Meta description:
+Book an online real estate law consultation in Syria for property ownership, sales, leases, inheritance, registration, and property disputes.
+
+Real Estate Law — Syria — Arabic
+
+Meta title:
+استشارة قانونية عقارية في سوريا | كاونسلو
+
+Meta description:
+احجز استشارة قانونية أونلاين في قضايا العقارات في سوريا، بما يشمل البيع والشراء والإيجار والتسجيل والملكية والنزاعات العقارية.
+
+Criminal Law — Syria — English
+
+Meta title:
+Criminal Law Consultation in Syria | Counselo
+
+Meta description:
+Get confidential online legal guidance in Syria regarding criminal complaints, investigations, procedures, defense options, and related legal matters.
+
+Criminal Law — Syria — Arabic
+
+Meta title:
+استشارة قانونية في القضايا الجزائية بسوريا | كاونسلو
+
+Meta description:
+احصل على استشارة قانونية أونلاين بسرية في القضايا الجزائية بسوريا، بما يشمل الشكاوى والتحقيقات والإجراءات والخيارات القانونية المتاحة.
+
+==================================================
+5. BLOG AND LEGAL ARTICLE METADATA
+==================================================
+
+For English articles, use:
+
+{Article Title} | Legal Guide | Counselo
+
+For Arabic articles, use:
+
+{Article Title} | دليل قانوني | كاونسلو
+
+Do not add “Legal Guide” if the article title is already too long.
+
+Each article meta description must:
+- summarize the specific article
+- include the main legal topic
+- mention the relevant country when applicable
+- avoid generic wording
+- avoid presenting general information as personalized legal advice
+
+English example:
+
+Meta title:
+Saudi Employment Contract Termination Rules | Counselo
+
+Meta description:
+Learn the main rules for terminating employment contracts in Saudi Arabia, including notice periods, employee rights, compensation, and legal procedures.
+
+Arabic example:
+
+Meta title:
+إنهاء عقد العمل في السعودية: الحقوق والإجراءات | كاونسلو
+
+Meta description:
+تعرف على أحكام إنهاء عقد العمل في السعودية، بما يشمل الإشعار والتعويض وحقوق الموظف والإجراءات القانونية الأساسية.
+
+==================================================
+6. LENGTH AND QUALITY RULES
+==================================================
+
+Meta title requirements:
+- Prefer approximately 50–60 characters when practical.
+- Avoid titles that are unnecessarily long.
+- Put the main keyword near the beginning.
+- Put the brand name at the end.
+- Ensure each title is unique.
+- Do not stuff multiple keywords.
+- Do not repeat the same country or service unnecessarily.
+
+Meta description requirements:
+- Prefer approximately 140–160 characters when practical.
+- Make every description unique.
+- Include the primary legal service or topic.
+- Include the country where relevant.
+- Use natural, persuasive language.
+- Mention confidentiality, convenience, or online access where appropriate.
+- Do not make guarantees.
+- Do not copy the first paragraph automatically without editing it.
+
+If a description exceeds the recommended length, shorten it naturally without removing the main service, country, or user benefit.
+
+==================================================
+7. TECHNICAL IMPLEMENTATION
+==================================================
+
+Apply the metadata dynamically based on the route and page content.
+
+Ensure every public page includes:
+- one unique HTML title tag
+- one unique meta description
+- one self-referencing canonical URL
+- Open Graph title
+- Open Graph description
+- Open Graph URL
+- Open Graph type
+- Open Graph image where available
+- Twitter card
+- Twitter title
+- Twitter description
+- correct language attribute on the HTML element
+- correct hreflang annotations for equivalent language and country versions
+
+Render all SEO metadata in the initial server HTML. Do not rely on client-side JavaScript to add metadata after page load.
+
+==================================================
+8. CANONICAL AND HREFLANG
+==================================================
+
+Each public page must have a self-referencing canonical URL.
+
+For equivalent localized pages, add reciprocal hreflang tags where a genuine equivalent page exists:
+
+- en-SA
+- ar-SA
+- en-SY
+- ar-SY
+- x-default
+
+Do not create hreflang links between pages that are not true equivalents.
+
+The x-default URL should point to the main country/language selection page or the most appropriate neutral landing page.
+
+==================================================
+9. AVOID DUPLICATION
+==================================================
+
+Audit the entire website and identify:
+- duplicate titles
+- duplicate descriptions
+- missing titles
+- missing descriptions
+- overly long titles
+- overly long descriptions
+- titles that only contain the page name and brand
+- incorrect country names
+- English titles on Arabic pages
+- Arabic titles on English pages
+- pages incorrectly described as a law firm
+
+Fix all detected issues.
+
+==================================================
+10. OUTPUT AND VERIFICATION
+==================================================
+
+After making the changes, provide a clear implementation summary containing:
+
+1. Files changed.
+2. Metadata-generation logic added or updated.
+3. Examples of final metadata for:
+   - homepage
+   - Saudi English service page
+   - Saudi Arabic service page
+   - Syria English service page
+   - Syria Arabic service page
+   - English blog article
+   - Arabic blog article
+4. Any routes missing enough information to generate accurate metadata.
+5. Any duplicate metadata that was found and fixed.
+
+Do not redesign the website. Do not change visible page content unless required to generate accurate metadata. Preserve all existing routes and functionality.
