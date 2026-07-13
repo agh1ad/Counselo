@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { TrustSignals } from "@/components/seo/TrustSignals";
 
 const BLOG_CATEGORY_TO_SERVICE: Record<string, { slug: string; nameEn: string; nameAr: string }> = {
   "Family Law":        { slug: "family-law",       nameEn: "Family Law Services",              nameAr: "خدمات قانون الأسرة" },
@@ -397,6 +398,7 @@ export default function BlogPost() {
           </motion.aside>
         </div>
       </section>
+      <TrustSignals isArabic={isRTL} regionPrefix={regionPrefix} compact />
     </div>
   );
 }

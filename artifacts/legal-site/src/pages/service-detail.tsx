@@ -8,6 +8,7 @@ import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { SYR_SEO_DATA } from "@/lib/seo-data-syr";
 import { RELATED_SERVICES, SERVICE_SEARCH_CONTENT } from "@/lib/service-search-content";
+import { TrustSignals } from "@/components/seo/TrustSignals";
 
 
 export default function ServiceDetail() {
@@ -391,6 +392,7 @@ export default function ServiceDetail() {
           </div>
         </div>
       </div>
+      <TrustSignals isArabic={isRTL} regionPrefix={regionPrefix} />
     </div>
   );
 }

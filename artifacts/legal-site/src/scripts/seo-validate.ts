@@ -423,6 +423,12 @@ function validatePage(filepath: string): PageResult {
         rule: "blog-post-no-article-schema",
         detail: "Blog post missing Article schema",
       });
+    if (!/id="trust-signals-heading"/.test(html))
+      issues.push({
+        severity: "error",
+        rule: "blog-trust-signals-missing",
+        detail: "Article page is missing visible trust and transparency signals",
+      });
   }
 
   // ── service pages — should have LegalService or Service schema ──
@@ -435,6 +441,12 @@ function validatePage(filepath: string): PageResult {
         severity: "warn",
         rule: "service-no-schema",
         detail: "Service page missing LegalService/Service schema",
+      });
+    if (!/id="trust-signals-heading"/.test(html))
+      issues.push({
+        severity: "error",
+        rule: "service-trust-signals-missing",
+        detail: "Service page is missing visible trust and transparency signals",
       });
     if (bodyLinks.filter((link) => /\/services\/[^/]+/.test(link)).length < 2)
       issues.push({
