@@ -380,6 +380,8 @@ function validatePage(filepath: string): PageResult {
       });
   }
 
+  const bodyLinks = internalLinksFromBody(html);
+
   // ── blog hubs — must have article links ──
   if (
     route === "/blog" ||
@@ -434,9 +436,19 @@ function validatePage(filepath: string): PageResult {
         rule: "service-no-schema",
         detail: "Service page missing LegalService/Service schema",
       });
+    if (bodyLinks.filter((link) => /\/services\/[^/]+/.test(link)).length < 2)
+      issues.push({
+        severity: "error",
+        rule: "service-contextual-links-weak",
+        detail: "Service page needs at least two contextual links to related services",
+      });
+    if (!bodyLinks.some((link) => link === "/blog" || link.startsWith("/blog/")))
+      issues.push({
+        severity: "error",
+        rule: "service-blog-link-missing",
+        detail: "Service page has no contextual link to the legal blog",
+      });
   }
-
-  const bodyLinks = internalLinksFromBody(html);
 
   return {
     file: path.basename(filepath),

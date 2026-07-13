@@ -5,6 +5,29 @@ export type SearchContent = {
   documentsAr: string[];
 };
 
+export const RELATED_SERVICES: Record<string, string[]> = {
+  "family-law": ["civil-law", "real-estate", "enforcement"],
+  "employment-law": ["contracts", "business-law", "enforcement"],
+  "business-law": ["companies-law", "contracts", "arbitration"],
+  "real-estate": ["contracts", "civil-law", "enforcement"],
+  "foreign-investment": ["companies-law", "business-law", "contracts"],
+  "administrative-law": ["foreign-investment", "tax-zakat", "enforcement"],
+  arbitration: ["business-law", "contracts", "enforcement"],
+  enforcement: ["business-law", "contracts", "arbitration"],
+  "companies-law": ["business-law", "contracts", "foreign-investment"],
+  contracts: ["business-law", "companies-law", "arbitration"],
+  "criminal-law": ["criminal-procedure", "cyber-law", "civil-law"],
+  "banking-finance": ["business-law", "contracts", "enforcement"],
+  "intellectual-property": ["business-law", "contracts", "companies-law"],
+  "tax-zakat": ["business-law", "companies-law", "administrative-law"],
+  "cyber-law": ["criminal-law", "intellectual-property", "business-law"],
+  "medical-malpractice": ["insurance-law", "civil-law", "civil-procedure"],
+  "insurance-law": ["civil-law", "contracts", "enforcement"],
+  "civil-law": ["civil-procedure", "contracts", "real-estate"],
+  "civil-procedure": ["civil-law", "enforcement", "arbitration"],
+  "criminal-procedure": ["criminal-law", "cyber-law", "civil-procedure"],
+};
+
 const sharedDocs = {
   en: ["Identity and contact information", "Relevant agreements and correspondence", "Court, authority, or regulator documents", "A dated summary of the facts and desired outcome"],
   ar: ["بيانات الهوية والتواصل", "العقود والمراسلات ذات الصلة", "مستندات المحكمة أو الجهة الرسمية أو التنظيمية", "ملخص مؤرخ للوقائع والنتيجة المطلوبة"],

@@ -7,7 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { SYR_SEO_DATA } from "@/lib/seo-data-syr";
-import { SERVICE_SEARCH_CONTENT } from "@/lib/service-search-content";
+import { RELATED_SERVICES, SERVICE_SEARCH_CONTENT } from "@/lib/service-search-content";
 
 
 export default function ServiceDetail() {
@@ -71,6 +71,9 @@ export default function ServiceDetail() {
   const displayExperienceNote = experienceNote && isJurisdictionSafe(experienceNote) ? experienceNote : null;
   const displayCovers = data.covers.filter((item) => isJurisdictionSafe(item));
   const searchContent = SERVICE_SEARCH_CONTENT[id];
+  const relatedServiceIds = (RELATED_SERVICES[id] ?? []).filter(
+    (serviceId) => serviceId in sd.services,
+  );
   const commonIssues = searchContent
     ? (isRTL ? searchContent.issuesAr : searchContent.issuesEn)
     : data.covers.slice(0, 5);
@@ -283,6 +286,37 @@ export default function ServiceDetail() {
                   </p>
                 </section>
               )}
+
+              <section className="mb-16" aria-labelledby="related-services-heading">
+                <h2 id="related-services-heading" className="text-3xl font-serif font-bold text-foreground mb-6 border-b border-border pb-4">
+                  {isRTL ? "خدمات قانونية مرتبطة" : "Related legal services"}
+                </h2>
+                <p className="text-muted-foreground mb-5">
+                  {isRTL
+                    ? "قد تتداخل المسألة الواحدة مع أكثر من مجال قانوني. استكشف الخدمات المرتبطة أو اطّلع على المقالات القانونية قبل طلب الاستشارة."
+                    : "One matter can involve several areas of law. Explore closely related services or read the legal guides before requesting a consultation."}
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {relatedServiceIds.map((serviceId) => {
+                    const related = sd.services[serviceId as keyof typeof sd.services];
+                    return (
+                      <Link
+                        key={serviceId}
+                        href={`${regionPrefix}/services/${serviceId}`}
+                        className="border border-border bg-card p-4 font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
+                      >
+                        {isRTL ? `استشارة ${related.title}` : `${related.title} legal consultation`}
+                      </Link>
+                    );
+                  })}
+                  <Link href="/blog" className="border border-border bg-card p-4 font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
+                    {isRTL ? "مقالات وإرشادات قانونية" : "Legal articles and practical guides"}
+                  </Link>
+                  <Link href={`${regionPrefix}/contact?service=${id}`} className="border border-primary bg-primary/5 p-4 font-semibold text-primary hover:bg-primary hover:text-white transition-colors">
+                    {isRTL ? `احجز استشارة ${data.title}` : `Book a ${data.title.toLowerCase()} consultation`}
+                  </Link>
+                </div>
+              </section>
 
               <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">{sd.processHeading}</h2>
               <div className="space-y-8 mb-16">
