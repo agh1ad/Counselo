@@ -191,12 +191,12 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── SA ENGLISH SERVICE PAGES ────────────────────────────────────────────
 
   "/sa/services/family-law": {
-    title: "Family Law Lawyer in Saudi Arabia | Counselo",
+    title: "Family, Divorce & Custody Lawyer in Saudi Arabia | Counselo",
     description:
       "Book an online legal consultation with an experienced family law lawyer in Saudi Arabia. Get professional guidance on divorce, custody, alimony, and personal status matters.",
   },
   "/sa/services/employment-law": {
-    title: "Employment Law Lawyer in Saudi Arabia | Counselo",
+    title: "Employment & Wrongful Termination Lawyer in Saudi Arabia",
     description:
       "Book an online legal consultation with an employment lawyer in Saudi Arabia for employment contracts, termination, wages, workplace disputes, and labor rights.",
   },
@@ -211,9 +211,9 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "Book an online legal consultation with a real estate lawyer in Saudi Arabia for property ownership, sale contracts, leases, registration, and construction disputes.",
   },
   "/sa/services/foreign-investment": {
-    title: "Immigration Lawyer in Saudi Arabia | Counselo",
+    title: "Foreign Investment & Company Formation Lawyer in Saudi Arabia",
     description:
-      "Book an online legal consultation with an immigration lawyer in Saudi Arabia for residency, visas, sponsorship, immigration procedures, and documentation.",
+      "Consult a Saudi foreign investment lawyer online about investment licensing, foreign-owned company formation, regulatory compliance, contracts, and investor disputes.",
   },
   "/sa/services/administrative-law": {
     title: "Administrative Law Lawyer in Saudi Arabia | Counselo",
@@ -299,9 +299,9 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "احجز استشارة قانونية أونلاين مع محامي عقاري في السعودية في نزاعات الملكية والإيجار والبيع والتسجيل وعيوب البناء.",
   },
   "/sa/ar/services/foreign-investment": {
-    title: "محامي إقامة وهجرة في السعودية | كاونسلو",
+    title: "محامي استثمار أجنبي وتأسيس شركات في السعودية | كاونسلو",
     description:
-      "احجز استشارة قانونية أونلاين مع محامي إقامة وهجرة في السعودية بشأن التأشيرات والكفالة والإقامة وإجراءات الهجرة والمستندات.",
+      "احجز استشارة أونلاين مع محامي استثمار أجنبي في السعودية بشأن تراخيص الاستثمار وتأسيس الشركات الأجنبية والامتثال والعقود ومنازعات المستثمرين.",
   },
   "/sa/ar/services/administrative-law": {
     title: "محامي إداري في السعودية | كاونسلو",
@@ -367,12 +367,12 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── SYRIA ENGLISH SERVICE PAGES ─────────────────────────────────────────
 
   "/syr/services/family-law": {
-    title: "Family Law Lawyer in Syria | Counselo",
+    title: "Family, Divorce & Child Custody Lawyer in Syria | Counselo",
     description:
       "Book an online legal consultation with a family law lawyer in Syria. Get professional guidance on divorce, custody, alimony, and personal status matters.",
   },
   "/syr/services/employment-law": {
-    title: "Employment Law Lawyer in Syria | Counselo",
+    title: "Employment & Wrongful Termination Lawyer in Syria | Counselo",
     description:
       "Book an online legal consultation with an employment lawyer in Syria for employment contracts, wrongful termination, unpaid wages, and workplace disputes.",
   },

@@ -7,6 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { SYR_SEO_DATA } from "@/lib/seo-data-syr";
+import { SERVICE_SEARCH_CONTENT } from "@/lib/service-search-content";
 
 
 export default function ServiceDetail() {
@@ -61,6 +62,57 @@ export default function ServiceDetail() {
 
   const hasFaqs = "faqs" in data && Array.isArray((data as Record<string, unknown>).faqs) && ((data as Record<string, unknown>).faqs as unknown[]).length > 0;
   const faqs = hasFaqs ? (data as Record<string, unknown>).faqs as { q: string; a: string }[] : [];
+  const isJurisdictionSafe = (value: string) =>
+    !isSyr || !/(Saudi|KSA|SAMA|CMA|ZATCA|MISA|SAIP|CITC|Vision 2030|السعود|ساما|هيئة الزكاة)/i.test(value);
+  const safeFaqs = faqs.filter((faq) => isJurisdictionSafe(`${faq.q} ${faq.a}`));
+  const displayOverview = overview && isJurisdictionSafe(overview) ? overview : null;
+  const displayOverview1 = overview1 && isJurisdictionSafe(overview1) ? overview1 : null;
+  const displayOverview2 = overview2 && isJurisdictionSafe(overview2) ? overview2 : null;
+  const displayExperienceNote = experienceNote && isJurisdictionSafe(experienceNote) ? experienceNote : null;
+  const displayCovers = data.covers.filter((item) => isJurisdictionSafe(item));
+  const searchContent = SERVICE_SEARCH_CONTENT[id];
+  const commonIssues = searchContent
+    ? (isRTL ? searchContent.issuesAr : searchContent.issuesEn)
+    : data.covers.slice(0, 5);
+  const documents = searchContent
+    ? (isRTL ? searchContent.documentsAr : searchContent.documentsEn)
+    : [];
+  const countryName = isRTL
+    ? (isSyr ? "سوريا" : "السعودية")
+    : (isSyr ? "Syria" : "Saudi Arabia");
+  const displayProcess = isSyr
+    ? (isRTL
+        ? [
+            { title: "التقييم الأولي", desc: `نراجع الوقائع والمستندات ونحدد نطاق المسألة المتعلقة بـ${data.title} في سوريا.` },
+            { title: "تحديد المسار القانوني", desc: "نوضح الخيارات العملية والجهة المختصة والمعلومات الإضافية اللازمة قبل اتخاذ أي إجراء." },
+            { title: "إعداد المستندات", desc: "نساعد في تنظيم الأدلة والمراسلات والطلبات أو المذكرات المطلوبة للمسار المناسب." },
+            { title: "المتابعة والحل", desc: "نقدم الدعم في التفاوض أو الإجراءات الرسمية أو التقاضي وفق نطاق التكليف المتفق عليه." },
+          ]
+        : [
+            { title: "Initial Assessment", desc: `We review the facts and documents and define the scope of the ${data.title.toLowerCase()} matter in Syria.` },
+            { title: "Legal Route", desc: "We explain the practical options, relevant forum, and any additional information needed before action is taken." },
+            { title: "Document Preparation", desc: "We help organize evidence, correspondence, applications, or submissions required for the appropriate route." },
+            { title: "Follow-Through", desc: "We support negotiation, formal procedures, or litigation within the agreed scope of engagement." },
+          ])
+    : data.process;
+  const universalFaqs = isRTL
+    ? [
+        { q: `هل يمكن الحصول على استشارة ${data.title} أونلاين في ${countryName}؟`, a: "نعم. يمكن بدء التقييم القانوني ومراجعة المستندات عبر واتساب أو البريد الإلكتروني. إذا تطلبت المسألة حضوراً أو تمثيلاً رسمياً، يوضح الفريق الخطوة المناسبة بعد مراجعة التفاصيل." },
+        { q: "ما المستندات التي أرسلها قبل الاستشارة؟", a: "أرسل العقود والمراسلات والإشعارات والقرارات وأي مستند يوضح التسلسل الزمني للوقائع. تجنب إرسال النسخ الوحيدة من الأصول، واحجب البيانات غير الضرورية." },
+        { q: "متى يجب طلب المشورة القانونية؟", a: "اطلب المشورة بمجرد ظهور نزاع أو استلام إشعار أو قبل توقيع مستند مهم. التحرك المبكر يساعد على حفظ الأدلة وفهم الخيارات قبل اتخاذ قرار يصعب الرجوع عنه." },
+        { q: "هل يمكن مراجعة عقد أو قرار أو ملف قبل بدء الإجراءات؟", a: "نعم. تساعد المراجعة الأولية على تحديد المخاطر ونقاط القوة والمعلومات الناقصة والمسار العملي المناسب قبل التفاوض أو تقديم أي طلب." },
+        { q: "هل تبقى معلومات الاستشارة سرية؟", a: "تتعامل كاونسلو مع المعلومات والمستندات القانونية بسرية مهنية، ويُطلب فقط ما يلزم لتقييم المسألة وتقديم الخدمة المتفق عليها." },
+      ]
+    : [
+        { q: `Can I get an online ${data.title.toLowerCase()} consultation for ${countryName}?`, a: "Yes. The initial legal assessment and document review can begin through WhatsApp or email. If formal representation or attendance is required, the team explains the appropriate next step after reviewing the matter." },
+        { q: "What documents should I send before the consultation?", a: "Send relevant contracts, correspondence, notices, decisions, and a dated summary of events. Do not send the only copy of an original document, and redact unrelated sensitive information." },
+        { q: "When should I seek legal advice?", a: "Seek advice when a dispute first appears, when you receive a notice, or before signing an important document. Early review helps preserve evidence and clarify options before an avoidable commitment is made." },
+        { q: "Can CounselO review a contract, decision, or case file before proceedings begin?", a: "Yes. An initial review can identify legal and practical risks, strengths, missing information, and the most appropriate route before negotiation or a formal filing." },
+        { q: "Is my consultation information confidential?", a: "CounselO handles legal information and documents with professional confidentiality and requests only the information needed to assess the matter and provide the agreed service." },
+      ];
+  const displayFaqs = [...safeFaqs, ...universalFaqs].filter(
+    (faq, index, all) => all.findIndex((item) => item.q === faq.q) === index,
+  );
 
   const canonicalPath = `/services/${id}`;
   const langSeg = isRTL ? "/ar" : "";
@@ -114,11 +166,11 @@ export default function ServiceDetail() {
     },
   ];
 
-  if (hasFaqs && faqs.length > 0) {
+  if (displayFaqs.length > 0) {
     schemas.push({
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
+      "mainEntity": displayFaqs.map(faq => ({
         "@type": "Question",
         "name": faq.q,
         "acceptedAnswer": {
@@ -166,27 +218,38 @@ export default function ServiceDetail() {
               </h1>
               <p className="text-2xl text-primary font-serif italic mb-10">{data.subtitle}</p>
 
+              <section className="bg-card border-s-4 border-primary p-6 mb-10" aria-labelledby="service-answer-heading">
+                <h2 id="service-answer-heading" className="text-2xl font-serif font-bold text-foreground mb-3">
+                  {isRTL ? `استشارة ${data.title} في ${countryName}` : `${data.title} consultation in ${countryName}`}
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  {isRTL
+                    ? `تساعد كاونسلو الأفراد والشركات في فهم مسائل ${data.title}، ومراجعة المستندات، وتحديد الخيارات العملية، وبدء الاستشارة أونلاين بسرية عبر واتساب أو البريد الإلكتروني.`
+                    : `CounselO helps individuals and businesses understand ${data.title.toLowerCase()} matters, review documents, identify practical options, and begin a confidential online consultation through WhatsApp or email.`}
+                </p>
+              </section>
+
               {/* Overview — handles both single-string and multi-paragraph formats */}
               <div className="prose prose-green max-w-none mb-16 speakable-overview">
-                {overview && (
-                  <p className="text-lg text-muted-foreground leading-relaxed">{overview}</p>
+                {displayOverview && (
+                  <p className="text-lg text-muted-foreground leading-relaxed">{displayOverview}</p>
                 )}
-                {overview1 && (
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">{overview1}</p>
+                {displayOverview1 && (
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">{displayOverview1}</p>
                 )}
-                {overview2 && (
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">{overview2}</p>
+                {displayOverview2 && (
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-4">{displayOverview2}</p>
                 )}
-                {experienceNote && (
+                {displayExperienceNote && (
                   <p className="text-base text-muted-foreground italic border-s-4 border-primary/40 ps-4 mt-4">
-                    {experienceNote}
+                    {displayExperienceNote}
                   </p>
                 )}
               </div>
 
               <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">{sd.coversHeading}</h2>
               <div className="grid sm:grid-cols-2 gap-6 mb-16 speakable-covers">
-                {data.covers.map((item, i) => (
+                {displayCovers.map((item, i) => (
                   <div key={i} className="flex items-start gap-3 bg-card border border-border p-4 hover:border-primary/40 transition-colors">
                     <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                     <span className="text-foreground font-medium">{item}</span>
@@ -194,11 +257,36 @@ export default function ServiceDetail() {
                 ))}
               </div>
 
+              {commonIssues.length > 0 && (
+                <section className="mb-16" aria-labelledby="common-problems-heading">
+                  <h2 id="common-problems-heading" className="text-3xl font-serif font-bold text-foreground mb-6 border-b border-border pb-4">
+                    {isRTL ? "المشكلات القانونية الشائعة" : "Common legal problems we can assess"}
+                  </h2>
+                  <ul className="grid sm:grid-cols-2 gap-3">
+                    {commonIssues.map((issue) => <li key={issue} className="bg-card border border-border p-4 text-foreground">{issue}</li>)}
+                  </ul>
+                </section>
+              )}
+
+              {documents.length > 0 && (
+                <section className="mb-16" aria-labelledby="documents-heading">
+                  <h2 id="documents-heading" className="text-3xl font-serif font-bold text-foreground mb-6 border-b border-border pb-4">
+                    {isRTL ? "مستندات تساعد في التقييم الأولي" : "Documents that help the initial assessment"}
+                  </h2>
+                  <ul className="space-y-3 text-muted-foreground">
+                    {documents.map((document) => <li key={document} className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5"/><span>{document}</span></li>)}
+                  </ul>
+                  <p className="text-sm text-muted-foreground mt-5">
+                    {isRTL ? "قد تختلف المستندات المطلوبة حسب الوقائع والجهة المختصة. لا ترسل النسخة الأصلية الوحيدة من أي مستند." : "Required documents vary by the facts and relevant authority. Do not send the only original copy of any document."}
+                  </p>
+                </section>
+              )}
+
               <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">{sd.processHeading}</h2>
               <div className="space-y-8 mb-16">
-                {data.process.map((step, i) => (
+                {displayProcess.map((step, i) => (
                   <div key={i} className="flex gap-6 relative">
-                    {i !== data.process.length - 1 && (
+                    {i !== displayProcess.length - 1 && (
                       <div className="absolute start-6 top-14 bottom-0 w-px bg-border" />
                     )}
                     <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-serif font-bold text-xl relative z-10">
@@ -212,13 +300,13 @@ export default function ServiceDetail() {
                 ))}
               </div>
 
-              {hasFaqs && faqs.length > 0 && (
+              {displayFaqs.length > 0 && (
                 <div className="mt-4">
                   <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">
                     {isRTL ? "الأسئلة الشائعة" : "Frequently Asked Questions"}
                   </h2>
                   <div className="space-y-3">
-                    {faqs.map((faq, i) => (
+                    {displayFaqs.map((faq, i) => (
                       <div key={i} className="border border-border bg-card">
                         <button
                           className="w-full flex items-center justify-between p-5 text-start hover:bg-muted/30 transition-colors"
