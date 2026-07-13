@@ -5,7 +5,7 @@ import {
   ChevronLeft, FileText, Settings, BarChart2, Search,
   Wrench, ExternalLink, RefreshCw, MessageCircle, Phone,
   Mail, TrendingUp, Users, Activity, Shield, Zap,
-  CheckCircle2, XCircle, Clock, Copy, Sparkles, Languages,
+  CheckCircle2, XCircle, Clock, Copy, Languages,
 } from "lucide-react";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
 import {
@@ -66,6 +66,55 @@ function slugify(text: string) {
     .replace(/-+/g, "-");
 }
 
+const ARABIC_SLUG_MAP: Record<string, string> = {
+  ا: "a", أ: "a", إ: "i", آ: "a", ب: "b", ت: "t", ث: "th", ج: "j", ح: "h", خ: "kh",
+  د: "d", ذ: "dh", ر: "r", ز: "z", س: "s", ش: "sh", ص: "s", ض: "d", ط: "t", ظ: "z",
+  ع: "a", غ: "gh", ف: "f", ق: "q", ك: "k", ل: "l", م: "m", ن: "n", ه: "h", ة: "h",
+  و: "w", ي: "y", ى: "a", ئ: "y", ؤ: "w", ء: "",
+};
+
+function transliterateArabic(text: string): string {
+  return [...text.normalize("NFKD")]
+    .map((character) => ARABIC_SLUG_MAP[character] ?? (/\s|[-_]/.test(character) ? " " : character))
+    .join("");
+}
+
+function automaticSlug(titleEn: string, titleAr: string): string {
+  return slugify(titleEn || transliterateArabic(titleAr));
+}
+
+function truncateAtWord(text: string, limit: number): string {
+  const normalized = text.replace(/\s+/g, " ").trim();
+  if (normalized.length <= limit) return normalized;
+  return normalized.slice(0, limit + 1).replace(/\s+\S*$/, "").trim();
+}
+
+function seoTitle(title: string, Arabic: boolean): string {
+  const suffix = Arabic ? " | كاونسلو" : " | CounselO";
+  if (!title.trim()) return "";
+  if (title.endsWith("CounselO") || title.endsWith("كاونسلو")) return truncateAtWord(title, 70);
+  return `${truncateAtWord(title, 70 - suffix.length)}${suffix}`;
+}
+
+function inferCategory(text: string, Arabic: boolean): string {
+  const value = text.toLowerCase();
+  const categories = Arabic
+    ? [
+        ["الأسرة", "قانون الأسرة"], ["طلاق", "قانون الأسرة"], ["حضانة", "قانون الأسرة"],
+        ["عمل", "قانون العمل"], ["موظف", "قانون العمل"], ["شركة", "قانون الشركات"],
+        ["عقار", "القانون العقاري"], ["استثمار", "الاستثمار الأجنبي"], ["عقد", "العقود"],
+        ["جريمة", "القانون الجزائي"], ["تحكيم", "التحكيم"],
+      ]
+    : [
+        ["family", "Family Law"], ["divorce", "Family Law"], ["custody", "Family Law"],
+        ["employment", "Employment Law"], ["employee", "Employment Law"], ["company", "Companies Law"],
+        ["business", "Business Law"], ["property", "Real Estate Law"], ["real estate", "Real Estate Law"],
+        ["investment", "Foreign Investment"], ["contract", "Contracts"], ["criminal", "Criminal Law"],
+        ["arbitration", "Arbitration"],
+      ];
+  return categories.find(([keyword]) => value.includes(keyword))?.[1] ?? (Arabic ? "إرشادات قانونية" : "Legal Guidance");
+}
+
 function stripHtml(html: string): string {
   return html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 }
@@ -112,7 +161,7 @@ function SettingsPanel({ form, set, slugManual, setSlugManual, open, manualField
           <label className={labelCls}>URL Slug</label>
           <div className="flex gap-1.5">
             <input value={form.slug} onChange={(e) => { setSlugManual(true); set("slug", e.target.value); }} placeholder="article-url" className={inputCls + " font-mono"} />
-            <button type="button" onClick={() => { setSlugManual(false); set("slug", slugify(form.titleEn || form.titleAr)); }} title="Auto-generate from title" className="shrink-0 px-2 text-[10px] text-green-700 font-bold border border-green-200 rounded-lg hover:bg-green-50">Auto</button>
+            <button type="button" onClick={() => { setSlugManual(false); set("slug", automaticSlug(form.titleEn, form.titleAr)); }} title="Auto-generate from title" className="shrink-0 px-2 text-[10px] text-green-700 font-bold border border-green-200 rounded-lg hover:bg-green-50">Auto</button>
           </div>
           {form.slug && <p className="text-[10px] text-gray-400 mt-1 font-mono truncate">counselo-legal.com/blog/{form.slug}</p>}
         </div>
@@ -179,7 +228,6 @@ function PostEditor({ initial, token, onSave, onBack }: {
   const [form, setForm] = useState<FormData>({ ...initial });
   const [lang, setLang] = useState<"en" | "ar">("en");
   const [saving, setSaving] = useState(false);
-  const [aiAction, setAiAction] = useState<"draft-and-optimize" | "optimize-seo" | "translate-ar-to-en" | null>(null);
   const [settingsOpen, setSettingsOpen] = useState(true);
   const [slugManual, setSlugManual] = useState(!!initial.id);
   const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
@@ -199,11 +247,11 @@ function PostEditor({ initial, token, onSave, onBack }: {
   const handleTitleChange = (v: string, l: "en" | "ar") => {
     if (l === "en") {
       set("titleEn", v);
-      if (!slugManual) set("slug", slugify(v));
+      if (!slugManual) set("slug", automaticSlug(v, form.titleAr));
       if (!manualFields.has("seoTitleEn")) set("seoTitleEn", v);
     } else {
       set("titleAr", v);
-      if (!slugManual && !form.titleEn) set("slug", slugify(v));
+      if (!slugManual && !form.titleEn) set("slug", automaticSlug("", v));
       if (!manualFields.has("seoTitleAr")) set("seoTitleAr", v);
     }
   };
@@ -222,50 +270,48 @@ function PostEditor({ initial, token, onSave, onBack }: {
     }
   };
 
-  const runAi = useCallback(async (action: "draft-and-optimize" | "optimize-seo" | "translate-ar-to-en") => {
-    if (!form.titleAr.trim() && !form.titleEn.trim()) {
-      setToast({ msg: "Enter an Arabic or English title first.", type: "error" });
+  const autoOptimize = useCallback(() => {
+    const plainEn = stripHtml(form.bodyEn);
+    const plainAr = stripHtml(form.bodyAr);
+    const nextSlug = automaticSlug(form.titleEn, form.titleAr);
+    const sourceWords = (plainEn || plainAr).split(/\s+/).filter(Boolean).length;
+    setForm((current) => ({
+      ...current,
+      slug: nextSlug || current.slug,
+      categoryEn: current.categoryEn || inferCategory(`${current.titleEn} ${plainEn}`, false),
+      categoryAr: current.categoryAr || inferCategory(`${current.titleAr} ${plainAr}`, true),
+      excerptEn: truncateAtWord(plainEn, 240),
+      excerptAr: truncateAtWord(plainAr, 240),
+      seoTitleEn: seoTitle(current.titleEn, false),
+      seoTitleAr: seoTitle(current.titleAr, true),
+      seoDescriptionEn: truncateAtWord(plainEn, 160),
+      seoDescriptionAr: truncateAtWord(plainAr, 160),
+      readTime: Math.max(1, Math.ceil(sourceWords / 200)),
+    }));
+    setSlugManual(true);
+    setManualFields(new Set(["seoTitleEn", "seoTitleAr", "seoDescriptionEn", "seoDescriptionAr", "excerptEn", "excerptAr"]));
+    setToast({ msg: "URL, excerpts, SEO fields, category and reading time updated without paid services.", type: "success" });
+  }, [form]);
+
+  const copyArabicSource = useCallback(async () => {
+    if (!form.bodyAr.trim()) {
+      setToast({ msg: "Add the Arabic article first.", type: "error" });
       return;
     }
-    if (action === "translate-ar-to-en" && !form.bodyAr.trim()) {
-      setToast({ msg: "Add the Arabic article before translating it.", type: "error" });
-      return;
-    }
-    if (action === "translate-ar-to-en" && (form.bodyEn.trim() || form.titleEn.trim()) && !window.confirm("Replace the current English version with a new AI translation?")) return;
-    if (action === "draft-and-optimize" && (form.bodyAr.trim() || form.bodyEn.trim()) && !window.confirm("AI will rewrite both article versions using the current title and content as source material. Continue?")) return;
-    setAiAction(action);
-    try {
-      const res = await fetch(`${API}/admin/blog/ai`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ action, ...form }),
-      });
-      const result = await res.json() as Partial<FormData> & { error?: string };
-      if (!res.ok) throw new Error(result.error ?? "AI generation failed");
-      const generatedKeys: Array<keyof FormData> = [
-        "slug", "titleEn", "titleAr", "categoryEn", "categoryAr", "excerptEn", "excerptAr",
-        "seoTitleEn", "seoTitleAr", "seoDescriptionEn", "seoDescriptionAr", "bodyEn", "bodyAr",
-      ];
-      setForm((current) => {
-        const next = { ...current };
-        for (const key of generatedKeys) {
-          const value = result[key];
-          if (typeof value === "string") (next as Record<string, unknown>)[key] = value;
-        }
-        const wordCount = stripHtml(next.bodyEn || next.bodyAr).split(/\s+/).filter(Boolean).length;
-        next.readTime = Math.max(1, Math.ceil(wordCount / 200));
-        return next;
-      });
-      setSlugManual(true);
-      setManualFields(new Set(["seoTitleEn", "seoTitleAr", "seoDescriptionEn", "seoDescriptionAr", "excerptEn", "excerptAr"]));
-      setToast({ msg: action === "translate-ar-to-en" ? "English translation is ready for review." : "AI draft and SEO fields are ready for review.", type: "success" });
-      if (action === "translate-ar-to-en") setLang("en");
-    } catch (error) {
-      setToast({ msg: error instanceof Error ? error.message : "AI generation failed", type: "error" });
-    } finally {
-      setAiAction(null);
-    }
-  }, [form, token]);
+    await navigator.clipboard.writeText(`${form.titleAr}\n\n${stripHtml(form.bodyAr)}`);
+    setToast({ msg: "Arabic source copied. Paste your reviewed English translation into the English tab.", type: "success" });
+    setLang("en");
+  }, [form.bodyAr, form.titleAr]);
+
+  const insertArticleTemplate = useCallback(() => {
+    const currentBody = lang === "ar" ? form.bodyAr : form.bodyEn;
+    if (currentBody.trim() && !window.confirm("Replace the current article body with a structured template?")) return;
+    const template = lang === "ar"
+      ? `<p>اكتب هنا ملخصاً مباشراً يجيب عن سؤال القارئ ويوضح نطاق المقال.</p><h2>الإطار القانوني</h2><p>اشرح النصوص والجهات المختصة بعد التحقق من المصادر الرسمية.</p><h2>أهم المسائل العملية</h2><ul><li>المسألة الأولى</li><li>المسألة الثانية</li><li>المسألة الثالثة</li></ul><h2>المستندات والمعلومات المطلوبة</h2><p>اذكر المستندات التي تساعد على تقييم الحالة.</p><h2>الخطوات والإجراءات</h2><ol><li>الخطوة الأولى</li><li>الخطوة الثانية</li><li>الخطوة الثالثة</li></ol><h2>أسئلة شائعة</h2><h3>ما أهم نقطة يجب معرفتها؟</h3><p>اكتب إجابة دقيقة ومختصرة.</p><h2>خلاصة</h2><p>لخّص الخيارات العملية ومتى ينبغي طلب استشارة مبنية على الوقائع.</p>`
+      : `<p>Write a direct answer that explains the reader's question and the scope of this article.</p><h2>Legal framework</h2><p>Explain the applicable rules and authorities after checking official sources.</p><h2>Key practical issues</h2><ul><li>First issue</li><li>Second issue</li><li>Third issue</li></ul><h2>Documents and information needed</h2><p>List the documents that help assess the matter.</p><h2>Process and next steps</h2><ol><li>First step</li><li>Second step</li><li>Third step</li></ol><h2>Frequently asked questions</h2><h3>What is the most important point to understand?</h3><p>Write a precise, concise answer.</p><h2>Conclusion</h2><p>Summarize the practical options and when fact-specific legal advice may be needed.</p>`;
+    handleBodyChange(template, lang);
+    setToast({ msg: lang === "ar" ? "تم إدراج قالب المقال العربي." : "English legal article template inserted.", type: "success" });
+  }, [form.bodyAr, form.bodyEn, lang]);
 
   const save = useCallback(async (publishState?: boolean) => {
     const payload = publishState !== undefined ? { ...form, published: publishState } : form;
@@ -312,23 +358,30 @@ function PostEditor({ initial, token, onSave, onBack }: {
       <div className="flex flex-1 min-h-0">
         <div className="flex-1 overflow-y-auto py-8 px-4 flex justify-center">
           <div className="w-full max-w-3xl">
-            <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-3 mb-4" aria-label="AI writing assistant">
+            <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-3 mb-4" aria-label="Free publishing assistant">
               <div className="flex flex-wrap items-center gap-2">
                 <div className="flex items-center gap-2 mr-auto min-w-[180px]">
-                  <div className="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center"><Sparkles size={16} /></div>
-                  <div><p className="text-xs font-bold text-gray-900">CounselO AI Assistant</p><p className="text-[10px] text-gray-400">Review every result before publishing</p></div>
+                  <div className="w-8 h-8 rounded-lg bg-green-100 text-green-700 flex items-center justify-center"><CheckCircle2 size={16} /></div>
+                  <div><p className="text-xs font-bold text-gray-900">Free Publishing Assistant</p><p className="text-[10px] text-gray-400">No API, tokens, subscription or usage fees</p></div>
                 </div>
-                <button type="button" onClick={() => void runAi("draft-and-optimize")} disabled={aiAction !== null} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-purple-700 text-white text-xs font-semibold hover:bg-purple-800 disabled:opacity-50">
-                  <Sparkles size={13} /> {aiAction === "draft-and-optimize" ? "Writing…" : "Draft + SEO"}
+                <button type="button" onClick={autoOptimize} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-green-700 text-white text-xs font-semibold hover:bg-green-800">
+                  <Search size={13} /> Auto URL + SEO
                 </button>
-                <button type="button" onClick={() => void runAi("translate-ar-to-en")} disabled={aiAction !== null} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-green-200 text-green-800 bg-green-50 text-xs font-semibold hover:bg-green-100 disabled:opacity-50">
-                  <Languages size={13} /> {aiAction === "translate-ar-to-en" ? "Translating…" : "Arabic → English"}
+                <button type="button" onClick={insertArticleTemplate} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-blue-200 text-blue-800 bg-blue-50 text-xs font-semibold hover:bg-blue-100">
+                  <FileText size={13} /> Insert Article Template
                 </button>
-                <button type="button" onClick={() => void runAi("optimize-seo")} disabled={aiAction !== null} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-gray-200 text-gray-700 text-xs font-semibold hover:bg-gray-50 disabled:opacity-50">
-                  <Search size={13} /> {aiAction === "optimize-seo" ? "Optimizing…" : "Optimize SEO"}
+                <button type="button" onClick={() => void copyArabicSource()} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-green-200 text-green-800 bg-green-50 text-xs font-semibold hover:bg-green-100">
+                  <Copy size={13} /> Copy Arabic for Translation
+                </button>
+                <button type="button" onClick={() => setLang(lang === "ar" ? "en" : "ar")} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-gray-200 text-gray-700 text-xs font-semibold hover:bg-gray-50">
+                  <Languages size={13} /> Switch Language
                 </button>
               </div>
-              <p className="mt-2 text-[10px] text-gray-400">AI suggestions stay as a draft. Verify legal accuracy, names, dates, laws and source links before publishing.</p>
+              <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[10px] text-gray-500">
+                <span className={form.bodyAr && form.titleAr ? "text-green-700" : ""}>Arabic {form.bodyAr && form.titleAr ? "✓" : "incomplete"}</span>
+                <span className={form.bodyEn && form.titleEn ? "text-green-700" : ""}>English {form.bodyEn && form.titleEn ? "✓" : "incomplete"}</span>
+                <span>Translation remains manual so confidential legal content is not sent to an external service.</span>
+              </div>
             </div>
             <div className="flex items-center gap-2 mb-4">
               <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${lang === "en" ? "bg-green-700 text-white" : "bg-gray-800 text-white"}`}>{lang === "en" ? "English" : "العربية"}</span>
