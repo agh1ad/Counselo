@@ -122,3 +122,9 @@ export function notifyPublished(slug: string): void {
   void notifyGoogleUrls(urls);
   void pingIndexNow(urls);
 }
+
+/** Ask participating engines to recrawl a removed/unpublished article so its
+ * new 404 state is discovered promptly. The live sitemap drops it instantly. */
+export function notifyRemoved(slug: string): void {
+  void pingIndexNow(blogPostUrls(slug));
+}

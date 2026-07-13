@@ -42,8 +42,14 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-registerOgPageRoutes(app);
-
+app.use("/api", (_req, res, next) => {
+  res.setHeader("X-Robots-Tag", "noindex, nofollow, noarchive");
+  next();
+});
 app.use("/api", router);
+
+// Public site routes must be registered after /api so the final site-level
+// 404 handler cannot swallow API requests.
+registerOgPageRoutes(app);
 
 export default app;

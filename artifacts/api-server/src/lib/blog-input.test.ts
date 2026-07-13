@@ -30,6 +30,11 @@ test("sanitizes executable HTML while preserving editor formatting", () => {
   assert.doesNotMatch(sanitized, /<script|javascript:|position:/i);
 });
 
+test("demotes CMS H1 headings so the article template owns the only H1", () => {
+  const sanitized = sanitizeRichText("<h1>Section heading</h1><p>Body</p>");
+  assert.equal(sanitized, "<h2>Section heading</h2><p>Body</p>");
+});
+
 test("rejects malformed slugs, dates, and reading times", () => {
   assert.throws(
     () => parseBlogPostInput({ ...validPost, slug: "Bad Slug" }),
@@ -42,6 +47,14 @@ test("rejects malformed slugs, dates, and reading times", () => {
   assert.throws(
     () => parseBlogPostInput({ ...validPost, readTime: Number.NaN }),
     BlogInputError,
+  );
+});
+
+test("allows drafts but blocks publication with weak search metadata", () => {
+  assert.equal(parseBlogPostInput(validPost).published, false);
+  assert.throws(
+    () => parseBlogPostInput({ ...validPost, published: true }),
+    /SEO title must be 20–70 characters before publishing/,
   );
 });
 

@@ -270,9 +270,13 @@ export function SEOHead({
 
   const rawKeywords = keywords ?? (isArabic ? defaultKeywordsAr : defaultKeywordsEn);
 
-  const finalDescription = metaOverride
+  const untrimmedDescription = metaOverride
     ? metaOverride.description
     : (isSyr ? syriafyText(description) : description);
+  const finalDescription =
+    untrimmedDescription.length <= 170
+      ? untrimmedDescription
+      : `${untrimmedDescription.slice(0, 167).replace(/\s+\S*$/, "").trimEnd()}…`;
   const finalKeywords = isSyr ? syriafyText(rawKeywords) : rawKeywords;
 
   // Apply syriafyObj for Syria pages, then patch any WebPage schema's name +

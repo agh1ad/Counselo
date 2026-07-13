@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /counselo-admin
+# The admin page returns noindex in both HTML and HTTP headers. It remains
+# crawlable so compliant engines can read that directive.
 Disallow: /api/
 
 User-agent: Googlebot

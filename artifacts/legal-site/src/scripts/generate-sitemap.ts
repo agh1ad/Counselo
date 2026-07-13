@@ -41,7 +41,7 @@ const BlogPostSchema = z.object({
   ar: BlogLocaleSchema,
 });
 
-const { BASE_URL, TODAY, CORE_PAGES, BLOG_BASE_PATH } =
+const { BASE_URL, CORE_PAGES, BLOG_BASE_PATH } =
   await import("../data/sitemap-sources.js");
 
 const { en } = await import("../translations/en.js");
@@ -80,11 +80,11 @@ function hreflang(path: string): string {
   const isRoot = path === "";
   if (isRoot) {
     return [
-      `    <xhtml:link rel="alternate" hrefLang="x-default" href="${BASE_URL}/"/>`,
-      `    <xhtml:link rel="alternate" hrefLang="en-SA"     href="${BASE_URL}/sa"/>`,
-      `    <xhtml:link rel="alternate" hrefLang="ar-SA"     href="${BASE_URL}/sa/ar"/>`,
-      `    <xhtml:link rel="alternate" hrefLang="en-SY"     href="${BASE_URL}/syr"/>`,
-      `    <xhtml:link rel="alternate" hrefLang="ar-SY"     href="${BASE_URL}/syr/ar"/>`,
+      `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/"/>`,
+      `    <xhtml:link rel="alternate" hreflang="en-SA"     href="${BASE_URL}/sa"/>`,
+      `    <xhtml:link rel="alternate" hreflang="ar-SA"     href="${BASE_URL}/sa/ar"/>`,
+      `    <xhtml:link rel="alternate" hreflang="en-SY"     href="${BASE_URL}/syr"/>`,
+      `    <xhtml:link rel="alternate" hreflang="ar-SY"     href="${BASE_URL}/syr/ar"/>`,
     ].join("\n");
   }
 
@@ -98,9 +98,9 @@ function hreflang(path: string): string {
   return [
     ...combos.map(
       ([l, p]) =>
-        `    <xhtml:link rel="alternate" hrefLang="${l}"     href="${BASE_URL}${p}"/>`,
+        `    <xhtml:link rel="alternate" hreflang="${l}"     href="${BASE_URL}${p}"/>`,
     ),
-    `    <xhtml:link rel="alternate" hrefLang="x-default" href="${BASE_URL}/"/>`,
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/"/>`,
   ].join("\n");
 }
 
@@ -108,7 +108,7 @@ function urlEntry(
   path: string,
   changefreq: string,
   priority: string,
-  lastmod: string,
+  lastmod?: string,
 ): string {
   const loc = path === "" ? `${BASE_URL}/` : `${BASE_URL}${path}`;
   return `  <url>
@@ -116,7 +116,7 @@ function urlEntry(
 ${hreflang(path)}
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-    <lastmod>${lastmod}</lastmod>
+    ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}
   </url>`;
 }
 
@@ -124,14 +124,14 @@ function urlEntrySyrOnly(
   path: string,
   changefreq: string,
   priority: string,
-  lastmod: string,
+  lastmod?: string,
 ): string {
   return `  <url>
     <loc>${BASE_URL}${path}</loc>
 ${hreflangSyrOnly(path)}
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-    <lastmod>${lastmod}</lastmod>
+    ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}
   </url>`;
 }
 
@@ -155,9 +155,9 @@ function hreflangSyrOnly(path: string): string {
   return [
     ...combos.map(
       ([l, p]) =>
-        `    <xhtml:link rel="alternate" hrefLang="${l}"     href="${BASE_URL}${p}"/>`,
+        `    <xhtml:link rel="alternate" hreflang="${l}"     href="${BASE_URL}${p}"/>`,
     ),
-    `    <xhtml:link rel="alternate" hrefLang="x-default" href="${BASE_URL}/"/>`,
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/"/>`,
   ].join("\n");
 }
 
@@ -168,21 +168,21 @@ function hreflangSyrOnly(path: string): string {
  * x-default points to the page itself.
  */
 function hreflangSingleUrl(fullUrl: string): string {
-  return `    <xhtml:link rel="alternate" hrefLang="x-default" href="${fullUrl}"/>`;
+  return `    <xhtml:link rel="alternate" hreflang="x-default" href="${fullUrl}"/>`;
 }
 
 function urlEntrySingleUrl(
   fullUrl: string,
   changefreq: string,
   priority: string,
-  lastmod: string,
+  lastmod?: string,
 ): string {
   return `  <url>
     <loc>${fullUrl}</loc>
 ${hreflangSingleUrl(fullUrl)}
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-    <lastmod>${lastmod}</lastmod>
+    ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}
   </url>`;
 }
 
@@ -193,26 +193,28 @@ for (const page of CORE_PAGES) {
   if (page.path === "/syr") {
     entries.push("\n  <!-- ===== SYR CORE PAGES ===== -->");
   }
-  entries.push(urlEntry(page.path, page.changefreq, page.priority, TODAY));
+  // Static pages omit lastmod unless a trustworthy content revision date is
+  // available. A deployment timestamp is not a meaningful modification date.
+  entries.push(urlEntry(page.path, page.changefreq, page.priority));
 }
 
 entries.push("\n  <!-- ===== SA SERVICE PAGES ===== -->");
 for (const slug of SA_SERVICE_SLUGS) {
-  entries.push(urlEntry(`/sa/services/${slug}`, "monthly", "0.9", TODAY));
-  entries.push(urlEntry(`/sa/ar/services/${slug}`, "monthly", "0.9", TODAY));
+  entries.push(urlEntry(`/sa/services/${slug}`, "monthly", "0.9"));
+  entries.push(urlEntry(`/sa/ar/services/${slug}`, "monthly", "0.9"));
 }
 
 entries.push("\n  <!-- ===== SYR SERVICE PAGES ===== -->");
 for (const slug of SYR_SERVICE_SLUGS) {
   const fn = SYRIA_ONLY_SERVICE_SLUGS.has(slug) ? urlEntrySyrOnly : urlEntry;
-  entries.push(fn(`/syr/services/${slug}`, "monthly", "0.9", TODAY));
-  entries.push(fn(`/syr/ar/services/${slug}`, "monthly", "0.9", TODAY));
+  entries.push(fn(`/syr/services/${slug}`, "monthly", "0.9"));
+  entries.push(fn(`/syr/ar/services/${slug}`, "monthly", "0.9"));
 }
 
 // Blog index — single URL shared by all regions/languages.
 entries.push("\n  <!-- ===== BLOG ===== -->");
 entries.push(
-  urlEntrySingleUrl(`${BASE_URL}${BLOG_BASE_PATH}`, "weekly", "0.8", TODAY),
+  urlEntrySingleUrl(`${BASE_URL}${BLOG_BASE_PATH}`, "weekly", "0.8"),
 );
 
 // Blog posts — fetch the published records from the live API by default.
@@ -222,6 +224,7 @@ try {
   const BlogPostRowSchema = z.object({
     slug: z.string(),
     date: z.string(),
+    updatedAt: z.string().optional(),
   });
   const blogApiUrl =
     process.env["BLOG_API_URL"]?.trim() ||
@@ -241,7 +244,7 @@ try {
           `${BASE_URL}${BLOG_BASE_PATH}/${post.slug}`,
           "monthly",
           "0.7",
-          post.date,
+          post.updatedAt?.slice(0, 10) || post.date,
         ),
       );
     }

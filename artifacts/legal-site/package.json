@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
-    "build": "pnpm run build:client && pnpm run build:ssr && pnpm run build:prerender && pnpm run build:ssr-server",
+    "build": "pnpm run generate-sitemap && pnpm run build:client && pnpm run build:ssr && pnpm run build:prerender && pnpm run build:ssr-server",
     "build:client": "vite build --config vite.config.ts",
     "build:ssr": "VITE_SSR=true vite build --config vite.config.ts",
     "build:prerender": "tsx src/scripts/prerender.ts",

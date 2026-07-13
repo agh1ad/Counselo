@@ -30,6 +30,7 @@ interface ApiPost {
   id: number;
   slug: string;
   date: string;
+  updatedAt?: string;
   categoryEn: string;
   categoryAr: string;
   readTime: number;
@@ -170,7 +171,7 @@ export default function BlogPost() {
     "headline": seoTitle,
     "description": seoDesc,
     "datePublished": post.date,
-    "dateModified": post.date,
+    "dateModified": post.updatedAt || post.date,
     "image": {
       "@type": "ImageObject",
       "url": "https://counselo-legal.com/og-image.png",

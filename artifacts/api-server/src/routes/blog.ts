@@ -2,7 +2,11 @@ import { Router } from "express";
 import { db, blogPostsTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import { requireAdmin, secretsMatch } from "../middlewares/auth.js";
-import { notifyGoogleUrls, notifyPublished } from "../lib/google-indexing.js";
+import {
+  notifyGoogleUrls,
+  notifyPublished,
+  notifyRemoved,
+} from "../lib/google-indexing.js";
 import {
   BlogInputError,
   parseBlogPostInput,
@@ -107,8 +111,12 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
     res.status(404).json({ error: "Not found" });
     return;
   }
-  if (post.published && !before?.published) {
+  if (post.published) {
+    // Covers first publication and substantive updates; the live sitemap also
+    // exposes updatedAt immediately.
     notifyPublished(post.slug);
+  } else if (before.published) {
+    notifyRemoved(post.slug);
   }
   res.json(sanitizeBlogPost(post));
 });
@@ -124,11 +132,16 @@ router.delete("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
   const [deleted] = await db
     .delete(blogPostsTable)
     .where(eq(blogPostsTable.id, id))
-    .returning({ id: blogPostsTable.id });
+    .returning({
+      id: blogPostsTable.id,
+      slug: blogPostsTable.slug,
+      published: blogPostsTable.published,
+    });
   if (!deleted) {
     res.status(404).json({ error: "Not found" });
     return;
   }
+  if (deleted.published) notifyRemoved(deleted.slug);
   res.json({ deleted: true });
 });
 

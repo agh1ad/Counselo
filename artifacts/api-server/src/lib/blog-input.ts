@@ -130,6 +130,9 @@ export function sanitizeRichText(html: string): string {
       },
     },
     transformTags: {
+      // The page template owns the single article H1. Rich-text headings start
+      // at H2 so future CMS content cannot create invalid multiple-H1 pages.
+      h1: "h2",
       a: (_tagName, attribs) => ({
         tagName: "a",
         attribs: {
@@ -192,6 +195,32 @@ export function parseBlogPostInput(
 
   const plainEn = stripHtml(bodyEn);
   const plainAr = stripHtml(bodyAr);
+  const published = body.published === true || body.published === "true";
+  const seoTitleEn = stringField(body, "seoTitleEn", 300) || titleEn;
+  const seoTitleAr = stringField(body, "seoTitleAr", 300) || titleAr;
+  const seoDescriptionEn =
+    stringField(body, "seoDescriptionEn", 500) || plainEn.slice(0, 160);
+  const seoDescriptionAr =
+    stringField(body, "seoDescriptionAr", 500) || plainAr.slice(0, 160);
+
+  if (published) {
+    for (const [locale, localizedTitle, localizedDescription] of [
+      ["English", seoTitleEn, seoDescriptionEn],
+      ["Arabic", seoTitleAr, seoDescriptionAr],
+    ] as const) {
+      if (!localizedTitle && !localizedDescription) continue;
+      if (localizedTitle.length < 20 || localizedTitle.length > 70) {
+        throw new BlogInputError(
+          `${locale} SEO title must be 20–70 characters before publishing`,
+        );
+      }
+      if (localizedDescription.length < 80 || localizedDescription.length > 170) {
+        throw new BlogInputError(
+          `${locale} SEO description must be 80–170 characters before publishing`,
+        );
+      }
+    }
+  }
 
   return {
     slug,
@@ -203,17 +232,15 @@ export function parseBlogPostInput(
     titleAr,
     excerptEn: stringField(body, "excerptEn", 500) || plainEn.slice(0, 250),
     excerptAr: stringField(body, "excerptAr", 500) || plainAr.slice(0, 250),
-    seoTitleEn: stringField(body, "seoTitleEn", 300) || titleEn,
-    seoTitleAr: stringField(body, "seoTitleAr", 300) || titleAr,
-    seoDescriptionEn:
-      stringField(body, "seoDescriptionEn", 500) || plainEn.slice(0, 160),
-    seoDescriptionAr:
-      stringField(body, "seoDescriptionAr", 500) || plainAr.slice(0, 160),
+    seoTitleEn,
+    seoTitleAr,
+    seoDescriptionEn,
+    seoDescriptionAr,
     bodyEn,
     bodyAr,
     contentEn,
     contentAr,
-    published: body.published === true || body.published === "true",
+    published,
   };
 }
 
