@@ -20,7 +20,7 @@
 
 import { renderToString } from "react-dom/server";
 import { HelmetProvider } from "react-helmet-async";
-import App from "./App";
+import App, { type InitialBlogPost } from "./App";
 
 export interface RenderResult {
   /** Hoisted head tags (title, meta, link, script) from React 19 head hoisting */
@@ -71,10 +71,13 @@ function splitHeadAndBody(rendered: string): { head: string; body: string } {
  * Render a single route to an HTML string and extract its head tags.
  * Called by the prerender script once per public route.
  */
-export function render(url: string): RenderResult {
+export function render(
+  url: string,
+  initialBlogPosts: InitialBlogPost[] = [],
+): RenderResult {
   const rendered = renderToString(
     <HelmetProvider>
-      <App ssrUrl={url} />
+      <App ssrUrl={url} initialBlogPosts={initialBlogPosts} />
     </HelmetProvider>,
   );
 

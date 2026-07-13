@@ -48,7 +48,7 @@ const organizationSchema = {
   "availableLanguage": ["Arabic", "English"],
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+966592850247",
+    "telephone": "+966594850247",
     "contactType": "customer service",
     "contactOption": "TollFree",
     "areaServed": ["SA", "SY"],
@@ -128,7 +128,7 @@ const faqSchema = {
       "name": "How do I start a legal consultation with CounselO?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Starting is simple: (1) Choose your region — Saudi Arabia or Syria. (2) Browse the relevant service or contact us directly. (3) Send your legal question via WhatsApp (+966 59 285 0247) or the contact form. You will receive a confidential, expert legal response within 24 hours.",
+        "text": "Starting is simple: (1) Choose your region — Saudi Arabia or Syria. (2) Browse the relevant service or contact us directly. (3) Send your legal question via WhatsApp (+966 59 485 0247) or the contact form. You will receive a confidential, expert legal response within 24 hours.",
       },
     },
     {
@@ -197,11 +197,11 @@ const serviceIcons = [Scale, ShieldCheck, Globe, Clock, Lock, CheckCircle2, Glob
 
 export default function RegionPicker() {
   return (
-    <div className="w-full bg-background">
+    <main className="w-full bg-background" id="main-content">
       <Helmet>
         <html lang="en" dir="ltr" />
         <title>CounselO | Online Legal Consultation — Saudi Arabia &amp; Syria</title>
-        <meta name="description" content="Get confidential online legal consultation for Saudi Arabia or Syria. Expert lawyer-led answers in Arabic & English within 24 hours. Family law, employment, real estate, business, criminal law & more." />
+        <meta name="description" content="Confidential online legal consultation for Saudi Arabia and Syria, in Arabic or English. Get lawyer-led guidance on family, employment, business and more within 24 hours." />
         <meta name="keywords" content="online legal consultation Saudi Arabia, online legal consultation Syria, استشارة قانونية أونلاين السعودية, استشارة قانونية أونلاين سوريا, lawyer Saudi Arabia online, محامي سعودي أونلاين, محامي سوريا أونلاين, CounselO, Omar Al-Baghdadi, legal advice Middle East, مشورة قانونية الشرق الأوسط" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="author" content="CounselO — Lawyer and Legal Counsel Omar Al-Baghdadi" />
@@ -481,7 +481,7 @@ export default function RegionPicker() {
           </div>
 
           <div className="flex justify-center gap-4 flex-wrap">
-            <a href="https://wa.me/966592850247" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/966594850247" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 bg-[#25D366] text-white font-semibold px-7 py-3 text-sm hover:opacity-90 transition-opacity">
               <MessageCircle className="h-4 w-4" />
               Chat on WhatsApp
@@ -637,6 +637,6 @@ export default function RegionPicker() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

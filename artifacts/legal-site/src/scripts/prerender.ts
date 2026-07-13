@@ -19,23 +19,35 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { RenderResult } from "../entry-server.js";
+import type { InitialBlogPost } from "../App.js";
 
 // ---------------------------------------------------------------------------
 // Fetch published blog post slugs from the running API at build time.
 // Falls back to an empty array with a warning so the build never hard-fails
 // just because the API isn't reachable (e.g. local dev without the server).
 // ---------------------------------------------------------------------------
-async function fetchBlogSlugs(): Promise<string[]> {
+async function fetchBlogPosts(): Promise<InitialBlogPost[]> {
   try {
-    const res = await fetch("http://localhost:80/api/blog/posts?limit=200");
+    const blogApiUrl =
+      process.env["BLOG_API_URL"]?.trim() ||
+      "https://counselo-legal.com/api/blog/posts";
+    const res = await fetch(blogApiUrl, {
+      signal: AbortSignal.timeout(10_000),
+    });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = (await res.json()) as { posts?: Array<{ slug: string; status?: string }> };
-    const posts = data.posts ?? (data as unknown as Array<{ slug: string; status?: string }>);
-    return Array.isArray(posts)
-      ? posts.filter((p) => !p.status || p.status === "published").map((p) => p.slug)
-      : [];
+    const data = (await res.json()) as unknown;
+    if (!Array.isArray(data)) return [];
+    return data.filter(
+      (post): post is InitialBlogPost =>
+        !!post &&
+        typeof post === "object" &&
+        typeof (post as { slug?: unknown }).slug === "string" &&
+        (post as { published?: unknown }).published !== false,
+    );
   } catch (err) {
-    console.warn(`  ⚠ Could not fetch blog posts from API: ${err instanceof Error ? err.message : String(err)}`);
+    console.warn(
+      `  ⚠ Could not fetch blog posts from API: ${err instanceof Error ? err.message : String(err)}`,
+    );
     console.warn("    Blog post pages will not be prerendered this build.");
     return [];
   }
@@ -109,9 +121,7 @@ const ENGLISH_ROUTES: string[] = [
 // Single-URL routes: not region-prefixed, no Arabic variant.
 // The blog lives at /blog for all regions and languages.
 // DB blog post routes are fetched and added dynamically in prerender().
-const SINGLE_URL_ROUTES: string[] = [
-  "/blog",
-];
+const SINGLE_URL_ROUTES: string[] = ["/blog"];
 
 // Arabic is a real URL segment, not a client-side-only toggle: every English
 // route above has a matching "/ar" variant (e.g. "/sa/about" -> "/sa/ar/about")
@@ -172,15 +182,21 @@ function addDataRh(head: string): string {
  * never URL hrefs or JSON-LD script bodies — to avoid breaking other content.
  */
 function unescapeHeadEntities(head: string): string {
-  return head
-    // <title data-rh="true">Some Title &amp; More</title>
-    .replace(/(<title[^>]*>)([^<]*?)(<\/title>)/g, (_, open, text, close) =>
-      `${open}${text.replace(/&amp;/g, "&").replace(/&#x27;/g, "'")}${close}`,
-    )
-    // <meta ... content="Some &amp; Value" ...>
-    .replace(/(<meta\b[^>]+\bcontent=")([^"]*?)(")/g, (_, pre, val, post) =>
-      `${pre}${val.replace(/&amp;/g, "&").replace(/&#x27;/g, "'")}${post}`,
-    );
+  return (
+    head
+      // <title data-rh="true">Some Title &amp; More</title>
+      .replace(
+        /(<title[^>]*>)([^<]*?)(<\/title>)/g,
+        (_, open, text, close) =>
+          `${open}${text.replace(/&amp;/g, "&").replace(/&#x27;/g, "'")}${close}`,
+      )
+      // <meta ... content="Some &amp; Value" ...>
+      .replace(
+        /(<meta\b[^>]+\bcontent=")([^"]*?)(")/g,
+        (_, pre, val, post) =>
+          `${pre}${val.replace(/&amp;/g, "&").replace(/&#x27;/g, "'")}${post}`,
+      )
+  );
 }
 
 /**
@@ -196,17 +212,36 @@ function unescapeHeadEntities(head: string): string {
  */
 function htmlTag(route: string): string {
   const isArabic = route.includes("/ar/") || route.endsWith("/ar");
-  return isArabic
-    ? '<html lang="ar" dir="rtl">'
-    : '<html lang="en" dir="ltr">';
+  return isArabic ? '<html lang="ar" dir="rtl">' : '<html lang="en" dir="ltr">';
 }
 
 function writeRoute(
   route: string,
   template: string,
-  render: (url: string) => RenderResult,
+  render: (url: string, posts?: InitialBlogPost[]) => RenderResult,
+  blogPosts: InitialBlogPost[],
 ): void {
-  const { head, body } = render(route);
+  const { head, body } = render(route, blogPosts);
+
+  const blogList = blogPosts.map((post) => ({
+    id: post.id,
+    slug: post.slug,
+    date: post.date,
+    categoryEn: post.categoryEn,
+    categoryAr: post.categoryAr,
+    readTime: post.readTime,
+    titleEn: post.titleEn,
+    titleAr: post.titleAr,
+    excerptEn: post.excerptEn,
+    excerptAr: post.excerptAr,
+    published: post.published,
+  }));
+  const initialData =
+    route === "/blog"
+      ? `<script>window.__SSR_POSTS__=${safeJson(blogList)};</script>`
+      : route.startsWith("/blog/")
+        ? `<script>window.__SSR_POST__=${safeJson(blogPosts.find((post) => `/blog/${post.slug}` === route))};</script>`
+        : "";
 
   const routeHtml = template
     // Patch the static <html lang="en"> to the correct lang + dir for this route.
@@ -216,7 +251,10 @@ function writeRoute(
     // client mount, preventing duplicate canonical / og:url / title tags.
     // unescapeHeadEntities restores & from React's &amp; escaping in title
     // and meta content so SEO crawlers see the intended character.
-    .replace("<!--app-head-->", unescapeHeadEntities(addDataRh(head)))
+    .replace(
+      "<!--app-head-->",
+      `${unescapeHeadEntities(addDataRh(head))}${initialData}`,
+    )
     // Inject server-rendered app HTML into the root div.
     // data-ssr signals entry-client.tsx to use hydrateRoot instead of createRoot.
     // data-ssr-url records which URL was prerendered — entry-client compares this
@@ -224,7 +262,10 @@ function writeRoute(
     // SPA catch-all fallback for an unprerendered path (e.g. a new dynamic blog
     // post), it detects the mismatch and uses createRoot instead of hydrateRoot,
     // rendering the correct page fresh rather than fighting the wrong SSR HTML.
-    .replace(/<div id="root"><\/div>/, `<div id="root" data-ssr="true" data-ssr-url="${route}">${body}</div>`);
+    .replace(
+      /<div id="root"><\/div>/,
+      `<div id="root" data-ssr="true" data-ssr-url="${route}">${body}</div>`,
+    );
 
   // Root route keeps the standard index.html (needed by the static server as
   // both the "/" page and the SPA-fallback template for unprerendered paths
@@ -251,6 +292,13 @@ function writeRoute(
   writeFileSync(outputPath, routeHtml, "utf-8");
 }
 
+function safeJson(value: unknown): string {
+  return JSON.stringify(value)
+    .replace(/</g, "\\u003c")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
+}
+
 // ---------------------------------------------------------------------------
 // Redirect routes — old region-prefixed blog URLs that no longer exist.
 // Every path below gets a minimal HTML redirect page (noindex + meta-refresh
@@ -260,57 +308,57 @@ function writeRoute(
 
 const REDIRECT_ROUTES: Record<string, string> = {
   // Old region-prefixed blog index pages → new single-URL blog index
-  "/sa/blog":    "/blog",
-  "/syr/blog":   "/blog",
+  "/sa/blog": "/blog",
+  "/syr/blog": "/blog",
   "/sa/ar/blog": "/blog",
   "/syr/ar/blog": "/blog",
 
   // Old SA-region blog post slugs (both EN and AR) → blog index
   // (these posts are removed from the DB; redirect to /blog rather than 404)
-  "/sa/blog/divorce-in-saudi-arabia":                       "/blog",
-  "/sa/blog/wrongful-termination-saudi-labor-law":          "/blog",
-  "/sa/blog/foreign-company-registration-saudi-arabia":     "/blog",
-  "/sa/blog/board-of-grievances-saudi-arabia":              "/blog",
-  "/sa/blog/real-estate-disputes-saudi-arabia":             "/blog",
-  "/sa/blog/child-custody-saudi-arabia":                    "/blog",
+  "/sa/blog/divorce-in-saudi-arabia": "/blog",
+  "/sa/blog/wrongful-termination-saudi-labor-law": "/blog",
+  "/sa/blog/foreign-company-registration-saudi-arabia": "/blog",
+  "/sa/blog/board-of-grievances-saudi-arabia": "/blog",
+  "/sa/blog/real-estate-disputes-saudi-arabia": "/blog",
+  "/sa/blog/child-custody-saudi-arabia": "/blog",
 
-  "/sa/ar/blog/divorce-in-saudi-arabia":                    "/blog",
-  "/sa/ar/blog/wrongful-termination-saudi-labor-law":       "/blog",
-  "/sa/ar/blog/foreign-company-registration-saudi-arabia":  "/blog",
-  "/sa/ar/blog/board-of-grievances-saudi-arabia":           "/blog",
-  "/sa/ar/blog/real-estate-disputes-saudi-arabia":          "/blog",
-  "/sa/ar/blog/child-custody-saudi-arabia":                 "/blog",
+  "/sa/ar/blog/divorce-in-saudi-arabia": "/blog",
+  "/sa/ar/blog/wrongful-termination-saudi-labor-law": "/blog",
+  "/sa/ar/blog/foreign-company-registration-saudi-arabia": "/blog",
+  "/sa/ar/blog/board-of-grievances-saudi-arabia": "/blog",
+  "/sa/ar/blog/real-estate-disputes-saudi-arabia": "/blog",
+  "/sa/ar/blog/child-custody-saudi-arabia": "/blog",
 
   // Old SYR-region SA-named slugs → blog index (collapsed from two hops)
-  "/syr/blog/divorce-in-saudi-arabia":                      "/blog",
-  "/syr/blog/wrongful-termination-saudi-labor-law":         "/blog",
-  "/syr/blog/foreign-company-registration-saudi-arabia":    "/blog",
-  "/syr/blog/board-of-grievances-saudi-arabia":             "/blog",
-  "/syr/blog/real-estate-disputes-saudi-arabia":            "/blog",
-  "/syr/blog/child-custody-saudi-arabia":                   "/blog",
+  "/syr/blog/divorce-in-saudi-arabia": "/blog",
+  "/syr/blog/wrongful-termination-saudi-labor-law": "/blog",
+  "/syr/blog/foreign-company-registration-saudi-arabia": "/blog",
+  "/syr/blog/board-of-grievances-saudi-arabia": "/blog",
+  "/syr/blog/real-estate-disputes-saudi-arabia": "/blog",
+  "/syr/blog/child-custody-saudi-arabia": "/blog",
 
-  "/syr/ar/blog/divorce-in-saudi-arabia":                   "/blog",
-  "/syr/ar/blog/wrongful-termination-saudi-labor-law":      "/blog",
+  "/syr/ar/blog/divorce-in-saudi-arabia": "/blog",
+  "/syr/ar/blog/wrongful-termination-saudi-labor-law": "/blog",
   "/syr/ar/blog/foreign-company-registration-saudi-arabia": "/blog",
-  "/syr/ar/blog/board-of-grievances-saudi-arabia":          "/blog",
-  "/syr/ar/blog/real-estate-disputes-saudi-arabia":         "/blog",
-  "/syr/ar/blog/child-custody-saudi-arabia":                "/blog",
+  "/syr/ar/blog/board-of-grievances-saudi-arabia": "/blog",
+  "/syr/ar/blog/real-estate-disputes-saudi-arabia": "/blog",
+  "/syr/ar/blog/child-custody-saudi-arabia": "/blog",
 
   // Old SYR-region Syria-named canonical slugs → blog index
   // (these static posts are also removed from DB)
-  "/syr/blog/divorce-in-syria":                             "/blog",
-  "/syr/blog/wrongful-termination-syrian-labor-law":        "/blog",
-  "/syr/blog/foreign-company-registration-syria":           "/blog",
-  "/syr/blog/administrative-court-disputes-syria":          "/blog",
-  "/syr/blog/real-estate-disputes-syria":                   "/blog",
-  "/syr/blog/child-custody-syria":                          "/blog",
+  "/syr/blog/divorce-in-syria": "/blog",
+  "/syr/blog/wrongful-termination-syrian-labor-law": "/blog",
+  "/syr/blog/foreign-company-registration-syria": "/blog",
+  "/syr/blog/administrative-court-disputes-syria": "/blog",
+  "/syr/blog/real-estate-disputes-syria": "/blog",
+  "/syr/blog/child-custody-syria": "/blog",
 
-  "/syr/ar/blog/divorce-in-syria":                          "/blog",
-  "/syr/ar/blog/wrongful-termination-syrian-labor-law":     "/blog",
-  "/syr/ar/blog/foreign-company-registration-syria":        "/blog",
-  "/syr/ar/blog/administrative-court-disputes-syria":       "/blog",
-  "/syr/ar/blog/real-estate-disputes-syria":                "/blog",
-  "/syr/ar/blog/child-custody-syria":                       "/blog",
+  "/syr/ar/blog/divorce-in-syria": "/blog",
+  "/syr/ar/blog/wrongful-termination-syrian-labor-law": "/blog",
+  "/syr/ar/blog/foreign-company-registration-syria": "/blog",
+  "/syr/ar/blog/administrative-court-disputes-syria": "/blog",
+  "/syr/ar/blog/real-estate-disputes-syria": "/blog",
+  "/syr/ar/blog/child-custody-syria": "/blog",
 };
 
 function writeRedirectRoute(fromRoute: string, toRoute: string): void {
@@ -330,11 +378,14 @@ function writeRedirectRoute(fromRoute: string, toRoute: string): void {
 </body>
 </html>`;
 
-  const outputPath = resolve(publicDir, "__pages", routeToFlatFilename(fromRoute));
+  const outputPath = resolve(
+    publicDir,
+    "__pages",
+    routeToFlatFilename(fromRoute),
+  );
   mkdirSync(dirname(outputPath), { recursive: true });
   writeFileSync(outputPath, html, "utf-8");
 }
-
 
 // ---------------------------------------------------------------------------
 // Main
@@ -343,7 +394,7 @@ function writeRedirectRoute(fromRoute: string, toRoute: string): void {
 async function prerender(): Promise<void> {
   console.log("🔄 Loading SSR bundle…");
   const { render } = (await import(serverEntryPath)) as {
-    render: (url: string) => RenderResult;
+    render: (url: string, posts?: InitialBlogPost[]) => RenderResult;
   };
 
   console.log("📄 Reading HTML template…");
@@ -351,14 +402,19 @@ async function prerender(): Promise<void> {
 
   if (!template.includes("<!--app-head-->")) {
     throw new Error(
-      'index.html is missing the <!--app-head--> placeholder. ' +
-      'This marker is required for SSR head injection.',
+      "index.html is missing the <!--app-head--> placeholder. " +
+        "This marker is required for SSR head injection.",
     );
   }
 
+  // The root prerender overwrites dist/public/index.html. Keep the untouched
+  // shell outside the public directory for dynamic blog, admin, and 404 HTML.
+  writeFileSync(resolve(distDir, "ssr-template.html"), template, "utf-8");
+
   // Fetch published blog post slugs from the API and add their routes.
   console.log("\n🔍 Fetching blog post slugs from API…");
-  const blogSlugs = await fetchBlogSlugs();
+  const blogPosts = await fetchBlogPosts();
+  const blogSlugs = blogPosts.map((post) => post.slug);
   const blogPostRoutes = blogSlugs.map((slug) => `/blog/${slug}`);
   if (blogSlugs.length > 0) {
     console.log(`  Found ${blogSlugs.length} post(s): ${blogSlugs.join(", ")}`);
@@ -373,7 +429,7 @@ async function prerender(): Promise<void> {
 
   for (const route of allRoutes) {
     try {
-      writeRoute(route, template, render);
+      writeRoute(route, template, render, blogPosts);
       console.log(`  ✓ ${route}`);
       succeeded++;
     } catch (err) {
@@ -386,12 +442,16 @@ async function prerender(): Promise<void> {
   console.log(`\n✅ Prerendered ${succeeded}/${allRoutes.length} routes.`);
 
   if (failed.length > 0) {
-    console.error(`\n❌ ${failed.length} route(s) failed:\n${failed.join("\n")}`);
+    console.error(
+      `\n❌ ${failed.length} route(s) failed:\n${failed.join("\n")}`,
+    );
     process.exit(1);
   }
 
   // Write redirect-only HTML files for old region-prefixed blog URLs.
-  console.log(`\n🔀 Writing ${Object.keys(REDIRECT_ROUTES).length} redirect pages…\n`);
+  console.log(
+    `\n🔀 Writing ${Object.keys(REDIRECT_ROUTES).length} redirect pages…\n`,
+  );
   for (const [from, to] of Object.entries(REDIRECT_ROUTES)) {
     writeRedirectRoute(from, to);
     console.log(`  ↩ ${from} → ${to}`);

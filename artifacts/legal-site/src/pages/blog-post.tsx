@@ -309,7 +309,7 @@ export default function BlogPost() {
                 <p className="text-white/70 text-sm leading-relaxed mb-5">{ui.consultDesc}</p>
                 <div className="flex flex-col gap-3">
                   <a
-                    href="https://wa.me/966592850247"
+                    href="https://wa.me/966594850247"
                     target="_blank"
                     rel="noopener noreferrer"
                     data-cta="whatsapp"

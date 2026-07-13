@@ -16,14 +16,19 @@ const BlogLocaleSchema = z.object({
   excerpt: z.string().min(1, "excerpt must not be empty"),
   seoTitle: z.string().min(1, "seoTitle must not be empty"),
   seoDescription: z.string().min(1, "seoDescription must not be empty"),
-  content: z.array(BlogSectionSchema).min(1, "content must have at least one section"),
+  content: z
+    .array(BlogSectionSchema)
+    .min(1, "content must have at least one section"),
 });
 
 const BlogPostSchema = z.object({
   slug: z
     .string()
     .min(1, "slug must not be empty")
-    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "slug must be kebab-case (a-z, 0-9, hyphens only)"),
+    .regex(
+      /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
+      "slug must be kebab-case (a-z, 0-9, hyphens only)",
+    ),
   date: z
     .string()
     .regex(/^\d{4}-\d{2}-\d{2}$/, "date must be in YYYY-MM-DD format"),
@@ -36,7 +41,8 @@ const BlogPostSchema = z.object({
   ar: BlogLocaleSchema,
 });
 
-const { BASE_URL, TODAY, CORE_PAGES, BLOG_BASE_PATH } = await import("../data/sitemap-sources.js");
+const { BASE_URL, TODAY, CORE_PAGES, BLOG_BASE_PATH } =
+  await import("../data/sitemap-sources.js");
 
 const { en } = await import("../translations/en.js");
 const { enSyr } = await import("../translations/en-syr.js");
@@ -48,9 +54,11 @@ const SYRIA_SLUG_OVERRIDES: Record<string, string> = {
   "board-of-grievances-saudi-arabia": "administrative-court-disputes-syria",
   "child-custody-saudi-arabia": "child-custody-syria",
   "divorce-in-saudi-arabia": "divorce-in-syria",
-  "foreign-company-registration-saudi-arabia": "foreign-company-registration-syria",
+  "foreign-company-registration-saudi-arabia":
+    "foreign-company-registration-syria",
   "real-estate-disputes-saudi-arabia": "real-estate-disputes-syria",
-  "wrongful-termination-saudi-labor-law": "wrongful-termination-syrian-labor-law",
+  "wrongful-termination-saudi-labor-law":
+    "wrongful-termination-syrian-labor-law",
 };
 
 function slugFromHref(href: string): string {
@@ -207,20 +215,22 @@ entries.push(
   urlEntrySingleUrl(`${BASE_URL}${BLOG_BASE_PATH}`, "weekly", "0.8", TODAY),
 );
 
-// Blog posts — fetch live slugs and dates from the API.
-// The API server runs at localhost:80 via the shared proxy in all environments.
-// If the server is unreachable (e.g. offline build), blog posts are skipped
-// gracefully — they will appear on the next sitemap regeneration.
+// Blog posts — fetch the published records from the live API by default.
+// BLOG_API_URL can point builds at a preview/local API without changing config.
+// If it is unreachable, posts are skipped without failing the static build.
 try {
   const BlogPostRowSchema = z.object({
     slug: z.string(),
     date: z.string(),
   });
-  const res = await fetch("http://localhost:80/api/blog/posts", {
+  const blogApiUrl =
+    process.env["BLOG_API_URL"]?.trim() ||
+    "https://counselo-legal.com/api/blog/posts";
+  const res = await fetch(blogApiUrl, {
     signal: AbortSignal.timeout(8_000),
   });
   if (res.ok) {
-    const raw = await res.json() as unknown[];
+    const raw = (await res.json()) as unknown[];
     const posts = raw
       .map((p) => BlogPostRowSchema.safeParse(p))
       .filter((r) => r.success)
@@ -237,10 +247,14 @@ try {
     }
     console.log(`[sitemap] added ${posts.length} blog post(s) to sitemap`);
   } else {
-    console.warn(`[sitemap] blog API returned HTTP ${res.status} — skipping post entries`);
+    console.warn(
+      `[sitemap] blog API returned HTTP ${res.status} — skipping post entries`,
+    );
   }
 } catch (err) {
-  console.warn(`[sitemap] could not fetch blog posts (${(err as Error).message}) — skipping`);
+  console.warn(
+    `[sitemap] could not fetch blog posts (${(err as Error).message}) — skipping`,
+  );
 }
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -258,9 +272,9 @@ console.log(
   `[sitemap] wrote ${outPath} (${SA_SERVICE_SLUGS.length} SA services, ${SYR_SERVICE_SLUGS.length} SYR services)`,
 );
 
-const shouldPing =
-  process.env["NODE_ENV"] === "production" ||
-  process.env["INDEXNOW_PING"] === "true";
+// Builds must be deterministic and side-effect free. Publishing workflows opt
+// in explicitly after a successful deployment.
+const shouldPing = process.env["INDEXNOW_PING"] === "true";
 
 const urlList = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) =>
   m[1].trim(),
@@ -269,9 +283,7 @@ const urlList = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) =>
 if (shouldPing) {
   const INDEXNOW_KEY = "fc82de857e07c9a2f89982c0e825dee1";
   const HOST = "counselo-legal.com";
-  console.log(
-    `[sitemap] auto-pinging IndexNow with ${urlList.length} URLs…`,
-  );
+  console.log(`[sitemap] auto-pinging IndexNow with ${urlList.length} URLs…`);
   try {
     const res = await fetch("https://api.indexnow.org/indexnow", {
       method: "POST",
@@ -284,9 +296,7 @@ if (shouldPing) {
       }),
     });
     if (res.status === 200 || res.status === 202) {
-      console.log(
-        `[sitemap] IndexNow accepted — HTTP ${res.status}`,
-      );
+      console.log(`[sitemap] IndexNow accepted — HTTP ${res.status}`);
     } else {
       console.warn(
         `[sitemap] IndexNow unexpected response — HTTP ${res.status}`,
@@ -303,10 +313,15 @@ if (shouldPing && process.env["GOOGLE_INDEXING_SA_KEY"]) {
   );
   try {
     const saJson = process.env["GOOGLE_INDEXING_SA_KEY"];
-    const sa = JSON.parse(saJson) as { client_email: string; private_key: string };
+    const sa = JSON.parse(saJson) as {
+      client_email: string;
+      private_key: string;
+    };
     const { createSign } = await import("node:crypto");
     const now = Math.floor(Date.now() / 1000);
-    const header = Buffer.from(JSON.stringify({ alg: "RS256", typ: "JWT" })).toString("base64url");
+    const header = Buffer.from(
+      JSON.stringify({ alg: "RS256", typ: "JWT" }),
+    ).toString("base64url");
     const payload = Buffer.from(
       JSON.stringify({
         iss: sa.client_email,
@@ -329,9 +344,14 @@ if (shouldPing && process.env["GOOGLE_INDEXING_SA_KEY"]) {
         assertion: jwt,
       }),
     });
-    const tokenData = (await tokenRes.json()) as { access_token?: string; error?: string };
+    const tokenData = (await tokenRes.json()) as {
+      access_token?: string;
+      error?: string;
+    };
     if (!tokenData.access_token) {
-      throw new Error(`Token exchange failed: ${tokenData.error ?? tokenRes.status}`);
+      throw new Error(
+        `Token exchange failed: ${tokenData.error ?? tokenRes.status}`,
+      );
     }
     const token = tokenData.access_token;
     const results = await Promise.allSettled(
