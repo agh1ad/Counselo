@@ -68,8 +68,18 @@ function ScrollToTop() {
 
 function GAInit() {
   useEffect(() => {
-    const id = getGAMeasurementId();
-    if (id) injectGA(id);
+    const loadAnalytics = () => {
+      const id = getGAMeasurementId() || "G-1M9ZZX7VT6";
+      injectGA(id);
+    };
+
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(loadAnalytics, { timeout: 4000 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = globalThis.setTimeout(loadAnalytics, 2500);
+    return () => globalThis.clearTimeout(timeoutId);
   }, []);
   return null;
 }
@@ -233,7 +243,6 @@ function AppShell() {
       >
         Skip to main content
       </a>
-      <GAInit />
       <Navbar />
       <main className="flex-grow pt-24" id="main-content">
         <Router />
@@ -275,6 +284,7 @@ function App({ ssrUrl, initialBlogPosts = [] }: AppProps = {}) {
         >
           <RegionProvider>
             <LanguageProvider>
+              <GAInit />
               <AppShell />
             </LanguageProvider>
           </RegionProvider>
