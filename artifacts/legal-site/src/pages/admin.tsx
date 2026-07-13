@@ -5,7 +5,7 @@ import {
   ChevronLeft, FileText, Settings, BarChart2, Search,
   Wrench, ExternalLink, RefreshCw, MessageCircle, Phone,
   Mail, TrendingUp, Users, Activity, Shield, Zap,
-  CheckCircle2, XCircle, Clock, Copy,
+  CheckCircle2, XCircle, Clock, Copy, Sparkles, Languages,
 } from "lucide-react";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
 import {
@@ -179,6 +179,7 @@ function PostEditor({ initial, token, onSave, onBack }: {
   const [form, setForm] = useState<FormData>({ ...initial });
   const [lang, setLang] = useState<"en" | "ar">("en");
   const [saving, setSaving] = useState(false);
+  const [aiAction, setAiAction] = useState<"draft-and-optimize" | "optimize-seo" | "translate-ar-to-en" | null>(null);
   const [settingsOpen, setSettingsOpen] = useState(true);
   const [slugManual, setSlugManual] = useState(!!initial.id);
   const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
@@ -221,9 +222,58 @@ function PostEditor({ initial, token, onSave, onBack }: {
     }
   };
 
+  const runAi = useCallback(async (action: "draft-and-optimize" | "optimize-seo" | "translate-ar-to-en") => {
+    if (!form.titleAr.trim() && !form.titleEn.trim()) {
+      setToast({ msg: "Enter an Arabic or English title first.", type: "error" });
+      return;
+    }
+    if (action === "translate-ar-to-en" && !form.bodyAr.trim()) {
+      setToast({ msg: "Add the Arabic article before translating it.", type: "error" });
+      return;
+    }
+    if (action === "translate-ar-to-en" && (form.bodyEn.trim() || form.titleEn.trim()) && !window.confirm("Replace the current English version with a new AI translation?")) return;
+    if (action === "draft-and-optimize" && (form.bodyAr.trim() || form.bodyEn.trim()) && !window.confirm("AI will rewrite both article versions using the current title and content as source material. Continue?")) return;
+    setAiAction(action);
+    try {
+      const res = await fetch(`${API}/admin/blog/ai`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ action, ...form }),
+      });
+      const result = await res.json() as Partial<FormData> & { error?: string };
+      if (!res.ok) throw new Error(result.error ?? "AI generation failed");
+      const generatedKeys: Array<keyof FormData> = [
+        "slug", "titleEn", "titleAr", "categoryEn", "categoryAr", "excerptEn", "excerptAr",
+        "seoTitleEn", "seoTitleAr", "seoDescriptionEn", "seoDescriptionAr", "bodyEn", "bodyAr",
+      ];
+      setForm((current) => {
+        const next = { ...current };
+        for (const key of generatedKeys) {
+          const value = result[key];
+          if (typeof value === "string") (next as Record<string, unknown>)[key] = value;
+        }
+        const wordCount = stripHtml(next.bodyEn || next.bodyAr).split(/\s+/).filter(Boolean).length;
+        next.readTime = Math.max(1, Math.ceil(wordCount / 200));
+        return next;
+      });
+      setSlugManual(true);
+      setManualFields(new Set(["seoTitleEn", "seoTitleAr", "seoDescriptionEn", "seoDescriptionAr", "excerptEn", "excerptAr"]));
+      setToast({ msg: action === "translate-ar-to-en" ? "English translation is ready for review." : "AI draft and SEO fields are ready for review.", type: "success" });
+      if (action === "translate-ar-to-en") setLang("en");
+    } catch (error) {
+      setToast({ msg: error instanceof Error ? error.message : "AI generation failed", type: "error" });
+    } finally {
+      setAiAction(null);
+    }
+  }, [form, token]);
+
   const save = useCallback(async (publishState?: boolean) => {
     const payload = publishState !== undefined ? { ...form, published: publishState } : form;
     if (!payload.slug.trim()) { setToast({ msg: "Please enter a URL slug.", type: "error" }); return; }
+    if (payload.published && (!payload.titleAr.trim() || !payload.bodyAr.trim() || !payload.titleEn.trim() || !payload.bodyEn.trim())) {
+      setToast({ msg: "Publishing requires complete Arabic and English versions. Use AI translation, then review both versions.", type: "error" });
+      return;
+    }
     setSaving(true);
     try {
       const url = initial.id ? `${API}/admin/blog/posts/${initial.id}` : `${API}/admin/blog/posts`;
@@ -262,6 +312,24 @@ function PostEditor({ initial, token, onSave, onBack }: {
       <div className="flex flex-1 min-h-0">
         <div className="flex-1 overflow-y-auto py-8 px-4 flex justify-center">
           <div className="w-full max-w-3xl">
+            <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-3 mb-4" aria-label="AI writing assistant">
+              <div className="flex flex-wrap items-center gap-2">
+                <div className="flex items-center gap-2 mr-auto min-w-[180px]">
+                  <div className="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center"><Sparkles size={16} /></div>
+                  <div><p className="text-xs font-bold text-gray-900">CounselO AI Assistant</p><p className="text-[10px] text-gray-400">Review every result before publishing</p></div>
+                </div>
+                <button type="button" onClick={() => void runAi("draft-and-optimize")} disabled={aiAction !== null} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-purple-700 text-white text-xs font-semibold hover:bg-purple-800 disabled:opacity-50">
+                  <Sparkles size={13} /> {aiAction === "draft-and-optimize" ? "Writing…" : "Draft + SEO"}
+                </button>
+                <button type="button" onClick={() => void runAi("translate-ar-to-en")} disabled={aiAction !== null} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-green-200 text-green-800 bg-green-50 text-xs font-semibold hover:bg-green-100 disabled:opacity-50">
+                  <Languages size={13} /> {aiAction === "translate-ar-to-en" ? "Translating…" : "Arabic → English"}
+                </button>
+                <button type="button" onClick={() => void runAi("optimize-seo")} disabled={aiAction !== null} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-gray-200 text-gray-700 text-xs font-semibold hover:bg-gray-50 disabled:opacity-50">
+                  <Search size={13} /> {aiAction === "optimize-seo" ? "Optimizing…" : "Optimize SEO"}
+                </button>
+              </div>
+              <p className="mt-2 text-[10px] text-gray-400">AI suggestions stay as a draft. Verify legal accuracy, names, dates, laws and source links before publishing.</p>
+            </div>
             <div className="flex items-center gap-2 mb-4">
               <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${lang === "en" ? "bg-green-700 text-white" : "bg-gray-800 text-white"}`}>{lang === "en" ? "English" : "العربية"}</span>
             </div>

@@ -7,13 +7,14 @@ import { TextStyle } from "@tiptap/extension-text-style";
 import { Color } from "@tiptap/extension-color";
 import Link from "@tiptap/extension-link";
 import Placeholder from "@tiptap/extension-placeholder";
-import { useEffect, useCallback, useRef } from "react";
+import { useEffect, useCallback, useRef, useState } from "react";
 import {
   Bold, Italic, Underline as UnderlineIcon, Strikethrough,
-  Heading1, Heading2, Heading3, List, ListOrdered,
+  List, ListOrdered,
   AlignLeft, AlignCenter, AlignRight, AlignJustify,
   Highlighter, Link as LinkIcon, Minus, RotateCcw, RotateCw,
   Type, RemoveFormatting, Baseline,
+  Quote, Code2, Maximize2, Minimize2,
 } from "lucide-react";
 
 interface Props {
@@ -46,6 +47,7 @@ function ToolBtn({
     <button
       type="button"
       title={title}
+      aria-label={title}
       disabled={disabled}
       onMouseDown={(e) => {
         e.preventDefault();
@@ -126,9 +128,10 @@ function ColorPicker({ editor }: { editor: ReturnType<typeof useEditor> }) {
 }
 
 export function RichTextEditor({ value, onChange, placeholder, dir = "ltr", minHeight = 320 }: Props) {
+  const [fullscreen, setFullscreen] = useState(false);
   const editor = useEditor({
     extensions: [
-      StarterKit.configure({ heading: { levels: [1, 2, 3] } }),
+      StarterKit.configure({ heading: { levels: [2, 3] } }),
       Underline,
       TextStyle,
       Color,
@@ -170,16 +173,17 @@ export function RichTextEditor({ value, onChange, placeholder, dir = "ltr", minH
 
   if (!editor) return null;
 
-  const h = editor.isActive("heading", { level: 1 })
-    ? "H1"
-    : editor.isActive("heading", { level: 2 })
+  const h = editor.isActive("heading", { level: 2 })
     ? "H2"
     : editor.isActive("heading", { level: 3 })
     ? "H3"
     : "¶";
+  const plainText = editor.getText().trim();
+  const wordCount = plainText ? plainText.split(/\s+/).length : 0;
+  const characterCount = plainText.length;
 
   return (
-    <div className="border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+    <div className={`border border-gray-200 overflow-hidden bg-white shadow-sm ${fullscreen ? "fixed inset-0 z-[100] rounded-none flex flex-col" : "rounded-xl"}`}>
       {/* Toolbar */}
       <div className="flex flex-wrap items-center gap-0.5 px-3 py-2 border-b border-gray-100 bg-gray-50 sticky top-0 z-10">
         {/* Undo / Redo */}
@@ -199,14 +203,12 @@ export function RichTextEditor({ value, onChange, placeholder, dir = "ltr", minH
             onChange={(e) => {
               const v = e.target.value;
               if (v === "¶") editor.chain().focus().setParagraph().run();
-              else if (v === "H1") editor.chain().focus().toggleHeading({ level: 1 }).run();
               else if (v === "H2") editor.chain().focus().toggleHeading({ level: 2 }).run();
               else if (v === "H3") editor.chain().focus().toggleHeading({ level: 3 }).run();
             }}
             className="text-xs font-semibold text-gray-700 border border-gray-200 rounded px-2 py-1 bg-white appearance-none cursor-pointer hover:bg-gray-50 focus:outline-none pr-6"
           >
             <option value="¶">Paragraph</option>
-            <option value="H1">Heading 1</option>
             <option value="H2">Heading 2</option>
             <option value="H3">Heading 3</option>
           </select>
@@ -272,6 +274,12 @@ export function RichTextEditor({ value, onChange, placeholder, dir = "ltr", minH
         <ToolBtn title="Horizontal rule" onClick={() => editor.chain().focus().setHorizontalRule().run()}>
           <Minus size={14} />
         </ToolBtn>
+        <ToolBtn title="Block quote" active={editor.isActive("blockquote")} onClick={() => editor.chain().focus().toggleBlockquote().run()}>
+          <Quote size={14} />
+        </ToolBtn>
+        <ToolBtn title="Code block" active={editor.isActive("codeBlock")} onClick={() => editor.chain().focus().toggleCodeBlock().run()}>
+          <Code2 size={14} />
+        </ToolBtn>
 
         <Sep />
 
@@ -279,14 +287,22 @@ export function RichTextEditor({ value, onChange, placeholder, dir = "ltr", minH
         <ToolBtn title="Clear formatting" onClick={() => editor.chain().focus().clearNodes().unsetAllMarks().run()}>
           <RemoveFormatting size={14} />
         </ToolBtn>
+        <div className="flex-1" />
+        <ToolBtn title={fullscreen ? "Exit full screen" : "Full screen editor"} onClick={() => setFullscreen((value) => !value)}>
+          {fullscreen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}
+        </ToolBtn>
       </div>
 
       {/* Editor area */}
       <div
-        className="bg-white cursor-text tiptap-content"
+        className={`bg-white cursor-text tiptap-content ${fullscreen ? "flex-1 overflow-y-auto max-w-4xl w-full mx-auto border-x border-gray-100" : ""}`}
         onClick={() => editor.commands.focus()}
       >
         <EditorContent editor={editor} />
+      </div>
+      <div className="flex items-center justify-between gap-4 px-4 py-2 border-t border-gray-100 bg-gray-50 text-[10px] text-gray-500" aria-live="polite">
+        <span>{dir === "rtl" ? `${wordCount} كلمة · ${characterCount} حرف` : `${wordCount} words · ${characterCount} characters`}</span>
+        <span>{dir === "rtl" ? "يدعم اللصق من Word والاختصارات القياسية" : "Supports Word paste and standard keyboard shortcuts"}</span>
       </div>
     </div>
   );

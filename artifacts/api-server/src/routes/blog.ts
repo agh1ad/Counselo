@@ -13,8 +13,21 @@ import {
   parsePositiveId,
   sanitizeBlogPost,
 } from "../lib/blog-input.js";
+import { generateBlogContent, type BlogAiAction } from "../lib/blog-ai.js";
 
 const router = Router();
+let aiWindowStartedAt = 0;
+let aiRequestsInWindow = 0;
+
+function allowAiRequest(): boolean {
+  const now = Date.now();
+  if (now - aiWindowStartedAt >= 60_000) {
+    aiWindowStartedAt = now;
+    aiRequestsInWindow = 0;
+  }
+  aiRequestsInWindow += 1;
+  return aiRequestsInWindow <= 10;
+}
 
 router.get("/blog/posts", async (_req, res) => {
   const posts = await db
@@ -58,6 +71,51 @@ router.get("/admin/blog/posts", requireAdmin, async (_req, res) => {
     .from(blogPostsTable)
     .orderBy(blogPostsTable.createdAt);
   res.json(posts.reverse().map(sanitizeBlogPost));
+});
+
+router.post("/admin/blog/ai", requireAdmin, async (req, res) => {
+  try {
+    if (!allowAiRequest()) {
+      res.status(429).json({ error: "AI request limit reached. Wait one minute and try again." });
+      return;
+    }
+    const body = req.body && typeof req.body === "object" ? req.body as Record<string, unknown> : {};
+    const action = body.action as BlogAiAction;
+    if (!["draft-and-optimize", "optimize-seo", "translate-ar-to-en"].includes(action)) {
+      res.status(400).json({ error: "Unsupported AI action" });
+      return;
+    }
+    const result = await generateBlogContent({
+      action,
+      slug: body.slug as string,
+      titleEn: body.titleEn as string,
+      titleAr: body.titleAr as string,
+      categoryEn: body.categoryEn as string,
+      categoryAr: body.categoryAr as string,
+      excerptEn: body.excerptEn as string,
+      excerptAr: body.excerptAr as string,
+      bodyEn: body.bodyEn as string,
+      bodyAr: body.bodyAr as string,
+    });
+    const currentSlug = typeof body.slug === "string" ? body.slug : "";
+    if (result.slug !== currentSlug) {
+      const baseSlug = result.slug;
+      let suffix = 1;
+      while (true) {
+        const [existing] = await db
+          .select({ id: blogPostsTable.id })
+          .from(blogPostsTable)
+          .where(eq(blogPostsTable.slug, result.slug));
+        if (!existing) break;
+        suffix += 1;
+        result.slug = `${baseSlug}-${suffix}`;
+      }
+    }
+    res.json(result);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "AI generation failed";
+    res.status(message.includes("not configured") ? 503 : 502).json({ error: message });
+  }
 });
 
 router.post("/admin/blog/posts", requireAdmin, async (req, res) => {

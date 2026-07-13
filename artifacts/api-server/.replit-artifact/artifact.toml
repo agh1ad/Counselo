@@ -27,6 +27,7 @@ kind = "api"
   [services.production.run.env]
   PORT = "8080"
   NODE_ENV = "production"
+  OPENAI_BLOG_MODEL = "gpt-5.6-luna"
 
   [services.production.health.startup]
   path = "/api/healthz"
