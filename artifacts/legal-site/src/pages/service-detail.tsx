@@ -12,24 +12,46 @@ import { TrustSignals } from "@/components/seo/TrustSignals";
 
 type LegalSource = { en: string; ar: string; href: string };
 
-const SAUDI_OFFICIAL_SOURCES: Record<string, LegalSource[]> = {
-  "family-law": [{ en: "Saudi Personal Status Law", ar: "نظام الأحوال الشخصية السعودي", href: "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1" }],
-  "employment-law": [{ en: "Saudi Labor Law", ar: "نظام العمل السعودي", href: "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/08381293-6388-48e2-8ad2-a9a700f2aa94/1" }],
-  "business-law": [
-    { en: "Saudi Companies Law", ar: "نظام الشركات السعودي", href: "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/a8376aea-1bc3-49d4-9027-aed900b555af/1" },
-    { en: "Law of Commercial Courts", ar: "نظام المحاكم التجارية", href: "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/38334008-3b70-4c6c-b3af-aba3016a8061/1" },
-  ],
-  "companies-law": [{ en: "Saudi Companies Law", ar: "نظام الشركات السعودي", href: "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/a8376aea-1bc3-49d4-9027-aed900b555af/1" }],
-  "foreign-investment": [{ en: "Saudi Investment Law", ar: "نظام الاستثمار السعودي", href: "https://laws.boe.gov.sa/BoeLaws/Laws/SearchDetails/?Id=eda86cc3-3a00-4b90-900d-b1d000c8a863&Query=+" }],
-  contracts: [{ en: "Saudi Civil Transactions Law", ar: "نظام المعاملات المدنية السعودي", href: "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1" }],
-  "real-estate": [{ en: "Saudi Civil Transactions Law", ar: "نظام المعاملات المدنية السعودي", href: "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1" }],
+const SAUDI_LEGISLATION_SOURCE: LegalSource = {
+  en: "Bureau of Experts — Official Saudi Laws Portal",
+  ar: "هيئة الخبراء بمجلس الوزراء — بوابة الأنظمة السعودية",
+  href: "https://laws.boe.gov.sa/",
 };
 
-const SAUDI_GENERAL_SOURCE: LegalSource = {
-  en: "Saudi Ministry of Justice — Laws and Regulations",
-  ar: "وزارة العدل السعودية — الأنظمة واللوائح",
-  href: "https://moj.gov.sa/English/Pages/LawsAndRegulations.aspx",
-};
+const SAUDI_AUTHORITY_SOURCES = {
+  justice: { en: "Saudi Ministry of Justice", ar: "وزارة العدل السعودية", href: "https://www.moj.gov.sa/" },
+  labor: { en: "Ministry of Human Resources and Social Development", ar: "وزارة الموارد البشرية والتنمية الاجتماعية", href: "https://www.hrsd.gov.sa/" },
+  business: { en: "Saudi Ministry of Commerce", ar: "وزارة التجارة السعودية", href: "https://mc.gov.sa/" },
+  investment: { en: "Saudi Ministry of Investment", ar: "وزارة الاستثمار السعودية", href: "https://misa.gov.sa/" },
+  interior: { en: "Saudi Ministry of Interior", ar: "وزارة الداخلية السعودية", href: "https://www.moi.gov.sa/" },
+  realEstate: { en: "Real Estate General Authority", ar: "الهيئة العامة للعقار", href: "https://rega.gov.sa/" },
+  finance: { en: "Saudi Central Bank", ar: "البنك المركزي السعودي", href: "https://www.sama.gov.sa/" },
+  capitalMarkets: { en: "Capital Market Authority", ar: "هيئة السوق المالية", href: "https://cma.org.sa/" },
+  intellectualProperty: { en: "Saudi Authority for Intellectual Property", ar: "الهيئة السعودية للملكية الفكرية", href: "https://www.saip.gov.sa/" },
+  tax: { en: "Zakat, Tax and Customs Authority", ar: "هيئة الزكاة والضريبة والجمارك", href: "https://zatca.gov.sa/" },
+  data: { en: "Saudi Data and AI Authority", ar: "الهيئة السعودية للبيانات والذكاء الاصطناعي", href: "https://sdaia.gov.sa/" },
+  health: { en: "Saudi Ministry of Health", ar: "وزارة الصحة السعودية", href: "https://www.moh.gov.sa/" },
+  insurance: { en: "Insurance Authority", ar: "هيئة التأمين", href: "https://www.ia.gov.sa/" },
+} satisfies Record<string, LegalSource>;
+
+function getSaudiLegalSources(serviceId: string): LegalSource[] {
+  const authority =
+    /employment|labor|wages|dismissal|workplace|end-of-service/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.labor
+    : /foreign-investment|investment-/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.investment
+    : /business-visas|family-visas|work-visas|iqama|residency|kafala|deportation|immigration/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.interior
+    : /real-estate|property|lease|rental|ownership|neighbor|real-rights/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.realEstate
+    : /bank|finance|credit|loan|sukuk|financial-regulatory/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.finance
+    : /capital-|share-|shareholder|assembly|director|partner|company-records|conflict-of-interest/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.capitalMarkets
+    : /intellectual-property|trademark|brand|patent|copyright|trade-secrets|ip-|unfair-competition/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.intellectualProperty
+    : /tax|zakat|vat|excise|customs|transfer-pricing/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.tax
+    : /cyber|data-protection|digital-privacy|hacking|online-/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.data
+    : /medical|healthcare|hospital|patient|pharmaceutical|surgical|dental|misdiagnosis/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.health
+    : /insurance/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.insurance
+    : /business|companies|company|commercial|partnership|contract/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.business
+    : SAUDI_AUTHORITY_SOURCES.justice;
+
+  return [authority, SAUDI_LEGISLATION_SOURCE];
+}
 
 const SYRIA_GENERAL_SOURCE: LegalSource = {
   en: "Syrian Ministry of Justice",
@@ -152,7 +174,7 @@ export default function ServiceDetail() {
   const inLanguage = isRTL ? (isSyr ? "ar-SY" : "ar-SA") : (isSyr ? "en-SY" : "en-SA");
   const legalSources = isSyr
     ? [SYRIA_GENERAL_SOURCE]
-    : (SAUDI_OFFICIAL_SOURCES[id] ?? [SAUDI_GENERAL_SOURCE]);
+    : getSaudiLegalSources(id);
 
   const schemas: object[] = [
     {
