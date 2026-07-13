@@ -17,7 +17,7 @@ const websiteSchema = {
   "description": "Online legal consultation platform serving Saudi Arabia and Syria — professional Arabic & English legal advice within 24 hours via WhatsApp or email.",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": { "@type": "EntryPoint", "urlTemplate": "https://counselo-legal.com/sa/blog?q={search_term_string}" },
+    "target": { "@type": "EntryPoint", "urlTemplate": "https://counselo-legal.com/blog?q={search_term_string}" },
     "query-input": "required name=search_term_string",
   },
   "publisher": { "@type": "Organization", "name": "CounselO", "url": "https://counselo-legal.com" },
@@ -504,16 +504,16 @@ export default function RegionPicker() {
           </motion.div>
 
           <div className="grid sm:grid-cols-2 gap-6 mb-10">
-            {BLOG_POSTS.map(({ slug, syrSlug, en }, i) => (
+            {BLOG_POSTS.map(({ slug, en }, i) => (
               <motion.div key={slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-background border border-border p-6 hover:border-primary/50 hover:shadow-md transition-all">
                 <p className="text-primary font-medium text-xs uppercase tracking-widest mb-3">Legal Guide</p>
                 <h3 className="font-serif font-bold text-foreground text-base leading-snug mb-5">{en}</h3>
                 <div className="flex gap-3">
-                  <Link href={`/sa/blog/${slug}`} className="inline-flex items-center gap-1 text-xs border border-border text-muted-foreground px-3 py-1.5 hover:border-primary hover:text-primary transition-colors">
+                  <Link href="/blog" className="inline-flex items-center gap-1 text-xs border border-border text-muted-foreground px-3 py-1.5 hover:border-primary hover:text-primary transition-colors">
                     Saudi Arabia <ArrowRight className="h-3 w-3" />
                   </Link>
-                  <Link href={`/syr/blog/${syrSlug}`} className="inline-flex items-center gap-1 text-xs border border-border text-muted-foreground px-3 py-1.5 hover:border-primary hover:text-primary transition-colors">
+                  <Link href="/blog" className="inline-flex items-center gap-1 text-xs border border-border text-muted-foreground px-3 py-1.5 hover:border-primary hover:text-primary transition-colors">
                     Syria <ArrowRight className="h-3 w-3" />
                   </Link>
                 </div>
@@ -522,10 +522,10 @@ export default function RegionPicker() {
           </div>
 
           <div className="flex justify-center gap-4 flex-wrap">
-            <Link href="/sa/blog" className="inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-8 py-3 hover:bg-primary/90 transition-colors">
+            <Link href="/blog" className="inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-8 py-3 hover:bg-primary/90 transition-colors">
               Saudi Arabia Legal Blog <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href="/syr/blog" className="inline-flex items-center gap-2 border border-border text-foreground text-sm font-semibold px-8 py-3 hover:border-primary/50 hover:shadow-sm transition-all">
+            <Link href="/blog" className="inline-flex items-center gap-2 border border-border text-foreground text-sm font-semibold px-8 py-3 hover:border-primary/50 hover:shadow-sm transition-all">
               Syria Legal Blog <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -584,7 +584,7 @@ export default function RegionPicker() {
                 <ul className="space-y-2.5">
                   <li><Link href="/sa" className="hover:text-primary transition-colors">Home — SA</Link></li>
                   <li><Link href="/sa/services" className="hover:text-primary transition-colors">All Services</Link></li>
-                  <li><Link href="/sa/blog" className="hover:text-primary transition-colors">Legal Blog</Link></li>
+                  <li><Link href="/blog" className="hover:text-primary transition-colors">Legal Blog</Link></li>
                   <li><Link href="/sa/about" className="hover:text-primary transition-colors">About Us</Link></li>
                   <li><Link href="/sa/contact" className="hover:text-primary transition-colors">Contact</Link></li>
                   <li><Link href="/sa/ar" className="hover:text-primary transition-colors">عربي</Link></li>
@@ -595,7 +595,7 @@ export default function RegionPicker() {
                 <ul className="space-y-2.5">
                   <li><Link href="/syr" className="hover:text-primary transition-colors">Home — Syria</Link></li>
                   <li><Link href="/syr/services" className="hover:text-primary transition-colors">All Services</Link></li>
-                  <li><Link href="/syr/blog" className="hover:text-primary transition-colors">Legal Blog</Link></li>
+                  <li><Link href="/blog" className="hover:text-primary transition-colors">Legal Blog</Link></li>
                   <li><Link href="/syr/about" className="hover:text-primary transition-colors">About Us</Link></li>
                   <li><Link href="/syr/contact" className="hover:text-primary transition-colors">Contact</Link></li>
                   <li><Link href="/syr/ar" className="hover:text-primary transition-colors">عربي</Link></li>
@@ -615,12 +615,12 @@ export default function RegionPicker() {
               <div>
                 <div className="font-semibold text-foreground mb-4">Legal Guides</div>
                 <ul className="space-y-2.5">
-                  <li><Link href="/sa/blog/divorce-in-saudi-arabia" className="hover:text-primary transition-colors">Divorce in Saudi Arabia</Link></li>
-                  <li><Link href="/sa/blog/child-custody-saudi-arabia" className="hover:text-primary transition-colors">Child Custody</Link></li>
-                  <li><Link href="/sa/blog/wrongful-termination-saudi-labor-law" className="hover:text-primary transition-colors">Wrongful Termination</Link></li>
-                  <li><Link href="/sa/blog/foreign-company-registration-saudi-arabia" className="hover:text-primary transition-colors">Company Registration</Link></li>
-                  <li><Link href="/syr/blog/divorce-in-syria" className="hover:text-primary transition-colors">Divorce in Syria</Link></li>
-                  <li><Link href="/syr/blog/wrongful-termination-syrian-labor-law" className="hover:text-primary transition-colors">Termination — Syria</Link></li>
+                  <li><Link href="/blog" className="hover:text-primary transition-colors">Divorce in Saudi Arabia</Link></li>
+                  <li><Link href="/blog" className="hover:text-primary transition-colors">Child Custody</Link></li>
+                  <li><Link href="/blog" className="hover:text-primary transition-colors">Wrongful Termination</Link></li>
+                  <li><Link href="/blog" className="hover:text-primary transition-colors">Company Registration</Link></li>
+                  <li><Link href="/blog" className="hover:text-primary transition-colors">Divorce in Syria</Link></li>
+                  <li><Link href="/blog" className="hover:text-primary transition-colors">Termination — Syria</Link></li>
                 </ul>
               </div>
             </div>

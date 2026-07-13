@@ -289,7 +289,7 @@ export default function BlogPost() {
               حقوق النشر والملكية محفوظة لكاونسيلو
             </div>
             <div className="mt-8">
-              <Link href={`${regionPrefix}/blog`} className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm">
+              <Link href="/blog" className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm">
                 <BackArrow className="h-4 w-4" /> {ui.back}
               </Link>
             </div>
@@ -364,7 +364,7 @@ export default function BlogPost() {
                       {lang === "en" ? svc.nameEn : svc.nameAr}
                     </Link>
                     <Link
-                      href={`${regionPrefix}/blog`}
+                      href="/blog"
                       className="text-sm text-muted-foreground hover:text-primary transition-colors block mb-2"
                     >
                       {lang === "en" ? "← Back to Blog" : "المدونة ←"}

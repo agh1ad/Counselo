@@ -285,6 +285,17 @@ app.use(
     setHeaders(res: Response, filePath: string) {
       if (filePath.endsWith(".html")) {
         res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
+      } else if (
+        filePath.endsWith("robots.txt") ||
+        filePath.endsWith("sitemap.xml")
+      ) {
+        // Discovery files change independently of fingerprinted build assets.
+        // Caching them for a year can leave crawlers with stale directives or
+        // an obsolete URL inventory long after a deployment.
+        res.setHeader(
+          "Cache-Control",
+          "public, max-age=3600, must-revalidate",
+        );
       }
     },
   }),
@@ -309,6 +320,24 @@ app.get("/", (_req: Request, res: Response) => {
   res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
   res.sendFile(indexHtml);
 });
+
+// Region-prefixed blog URLs are legacy URLs. The blog now has one canonical
+// URL space, so return a real permanent redirect instead of a 200 HTML page
+// containing a client/meta-refresh redirect. This consolidates link equity and
+// prevents crawlers from treating the legacy pages as soft duplicates.
+app.get(["/sa/blog", "/syr/blog"], (_req: Request, res: Response) => {
+  res.setHeader("Cache-Control", "public, max-age=86400");
+  return res.redirect(301, "/blog");
+});
+
+app.get(
+  ["/sa/blog/:slug", "/syr/blog/:slug"],
+  (req: Request, res: Response) => {
+    const slug = encodeURIComponent(String(req.params["slug"] ?? ""));
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    return res.redirect(301, `/blog/${slug}`);
+  },
+);
 
 // 3. "/blog/:slug" — prerendered file if available, else fetch from API +
 //    build accurate meta tags, injecting window.__SSR_POST__ for hydration.
