@@ -173,7 +173,7 @@ export default function Blog() {
       <section className="bg-primary text-white py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
@@ -224,7 +224,7 @@ export default function Blog() {
               return (
                 <motion.article
                   key={post.slug}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
                   className="group bg-white border border-border flex flex-col hover:shadow-lg transition-shadow duration-300"

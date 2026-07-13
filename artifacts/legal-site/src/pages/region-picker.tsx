@@ -186,7 +186,7 @@ const FAQS = [
 ];
 
 const fadeIn = {
-  initial: { opacity: 0, y: 20 },
+  initial: false as const,
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
   transition: { duration: 0.6 },
@@ -385,7 +385,7 @@ export default function RegionPicker() {
             </motion.div>
 
             {/* About text */}
-            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-3">
+            <motion.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-3">
               <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">About CounselO</p>
               <h2 id="about-heading" className="text-4xl font-serif font-bold text-foreground mb-6">
                 Professional Legal Counsel,<br />Delivered Online
@@ -434,7 +434,7 @@ export default function RegionPicker() {
             {SERVICES.map(({ slug, en }, index) => {
               const Icon = serviceIcons[index] ?? Scale;
               return (
-                <motion.div key={slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: (index % 8) * 0.05 }}
+                <motion.div key={slug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: (index % 8) * 0.05 }}
                   className="bg-background border border-border p-5 hover:border-primary/50 hover:shadow-md transition-all group">
                   <Icon className="h-6 w-6 text-primary mb-3" />
                   <div className="font-semibold text-foreground text-sm mb-3 leading-snug">{en}</div>
@@ -475,7 +475,7 @@ export default function RegionPicker() {
               { step: "03", title: "Pay the Consultation Fee",  body: "Payment is made by bank transfer before you receive the legal opinion. You will receive a payment confirmation and expected response time." },
               { step: "04", title: "Receive Expert Advice",     body: "Lawyer Omar Al-Baghdadi or a qualified CounselO team member reviews your matter and responds within 24 hours." },
             ].map(({ step, title, body }, i) => (
-              <motion.div key={step} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
+              <motion.div key={step} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
                 className="relative bg-card border border-border p-8 hover:border-primary/50 hover:shadow-md transition-all">
                 <div className="text-6xl font-serif font-bold text-primary/10 absolute top-4 end-6 leading-none select-none">{step}</div>
                 <div className="text-primary font-mono text-sm font-bold mb-4">{step}</div>
@@ -510,7 +510,7 @@ export default function RegionPicker() {
 
           <div className="grid sm:grid-cols-2 gap-6 mb-10">
             {BLOG_POSTS.map(({ slug, en }, i) => (
-              <motion.div key={slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+              <motion.div key={slug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-background border border-border p-6 hover:border-primary/50 hover:shadow-md transition-all">
                 <p className="text-primary font-medium text-xs uppercase tracking-widest mb-3">Legal Guide</p>
                 <h3 className="font-serif font-bold text-foreground text-base leading-snug mb-5">{en}</h3>
@@ -547,7 +547,7 @@ export default function RegionPicker() {
           </motion.div>
           <div className="space-y-4">
             {FAQS.map(({ q, a }, i) => (
-              <motion.div key={q} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }}
+              <motion.div key={q} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }}
                 className="bg-card border border-border border-l-2 border-l-primary p-6">
                 <h3 className="font-serif font-semibold text-foreground mb-2">{q}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{a}</p>

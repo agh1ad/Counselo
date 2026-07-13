@@ -10,8 +10,7 @@ CounselO is an online legal consultation platform serving Saudi Arabia and Syria
 - [Home — Syria (Arabic)](https://counselo-legal.com/syr/ar)
 - [Services — Saudi Arabia](https://counselo-legal.com/sa/services)
 - [Services — Syria](https://counselo-legal.com/syr/services)
-- [Blog — Saudi Arabia](https://counselo-legal.com/sa/blog)
-- [Blog — Syria](https://counselo-legal.com/syr/blog)
+- [Legal Blog and Guides](https://counselo-legal.com/blog)
 - [About](https://counselo-legal.com/sa/about)
 - [Contact](https://counselo-legal.com/sa/contact)
 

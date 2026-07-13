@@ -220,7 +220,7 @@ export default function Contact() {
         <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 10%) 0%, hsl(150 80% 15%) 100%)" }} />
         <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at 60% 50%, hsl(150 60% 25% / 0.4) 0%, transparent 60%)" }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">{c.hero.heading}</h1>
             <div className="w-20 h-1 bg-white/40 mx-auto mb-8" />
             <p className="text-xl text-white/75 max-w-2xl mx-auto leading-relaxed">{c.hero.subheading}</p>
@@ -233,7 +233,7 @@ export default function Contact() {
         <section className="py-24 bg-background">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={false}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
               className="border border-border bg-card p-12 flex flex-col items-center gap-6"
@@ -269,7 +269,7 @@ export default function Contact() {
           <div className="grid lg:grid-cols-12 gap-16">
             {/* Info */}
             <div className="lg:col-span-4 space-y-12">
-              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
+              <motion.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
                 <h3 className="text-2xl font-serif font-bold text-foreground mb-8">{c.firmDetails.heading}</h3>
                 <div className="space-y-8">
                   {[
@@ -294,7 +294,7 @@ export default function Contact() {
 
             {/* Form */}
             <div className="lg:col-span-8">
-              <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
+              <motion.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
                 className="bg-card border border-border p-10">
                 <h3 className="text-2xl font-serif font-bold text-foreground mb-2">{f.heading}</h3>
                 <div className="w-12 h-1 bg-primary mb-8" />

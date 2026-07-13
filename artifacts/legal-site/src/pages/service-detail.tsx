@@ -213,7 +213,7 @@ export default function ServiceDetail() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="grid lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <Link href={`${regionPrefix}/services`} className="inline-flex items-center text-primary mb-8 hover:underline underline-offset-4 text-sm font-medium">
                 <ArrowLeft className={`me-2 h-4 w-4 ${isRTL ? "rotate-180" : ""}`} /> {sd.backLink}
               </Link>
@@ -369,7 +369,7 @@ export default function ServiceDetail() {
 
           {/* Sidebar */}
           <div className="lg:col-span-4">
-            <motion.div initial={{ opacity: 0, x: isRTL ? -20 : 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
+            <motion.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
               className="sticky top-28 bg-primary p-8 text-white">
               <h3 className="text-2xl font-serif font-bold text-white mb-4">{sd.sidebar.heading}</h3>
               <div className="w-12 h-1 bg-white/40 mb-6" />

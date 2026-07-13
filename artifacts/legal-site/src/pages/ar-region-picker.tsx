@@ -140,7 +140,7 @@ const FAQS = [
 ];
 
 const fadeIn = {
-  initial: { opacity: 0, y: 20 },
+  initial: false as const,
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
   transition: { duration: 0.6 },
@@ -295,7 +295,7 @@ export default function ArRegionPicker() {
           <div className="grid lg:grid-cols-5 gap-16 items-start">
 
             {/* About text — comes first in RTL so shows on right */}
-            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-3">
+            <motion.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-3">
               <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">عن كاونسلو</p>
               <h2 id="about-heading-ar" className="text-4xl font-serif font-bold text-foreground mb-6">
                 استشارة قانونية احترافية<br />عبر الإنترنت
@@ -389,7 +389,7 @@ export default function ArRegionPicker() {
             {SERVICES.map(({ slug, ar }, index) => {
               const Icon = serviceIcons[index] ?? Scale;
               return (
-                <motion.div key={slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: (index % 8) * 0.05 }}
+                <motion.div key={slug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: (index % 8) * 0.05 }}
                   className="bg-background border border-border p-5 hover:border-primary/50 hover:shadow-md transition-all group">
                   <Icon className="h-6 w-6 text-primary mb-3" />
                   <div className="font-semibold text-foreground text-sm mb-3 leading-snug">{ar}</div>
@@ -430,7 +430,7 @@ export default function ArRegionPicker() {
               { step: "03", title: "ادفع رسوم الاستشارة",   body: "تُسدَّد رسوم الاستشارة عبر التحويل المصرفي قبل استلام الرأي القانوني. يُرسَل إليك تأكيد الدفع وموعد الرد المتوقع." },
               { step: "04", title: "احصل على رأي قانوني",  body: "يراجع المحامي عمر البغدادي أو أحد أعضاء فريق كاونسلو قضيتك ويردّ خلال 24 ساعة." },
             ].map(({ step, title, body }, i) => (
-              <motion.div key={step} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
+              <motion.div key={step} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
                 className="relative bg-card border border-border p-8 hover:border-primary/50 hover:shadow-md transition-all">
                 <div className="text-6xl font-serif font-bold text-primary/10 absolute top-4 start-6 leading-none select-none" dir="ltr">{step}</div>
                 <div className="text-primary font-mono text-sm font-bold mb-4" dir="ltr">{step}</div>
@@ -465,7 +465,7 @@ export default function ArRegionPicker() {
 
           <div className="grid sm:grid-cols-2 gap-6 mb-10">
             {BLOG_POSTS.map(({ saSlug, syrSlug, ar }, i) => (
-              <motion.div key={saSlug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+              <motion.div key={saSlug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-background border border-border p-6 hover:border-primary/50 hover:shadow-md transition-all">
                 <p className="text-primary font-medium text-xs uppercase tracking-widest mb-3">دليل قانوني</p>
                 <h3 className="font-serif font-bold text-foreground text-base leading-snug mb-5">{ar}</h3>
@@ -502,7 +502,7 @@ export default function ArRegionPicker() {
           </motion.div>
           <div className="space-y-4">
             {FAQS.map(({ q, a }, i) => (
-              <motion.div key={q} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }}
+              <motion.div key={q} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }}
                 className="bg-card border border-border border-r-2 border-r-primary p-6">
                 <h3 className="font-serif font-semibold text-foreground mb-2">{q}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{a}</p>
