@@ -50,6 +50,7 @@
     "@tailwindcss/typography": "^0.5.15",
     "@tailwindcss/vite": "catalog:",
     "@tanstack/react-query": "catalog:",
+    "@types/compression": "^1.8.1",
     "@types/express": "^5.0.6",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
@@ -95,6 +96,7 @@
     "@tiptap/pm": "^3.27.1",
     "@tiptap/react": "^3.27.1",
     "@tiptap/starter-kit": "^3.27.1",
+    "compression": "^1.8.1",
     "express": "^5.2.1",
     "react-helmet-async": "^3.0.0"
   }

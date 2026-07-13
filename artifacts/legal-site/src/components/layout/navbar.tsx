@@ -5,9 +5,10 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
-import saudiFlag from "@assets/image_1782789705620.jpeg";
-import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5x_1782856203372.jpg";
-import navbarBrand from "@assets/Screen_Shot_2026-07-02_at_12.27.45_AM_1782937671982.png";
+
+const saudiFlag = "/images/optimized/saudi-arabia-flag.jpg";
+const syrianFlag = "/images/optimized/syria-flag.jpg";
+const navbarBrand = "/images/optimized/counselo-navbar-logo.png";
 
 export function Navbar() {
   const [location] = useLocation();
@@ -31,12 +32,15 @@ export function Navbar() {
         <div className="flex justify-between items-center h-24">
           <div className="flex items-center gap-3">
             <Link href={regionPrefix}>
-              <img src={navbarBrand} alt="CounselO — Online Legal Consultations" className="h-20 w-auto object-contain" />
+              <img src={navbarBrand} alt="CounselO — Online Legal Consultations" width="207" height="80" decoding="async" className="h-20 w-auto object-contain" />
             </Link>
             <Link href="/" title="Change region">
               <img
                 src={flag}
                 alt={flagAlt}
+                width="36"
+                height="24"
+                decoding="async"
                 className="h-6 w-auto object-cover rounded-sm shadow-sm border border-border hover:opacity-80 transition-opacity cursor-pointer"
                 style={{ aspectRatio: "3/2", width: "36px" }}
               />

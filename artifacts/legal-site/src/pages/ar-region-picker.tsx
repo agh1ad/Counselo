@@ -2,9 +2,10 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
 import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowLeft, MessageCircle, CheckCircle2, Award } from "lucide-react";
-import counseloLogo from "@assets/Screen_Shot_2026-07-01_at_12.26.11_AM_1782851175169.png";
-import saudiFlag from "@assets/image_1782789705620.jpeg";
-import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5x_1782856203372.jpg";
+
+const counseloLogo = "/images/optimized/counselo-region-logo.png";
+const saudiFlag = "/images/optimized/saudi-arabia-flag.jpg";
+const syrianFlag = "/images/optimized/syria-flag.jpg";
 
 // ── Structured Data ───────────────────────────────────────────────────────────
 
@@ -201,11 +202,15 @@ export default function ArRegionPicker() {
           style={{ backgroundImage: "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
 
         <div className="relative z-10 w-full max-w-4xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="flex flex-col items-center">
+          <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="flex flex-col items-center">
             <Link href="/sa/ar">
               <img
                 src={counseloLogo}
                 alt="كاونسلو — استشارات قانونية أونلاين للسعودية وسوريا"
+                width="193"
+                height="80"
+                fetchPriority="high"
+                decoding="async"
                 className="h-20 w-auto object-contain mb-10 hover:opacity-90 transition-opacity"
               />
             </Link>
@@ -244,7 +249,7 @@ export default function ArRegionPicker() {
               ].map(({ href, flag, label, alt }) => (
                 <Link key={href} href={href}>
                   <div className="group cursor-pointer flex flex-col items-center gap-4 p-8 bg-white/5 border border-white/15 hover:bg-white/10 hover:border-white/40 transition-all duration-200">
-                    <img src={flag} alt={alt} className="object-cover shadow-lg" style={{ width: "72px", height: "48px", borderRadius: "2px", border: "1px solid rgba(255,255,255,0.2)" }} />
+                    <img src={flag} alt={alt} width="72" height="48" decoding="async" className="object-cover shadow-lg" style={{ width: "72px", height: "48px", borderRadius: "2px", border: "1px solid rgba(255,255,255,0.2)" }} />
                     <div className="text-white font-semibold text-base">{label}</div>
                     <div className="flex items-center gap-1 text-white/50 text-xs group-hover:text-white/80 transition-colors">
                       <ArrowLeft className="h-3 w-3" /> ادخل

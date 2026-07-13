@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { MapPin, Phone, Mail, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
-const counseloLogo = "/logo.png";
+const counseloLogo = "/images/optimized/counselo-footer-logo.png";
 
 export function Footer() {
   const { t } = useLanguage();
@@ -17,7 +17,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1">
             <Link href={regionPrefix} className="flex items-center gap-2 mb-6">
-              <img src={counseloLogo} alt="CounselO — Online Legal Consultations" className="h-16 w-auto object-contain" />
+              <img src={counseloLogo} alt="CounselO — Online Legal Consultations" width="64" height="64" loading="lazy" decoding="async" className="h-16 w-auto object-contain" />
             </Link>
             <p className="text-white/70 text-sm mb-6 leading-relaxed">{f.tagline}</p>
             <div className="flex space-x-4 rtl:space-x-reverse text-white/60">

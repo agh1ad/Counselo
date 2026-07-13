@@ -20,6 +20,7 @@ import express, {
   type Response,
   type NextFunction,
 } from "express";
+import compression from "compression";
 import { existsSync, readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -276,6 +277,7 @@ async function ssrRender(url: string): Promise<string> {
 const app = express();
 
 app.disable("x-powered-by");
+app.use(compression());
 app.use((_req, res, next) => {
   res.setHeader("X-Content-Type-Options", "nosniff");
   res.setHeader("X-Frame-Options", "DENY");

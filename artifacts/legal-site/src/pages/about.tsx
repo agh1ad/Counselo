@@ -5,9 +5,10 @@ import { CheckCircle2, ArrowRight, MapPin, Award, Users, Globe, Zap, Scale, Star
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
-import founderPhoto from "@assets/ChatGPT_Image_Mar_8,_2026,_04_53_46_PM_1782789204870.png";
-import saudiFlag from "@assets/image_1782789705620.jpeg";
-import syrianFlag from "@assets/360_F_1136337946_c5gr8LMbgzdkl80hVpy8xRXYYQBTlp5x_1782856203372.jpg";
+
+const founderPhoto = "/images/optimized/omar-founder-bio.png";
+const saudiFlag = "/images/optimized/saudi-arabia-hero.jpg";
+const syrianFlag = "/images/optimized/syria-hero.jpg";
 
 const whyIcons = [Scale, Globe, Award, Globe, Zap, Users];
 
@@ -96,7 +97,7 @@ export default function About() {
       {/* ── Hero ── */}
       <section className="relative py-28 overflow-hidden">
         {/* Country flag as full background */}
-        <img src={heroFlag} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover object-center" />
+        <img src={heroFlag} alt="" aria-hidden="true" width={region === "syr" ? 645 : 1600} height={region === "syr" ? 360 : 900} fetchPriority="high" decoding="async" className="absolute inset-0 w-full h-full object-cover object-center" />
         {/* Dark green overlay so text stays readable */}
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(0,40,20,0.88) 0%, rgba(0,60,30,0.80) 100%)" }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
