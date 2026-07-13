@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useParams, Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, CheckCircle2, ChevronRight, ChevronDown } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ChevronRight, ChevronDown, ExternalLink } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
@@ -10,6 +10,32 @@ import { SYR_SEO_DATA } from "@/lib/seo-data-syr";
 import { RELATED_SERVICES, SERVICE_SEARCH_CONTENT } from "@/lib/service-search-content";
 import { TrustSignals } from "@/components/seo/TrustSignals";
 
+type LegalSource = { en: string; ar: string; href: string };
+
+const SAUDI_OFFICIAL_SOURCES: Record<string, LegalSource[]> = {
+  "family-law": [{ en: "Saudi Personal Status Law", ar: "نظام الأحوال الشخصية السعودي", href: "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1" }],
+  "employment-law": [{ en: "Saudi Labor Law", ar: "نظام العمل السعودي", href: "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/08381293-6388-48e2-8ad2-a9a700f2aa94/1" }],
+  "business-law": [
+    { en: "Saudi Companies Law", ar: "نظام الشركات السعودي", href: "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/a8376aea-1bc3-49d4-9027-aed900b555af/1" },
+    { en: "Law of Commercial Courts", ar: "نظام المحاكم التجارية", href: "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/38334008-3b70-4c6c-b3af-aba3016a8061/1" },
+  ],
+  "companies-law": [{ en: "Saudi Companies Law", ar: "نظام الشركات السعودي", href: "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/a8376aea-1bc3-49d4-9027-aed900b555af/1" }],
+  "foreign-investment": [{ en: "Saudi Investment Law", ar: "نظام الاستثمار السعودي", href: "https://laws.boe.gov.sa/BoeLaws/Laws/SearchDetails/?Id=eda86cc3-3a00-4b90-900d-b1d000c8a863&Query=+" }],
+  contracts: [{ en: "Saudi Civil Transactions Law", ar: "نظام المعاملات المدنية السعودي", href: "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1" }],
+  "real-estate": [{ en: "Saudi Civil Transactions Law", ar: "نظام المعاملات المدنية السعودي", href: "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1" }],
+};
+
+const SAUDI_GENERAL_SOURCE: LegalSource = {
+  en: "Saudi Ministry of Justice — Laws and Regulations",
+  ar: "وزارة العدل السعودية — الأنظمة واللوائح",
+  href: "https://moj.gov.sa/English/Pages/LawsAndRegulations.aspx",
+};
+
+const SYRIA_GENERAL_SOURCE: LegalSource = {
+  en: "Syrian Ministry of Justice",
+  ar: "وزارة العدل السورية",
+  href: "https://moj.gov.sy/",
+};
 
 export default function ServiceDetail() {
   const params = useParams();
@@ -124,6 +150,9 @@ export default function ServiceDetail() {
   const canonicalUrlFull = `https://counselo-legal.com${regionSeg}${langSeg}${canonicalPath}`;
   const regionBase = `https://counselo-legal.com${regionSeg}${langSeg}`;
   const inLanguage = isRTL ? (isSyr ? "ar-SY" : "ar-SA") : (isSyr ? "en-SY" : "en-SA");
+  const legalSources = isSyr
+    ? [SYRIA_GENERAL_SOURCE]
+    : (SAUDI_OFFICIAL_SOURCES[id] ?? [SAUDI_GENERAL_SOURCE]);
 
   const schemas: object[] = [
     {
@@ -163,6 +192,8 @@ export default function ServiceDetail() {
       "name": seoTitle,
       "description": seoDesc,
       "inLanguage": inLanguage,
+      "dateModified": "2026-07-13",
+      "citation": legalSources.map((source) => source.href),
       "publisher": {
         "@type": "LegalService",
         "@id": "https://counselo-legal.com/#organization",
@@ -234,6 +265,18 @@ export default function ServiceDetail() {
                     : `CounselO helps individuals and businesses understand ${data.title.toLowerCase()} matters, review documents, identify practical options, and begin a confidential online consultation through WhatsApp or email.`}
                 </p>
               </section>
+
+              <nav aria-label={isRTL ? "محتويات الصفحة" : "On this page"} className="border border-border bg-background p-5 mb-12">
+                <p className="text-sm font-bold text-foreground mb-3">{isRTL ? "في هذه الصفحة" : "On this page"}</p>
+                <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+                  {commonIssues.length > 0 && <a href="#common-problems-heading" className="text-primary hover:underline">{isRTL ? "المشكلات الشائعة" : "Common problems"}</a>}
+                  {documents.length > 0 && <a href="#documents-heading" className="text-primary hover:underline">{isRTL ? "المستندات" : "Documents"}</a>}
+                  <a href="#related-services-heading" className="text-primary hover:underline">{isRTL ? "الخدمات المرتبطة" : "Related services"}</a>
+                  <a href="#service-process-heading" className="text-primary hover:underline">{isRTL ? "خطوات العمل" : "Our process"}</a>
+                  {displayFaqs.length > 0 && <a href="#service-faq-heading" className="text-primary hover:underline">{isRTL ? "الأسئلة الشائعة" : "FAQs"}</a>}
+                  <a href="#official-sources-heading" className="text-primary hover:underline">{isRTL ? "المصادر الرسمية" : "Official sources"}</a>
+                </div>
+              </nav>
 
               {/* Overview — handles both single-string and multi-paragraph formats */}
               <div className="prose prose-green max-w-none mb-16 speakable-overview">
@@ -319,7 +362,7 @@ export default function ServiceDetail() {
                 </div>
               </section>
 
-              <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">{sd.processHeading}</h2>
+              <h2 id="service-process-heading" className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">{sd.processHeading}</h2>
               <div className="space-y-8 mb-16">
                 {displayProcess.map((step, i) => (
                   <div key={i} className="flex gap-6 relative">
@@ -339,7 +382,7 @@ export default function ServiceDetail() {
 
               {displayFaqs.length > 0 && (
                 <div className="mt-4">
-                  <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">
+                  <h2 id="service-faq-heading" className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">
                     {isRTL ? "الأسئلة الشائعة" : "Frequently Asked Questions"}
                   </h2>
                   <div className="space-y-3">
@@ -363,6 +406,31 @@ export default function ServiceDetail() {
                   </div>
                 </div>
               )}
+
+              <section className="mt-16 border-t border-border pt-10" aria-labelledby="official-sources-heading">
+                <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-2">{isRTL ? "الشفافية القانونية" : "Legal transparency"}</p>
+                <h2 id="official-sources-heading" className="text-3xl font-serif font-bold text-foreground mb-4">{isRTL ? "مصادر قانونية رسمية" : "Official legal sources"}</h2>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                  {isRTL
+                    ? "تساعد الروابط الرسمية التالية في التحقق من النصوص النظامية. قد تتغير الأنظمة واللوائح، ويجب تقييم النص النافذ والوقائع الخاصة بكل حالة قبل الاعتماد عليه."
+                    : "Use these official links to verify the underlying legal materials. Laws and regulations can change, and the current text and facts of each matter must be assessed before reliance."}
+                </p>
+                <ul className="grid sm:grid-cols-2 gap-3">
+                  {legalSources.map((source) => (
+                    <li key={source.href}>
+                      <a href={source.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-3 border border-border bg-card p-4 font-semibold text-primary hover:border-primary">
+                        <span>{isRTL ? source.ar : source.en}</span><ExternalLink className="h-4 w-4 shrink-0" aria-hidden="true" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6 bg-muted/50 border border-border p-4 text-sm text-muted-foreground leading-relaxed">
+                  <strong className="text-foreground">{isRTL ? "مسؤول المحتوى:" : "Content responsibility:"}</strong>{" "}
+                  {isRTL
+                    ? `فريق المحتوى القانوني في كاونسلو. آخر تحديث: 13 يوليو 2026. هذه الصفحة معلومات عامة عن ${data.title} في ${countryName} وليست بديلاً عن استشارة مبنية على الوقائع.`
+                    : `CounselO legal content team. Last updated 13 July 2026. This page provides general information about ${data.title.toLowerCase()} in ${countryName} and does not replace advice based on the facts.`}
+                </div>
+              </section>
 
             </motion.div>
           </div>

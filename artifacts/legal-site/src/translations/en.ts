@@ -68,7 +68,7 @@ export const en = {
       desc: "CounselO is an online legal consultation platform serving Saudi Arabia — delivering expert legal guidance for individuals, businesses and investors, directly to your phone or inbox.",
       descBold: "without leaving your desk.",
       descEnd: "",
-      subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Saudi Arabia — professional legal response within 24 hours, guaranteed. 30+ years experience, 20,000+ cases and consultations.",
+      subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Saudi Arabia — with a target professional response time of 24 hours. 30+ years experience, 20,000+ cases and consultations.",
       chips: ["✓ 20,000+ Cases & Consultations Handled", "✓ Bilingual Arabic & English", "✓ All Client Types", "✓ Response Within 24 Hours"],
       bookBtn: "Start a Consultation",
       servicesBtn: "Our Practice Areas",
@@ -89,7 +89,7 @@ export const en = {
       subheading: "CounselO is a fully digital legal platform serving Saudi Arabia. Expert legal guidance from anywhere in the Kingdom — instantly, securely, and professionally.",
       advantages: [
         { icon: "wifi", title: "Fully Online — Across Saudi Arabia", desc: "Consult from anywhere in Saudi Arabia — no office visit, no parking, no waiting room." },
-        { icon: "clock", title: "Professional Response Within 24 Hours", desc: "Submit your legal matter and receive a structured, professional legal response from our expert team — guaranteed within 24 hours." },
+        { icon: "clock", title: "Target Response Within 24 Hours", desc: "Submit your legal matter for a structured professional response. CounselO targets a response within 24 hours, subject to the matter's scope and urgency." },
         { icon: "lock", title: "Secure & Confidential", desc: "All consultations are handled with strict professional confidentiality. Your legal matters stay private." },
         { icon: "globe", title: "Arabic & English", desc: "Fully bilingual platform. Legal advice in the language you think and work in — no barriers." },
       ],
@@ -165,7 +165,7 @@ export const en = {
       eyebrow: "Why CounselO",
       heading: "Fast. Reliable. Professional.",
       features: [
-        { title: "Response Within 24 Hours", desc: "No waiting rooms, no scheduling delays. Submit your matter and receive a professional legal response from our team within 24 hours — guaranteed." },
+        { title: "Target Response Within 24 Hours", desc: "Submit your matter without an office visit. CounselO targets a professional response within 24 hours, subject to the matter's scope and urgency." },
         { title: "Reliable & Confidential", desc: "Strict professional confidentiality on every matter. Your legal information is never shared." },
         { title: "Team Led by a Senior Founder", desc: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi. His professional legal team operates under his direct supervision — ensuring senior-level quality on every matter." },
         { title: "Arabic & English", desc: "Fully bilingual consultations. Legal guidance in your preferred language, with no barriers." },
@@ -250,9 +250,9 @@ export const en = {
         covers: ["Contentious Child Custody Disputes", "Prenuptial & Postnuptial Agreements", "Alimony & Spousal Support Negotiation"],
         process: [
           { title: "Initial Strategy Session", desc: "A confidential review of your situation to identify immediate vulnerabilities and long-term goals." },
-          { title: "Asset & Case Analysis", desc: "Meticulous documentation and forensic accounting to build an unshakeable foundation." },
+          { title: "Asset & Case Analysis", desc: "We organize the relevant documents, financial information, and evidence to assess the legal and practical position." },
           { title: "Strategic Negotiation", desc: "Attempting resolution from a position of strength to avoid unnecessary public litigation." },
-          { title: "Aggressive Litigation", desc: "When settlement fails, we proceed to court with overwhelming preparation and focus." },
+          { title: "Court Proceedings", desc: "When settlement is not appropriate or does not succeed, the matter can proceed through the competent court under the agreed representation scope." },
         ],
       },
       "business-law": {

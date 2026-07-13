@@ -229,11 +229,11 @@ export default function ArRegionPicker() {
 
             <p className="text-xl text-white/75 mb-10 max-w-xl leading-relaxed font-light">
               استشارات قانونية احترافية وسرية بالعربية والإنجليزية —{" "}
-              <strong className="text-white font-semibold">ضمان الرد خلال 24 ساعة.</strong>
+              <strong className="text-white font-semibold">وقت استجابة مستهدف خلال 24 ساعة.</strong>
             </p>
 
             <div className="flex flex-wrap justify-center gap-3 mb-12">
-              {["السرية المهنية بين المحامي والموكّل", "ضمان الرد خلال 24 ساعة", "بالعربية والإنجليزية"].map((label) => (
+              {["السرية المهنية بين المحامي والموكّل", "وقت استجابة مستهدف خلال 24 ساعة", "بالعربية والإنجليزية"].map((label) => (
                 <span key={label} className="bg-white/10 border border-white/20 text-white/80 text-xs font-medium px-4 py-2 uppercase tracking-wider">
                   {label}
                 </span>
@@ -277,7 +277,7 @@ export default function ArRegionPicker() {
             {[
               { stat: "+30",      label: "عاماً من الخبرة القانونية" },
               { stat: "+20,000",  label: "قضية تمت معالجتها" },
-              { stat: "24 ساعة", label: "ضمان الرد" },
+              { stat: "24 ساعة", label: "وقت الاستجابة المستهدف" },
               { stat: "2",        label: "دولتان: السعودية وسوريا" },
             ].map(({ stat, label }, i, arr) => (
               <motion.div key={stat} {...fadeIn} className={`text-center px-4 py-2 ${i < arr.length - 1 ? "border-l border-border" : ""}`}>
@@ -309,7 +309,7 @@ export default function ArRegionPicker() {
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
                 نجعل الاستشارة القانونية المتخصصة في متناول الجميع — أفراداً وأسراً وشركات — دون الحاجة لزيارة المكتب. الاستشارات عبر الواتساب أو البريد الإلكتروني{" "}
-                <strong className="text-foreground">بالعربية أو الإنجليزية</strong>، مع ضمان الرد{" "}
+                <strong className="text-foreground">بالعربية أو الإنجليزية</strong>، مع وقت استجابة مستهدف{" "}
                 <strong className="text-foreground">خلال 24 ساعة</strong>.
               </p>
               <div className="grid sm:grid-cols-3 gap-4">

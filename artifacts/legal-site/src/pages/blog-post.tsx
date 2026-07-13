@@ -347,16 +347,19 @@ export default function BlogPost() {
 
               <div className="border border-border p-5">
                 <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-2">
-                  {lang === "en" ? "Written by" : "بقلم"}
+                  {lang === "en" ? "Content information" : "معلومات المحتوى"}
                 </p>
                 <p className="font-serif font-bold text-foreground">
-                  {lang === "en" ? "CounselO Team" : "فريق كاونسلو"}
+                  {lang === "en" ? "CounselO Legal Content Team" : "فريق المحتوى القانوني في كاونسلو"}
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   {lang === "en"
-                    ? "Online Legal Consultations — Saudi Arabia & Syria"
-                    : "استشارات قانونية أونلاين — السعودية وسوريا"}
+                    ? `Published ${formatDate(post.date, lang)}${post.updatedAt ? ` · Updated ${formatDate(post.updatedAt, lang)}` : ""}`
+                    : `نُشر ${formatDate(post.date, lang)}${post.updatedAt ? ` · حُدّث ${formatDate(post.updatedAt, lang)}` : ""}`}
                 </p>
+                <Link href={`${regionPrefix}/about`} className="inline-flex mt-3 text-sm font-semibold text-primary hover:underline">
+                  {lang === "en" ? "Legal leadership and experience" : "القيادة والخبرة القانونية"}
+                </Link>
               </div>
 
               {(() => {

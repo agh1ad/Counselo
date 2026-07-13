@@ -97,7 +97,7 @@ const faqSchema = {
       "name": "How quickly will I receive a legal response?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CounselO guarantees a professional legal response within 24 hours of submitting your consultation request via WhatsApp or email. Urgent matters are prioritised.",
+        "text": "CounselO targets a professional legal response within 24 hours of receiving a consultation request via WhatsApp or email, subject to the matter's scope and urgency.",
       },
     },
     {
@@ -275,7 +275,7 @@ export default function RegionPicker() {
 
             <p className="text-xl text-white/75 mb-10 max-w-xl leading-relaxed font-light">
               Expert, confidential legal advice in Arabic &amp; English —{" "}
-              <strong className="text-white font-semibold">guaranteed response within 24 hours.</strong>
+              <strong className="text-white font-semibold">target response within 24 hours.</strong>
             </p>
 
             <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -399,7 +399,7 @@ export default function RegionPicker() {
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
                 We make professional legal advice accessible to everyone — individuals, families, and businesses — without the need for an office visit. Consultations are conducted via WhatsApp or email, in{" "}
-                <strong className="text-foreground">Arabic or English</strong>, with a response guaranteed{" "}
+                <strong className="text-foreground">Arabic or English</strong>, with a target response{" "}
                 <strong className="text-foreground">within 24 hours</strong>.
               </p>
               <div className="grid sm:grid-cols-3 gap-4">

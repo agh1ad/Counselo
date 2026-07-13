@@ -39,14 +39,14 @@ export const enSyr: typeof en = {
       h1a: "Online Legal Consultation",
       h1b: "for Syria — Fast & Reliable.",
       desc: "CounselO is an online legal consultation platform serving Syria — delivering expert legal guidance for individuals, businesses and investors across all major areas of Syrian law",
-      subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Syria — professional legal response within 24 hours, guaranteed. 30+ years regional experience, 20,000+ cases and consultations.",
+      subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Syria — with a target professional response time of 24 hours. 30+ years regional experience, 20,000+ cases and consultations.",
     },
     platform: {
       ...en.home.platform,
       subheading: "CounselO is a fully digital legal platform serving Syria. Expert legal guidance covering Syrian law — instantly, securely, and professionally.",
       advantages: [
         { icon: "wifi", title: "Fully Online — Anywhere in Syria", desc: "Consult from Damascus, Aleppo, Homs, Lattakia or anywhere in Syria — no office visit, no commute, no waiting room." },
-        { icon: "clock", title: "Professional Response Within 24 Hours", desc: "Submit your legal matter and receive a structured, professional legal response from our expert team — guaranteed within 24 hours." },
+        { icon: "clock", title: "Target Response Within 24 Hours", desc: "Submit your legal matter for a structured professional response. CounselO targets a response within 24 hours, subject to the matter's scope and urgency." },
         { icon: "lock", title: "Secure & Confidential", desc: "All consultations are handled with strict professional confidentiality. Your legal matters stay private." },
         { icon: "globe", title: "Arabic & English", desc: "Fully bilingual platform. Legal advice in the language you think and work in — no barriers." },
       ],
