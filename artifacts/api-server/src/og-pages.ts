@@ -115,9 +115,20 @@ function escapeXml(value: string): string {
     .replace(/'/g, "&apos;");
 }
 
+function normalizeDescription(primary: string, fallback: string): string {
+  const combined = primary.trim().length >= 80
+    ? primary.trim()
+    : `${primary.trim()} ${fallback.trim()}`.trim();
+  if (combined.length <= 170) return combined;
+  return `${combined.slice(0, 167).replace(/\s+\S*$/, "").trimEnd()}…`;
+}
+
 function buildDynamicBlogHtml(post: typeof blogPostsTable.$inferSelect): string {
   const title = post.seoTitleEn || post.titleEn || post.seoTitleAr || post.titleAr || SITE_NAME;
-  const description = post.seoDescriptionEn || post.excerptEn || post.seoDescriptionAr || post.excerptAr || "";
+  const description = normalizeDescription(
+    post.seoDescriptionEn || post.seoDescriptionAr || "",
+    post.excerptEn || post.excerptAr || "Online legal guidance from CounselO.",
+  );
   const canonical = `${BASE_URL}/blog/${post.slug}`;
   const shell = getShellHtml() ?? getIndexHtml();
   const articleSchema = safeJson({
@@ -128,9 +139,10 @@ function buildDynamicBlogHtml(post: typeof blogPostsTable.$inferSelect): string 
     datePublished: post.date,
     dateModified: post.updatedAt?.toISOString?.() ?? post.date,
     mainEntityOfPage: canonical,
-    author: { "@type": "Organization", name: "CounselO", url: BASE_URL },
+    author: { "@type": "Organization", "@id": `${BASE_URL}/#organization`, name: "CounselO", url: BASE_URL },
     publisher: {
       "@type": "Organization",
+      "@id": `${BASE_URL}/#organization`,
       name: "CounselO",
       url: BASE_URL,
       logo: { "@type": "ImageObject", url: `${BASE_URL}/logo.png` },

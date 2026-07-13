@@ -95,6 +95,14 @@ function stripHtml(html: string): string {
     .trim();
 }
 
+function normalizeDescription(primary: string, fallback: string): string {
+  const combined = primary.trim().length >= 80
+    ? primary.trim()
+    : `${primary.trim()} ${fallback.trim()}`.trim();
+  if (combined.length <= 170) return combined;
+  return `${combined.slice(0, 167).replace(/\s+\S*$/, "").trimEnd()}…`;
+}
+
 type FetchResult =
   | { status: "found"; post: ApiPost }
   | { status: "notfound" }
@@ -132,7 +140,10 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
 
   const canonical = `https://counselo-legal.com/blog/${slug}`;
   const primaryTitle = seoTitleEn || seoTitleAr;
-  const primaryDesc = (seoDescEn || seoDescAr).slice(0, 160);
+  const primaryDesc = normalizeDescription(
+    seoDescEn || seoDescAr,
+    post.excerptEn || post.excerptAr || stripHtml(post.bodyEn || post.bodyAr || ""),
+  );
 
   const articleSchema = JSON.stringify({
     "@context": "https://schema.org",
@@ -144,11 +155,13 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
     author: {
       "@type": "Organization",
+      "@id": "https://counselo-legal.com/#organization",
       name: "CounselO",
       url: "https://counselo-legal.com",
     },
     publisher: {
       "@type": "Organization",
+      "@id": "https://counselo-legal.com/#organization",
       name: "CounselO",
       url: "https://counselo-legal.com",
       logo: {

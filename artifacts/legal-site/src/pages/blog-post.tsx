@@ -59,6 +59,14 @@ function formatDate(dateStr: string, lang: string) {
   });
 }
 
+function normalizeDescription(primary: string, fallback: string): string {
+  const combined = primary.trim().length >= 80
+    ? primary.trim()
+    : `${primary.trim()} ${fallback.trim()}`.trim();
+  if (combined.length <= 170) return combined;
+  return `${combined.slice(0, 167).replace(/\s+\S*$/, "").trimEnd()}…`;
+}
+
 declare global {
   interface Window {
     __SSR_POST__?: ApiPost;
@@ -157,7 +165,8 @@ export default function BlogPost() {
   const title = useAr ? post.titleAr : post.titleEn;
   const excerpt = useAr ? post.excerptAr : (post.excerptEn || post.excerptAr);
   const seoTitle = useAr ? (post.seoTitleAr || post.titleAr) : (post.seoTitleEn || post.titleEn || post.seoTitleAr || post.titleAr);
-  const seoDesc = useAr ? (post.seoDescriptionAr || post.excerptAr) : (post.seoDescriptionEn || post.excerptEn || post.seoDescriptionAr || post.excerptAr);
+  const rawSeoDesc = useAr ? (post.seoDescriptionAr || post.excerptAr) : (post.seoDescriptionEn || post.excerptEn || post.seoDescriptionAr || post.excerptAr);
+  const seoDesc = normalizeDescription(rawSeoDesc, excerpt);
   const category = useAr ? post.categoryAr : (post.categoryEn || post.categoryAr);
   const body = useAr ? post.bodyAr : (post.bodyEn || post.bodyAr);
   const content = useAr ? post.contentAr : (post.contentEn?.length ? post.contentEn : post.contentAr);
@@ -180,6 +189,7 @@ export default function BlogPost() {
     },
     "author": {
       "@type": "Organization",
+      "@id": "https://counselo-legal.com/#organization",
       "name": "CounselO",
       "url": "https://counselo-legal.com",
       "logo": {
@@ -191,6 +201,7 @@ export default function BlogPost() {
     },
     "publisher": {
       "@type": "Organization",
+      "@id": "https://counselo-legal.com/#organization",
       "name": "CounselO",
       "url": "https://counselo-legal.com",
       "logo": {

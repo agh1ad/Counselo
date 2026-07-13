@@ -133,12 +133,13 @@ export default function ServiceDetail() {
       "serviceType": data.title,
       "provider": {
         "@type": "LegalService",
+        "@id": "https://counselo-legal.com/#organization",
         "name": isRTL ? "كاونسلو" : "CounselO",
         "url": "https://counselo-legal.com",
         "telephone": "+966594850247",
         "email": "info@counselo-legal.com",
         "address": serviceAddress,
-        "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel", "honorificPrefix": "Lawyer" },
+        "founder": { "@type": "Person", "@id": "https://counselo-legal.com/sa/about#omar-al-baghdadi", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel", "honorificPrefix": "Lawyer" },
       },
     },
     {
@@ -160,6 +161,7 @@ export default function ServiceDetail() {
       "inLanguage": inLanguage,
       "publisher": {
         "@type": "LegalService",
+        "@id": "https://counselo-legal.com/#organization",
         "name": "CounselO",
         "url": "https://counselo-legal.com",
       },

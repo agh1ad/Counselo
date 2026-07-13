@@ -333,6 +333,23 @@ function validatePage(filepath: string): PageResult {
         detail: `"Saudi Arabia" in title without "Syria"`,
       });
 
+    const visibleText = decode(
+      html
+        .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
+        .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
+        .replace(/<[^>]+>/g, " ")
+        .replace(/\s+/g, " "),
+    );
+    const contamination = visibleText.match(
+      /Saudi(?: Arabia)?|\bKSA\b|\bSAMA\b|\bCMA\b|\bZATCA\b|\bMISA\b|\bSAIP\b|\bCITC\b|Vision 2030|السعود(?:ية|ي)?|ساما|هيئة الزكاة/gi,
+    );
+    if (contamination?.length)
+      issues.push({
+        severity: "error",
+        rule: "syr-jurisdiction-contamination",
+        detail: `Saudi-only terms in visible Syria content: ${[...new Set(contamination)].join(", ")}`,
+      });
+
     if (!hl["en-SY"])
       issues.push({
         severity: "error",
