@@ -124,7 +124,11 @@ function normalizeDescription(primary: string, fallback: string): string {
 }
 
 function buildDynamicBlogHtml(post: typeof blogPostsTable.$inferSelect): string {
+  const isArabicPost = Boolean(post.titleAr.trim() && !post.titleEn.trim());
   const title = post.seoTitleEn || post.titleEn || post.seoTitleAr || post.titleAr || SITE_NAME;
+  const brandedTitle = /(?:CounselO|كاونسلو)$/i.test(title)
+    ? title
+    : `${title} | ${isArabicPost ? "كاونسلو" : "CounselO"}`;
   const description = normalizeDescription(
     post.seoDescriptionEn || post.seoDescriptionAr || "",
     post.excerptEn || post.excerptAr || "Online legal guidance from CounselO.",
@@ -136,6 +140,7 @@ function buildDynamicBlogHtml(post: typeof blogPostsTable.$inferSelect): string 
     "@type": "Article",
     headline: title,
     description,
+    inLanguage: isArabicPost ? "ar" : "en",
     datePublished: post.date,
     dateModified: post.updatedAt?.toISOString?.() ?? post.date,
     mainEntityOfPage: canonical,
@@ -148,7 +153,7 @@ function buildDynamicBlogHtml(post: typeof blogPostsTable.$inferSelect): string 
       logo: { "@type": "ImageObject", url: `${BASE_URL}/logo.png` },
     },
   });
-  const head = `<title>${esc(title)} | CounselO</title>
+  const head = `<title>${esc(brandedTitle)}</title>
     <meta name="description" content="${esc(description.slice(0, 170))}">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="${esc(canonical)}">
@@ -159,9 +164,10 @@ function buildDynamicBlogHtml(post: typeof blogPostsTable.$inferSelect): string 
     <script>window.__SSR_POST__=${safeJson(post)};</script>`;
   const body = `<article><h1>${esc(title)}</h1><p>${esc(description)}</p></article>`;
   if (!shell) {
-    return `<!doctype html><html lang="en"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
+    return `<!doctype html><html lang="${isArabicPost ? "ar" : "en"}" dir="${isArabicPost ? "rtl" : "ltr"}"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
   }
   return shell
+    .replace(/<html\b[^>]*>/i, `<html lang="${isArabicPost ? "ar" : "en"}" dir="${isArabicPost ? "rtl" : "ltr"}">`)
     .replace("<!--app-head-->", head)
     .replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
 }

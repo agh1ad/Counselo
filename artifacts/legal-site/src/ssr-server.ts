@@ -125,6 +125,7 @@ async function fetchBlogPost(slug: string): Promise<FetchResult> {
 
 function buildBlogHtml(slug: string, post: ApiPost): string {
   const template = readFileSync(shellHtml, "utf-8");
+  const isArabicPost = Boolean(post.titleAr?.trim() && !post.titleEn?.trim());
 
   const seoTitleEn =
     post.seoTitleEn || post.titleEn || post.seoTitleAr || post.titleAr;
@@ -141,6 +142,9 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
 
   const canonical = `https://counselo-legal.com/blog/${slug}`;
   const primaryTitle = seoTitleEn || seoTitleAr;
+  const brandedTitle = /(?:CounselO|كاونسلو)$/i.test(primaryTitle)
+    ? primaryTitle
+    : `${primaryTitle} | ${isArabicPost ? "كاونسلو" : "CounselO"}`;
   const primaryDesc = normalizeDescription(
     seoDescEn || seoDescAr,
     post.excerptEn || post.excerptAr || stripHtml(post.bodyEn || post.bodyAr || ""),
@@ -151,6 +155,7 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
     "@type": "Article",
     headline: primaryTitle,
     description: primaryDesc,
+    inLanguage: isArabicPost ? "ar" : "en",
     datePublished: post.date,
     dateModified: post.updatedAt ?? post.date,
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
@@ -193,7 +198,7 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
   });
 
   const headTags = [
-    `<title data-rh="true">${escapeHtml(primaryTitle)} | Counselo</title>`,
+    `<title data-rh="true">${escapeHtml(brandedTitle)}</title>`,
     `<meta data-rh="true" name="description" content="${escapeHtml(primaryDesc)}">`,
     `<meta data-rh="true" property="og:title" content="${escapeHtml(primaryTitle)}">`,
     `<meta data-rh="true" property="og:description" content="${escapeHtml(primaryDesc)}">`,
@@ -211,6 +216,7 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
   ].join("\n");
 
   return template
+    .replace(/<html\b[^>]*>/i, `<html lang="${isArabicPost ? "ar" : "en"}" dir="${isArabicPost ? "rtl" : "ltr"}">`)
     .replace("<!--app-head-->", headTags)
     .replace(/<div id="root"><\/div>/, `<div id="root" data-ssr="true"></div>`);
 }

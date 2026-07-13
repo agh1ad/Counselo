@@ -93,6 +93,8 @@ interface SEOHeadProps {
   articleAuthor?: string;
   /** For blog/article pages: article section/category */
   articleSection?: string;
+  /** Override the document language when content intentionally differs from the site UI. */
+  contentLanguage?: "en" | "ar";
   /**
    * When true, the canonical URL is built from the `canonical` prop as-is
    * (no region/language prefix is prepended). hreflang alternates are omitted
@@ -140,13 +142,15 @@ export function SEOHead({
   articlePublishedTime,
   articleAuthor,
   articleSection,
+  contentLanguage,
   noRegionPrefix = false,
 }: SEOHeadProps) {
   const { lang } = useLanguage();
   const { region } = useRegion();
 
   const geo = GEO[region];
-  const isArabic = lang === "ar";
+  const effectiveLanguage = contentLanguage ?? lang;
+  const isArabic = effectiveLanguage === "ar";
   const isSyr = region === "syr";
 
   const basePath = canonical === "/" ? "" : canonical ?? "";
@@ -310,7 +314,7 @@ export function SEOHead({
 
   return (
     <Helmet>
-      <html lang={lang} dir={isArabic ? "rtl" : "ltr"} />
+      <html lang={effectiveLanguage} dir={isArabic ? "rtl" : "ltr"} />
       <title>{fullTitle}</title>
       <meta name="description" content={finalDescription} />
       <meta name="keywords" content={finalKeywords} />
@@ -324,7 +328,7 @@ export function SEOHead({
       <meta name="geo.placename" content={geo.placename} />
       <meta name="geo.position" content={geo.position} />
       <meta name="ICBM" content={geo.icbm} />
-      <meta httpEquiv="content-language" content={lang} />
+      <meta httpEquiv="content-language" content={effectiveLanguage} />
 
       {/* Canonical */}
       <link rel="canonical" href={canonicalUrl} />

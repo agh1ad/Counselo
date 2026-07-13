@@ -113,7 +113,7 @@ const faqSchema = {
       "name": "What languages are available on CounselO?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CounselO provides legal consultations in both Arabic and English. All service pages, blog articles, and legal guides are available in both languages.",
+        "text": "CounselO provides legal consultations in Arabic and English. Service pages support both languages, while each blog article is published in its selected language.",
       },
     },
     {

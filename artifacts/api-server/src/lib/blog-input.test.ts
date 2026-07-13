@@ -58,6 +58,31 @@ test("allows drafts but blocks publication with weak search metadata", () => {
   );
 });
 
+test("enforces one article language and one metadata set", () => {
+  assert.throws(
+    () => parseBlogPostInput({
+      ...validPost,
+      titleAr: "عنوان عربي",
+      bodyAr: "<p>محتوى عربي مفيد</p>",
+    }),
+    /either English or Arabic, not both/,
+  );
+
+  const arabicPost = parseBlogPostInput({
+    ...validPost,
+    titleEn: "",
+    bodyEn: "",
+    titleAr: "عنوان عربي صالح",
+    bodyAr: "<p>محتوى عربي مفيد</p>",
+    seoTitleEn: "Stale English metadata must be removed",
+    seoDescriptionEn: "Stale English description must also be removed from the saved article metadata.",
+  });
+  assert.equal(arabicPost.titleEn, "");
+  assert.equal(arabicPost.seoTitleEn, "");
+  assert.equal(arabicPost.seoDescriptionEn, "");
+  assert.equal(arabicPost.titleAr, "عنوان عربي صالح");
+});
+
 test("permits an unchanged legacy slug during an update", () => {
   const legacySlug = "Legacy-Article";
   const parsed = parseBlogPostInput(

@@ -162,7 +162,7 @@ export default function Blog() {
             itemListElement: posts.map((p, i) => ({
               "@type": "ListItem",
               position: i + 1,
-              name: isRTL ? p.titleAr : p.titleEn,
+              name: isRTL ? (p.titleAr || p.titleEn) : (p.titleEn || p.titleAr),
               url: `https://counselo-legal.com/blog/${p.slug}`,
             })),
           },
@@ -213,14 +213,15 @@ export default function Blog() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post, i) => {
               const hasEnglish = !!(post.titleEn && post.titleEn.trim());
-              const useAr = isRTL || !hasEnglish;
+              const hasArabic = !!(post.titleAr && post.titleAr.trim());
+              const useAr = hasArabic && (isRTL || !hasEnglish);
               const title = useAr ? post.titleAr : post.titleEn;
               const excerpt = useAr
                 ? post.excerptAr
-                : post.excerptEn || post.excerptAr;
+                : post.excerptEn;
               const category = useAr
                 ? post.categoryAr
-                : post.categoryEn || post.categoryAr;
+                : post.categoryEn;
               return (
                 <motion.article
                   key={post.slug}

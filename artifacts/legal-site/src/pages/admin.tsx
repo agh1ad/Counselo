@@ -5,7 +5,7 @@ import {
   ChevronLeft, FileText, Settings, BarChart2, Search,
   Wrench, ExternalLink, RefreshCw, MessageCircle, Phone,
   Mail, TrendingUp, Users, Activity, Shield, Zap,
-  CheckCircle2, XCircle, Clock, Copy, Languages,
+  CheckCircle2, XCircle, Clock, Copy,
 } from "lucide-react";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
 import {
@@ -130,10 +130,11 @@ function Toast({ msg, type, onClose }: { msg: string; type: "success" | "error";
   );
 }
 
-function SettingsPanel({ form, set, slugManual, setSlugManual, open, manualFields, markManual }: {
+function SettingsPanel({ form, set, slugManual, setSlugManual, open, manualFields, markManual, lang }: {
   form: FormData; set: (k: keyof FormData, v: unknown) => void;
   slugManual: boolean; setSlugManual: (v: boolean) => void; open: boolean;
   manualFields: Set<string>; markManual: (f: string) => void;
+  lang: "en" | "ar";
 }) {
   const [seoOpen, setSeoOpen] = useState(false);
   const inputCls = "w-full border border-gray-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-green-600 bg-white";
@@ -161,7 +162,7 @@ function SettingsPanel({ form, set, slugManual, setSlugManual, open, manualField
           <label className={labelCls}>URL Slug</label>
           <div className="flex gap-1.5">
             <input value={form.slug} onChange={(e) => { setSlugManual(true); set("slug", e.target.value); }} placeholder="article-url" className={inputCls + " font-mono"} />
-            <button type="button" onClick={() => { setSlugManual(false); set("slug", automaticSlug(form.titleEn, form.titleAr)); }} title="Auto-generate from title" className="shrink-0 px-2 text-[10px] text-green-700 font-bold border border-green-200 rounded-lg hover:bg-green-50">Auto</button>
+            <button type="button" onClick={() => { setSlugManual(false); set("slug", lang === "en" ? automaticSlug(form.titleEn, "") : automaticSlug("", form.titleAr)); }} title="Auto-generate from title" className="shrink-0 px-2 text-[10px] text-green-700 font-bold border border-green-200 rounded-lg hover:bg-green-50">Auto</button>
           </div>
           {form.slug && <p className="text-[10px] text-gray-400 mt-1 font-mono truncate">counselo-legal.com/blog/{form.slug}</p>}
         </div>
@@ -175,8 +176,13 @@ function SettingsPanel({ form, set, slugManual, setSlugManual, open, manualField
         </div>
         <div>
           <label className={labelCls}>Category</label>
-          <input value={form.categoryEn} onChange={(e) => set("categoryEn", e.target.value)} placeholder="Family Law" className={inputCls + " mb-1.5"} />
-          <input value={form.categoryAr} onChange={(e) => set("categoryAr", e.target.value)} placeholder="قانون الأسرة" dir="rtl" className={inputCls} />
+          <input
+            value={lang === "en" ? form.categoryEn : form.categoryAr}
+            onChange={(e) => set(lang === "en" ? "categoryEn" : "categoryAr", e.target.value)}
+            placeholder={lang === "en" ? "Family Law" : "قانون الأسرة"}
+            dir={lang === "ar" ? "rtl" : "ltr"}
+            className={inputCls}
+          />
         </div>
         <div className="border border-gray-100 rounded-lg overflow-hidden">
           <button type="button" onClick={() => setSeoOpen((o) => !o)} className="w-full flex items-center justify-between px-3 py-2.5 bg-gray-50 text-[10px] font-bold text-gray-600 uppercase tracking-wide">
@@ -186,33 +192,31 @@ function SettingsPanel({ form, set, slugManual, setSlugManual, open, manualField
             <div className="p-3 space-y-3">
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <label className={labelCls + " mb-0"}>SEO Title (EN)</label>
-                  {!manualFields.has("seoTitleEn") && <span className="text-[9px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded">AUTO</span>}
+                  <label className={labelCls + " mb-0"}>{lang === "en" ? "SEO Title" : "عنوان SEO"}</label>
+                  {!manualFields.has(lang === "en" ? "seoTitleEn" : "seoTitleAr") && <span className="text-[9px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded">AUTO</span>}
                 </div>
-                <input value={form.seoTitleEn} onChange={(e) => { markManual("seoTitleEn"); set("seoTitleEn", e.target.value); }} placeholder="SEO title in English" className={inputCls} />
+                <input
+                  value={lang === "en" ? form.seoTitleEn : form.seoTitleAr}
+                  onChange={(e) => { const field = lang === "en" ? "seoTitleEn" : "seoTitleAr"; markManual(field); set(field, e.target.value); }}
+                  placeholder={lang === "en" ? "SEO title in English" : "عنوان SEO بالعربية"}
+                  dir={lang === "ar" ? "rtl" : "ltr"}
+                  className={inputCls}
+                />
               </div>
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <label className={labelCls + " mb-0"}>SEO Description (EN)</label>
-                  {!manualFields.has("seoDescriptionEn") && <span className="text-[9px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded">AUTO</span>}
+                  <label className={labelCls + " mb-0"}>{lang === "en" ? "SEO Description" : "وصف SEO"}</label>
+                  {!manualFields.has(lang === "en" ? "seoDescriptionEn" : "seoDescriptionAr") && <span className="text-[9px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded">AUTO</span>}
                 </div>
-                <textarea value={form.seoDescriptionEn} onChange={(e) => { markManual("seoDescriptionEn"); set("seoDescriptionEn", e.target.value); }} rows={2} placeholder="≤160 chars" className={inputCls + " resize-none"} />
-                <p className={`text-[9px] mt-0.5 ${(form.seoDescriptionEn?.length ?? 0) > 160 ? "text-red-500" : "text-gray-400"}`}>{form.seoDescriptionEn?.length ?? 0}/160</p>
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <label className={labelCls + " mb-0"}>عنوان SEO (AR)</label>
-                  {!manualFields.has("seoTitleAr") && <span className="text-[9px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded">AUTO</span>}
-                </div>
-                <input value={form.seoTitleAr} onChange={(e) => { markManual("seoTitleAr"); set("seoTitleAr", e.target.value); }} dir="rtl" placeholder="عنوان SEO بالعربية" className={inputCls} />
-              </div>
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <label className={labelCls + " mb-0"}>وصف SEO (AR)</label>
-                  {!manualFields.has("seoDescriptionAr") && <span className="text-[9px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded">AUTO</span>}
-                </div>
-                <textarea value={form.seoDescriptionAr} onChange={(e) => { markManual("seoDescriptionAr"); set("seoDescriptionAr", e.target.value); }} rows={2} dir="rtl" placeholder="≤160 حرف" className={inputCls + " resize-none"} />
-                <p className={`text-[9px] mt-0.5 text-right ${(form.seoDescriptionAr?.length ?? 0) > 160 ? "text-red-500" : "text-gray-400"}`}>{form.seoDescriptionAr?.length ?? 0}/160</p>
+                <textarea
+                  value={lang === "en" ? form.seoDescriptionEn : form.seoDescriptionAr}
+                  onChange={(e) => { const field = lang === "en" ? "seoDescriptionEn" : "seoDescriptionAr"; markManual(field); set(field, e.target.value); }}
+                  rows={2}
+                  dir={lang === "ar" ? "rtl" : "ltr"}
+                  placeholder={lang === "en" ? "80–160 characters" : "80–160 حرفاً"}
+                  className={inputCls + " resize-none"}
+                />
+                <p className={`text-[9px] mt-0.5 ${lang === "ar" ? "text-right " : ""}${((lang === "en" ? form.seoDescriptionEn : form.seoDescriptionAr)?.length ?? 0) > 160 ? "text-red-500" : "text-gray-400"}`}>{(lang === "en" ? form.seoDescriptionEn : form.seoDescriptionAr)?.length ?? 0}/160</p>
               </div>
             </div>
           )}
@@ -226,7 +230,9 @@ function PostEditor({ initial, token, onSave, onBack }: {
   initial: FormData & { id?: number }; token: string; onSave: () => void; onBack: () => void;
 }) {
   const [form, setForm] = useState<FormData>({ ...initial });
-  const [lang, setLang] = useState<"en" | "ar">("en");
+  const [lang, setLang] = useState<"en" | "ar">(
+    initial.titleAr.trim() && !initial.titleEn.trim() ? "ar" : "en",
+  );
   const [saving, setSaving] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(true);
   const [slugManual, setSlugManual] = useState(!!initial.id);
@@ -271,37 +277,32 @@ function PostEditor({ initial, token, onSave, onBack }: {
   };
 
   const autoOptimize = useCallback(() => {
-    const plainEn = stripHtml(form.bodyEn);
-    const plainAr = stripHtml(form.bodyAr);
-    const nextSlug = automaticSlug(form.titleEn, form.titleAr);
-    const sourceWords = (plainEn || plainAr).split(/\s+/).filter(Boolean).length;
+    const title = lang === "en" ? form.titleEn : form.titleAr;
+    const plain = stripHtml(lang === "en" ? form.bodyEn : form.bodyAr);
+    const nextSlug = lang === "en" ? automaticSlug(title, "") : automaticSlug("", title);
+    const sourceWords = plain.split(/\s+/).filter(Boolean).length;
     setForm((current) => ({
       ...current,
       slug: nextSlug || current.slug,
-      categoryEn: current.categoryEn || inferCategory(`${current.titleEn} ${plainEn}`, false),
-      categoryAr: current.categoryAr || inferCategory(`${current.titleAr} ${plainAr}`, true),
-      excerptEn: truncateAtWord(plainEn, 240),
-      excerptAr: truncateAtWord(plainAr, 240),
-      seoTitleEn: seoTitle(current.titleEn, false),
-      seoTitleAr: seoTitle(current.titleAr, true),
-      seoDescriptionEn: truncateAtWord(plainEn, 160),
-      seoDescriptionAr: truncateAtWord(plainAr, 160),
+      ...(lang === "en" ? {
+        categoryEn: current.categoryEn || inferCategory(`${current.titleEn} ${plain}`, false),
+        excerptEn: truncateAtWord(plain, 240),
+        seoTitleEn: seoTitle(current.titleEn, false),
+        seoDescriptionEn: truncateAtWord(plain, 160),
+      } : {
+        categoryAr: current.categoryAr || inferCategory(`${current.titleAr} ${plain}`, true),
+        excerptAr: truncateAtWord(plain, 240),
+        seoTitleAr: seoTitle(current.titleAr, true),
+        seoDescriptionAr: truncateAtWord(plain, 160),
+      }),
       readTime: Math.max(1, Math.ceil(sourceWords / 200)),
     }));
     setSlugManual(true);
-    setManualFields(new Set(["seoTitleEn", "seoTitleAr", "seoDescriptionEn", "seoDescriptionAr", "excerptEn", "excerptAr"]));
-    setToast({ msg: "URL, excerpts, SEO fields, category and reading time updated without paid services.", type: "success" });
-  }, [form]);
-
-  const copyArabicSource = useCallback(async () => {
-    if (!form.bodyAr.trim()) {
-      setToast({ msg: "Add the Arabic article first.", type: "error" });
-      return;
-    }
-    await navigator.clipboard.writeText(`${form.titleAr}\n\n${stripHtml(form.bodyAr)}`);
-    setToast({ msg: "Arabic source copied. Paste your reviewed English translation into the English tab.", type: "success" });
-    setLang("en");
-  }, [form.bodyAr, form.titleAr]);
+    setManualFields(new Set(lang === "en"
+      ? ["seoTitleEn", "seoDescriptionEn", "excerptEn"]
+      : ["seoTitleAr", "seoDescriptionAr", "excerptAr"]));
+    setToast({ msg: lang === "en" ? "English URL and SEO fields updated." : "تم تحديث الرابط وبيانات SEO العربية.", type: "success" });
+  }, [form, lang]);
 
   const insertArticleTemplate = useCallback(() => {
     const currentBody = lang === "ar" ? form.bodyAr : form.bodyEn;
@@ -314,10 +315,15 @@ function PostEditor({ initial, token, onSave, onBack }: {
   }, [form.bodyAr, form.bodyEn, lang]);
 
   const save = useCallback(async (publishState?: boolean) => {
-    const payload = publishState !== undefined ? { ...form, published: publishState } : form;
+    const selectedForm = lang === "en"
+      ? { ...form, titleAr: "", excerptAr: "", categoryAr: "", seoTitleAr: "", seoDescriptionAr: "", bodyAr: "", contentEn: [], contentAr: [] }
+      : { ...form, titleEn: "", excerptEn: "", categoryEn: "", seoTitleEn: "", seoDescriptionEn: "", bodyEn: "", contentEn: [], contentAr: [] };
+    const payload = publishState !== undefined ? { ...selectedForm, published: publishState } : selectedForm;
     if (!payload.slug.trim()) { setToast({ msg: "Please enter a URL slug.", type: "error" }); return; }
-    if (payload.published && (!payload.titleAr.trim() || !payload.bodyAr.trim() || !payload.titleEn.trim() || !payload.bodyEn.trim())) {
-      setToast({ msg: "Publishing requires complete Arabic and English versions. Use AI translation, then review both versions.", type: "error" });
+    const selectedTitle = lang === "en" ? payload.titleEn : payload.titleAr;
+    const selectedBody = lang === "en" ? payload.bodyEn : payload.bodyAr;
+    if (payload.published && (!selectedTitle.trim() || !selectedBody.trim())) {
+      setToast({ msg: lang === "en" ? "Add the English title and article before publishing." : "أضف عنوان المقال ومحتواه بالعربية قبل النشر.", type: "error" });
       return;
     }
     setSaving(true);
@@ -334,7 +340,7 @@ function PostEditor({ initial, token, onSave, onBack }: {
     } finally {
       setSaving(false);
     }
-  }, [form, initial.id, token, onSave]);
+  }, [form, initial.id, lang, token, onSave]);
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
@@ -346,8 +352,8 @@ function PostEditor({ initial, token, onSave, onBack }: {
         </div>
         <div className="flex items-center border-r border-white/20 px-3 py-2 gap-1">
           <Globe size={13} className="opacity-60 mr-1" />
-          <button type="button" onClick={() => setLang("en")} className={`px-2.5 py-1 rounded text-xs font-semibold transition-colors ${lang === "en" ? "bg-white text-green-800" : "text-white/70 hover:bg-white/10"}`}>EN</button>
-          <button type="button" onClick={() => setLang("ar")} className={`px-2.5 py-1 rounded text-xs font-semibold transition-colors ${lang === "ar" ? "bg-white text-green-800" : "text-white/70 hover:bg-white/10"}`}>AR</button>
+          <button type="button" onClick={() => setLang("en")} className={`px-2.5 py-1 rounded text-xs font-semibold transition-colors ${lang === "en" ? "bg-white text-green-800" : "text-white/70 hover:bg-white/10"}`}>English article</button>
+          <button type="button" onClick={() => setLang("ar")} className={`px-2.5 py-1 rounded text-xs font-semibold transition-colors ${lang === "ar" ? "bg-white text-green-800" : "text-white/70 hover:bg-white/10"}`}>مقال عربي</button>
         </div>
         <button onClick={() => setSettingsOpen((o) => !o)} className={`px-3 py-3 text-xs font-medium border-r border-white/20 transition-colors ${settingsOpen ? "bg-white/15" : "hover:bg-white/10"}`}><Settings size={15} /></button>
         <div className="flex items-center gap-2 px-4">
@@ -362,7 +368,7 @@ function PostEditor({ initial, token, onSave, onBack }: {
               <div className="flex flex-wrap items-center gap-2">
                 <div className="flex items-center gap-2 mr-auto min-w-[180px]">
                   <div className="w-8 h-8 rounded-lg bg-green-100 text-green-700 flex items-center justify-center"><CheckCircle2 size={16} /></div>
-                  <div><p className="text-xs font-bold text-gray-900">Free Publishing Assistant</p><p className="text-[10px] text-gray-400">No API, tokens, subscription or usage fees</p></div>
+                  <div><p className="text-xs font-bold text-gray-900">Single-language Publishing Assistant</p><p className="text-[10px] text-gray-400">One article and one SEO metadata set · no usage fees</p></div>
                 </div>
                 <button type="button" onClick={autoOptimize} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-green-700 text-white text-xs font-semibold hover:bg-green-800">
                   <Search size={13} /> Auto URL + SEO
@@ -370,17 +376,10 @@ function PostEditor({ initial, token, onSave, onBack }: {
                 <button type="button" onClick={insertArticleTemplate} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-blue-200 text-blue-800 bg-blue-50 text-xs font-semibold hover:bg-blue-100">
                   <FileText size={13} /> Insert Article Template
                 </button>
-                <button type="button" onClick={() => void copyArabicSource()} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-green-200 text-green-800 bg-green-50 text-xs font-semibold hover:bg-green-100">
-                  <Copy size={13} /> Copy Arabic for Translation
-                </button>
-                <button type="button" onClick={() => setLang(lang === "ar" ? "en" : "ar")} className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-gray-200 text-gray-700 text-xs font-semibold hover:bg-gray-50">
-                  <Languages size={13} /> Switch Language
-                </button>
               </div>
               <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[10px] text-gray-500">
-                <span className={form.bodyAr && form.titleAr ? "text-green-700" : ""}>Arabic {form.bodyAr && form.titleAr ? "✓" : "incomplete"}</span>
-                <span className={form.bodyEn && form.titleEn ? "text-green-700" : ""}>English {form.bodyEn && form.titleEn ? "✓" : "incomplete"}</span>
-                <span>Translation remains manual so confidential legal content is not sent to an external service.</span>
+                <span className="font-semibold text-green-700">Publishing language: {lang === "en" ? "English" : "العربية"}</span>
+                <span>Saving keeps only the selected language and its SEO metadata.</span>
               </div>
             </div>
             <div className="flex items-center gap-2 mb-4">
@@ -401,7 +400,7 @@ function PostEditor({ initial, token, onSave, onBack }: {
             </div>
           </div>
         </div>
-        <SettingsPanel form={form} set={set} slugManual={slugManual} setSlugManual={setSlugManual} open={settingsOpen} manualFields={manualFields} markManual={markManual} />
+        <SettingsPanel form={form} set={set} slugManual={slugManual} setSlugManual={setSlugManual} open={settingsOpen} manualFields={manualFields} markManual={markManual} lang={lang} />
       </div>
     </div>
   );
@@ -1012,11 +1011,11 @@ export default function AdminCMS() {
                   {posts.map((p, i) => (
                     <tr key={p.id} className={`border-b border-gray-50 hover:bg-gray-50/80 transition-colors cursor-pointer ${i === posts.length - 1 ? "border-0" : ""}`} onClick={() => setEditing({ ...p })}>
                       <td className="px-5 py-4 max-w-xs">
-                        <p className="font-semibold text-gray-900 truncate">{p.titleEn || <span className="text-gray-300 italic">Untitled</span>}</p>
-                        {p.titleAr && <p className="text-xs text-gray-400 truncate mt-0.5" dir="rtl">{p.titleAr}</p>}
+                        <p className="font-semibold text-gray-900 truncate" dir={!p.titleEn && p.titleAr ? "rtl" : "ltr"}>{p.titleEn || p.titleAr || <span className="text-gray-300 italic">Untitled</span>}</p>
+                        <p className="text-[10px] text-gray-400 mt-0.5">{p.titleEn ? "English" : "Arabic"}</p>
                       </td>
                       <td className="px-5 py-4"><span className="font-mono text-xs text-gray-400 bg-gray-100 px-2 py-0.5 rounded">{p.slug}</span></td>
-                      <td className="px-5 py-4 text-gray-500 text-xs">{p.categoryEn || "—"}</td>
+                      <td className="px-5 py-4 text-gray-500 text-xs" dir={!p.categoryEn && p.categoryAr ? "rtl" : "ltr"}>{p.categoryEn || p.categoryAr || "—"}</td>
                       <td className="px-5 py-4 text-gray-400 text-xs">{p.date}</td>
                       <td className="px-5 py-4">
                         <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${p.published ? "bg-green-50 text-green-700" : "bg-gray-100 text-gray-500"}`}>
@@ -1027,7 +1026,7 @@ export default function AdminCMS() {
                         <div className="flex items-center justify-end gap-1" onClick={(e) => e.stopPropagation()}>
                           <a href={`/blog/${p.slug}`} target="_blank" rel="noopener noreferrer" className="p-1.5 text-gray-300 hover:text-gray-600 rounded" title="Preview"><Eye size={15} /></a>
                           <button onClick={() => setEditing({ ...p })} className="p-1.5 text-gray-300 hover:text-green-700 rounded" title="Edit"><Edit2 size={15} /></button>
-                          <button onClick={() => void deletePost(p.id, p.titleEn)} className="p-1.5 text-gray-300 hover:text-red-600 rounded" title="Delete"><Trash2 size={15} /></button>
+                          <button onClick={() => void deletePost(p.id, p.titleEn || p.titleAr)} className="p-1.5 text-gray-300 hover:text-red-600 rounded" title="Delete"><Trash2 size={15} /></button>
                         </div>
                       </td>
                     </tr>

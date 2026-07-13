@@ -185,12 +185,20 @@ export function parseBlogPostInput(
   const bodyAr = richTextField(body, "bodyAr");
   const contentEn = sectionsField(body, "contentEn");
   const contentAr = sectionsField(body, "contentAr");
+  const hasEnglishArticle = Boolean(titleEn || bodyEn || contentEn.length);
+  const hasArabicArticle = Boolean(titleAr || bodyAr || contentAr.length);
 
-  if (!titleEn && !titleAr) {
-    throw new BlogInputError("At least one localized title is required");
+  if (hasEnglishArticle && hasArabicArticle) {
+    throw new BlogInputError("A blog post must use either English or Arabic, not both");
   }
-  if (!bodyEn && !bodyAr && contentEn.length === 0 && contentAr.length === 0) {
-    throw new BlogInputError("At least one localized article body is required");
+  if (!hasEnglishArticle && !hasArabicArticle) {
+    throw new BlogInputError("An English or Arabic article is required");
+  }
+  if (hasEnglishArticle && (!titleEn || (!bodyEn && contentEn.length === 0))) {
+    throw new BlogInputError("An English article requires an English title and body");
+  }
+  if (hasArabicArticle && (!titleAr || (!bodyAr && contentAr.length === 0))) {
+    throw new BlogInputError("An Arabic article requires an Arabic title and body");
   }
 
   const plainEn = stripHtml(bodyEn);
@@ -204,42 +212,39 @@ export function parseBlogPostInput(
     stringField(body, "seoDescriptionAr", 500) || plainAr.slice(0, 160);
 
   if (published) {
-    for (const [locale, localizedTitle, localizedDescription] of [
-      ["English", seoTitleEn, seoDescriptionEn],
-      ["Arabic", seoTitleAr, seoDescriptionAr],
-    ] as const) {
-      if (!localizedTitle && !localizedDescription) continue;
-      if (localizedTitle.length < 20 || localizedTitle.length > 70) {
-        throw new BlogInputError(
-          `${locale} SEO title must be 20–70 characters before publishing`,
-        );
-      }
-      if (localizedDescription.length < 80 || localizedDescription.length > 170) {
-        throw new BlogInputError(
-          `${locale} SEO description must be 80–170 characters before publishing`,
-        );
-      }
+    const locale = hasEnglishArticle ? "English" : "Arabic";
+    const localizedTitle = hasEnglishArticle ? seoTitleEn : seoTitleAr;
+    const localizedDescription = hasEnglishArticle ? seoDescriptionEn : seoDescriptionAr;
+    if (localizedTitle.length < 20 || localizedTitle.length > 70) {
+      throw new BlogInputError(
+        `${locale} SEO title must be 20–70 characters before publishing`,
+      );
+    }
+    if (localizedDescription.length < 80 || localizedDescription.length > 170) {
+      throw new BlogInputError(
+        `${locale} SEO description must be 80–170 characters before publishing`,
+      );
     }
   }
 
   return {
     slug,
     date,
-    categoryEn: stringField(body, "categoryEn", 120),
-    categoryAr: stringField(body, "categoryAr", 120),
+    categoryEn: hasEnglishArticle ? stringField(body, "categoryEn", 120) : "",
+    categoryAr: hasArabicArticle ? stringField(body, "categoryAr", 120) : "",
     readTime,
-    titleEn,
-    titleAr,
-    excerptEn: stringField(body, "excerptEn", 500) || plainEn.slice(0, 250),
-    excerptAr: stringField(body, "excerptAr", 500) || plainAr.slice(0, 250),
-    seoTitleEn,
-    seoTitleAr,
-    seoDescriptionEn,
-    seoDescriptionAr,
-    bodyEn,
-    bodyAr,
-    contentEn,
-    contentAr,
+    titleEn: hasEnglishArticle ? titleEn : "",
+    titleAr: hasArabicArticle ? titleAr : "",
+    excerptEn: hasEnglishArticle ? stringField(body, "excerptEn", 500) || plainEn.slice(0, 250) : "",
+    excerptAr: hasArabicArticle ? stringField(body, "excerptAr", 500) || plainAr.slice(0, 250) : "",
+    seoTitleEn: hasEnglishArticle ? seoTitleEn : "",
+    seoTitleAr: hasArabicArticle ? seoTitleAr : "",
+    seoDescriptionEn: hasEnglishArticle ? seoDescriptionEn : "",
+    seoDescriptionAr: hasArabicArticle ? seoDescriptionAr : "",
+    bodyEn: hasEnglishArticle ? bodyEn : "",
+    bodyAr: hasArabicArticle ? bodyAr : "",
+    contentEn: hasEnglishArticle ? contentEn : [],
+    contentAr: hasArabicArticle ? contentAr : [],
     published,
   };
 }

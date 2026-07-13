@@ -158,19 +158,21 @@ export default function BlogPost() {
     );
   }
 
-  // If post has no English content, fall back to Arabic even on English pages
+  // A post is intentionally single-language. Use the available article language
+  // regardless of the language selected for the surrounding site navigation.
   const hasEnglish = !!(post.titleEn && post.titleEn.trim());
-  const useAr = isRTL || !hasEnglish;
+  const hasArabic = !!(post.titleAr && post.titleAr.trim());
+  const useAr = hasArabic && (isRTL || !hasEnglish);
   const contentDir = useAr ? "rtl" : "ltr";
 
   const title = useAr ? post.titleAr : post.titleEn;
-  const excerpt = useAr ? post.excerptAr : (post.excerptEn || post.excerptAr);
-  const seoTitle = useAr ? (post.seoTitleAr || post.titleAr) : (post.seoTitleEn || post.titleEn || post.seoTitleAr || post.titleAr);
-  const rawSeoDesc = useAr ? (post.seoDescriptionAr || post.excerptAr) : (post.seoDescriptionEn || post.excerptEn || post.seoDescriptionAr || post.excerptAr);
+  const excerpt = useAr ? post.excerptAr : post.excerptEn;
+  const seoTitle = useAr ? (post.seoTitleAr || post.titleAr) : (post.seoTitleEn || post.titleEn);
+  const rawSeoDesc = useAr ? (post.seoDescriptionAr || post.excerptAr) : (post.seoDescriptionEn || post.excerptEn);
   const seoDesc = normalizeDescription(rawSeoDesc, excerpt);
-  const category = useAr ? post.categoryAr : (post.categoryEn || post.categoryAr);
-  const body = useAr ? post.bodyAr : (post.bodyEn || post.bodyAr);
-  const content = useAr ? post.contentAr : (post.contentEn?.length ? post.contentEn : post.contentAr);
+  const category = useAr ? post.categoryAr : post.categoryEn;
+  const body = useAr ? post.bodyAr : post.bodyEn;
+  const content = useAr ? post.contentAr : post.contentEn;
 
   const canonicalArticleUrl = `https://counselo-legal.com/blog/${slug}`;
   const articleSchema = {
@@ -180,6 +182,7 @@ export default function BlogPost() {
     "mainEntityOfPage": { "@type": "WebPage", "@id": `${canonicalArticleUrl}#webpage` },
     "headline": seoTitle,
     "description": seoDesc,
+    "inLanguage": useAr ? "ar" : "en",
     "datePublished": post.date,
     "dateModified": post.updatedAt || post.date,
     "image": {
@@ -232,12 +235,13 @@ export default function BlogPost() {
         description={seoDesc}
         canonical={`/blog/${post.slug}`}
         noRegionPrefix
-        keywords={isRTL
+        contentLanguage={useAr ? "ar" : "en"}
+        keywords={useAr
           ? `${category}, مقالات قانونية, إرشادات قانونية مجانية, كاونسلو, مدونة كاونسلو القانونية, استشارة قانونية أونلاين`
           : `${category}, legal articles, free legal guides, CounselO blog, online legal advice, CounselO`}
         ogType="article"
         articlePublishedTime={post.date}
-        articleAuthor={isRTL ? "فريق كاونسلو" : "CounselO Team"}
+        articleAuthor={useAr ? "فريق كاونسلو" : "CounselO Team"}
         articleSection={category}
         extraSchemas={[articleSchema, breadcrumbSchema]}
       />
@@ -254,7 +258,7 @@ export default function BlogPost() {
                 {category}
               </span>
               <span className="text-white/50 text-xs flex items-center gap-1.5">
-                <Calendar className="h-3.5 w-3.5" /> {formatDate(post.date, lang)}
+                <Calendar className="h-3.5 w-3.5" /> {formatDate(post.date, useAr ? "ar" : "en")}
               </span>
               <span className="text-white/50 text-xs flex items-center gap-1.5">
                 <Clock className="h-3.5 w-3.5" /> {post.readTime} {ui.minRead}
