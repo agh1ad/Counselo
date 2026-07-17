@@ -24,6 +24,7 @@ import Services from "@/pages/services";
 import Contact from "@/pages/contact";
 import ServiceDetail from "@/pages/service-detail";
 import About from "@/pages/about";
+import Vision from "@/pages/vision";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import TermsOfService from "@/pages/terms-of-service";
@@ -107,6 +108,11 @@ function buildRegionRoutes() {
       component={About}
     />,
     <Route
+      key={`${prefix}-vision`}
+      path={`${prefix}/vision`}
+      component={Vision}
+    />,
+    <Route
       key={`${prefix}-contact`}
       path={`${prefix}/contact`}
       component={Contact}
@@ -188,6 +194,7 @@ function Router() {
         <Route path="/services" component={Services} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/about" component={About} />
+        <Route path="/vision" component={Vision} />
         <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
         <Route path="/terms-of-service" component={TermsOfService} />
