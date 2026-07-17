@@ -333,6 +333,26 @@ export default function Vision() {
               </div>
             </div>
           </div>
+
+          <figure className="mt-14 sm:mt-16" aria-labelledby="vision-title vision-artwork-caption">
+            <div className="overflow-hidden border border-[#d8bd79]/40 bg-[#00351f] shadow-[0_28px_80px_rgba(0,0,0,0.28)]">
+              <img
+                src={visionArtwork}
+                alt=""
+                aria-hidden="true"
+                width="1440"
+                height="756"
+                fetchPriority="high"
+                decoding="async"
+                className="h-auto w-full"
+              />
+            </div>
+            <figcaption id="vision-artwork-caption" className="sr-only">
+              {isRTL
+                ? "رؤية كاونسلو: جعل القانون أقرب وأوضح وأكثر موثوقية من خلال المعرفة القانونية المتخصصة والخدمات الاحترافية والتقنية الحديثة."
+                : "CounselO's vision: making law closer, clearer, and more trusted through specialized legal knowledge, professional services, and modern technology."}
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -345,22 +365,6 @@ export default function Vision() {
             </div>
           ))}
         </div>
-      </section>
-
-      <section className="bg-white pb-8 pt-16 sm:pb-12 sm:pt-20" aria-label={isRTL ? "رؤية كاونسلو" : "CounselO vision"}>
-        <figure className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="overflow-hidden border border-[#d9c58e]/55 bg-[#00351f] shadow-[0_24px_70px_rgba(0,53,31,0.13)]">
-            <img
-              src={visionArtwork}
-              alt={isRTL ? "رؤيتنا في كاونسلو — طريق نحو معرفة قانونية أوضح وأكثر موثوقية" : "Our Vision at CounselO — a path toward clearer, more trusted legal knowledge"}
-              width="1440"
-              height="756"
-              loading="lazy"
-              decoding="async"
-              className="h-auto w-full"
-            />
-          </div>
-        </figure>
       </section>
 
       <section className="py-24 sm:py-32">
