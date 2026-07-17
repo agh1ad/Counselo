@@ -74,6 +74,7 @@ export function Navbar() {
             </div>
 
             <Link href={p("/about")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/about") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.about}</Link>
+            <Link href={p("/vision")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/vision") ? "text-primary" : "text-muted-foreground"}`}>{lang === "ar" ? "رؤيتنا" : "Our Vision"}</Link>
             <Link href="/blog" className={`text-sm font-medium transition-colors hover:text-primary ${(location === "/blog" || location.startsWith("/blog/")) ? "text-primary" : "text-muted-foreground"}`}>{t.nav.blog}</Link>
             <Link href={p("/contact")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/contact") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.contact}</Link>
 
@@ -123,6 +124,7 @@ export function Navbar() {
                 ))}
               </div>
               <Link href={p("/about")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.about}</Link>
+              <Link href={p("/vision")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{lang === "ar" ? "رؤيتنا" : "Our Vision"}</Link>
               <Link href="/blog" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.blog}</Link>
               <Link href={p("/contact")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.contact}</Link>
               <div className="px-3 pt-4">
