@@ -23,6 +23,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 
 const founderPhoto = "/images/optimized/omar-founder-bio.png";
+const visionArtwork = "/images/optimized/counselo-vision-manifesto.svg";
 
 type ValueItem = { title: string; description: string; icon: LucideIcon };
 type EcosystemItem = { title: string; description: string; icon: LucideIcon };
@@ -346,6 +347,22 @@ export default function Vision() {
         </div>
       </section>
 
+      <section className="bg-white pb-8 pt-16 sm:pb-12 sm:pt-20" aria-label={isRTL ? "رؤية كاونسلو" : "CounselO vision"}>
+        <figure className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="overflow-hidden border border-[#d9c58e]/55 bg-[#00351f] shadow-[0_24px_70px_rgba(0,53,31,0.13)]">
+            <img
+              src={visionArtwork}
+              alt={isRTL ? "رؤيتنا في كاونسلو — طريق نحو معرفة قانونية أوضح وأكثر موثوقية" : "Our Vision at CounselO — a path toward clearer, more trusted legal knowledge"}
+              width="1440"
+              height="756"
+              loading="lazy"
+              decoding="async"
+              className="h-auto w-full"
+            />
+          </div>
+        </figure>
+      </section>
+
       <section className="py-24 sm:py-32">
         <div className="mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:gap-20 lg:px-8">
           <div>
@@ -455,8 +472,8 @@ export default function Vision() {
 
       <section className="bg-[#f7f4ec] py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid overflow-hidden border border-[#d9cda9] bg-white lg:grid-cols-[22rem_1fr]">
-            <div className="relative min-h-[28rem] bg-[#dce8e0]">
+          <div className="grid overflow-hidden border border-[#d9cda9] bg-white md:grid-cols-[18rem_1fr] lg:grid-cols-[22rem_1fr]">
+            <div className="relative aspect-[2/3] min-h-0 bg-[#dce8e0] md:aspect-auto">
               <img
                 src={founderPhoto}
                 alt={c.founderImageAlt}
@@ -464,7 +481,7 @@ export default function Vision() {
                 height="900"
                 loading="lazy"
                 decoding="async"
-                className="absolute inset-0 h-full w-full object-cover object-top"
+                className="absolute inset-0 h-full w-full object-cover object-center md:object-top"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#032a1a] via-[#032a1a]/85 to-transparent px-7 pb-7 pt-24 text-white">
                 <div className="font-serif text-xl font-bold">{c.founderName}</div>
