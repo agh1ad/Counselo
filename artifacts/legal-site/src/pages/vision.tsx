@@ -23,7 +23,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 
 const founderPhoto = "/images/optimized/omar-founder-bio.png";
-const visionArtwork = "/images/optimized/counselo-vision-manifesto.svg";
 
 type ValueItem = { title: string; description: string; icon: LucideIcon };
 type EcosystemItem = { title: string; description: string; icon: LucideIcon };
@@ -334,25 +333,6 @@ export default function Vision() {
             </div>
           </div>
 
-          <figure className="mt-14 sm:mt-16" aria-labelledby="vision-title vision-artwork-caption">
-            <div className="overflow-hidden border border-[#d8bd79]/40 bg-[#00351f] shadow-[0_28px_80px_rgba(0,0,0,0.28)]">
-              <img
-                src={visionArtwork}
-                alt=""
-                aria-hidden="true"
-                width="1440"
-                height="756"
-                fetchPriority="high"
-                decoding="async"
-                className="h-auto w-full"
-              />
-            </div>
-            <figcaption id="vision-artwork-caption" className="sr-only">
-              {isRTL
-                ? "رؤية كاونسلو: جعل القانون أقرب وأوضح وأكثر موثوقية من خلال المعرفة القانونية المتخصصة والخدمات الاحترافية والتقنية الحديثة."
-                : "CounselO's vision: making law closer, clearer, and more trusted through specialized legal knowledge, professional services, and modern technology."}
-            </figcaption>
-          </figure>
         </div>
       </section>
 
