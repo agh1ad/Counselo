@@ -150,20 +150,18 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        {/* Background image */}
-        <div className="absolute inset-0 z-0">
-          <img src="/hero-vision.png" alt="" className="w-full h-full object-cover object-center" aria-hidden="true" />
-        </div>
+        {/* Solid dark green base */}
+        <div className="absolute inset-0 z-0" style={{ background: "hsl(150 100% 5%)" }} />
 
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 z-0" style={{ background: "hsl(150 100% 4% / 0.72)" }} />
+        {/* Radial glow — upper right */}
+        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at 75% 30%, hsl(150 60% 22% / 0.55) 0%, transparent 65%)" }} />
 
         {/* Decorative grid lines */}
         <div className="absolute inset-0 z-0 opacity-[0.04]"
           style={{ backgroundImage: "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
 
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 inset-x-0 h-32 z-0" style={{ background: "linear-gradient(to bottom, transparent, hsl(150 100% 5% / 0.9))" }} />
+        <div className="absolute bottom-0 inset-x-0 h-32 z-0" style={{ background: "linear-gradient(to bottom, transparent, hsl(150 100% 5% / 0.8))" }} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-20">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
