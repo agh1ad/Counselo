@@ -31,18 +31,20 @@ const copy = {
     eyebrow: "رؤيتنا",
     title: "القانون… أقرب، أوضح، وأكثر موثوقية",
     lead:
-      "لم تعد الخدمات القانونية تقتصر على المكاتب التقليدية أو الحدود الجغرافية. ومع تطور التقنية وتزايد احتياجات الأفراد والشركات، أصبح الوصول إلى المعرفة القانونية الدقيقة والخدمة الاحترافية ضرورة، لا مجرد خيار.",
+      "لم تعد الخدمات القانونية اليوم تقتصر على المكاتب التقليدية أو الحدود الجغرافية. فمع تطور التقنية وتزايد احتياجات الأفراد والشركات، أصبح الوصول إلى المعرفة القانونية الدقيقة والخدمة الاحترافية ضرورة، وليس مجرد خيار.",
     intro:
-      "من هذا المنطلق جاءت كاونسلو: منصة قانونية رقمية تجمع بين الخبرة المهنية والتقنية الحديثة، وتقدّم المعرفة والخدمات القانونية وفق معايير عالية من الجودة والسرية والاحترافية.",
+      "من هذا المنطلق جاءت كاونسلو؛ لتكون منصة قانونية رقمية تجمع بين الخبرة المهنية والتقنية الحديثة، وتقدم خدمات قانونية بمعايير عالية من الجودة والسرية والاحترافية.",
     trust: [
       { stat: "+30", label: "عاماً من الخبرة القانونية" },
       { stat: "رقمي", label: "وصول يتجاوز الحدود" },
       { stat: "عربي · English", label: "دعم قانوني متعدد اللغات" },
     ],
     whyEyebrow: "لماذا أُنشئت كاونسلو؟",
-    whyTitle: "حلّ تحديات قانونية حقيقية، بخبرة عملية",
+    whyTitle: "خبرة عملية تستجيب لتحديات قانونية حقيقية",
     whyBody:
-      "على مدى أكثر من ثلاثين عاماً من الممارسة القانونية، لمس مؤسس كاونسلو تحديات متكررة لدى طالبي الخدمات القانونية. لذلك بُنيت المنصة حول المعرفة والاحترافية قبل أي شيء آخر.",
+      "على مدى أكثر من ثلاثين عامًا من الممارسة القانونية، شهدنا العديد من التحديات التي تواجه طالبي الخدمات القانونية، ومن أبرزها صعوبة الوصول إلى المعلومة الموثوقة، واختلاف مستوى الخدمات، وطول الإجراءات، وضعف الاستفادة من التقنيات الحديثة.",
+    whyClosing:
+      "ومن هنا جاءت فكرة إنشاء منصة يكون هدفها بناء بيئة قانونية رقمية تعتمد على المعرفة والاحترافية قبل أي شيء آخر.",
     challenges: [
       "صعوبة الوصول إلى معلومة قانونية موثوقة وواضحة.",
       "تفاوت مستوى الخدمات وغياب المعايير المتسقة.",
@@ -52,13 +54,13 @@ const copy = {
     visionLabel: "رؤيتنا",
     visionTitle: "المرجع القانوني الرقمي الأكثر موثوقية في العالم العربي",
     visionBody:
-      "أن تصبح كاونسلو منصة تجمع المعرفة القانونية المتخصصة والخدمات القانونية الاحترافية، بما يواكب التطور التقني ويحقق أعلى معايير الجودة والسرية وسهولة الوصول.",
+      "أن تصبح كاونسلو المرجع القانوني الرقمي الأكثر موثوقية في العالم العربي، ومنصة تجمع بين المعرفة القانونية المتخصصة والخدمات القانونية الاحترافية، بما يواكب التطور التقني ويحقق أعلى معايير الجودة والسرية.",
     missionLabel: "رسالتنا",
     missionTitle: "خبرة ودقة وتقنية، في خدمة قرار قانوني أفضل",
     missionBody:
-      "تقديم خدمات قانونية متكاملة تعتمد على الخبرة والدقة والتقنية، مع الالتزام بأعلى معايير المهنية؛ لتمكين الأفراد والشركات من الوصول إلى حلول قانونية موثوقة بكفاءة وسهولة.",
-    valuesEyebrow: "ما نؤمن به",
-    valuesTitle: "قيم تحكم كل معرفة وخدمة نقدمها",
+      "تقديم خدمات قانونية متكاملة تعتمد على الخبرة، والدقة، والتقنية، مع الالتزام بأعلى معايير المهنية، بما يمكّن الأفراد والشركات من الوصول إلى حلول قانونية موثوقة بكفاءة وسهولة.",
+    valuesEyebrow: "قيمنا",
+    valuesTitle: "قيمنا المهنية",
     valuesBody:
       "ليست قيماً معلّقة على الجدار؛ بل معايير عمل تَظهر في طريقة تعاملنا مع معلومات العميل، وصياغة الرأي القانوني، وتطوير تجربة الخدمة.",
     values: [
@@ -72,17 +74,17 @@ const copy = {
       { title: "المسؤولية المهنية", description: "التزام واعٍ بأثر كل رأي وإجراء قانوني.", icon: ShieldCheck },
     ] as ValueItem[],
     ecosystemEyebrow: "ما الذي يميز كاونسلو؟",
-    ecosystemTitle: "أكثر من منصة لحجز استشارة",
+    ecosystemTitle: "ليست مجرد منصة لحجز استشارة قانونية",
     ecosystemBody:
-      "كاونسلو منظومة قانونية رقمية صُمّمت لترافق الأفراد والشركات من المعرفة الأولية إلى الحل القانوني المتخصص.",
+      "بل منظومة قانونية رقمية تضم خدمات وموارد متكاملة للأفراد والشركات.",
     ecosystem: [
-      { title: "معرفة قانونية متخصصة", description: "مقالات ودراسات وأدلة عملية بلغة واضحة.", icon: BookOpen },
-      { title: "استشارات عن بُعد", description: "وصول مهني ومرن أينما كان العميل.", icon: Globe2 },
-      { title: "حلول للأعمال", description: "دعم قانوني للشركات ورواد الأعمال والمستثمرين.", icon: BriefcaseBusiness },
-      { title: "التقاضي والتحكيم", description: "خبرة في إدارة النزاعات والتمثيل القانوني.", icon: Scale },
-      { title: "نماذج وأدلة", description: "موارد عملية تساعد على الفهم والاستعداد.", icon: Waypoints },
-      { title: "دعم متعدد اللغات", description: "خدمة قانونية تتجاوز حاجز اللغة والمكان.", icon: Languages },
-      { title: "تجربة مدعومة بالتقنية", description: "أدوات حديثة لتحسين السرعة والوضوح والمتابعة.", icon: Sparkles },
+      { title: "مقالات ودراسات قانونية متخصصة", description: "معرفة قانونية موثوقة بلغة واضحة.", icon: BookOpen },
+      { title: "استشارات قانونية عن بُعد", description: "وصول مهني ومرن أينما كان العميل.", icon: Globe2 },
+      { title: "حلول للشركات ورواد الأعمال", description: "دعم قانوني متكامل لقطاع الأعمال.", icon: BriefcaseBusiness },
+      { title: "خدمات التقاضي والتحكيم", description: "خبرة في إدارة النزاعات والتمثيل القانوني.", icon: Scale },
+      { title: "نماذج وأدلة قانونية", description: "موارد عملية تساعد على الفهم والاستعداد.", icon: Waypoints },
+      { title: "دعم قانوني متعدد اللغات", description: "خدمة قانونية تتجاوز حاجز اللغة والمكان.", icon: Languages },
+      { title: "استخدام التقنيات الحديثة لتحسين تجربة العميل", description: "أدوات حديثة تعزز السرعة والوضوح والمتابعة.", icon: Sparkles },
     ] as EcosystemItem[],
     founderEyebrow: "كلمة المؤسس",
     founderQuote:
@@ -125,6 +127,8 @@ const copy = {
     whyTitle: "Solving real legal-service challenges with practical experience",
     whyBody:
       "Across more than three decades of legal practice, CounselO's founder saw the same barriers facing people who needed legal help. The platform was therefore built around knowledge and professionalism first.",
+    whyClosing:
+      "That is why CounselO was created as a digital legal environment grounded in knowledge and professionalism above all else.",
     challenges: [
       "Difficulty finding reliable legal information in clear language.",
       "Inconsistent service quality and professional standards.",
@@ -299,14 +303,72 @@ export default function Vision() {
             <div id="vision-summary" className="mt-8 space-y-6 text-lg leading-9 text-foreground/75">
               <p>{c.lead}</p>
               <p>{c.intro}</p>
-              <p>{c.whyBody}</p>
             </div>
 
-            <section aria-labelledby="vision-statement-title" className="mt-12 border-s-2 border-primary ps-6">
+            <section aria-labelledby="why-counselo-title" className="mt-14 rounded-3xl bg-muted/30 p-6 sm:p-8">
+              <p className="text-sm font-semibold text-primary">{c.whyEyebrow}</p>
+              <h2 id="why-counselo-title" className="mt-3 font-serif text-2xl font-bold leading-snug text-foreground sm:text-3xl">
+                {c.whyTitle}
+              </h2>
+              <p className="mt-5 text-lg leading-9 text-foreground/75">{c.whyBody}</p>
+              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                {c.challenges.map((challenge) => (
+                  <li key={challenge} className="rounded-2xl border border-border bg-white px-4 py-3 text-sm leading-7 text-foreground/75">
+                    {challenge}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-lg leading-9 text-foreground/75">{c.whyClosing}</p>
+            </section>
+
+            <section aria-labelledby="vision-statement-title" className="mt-14 border-s-2 border-primary ps-6">
+              <p className="text-sm font-semibold text-primary">{c.visionLabel}</p>
               <h2 id="vision-statement-title" className="font-serif text-2xl font-bold leading-snug text-foreground sm:text-3xl">
                 {c.visionTitle}
               </h2>
               <p className="mt-5 text-lg leading-9 text-foreground/75">{c.visionBody}</p>
+            </section>
+
+            <section aria-labelledby="mission-title" className="mt-14 border-s-2 border-primary ps-6">
+              <p className="text-sm font-semibold text-primary">{c.missionLabel}</p>
+              <h2 id="mission-title" className="mt-2 font-serif text-2xl font-bold leading-snug text-foreground sm:text-3xl">
+                {c.missionTitle}
+              </h2>
+              <p className="mt-5 text-lg leading-9 text-foreground/75">{c.missionBody}</p>
+            </section>
+
+            <section aria-labelledby="values-title" className="mt-14">
+              <p className="text-sm font-semibold text-primary">{c.valuesEyebrow}</p>
+              <h2 id="values-title" className="mt-3 font-serif text-2xl font-bold leading-snug text-foreground sm:text-3xl">
+                {c.valuesTitle}
+              </h2>
+              <p className="mt-4 text-lg leading-9 text-foreground/75">{c.valuesBody}</p>
+              <div className="mt-7 grid gap-4 sm:grid-cols-2">
+                {c.values.map(({ title, description, icon: Icon }) => (
+                  <div key={title} className="rounded-2xl border border-border p-5">
+                    <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                    <h3 className="mt-3 font-semibold text-foreground">{title}</h3>
+                    <p className="mt-2 text-sm leading-7 text-foreground/65">{description}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section aria-labelledby="ecosystem-title" className="mt-14">
+              <p className="text-sm font-semibold text-primary">{c.ecosystemEyebrow}</p>
+              <h2 id="ecosystem-title" className="mt-3 font-serif text-2xl font-bold leading-snug text-foreground sm:text-3xl">
+                {c.ecosystemTitle}
+              </h2>
+              <p className="mt-4 text-lg leading-9 text-foreground/75">{c.ecosystemBody}</p>
+              <div className="mt-7 grid gap-4 sm:grid-cols-2">
+                {c.ecosystem.map(({ title, description, icon: Icon }) => (
+                  <div key={title} className="rounded-2xl bg-muted/30 p-5">
+                    <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                    <h3 className="mt-3 font-semibold text-foreground">{title}</h3>
+                    <p className="mt-2 text-sm leading-7 text-foreground/65">{description}</p>
+                  </div>
+                ))}
+              </div>
             </section>
           </article>
 
