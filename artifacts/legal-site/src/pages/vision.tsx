@@ -115,20 +115,20 @@ const copy = {
     eyebrow: "Our Vision",
     title: "Law—closer, clearer, and more trustworthy",
     lead:
-      "Legal services are no longer confined to traditional offices or geographic borders. As technology advances and the needs of people and businesses grow, access to accurate legal knowledge and professional service has become essential—not optional.",
+      "Today, legal services are no longer confined to traditional offices or geographic borders. As technology advances and the needs of individuals and businesses grow, access to accurate legal knowledge and professional service has become a necessity, not merely an option.",
     intro:
-      "CounselO was created for that reality: a digital legal platform that brings professional experience and modern technology together, delivering legal knowledge and services to high standards of quality, confidentiality, and professionalism.",
+      "This is why CounselO was created: to be a digital legal platform that combines professional expertise with modern technology and provides legal services according to high standards of quality, confidentiality, and professionalism.",
     trust: [
       { stat: "30+", label: "Years of legal experience" },
       { stat: "Digital", label: "Access beyond borders" },
       { stat: "Arabic · English", label: "Multilingual legal support" },
     ],
     whyEyebrow: "Why CounselO was created",
-    whyTitle: "Solving real legal-service challenges with practical experience",
+    whyTitle: "Practical experience responding to real legal challenges",
     whyBody:
-      "Across more than three decades of legal practice, CounselO's founder saw the same barriers facing people who needed legal help. The platform was therefore built around knowledge and professionalism first.",
+      "Over more than thirty years of legal practice, we have witnessed many of the challenges facing those seeking legal services. Among the most prominent are difficulty accessing reliable information, variations in service quality, lengthy procedures, and the limited use of modern technology.",
     whyClosing:
-      "That is why CounselO was created as a digital legal environment grounded in knowledge and professionalism above all else.",
+      "From this came the idea of creating a platform whose purpose is to build a digital legal environment founded on knowledge and professionalism above all else.",
     challenges: [
       "Difficulty finding reliable legal information in clear language.",
       "Inconsistent service quality and professional standards.",
@@ -138,13 +138,13 @@ const copy = {
     visionLabel: "Our vision",
     visionTitle: "The Arab world's most trusted digital legal reference",
     visionBody:
-      "To make CounselO the platform where specialized legal knowledge and professional legal services meet—keeping pace with technology while delivering the highest standards of quality, confidentiality, and accessibility.",
+      "For CounselO to become the most trusted digital legal reference in the Arab world: a platform that brings together specialized legal knowledge and professional legal services, keeps pace with technological development, and achieves the highest standards of quality and confidentiality.",
     missionLabel: "Our mission",
     missionTitle: "Experience, precision, and technology for better legal decisions",
     missionBody:
-      "To provide integrated legal services grounded in experience, accuracy, and technology, with an unwavering commitment to professional standards—helping individuals and businesses reach reliable legal solutions efficiently and easily.",
-    valuesEyebrow: "What we believe",
-    valuesTitle: "Values that govern every insight and service we provide",
+      "To provide integrated legal services based on expertise, precision, and technology, while adhering to the highest professional standards, enabling individuals and businesses to access reliable legal solutions efficiently and easily.",
+    valuesEyebrow: "Our values",
+    valuesTitle: "Our professional values",
     valuesBody:
       "These are not words on a wall. They are working standards reflected in how we protect client information, form legal opinions, communicate, and improve the service experience.",
     values: [
@@ -158,17 +158,17 @@ const copy = {
       { title: "Professional responsibility", description: "Careful ownership of every legal opinion and action.", icon: ShieldCheck },
     ] as ValueItem[],
     ecosystemEyebrow: "What makes CounselO different",
-    ecosystemTitle: "More than a consultation-booking platform",
+    ecosystemTitle: "Not merely a platform for booking legal consultations",
     ecosystemBody:
-      "CounselO is a digital legal ecosystem designed to support individuals and businesses from initial understanding through to specialized legal solutions.",
+      "It is an integrated digital legal ecosystem offering services and resources for individuals and businesses.",
     ecosystem: [
-      { title: "Specialized legal knowledge", description: "Articles, studies, and practical guides in clear language.", icon: BookOpen },
-      { title: "Remote consultations", description: "Flexible professional access wherever the client is.", icon: Globe2 },
-      { title: "Business solutions", description: "Legal support for companies, founders, and investors.", icon: BriefcaseBusiness },
-      { title: "Litigation and arbitration", description: "Experience in disputes and legal representation.", icon: Scale },
-      { title: "Templates and guides", description: "Practical resources for understanding and preparation.", icon: Waypoints },
-      { title: "Multilingual support", description: "Legal service that crosses language and location barriers.", icon: Languages },
-      { title: "Technology-enabled experience", description: "Modern tools that improve speed, clarity, and follow-up.", icon: Sparkles },
+      { title: "Specialized legal articles and studies", description: "Reliable legal knowledge presented in clear language.", icon: BookOpen },
+      { title: "Remote legal consultations", description: "Flexible professional access wherever the client is.", icon: Globe2 },
+      { title: "Solutions for companies and entrepreneurs", description: "Integrated legal support for businesses.", icon: BriefcaseBusiness },
+      { title: "Litigation and arbitration services", description: "Experience in dispute management and legal representation.", icon: Scale },
+      { title: "Legal templates and guides", description: "Practical resources that support understanding and preparation.", icon: Waypoints },
+      { title: "Multilingual legal support", description: "Legal service that crosses language and geographic barriers.", icon: Languages },
+      { title: "Modern technology to improve the client experience", description: "Modern tools that enhance speed, clarity, and follow-up.", icon: Sparkles },
     ] as EcosystemItem[],
     founderEyebrow: "A word from the founder",
     founderQuote:
