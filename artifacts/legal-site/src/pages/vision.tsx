@@ -1,12 +1,8 @@
 import { Link } from "wouter";
 import type { LucideIcon } from "lucide-react";
 import {
-  ArrowUpRight,
   BookOpen,
   BriefcaseBusiness,
-  CheckCircle2,
-  Compass,
-  Eye,
   Globe2,
   Languages,
   Lightbulb,
@@ -21,8 +17,6 @@ import {
 import { SEOHead } from "@/components/seo/SEOHead";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
-
-const founderPhoto = "/images/optimized/omar-founder-bio.png";
 
 type ValueItem = { title: string; description: string; icon: LucideIcon };
 type EcosystemItem = { title: string; description: string; icon: LucideIcon };
@@ -289,227 +283,49 @@ export default function Vision() {
         schema={schema}
       />
 
-      <section className="relative isolate bg-[#00351f] text-white">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -z-20 opacity-30"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px)",
-            backgroundSize: "72px 72px",
-            maskImage: "linear-gradient(to bottom, black, transparent 88%)",
-          }}
-        />
-        <div aria-hidden="true" className="absolute -end-40 top-0 -z-10 h-[34rem] w-[34rem] rounded-full bg-[#0c8a52]/30 blur-3xl" />
-        <div aria-hidden="true" className="absolute bottom-0 start-[12%] -z-10 h-px w-3/4 bg-gradient-to-r from-transparent via-[#d8bd79]/70 to-transparent" />
-
-        <div className="mx-auto max-w-7xl px-4 pb-24 pt-20 sm:px-6 md:pb-32 md:pt-28 lg:px-8">
-          <nav aria-label="Breadcrumb" className="mb-14 flex items-center gap-2 text-xs text-white/55">
-            <Link href={regionPrefix} className="transition-colors hover:text-white">{c.home}</Link>
+      <main className="bg-white">
+        <div className="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-24">
+          <nav aria-label="Breadcrumb" className="mb-12 flex items-center gap-2 text-sm text-muted-foreground">
+            <Link href={regionPrefix} className="transition-colors hover:text-primary">{c.home}</Link>
             <span aria-hidden="true">/</span>
-            <span aria-current="page" className="text-[#d8bd79]">{c.pageName}</span>
+            <span aria-current="page" className="text-foreground">{c.pageName}</span>
           </nav>
 
-          <div className="grid items-end gap-14 lg:grid-cols-[1fr_20rem]">
-            <div className="max-w-4xl">
-              <div className="mb-7 inline-flex items-center gap-3 border border-[#d8bd79]/35 bg-white/[0.04] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#e3ca8c]">
-                <Compass className="h-4 w-4" aria-hidden="true" />
-                {c.eyebrow}
-              </div>
-              <h1 id="vision-title" className="max-w-4xl text-balance font-serif text-5xl font-bold leading-[1.08] sm:text-6xl lg:text-7xl">
-                {c.title}
-              </h1>
-              <p id="vision-summary" className="mt-8 max-w-3xl text-lg leading-8 text-white/72 sm:text-xl sm:leading-9">
-                {c.lead}
-              </p>
+          <article aria-labelledby="vision-title">
+            <p className="text-sm font-semibold text-primary">{c.eyebrow}</p>
+            <h1 id="vision-title" className="mt-4 text-balance font-serif text-4xl font-bold leading-tight text-foreground sm:text-5xl">
+              {c.title}
+            </h1>
+            <div id="vision-summary" className="mt-8 space-y-6 text-lg leading-9 text-foreground/75">
+              <p>{c.lead}</p>
+              <p>{c.intro}</p>
+              <p>{c.whyBody}</p>
             </div>
 
-            <div className="border-s border-[#d8bd79]/45 ps-6 lg:mb-2">
-              <p className="text-sm leading-7 text-white/65">{c.intro}</p>
-              <div className="mt-7 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#d8bd79]">
-                <span className="h-px w-8 bg-[#d8bd79]" />
-                CounselO · كاونسلو
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <section aria-label={isRTL ? "مؤشرات الثقة" : "Trust indicators"} className="relative z-10 mx-auto -mt-10 max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid border border-border bg-white shadow-[0_24px_70px_rgba(0,53,31,0.12)] sm:grid-cols-3">
-          {c.trust.map((item, index) => (
-            <div key={item.label} className={`px-7 py-7 ${index ? "border-t border-border sm:border-s sm:border-t-0" : ""}`}>
-              <div className="font-serif text-2xl font-bold text-primary">{item.stat}</div>
-              <div className="mt-1 text-sm text-muted-foreground">{item.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="py-24 sm:py-32">
-        <div className="mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:gap-20 lg:px-8">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">{c.whyEyebrow}</p>
-            <h2 className="mt-4 text-balance font-serif text-4xl font-bold leading-tight text-foreground sm:text-5xl">{c.whyTitle}</h2>
-            <p className="mt-7 text-lg leading-8 text-muted-foreground">{c.whyBody}</p>
-          </div>
-          <ol className="grid gap-px bg-border sm:grid-cols-2">
-            {c.challenges.map((challenge, index) => (
-              <li key={challenge} className="group bg-white p-7 transition-colors hover:bg-card">
-                <div className="mb-8 flex items-center justify-between">
-                  <span className="font-serif text-3xl font-bold text-primary/20">0{index + 1}</span>
-                  <CheckCircle2 className="h-5 w-5 text-primary" aria-hidden="true" />
-                </div>
-                <p className="leading-7 text-foreground/80">{challenge}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="bg-[#f3f8f5] py-24 sm:py-32">
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <article className="relative overflow-hidden bg-primary p-9 text-white sm:p-12">
-            <Eye className="absolute -end-8 -top-8 h-44 w-44 text-white/[0.06]" aria-hidden="true" />
-            <div className="relative">
-              <div className="mb-10 flex h-12 w-12 items-center justify-center border border-white/25 bg-white/10">
-                <Eye className="h-6 w-6" aria-hidden="true" />
-              </div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/65">{c.visionLabel}</p>
-              <h2 className="mt-4 text-balance font-serif text-3xl font-bold leading-tight sm:text-4xl">{c.visionTitle}</h2>
-              <p className="mt-7 leading-8 text-white/75">{c.visionBody}</p>
-            </div>
+            <section aria-labelledby="vision-statement-title" className="mt-12 border-s-2 border-primary ps-6">
+              <h2 id="vision-statement-title" className="font-serif text-2xl font-bold leading-snug text-foreground sm:text-3xl">
+                {c.visionTitle}
+              </h2>
+              <p className="mt-5 text-lg leading-9 text-foreground/75">{c.visionBody}</p>
+            </section>
           </article>
-          <article className="relative overflow-hidden border border-[#d9c58e]/55 bg-[#fbf7ed] p-9 text-[#173326] sm:p-12">
-            <Target className="absolute -end-8 -top-8 h-44 w-44 text-[#a17d2b]/[0.07]" aria-hidden="true" />
-            <div className="relative">
-              <div className="mb-10 flex h-12 w-12 items-center justify-center border border-[#b69342]/35 bg-white/70">
-                <Target className="h-6 w-6 text-[#8e6b1d]" aria-hidden="true" />
-              </div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#8e6b1d]">{c.missionLabel}</p>
-              <h2 className="mt-4 text-balance font-serif text-3xl font-bold leading-tight sm:text-4xl">{c.missionTitle}</h2>
-              <p className="mt-7 leading-8 text-[#385546]">{c.missionBody}</p>
+
+          <article className="mt-16 border-t border-border pt-14" aria-labelledby="founder-message-title">
+            <p className="text-sm font-semibold text-primary">{c.founderEyebrow}</p>
+            <h2 id="founder-message-title" className="sr-only">{c.founderEyebrow}</h2>
+            <blockquote id="founder-statement" className="mt-6 font-serif text-2xl font-bold leading-relaxed text-foreground sm:text-3xl">
+              “{c.founderQuote}”
+            </blockquote>
+            <div className="mt-8 space-y-5 text-base leading-8 text-foreground/70 sm:text-lg sm:leading-9">
+              {c.founderParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </div>
+            <footer className="mt-9">
+              <p className="font-semibold text-foreground">{c.founderName}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{c.founderRole}</p>
+            </footer>
           </article>
         </div>
-      </section>
-
-      <section className="py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">{c.valuesEyebrow}</p>
-              <h2 className="mt-4 text-balance font-serif text-4xl font-bold sm:text-5xl">{c.valuesTitle}</h2>
-            </div>
-            <p className="max-w-2xl text-lg leading-8 text-muted-foreground lg:justify-self-end">{c.valuesBody}</p>
-          </div>
-
-          <div className="mt-14 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
-            {c.values.map((value, index) => {
-              const Icon = value.icon;
-              return (
-                <article key={value.title} className="group min-h-64 bg-white p-7 transition-all hover:-translate-y-1 hover:bg-[#f6faf7] hover:shadow-xl">
-                  <div className="flex items-start justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center bg-primary/8 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </div>
-                    <span className="font-serif text-sm text-primary/30">0{index + 1}</span>
-                  </div>
-                  <h3 className="mt-9 text-xl font-bold text-foreground">{value.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{value.description}</p>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-[#062f20] py-24 text-white sm:py-32">
-        <div aria-hidden="true" className="absolute inset-y-0 end-0 w-1/2 bg-[radial-gradient(circle_at_center,rgba(37,139,86,.28),transparent_68%)]" />
-        <div className="relative mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20 lg:px-8">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#d8bd79]">{c.ecosystemEyebrow}</p>
-            <h2 className="mt-4 text-balance font-serif text-4xl font-bold sm:text-5xl">{c.ecosystemTitle}</h2>
-            <p className="mt-7 text-lg leading-8 text-white/65">{c.ecosystemBody}</p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {c.ecosystem.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <article key={item.title} className={`${index === c.ecosystem.length - 1 ? "sm:col-span-2" : ""} border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-colors hover:border-[#d8bd79]/35 hover:bg-white/[0.07]`}>
-                  <div className="flex items-start gap-4">
-                    <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center border border-[#d8bd79]/25 text-[#d8bd79]">
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <h3 className="font-sans text-base font-semibold">{item.title}</h3>
-                      <p className="mt-2 text-sm leading-6 text-white/55">{item.description}</p>
-                    </div>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#f7f4ec] py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid overflow-hidden border border-[#d9cda9] bg-white md:grid-cols-[18rem_1fr] lg:grid-cols-[22rem_1fr]">
-            <div className="relative aspect-[2/3] min-h-0 bg-[#dce8e0] md:aspect-auto">
-              <img
-                src={founderPhoto}
-                alt={c.founderImageAlt}
-                width="720"
-                height="900"
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-0 h-full w-full object-cover object-center md:object-top"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#032a1a] via-[#032a1a]/85 to-transparent px-7 pb-7 pt-24 text-white">
-                <div className="font-serif text-xl font-bold">{c.founderName}</div>
-                <div className="mt-1 text-sm text-white/65">{c.founderRole}</div>
-              </div>
-            </div>
-            <div className="p-8 sm:p-12 lg:p-16">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">{c.founderEyebrow}</p>
-              <blockquote id="founder-statement" className="relative mt-8 border-s-2 border-[#b89443] ps-7 font-serif text-2xl font-bold leading-relaxed text-[#173326] sm:text-3xl">
-                “{c.founderQuote}”
-              </blockquote>
-              <div className="mt-9 space-y-5 text-base leading-8 text-muted-foreground">
-                {c.founderParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-              </div>
-              <a
-                href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
-                target="_blank"
-                rel="noopener noreferrer me"
-                className="mt-9 inline-flex items-center gap-2 text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary"
-              >
-                LinkedIn
-                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">{c.ctaEyebrow}</p>
-          <h2 className="mt-4 text-balance font-serif text-4xl font-bold sm:text-5xl">{c.ctaTitle}</h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">{c.ctaBody}</p>
-          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link href={`${regionPrefix}/contact`} className="inline-flex min-h-12 items-center justify-center gap-2 bg-primary px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#004f29]">
-              {c.ctaPrimary}
-              <ArrowUpRight className="h-4 w-4 rtl:rotate-[-90deg]" aria-hidden="true" />
-            </Link>
-            <Link href={`${regionPrefix}/about`} className="inline-flex min-h-12 items-center justify-center border border-border px-7 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary">
-              {c.ctaSecondary}
-            </Link>
-          </div>
-        </div>
-      </section>
+      </main>
     </div>
   );
 }
