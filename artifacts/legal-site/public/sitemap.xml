@@ -59,6 +59,17 @@
     
   </url>
   <url>
+    <loc>https://counselo-legal.com/sa/vision</loc>
+    <xhtml:link rel="alternate" hreflang="en-SA"     href="https://counselo-legal.com/sa/vision"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA"     href="https://counselo-legal.com/sa/ar/vision"/>
+    <xhtml:link rel="alternate" hreflang="en-SY"     href="https://counselo-legal.com/syr/vision"/>
+    <xhtml:link rel="alternate" hreflang="ar-SY"     href="https://counselo-legal.com/syr/ar/vision"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    
+  </url>
+  <url>
     <loc>https://counselo-legal.com/sa/terms-of-service</loc>
     <xhtml:link rel="alternate" hreflang="en-SA"     href="https://counselo-legal.com/sa/terms-of-service"/>
     <xhtml:link rel="alternate" hreflang="ar-SA"     href="https://counselo-legal.com/sa/ar/terms-of-service"/>
@@ -121,6 +132,17 @@
     <xhtml:link rel="alternate" hreflang="ar-SA"     href="https://counselo-legal.com/sa/ar/about"/>
     <xhtml:link rel="alternate" hreflang="en-SY"     href="https://counselo-legal.com/syr/about"/>
     <xhtml:link rel="alternate" hreflang="ar-SY"     href="https://counselo-legal.com/syr/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/syr/vision</loc>
+    <xhtml:link rel="alternate" hreflang="en-SA"     href="https://counselo-legal.com/sa/vision"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA"     href="https://counselo-legal.com/sa/ar/vision"/>
+    <xhtml:link rel="alternate" hreflang="en-SY"     href="https://counselo-legal.com/syr/vision"/>
+    <xhtml:link rel="alternate" hreflang="ar-SY"     href="https://counselo-legal.com/syr/ar/vision"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -193,6 +215,17 @@
     
   </url>
   <url>
+    <loc>https://counselo-legal.com/sa/ar/vision</loc>
+    <xhtml:link rel="alternate" hreflang="en-SA"     href="https://counselo-legal.com/sa/vision"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA"     href="https://counselo-legal.com/sa/ar/vision"/>
+    <xhtml:link rel="alternate" hreflang="en-SY"     href="https://counselo-legal.com/syr/vision"/>
+    <xhtml:link rel="alternate" hreflang="ar-SY"     href="https://counselo-legal.com/syr/ar/vision"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    
+  </url>
+  <url>
     <loc>https://counselo-legal.com/sa/ar/terms-of-service</loc>
     <xhtml:link rel="alternate" hreflang="en-SA"     href="https://counselo-legal.com/sa/terms-of-service"/>
     <xhtml:link rel="alternate" hreflang="ar-SA"     href="https://counselo-legal.com/sa/ar/terms-of-service"/>
@@ -253,6 +286,17 @@
     <xhtml:link rel="alternate" hreflang="ar-SA"     href="https://counselo-legal.com/sa/ar/about"/>
     <xhtml:link rel="alternate" hreflang="en-SY"     href="https://counselo-legal.com/syr/about"/>
     <xhtml:link rel="alternate" hreflang="ar-SY"     href="https://counselo-legal.com/syr/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/syr/ar/vision</loc>
+    <xhtml:link rel="alternate" hreflang="en-SA"     href="https://counselo-legal.com/sa/vision"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA"     href="https://counselo-legal.com/sa/ar/vision"/>
+    <xhtml:link rel="alternate" hreflang="en-SY"     href="https://counselo-legal.com/syr/vision"/>
+    <xhtml:link rel="alternate" hreflang="ar-SY"     href="https://counselo-legal.com/syr/ar/vision"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
