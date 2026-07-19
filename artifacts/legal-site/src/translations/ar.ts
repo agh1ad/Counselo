@@ -4961,6 +4961,7 @@ export const ar: typeof en = {
       address: "شارع المدينة المنورة\nمبنى ردمه للشقق الفندقية\nالمملكة العربية السعودية",
       mapsUrl: "https://www.google.com/maps?q=27.004916826156617,49.657790303513934",
       mapsLabel: "عرض على خرائط جوجل",
+      office2: undefined as { partnerName: string; licenseNo: string; address: string; mapsUrl: string; mapsLabel: string } | undefined,
     },
     why: {
       eyebrow: "لماذا كاونسلو",

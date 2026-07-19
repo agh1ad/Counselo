@@ -4923,6 +4923,7 @@ export const en = {
       address: "Madinah Street\nRadma Hotel Apartments Building\nSaudi Arabia",
       mapsUrl: "https://www.google.com/maps?q=27.004916826156617,49.657790303513934",
       mapsLabel: "View on Google Maps",
+      office2: undefined as { partnerName: string; licenseNo: string; address: string; mapsUrl: string; mapsLabel: string } | undefined,
     },
     why: {
       eyebrow: "Why CounselO",

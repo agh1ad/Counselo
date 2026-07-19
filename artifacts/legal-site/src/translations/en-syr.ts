@@ -863,9 +863,9 @@ export const enSyr: typeof en = {
     office: {
       ...en.aboutPage.office,
       eyebrow: "Physical Presence",
-      heading: "Syria Office — Al-Baghdadi Law Firm",
+      heading: "Syria Offices — Field Presence",
       p1: "CounselO provides online legal consultation services, document analysis, and remote legal opinion preparation — enabling clients across all of Syria to access professional legal services without the need for in-person attendance.",
-      p2: "Where a case requires court representation, appearances before courts or competent authorities, or document notarization and procedures requiring physical presence, CounselO works through Al-Baghdadi Law Firm — licensed in Syria — to handle judicial representation proceedings before Syrian courts and government authorities.",
+      p2: "Where a case requires court representation, appearances before courts or competent authorities, or document notarization and procedures requiring physical presence, CounselO works through its licensed legal partners in Syria to handle judicial representation proceedings before Syrian courts and government authorities.",
       city: "Syria",
       region: "Syria",
       partnerName: "Al-Baghdadi Law Firm",
@@ -873,6 +873,13 @@ export const enSyr: typeof en = {
       address: "Al-Baghdadi Law Firm\nSyria",
       mapsUrl: "https://www.google.com/maps?q=35.1333,36.75",
       mapsLabel: "View on Google Maps",
+      office2: {
+        partnerName: "Attorney Omar Al-Abdullah",
+        licenseNo: "License No. 4519",
+        address: "Attorney Omar Al-Abdullah\nDamascus, Syria",
+        mapsUrl: "https://www.google.com/maps?q=33.5138,36.2765",
+        mapsLabel: "View on Google Maps",
+      },
     },
   },
 };

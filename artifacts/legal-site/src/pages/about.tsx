@@ -337,7 +337,7 @@ export default function About() {
       {/* ── Physical Office ── */}
       <section className="py-20 bg-card border-t border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             <motion.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{a.office.eyebrow}</p>
               <h2 className="text-3xl font-serif font-bold text-foreground mb-6">{a.office.heading}</h2>
@@ -345,18 +345,19 @@ export default function About() {
               <p className="text-muted-foreground leading-relaxed mb-5">{a.office.p1}</p>
               <p className="text-muted-foreground leading-relaxed">{a.office.p2}</p>
             </motion.div>
-            <motion.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <div className="bg-primary p-10 text-white">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-14 h-14 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
-                    <MapPin className="h-7 w-7 text-white" />
+            <motion.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
+              {/* Office card — always shown */}
+              <div className="bg-primary p-8 text-white">
+                <div className="flex items-start gap-4 mb-5">
+                  <div className="w-12 h-12 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
+                    <MapPin className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <div className="font-serif font-bold text-xl">{a.office.partnerName}</div>
+                    <div className="font-serif font-bold text-lg">{a.office.partnerName}</div>
                     <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mt-1">{a.office.licenseNo}</div>
                   </div>
                 </div>
-                <div className="border-t border-white/20 pt-6 mb-6">
+                <div className="border-t border-white/20 pt-5 mb-5">
                   <p className="text-white/80 text-sm leading-relaxed whitespace-pre-line mb-4">{a.office.address}</p>
                   <a
                     href={a.office.mapsUrl}
@@ -368,16 +369,13 @@ export default function About() {
                     {a.office.mapsLabel}
                   </a>
                 </div>
-                <div className="border-t border-white/20 pt-6 space-y-3">
+                <div className="border-t border-white/20 pt-5 space-y-3">
                   {[
                     region === "syr"
                       ? (isRTL ? "مكتب محاماة مرخَّص في سوريا" : "Licensed law office in Syria")
                       : (isRTL ? "مكتب محاماة مرخَّص في المنطقة الشرقية" : "Licensed law office in the Eastern Province"),
                     isRTL ? "حضور شخصي أمام المحاكم وتوثيق الوثائق" : "Court attendance & official document processing",
                     isRTL ? "متكامل مع الخدمة الرقمية الأونلاين" : "Integrated with our full online digital service",
-                    region === "syr"
-                      ? (isRTL ? "يخدم عملاء جميع أنحاء سوريا" : "Serving clients across all of Syria")
-                      : (isRTL ? "يخدم عملاء جميع أنحاء المملكة" : "Serving clients across all of Saudi Arabia"),
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <CheckCircle2 className="h-4 w-4 text-white/60 shrink-0" />
@@ -386,6 +384,33 @@ export default function About() {
                   ))}
                 </div>
               </div>
+
+              {/* Second office card — Syria only */}
+              {a.office.office2 && (
+                <div className="bg-primary/90 p-8 text-white border border-white/10">
+                  <div className="flex items-start gap-4 mb-5">
+                    <div className="w-12 h-12 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
+                      <MapPin className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-serif font-bold text-lg">{a.office.office2.partnerName}</div>
+                      <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mt-1">{a.office.office2.licenseNo}</div>
+                    </div>
+                  </div>
+                  <div className="border-t border-white/20 pt-5">
+                    <p className="text-white/80 text-sm leading-relaxed whitespace-pre-line mb-4">{a.office.office2.address}</p>
+                    <a
+                      href={a.office.office2.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs font-semibold px-4 py-2 transition-colors"
+                    >
+                      <MapPin className="h-3.5 w-3.5" />
+                      {a.office.office2.mapsLabel}
+                    </a>
+                  </div>
+                </div>
+              )}
             </motion.div>
           </div>
         </div>
