@@ -397,7 +397,7 @@ export default function About() {
                       <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mt-1">{a.office.office2.licenseNo}</div>
                     </div>
                   </div>
-                  <div className="border-t border-white/20 pt-5">
+                  <div className="border-t border-white/20 pt-5 mb-5">
                     <p className="text-white/80 text-sm leading-relaxed whitespace-pre-line mb-4">{a.office.office2.address}</p>
                     <a
                       href={a.office.office2.mapsUrl}
@@ -408,6 +408,18 @@ export default function About() {
                       <MapPin className="h-3.5 w-3.5" />
                       {a.office.office2.mapsLabel}
                     </a>
+                  </div>
+                  <div className="border-t border-white/20 pt-5 space-y-3">
+                    {[
+                      isRTL ? "مكتب محاماة مرخَّص في سوريا" : "Licensed law office in Syria",
+                      isRTL ? "حضور شخصي أمام المحاكم وتوثيق الوثائق" : "Court attendance & official document processing",
+                      isRTL ? "متكامل مع الخدمة الرقمية الأونلاين" : "Integrated with our full online digital service",
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <CheckCircle2 className="h-4 w-4 text-white/60 shrink-0" />
+                        <span className="text-white/80 text-sm">{item}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
