@@ -199,6 +199,7 @@ export const en = {
       officeLabel: "Cooperating Office",
       officeName: "Lawyer Abdullah Al-Anzi",
       officeDetail: "License No. 37440 — Licensed law office in Saudi Arabia, serving clients across the Kingdom",
+      office2: undefined as { officeName: string; officeDetail: string } | undefined,
     },
   },
   services: {

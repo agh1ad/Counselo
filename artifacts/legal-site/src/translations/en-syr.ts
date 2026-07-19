@@ -105,9 +105,13 @@ export const enSyr: typeof en = {
     },
     cooperation: {
       ...en.home.cooperation,
-      desc: "CounselO handles the vast majority of legal matters entirely online — consultations, document review, and legal opinions, with no need to visit an office. When a case requires court representation, appearances before competent authorities, or document notarization, CounselO works through Al-Baghdadi Law Firm to handle the in-person proceedings on your behalf.",
+      desc: "CounselO handles the vast majority of legal matters entirely online — consultations, document review, and legal opinions, with no need to visit an office. When a case requires court representation, appearances before competent authorities, or document notarization, CounselO works through its licensed legal partners in Syria to handle the in-person proceedings on your behalf.",
       officeName: "Al-Baghdadi Law Firm",
       officeDetail: "Licensed in Syria — serving clients across all of Syria",
+      office2: {
+        officeName: "Attorney Omar Al-Abdullah",
+        officeDetail: "License No. 4519 — Damascus, Syria",
+      },
     },
   },
 

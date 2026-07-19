@@ -201,6 +201,7 @@ export const ar: typeof en = {
       officeLabel: "المكتب المتعاون",
       officeName: "المحامي عبدالله العنزي",
       officeDetail: "رقم الترخيص 37440 — مكتب محاماة مرخّص في المملكة العربية السعودية، يخدم عملاء جميع أنحاء المملكة",
+      office2: undefined as { officeName: string; officeDetail: string } | undefined,
     },
   },
   services: {

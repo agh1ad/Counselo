@@ -384,24 +384,46 @@ export default function Home() {
               <div className="w-16 h-1 bg-primary mb-8" />
               <p className="text-muted-foreground text-lg leading-relaxed">{h.cooperation.desc}</p>
             </motion.div>
-            <motion.div initial={false} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-              <div className="bg-primary p-10 text-white">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-14 h-14 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
-                    <MapPin className="h-7 w-7 text-white" />
+            <motion.div initial={false} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="space-y-5">
+              {/* Primary office card */}
+              <div className="bg-primary p-8 text-white">
+                <div className="flex items-start gap-4 mb-5">
+                  <div className="w-12 h-12 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
+                    <MapPin className="h-6 w-6 text-white" />
                   </div>
                   <div>
                     <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-1">{h.cooperation.officeLabel}</div>
-                    <div className="font-serif font-bold text-xl">{h.cooperation.officeName}</div>
+                    <div className="font-serif font-bold text-lg">{h.cooperation.officeName}</div>
                   </div>
                 </div>
-                <div className="border-t border-white/20 pt-6">
+                <div className="border-t border-white/20 pt-5">
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-white/60 shrink-0 mt-0.5" />
                     <span className="text-white/80 text-sm leading-relaxed">{h.cooperation.officeDetail}</span>
                   </div>
                 </div>
               </div>
+
+              {/* Second office card — Syria only */}
+              {h.cooperation.office2 && (
+                <div className="bg-primary/90 p-8 text-white border border-white/10">
+                  <div className="flex items-start gap-4 mb-5">
+                    <div className="w-12 h-12 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
+                      <MapPin className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-1">{h.cooperation.officeLabel}</div>
+                      <div className="font-serif font-bold text-lg">{h.cooperation.office2.officeName}</div>
+                    </div>
+                  </div>
+                  <div className="border-t border-white/20 pt-5">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-white/60 shrink-0 mt-0.5" />
+                      <span className="text-white/80 text-sm leading-relaxed">{h.cooperation.office2.officeDetail}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </motion.div>
           </div>
         </div>
