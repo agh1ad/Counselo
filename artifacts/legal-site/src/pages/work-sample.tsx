@@ -1,4 +1,4 @@
-import { Link, useParams } from "wouter";
+import { Link, Redirect, useParams } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, ArrowRight, Calendar, Download, ExternalLink, FileCheck2, Languages, LockKeyhole, Scale, ShieldCheck } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -22,6 +22,7 @@ export default function WorkSample() {
   });
 
   const ar = lang === "ar";
+  const workBasePath = ar ? "/ar/our-work" : "/our-work";
   const ui = ar ? {
     back: "العودة إلى أعمالنا", notFound: "نموذج العمل غير موجود", completed: "تاريخ الإنجاز", jurisdiction: "النطاق القانوني", clientType: "نوع العميل", documentLanguage: "لغة المستند", challenge: "المسألة", approach: "العمل الذي قمنا به", outcome: "النتيجة أو القيمة المقدمة", document: "المستند المنقح", open: "فتح المستند في نافذة جديدة", download: "تنزيل نسخة", privacy: "حماية السرية", privacyText: "تم حذف أو حجب أسماء العملاء والبيانات الشخصية والتجارية السرية والتفاصيل التي تسمح بالتعرف على أصحابها قبل نشر هذا النموذج.", disclaimer: "هذا النموذج لأغراض توضيح الخبرة المهنية فقط. عُدّلت بعض التفاصيل أو حُجبت لحماية السرية، ولا تمثل النتائج السابقة ضماناً لنتيجة أي مسألة أخرى.", ctaTitle: "هل تحتاج إلى مستند أو حل قانوني مماثل؟", cta: "ناقش متطلباتك معنا",
   } : {
@@ -29,7 +30,9 @@ export default function WorkSample() {
   };
 
   if (isLoading) return <div className="min-h-[60vh] flex items-center justify-center text-muted-foreground">{ar ? "جارٍ التحميل…" : "Loading…"}</div>;
-  if (isError || !sample) return <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4"><h1 className="text-2xl font-serif font-bold">{ui.notFound}</h1><Link href="/our-work" className="text-primary hover:underline">{ui.back}</Link></div>;
+  if (isError || !sample) return <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4"><h1 className="text-2xl font-serif font-bold">{ui.notFound}</h1><Link href={workBasePath} className="text-primary hover:underline">{ui.back}</Link></div>;
+  if (ar && !sample.titleAr) return <Redirect to={`/our-work/${sample.slug}`} replace />;
+  if (!ar && !sample.titleEn) return <Redirect to={`/ar/our-work/${sample.slug}`} replace />;
 
   const title = localized(sample.titleEn, sample.titleAr, lang);
   const summary = localized(sample.summaryEn, sample.summaryAr, lang);
@@ -42,7 +45,8 @@ export default function WorkSample() {
   const seoTitle = localized(sample.seoTitleEn, sample.seoTitleAr, lang) || title;
   const seoDescription = localized(sample.seoDescriptionEn, sample.seoDescriptionAr, lang) || summary;
   const fileUrl = `/api/work/${encodeURIComponent(sample.slug)}/file`;
-  const canonical = `https://counselo-legal.com/our-work/${sample.slug}`;
+  const canonicalPath = `${workBasePath}/${sample.slug}`;
+  const canonical = `https://counselo-legal.com${canonicalPath}`;
   const schema = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
@@ -52,7 +56,7 @@ export default function WorkSample() {
     url: canonical,
     dateCreated: sample.date,
     dateModified: sample.updatedAt || sample.date,
-    inLanguage: sample.documentLanguage === "bilingual" ? ["ar", "en"] : sample.documentLanguage,
+    inLanguage: lang,
     genre: workType,
     contentLocation: jurisdiction,
     creator: { "@type": "LegalService", "@id": "https://counselo-legal.com/#organization", name: "CounselO" },
@@ -61,9 +65,9 @@ export default function WorkSample() {
 
   return (
     <div className="min-h-screen bg-background" dir={isRTL ? "rtl" : "ltr"}>
-      <SEOHead title={seoTitle} description={seoDescription} canonical={`/our-work/${sample.slug}`} noRegionPrefix contentLanguage={lang} keywords={`${workType}, ${jurisdiction}, ${ar ? "نموذج عمل قانوني, صياغة قانونية, كاونسلو" : "legal work sample, legal drafting, CounselO"}`} schema={schema} ogType="article" />
+      <SEOHead title={seoTitle} description={seoDescription} canonical={canonicalPath} noRegionPrefix contentLanguage={lang} sharedLanguageAlternates={sample.titleEn && sample.titleAr ? { en: `/our-work/${sample.slug}`, ar: `/ar/our-work/${sample.slug}` } : undefined} keywords={`${workType}, ${jurisdiction}, ${ar ? "نموذج عمل قانوني, صياغة قانونية, كاونسلو" : "legal work sample, legal drafting, CounselO"}`} schema={schema} ogType="article" />
       <section className="bg-primary text-white px-4 py-14">
-        <div className="max-w-6xl mx-auto"><Link href="/our-work" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 text-sm"><ArrowLeft className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} />{ui.back}</Link><div className="max-w-4xl"><div className="flex flex-wrap gap-2 mb-5">{workType && <span className="border border-white/25 bg-white/10 px-3 py-1 text-sm">{workType}</span>}{sample.featured && <span className="bg-white text-primary px-3 py-1 text-sm font-semibold">{ar ? "عمل مميز" : "Featured work"}</span>}</div><h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-5">{title}</h1><p className="text-lg text-white/75 leading-relaxed">{summary}</p></div></div>
+        <div className="max-w-6xl mx-auto"><Link href={workBasePath} className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 text-sm"><ArrowLeft className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} />{ui.back}</Link><div className="max-w-4xl"><div className="flex flex-wrap gap-2 mb-5">{workType && <span className="border border-white/25 bg-white/10 px-3 py-1 text-sm">{workType}</span>}{sample.featured && <span className="bg-white text-primary px-3 py-1 text-sm font-semibold">{ar ? "عمل مميز" : "Featured work"}</span>}</div><h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-5">{title}</h1><p className="text-lg text-white/75 leading-relaxed">{summary}</p></div></div>
       </section>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">

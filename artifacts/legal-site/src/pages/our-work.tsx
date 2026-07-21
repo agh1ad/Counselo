@@ -21,6 +21,8 @@ export default function OurWork() {
   });
 
   const ar = lang === "ar";
+  const workBasePath = ar ? "/ar/our-work" : "/our-work";
+  const visibleSamples = samples.filter((sample) => ar ? Boolean(sample.titleAr) : Boolean(sample.titleEn));
   const ui = ar ? {
     eyebrow: "نماذج من أعمالنا",
     title: "خبرة قانونية يمكن الاطلاع عليها",
@@ -55,10 +57,10 @@ export default function OurWork() {
     {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      "@id": "https://counselo-legal.com/our-work#webpage",
+      "@id": `https://counselo-legal.com${workBasePath}#webpage`,
       name: ar ? "نماذج أعمال كاونسلو القانونية" : "CounselO Legal Work Samples",
       description: ui.intro,
-      url: "https://counselo-legal.com/our-work",
+      url: `https://counselo-legal.com${workBasePath}`,
       inLanguage: ar ? "ar" : "en",
       isPartOf: { "@id": "https://counselo-legal.com/#website" },
       about: { "@id": "https://counselo-legal.com/#organization" },
@@ -66,12 +68,12 @@ export default function OurWork() {
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      numberOfItems: samples.length,
-      itemListElement: samples.map((sample, index) => ({
+      numberOfItems: visibleSamples.length,
+      itemListElement: visibleSamples.map((sample, index) => ({
         "@type": "ListItem",
         position: index + 1,
         name: localized(sample.titleEn, sample.titleAr, lang),
-        url: `https://counselo-legal.com/our-work/${sample.slug}`,
+        url: `https://counselo-legal.com${workBasePath}/${sample.slug}`,
       })),
     },
   ];
@@ -81,8 +83,9 @@ export default function OurWork() {
       <SEOHead
         title={ar ? "نماذج من أعمالنا القانونية | خبرة وصياغة احترافية | كاونسلو" : "Our Legal Work | Redacted Documents & Experience | CounselO"}
         description={ar ? "اطلع على نماذج منقحة من العقود والمذكرات والأعمال القانونية التي أعدها فريق كاونسلو، مع حماية كاملة لسرية وخصوصية العملاء." : "View redacted contracts, legal documents, and selected professional work prepared by CounselO, with client confidentiality and identifying information protected."}
-        canonical="/our-work"
+        canonical={workBasePath}
         noRegionPrefix
+        sharedLanguageAlternates={{ en: "/our-work", ar: "/ar/our-work" }}
         contentLanguage={lang}
         keywords={ar ? "نماذج عقود قانونية, أعمال محاماة, صياغة عقود, خبرة قانونية, نماذج قانونية كاونسلو" : "legal work samples, redacted contracts, contract drafting experience, law firm portfolio, CounselO legal documents"}
         schema={schemas}
@@ -109,11 +112,11 @@ export default function OurWork() {
 
         {isLoading ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">{[1,2,3].map((n) => <div key={n} className="h-80 bg-muted animate-pulse border border-border" />)}</div>
-        ) : samples.length === 0 ? (
+        ) : visibleSamples.length === 0 ? (
           <div className="text-center py-20 border border-dashed border-border"><FileText className="h-10 w-10 text-muted-foreground/40 mx-auto mb-4" /><p className="text-muted-foreground">{ui.empty}</p></div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
-            {samples.map((sample, index) => {
+            {visibleSamples.map((sample, index) => {
               const title = localized(sample.titleEn, sample.titleAr, lang);
               const summary = localized(sample.summaryEn, sample.summaryAr, lang);
               const workType = localized(sample.workTypeEn, sample.workTypeAr, lang);
@@ -136,7 +139,7 @@ export default function OurWork() {
                       <div className="flex items-center gap-2"><Scale className="h-3.5 w-3.5" />{ui.completed}: {formatWorkDate(sample.date, lang)}</div>
                       <div className="flex items-center gap-2"><Languages className="h-3.5 w-3.5" />{ui.docLanguage}: {documentLanguageLabel(sample.documentLanguage, lang)}</div>
                     </div>
-                    <Link href={`/our-work/${sample.slug}`} className="mt-5 inline-flex items-center justify-between font-semibold text-primary hover:underline">{ui.view}<ArrowRight className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} /></Link>
+                    <Link href={`${workBasePath}/${sample.slug}`} className="mt-5 inline-flex items-center justify-between font-semibold text-primary hover:underline">{ui.view}<ArrowRight className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} /></Link>
                   </div>
                 </motion.article>
               );

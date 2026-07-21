@@ -519,7 +519,7 @@ export default function Home() {
               <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{isRTL ? "خبرة يمكن الاطلاع عليها" : "Experience you can examine"}</p>
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-5">{isRTL ? "اطّلع على نماذج من أعمالنا القانونية" : "View selected examples of our legal work"}</h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-7 max-w-3xl">{isRTL ? "نعرض نماذج منقحة من العقود والمستندات والأعمال القانونية التي أعدها فريق كاونسلو، بعد إزالة بيانات العملاء والمعلومات السرية." : "Explore redacted contracts, legal documents, and selected professional work prepared by CounselO, with client identities and confidential information removed."}</p>
-              <Link href="/our-work" className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 font-semibold hover:bg-primary/90">{isRTL ? "استعرض أعمالنا" : "Explore Our Work"}<ArrowRight className="h-4 w-4 rtl:rotate-180" /></Link>
+              <Link href={isRTL ? "/ar/our-work" : "/our-work"} className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 font-semibold hover:bg-primary/90">{isRTL ? "استعرض أعمالنا" : "Explore Our Work"}<ArrowRight className="h-4 w-4 rtl:rotate-180" /></Link>
             </motion.div>
             <motion.div {...fadeIn} className="bg-card border border-border p-8 shadow-sm">
               <div className="w-14 h-14 bg-primary/10 text-primary flex items-center justify-center mb-6"><FileCheck2 className="h-7 w-7" /></div>
