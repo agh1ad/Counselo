@@ -291,13 +291,24 @@ function validatePage(filepath: string): PageResult {
   // ── structured data ──
   const sc = schemas(html);
   const schemaTypes = sc.map((s: any) => s["@type"] ?? "unknown");
+  const hasBreadcrumbSchema = sc.some((schema: any) => {
+    const visit = (value: unknown): boolean => {
+      if (!value || typeof value !== "object") return false;
+      if (Array.isArray(value)) return value.some(visit);
+      const node = value as Record<string, unknown>;
+      return node["@type"] === "BreadcrumbList" || Object.values(node).some(visit);
+    };
+    return visit(schema);
+  });
   if (sc.length === 0)
     issues.push({
       severity: "warn",
       rule: "schema-missing",
       detail: "No JSON-LD schema",
     });
-  if (!schemaTypes.includes("BreadcrumbList"))
+  // A homepage is the root of a breadcrumb trail, so BreadcrumbList adds no
+  // navigation value there. Other pages may embed it in their WebPage schema.
+  if (route !== "/" && route !== "/ar" && !hasBreadcrumbSchema)
     issues.push({
       severity: "warn",
       rule: "schema-no-breadcrumb",
@@ -348,7 +359,10 @@ function validatePage(filepath: string): PageResult {
     const contamination = visibleText.match(
       /Saudi(?: Arabia)?|\bKSA\b|\bSAMA\b|\bCMA\b|\bZATCA\b|\bMISA\b|\bSAIP\b|\bCITC\b|Vision 2030|السعود(?:ية|ي)?|ساما|هيئة الزكاة/gi,
     );
-    if (contamination?.length)
+    // The About page deliberately documents the founder's cross-border work.
+    // That authority evidence is not an offer of Saudi-only services on Syria URLs.
+    const isAboutPage = /^\/syr(?:\/ar)?\/about$/.test(route);
+    if (contamination?.length && !isAboutPage)
       issues.push({
         severity: "error",
         rule: "syr-jurisdiction-contamination",
