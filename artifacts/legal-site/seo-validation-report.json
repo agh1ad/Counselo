@@ -1,32 +1,16 @@
 {
-  "generatedAt": "2026-07-12 23:37:11 UTC",
+  "generatedAt": "2026-07-21 20:24:29 UTC",
   "summary": {
-    "pages": 109,
+    "pages": 125,
     "redirects": 40,
-    "ok": 96,
-    "warnOnly": 13,
+    "ok": 124,
+    "warnOnly": 1,
     "errors": 0,
     "totalErrors": 0,
-    "totalWarnings": 15,
-    "score": 94
+    "totalWarnings": 1,
+    "score": 100
   },
   "ruleFrequency": {
-    "schema-no-breadcrumb": {
-      "errors": 0,
-      "warns": 6
-    },
-    "desc-too-short": {
-      "errors": 0,
-      "warns": 3
-    },
-    "desc-too-long": {
-      "errors": 0,
-      "warns": 3
-    },
-    "h1-multiple": {
-      "errors": 0,
-      "warns": 2
-    },
     "title-too-long": {
       "errors": 0,
       "warns": 1
@@ -43,13 +27,7 @@
       "isRedirect": false,
       "title": "CounselO | Online Legal Consultation — Saudi Arabia & Syria",
       "description": "Confidential online legal consultation for Saudi Arabia and Syria, in Arabic or English. Get lawyer-led guidance on family, employment, business and more within 24 hours.",
-      "issues": [
-        {
-          "severity": "warn",
-          "rule": "schema-no-breadcrumb",
-          "detail": "No BreadcrumbList schema"
-        }
-      ],
+      "issues": [],
       "schemaTypes": [
         "WebSite",
         "LegalService",
@@ -59,18 +37,27 @@
       "internalLinkCount": 61
     },
     {
+      "file": "ar-our-work.html",
+      "route": "/ar/our-work",
+      "isRedirect": false,
+      "title": "نماذج من أعمالنا القانونية | خبرة وصياغة احترافية | كاونسلو",
+      "description": "اطلع على نماذج منقحة من العقود والمذكرات والأعمال القانونية التي أعدها فريق كاونسلو، مع حماية كاملة لسرية وخصوصية العملاء.",
+      "issues": [],
+      "schemaTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 1
+    },
+    {
       "file": "ar.html",
       "route": "/ar",
       "isRedirect": false,
       "title": "كاونسلو | استشارة قانونية أونلاين — السعودية وسوريا",
       "description": "احصل على استشارة قانونية سرية في السعودية أو سوريا. استشارات بالعربية والإنجليزية خلال 24 ساعة. قانون الأسرة، العمل، العقارات، التجارة، الجنائي وأكثر.",
-      "issues": [
-        {
-          "severity": "warn",
-          "rule": "schema-no-breadcrumb",
-          "detail": "No BreadcrumbList schema"
-        }
-      ],
+      "issues": [],
       "schemaTypes": [
         "WebSite",
         "LegalService",
@@ -83,67 +70,161 @@
       "file": "blog-Penalty-clause-in-saudi.html",
       "route": "/blog/Penalty-clause-in-saudi",
       "isRedirect": false,
-      "title": "الشرط الجزائي | CounselO",
-      "description": "أهمية الشرط الجزائي في العقود التجارية ورقابة المحكمة التجارية وسلطتها.",
-      "issues": [
-        {
-          "severity": "warn",
-          "rule": "desc-too-short",
-          "detail": "71 chars (min 80)"
-        }
-      ],
+      "title": "الشرط الجزائي | كاونسلو",
+      "description": "أهمية الشرط الجزائي في العقود التجارية ورقابة المحكمة التجارية وسلطتها. الشرط الجزائي ليس مجرد بند إضافي في العقد",
+      "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 3
+      "internalLinkCount": 4
     },
     {
-      "file": "blog-Termination-of-Commercial-Contracts-under-Saudi-Law.html",
-      "route": "/blog/Termination-of-Commercial-Contracts-under-Saudi-Law",
+      "file": "blog-alaqd-fy-alqanwn-alswry.html",
+      "route": "/blog/alaqd-fy-alqanwn-alswry",
       "isRedirect": false,
-      "title": "فسخ العقد | CounselO",
-      "description": "فسخ العقد التجاري في النظام السعودي",
-      "issues": [
-        {
-          "severity": "warn",
-          "rule": "desc-too-short",
-          "detail": "35 chars (min 80)"
-        }
-      ],
+      "title": "العقد في القانون السوري | كاونسلو",
+      "description": "العقد في القانون السوري المفهوم والأركان والخصائص والأهمية العملية يندرج هذا المقال ضمن سلسلة تمهيدية تهدف إلى شرح نظرية العقد في القانون السوري بلغة تجمع بين",
+      "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 3
+      "internalLinkCount": 4
+    },
+    {
+      "file": "blog-almswwlyh-alaqdyh-fy-alqanwn-alswry.html",
+      "route": "/blog/almswwlyh-alaqdyh-fy-alqanwn-alswry",
+      "isRedirect": false,
+      "title": "المسؤولية العقدية في القانون السوري | كاونسلو",
+      "description": "المسؤولية العقدية في القانون السوري متى يُسأل المتعاقد عن الإخلال بالعقد؟ تُعد العقود من أهم وسائل تنظيم العلاقات القانونية بين الأفراد والشركات، لأنها لا تكتفي",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 4
+    },
+    {
+      "file": "blog-alrda-fy-alqanwn-alswry.html",
+      "route": "/blog/alrda-fy-alqanwn-alswry",
+      "isRedirect": false,
+      "title": "الرضا في القانون السوري | كاونسلو",
+      "description": "الرضا في القانون السوري الإيجاب والقبول وكيف ينعقد العقد يُعد الرضا حجر الزاوية في نظرية العقد، فهو الركن الذي تنطلق منه جميع العلاقات التعاقدية. فلا يكفي أن",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 4
+    },
+    {
+      "file": "blog-altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry.html",
+      "route": "/blog/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+      "isRedirect": false,
+      "title": "التعويض عن الإخلال بالعقد في القانون السوري | كاونسلو",
+      "description": "التعويض عن الإخلال بالعقد في القانون السوري الشروط والنطاق وتقدير المحكمة لا تكتمل الحماية القانونية للعقد بمجرد إلزام المتعاقدين بتنفيذ ما اتفقوا عليه، بل تمتد",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 4
+    },
+    {
+      "file": "blog-aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy.html",
+      "route": "/blog/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+      "isRedirect": false,
+      "title": "عقود الامتياز التجاري (الفرنشايز) في النظام السعودي | كاونسلو",
+      "description": "عقود الامتياز التجاري (الفرنشايز) في النظام السعودي الضوابط النظامية والمخاطر العملية أصبحت عقود الامتياز التجاري (الفرنشايز) من أهم الأدوات التجارية في السوق",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 4
+    },
+    {
+      "file": "blog-aqwd-almqawlat-fy-alnzam-alsawdy.html",
+      "route": "/blog/aqwd-almqawlat-fy-alnzam-alsawdy",
+      "isRedirect": false,
+      "title": "عقود المقاولات في النظام السعودي | كاونسلو",
+      "description": "عقود المقاولات في النظام السعودي الالتزامات المتبادلة، المسؤولية، ونزاعات التنفيذ تُعدّ عقود المقاولات من أهم العقود التجارية في المملكة العربية السعودية، نظرًا",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 4
+    },
+    {
+      "file": "blog-aqwd-alwkalat-altjaryh-fy-alnzam-alsawd.html",
+      "route": "/blog/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+      "isRedirect": false,
+      "title": "عقود الوكالات التجارية في النظام السعودي | كاونسلو",
+      "description": "عقود الوكالات التجارية في النظام السعودي حقوق الوكيل والموكل ومسؤولية كل منهما تُعدّ الوكالات التجارية من الأدوات التنظيمية المؤثرة في السوق السعودي، إذ تتيح لل",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 4
+    },
+    {
+      "file": "blog-athbat-alaqwd-amam-alqda-alsawdy.html",
+      "route": "/blog/athbat-alaqwd-amam-alqda-alsawdy",
+      "isRedirect": false,
+      "title": "اثبات العقود أمام القضاء السعودي. | كاونسلو",
+      "description": "إثبات العقود أمام القضاء السعودي الأدلة، القرائن، حجية المستندات ، والدليل الرقمي يُعدّ إثبات العقود من أهم مراحل التقاضي في المملكة العربية السعودية، إذ يعتمد",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 4
+    },
+    {
+      "file": "blog-commercial-supply-contracts-in-saudi.html",
+      "route": "/blog/commercial-supply-contracts-in-saudi",
+      "isRedirect": false,
+      "title": "عقود التوريد التجارية في السعودية | كاونسلو",
+      "description": "عقود التوريد التجارية في السعودية أهم البنود القانونية ومخاطر الإخلال تُعدّ عقود التوريد من أكثر العقود انتشارًا في السوق السعودي، خصوصًا في قطاعات الإنشاءات،",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 4
     },
     {
       "file": "blog-consensual-formal-real-contracts-syrian-law.html",
       "route": "/blog/consensual-formal-real-contracts-syrian-law",
       "isRedirect": false,
-      "title": "/blog/أنواع-العقود-في-القانون-السوري | CounselO",
-      "description": "العقود في القانون السوري",
-      "issues": [
-        {
-          "severity": "warn",
-          "rule": "desc-too-short",
-          "detail": "24 chars (min 80)"
-        }
-      ],
+      "title": "/blog/أنواع-العقود-في-القانون-السوري | كاونسلو",
+      "description": "العقود في القانون السوري يميز القانون السوري، في إطار النظرية العامة للعقد والأحكام الخاصة ببعض التصرفات، بين العقود الرضائية والشكلية والعينية، لأن لكل نوع منها…",
+      "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 3
+      "internalLinkCount": 4
     },
     {
       "file": "blog-contract-interpretation-syrian-courts.html",
       "route": "/blog/contract-interpretation-syrian-courts",
       "isRedirect": false,
-      "title": "تفسير العقود أمام القضاء السوري والقواعد القانونية المعتمدة | CounselO",
+      "title": "تفسير العقود أمام القضاء السوري والقواعد القانونية المعتمدة | كاونسلو",
       "description": "تفسير العقود أمام القضاء السوري والقواعد القانونية المعتمدة ومدى صلاحية القاضي في تعديل العقد",
       "issues": [],
       "schemaTypes": [
@@ -151,38 +232,27 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 3
+      "internalLinkCount": 4
     },
     {
       "file": "blog-contractual-liability-in-commercial-transactions.html",
       "route": "/blog/contractual-liability-in-commercial-transactions",
       "isRedirect": false,
-      "title": "المسؤولية العقدية في المعاملات التجارية | CounselO",
-      "description": "المسؤولية العقدية ليست مجرد نصوص قانونية، بل هي ضمانة أساسية لاستقرار السوق التجاري السعودي. وكلما كان العقد واضحًا، والالتزامات محددة، والحقوق موثقة، قلّت النزاعات وتعززت الثقة بين الأطراف.",
-      "issues": [
-        {
-          "severity": "warn",
-          "rule": "desc-too-long",
-          "detail": "190 chars (max 170)"
-        },
-        {
-          "severity": "warn",
-          "rule": "h1-multiple",
-          "detail": "2 H1s found"
-        }
-      ],
+      "title": "المسؤولية العقدية في المعاملات التجارية | كاونسلو",
+      "description": "المسؤولية العقدية ليست مجرد نصوص قانونية، بل هي ضمانة أساسية لاستقرار السوق التجاري السعودي. وكلما كان العقد واضحًا، والالتزامات محددة، والحقوق موثقة، قلّت النزاعات…",
+      "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 3
+      "internalLinkCount": 4
     },
     {
       "file": "blog-defects-of-will-syrian-law.html",
       "route": "/blog/defects-of-will-syrian-law",
       "isRedirect": false,
-      "title": "عيوب الإرادة في القانون السوري | CounselO",
+      "title": "عيوب الإرادة في القانون السوري | كاونسلو",
       "description": "عيوب الإرادة هي ظروف أو وسائل تؤثر في إرادة أحد المتعاقدين عند إبرام العقد، بحيث تجعله يوافق على التعاقد لو لم توجد تلك الظروف لما أقدم عليه، أو لما قبله بالشروط ذاتها.",
       "issues": [],
       "schemaTypes": [
@@ -190,19 +260,19 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 3
+      "internalLinkCount": 4
     },
     {
       "file": "blog-e-contracts-legal-validity-saudi-arabia.html",
       "route": "/blog/e-contracts-legal-validity-saudi-arabia",
       "isRedirect": false,
-      "title": "حجية العقود الإلكترونية في السعودية | طرق الإثبات أمام القضاء | CounselO",
+      "title": "حجية العقود الإلكترونية في السعودية | طرق الإثبات أمام القضاء | كاونسلو",
       "description": "تعرف على حجية العقود الإلكترونية في النظام السعودي، وشروط صحة التوقيع الإلكتروني، ووسائل إثبات العقود الرقمية أمام القضاء، مع توصيات عملية لحماية الحقوق.",
       "issues": [
         {
           "severity": "warn",
           "rule": "title-too-long",
-          "detail": "72 chars (max 70)"
+          "detail": "71 chars (max 70)"
         }
       ],
       "schemaTypes": [
@@ -210,32 +280,49 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 3
+      "internalLinkCount": 4
     },
     {
       "file": "blog-formation-of-commercial-contracts-saudi-law.html",
       "route": "/blog/formation-of-commercial-contracts-saudi-law",
       "isRedirect": false,
-      "title": "تكوين العقد التجاري في النظام السعودي | CounselO",
-      "description": "يمثّل العقد التجاري حجر الأساس في المعاملات الاقتصادية داخل المملكة العربية السعودية، فهو الإطار الذي تُبنى عليه الالتزامات والحقوق بين الأطراف، ويُعدّ مرجعًا قانونيًا عند حدوث أي نزاع. ومع توسّع النشاط التجاري وتعدد صيغ التعاقد، أصبحت الحاجة ملحّة لفهم كيفية تكوّن العقد، وشروط صحته، والآثار المترتبة على تخلف أي ركن من أركانه.",
-      "issues": [
-        {
-          "severity": "warn",
-          "rule": "desc-too-long",
-          "detail": "328 chars (max 170)"
-        },
-        {
-          "severity": "warn",
-          "rule": "h1-multiple",
-          "detail": "3 H1s found"
-        }
-      ],
+      "title": "تكوين العقد التجاري في النظام السعودي | كاونسلو",
+      "description": "يمثّل العقد التجاري حجر الأساس في المعاملات الاقتصادية داخل المملكة العربية السعودية، فهو الإطار الذي تُبنى عليه الالتزامات والحقوق بين الأطراف، ويُعدّ مرجعًا…",
+      "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 3
+      "internalLinkCount": 4
+    },
+    {
+      "file": "blog-fskh-alaqd-altjary-fy-alnzam-alsawdy.html",
+      "route": "/blog/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+      "isRedirect": false,
+      "title": "فسخ العقد التجاري في النظام السعودي | كاونسلو",
+      "description": "فسخ العقد التجاري في النظام السعودي شروطه وآثاره وطرق إثباته يُعدّ فسخ العقد التجاري من أهم الموضوعات التي تتكرر في النزاعات التجارية داخل المملكة العربية",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 4
+    },
+    {
+      "file": "blog-performance-of-contracts-in-good-faith-under-syrian-law.html",
+      "route": "/blog/performance-of-contracts-in-good-faith-under-syrian-law",
+      "isRedirect": false,
+      "title": "تنفيذ العقد بحسن النية في القانون السوري | كاونسلو",
+      "description": "تنفيذ العقد بحسن النية في القانون السوري ضمانة قانونية لاستقرار المعاملات والعدالة التعاقدية تمثل مرحلة تنفيذ العقد الاختبار العملي الحقيقي للعلاقة التعاقدية؛",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 4
     },
     {
       "file": "blog.html",
@@ -247,7 +334,7 @@
         {
           "severity": "info",
           "rule": "blog-hub-articles",
-          "detail": "8 article link(s)"
+          "detail": "18 article link(s)"
         }
       ],
       "schemaTypes": [
@@ -256,7 +343,22 @@
         "ItemList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 9
+      "internalLinkCount": 19
+    },
+    {
+      "file": "our-work.html",
+      "route": "/our-work",
+      "isRedirect": false,
+      "title": "Our Legal Work | Redacted Documents & Experience | CounselO",
+      "description": "View redacted contracts, legal documents, and selected professional work prepared by CounselO, with client confidentiality and identifying information protected.",
+      "issues": [],
+      "schemaTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 1
     },
     {
       "file": "sa-about.html",
@@ -264,13 +366,7 @@
       "isRedirect": false,
       "title": "About Counselo | Online Legal Consultations in Saudi Arabia",
       "description": "Learn about Counselo, an online legal consultation platform serving Saudi Arabia. Connect with experienced legal professionals and receive confidential guidance.",
-      "issues": [
-        {
-          "severity": "warn",
-          "rule": "schema-no-breadcrumb",
-          "detail": "No BreadcrumbList schema"
-        }
-      ],
+      "issues": [],
       "schemaTypes": [
         "Organization",
         "Person",
@@ -285,13 +381,7 @@
       "isRedirect": false,
       "title": "عن كاونسلو | استشارات قانونية أونلاين في السعودية",
       "description": "تعرف على كاونسلو، منصة استشارات قانونية أونلاين متخصصة في السعودية، تتيح التواصل مع محامين ذوي خبرة والحصول على توجيه قانوني بسرية.",
-      "issues": [
-        {
-          "severity": "warn",
-          "rule": "schema-no-breadcrumb",
-          "detail": "No BreadcrumbList schema"
-        }
-      ],
+      "issues": [],
       "schemaTypes": [
         "Organization",
         "Person",
@@ -423,10 +513,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-arbitration.html",
@@ -438,10 +529,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-banking-finance.html",
@@ -453,10 +545,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-business-law.html",
@@ -468,10 +561,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-companies-law.html",
@@ -483,10 +577,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-contracts.html",
@@ -498,10 +593,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-criminal-law.html",
@@ -513,10 +609,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-cyber-law.html",
@@ -528,10 +625,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-employment-law.html",
@@ -543,10 +641,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-enforcement.html",
@@ -558,10 +657,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-family-law.html",
@@ -573,25 +673,27 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-foreign-investment.html",
       "route": "/sa/ar/services/foreign-investment",
       "isRedirect": false,
-      "title": "محامي إقامة وهجرة في السعودية | كاونسلو",
-      "description": "احجز استشارة قانونية أونلاين مع محامي إقامة وهجرة في السعودية بشأن التأشيرات والكفالة والإقامة وإجراءات الهجرة والمستندات.",
+      "title": "محامي استثمار أجنبي وتأسيس شركات في السعودية | كاونسلو",
+      "description": "احجز استشارة أونلاين مع محامي استثمار أجنبي في السعودية بشأن تراخيص الاستثمار وتأسيس الشركات الأجنبية والامتثال والعقود ومنازعات المستثمرين.",
       "issues": [],
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-insurance-law.html",
@@ -603,10 +705,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-intellectual-property.html",
@@ -618,10 +721,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-medical-malpractice.html",
@@ -633,10 +737,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-real-estate.html",
@@ -648,10 +753,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-tax-zakat.html",
@@ -663,10 +769,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services.html",
@@ -698,6 +805,22 @@
       "internalLinkCount": 1
     },
     {
+      "file": "sa-ar-vision.html",
+      "route": "/sa/ar/vision",
+      "isRedirect": false,
+      "title": "رؤيتنا لمنصة قانونية رقمية موثوقة | كاونسلو",
+      "description": "تعرّف على رؤية كاونسلو ورسالتها وقيمها لبناء مرجع قانوني رقمي عربي موثوق يجمع الخبرة القانونية والتقنية والسرية المهنية.",
+      "issues": [],
+      "schemaTypes": [
+        "AboutPage",
+        "Organization",
+        "Person",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 5,
+      "internalLinkCount": 0
+    },
+    {
       "file": "sa-ar.html",
       "route": "/sa/ar",
       "isRedirect": false,
@@ -709,7 +832,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 17
+      "internalLinkCount": 18
     },
     {
       "file": "sa-blog-board-of-grievances-saudi-arabia.html",
@@ -834,10 +957,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-arbitration.html",
@@ -849,10 +973,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-banking-finance.html",
@@ -864,10 +989,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-business-law.html",
@@ -879,10 +1005,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-companies-law.html",
@@ -894,10 +1021,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-contracts.html",
@@ -909,10 +1037,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-criminal-law.html",
@@ -924,10 +1053,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-cyber-law.html",
@@ -939,25 +1069,27 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-employment-law.html",
       "route": "/sa/services/employment-law",
       "isRedirect": false,
-      "title": "Employment Law Lawyer in Saudi Arabia | Counselo",
+      "title": "Employment & Wrongful Termination Lawyer in Saudi Arabia",
       "description": "Book an online legal consultation with an employment lawyer in Saudi Arabia for employment contracts, termination, wages, workplace disputes, and labor rights.",
       "issues": [],
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-enforcement.html",
@@ -969,46 +1101,43 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-family-law.html",
       "route": "/sa/services/family-law",
       "isRedirect": false,
-      "title": "Family Law Lawyer in Saudi Arabia | Counselo",
-      "description": "Book an online legal consultation with an experienced family law lawyer in Saudi Arabia. Get professional guidance on divorce, custody, alimony, and personal status matters.",
-      "issues": [
-        {
-          "severity": "warn",
-          "rule": "desc-too-long",
-          "detail": "173 chars (max 170)"
-        }
-      ],
+      "title": "Family, Divorce & Custody Lawyer in Saudi Arabia | Counselo",
+      "description": "Book an online legal consultation with an experienced family law lawyer in Saudi Arabia. Get professional guidance on divorce, custody, alimony, and personal status…",
+      "issues": [],
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-foreign-investment.html",
       "route": "/sa/services/foreign-investment",
       "isRedirect": false,
-      "title": "Immigration Lawyer in Saudi Arabia | Counselo",
-      "description": "Book an online legal consultation with an immigration lawyer in Saudi Arabia for residency, visas, sponsorship, immigration procedures, and documentation.",
+      "title": "Foreign Investment & Company Formation Lawyer in Saudi Arabia",
+      "description": "Consult a Saudi foreign investment lawyer online about investment licensing, foreign-owned company formation, regulatory compliance, contracts, and investor disputes.",
       "issues": [],
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-insurance-law.html",
@@ -1020,10 +1149,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-intellectual-property.html",
@@ -1035,10 +1165,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-medical-malpractice.html",
@@ -1050,10 +1181,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-real-estate.html",
@@ -1065,10 +1197,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-tax-zakat.html",
@@ -1080,10 +1213,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services.html",
@@ -1115,6 +1249,22 @@
       "internalLinkCount": 1
     },
     {
+      "file": "sa-vision.html",
+      "route": "/sa/vision",
+      "isRedirect": false,
+      "title": "Our Vision for Trusted Digital Legal Services | CounselO",
+      "description": "Discover CounselO's vision, mission and values: building a trusted Arab digital legal reference grounded in experience, technology and confidentiality.",
+      "issues": [],
+      "schemaTypes": [
+        "AboutPage",
+        "Organization",
+        "Person",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 5,
+      "internalLinkCount": 0
+    },
+    {
       "file": "sa.html",
       "route": "/sa",
       "isRedirect": false,
@@ -1126,7 +1276,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 17
+      "internalLinkCount": 18
     },
     {
       "file": "syr-about.html",
@@ -1134,13 +1284,7 @@
       "isRedirect": false,
       "title": "About Counselo | Online Legal Consultations in Syria",
       "description": "Learn about Counselo, an online legal consultation platform serving Syria. Connect with experienced legal professionals and receive confidential guidance.",
-      "issues": [
-        {
-          "severity": "warn",
-          "rule": "schema-no-breadcrumb",
-          "detail": "No BreadcrumbList schema"
-        }
-      ],
+      "issues": [],
       "schemaTypes": [
         "Organization",
         "Person",
@@ -1155,13 +1299,7 @@
       "isRedirect": false,
       "title": "عن كاونسلو | استشارات قانونية أونلاين في سوريا",
       "description": "تعرف على كاونسلو، منصة استشارات قانونية أونلاين متخصصة في سوريا، تتيح التواصل مع محامين ذوي خبرة والحصول على توجيه قانوني بسرية.",
-      "issues": [
-        {
-          "severity": "warn",
-          "rule": "schema-no-breadcrumb",
-          "detail": "No BreadcrumbList schema"
-        }
-      ],
+      "issues": [],
       "schemaTypes": [
         "Organization",
         "Person",
@@ -1365,10 +1503,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-arbitration.html",
@@ -1380,10 +1519,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-banking-finance.html",
@@ -1395,10 +1535,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-business-law.html",
@@ -1410,10 +1551,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-civil-law.html",
@@ -1425,10 +1567,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-civil-procedure.html",
@@ -1440,10 +1583,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-companies-law.html",
@@ -1455,10 +1599,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-contracts.html",
@@ -1470,10 +1615,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-criminal-law.html",
@@ -1485,10 +1631,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-criminal-procedure.html",
@@ -1500,10 +1647,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-cyber-law.html",
@@ -1515,10 +1663,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-employment-law.html",
@@ -1530,10 +1679,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-enforcement.html",
@@ -1545,10 +1695,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-family-law.html",
@@ -1560,10 +1711,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-foreign-investment.html",
@@ -1575,10 +1727,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-insurance-law.html",
@@ -1590,10 +1743,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-intellectual-property.html",
@@ -1605,10 +1759,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-medical-malpractice.html",
@@ -1620,10 +1775,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-real-estate.html",
@@ -1635,10 +1791,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services-tax-zakat.html",
@@ -1650,10 +1807,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-ar-services.html",
@@ -1685,6 +1843,22 @@
       "internalLinkCount": 1
     },
     {
+      "file": "syr-ar-vision.html",
+      "route": "/syr/ar/vision",
+      "isRedirect": false,
+      "title": "رؤيتنا لمنصة قانونية رقمية موثوقة | كاونسلو",
+      "description": "تعرّف على رؤية كاونسلو ورسالتها وقيمها لبناء مرجع قانوني رقمي عربي موثوق يجمع الخبرة القانونية والتقنية والسرية المهنية.",
+      "issues": [],
+      "schemaTypes": [
+        "AboutPage",
+        "Organization",
+        "Person",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 5,
+      "internalLinkCount": 0
+    },
+    {
       "file": "syr-ar.html",
       "route": "/syr/ar",
       "isRedirect": false,
@@ -1696,7 +1870,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 17
+      "internalLinkCount": 18
     },
     {
       "file": "syr-blog-administrative-court-disputes-syria.html",
@@ -1893,10 +2067,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-arbitration.html",
@@ -1908,10 +2083,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-banking-finance.html",
@@ -1923,10 +2099,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-business-law.html",
@@ -1938,10 +2115,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-civil-law.html",
@@ -1953,10 +2131,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-civil-procedure.html",
@@ -1968,10 +2147,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-companies-law.html",
@@ -1983,10 +2163,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-contracts.html",
@@ -1998,10 +2179,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-criminal-law.html",
@@ -2013,10 +2195,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-criminal-procedure.html",
@@ -2028,10 +2211,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-cyber-law.html",
@@ -2043,25 +2227,27 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-employment-law.html",
       "route": "/syr/services/employment-law",
       "isRedirect": false,
-      "title": "Employment Law Lawyer in Syria | Counselo",
+      "title": "Employment & Wrongful Termination Lawyer in Syria | Counselo",
       "description": "Book an online legal consultation with an employment lawyer in Syria for employment contracts, wrongful termination, unpaid wages, and workplace disputes.",
       "issues": [],
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-enforcement.html",
@@ -2073,25 +2259,27 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-family-law.html",
       "route": "/syr/services/family-law",
       "isRedirect": false,
-      "title": "Family Law Lawyer in Syria | Counselo",
+      "title": "Family, Divorce & Child Custody Lawyer in Syria | Counselo",
       "description": "Book an online legal consultation with a family law lawyer in Syria. Get professional guidance on divorce, custody, alimony, and personal status matters.",
       "issues": [],
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-foreign-investment.html",
@@ -2103,10 +2291,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-insurance-law.html",
@@ -2118,10 +2307,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-intellectual-property.html",
@@ -2133,10 +2323,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-medical-malpractice.html",
@@ -2148,10 +2339,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-real-estate.html",
@@ -2163,10 +2355,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services-tax-zakat.html",
@@ -2178,10 +2371,11 @@
       "schemaTypes": [
         "LegalService",
         "BreadcrumbList",
-        "WebPage"
+        "WebPage",
+        "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 4
+      "internalLinkCount": 9
     },
     {
       "file": "syr-services.html",
@@ -2213,6 +2407,22 @@
       "internalLinkCount": 1
     },
     {
+      "file": "syr-vision.html",
+      "route": "/syr/vision",
+      "isRedirect": false,
+      "title": "Our Vision for Trusted Digital Legal Services | CounselO",
+      "description": "Discover CounselO's vision, mission and values: building a trusted Arab digital legal reference grounded in experience, technology and confidentiality.",
+      "issues": [],
+      "schemaTypes": [
+        "AboutPage",
+        "Organization",
+        "Person",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 5,
+      "internalLinkCount": 0
+    },
+    {
       "file": "syr.html",
       "route": "/syr",
       "isRedirect": false,
@@ -2224,7 +2434,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 17
+      "internalLinkCount": 18
     }
   ]
 }
