@@ -1,6 +1,6 @@
 import express, { type Express, type Request, type Response } from "express";
-import { db, blogPostsTable } from "@workspace/db";
-import { and, eq } from "drizzle-orm";
+import { db, blogPostsTable, workSamplesTable } from "@workspace/db";
+import { and, eq, getTableColumns } from "drizzle-orm";
 import * as fs from "fs";
 import * as path from "path";
 import * as http from "http";
@@ -211,9 +211,62 @@ function buildDynamicBlogIndex(
     .replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
 }
 
+type PublicWorkSample = Omit<typeof workSamplesTable.$inferSelect, "fileData" | "confidentialityConfirmed">;
+const { fileData: _workFileData, confidentialityConfirmed: _workConfidentiality, ...publicWorkColumns } = getTableColumns(workSamplesTable);
+
+function buildDynamicWorkHtml(sample: PublicWorkSample): string {
+  const isArabic = Boolean(sample.titleAr && !sample.titleEn);
+  const title = (isArabic ? sample.seoTitleAr || sample.titleAr : sample.seoTitleEn || sample.titleEn) || sample.titleAr || sample.titleEn;
+  const description = normalizeDescription(
+    (isArabic ? sample.seoDescriptionAr || sample.summaryAr : sample.seoDescriptionEn || sample.summaryEn) || sample.summaryAr || sample.summaryEn,
+    sample.summaryEn || sample.summaryAr,
+  );
+  const canonical = `${BASE_URL}/our-work/${sample.slug}`;
+  const fileUrl = `${BASE_URL}/api/work/${sample.slug}/file`;
+  const shell = getShellHtml() ?? getIndexHtml();
+  const schema = safeJson({
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: title,
+    description,
+    url: canonical,
+    dateCreated: sample.date,
+    dateModified: sample.updatedAt?.toISOString?.() ?? sample.date,
+    inLanguage: sample.documentLanguage === "bilingual" ? ["ar", "en"] : sample.documentLanguage,
+    genre: sample.workTypeEn || sample.workTypeAr,
+    contentLocation: sample.jurisdictionEn || sample.jurisdictionAr,
+    creator: { "@type": "LegalService", "@id": `${BASE_URL}/#organization`, name: "CounselO", url: BASE_URL },
+    encoding: { "@type": "MediaObject", contentUrl: fileUrl, encodingFormat: sample.fileMimeType },
+  });
+  const head = `<title>${esc(title)}</title>
+    <meta name="description" content="${esc(description.slice(0, 170))}"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="${canonical}"><meta property="og:type" content="article"><meta property="og:title" content="${esc(title)}">
+    <meta property="og:description" content="${esc(description.slice(0, 170))}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${DEFAULT_OG_IMAGE}">
+    <script type="application/ld+json">${schema}</script>`;
+  const body = `<main><article><h1>${esc(title)}</h1><p>${esc(description)}</p><p>${esc(sample.workTypeEn || sample.workTypeAr)} · ${esc(sample.jurisdictionEn || sample.jurisdictionAr)}</p><a href="${fileUrl}">View redacted document</a></article></main>`;
+  if (!shell) return `<!doctype html><html lang="${isArabic ? "ar" : "en"}" dir="${isArabic ? "rtl" : "ltr"}"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
+  return shell.replace(/<html\b[^>]*>/i, `<html lang="${isArabic ? "ar" : "en"}" dir="${isArabic ? "rtl" : "ltr"}">`).replace("<!--app-head-->", head).replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
+}
+
+function buildDynamicWorkIndex(samples: PublicWorkSample[]): string {
+  const shell = getShellHtml() ?? getIndexHtml();
+  const title = "Our Legal Work | Redacted Documents & Experience | CounselO";
+  const description = "View redacted contracts, legal documents, and selected professional work prepared by CounselO, with client confidentiality protected.";
+  const canonical = `${BASE_URL}/our-work`;
+  const itemList = safeJson({
+    "@context": "https://schema.org", "@type": "ItemList", numberOfItems: samples.length,
+    itemListElement: samples.map((sample, index) => ({ "@type": "ListItem", position: index + 1, name: sample.titleEn || sample.titleAr, url: `${canonical}/${sample.slug}` })),
+  });
+  const head = `<title>${esc(title)}</title><meta name="description" content="${esc(description)}"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"><link rel="canonical" href="${canonical}"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><script type="application/ld+json">${itemList}</script>`;
+  const body = `<main><h1>Our Legal Work</h1>${samples.map((sample) => `<article><h2><a href="/our-work/${encodeURIComponent(sample.slug)}">${esc(sample.titleEn || sample.titleAr)}</a></h2><p>${esc(sample.summaryEn || sample.summaryAr)}</p></article>`).join("")}</main>`;
+  if (!shell) return `<!doctype html><html lang="en"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
+  return shell.replace("<!--app-head-->", head).replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
+}
+
 function buildLiveSitemap(
   baseXml: string,
   posts: Array<typeof blogPostsTable.$inferSelect>,
+  samples: PublicWorkSample[],
 ): string {
   // Blog post inventory is database-owned. Remove any stale build-time post
   // entries, then insert exactly the currently published records.
@@ -232,7 +285,23 @@ function buildLiveSitemap(
     <lastmod>${escapeXml(modified)}</lastmod>
   </url>`;
   });
-  return withoutPostEntries.replace("</urlset>", `${entries.length ? `\n${entries.join("\n")}\n` : ""}</urlset>`);
+  const withoutWorkEntries = withoutPostEntries.replace(
+    /\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/our-work\/[^<]+<\/loc>[\s\S]*?<\/url>/g,
+    "",
+  );
+  const workEntries = samples.map((sample) => {
+    const url = `${BASE_URL}/our-work/${escapeXml(sample.slug)}`;
+    const modified = sample.updatedAt?.toISOString?.().slice(0, 10) || sample.date;
+    return `  <url>
+    <loc>${url}</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${url}"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>${escapeXml(modified)}</lastmod>
+  </url>`;
+  });
+  const allEntries = [...entries, ...workEntries];
+  return withoutWorkEntries.replace("</urlset>", `${allEntries.length ? `\n${allEntries.join("\n")}\n` : ""}</urlset>`);
 }
 
 /**
@@ -290,9 +359,13 @@ export function registerOgPageRoutes(app: Express): void {
         .select()
         .from(blogPostsTable)
         .where(eq(blogPostsTable.published, true));
+      const samples = await db
+        .select(publicWorkColumns)
+        .from(workSamplesTable)
+        .where(eq(workSamplesTable.published, true));
       res.type("application/xml");
       res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
-      res.send(buildLiveSitemap(baseXml, posts));
+      res.send(buildLiveSitemap(baseXml, posts, samples));
     } catch (err) {
       logger.error({ err }, "Failed to generate live sitemap");
       res.status(503).type("text/plain").send("Sitemap temporarily unavailable");
@@ -352,6 +425,39 @@ export function registerOgPageRoutes(app: Express): void {
       res.redirect(301, post ? `/blog/${encodeURIComponent(slug)}` : "/blog");
     },
   );
+
+  app.get(["/sa/our-work", "/syr/our-work", "/sa/ar/our-work", "/syr/ar/our-work"], (_req, res) => {
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    res.redirect(301, "/our-work");
+  });
+  app.get(["/sa/our-work/:slug", "/syr/our-work/:slug", "/sa/ar/our-work/:slug", "/syr/ar/our-work/:slug"], (req, res) => {
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    res.redirect(301, `/our-work/${encodeURIComponent(String(req.params["slug"] ?? ""))}`);
+  });
+
+  app.get("/our-work/:slug", async (req, res) => {
+    const [sample] = await db
+      .select(publicWorkColumns)
+      .from(workSamplesTable)
+      .where(and(eq(workSamplesTable.slug, String(req.params["slug"] ?? "")), eq(workSamplesTable.published, true)));
+    if (!sample) {
+      sendNotFound(res);
+      return;
+    }
+    res.type("html");
+    res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+    res.send(buildDynamicWorkHtml(sample));
+  });
+
+  app.get("/our-work", async (_req, res) => {
+    const samples = await db
+      .select(publicWorkColumns)
+      .from(workSamplesTable)
+      .where(eq(workSamplesTable.published, true));
+    res.type("html");
+    res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+    res.send(buildDynamicWorkIndex(samples));
+  });
 
   app.get("/blog/:slug", async (req, res) => {
     const slug = String(req.params["slug"] ?? "");

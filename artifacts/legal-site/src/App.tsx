@@ -27,6 +27,8 @@ import About from "@/pages/about";
 import Vision from "@/pages/vision";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
+import OurWork from "@/pages/our-work";
+import WorkSample from "@/pages/work-sample";
 import TermsOfService from "@/pages/terms-of-service";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import NotFound from "@/pages/not-found";
@@ -154,6 +156,12 @@ function buildRegionRedirects() {
     <Route key={`${prefix}-blog-redirect-index`} path={`${prefix}/blog`}>
       {() => <Redirect to="/blog" replace />}
     </Route>,
+    <Route key={`${prefix}-work-detail-redirect`} path={`${prefix}/our-work/:slug`}>
+      {(params: { slug: string }) => <Redirect to={`/our-work/${params.slug}`} replace />}
+    </Route>,
+    <Route key={`${prefix}-work-redirect`} path={`${prefix}/our-work`}>
+      {() => <Redirect to="/our-work" replace />}
+    </Route>,
   ]);
 }
 
@@ -193,6 +201,8 @@ function Router() {
         <Route path="/services/:id" component={ServiceDetail} />
         <Route path="/services" component={Services} />
         <Route path="/blog/:slug" component={BlogPost} />
+        <Route path="/our-work/:slug" component={WorkSample} />
+        <Route path="/our-work" component={OurWork} />
         <Route path="/about" component={About} />
         <Route path="/vision" component={Vision} />
         <Route path="/blog" component={Blog} />

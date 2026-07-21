@@ -47,7 +47,7 @@ export function Navbar() {
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-6 rtl:space-x-reverse">
+          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 rtl:space-x-reverse">
             <Link href={regionPrefix} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.home}</Link>
 
             <div className="relative group" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
@@ -75,6 +75,7 @@ export function Navbar() {
 
             <Link href={p("/about")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/about") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.about}</Link>
             <Link href={p("/vision")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/vision") ? "text-primary" : "text-muted-foreground"}`}>{lang === "ar" ? "رؤيتنا" : "Our Vision"}</Link>
+            <Link href="/our-work" className={`text-sm font-medium transition-colors hover:text-primary ${location.startsWith("/our-work") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.ourWork}</Link>
             <Link href="/blog" className={`text-sm font-medium transition-colors hover:text-primary ${(location === "/blog" || location.startsWith("/blog/")) ? "text-primary" : "text-muted-foreground"}`}>{t.nav.blog}</Link>
             <Link href={p("/contact")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/contact") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.contact}</Link>
 
@@ -92,7 +93,7 @@ export function Navbar() {
             </Link>
           </div>
 
-          <div className="md:hidden flex items-center gap-3">
+          <div className="lg:hidden flex items-center gap-3">
             <button onClick={toggleLang} aria-label={lang === "en" ? "Switch to Arabic" : "Switch to English"} className="text-muted-foreground hover:text-primary text-sm font-medium border border-border px-2 py-1">
               {lang === "en" ? "ع" : "EN"}
             </button>
@@ -110,7 +111,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-background border-b border-border overflow-hidden"
+            className="lg:hidden bg-background border-b border-border overflow-hidden"
           >
             <div className="overflow-y-auto max-h-[calc(100svh-6rem)]">
             <div className="px-4 pt-2 pb-10 space-y-1">
@@ -125,6 +126,7 @@ export function Navbar() {
               </div>
               <Link href={p("/about")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.about}</Link>
               <Link href={p("/vision")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{lang === "ar" ? "رؤيتنا" : "Our Vision"}</Link>
+              <Link href="/our-work" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.ourWork}</Link>
               <Link href="/blog" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.blog}</Link>
               <Link href={p("/contact")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.contact}</Link>
               <div className="px-3 pt-4">

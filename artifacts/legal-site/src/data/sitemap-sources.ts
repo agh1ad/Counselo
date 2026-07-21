@@ -32,6 +32,7 @@ const CORE_PAGES_EN: CorePage[] = [
  * not with region-prefixed alternates that would redirect.
  */
 export const BLOG_BASE_PATH = "/blog";
+export const WORK_BASE_PATH = "/our-work";
 
 // Arabic is a real URL segment (e.g. "/sa/ar/about"), not a client-only
 // toggle — every English core page gets a matching "/ar" sitemap entry so

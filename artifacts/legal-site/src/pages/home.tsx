@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { Scale, ShieldCheck, Users, ArrowRight, CheckCircle2, Star, Quote, MessageCircle, Mail, Award, Globe, Zap, BadgeCheck, Wifi, Clock, Lock, MapPin } from "lucide-react";
+import { Scale, ShieldCheck, Users, ArrowRight, CheckCircle2, Star, Quote, MessageCircle, Mail, Award, Globe, Zap, BadgeCheck, Wifi, Clock, Lock, MapPin, FileCheck2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 
@@ -485,6 +485,27 @@ export default function Home() {
                 </motion.div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── OUR WORK / PROOF OF EXPERIENCE ── */}
+      <section className="py-20 bg-primary/5 border-y border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-[1fr_360px] gap-12 items-center">
+            <motion.div {...fadeIn}>
+              <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{isRTL ? "خبرة يمكن الاطلاع عليها" : "Experience you can examine"}</p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-5">{isRTL ? "اطّلع على نماذج من أعمالنا القانونية" : "View selected examples of our legal work"}</h2>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-7 max-w-3xl">{isRTL ? "نعرض نماذج منقحة من العقود والمستندات والأعمال القانونية التي أعدها فريق كاونسلو، بعد إزالة بيانات العملاء والمعلومات السرية." : "Explore redacted contracts, legal documents, and selected professional work prepared by CounselO, with client identities and confidential information removed."}</p>
+              <Link href="/our-work" className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 font-semibold hover:bg-primary/90">{isRTL ? "استعرض أعمالنا" : "Explore Our Work"}<ArrowRight className="h-4 w-4 rtl:rotate-180" /></Link>
+            </motion.div>
+            <motion.div {...fadeIn} className="bg-card border border-border p-8 shadow-sm">
+              <div className="w-14 h-14 bg-primary/10 text-primary flex items-center justify-center mb-6"><FileCheck2 className="h-7 w-7" /></div>
+              <h3 className="text-xl font-serif font-bold mb-4">{isRTL ? "خصوصية محمية" : "Privacy protected"}</h3>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                {[isRTL ? "نماذج منقحة قبل النشر" : "Redacted before publication", isRTL ? "دون أسماء أو بيانات تعريفية" : "No names or identifying data", isRTL ? "عرض واضح لمنهجية العمل" : "Clear view of our working method"].map((item) => <li key={item} className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />{item}</li>)}
+              </ul>
+            </motion.div>
           </div>
         </div>
       </section>

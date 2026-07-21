@@ -5,9 +5,10 @@ import {
   ChevronLeft, FileText, Settings, BarChart2, Search,
   Wrench, ExternalLink, RefreshCw, MessageCircle, Phone,
   Mail, TrendingUp, Users, Activity, Shield, Zap,
-  CheckCircle2, XCircle, Clock, Copy,
+  CheckCircle2, XCircle, Clock, Copy, BriefcaseBusiness,
 } from "lucide-react";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
+import { WorkSamplesManager } from "@/components/admin/WorkSamplesManager";
 import {
   getAnalytics, clearAnalytics, getGAMeasurementId,
   setGAMeasurementId, type AnalyticsStore,
@@ -15,7 +16,7 @@ import {
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 
 const API = "/api";
-type Tab = "blog" | "analytics" | "seo" | "tools";
+type Tab = "blog" | "work" | "analytics" | "seo" | "tools";
 
 interface BlogPost {
   id: number;
@@ -937,6 +938,7 @@ export default function AdminCMS() {
 
   const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
     { id: "blog", label: "Blog Posts", icon: <FileText size={15} /> },
+    { id: "work", label: "Our Work", icon: <BriefcaseBusiness size={15} /> },
     { id: "analytics", label: "Analytics", icon: <BarChart2 size={15} /> },
     { id: "seo", label: "SEO Monitor", icon: <Search size={15} /> },
     { id: "tools", label: "Tools", icon: <Wrench size={15} /> },
@@ -970,6 +972,7 @@ export default function AdminCMS() {
       {tab === "analytics" && <AnalyticsTab posts={posts} />}
       {tab === "seo" && <SEOMonitorTab token={token} />}
       {tab === "tools" && <ToolsTab />}
+      {tab === "work" && <WorkSamplesManager token={token} />}
 
       {tab === "blog" && (
         <div className="max-w-6xl mx-auto px-6 py-8">
