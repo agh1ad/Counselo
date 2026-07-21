@@ -27,7 +27,7 @@ function loadStoredRegion(): Region {
 
 interface RegionContextType {
   region: Region;
-  /** Language derived from URL (regional pages) or localStorage (blog pages). */
+  /** Language derived from URL, except for the single-URL blog preference. */
   lang: Lang;
   /** Region + language path prefix, e.g. "/sa", "/sa/ar", "/syr", "/syr/ar". */
   regionPrefix: string;
@@ -60,10 +60,20 @@ export function RegionProvider({ children }: { children: ReactNode }) {
   const [blogLang, setBlogLangState] = useState<Lang>(loadStoredLang);
   const [sharedRegion, setSharedRegion] = useState<Region>(loadStoredRegion);
 
-  const isSharedPath = location === "/blog" || location.startsWith("/blog/") || location === "/our-work" || location.startsWith("/our-work/");
+  const isBlogPath = location === "/blog" || location.startsWith("/blog/");
+  const isWorkPath =
+    location === "/our-work" ||
+    location.startsWith("/our-work/") ||
+    location === "/ar/our-work" ||
+    location.startsWith("/ar/our-work/");
+  const isSharedPath = isBlogPath || isWorkPath;
 
   const region = isSharedPath ? sharedRegion : detectRegion(location);
-  const lang: Lang = isSharedPath ? blogLang : detectLang(location, region);
+  const lang: Lang = isBlogPath
+    ? blogLang
+    : isWorkPath
+      ? (location.startsWith("/ar/our-work") ? "ar" : "en")
+      : detectLang(location, region);
 
   // When navigating to a regional page, persist that page's language so the
   // blog shows the same language when the user visits it next.

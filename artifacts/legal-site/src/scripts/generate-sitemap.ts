@@ -186,6 +186,25 @@ ${lastmod ? `    <lastmod>${lastmod}</lastmod>` : ""}
   </url>`;
 }
 
+function urlEntryLanguageVariant(
+  fullUrl: string,
+  englishUrl: string,
+  arabicUrl: string,
+  changefreq: string,
+  priority: string,
+  lastmod?: string,
+): string {
+  return `  <url>
+    <loc>${fullUrl}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${englishUrl}"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="${arabicUrl}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${englishUrl}"/>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+${lastmod ? `    <lastmod>${lastmod}</lastmod>` : ""}
+  </url>`;
+}
+
 const entries: string[] = [];
 
 entries.push("  <!-- ===== ROOT & CORE PAGES ===== -->");
@@ -218,9 +237,10 @@ entries.push(
 );
 
 entries.push("\n  <!-- ===== OUR WORK ===== -->");
-entries.push(
-  urlEntrySingleUrl(`${BASE_URL}${WORK_BASE_PATH}`, "weekly", "0.85"),
-);
+const workIndexEn = `${BASE_URL}${WORK_BASE_PATH}`;
+const workIndexAr = `${BASE_URL}/ar${WORK_BASE_PATH}`;
+entries.push(urlEntryLanguageVariant(workIndexEn, workIndexEn, workIndexAr, "weekly", "0.85"));
+entries.push(urlEntryLanguageVariant(workIndexAr, workIndexEn, workIndexAr, "weekly", "0.85"));
 
 // Blog posts — fetch the published records from the live API by default.
 // BLOG_API_URL can point builds at a preview/local API without changing config.
@@ -266,14 +286,24 @@ try {
 }
 
 try {
-  const WorkRowSchema = z.object({ slug: z.string(), date: z.string(), updatedAt: z.string().optional() });
+  const WorkRowSchema = z.object({ slug: z.string(), date: z.string(), updatedAt: z.string().optional(), titleEn: z.string().optional(), titleAr: z.string().optional() });
   const workApiUrl = process.env["WORK_API_URL"]?.trim() || "https://counselo-legal.com/api/work";
   const res = await fetch(workApiUrl, { signal: AbortSignal.timeout(8_000) });
   if (res.ok) {
     const raw = (await res.json()) as unknown[];
     const samples = raw.map((item) => WorkRowSchema.safeParse(item)).filter((item) => item.success).map((item) => item.data);
     for (const sample of samples) {
-      entries.push(urlEntrySingleUrl(`${BASE_URL}${WORK_BASE_PATH}/${sample.slug}`, "monthly", "0.75", sample.updatedAt?.slice(0, 10) || sample.date));
+      const enUrl = `${BASE_URL}${WORK_BASE_PATH}/${sample.slug}`;
+      const arUrl = `${BASE_URL}/ar${WORK_BASE_PATH}/${sample.slug}`;
+      const modified = sample.updatedAt?.slice(0, 10) || sample.date;
+      if (sample.titleEn && sample.titleAr) {
+        entries.push(urlEntryLanguageVariant(enUrl, enUrl, arUrl, "monthly", "0.75", modified));
+        entries.push(urlEntryLanguageVariant(arUrl, enUrl, arUrl, "monthly", "0.75", modified));
+      } else if (sample.titleAr) {
+        entries.push(urlEntrySingleUrl(arUrl, "monthly", "0.75", modified));
+      } else {
+        entries.push(urlEntrySingleUrl(enUrl, "monthly", "0.75", modified));
+      }
     }
     console.log(`[sitemap] added ${samples.length} work sample(s) to sitemap`);
   }

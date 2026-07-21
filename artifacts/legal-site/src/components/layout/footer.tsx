@@ -10,6 +10,7 @@ export function Footer() {
   const f = t.footer;
 
   const p = (path: string) => regionPrefix + path;
+  const workPath = lang === "ar" ? "/ar/our-work" : "/our-work";
 
   return (
     <footer className="bg-primary pt-16 pb-8">
@@ -50,7 +51,7 @@ export function Footer() {
               <li><Link href={p("/services")} className="hover:text-white transition-colors">{f.links.allServices}</Link></li>
               <li><Link href={p("/about")} className="hover:text-white transition-colors">{f.links.about}</Link></li>
               <li><Link href={p("/vision")} className="hover:text-white transition-colors">{lang === "ar" ? "رؤيتنا" : "Our Vision"}</Link></li>
-              <li><Link href="/our-work" className="hover:text-white transition-colors">{f.links.ourWork}</Link></li>
+              <li><Link href={workPath} className="hover:text-white transition-colors">{f.links.ourWork}</Link></li>
               <li><Link href="/blog" className="hover:text-white transition-colors">{f.links.blog}</Link></li>
               <li><Link href={p("/contact")} className="hover:text-white transition-colors">{f.links.contact}</Link></li>
               <li><Link href={p("/contact")} className="hover:text-white transition-colors">{f.links.book}</Link></li>

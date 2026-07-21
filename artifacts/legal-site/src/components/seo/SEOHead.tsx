@@ -98,10 +98,12 @@ interface SEOHeadProps {
   /**
    * When true, the canonical URL is built from the `canonical` prop as-is
    * (no region/language prefix is prepended). hreflang alternates are omitted
-   * and x-default points to this canonical. Use for single-URL pages such as
-   * /blog and /blog/:slug that are shared across all regions and languages.
+   * unless sharedLanguageAlternates is provided. Use for shared pages such as
+   * /blog and region-independent language routes such as /ar/our-work.
    */
   noRegionPrefix?: boolean;
+  /** Crawlable language alternates for a region-independent bilingual page. */
+  sharedLanguageAlternates?: { en: string; ar: string; xDefault?: string };
 }
 
 const GEO = {
@@ -144,6 +146,7 @@ export function SEOHead({
   articleSection,
   contentLanguage,
   noRegionPrefix = false,
+  sharedLanguageAlternates,
 }: SEOHeadProps) {
   const { lang } = useLanguage();
   const { region } = useRegion();
@@ -232,8 +235,15 @@ export function SEOHead({
     { region: "syr" as const, isArabic: false, hrefLang: GEO.syr.hrefLangEn },
     { region: "syr" as const, isArabic: true, hrefLang: GEO.syr.hrefLangAr },
   ];
-  const hreflangAlternates = noRegionPrefix
-    ? []
+  const absoluteUrl = (path: string) =>
+    path.startsWith("http") ? path : `https://counselo-legal.com${path}`;
+  const hreflangAlternates = sharedLanguageAlternates
+    ? [
+        { hrefLang: "en", href: absoluteUrl(sharedLanguageAlternates.en) },
+        { hrefLang: "ar", href: absoluteUrl(sharedLanguageAlternates.ar) },
+      ]
+    : noRegionPrefix
+      ? []
     : HREFLANG_COMBOS
         // Drop en-SA/ar-SA entries for services that have no Saudi equivalent.
         .filter((c) => !(c.region === "sa" && SYRIA_ONLY_SERVICE_PATHS.has(basePath)))
@@ -256,7 +266,11 @@ export function SEOHead({
           };
         });
   // x-default: region picker for normal pages; the canonical itself for single-URL pages.
-  const xDefaultUrl = noRegionPrefix ? canonicalUrl : "https://counselo-legal.com/";
+  const xDefaultUrl = sharedLanguageAlternates
+    ? absoluteUrl(sharedLanguageAlternates.xDefault ?? sharedLanguageAlternates.en)
+    : noRegionPrefix
+      ? canonicalUrl
+      : "https://counselo-legal.com/";
 
   const ogImage = "https://counselo-legal.com/og-image.png";
   const locale = isArabic ? geo.ogLocaleAr : geo.ogLocaleEn;
@@ -323,11 +337,11 @@ export function SEOHead({
         content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
       />
 
-      {/* Geo-targeting — region-specific coordinates and country code */}
-      <meta name="geo.region" content={geo.region} />
-      <meta name="geo.placename" content={geo.placename} />
-      <meta name="geo.position" content={geo.position} />
-      <meta name="ICBM" content={geo.icbm} />
+      {/* Region-independent pages must not inherit a misleading country target. */}
+      {!noRegionPrefix && <meta name="geo.region" content={geo.region} />}
+      {!noRegionPrefix && <meta name="geo.placename" content={geo.placename} />}
+      {!noRegionPrefix && <meta name="geo.position" content={geo.position} />}
+      {!noRegionPrefix && <meta name="ICBM" content={geo.icbm} />}
       <meta httpEquiv="content-language" content={effectiveLanguage} />
 
       {/* Canonical */}

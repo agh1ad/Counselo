@@ -130,7 +130,12 @@ export function notifyRemoved(slug: string): void {
 }
 
 export function workSampleUrls(slug: string): string[] {
-  return [`${BASE}/our-work/${slug}`, `${BASE}/our-work`];
+  return [
+    `${BASE}/our-work/${slug}`,
+    `${BASE}/ar/our-work/${slug}`,
+    `${BASE}/our-work`,
+    `${BASE}/ar/our-work`,
+  ];
 }
 
 export function notifyWorkPublished(slug: string): void {

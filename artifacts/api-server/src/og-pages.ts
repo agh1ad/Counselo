@@ -214,14 +214,17 @@ function buildDynamicBlogIndex(
 type PublicWorkSample = Omit<typeof workSamplesTable.$inferSelect, "fileData" | "confidentialityConfirmed">;
 const { fileData: _workFileData, confidentialityConfirmed: _workConfidentiality, ...publicWorkColumns } = getTableColumns(workSamplesTable);
 
-function buildDynamicWorkHtml(sample: PublicWorkSample): string {
-  const isArabic = Boolean(sample.titleAr && !sample.titleEn);
+function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | "ar"): string {
+  const isArabic = language === "ar";
   const title = (isArabic ? sample.seoTitleAr || sample.titleAr : sample.seoTitleEn || sample.titleEn) || sample.titleAr || sample.titleEn;
   const description = normalizeDescription(
     (isArabic ? sample.seoDescriptionAr || sample.summaryAr : sample.seoDescriptionEn || sample.summaryEn) || sample.summaryAr || sample.summaryEn,
     sample.summaryEn || sample.summaryAr,
   );
-  const canonical = `${BASE_URL}/our-work/${sample.slug}`;
+  const basePath = isArabic ? "/ar/our-work" : "/our-work";
+  const canonical = `${BASE_URL}${basePath}/${sample.slug}`;
+  const englishUrl = `${BASE_URL}/our-work/${sample.slug}`;
+  const arabicUrl = `${BASE_URL}/ar/our-work/${sample.slug}`;
   const fileUrl = `${BASE_URL}/api/work/${sample.slug}/file`;
   const shell = getShellHtml() ?? getIndexHtml();
   const schema = safeJson({
@@ -232,7 +235,7 @@ function buildDynamicWorkHtml(sample: PublicWorkSample): string {
     url: canonical,
     dateCreated: sample.date,
     dateModified: sample.updatedAt?.toISOString?.() ?? sample.date,
-    inLanguage: sample.documentLanguage === "bilingual" ? ["ar", "en"] : sample.documentLanguage,
+    inLanguage: language,
     genre: sample.workTypeEn || sample.workTypeAr,
     contentLocation: sample.jurisdictionEn || sample.jurisdictionAr,
     creator: { "@type": "LegalService", "@id": `${BASE_URL}/#organization`, name: "CounselO", url: BASE_URL },
@@ -240,7 +243,7 @@ function buildDynamicWorkHtml(sample: PublicWorkSample): string {
   });
   const head = `<title>${esc(title)}</title>
     <meta name="description" content="${esc(description.slice(0, 170))}"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <link rel="canonical" href="${canonical}"><meta property="og:type" content="article"><meta property="og:title" content="${esc(title)}">
+    <link rel="canonical" href="${canonical}">${sample.titleEn && sample.titleAr ? `<link rel="alternate" hreflang="en" href="${englishUrl}"><link rel="alternate" hreflang="ar" href="${arabicUrl}">` : ""}<link rel="alternate" hreflang="x-default" href="${sample.titleEn ? englishUrl : arabicUrl}"><meta property="og:type" content="article"><meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description.slice(0, 170))}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${DEFAULT_OG_IMAGE}">
     <script type="application/ld+json">${schema}</script>`;
   const body = `<main><article><h1>${esc(title)}</h1><p>${esc(description)}</p><p>${esc(sample.workTypeEn || sample.workTypeAr)} · ${esc(sample.jurisdictionEn || sample.jurisdictionAr)}</p><a href="${fileUrl}">View redacted document</a></article></main>`;
@@ -248,19 +251,21 @@ function buildDynamicWorkHtml(sample: PublicWorkSample): string {
   return shell.replace(/<html\b[^>]*>/i, `<html lang="${isArabic ? "ar" : "en"}" dir="${isArabic ? "rtl" : "ltr"}">`).replace("<!--app-head-->", head).replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
 }
 
-function buildDynamicWorkIndex(samples: PublicWorkSample[]): string {
+function buildDynamicWorkIndex(samples: PublicWorkSample[], language: "en" | "ar"): string {
+  const isArabic = language === "ar";
+  const visibleSamples = samples.filter((sample) => isArabic ? Boolean(sample.titleAr) : Boolean(sample.titleEn));
   const shell = getShellHtml() ?? getIndexHtml();
-  const title = "Our Legal Work | Redacted Documents & Experience | CounselO";
-  const description = "View redacted contracts, legal documents, and selected professional work prepared by CounselO, with client confidentiality protected.";
-  const canonical = `${BASE_URL}/our-work`;
+  const title = isArabic ? "نماذج من أعمالنا القانونية | خبرة وصياغة احترافية | كاونسلو" : "Our Legal Work | Redacted Documents & Experience | CounselO";
+  const description = isArabic ? "اطلع على نماذج منقحة من العقود والمذكرات والأعمال القانونية التي أعدها فريق كاونسلو، مع حماية كاملة لسرية وخصوصية العملاء." : "View redacted contracts, legal documents, and selected professional work prepared by CounselO, with client confidentiality protected.";
+  const canonical = `${BASE_URL}${isArabic ? "/ar/our-work" : "/our-work"}`;
   const itemList = safeJson({
-    "@context": "https://schema.org", "@type": "ItemList", numberOfItems: samples.length,
-    itemListElement: samples.map((sample, index) => ({ "@type": "ListItem", position: index + 1, name: sample.titleEn || sample.titleAr, url: `${canonical}/${sample.slug}` })),
+    "@context": "https://schema.org", "@type": "ItemList", numberOfItems: visibleSamples.length,
+    itemListElement: visibleSamples.map((sample, index) => ({ "@type": "ListItem", position: index + 1, name: isArabic ? sample.titleAr : sample.titleEn, url: `${canonical}/${sample.slug}` })),
   });
-  const head = `<title>${esc(title)}</title><meta name="description" content="${esc(description)}"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"><link rel="canonical" href="${canonical}"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><script type="application/ld+json">${itemList}</script>`;
-  const body = `<main><h1>Our Legal Work</h1>${samples.map((sample) => `<article><h2><a href="/our-work/${encodeURIComponent(sample.slug)}">${esc(sample.titleEn || sample.titleAr)}</a></h2><p>${esc(sample.summaryEn || sample.summaryAr)}</p></article>`).join("")}</main>`;
-  if (!shell) return `<!doctype html><html lang="en"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
-  return shell.replace("<!--app-head-->", head).replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
+  const head = `<title>${esc(title)}</title><meta name="description" content="${esc(description)}"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"><link rel="canonical" href="${canonical}"><link rel="alternate" hreflang="en" href="${BASE_URL}/our-work"><link rel="alternate" hreflang="ar" href="${BASE_URL}/ar/our-work"><link rel="alternate" hreflang="x-default" href="${BASE_URL}/our-work"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><script type="application/ld+json">${itemList}</script>`;
+  const body = `<main><h1>${isArabic ? "أعمالنا القانونية" : "Our Legal Work"}</h1>${visibleSamples.map((sample) => `<article><h2><a href="${isArabic ? "/ar" : ""}/our-work/${encodeURIComponent(sample.slug)}">${esc(isArabic ? sample.titleAr : sample.titleEn)}</a></h2><p>${esc(isArabic ? sample.summaryAr : sample.summaryEn)}</p></article>`).join("")}</main>`;
+  if (!shell) return `<!doctype html><html lang="${language}" dir="${isArabic ? "rtl" : "ltr"}"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
+  return shell.replace(/<html\b[^>]*>/i, `<html lang="${language}" dir="${isArabic ? "rtl" : "ltr"}">`).replace("<!--app-head-->", head).replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
 }
 
 function buildLiveSitemap(
@@ -286,19 +291,32 @@ function buildLiveSitemap(
   </url>`;
   });
   const withoutWorkEntries = withoutPostEntries.replace(
-    /\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/our-work\/[^<]+<\/loc>[\s\S]*?<\/url>/g,
+    /\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/(?:ar\/)?our-work\/[^<]+<\/loc>[\s\S]*?<\/url>/g,
     "",
   );
-  const workEntries = samples.map((sample) => {
-    const url = `${BASE_URL}/our-work/${escapeXml(sample.slug)}`;
+  const workEntries = samples.flatMap((sample) => {
+    const enUrl = `${BASE_URL}/our-work/${escapeXml(sample.slug)}`;
+    const arUrl = `${BASE_URL}/ar/our-work/${escapeXml(sample.slug)}`;
     const modified = sample.updatedAt?.toISOString?.().slice(0, 10) || sample.date;
-    return `  <url>
+    const single = (url: string) => `  <url>
     <loc>${url}</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="${url}"/>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <lastmod>${escapeXml(modified)}</lastmod>
   </url>`;
+    if (!sample.titleEn) return [single(arUrl)];
+    if (!sample.titleAr) return [single(enUrl)];
+    const paired = (url: string) => `  <url>
+    <loc>${url}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="${arUrl}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${enUrl}"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>${escapeXml(modified)}</lastmod>
+  </url>`;
+    return [paired(enUrl), paired(arUrl)];
   });
   const allEntries = [...entries, ...workEntries];
   return withoutWorkEntries.replace("</urlset>", `${allEntries.length ? `\n${allEntries.join("\n")}\n` : ""}</urlset>`);
@@ -426,13 +444,49 @@ export function registerOgPageRoutes(app: Express): void {
     },
   );
 
-  app.get(["/sa/our-work", "/syr/our-work", "/sa/ar/our-work", "/syr/ar/our-work"], (_req, res) => {
+  app.get(["/sa/our-work", "/syr/our-work"], (_req, res) => {
     res.setHeader("Cache-Control", "public, max-age=86400");
     res.redirect(301, "/our-work");
   });
-  app.get(["/sa/our-work/:slug", "/syr/our-work/:slug", "/sa/ar/our-work/:slug", "/syr/ar/our-work/:slug"], (req, res) => {
+  app.get(["/sa/ar/our-work", "/syr/ar/our-work"], (_req, res) => {
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    res.redirect(301, "/ar/our-work");
+  });
+  app.get(["/sa/our-work/:slug", "/syr/our-work/:slug"], (req, res) => {
     res.setHeader("Cache-Control", "public, max-age=86400");
     res.redirect(301, `/our-work/${encodeURIComponent(String(req.params["slug"] ?? ""))}`);
+  });
+  app.get(["/sa/ar/our-work/:slug", "/syr/ar/our-work/:slug"], (req, res) => {
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    res.redirect(301, `/ar/our-work/${encodeURIComponent(String(req.params["slug"] ?? ""))}`);
+  });
+
+  app.get("/ar/our-work/:slug", async (req, res) => {
+    const [sample] = await db
+      .select(publicWorkColumns)
+      .from(workSamplesTable)
+      .where(and(eq(workSamplesTable.slug, String(req.params["slug"] ?? "")), eq(workSamplesTable.published, true)));
+    if (!sample) {
+      sendNotFound(res);
+      return;
+    }
+    if (!sample.titleAr && sample.titleEn) {
+      res.redirect(301, `/our-work/${encodeURIComponent(sample.slug)}`);
+      return;
+    }
+    res.type("html");
+    res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+    res.send(buildDynamicWorkHtml(sample, "ar"));
+  });
+
+  app.get("/ar/our-work", async (_req, res) => {
+    const samples = await db
+      .select(publicWorkColumns)
+      .from(workSamplesTable)
+      .where(eq(workSamplesTable.published, true));
+    res.type("html");
+    res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+    res.send(buildDynamicWorkIndex(samples, "ar"));
   });
 
   app.get("/our-work/:slug", async (req, res) => {
@@ -444,9 +498,13 @@ export function registerOgPageRoutes(app: Express): void {
       sendNotFound(res);
       return;
     }
+    if (!sample.titleEn && sample.titleAr) {
+      res.redirect(301, `/ar/our-work/${encodeURIComponent(sample.slug)}`);
+      return;
+    }
     res.type("html");
     res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
-    res.send(buildDynamicWorkHtml(sample));
+    res.send(buildDynamicWorkHtml(sample, "en"));
   });
 
   app.get("/our-work", async (_req, res) => {
@@ -456,7 +514,7 @@ export function registerOgPageRoutes(app: Express): void {
       .where(eq(workSamplesTable.published, true));
     res.type("html");
     res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
-    res.send(buildDynamicWorkIndex(samples));
+    res.send(buildDynamicWorkIndex(samples, "en"));
   });
 
   app.get("/blog/:slug", async (req, res) => {
