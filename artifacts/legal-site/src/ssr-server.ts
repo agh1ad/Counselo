@@ -77,6 +77,16 @@ interface ApiPost {
   updatedAt?: string;
 }
 
+interface ApiWorkSample {
+  slug: string;
+  date: string;
+  updatedAt?: string;
+  titleEn: string;
+  titleAr: string;
+  summaryEn: string;
+  summaryAr: string;
+}
+
 // ---------------------------------------------------------------------------
 // Meta tag helpers
 // ---------------------------------------------------------------------------
@@ -87,6 +97,74 @@ function escapeHtml(s: string): string {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function escapeXml(s: string): string {
+  return escapeHtml(s).replace(/'/g, "&apos;");
+}
+
+async function fetchDiscoveryInventory(): Promise<{ posts: ApiPost[]; samples: ApiWorkSample[] }> {
+  const [postsRes, workRes] = await Promise.all([
+    fetch(`${apiOrigin}/api/blog/posts`),
+    fetch(`${apiOrigin}/api/work`),
+  ]);
+  if (!postsRes.ok || !workRes.ok) throw new Error("Discovery API unavailable");
+  return {
+    posts: (await postsRes.json()) as ApiPost[],
+    samples: (await workRes.json()) as ApiWorkSample[],
+  };
+}
+
+function dynamicSitemap(baseXml: string, posts: ApiPost[], samples: ApiWorkSample[]): string {
+  let xml = baseXml
+    .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/blog\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "")
+    .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/(?:ar\/)?our-work\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "");
+  const entry = (url: string, modified: string, alternates: string) => `  <url>
+    <loc>${escapeXml(url)}</loc>
+${alternates}
+    <lastmod>${escapeXml(modified.slice(0, 10))}</lastmod>
+  </url>`;
+  const items = posts.map((post) => {
+    const url = `${apiOrigin}/blog/${post.slug}`;
+    return entry(url, post.updatedAt || post.date, `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(url)}"/>`);
+  });
+  for (const sample of samples) {
+    const enUrl = `${apiOrigin}/our-work/${sample.slug}`;
+    const arUrl = `${apiOrigin}/ar/our-work/${sample.slug}`;
+    const modified = sample.updatedAt || sample.date;
+    if (sample.titleEn && sample.titleAr) {
+      const alternates = `    <xhtml:link rel="alternate" hreflang="en" href="${escapeXml(enUrl)}"/>\n    <xhtml:link rel="alternate" hreflang="ar" href="${escapeXml(arUrl)}"/>\n    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(enUrl)}"/>`;
+      items.push(entry(enUrl, modified, alternates), entry(arUrl, modified, alternates));
+    } else if (sample.titleAr) {
+      items.push(entry(arUrl, modified, `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(arUrl)}"/>`));
+    } else if (sample.titleEn) {
+      items.push(entry(enUrl, modified, `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(enUrl)}"/>`));
+    }
+  }
+  const latestBlog = posts.map((post) => (post.updatedAt || post.date).slice(0, 10)).sort().at(-1);
+  const latestWork = samples.map((sample) => (sample.updatedAt || sample.date).slice(0, 10)).sort().at(-1);
+  const addLastmod = (url: string, date?: string) => {
+    if (date) xml = xml.replace(`<loc>${url}</loc>`, `<loc>${url}</loc>\n    <lastmod>${date}</lastmod>`);
+  };
+  addLastmod(`${apiOrigin}/blog`, latestBlog);
+  addLastmod(`${apiOrigin}/our-work`, latestWork);
+  addLastmod(`${apiOrigin}/ar/our-work`, latestWork);
+  return xml.replace("</urlset>", `${items.length ? `\n${items.join("\n")}\n` : ""}</urlset>`);
+}
+
+function discoveryFeed(posts: ApiPost[], samples: ApiWorkSample[]): string {
+  const items = [
+    ...posts.map((post) => ({ title: post.titleEn || post.titleAr, description: post.excerptEn || post.excerptAr, url: `${apiOrigin}/blog/${post.slug}`, modified: post.updatedAt || post.date })),
+    ...samples.flatMap((sample) => {
+      const modified = sample.updatedAt || sample.date;
+      return [
+        ...(sample.titleEn ? [{ title: sample.titleEn, description: sample.summaryEn, url: `${apiOrigin}/our-work/${sample.slug}`, modified }] : []),
+        ...(sample.titleAr ? [{ title: sample.titleAr, description: sample.summaryAr, url: `${apiOrigin}/ar/our-work/${sample.slug}`, modified }] : []),
+      ];
+    }),
+  ].sort((a, b) => Date.parse(b.modified) - Date.parse(a.modified)).slice(0, 50);
+  const built = items[0] ? new Date(items[0].modified).toUTCString() : new Date(0).toUTCString();
+  return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>CounselO Legal Articles and Work</title><link>${apiOrigin}/</link><description>Recently published legal articles and redacted professional work from CounselO.</description><lastBuildDate>${escapeXml(built)}</lastBuildDate>${items.map((item) => `<item><title>${escapeXml(item.title)}</title><link>${escapeXml(item.url)}</link><guid isPermaLink="true">${escapeXml(item.url)}</guid><description>${escapeXml(item.description)}</description><pubDate>${escapeXml(new Date(item.modified).toUTCString())}</pubDate></item>`).join("")}</channel></rss>`;
 }
 
 function stripHtml(html: string): string {
@@ -293,6 +371,30 @@ app.use((_req, res, next) => {
     "camera=(), microphone=(), geolocation=()",
   );
   next();
+});
+
+// Keep discovery surfaces database-backed even when this standalone SSR
+// process is the production entry point.
+app.get("/sitemap.xml", async (_req, res) => {
+  const baseXml = readFileSync(resolve(publicDir, "sitemap.xml"), "utf-8");
+  try {
+    const { posts, samples } = await fetchDiscoveryInventory();
+    res.type("application/xml").setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+    res.send(dynamicSitemap(baseXml, posts, samples));
+  } catch {
+    res.type("application/xml").setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+    res.send(baseXml);
+  }
+});
+
+app.get("/feed.xml", async (_req, res) => {
+  try {
+    const { posts, samples } = await fetchDiscoveryInventory();
+    res.type("application/rss+xml").setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+    res.send(discoveryFeed(posts, samples));
+  } catch {
+    res.status(503).type("text/plain").send("Feed temporarily unavailable");
+  }
 });
 
 // 1. Static assets — JS, CSS, images, fonts, robots.txt, sitemap.xml, etc.

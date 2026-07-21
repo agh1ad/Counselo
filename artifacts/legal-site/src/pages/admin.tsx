@@ -4,7 +4,7 @@ import {
   X, Save, AlertCircle, CheckCircle, Globe, ChevronDown,
   ChevronLeft, FileText, Settings, BarChart2, Search,
   Wrench, ExternalLink, RefreshCw, MessageCircle, Phone,
-  Mail, TrendingUp, Users, Activity, Shield, Zap,
+  Mail, TrendingUp, Users, Activity, Shield,
   CheckCircle2, XCircle, Clock, Copy, BriefcaseBusiness,
 } from "lucide-react";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
@@ -569,7 +569,11 @@ function AnalyticsTab({ posts }: { posts: BlogPost[] }) {
             <Copy size={11} /> {copied ? "Copied!" : "Copy Sitemap URL"}
           </button>
         </div>
-        <p className="text-xs text-gray-400 mt-3">Sitemap to submit: <code className="font-mono text-green-700">https://counselo-legal.com/sitemap.xml</code></p>
+        <div className="text-xs text-gray-400 mt-3 space-y-1">
+          <p>Primary sitemap: <code className="font-mono text-green-700">https://counselo-legal.com/sitemap.xml</code></p>
+          <p>Recent-content feed: <code className="font-mono text-green-700">https://counselo-legal.com/feed.xml</code></p>
+          <p>For a new or substantially updated priority page, use URL Inspection → Request indexing. Google does not support bulk Indexing API submissions for ordinary legal pages.</p>
+        </div>
       </div>
 
       {/* Clear data */}
@@ -581,7 +585,7 @@ function AnalyticsTab({ posts }: { posts: BlogPost[] }) {
 }
 
 const SEO_CHECKS = [
-  { id: "sitemap", label: "Sitemap accessible", desc: "169 URLs indexed", url: "/sitemap.xml", pass: true },
+  { id: "sitemap", label: "Sitemap accessible", desc: "Canonical URLs listed for discovery", url: "/sitemap.xml", pass: true },
   { id: "robots", label: "robots.txt configured", desc: "Allow: / + Sitemap linked", url: "/robots.txt", pass: true },
   { id: "og_image", label: "Open Graph image present", desc: "1200×630 opengraph.jpg", url: "/opengraph.jpg", pass: true },
   { id: "schema_home", label: "Homepage — 7 schema types", desc: "LegalService, Person, Organization, AggregateRating…", pass: true },
@@ -616,26 +620,8 @@ const PRACTICE_AREAS = [
   { name: "Immigration Law", slug: "immigration-law", subs: 8 },
 ];
 
-function SEOMonitorTab({ token }: { token: string }) {
+function SEOMonitorTab() {
   const totalSubs = PRACTICE_AREAS.reduce((s, a) => s + a.subs, 0);
-  const [reindexState, setReindexState] = useState<"idle" | "loading" | "done" | "error">("idle");
-  const [reindexCount, setReindexCount] = useState(0);
-
-  async function handleReindexAll() {
-    setReindexState("loading");
-    try {
-      const res = await fetch(`${API}/admin/reindex-all`, {
-        method: "POST",
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const data = await res.json() as { queued?: number; error?: string };
-      if (!res.ok) throw new Error(data.error ?? "Unknown error");
-      setReindexCount(data.queued ?? 0);
-      setReindexState("done");
-    } catch {
-      setReindexState("error");
-    }
-  }
 
   return (
     <div className="p-6 space-y-6 max-w-6xl mx-auto">
@@ -645,23 +631,14 @@ function SEOMonitorTab({ token }: { token: string }) {
           <p className="text-sm text-gray-500 mt-0.5">Site-wide SEO health — checked against all pages and configurations</p>
         </div>
         <div className="flex items-center gap-3">
-          <button
-            onClick={() => { void handleReindexAll(); }}
-            disabled={reindexState === "loading"}
-            className="flex items-center gap-2 bg-[#006C35] text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-green-800 transition-colors disabled:opacity-60"
+          <a
+            href="https://search.google.com/search-console"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-[#006C35] text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-green-800 transition-colors"
           >
-            {reindexState === "loading" ? <><RefreshCw size={14} className="animate-spin" /> Notifying Google…</> : <><Zap size={14} /> Re-index All Pages</>}
-          </button>
-          {reindexState === "done" && (
-            <span className="text-xs text-green-700 font-semibold bg-green-50 border border-green-200 px-3 py-1.5 rounded-lg">
-              {reindexCount} URLs sent to Google
-            </span>
-          )}
-          {reindexState === "error" && (
-            <span className="text-xs text-red-700 font-semibold bg-red-50 border border-red-200 px-3 py-1.5 rounded-lg">
-              Request failed — check API logs
-            </span>
-          )}
+            <Search size={14} /> Inspect URLs in Search Console <ExternalLink size={12} />
+          </a>
           <div className="flex items-center gap-2 bg-green-50 border border-green-200 px-4 py-2 rounded-xl">
             <CheckCircle2 size={16} className="text-green-600" />
             <span className="text-sm font-bold text-green-700">All checks passing</span>
@@ -970,7 +947,7 @@ export default function AdminCMS() {
 
       {/* Tab content */}
       {tab === "analytics" && <AnalyticsTab posts={posts} />}
-      {tab === "seo" && <SEOMonitorTab token={token} />}
+      {tab === "seo" && <SEOMonitorTab />}
       {tab === "tools" && <ToolsTab />}
       {tab === "work" && <WorkSamplesManager token={token} />}
 

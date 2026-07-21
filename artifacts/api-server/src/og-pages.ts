@@ -335,8 +335,68 @@ function buildLiveSitemap(
   </url>`;
     return [paired(enUrl), paired(arUrl)];
   });
+  const latestDate = (values: Array<string | Date | null | undefined>): string | undefined => {
+    const dates = values
+      .map((value) => value instanceof Date ? value.toISOString().slice(0, 10) : value?.slice(0, 10))
+      .filter((value): value is string => Boolean(value))
+      .sort();
+    return dates.at(-1);
+  };
+  const addIndexLastmod = (xml: string, url: string, lastmod?: string): string => {
+    if (!lastmod) return xml;
+    return xml.replace(`<loc>${url}</loc>`, `<loc>${url}</loc>\n    <lastmod>${escapeXml(lastmod)}</lastmod>`);
+  };
+  let withIndexDates = withoutWorkEntries;
+  withIndexDates = addIndexLastmod(
+    withIndexDates,
+    `${BASE_URL}/blog`,
+    latestDate(posts.map((post) => post.updatedAt ?? post.date)),
+  );
+  const latestWork = latestDate(samples.map((sample) => sample.updatedAt ?? sample.date));
+  withIndexDates = addIndexLastmod(withIndexDates, `${BASE_URL}/our-work`, latestWork);
+  withIndexDates = addIndexLastmod(withIndexDates, `${BASE_URL}/ar/our-work`, latestWork);
   const allEntries = [...entries, ...workEntries];
-  return withoutWorkEntries.replace("</urlset>", `${allEntries.length ? `\n${allEntries.join("\n")}\n` : ""}</urlset>`);
+  return withIndexDates.replace("</urlset>", `${allEntries.length ? `\n${allEntries.join("\n")}\n` : ""}</urlset>`);
+}
+
+function buildDiscoveryFeed(
+  posts: Array<typeof blogPostsTable.$inferSelect>,
+  samples: PublicWorkSample[],
+): string {
+  const blogItems = posts.map((post) => ({
+    title: post.titleEn || post.titleAr,
+    description: post.excerptEn || post.excerptAr,
+    url: `${BASE_URL}/blog/${post.slug}`,
+    modified: post.updatedAt?.toISOString?.() ?? post.date,
+  }));
+  const workItems = samples.flatMap((sample) => {
+    const modified = sample.updatedAt?.toISOString?.() ?? sample.date;
+    const items: Array<{ title: string; description: string; url: string; modified: string }> = [];
+    if (sample.titleEn) items.push({ title: sample.titleEn, description: sample.summaryEn, url: `${BASE_URL}/our-work/${sample.slug}`, modified });
+    if (sample.titleAr) items.push({ title: sample.titleAr, description: sample.summaryAr, url: `${BASE_URL}/ar/our-work/${sample.slug}`, modified });
+    return items;
+  });
+  const items = [...blogItems, ...workItems]
+    .sort((a, b) => Date.parse(b.modified) - Date.parse(a.modified))
+    .slice(0, 50);
+  const lastBuildDate = items[0]?.modified ? new Date(items[0].modified).toUTCString() : new Date(0).toUTCString();
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>CounselO Legal Articles and Work</title>
+    <link>${BASE_URL}/</link>
+    <description>Recently published legal articles and redacted professional work from CounselO.</description>
+    <language>en</language>
+    <lastBuildDate>${escapeXml(lastBuildDate)}</lastBuildDate>
+${items.map((item) => `    <item>
+      <title>${escapeXml(item.title)}</title>
+      <link>${escapeXml(item.url)}</link>
+      <guid isPermaLink="true">${escapeXml(item.url)}</guid>
+      <description>${escapeXml(item.description)}</description>
+      <pubDate>${escapeXml(new Date(item.modified).toUTCString())}</pubDate>
+    </item>`).join("\n")}
+  </channel>
+</rss>`;
 }
 
 /**
@@ -404,6 +464,28 @@ export function registerOgPageRoutes(app: Express): void {
     } catch (err) {
       logger.error({ err }, "Failed to generate live sitemap");
       res.status(503).type("text/plain").send("Sitemap temporarily unavailable");
+    }
+  });
+
+  // Google accepts RSS 2.0 as a sitemap for recent URLs. This small,
+  // database-backed feed makes new articles and work samples discoverable
+  // immediately without pretending that unchanged static pages were updated.
+  app.get("/feed.xml", async (_req, res) => {
+    try {
+      const posts = await db
+        .select()
+        .from(blogPostsTable)
+        .where(eq(blogPostsTable.published, true));
+      const samples = await db
+        .select(publicWorkColumns)
+        .from(workSamplesTable)
+        .where(eq(workSamplesTable.published, true));
+      res.type("application/rss+xml");
+      res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+      res.send(buildDiscoveryFeed(posts, samples));
+    } catch (err) {
+      logger.error({ err }, "Failed to generate discovery feed");
+      res.status(503).type("text/plain").send("Feed temporarily unavailable");
     }
   });
 
