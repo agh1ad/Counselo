@@ -3,7 +3,6 @@ import { db, blogPostsTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import { requireAdmin, secretsMatch } from "../middlewares/auth.js";
 import {
-  notifyGoogleUrls,
   notifyPublished,
   notifyRemoved,
 } from "../lib/google-indexing.js";
@@ -143,26 +142,6 @@ router.delete("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
   }
   if (deleted.published) notifyRemoved(deleted.slug);
   res.json({ deleted: true });
-});
-
-router.post("/admin/reindex-all", requireAdmin, async (_req, res) => {
-  try {
-    const sitemapRes = await fetch("https://counselo-legal.com/sitemap.xml");
-    if (!sitemapRes.ok) {
-      res
-        .status(502)
-        .json({ error: `Failed to fetch sitemap: HTTP ${sitemapRes.status}` });
-      return;
-    }
-    const xml = await sitemapRes.text();
-    const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) =>
-      m[1].trim(),
-    );
-    void notifyGoogleUrls(urls);
-    res.json({ queued: urls.length });
-  } catch (err) {
-    res.status(500).json({ error: String(err) });
-  }
 });
 
 export default router;
