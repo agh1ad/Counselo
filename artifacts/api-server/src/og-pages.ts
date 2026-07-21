@@ -241,11 +241,20 @@ function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | "ar"): 
     creator: { "@type": "LegalService", "@id": `${BASE_URL}/#organization`, name: "CounselO", url: BASE_URL },
     encoding: { "@type": "MediaObject", contentUrl: fileUrl, encodingFormat: sample.fileMimeType },
   });
+  const breadcrumbs = safeJson({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isArabic ? "الرئيسية" : "Home", item: `${BASE_URL}/` },
+      { "@type": "ListItem", position: 2, name: isArabic ? "أعمالنا" : "Our Work", item: `${BASE_URL}${basePath}` },
+      { "@type": "ListItem", position: 3, name: title, item: canonical },
+    ],
+  });
   const head = `<title>${esc(title)}</title>
     <meta name="description" content="${esc(description.slice(0, 170))}"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="${canonical}">${sample.titleEn && sample.titleAr ? `<link rel="alternate" hreflang="en" href="${englishUrl}"><link rel="alternate" hreflang="ar" href="${arabicUrl}">` : ""}<link rel="alternate" hreflang="x-default" href="${sample.titleEn ? englishUrl : arabicUrl}"><meta property="og:type" content="article"><meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description.slice(0, 170))}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${DEFAULT_OG_IMAGE}">
-    <script type="application/ld+json">${schema}</script>`;
+    <script type="application/ld+json">${schema}</script><script type="application/ld+json">${breadcrumbs}</script>`;
   const body = `<main><article><h1>${esc(title)}</h1><p>${esc(description)}</p><p>${esc(sample.workTypeEn || sample.workTypeAr)} · ${esc(sample.jurisdictionEn || sample.jurisdictionAr)}</p><a href="${fileUrl}">View redacted document</a></article></main>`;
   if (!shell) return `<!doctype html><html lang="${isArabic ? "ar" : "en"}" dir="${isArabic ? "rtl" : "ltr"}"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
   return shell.replace(/<html\b[^>]*>/i, `<html lang="${isArabic ? "ar" : "en"}" dir="${isArabic ? "rtl" : "ltr"}">`).replace("<!--app-head-->", head).replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
@@ -262,7 +271,15 @@ function buildDynamicWorkIndex(samples: PublicWorkSample[], language: "en" | "ar
     "@context": "https://schema.org", "@type": "ItemList", numberOfItems: visibleSamples.length,
     itemListElement: visibleSamples.map((sample, index) => ({ "@type": "ListItem", position: index + 1, name: isArabic ? sample.titleAr : sample.titleEn, url: `${canonical}/${sample.slug}` })),
   });
-  const head = `<title>${esc(title)}</title><meta name="description" content="${esc(description)}"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"><link rel="canonical" href="${canonical}"><link rel="alternate" hreflang="en" href="${BASE_URL}/our-work"><link rel="alternate" hreflang="ar" href="${BASE_URL}/ar/our-work"><link rel="alternate" hreflang="x-default" href="${BASE_URL}/our-work"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><script type="application/ld+json">${itemList}</script>`;
+  const breadcrumbs = safeJson({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isArabic ? "الرئيسية" : "Home", item: `${BASE_URL}/` },
+      { "@type": "ListItem", position: 2, name: isArabic ? "أعمالنا القانونية" : "Our Legal Work", item: canonical },
+    ],
+  });
+  const head = `<title>${esc(title)}</title><meta name="description" content="${esc(description)}"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"><link rel="canonical" href="${canonical}"><link rel="alternate" hreflang="en" href="${BASE_URL}/our-work"><link rel="alternate" hreflang="ar" href="${BASE_URL}/ar/our-work"><link rel="alternate" hreflang="x-default" href="${BASE_URL}/our-work"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><script type="application/ld+json">${itemList}</script><script type="application/ld+json">${breadcrumbs}</script>`;
   const body = `<main><h1>${isArabic ? "أعمالنا القانونية" : "Our Legal Work"}</h1>${visibleSamples.map((sample) => `<article><h2><a href="${isArabic ? "/ar" : ""}/our-work/${encodeURIComponent(sample.slug)}">${esc(isArabic ? sample.titleAr : sample.titleEn)}</a></h2><p>${esc(isArabic ? sample.summaryAr : sample.summaryEn)}</p></article>`).join("")}</main>`;
   if (!shell) return `<!doctype html><html lang="${language}" dir="${isArabic ? "rtl" : "ltr"}"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
   return shell.replace(/<html\b[^>]*>/i, `<html lang="${language}" dir="${isArabic ? "rtl" : "ltr"}">`).replace("<!--app-head-->", head).replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);

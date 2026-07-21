@@ -76,6 +76,14 @@ export default function OurWork() {
         url: `https://counselo-legal.com${workBasePath}/${sample.slug}`,
       })),
     },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: ar ? "الرئيسية" : "Home", item: "https://counselo-legal.com/" },
+        { "@type": "ListItem", position: 2, name: ui.title, item: `https://counselo-legal.com${workBasePath}` },
+      ],
+    },
   ];
 
   return (

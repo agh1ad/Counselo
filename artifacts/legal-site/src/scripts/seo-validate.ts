@@ -174,6 +174,11 @@ function validatePage(filepath: string): PageResult {
   const ogUrl = meta(html, "property", "og:url");
   const route = ogUrl ? ogUrl.replace(BASE, "") || "/" : "/";
   const isSyr = route.startsWith("/syr");
+  const isSharedWork =
+    route === "/our-work" ||
+    route.startsWith("/our-work/") ||
+    route === "/ar/our-work" ||
+    route.startsWith("/ar/our-work/");
   const isSingleUrlBlog = route === "/blog" || route.startsWith("/blog/");
   const isAr = route.includes("/ar/") || route.endsWith("/ar");
 
@@ -310,7 +315,7 @@ function validatePage(filepath: string): PageResult {
 
   // ── geo ──
   const geoRegion = meta(html, "name", "geo.region");
-  if (!geoRegion)
+  if (!geoRegion && !isSingleUrlBlog && !isSharedWork)
     issues.push({
       severity: "warn",
       rule: "geo-region-missing",
@@ -318,7 +323,7 @@ function validatePage(filepath: string): PageResult {
     });
 
   // ── Syria-specific ──
-  if (isSyr && !isSingleUrlBlog) {
+  if (isSyr && !isSingleUrlBlog && !isSharedWork) {
     const syrTitle = meta(html, "property", "og:title") + " " + t;
     if (/المملكة/.test(syrTitle))
       issues.push({
@@ -365,7 +370,7 @@ function validatePage(filepath: string): PageResult {
   }
 
   // ── SA-specific ──
-  if (!isSyr && !isSingleUrlBlog) {
+  if (!isSyr && !isSingleUrlBlog && !isSharedWork) {
     if (!hl["en-SA"])
       issues.push({
         severity: "error",
@@ -377,6 +382,21 @@ function validatePage(filepath: string): PageResult {
         severity: "error",
         rule: "sa-hreflang-ar-sa-missing",
         detail: "Missing ar-SA hreflang",
+      });
+  }
+
+  if (isSharedWork) {
+    if (!hl["en"])
+      issues.push({
+        severity: "error",
+        rule: "work-hreflang-en-missing",
+        detail: "Missing English hreflang",
+      });
+    if (!hl["ar"])
+      issues.push({
+        severity: "error",
+        rule: "work-hreflang-ar-missing",
+        detail: "Missing Arabic hreflang",
       });
   }
 

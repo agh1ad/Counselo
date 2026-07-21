@@ -62,10 +62,19 @@ export default function WorkSample() {
     creator: { "@type": "LegalService", "@id": "https://counselo-legal.com/#organization", name: "CounselO" },
     encoding: { "@type": "MediaObject", contentUrl: `https://counselo-legal.com${fileUrl}`, encodingFormat: sample.fileMimeType },
   };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: ar ? "الرئيسية" : "Home", item: "https://counselo-legal.com/" },
+      { "@type": "ListItem", position: 2, name: ar ? "أعمالنا" : "Our Work", item: `https://counselo-legal.com${workBasePath}` },
+      { "@type": "ListItem", position: 3, name: title, item: canonical },
+    ],
+  };
 
   return (
     <div className="min-h-screen bg-background" dir={isRTL ? "rtl" : "ltr"}>
-      <SEOHead title={seoTitle} description={seoDescription} canonical={canonicalPath} noRegionPrefix contentLanguage={lang} sharedLanguageAlternates={sample.titleEn && sample.titleAr ? { en: `/our-work/${sample.slug}`, ar: `/ar/our-work/${sample.slug}` } : undefined} keywords={`${workType}, ${jurisdiction}, ${ar ? "نموذج عمل قانوني, صياغة قانونية, كاونسلو" : "legal work sample, legal drafting, CounselO"}`} schema={schema} ogType="article" />
+      <SEOHead title={seoTitle} description={seoDescription} canonical={canonicalPath} noRegionPrefix contentLanguage={lang} sharedLanguageAlternates={sample.titleEn && sample.titleAr ? { en: `/our-work/${sample.slug}`, ar: `/ar/our-work/${sample.slug}` } : undefined} keywords={`${workType}, ${jurisdiction}, ${ar ? "نموذج عمل قانوني, صياغة قانونية, كاونسلو" : "legal work sample, legal drafting, CounselO"}`} schema={schema} extraSchemas={[breadcrumbSchema]} ogType="article" />
       <section className="bg-primary text-white px-4 py-14">
         <div className="max-w-6xl mx-auto"><Link href={workBasePath} className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 text-sm"><ArrowLeft className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} />{ui.back}</Link><div className="max-w-4xl"><div className="flex flex-wrap gap-2 mb-5">{workType && <span className="border border-white/25 bg-white/10 px-3 py-1 text-sm">{workType}</span>}{sample.featured && <span className="bg-white text-primary px-3 py-1 text-sm font-semibold">{ar ? "عمل مميز" : "Featured work"}</span>}</div><h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-5">{title}</h1><p className="text-lg text-white/75 leading-relaxed">{summary}</p></div></div>
       </section>
