@@ -13,7 +13,7 @@
  * waiting for the regular crawl queue.
  *
  * The key file must be reachable at:
- *   https://counselo-legal.com/fc82de857e07c9a2f89982c0e825dee1.txt
+ *   https://counselo-legal.com/611ed21ca6ffe639fa0e476e8ea1aedb9df6601ed775825f6aa2d75da664ab5a.txt
  */
 
 import { readFileSync } from "node:fs";
@@ -22,7 +22,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const INDEXNOW_KEY = "fc82de857e07c9a2f89982c0e825dee1";
+const INDEXNOW_KEY = "611ed21ca6ffe639fa0e476e8ea1aedb9df6601ed775825f6aa2d75da664ab5a";
 const HOST = "counselo-legal.com";
 const SITEMAP_PATH = resolve(__dirname, "../../artifacts/legal-site/public/sitemap.xml");
 const INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";

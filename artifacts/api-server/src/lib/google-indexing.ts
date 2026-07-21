@@ -1,7 +1,7 @@
 import { logger } from "./logger.js";
 
 const BASE = "https://counselo-legal.com";
-const INDEXNOW_KEY = "fc82de857e07c9a2f89982c0e825dee1";
+const INDEXNOW_KEY = "611ed21ca6ffe639fa0e476e8ea1aedb9df6601ed775825f6aa2d75da664ab5a";
 const INDEXNOW_URL = "https://api.indexnow.org/indexnow";
 
 /**
