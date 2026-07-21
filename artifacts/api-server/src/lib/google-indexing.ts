@@ -128,3 +128,17 @@ export function notifyPublished(slug: string): void {
 export function notifyRemoved(slug: string): void {
   void pingIndexNow(blogPostUrls(slug));
 }
+
+export function workSampleUrls(slug: string): string[] {
+  return [`${BASE}/our-work/${slug}`, `${BASE}/our-work`];
+}
+
+export function notifyWorkPublished(slug: string): void {
+  const urls = workSampleUrls(slug);
+  void notifyGoogleUrls(urls);
+  void pingIndexNow(urls);
+}
+
+export function notifyWorkRemoved(slug: string): void {
+  void pingIndexNow(workSampleUrls(slug));
+}

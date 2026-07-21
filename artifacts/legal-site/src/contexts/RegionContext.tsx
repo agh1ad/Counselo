@@ -7,6 +7,7 @@ export type Region = "sa" | "syr";
 export type Lang = "en" | "ar";
 
 const BLOG_LANG_KEY = "counselo-blog-lang";
+const SHARED_REGION_KEY = "counselo-shared-region";
 
 function loadStoredLang(): Lang {
   if (typeof window !== "undefined") {
@@ -16,14 +17,22 @@ function loadStoredLang(): Lang {
   return "en";
 }
 
+function loadStoredRegion(): Region {
+  if (typeof window !== "undefined") {
+    const value = localStorage.getItem(SHARED_REGION_KEY);
+    if (value === "sa" || value === "syr") return value;
+  }
+  return "sa";
+}
+
 interface RegionContextType {
   region: Region;
   /** Language derived from URL (regional pages) or localStorage (blog pages). */
   lang: Lang;
   /** Region + language path prefix, e.g. "/sa", "/sa/ar", "/syr", "/syr/ar". */
   regionPrefix: string;
-  /** True when the current path is /blog or /blog/:slug (single-URL blog). */
-  isBlogPath: boolean;
+  /** True for region-independent content such as blog and Our Work pages. */
+  isSharedPath: boolean;
   /** Updates the blog-page language preference (localStorage-backed). */
   setBlogLang: (lang: Lang) => void;
 }
@@ -49,21 +58,25 @@ function detectLang(path: string, region: Region): Lang {
 export function RegionProvider({ children }: { children: ReactNode }) {
   const [location] = useLocation();
   const [blogLang, setBlogLangState] = useState<Lang>(loadStoredLang);
+  const [sharedRegion, setSharedRegion] = useState<Region>(loadStoredRegion);
 
-  const isBlogPath = location === "/blog" || location.startsWith("/blog/");
+  const isSharedPath = location === "/blog" || location.startsWith("/blog/") || location === "/our-work" || location.startsWith("/our-work/");
 
-  const region = isBlogPath ? "sa" : detectRegion(location);
-  const lang: Lang = isBlogPath ? blogLang : detectLang(location, region);
+  const region = isSharedPath ? sharedRegion : detectRegion(location);
+  const lang: Lang = isSharedPath ? blogLang : detectLang(location, region);
 
   // When navigating to a regional page, persist that page's language so the
   // blog shows the same language when the user visits it next.
   useEffect(() => {
-    if (!isBlogPath) {
-      const urlLang = detectLang(location, detectRegion(location));
+    if (!isSharedPath) {
+      const urlRegion = detectRegion(location);
+      const urlLang = detectLang(location, urlRegion);
       localStorage.setItem(BLOG_LANG_KEY, urlLang);
+      localStorage.setItem(SHARED_REGION_KEY, urlRegion);
       setBlogLangState(urlLang);
+      setSharedRegion(urlRegion);
     }
-  }, [location, isBlogPath]);
+  }, [location, isSharedPath]);
 
   const setBlogLang = (newLang: Lang) => {
     localStorage.setItem(BLOG_LANG_KEY, newLang);
@@ -76,7 +89,7 @@ export function RegionProvider({ children }: { children: ReactNode }) {
   const regionPrefix = `/${region}${lang === "ar" ? "/ar" : ""}`;
 
   return (
-    <RegionContext.Provider value={{ region, lang, regionPrefix, isBlogPath, setBlogLang }}>
+    <RegionContext.Provider value={{ region, lang, regionPrefix, isSharedPath, setBlogLang }}>
       {children}
     </RegionContext.Provider>
   );

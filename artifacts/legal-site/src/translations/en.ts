@@ -3,6 +3,7 @@ export const en = {
     home: "Home",
     services: "Services",
     about: "About Us",
+    ourWork: "Our Work",
     blog: "Blog",
     contact: "Contact",
     bookConsultation: "Book Consultation",
@@ -31,7 +32,7 @@ export const en = {
     practiceAreasHeading: "Practice Areas",
     quickLinksHeading: "Quick Links",
     contactHeading: "Contact Us",
-    links: { home: "Home", allServices: "All Services", about: "About Us", blog: "Legal Blog", contact: "Contact Us", book: "Book Consultation" },
+    links: { home: "Home", allServices: "All Services", about: "About Us", ourWork: "Our Work", blog: "Legal Blog", contact: "Contact Us", book: "Book Consultation" },
     practiceAreaLinks: [
       { label: "Family Law", href: "/services/family-law" },
       { label: "Commercial Law", href: "/services/business-law" },

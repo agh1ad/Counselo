@@ -41,7 +41,7 @@ const BlogPostSchema = z.object({
   ar: BlogLocaleSchema,
 });
 
-const { BASE_URL, CORE_PAGES, BLOG_BASE_PATH } =
+const { BASE_URL, CORE_PAGES, BLOG_BASE_PATH, WORK_BASE_PATH } =
   await import("../data/sitemap-sources.js");
 
 const { en } = await import("../translations/en.js");
@@ -182,7 +182,7 @@ function urlEntrySingleUrl(
 ${hreflangSingleUrl(fullUrl)}
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-    ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}
+${lastmod ? `    <lastmod>${lastmod}</lastmod>` : ""}
   </url>`;
 }
 
@@ -215,6 +215,11 @@ for (const slug of SYR_SERVICE_SLUGS) {
 entries.push("\n  <!-- ===== BLOG ===== -->");
 entries.push(
   urlEntrySingleUrl(`${BASE_URL}${BLOG_BASE_PATH}`, "weekly", "0.8"),
+);
+
+entries.push("\n  <!-- ===== OUR WORK ===== -->");
+entries.push(
+  urlEntrySingleUrl(`${BASE_URL}${WORK_BASE_PATH}`, "weekly", "0.85"),
 );
 
 // Blog posts — fetch the published records from the live API by default.
@@ -258,6 +263,22 @@ try {
   console.warn(
     `[sitemap] could not fetch blog posts (${(err as Error).message}) — skipping`,
   );
+}
+
+try {
+  const WorkRowSchema = z.object({ slug: z.string(), date: z.string(), updatedAt: z.string().optional() });
+  const workApiUrl = process.env["WORK_API_URL"]?.trim() || "https://counselo-legal.com/api/work";
+  const res = await fetch(workApiUrl, { signal: AbortSignal.timeout(8_000) });
+  if (res.ok) {
+    const raw = (await res.json()) as unknown[];
+    const samples = raw.map((item) => WorkRowSchema.safeParse(item)).filter((item) => item.success).map((item) => item.data);
+    for (const sample of samples) {
+      entries.push(urlEntrySingleUrl(`${BASE_URL}${WORK_BASE_PATH}/${sample.slug}`, "monthly", "0.75", sample.updatedAt?.slice(0, 10) || sample.date));
+    }
+    console.log(`[sitemap] added ${samples.length} work sample(s) to sitemap`);
+  }
+} catch (err) {
+  console.warn(`[sitemap] could not fetch work samples (${(err as Error).message}) — skipping`);
 }
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>

@@ -1137,18 +1137,48 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog"/>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    
+
+  </url>
+
+  <!-- ===== OUR WORK ===== -->
+  <url>
+    <loc>https://counselo-legal.com/our-work</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/our-work"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+
   </url>
   <url>
-    <loc>https://counselo-legal.com/blog/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy"/>
+    <loc>https://counselo-legal.com/blog/alrda-fy-alqanwn-alswry</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/alrda-fy-alqanwn-alswry"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-07-21</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/blog/athbat-alaqwd-amam-alqda-alsawdy</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/athbat-alaqwd-amam-alqda-alsawdy"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-07-20</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/blog/alaqd-fy-alqanwn-alswry</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/alaqd-fy-alqanwn-alswry"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-07-20</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/blog/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <lastmod>2026-07-19</lastmod>
   </url>
   <url>
-    <loc>https://counselo-legal.com/blog/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry"/>
+    <loc>https://counselo-legal.com/blog/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <lastmod>2026-07-19</lastmod>
@@ -1210,13 +1240,6 @@
     <lastmod>2026-07-13</lastmod>
   </url>
   <url>
-    <loc>https://counselo-legal.com/blog/consensual-formal-real-contracts-syrian-law</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/consensual-formal-real-contracts-syrian-law"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <lastmod>2026-07-10</lastmod>
-  </url>
-  <url>
     <loc>https://counselo-legal.com/blog/defects-of-will-syrian-law</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/defects-of-will-syrian-law"/>
     <changefreq>monthly</changefreq>
@@ -1224,8 +1247,15 @@
     <lastmod>2026-07-09</lastmod>
   </url>
   <url>
-    <loc>https://counselo-legal.com/blog/Penalty-clause-in-saudi</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/Penalty-clause-in-saudi"/>
+    <loc>https://counselo-legal.com/blog/consensual-formal-real-contracts-syrian-law</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/consensual-formal-real-contracts-syrian-law"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-07-10</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/blog/contractual-liability-in-commercial-transactions</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/contractual-liability-in-commercial-transactions"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <lastmod>2026-07-08</lastmod>
@@ -1238,8 +1268,8 @@
     <lastmod>2026-07-08</lastmod>
   </url>
   <url>
-    <loc>https://counselo-legal.com/blog/contractual-liability-in-commercial-transactions</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/contractual-liability-in-commercial-transactions"/>
+    <loc>https://counselo-legal.com/blog/Penalty-clause-in-saudi</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/Penalty-clause-in-saudi"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <lastmod>2026-07-08</lastmod>

@@ -22,12 +22,12 @@ export { useLanguage } from "@/contexts/LanguageContextCore";
  * is stored in localStorage and toggled client-side without URL navigation.
  */
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const { region, lang, regionPrefix, isBlogPath, setBlogLang } = useRegion();
+  const { region, lang, regionPrefix, isSharedPath, setBlogLang } = useRegion();
   const [location, navigate] = useLocation();
 
   const toggleLang = () => {
     const next = lang === "en" ? "ar" : "en";
-    if (isBlogPath) {
+    if (isSharedPath) {
       // Blog has a single URL — switch language client-side via localStorage.
       setBlogLang(next);
     } else {

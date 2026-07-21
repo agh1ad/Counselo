@@ -123,7 +123,7 @@ const ENGLISH_ROUTES: string[] = [
 // Single-URL routes: not region-prefixed, no Arabic variant.
 // The blog lives at /blog for all regions and languages.
 // DB blog post routes are fetched and added dynamically in prerender().
-const SINGLE_URL_ROUTES: string[] = ["/blog"];
+const SINGLE_URL_ROUTES: string[] = ["/blog", "/our-work"];
 
 // Arabic is a real URL segment, not a client-side-only toggle: every English
 // route above has a matching "/ar" variant (e.g. "/sa/about" -> "/sa/ar/about")
