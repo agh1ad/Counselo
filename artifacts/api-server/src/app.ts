@@ -4,6 +4,7 @@ import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
 import { registerOgPageRoutes } from "./og-pages.js";
+import { enforceCanonicalUrl } from "./lib/canonical-url.js";
 import {
   redirectTrailingSlash,
   redirectWww,
@@ -23,6 +24,7 @@ app.use((_req, res, next) => {
   );
   next();
 });
+app.use(enforceCanonicalUrl);
 
 app.use(
   pinoHttp({
