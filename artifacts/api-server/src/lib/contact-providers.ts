@@ -149,9 +149,9 @@ function customerEmailHtml(
         <td align="center">
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;background:#ffffff;border-radius:14px;overflow:hidden;box-shadow:0 8px 28px rgba(16,48,38,.10);">
             <tr>
-              <td align="center" style="background:#123d32;padding:24px 28px;">
-                <a href="${siteUrl}" style="text-decoration:none;">
-                  <img src="${logoUrl}" width="176" alt="CounselO" style="display:block;width:176px;max-width:100%;height:auto;border:0;">
+              <td align="center" style="padding:0;line-height:0;font-size:0;">
+                <a href="${siteUrl}" style="text-decoration:none;display:block;line-height:0;font-size:0;">
+                  <img src="${logoUrl}" width="640" alt="CounselO" style="display:block;width:100%;max-width:100%;height:auto;border:0;">
                 </a>
               </td>
             </tr>
