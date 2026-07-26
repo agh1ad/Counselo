@@ -95,6 +95,7 @@ test("sends a polished bilingual confirmation to the customer", async () => {
     assert.match(body.text, /Thank you for choosing CounselO/);
     assert.match(body.text, /شكراً لاختيارك كاونسلو/);
     assert.match(body.html, /images\/counselo-logo\.png/);
+    assert.match(body.html, /<img[^>]+width="640"[^>]+width:100%/);
     assert.match(body.html, /including spam or junk/);
     assert.match(body.html, /بما في ذلك الرسائل غير المرغوب فيها/);
     assert.equal(body.attachments, undefined);
