@@ -33,14 +33,17 @@ export function redirectTrailingSlash(
   res: Response,
   next: NextFunction,
 ): void {
+  const originalUrl = req.originalUrl ?? req.url;
+  const queryIndex = originalUrl.indexOf("?");
+  const originalPath = queryIndex === -1 ? originalUrl : originalUrl.slice(0, queryIndex);
   if (
     (req.method === "GET" || req.method === "HEAD") &&
-    req.path.length > 1 &&
-    req.path.endsWith("/") &&
-    !req.path.startsWith("/api/")
+    originalPath.length > 1 &&
+    originalPath.endsWith("/") &&
+    !originalPath.startsWith("/api/")
   ) {
-    const qs = req.url.slice(req.path.length);
-    res.redirect(301, `${req.path.slice(0, -1)}${qs}`);
+    const qs = queryIndex === -1 ? "" : originalUrl.slice(queryIndex);
+    res.redirect(301, `${originalPath.slice(0, -1)}${qs}`);
     return;
   }
   next();
