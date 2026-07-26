@@ -6,6 +6,14 @@ import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized } from "@/lib/work-samples";
 
+declare global {
+  interface Window {
+    // Injected by the server in og-pages.ts buildDynamicWorkHtml so the
+    // React query has data immediately without a loading flash.
+    __SSR_WORK__?: WorkSamplePublic;
+  }
+}
+
 export default function WorkSample() {
   const { slug = "" } = useParams<{ slug: string }>();
   const { lang, isRTL } = useLanguage();
@@ -16,6 +24,18 @@ export default function WorkSample() {
       const response = await fetch(`/api/work/${encodeURIComponent(slug)}`);
       if (!response.ok) throw new Error("Not found");
       return response.json() as Promise<WorkSamplePublic>;
+    },
+    // Use server-injected data (window.__SSR_WORK__) as the initial value so
+    // the page renders instantly on first load without a loading flash.
+    initialData: () => {
+      if (
+        typeof window !== "undefined" &&
+        window.__SSR_WORK__ &&
+        window.__SSR_WORK__.slug === slug
+      ) {
+        return window.__SSR_WORK__;
+      }
+      return undefined;
     },
     staleTime: 60_000,
     retry: false,

@@ -254,7 +254,8 @@ function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | "ar"): 
     <meta name="description" content="${esc(description.slice(0, 170))}"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="${canonical}">${sample.titleEn && sample.titleAr ? `<link rel="alternate" hreflang="en" href="${englishUrl}"><link rel="alternate" hreflang="ar" href="${arabicUrl}">` : ""}<link rel="alternate" hreflang="x-default" href="${sample.titleEn ? englishUrl : arabicUrl}"><meta property="og:type" content="article"><meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description.slice(0, 170))}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${DEFAULT_OG_IMAGE}">
-    <script type="application/ld+json">${schema}</script><script type="application/ld+json">${breadcrumbs}</script>`;
+    <script type="application/ld+json">${schema}</script><script type="application/ld+json">${breadcrumbs}</script>
+    <script>window.__SSR_WORK__=${safeJson(sample)};</script>`;
   const body = `<main><article><h1>${esc(title)}</h1><p>${esc(description)}</p><p>${esc(sample.workTypeEn || sample.workTypeAr)} · ${esc(sample.jurisdictionEn || sample.jurisdictionAr)}</p><a href="${fileUrl}">View redacted document</a></article></main>`;
   if (!shell) return `<!doctype html><html lang="${isArabic ? "ar" : "en"}" dir="${isArabic ? "rtl" : "ltr"}"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
   return shell.replace(/<html\b[^>]*>/i, `<html lang="${isArabic ? "ar" : "en"}" dir="${isArabic ? "rtl" : "ltr"}">`).replace("<!--app-head-->", head).replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
