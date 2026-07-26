@@ -1160,6 +1160,13 @@
 
   </url>
   <url>
+    <loc>https://counselo-legal.com/blog/altwsyat-alamlyh-lsyaghh-aqd-qwy</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/altwsyat-alamlyh-lsyaghh-aqd-qwy"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-07-23</lastmod>
+  </url>
+  <url>
     <loc>https://counselo-legal.com/blog/alrda-fy-alqanwn-alswry</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/blog/alrda-fy-alqanwn-alswry"/>
     <changefreq>monthly</changefreq>
@@ -1284,6 +1291,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <lastmod>2026-07-08</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/ar/our-work/ray-qanwny-fy-tlb-aflas</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/ar/our-work/ray-qanwny-fy-tlb-aflas"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-07-22</lastmod>
   </url>
 
 </urlset>

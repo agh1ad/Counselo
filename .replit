@@ -28,6 +28,8 @@ channel = "stable-25_05"
 
 [userenv.shared]
 ADMIN_PASSWORD = "aghiadomar1970"
+CONTACT_OWNER_EMAIL = "bagdadio@gmail.com"
+CONTACT_TEAM_EMAIL = "info@counselo-legal.com"
 
 [[ports]]
 localPort = 8080
