@@ -7,3 +7,4 @@
 - [CounselO bilingual URL routing](counselo-bilingual-urls.md) — Arabic/English is a real `/ar` URL segment (via RegionContext), not a client-side toggle, so hreflang/prerendering are truthful.
 - [Express 5 path-to-regexp v8 wildcards](express5-path-wildcards.md) — use `{/*param}` for catch-all routes; `/*` and `:name*` both throw at startup.
 - [CounselO OG proxy architecture](counselo-og-proxy.md) — all /sa/* and /syr/* routed through API server; og-pages.ts serves prerendered flat files first (correct OG tags), then DB for CMS posts, then index.html fallback.
+- [CounselO production web server is ssr-server](counselo-ssr-server-routing.md) — in production Replit routes ALL HTML page requests (including /ar/our-work/:slug) to the legal-site ssr-server (port 24438), not the api-server; dynamic work/blog routes must be added to ssr-server.ts, not just og-pages.ts.
