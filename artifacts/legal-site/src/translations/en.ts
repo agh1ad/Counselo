@@ -1758,7 +1758,7 @@ export const en = {
       messageLabel: "Brief Description of Your Matter",
       messagePlaceholder: "Please provide a brief overview of your legal situation...",
       uploadLabel: "Attach Documents (Optional)",
-      uploadHint: "Images or PDFs relating to your matter — max 10 files, 10 MB each",
+      uploadHint: "Images or PDFs relating to your matter — max 10 files, 5 MB each and 7 MB total",
       uploadBtn: "Click to select files",
       uploadRemove: "Remove",
       submitBtn: "Submit Consultation Request",

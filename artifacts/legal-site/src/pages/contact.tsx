@@ -9,13 +9,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Clock, Mail, MapPin, Phone, CreditCard, Paperclip, X, FileText, ImageIcon, CheckCircle } from "lucide-react";
+import { Clock, Mail, MapPin, Phone, CreditCard, Paperclip, X, FileText, ImageIcon, CheckCircle, Loader2, AlertCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 
 const MAX_FILES = 10;
-const MAX_SIZE_MB = 10;
+const MAX_FILE_SIZE_MB = 5;
+const MAX_TOTAL_SIZE_MB = 7;
 const ACCEPTED = ["image/jpeg", "image/png", "image/gif", "image/webp", "application/pdf"];
 
 const formSchema = z.object({
@@ -31,6 +32,26 @@ function FileIcon({ type }: { type: string }) {
   return <ImageIcon className="h-4 w-4 text-primary shrink-0" />;
 }
 
+type ContactApiResponse = {
+  reference?: string;
+  notificationStatus?: "accepted" | "pending" | "sent";
+  error?: string;
+};
+
+function fileToBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = String(reader.result ?? "");
+      const separator = result.indexOf(",");
+      if (separator === -1) reject(new Error("Unable to read attachment."));
+      else resolve(result.slice(separator + 1));
+    };
+    reader.onerror = () => reject(new Error("Unable to read attachment."));
+    reader.readAsDataURL(file);
+  });
+}
+
 export default function Contact() {
   const { toast } = useToast();
   const { t, isRTL } = useLanguage();
@@ -39,9 +60,12 @@ export default function Contact() {
   const f = c.form;
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const nativeFormRef = useRef<HTMLFormElement>(null);
+  const honeypotRef = useRef<HTMLInputElement>(null);
 
   const [wasSent, setWasSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
+  const [reference, setReference] = useState("");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -52,69 +76,92 @@ export default function Contact() {
     const params = new URLSearchParams(window.location.search);
     const svc = params.get("service") || "";
     if (svc) form.setValue("service", svc);
-    if (params.get("sent") === "1") {
-      setWasSent(true);
-      window.history.replaceState({}, "", window.location.pathname);
-    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const syncFilesToInput = useCallback((fileList: File[]) => {
-    if (!fileInputRef.current) return;
-    try {
-      const dt = new DataTransfer();
-      fileList.forEach((f) => dt.items.add(f));
-      fileInputRef.current.files = dt.files;
-    } catch {
-      /* DataTransfer not supported — files still submitted from state */
-    }
   }, []);
 
   const handleFiles = useCallback((incoming: FileList | null) => {
     if (!incoming) return;
-    const valid: File[] = [];
+    const combined = [...files];
     const skipped: string[] = [];
+    let totalSize = combined.reduce((sum, file) => sum + file.size, 0);
     Array.from(incoming).forEach((file) => {
       if (!ACCEPTED.includes(file.type)) { skipped.push(file.name); return; }
-      if (file.size > MAX_SIZE_MB * 1024 * 1024) { skipped.push(file.name); return; }
-      valid.push(file);
+      if (file.size > MAX_FILE_SIZE_MB * 1024 * 1024) { skipped.push(file.name); return; }
+      if (combined.length >= MAX_FILES) { skipped.push(file.name); return; }
+      if (totalSize + file.size > MAX_TOTAL_SIZE_MB * 1024 * 1024) { skipped.push(file.name); return; }
+      combined.push(file);
+      totalSize += file.size;
     });
-    setFiles((prev) => {
-      const combined = [...prev, ...valid].slice(0, MAX_FILES);
-      syncFilesToInput(combined);
-      return combined;
-    });
+    setFiles(combined);
     if (skipped.length > 0) {
       toast({
         title: isRTL ? "بعض الملفات لم تُضَف" : "Some files were skipped",
         description: isRTL
-          ? `${skipped.join(", ")} — تحقق من النوع والحجم`
-          : `${skipped.join(", ")} — check type and size`,
+          ? `${skipped.join(", ")} — الحد الأقصى 5 ميغابايت للملف و7 ميغابايت إجمالاً`
+          : `${skipped.join(", ")} — maximum 5 MB per file and 7 MB total`,
         variant: "destructive",
       });
     }
-  }, [isRTL, toast, syncFilesToInput]);
+  }, [files, isRTL, toast]);
 
   const removeFile = (idx: number) => {
-    setFiles((prev) => {
-      const updated = prev.filter((_, i) => i !== idx);
-      syncFilesToInput(updated);
-      return updated;
-    });
+    setFiles((prev) => prev.filter((_, i) => i !== idx));
   };
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    const nf = nativeFormRef.current;
-    if (!nf) return;
-    const get = (name: string) => nf.querySelector<HTMLInputElement>(`[data-field="${name}"]`)!;
-    get("_subject").value = `New Legal Consultation — ${values.service} — ${values.name}`;
-    get("_next").value = `${window.location.origin}${window.location.pathname}?sent=1`;
-    get("name").value = values.name;
-    get("email").value = values.email;
-    get("phone").value = values.phone;
-    get("service").value = values.service;
-    get("message").value = values.message;
-    nf.submit();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
+    setSubmissionError("");
+    try {
+      const attachments = await Promise.all(files.map(async (file) => ({
+        name: file.name,
+        type: file.type,
+        data: await fileToBase64(file),
+      })));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...values,
+          region,
+          language: isRTL ? "ar" : "en",
+          website: honeypotRef.current?.value ?? "",
+          attachments,
+        }),
+      });
+      const result = await response.json().catch(() => ({})) as ContactApiResponse;
+      if (!response.ok || !result.reference) {
+        const localizedError = response.status === 429
+          ? (isRTL
+            ? "تم إرسال عدة طلبات مؤخراً. يرجى المحاولة مرة أخرى لاحقاً."
+            : "Too many requests were submitted recently. Please try again later.")
+          : response.status === 503
+            ? (isRTL
+              ? "خدمة إرسال الطلبات غير متاحة مؤقتاً. يرجى التواصل معنا عبر البريد الإلكتروني."
+              : "Consultation submissions are temporarily unavailable. Please contact us by email.")
+            : (isRTL
+              ? "تعذر إرسال طلبك. يرجى التحقق من البيانات والمحاولة مرة أخرى."
+              : result.error || "We could not submit your request. Please check the form and try again.");
+        throw new Error(localizedError);
+      }
+
+      setReference(result.reference);
+      setWasSent(true);
+      form.reset();
+      setFiles([]);
+      window.history.replaceState({}, "", window.location.pathname);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : (isRTL
+        ? "تعذر إرسال طلبك. يرجى المحاولة مرة أخرى."
+        : "We could not submit your request. Please try again.");
+      setSubmissionError(message);
+      toast({
+        title: isRTL ? "لم يتم إرسال الطلب" : "Request not submitted",
+        description: message,
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -187,34 +234,6 @@ export default function Contact() {
         ]}
       />
 
-      {/* Native form — invisible, actual formsubmit.co multipart submission */}
-      <form
-        ref={nativeFormRef}
-        action="https://formsubmit.co/info@counselo-legal.com"
-        method="POST"
-        encType="multipart/form-data"
-        style={{ display: "none" }}
-      >
-        <input type="hidden" data-field="_subject" name="_subject" defaultValue="" />
-        <input type="hidden" data-field="_next" name="_next" defaultValue="" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" data-field="name" name="name" defaultValue="" />
-        <input type="hidden" data-field="email" name="email" defaultValue="" />
-        <input type="hidden" data-field="phone" name="phone" defaultValue="" />
-        <input type="hidden" data-field="service" name="service" defaultValue="" />
-        <input type="hidden" data-field="message" name="message" defaultValue="" />
-        {/* Real file input — files selected via the visible UI land here */}
-        <input
-          ref={fileInputRef}
-          type="file"
-          name="attachment"
-          multiple
-          accept="image/*,.pdf"
-          onChange={(e) => handleFiles(e.target.files)}
-          onClick={(e) => { (e.target as HTMLInputElement).value = ""; }}
-        />
-      </form>
-
       {/* Hero */}
       <section className="relative py-28 border-b border-border">
         <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 10%) 0%, hsl(150 80% 15%) 100%)" }} />
@@ -250,6 +269,11 @@ export default function Contact() {
                     ? "تم استلام طلبك بنجاح. سيتواصل معك فريقنا القانوني خلال 24 ساعة."
                     : "Your consultation request has been received. Our legal team will contact you within 24 hours."}
                 </p>
+                {reference && (
+                  <p className="text-sm font-semibold text-primary" dir="ltr">
+                    {isRTL ? "رقم الطلب:" : "Consultation reference:"} {reference}
+                  </p>
+                )}
               </div>
               <div className="w-full bg-primary/5 border border-primary/20 rounded-sm px-6 py-4 flex items-center gap-3">
                 <Clock className="h-5 w-5 text-primary shrink-0" />
@@ -300,6 +324,17 @@ export default function Contact() {
                 <div className="w-12 h-1 bg-primary mb-8" />
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <div className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+                      <label htmlFor="contact-website">Website</label>
+                      <input
+                        ref={honeypotRef}
+                        id="contact-website"
+                        name="website"
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
                     <div className="grid sm:grid-cols-2 gap-6">
                       <FormField control={form.control} name="name" render={({ field }) => (
                         <FormItem>
@@ -354,6 +389,17 @@ export default function Contact() {
                     {/* File upload */}
                     <div className="space-y-3">
                       <p className="text-sm font-medium text-foreground">{f.uploadLabel}</p>
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        className="hidden"
+                        multiple
+                        accept="image/jpeg,image/png,image/gif,image/webp,application/pdf"
+                        onChange={(event) => {
+                          handleFiles(event.currentTarget.files);
+                          event.currentTarget.value = "";
+                        }}
+                      />
                       <button
                         type="button"
                         onClick={() => fileInputRef.current?.click()}
@@ -392,8 +438,22 @@ export default function Contact() {
                       <CreditCard className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                       <p className="text-sm text-foreground/80 leading-relaxed">{f.paymentNotice}</p>
                     </div>
-                    <Button type="submit" size="lg" className="w-full py-6 text-lg rounded-none bg-primary text-white hover:bg-primary/90">
-                      {f.submitBtn}
+                    {submissionError && (
+                      <div role="alert" className="flex items-start gap-3 border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive">
+                        <AlertCircle className="h-5 w-5 shrink-0" />
+                        <p>{submissionError}</p>
+                      </div>
+                    )}
+                    <Button
+                      type="submit"
+                      size="lg"
+                      disabled={isSubmitting}
+                      className="w-full py-6 text-lg rounded-none bg-primary text-white hover:bg-primary/90"
+                    >
+                      {isSubmitting && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
+                      {isSubmitting
+                        ? (isRTL ? "جارٍ إرسال الطلب..." : "Submitting securely…")
+                        : f.submitBtn}
                     </Button>
                     <p className="text-xs text-muted-foreground text-center">{f.disclaimer}</p>
                   </form>
