@@ -6,6 +6,12 @@ import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized } from "@/lib/work-samples";
 
+declare global {
+  interface Window {
+    __SSR_WORK_SAMPLE__?: WorkSamplePublic;
+  }
+}
+
 export default function WorkSample() {
   const { slug = "" } = useParams<{ slug: string }>();
   const { lang, isRTL } = useLanguage();
@@ -16,6 +22,15 @@ export default function WorkSample() {
       const response = await fetch(`/api/work/${encodeURIComponent(slug)}`);
       if (!response.ok) throw new Error("Not found");
       return response.json() as Promise<WorkSamplePublic>;
+    },
+    initialData: () => {
+      if (
+        typeof window !== "undefined" &&
+        window.__SSR_WORK_SAMPLE__?.slug === slug
+      ) {
+        return window.__SSR_WORK_SAMPLE__;
+      }
+      return undefined;
     },
     staleTime: 60_000,
     retry: false,

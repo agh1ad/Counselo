@@ -7,6 +7,12 @@ import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized } from "@/lib/work-samples";
 
+declare global {
+  interface Window {
+    __SSR_WORK_SAMPLES__?: WorkSamplePublic[];
+  }
+}
+
 export default function OurWork() {
   const { lang, isRTL } = useLanguage();
   const { regionPrefix } = useRegion();
@@ -17,6 +23,10 @@ export default function OurWork() {
       if (!response.ok) throw new Error("Unable to load work samples");
       return response.json() as Promise<WorkSamplePublic[]>;
     },
+    initialData: () =>
+      typeof window !== "undefined"
+        ? window.__SSR_WORK_SAMPLES__
+        : undefined,
     staleTime: 60_000,
   });
 
