@@ -21,6 +21,10 @@ export const contactSubmissionsTable = pgTable(
     payloadAuthTag: text("payload_auth_tag").notNull(),
     emailStatus: text("email_status").notNull().default("pending"),
     emailProviderId: text("email_provider_id"),
+    customerEmailStatus: text("customer_email_status")
+      .notNull()
+      .default("pending"),
+    customerEmailProviderId: text("customer_email_provider_id"),
     notificationAttempts: integer("notification_attempts").notNull().default(0),
     nextAttemptAt: timestamp("next_attempt_at").notNull().defaultNow(),
     processingAt: timestamp("processing_at"),
@@ -36,6 +40,10 @@ export const contactSubmissionsTable = pgTable(
     ),
     index("contact_submissions_retry_idx").on(
       table.emailProviderId,
+      table.nextAttemptAt,
+    ),
+    index("contact_submissions_customer_retry_idx").on(
+      table.customerEmailProviderId,
       table.nextAttemptAt,
     ),
   ],

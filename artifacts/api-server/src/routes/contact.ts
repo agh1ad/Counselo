@@ -131,6 +131,7 @@ router.get("/admin/contact-submissions", requireAdmin, async (_req, res) => {
       language: contactSubmissionsTable.language,
       service: contactSubmissionsTable.service,
       emailStatus: contactSubmissionsTable.emailStatus,
+      customerEmailStatus: contactSubmissionsTable.customerEmailStatus,
       notificationAttempts: contactSubmissionsTable.notificationAttempts,
       lastError: contactSubmissionsTable.lastError,
       createdAt: contactSubmissionsTable.createdAt,
