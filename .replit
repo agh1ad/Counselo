@@ -31,6 +31,7 @@ ADMIN_PASSWORD = "aghiadomar1970"
 CONTACT_OWNER_EMAIL = "bagdadio@gmail.com"
 CONTACT_TEAM_EMAIL = "info@counselo-legal.com"
 PUBLIC_SITE_URL = "https://counselo-legal.com"
+CONTACT_FROM_EMAIL = "CounselO <consultations@counselo-legal.com>"
 
 [[ports]]
 localPort = 8080
