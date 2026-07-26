@@ -161,7 +161,7 @@ export function parseContactInput(value: unknown): ContactInput {
 
   const attachments = result.data.attachments.map(decodeAttachment);
   const totalBytes = attachments.reduce(
-    (sum, attachment) => sum + attachment.size,
+    (sum: number, attachment: ContactAttachment) => sum + attachment.size,
     0,
   );
   if (totalBytes > MAX_CONTACT_TOTAL_BYTES) {
