@@ -199,3 +199,14 @@
 .tiptap-content hr { border: none; border-top: 2px solid #e5e7eb; margin: 1.5em 0; }
 .tiptap-content blockquote { border-left: 4px solid #006C35; margin: 1em 0; padding: 0.5em 1em; background: #f0fdf4; color: #374151; font-style: italic; }
 [dir="rtl"] .tiptap-content blockquote { border-left: none; border-right: 4px solid #006C35; }
+
+/*
+ * Translated posts can retain right-alignment declarations from their Arabic
+ * source HTML. The article language direction is authoritative: override only
+ * stale right alignment in English content while preserving intentional
+ * centered headings and the original RTL formatting on Arabic posts.
+ */
+.tiptap-content[dir="ltr"] [style*="text-align:right"],
+.tiptap-content[dir="ltr"] [style*="text-align: right"] {
+  text-align: left !important;
+}
