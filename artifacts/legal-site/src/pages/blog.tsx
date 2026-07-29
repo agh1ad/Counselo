@@ -50,9 +50,12 @@ export default function Blog() {
       if (!res.ok) throw new Error("Failed to fetch posts");
       return res.json() as Promise<ApiPost[]>;
     },
-    initialData: () =>
+    // Render the deployment snapshot immediately, but do not let it suppress
+    // the live request for posts published after that deployment.
+    placeholderData: () =>
       typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined,
     staleTime: 60_000,
+    refetchOnWindowFocus: "always",
   });
 
   const country = region === "syr" ? "Syrian" : "Saudi";
