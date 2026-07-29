@@ -105,8 +105,12 @@ export function LatestContentCarousels({
       if (!response.ok) throw new Error("Unable to load articles");
       return response.json() as Promise<InitialBlogPost[]>;
     },
-    initialData: () => (typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined),
+    // The build-time list is only a visual placeholder. Fetch immediately so
+    // posts published after the last deployment can enter the carousel.
+    placeholderData: () =>
+      typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined,
     staleTime: 60_000,
+    refetchOnWindowFocus: "always",
   });
   const { data: workSamples = [] } = useQuery<WorkSamplePublic[]>({
     queryKey: ["work-samples"],
@@ -115,8 +119,10 @@ export function LatestContentCarousels({
       if (!response.ok) throw new Error("Unable to load work samples");
       return response.json() as Promise<WorkSamplePublic[]>;
     },
-    initialData: () => (typeof window !== "undefined" ? window.__SSR_WORK_SAMPLES__ : undefined),
+    placeholderData: () =>
+      typeof window !== "undefined" ? window.__SSR_WORK_SAMPLES__ : undefined,
     staleTime: 60_000,
+    refetchOnWindowFocus: "always",
   });
 
   const latestPosts = useMemo(

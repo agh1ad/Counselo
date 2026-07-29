@@ -23,11 +23,12 @@ export default function OurWork() {
       if (!response.ok) throw new Error("Unable to load work samples");
       return response.json() as Promise<WorkSamplePublic[]>;
     },
-    initialData: () =>
+    placeholderData: () =>
       typeof window !== "undefined"
         ? window.__SSR_WORK_SAMPLES__
         : undefined,
     staleTime: 60_000,
+    refetchOnWindowFocus: "always",
   });
 
   const ar = lang === "ar";
