@@ -1,6 +1,7 @@
 import { blogPostsTable, db, workSamplesTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import { logger } from "./logger.js";
+import { extractResponsesOutputText } from "./openai-response.js";
 
 const SERVICE_CATALOG = [
   ["family-law", "family divorce custody inheritance marriage personal status الأسرة طلاق حضانة ميراث زواج أحوال شخصية"],
@@ -186,9 +187,13 @@ async function askOpenAI(
       logger.warn({ status: response.status }, "OpenAI internal-link assignment failed");
       return null;
     }
-    const payload = (await response.json()) as { output_text?: unknown };
-    if (typeof payload.output_text !== "string") return null;
-    const parsed = JSON.parse(payload.output_text) as Record<string, unknown>;
+    const payload: unknown = await response.json();
+    const outputText = extractResponsesOutputText(payload);
+    if (!outputText) {
+      logger.warn("OpenAI internal-link assignment returned no text output");
+      return null;
+    }
+    const parsed = JSON.parse(outputText) as Record<string, unknown>;
     const relatedServiceSlugs = uniqueAllowed(
       parsed.relatedServiceSlugs,
       new Set(SERVICE_CATALOG.map(([slug]) => slug)),
