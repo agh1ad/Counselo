@@ -254,7 +254,7 @@ async function requestStructuredTranslation<T>(
           {
             role: "system",
             content:
-              "You are the bilingual legal-content editor for CounselO. Return complete English and Arabic versions of the supplied legal content. Preserve every legal fact, qualification, citation, number, party role, jurisdiction, and outcome. Do not invent or strengthen claims. Use professional natural legal language rather than literal translation. Preserve HTML structure, allowed tags, and links in body fields. Keep section ordering identical. Produce search-focused SEO titles and descriptions for each language; titles must be 20–70 characters and descriptions 80–170 characters. Keep CounselO or كاونسلو branding natural. Output only the requested structured data.",
+              "You are the bilingual legal-content editor for CounselO. Return complete English and Arabic versions of the supplied legal content. Preserve every legal fact, qualification, citation, number, party role, jurisdiction, and outcome. Do not invent or strengthen claims. Use professional natural legal language rather than literal translation. Preserve HTML structure, allowed tags, and links in body fields. Keep section ordering identical. When the source article uses a body field, bodyEn and bodyAr must both contain the complete non-empty HTML article; content arrays may then remain empty. When it uses content sections, contentEn and contentAr must both contain every complete section. Produce search-focused SEO titles and descriptions for each language; titles must be 20–70 characters and descriptions 80–170 characters. Keep CounselO or كاونسلو branding natural. Output only the requested structured data.",
           },
           {
             role: "user",
