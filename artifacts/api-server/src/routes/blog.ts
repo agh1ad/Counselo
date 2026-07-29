@@ -13,7 +13,10 @@ import {
   sanitizeBlogPost,
 } from "../lib/blog-input.js";
 import { assignInternalLinks } from "../lib/internal-link-assignment.js";
-import { logger } from "../lib/logger.js";
+import {
+  ContentTranslationError,
+  translateBlogForPublishing,
+} from "../lib/content-translation.js";
 
 const router = Router();
 
@@ -63,36 +66,54 @@ router.get("/admin/blog/posts", requireAdmin, async (_req, res) => {
 
 router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
   try {
-    const values = parseBlogPostInput(req.body);
-    let [post] = await db
+    const requestedPublished =
+      req.body?.published === true || req.body?.published === "true";
+    const draftValues = parseBlogPostInput(
+      requestedPublished ? { ...req.body, published: false } : req.body,
+    );
+    let values = draftValues;
+    let linkValues = {};
+    if (requestedPublished) {
+      const translation = await translateBlogForPublishing(draftValues);
+      values = parseBlogPostInput({
+        ...draftValues,
+        ...translation,
+        published: true,
+      });
+      const assignment = await assignInternalLinks({
+        kind: "blog",
+        slug: values.slug,
+        title: values.titleEn || values.titleAr || "",
+        summary: values.excerptEn || values.excerptAr || "",
+        body:
+          values.bodyEn ||
+          values.bodyAr ||
+          JSON.stringify(
+            values.contentEn?.length ? values.contentEn : values.contentAr,
+          ),
+      });
+      linkValues = {
+        relatedServiceSlugs: assignment.relatedServiceSlugs,
+        relatedBlogSlugs: assignment.relatedBlogSlugs,
+        relatedWorkSlugs: assignment.relatedWorkSlugs,
+        aiLinksAssignedAt: new Date(),
+      };
+    }
+    const [post] = await db
       .insert(blogPostsTable)
-      .values(values)
+      .values({ ...values, ...linkValues })
       .returning();
     if (post.published) {
-      try {
-        const assignment = await assignInternalLinks({
-          kind: "blog",
-          slug: post.slug,
-          title: post.titleEn || post.titleAr,
-          summary: post.excerptEn || post.excerptAr,
-          body: post.bodyEn || post.bodyAr || JSON.stringify(post.contentEn.length ? post.contentEn : post.contentAr),
-        });
-        const [assigned] = await db.update(blogPostsTable).set({
-          relatedServiceSlugs: assignment.relatedServiceSlugs,
-          relatedBlogSlugs: assignment.relatedBlogSlugs,
-          relatedWorkSlugs: assignment.relatedWorkSlugs,
-          aiLinksAssignedAt: new Date(),
-        }).where(eq(blogPostsTable.id, post.id)).returning();
-        if (assigned) post = assigned;
-      } catch (error) {
-        logger.warn({ err: error, slug: post.slug }, "Could not persist automatic blog links");
-      }
       notifyPublished(post.slug);
     }
     res.status(201).json(sanitizeBlogPost(post));
   } catch (error) {
     if (error instanceof BlogInputError) {
       res.status(400).json({ error: error.message });
+      return;
+    }
+    if (error instanceof ContentTranslationError) {
+      res.status(502).json({ error: error.message });
       return;
     }
     throw error;
@@ -115,50 +136,70 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
     res.status(404).json({ error: "Not found" });
     return;
   }
-  let values;
   try {
-    values = parseBlogPostInput(req.body, { existingSlug: before.slug });
-  } catch (error) {
-    res.status(400).json({ error: (error as Error).message });
-    return;
-  }
-  let [post] = await db
-    .update(blogPostsTable)
-    .set({ ...values, updatedAt: new Date() })
-    .where(eq(blogPostsTable.id, id))
-    .returning();
-  if (!post) {
-    res.status(404).json({ error: "Not found" });
-    return;
-  }
-  if (post.published && !before.published) {
-    try {
-      const assignment = await assignInternalLinks({
-        kind: "blog",
-        slug: post.slug,
-        title: post.titleEn || post.titleAr,
-        summary: post.excerptEn || post.excerptAr,
-        body: post.bodyEn || post.bodyAr || JSON.stringify(post.contentEn.length ? post.contentEn : post.contentAr),
-      });
-      const [assigned] = await db.update(blogPostsTable).set({
-        relatedServiceSlugs: assignment.relatedServiceSlugs,
-        relatedBlogSlugs: assignment.relatedBlogSlugs,
-        relatedWorkSlugs: assignment.relatedWorkSlugs,
-        aiLinksAssignedAt: new Date(),
-      }).where(eq(blogPostsTable.id, post.id)).returning();
-      if (assigned) post = assigned;
-    } catch (error) {
-      logger.warn({ err: error, slug: post.slug }, "Could not persist automatic blog links");
+    const requestedPublished =
+      req.body?.published === true || req.body?.published === "true";
+    const draftValues = parseBlogPostInput(
+      requestedPublished ? { ...req.body, published: false } : req.body,
+      { existingSlug: before.slug },
+    );
+    let values = draftValues;
+    let linkValues = {};
+    if (requestedPublished) {
+      const translation = await translateBlogForPublishing(draftValues);
+      values = parseBlogPostInput(
+        { ...draftValues, ...translation, published: true },
+        { existingSlug: before.slug },
+      );
+      if (!before.published) {
+        const assignment = await assignInternalLinks({
+          kind: "blog",
+          slug: values.slug,
+          title: values.titleEn || values.titleAr || "",
+          summary: values.excerptEn || values.excerptAr || "",
+          body:
+            values.bodyEn ||
+            values.bodyAr ||
+            JSON.stringify(
+              values.contentEn?.length ? values.contentEn : values.contentAr,
+            ),
+        });
+        linkValues = {
+          relatedServiceSlugs: assignment.relatedServiceSlugs,
+          relatedBlogSlugs: assignment.relatedBlogSlugs,
+          relatedWorkSlugs: assignment.relatedWorkSlugs,
+          aiLinksAssignedAt: new Date(),
+        };
+      }
     }
+    const [post] = await db
+      .update(blogPostsTable)
+      .set({ ...values, ...linkValues, updatedAt: new Date() })
+      .where(eq(blogPostsTable.id, id))
+      .returning();
+    if (!post) {
+      res.status(404).json({ error: "Not found" });
+      return;
+    }
+    if (post.published) {
+      // Covers first publication and substantive updates; the live sitemap also
+      // exposes updatedAt immediately.
+      notifyPublished(post.slug);
+    } else if (before.published) {
+      notifyRemoved(post.slug);
+    }
+    res.json(sanitizeBlogPost(post));
+  } catch (error) {
+    if (error instanceof BlogInputError) {
+      res.status(400).json({ error: error.message });
+      return;
+    }
+    if (error instanceof ContentTranslationError) {
+      res.status(502).json({ error: error.message });
+      return;
+    }
+    throw error;
   }
-  if (post.published) {
-    // Covers first publication and substantive updates; the live sitemap also
-    // exposes updatedAt immediately.
-    notifyPublished(post.slug);
-  } else if (before.published) {
-    notifyRemoved(post.slug);
-  }
-  res.json(sanitizeBlogPost(post));
 });
 
 router.delete("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
