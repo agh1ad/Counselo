@@ -412,30 +412,6 @@ export default function ServiceDetail() {
                     {isRTL ? `احجز استشارة ${data.title}` : `Book a ${data.title.toLowerCase()} consultation`}
                   </Link>
                 </div>
-                {(relatedArticles.length > 0 || relatedWorkSamples.length > 0) && (
-                  <div className="mt-8">
-                    <h3 className="text-xl font-serif font-bold text-foreground mb-4">
-                      {isRTL ? "أحدث المقالات والأعمال المرتبطة" : "Latest related articles and work"}
-                    </h3>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      {relatedArticles.map((post) => {
-                        const useArabic = Boolean(post.titleAr) && (isRTL || !post.titleEn);
-                        return (
-                          <Link key={post.slug} href={`/blog/${post.slug}`} className="border border-border bg-card p-4 hover:border-primary transition-colors">
-                            <span className="text-xs font-semibold uppercase tracking-wider text-primary">{isRTL ? "مقال" : "Article"}</span>
-                            <span className="block font-semibold mt-2">{useArabic ? post.titleAr : post.titleEn}</span>
-                          </Link>
-                        );
-                      })}
-                      {relatedWorkSamples.map((sample) => (
-                        <Link key={sample.slug} href={`${isRTL ? "/ar" : ""}/our-work/${sample.slug}`} className="border border-border bg-card p-4 hover:border-primary transition-colors">
-                          <span className="text-xs font-semibold uppercase tracking-wider text-primary">{isRTL ? "من أعمالنا" : "Our Work"}</span>
-                          <span className="block font-semibold mt-2">{localized(sample.titleEn, sample.titleAr, isRTL ? "ar" : "en")}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </section>
 
               <h2 id="service-process-heading" className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">{sd.processHeading}</h2>
@@ -537,6 +513,37 @@ export default function ServiceDetail() {
         </div>
       </div>
       <TrustSignals isArabic={isRTL} regionPrefix={regionPrefix} />
+      {(relatedArticles.length > 0 || relatedWorkSamples.length > 0) && (
+        <section className="border-t border-border bg-muted/20 py-16" aria-labelledby="related-content-heading">
+          <div className="container mx-auto px-4">
+            <h2 id="related-content-heading" className="text-3xl font-serif font-bold text-foreground mb-3">
+              {isRTL ? "أحدث المقالات والأعمال المرتبطة" : "Latest related articles and work"}
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              {isRTL
+                ? "محتوى إضافي مرتبط بهذه الخدمة، بعد اكتمال تفاصيلها القانونية."
+                : "Additional reading and selected work related to this service."}
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {relatedArticles.map((post) => {
+                const useArabic = Boolean(post.titleAr) && (isRTL || !post.titleEn);
+                return (
+                  <Link key={post.slug} href={`/blog/${post.slug}`} className="border border-border bg-card p-5 hover:border-primary transition-colors">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-primary">{isRTL ? "مقال" : "Article"}</span>
+                    <span className="block font-semibold mt-2">{useArabic ? post.titleAr : post.titleEn}</span>
+                  </Link>
+                );
+              })}
+              {relatedWorkSamples.map((sample) => (
+                <Link key={sample.slug} href={`${isRTL ? "/ar" : ""}/our-work/${sample.slug}`} className="border border-border bg-card p-5 hover:border-primary transition-colors">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-primary">{isRTL ? "من أعمالنا" : "Our Work"}</span>
+                  <span className="block font-semibold mt-2">{localized(sample.titleEn, sample.titleAr, isRTL ? "ar" : "en")}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 }
