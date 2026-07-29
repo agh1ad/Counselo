@@ -140,22 +140,10 @@ async function main() {
       "contentEn",
     ]);
     if (!Object.keys(patch).length) continue;
-    // Clamp existing Arabic fields to current validation limits before merging.
-    // Production data may pre-date stricter character limits; we only write back
-    // English fields from `validated`, so truncating here is safe and non-destructive.
-    const clampedPost = {
-      ...post,
-      excerptAr: post.excerptAr ? post.excerptAr.slice(0, 500) : post.excerptAr,
-      seoDescriptionAr: post.seoDescriptionAr
-        ? post.seoDescriptionAr.slice(0, 500)
-        : post.seoDescriptionAr,
-      titleAr: post.titleAr ? post.titleAr.slice(0, 300) : post.titleAr,
-      seoTitleAr: post.seoTitleAr ? post.seoTitleAr.slice(0, 300) : post.seoTitleAr,
-    };
     // Validate and sanitize the prepared English article without re-running
     // publication gates against unrelated legacy Arabic SEO metadata.
     const validated = parseBlogPostInput(
-      { ...clampedPost, ...patch, published: false },
+      { ...post, ...patch, published: false },
       { existingSlug: post.slug },
     );
     const values: BlogEnglishValues = {

@@ -21,16 +21,11 @@ function requireRecord(value: unknown): Record<string, unknown> {
 function stringField(
   body: Record<string, unknown>,
   name: string,
-  maxLength: number,
+  _maxLength?: number,
 ): string {
   const value = body[name] ?? "";
   if (typeof value !== "string") {
     throw new BlogInputError(`${name} must be a string`);
-  }
-  if (value.length > maxLength) {
-    throw new BlogInputError(
-      `${name} must be ${maxLength} characters or fewer`,
-    );
   }
   return value.trim();
 }

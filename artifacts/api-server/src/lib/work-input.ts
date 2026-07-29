@@ -21,13 +21,11 @@ function requireRecord(value: unknown): Record<string, unknown> {
   return value as Record<string, unknown>;
 }
 
-function stringField(body: Record<string, unknown>, key: string, max: number): string {
+function stringField(body: Record<string, unknown>, key: string, _max?: number): string {
   const value = body[key];
   if (value === undefined || value === null) return "";
   if (typeof value !== "string") throw new WorkInputError(`${key} must be text`);
-  const cleaned = value.replace(/\0/g, "").trim();
-  if (cleaned.length > max) throw new WorkInputError(`${key} is too long`);
-  return cleaned;
+  return value.replace(/\0/g, "").trim();
 }
 
 function validFileSignature(buffer: Buffer, mime: string): boolean {
