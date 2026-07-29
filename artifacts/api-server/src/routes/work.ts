@@ -7,6 +7,10 @@ import { WorkInputError, parseWorkSampleInput } from "../lib/work-input.js";
 import { notifyWorkPublished, notifyWorkRemoved } from "../lib/google-indexing.js";
 import { assignInternalLinks } from "../lib/internal-link-assignment.js";
 import { logger } from "../lib/logger.js";
+import {
+  ContentTranslationError,
+  translateWorkForPublishing,
+} from "../lib/content-translation.js";
 
 const router = Router();
 const { fileData: _fileData, confidentialityConfirmed: _confidentiality, ...publicColumns } = getTableColumns(workSamplesTable);
@@ -66,7 +70,12 @@ router.get("/admin/work", requireAdmin, async (_req, res) => {
 
 router.post("/admin/work", requireAdmin, async (req, res) => {
   try {
-    let [sample] = await db.insert(workSamplesTable).values(parseWorkSampleInput(req.body)).returning(adminColumns);
+    let values = parseWorkSampleInput(req.body);
+    if (values.published) {
+      const translation = await translateWorkForPublishing(values);
+      values = parseWorkSampleInput({ ...values, ...translation });
+    }
+    let [sample] = await db.insert(workSamplesTable).values(values).returning(adminColumns);
     if (sample.published) {
       try {
         const assignment = await assignInternalLinks({
@@ -90,6 +99,10 @@ router.post("/admin/work", requireAdmin, async (req, res) => {
     }
     res.status(201).json({ ...sample, hasFile: sample.fileSize > 0 });
   } catch (error) {
+    if (error instanceof ContentTranslationError) {
+      res.status(502).json({ error: error.message });
+      return;
+    }
     if (error instanceof WorkInputError) {
       res.status(400).json({ error: error.message });
       return;
@@ -112,7 +125,14 @@ router.put("/admin/work/:id", requireAdmin, async (req, res) => {
     return;
   }
   try {
-    const values = parseWorkSampleInput(req.body, { existingSlug: before.slug, existingFile: before });
+    let values = parseWorkSampleInput(req.body, { existingSlug: before.slug, existingFile: before });
+    if (values.published) {
+      const translation = await translateWorkForPublishing(values);
+      values = parseWorkSampleInput(
+        { ...values, ...translation },
+        { existingSlug: before.slug, existingFile: before },
+      );
+    }
     let [sample] = await db
       .update(workSamplesTable)
       .set({ ...values, updatedAt: new Date() })
@@ -146,6 +166,10 @@ router.put("/admin/work/:id", requireAdmin, async (req, res) => {
     else if (before.published) notifyWorkRemoved(sample.slug);
     res.json({ ...sample, hasFile: sample.fileSize > 0 });
   } catch (error) {
+    if (error instanceof ContentTranslationError) {
+      res.status(502).json({ error: error.message });
+      return;
+    }
     if (error instanceof WorkInputError) {
       res.status(400).json({ error: error.message });
       return;

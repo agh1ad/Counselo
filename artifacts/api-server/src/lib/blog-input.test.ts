@@ -58,15 +58,14 @@ test("allows drafts but blocks publication with weak search metadata", () => {
   );
 });
 
-test("enforces one article language and one metadata set", () => {
-  assert.throws(
-    () => parseBlogPostInput({
-      ...validPost,
-      titleAr: "عنوان عربي",
-      bodyAr: "<p>محتوى عربي مفيد</p>",
-    }),
-    /either English or Arabic, not both/,
-  );
+test("accepts bilingual articles while clearing metadata for absent languages", () => {
+  const bilingualPost = parseBlogPostInput({
+    ...validPost,
+    titleAr: "عنوان عربي",
+    bodyAr: "<p>محتوى عربي مفيد</p>",
+  });
+  assert.equal(bilingualPost.titleEn, "A valid title");
+  assert.equal(bilingualPost.titleAr, "عنوان عربي");
 
   const arabicPost = parseBlogPostInput({
     ...validPost,

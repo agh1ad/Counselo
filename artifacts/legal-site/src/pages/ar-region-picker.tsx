@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
 import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowLeft, MessageCircle, CheckCircle2, Award } from "lucide-react";
+import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 
 const counseloLogo = "/images/optimized/counselo-region-logo.png";
 const saudiFlag = "/images/optimized/saudi-arabia-flag.jpg";
@@ -117,15 +118,6 @@ const SERVICES = [
   { slug: "medical-malpractice",   ar: "الأخطاء الطبية" },
   { slug: "insurance-law",         ar: "قانون التأمين" },
   { slug: "enforcement",           ar: "التنفيذ وتحصيل الديون" },
-];
-
-const BLOG_POSTS = [
-  { saSlug: "divorce-in-saudi-arabia",               syrSlug: "divorce-in-syria",                      ar: "الطلاق في المملكة: حقوقك وإجراءاتك القانونية" },
-  { saSlug: "child-custody-saudi-arabia",            syrSlug: "child-custody-syria",                   ar: "الحضانة في المملكة: حقوق الوالدين والأطفال" },
-  { saSlug: "wrongful-termination-saudi-labor-law",  syrSlug: "wrongful-termination-syrian-labor-law", ar: "الفصل التعسفي في قانون العمل: حقوقك القانونية" },
-  { saSlug: "foreign-company-registration-saudi-arabia", syrSlug: "foreign-company-registration-syria", ar: "تسجيل شركة أجنبية 2026: دليل الترخيص" },
-  { saSlug: "real-estate-disputes-saudi-arabia",     syrSlug: "real-estate-disputes-syria",            ar: "النزاعات العقارية: خياراتك القانونية" },
-  { saSlug: "board-of-grievances-saudi-arabia",      syrSlug: "administrative-court-disputes-syria",   ar: "المحاكم الإدارية: كيف تطعن في قرارات الجهات" },
 ];
 
 const FAQS = [
@@ -453,44 +445,7 @@ export default function ArRegionPicker() {
         </div>
       </section>
 
-      {/* ── LEGAL BLOG ── */}
-      <section className="py-24 bg-card border-y border-border" aria-labelledby="blog-heading-ar">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
-            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">مركز المعرفة القانونية</p>
-            <h2 id="blog-heading-ar" className="text-4xl font-serif font-bold text-foreground mb-4">أدلة قانونية مجانية</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-            <p className="text-muted-foreground">مقالات قانونية معمّقة للسعودية وسوريا</p>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 gap-6 mb-10">
-            {BLOG_POSTS.map(({ saSlug, syrSlug, ar }, i) => (
-              <motion.div key={saSlug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-background border border-border p-6 hover:border-primary/50 hover:shadow-md transition-all">
-                <p className="text-primary font-medium text-xs uppercase tracking-widest mb-3">دليل قانوني</p>
-                <h3 className="font-serif font-bold text-foreground text-base leading-snug mb-5">{ar}</h3>
-                <div className="flex gap-3">
-                  <Link href={`/sa/ar/blog/${saSlug}`} className="inline-flex items-center gap-1 text-xs border border-border text-muted-foreground px-3 py-1.5 hover:border-primary hover:text-primary transition-colors">
-                    <ArrowLeft className="h-3 w-3" /> السعودية
-                  </Link>
-                  <Link href={`/syr/ar/blog/${syrSlug}`} className="inline-flex items-center gap-1 text-xs border border-border text-muted-foreground px-3 py-1.5 hover:border-primary hover:text-primary transition-colors">
-                    <ArrowLeft className="h-3 w-3" /> سوريا
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="flex justify-center gap-4 flex-wrap">
-            <Link href="/sa/ar/blog" className="inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-8 py-3 hover:bg-primary/90 transition-colors">
-              <ArrowLeft className="h-4 w-4" /> مدونة السعودية القانونية
-            </Link>
-            <Link href="/syr/ar/blog" className="inline-flex items-center gap-2 border border-border text-foreground text-sm font-semibold px-8 py-3 hover:border-primary/50 hover:shadow-sm transition-all">
-              <ArrowLeft className="h-4 w-4" /> مدونة سوريا القانونية
-            </Link>
-          </div>
-        </div>
-      </section>
+      <LatestContentCarousels isArabic />
 
       {/* ── FAQ ── */}
       <section className="py-24 bg-background" aria-labelledby="faq-heading-ar">
