@@ -34,6 +34,31 @@ type PreparedTranslations = {
   work: WorkTranslation[];
 };
 
+type BlogEnglishValues = Pick<
+  ReturnType<typeof parseBlogPostInput>,
+  | "categoryEn"
+  | "titleEn"
+  | "excerptEn"
+  | "seoTitleEn"
+  | "seoDescriptionEn"
+  | "bodyEn"
+  | "contentEn"
+>;
+
+type WorkEnglishValues = Pick<
+  ReturnType<typeof parseWorkSampleInput>,
+  | "titleEn"
+  | "summaryEn"
+  | "workTypeEn"
+  | "jurisdictionEn"
+  | "clientTypeEn"
+  | "challengeEn"
+  | "approachEn"
+  | "outcomeEn"
+  | "seoTitleEn"
+  | "seoDescriptionEn"
+>;
+
 const dataUrl = new URL("../data/pretranslated-content.json", import.meta.url);
 
 function requireUniqueSlugs(items: Array<{ slug: string }>, label: string) {
@@ -85,12 +110,12 @@ async function main() {
   const blogUpdates: Array<{
     id: number;
     slug: string;
-    values: ReturnType<typeof parseBlogPostInput>;
+    values: BlogEnglishValues;
   }> = [];
   const workUpdates: Array<{
     id: number;
     slug: string;
-    values: ReturnType<typeof parseWorkSampleInput>;
+    values: WorkEnglishValues;
   }> = [];
   const existingBlogs = await db.select().from(blogPostsTable);
   const existingWork = await db.select().from(workSamplesTable);
@@ -115,10 +140,21 @@ async function main() {
       "contentEn",
     ]);
     if (!Object.keys(patch).length) continue;
-    const values = parseBlogPostInput(
-      { ...post, ...patch },
+    // Validate and sanitize the prepared English article without re-running
+    // publication gates against unrelated legacy Arabic SEO metadata.
+    const validated = parseBlogPostInput(
+      { ...post, ...patch, published: false },
       { existingSlug: post.slug },
     );
+    const values: BlogEnglishValues = {
+      categoryEn: validated.categoryEn,
+      titleEn: validated.titleEn,
+      excerptEn: validated.excerptEn,
+      seoTitleEn: validated.seoTitleEn,
+      seoDescriptionEn: validated.seoDescriptionEn,
+      bodyEn: validated.bodyEn,
+      contentEn: validated.contentEn,
+    };
     blogUpdates.push({ id: post.id, slug: post.slug, values });
   }
 
@@ -143,10 +179,25 @@ async function main() {
       "seoDescriptionEn",
     ]);
     if (!Object.keys(patch).length) continue;
-    const values = parseWorkSampleInput(
-      { ...sample, ...patch },
+    // The record was already approved for publication. Validate the prepared
+    // English copy independently so legacy Arabic metadata and files remain
+    // byte-for-byte untouched.
+    const validated = parseWorkSampleInput(
+      { ...sample, ...patch, published: false },
       { existingSlug: sample.slug, existingFile: sample },
     );
+    const values: WorkEnglishValues = {
+      titleEn: validated.titleEn,
+      summaryEn: validated.summaryEn,
+      workTypeEn: validated.workTypeEn,
+      jurisdictionEn: validated.jurisdictionEn,
+      clientTypeEn: validated.clientTypeEn,
+      challengeEn: validated.challengeEn,
+      approachEn: validated.approachEn,
+      outcomeEn: validated.outcomeEn,
+      seoTitleEn: validated.seoTitleEn,
+      seoDescriptionEn: validated.seoDescriptionEn,
+    };
     workUpdates.push({ id: sample.id, slug: sample.slug, values });
   }
 
