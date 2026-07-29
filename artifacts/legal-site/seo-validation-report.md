@@ -1,14 +1,14 @@
 # CounselO SEO Validation Report
 
-_Generated: 2026-07-21 20:50:26 UTC_
+_Generated: 2026-07-29 00:25:58 UTC_
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| Pages validated | 125 |
+| Pages validated | 129 |
 | Redirect pages  | 40 |
-| ✅ Clean pages  | 124 |
+| ✅ Clean pages  | 128 |
 | ⚠️  Warn-only pages | 1 |
 | ❌ Error pages  | 0 |
 | Total errors    | 0 |
@@ -30,16 +30,20 @@ _Title: حجية العقود الإلكترونية في السعودية | ط�
 
 - ⚠️  **title-too-long**: 71 chars (max 70)
 
-## ✅ Clean Pages (124)
+## ✅ Clean Pages (128)
 
 - `/` — schemas: WebSite, LegalService, FAQPage
 - `/ar` — schemas: WebSite, LegalService, FAQPage
 - `/ar/our-work` — schemas: CollectionPage, ItemList, BreadcrumbList
 - `/blog` — schemas: Blog, BreadcrumbList, ItemList
+- `/blog/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy` — schemas: Article, BreadcrumbList
+- `/blog/alahlyh-fy-altaaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/alaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/almswwlyh-alaqdyh-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/alrda-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
+- `/blog/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha` — schemas: Article, BreadcrumbList
 - `/blog/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
+- `/blog/altwsyat-alamlyh-lsyaghh-aqd-qwy` — schemas: Article, BreadcrumbList
 - `/blog/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/aqwd-almqawlat-fy-alnzam-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd` — schemas: Article, BreadcrumbList

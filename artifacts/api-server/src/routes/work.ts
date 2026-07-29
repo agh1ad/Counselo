@@ -5,6 +5,8 @@ import { requireAdmin } from "../middlewares/auth.js";
 import { parsePositiveId } from "../lib/blog-input.js";
 import { WorkInputError, parseWorkSampleInput } from "../lib/work-input.js";
 import { notifyWorkPublished, notifyWorkRemoved } from "../lib/google-indexing.js";
+import { assignInternalLinks } from "../lib/internal-link-assignment.js";
+import { logger } from "../lib/logger.js";
 
 const router = Router();
 const { fileData: _fileData, confidentialityConfirmed: _confidentiality, ...publicColumns } = getTableColumns(workSamplesTable);
@@ -64,8 +66,28 @@ router.get("/admin/work", requireAdmin, async (_req, res) => {
 
 router.post("/admin/work", requireAdmin, async (req, res) => {
   try {
-    const [sample] = await db.insert(workSamplesTable).values(parseWorkSampleInput(req.body)).returning(adminColumns);
-    if (sample.published) notifyWorkPublished(sample.slug);
+    let [sample] = await db.insert(workSamplesTable).values(parseWorkSampleInput(req.body)).returning(adminColumns);
+    if (sample.published) {
+      try {
+        const assignment = await assignInternalLinks({
+          kind: "work",
+          slug: sample.slug,
+          title: sample.titleEn || sample.titleAr,
+          summary: sample.summaryEn || sample.summaryAr,
+          body: [sample.challengeEn, sample.challengeAr, sample.approachEn, sample.approachAr, sample.outcomeEn, sample.outcomeAr].join(" "),
+        });
+        const [assigned] = await db.update(workSamplesTable).set({
+          relatedServiceSlugs: assignment.relatedServiceSlugs,
+          relatedBlogSlugs: assignment.relatedBlogSlugs,
+          relatedWorkSlugs: assignment.relatedWorkSlugs,
+          aiLinksAssignedAt: new Date(),
+        }).where(eq(workSamplesTable.id, sample.id)).returning(adminColumns);
+        if (assigned) sample = assigned;
+      } catch (error) {
+        logger.warn({ err: error, slug: sample.slug }, "Could not persist automatic work links");
+      }
+      notifyWorkPublished(sample.slug);
+    }
     res.status(201).json({ ...sample, hasFile: sample.fileSize > 0 });
   } catch (error) {
     if (error instanceof WorkInputError) {
@@ -91,7 +113,7 @@ router.put("/admin/work/:id", requireAdmin, async (req, res) => {
   }
   try {
     const values = parseWorkSampleInput(req.body, { existingSlug: before.slug, existingFile: before });
-    const [sample] = await db
+    let [sample] = await db
       .update(workSamplesTable)
       .set({ ...values, updatedAt: new Date() })
       .where(eq(workSamplesTable.id, id))
@@ -99,6 +121,26 @@ router.put("/admin/work/:id", requireAdmin, async (req, res) => {
     if (!sample) {
       res.status(404).json({ error: "Not found" });
       return;
+    }
+    if (sample.published && !before.published) {
+      try {
+        const assignment = await assignInternalLinks({
+          kind: "work",
+          slug: sample.slug,
+          title: sample.titleEn || sample.titleAr,
+          summary: sample.summaryEn || sample.summaryAr,
+          body: [sample.challengeEn, sample.challengeAr, sample.approachEn, sample.approachAr, sample.outcomeEn, sample.outcomeAr].join(" "),
+        });
+        const [assigned] = await db.update(workSamplesTable).set({
+          relatedServiceSlugs: assignment.relatedServiceSlugs,
+          relatedBlogSlugs: assignment.relatedBlogSlugs,
+          relatedWorkSlugs: assignment.relatedWorkSlugs,
+          aiLinksAssignedAt: new Date(),
+        }).where(eq(workSamplesTable.id, sample.id)).returning(adminColumns);
+        if (assigned) sample = assigned;
+      } catch (error) {
+        logger.warn({ err: error, slug: sample.slug }, "Could not persist automatic work links");
+      }
     }
     if (sample.published) notifyWorkPublished(sample.slug);
     else if (before.published) notifyWorkRemoved(sample.slug);

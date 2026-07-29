@@ -4,6 +4,11 @@ import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
 import { registerOgPageRoutes } from "./og-pages.js";
+import { enforceCanonicalUrl } from "./lib/canonical-url.js";
+import {
+  redirectTrailingSlash,
+  redirectWww,
+} from "./middlewares/normalize.js";
 
 const app: Express = express();
 
@@ -19,6 +24,7 @@ app.use((_req, res, next) => {
   );
   next();
 });
+app.use(enforceCanonicalUrl);
 
 app.use(
   pinoHttp({
@@ -42,6 +48,11 @@ app.use(
 app.use(cors());
 app.use(express.json({ limit: "12mb" }));
 app.use(express.urlencoded({ extended: true, limit: "12mb" }));
+
+// Canonical URL normalization — must run before all route handlers so
+// redirects are applied consistently to every path including /api.
+app.use(redirectWww);
+app.use(redirectTrailingSlash);
 
 app.use("/api", (_req, res, next) => {
   res.setHeader("X-Robots-Tag", "noindex, nofollow, noarchive");

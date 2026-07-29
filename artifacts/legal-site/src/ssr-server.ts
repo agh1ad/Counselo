@@ -25,6 +25,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { RenderResult } from "./entry-server.js";
+import type { WorkSamplePublic } from "./lib/work-samples.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -80,11 +81,22 @@ interface ApiPost {
 interface ApiWorkSample {
   slug: string;
   date: string;
-  updatedAt?: string;
+  updatedAt?: string | null;
   titleEn: string;
   titleAr: string;
   summaryEn: string;
   summaryAr: string;
+  workTypeEn: string;
+  workTypeAr: string;
+  jurisdictionEn: string;
+  jurisdictionAr: string;
+  seoTitleEn: string;
+  seoTitleAr: string;
+  seoDescriptionEn: string;
+  seoDescriptionAr: string;
+  fileMimeType: string;
+  published: boolean;
+  hasFile?: boolean;
 }
 
 // ---------------------------------------------------------------------------
@@ -103,7 +115,7 @@ function escapeXml(s: string): string {
   return escapeHtml(s).replace(/'/g, "&apos;");
 }
 
-async function fetchDiscoveryInventory(): Promise<{ posts: ApiPost[]; samples: ApiWorkSample[] }> {
+async function fetchDiscoveryInventory(): Promise<{ posts: ApiPost[]; samples: WorkSamplePublic[] }> {
   const [postsRes, workRes] = await Promise.all([
     fetch(`${apiOrigin}/api/blog/posts`),
     fetch(`${apiOrigin}/api/work`),
@@ -111,11 +123,11 @@ async function fetchDiscoveryInventory(): Promise<{ posts: ApiPost[]; samples: A
   if (!postsRes.ok || !workRes.ok) throw new Error("Discovery API unavailable");
   return {
     posts: (await postsRes.json()) as ApiPost[],
-    samples: (await workRes.json()) as ApiWorkSample[],
+    samples: (await workRes.json()) as WorkSamplePublic[],
   };
 }
 
-function dynamicSitemap(baseXml: string, posts: ApiPost[], samples: ApiWorkSample[]): string {
+function dynamicSitemap(baseXml: string, posts: ApiPost[], samples: WorkSamplePublic[]): string {
   let xml = baseXml
     .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/blog\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "")
     .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/(?:ar\/)?our-work\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "");
@@ -152,7 +164,7 @@ ${alternates}
   return xml.replace("</urlset>", `${items.length ? `\n${items.join("\n")}\n` : ""}</urlset>`);
 }
 
-function discoveryFeed(posts: ApiPost[], samples: ApiWorkSample[]): string {
+function discoveryFeed(posts: ApiPost[], samples: WorkSamplePublic[]): string {
   const items = [
     ...posts.map((post) => ({ title: post.titleEn || post.titleAr, description: post.excerptEn || post.excerptAr, url: `${apiOrigin}/blog/${post.slug}`, modified: post.updatedAt || post.date })),
     ...samples.flatMap((sample) => {
@@ -180,6 +192,14 @@ function normalizeDescription(primary: string, fallback: string): string {
     : `${primary.trim()} ${fallback.trim()}`.trim();
   if (combined.length <= 170) return combined;
   return `${combined.slice(0, 167).replace(/\s+\S*$/, "").trimEnd()}…`;
+}
+
+/** XSS-safe JSON serialisation for inline <script> tags. */
+function safeJson(value: unknown): string {
+  return JSON.stringify(value)
+    .replace(/</g, "\\u003c")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
 }
 
 type FetchResult =
@@ -300,6 +320,171 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
 }
 
 // ---------------------------------------------------------------------------
+// Work sample fetching and HTML building
+// ---------------------------------------------------------------------------
+
+type FetchWorkResult =
+  | { status: "found"; sample: ApiWorkSample }
+  | { status: "notfound" }
+  | { status: "error" };
+
+async function fetchWorkSample(slug: string): Promise<FetchWorkResult> {
+  try {
+    const res = await fetch(`${apiOrigin}/api/work/${encodeURIComponent(slug)}`);
+    if (res.status === 404) return { status: "notfound" };
+    if (!res.ok) return { status: "error" };
+    const sample = (await res.json()) as ApiWorkSample;
+    return { status: "found", sample };
+  } catch {
+    return { status: "error" };
+  }
+}
+
+/**
+ * Pure routing decision for work sample language handling.
+ * Determines whether to serve the page, redirect to the other language, or 404.
+ * Exported for testing without I/O.
+ */
+export function resolveWorkLanguage(
+  sample: ApiWorkSample | null,
+  language: "ar" | "en",
+): { action: "serve" } | { action: "redirect"; to: string } | { action: "notfound" } {
+  if (!sample) return { action: "notfound" };
+  // Arabic URL requested but record has no Arabic title — redirect to English
+  if (language === "ar" && !sample.titleAr && sample.titleEn) {
+    return { action: "redirect", to: `/our-work/${encodeURIComponent(sample.slug)}` };
+  }
+  // English URL requested but record has no English title — redirect to Arabic
+  if (language === "en" && !sample.titleEn && sample.titleAr) {
+    return { action: "redirect", to: `/ar/our-work/${encodeURIComponent(sample.slug)}` };
+  }
+  return { action: "serve" };
+}
+
+/**
+ * Pure HTML builder — accepts the shell template string so this function can
+ * be unit-tested without filesystem access.
+ *
+ * Produces HTML with:
+ *   - Correct lang/dir attributes on <html>
+ *   - robots: index, follow
+ *   - Self-canonical
+ *   - hreflang (en + ar if bilingual, x-default otherwise)
+ *   - Open Graph tags
+ *   - CreativeWork JSON-LD
+ *   - BreadcrumbList JSON-LD
+ *   - window.__SSR_WORK__ bootstrap data for React hydration
+ */
+export function buildWorkHtmlFromTemplate(
+  template: string,
+  sample: ApiWorkSample,
+  language: "en" | "ar",
+): string {
+  const isArabic = language === "ar";
+  const BASE = "https://counselo-legal.com";
+
+  const title =
+    (isArabic
+      ? sample.seoTitleAr || sample.titleAr
+      : sample.seoTitleEn || sample.titleEn) ||
+    sample.titleAr ||
+    sample.titleEn;
+
+  const description = normalizeDescription(
+    (isArabic
+      ? sample.seoDescriptionAr || sample.summaryAr
+      : sample.seoDescriptionEn || sample.summaryEn) ||
+      sample.summaryAr ||
+      sample.summaryEn,
+    sample.summaryEn || sample.summaryAr,
+  );
+
+  const basePath = isArabic ? "/ar/our-work" : "/our-work";
+  const canonical = `${BASE}${basePath}/${sample.slug}`;
+  const englishUrl = `${BASE}/our-work/${sample.slug}`;
+  const arabicUrl = `${BASE}/ar/our-work/${sample.slug}`;
+  const fileUrl = `${BASE}/api/work/${sample.slug}/file`;
+
+  const hreflangLinks =
+    sample.titleEn && sample.titleAr
+      ? [
+          `<link data-rh="true" rel="alternate" hreflang="en" href="${escapeHtml(englishUrl)}">`,
+          `<link data-rh="true" rel="alternate" hreflang="ar" href="${escapeHtml(arabicUrl)}">`,
+          `<link data-rh="true" rel="alternate" hreflang="x-default" href="${escapeHtml(englishUrl)}">`,
+        ].join("\n")
+      : `<link data-rh="true" rel="alternate" hreflang="x-default" href="${escapeHtml(canonical)}">`;
+
+  const workSchema = safeJson({
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: title,
+    description,
+    url: canonical,
+    dateCreated: sample.date,
+    dateModified: sample.updatedAt ?? sample.date,
+    inLanguage: language,
+    genre: sample.workTypeEn || sample.workTypeAr,
+    contentLocation: sample.jurisdictionEn || sample.jurisdictionAr,
+    creator: {
+      "@type": "LegalService",
+      "@id": `${BASE}/#organization`,
+      name: "CounselO",
+      url: BASE,
+    },
+    encoding: {
+      "@type": "MediaObject",
+      contentUrl: fileUrl,
+      encodingFormat: sample.fileMimeType,
+    },
+  });
+
+  const breadcrumbSchema = safeJson({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: isArabic ? "الرئيسية" : "Home",
+        item: `${BASE}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: isArabic ? "أعمالنا" : "Our Work",
+        item: `${BASE}${basePath}`,
+      },
+      { "@type": "ListItem", position: 3, name: title, item: canonical },
+    ],
+  });
+
+  const headTags = [
+    `<title data-rh="true">${escapeHtml(title)}</title>`,
+    `<meta data-rh="true" name="description" content="${escapeHtml(description.slice(0, 170))}" >`,
+    `<meta data-rh="true" name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">`,
+    `<link data-rh="true" rel="canonical" href="${escapeHtml(canonical)}">`,
+    hreflangLinks,
+    `<meta data-rh="true" property="og:type" content="article">`,
+    `<meta data-rh="true" property="og:title" content="${escapeHtml(title)}">`,
+    `<meta data-rh="true" property="og:description" content="${escapeHtml(description.slice(0, 170))}">`,
+    `<meta data-rh="true" property="og:url" content="${escapeHtml(canonical)}">`,
+    `<meta data-rh="true" property="og:image" content="${BASE}/og-image.png">`,
+    `<script data-rh="true" type="application/ld+json">${workSchema}</script>`,
+    `<script data-rh="true" type="application/ld+json">${breadcrumbSchema}</script>`,
+    `<script>window.__SSR_WORK__=${safeJson(sample)};</script>`,
+  ].join("\n");
+
+  return template
+    .replace(/<html\b[^>]*>/i, `<html lang="${language}" dir="${isArabic ? "rtl" : "ltr"}">`)
+    .replace("<!--app-head-->", headTags)
+    .replace(/<div id="root"><\/div>/, `<div id="root" data-ssr="true"></div>`);
+}
+
+function buildWorkHtml(sample: ApiWorkSample, language: "en" | "ar"): string {
+  return buildWorkHtmlFromTemplate(readFileSync(shellHtml, "utf-8"), sample, language);
+}
+
+// ---------------------------------------------------------------------------
 // SSR helpers (mirrors prerender.ts — kept local to avoid a shared bundle dep)
 // ---------------------------------------------------------------------------
 
@@ -332,22 +517,27 @@ function htmlTag(route: string): string {
 // On-demand SSR for routes with no prerendered file
 // ---------------------------------------------------------------------------
 
-let _render: ((url: string) => RenderResult) | null = null;
+let _render: ((url: string, posts?: ApiPost[], samples?: WorkSamplePublic[]) => RenderResult) | null = null;
 
-async function ssrRender(url: string): Promise<string> {
+async function ssrRender(
+  url: string,
+  posts: ApiPost[] = [],
+  samples: WorkSamplePublic[] = [],
+): Promise<string> {
   if (!_render) {
     const mod = (await import(ssrBundle)) as {
-      render: (url: string) => RenderResult;
+      render: (url: string, posts?: ApiPost[], samples?: WorkSamplePublic[]) => RenderResult;
     };
     _render = mod.render;
   }
 
   const template = readFileSync(shellHtml, "utf-8");
-  const { head, body } = _render(url);
+  const { head, body } = _render(url, posts, samples);
+  const discoveryData = `<script>window.__SSR_POSTS__=${JSON.stringify(posts).replace(/</g, "\\u003c")};window.__SSR_WORK_SAMPLES__=${JSON.stringify(samples).replace(/</g, "\\u003c")};</script>`;
 
   return template
     .replace('<html lang="en">', htmlTag(url))
-    .replace("<!--app-head-->", unescapeHeadEntities(addDataRh(head)))
+    .replace("<!--app-head-->", `${unescapeHeadEntities(addDataRh(head))}${discoveryData}`)
     .replace(
       /<div id="root"><\/div>/,
       `<div id="root" data-ssr="true" data-ssr-url="${url}">${body}</div>`,
@@ -438,6 +628,34 @@ app.get("/counselo-admin", (_req: Request, res: Response) => {
     .send(spaShell("CounselO Admin", "noindex, nofollow, noarchive"));
 });
 
+// Keep the homepage and related service pages fresh so every newly published
+// article/work sample immediately gains crawlable links from two established
+// URL surfaces without waiting for a redeploy.
+app.get(
+  [
+    "/sa",
+    "/sa/ar",
+    "/syr",
+    "/syr/ar",
+    "/sa/services/:id",
+    "/sa/ar/services/:id",
+    "/syr/services/:id",
+    "/syr/ar/services/:id",
+  ],
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { posts, samples } = await fetchDiscoveryInventory();
+      const html = await ssrRender(req.path, posts, samples);
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
+      res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
+      return res.send(html);
+    } catch (error) {
+      console.error(`Fresh discovery SSR failed for ${req.path}:`, error);
+      return next();
+    }
+  },
+);
+
 // 2. Root "/" — serve the prerendered homepage
 app.get("/", (_req: Request, res: Response) => {
   res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
@@ -508,6 +726,100 @@ app.get("/blog/:slug", async (req: Request, res: Response) => {
   }
 });
 
+// 3b. "/ar/our-work/:slug" — Arabic work sample detail page.
+//     Fetch from the API on every request so newly published records are
+//     immediately live without redeployment.
+app.get("/ar/our-work/:slug", async (req: Request, res: Response) => {
+  const slug = String(req.params["slug"] ?? "");
+
+  // Prerendered flat file takes priority (rare, only for build-time baked content)
+  const prerendered = resolve(pagesDir, `ar-our-work-${slug}.html`);
+  if (existsSync(prerendered)) {
+    res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
+    return res.sendFile(prerendered);
+  }
+
+  const result = await fetchWorkSample(slug);
+
+  if (result.status === "notfound") {
+    res.setHeader("Cache-Control", "no-store");
+    return res.status(404).send(spaShell("صفحة غير موجودة | كاونسلو", "noindex, nofollow"));
+  }
+
+  if (result.status === "found") {
+    const decision = resolveWorkLanguage(result.sample, "ar");
+    if (decision.action === "redirect") {
+      res.setHeader("Cache-Control", "public, max-age=86400");
+      return res.redirect(301, decision.to);
+    }
+    try {
+      const html = buildWorkHtml(result.sample, "ar");
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
+      res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
+      return res.send(html);
+    } catch (err) {
+      console.error(`Failed to build Arabic work HTML for /ar/our-work/${slug}:`, err);
+    }
+  }
+
+  // Fallback: React SSR skeleton when API is unreachable
+  try {
+    const html = await ssrRender(`/ar/our-work/${slug}`);
+    res.setHeader("Content-Type", "text/html; charset=utf-8");
+    res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
+    return res.send(html);
+  } catch (err) {
+    console.error(`SSR fallback failed for /ar/our-work/${slug}:`, err);
+    res.setHeader("Cache-Control", "no-store");
+    return res.sendFile(indexHtml);
+  }
+});
+
+// 3c. "/our-work/:slug" — English (default-language) work sample detail page.
+app.get("/our-work/:slug", async (req: Request, res: Response) => {
+  const slug = String(req.params["slug"] ?? "");
+
+  const prerendered = resolve(pagesDir, `our-work-${slug}.html`);
+  if (existsSync(prerendered)) {
+    res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
+    return res.sendFile(prerendered);
+  }
+
+  const result = await fetchWorkSample(slug);
+
+  if (result.status === "notfound") {
+    res.setHeader("Cache-Control", "no-store");
+    return res.status(404).send(spaShell("Work Not Found | CounselO", "noindex, nofollow"));
+  }
+
+  if (result.status === "found") {
+    const decision = resolveWorkLanguage(result.sample, "en");
+    if (decision.action === "redirect") {
+      res.setHeader("Cache-Control", "public, max-age=86400");
+      return res.redirect(301, decision.to);
+    }
+    try {
+      const html = buildWorkHtml(result.sample, "en");
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
+      res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
+      return res.send(html);
+    } catch (err) {
+      console.error(`Failed to build English work HTML for /our-work/${slug}:`, err);
+    }
+  }
+
+  try {
+    const html = await ssrRender(`/our-work/${slug}`);
+    res.setHeader("Content-Type", "text/html; charset=utf-8");
+    res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
+    return res.send(html);
+  } catch (err) {
+    console.error(`SSR fallback failed for /our-work/${slug}:`, err);
+    res.setHeader("Cache-Control", "no-store");
+    return res.sendFile(indexHtml);
+  }
+});
+
 // 4. All other paths — look for a flat prerendered file, fall back to SPA
 app.use((req: Request, res: Response, _next: NextFunction) => {
   const urlPath = req.path;
@@ -530,6 +842,13 @@ app.use((req: Request, res: Response, _next: NextFunction) => {
     .send(spaShell("Page Not Found | CounselO", "noindex, nofollow"));
 });
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Legal site SSR server listening on port ${PORT}`);
-});
+// Export app for integration testing. The server only binds a port when this
+// file is the process entry point, so importing it in tests is side-effect-free.
+export { app };
+
+const isMain = process.argv[1] === fileURLToPath(import.meta.url);
+if (isMain) {
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Legal site SSR server listening on port ${PORT}`);
+  });
+}

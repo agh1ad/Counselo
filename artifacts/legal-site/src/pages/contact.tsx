@@ -13,6 +13,7 @@ import { Clock, Mail, MapPin, Phone, CreditCard, Paperclip, X, FileText, ImageIc
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { trackEvent } from "@/lib/analytics";
 
 const MAX_FILES = 10;
 const MAX_FILE_SIZE_MB = 5;
@@ -146,10 +147,20 @@ export default function Contact() {
 
       setReference(result.reference);
       setWasSent(true);
+      trackEvent("form_submit_success", window.location.pathname, {
+        form_name: "consultation",
+        service: values.service,
+        region,
+        attachment_count: attachments.length,
+      });
       form.reset();
       setFiles([]);
       window.history.replaceState({}, "", window.location.pathname);
     } catch (error) {
+      trackEvent("form_submit_error", window.location.pathname, {
+        form_name: "consultation",
+        region,
+      });
       const message = error instanceof Error ? error.message : (isRTL
         ? "تعذر إرسال طلبك. يرجى المحاولة مرة أخرى."
         : "We could not submit your request. Please try again.");

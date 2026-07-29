@@ -5,6 +5,15 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized } from "@/lib/work-samples";
+import type { InitialBlogPost } from "@/App";
+
+declare global {
+  interface Window {
+    // Injected by the server in og-pages.ts buildDynamicWorkHtml so the
+    // React query has data immediately without a loading flash.
+    __SSR_WORK__?: WorkSamplePublic;
+  }
+}
 
 export default function WorkSample() {
   const { slug = "" } = useParams<{ slug: string }>();
@@ -17,8 +26,40 @@ export default function WorkSample() {
       if (!response.ok) throw new Error("Not found");
       return response.json() as Promise<WorkSamplePublic>;
     },
+    // Use server-injected data (window.__SSR_WORK__) as the initial value so
+    // the page renders instantly on first load without a loading flash.
+    initialData: () => {
+      if (
+        typeof window !== "undefined" &&
+        window.__SSR_WORK__ &&
+        window.__SSR_WORK__.slug === slug
+      ) {
+        return window.__SSR_WORK__;
+      }
+      return undefined;
+    },
     staleTime: 60_000,
     retry: false,
+  });
+  const { data: allPosts = [] } = useQuery<InitialBlogPost[]>({
+    queryKey: ["blog-posts"],
+    queryFn: async () => {
+      const response = await fetch("/api/blog/posts");
+      if (!response.ok) throw new Error("Unable to load related articles");
+      return response.json() as Promise<InitialBlogPost[]>;
+    },
+    initialData: () => typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined,
+    staleTime: 60_000,
+  });
+  const { data: allWork = [] } = useQuery<WorkSamplePublic[]>({
+    queryKey: ["work-samples"],
+    queryFn: async () => {
+      const response = await fetch("/api/work");
+      if (!response.ok) throw new Error("Unable to load related work");
+      return response.json() as Promise<WorkSamplePublic[]>;
+    },
+    initialData: () => typeof window !== "undefined" ? window.__SSR_WORK_SAMPLES__ : undefined,
+    staleTime: 60_000,
   });
 
   const ar = lang === "ar";
@@ -47,6 +88,12 @@ export default function WorkSample() {
   const fileUrl = `/api/work/${encodeURIComponent(sample.slug)}/file`;
   const canonicalPath = `${workBasePath}/${sample.slug}`;
   const canonical = `https://counselo-legal.com${canonicalPath}`;
+  const relatedPosts = (sample.relatedBlogSlugs ?? [])
+    .map((relatedSlug) => allPosts.find((candidate) => candidate.slug === relatedSlug))
+    .filter((candidate): candidate is InitialBlogPost => Boolean(candidate));
+  const relatedWork = (sample.relatedWorkSlugs ?? [])
+    .map((relatedSlug) => allWork.find((candidate) => candidate.slug === relatedSlug))
+    .filter((candidate): candidate is WorkSamplePublic => Boolean(candidate));
   const schema = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
@@ -109,6 +156,26 @@ export default function WorkSample() {
               <div className="mt-5 pt-5 border-t border-border"><div className="flex gap-2 font-semibold text-sm mb-2"><LockKeyhole className="h-4 w-4 text-primary" />{ui.privacy}</div><p className="text-xs text-muted-foreground leading-relaxed">{ui.privacyText}</p></div>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
+        <div className="border-t border-border pt-10">
+          <h2 className="text-2xl font-serif font-bold mb-6">{ar ? "روابط ومحتوى ذو صلة" : "Related services and content"}</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {(sample.relatedServiceSlugs ?? []).map((serviceSlug) => (
+              <Link key={serviceSlug} href={`${regionPrefix}/services/${serviceSlug}`} className="border border-border bg-card p-5 font-semibold text-primary hover:border-primary">
+                {ar ? "الخدمة القانونية ذات الصلة" : "Related legal service"}
+              </Link>
+            ))}
+            {relatedPosts.map((post) => {
+              const useArabic = Boolean(post.titleAr) && (ar || !post.titleEn);
+              return <Link key={post.slug} href={`/blog/${post.slug}`} className="border border-border bg-card p-5 font-semibold hover:border-primary">{useArabic ? post.titleAr : post.titleEn}</Link>;
+            })}
+            {relatedWork.map((work) => (
+              <Link key={work.slug} href={`${workBasePath}/${work.slug}`} className="border border-border bg-card p-5 font-semibold hover:border-primary">{localized(work.titleEn, work.titleAr, lang)}</Link>
+            ))}
+          </div>
         </div>
       </section>
 

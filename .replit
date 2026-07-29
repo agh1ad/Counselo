@@ -3,7 +3,7 @@ modules = ["nodejs-24", "python-3.11", "postgresql-16"]
 [deployment]
 router = "application"
 deploymentTarget = "autoscale"
-build = "pnpm build"
+build = "pnpm --filter @workspace/db push && pnpm --filter @workspace/api-server backfill:internal-links && pnpm build"
 run = "NODE_ENV=production pnpm --filter @workspace/api-server start"
 
 [deployment.postBuild]
@@ -28,6 +28,10 @@ channel = "stable-25_05"
 
 [userenv.shared]
 ADMIN_PASSWORD = "aghiadomar1970"
+CONTACT_OWNER_EMAIL = "bagdadio@gmail.com"
+CONTACT_TEAM_EMAIL = "info@counselo-legal.com"
+PUBLIC_SITE_URL = "https://counselo-legal.com"
+CONTACT_FROM_EMAIL = "CounselO <consultations@counselo-legal.com>"
 
 [[ports]]
 localPort = 8080

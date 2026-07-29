@@ -13,7 +13,8 @@
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "generate-sitemap": "tsx src/scripts/generate-sitemap.ts",
-    "seo:validate": "tsx src/scripts/seo-validate.ts"
+    "seo:validate": "tsx src/scripts/seo-validate.ts",
+    "test": "tsx --test src/ssr-server.test.ts"
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.10.0",
