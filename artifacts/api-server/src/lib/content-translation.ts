@@ -155,9 +155,33 @@ function nonEmpty(value: unknown): boolean {
   return typeof value === "string" ? Boolean(value.trim()) : Array.isArray(value) && value.length > 0;
 }
 
+function needsSeoRepair(key: string, value: unknown): boolean {
+  if (typeof value !== "string") return false;
+  const length = value.trim().length;
+  if (key.startsWith("seoTitle")) return length < 20 || length > 70;
+  if (key.startsWith("seoDescription")) return length < 80 || length > 170;
+  return false;
+}
+
+function hasValidSeo(title: unknown, description: unknown): boolean {
+  const titleLength = typeof title === "string" ? title.trim().length : 0;
+  const descriptionLength =
+    typeof description === "string" ? description.trim().length : 0;
+  return (
+    titleLength >= 20 &&
+    titleLength <= 70 &&
+    descriptionLength >= 80 &&
+    descriptionLength <= 170
+  );
+}
+
 function missingPatch<T extends Record<string, unknown>>(current: T, translated: T): Partial<T> {
   return Object.fromEntries(
-    Object.entries(translated).filter(([key, value]) => !nonEmpty(current[key]) && nonEmpty(value)),
+    Object.entries(translated).filter(
+      ([key, value]) =>
+        (!nonEmpty(current[key]) || needsSeoRepair(key, current[key])) &&
+        nonEmpty(value),
+    ),
   ) as Partial<T>;
 }
 
@@ -169,10 +193,8 @@ function isCompleteBlog(values: InsertBlogPost): boolean {
     values.titleAr &&
     values.excerptEn &&
     values.excerptAr &&
-    values.seoTitleEn &&
-    values.seoTitleAr &&
-    values.seoDescriptionEn &&
-    values.seoDescriptionAr &&
+    hasValidSeo(values.seoTitleEn, values.seoDescriptionEn) &&
+    hasValidSeo(values.seoTitleAr, values.seoDescriptionAr) &&
     (values.bodyEn || (values.contentEn?.length ?? 0)) &&
     (values.bodyAr || (values.contentAr?.length ?? 0)),
   );
@@ -196,12 +218,12 @@ function isCompleteWork(values: InsertWorkSample): boolean {
     "approachAr",
     "outcomeEn",
     "outcomeAr",
-    "seoTitleEn",
-    "seoTitleAr",
-    "seoDescriptionEn",
-    "seoDescriptionAr",
   ];
-  return fields.every((field) => nonEmpty(values[field]));
+  return (
+    fields.every((field) => nonEmpty(values[field])) &&
+    hasValidSeo(values.seoTitleEn, values.seoDescriptionEn) &&
+    hasValidSeo(values.seoTitleAr, values.seoDescriptionAr)
+  );
 }
 
 async function requestStructuredTranslation<T>(

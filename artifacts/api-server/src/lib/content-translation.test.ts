@@ -55,7 +55,7 @@ test("fills missing English blog and SEO fields without replacing Arabic source"
     excerptEn: "",
     excerptAr: "ملخص عربي أصلي",
     seoTitleEn: "",
-    seoTitleAr: "تكوين العقد في القانون السوري | كاونسلو",
+    seoTitleAr: "عنوان قصير",
     seoDescriptionEn: "",
     seoDescriptionAr: "تعرّف على المتطلبات الأساسية لتكوين العقد الصحيح في القانون السوري، بما يشمل الرضا والأهلية والمحل والسبب والإثبات العملي.",
     bodyEn: "",
@@ -68,6 +68,11 @@ test("fills missing English blog and SEO fields without replacing Arabic source"
   const patch = await translateBlogForPublishing(values);
   assert.equal(patch.titleEn, "Contract Formation Under Syrian Law");
   assert.equal(patch.bodyEn, "<p>Translated legal body.</p>");
+  assert.equal(
+    patch.seoTitleAr,
+    "تكوين العقد في القانون السوري | كاونسلو",
+    "invalid legacy SEO should be repaired",
+  );
   assert.equal(patch.titleAr, undefined);
   assert.equal(patch.bodyAr, undefined);
 });
