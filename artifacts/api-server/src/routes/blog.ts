@@ -14,10 +14,6 @@ import {
 } from "../lib/blog-input.js";
 import { assignInternalLinks } from "../lib/internal-link-assignment.js";
 import { logger } from "../lib/logger.js";
-import {
-  ContentTranslationError,
-  translateBlogForPublishing,
-} from "../lib/content-translation.js";
 
 const router = Router();
 
@@ -67,11 +63,7 @@ router.get("/admin/blog/posts", requireAdmin, async (_req, res) => {
 
 router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
   try {
-    let values = parseBlogPostInput(req.body);
-    if (values.published) {
-      const translation = await translateBlogForPublishing(values);
-      values = parseBlogPostInput({ ...values, ...translation });
-    }
+    const values = parseBlogPostInput(req.body);
     let [post] = await db
       .insert(blogPostsTable)
       .values(values)
@@ -99,10 +91,6 @@ router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
     }
     res.status(201).json(sanitizeBlogPost(post));
   } catch (error) {
-    if (error instanceof ContentTranslationError) {
-      res.status(502).json({ error: error.message });
-      return;
-    }
     if (error instanceof BlogInputError) {
       res.status(400).json({ error: error.message });
       return;
@@ -130,17 +118,8 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
   let values;
   try {
     values = parseBlogPostInput(req.body, { existingSlug: before.slug });
-    if (values.published) {
-      const translation = await translateBlogForPublishing(values);
-      values = parseBlogPostInput(
-        { ...values, ...translation },
-        { existingSlug: before.slug },
-      );
-    }
   } catch (error) {
-    res.status(error instanceof ContentTranslationError ? 502 : 400).json({
-      error: (error as Error).message,
-    });
+    res.status(400).json({ error: (error as Error).message });
     return;
   }
   let [post] = await db
