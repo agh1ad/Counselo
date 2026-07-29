@@ -1,11 +1,50 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, BookOpen, Building2, Gavel, Home as HomeIcon, Map, Shield, Users } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeDollarSign,
+  Banknote,
+  BookOpen,
+  BriefcaseBusiness,
+  Building2,
+  FileCheck2,
+  Gavel,
+  Globe2,
+  Handshake,
+  HeartHandshake,
+  Home as HomeIcon,
+  Landmark,
+  Laptop,
+  Scale,
+  Shield,
+  ShieldCheck,
+  Stethoscope,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 
-const icons = [Users, Building2, Shield, HomeIcon, Map, BookOpen, Gavel];
+const serviceIcons: Record<string, LucideIcon> = {
+  "family-law": Users,
+  "business-law": BriefcaseBusiness,
+  "real-estate": HomeIcon,
+  "employment-law": Handshake,
+  "foreign-investment": Globe2,
+  "administrative-law": Landmark,
+  arbitration: Scale,
+  enforcement: Gavel,
+  "companies-law": Building2,
+  contracts: FileCheck2,
+  "criminal-law": Shield,
+  "banking-finance": Banknote,
+  "intellectual-property": BookOpen,
+  "tax-zakat": BadgeDollarSign,
+  "cyber-law": Laptop,
+  "medical-malpractice": Stethoscope,
+  "insurance-law": ShieldCheck,
+};
 
 export default function Services() {
   const { t, isRTL } = useLanguage();
@@ -14,6 +53,11 @@ export default function Services() {
 
   const country = region === "syr" ? (isRTL ? "سوريا" : "Syria") : (isRTL ? "السعودية" : "Saudi Arabia");
   const areaCount = s.items.length;
+  const serviceIndexById = new Map(s.items.map((item, index) => [item.id, index]));
+  const itemsPerColumn = Math.ceil(areaCount / 3);
+  const serviceColumns = Array.from({ length: 3 }, (_, column) =>
+    s.items.slice(column * itemsPerColumn, (column + 1) * itemsPerColumn),
+  ).filter((column) => column.length > 0);
 
   const seoTitle = isRTL
     ? `${areaCount} مجالاً قانونياً في ${country} | منصة استشارات قانونية أونلاين | قانوني`
@@ -68,7 +112,7 @@ export default function Services() {
   ];
 
   return (
-    <div className="w-full bg-background min-h-screen">
+    <div className="counselo-editorial-page services-directory-page w-full bg-background min-h-screen">
       <SEOHead
         title={seoTitle}
         description={seoDesc}
@@ -82,38 +126,79 @@ export default function Services() {
             : `legal services Saudi Arabia, ${areaCount} practice areas KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, property law KSA, foreign investment lawyer Saudi Arabia, administrative law KSA, criminal law Saudi Arabia, banking finance law KSA, tax zakat lawyer Saudi, cyber law Saudi Arabia, medical malpractice KSA, insurance law Saudi, arbitration KSA, enforcement law Saudi, companies law KSA, intellectual property Saudi, online lawyer Jubail, CounselO`)}
         schema={servicesSchema}
       />
-      <section className="relative py-28 overflow-hidden">
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 10%) 0%, hsl(150 80% 15%) 100%)" }} />
-        <div className="absolute end-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
-          <div className="w-full h-full" style={{ background: "radial-gradient(ellipse at 50% 50%, hsl(150 60% 60%) 0%, transparent 70%)" }} />
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-2xl">
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">{s.hero.heading}</h1>
-            <div className="w-20 h-1 bg-white/40 mb-8" />
-            <p className="text-xl text-white/75 leading-relaxed">{s.hero.desc}</p>
+      <section className="services-directory-hero premium-page-hero py-20 lg:py-28">
+        <div className="premium-content-shell relative z-10">
+          <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">
+            <h1 className="mb-7 font-serif text-5xl font-medium leading-[0.98] tracking-[-0.035em] text-white md:text-7xl">
+              {s.hero.heading}
+            </h1>
+            <div className="premium-hero-rule mb-8" />
+            <p className="max-w-2xl text-lg leading-relaxed text-white/75 md:text-xl">{s.hero.desc}</p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {s.items.map((service, index) => {
-              const Icon = icons[index] ?? Users;
-              return (
-                <motion.div key={service.id} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-card border border-border p-10 hover:border-primary/50 hover:shadow-md transition-all flex flex-col h-full group">
-                  <Icon className="h-12 w-12 text-primary mb-6" />
-                  <h2 className="text-2xl font-serif font-bold text-foreground mb-4">{service.title}</h2>
-                  <p className="text-muted-foreground mb-8 flex-grow leading-relaxed">{service.longDesc}</p>
-                  <Link href={`${regionPrefix}/services/${service.id}`} className="inline-flex items-center text-primary font-medium group-hover:underline underline-offset-4 mt-auto">
-                    {s.explorePrefix}{service.title}
-                    <ArrowRight className="ms-2 h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
-                  </Link>
-                </motion.div>
-              );
-            })}
+      <section className="border-b border-[#0d4a31]/10 bg-white py-7">
+        <div className="premium-content-shell">
+          <div className="services-consultation-rail flex flex-col gap-5 bg-[#eef4f0] px-6 py-5 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+            <div className="flex items-center gap-4">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#0d4a31] text-[#d4ae5f]">
+                <HeartHandshake className="h-5 w-5" strokeWidth={1.5} />
+              </span>
+              <p className="font-serif text-lg text-[#173f2f]">
+                {isRTL ? "لست متأكداً من المجال القانوني المناسب؟" : "Not sure which practice area fits your matter?"}
+              </p>
+            </div>
+            <Link
+              href={`${regionPrefix}/contact`}
+              className="inline-flex min-h-12 items-center justify-center gap-3 bg-[#0d4a31] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#073d29] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b4924a]"
+            >
+              {t.nav.bookConsultation}
+              <ArrowRight className="h-4 w-4 rtl:rotate-180" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-14 lg:py-20">
+        <div className="premium-content-shell">
+          <div className="services-editorial-directory grid lg:grid-cols-3">
+            {serviceColumns.map((column, columnIndex) => (
+              <div key={columnIndex} className="services-directory-column">
+                {column.map((service) => {
+                  const index = serviceIndexById.get(service.id) ?? 0;
+                  const Icon = serviceIcons[service.id] ?? Gavel;
+                  return (
+                    <motion.article
+                      key={service.id}
+                      initial={false}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: Math.min((index % itemsPerColumn) * 0.04, 0.18) }}
+                      className="group relative border-b border-[#0d4a31]/14 py-7 lg:min-h-[11.75rem]"
+                    >
+                      <Link
+                        href={`${regionPrefix}/services/${service.id}`}
+                        aria-label={`${s.explorePrefix}${service.title}`}
+                        className="grid h-full grid-cols-[3.25rem_1fr_auto] items-start gap-x-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b4924a]"
+                      >
+                        <span className="flex h-12 w-12 items-center justify-center border border-[#0d4a31]/15 bg-[#eef4f0] text-[#0d4a31] transition-colors group-hover:border-[#b4924a]/60 group-hover:bg-[#e7f0ea]">
+                          <Icon className="h-5 w-5" strokeWidth={1.45} />
+                        </span>
+                        <span>
+                          <span className="mb-2 block font-serif text-xl font-semibold leading-tight text-[#173f2f] transition-colors group-hover:text-[#0d4a31]">
+                            <span className="me-2 text-base font-normal text-[#b4924a]">{String(index + 1).padStart(2, "0")}.</span>
+                            {service.title}
+                          </span>
+                          <span className="line-clamp-3 block text-sm leading-6 text-[#52675e]">{service.longDesc}</span>
+                        </span>
+                        <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
+                      </Link>
+                    </motion.article>
+                  );
+                })}
+              </div>
+            ))}
           </div>
         </div>
       </section>

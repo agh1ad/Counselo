@@ -18,6 +18,7 @@
  * those hoisted tags so the prerender script can place them in <head>.
  */
 
+import React from "react";
 import { renderToString } from "react-dom/server";
 import { HelmetProvider } from "react-helmet-async";
 import App, { type InitialBlogPost } from "./App";

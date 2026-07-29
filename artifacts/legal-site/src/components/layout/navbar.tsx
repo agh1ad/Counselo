@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, Languages } from "lucide-react";
+import { Menu, X, ChevronDown, Languages, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -28,12 +28,12 @@ export function Navbar() {
     : location.startsWith(regionPrefix + path);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-b border-[#b4924a]/25">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="flex justify-between items-center h-21">
           <div className="flex items-center gap-3">
             <Link href={regionPrefix}>
-              <img src={navbarBrand} alt="CounselO — Online Legal Consultations" width="207" height="80" decoding="async" className="h-20 w-auto object-contain" />
+              <img src={navbarBrand} alt="CounselO — Online Legal Consultations" width="207" height="80" decoding="async" className="h-[4.5rem] w-auto object-contain" />
             </Link>
             <Link href="/" title="Change region">
               <img
@@ -49,7 +49,7 @@ export function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 rtl:space-x-reverse">
-            <Link href={regionPrefix} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.home}</Link>
+            <Link href={regionPrefix} className={`relative py-2 text-[0.82rem] font-medium transition-colors hover:text-primary ${isActive("") ? "text-primary after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:bg-[#b4924a]" : "text-muted-foreground"}`}>{t.nav.home}</Link>
 
             <div className="relative group" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
               <Link href={p("/services")} className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${isActive("/services") ? "text-primary" : "text-muted-foreground"}`}>
@@ -90,7 +90,10 @@ export function Navbar() {
             </button>
 
             <Link href={p("/contact")}>
-              <Button className="font-medium bg-primary text-white hover:bg-primary/90">{t.nav.bookConsultation}</Button>
+              <Button className="group rounded-none font-medium bg-primary text-white hover:bg-primary/90 shadow-[5px_5px_0_rgba(180,146,74,0.25)]">
+                {t.nav.bookConsultation}
+                <ArrowRight className="ms-2 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 rtl:rotate-180" />
+              </Button>
             </Link>
           </div>
 
@@ -114,7 +117,7 @@ export function Navbar() {
             transition={{ duration: 0.2 }}
             className="lg:hidden bg-background border-b border-border overflow-hidden"
           >
-            <div className="overflow-y-auto max-h-[calc(100svh-6rem)]">
+            <div className="overflow-y-auto max-h-[calc(100svh-5.25rem)]">
             <div className="px-4 pt-2 pb-10 space-y-1">
               <Link href={regionPrefix} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.home}</Link>
               <div className="px-3 py-2 text-base font-medium text-foreground">{t.nav.services}</div>

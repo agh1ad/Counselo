@@ -14,6 +14,9 @@ import test from "node:test";
 import http from "node:http";
 import express from "express";
 import { resolveWorkLanguage, buildWorkHtmlFromTemplate } from "./ssr-server.js";
+import { render } from "./entry-server.js";
+import type { InitialBlogPost } from "./App.js";
+import type { WorkSamplePublic } from "./lib/work-samples.js";
 
 // ---------------------------------------------------------------------------
 // Shared fixtures
@@ -71,6 +74,46 @@ const BILINGUAL: ApiWorkSample = {
 };
 
 const SHELL = `<!doctype html><html lang="en"><head><!--app-head--></head><body><div id="root"></div></body></html>`;
+
+const SSR_WORK_SAMPLE: WorkSamplePublic = {
+  ...BILINGUAL,
+  id: 1,
+  updatedAt: "2025-01-16",
+  clientTypeEn: "Commercial client",
+  clientTypeAr: "عميل تجاري",
+  challengeEn: "A contract required a detailed legal review.",
+  challengeAr: "تطلب العقد مراجعة قانونية تفصيلية.",
+  approachEn: "CounselO reviewed the document and prepared a legal opinion.",
+  approachAr: "راجع كاونسلو المستند وأعد رأياً قانونياً.",
+  outcomeEn: "The client received a clear legal position and next steps.",
+  outcomeAr: "تلقى العميل موقفاً قانونياً واضحاً والخطوات التالية.",
+  documentLanguage: "bilingual",
+  fileName: "redacted-opinion.pdf",
+  fileSize: 1024,
+  featured: false,
+  relatedServiceSlugs: ["business-law"],
+  relatedBlogSlugs: [],
+  relatedWorkSlugs: [],
+};
+
+const SSR_BLOG_POST = {
+  id: 100,
+  slug: "server-rendered-article",
+  date: "2025-01-20",
+  categoryEn: "Commercial Law",
+  categoryAr: "القانون التجاري",
+  readTime: 5,
+  titleEn: "Server Rendered Legal Article",
+  titleAr: "مقال قانوني معروض من الخادم",
+  excerptEn: "A complete legal article rendered in the initial HTML response for crawlers.",
+  excerptAr: "مقال قانوني كامل يظهر في استجابة HTML الأولية لمحركات البحث.",
+  bodyEn: "<p>This full article body is readable before JavaScript executes.</p>",
+  bodyAr: "<p>هذا النص الكامل قابل للقراءة قبل تشغيل جافاسكريبت.</p>",
+  published: true,
+  relatedServiceSlugs: ["business-law"],
+  relatedBlogSlugs: [],
+  relatedWorkSlugs: [],
+} as InitialBlogPost;
 
 // ---------------------------------------------------------------------------
 // 1. resolveWorkLanguage — pure routing logic
@@ -182,6 +225,35 @@ test("English page: lang=en dir=ltr, canonical=/our-work/:slug", () => {
     html.includes(`canonical" href="https://counselo-legal.com/our-work/${BILINGUAL.slug}"`),
     "/our-work/ canonical missing",
   );
+});
+
+test("React SSR: work detail includes readable main content before JavaScript", () => {
+  const rendered = render(
+    `/our-work/${SSR_WORK_SAMPLE.slug}`,
+    [],
+    [SSR_WORK_SAMPLE],
+  );
+  const html = `${rendered.head}${rendered.body}`;
+  assert.ok(rendered.body.includes("<main"), "SSR body must include the main landmark");
+  assert.ok(rendered.body.includes("<h1"), "SSR body must include an h1");
+  assert.ok(rendered.body.includes(SSR_WORK_SAMPLE.titleEn), "SSR body must include the work title");
+  assert.ok(rendered.body.includes(SSR_WORK_SAMPLE.challengeEn), "SSR body must include the work narrative");
+  assert.ok(html.includes("index, follow"), "SSR output must allow indexing");
+  assert.ok(html.includes("application/ld+json"), "SSR output must include JSON-LD");
+});
+
+test("React SSR: dynamic blog detail includes the full article before JavaScript", () => {
+  const rendered = render(`/blog/${SSR_BLOG_POST.slug}`, [SSR_BLOG_POST], []);
+  const html = `${rendered.head}${rendered.body}`;
+  assert.ok(rendered.body.includes("<main"), "SSR body must include the main landmark");
+  assert.ok(rendered.body.includes("<h1"), "SSR body must include an h1");
+  assert.ok(rendered.body.includes(SSR_BLOG_POST.titleEn), "SSR body must include the article title");
+  assert.ok(
+    rendered.body.includes("This full article body is readable before JavaScript executes."),
+    "SSR body must include the full article text",
+  );
+  assert.ok(html.includes("index, follow"), "SSR output must allow indexing");
+  assert.ok(html.includes("application/ld+json"), "SSR output must include JSON-LD");
 });
 
 // ---------------------------------------------------------------------------

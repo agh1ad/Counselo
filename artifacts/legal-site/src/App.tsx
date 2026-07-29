@@ -61,6 +61,9 @@ function createSsrQueryClient(posts: InitialBlogPost[], workSamples: WorkSampleP
   for (const post of posts) {
     client.setQueryData(["blog-post", post.slug], post);
   }
+  for (const sample of workSamples) {
+    client.setQueryData(["work-sample", sample.slug], sample);
+  }
   return client;
 }
 
@@ -308,7 +311,7 @@ function AppShell() {
         Skip to main content
       </a>
       <Navbar />
-      <main className="flex-grow pt-24" id="main-content">
+      <main className="flex-grow pt-21" id="main-content">
         <Router />
       </main>
       <Footer />
@@ -345,7 +348,7 @@ function App({ ssrUrl, initialBlogPosts = [], initialWorkSamples = [] }: AppProp
           This is wouter's official SSR API (v3.10+).
         */}
         <WouterRouter
-          base={import.meta.env.BASE_URL.replace(/\/$/, "")}
+          base={(import.meta.env?.BASE_URL ?? "/").replace(/\/$/, "")}
           ssrPath={ssrUrl}
         >
           <RegionProvider>

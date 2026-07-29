@@ -176,7 +176,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="w-full bg-background min-h-screen">
+    <div className="counselo-editorial-page legal-intake-page w-full bg-background min-h-screen">
       <SEOHead
         title={region === "syr"
           ? (isRTL
@@ -246,15 +246,31 @@ export default function Contact() {
       />
 
       {/* Hero */}
-      <section className="relative py-28 border-b border-border">
-        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 10%) 0%, hsl(150 80% 15%) 100%)" }} />
-        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at 60% 50%, hsl(150 60% 25% / 0.4) 0%, transparent 60%)" }} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <section className="premium-page-hero py-24 lg:py-28 border-b border-[#d4af60]/20">
+        <div className="premium-content-shell relative z-10 text-center">
           <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">{c.hero.heading}</h1>
-            <div className="w-20 h-1 bg-white/40 mx-auto mb-8" />
+            <div className="premium-hero-rule mx-auto mb-8" />
             <p className="text-xl text-white/75 max-w-2xl mx-auto leading-relaxed">{c.hero.subheading}</p>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="border-b border-white/10 bg-[#073d29] text-white" aria-label={isRTL ? "ما الذي يحدث بعد إرسال الطلب" : "What happens after submitting"}>
+        <div className="premium-content-shell grid md:grid-cols-4">
+          {[
+            { Icon: FileText, en: "Tell Us About It", ar: "أخبرنا عن مسألتك", enBody: "Share the key facts and any useful documents.", arBody: "شارك الوقائع الأساسية وأي مستندات مفيدة." },
+            { Icon: CheckCircle, en: "We Review", ar: "نراجع الطلب", enBody: "The legal team reviews the scope confidentially.", arBody: "يراجع الفريق القانوني نطاق المسألة بسرية." },
+            { Icon: Clock, en: "Consultation", ar: "الاستشارة", enBody: "We respond with the consultation path and timing.", arBody: "نوضح مسار الاستشارة والوقت المتوقع." },
+            { Icon: CreditCard, en: "Plan Forward", ar: "الخطوة التالية", enBody: "You receive clear options before further work begins.", arBody: "تتلقى خيارات واضحة قبل بدء أي عمل إضافي." },
+          ].map(({ Icon, en, ar, enBody, arBody }, index) => (
+            <div key={en} className="relative min-h-48 border-b border-white/15 p-7 md:border-b-0 md:border-e md:last:border-e-0">
+              <span className="absolute end-6 top-5 font-serif text-5xl text-white/[0.06]">0{index + 1}</span>
+              <Icon className="mb-5 h-7 w-7 text-[#d4b66c]" strokeWidth={1.4} />
+              <h2 className="mb-2 font-serif text-xl font-semibold text-white">{isRTL ? ar : en}</h2>
+              <p className="text-sm leading-relaxed text-white/60">{isRTL ? arBody : enBody}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -335,7 +351,7 @@ export default function Contact() {
                 <div className="w-12 h-1 bg-primary mb-8" />
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <div className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+                    <div className="sr-only" aria-hidden="true">
                       <label htmlFor="contact-website">Website</label>
                       <input
                         ref={honeypotRef}

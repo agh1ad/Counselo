@@ -1,19 +1,19 @@
 # CounselO SEO Validation Report
 
-_Generated: 2026-07-29 00:25:58 UTC_
+_Generated: 2026-07-29 12:58:43 UTC_
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| Pages validated | 129 |
+| Pages validated | 130 |
 | Redirect pages  | 40 |
 | ✅ Clean pages  | 128 |
-| ⚠️  Warn-only pages | 1 |
+| ⚠️  Warn-only pages | 2 |
 | ❌ Error pages  | 0 |
 | Total errors    | 0 |
-| Total warnings  | 1 |
-| SEO score       | **100/100** |
+| Total warnings  | 2 |
+| SEO score       | **99/100** |
 
 > ✅ **No errors found.** All pages pass critical SEO checks.
 
@@ -21,14 +21,19 @@ _Generated: 2026-07-29 00:25:58 UTC_
 
 | Rule | Errors | Warnings |
 |------|--------|----------|
-| `title-too-long` | — | 1 |
+| `title-too-long` | — | 2 |
 
 ## ⚠️  Pages with Warnings Only
 
-### `/blog/e-contracts-legal-validity-saudi-arabia`
-_Title: حجية العقود الإلكترونية في السعودية | طرق الإثبات أمام القضاء | كاونسلو_
+### `/blog/contract-interpretation-syrian-courts`
+_Title: Contract Interpretation Before Syrian Courts: Legal Rules and Dispute Resolution | CounselO_
 
-- ⚠️  **title-too-long**: 71 chars (max 70)
+- ⚠️  **title-too-long**: 91 chars (max 70)
+
+### `/blog/e-contracts-legal-validity-saudi-arabia`
+_Title: Electronic Contracts in Saudi Arabia | Legal Validity and Proof | CounselO_
+
+- ⚠️  **title-too-long**: 74 chars (max 70)
 
 ## ✅ Clean Pages (128)
 
@@ -44,13 +49,13 @@ _Title: حجية العقود الإلكترونية في السعودية | ط�
 - `/blog/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha` — schemas: Article, BreadcrumbList
 - `/blog/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/altwsyat-alamlyh-lsyaghh-aqd-qwy` — schemas: Article, BreadcrumbList
+- `/blog/anha-alaqd-bdwn-sbb-mshrwa` — schemas: Article, BreadcrumbList
 - `/blog/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/aqwd-almqawlat-fy-alnzam-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd` — schemas: Article, BreadcrumbList
 - `/blog/athbat-alaqwd-amam-alqda-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/commercial-supply-contracts-in-saudi` — schemas: Article, BreadcrumbList
 - `/blog/consensual-formal-real-contracts-syrian-law` — schemas: Article, BreadcrumbList
-- `/blog/contract-interpretation-syrian-courts` — schemas: Article, BreadcrumbList
 - `/blog/contractual-liability-in-commercial-transactions` — schemas: Article, BreadcrumbList
 - `/blog/defects-of-will-syrian-law` — schemas: Article, BreadcrumbList
 - `/blog/formation-of-commercial-contracts-saudi-law` — schemas: Article, BreadcrumbList

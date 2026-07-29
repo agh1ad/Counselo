@@ -51,6 +51,9 @@ function detectRegion(path: string): Region {
  * required for Google to treat them as real language alternates.
  */
 function detectLang(path: string, region: Region): Lang {
+  // The bilingual region picker lives at the region-independent root `/ar`.
+  // Treat it as Arabic before applying the regional-prefix rules below.
+  if (path === "/ar" || path.startsWith("/ar/")) return "ar";
   const rest = path.slice(`/${region}`.length);
   return rest === "/ar" || rest.startsWith("/ar/") ? "ar" : "en";
 }

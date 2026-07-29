@@ -333,7 +333,7 @@ export default function PrivacyPolicy() {
   }[isRTL ? "ar" : "en"];
 
   return (
-    <div className="w-full bg-background min-h-screen">
+    <div className="counselo-editorial-page legal-document-page w-full bg-background min-h-screen">
       <SEOHead
         title={content.seoTitle}
         description={content.seoDesc}
@@ -370,21 +370,34 @@ export default function PrivacyPolicy() {
 
       {/* Hero */}
       <section
-        className="py-20 px-4 mt-16"
-        style={{ background: "linear-gradient(135deg, hsl(150 100% 9%) 0%, hsl(150 80% 14%) 100%)" }}
+        className="premium-page-hero py-20 px-4"
       >
         <div className="max-w-4xl mx-auto">
           <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <p className="text-white/60 font-medium uppercase tracking-widest text-sm mb-3">{content.eyebrow}</p>
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4 leading-tight">{content.heading}</h1>
-            <div className="w-20 h-1 bg-white/30 mb-6" />
+            <div className="premium-hero-rule mb-6" />
             <p className="text-lg text-white/70 leading-relaxed max-w-2xl mb-4">{content.subheading}</p>
             <p className="text-sm text-white/40">{content.lastUpdated}</p>
           </motion.div>
         </div>
       </section>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:px-8 lg:py-24">
+        <nav aria-label={isRTL ? "محتويات سياسة الخصوصية" : "Privacy policy contents"} className="hidden lg:block">
+          <div className="sticky top-28 border-t-2 border-[#b58b32] bg-[#eef4f0] p-6">
+            <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-[#0d4a31]">{isRTL ? "المحتويات" : "Contents"}</p>
+            <ol className="space-y-3">
+              {content.sections.map((section, index) => (
+                <li key={section.title}>
+                  <a href={`#privacy-section-${index + 1}`} className="grid grid-cols-[24px_1fr] gap-2 text-xs leading-5 text-muted-foreground transition-colors hover:text-primary">
+                    <span className="font-serif text-[#aa7e28]">{index + 1}.</span><span>{section.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </nav>
 
         {/* Sections */}
         <div className="space-y-12">
@@ -393,6 +406,7 @@ export default function PrivacyPolicy() {
             return (
               <motion.section
                 key={i}
+                id={`privacy-section-${i + 1}`}
                 initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -428,7 +442,7 @@ export default function PrivacyPolicy() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-20 bg-primary p-10 text-center"
+          className="mt-8 bg-primary p-10 text-center lg:col-start-2"
         >
           <h2 className="text-2xl font-serif font-bold text-white mb-3">{content.contactHeading}</h2>
           <p className="text-white/70 mb-8 leading-relaxed max-w-lg mx-auto">{content.contactDesc}</p>
@@ -456,7 +470,7 @@ export default function PrivacyPolicy() {
         </motion.section>
 
         {/* Back link */}
-        <div className="mt-10 text-center">
+        <div className="mt-10 text-center lg:col-start-2">
           <Link href={regionPrefix} className="text-sm text-muted-foreground hover:text-primary transition-colors">
             ← {isRTL ? "العودة إلى الرئيسية" : "Back to Homepage"}
           </Link>

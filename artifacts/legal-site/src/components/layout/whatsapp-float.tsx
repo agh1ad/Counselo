@@ -45,19 +45,19 @@ export function WhatsAppFloat() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.93 }}
           className="relative w-20 h-20 rounded-full shadow-2xl flex items-center justify-center"
-          style={{ backgroundColor: "#25D366" }}
+          style={{ backgroundColor: "#0d4a31" }}
         >
           {/* Pulsing ring */}
           <motion.div
             className="absolute inset-0 rounded-full"
-            style={{ backgroundColor: "#25D366" }}
+            style={{ backgroundColor: "#0d4a31" }}
             animate={{ scale: [1, 1.4, 1], opacity: [0.55, 0, 0.55] }}
             transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
           />
           {/* Second pulse ring */}
           <motion.div
             className="absolute inset-0 rounded-full"
-            style={{ backgroundColor: "#25D366" }}
+            style={{ backgroundColor: "#0d4a31" }}
             animate={{ scale: [1, 1.65, 1], opacity: [0.3, 0, 0.3] }}
             transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
           />

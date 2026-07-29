@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized } from "@/lib/work-samples";
+import { fetchPublicJson } from "@/lib/public-api";
 
 declare global {
   interface Window {
@@ -18,11 +19,7 @@ export default function OurWork() {
   const { regionPrefix } = useRegion();
   const { data: samples = [], isLoading } = useQuery<WorkSamplePublic[]>({
     queryKey: ["work-samples"],
-    queryFn: async () => {
-      const response = await fetch("/api/work");
-      if (!response.ok) throw new Error("Unable to load work samples");
-      return response.json() as Promise<WorkSamplePublic[]>;
-    },
+    queryFn: () => fetchPublicJson<WorkSamplePublic[]>("/api/work"),
     placeholderData: () =>
       typeof window !== "undefined"
         ? window.__SSR_WORK_SAMPLES__
@@ -98,7 +95,7 @@ export default function OurWork() {
   ];
 
   return (
-    <div className="min-h-screen bg-background" dir={isRTL ? "rtl" : "ltr"}>
+    <div className="counselo-editorial-page legal-portfolio-page min-h-screen bg-background" dir={isRTL ? "rtl" : "ltr"}>
       <SEOHead
         title={ar ? "نماذج من أعمالنا القانونية | خبرة وصياغة احترافية | كاونسلو" : "Our Legal Work | Redacted Documents & Experience | CounselO"}
         description={ar ? "اطلع على نماذج منقحة من العقود والمذكرات والأعمال القانونية التي أعدها فريق كاونسلو، مع حماية كاملة لسرية وخصوصية العملاء." : "View redacted contracts, legal documents, and selected professional work prepared by CounselO, with client confidentiality and identifying information protected."}
@@ -110,10 +107,11 @@ export default function OurWork() {
         schema={schemas}
       />
 
-      <section className="bg-primary text-white px-4 py-20">
+      <section className="premium-page-hero text-white px-4 py-20">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 text-white/70 text-sm font-semibold uppercase tracking-widest mb-5"><BriefcaseBusiness className="h-4 w-4" />{ui.eyebrow}</div>
+          <div className="inline-flex items-center gap-2 text-[#e0c078] text-xs font-semibold uppercase tracking-[0.18em] mb-5"><BriefcaseBusiness className="h-4 w-4" />{ui.eyebrow}</div>
           <h1 className="text-4xl md:text-6xl font-serif font-bold leading-tight mb-6">{ui.title}</h1>
+          <div className="premium-hero-rule mx-auto mb-7" />
           <p className="text-lg text-white/75 leading-relaxed max-w-3xl mx-auto">{ui.intro}</p>
           <div className="grid sm:grid-cols-3 gap-3 max-w-3xl mx-auto mt-10 text-sm">
             {[ar ? "صياغة مدروسة" : "Careful drafting", ar ? "مراجعة قانونية" : "Legal review", ar ? "سرية محفوظة" : "Confidentiality protected"].map((label, i) => (
@@ -141,13 +139,13 @@ export default function OurWork() {
               const workType = localized(sample.workTypeEn, sample.workTypeAr, lang);
               const jurisdiction = localized(sample.jurisdictionEn, sample.jurisdictionAr, lang);
               return (
-                <motion.article key={sample.slug} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: Math.min(index * .06, .24) }} className="group border border-border bg-card flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all">
-                  <div className="h-44 bg-gradient-to-br from-primary/10 via-muted to-primary/5 flex items-center justify-center relative border-b border-border">
+                <motion.article key={sample.slug} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: Math.min(index * .06, .24) }} className={`group border border-border bg-card flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all ${index === 0 ? "featured-work-card" : ""}`}>
+                  <div className="work-card-document h-44 bg-gradient-to-br from-primary/10 via-muted to-primary/5 flex items-center justify-center relative border-b border-border">
                     <div className="w-20 h-24 bg-white border border-border shadow-md flex items-center justify-center"><FileCheck2 className="h-9 w-9 text-primary" /></div>
                     {sample.featured && <span className="absolute top-4 start-4 bg-primary text-white text-xs font-semibold px-3 py-1">{ui.featured}</span>}
                     <span className="absolute bottom-4 end-4 bg-background/90 border border-border text-xs px-2 py-1 uppercase">{sample.fileMimeType === "application/pdf" ? "PDF" : "IMAGE"}</span>
                   </div>
-                  <div className="p-6 flex flex-col flex-1">
+                  <div className="work-card-copy p-6 flex flex-col flex-1">
                     <div className="flex flex-wrap gap-2 text-xs text-muted-foreground mb-4">
                       {workType && <span className="border border-border px-2.5 py-1">{workType}</span>}
                       {jurisdiction && <span className="border border-border px-2.5 py-1">{jurisdiction}</span>}

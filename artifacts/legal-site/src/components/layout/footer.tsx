@@ -13,8 +13,19 @@ export function Footer() {
   const workPath = lang === "ar" ? "/ar/our-work" : "/our-work";
 
   return (
-    <footer className="bg-primary pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[#002d19] pt-16 pb-8 relative overflow-hidden">
+      <img
+        src="/images/optimized/counselo-gold-legal-line-art-v1.png"
+        alt=""
+        aria-hidden="true"
+        width="1254"
+        height="1254"
+        loading="lazy"
+        decoding="async"
+        className="absolute w-[28rem] -end-24 top-16 opacity-[0.1] pointer-events-none"
+      />
+      <div className="h-px bg-gradient-to-r from-transparent via-[#d4af60]/65 to-transparent absolute top-0 inset-x-0" />
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1">
             <Link href={regionPrefix} className="flex items-center gap-2 mb-6">
@@ -36,7 +47,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-serif font-semibold mb-6">{f.practiceAreasHeading}</h3>
+            <h3 className="text-[#e0c078] text-xs uppercase tracking-[0.18em] font-sans font-semibold mb-6">{f.practiceAreasHeading}</h3>
             <ul className="space-y-3 text-sm text-white/70">
               {f.practiceAreaLinks.map((link) => (
                 <li key={link.href}><Link href={regionPrefix + link.href} className="hover:text-white transition-colors">{link.label}</Link></li>
@@ -45,7 +56,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-serif font-semibold mb-6">{f.quickLinksHeading}</h3>
+            <h3 className="text-[#e0c078] text-xs uppercase tracking-[0.18em] font-sans font-semibold mb-6">{f.quickLinksHeading}</h3>
             <ul className="space-y-3 text-sm text-white/70">
               <li><Link href={regionPrefix} className="hover:text-white transition-colors">{f.links.home}</Link></li>
               <li><Link href={p("/services")} className="hover:text-white transition-colors">{f.links.allServices}</Link></li>
@@ -59,7 +70,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-serif font-semibold mb-6">{f.contactHeading}</h3>
+            <h3 className="text-[#e0c078] text-xs uppercase tracking-[0.18em] font-sans font-semibold mb-6">{f.contactHeading}</h3>
             <ul className="space-y-4 text-sm text-white/70">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-white/60 shrink-0" />

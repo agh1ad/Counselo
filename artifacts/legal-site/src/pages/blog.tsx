@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { fetchPublicJson } from "@/lib/public-api";
 
 interface ApiPost {
   id: number;
@@ -45,11 +46,7 @@ export default function Blog() {
 
   const { data: posts = [], isLoading } = useQuery<ApiPost[]>({
     queryKey: ["blog-posts"],
-    queryFn: async () => {
-      const res = await fetch("/api/blog/posts");
-      if (!res.ok) throw new Error("Failed to fetch posts");
-      return res.json() as Promise<ApiPost[]>;
-    },
+    queryFn: () => fetchPublicJson<ApiPost[]>("/api/blog/posts"),
     // Render the deployment snapshot immediately, but do not let it suppress
     // the live request for posts published after that deployment.
     placeholderData: () =>
@@ -88,24 +85,9 @@ export default function Blog() {
     },
   }[lang];
 
-  const categoryColors: Record<string, string> = {
-    "Family Law": "bg-rose-50 text-rose-700 border-rose-200",
-    "قانون الأسرة": "bg-rose-50 text-rose-700 border-rose-200",
-    "Employment Law": "bg-blue-50 text-blue-700 border-blue-200",
-    "قانون العمل": "bg-blue-50 text-blue-700 border-blue-200",
-    "Foreign Investment": "bg-amber-50 text-amber-700 border-amber-200",
-    "الاستثمار الأجنبي": "bg-amber-50 text-amber-700 border-amber-200",
-    "Administrative Law": "bg-purple-50 text-purple-700 border-purple-200",
-    "القانون الإداري": "bg-purple-50 text-purple-700 border-purple-200",
-    "Real Estate Law": "bg-emerald-50 text-emerald-700 border-emerald-200",
-    "قانون العقارات": "bg-emerald-50 text-emerald-700 border-emerald-200",
-    "Business Law": "bg-indigo-50 text-indigo-700 border-indigo-200",
-    "القانون التجاري": "bg-indigo-50 text-indigo-700 border-indigo-200",
-  };
-
   return (
     <div
-      className="w-full bg-background min-h-screen"
+      className="counselo-editorial-page legal-journal-page w-full bg-background min-h-screen"
       dir={isRTL ? "rtl" : "ltr"}
     >
       <SEOHead
@@ -176,7 +158,7 @@ export default function Blog() {
       />
 
       {/* Hero */}
-      <section className="bg-primary text-white py-20 px-4">
+      <section className="premium-page-hero py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={false}
@@ -184,14 +166,15 @@ export default function Blog() {
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center justify-center gap-2 mb-4">
-              <BookOpen className="h-5 w-5 text-white/60" />
-              <span className="text-white/60 text-sm font-medium uppercase tracking-widest">
+              <BookOpen className="h-5 w-5 text-[#d4af60]" />
+              <span className="text-[#e0c078] text-xs font-semibold uppercase tracking-[0.18em]">
                 {ui.eyebrow}
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4 leading-tight">
               {ui.heading}
             </h1>
+            <div className="premium-hero-rule mx-auto mb-6" />
             <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
               {ui.subheading}
             </p>
@@ -216,69 +199,78 @@ export default function Blog() {
             <p className="text-muted-foreground text-lg">{ui.empty}</p>
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post, i) => {
+          <div>
+            {posts.slice(0, 1).map((post) => {
               const hasEnglish = !!(post.titleEn && post.titleEn.trim());
               const hasArabic = !!(post.titleAr && post.titleAr.trim());
               const useAr = hasArabic && (isRTL || !hasEnglish);
               const title = useAr ? post.titleAr : post.titleEn;
-              const excerpt = useAr
-                ? post.excerptAr
-                : post.excerptEn;
-              const category = useAr
-                ? post.categoryAr
-                : post.categoryEn;
+              const excerpt = useAr ? post.excerptAr : post.excerptEn;
+              const category = useAr ? post.categoryAr : post.categoryEn;
               return (
                 <motion.article
                   key={post.slug}
                   initial={false}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="group bg-white border border-border flex flex-col hover:shadow-lg transition-shadow duration-300"
+                  transition={{ duration: 0.5 }}
+                  className="relative mb-14 grid min-h-[360px] overflow-hidden border border-[#0d4a31] bg-[#0d4a31] text-white lg:grid-cols-[1.05fr_0.95fr]"
                 >
-                  <div className="h-1 bg-primary w-full" />
-                  <div className="p-6 flex flex-col flex-1">
-                    <div className="flex items-center gap-3 mb-4 flex-wrap">
-                      <span
-                        className={`text-xs font-medium px-2.5 py-1 border rounded-full ${categoryColors[category] ?? "bg-muted text-muted-foreground border-border"}`}
-                      >
-                        {category}
-                      </span>
-                      <span className="text-muted-foreground text-xs flex items-center gap-1">
-                        <Clock className="h-3 w-3" /> {post.readTime}{" "}
-                        {ui.minRead}
-                      </span>
-                    </div>
-                    <h2
-                      dir={useAr ? "rtl" : "ltr"}
-                      className="text-lg font-serif font-bold text-foreground mb-3 leading-snug group-hover:text-primary transition-colors"
-                    >
+                  <div className="relative z-10 flex flex-col p-8 sm:p-10 lg:p-12">
+                    <p className="mb-6 text-xs font-semibold uppercase tracking-[0.18em] text-[#d4b66c]">
+                      {isRTL ? "المقال المميز" : "Featured insight"} · {category}
+                    </p>
+                    <h2 dir={useAr ? "rtl" : "ltr"} className="mb-5 max-w-2xl font-serif text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
                       {title}
                     </h2>
-                    <p
-                      dir={useAr ? "rtl" : "ltr"}
-                      className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1 line-clamp-3"
-                    >
+                    <p dir={useAr ? "rtl" : "ltr"} className="mb-8 max-w-xl text-base leading-relaxed text-white/65">
                       {excerpt}
                     </p>
-                    <div className="flex items-center justify-between pt-4 border-t border-border">
-                      <span className="text-xs text-muted-foreground">
-                        {formatDate(post.date, lang)}
-                      </span>
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="flex items-center gap-1.5 text-primary text-sm font-semibold hover:gap-2.5 transition-all"
-                      >
-                        {ui.readMore}
-                        <ArrowRight
-                          className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`}
-                        />
+                    <div className="mt-auto flex flex-wrap items-center gap-6 text-xs text-white/55">
+                      <span>{formatDate(post.date, lang)}</span>
+                      <span className="flex items-center gap-2"><Clock className="h-3.5 w-3.5" /> {post.readTime} {ui.minRead}</span>
+                      <Link href={`/blog/${post.slug}`} className="inline-flex items-center gap-2 border-b border-[#d4b66c] pb-1 font-semibold text-white">
+                        {ui.readMore}<ArrowRight className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
                       </Link>
                     </div>
+                  </div>
+                  <div className="relative min-h-56 overflow-hidden border-t border-white/15 bg-white lg:border-s lg:border-t-0">
+                    <img src="/images/optimized/counselo-platform-line-art-v1.png" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover opacity-40" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent,rgba(248,246,240,0.3))]" />
                   </div>
                 </motion.article>
               );
             })}
+
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {posts.slice(1).map((post, i) => {
+                const hasEnglish = Boolean(post.titleEn?.trim());
+                const hasArabic = Boolean(post.titleAr?.trim());
+                const useAr = hasArabic && (isRTL || !hasEnglish);
+                const title = useAr ? post.titleAr : post.titleEn;
+                const category = useAr ? post.categoryAr : post.categoryEn;
+                const excerpt = useAr ? post.excerptAr : post.excerptEn;
+                return (
+                  <motion.article key={post.slug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: Math.min(i * 0.03, 0.18) }}
+                    className="group flex min-h-80 flex-col border border-[#0d4a31]/15 bg-white p-7 transition-all hover:-translate-y-1 hover:border-[#b58b32] hover:shadow-[0_18px_45px_rgba(0,61,34,0.09)]">
+                    <div className="mb-7 flex items-center justify-between">
+                      <span className="flex h-12 w-12 items-center justify-center border border-[#0d4a31]/18 bg-[#eef4f0] text-[#0d4a31]">
+                        <BookOpen className="h-6 w-6" strokeWidth={1.4} />
+                      </span>
+                      <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[#9a7735]">{category}</span>
+                    </div>
+                    <h2 dir={useAr ? "rtl" : "ltr"} className="mb-4 font-serif text-xl font-semibold leading-snug text-[#0d4a31] transition-colors group-hover:text-[#aa7e28]">{title}</h2>
+                    <p dir={useAr ? "rtl" : "ltr"} className="mb-7 line-clamp-3 text-sm leading-relaxed text-muted-foreground">{excerpt}</p>
+                    <div className="mt-auto flex items-center justify-between border-t border-[#0d4a31]/12 pt-5 text-xs text-muted-foreground">
+                      <span>{formatDate(post.date, lang)}</span>
+                      <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" />{post.readTime} {ui.minRead}</span>
+                    </div>
+                    <Link href={`/blog/${post.slug}`} className="mt-5 inline-flex items-center justify-between text-sm font-semibold text-primary">
+                      {ui.readMore}<ArrowRight className={`h-4 w-4 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180" : ""}`} />
+                    </Link>
+                  </motion.article>
+                );
+              })}
+            </div>
           </div>
         )}
       </section>

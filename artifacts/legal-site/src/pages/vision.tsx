@@ -278,7 +278,7 @@ export default function Vision() {
   ];
 
   return (
-    <div className="min-h-screen overflow-hidden bg-background">
+    <div className="counselo-editorial-page vision-manifesto-page min-h-screen overflow-hidden bg-background">
       <SEOHead
         title={c.seoTitle}
         description={c.seoDescription}
@@ -287,25 +287,33 @@ export default function Vision() {
         schema={schema}
       />
 
-      <main className="bg-white">
-        <div className="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-24">
-          <nav aria-label="Breadcrumb" className="mb-12 flex items-center gap-2 text-sm text-muted-foreground">
-            <Link href={regionPrefix} className="transition-colors hover:text-primary">{c.home}</Link>
-            <span aria-hidden="true">/</span>
-            <span aria-current="page" className="text-foreground">{c.pageName}</span>
-          </nav>
+      <div className="relative overflow-hidden bg-white">
+        <div className="counselo-orbit counselo-orbit-section" aria-hidden="true" />
+        <section className="premium-page-hero">
+          <div className="relative mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-24">
+            <nav aria-label="Breadcrumb" className="mb-12 flex items-center gap-2 text-sm text-white/58">
+              <Link href={regionPrefix} className="transition-colors hover:text-[#d5ae5d]">{c.home}</Link>
+              <span aria-hidden="true">/</span>
+              <span aria-current="page" className="text-white">{c.pageName}</span>
+            </nav>
 
-          <article aria-labelledby="vision-title">
-            <p className="text-sm font-semibold text-primary">{c.eyebrow}</p>
-            <h1 id="vision-title" className="mt-4 text-balance font-serif text-4xl font-bold leading-tight text-foreground sm:text-5xl">
-              {c.title}
-            </h1>
-            <div id="vision-summary" className="mt-8 space-y-6 text-lg leading-9 text-foreground/75">
-              <p>{c.lead}</p>
-              <p>{c.intro}</p>
-            </div>
+            <article aria-labelledby="vision-title">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d5ae5d]">{c.eyebrow}</p>
+              <h1 id="vision-title" className="mt-4 text-balance font-serif text-4xl font-medium tracking-[-0.025em] leading-tight text-white sm:text-6xl">
+                {c.title}
+              </h1>
+              <div className="premium-hero-rule mt-7" />
+              <div id="vision-summary" className="mt-8 space-y-6 text-lg leading-9 text-white/72">
+                <p>{c.lead}</p>
+                <p>{c.intro}</p>
+              </div>
+            </article>
+          </div>
+        </section>
 
-            <section aria-labelledby="why-counselo-title" className="mt-14 rounded-3xl bg-muted/30 p-6 sm:p-8">
+        <div className="relative mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-24">
+          <article aria-label={c.pageName}>
+            <section aria-labelledby="why-counselo-title" className="mt-14 border border-border bg-[#eef4f0] p-6 sm:p-8">
               <p className="text-sm font-semibold text-primary">{c.whyEyebrow}</p>
               <h2 id="why-counselo-title" className="mt-3 font-serif text-2xl font-bold leading-snug text-foreground sm:text-3xl">
                 {c.whyTitle}
@@ -313,7 +321,7 @@ export default function Vision() {
               <p className="mt-5 text-lg leading-9 text-foreground/75">{c.whyBody}</p>
               <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                 {c.challenges.map((challenge) => (
-                  <li key={challenge} className="rounded-2xl border border-border bg-white px-4 py-3 text-sm leading-7 text-foreground/75">
+                  <li key={challenge} className="border border-border bg-white px-4 py-3 text-sm leading-7 text-foreground/75">
                     {challenge}
                   </li>
                 ))}
@@ -345,7 +353,7 @@ export default function Vision() {
               <p className="mt-4 text-lg leading-9 text-foreground/75">{c.valuesBody}</p>
               <div className="mt-7 grid gap-4 sm:grid-cols-2">
                 {c.values.map(({ title, description, icon: Icon }) => (
-                  <div key={title} className="rounded-2xl border border-border p-5">
+                  <div key={title} className="premium-editorial-card p-5">
                     <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
                     <h3 className="mt-3 font-semibold text-foreground">{title}</h3>
                     <p className="mt-2 text-sm leading-7 text-foreground/65">{description}</p>
@@ -362,7 +370,7 @@ export default function Vision() {
               <p className="mt-4 text-lg leading-9 text-foreground/75">{c.ecosystemBody}</p>
               <div className="mt-7 grid gap-4 sm:grid-cols-2">
                 {c.ecosystem.map(({ title, description, icon: Icon }) => (
-                  <div key={title} className="rounded-2xl bg-muted/30 p-5">
+                  <div key={title} className="border border-border bg-[#eef4f0] p-5">
                     <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
                     <h3 className="mt-3 font-semibold text-foreground">{title}</h3>
                     <p className="mt-2 text-sm leading-7 text-foreground/65">{description}</p>
@@ -387,7 +395,7 @@ export default function Vision() {
             </footer>
           </article>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

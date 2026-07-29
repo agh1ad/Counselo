@@ -6,6 +6,7 @@ import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized } from "@/lib/work-samples";
 import type { InitialBlogPost } from "@/App";
+import { fetchPublicJson, publicApiUrl } from "@/lib/public-api";
 
 declare global {
   interface Window {
@@ -21,11 +22,7 @@ export default function WorkSample() {
   const { regionPrefix } = useRegion();
   const { data: sample, isLoading, isError } = useQuery<WorkSamplePublic>({
     queryKey: ["work-sample", slug],
-    queryFn: async () => {
-      const response = await fetch(`/api/work/${encodeURIComponent(slug)}`);
-      if (!response.ok) throw new Error("Not found");
-      return response.json() as Promise<WorkSamplePublic>;
-    },
+    queryFn: () => fetchPublicJson<WorkSamplePublic>(`/api/work/${encodeURIComponent(slug)}`),
     // Use server-injected data (window.__SSR_WORK__) as the initial value so
     // the page renders instantly on first load without a loading flash.
     initialData: () => {
@@ -36,6 +33,11 @@ export default function WorkSample() {
       ) {
         return window.__SSR_WORK__;
       }
+      if (typeof window !== "undefined") {
+        return window.__SSR_WORK_SAMPLES__?.find(
+          (candidate) => candidate.slug === slug,
+        );
+      }
       return undefined;
     },
     staleTime: 60_000,
@@ -43,21 +45,13 @@ export default function WorkSample() {
   });
   const { data: allPosts = [] } = useQuery<InitialBlogPost[]>({
     queryKey: ["blog-posts"],
-    queryFn: async () => {
-      const response = await fetch("/api/blog/posts");
-      if (!response.ok) throw new Error("Unable to load related articles");
-      return response.json() as Promise<InitialBlogPost[]>;
-    },
+    queryFn: () => fetchPublicJson<InitialBlogPost[]>("/api/blog/posts"),
     initialData: () => typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined,
     staleTime: 60_000,
   });
   const { data: allWork = [] } = useQuery<WorkSamplePublic[]>({
     queryKey: ["work-samples"],
-    queryFn: async () => {
-      const response = await fetch("/api/work");
-      if (!response.ok) throw new Error("Unable to load related work");
-      return response.json() as Promise<WorkSamplePublic[]>;
-    },
+    queryFn: () => fetchPublicJson<WorkSamplePublic[]>("/api/work"),
     initialData: () => typeof window !== "undefined" ? window.__SSR_WORK_SAMPLES__ : undefined,
     staleTime: 60_000,
   });
@@ -85,7 +79,7 @@ export default function WorkSample() {
   const outcome = localized(sample.outcomeEn, sample.outcomeAr, lang);
   const seoTitle = localized(sample.seoTitleEn, sample.seoTitleAr, lang) || title;
   const seoDescription = localized(sample.seoDescriptionEn, sample.seoDescriptionAr, lang) || summary;
-  const fileUrl = `/api/work/${encodeURIComponent(sample.slug)}/file`;
+  const fileUrl = publicApiUrl(`/api/work/${encodeURIComponent(sample.slug)}/file`);
   const canonicalPath = `${workBasePath}/${sample.slug}`;
   const canonical = `https://counselo-legal.com${canonicalPath}`;
   const relatedPosts = (sample.relatedBlogSlugs ?? [])
@@ -120,10 +114,10 @@ export default function WorkSample() {
   };
 
   return (
-    <div className="min-h-screen bg-background" dir={isRTL ? "rtl" : "ltr"}>
+    <div className="counselo-editorial-page case-file-page min-h-screen bg-background" dir={isRTL ? "rtl" : "ltr"}>
       <SEOHead title={seoTitle} description={seoDescription} canonical={canonicalPath} noRegionPrefix contentLanguage={lang} sharedLanguageAlternates={sample.titleEn && sample.titleAr ? { en: `/our-work/${sample.slug}`, ar: `/ar/our-work/${sample.slug}` } : undefined} keywords={`${workType}, ${jurisdiction}, ${ar ? "نموذج عمل قانوني, صياغة قانونية, كاونسلو" : "legal work sample, legal drafting, CounselO"}`} schema={schema} extraSchemas={[breadcrumbSchema]} ogType="article" />
-      <section className="bg-primary text-white px-4 py-14">
-        <div className="max-w-6xl mx-auto"><Link href={workBasePath} className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 text-sm"><ArrowLeft className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} />{ui.back}</Link><div className="max-w-4xl"><div className="flex flex-wrap gap-2 mb-5">{workType && <span className="border border-white/25 bg-white/10 px-3 py-1 text-sm">{workType}</span>}{sample.featured && <span className="bg-white text-primary px-3 py-1 text-sm font-semibold">{ar ? "عمل مميز" : "Featured work"}</span>}</div><h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-5">{title}</h1><p className="text-lg text-white/75 leading-relaxed">{summary}</p></div></div>
+      <section className="premium-page-hero text-white px-4 py-14">
+        <div className="max-w-6xl mx-auto"><Link href={workBasePath} className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 text-sm"><ArrowLeft className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} />{ui.back}</Link><div className="max-w-4xl"><div className="flex flex-wrap gap-2 mb-5">{workType && <span className="border border-white/25 bg-white/10 px-3 py-1 text-sm">{workType}</span>}{sample.featured && <span className="bg-white text-primary px-3 py-1 text-sm font-semibold">{ar ? "عمل مميز" : "Featured work"}</span>}</div><h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-5">{title}</h1><div className="premium-hero-rule mb-6" /><p className="text-lg text-white/75 leading-relaxed">{summary}</p></div></div>
       </section>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">

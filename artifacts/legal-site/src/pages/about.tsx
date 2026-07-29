@@ -85,7 +85,7 @@ export default function About() {
   ];
 
   return (
-    <div className="w-full bg-background min-h-screen">
+    <div className="counselo-editorial-page firm-profile-page w-full bg-background min-h-screen">
       <SEOHead
         title={a.seoTitle}
         description={a.seoDesc}
@@ -95,12 +95,11 @@ export default function About() {
       />
 
       {/* ── Hero ── */}
-      <section className="relative py-28 overflow-hidden">
-        {/* Country flag as full background */}
-        <img src={heroFlag} alt="" aria-hidden="true" width={region === "syr" ? 645 : 1600} height={region === "syr" ? 360 : 900} fetchPriority="high" decoding="async" className="absolute inset-0 w-full h-full object-cover object-center" />
-        {/* Dark green overlay so text stays readable */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(0,40,20,0.88) 0%, rgba(0,60,30,0.80) 100%)" }} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="premium-page-hero relative overflow-hidden py-28">
+        {/* The jurisdiction flag remains authentic context, integrated as a quiet editorial layer. */}
+        <img src={heroFlag} alt="" aria-hidden="true" width={region === "syr" ? 645 : 1600} height={region === "syr" ? 360 : 900} fetchPriority="high" decoding="async" className="absolute inset-y-0 end-0 h-full w-[62%] object-cover object-center opacity-[0.08] mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[#073d2b]/82" />
+        <div className="premium-content-shell relative z-10">
           <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-2 mb-6">
               {a.hero.badge}
@@ -109,15 +108,15 @@ export default function About() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
               {a.hero.heading}
             </h1>
-            <div className="w-20 h-1 bg-white/40 mb-8" />
+            <div className="premium-hero-rule mb-8" />
             <p className="text-lg text-white/75 leading-relaxed max-w-2xl">{a.hero.subheading}</p>
           </motion.div>
         </div>
       </section>
 
       {/* ── Stats Bar ── */}
-      <section className="bg-primary/95 py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#003d22] py-10 border-t border-[#d4af60]/30">
+        <div className="premium-content-shell">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {a.stats.map((s, i) => (
               <motion.div key={i} initial={false} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>

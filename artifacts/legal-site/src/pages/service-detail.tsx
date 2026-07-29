@@ -2,7 +2,17 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useParams, Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, CheckCircle2, ChevronRight, ChevronDown, ExternalLink } from "lucide-react";
+import {
+  ArrowLeft,
+  CheckCircle2,
+  ChevronRight,
+  ChevronDown,
+  Clock3,
+  ExternalLink,
+  MessageSquareText,
+  Phone,
+  ShieldCheck,
+} from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
@@ -242,7 +252,7 @@ export default function ServiceDetail() {
   }
 
   return (
-    <div className="w-full bg-background min-h-screen">
+    <div className="counselo-editorial-page service-brief-page w-full bg-background min-h-screen">
       <SEOHead
         title={seoTitle}
         description={seoDesc}
@@ -251,34 +261,55 @@ export default function ServiceDetail() {
         schema={schemas}
         ogType="website"
       />
-      {/* Breadcrumb */}
-      <div className="bg-card border-b border-border py-4 mt-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center text-sm text-muted-foreground">
-            <Link href={regionPrefix} className="hover:text-primary transition-colors">{sd.breadcrumb.home}</Link>
-            <ChevronRight className={`h-4 w-4 mx-2 ${isRTL ? "rotate-180" : ""}`} />
-            <Link href={`${regionPrefix}/services`} className="hover:text-primary transition-colors">{sd.breadcrumb.services}</Link>
-            <ChevronRight className={`h-4 w-4 mx-2 ${isRTL ? "rotate-180" : ""}`} />
-            <span className="text-foreground font-medium">{data.title}</span>
+
+      <section className="service-detail-hero">
+        <div className="premium-content-shell relative z-10 py-14 lg:py-20">
+          <nav aria-label={isRTL ? "مسار التنقل" : "Breadcrumb"} className="mb-9 flex flex-wrap items-center text-sm text-white/62">
+            <Link href={regionPrefix} className="transition-colors hover:text-[#d5ae5d]">{sd.breadcrumb.home}</Link>
+            <ChevronRight className={`mx-2 h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
+            <Link href={`${regionPrefix}/services`} className="transition-colors hover:text-[#d5ae5d]">{sd.breadcrumb.services}</Link>
+            <ChevronRight className={`mx-2 h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
+            <span className="font-medium text-white">{data.title}</span>
+          </nav>
+
+          <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }} className="max-w-4xl">
+            <Link href={`${regionPrefix}/services`} className="mb-7 inline-flex items-center text-sm font-medium text-[#d5ae5d] transition-colors hover:text-white">
+              <ArrowLeft className={`me-2 h-4 w-4 ${isRTL ? "rotate-180" : ""}`} /> {sd.backLink}
+            </Link>
+            <h1 className="mb-6 max-w-4xl font-serif text-5xl font-medium leading-[1.02] tracking-[-0.035em] text-white lg:text-7xl">
+              {isRTL
+                ? `${data.title} في ${isSyr ? "سوريا" : "المملكة العربية السعودية"}`
+                : `${data.title} Lawyer in ${isSyr ? "Syria" : "Saudi Arabia"}`}
+            </h1>
+            <div className="mb-6 h-px w-20 bg-[#d5ae5d]" />
+            <p className="max-w-2xl font-serif text-xl italic leading-relaxed text-white/72 lg:text-2xl">{data.subtitle}</p>
+          </motion.div>
+          </div>
+      </section>
+
+      <nav aria-label={isRTL ? "أقسام صفحة الخدمة" : "Service page sections"} className="service-anchor-rail sticky top-[4.5rem] z-30 border-b border-[#0d4a31]/12 bg-white/95 backdrop-blur">
+        <div className="premium-content-shell overflow-x-auto">
+          <div className="flex min-w-max items-center gap-7 py-4 text-sm font-semibold text-[#355447]">
+            <a href="#service-overview" className="service-anchor-link">{isRTL ? "نظرة عامة" : "Overview"}</a>
+            <a href="#service-covers-heading" className="service-anchor-link">{sd.coversHeading}</a>
+            {commonIssues.length > 0 && <a href="#common-problems-heading" className="service-anchor-link">{isRTL ? "المشكلات الشائعة" : "Common problems"}</a>}
+            {documents.length > 0 && <a href="#documents-heading" className="service-anchor-link">{isRTL ? "المستندات" : "Documents"}</a>}
+            <a href="#related-services-heading" className="service-anchor-link">{isRTL ? "الخدمات المرتبطة" : "Related services"}</a>
+            <a href="#service-process-heading" className="service-anchor-link">{isRTL ? "خطوات العمل" : "Our process"}</a>
+            {displayFaqs.length > 0 && <a href="#service-faq-heading" className="service-anchor-link">{isRTL ? "الأسئلة الشائعة" : "FAQs"}</a>}
+            <a href="#official-sources-heading" className="service-anchor-link">{isRTL ? "المصادر الرسمية" : "Legal sources"}</a>
           </div>
         </div>
-      </div>
+      </nav>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-        <div className="grid lg:grid-cols-12 gap-16">
-          <div className="lg:col-span-8">
+      <div className="premium-content-shell py-12 lg:py-16">
+        <div className="grid gap-12 lg:grid-cols-12 xl:gap-16">
+          <div className="lg:col-span-8 xl:col-span-9">
             <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <Link href={`${regionPrefix}/services`} className="inline-flex items-center text-primary mb-8 hover:underline underline-offset-4 text-sm font-medium">
-                <ArrowLeft className={`me-2 h-4 w-4 ${isRTL ? "rotate-180" : ""}`} /> {sd.backLink}
-              </Link>
-              <h1 className="text-5xl lg:text-6xl font-serif font-bold text-foreground mb-6 leading-tight">
-                {isRTL
-                  ? `${data.title} في ${isSyr ? "سوريا" : "المملكة العربية السعودية"}`
-                  : `${data.title} Lawyer in ${isSyr ? "Syria" : "Saudi Arabia"}`}
-              </h1>
-              <p className="text-2xl text-primary font-serif italic mb-10">{data.subtitle}</p>
-
-              <section className="bg-card border-s-4 border-primary p-6 mb-10" aria-labelledby="service-answer-heading">
+              <section className="service-answer-panel mb-9 border border-[#0d4a31]/14 border-s-4 border-s-[#b4924a] bg-[#eef4f0] p-6 lg:p-8" aria-labelledby="service-answer-heading">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#0d4a31] text-[#d5ae5d]">
+                  <MessageSquareText className="h-5 w-5" strokeWidth={1.5} />
+                </div>
                 <h2 id="service-answer-heading" className="text-2xl font-serif font-bold text-foreground mb-3">
                   {isRTL ? `استشارة ${data.title} في ${countryName}` : `${data.title} consultation in ${countryName}`}
                 </h2>
@@ -289,7 +320,7 @@ export default function ServiceDetail() {
                 </p>
               </section>
 
-              <nav aria-label={isRTL ? "محتويات الصفحة" : "On this page"} className="border border-border bg-background p-5 mb-12">
+              <nav aria-label={isRTL ? "محتويات الصفحة" : "On this page"} className="service-page-index mb-12 border-y border-[#0d4a31]/16 py-5">
                 <p className="text-sm font-bold text-foreground mb-3">{isRTL ? "في هذه الصفحة" : "On this page"}</p>
                 <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
                   {commonIssues.length > 0 && <a href="#common-problems-heading" className="text-primary hover:underline">{isRTL ? "المشكلات الشائعة" : "Common problems"}</a>}
@@ -302,7 +333,7 @@ export default function ServiceDetail() {
               </nav>
 
               {/* Overview — handles both single-string and multi-paragraph formats */}
-              <div className="prose prose-green max-w-none mb-16 speakable-overview">
+              <div id="service-overview" className="prose prose-green max-w-none mb-16 scroll-mt-36 speakable-overview">
                 {displayOverview && (
                   <p className="text-lg text-muted-foreground leading-relaxed">{displayOverview}</p>
                 )}
@@ -319,11 +350,11 @@ export default function ServiceDetail() {
                 )}
               </div>
 
-              <h2 className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">{sd.coversHeading}</h2>
-              <div className="grid sm:grid-cols-2 gap-6 mb-16 speakable-covers">
+              <h2 id="service-covers-heading" className="scroll-mt-36 text-3xl font-serif font-bold text-foreground mb-7">{sd.coversHeading}</h2>
+              <div className="service-content-band mb-16 grid bg-[#eef4f0] p-2 sm:grid-cols-2 speakable-covers">
                 {displayCovers.map((item, i) => (
-                  <div key={i} className="flex items-start gap-3 bg-card border border-border p-4 hover:border-primary/40 transition-colors">
-                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <div key={i} className="flex min-h-24 items-start gap-4 border-b border-e border-[#0d4a31]/12 bg-white/55 p-5 transition-colors hover:bg-white">
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[#aa7e28] mt-0.5" strokeWidth={1.5} />
                     <span className="text-foreground font-medium">{item}</span>
                   </div>
                 ))}
@@ -331,21 +362,21 @@ export default function ServiceDetail() {
 
               {commonIssues.length > 0 && (
                 <section className="mb-16" aria-labelledby="common-problems-heading">
-                  <h2 id="common-problems-heading" className="text-3xl font-serif font-bold text-foreground mb-6 border-b border-border pb-4">
+                  <h2 id="common-problems-heading" className="scroll-mt-36 text-3xl font-serif font-bold text-foreground mb-6">
                     {isRTL ? "المشكلات القانونية الشائعة" : "Common legal problems we can assess"}
                   </h2>
-                  <ul className="grid sm:grid-cols-2 gap-3">
-                    {commonIssues.map((issue) => <li key={issue} className="bg-card border border-border p-4 text-foreground">{issue}</li>)}
+                  <ul className="grid gap-x-9 border-y border-[#0d4a31]/14 py-3 sm:grid-cols-2">
+                    {commonIssues.map((issue) => <li key={issue} className="flex gap-3 border-b border-[#0d4a31]/10 py-4 text-foreground"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#aa7e28]" strokeWidth={1.5}/><span>{issue}</span></li>)}
                   </ul>
                 </section>
               )}
 
               {documents.length > 0 && (
-                <section className="mb-16" aria-labelledby="documents-heading">
-                  <h2 id="documents-heading" className="text-3xl font-serif font-bold text-foreground mb-6 border-b border-border pb-4">
+                <section className="service-content-band mb-16 bg-[#eef4f0] p-7 lg:p-9" aria-labelledby="documents-heading">
+                  <h2 id="documents-heading" className="scroll-mt-36 text-3xl font-serif font-bold text-foreground mb-6">
                     {isRTL ? "مستندات تساعد في التقييم الأولي" : "Documents that help the initial assessment"}
                   </h2>
-                  <ul className="space-y-3 text-muted-foreground">
+                  <ul className="grid gap-3 text-muted-foreground sm:grid-cols-2">
                     {documents.map((document) => <li key={document} className="flex gap-3"><CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5"/><span>{document}</span></li>)}
                   </ul>
                   <p className="text-sm text-muted-foreground mt-5">
@@ -355,7 +386,7 @@ export default function ServiceDetail() {
               )}
 
               <section className="mb-16" aria-labelledby="related-services-heading">
-                <h2 id="related-services-heading" className="text-3xl font-serif font-bold text-foreground mb-6 border-b border-border pb-4">
+                <h2 id="related-services-heading" className="scroll-mt-36 text-3xl font-serif font-bold text-foreground mb-6">
                   {isRTL ? "خدمات قانونية مرتبطة" : "Related legal services"}
                 </h2>
                 <p className="text-muted-foreground mb-5">
@@ -363,64 +394,64 @@ export default function ServiceDetail() {
                     ? "قد تتداخل المسألة الواحدة مع أكثر من مجال قانوني. استكشف الخدمات المرتبطة أو اطّلع على المقالات القانونية قبل طلب الاستشارة."
                     : "One matter can involve several areas of law. Explore closely related services or read the legal guides before requesting a consultation."}
                 </p>
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="grid border-y border-[#0d4a31]/14 sm:grid-cols-2">
                   {relatedServiceIds.map((serviceId) => {
                     const related = sd.services[serviceId as keyof typeof sd.services];
                     return (
                       <Link
                         key={serviceId}
                         href={`${regionPrefix}/services/${serviceId}`}
-                        className="border border-border bg-card p-4 font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
+                        className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31]/12 bg-white p-5 font-semibold text-foreground transition-colors hover:bg-[#eef4f0] hover:text-primary"
                       >
-                        {isRTL ? `استشارة ${related.title}` : `${related.title} legal consultation`}
+                        <span>{isRTL ? `استشارة ${related.title}` : `${related.title} legal consultation`}</span>
+                        <ChevronRight className="h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                       </Link>
                     );
                   })}
-                  <Link href="/blog" className="border border-border bg-card p-4 font-semibold text-foreground hover:border-primary hover:text-primary transition-colors">
-                    {isRTL ? "مقالات وإرشادات قانونية" : "Legal articles and practical guides"}
+                  <Link href="/blog" className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31]/12 bg-white p-5 font-semibold text-foreground transition-colors hover:bg-[#eef4f0] hover:text-primary">
+                    <span>{isRTL ? "مقالات وإرشادات قانونية" : "Legal articles and practical guides"}</span>
+                    <ChevronRight className="h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                   </Link>
-                  <Link href={`${regionPrefix}/contact?service=${id}`} className="border border-primary bg-primary/5 p-4 font-semibold text-primary hover:bg-primary hover:text-white transition-colors">
-                    {isRTL ? `احجز استشارة ${data.title}` : `Book a ${data.title.toLowerCase()} consultation`}
+                  <Link href={`${regionPrefix}/contact?service=${id}`} className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31] bg-[#0d4a31] p-5 font-semibold text-white transition-colors hover:bg-[#073d29]">
+                    <span>{isRTL ? `احجز استشارة ${data.title}` : `Book a ${data.title.toLowerCase()} consultation`}</span>
+                    <ChevronRight className="h-4 w-4 shrink-0 text-[#d5ae5d] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                   </Link>
                 </div>
               </section>
 
-              <h2 id="service-process-heading" className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">{sd.processHeading}</h2>
-              <div className="space-y-8 mb-16">
+              <h2 id="service-process-heading" className="scroll-mt-36 text-3xl font-serif font-bold text-foreground mb-8">{sd.processHeading}</h2>
+              <div className="service-process-grid relative mb-16 grid gap-7 md:grid-cols-2 xl:grid-cols-4">
                 {displayProcess.map((step, i) => (
-                  <div key={i} className="flex gap-6 relative">
-                    {i !== displayProcess.length - 1 && (
-                      <div className="absolute start-6 top-14 bottom-0 w-px bg-border" />
-                    )}
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-serif font-bold text-xl relative z-10">
+                  <div key={i} className="relative border-t border-[#0d4a31]/16 pt-8">
+                    <div className="absolute -top-5 start-0 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#b4924a] font-serif text-lg font-bold text-white shadow-[0_0_0_6px_white]">
                       {i + 1}
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-foreground mb-2">{step.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{step.desc}</p>
-                    </div>
+                    <h3 className="mb-3 font-serif text-xl font-bold text-foreground">{step.title}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
                   </div>
                 ))}
               </div>
 
               {displayFaqs.length > 0 && (
                 <div className="mt-4">
-                  <h2 id="service-faq-heading" className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">
+                  <h2 id="service-faq-heading" className="scroll-mt-36 text-3xl font-serif font-bold text-foreground mb-8">
                     {isRTL ? "الأسئلة الشائعة" : "Frequently Asked Questions"}
                   </h2>
-                  <div className="space-y-3">
+                  <div className="border-t border-[#0d4a31]/18">
                     {displayFaqs.map((faq, i) => (
-                      <div key={i} className="border border-border bg-card">
+                      <div key={i} className="border-b border-[#0d4a31]/18">
                         <button
-                          className="w-full flex items-center justify-between p-5 text-start hover:bg-muted/30 transition-colors"
+                          className="group flex w-full items-center justify-between py-6 text-start transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b4924a]"
                           onClick={() => setOpenFaq(openFaq === i ? null : i)}
                           aria-expanded={openFaq === i}
                         >
                           <span className="font-semibold text-foreground leading-snug pe-4">{faq.q}</span>
-                          <ChevronDown className={`h-5 w-5 text-primary shrink-0 transition-transform duration-200 ${openFaq === i ? "rotate-180" : ""}`} />
+                          <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-[#0d4a31]/14 bg-[#eef4f0]">
+                            <ChevronDown className={`h-4 w-4 text-primary transition-transform duration-200 ${openFaq === i ? "rotate-180" : ""}`} />
+                          </span>
                         </button>
                         {openFaq === i && (
-                          <div className="px-5 pb-5">
+                          <div className="max-w-3xl pb-6">
                             <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
                           </div>
                         )}
@@ -430,7 +461,7 @@ export default function ServiceDetail() {
                 </div>
               )}
 
-              <section className="mt-16 border-t border-border pt-10" aria-labelledby="official-sources-heading">
+              <section className="service-legal-sources mt-16 scroll-mt-36 border-t border-[#0d4a31]/16 bg-[#eef4f0] p-7 lg:p-9" aria-labelledby="official-sources-heading">
                 <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-2">{isRTL ? "الشفافية القانونية" : "Legal transparency"}</p>
                 <h2 id="official-sources-heading" className="text-3xl font-serif font-bold text-foreground mb-4">{isRTL ? "مصادر قانونية رسمية" : "Official legal sources"}</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5">
@@ -441,13 +472,13 @@ export default function ServiceDetail() {
                 <ul className="grid sm:grid-cols-2 gap-3">
                   {legalSources.map((source) => (
                     <li key={source.href}>
-                      <a href={source.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-3 border border-border bg-card p-4 font-semibold text-primary hover:border-primary">
+                      <a href={source.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-3 border-b border-[#0d4a31]/18 bg-white/50 p-4 font-semibold text-primary transition-colors hover:bg-white">
                         <span>{isRTL ? source.ar : source.en}</span><ExternalLink className="h-4 w-4 shrink-0" aria-hidden="true" />
                       </a>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6 bg-muted/50 border border-border p-4 text-sm text-muted-foreground leading-relaxed">
+                <div className="mt-6 border-s-2 border-[#b4924a] bg-white/65 p-4 text-sm text-muted-foreground leading-relaxed">
                   <strong className="text-foreground">{isRTL ? "مسؤول المحتوى:" : "Content responsibility:"}</strong>{" "}
                   {isRTL
                     ? `فريق المحتوى القانوني في كاونسلو. آخر تحديث: 13 يوليو 2026. هذه الصفحة معلومات عامة عن ${data.title} في ${countryName} وليست بديلاً عن استشارة مبنية على الوقائع.`
@@ -459,25 +490,32 @@ export default function ServiceDetail() {
           </div>
 
           {/* Sidebar */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 xl:col-span-3">
             <motion.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-              className="sticky top-28 bg-primary p-8 text-white">
-              <h3 className="text-2xl font-serif font-bold text-white mb-4">{sd.sidebar.heading}</h3>
-              <div className="w-12 h-1 bg-white/40 mb-6" />
-              <p className="text-white/75 mb-8 leading-relaxed">
+              className="service-consultation-panel sticky top-36 overflow-hidden bg-[#0d4a31] p-7 text-white shadow-[0_24px_65px_rgba(13,74,49,0.18)] lg:p-8">
+              <h3 className="mb-4 font-serif text-3xl font-semibold leading-tight text-white">{sd.sidebar.heading}</h3>
+              <div className="mb-6 h-px w-14 bg-[#d5ae5d]" />
+              <p className="mb-7 leading-relaxed text-white/68">
                 {sd.sidebar.descPrefix}{data.title.toLowerCase()}{sd.sidebar.descSuffix}
               </p>
+              <ul className="mb-7 space-y-3 border-y border-white/12 py-5 text-sm text-white/82">
+                <li className="flex items-center gap-3"><Clock3 className="h-4 w-4 text-[#d5ae5d]" />{isRTL ? "استجابة مهنية خلال 24 ساعة" : "Professional response within 24 hours"}</li>
+                <li className="flex items-center gap-3"><ShieldCheck className="h-4 w-4 text-[#d5ae5d]" />{isRTL ? "معلوماتك تعامل بسرية" : "Your information is treated confidentially"}</li>
+              </ul>
               <Link
                 href={`${regionPrefix}/contact?service=${id}`}
                 data-cta="contact"
                 data-region={region}
                 data-lang={isRTL ? "ar" : "en"}
               >
-                <Button className="w-full py-6 text-lg rounded-none bg-white text-primary hover:bg-white/90">{sd.sidebar.ctaBtn}</Button>
+                <Button className="w-full rounded-none bg-[#d5ae5d] py-6 text-base font-bold text-[#0d3e2a] hover:bg-[#e0bd73]">{sd.sidebar.ctaBtn}</Button>
               </Link>
-              <div className="mt-6 pt-6 border-t border-white/20">
-                <p className="text-sm text-white/60 mb-2">{sd.sidebar.callLabel}</p>
-                <p className="text-white font-mono font-medium text-lg" dir="ltr">{sd.sidebar.phone}</p>
+              <div className="mt-6 flex items-start gap-3 border-t border-white/12 pt-6">
+                <Phone className="mt-1 h-4 w-4 shrink-0 text-[#d5ae5d]" />
+                <div>
+                  <p className="mb-1 text-sm text-white/58">{sd.sidebar.callLabel}</p>
+                  <p className="font-mono text-lg font-medium text-white" dir="ltr">{sd.sidebar.phone}</p>
+                </div>
               </div>
             </motion.div>
           </div>

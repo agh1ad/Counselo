@@ -133,7 +133,7 @@ export default function TermsOfService() {
   }[isRTL ? "ar" : "en"];
 
   return (
-    <div className="w-full bg-background min-h-screen">
+    <div className="counselo-editorial-page legal-document-page w-full bg-background min-h-screen">
       <SEOHead
         title={content.seoTitle}
         description={content.seoDesc}
@@ -168,22 +168,32 @@ export default function TermsOfService() {
       />
 
       {/* Hero */}
-      <section className="py-20 px-4"
-        style={{ background: "linear-gradient(135deg, hsl(150 100% 9%) 0%, hsl(150 80% 14%) 100%)" }}>
+      <section className="premium-page-hero py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <p className="text-white/60 font-medium uppercase tracking-widest text-sm mb-3">{content.eyebrow}</p>
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4 leading-tight">{content.heading}</h1>
-            <div className="w-20 h-1 bg-white/30 mb-6" />
+            <div className="premium-hero-rule mb-6" />
             <p className="text-lg text-white/70 leading-relaxed max-w-2xl">{content.subheading}</p>
           </motion.div>
         </div>
       </section>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:px-8 lg:py-24">
+        <nav aria-label={isRTL ? "محتويات شروط الخدمة" : "Terms contents"} className="hidden lg:block">
+          <div className="sticky top-28 border-t-2 border-[#b58b32] bg-[#eef4f0] p-6">
+            <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-[#0d4a31]">{isRTL ? "المحتويات" : "Contents"}</p>
+            <ol className="space-y-4 text-sm">
+              <li><a href="#terms-process" className="text-muted-foreground hover:text-primary">1. {content.processHeading}</a></li>
+              <li><a href="#terms-general" className="text-muted-foreground hover:text-primary">2. {content.termsHeading}</a></li>
+            </ol>
+          </div>
+        </nav>
+        <div>
 
         {/* Process Steps */}
         <motion.section
+          id="terms-process"
           initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
           className="mb-20"
         >
@@ -216,6 +226,7 @@ export default function TermsOfService() {
 
         {/* General Terms */}
         <motion.section
+          id="terms-general"
           initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-16"
         >
@@ -257,6 +268,7 @@ export default function TermsOfService() {
           </div>
         </motion.section>
 
+        </div>
       </div>
     </div>
   );

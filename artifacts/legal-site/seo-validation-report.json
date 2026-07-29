@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-07-29 00:25:58 UTC",
+  "generatedAt": "2026-07-29 12:58:43 UTC",
   "summary": {
-    "pages": 129,
+    "pages": 130,
     "redirects": 40,
     "ok": 128,
-    "warnOnly": 1,
+    "warnOnly": 2,
     "errors": 0,
     "totalErrors": 0,
-    "totalWarnings": 1,
-    "score": 100
+    "totalWarnings": 2,
+    "score": 99
   },
   "ruleFrequency": {
     "title-too-long": {
       "errors": 0,
-      "warns": 1
+      "warns": 2
     },
     "blog-hub-articles": {
       "errors": 0,
@@ -34,7 +34,7 @@
         "FAQPage"
       ],
       "hreflangCount": 7,
-      "internalLinkCount": 61
+      "internalLinkCount": 65
     },
     {
       "file": "ar-our-work.html",
@@ -49,7 +49,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 1
+      "internalLinkCount": 7
     },
     {
       "file": "ar.html",
@@ -64,271 +64,243 @@
         "FAQPage"
       ],
       "hreflangCount": 7,
-      "internalLinkCount": 61
+      "internalLinkCount": 65
     },
     {
       "file": "blog-Penalty-clause-in-saudi.html",
       "route": "/blog/Penalty-clause-in-saudi",
       "isRedirect": false,
-      "title": "الشرط الجزائي | كاونسلو",
-      "description": "أهمية الشرط الجزائي في العقود التجارية ورقابة المحكمة التجارية وسلطتها. الشرط الجزائي ليس مجرد بند إضافي في العقد",
+      "title": "Penalty Clauses in Saudi Commercial Contracts | CounselO",
+      "description": "A legal overview of penalty clauses in Saudi commercial contracts, including judicial oversight, enforceability, drafting, and court powers.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog-adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy.html",
       "route": "/blog/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
       "isRedirect": false,
-      "title": "إدارة المخاطر في العقود وفق النظام السعودي | كاونسلو",
-      "description": "إدارة المخاطر في العقود التجارية وفق النظام السعودي منهجية عملية لحماية الأطراف وتقليل النزاعات تُعدّ إدارة المخاطر في العقود التجارية عنصرًا جوهريًا لضمان",
+      "title": "Contract Risk Management Under Saudi Law | CounselO",
+      "description": "A practical guide to managing risk in Saudi commercial contracts, protecting parties, and reducing disputes through clear legal safeguards.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog-alahlyh-fy-altaaqd-fy-alqanwn-alswry.html",
       "route": "/blog/alahlyh-fy-altaaqd-fy-alqanwn-alswry",
       "isRedirect": false,
-      "title": "الأهلية في التعاقد في القانون السوري | كاونسلو",
-      "description": "الأهلية في التعاقد في القانون السوري من يملك إبرام العقد وما أثر نقص الأهلية على صحته؟ لا يكفي لانعقاد العقد أن يتوافر الرضا وأن يكون المحل والسبب مشروعين، بل",
+      "title": "Contractual Capacity under Syrian Law | CounselO",
+      "description": "Learn who may contract under Syrian law and how full, limited, or absent capacity affects contractual validity.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog-alaqd-fy-alqanwn-alswry.html",
       "route": "/blog/alaqd-fy-alqanwn-alswry",
       "isRedirect": false,
-      "title": "العقد في القانون السوري | كاونسلو",
-      "description": "العقد في القانون السوري المفهوم والأركان والخصائص والأهمية العملية يندرج هذا المقال ضمن سلسلة تمهيدية تهدف إلى شرح نظرية العقد في القانون السوري بلغة تجمع بين",
+      "title": "Contracts in Syrian Law: Concept and Elements | CounselO",
+      "description": "Learn the concept, elements, characteristics, and practical importance of contracts under Syrian law.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog-almswwlyh-alaqdyh-fy-alqanwn-alswry.html",
       "route": "/blog/almswwlyh-alaqdyh-fy-alqanwn-alswry",
       "isRedirect": false,
-      "title": "المسؤولية العقدية في القانون السوري | كاونسلو",
-      "description": "المسؤولية العقدية في القانون السوري متى يُسأل المتعاقد عن الإخلال بالعقد؟ تُعد العقود من أهم وسائل تنظيم العلاقات القانونية بين الأفراد والشركات، لأنها لا تكتفي",
+      "title": "Contractual Liability under Syrian Law | CounselO",
+      "description": "Understand contractual liability under Syrian law, including its conditions, forms of breach, available remedies, and key practical considerations.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog-alrda-fy-alqanwn-alswry.html",
       "route": "/blog/alrda-fy-alqanwn-alswry",
       "isRedirect": false,
-      "title": "الرضا في القانون السوري | كاونسلو",
-      "description": "الرضا في القانون السوري الإيجاب والقبول وكيف ينعقد العقد يُعد الرضا حجر الزاوية في نظرية العقد، فهو الركن الذي تنطلق منه جميع العلاقات التعاقدية. فلا يكفي أن",
+      "title": "Consent in Syrian Law: Offer and Acceptance | CounselO",
+      "description": "Learn how consent, offer, and acceptance form contracts under Syrian civil law, including revocation, silence, and practical examples.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog-altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha.html",
       "route": "/blog/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
       "isRedirect": false,
-      "title": "التأخر في الرواتب أو الامتناع عن دفعها | كاونسلو",
-      "description": "التأخر في الرواتب أو الامتناع عن دفعها الإجراءات والحقوق في النظام السعودي مقدمة: يُعدّ الأجر من أهم عناصر العلاقة العمالية، وأي تأخير أو امتناع عن دفعه قد يمس",
+      "title": "Delayed Wages and Non-Payment Rights in Saudi Arabia | CounselO",
+      "description": "Understand employee rights and practical procedures for delayed wages or non-payment under Saudi law, including digital complaint routes.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 8
     },
     {
       "file": "blog-altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry.html",
       "route": "/blog/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
       "isRedirect": false,
-      "title": "التعويض عن الإخلال بالعقد في القانون السوري | كاونسلو",
-      "description": "التعويض عن الإخلال بالعقد في القانون السوري الشروط والنطاق وتقدير المحكمة لا تكتمل الحماية القانونية للعقد بمجرد إلزام المتعاقدين بتنفيذ ما اتفقوا عليه، بل تمتد",
+      "title": "Contract Breach Compensation Under Syrian Law | CounselO",
+      "description": "Learn when compensation is available for breach of contract under Syrian law, including recoverable harm, proof, assessment, and interest.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog-altwsyat-alamlyh-lsyaghh-aqd-qwy.html",
       "route": "/blog/altwsyat-alamlyh-lsyaghh-aqd-qwy",
       "isRedirect": false,
-      "title": "التوصيات العملية لصياغة عقد قوي | كاونسلو",
-      "description": "التوصيات العملية لصياغة عقد قوي في النظام السعودي دليل شامل للمحامين والمتعاملين تجاريًا تُعدّ صياغة العقد خطوة جوهرية في أي علاقة تجارية أو مدنية، فهي التي",
+      "title": "Practical Tips for Drafting a Strong Contract | CounselO",
+      "description": "A comprehensive guide to drafting clear, enforceable contracts under the Saudi legal system for lawyers and commercial parties.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
+    },
+    {
+      "file": "blog-anha-alaqd-bdwn-sbb-mshrwa.html",
+      "route": "/blog/anha-alaqd-bdwn-sbb-mshrwa",
+      "isRedirect": false,
+      "title": "Termination Without Legitimate Reason | CounselO",
+      "description": "Learn when termination may constitute unfair dismissal under Saudi Labor Law, including workers’ rights, compensation, evidence, and claim procedures.",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 9
     },
     {
       "file": "blog-aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy.html",
       "route": "/blog/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
       "isRedirect": false,
-      "title": "عقود الامتياز التجاري (الفرنشايز) في النظام السعودي | كاونسلو",
-      "description": "عقود الامتياز التجاري (الفرنشايز) في النظام السعودي الضوابط النظامية والمخاطر العملية أصبحت عقود الامتياز التجاري (الفرنشايز) من أهم الأدوات التجارية في السوق",
+      "title": "Saudi Commercial Franchise Agreements | CounselO",
+      "description": "A legal guide to Saudi commercial franchise agreements, disclosure duties, party obligations, practical risks, and disputes.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog-aqwd-almqawlat-fy-alnzam-alsawdy.html",
       "route": "/blog/aqwd-almqawlat-fy-alnzam-alsawdy",
       "isRedirect": false,
-      "title": "عقود المقاولات في النظام السعودي | كاونسلو",
-      "description": "عقود المقاولات في النظام السعودي الالتزامات المتبادلة، المسؤولية، ونزاعات التنفيذ تُعدّ عقود المقاولات من أهم العقود التجارية في المملكة العربية السعودية، نظرًا",
+      "title": "Construction Contracts under Saudi Law | CounselO",
+      "description": "A legal guide to Saudi construction contracts, covering obligations, liability, payment disputes, evidence, and practical drafting guidance.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog-aqwd-alwkalat-altjaryh-fy-alnzam-alsawd.html",
       "route": "/blog/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
       "isRedirect": false,
-      "title": "عقود الوكالات التجارية في النظام السعودي | كاونسلو",
-      "description": "عقود الوكالات التجارية في النظام السعودي حقوق الوكيل والموكل ومسؤولية كل منهما تُعدّ الوكالات التجارية من الأدوات التنظيمية المؤثرة في السوق السعودي، إذ تتيح لل",
+      "title": "Commercial Agency Contracts in Saudi Arabia | CounselO",
+      "description": "A clear legal overview of commercial agency contracts in Saudi Arabia, including rights, obligations, termination, and compensation.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog-athbat-alaqwd-amam-alqda-alsawdy.html",
       "route": "/blog/athbat-alaqwd-amam-alqda-alsawdy",
       "isRedirect": false,
-      "title": "اثبات العقود أمام القضاء السعودي. | كاونسلو",
-      "description": "إثبات العقود أمام القضاء السعودي الأدلة، القرائن، حجية المستندات ، والدليل الرقمي يُعدّ إثبات العقود من أهم مراحل التقاضي في المملكة العربية السعودية، إذ يعتمد",
+      "title": "Proving Contracts Before Saudi Courts | CounselO",
+      "description": "A practical guide to proving contracts before Saudi courts, including documents, digital evidence, presumptions, and the burden of proof.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog-commercial-supply-contracts-in-saudi.html",
       "route": "/blog/commercial-supply-contracts-in-saudi",
       "isRedirect": false,
-      "title": "عقود التوريد التجارية في السعودية | كاونسلو",
-      "description": "عقود التوريد التجارية في السعودية أهم البنود القانونية ومخاطر الإخلال تُعدّ عقود التوريد من أكثر العقود انتشارًا في السوق السعودي، خصوصًا في قطاعات الإنشاءات،",
+      "title": "Commercial Supply Contracts in Saudi Arabia | CounselO",
+      "description": "Learn the key clauses, evidence, breach risks, and practical drafting considerations for commercial supply contracts in Saudi Arabia.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog-consensual-formal-real-contracts-syrian-law.html",
       "route": "/blog/consensual-formal-real-contracts-syrian-law",
       "isRedirect": false,
-      "title": "/blog/أنواع-العقود-في-القانون-السوري | كاونسلو",
-      "description": "العقود في القانون السوري يميز القانون السوري، في إطار النظرية العامة للعقد والأحكام الخاصة ببعض التصرفات، بين العقود الرضائية والشكلية والعينية، لأن لكل نوع منها…",
+      "title": "/blog/consensual-formal-real-contracts-syrian-law | CounselO",
+      "description": "Learn the differences between consensual, formal, and real contracts under Syrian law, including their legal requirements, practical examples, and legal implications…",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog-contract-interpretation-syrian-courts.html",
       "route": "/blog/contract-interpretation-syrian-courts",
       "isRedirect": false,
-      "title": "تفسير العقود أمام القضاء السوري والقواعد القانونية المعتمدة | كاونسلو",
-      "description": "تفسير العقود أمام القضاء السوري والقواعد القانونية المعتمدة ومدى صلاحية القاضي في تعديل العقد",
-      "issues": [],
-      "schemaTypes": [
-        "Article",
-        "BreadcrumbList"
-      ],
-      "hreflangCount": 1,
-      "internalLinkCount": 4
-    },
-    {
-      "file": "blog-contractual-liability-in-commercial-transactions.html",
-      "route": "/blog/contractual-liability-in-commercial-transactions",
-      "isRedirect": false,
-      "title": "المسؤولية العقدية في المعاملات التجارية | كاونسلو",
-      "description": "المسؤولية العقدية ليست مجرد نصوص قانونية، بل هي ضمانة أساسية لاستقرار السوق التجاري السعودي. وكلما كان العقد واضحًا، والالتزامات محددة، والحقوق موثقة، قلّت النزاعات…",
-      "issues": [],
-      "schemaTypes": [
-        "Article",
-        "BreadcrumbList"
-      ],
-      "hreflangCount": 1,
-      "internalLinkCount": 4
-    },
-    {
-      "file": "blog-defects-of-will-syrian-law.html",
-      "route": "/blog/defects-of-will-syrian-law",
-      "isRedirect": false,
-      "title": "عيوب الإرادة في القانون السوري | كاونسلو",
-      "description": "عيوب الإرادة هي ظروف أو وسائل تؤثر في إرادة أحد المتعاقدين عند إبرام العقد، بحيث تجعله يوافق على التعاقد لو لم توجد تلك الظروف لما أقدم عليه، أو لما قبله بالشروط ذاتها.",
-      "issues": [],
-      "schemaTypes": [
-        "Article",
-        "BreadcrumbList"
-      ],
-      "hreflangCount": 1,
-      "internalLinkCount": 4
-    },
-    {
-      "file": "blog-e-contracts-legal-validity-saudi-arabia.html",
-      "route": "/blog/e-contracts-legal-validity-saudi-arabia",
-      "isRedirect": false,
-      "title": "حجية العقود الإلكترونية في السعودية | طرق الإثبات أمام القضاء | كاونسلو",
-      "description": "تعرف على حجية العقود الإلكترونية في النظام السعودي، وشروط صحة التوقيع الإلكتروني، ووسائل إثبات العقود الرقمية أمام القضاء، مع توصيات عملية لحماية الحقوق.",
+      "title": "Contract Interpretation Before Syrian Courts: Legal Rules and Dispute Resolution | CounselO",
+      "description": "Learn how Syrian courts interpret contracts when contractual terms are unclear, conflicting, or open to multiple meanings, and how judges rely on the parties’ common…",
       "issues": [
         {
           "severity": "warn",
           "rule": "title-too-long",
-          "detail": "71 chars (max 70)"
+          "detail": "91 chars (max 70)"
         }
       ],
       "schemaTypes": [
@@ -336,49 +308,97 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
+    },
+    {
+      "file": "blog-contractual-liability-in-commercial-transactions.html",
+      "route": "/blog/contractual-liability-in-commercial-transactions",
+      "isRedirect": false,
+      "title": "Contractual Liability in Saudi Commercial Deals | CounselO",
+      "description": "Explore contractual liability in Saudi commercial transactions, including breach, compensation, penalty clauses, and practical ways to reduce risk.",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 11
+    },
+    {
+      "file": "blog-defects-of-will-syrian-law.html",
+      "route": "/blog/defects-of-will-syrian-law",
+      "isRedirect": false,
+      "title": "Defects of Consent in Syrian Law | CounselO",
+      "description": "Learn how mistake, duress, fraud, and exploitation affect contractual consent and rescission under Syrian civil law.",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 11
+    },
+    {
+      "file": "blog-e-contracts-legal-validity-saudi-arabia.html",
+      "route": "/blog/e-contracts-legal-validity-saudi-arabia",
+      "isRedirect": false,
+      "title": "Electronic Contracts in Saudi Arabia | Legal Validity and Proof | CounselO",
+      "description": "Are electronic contracts legally valid in Saudi Arabia? This article explains the requirements for valid e-signatures, digital evidence, and how electronic contracts…",
+      "issues": [
+        {
+          "severity": "warn",
+          "rule": "title-too-long",
+          "detail": "74 chars (max 70)"
+        }
+      ],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 11
     },
     {
       "file": "blog-formation-of-commercial-contracts-saudi-law.html",
       "route": "/blog/formation-of-commercial-contracts-saudi-law",
       "isRedirect": false,
-      "title": "تكوين العقد التجاري في النظام السعودي | كاونسلو",
-      "description": "يمثّل العقد التجاري حجر الأساس في المعاملات الاقتصادية داخل المملكة العربية السعودية، فهو الإطار الذي تُبنى عليه الالتزامات والحقوق بين الأطراف، ويُعدّ مرجعًا…",
+      "title": "Formation of Commercial Contracts Under Saudi Law | CounselO",
+      "description": "A practical guide to the elements, validity requirements, formation stages, and legal consequences of commercial contracts under Saudi law.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog-fskh-alaqd-altjary-fy-alnzam-alsawdy.html",
       "route": "/blog/fskh-alaqd-altjary-fy-alnzam-alsawdy",
       "isRedirect": false,
-      "title": "فسخ العقد التجاري في النظام السعودي | كاونسلو",
-      "description": "فسخ العقد التجاري في النظام السعودي شروطه وآثاره وطرق إثباته يُعدّ فسخ العقد التجاري من أهم الموضوعات التي تتكرر في النزاعات التجارية داخل المملكة العربية",
+      "title": "Commercial Contract Termination in Saudi Law | CounselO",
+      "description": "Learn the conditions, legal effects, and evidence required to terminate commercial contracts under Saudi law, including key judicial trends.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog-performance-of-contracts-in-good-faith-under-syrian-law.html",
       "route": "/blog/performance-of-contracts-in-good-faith-under-syrian-law",
       "isRedirect": false,
-      "title": "تنفيذ العقد بحسن النية في القانون السوري | كاونسلو",
-      "description": "تنفيذ العقد بحسن النية في القانون السوري ضمانة قانونية لاستقرار المعاملات والعدالة التعاقدية تمثل مرحلة تنفيذ العقد الاختبار العملي الحقيقي للعلاقة التعاقدية؛",
+      "title": "Good-Faith Contract Performance under Syrian Law | CounselO",
+      "description": "Learn how Syrian law requires contracts to be performed in good faith, supporting fair dealing, cooperation, and contractual balance.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 4
+      "internalLinkCount": 11
     },
     {
       "file": "blog.html",
@@ -390,7 +410,7 @@
         {
           "severity": "info",
           "rule": "blog-hub-articles",
-          "detail": "22 article link(s)"
+          "detail": "23 article link(s)"
         }
       ],
       "schemaTypes": [
@@ -399,7 +419,7 @@
         "ItemList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 23
+      "internalLinkCount": 24
     },
     {
       "file": "our-work.html",
@@ -414,7 +434,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 1
+      "internalLinkCount": 7
     },
     {
       "file": "sa-about.html",
@@ -573,7 +593,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 11
     },
     {
       "file": "sa-ar-services-arbitration.html",
@@ -621,7 +641,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 11
     },
     {
       "file": "sa-ar-services-companies-law.html",
@@ -653,7 +673,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 22
     },
     {
       "file": "sa-ar-services-criminal-law.html",
@@ -669,7 +689,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 11
     },
     {
       "file": "sa-ar-services-cyber-law.html",
@@ -685,7 +705,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 11
     },
     {
       "file": "sa-ar-services-employment-law.html",
@@ -701,7 +721,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 15
     },
     {
       "file": "sa-ar-services-enforcement.html",
@@ -888,7 +908,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 25
+      "internalLinkCount": 36
     },
     {
       "file": "sa-blog-board-of-grievances-saudi-arabia.html",
@@ -1017,7 +1037,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 11
     },
     {
       "file": "sa-services-arbitration.html",
@@ -1065,7 +1085,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 11
     },
     {
       "file": "sa-services-companies-law.html",
@@ -1097,7 +1117,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 22
     },
     {
       "file": "sa-services-criminal-law.html",
@@ -1113,7 +1133,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 11
     },
     {
       "file": "sa-services-cyber-law.html",
@@ -1129,7 +1149,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 11
     },
     {
       "file": "sa-services-employment-law.html",
@@ -1145,7 +1165,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 15
     },
     {
       "file": "sa-services-enforcement.html",
@@ -1332,7 +1352,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 25
+      "internalLinkCount": 36
     },
     {
       "file": "syr-about.html",
@@ -1627,7 +1647,7 @@
         "FAQPage"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 9
+      "internalLinkCount": 11
     },
     {
       "file": "syr-ar-services-civil-procedure.html",
@@ -1675,7 +1695,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 20
     },
     {
       "file": "syr-ar-services-criminal-law.html",
@@ -1926,7 +1946,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 25
+      "internalLinkCount": 30
     },
     {
       "file": "syr-blog-administrative-court-disputes-syria.html",
@@ -2191,7 +2211,7 @@
         "FAQPage"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 9
+      "internalLinkCount": 11
     },
     {
       "file": "syr-services-civil-procedure.html",
@@ -2239,7 +2259,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 20
     },
     {
       "file": "syr-services-criminal-law.html",
@@ -2490,7 +2510,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 25
+      "internalLinkCount": 30
     }
   ]
 }

@@ -2,10 +2,12 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { Scale, ShieldCheck, Users, ArrowRight, CheckCircle2, Star, Quote, MessageCircle, Mail, Award, Globe, Zap, BadgeCheck, Wifi, Clock, Lock, MapPin } from "lucide-react";
+import { Scale, ShieldCheck, Users, ArrowRight, CheckCircle2, Star, Quote, MessageCircle, Mail, Award, Globe, Zap, BadgeCheck, Wifi, Clock, Lock, MapPin, MonitorSmartphone, FilePenLine, CreditCard, UserRoundCheck, Building2, BriefcaseBusiness, Landmark, Home as HomeIcon, FileText } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
+import { useEffect, useState } from "react";
+import { HeroPlatformCanvas } from "@/components/home/hero-platform-canvas";
 
 const fadeIn = {
   initial: false as const,
@@ -18,13 +20,33 @@ const platformIcons = { wifi: Wifi, clock: Clock, lock: Lock, globe: Globe };
 const whyIcons = [Zap, ShieldCheck, Award, Globe];
 const clientIcons = [Users, Scale, Globe, BadgeCheck];
 const channelIcons = [MessageCircle, Mail];
-const channelColors = ["bg-[#25D366]", "bg-white/15 border border-white/30"];
+const trustIcons = [Award, Scale, Clock, Globe];
+const stepIcons = [MonitorSmartphone, FilePenLine, CreditCard, UserRoundCheck];
+const serviceCardIcons = [Scale, Users, BriefcaseBusiness, Building2, HomeIcon, Landmark, ShieldCheck, FileText];
 
 export default function Home() {
   const { t, isRTL } = useLanguage();
   const { region, regionPrefix } = useRegion();
   const h = t.home;
   const servicesAreaCount = t.services.items.length;
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [isTestimonialPaused, setIsTestimonialPaused] = useState(false);
+
+  useEffect(() => {
+    const testimonialCount = h.testimonials.items.length;
+    if (testimonialCount <= 1 || isTestimonialPaused) return;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reducedMotion.matches) return;
+
+    const interval = window.setInterval(() => {
+      if (!document.hidden) {
+        setActiveTestimonial((current) => (current + 1) % testimonialCount);
+      }
+    }, 3_000);
+
+    return () => window.clearInterval(interval);
+  }, [h.testimonials.items.length, isTestimonialPaused]);
 
   return (
     <div className="w-full">
@@ -150,95 +172,69 @@ export default function Home() {
       />
 
       {/* ── HERO ── */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        {/* Solid dark green base */}
-        <div className="absolute inset-0 z-0" style={{ background: "hsl(150 100% 5%)" }} />
-
-        {/* Radial glow — upper right */}
-        <div className="absolute inset-0 z-0" style={{ background: "radial-gradient(ellipse at 75% 30%, hsl(150 60% 22% / 0.55) 0%, transparent 65%)" }} />
-
-        {/* Decorative grid lines */}
-        <div className="absolute inset-0 z-0 opacity-[0.04]"
-          style={{ backgroundImage: "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
-
-        {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 inset-x-0 h-32 z-0" style={{ background: "linear-gradient(to bottom, transparent, hsl(150 100% 5% / 0.8))" }} />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-20">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-
-            {/* Left — text */}
-            <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-6">
+      <section className="counselo-hero relative min-h-[calc(100svh-5.25rem)] flex items-center overflow-hidden bg-background">
+        <HeroPlatformCanvas region={region} isRTL={isRTL} />
+        <div className="counselo-hero-canvas-fade" aria-hidden="true" />
+        <div className="counselo-orbit counselo-orbit-hero" aria-hidden="true" />
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10 w-full py-14 lg:py-20">
+            <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75 }} className="relative z-10 max-w-3xl">
+              <h1 className="text-[clamp(3.25rem,6.2vw,6.75rem)] font-serif font-medium text-primary leading-[0.94] tracking-[-0.035em] mb-7 text-balance">
                 {h.hero.h1a}<br />
-                <span className="text-white/70 italic">{h.hero.h1b}</span>
+                <span className="text-foreground italic">{h.hero.h1b}</span>
               </h1>
 
-              <p className="text-xl text-white/75 mb-3 leading-relaxed font-light">
-                {h.hero.desc} <strong className="text-white font-semibold">{h.hero.descBold}</strong>
+              <div className="counselo-gold-rule mb-7" aria-hidden="true" />
+              <p className="text-lg md:text-xl text-foreground/80 mb-3 leading-relaxed max-w-2xl">
+                {h.hero.desc} <strong className="text-primary font-semibold">{h.hero.descBold}</strong>
               </p>
-              <p className="text-base text-white/55 mb-10 leading-relaxed">{h.hero.subDesc}</p>
+              <p className="text-sm md:text-base text-muted-foreground mb-9 leading-relaxed max-w-2xl">{h.hero.subDesc}</p>
 
-              {/* Primary CTA */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 mb-7">
                 <Link href={`${regionPrefix}/contact`}>
-                  <Button size="lg" className="text-base px-8 py-6 rounded-none w-full sm:w-auto bg-white text-primary hover:bg-white/90 font-semibold shadow-lg">{h.hero.bookBtn}</Button>
+                  <Button size="lg" className="counselo-primary-cta group text-base px-8 py-6 rounded-none w-full sm:w-auto bg-primary text-white hover:bg-primary/90 font-semibold">
+                    {h.hero.bookBtn}
+                    <ArrowRight className="ms-3 h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
+                  </Button>
                 </Link>
                 <Link href={`${regionPrefix}/services`}>
-                  <Button size="lg" variant="outline" className="text-base px-8 py-6 rounded-none w-full sm:w-auto border-white/30 text-white hover:bg-white/10">{h.hero.servicesBtn}</Button>
+                  <Button size="lg" variant="outline" className="text-base px-8 py-6 rounded-none w-full sm:w-auto border-[#b4924a] text-foreground hover:bg-[#b4924a]/10">{h.hero.servicesBtn}</Button>
                 </Link>
               </div>
 
-              {/* Channel quick-start buttons */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
                 {h.hero.channels.map((ch, i) => {
                   const Icon = channelIcons[i];
                   return (
                     <Link key={i} href={`${regionPrefix}/contact`}
-                      className={`flex items-center gap-2.5 ${channelColors[i]} text-white px-4 py-2.5 text-sm font-semibold hover:opacity-90 transition-opacity`}>
-                      <Icon className="h-4 w-4 shrink-0" />
+                      className="group flex items-center gap-2.5 text-primary font-semibold">
+                      <span className="w-8 h-8 border border-primary/20 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                        <Icon className="h-4 w-4 shrink-0" />
+                      </span>
                       <span>{ch.label}</span>
-                      <span className="text-white/60 text-xs font-normal hidden sm:block">· {ch.sub.split("·")[1]?.trim()}</span>
+                      <span className="text-muted-foreground text-xs font-normal hidden sm:block">· {ch.sub.split("·")[1]?.trim()}</span>
                     </Link>
                   );
                 })}
               </div>
             </motion.div>
-
-            {/* Right — platform card */}
-            <motion.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.2 }} className="hidden lg:block">
-              <div className="bg-white/5 border border-white/15 p-8 space-y-5 backdrop-blur-sm">
-                <div className="text-white/50 text-xs uppercase tracking-widest mb-6">How it works in 4 steps</div>
-                {h.howItWorks.steps.map((s, i) => (
-                  <div key={i} className="flex items-start gap-4 group">
-                    <div className="w-9 h-9 bg-primary/80 border border-white/10 flex items-center justify-center text-white font-serif font-bold text-sm shrink-0">{s.step}</div>
-                    <div>
-                      <div className="text-white font-semibold text-sm mb-1">{s.title}</div>
-                      <div className="text-white/50 text-xs leading-relaxed">{s.desc}</div>
-                    </div>
-                  </div>
-                ))}
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                  <div className="text-white/40 text-xs">{region === "syr" ? (isRTL ? "موثوق به في سوريا" : "Trusted across Syria") : (isRTL ? "موثوق به في السعودية" : "Trusted across Saudi Arabia")}</div>
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => <Star key={i} className="h-3.5 w-3.5 text-yellow-400 fill-yellow-400" />)}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-          </div>
         </div>
       </section>
 
       {/* ── STATS STRIP ── */}
-      <section className="py-12 bg-card border-y border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x rtl:divide-x-reverse divide-border">
+      <section className="relative py-10 lg:py-12 bg-[#003d22] text-white overflow-hidden">
+        <div className="counselo-orbit counselo-orbit-stats" aria-hidden="true" />
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 divide-x rtl:divide-x-reverse divide-white/20">
             {h.stats.map((item, i) => (
-              <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="text-center px-4">
-                <div className="text-3xl md:text-4xl font-serif font-bold text-primary mb-2 leading-tight">{item.stat}</div>
-                <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider leading-snug">{item.label}</div>
+              <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.08 }} className="px-4 md:px-8 lg:px-10 flex items-center gap-3 md:gap-5">
+                {(() => {
+                  const Icon = trustIcons[i] ?? Award;
+                  return <Icon className="hidden sm:block h-7 w-7 text-[#d4af60] shrink-0" strokeWidth={1.4} />;
+                })()}
+                <div>
+                  <div className="text-3xl md:text-4xl font-serif font-medium text-white mb-1 leading-tight">{item.stat}</div>
+                  <div className="text-[0.65rem] md:text-xs font-medium text-white/65 uppercase tracking-[0.14em] leading-snug">{item.label}</div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -246,24 +242,37 @@ export default function Home() {
       </section>
 
       {/* ── PLATFORM ADVANTAGES ── */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
+      <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
+        <img
+          src="/images/optimized/counselo-platform-line-art-v1.png"
+          alt=""
+          aria-hidden="true"
+          width="1719"
+          height="915"
+          loading="lazy"
+          decoding="async"
+          className="absolute w-[48rem] max-w-[62vw] end-[-4rem] top-[-2rem] opacity-[0.17] pointer-events-none hidden lg:block"
+        />
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
+          <motion.div {...fadeIn} className="max-w-2xl mb-16 lg:mb-24">
             <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{h.platform.eyebrow}</p>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">{h.platform.heading}</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
+            <div className="counselo-gold-rule mb-6" />
             <p className="text-muted-foreground text-lg leading-relaxed">{h.platform.subheading}</p>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 border-y border-border">
             {h.platform.advantages.map((adv, i) => {
               const Icon = platformIcons[adv.icon as keyof typeof platformIcons] ?? Globe;
               return (
                 <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-card border border-border p-8 hover:border-primary/50 hover:shadow-md transition-all group">
-                  <div className="w-12 h-12 bg-primary flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
-                    <Icon className="h-6 w-6 text-white" />
+                  className="group py-9 px-1 sm:px-7 lg:px-8 first:ps-0 lg:border-e last:border-e-0 border-border">
+                  <div className="flex items-center justify-between mb-9">
+                    <div className="w-14 h-14 border border-primary/20 flex items-center justify-center relative">
+                      <Icon className="h-7 w-7 text-primary" strokeWidth={1.4} />
+                    </div>
+                    <span className="font-serif text-4xl text-[#b4924a]/70">0{i + 1}</span>
                   </div>
-                  <h3 className="text-base font-bold text-foreground mb-3">{adv.title}</h3>
+                  <h3 className="text-lg font-serif font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{adv.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{adv.desc}</p>
                 </motion.div>
               );
@@ -273,48 +282,86 @@ export default function Home() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section className="py-24 bg-card border-y border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 lg:py-32 bg-[#003d22] text-white relative overflow-hidden">
+        <img
+          src="/images/optimized/counselo-gold-legal-line-art-v1.png"
+          alt=""
+          aria-hidden="true"
+          width="1254"
+          height="1254"
+          loading="lazy"
+          decoding="async"
+          className="absolute w-[34rem] -start-48 top-24 opacity-[0.13] pointer-events-none"
+        />
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
           <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
-            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{h.howItWorks.eyebrow}</p>
-            <h2 className="text-4xl font-serif font-bold text-foreground mb-4">{h.howItWorks.heading}</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-            <p className="text-muted-foreground text-lg">{h.howItWorks.subheading}</p>
+            <p className="text-[#d4af60] font-medium uppercase tracking-[0.18em] text-xs mb-3">{h.howItWorks.eyebrow}</p>
+            <h2 className="text-4xl md:text-5xl font-serif font-medium text-white mb-4">{h.howItWorks.heading}</h2>
+            <div className="w-20 h-px bg-[#d4af60] mx-auto mb-6" />
+            <p className="text-white/65 text-lg">{h.howItWorks.subheading}</p>
           </motion.div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {h.howItWorks.steps.map((s, i) => (
-              <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
-                className="relative bg-background border border-border p-8 hover:border-primary/50 hover:shadow-md transition-all">
-                <div className="text-6xl font-serif font-bold text-primary/10 absolute top-4 end-6 leading-none select-none">{s.step}</div>
-                <div className="text-primary font-mono text-sm font-bold mb-4">{s.step}</div>
-                <h3 className="text-xl font-serif font-bold text-foreground mb-3">{s.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
-              </motion.div>
-            ))}
+          <div className="relative grid md:grid-cols-4 gap-8 md:gap-0">
+            <div className="hidden md:block absolute top-8 inset-x-[10%] h-px bg-[#d4af60]/55" aria-hidden="true">
+              {[25, 50, 75].map((position) => (
+                <span
+                  key={position}
+                  className="absolute top-1/2 w-2 h-2 bg-white rotate-45 -translate-x-1/2 -translate-y-1/2"
+                  style={{ left: `${position}%` }}
+                />
+              ))}
+            </div>
+            {h.howItWorks.steps.map((s, i) => {
+              const StepIcon = stepIcons[i] ?? CheckCircle2;
+              return (
+                <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
+                  className="relative px-4 lg:px-8 text-center">
+                  <div className="relative z-10 w-16 h-16 rounded-full border border-[#d4af60] bg-[#003d22] text-[#e0c078] flex items-center justify-center mx-auto mb-5 font-serif text-xl shadow-[0_0_0_8px_#003d22]">{s.step.replace(/^0/, "")}</div>
+                  <div className="h-9 border-s border-dashed border-[#d4af60]/70 w-px mx-auto mb-3" aria-hidden="true" />
+                  <StepIcon className="w-10 h-10 text-[#d4af60] mx-auto mb-5" strokeWidth={1.25} aria-hidden="true" />
+                  <h3 className="text-xl font-serif font-medium text-white mb-4">{s.title}</h3>
+                  <p className="text-white/60 leading-relaxed text-sm">{s.desc}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+          <div className="text-center mt-14">
+            <Link href={`${regionPrefix}/contact`}>
+              <Button size="lg" className="group rounded-none px-10 py-6 bg-[#d4af60] text-[#003d22] hover:bg-[#e0c078] font-semibold">
+                {h.consultMethods.ctaBtn}
+                <ArrowRight className="ms-3 h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
+              </Button>
+            </Link>
+            <p className="text-white/45 text-xs mt-4">{isRTL ? "آمن · سري · مهني" : "Secure · Confidential · Professional"}</p>
           </div>
         </div>
       </section>
 
       {/* ── CONSULTATION METHODS ── */}
-      <section className="py-24 bg-primary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
-            <p className="text-white/60 uppercase tracking-widest text-sm font-medium mb-3">{h.consultMethods.eyebrow}</p>
-            <h2 className="text-4xl font-serif font-bold text-white mb-4">{h.consultMethods.heading}</h2>
-            <div className="w-20 h-1 bg-white/30 mx-auto mb-6" />
-            <p className="text-white/70 text-lg leading-relaxed">{h.consultMethods.intro}</p>
+      <section className="py-24 lg:py-28 bg-white border-b border-border">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
+          <motion.div {...fadeIn} className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 mb-12 items-end">
+            <div>
+              <p className="text-[#9a7735] uppercase tracking-[0.18em] text-xs font-semibold mb-3">{h.consultMethods.eyebrow}</p>
+              <h2 className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5">{h.consultMethods.heading}</h2>
+              <div className="counselo-gold-rule" />
+            </div>
+            <p className="text-muted-foreground text-lg leading-relaxed">{h.consultMethods.intro}</p>
           </motion.div>
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 border-y border-border mb-12">
             {h.consultMethods.methods.map((method, i) => {
               const Icon = channelIcons[i];
               return (
                 <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-white/10 border border-white/20 p-8 relative hover:bg-white/15 transition-colors">
-                  <div className="absolute top-4 end-4 bg-white/20 text-white text-xs font-semibold px-2 py-1 uppercase tracking-wider">{method.badge}</div>
-                  <Icon className="h-10 w-10 text-white/70 mb-6" />
-                  <h3 className="text-xl font-serif font-bold text-white mb-3">{method.title}</h3>
-                  <p className="text-white/70 leading-relaxed text-sm mb-6">{method.desc}</p>
-                  <Link href={`${regionPrefix}/contact`} className="inline-flex items-center gap-2 text-white text-sm font-semibold border-b border-white/40 pb-0.5 hover:border-white transition-colors">
+                  className="group py-9 md:py-12 md:px-10 first:md:ps-0 md:border-e last:border-e-0 border-border relative">
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="w-14 h-14 border border-primary/25 flex items-center justify-center">
+                      <Icon className="h-7 w-7 text-primary" strokeWidth={1.5} />
+                    </div>
+                    <div className="text-[#9a7735] text-[0.68rem] font-semibold uppercase tracking-[0.16em]">{method.badge}</div>
+                  </div>
+                  <h3 className="text-2xl font-serif font-medium text-foreground mb-3">{method.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-6">{method.desc}</p>
+                  <Link href={`${regionPrefix}/contact`} className="inline-flex items-center gap-2 text-primary text-sm font-semibold border-b border-primary/30 pb-1 hover:border-primary transition-colors">
                     {h.consultMethods.ctaBtn} <ArrowRight className="h-3.5 w-3.5 rtl:rotate-180" />
                   </Link>
                 </motion.div>
@@ -330,45 +377,49 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT / FOUNDER ── */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+      <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
+        <div className="counselo-orbit counselo-orbit-founder" aria-hidden="true" />
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
+          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-end">
             <motion.div {...fadeIn}>
-              <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{h.about.eyebrow}</p>
-              <h2 className="text-4xl font-serif font-bold text-foreground mb-6">{h.about.heading}</h2>
-              <div className="w-20 h-1 bg-primary mb-8" />
+              <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.about.eyebrow}</p>
+              <h2 className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6 leading-tight">{h.about.heading}</h2>
+              <div className="counselo-gold-rule mb-8" />
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">{h.about.p1}</p>
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">{h.about.p2}</p>
-              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">{h.about.p3}</p>
-              <ul className="space-y-4">
+              <p className="text-muted-foreground text-lg mb-9 leading-relaxed">{h.about.p3}</p>
+              <div className="grid grid-cols-2 border-y border-border mb-8">
+                <div className="py-6 pe-5 border-e border-border">
+                  <span className="block text-4xl font-serif text-primary font-medium mb-1">30+</span>
+                  <span className="block text-[#9a7735] font-semibold uppercase tracking-[0.12em] text-[0.65rem] leading-snug">
+                    {h.about.yearsLabel ?? (isRTL ? "سنة خبرة قانونية" : "Years of Legal Experience")}
+                  </span>
+                </div>
+                <div className="py-6 ps-6">
+                  <span className="block text-4xl font-serif text-primary font-medium mb-1">{h.about.caseStat}</span>
+                  <span className="block text-[#9a7735] font-semibold uppercase tracking-[0.12em] text-[0.65rem] leading-snug">{h.about.caseLabel}</span>
+                </div>
+              </div>
+              <ul className="space-y-4 border-t border-border pt-7">
                 {h.about.bullets.map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-foreground">
-                    <CheckCircle2 className="text-primary h-5 w-5 shrink-0 mt-0.5" />
+                    <span className="mt-2 block h-1.5 w-1.5 rotate-45 bg-[#b4924a] shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
+              <div className="mt-8 pt-6 border-t border-border">
+                <div className="font-serif italic text-2xl text-primary leading-tight">{h.about.founderName}</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-[0.14em] mt-1">{h.about.founderRole}</div>
+              </div>
             </motion.div>
 
-            <motion.div initial={false} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col gap-0">
-              <div className="aspect-[4/5] relative shadow-2xl border border-border overflow-hidden">
+            <motion.div initial={false} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative self-stretch min-h-[560px]">
+              <div className="counselo-orbit counselo-orbit-founder-portrait" aria-hidden="true" />
+              <div className="absolute inset-0 overflow-hidden">
                 <img src="/omar-baghdadi.jpg" alt="Lawyer Omar Al-Baghdadi — Lawyer and Legal Counsel, Founder of CounselO — 30+ years, 20,000+ cases"
-                  className="w-full h-full object-cover object-top"
+                  className="counselo-founder-art w-full h-full object-cover object-top"
                   width="800" height="1200" loading="lazy" decoding="async" />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent px-6 pb-6 pt-20">
-                  <div className="text-white/60 uppercase tracking-widest text-xs mb-1">{h.about.founderRole}</div>
-                  <div className="text-xl font-serif font-bold text-white leading-tight">{h.about.founderName}</div>
-                </div>
-              </div>
-              <div className="grid grid-cols-2">
-                <div className="bg-primary px-6 py-5 flex flex-col justify-center shadow-lg">
-                  <span className="text-2xl font-serif text-white font-bold mb-0.5">{h.about.caseStat}</span>
-                  <span className="text-white/75 font-medium uppercase tracking-wider text-xs leading-tight">{h.about.caseLabel}</span>
-                </div>
-                <div className="bg-foreground px-6 py-5 flex flex-col justify-center shadow-lg">
-                  <span className="text-2xl font-serif text-white font-bold mb-0.5">30+</span>
-                  <span className="text-white/75 font-medium uppercase tracking-wider text-xs leading-tight">{h.about.yearsLabel ?? (isRTL ? "سنة خبرة قانونية" : "Years of Legal Experience")}</span>
-                </div>
               </div>
             </motion.div>
           </div>
@@ -376,51 +427,44 @@ export default function Home() {
       </section>
 
       {/* ── COOPERATING OFFICE / PHYSICAL PRESENCE ── */}
-      <section className="py-24 bg-primary/5 border-y border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="py-24 lg:py-28 bg-white border-y border-border relative overflow-hidden">
+        <div className="counselo-orbit counselo-orbit-section" aria-hidden="true" />
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
+          <div className="grid lg:grid-cols-[0.78fr_1.22fr] gap-12 lg:gap-20 items-start">
             <motion.div {...fadeIn}>
-              <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{h.cooperation.eyebrow}</p>
-              <h2 className="text-3xl font-serif font-bold text-foreground mb-6">{h.cooperation.heading}</h2>
-              <div className="w-16 h-1 bg-primary mb-8" />
+              <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.cooperation.eyebrow}</p>
+              <h2 className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6 leading-tight">{h.cooperation.heading}</h2>
+              <div className="counselo-gold-rule mb-8" />
               <p className="text-muted-foreground text-lg leading-relaxed">{h.cooperation.desc}</p>
             </motion.div>
-            <motion.div initial={false} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="space-y-5">
+            <motion.div initial={false} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="border-t border-border">
               {/* Primary office card */}
-              <div className="bg-primary p-8 text-white">
-                <div className="flex items-start gap-4 mb-5">
-                  <div className="w-12 h-12 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
-                    <MapPin className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-1">{h.cooperation.officeLabel}</div>
-                    <div className="font-serif font-bold text-lg">{h.cooperation.officeName}</div>
-                  </div>
+              <div className="grid sm:grid-cols-[5rem_1fr] gap-5 sm:gap-8 py-8 border-b border-border">
+                <div className="w-16 h-16 border border-primary/20 flex items-center justify-center shrink-0">
+                  <MapPin className="h-7 w-7 text-primary" strokeWidth={1.4} />
                 </div>
-                <div className="border-t border-white/20 pt-5">
+                <div>
+                  <div className="text-[#9a7735] text-[0.68rem] font-semibold uppercase tracking-[0.16em] mb-2">{h.cooperation.officeLabel}</div>
+                  <div className="font-serif font-medium text-2xl text-foreground mb-4">{h.cooperation.officeName}</div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-white/60 shrink-0 mt-0.5" />
-                    <span className="text-white/80 text-sm leading-relaxed">{h.cooperation.officeDetail}</span>
+                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground text-sm leading-relaxed">{h.cooperation.officeDetail}</span>
                   </div>
                 </div>
               </div>
 
               {/* Second office card — Syria only */}
               {h.cooperation.office2 && (
-                <div className="bg-primary/90 p-8 text-white border border-white/10">
-                  <div className="flex items-start gap-4 mb-5">
-                    <div className="w-12 h-12 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
-                      <MapPin className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-1">{h.cooperation.officeLabel}</div>
-                      <div className="font-serif font-bold text-lg">{h.cooperation.office2.officeName}</div>
-                    </div>
+                <div className="grid sm:grid-cols-[5rem_1fr] gap-5 sm:gap-8 py-8 border-b border-border">
+                  <div className="w-16 h-16 border border-primary/20 flex items-center justify-center shrink-0">
+                    <MapPin className="h-7 w-7 text-primary" strokeWidth={1.4} />
                   </div>
-                  <div className="border-t border-white/20 pt-5">
+                  <div>
+                    <div className="text-[#9a7735] text-[0.68rem] font-semibold uppercase tracking-[0.16em] mb-2">{h.cooperation.officeLabel}</div>
+                    <div className="font-serif font-medium text-2xl text-foreground mb-4">{h.cooperation.office2.officeName}</div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-white/60 shrink-0 mt-0.5" />
-                      <span className="text-white/80 text-sm leading-relaxed">{h.cooperation.office2.officeDetail}</span>
+                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground text-sm leading-relaxed">{h.cooperation.office2.officeDetail}</span>
                     </div>
                   </div>
                 </div>
@@ -431,24 +475,27 @@ export default function Home() {
       </section>
 
       {/* ── WHO WE SERVE ── */}
-      <section className="py-24 bg-card border-y border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
-            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{h.whoWeServe.eyebrow}</p>
-            <h2 className="text-4xl font-serif font-bold text-foreground mb-4">{h.whoWeServe.heading}</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-            <p className="text-muted-foreground text-lg">{h.whoWeServe.subheading}</p>
+      <section className="py-24 lg:py-32 bg-background border-b border-border">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
+          <motion.div {...fadeIn} className="max-w-3xl mb-16 lg:mb-20">
+            <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.whoWeServe.eyebrow}</p>
+            <h2 className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5">{h.whoWeServe.heading}</h2>
+            <div className="counselo-gold-rule mb-6" />
+            <p className="text-muted-foreground text-lg leading-relaxed">{h.whoWeServe.subheading}</p>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 border-y border-border">
             {h.whoWeServe.clients.map((client, i) => {
               const Icon = clientIcons[i];
               return (
                 <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-background border border-border p-8 hover:border-primary/50 hover:shadow-md transition-all text-center">
-                  <div className="w-14 h-14 bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6">
-                    <Icon className="h-7 w-7 text-primary" />
+                  className="group py-10 px-1 sm:px-7 lg:px-8 first:ps-0 lg:border-e last:border-e-0 border-border">
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="w-14 h-14 border border-primary/20 flex items-center justify-center">
+                      <Icon className="h-7 w-7 text-primary" strokeWidth={1.4} />
+                    </div>
+                    <span className="font-serif text-4xl text-[#b4924a]/70">0{i + 1}</span>
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3">{client.title}</h3>
+                  <h3 className="text-xl font-serif font-medium text-foreground mb-3 group-hover:text-primary transition-colors">{client.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{client.desc}</p>
                 </motion.div>
               );
@@ -458,53 +505,69 @@ export default function Home() {
       </section>
 
       {/* ── PRACTICE AREAS ── */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeIn} className="mb-16">
-            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{h.practiceAreas.eyebrow}</p>
-            <h2 className="text-4xl font-serif font-bold text-foreground mb-4">{h.practiceAreas.heading}</h2>
-            <div className="w-20 h-1 bg-primary mb-6" />
-            <p className="text-muted-foreground text-lg max-w-2xl">{h.practiceAreas.subheading}</p>
-          </motion.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {h.practiceAreas.areas.map((area, i) => (
-              <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group bg-card border border-border p-8 hover:border-primary/50 hover:shadow-md transition-all">
-                <h3 className="text-xl font-serif font-bold text-foreground mb-4 group-hover:text-primary transition-colors">{area.title}</h3>
-                <p className="text-muted-foreground mb-6 text-sm leading-relaxed">{area.desc}</p>
-                <Link href={regionPrefix + area.path} className="inline-flex items-center text-primary text-sm font-medium group-hover:underline underline-offset-4">
-                  <span>{h.practiceAreas.viewAllBtn.split(" ")[0]}</span>
-                  <ArrowRight className="ms-2 h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-          <div className="mt-12 text-center">
-            <Link href={`${regionPrefix}/services`}>
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white rounded-none px-8">{h.practiceAreas.viewAllBtn}</Button>
-            </Link>
+      <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
+        <div className="counselo-orbit counselo-orbit-practice" aria-hidden="true" />
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
+          <div className="grid lg:grid-cols-[0.72fr_1.28fr] gap-12 lg:gap-20">
+            <motion.div {...fadeIn} className="lg:sticky lg:top-32 lg:self-start">
+              <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.practiceAreas.eyebrow}</p>
+              <h2 className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5 leading-tight">{h.practiceAreas.heading}</h2>
+              <div className="counselo-gold-rule mb-7" />
+              <p className="text-muted-foreground text-lg max-w-xl leading-relaxed">{h.practiceAreas.subheading}</p>
+              <Link href={`${regionPrefix}/services`} className="inline-flex items-center gap-3 text-primary font-semibold mt-8 group">
+                {h.practiceAreas.viewAllBtn}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
+              </Link>
+            </motion.div>
+            <div className="grid sm:grid-cols-2 gap-5">
+              {h.practiceAreas.areas.map((area, i) => {
+                const Icon = serviceCardIcons[i % serviceCardIcons.length];
+                return (
+                <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.06 }}>
+                  <Link
+                    href={regionPrefix + area.path}
+                    className="group flex h-full min-h-56 flex-col border border-primary/15 bg-white p-6 transition-all hover:-translate-y-1 hover:border-[#b4924a] hover:shadow-[0_18px_45px_rgba(0,61,34,0.09)]"
+                  >
+                    <div className="mb-7 flex items-center justify-between">
+                      <span className="flex h-12 w-12 items-center justify-center border border-primary/20 bg-[#eef4f0] text-primary">
+                        <Icon className="h-6 w-6" strokeWidth={1.4} />
+                      </span>
+                      <span className="font-serif text-2xl text-[#b4924a]">0{i + 1}</span>
+                    </div>
+                    <h3 className="mb-3 text-xl font-serif font-medium text-foreground group-hover:text-primary transition-colors">{area.title}</h3>
+                    <p className="mb-7 text-muted-foreground text-sm leading-relaxed">{area.desc}</p>
+                    <ArrowRight className="mt-auto h-5 w-5 text-primary transition-transform group-hover:translate-x-1 rtl:rotate-180" />
+                  </Link>
+                </motion.div>
+              )})}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── WHY ADLIX ── */}
-      <section className="py-24 bg-card border-y border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
-            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{h.whyAdlix.eyebrow}</p>
-            <h2 className="text-4xl font-serif font-bold text-foreground mb-4">{h.whyAdlix.heading}</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
+      <section className="py-24 lg:py-28 bg-[#003d22] text-white relative overflow-hidden">
+        <div className="counselo-orbit counselo-orbit-stats" aria-hidden="true" />
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
+          <motion.div {...fadeIn} className="max-w-3xl mb-16">
+            <p className="text-[#d4af60] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.whyAdlix.eyebrow}</p>
+            <h2 className="text-4xl md:text-5xl font-serif font-medium text-white mb-5">{h.whyAdlix.heading}</h2>
+            <div className="w-24 h-px bg-[#d4af60]" />
           </motion.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 border-y border-white/20">
             {h.whyAdlix.features.map((feature, i) => {
               const Icon = whyIcons[i];
               return (
-                <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="text-center">
-                  <div className="w-14 h-14 bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6">
-                    <Icon className="h-7 w-7 text-primary" />
+                <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="py-10 px-1 md:px-7 lg:px-8 first:ps-0 lg:border-e last:border-e-0 border-white/20">
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="w-14 h-14 border border-[#d4af60]/50 flex items-center justify-center">
+                      <Icon className="h-7 w-7 text-[#d4af60]" strokeWidth={1.4} />
+                    </div>
+                    <span className="font-serif text-4xl text-[#d4af60]/75">0{i + 1}</span>
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3">{feature.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{feature.desc}</p>
+                  <h3 className="text-xl font-serif font-medium text-white mb-3">{feature.title}</h3>
+                  <p className="text-white/65 text-sm leading-relaxed">{feature.desc}</p>
                 </motion.div>
               );
             })}
@@ -515,54 +578,106 @@ export default function Home() {
       <LatestContentCarousels isArabic={isRTL} region={region} />
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-24 bg-card border-y border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
-            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{h.testimonials.eyebrow}</p>
-            <h2 className="text-4xl font-serif font-bold text-foreground mb-4">{h.testimonials.heading}</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-          </motion.div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {h.testimonials.items.map((testimonial, i) => (
-              <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-card border border-border p-8 relative hover:shadow-md transition-shadow">
-                <Quote className="h-8 w-8 text-primary/15 absolute top-8 start-8" />
-                <div className="flex mb-6 mt-2 relative z-10 ps-10">
-                  {[...Array(5)].map((_, j) => <Star key={j} className="h-4 w-4 text-primary fill-primary" />)}
-                </div>
-                <p className="text-muted-foreground mb-6 leading-relaxed relative z-10 italic text-sm">"{testimonial.quote}"</p>
-                <div className="font-bold text-foreground">{testimonial.author}</div>
-                <div className="text-sm text-primary">{testimonial.title}</div>
-              </motion.div>
-            ))}
+      <section
+        className="py-24 lg:py-32 bg-white border-y border-border relative overflow-hidden"
+        onMouseEnter={() => setIsTestimonialPaused(true)}
+        onMouseLeave={() => setIsTestimonialPaused(false)}
+        onFocusCapture={() => setIsTestimonialPaused(true)}
+        onBlurCapture={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+            setIsTestimonialPaused(false);
+          }
+        }}
+      >
+        <div className="counselo-orbit counselo-orbit-testimonial" aria-hidden="true" />
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
+          <div className="grid lg:grid-cols-2 gap-14 lg:gap-24">
+            <motion.div {...fadeIn}>
+              <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.testimonials.eyebrow}</p>
+              <h2 className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-10">{h.testimonials.heading}</h2>
+              <Quote className="h-12 w-12 text-[#b4924a] mb-7" strokeWidth={1.2} />
+              <div className="flex mb-6">
+                {[...Array(5)].map((_, j) => <Star key={j} className="h-4 w-4 text-[#b4924a] fill-[#b4924a]" />)}
+              </div>
+              <motion.blockquote
+                key={activeTestimonial}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-2xl md:text-3xl font-serif text-foreground leading-relaxed mb-8"
+                aria-live="polite"
+              >
+                “{h.testimonials.items[activeTestimonial].quote}”
+              </motion.blockquote>
+              <div className="font-bold text-foreground">{h.testimonials.items[activeTestimonial].author}</div>
+              <div className="text-sm text-primary mt-1">{h.testimonials.items[activeTestimonial].title}</div>
+            </motion.div>
+
+            <div className="self-end border-t border-border">
+              {h.testimonials.items.map((testimonial, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setActiveTestimonial(i)}
+                  className={`w-full grid grid-cols-[3rem_1fr_auto] gap-4 text-start items-center py-5 border-b border-border transition-colors ${
+                    activeTestimonial === i ? "text-primary bg-white/55 px-4" : "text-muted-foreground hover:text-primary px-1"
+                  }`}
+                  aria-pressed={activeTestimonial === i}
+                  aria-label={`${isRTL ? "عرض مراجعة" : "Show review from"} ${testimonial.author}`}
+                >
+                  <span className="font-serif text-2xl text-[#b4924a]">0{i + 1}</span>
+                  <span>
+                    <span className="block font-semibold text-foreground">{testimonial.author}</span>
+                    <span className="block text-xs mt-1">{testimonial.title}</span>
+                  </span>
+                  <ArrowRight className="h-4 w-4 rtl:rotate-180" />
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 relative overflow-hidden bg-primary">
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 80% 50%, hsl(150 80% 30% / 0.4) 0%, transparent 60%)" }} />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <motion.div {...fadeIn}>
-            <p className="text-white/60 uppercase tracking-widest text-sm font-medium mb-4">{h.cta.eyebrow}</p>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">{h.cta.heading}</h2>
-            <p className="text-xl text-white/75 mb-4">{h.cta.desc}</p>
-            <p className="text-white/50 text-base mb-10">{h.cta.subDesc}</p>
-            {/* Channel row inside CTA */}
-            <div className="flex flex-wrap justify-center gap-4 mb-10">
+      <section className="py-20 lg:py-24 relative overflow-hidden bg-[#003d22]">
+        <img
+          src="/images/optimized/counselo-gold-legal-line-art-v1.png"
+          alt=""
+          aria-hidden="true"
+          width="1254"
+          height="1254"
+          loading="lazy"
+          decoding="async"
+          className="absolute w-[30rem] -end-32 -top-32 opacity-[0.13] pointer-events-none"
+        />
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
+          <motion.div {...fadeIn} className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-20 items-center">
+            <div>
+              <p className="text-[#d4af60] uppercase tracking-[0.18em] text-xs font-semibold mb-4">{h.cta.eyebrow}</p>
+              <h2 className="text-4xl md:text-5xl font-serif font-medium text-white mb-6 leading-tight">{h.cta.heading}</h2>
+              <p className="text-lg text-white/70 mb-4 max-w-3xl leading-relaxed">{h.cta.desc}</p>
+              <p className="text-white/45 text-sm">{h.cta.subDesc}</p>
+            </div>
+            <div className="lg:border-s border-white/20 lg:ps-12">
+            <div className="flex flex-col gap-3 mb-7">
               {h.hero.channels.map((ch, i) => {
                 const Icon = channelIcons[i];
                 return (
                   <Link key={i} href={`${regionPrefix}/contact`}
-                    className="flex items-center gap-2 bg-white/15 border border-white/25 text-white px-5 py-3 text-sm font-semibold hover:bg-white/20 transition-colors">
-                    <Icon className="h-4 w-4" /> {ch.label}
+                    className="group flex items-center justify-between gap-4 border-b border-white/20 text-white py-4 text-sm font-semibold hover:border-[#d4af60] transition-colors">
+                    <span className="flex items-center gap-3"><Icon className="h-5 w-5 text-[#d4af60]" /> {ch.label}</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
                   </Link>
                 );
               })}
             </div>
             <Link href={`${regionPrefix}/contact`}>
-              <Button size="lg" className="text-lg px-12 py-8 rounded-none bg-white text-primary hover:bg-white/90 shadow-xl font-semibold">{h.cta.ctaBtn}</Button>
+              <Button size="lg" className="group w-full text-base px-8 py-7 rounded-none bg-[#d4af60] text-[#003d22] hover:bg-[#e0c078] font-semibold">
+                {h.cta.ctaBtn}
+                <ArrowRight className="ms-3 h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
+              </Button>
             </Link>
+            </div>
           </motion.div>
         </div>
       </section>

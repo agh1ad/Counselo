@@ -4,7 +4,7 @@ import { AlertCircle } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-background">
+    <div className="counselo-editorial-page utility-page min-h-screen w-full flex items-center justify-center bg-background">
       <Helmet>
         <title>404 — Page Not Found | CounselO</title>
         <meta name="robots" content="noindex, nofollow" />

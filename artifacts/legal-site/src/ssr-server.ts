@@ -65,12 +65,12 @@ interface ApiPost {
   titleAr: string;
   excerptEn: string;
   excerptAr: string;
-  seoTitleEn: string;
-  seoTitleAr: string;
-  seoDescriptionEn: string;
-  seoDescriptionAr: string;
-  bodyEn: string;
-  bodyAr: string;
+  seoTitleEn?: string;
+  seoTitleAr?: string;
+  seoDescriptionEn?: string;
+  seoDescriptionAr?: string;
+  bodyEn?: string;
+  bodyAr?: string;
   categoryEn: string;
   categoryAr: string;
   readTime: number;
@@ -122,9 +122,22 @@ async function fetchDiscoveryInventory(): Promise<{ posts: ApiPost[]; samples: W
   ]);
   if (!postsRes.ok || !workRes.ok) throw new Error("Discovery API unavailable");
   return {
-    posts: (await postsRes.json()) as ApiPost[],
+    posts: ((await postsRes.json()) as ApiPost[]).map(toDiscoveryPost),
     samples: (await workRes.json()) as WorkSamplePublic[],
   };
+}
+
+function toDiscoveryPost(post: ApiPost): ApiPost {
+  const {
+    bodyEn: _bodyEn,
+    bodyAr: _bodyAr,
+    seoTitleEn: _seoTitleEn,
+    seoTitleAr: _seoTitleAr,
+    seoDescriptionEn: _seoDescriptionEn,
+    seoDescriptionAr: _seoDescriptionAr,
+    ...discoveryPost
+  } = post;
+  return discoveryPost;
 }
 
 function dynamicSitemap(baseXml: string, posts: ApiPost[], samples: WorkSamplePublic[]): string {
@@ -637,6 +650,9 @@ app.get(
     "/sa/ar",
     "/syr",
     "/syr/ar",
+    "/blog",
+    "/our-work",
+    "/ar/our-work",
     "/sa/services/:id",
     "/sa/ar/services/:id",
     "/syr/services/:id",
@@ -693,7 +709,10 @@ app.get("/blog/:slug", async (req: Request, res: Response) => {
 
   // Fetch post data from the API server so we can build proper meta tags.
   // This handles posts published after the last deployment with no redeployment.
-  const result = await fetchBlogPost(slug);
+  const [result, discovery] = await Promise.all([
+    fetchBlogPost(slug),
+    fetchDiscoveryInventory().catch(() => null),
+  ]);
 
   if (result.status === "notfound") {
     res.setHeader("Cache-Control", "no-store");
@@ -704,7 +723,17 @@ app.get("/blog/:slug", async (req: Request, res: Response) => {
 
   if (result.status === "found") {
     try {
-      const html = buildBlogHtml(slug, result.post);
+      const posts = [
+        result.post,
+        ...(discovery?.posts ?? []).filter(
+          (candidate) => candidate.slug !== result.post.slug,
+        ),
+      ];
+      const html = await ssrRender(
+        `/blog/${slug}`,
+        posts,
+        discovery?.samples ?? [],
+      );
       res.setHeader("Content-Type", "text/html; charset=utf-8");
       res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
       return res.send(html);
@@ -739,7 +768,10 @@ app.get("/ar/our-work/:slug", async (req: Request, res: Response) => {
     return res.sendFile(prerendered);
   }
 
-  const result = await fetchWorkSample(slug);
+  const [result, discovery] = await Promise.all([
+    fetchWorkSample(slug),
+    fetchDiscoveryInventory().catch(() => null),
+  ]);
 
   if (result.status === "notfound") {
     res.setHeader("Cache-Control", "no-store");
@@ -753,7 +785,18 @@ app.get("/ar/our-work/:slug", async (req: Request, res: Response) => {
       return res.redirect(301, decision.to);
     }
     try {
-      const html = buildWorkHtml(result.sample, "ar");
+      const currentSample = result.sample as WorkSamplePublic;
+      const samples = [
+        currentSample,
+        ...(discovery?.samples ?? []).filter(
+          (candidate) => candidate.slug !== currentSample.slug,
+        ),
+      ];
+      const html = await ssrRender(
+        `/ar/our-work/${slug}`,
+        discovery?.posts ?? [],
+        samples,
+      );
       res.setHeader("Content-Type", "text/html; charset=utf-8");
       res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
       return res.send(html);
@@ -785,7 +828,10 @@ app.get("/our-work/:slug", async (req: Request, res: Response) => {
     return res.sendFile(prerendered);
   }
 
-  const result = await fetchWorkSample(slug);
+  const [result, discovery] = await Promise.all([
+    fetchWorkSample(slug),
+    fetchDiscoveryInventory().catch(() => null),
+  ]);
 
   if (result.status === "notfound") {
     res.setHeader("Cache-Control", "no-store");
@@ -799,7 +845,18 @@ app.get("/our-work/:slug", async (req: Request, res: Response) => {
       return res.redirect(301, decision.to);
     }
     try {
-      const html = buildWorkHtml(result.sample, "en");
+      const currentSample = result.sample as WorkSamplePublic;
+      const samples = [
+        currentSample,
+        ...(discovery?.samples ?? []).filter(
+          (candidate) => candidate.slug !== currentSample.slug,
+        ),
+      ];
+      const html = await ssrRender(
+        `/our-work/${slug}`,
+        discovery?.posts ?? [],
+        samples,
+      );
       res.setHeader("Content-Type", "text/html; charset=utf-8");
       res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
       return res.send(html);

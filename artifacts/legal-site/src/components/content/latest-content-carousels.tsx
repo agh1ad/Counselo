@@ -12,6 +12,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { type WorkSamplePublic, localized } from "@/lib/work-samples";
+import { fetchPublicJson } from "@/lib/public-api";
 
 type LatestContentCarouselsProps = {
   isArabic: boolean;
@@ -26,9 +27,11 @@ function newestFirst<T extends { date: string }>(items: T[]): T[] {
 function matchesRegion(text: string, region?: "sa" | "syr"): boolean {
   if (!region) return true;
   const normalized = text.toLowerCase();
+  const mentionsSaudi = /(saudi|السعود|alsawd|alnzam-alsawdy)/i.test(normalized);
+  const mentionsSyria = /(syria|syrian|سوريا|السوري|alswry)/i.test(normalized);
   return region === "syr"
-    ? !/(saudi|السعود|alsawd|alnzam-alsawdy)/i.test(normalized)
-    : !/(syria|syrian|سوريا|السوري|alswry)/i.test(normalized);
+    ? mentionsSyria || !mentionsSaudi
+    : mentionsSaudi || !mentionsSyria;
 }
 
 function CardLink({
@@ -100,28 +103,24 @@ export function LatestContentCarousels({
 }: LatestContentCarouselsProps) {
   const { data: posts = [] } = useQuery<InitialBlogPost[]>({
     queryKey: ["blog-posts"],
-    queryFn: async () => {
-      const response = await fetch("/api/blog/posts");
-      if (!response.ok) throw new Error("Unable to load articles");
-      return response.json() as Promise<InitialBlogPost[]>;
-    },
+    queryFn: () => fetchPublicJson<InitialBlogPost[]>("/api/blog/posts"),
     // The build-time list is only a visual placeholder. Fetch immediately so
     // posts published after the last deployment can enter the carousel.
     placeholderData: () =>
       typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined,
     staleTime: 60_000,
+    refetchInterval: 60_000,
+    refetchIntervalInBackground: false,
     refetchOnWindowFocus: "always",
   });
   const { data: workSamples = [] } = useQuery<WorkSamplePublic[]>({
     queryKey: ["work-samples"],
-    queryFn: async () => {
-      const response = await fetch("/api/work");
-      if (!response.ok) throw new Error("Unable to load work samples");
-      return response.json() as Promise<WorkSamplePublic[]>;
-    },
+    queryFn: () => fetchPublicJson<WorkSamplePublic[]>("/api/work"),
     placeholderData: () =>
       typeof window !== "undefined" ? window.__SSR_WORK_SAMPLES__ : undefined,
     staleTime: 60_000,
+    refetchInterval: 60_000,
+    refetchIntervalInBackground: false,
     refetchOnWindowFocus: "always",
   });
 
@@ -129,6 +128,7 @@ export function LatestContentCarousels({
     () =>
       newestFirst(
         posts
+          .filter((post) => post.published !== false)
           .filter((post) => !serviceSlug || post.relatedServiceSlugs?.includes(serviceSlug))
           .filter((post) =>
             matchesRegion(
@@ -141,16 +141,13 @@ export function LatestContentCarousels({
   );
   const latestWork = useMemo(
     () => {
-      const assigned = workSamples.filter(
-        (sample) => !serviceSlug || sample.relatedServiceSlugs?.includes(serviceSlug),
-      );
+      const assigned = workSamples
+        .filter((sample) => sample.published !== false)
+        .filter((sample) => !serviceSlug || sample.relatedServiceSlugs?.includes(serviceSlug));
       const jurisdictionMatches = assigned.filter((sample) =>
         matchesRegion(`${sample.jurisdictionEn} ${sample.jurisdictionAr}`, region),
       );
-      const visible = region && !serviceSlug && jurisdictionMatches.length === 0
-        ? assigned
-        : jurisdictionMatches;
-      return newestFirst(visible).slice(0, 10);
+      return newestFirst(jurisdictionMatches).slice(0, 10);
     },
     [region, serviceSlug, workSamples],
   );
@@ -167,26 +164,26 @@ export function LatestContentCarousels({
 
   return (
     <section
-      className="border-y border-border bg-card py-20"
+      className="border-y border-border bg-[#eef4f0] py-24 lg:py-28"
       aria-labelledby={isService ? "related-content-heading" : isArabic ? "latest-content-heading-ar" : "latest-content-heading"}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-14 max-w-3xl text-center">
-          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-primary">
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+        <div className="mb-14 max-w-3xl">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a7735]">
             {isService
               ? isArabic ? "محتوى مرتبط" : "Related content"
               : isArabic ? "منشور حديثاً" : "Recently published"}
           </p>
           <h2
             id={isService ? "related-content-heading" : isArabic ? "latest-content-heading-ar" : "latest-content-heading"}
-            className="mb-4 font-serif text-3xl font-bold text-foreground md:text-4xl"
+            className="mb-5 font-serif text-4xl font-medium text-foreground md:text-5xl"
           >
             {isService
               ? isArabic ? "أحدث المقالات والأعمال المرتبطة" : "Latest related articles and work"
               : isArabic ? "أحدث مقالاتنا وأعمالنا القانونية" : "Latest legal articles and work"}
           </h2>
-          <div className="mx-auto mb-6 h-1 w-20 bg-primary" />
-          <p className="text-muted-foreground">
+          <div className="counselo-gold-rule mb-6" />
+          <p className="text-lg leading-relaxed text-muted-foreground">
             {isService
               ? isArabic
                 ? "محتوى إضافي عيّنه النظام تلقائياً لهذه الخدمة."
@@ -221,7 +218,7 @@ export function LatestContentCarousels({
                     <CarouselItem key={post.slug} className="sm:basis-1/2 lg:basis-1/3">
                       <article
                         data-content-title={useArabic ? post.titleAr : post.titleEn}
-                        className="flex h-full min-h-64 flex-col border border-border bg-background p-6 transition-all hover:border-primary/50 hover:shadow-md"
+                        className="flex h-full min-h-64 flex-col border-y border-e border-border bg-background p-7 transition-colors hover:bg-white"
                         dir={useArabic ? "rtl" : "ltr"}
                       >
                         <div className="mb-5 flex items-center justify-between gap-3">
@@ -275,7 +272,7 @@ export function LatestContentCarousels({
                   <CarouselItem key={sample.slug} className="sm:basis-1/2 lg:basis-1/3">
                     <article
                       data-content-title={localized(sample.titleEn, sample.titleAr, isArabic ? "ar" : "en")}
-                      className="flex h-full min-h-64 flex-col border border-border bg-background p-6 transition-all hover:border-primary/50 hover:shadow-md"
+                      className="flex h-full min-h-64 flex-col border-y border-e border-border bg-background p-7 transition-colors hover:bg-white"
                     >
                       <div className="mb-5 flex items-center justify-between gap-3">
                         <BriefcaseBusiness className="h-6 w-6 text-primary" aria-hidden="true" />
@@ -290,7 +287,11 @@ export function LatestContentCarousels({
                         {localized(sample.summaryEn, sample.summaryAr, isArabic ? "ar" : "en")}
                       </p>
                       <p className="mb-5 text-xs text-muted-foreground">
-                        {localized(sample.jurisdictionEn, sample.jurisdictionAr, isArabic ? "ar" : "en")}
+                        {region === "syr"
+                          ? (isArabic ? "سوريا" : "Syria")
+                          : region === "sa"
+                            ? (isArabic ? "السعودية" : "Saudi Arabia")
+                            : localized(sample.jurisdictionEn, sample.jurisdictionAr, isArabic ? "ar" : "en")}
                       </p>
                       <CardLink href={`${isArabic ? "/ar" : ""}/our-work/${sample.slug}`} isArabic={isArabic}>
                         {isArabic ? "عرض نموذج العمل" : "View work sample"}

@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
 import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowLeft, MessageCircle, CheckCircle2, Award } from "lucide-react";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
+import { useEffect } from "react";
 
 const counseloLogo = "/images/optimized/counselo-region-logo.png";
 const saudiFlag = "/images/optimized/saudi-arabia-flag.jpg";
@@ -143,6 +144,11 @@ const serviceIcons = [Scale, ShieldCheck, Globe, Clock, Lock, CheckCircle2, Glob
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export default function ArRegionPicker() {
+  useEffect(() => {
+    document.documentElement.lang = "ar";
+    document.documentElement.dir = "rtl";
+  }, []);
+
   return (
     <main className="w-full bg-background" dir="rtl" id="main-content">
       <Helmet>
@@ -185,17 +191,21 @@ export default function ArRegionPicker() {
       </Helmet>
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-4 pt-16 pb-20 text-center overflow-hidden" aria-label="اختيار المنطقة">
-        <div className="absolute inset-0 z-0" style={{ background: "linear-gradient(135deg, hsl(150 100% 10%) 0%, hsl(150 80% 15%) 100%)" }} />
-        <div className="absolute start-0 top-0 w-1/2 h-full opacity-10 pointer-events-none z-0">
-          <div className="w-full h-full" style={{ background: "radial-gradient(ellipse at 50% 50%, hsl(150 60% 60%) 0%, transparent 70%)" }} />
-        </div>
-        <div className="absolute inset-0 z-0 opacity-[0.04]"
-          style={{ backgroundImage: "linear-gradient(hsl(0 0% 100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0 0% 100%) 1px, transparent 1px)", backgroundSize: "80px 80px" }} />
+      <section className="region-picker-hero relative isolate min-h-[88svh] overflow-hidden bg-[#073d2b] px-4 pb-16 pt-10 text-white sm:px-6 lg:px-8 lg:pb-20 lg:pt-14" aria-label="اختيار المنطقة">
+        <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_28%_42%,rgba(194,157,70,0.12),transparent_30%)]" />
+        <img
+          src="/images/optimized/counselo-platform-line-art-v1.png"
+          alt=""
+          aria-hidden="true"
+          width="1200"
+          height="900"
+          decoding="async"
+          className="pointer-events-none absolute -start-32 top-4 -z-10 hidden h-[92%] w-auto max-w-none object-contain opacity-[0.13] lg:block"
+        />
 
-        <div className="relative z-10 w-full max-w-4xl mx-auto">
-          <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="flex flex-col items-center">
-            <Link href="/sa/ar">
+        <div className="relative mx-auto w-full max-w-[1380px]">
+          <div className="mb-10 flex items-center justify-between border-b border-[#0d4a31]/15 bg-white px-4 pb-4 pt-3">
+            <Link href="/sa/ar" aria-label="كاونسلو السعودية">
               <img
                 src={counseloLogo}
                 alt="كاونسلو — استشارات قانونية أونلاين للسعودية وسوريا"
@@ -203,68 +213,95 @@ export default function ArRegionPicker() {
                 height="80"
                 fetchPriority="high"
                 decoding="async"
-                className="h-20 w-auto object-contain mb-10 hover:opacity-90 transition-opacity"
+                className="h-14 w-auto object-contain transition-opacity hover:opacity-80 sm:h-16"
               />
             </Link>
+            <Link href="/" className="border-b border-[#b58b32] pb-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#0d4a31] transition-colors hover:text-[#b58b32]" dir="ltr">
+              English
+            </Link>
+          </div>
 
-            <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-2 mb-8">
-              مستشار قانوني معتمد · السعودية وسوريا
-            </span>
+          <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
+            <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
+              <p className="mb-6 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">
+                مستشار قانوني معتمد · السعودية وسوريا
+              </p>
+              <h1 className="font-serif text-[clamp(2.75rem,5.5vw,5.6rem)] font-semibold leading-[1.05] tracking-[-0.025em] text-white">
+                استشارة قانونية
+                <br />
+                <span className="font-normal text-[#d5ae5d]">عبر الإنترنت.</span>
+              </h1>
+              <div className="my-8 flex items-center gap-3" aria-hidden="true">
+                <span className="h-px w-20 bg-[#b58b32]" />
+                <span className="h-2 w-2 rotate-45 border border-[#b58b32]" />
+              </div>
+              <p className="max-w-xl text-lg font-light leading-8 text-white/72 sm:text-xl">
+                استشارات قانونية احترافية وسرية بالعربية والإنجليزية —{" "}
+                <strong className="font-semibold text-white">وقت استجابة مستهدف خلال 24 ساعة.</strong>
+              </p>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight mb-6 max-w-3xl">
-              استشارة قانونية أونلاين
-              <br />
-              <span className="text-white/70 italic">السعودية وسوريا</span>
-            </h1>
-
-            <div className="w-20 h-1 bg-white/40 mb-8" />
-
-            <p className="text-xl text-white/75 mb-10 max-w-xl leading-relaxed font-light">
-              استشارات قانونية احترافية وسرية بالعربية والإنجليزية —{" "}
-              <strong className="text-white font-semibold">وقت استجابة مستهدف خلال 24 ساعة.</strong>
-            </p>
-
-            <div className="flex flex-wrap justify-center gap-3 mb-12">
-              {["السرية المهنية بين المحامي والموكّل", "وقت استجابة مستهدف خلال 24 ساعة", "بالعربية والإنجليزية"].map((label) => (
-                <span key={label} className="bg-white/10 border border-white/20 text-white/80 text-xs font-medium px-4 py-2 uppercase tracking-wider">
-                  {label}
-                </span>
-              ))}
-            </div>
-
-            <p className="text-white/40 text-xs mb-5 uppercase tracking-widest">اختر نطاق قضائك</p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md mb-8">
-              {[
-                { href: "/syr/ar", flag: syrianFlag, label: "سوريا",                    alt: "سوريا — استشارة قانونية" },
-                { href: "/sa/ar",  flag: saudiFlag,  label: "المملكة العربية السعودية", alt: "السعودية — استشارة قانونية" },
-              ].map(({ href, flag, label, alt }) => (
-                <Link key={href} href={href}>
-                  <div className="group cursor-pointer flex flex-col items-center gap-4 p-8 bg-white/5 border border-white/15 hover:bg-white/10 hover:border-white/40 transition-all duration-200">
-                    <img src={flag} alt={alt} width="72" height="48" decoding="async" className="object-cover shadow-lg" style={{ width: "72px", height: "48px", borderRadius: "2px", border: "1px solid rgba(255,255,255,0.2)" }} />
-                    <div className="text-white font-semibold text-base">{label}</div>
-                    <div className="flex items-center gap-1 text-white/50 text-xs group-hover:text-white/80 transition-colors">
-                      <ArrowLeft className="h-3 w-3" /> ادخل
-                    </div>
+              <div className="mt-10 grid max-w-xl gap-0 border-y border-white/20 sm:grid-cols-3">
+                {["السرية المهنية بين المحامي والموكّل", "وقت استجابة مستهدف خلال 24 ساعة", "بالعربية والإنجليزية"].map((label, index) => (
+                  <div key={label} className={`flex min-h-16 items-center py-4 text-[0.72rem] font-semibold leading-5 tracking-[0.04em] text-white/78 ${index > 0 ? "border-t border-white/20 sm:border-e sm:border-t-0 sm:pe-5" : ""}`}>
+                    {label}
                   </div>
-                </Link>
-              ))}
-            </div>
+                ))}
+              </div>
+            </motion.div>
 
-            <div className="flex flex-wrap justify-center gap-4 text-xs text-white/35">
-              <Link href="/" className="hover:text-white/60 transition-colors">English</Link>
-              <span className="text-white/15">·</span>
-              <Link href="/sa" className="hover:text-white/60 transition-colors">السعودية — إنجليزي</Link>
-              <span className="text-white/15">·</span>
-              <Link href="/syr" className="hover:text-white/60 transition-colors">سوريا — إنجليزي</Link>
-            </div>
-          </motion.div>
+            <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="lg:pt-14">
+              <div className="mb-6 flex items-end justify-between gap-5">
+                <div>
+                  <p className="mb-2 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">اختر نطاق قضائك</p>
+                  <h2 className="font-serif text-3xl text-white sm:text-4xl">أين تحتاج إلى الاستشارة؟</h2>
+                </div>
+                <span className="hidden text-xs tracking-[0.08em] text-white/50 sm:block">اختر للدخول</span>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                {[
+                  { href: "/sa/ar", flag: saudiFlag, label: "المملكة العربية السعودية", alt: "السعودية — استشارة قانونية", number: "٠١", dark: true },
+                  { href: "/syr/ar", flag: syrianFlag, label: "سوريا", alt: "سوريا — استشارة قانونية", number: "٠٢", dark: false },
+                ].map(({ href, flag, label, alt, number, dark }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className={`group relative min-h-[310px] overflow-hidden border p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:min-h-[390px] sm:p-8 ${
+                      dark
+                        ? "border-[#0d4a31] bg-[#0d4a31] text-white"
+                        : "border-[#0d4a31]/25 bg-[#eef4f0]/85 text-[#0d4a31] backdrop-blur-sm hover:border-[#b58b32]"
+                    }`}
+                  >
+                    <div className="absolute inset-x-0 top-0 h-1 bg-[#b58b32] transition-all duration-300 group-hover:h-2" />
+                    <div className="flex items-start justify-between">
+                      <span className={`font-serif text-5xl ${dark ? "text-white/15" : "text-[#0d4a31]/12"}`}>{number}</span>
+                      <img src={flag} alt={alt} width="72" height="48" decoding="async" className="h-11 w-[66px] border border-white/25 object-cover shadow-md" />
+                    </div>
+                    <div className="absolute inset-x-7 bottom-7 sm:inset-x-8 sm:bottom-8">
+                      <p className={`mb-3 text-[0.7rem] font-semibold tracking-[0.08em] ${dark ? "text-[#d4b66c]" : "text-[#9b7426]"}`}>خدمات قانونية في</p>
+                      <h3 className="mb-7 font-serif text-3xl font-semibold leading-tight sm:text-4xl">{label}</h3>
+                      <span className={`flex items-center justify-between border-t pt-4 text-xs font-semibold tracking-[0.08em] ${dark ? "border-white/25 text-white/75" : "border-[#0d4a31]/20 text-[#0d4a31]/70"}`}>
+                        ادخل المنصة
+                        <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs text-white/58" dir="ltr">
+                <Link href="/sa" className="transition-colors hover:text-[#aa7e28]">Saudi Arabia — English</Link>
+                <span aria-hidden="true">·</span>
+                <Link href="/syr" className="transition-colors hover:text-[#aa7e28]">Syria — English</Link>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* ── STATS BAR ── */}
-      <section aria-label="أبرز أرقام كاونسلو" className="py-12 bg-card border-y border-border">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section aria-label="أبرز أرقام كاونسلو" className="border-y border-white/10 bg-[#073d29] py-11 text-white">
+        <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4">
             {[
               { stat: "+30",      label: "عاماً من الخبرة القانونية" },
@@ -272,9 +309,9 @@ export default function ArRegionPicker() {
               { stat: "24 ساعة", label: "وقت الاستجابة المستهدف" },
               { stat: "2",        label: "دولتان: السعودية وسوريا" },
             ].map(({ stat, label }, i, arr) => (
-              <motion.div key={stat} {...fadeIn} className={`text-center px-4 py-2 ${i < arr.length - 1 ? "border-l border-border" : ""}`}>
-                <div className="text-3xl md:text-4xl font-serif font-bold text-primary mb-2 leading-tight text-center">{stat}</div>
-                <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider text-center">{label}</div>
+              <motion.div key={stat} {...fadeIn} className={`px-4 py-3 text-center ${i < arr.length - 1 ? "border-s border-white/15" : ""}`}>
+                <div className="mb-2 text-center font-serif text-3xl font-semibold leading-tight text-[#d4b66c] md:text-4xl">{stat}</div>
+                <div className="text-center text-[0.7rem] font-medium tracking-[0.08em] text-white/65">{label}</div>
               </motion.div>
             ))}
           </div>
@@ -282,17 +319,17 @@ export default function ArRegionPicker() {
       </section>
 
       {/* ── ABOUT / FOUNDER ── */}
-      <section className="py-24 bg-background" aria-labelledby="about-heading-ar">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-16 items-start">
+      <section className="bg-[#eef4f0] py-24 lg:py-32" aria-labelledby="about-heading-ar">
+        <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">
+          <div className="grid items-start gap-14 lg:grid-cols-5 lg:gap-24">
 
             {/* About text — comes first in RTL so shows on right */}
             <motion.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-3">
-              <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">عن كاونسلو</p>
-              <h2 id="about-heading-ar" className="text-4xl font-serif font-bold text-foreground mb-6">
+              <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">عن كاونسلو</p>
+              <h2 id="about-heading-ar" className="mb-6 font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl lg:text-6xl">
                 استشارة قانونية احترافية<br />عبر الإنترنت
               </h2>
-              <div className="w-16 h-1 bg-primary/40 mb-8" />
+              <div className="mb-8 flex items-center gap-3"><span className="h-px w-20 bg-[#b58b32]" /><span className="h-2 w-2 rotate-45 border border-[#b58b32]" /></div>
               <p className="text-muted-foreground leading-relaxed mb-5">
                 <strong className="text-foreground">كاونسلو</strong> منصة استشارات قانونية إلكترونية أسسها وقادها{" "}
                 <strong className="text-foreground">المحامي والمستشار القانوني عمر البغدادي</strong>، صاحب خبرة تمتد لأكثر من{" "}
@@ -304,15 +341,15 @@ export default function ArRegionPicker() {
                 <strong className="text-foreground">بالعربية أو الإنجليزية</strong>، مع وقت استجابة مستهدف{" "}
                 <strong className="text-foreground">خلال 24 ساعة</strong>.
               </p>
-              <div className="grid sm:grid-cols-3 gap-4">
+              <div className="mt-10 grid border-y border-[#0d4a31]/20 sm:grid-cols-3">
                 {[
                   { Icon: Lock,  title: "سرية تامة",          body: "تُطبَّق قواعد السرية المهنية بين المحامي والموكّل. معلوماتك القانونية لا تُشارَك مع أي طرف ثالث." },
                   { Icon: Clock, title: "رد خلال 24 ساعة",    body: "قدّم سؤالك القانوني واحصل على رد متخصص خلال 24 ساعة — والحالات العاجلة تُعطى أولوية." },
                   { Icon: Globe, title: "أونلاين — دون مكتب", body: "استشِر من أي مكان عبر الواتساب أو البريد الإلكتروني. لا تنقل، لا انتظار، لا مواعيد." },
                 ].map(({ Icon, title, body }) => (
-                  <div key={title} className="bg-card border border-border p-5 border-r-2 border-r-primary">
-                    <Icon className="h-5 w-5 text-primary mb-3" />
-                    <div className="font-semibold text-foreground text-sm mb-1">{title}</div>
+                  <div key={title} className="border-b border-[#0d4a31]/20 p-5 last:border-b-0 sm:border-b-0 sm:border-s sm:last:border-s-0">
+                    <Icon className="mb-4 h-6 w-6 text-[#aa7e28]" strokeWidth={1.5} />
+                    <div className="mb-2 font-serif text-base font-semibold text-[#0d4a31]">{title}</div>
                     <p className="text-xs text-muted-foreground leading-relaxed">{body}</p>
                   </div>
                 ))}
@@ -321,7 +358,7 @@ export default function ArRegionPicker() {
 
             {/* Founder card */}
             <motion.div {...fadeIn} className="lg:col-span-2">
-              <div className="bg-primary p-8 text-white mb-6">
+              <div className="relative mb-6 overflow-hidden border-t-4 border-[#b58b32] bg-[#0d4a31] p-8 text-white shadow-[0_24px_70px_rgba(13,74,49,0.14)] lg:p-10">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-14 h-14 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
                     <Award className="h-7 w-7 text-white" />
@@ -368,23 +405,23 @@ export default function ArRegionPicker() {
       </section>
 
       {/* ── PRACTICE AREAS ── */}
-      <section className="py-24 bg-card border-y border-border" aria-labelledby="services-heading-ar">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
-            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">الخدمات القانونية</p>
-            <h2 id="services-heading-ar" className="text-4xl font-serif font-bold text-foreground mb-4">مجالات الممارسة القانونية</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
+      <section className="border-y border-[#0d4a31]/10 bg-white py-24 lg:py-32" aria-labelledby="services-heading-ar">
+        <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeIn} className="mb-16 max-w-3xl">
+            <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">الخدمات القانونية</p>
+            <h2 id="services-heading-ar" className="mb-4 font-serif text-5xl font-semibold text-[#0d4a31] sm:text-6xl">مجالات الممارسة القانونية</h2>
+            <div className="mb-6 flex items-center gap-3"><span className="h-px w-20 bg-[#b58b32]" /><span className="h-2 w-2 rotate-45 border border-[#b58b32]" /></div>
             <p className="text-muted-foreground">متاحة في المملكة العربية السعودية وسوريا</p>
           </motion.div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
+          <div className="mb-12 grid grid-cols-2 border-e border-t border-[#0d4a31]/15 sm:grid-cols-3 lg:grid-cols-4">
             {SERVICES.map(({ slug, ar }, index) => {
               const Icon = serviceIcons[index] ?? Scale;
               return (
                 <motion.div key={slug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: (index % 8) * 0.05 }}
-                  className="bg-background border border-border p-5 hover:border-primary/50 hover:shadow-md transition-all group">
-                  <Icon className="h-6 w-6 text-primary mb-3" />
-                  <div className="font-semibold text-foreground text-sm mb-3 leading-snug">{ar}</div>
+                  className="group min-h-40 border-b border-s border-[#0d4a31]/15 bg-white p-5 transition-colors hover:bg-[#eef4f0] lg:p-7">
+                  <Icon className="mb-5 h-7 w-7 text-[#aa7e28] transition-transform duration-300 group-hover:-translate-y-1" strokeWidth={1.4} />
+                  <div className="mb-4 font-serif text-base font-semibold leading-snug text-[#0d4a31]">{ar}</div>
                   <div className="flex gap-2 flex-wrap">
                     <Link href={`/sa/ar/services/${slug}`} className="text-xs px-2 py-0.5 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors">السعودية</Link>
                     <Link href={`/syr/ar/services/${slug}`} className="text-xs px-2 py-0.5 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors">سوريا</Link>
@@ -406,16 +443,17 @@ export default function ArRegionPicker() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section className="py-24 bg-background" aria-labelledby="how-heading-ar">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
-            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">خطوات بسيطة</p>
-            <h2 id="how-heading-ar" className="text-4xl font-serif font-bold text-foreground mb-4">كيف تعمل الخدمة؟</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-            <p className="text-muted-foreground">أربع خطوات للحصول على استشارة قانونية متخصصة</p>
+      <section className="relative overflow-hidden bg-[#073d29] py-24 text-white lg:py-32" aria-labelledby="how-heading-ar">
+        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),linear-gradient(90deg,rgba(255,255,255,.3) 1px,transparent 1px)", backgroundSize: "72px 72px" }} />
+        <div className="relative mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeIn} className="mb-16 max-w-3xl">
+            <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#d4b66c]">خطوات بسيطة</p>
+            <h2 id="how-heading-ar" className="mb-4 font-serif text-5xl font-semibold text-white sm:text-6xl">كيف تعمل الخدمة؟</h2>
+            <div className="mb-6 flex items-center gap-3"><span className="h-px w-20 bg-[#d4b66c]" /><span className="h-2 w-2 rotate-45 border border-[#d4b66c]" /></div>
+            <p className="text-white/60">أربع خطوات للحصول على استشارة قانونية متخصصة</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div className="relative mb-12 grid md:grid-cols-2 lg:grid-cols-4">
             {[
               { step: "01", title: "اختر نطاقك القضائي",   body: "اختر المملكة العربية السعودية أو سوريا. لكل منطقة صفحات خدمات وأدلة قانونية مخصصة وفق القانون المحلي." },
               { step: "02", title: "صف قضيتك القانونية",   body: "أرسل سؤالك القانوني عبر الواتساب أو نموذج التواصل — بالعربية أو الإنجليزية. أرفق المستندات إن لزم." },
@@ -423,22 +461,22 @@ export default function ArRegionPicker() {
               { step: "04", title: "احصل على رأي قانوني",  body: "يراجع المحامي عمر البغدادي أو أحد أعضاء فريق كاونسلو قضيتك ويردّ خلال 24 ساعة." },
             ].map(({ step, title, body }, i) => (
               <motion.div key={step} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
-                className="relative bg-card border border-border p-8 hover:border-primary/50 hover:shadow-md transition-all">
-                <div className="text-6xl font-serif font-bold text-primary/10 absolute top-4 start-6 leading-none select-none" dir="ltr">{step}</div>
-                <div className="text-primary font-mono text-sm font-bold mb-4" dir="ltr">{step}</div>
-                <h3 className="text-xl font-serif font-bold text-foreground mb-3">{title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">{body}</p>
+                className="relative border-b border-white/15 p-8 transition-colors hover:bg-white/[0.04] md:border-s lg:border-b-0">
+                <div className="absolute start-6 top-4 select-none font-serif text-6xl font-bold leading-none text-white/[0.06]" dir="ltr">{step}</div>
+                <div className="mb-5 font-mono text-sm font-bold text-[#d4b66c]" dir="ltr">{step}</div>
+                <h3 className="mb-3 font-serif text-xl font-semibold text-white">{title}</h3>
+                <p className="text-sm leading-relaxed text-white/60">{body}</p>
               </motion.div>
             ))}
           </div>
 
           <div className="flex justify-center gap-4 flex-wrap">
             <a href="https://wa.me/966594850247" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-[#25D366] text-white font-semibold px-7 py-3 text-sm hover:opacity-90 transition-opacity">
+              className="inline-flex items-center gap-2.5 bg-[#0d4a31] text-white font-semibold px-7 py-3 text-sm hover:bg-[#073d2b] transition-colors">
               <MessageCircle className="h-4 w-4" />
               تواصل عبر الواتساب
             </a>
-            <Link href="/sa/ar/contact" className="inline-flex items-center gap-2 border border-border text-foreground font-semibold px-7 py-3 text-sm hover:border-primary/50 hover:shadow-sm transition-all">
+            <Link href="/sa/ar/contact" className="inline-flex items-center gap-2 border border-white/30 px-7 py-3 text-sm font-semibold text-white transition-all hover:border-[#d4b66c] hover:text-[#d4b66c]">
               <ArrowLeft className="h-4 w-4" /> نموذج التواصل
             </Link>
           </div>
@@ -448,18 +486,18 @@ export default function ArRegionPicker() {
       <LatestContentCarousels isArabic />
 
       {/* ── FAQ ── */}
-      <section className="py-24 bg-background" aria-labelledby="faq-heading-ar">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeIn} className="text-center mb-16">
-            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">الدعم والمساعدة</p>
-            <h2 id="faq-heading-ar" className="text-4xl font-serif font-bold text-foreground mb-4">الأسئلة الشائعة</h2>
-            <div className="w-20 h-1 bg-primary mx-auto" />
+      <section className="bg-[#eef4f0] py-24 lg:py-32" aria-labelledby="faq-heading-ar">
+        <div className="mx-auto grid max-w-[1380px] gap-14 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24 lg:px-8">
+          <motion.div {...fadeIn} className="lg:sticky lg:top-24 lg:self-start">
+            <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">الدعم والمساعدة</p>
+            <h2 id="faq-heading-ar" className="mb-6 font-serif text-5xl font-semibold leading-tight text-[#0d4a31]">الأسئلة الشائعة</h2>
+            <div className="flex items-center gap-3"><span className="h-px w-20 bg-[#b58b32]" /><span className="h-2 w-2 rotate-45 border border-[#b58b32]" /></div>
           </motion.div>
-          <div className="space-y-4">
+          <div className="border-t border-[#0d4a31]/20">
             {FAQS.map(({ q, a }, i) => (
               <motion.div key={q} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="bg-card border border-border border-r-2 border-r-primary p-6">
-                <h3 className="font-serif font-semibold text-foreground mb-2">{q}</h3>
+                className="border-b border-[#0d4a31]/20 py-7">
+                <h3 className="mb-3 font-serif text-lg font-semibold text-[#0d4a31]">{q}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{a}</p>
               </motion.div>
             ))}
@@ -468,12 +506,12 @@ export default function ArRegionPicker() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 bg-primary" aria-label="دعوة للتواصل">
+      <section className="relative overflow-hidden bg-[#0d4a31] py-24 lg:py-32" aria-label="دعوة للتواصل">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div {...fadeIn}>
-            <p className="text-white/60 uppercase tracking-widest text-sm font-medium mb-3">ابدأ الآن</p>
-            <h2 className="text-4xl font-serif font-bold text-white mb-4">هل أنت مستعد للحصول على استشارة قانونية متخصصة؟</h2>
-            <div className="w-20 h-1 bg-white/30 mx-auto mb-8" />
+            <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#d4b66c]">ابدأ الآن</p>
+            <h2 className="mb-5 font-serif text-5xl font-semibold leading-tight text-white sm:text-6xl">هل أنت مستعد للحصول على استشارة قانونية متخصصة؟</h2>
+            <div className="mx-auto mb-8 flex w-fit items-center gap-3"><span className="h-px w-20 bg-[#d4b66c]" /><span className="h-2 w-2 rotate-45 border border-[#d4b66c]" /></div>
             <p className="text-white/70 text-lg leading-relaxed mb-10">
               اختر نطاقك القضائي للوصول إلى الخدمات القانونية المتخصصة والأدلة المجانية وحجز الاستشارات.
             </p>
@@ -490,8 +528,8 @@ export default function ArRegionPicker() {
       </section>
 
       {/* ── FOOTER NAV ── */}
-      <section className="py-16 bg-card border-t border-border">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="border-t border-white/10 bg-[#062d20] py-16 text-white [&_.text-foreground]:text-white [&_.text-muted-foreground]:text-white/55 [&_a:hover]:text-[#d4b66c]">
+        <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">
           <nav aria-label="روابط التنقل في الموقع">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm text-muted-foreground mb-12">
               <div>
