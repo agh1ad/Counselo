@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-21 21:03:38 UTC",
+  "generatedAt": "2026-07-28 23:54:11 UTC",
   "summary": {
-    "pages": 125,
+    "pages": 129,
     "redirects": 40,
-    "ok": 124,
+    "ok": 128,
     "warnOnly": 1,
     "errors": 0,
     "totalErrors": 0,
@@ -81,6 +81,34 @@
       "internalLinkCount": 4
     },
     {
+      "file": "blog-adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy.html",
+      "route": "/blog/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+      "isRedirect": false,
+      "title": "إدارة المخاطر في العقود وفق النظام السعودي | كاونسلو",
+      "description": "إدارة المخاطر في العقود التجارية وفق النظام السعودي منهجية عملية لحماية الأطراف وتقليل النزاعات تُعدّ إدارة المخاطر في العقود التجارية عنصرًا جوهريًا لضمان",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 4
+    },
+    {
+      "file": "blog-alahlyh-fy-altaaqd-fy-alqanwn-alswry.html",
+      "route": "/blog/alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+      "isRedirect": false,
+      "title": "الأهلية في التعاقد في القانون السوري | كاونسلو",
+      "description": "الأهلية في التعاقد في القانون السوري من يملك إبرام العقد وما أثر نقص الأهلية على صحته؟ لا يكفي لانعقاد العقد أن يتوافر الرضا وأن يكون المحل والسبب مشروعين، بل",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 4
+    },
+    {
       "file": "blog-alaqd-fy-alqanwn-alswry.html",
       "route": "/blog/alaqd-fy-alqanwn-alswry",
       "isRedirect": false,
@@ -123,11 +151,39 @@
       "internalLinkCount": 4
     },
     {
+      "file": "blog-altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha.html",
+      "route": "/blog/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+      "isRedirect": false,
+      "title": "التأخر في الرواتب أو الامتناع عن دفعها | كاونسلو",
+      "description": "التأخر في الرواتب أو الامتناع عن دفعها الإجراءات والحقوق في النظام السعودي مقدمة: يُعدّ الأجر من أهم عناصر العلاقة العمالية، وأي تأخير أو امتناع عن دفعه قد يمس",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 4
+    },
+    {
       "file": "blog-altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry.html",
       "route": "/blog/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
       "isRedirect": false,
       "title": "التعويض عن الإخلال بالعقد في القانون السوري | كاونسلو",
       "description": "التعويض عن الإخلال بالعقد في القانون السوري الشروط والنطاق وتقدير المحكمة لا تكتمل الحماية القانونية للعقد بمجرد إلزام المتعاقدين بتنفيذ ما اتفقوا عليه، بل تمتد",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 4
+    },
+    {
+      "file": "blog-altwsyat-alamlyh-lsyaghh-aqd-qwy.html",
+      "route": "/blog/altwsyat-alamlyh-lsyaghh-aqd-qwy",
+      "isRedirect": false,
+      "title": "التوصيات العملية لصياغة عقد قوي | كاونسلو",
+      "description": "التوصيات العملية لصياغة عقد قوي في النظام السعودي دليل شامل للمحامين والمتعاملين تجاريًا تُعدّ صياغة العقد خطوة جوهرية في أي علاقة تجارية أو مدنية، فهي التي",
       "issues": [],
       "schemaTypes": [
         "Article",
@@ -334,7 +390,7 @@
         {
           "severity": "info",
           "rule": "blog-hub-articles",
-          "detail": "18 article link(s)"
+          "detail": "22 article link(s)"
         }
       ],
       "schemaTypes": [
@@ -343,7 +399,7 @@
         "ItemList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 19
+      "internalLinkCount": 23
     },
     {
       "file": "our-work.html",
@@ -832,7 +888,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 18
+      "internalLinkCount": 25
     },
     {
       "file": "sa-blog-board-of-grievances-saudi-arabia.html",
@@ -1276,7 +1332,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 18
+      "internalLinkCount": 25
     },
     {
       "file": "syr-about.html",
@@ -1870,7 +1926,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 18
+      "internalLinkCount": 25
     },
     {
       "file": "syr-blog-administrative-court-disputes-syria.html",
@@ -2434,7 +2490,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 18
+      "internalLinkCount": 25
     }
   ]
 }

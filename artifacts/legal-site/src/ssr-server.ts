@@ -25,6 +25,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { RenderResult } from "./entry-server.js";
+import type { WorkSamplePublic } from "./lib/work-samples.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -114,7 +115,7 @@ function escapeXml(s: string): string {
   return escapeHtml(s).replace(/'/g, "&apos;");
 }
 
-async function fetchDiscoveryInventory(): Promise<{ posts: ApiPost[]; samples: ApiWorkSample[] }> {
+async function fetchDiscoveryInventory(): Promise<{ posts: ApiPost[]; samples: WorkSamplePublic[] }> {
   const [postsRes, workRes] = await Promise.all([
     fetch(`${apiOrigin}/api/blog/posts`),
     fetch(`${apiOrigin}/api/work`),
@@ -122,11 +123,11 @@ async function fetchDiscoveryInventory(): Promise<{ posts: ApiPost[]; samples: A
   if (!postsRes.ok || !workRes.ok) throw new Error("Discovery API unavailable");
   return {
     posts: (await postsRes.json()) as ApiPost[],
-    samples: (await workRes.json()) as ApiWorkSample[],
+    samples: (await workRes.json()) as WorkSamplePublic[],
   };
 }
 
-function dynamicSitemap(baseXml: string, posts: ApiPost[], samples: ApiWorkSample[]): string {
+function dynamicSitemap(baseXml: string, posts: ApiPost[], samples: WorkSamplePublic[]): string {
   let xml = baseXml
     .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/blog\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "")
     .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/(?:ar\/)?our-work\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "");
@@ -163,7 +164,7 @@ ${alternates}
   return xml.replace("</urlset>", `${items.length ? `\n${items.join("\n")}\n` : ""}</urlset>`);
 }
 
-function discoveryFeed(posts: ApiPost[], samples: ApiWorkSample[]): string {
+function discoveryFeed(posts: ApiPost[], samples: WorkSamplePublic[]): string {
   const items = [
     ...posts.map((post) => ({ title: post.titleEn || post.titleAr, description: post.excerptEn || post.excerptAr, url: `${apiOrigin}/blog/${post.slug}`, modified: post.updatedAt || post.date })),
     ...samples.flatMap((sample) => {
@@ -516,22 +517,27 @@ function htmlTag(route: string): string {
 // On-demand SSR for routes with no prerendered file
 // ---------------------------------------------------------------------------
 
-let _render: ((url: string) => RenderResult) | null = null;
+let _render: ((url: string, posts?: ApiPost[], samples?: WorkSamplePublic[]) => RenderResult) | null = null;
 
-async function ssrRender(url: string): Promise<string> {
+async function ssrRender(
+  url: string,
+  posts: ApiPost[] = [],
+  samples: WorkSamplePublic[] = [],
+): Promise<string> {
   if (!_render) {
     const mod = (await import(ssrBundle)) as {
-      render: (url: string) => RenderResult;
+      render: (url: string, posts?: ApiPost[], samples?: WorkSamplePublic[]) => RenderResult;
     };
     _render = mod.render;
   }
 
   const template = readFileSync(shellHtml, "utf-8");
-  const { head, body } = _render(url);
+  const { head, body } = _render(url, posts, samples);
+  const discoveryData = `<script>window.__SSR_POSTS__=${JSON.stringify(posts).replace(/</g, "\\u003c")};window.__SSR_WORK_SAMPLES__=${JSON.stringify(samples).replace(/</g, "\\u003c")};</script>`;
 
   return template
     .replace('<html lang="en">', htmlTag(url))
-    .replace("<!--app-head-->", unescapeHeadEntities(addDataRh(head)))
+    .replace("<!--app-head-->", `${unescapeHeadEntities(addDataRh(head))}${discoveryData}`)
     .replace(
       /<div id="root"><\/div>/,
       `<div id="root" data-ssr="true" data-ssr-url="${url}">${body}</div>`,
@@ -621,6 +627,34 @@ app.get("/counselo-admin", (_req: Request, res: Response) => {
     .status(200)
     .send(spaShell("CounselO Admin", "noindex, nofollow, noarchive"));
 });
+
+// Keep the homepage and related service pages fresh so every newly published
+// article/work sample immediately gains crawlable links from two established
+// URL surfaces without waiting for a redeploy.
+app.get(
+  [
+    "/sa",
+    "/sa/ar",
+    "/syr",
+    "/syr/ar",
+    "/sa/services/:id",
+    "/sa/ar/services/:id",
+    "/syr/services/:id",
+    "/syr/ar/services/:id",
+  ],
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { posts, samples } = await fetchDiscoveryInventory();
+      const html = await ssrRender(req.path, posts, samples);
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
+      res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
+      return res.send(html);
+    } catch (error) {
+      console.error(`Fresh discovery SSR failed for ${req.path}:`, error);
+      return next();
+    }
+  },
+);
 
 // 2. Root "/" — serve the prerendered homepage
 app.get("/", (_req: Request, res: Response) => {

@@ -18,6 +18,9 @@ interface ApiPost {
   excerptEn: string;
   excerptAr: string;
   published: boolean;
+  relatedServiceSlugs?: string[];
+  relatedBlogSlugs?: string[];
+  relatedWorkSlugs?: string[];
 }
 
 declare global {

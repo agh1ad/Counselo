@@ -21,6 +21,7 @@
 import { renderToString } from "react-dom/server";
 import { HelmetProvider } from "react-helmet-async";
 import App, { type InitialBlogPost } from "./App";
+import type { WorkSamplePublic } from "./lib/work-samples";
 
 export interface RenderResult {
   /** Hoisted head tags (title, meta, link, script) from React 19 head hoisting */
@@ -74,10 +75,11 @@ function splitHeadAndBody(rendered: string): { head: string; body: string } {
 export function render(
   url: string,
   initialBlogPosts: InitialBlogPost[] = [],
+  initialWorkSamples: WorkSamplePublic[] = [],
 ): RenderResult {
   const rendered = renderToString(
     <HelmetProvider>
-      <App ssrUrl={url} initialBlogPosts={initialBlogPosts} />
+      <App ssrUrl={url} initialBlogPosts={initialBlogPosts} initialWorkSamples={initialWorkSamples} />
     </HelmetProvider>,
   );
 

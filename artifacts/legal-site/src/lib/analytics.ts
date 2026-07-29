@@ -5,6 +5,7 @@ export interface EventLog {
   event: string;
   page: string;
   ts: number;
+  details?: Record<string, string | number | boolean>;
 }
 
 export interface AnalyticsStore {
@@ -36,7 +37,22 @@ function today() {
   return new Date().toISOString().slice(0, 10);
 }
 
-export function trackEvent(event: "whatsapp_click" | "consultation_click" | "phone_click" | "email_click", page: string) {
+type AnalyticsDetails = Record<string, string | number | boolean | undefined>;
+
+function sendToGA(event: string, details: AnalyticsDetails) {
+  if (typeof window === "undefined") return;
+  const gaWindow = window as unknown as {
+    dataLayer?: unknown[][];
+    gtag?: (...args: unknown[]) => void;
+  };
+  gaWindow.dataLayer = gaWindow.dataLayer || [];
+  gaWindow.gtag = gaWindow.gtag || function (...args: unknown[]) {
+    gaWindow.dataLayer?.push(args);
+  };
+  gaWindow.gtag("event", event, details);
+}
+
+export function trackEvent(event: string, page: string, details: AnalyticsDetails = {}) {
   const store = load();
   const day = today();
 
@@ -45,7 +61,10 @@ export function trackEvent(event: "whatsapp_click" | "consultation_click" | "pho
   if (event === "phone_click") store.phone_clicks++;
   if (event === "email_click") store.email_clicks++;
 
-  store.events.push({ event, page, ts: Date.now() });
+  const cleanDetails = Object.fromEntries(
+    Object.entries(details).filter((entry): entry is [string, string | number | boolean] => entry[1] !== undefined),
+  );
+  store.events.push({ event, page, ts: Date.now(), ...(Object.keys(cleanDetails).length ? { details: cleanDetails } : {}) });
   store.pageviews[page] = (store.pageviews[page] ?? 0);
 
   if (!store.daily[day]) store.daily[day] = { whatsapp: 0, consultation: 0 };
@@ -54,10 +73,7 @@ export function trackEvent(event: "whatsapp_click" | "consultation_click" | "pho
 
   save(store);
 
-  if (typeof window !== "undefined" && typeof (window as unknown as { gtag?: unknown }).gtag === "function") {
-    const gtag = (window as unknown as { gtag: (...args: unknown[]) => void }).gtag;
-    gtag("event", event, { event_category: "engagement", event_label: page });
-  }
+  sendToGA(event, { event_category: "engagement", event_label: page, page_path: page, ...details });
 }
 
 export function trackPageview(path: string) {
@@ -65,10 +81,7 @@ export function trackPageview(path: string) {
   store.pageviews[path] = (store.pageviews[path] ?? 0) + 1;
   save(store);
 
-  if (typeof window !== "undefined" && typeof (window as unknown as { gtag?: unknown }).gtag === "function") {
-    const gtag = (window as unknown as { gtag: (...args: unknown[]) => void }).gtag;
-    gtag("event", "page_view", { page_path: path });
-  }
+  sendToGA("page_view", { page_path: path });
 }
 
 export function getAnalytics(): AnalyticsStore {
@@ -94,19 +107,22 @@ export function setGAMeasurementId(id: string) {
 
 export function injectGA(measurementId: string) {
   if (!measurementId || typeof document === "undefined") return;
+  const gaWindow = window as unknown as { dataLayer?: unknown[][]; gtag?: (...args: unknown[]) => void };
+  gaWindow.dataLayer = gaWindow.dataLayer || [];
+  gaWindow.gtag = gaWindow.gtag || function (...args: unknown[]) {
+    gaWindow.dataLayer?.push(args);
+  };
+
   const existingId = document.getElementById("ga-script");
-  if (existingId) existingId.remove();
-  const existingInline = document.getElementById("ga-inline");
-  if (existingInline) existingInline.remove();
-
-  const script = document.createElement("script");
-  script.id = "ga-script";
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-  document.head.appendChild(script);
-
-  const inline = document.createElement("script");
-  inline.id = "ga-inline";
-  inline.text = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${measurementId}',{send_page_view:false});`;
-  document.head.appendChild(inline);
+  if (existingId?.getAttribute("data-measurement-id") !== measurementId) {
+    if (existingId) existingId.remove();
+    const script = document.createElement("script");
+    script.id = "ga-script";
+    script.setAttribute("data-measurement-id", measurementId);
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    document.head.appendChild(script);
+  }
+  gaWindow.gtag("js", new Date());
+  gaWindow.gtag("config", measurementId, { send_page_view: false });
 }

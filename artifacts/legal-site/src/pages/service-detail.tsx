@@ -9,6 +9,9 @@ import { SEOHead } from "@/components/seo/SEOHead";
 import { SYR_SEO_DATA } from "@/lib/seo-data-syr";
 import { RELATED_SERVICES, SERVICE_SEARCH_CONTENT } from "@/lib/service-search-content";
 import { TrustSignals } from "@/components/seo/TrustSignals";
+import { useQuery } from "@tanstack/react-query";
+import type { InitialBlogPost } from "@/App";
+import { type WorkSamplePublic, localized } from "@/lib/work-samples";
 
 type LegalSource = { en: string; ar: string; href: string };
 
@@ -67,6 +70,26 @@ export default function ServiceDetail() {
   const sd = t.serviceDetail;
   const data = sd.services[id as keyof typeof sd.services];
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const { data: discoveryPosts = [] } = useQuery<InitialBlogPost[]>({
+    queryKey: ["blog-posts"],
+    queryFn: async () => {
+      const response = await fetch("/api/blog/posts");
+      if (!response.ok) throw new Error("Unable to load service articles");
+      return response.json() as Promise<InitialBlogPost[]>;
+    },
+    initialData: () => typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined,
+    staleTime: 60_000,
+  });
+  const { data: discoveryWork = [] } = useQuery<WorkSamplePublic[]>({
+    queryKey: ["work-samples"],
+    queryFn: async () => {
+      const response = await fetch("/api/work");
+      if (!response.ok) throw new Error("Unable to load service work");
+      return response.json() as Promise<WorkSamplePublic[]>;
+    },
+    initialData: () => typeof window !== "undefined" ? window.__SSR_WORK_SAMPLES__ : undefined,
+    staleTime: 60_000,
+  });
 
   if (!data) {
     return (
@@ -123,6 +146,13 @@ export default function ServiceDetail() {
   const relatedServiceIds = (RELATED_SERVICES[id] ?? []).filter(
     (serviceId) => serviceId in sd.services,
   );
+  const relatedArticles = discoveryPosts
+    .filter((post) => post.relatedServiceSlugs?.includes(id))
+    .slice(0, 4);
+  const relatedWorkSamples = discoveryWork
+    .filter((sample) => sample.relatedServiceSlugs?.includes(id))
+    .filter((sample) => isRTL ? Boolean(sample.titleAr) : Boolean(sample.titleEn))
+    .slice(0, 4);
   const commonIssues = searchContent
     ? (isRTL ? searchContent.issuesAr : searchContent.issuesEn)
     : data.covers.slice(0, 5);
@@ -382,6 +412,30 @@ export default function ServiceDetail() {
                     {isRTL ? `احجز استشارة ${data.title}` : `Book a ${data.title.toLowerCase()} consultation`}
                   </Link>
                 </div>
+                {(relatedArticles.length > 0 || relatedWorkSamples.length > 0) && (
+                  <div className="mt-8">
+                    <h3 className="text-xl font-serif font-bold text-foreground mb-4">
+                      {isRTL ? "أحدث المقالات والأعمال المرتبطة" : "Latest related articles and work"}
+                    </h3>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      {relatedArticles.map((post) => {
+                        const useArabic = Boolean(post.titleAr) && (isRTL || !post.titleEn);
+                        return (
+                          <Link key={post.slug} href={`/blog/${post.slug}`} className="border border-border bg-card p-4 hover:border-primary transition-colors">
+                            <span className="text-xs font-semibold uppercase tracking-wider text-primary">{isRTL ? "مقال" : "Article"}</span>
+                            <span className="block font-semibold mt-2">{useArabic ? post.titleAr : post.titleEn}</span>
+                          </Link>
+                        );
+                      })}
+                      {relatedWorkSamples.map((sample) => (
+                        <Link key={sample.slug} href={`${isRTL ? "/ar" : ""}/our-work/${sample.slug}`} className="border border-border bg-card p-4 hover:border-primary transition-colors">
+                          <span className="text-xs font-semibold uppercase tracking-wider text-primary">{isRTL ? "من أعمالنا" : "Our Work"}</span>
+                          <span className="block font-semibold mt-2">{localized(sample.titleEn, sample.titleAr, isRTL ? "ar" : "en")}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </section>
 
               <h2 id="service-process-heading" className="text-3xl font-serif font-bold text-foreground mb-8 border-b border-border pb-4">{sd.processHeading}</h2>

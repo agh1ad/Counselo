@@ -12,6 +12,8 @@ import {
   parsePositiveId,
   sanitizeBlogPost,
 } from "../lib/blog-input.js";
+import { assignInternalLinks } from "../lib/internal-link-assignment.js";
+import { logger } from "../lib/logger.js";
 
 const router = Router();
 
@@ -61,11 +63,29 @@ router.get("/admin/blog/posts", requireAdmin, async (_req, res) => {
 
 router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
   try {
-    const [post] = await db
+    let [post] = await db
       .insert(blogPostsTable)
       .values(parseBlogPostInput(req.body))
       .returning();
     if (post.published) {
+      try {
+        const assignment = await assignInternalLinks({
+          kind: "blog",
+          slug: post.slug,
+          title: post.titleEn || post.titleAr,
+          summary: post.excerptEn || post.excerptAr,
+          body: post.bodyEn || post.bodyAr || JSON.stringify(post.contentEn.length ? post.contentEn : post.contentAr),
+        });
+        const [assigned] = await db.update(blogPostsTable).set({
+          relatedServiceSlugs: assignment.relatedServiceSlugs,
+          relatedBlogSlugs: assignment.relatedBlogSlugs,
+          relatedWorkSlugs: assignment.relatedWorkSlugs,
+          aiLinksAssignedAt: new Date(),
+        }).where(eq(blogPostsTable.id, post.id)).returning();
+        if (assigned) post = assigned;
+      } catch (error) {
+        logger.warn({ err: error, slug: post.slug }, "Could not persist automatic blog links");
+      }
       notifyPublished(post.slug);
     }
     res.status(201).json(sanitizeBlogPost(post));
@@ -101,7 +121,7 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
     res.status(400).json({ error: (error as Error).message });
     return;
   }
-  const [post] = await db
+  let [post] = await db
     .update(blogPostsTable)
     .set({ ...values, updatedAt: new Date() })
     .where(eq(blogPostsTable.id, id))
@@ -109,6 +129,26 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
   if (!post) {
     res.status(404).json({ error: "Not found" });
     return;
+  }
+  if (post.published && !before.published) {
+    try {
+      const assignment = await assignInternalLinks({
+        kind: "blog",
+        slug: post.slug,
+        title: post.titleEn || post.titleAr,
+        summary: post.excerptEn || post.excerptAr,
+        body: post.bodyEn || post.bodyAr || JSON.stringify(post.contentEn.length ? post.contentEn : post.contentAr),
+      });
+      const [assigned] = await db.update(blogPostsTable).set({
+        relatedServiceSlugs: assignment.relatedServiceSlugs,
+        relatedBlogSlugs: assignment.relatedBlogSlugs,
+        relatedWorkSlugs: assignment.relatedWorkSlugs,
+        aiLinksAssignedAt: new Date(),
+      }).where(eq(blogPostsTable.id, post.id)).returning();
+      if (assigned) post = assigned;
+    } catch (error) {
+      logger.warn({ err: error, slug: post.slug }, "Could not persist automatic blog links");
+    }
   }
   if (post.published) {
     // Covers first publication and substantive updates; the live sitemap also
