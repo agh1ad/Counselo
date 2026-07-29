@@ -20,6 +20,7 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { RenderResult } from "../entry-server.js";
 import type { InitialBlogPost } from "../App.js";
+import type { WorkSamplePublic } from "../lib/work-samples.js";
 
 // ---------------------------------------------------------------------------
 // Fetch published blog post slugs from the running API at build time.
@@ -49,6 +50,33 @@ async function fetchBlogPosts(): Promise<InitialBlogPost[]> {
       `  ⚠ Could not fetch blog posts from API: ${err instanceof Error ? err.message : String(err)}`,
     );
     console.warn("    Blog post pages will not be prerendered this build.");
+    return [];
+  }
+}
+
+async function fetchWorkSamples(): Promise<WorkSamplePublic[]> {
+  try {
+    const workApiUrl =
+      process.env["WORK_API_URL"]?.trim() ||
+      "https://counselo-legal.com/api/work";
+    const res = await fetch(workApiUrl, {
+      signal: AbortSignal.timeout(10_000),
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = (await res.json()) as unknown;
+    if (!Array.isArray(data)) return [];
+    return data.filter(
+      (sample): sample is WorkSamplePublic =>
+        !!sample &&
+        typeof sample === "object" &&
+        typeof (sample as { slug?: unknown }).slug === "string" &&
+        (sample as { published?: unknown }).published !== false,
+    );
+  } catch (err) {
+    console.warn(
+      `  ⚠ Could not fetch work samples from API: ${err instanceof Error ? err.message : String(err)}`,
+    );
+    console.warn("    Work sample discovery slides will be empty this build.");
     return [];
   }
 }
@@ -220,12 +248,15 @@ function htmlTag(route: string): string {
 function writeRoute(
   route: string,
   template: string,
-  render: (url: string, posts?: InitialBlogPost[]) => RenderResult,
+  render: (url: string, posts?: InitialBlogPost[], samples?: WorkSamplePublic[]) => RenderResult,
   blogPosts: InitialBlogPost[],
+  workSamples: WorkSamplePublic[],
 ): void {
-  const { head, body } = render(route, blogPosts);
+  const { head, body } = render(route, blogPosts, workSamples);
 
-  const blogList = blogPosts.map((post) => ({
+  // Discovery surfaces only need card metadata and link assignments. Avoid
+  // embedding every article body into every prerendered page.
+  const discoveryPosts = blogPosts.map((post) => ({
     id: post.id,
     slug: post.slug,
     date: post.date,
@@ -237,13 +268,15 @@ function writeRoute(
     excerptEn: post.excerptEn,
     excerptAr: post.excerptAr,
     published: post.published,
+    relatedServiceSlugs: post.relatedServiceSlugs,
+    relatedBlogSlugs: post.relatedBlogSlugs,
+    relatedWorkSlugs: post.relatedWorkSlugs,
   }));
-  const initialData =
-    route === "/blog"
-      ? `<script>window.__SSR_POSTS__=${safeJson(blogList)};</script>`
-      : route.startsWith("/blog/")
-        ? `<script>window.__SSR_POST__=${safeJson(blogPosts.find((post) => `/blog/${post.slug}` === route))};</script>`
-        : "";
+  const discoveryData = `<script>window.__SSR_POSTS__=${safeJson(discoveryPosts)};window.__SSR_WORK_SAMPLES__=${safeJson(workSamples)};</script>`;
+  const detailData = route.startsWith("/blog/")
+    ? `<script>window.__SSR_POST__=${safeJson(blogPosts.find((post) => `/blog/${post.slug}` === route))};</script>`
+    : "";
+  const initialData = `${discoveryData}${detailData}`;
 
   const routeHtml = template
     // Patch the static <html lang="en"> to the correct lang + dir for this route.
@@ -396,7 +429,7 @@ function writeRedirectRoute(fromRoute: string, toRoute: string): void {
 async function prerender(): Promise<void> {
   console.log("🔄 Loading SSR bundle…");
   const { render } = (await import(serverEntryPath)) as {
-    render: (url: string, posts?: InitialBlogPost[]) => RenderResult;
+    render: (url: string, posts?: InitialBlogPost[], samples?: WorkSamplePublic[]) => RenderResult;
   };
 
   console.log("📄 Reading HTML template…");
@@ -413,15 +446,20 @@ async function prerender(): Promise<void> {
   // shell outside the public directory for dynamic blog, admin, and 404 HTML.
   writeFileSync(resolve(distDir, "ssr-template.html"), template, "utf-8");
 
-  // Fetch published blog post slugs from the API and add their routes.
-  console.log("\n🔍 Fetching blog post slugs from API…");
-  const blogPosts = await fetchBlogPosts();
+  // Fetch both discovery inventories in parallel so prerendered HTML and
+  // client hydration receive exactly the same real published records.
+  console.log("\n🔍 Fetching published content from API…");
+  const [blogPosts, workSamples] = await Promise.all([
+    fetchBlogPosts(),
+    fetchWorkSamples(),
+  ]);
   const blogSlugs = blogPosts.map((post) => post.slug);
   const blogPostRoutes = blogSlugs.map((slug) => `/blog/${slug}`);
   if (blogSlugs.length > 0) {
     console.log(`  Found ${blogSlugs.length} post(s): ${blogSlugs.join(", ")}`);
     ROUTES.push(...blogPostRoutes);
   }
+  console.log(`  Found ${workSamples.length} work sample(s).`);
 
   const allRoutes = ROUTES;
   console.log(`\n🚀 Prerendering ${allRoutes.length} routes…\n`);
@@ -431,7 +469,7 @@ async function prerender(): Promise<void> {
 
   for (const route of allRoutes) {
     try {
-      writeRoute(route, template, render, blogPosts);
+      writeRoute(route, template, render, blogPosts, workSamples);
       console.log(`  ✓ ${route}`);
       succeeded++;
     } catch (err) {

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
 import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowRight, MessageCircle, CheckCircle2, Award } from "lucide-react";
+import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 
 const counseloLogo = "/images/optimized/counselo-region-logo.png";
 const saudiFlag = "/images/optimized/saudi-arabia-flag.jpg";
@@ -163,15 +164,6 @@ const SERVICES = [
   { slug: "medical-malpractice",   en: "Medical Malpractice" },
   { slug: "insurance-law",         en: "Insurance Law" },
   { slug: "enforcement",           en: "Enforcement & Debt Collection" },
-];
-
-const BLOG_POSTS = [
-  { slug: "divorce-in-saudi-arabia",                   syrSlug: "divorce-in-syria",                        en: "Divorce in Saudi Arabia — Rights & Legal Process" },
-  { slug: "child-custody-saudi-arabia",                syrSlug: "child-custody-syria",                     en: "Child Custody in Saudi Arabia" },
-  { slug: "wrongful-termination-saudi-labor-law",      syrSlug: "wrongful-termination-syrian-labor-law",   en: "Wrongful Termination under Saudi Labor Law" },
-  { slug: "foreign-company-registration-saudi-arabia", syrSlug: "foreign-company-registration-syria",      en: "Foreign Company Registration in Saudi Arabia 2026" },
-  { slug: "real-estate-disputes-saudi-arabia",         syrSlug: "real-estate-disputes-syria",              en: "Real Estate Disputes in Saudi Arabia" },
-  { slug: "board-of-grievances-saudi-arabia",          syrSlug: "administrative-court-disputes-syria",     en: "Board of Grievances — Administrative Courts" },
 ];
 
 const FAQS = [
@@ -498,44 +490,7 @@ export default function RegionPicker() {
         </div>
       </section>
 
-      {/* ── LEGAL BLOG ── */}
-      <section className="py-24 bg-card border-y border-border" aria-labelledby="blog-heading">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
-            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">Knowledge Centre</p>
-            <h2 id="blog-heading" className="text-4xl font-serif font-bold text-foreground mb-4">Free Legal Guides</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-            <p className="text-muted-foreground">In-depth legal articles for Saudi Arabia and Syria</p>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 gap-6 mb-10">
-            {BLOG_POSTS.map(({ slug, en }, i) => (
-              <motion.div key={slug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-background border border-border p-6 hover:border-primary/50 hover:shadow-md transition-all">
-                <p className="text-primary font-medium text-xs uppercase tracking-widest mb-3">Legal Guide</p>
-                <h3 className="font-serif font-bold text-foreground text-base leading-snug mb-5">{en}</h3>
-                <div className="flex gap-3">
-                  <Link href="/blog" className="inline-flex items-center gap-1 text-xs border border-border text-muted-foreground px-3 py-1.5 hover:border-primary hover:text-primary transition-colors">
-                    Saudi Arabia <ArrowRight className="h-3 w-3" />
-                  </Link>
-                  <Link href="/blog" className="inline-flex items-center gap-1 text-xs border border-border text-muted-foreground px-3 py-1.5 hover:border-primary hover:text-primary transition-colors">
-                    Syria <ArrowRight className="h-3 w-3" />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="flex justify-center gap-4 flex-wrap">
-            <Link href="/blog" className="inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-8 py-3 hover:bg-primary/90 transition-colors">
-              Saudi Arabia Legal Blog <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link href="/blog" className="inline-flex items-center gap-2 border border-border text-foreground text-sm font-semibold px-8 py-3 hover:border-primary/50 hover:shadow-sm transition-all">
-              Syria Legal Blog <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <LatestContentCarousels isArabic={false} />
 
       {/* ── FAQ ── */}
       <section className="py-24 bg-background" aria-labelledby="faq-heading">

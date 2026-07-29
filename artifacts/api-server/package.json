@@ -9,6 +9,7 @@
     "start": "node --enable-source-maps ./dist/index.mjs",
     "test": "tsx --test src/**/*.test.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
+    "backfill:translations": "tsx src/scripts/backfill-content-translations.ts",
     "backfill:internal-links": "tsx src/scripts/backfill-internal-links.ts"
   },
   "dependencies": {

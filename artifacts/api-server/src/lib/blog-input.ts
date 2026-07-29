@@ -188,9 +188,6 @@ export function parseBlogPostInput(
   const hasEnglishArticle = Boolean(titleEn || bodyEn || contentEn.length);
   const hasArabicArticle = Boolean(titleAr || bodyAr || contentAr.length);
 
-  if (hasEnglishArticle && hasArabicArticle) {
-    throw new BlogInputError("A blog post must use either English or Arabic, not both");
-  }
   if (!hasEnglishArticle && !hasArabicArticle) {
     throw new BlogInputError("An English or Arabic article is required");
   }
@@ -212,18 +209,21 @@ export function parseBlogPostInput(
     stringField(body, "seoDescriptionAr", 500) || plainAr.slice(0, 160);
 
   if (published) {
-    const locale = hasEnglishArticle ? "English" : "Arabic";
-    const localizedTitle = hasEnglishArticle ? seoTitleEn : seoTitleAr;
-    const localizedDescription = hasEnglishArticle ? seoDescriptionEn : seoDescriptionAr;
-    if (localizedTitle.length < 20 || localizedTitle.length > 70) {
-      throw new BlogInputError(
-        `${locale} SEO title must be 20–70 characters before publishing`,
-      );
-    }
-    if (localizedDescription.length < 80 || localizedDescription.length > 170) {
-      throw new BlogInputError(
-        `${locale} SEO description must be 80–170 characters before publishing`,
-      );
+    for (const [locale, title, description] of [
+      ["English", hasEnglishArticle ? seoTitleEn : "", hasEnglishArticle ? seoDescriptionEn : ""],
+      ["Arabic", hasArabicArticle ? seoTitleAr : "", hasArabicArticle ? seoDescriptionAr : ""],
+    ] as const) {
+      if (!title) continue;
+      if (title.length < 20 || title.length > 70) {
+        throw new BlogInputError(
+          `${locale} SEO title must be 20–70 characters before publishing`,
+        );
+      }
+      if (description.length < 80 || description.length > 170) {
+        throw new BlogInputError(
+          `${locale} SEO description must be 80–170 characters before publishing`,
+        );
+      }
     }
   }
 
