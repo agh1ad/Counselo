@@ -3,6 +3,7 @@ import { logger } from "./logger.js";
 const BASE = "https://counselo-legal.com";
 const INDEXNOW_KEY = "611ed21ca6ffe639fa0e476e8ea1aedb9df6601ed775825f6aa2d75da664ab5a";
 const INDEXNOW_URL = "https://api.indexnow.org/indexnow";
+const DISCOVERY_HOMES = [`${BASE}/sa`, `${BASE}/sa/ar`, `${BASE}/syr`, `${BASE}/syr/ar`];
 
 /**
  * Ping IndexNow with the given URLs so Bing, Yandex, and other participating
@@ -41,6 +42,7 @@ export function blogPostUrls(slug: string): string[] {
   return [
     `${BASE}/blog/${slug}`,
     `${BASE}/blog`,
+    ...DISCOVERY_HOMES,
   ];
 }
 
@@ -65,6 +67,7 @@ export function workSampleUrls(slug: string): string[] {
     `${BASE}/ar/our-work/${slug}`,
     `${BASE}/our-work`,
     `${BASE}/ar/our-work`,
+    ...DISCOVERY_HOMES,
   ];
 }
 

@@ -5,6 +5,9 @@ import { SEOHead } from "@/components/seo/SEOHead";
 import { Scale, ShieldCheck, Users, ArrowRight, CheckCircle2, Star, Quote, MessageCircle, Mail, Award, Globe, Zap, BadgeCheck, Wifi, Clock, Lock, MapPin, FileCheck2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
+import { useQuery } from "@tanstack/react-query";
+import type { InitialBlogPost } from "@/App";
+import { type WorkSamplePublic, formatWorkDate, localized } from "@/lib/work-samples";
 
 const fadeIn = {
   initial: false as const,
@@ -24,6 +27,44 @@ export default function Home() {
   const { region, regionPrefix } = useRegion();
   const h = t.home;
   const servicesAreaCount = t.services.items.length;
+  const { data: posts = [] } = useQuery<InitialBlogPost[]>({
+    queryKey: ["blog-posts"],
+    queryFn: async () => {
+      const response = await fetch("/api/blog/posts");
+      if (!response.ok) throw new Error("Unable to load articles");
+      return response.json() as Promise<InitialBlogPost[]>;
+    },
+    initialData: () => typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined,
+    staleTime: 60_000,
+  });
+  const { data: workSamples = [] } = useQuery<WorkSamplePublic[]>({
+    queryKey: ["work-samples"],
+    queryFn: async () => {
+      const response = await fetch("/api/work");
+      if (!response.ok) throw new Error("Unable to load work samples");
+      return response.json() as Promise<WorkSamplePublic[]>;
+    },
+    initialData: () => typeof window !== "undefined" ? window.__SSR_WORK_SAMPLES__ : undefined,
+    staleTime: 60_000,
+  });
+  const latestPosts = posts
+    .filter((post) => {
+      const text = `${post.slug} ${post.titleEn} ${post.titleAr} ${post.excerptEn} ${post.excerptAr}`.toLowerCase();
+      return region === "syr"
+        ? !/(saudi|السعود|alsawd|alnzam-alsawdy)/i.test(text)
+        : !/(syria|syrian|سوريا|السوري|alswry)/i.test(text);
+    })
+    .slice(0, 6);
+  const latestWork = workSamples
+    .filter((sample) => isRTL ? Boolean(sample.titleAr) : Boolean(sample.titleEn))
+    .filter((sample) => {
+      const text = `${sample.jurisdictionEn} ${sample.jurisdictionAr}`.toLowerCase();
+      return region === "syr"
+        ? !/(saudi|السعود)/i.test(text)
+        : !/(syria|syrian|سوريا|السوري)/i.test(text);
+    })
+    .slice(0, 6);
+  const workBasePath = isRTL ? "/ar/our-work" : "/our-work";
 
   return (
     <div className="w-full">
@@ -511,29 +552,68 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── OUR WORK / PROOF OF EXPERIENCE ── */}
+      {/* ── LATEST OUR WORK ── */}
       <section className="py-20 bg-primary/5 border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[1fr_360px] gap-12 items-center">
-            <motion.div {...fadeIn}>
-              <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{isRTL ? "خبرة يمكن الاطلاع عليها" : "Experience you can examine"}</p>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-5">{isRTL ? "اطّلع على نماذج من أعمالنا القانونية" : "View selected examples of our legal work"}</h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-7 max-w-3xl">{isRTL ? "نعرض نماذج منقحة من العقود والمستندات والأعمال القانونية التي أعدها فريق كاونسلو، بعد إزالة بيانات العملاء والمعلومات السرية." : "Explore redacted contracts, legal documents, and selected professional work prepared by CounselO, with client identities and confidential information removed."}</p>
-              <Link href={isRTL ? "/ar/our-work" : "/our-work"} className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 font-semibold hover:bg-primary/90">{isRTL ? "استعرض أعمالنا" : "Explore Our Work"}<ArrowRight className="h-4 w-4 rtl:rotate-180" /></Link>
-            </motion.div>
-            <motion.div {...fadeIn} className="bg-card border border-border p-8 shadow-sm">
-              <div className="w-14 h-14 bg-primary/10 text-primary flex items-center justify-center mb-6"><FileCheck2 className="h-7 w-7" /></div>
-              <h3 className="text-xl font-serif font-bold mb-4">{isRTL ? "خصوصية محمية" : "Privacy protected"}</h3>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                {[isRTL ? "نماذج منقحة قبل النشر" : "Redacted before publication", isRTL ? "دون أسماء أو بيانات تعريفية" : "No names or identifying data", isRTL ? "عرض واضح لمنهجية العمل" : "Clear view of our working method"].map((item) => <li key={item} className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />{item}</li>)}
-              </ul>
-            </motion.div>
-          </div>
+          <motion.div {...fadeIn} className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{isRTL ? "أحدث أعمالنا" : "Latest Our Work"}</p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">{isRTL ? "أحدث نماذج الأعمال القانونية" : "Recently published legal work"}</h2>
+              <p className="text-muted-foreground text-lg max-w-3xl">{isRTL ? "نماذج منقحة تُظهر منهجية الصياغة والعمل، مع حماية بيانات العملاء والمعلومات السرية." : "Recent redacted examples that show our drafting and working method while protecting client confidentiality."}</p>
+            </div>
+            <Link href={workBasePath} className="inline-flex items-center gap-2 text-primary font-semibold hover:underline shrink-0">{isRTL ? "عرض جميع الأعمال" : "View all work"}<ArrowRight className="h-4 w-4 rtl:rotate-180" /></Link>
+          </motion.div>
+          {latestWork.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {latestWork.map((sample) => (
+                <article key={sample.slug} className="bg-card border border-border p-6 flex flex-col hover:border-primary/50 hover:shadow-md transition-all">
+                  <FileCheck2 className="h-7 w-7 text-primary mb-5" />
+                  <p className="text-xs text-muted-foreground mb-3">{formatWorkDate(sample.date, isRTL ? "ar" : "en")}</p>
+                  <h3 className="text-xl font-serif font-bold leading-snug mb-3">{localized(sample.titleEn, sample.titleAr, isRTL ? "ar" : "en")}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-5">{localized(sample.summaryEn, sample.summaryAr, isRTL ? "ar" : "en")}</p>
+                  <Link href={`${workBasePath}/${sample.slug}`} className="mt-auto inline-flex items-center gap-2 text-primary text-sm font-semibold hover:underline">{isRTL ? "عرض نموذج العمل" : "View work sample"}<ArrowRight className="h-4 w-4 rtl:rotate-180" /></Link>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <p className="border border-dashed border-border p-8 text-center text-muted-foreground">{isRTL ? "ستُضاف نماذج أعمال جديدة قريباً." : "New work samples will appear here as they are published."}</p>
+          )}
+        </div>
+      </section>
+
+      {/* ── LATEST ARTICLES ── */}
+      <section className="py-24 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeIn} className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{isRTL ? "أحدث المقالات" : "Latest Articles"}</p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">{isRTL ? "أحدث الرؤى والأدلة القانونية" : "New legal insights and guides"}</h2>
+              <p className="text-muted-foreground text-lg max-w-3xl">{isRTL ? "تابع أحدث الإرشادات العملية من فريق كاونسلو القانوني." : "Read the newest practical guidance from CounselO's legal team."}</p>
+            </div>
+            <Link href="/blog" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline shrink-0">{isRTL ? "عرض جميع المقالات" : "View all articles"}<ArrowRight className="h-4 w-4 rtl:rotate-180" /></Link>
+          </motion.div>
+          {latestPosts.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {latestPosts.map((post) => {
+                const useArabic = Boolean(post.titleAr) && (isRTL || !post.titleEn);
+                return (
+                  <article key={post.slug} className="bg-card border border-border p-6 flex flex-col hover:border-primary/50 hover:shadow-md transition-all">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-3">{useArabic ? post.categoryAr : post.categoryEn}</p>
+                    <h3 dir={useArabic ? "rtl" : "ltr"} className="text-xl font-serif font-bold leading-snug mb-3">{useArabic ? post.titleAr : post.titleEn}</h3>
+                    <p dir={useArabic ? "rtl" : "ltr"} className="text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-5">{useArabic ? post.excerptAr : post.excerptEn}</p>
+                    <Link href={`/blog/${post.slug}`} className="mt-auto inline-flex items-center gap-2 text-primary text-sm font-semibold hover:underline">{isRTL ? "اقرأ المقال" : "Read article"}<ArrowRight className="h-4 w-4 rtl:rotate-180" /></Link>
+                  </article>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="border border-dashed border-border p-8 text-center text-muted-foreground">{isRTL ? "ستظهر المقالات الجديدة هنا فور نشرها." : "New articles will appear here as soon as they are published."}</p>
+          )}
         </div>
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-card border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
             <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{h.testimonials.eyebrow}</p>

@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { TrustSignals } from "@/components/seo/TrustSignals";
+import { type WorkSamplePublic, localized } from "@/lib/work-samples";
 
 const BLOG_CATEGORY_TO_SERVICE: Record<string, { slug: string; nameEn: string; nameAr: string }> = {
   "Family Law":        { slug: "family-law",       nameEn: "Family Law Services",              nameAr: "خدمات قانون الأسرة" },
@@ -48,6 +49,10 @@ interface ApiPost {
   contentEn: BlogSection[];
   contentAr: BlogSection[];
   published: boolean;
+  relatedServiceSlugs: string[];
+  relatedBlogSlugs: string[];
+  relatedWorkSlugs: string[];
+  aiLinksAssignedAt?: string;
 }
 
 function formatDate(dateStr: string, lang: string) {
@@ -102,6 +107,26 @@ export default function BlogPost() {
     },
     staleTime: 60_000,
     retry: false,
+  });
+  const { data: allPosts = [] } = useQuery<ApiPost[]>({
+    queryKey: ["blog-posts"],
+    queryFn: async () => {
+      const response = await fetch("/api/blog/posts");
+      if (!response.ok) throw new Error("Unable to load related posts");
+      return response.json() as Promise<ApiPost[]>;
+    },
+    initialData: () => typeof window !== "undefined" ? window.__SSR_POSTS__ as ApiPost[] | undefined : undefined,
+    staleTime: 60_000,
+  });
+  const { data: allWork = [] } = useQuery<WorkSamplePublic[]>({
+    queryKey: ["work-samples"],
+    queryFn: async () => {
+      const response = await fetch("/api/work");
+      if (!response.ok) throw new Error("Unable to load related work");
+      return response.json() as Promise<WorkSamplePublic[]>;
+    },
+    initialData: () => typeof window !== "undefined" ? window.__SSR_WORK_SAMPLES__ : undefined,
+    staleTime: 60_000,
   });
 
   const ui = {
@@ -173,6 +198,12 @@ export default function BlogPost() {
   const category = useAr ? post.categoryAr : post.categoryEn;
   const body = useAr ? post.bodyAr : post.bodyEn;
   const content = useAr ? post.contentAr : post.contentEn;
+  const relatedPosts = (post.relatedBlogSlugs ?? [])
+    .map((relatedSlug) => allPosts.find((candidate) => candidate.slug === relatedSlug))
+    .filter((candidate): candidate is ApiPost => Boolean(candidate));
+  const relatedWork = (post.relatedWorkSlugs ?? [])
+    .map((relatedSlug) => allWork.find((candidate) => candidate.slug === relatedSlug))
+    .filter((candidate): candidate is WorkSamplePublic => Boolean(candidate));
 
   const canonicalArticleUrl = `https://counselo-legal.com/blog/${slug}`;
   const articleSchema = {
@@ -299,6 +330,31 @@ export default function BlogPost() {
               )}
             </div>
 
+            {(relatedPosts.length > 0 || relatedWork.length > 0) && (
+              <section className="mt-10 border-t border-border pt-8" aria-labelledby="related-content-heading">
+                <h2 id="related-content-heading" className="text-2xl font-serif font-bold text-foreground mb-5">
+                  {useAr ? "محتوى قانوني ذو صلة" : "Related legal content"}
+                </h2>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {relatedPosts.map((related) => {
+                    const relatedUseAr = Boolean(related.titleAr) && (useAr || !related.titleEn);
+                    return (
+                      <Link key={related.slug} href={`/blog/${related.slug}`} className="border border-border bg-card p-4 hover:border-primary transition-colors">
+                        <span className="text-xs uppercase tracking-wider text-primary font-semibold">{useAr ? "مقال" : "Article"}</span>
+                        <span className="block font-semibold text-foreground mt-2">{relatedUseAr ? related.titleAr : related.titleEn}</span>
+                      </Link>
+                    );
+                  })}
+                  {relatedWork.map((related) => (
+                    <Link key={related.slug} href={`${useAr ? "/ar" : ""}/our-work/${related.slug}`} className="border border-border bg-card p-4 hover:border-primary transition-colors">
+                      <span className="text-xs uppercase tracking-wider text-primary font-semibold">{useAr ? "من أعمالنا" : "Our Work"}</span>
+                      <span className="block font-semibold text-foreground mt-2">{localized(related.titleEn, related.titleAr, useAr ? "ar" : "en")}</span>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
             <div className="mt-10 p-4 bg-muted/50 border border-border text-xs text-muted-foreground leading-relaxed">
               {ui.disclaimer}
             </div>
@@ -367,7 +423,15 @@ export default function BlogPost() {
               </div>
 
               {(() => {
-                const svc = BLOG_CATEGORY_TO_SERVICE[post.categoryEn] ?? BLOG_CATEGORY_TO_SERVICE[post.categoryAr];
+                const assignedSlug = post.relatedServiceSlugs?.[0];
+                const categoryService = BLOG_CATEGORY_TO_SERVICE[post.categoryEn] ?? BLOG_CATEGORY_TO_SERVICE[post.categoryAr];
+                const svc = assignedSlug
+                  ? {
+                      slug: assignedSlug,
+                      nameEn: categoryService?.slug === assignedSlug ? categoryService.nameEn : "Related Legal Service",
+                      nameAr: categoryService?.slug === assignedSlug ? categoryService.nameAr : "الخدمة القانونية ذات الصلة",
+                    }
+                  : categoryService;
                 if (!svc) return null;
                 return (
                   <div className="border border-border p-5 mt-4">

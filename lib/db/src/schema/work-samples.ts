@@ -1,4 +1,4 @@
-import { pgTable, serial, text, boolean, timestamp, integer } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, boolean, timestamp, integer, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { z } from "zod/v4";
 
@@ -32,6 +32,10 @@ export const workSamplesTable = pgTable("work_samples", {
   fileSize: integer("file_size").notNull().default(0),
   fileData: text("file_data").notNull().default(""),
   confidentialityConfirmed: boolean("confidentiality_confirmed").notNull().default(false),
+  relatedServiceSlugs: jsonb("related_service_slugs").$type<string[]>().notNull().default([]),
+  relatedBlogSlugs: jsonb("related_blog_slugs").$type<string[]>().notNull().default([]),
+  relatedWorkSlugs: jsonb("related_work_slugs").$type<string[]>().notNull().default([]),
+  aiLinksAssignedAt: timestamp("ai_links_assigned_at"),
   featured: boolean("featured").notNull().default(false),
   published: boolean("published").notNull().default(false),
   createdAt: timestamp("created_at").notNull().defaultNow(),

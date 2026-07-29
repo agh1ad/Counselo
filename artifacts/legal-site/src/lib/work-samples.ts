@@ -30,6 +30,10 @@ export interface WorkSamplePublic {
   published: boolean;
   updatedAt?: string;
   hasFile: boolean;
+  relatedServiceSlugs: string[];
+  relatedBlogSlugs: string[];
+  relatedWorkSlugs: string[];
+  aiLinksAssignedAt?: string;
 }
 
 export function localized(valueEn: string, valueAr: string, lang: "en" | "ar"): string {

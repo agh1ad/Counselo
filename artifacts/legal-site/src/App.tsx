@@ -15,7 +15,8 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { RegionProvider } from "@/contexts/RegionContext";
 import { lazy, Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { trackPageview, getGAMeasurementId, injectGA } from "@/lib/analytics";
+import { trackEvent, trackPageview, getGAMeasurementId, injectGA } from "@/lib/analytics";
+import type { WorkSamplePublic } from "@/lib/work-samples";
 
 import RegionPicker from "@/pages/region-picker";
 import ArRegionPicker from "@/pages/ar-region-picker";
@@ -48,12 +49,15 @@ export interface InitialBlogPost {
   excerptEn: string;
   excerptAr: string;
   published: boolean;
-  [key: string]: unknown;
+  relatedServiceSlugs?: string[];
+  relatedBlogSlugs?: string[];
+  relatedWorkSlugs?: string[];
 }
 
-function createSsrQueryClient(posts: InitialBlogPost[]): QueryClient {
+function createSsrQueryClient(posts: InitialBlogPost[], workSamples: WorkSamplePublic[]): QueryClient {
   const client = new QueryClient();
   client.setQueryData(["blog-posts"], posts);
+  client.setQueryData(["work-samples"], workSamples);
   for (const post of posts) {
     client.setQueryData(["blog-post", post.slug], post);
   }
@@ -71,18 +75,59 @@ function ScrollToTop() {
 
 function GAInit() {
   useEffect(() => {
-    const loadAnalytics = () => {
-      const id = getGAMeasurementId() || "G-1M9ZZX7VT6";
-      injectGA(id);
+    injectGA(getGAMeasurementId() || "G-1M9ZZX7VT6");
+  }, []);
+  return null;
+}
+
+function InteractionTracking() {
+  useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      const rawTarget = event.target;
+      if (!(rawTarget instanceof Element)) return;
+      const element = (rawTarget.closest<HTMLElement>("a,button,input,select,textarea,[role='button']") ?? rawTarget) as HTMLElement;
+      const anchor = element.closest<HTMLAnchorElement>("a[href]");
+      const href = anchor?.getAttribute("href") ?? "";
+      const input = element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement || element instanceof HTMLSelectElement;
+      const label = input
+        ? (element.getAttribute("aria-label") || element.getAttribute("name") || element.tagName).slice(0, 100)
+        : (element.getAttribute("aria-label") || element.textContent || element.tagName).replace(/\s+/g, " ").trim().slice(0, 100);
+      const details = {
+        element_tag: element.tagName.toLowerCase(),
+        element_id: element.id.slice(0, 80),
+        element_name: element.getAttribute("name")?.slice(0, 80),
+        click_text: label,
+        link_url: href.slice(0, 300),
+        outbound: Boolean(anchor?.origin && anchor.origin !== window.location.origin),
+      };
+      trackEvent("click", window.location.pathname, details);
+      if (/wa\.me|whatsapp/i.test(href) || element.dataset.cta === "whatsapp") {
+        trackEvent("whatsapp_click", window.location.pathname, details);
+      } else if (href.startsWith("tel:")) {
+        trackEvent("phone_click", window.location.pathname, details);
+      } else if (href.startsWith("mailto:")) {
+        trackEvent("email_click", window.location.pathname, details);
+      } else if (element.dataset.cta === "contact" || /\/contact(?:\?|$)/.test(href)) {
+        trackEvent("consultation_click", window.location.pathname, details);
+      }
+      if (anchor?.hasAttribute("download") || /[?&]download=1/.test(href)) {
+        trackEvent("file_download", window.location.pathname, details);
+      }
     };
-
-    if ("requestIdleCallback" in window) {
-      const idleId = window.requestIdleCallback(loadAnalytics, { timeout: 4000 });
-      return () => window.cancelIdleCallback(idleId);
-    }
-
-    const timeoutId = globalThis.setTimeout(loadAnalytics, 2500);
-    return () => globalThis.clearTimeout(timeoutId);
+    const onSubmit = (event: SubmitEvent) => {
+      const form = event.target;
+      if (!(form instanceof HTMLFormElement)) return;
+      trackEvent("form_submit_attempt", window.location.pathname, {
+        form_id: form.id.slice(0, 80),
+        form_name: form.getAttribute("name")?.slice(0, 80),
+      });
+    };
+    document.addEventListener("click", onClick, true);
+    document.addEventListener("submit", onSubmit, true);
+    return () => {
+      document.removeEventListener("click", onClick, true);
+      document.removeEventListener("submit", onSubmit, true);
+    };
   }, []);
   return null;
 }
@@ -283,11 +328,13 @@ interface AppProps {
   ssrUrl?: string;
   /** Published posts supplied by the prerender pipeline for first-byte HTML. */
   initialBlogPosts?: InitialBlogPost[];
+  /** Published work samples supplied for crawlable discovery links. */
+  initialWorkSamples?: WorkSamplePublic[];
 }
 
-function App({ ssrUrl, initialBlogPosts = [] }: AppProps = {}) {
+function App({ ssrUrl, initialBlogPosts = [], initialWorkSamples = [] }: AppProps = {}) {
   const activeQueryClient = ssrUrl
-    ? createSsrQueryClient(initialBlogPosts)
+    ? createSsrQueryClient(initialBlogPosts, initialWorkSamples)
     : queryClient;
   return (
     <QueryClientProvider client={activeQueryClient}>
@@ -304,6 +351,7 @@ function App({ ssrUrl, initialBlogPosts = [] }: AppProps = {}) {
           <RegionProvider>
             <LanguageProvider>
               <GAInit />
+              <InteractionTracking />
               <AppShell />
             </LanguageProvider>
           </RegionProvider>
