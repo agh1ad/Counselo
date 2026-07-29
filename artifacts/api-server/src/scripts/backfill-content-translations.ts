@@ -49,23 +49,22 @@ async function backfillBlogs(): Promise<void> {
     .where(eq(blogPostsTable.published, true));
 
   await runPool(posts, async (post, index) => {
-    const patch = await withRetry(
-      `blog ${post.slug}`,
-      () => translateBlogForPublishing(post),
-    );
-    if (Object.keys(patch).length === 0) {
-      console.log(`[${index + 1}/${posts.length}] blog ${post.slug}: already bilingual`);
-      return;
-    }
-    const values = parseBlogPostInput(
-      { ...post, ...patch },
-      { existingSlug: post.slug },
-    );
-    await db
-      .update(blogPostsTable)
-      .set({ ...values, updatedAt: new Date() })
-      .where(eq(blogPostsTable.id, post.id));
-    console.log(`[${index + 1}/${posts.length}] blog ${post.slug}: translated and validated`);
+    await withRetry(`blog ${post.slug}`, async () => {
+      const patch = await translateBlogForPublishing(post);
+      if (Object.keys(patch).length === 0) {
+        console.log(`[${index + 1}/${posts.length}] blog ${post.slug}: already bilingual`);
+        return;
+      }
+      const values = parseBlogPostInput(
+        { ...post, ...patch },
+        { existingSlug: post.slug },
+      );
+      await db
+        .update(blogPostsTable)
+        .set({ ...values, updatedAt: new Date() })
+        .where(eq(blogPostsTable.id, post.id));
+      console.log(`[${index + 1}/${posts.length}] blog ${post.slug}: translated and validated`);
+    });
   });
 }
 
@@ -76,23 +75,22 @@ async function backfillWork(): Promise<void> {
     .where(eq(workSamplesTable.published, true));
 
   await runPool(samples, async (sample, index) => {
-    const patch = await withRetry(
-      `work ${sample.slug}`,
-      () => translateWorkForPublishing(sample),
-    );
-    if (Object.keys(patch).length === 0) {
-      console.log(`[${index + 1}/${samples.length}] work ${sample.slug}: already bilingual`);
-      return;
-    }
-    const values = parseWorkSampleInput(
-      { ...sample, ...patch },
-      { existingSlug: sample.slug, existingFile: sample },
-    );
-    await db
-      .update(workSamplesTable)
-      .set({ ...values, updatedAt: new Date() })
-      .where(eq(workSamplesTable.id, sample.id));
-    console.log(`[${index + 1}/${samples.length}] work ${sample.slug}: translated and validated`);
+    await withRetry(`work ${sample.slug}`, async () => {
+      const patch = await translateWorkForPublishing(sample);
+      if (Object.keys(patch).length === 0) {
+        console.log(`[${index + 1}/${samples.length}] work ${sample.slug}: already bilingual`);
+        return;
+      }
+      const values = parseWorkSampleInput(
+        { ...sample, ...patch },
+        { existingSlug: sample.slug, existingFile: sample },
+      );
+      await db
+        .update(workSamplesTable)
+        .set({ ...values, updatedAt: new Date() })
+        .where(eq(workSamplesTable.id, sample.id));
+      console.log(`[${index + 1}/${samples.length}] work ${sample.slug}: translated and validated`);
+    });
   });
 }
 
