@@ -78,7 +78,18 @@ function ScrollToTop() {
 
 function GAInit() {
   useEffect(() => {
-    injectGA(getGAMeasurementId());
+    const loadAnalytics = () => {
+      const id = getGAMeasurementId() || "G-1M9ZZX7VT6";
+      injectGA(id);
+    };
+
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(loadAnalytics, { timeout: 4000 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = globalThis.setTimeout(loadAnalytics, 2500);
+    return () => globalThis.clearTimeout(timeoutId);
   }, []);
   return null;
 }
