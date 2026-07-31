@@ -334,7 +334,7 @@ export default function BlogPost() {
                   {relatedPosts.map((related) => {
                     const relatedUseAr = Boolean(related.titleAr) && (useAr || !related.titleEn);
                     return (
-                      <Link key={related.slug} href={`/blog/${related.slug}`} className="border border-border bg-card p-4 hover:border-primary transition-colors">
+                      <Link key={related.slug} href={`${relatedUseAr ? "/ar" : ""}/blog/${related.slug}`} className="border border-border bg-card p-4 hover:border-primary transition-colors">
                         <span className="text-xs uppercase tracking-wider text-primary font-semibold">{useAr ? "مقال" : "Article"}</span>
                         <span className="block font-semibold text-foreground mt-2">{relatedUseAr ? related.titleAr : related.titleEn}</span>
                       </Link>

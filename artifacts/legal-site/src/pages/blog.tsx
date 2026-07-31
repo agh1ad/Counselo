@@ -264,7 +264,7 @@ export default function Blog() {
                       <span>{formatDate(post.date, lang)}</span>
                       <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" />{post.readTime} {ui.minRead}</span>
                     </div>
-                    <Link href={`/blog/${post.slug}`} className="mt-5 inline-flex items-center justify-between text-sm font-semibold text-primary">
+                    <Link href={`${isRTL ? "/ar" : ""}/blog/${post.slug}`} className="mt-5 inline-flex items-center justify-between text-sm font-semibold text-primary">
                       {ui.readMore}<ArrowRight className={`h-4 w-4 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180" : ""}`} />
                     </Link>
                   </motion.article>
