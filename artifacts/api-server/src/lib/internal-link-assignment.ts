@@ -114,13 +114,20 @@ async function askOpenAI(
   blogs: Candidate[],
   work: Candidate[],
 ): Promise<InternalLinkAssignment | null> {
-  const apiKey = process.env["OPENAI_API_KEY"]?.trim();
+  const baseUrl = (
+    process.env["AI_INTEGRATIONS_OPENAI_BASE_URL"]?.trim() ||
+    "https://api.openai.com/v1"
+  ).replace(/\/$/, "");
+  const apiKey = (
+    process.env["AI_INTEGRATIONS_OPENAI_API_KEY"] ||
+    process.env["OPENAI_API_KEY"]
+  )?.trim();
   if (!apiKey) return null;
 
   const controller = new AbortController();
   const timeout = globalThis.setTimeout(() => controller.abort(), 20_000);
   try {
-    const response = await fetch("https://api.openai.com/v1/responses", {
+    const response = await fetch(`${baseUrl}/responses`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
@@ -129,7 +136,7 @@ async function askOpenAI(
       signal: controller.signal,
       body: JSON.stringify({
         model:
-          process.env["OPENAI_INTERNAL_LINK_MODEL"]?.trim() || "gpt-5.6-sol",
+          process.env["OPENAI_INTERNAL_LINK_MODEL"]?.trim() || "gpt-5-nano",
         input: [
           {
             role: "system",
