@@ -136,7 +136,7 @@ async function askOpenAI(
       signal: controller.signal,
       body: JSON.stringify({
         model:
-          process.env["OPENAI_INTERNAL_LINK_MODEL"]?.trim() || "gpt-5-nano",
+          process.env["OPENAI_INTERNAL_LINK_MODEL"]?.trim() || "gpt-4o-mini",
         input: [
           {
             role: "system",
