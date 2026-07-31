@@ -259,6 +259,7 @@ function Router() {
         <Route path="/services/:id" component={ServiceDetail} />
         <Route path="/services" component={Services} />
         <Route path="/blog/:slug" component={BlogPost} />
+        <Route path="/ar/blog/:slug" component={BlogPost} />
         <Route path="/ar/our-work/:slug" component={WorkSample} />
         <Route path="/ar/our-work" component={OurWork} />
         <Route path="/our-work/:slug" component={WorkSample} />

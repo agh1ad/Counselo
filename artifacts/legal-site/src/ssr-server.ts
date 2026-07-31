@@ -755,7 +755,58 @@ app.get("/blog/:slug", async (req: Request, res: Response) => {
   }
 });
 
-// 3b. "/ar/our-work/:slug" — Arabic work sample detail page.
+// 3b. "/ar/blog/:slug" — Arabic blog post detail page.
+//     Serves the same post as /blog/:slug but rendered at an /ar/ URL so
+//     LanguageContext sets isRTL=true, which flips the React component to use
+//     Arabic title/description/OG tags. Posts with no Arabic content 301 to
+//     the English URL to avoid a blank page.
+app.get("/ar/blog/:slug", async (req: Request, res: Response) => {
+  const slug = String(req.params["slug"] ?? "");
+
+  const [result, discovery] = await Promise.all([
+    fetchBlogPost(slug),
+    fetchDiscoveryInventory().catch(() => null),
+  ]);
+
+  if (result.status === "notfound") {
+    res.setHeader("Cache-Control", "no-store");
+    return res.status(404).send(spaShell("مقال غير موجود | كاونسلو", "noindex, nofollow"));
+  }
+
+  if (result.status === "found") {
+    // If the post has no Arabic content, redirect to the English URL.
+    if (!result.post.titleAr?.trim() && result.post.titleEn?.trim()) {
+      res.setHeader("Cache-Control", "public, max-age=86400");
+      return res.redirect(301, `/blog/${encodeURIComponent(slug)}`);
+    }
+    try {
+      const posts = [
+        result.post,
+        ...(discovery?.posts ?? []).filter((c) => c.slug !== result.post.slug),
+      ];
+      const html = await ssrRender(`/ar/blog/${slug}`, posts, discovery?.samples ?? []);
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
+      res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
+      return res.send(html);
+    } catch (err) {
+      console.error(`Failed to build Arabic blog HTML for /ar/blog/${slug}:`, err);
+    }
+  }
+
+  // Fallback: React SSR skeleton when API is unreachable.
+  try {
+    const html = await ssrRender(`/ar/blog/${slug}`);
+    res.setHeader("Content-Type", "text/html; charset=utf-8");
+    res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
+    return res.send(html);
+  } catch (err) {
+    console.error(`SSR fallback failed for /ar/blog/${slug}:`, err);
+    res.setHeader("Cache-Control", "no-store");
+    return res.sendFile(indexHtml);
+  }
+});
+
+// 3c. "/ar/our-work/:slug" — Arabic work sample detail page.
 //     Fetch from the API on every request so newly published records are
 //     immediately live without redeployment.
 app.get("/ar/our-work/:slug", async (req: Request, res: Response) => {
