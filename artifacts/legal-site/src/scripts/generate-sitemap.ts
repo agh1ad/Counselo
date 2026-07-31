@@ -250,6 +250,8 @@ try {
     slug: z.string(),
     date: z.string(),
     updatedAt: z.string().optional(),
+    titleEn: z.string().optional(),
+    titleAr: z.string().optional(),
   });
   const blogApiUrl =
     process.env["BLOG_API_URL"]?.trim() ||
@@ -264,14 +266,20 @@ try {
       .filter((r) => r.success)
       .map((r) => r.data);
     for (const post of posts) {
-      entries.push(
-        urlEntrySingleUrl(
-          `${BASE_URL}${BLOG_BASE_PATH}/${post.slug}`,
-          "monthly",
-          "0.7",
-          post.updatedAt?.slice(0, 10) || post.date,
-        ),
-      );
+      const enUrl = `${BASE_URL}${BLOG_BASE_PATH}/${post.slug}`;
+      const arUrl = `${BASE_URL}/ar${BLOG_BASE_PATH}/${post.slug}`;
+      const modified = post.updatedAt?.slice(0, 10) || post.date;
+      if (post.titleEn && post.titleAr) {
+        // Bilingual post: index both URLs with proper hreflang cross-linking.
+        entries.push(urlEntryLanguageVariant(enUrl, enUrl, arUrl, "monthly", "0.7", modified));
+        entries.push(urlEntryLanguageVariant(arUrl, enUrl, arUrl, "monthly", "0.7", modified));
+      } else if (post.titleAr) {
+        // Arabic-only post: canonical is /ar/blog/:slug.
+        entries.push(urlEntrySingleUrl(arUrl, "monthly", "0.7", modified));
+      } else {
+        // English-only post: canonical is /blog/:slug.
+        entries.push(urlEntrySingleUrl(enUrl, "monthly", "0.7", modified));
+      }
     }
     console.log(`[sitemap] added ${posts.length} blog post(s) to sitemap`);
   } else {

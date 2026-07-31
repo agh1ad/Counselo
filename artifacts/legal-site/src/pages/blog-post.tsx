@@ -199,7 +199,9 @@ export default function BlogPost() {
     .map((relatedSlug) => allWork.find((candidate) => candidate.slug === relatedSlug))
     .filter((candidate): candidate is WorkSamplePublic => Boolean(candidate));
 
-  const canonicalArticleUrl = `https://counselo-legal.com/blog/${slug}`;
+  const canonicalArticleUrl = useAr
+    ? `https://counselo-legal.com/ar/blog/${slug}`
+    : `https://counselo-legal.com/blog/${slug}`;
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -249,7 +251,7 @@ export default function BlogPost() {
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
       { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": "https://counselo-legal.com/blog" },
-      { "@type": "ListItem", "position": 3, "name": seoTitle, "item": `https://counselo-legal.com/blog/${slug}` },
+      { "@type": "ListItem", "position": 3, "name": seoTitle, "item": canonicalArticleUrl },
     ],
   };
 
@@ -258,9 +260,14 @@ export default function BlogPost() {
       <SEOHead
         title={seoTitle}
         description={seoDesc}
-        canonical={`/blog/${post.slug}`}
+        canonical={`${useAr ? "/ar" : ""}/blog/${post.slug}`}
         noRegionPrefix
         contentLanguage={useAr ? "ar" : "en"}
+        sharedLanguageAlternates={hasEnglish && hasArabic ? {
+          en: `https://counselo-legal.com/blog/${post.slug}`,
+          ar: `https://counselo-legal.com/ar/blog/${post.slug}`,
+          xDefault: `https://counselo-legal.com/blog/${post.slug}`,
+        } : undefined}
         keywords={useAr
           ? `${category}, مقالات قانونية, إرشادات قانونية مجانية, كاونسلو, مدونة كاونسلو القانونية, استشارة قانونية أونلاين`
           : `${category}, legal articles, free legal guides, CounselO blog, online legal advice, CounselO`}

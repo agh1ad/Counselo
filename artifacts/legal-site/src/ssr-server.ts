@@ -722,6 +722,12 @@ app.get("/blog/:slug", async (req: Request, res: Response) => {
   }
 
   if (result.status === "found") {
+    // Arabic-only post: the canonical URL is /ar/blog/:slug — redirect there
+    // so crawlers and sharing bots always get the correct Arabic OG tags.
+    if (!result.post.titleEn?.trim() && result.post.titleAr?.trim()) {
+      res.setHeader("Cache-Control", "public, max-age=86400");
+      return res.redirect(301, `/ar/blog/${encodeURIComponent(slug)}`);
+    }
     try {
       const posts = [
         result.post,
