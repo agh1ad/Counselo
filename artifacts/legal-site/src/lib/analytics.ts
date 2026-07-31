@@ -98,6 +98,20 @@ export function setGAMeasurementId(id: string) {
   }
 }
 
+export function injectGTM(containerId: string) {
+  if (!containerId || typeof document === "undefined") return;
+  if (document.getElementById("gtm-script")) return; // already injected
+  const win = window as unknown as { dataLayer?: object[] };
+  win.dataLayer = win.dataLayer || [];
+  win.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+  const f = document.getElementsByTagName("script")[0];
+  const j = document.createElement("script");
+  j.id = "gtm-script";
+  j.async = true;
+  j.src = `https://www.googletagmanager.com/gtm.js?id=${containerId}`;
+  f.parentNode?.insertBefore(j, f);
+}
+
 export function injectGA(measurementId: string) {
   if (!measurementId || typeof document === "undefined") return;
   const existingId = document.getElementById("ga-script");
