@@ -1,5 +1,5 @@
 const STORE_KEY = "counselo_analytics";
-const GA_ID_KEY = "counselo_ga_measurement_id";
+const GTM_CONTAINER_ID = "GTM-WZ6SW99X";
 
 export interface EventLog {
   event: string;
@@ -39,6 +39,13 @@ function today() {
 
 type AnalyticsDetails = Record<string, string | number | boolean | undefined>;
 
+function pushToDataLayer(data: Record<string, unknown>) {
+  if (typeof window === "undefined") return;
+  const win = window as unknown as { dataLayer?: Record<string, unknown>[] };
+  win.dataLayer = win.dataLayer || [];
+  win.dataLayer.push(data);
+}
+
 export function trackEvent(event: string, page: string, details: AnalyticsDetails = {}) {
   const store = load();
   const day = today();
@@ -60,10 +67,8 @@ export function trackEvent(event: string, page: string, details: AnalyticsDetail
 
   save(store);
 
-  if (typeof window !== "undefined" && typeof (window as unknown as { gtag?: unknown }).gtag === "function") {
-    const gtag = (window as unknown as { gtag: (...args: unknown[]) => void }).gtag;
-    gtag("event", event, { event_category: "engagement", event_label: page });
-  }
+  // Push to GTM dataLayer — GTM forwards this to GA4 via configured tags
+  pushToDataLayer({ event, event_category: "engagement", event_label: page, page_path: page, ...cleanDetails });
 }
 
 export function trackPageview(path: string) {
@@ -71,10 +76,15 @@ export function trackPageview(path: string) {
   store.pageviews[path] = (store.pageviews[path] ?? 0) + 1;
   save(store);
 
-  if (typeof window !== "undefined" && typeof (window as unknown as { gtag?: unknown }).gtag === "function") {
-    const gtag = (window as unknown as { gtag: (...args: unknown[]) => void }).gtag;
-    gtag("event", "page_view", { page_path: path });
-  }
+  // SPA navigation: GTM's All-Pages trigger doesn't fire on client-side route
+  // changes, so we push explicitly. Configure a GTM trigger on this event to
+  // fire the GA4 Configuration tag / Page View event tag.
+  pushToDataLayer({
+    event: "page_view",
+    page_path: path,
+    page_location: typeof window !== "undefined" ? window.location.href : path,
+    page_title: typeof document !== "undefined" ? document.title : "",
+  });
 }
 
 export function getAnalytics(): AnalyticsStore {
@@ -85,21 +95,12 @@ export function clearAnalytics() {
   localStorage.removeItem(STORE_KEY);
 }
 
-export function getGAMeasurementId(): string {
-  return localStorage.getItem(GA_ID_KEY) ?? "";
+export function getGTMContainerId(): string {
+  return GTM_CONTAINER_ID;
 }
 
-export function setGAMeasurementId(id: string) {
-  if (id) {
-    localStorage.setItem(GA_ID_KEY, id);
-    injectGA(id);
-  } else {
-    localStorage.removeItem(GA_ID_KEY);
-  }
-}
-
-export function injectGTM(containerId: string) {
-  if (!containerId || typeof document === "undefined") return;
+export function injectGTM() {
+  if (typeof document === "undefined") return;
   if (document.getElementById("gtm-script")) return; // already injected
   const win = window as unknown as { dataLayer?: object[] };
   win.dataLayer = win.dataLayer || [];
@@ -108,25 +109,6 @@ export function injectGTM(containerId: string) {
   const j = document.createElement("script");
   j.id = "gtm-script";
   j.async = true;
-  j.src = `https://www.googletagmanager.com/gtm.js?id=${containerId}`;
+  j.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
   f.parentNode?.insertBefore(j, f);
-}
-
-export function injectGA(measurementId: string) {
-  if (!measurementId || typeof document === "undefined") return;
-  const existingId = document.getElementById("ga-script");
-  if (existingId) existingId.remove();
-  const existingInline = document.getElementById("ga-inline");
-  if (existingInline) existingInline.remove();
-
-  const script = document.createElement("script");
-  script.id = "ga-script";
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-  document.head.appendChild(script);
-
-  const inline = document.createElement("script");
-  inline.id = "ga-inline";
-  inline.text = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${measurementId}',{send_page_view:false});`;
-  document.head.appendChild(inline);
 }

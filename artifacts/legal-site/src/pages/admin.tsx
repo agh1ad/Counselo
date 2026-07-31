@@ -10,8 +10,7 @@ import {
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
 import { WorkSamplesManager } from "@/components/admin/WorkSamplesManager";
 import {
-  getAnalytics, clearAnalytics, getGAMeasurementId,
-  setGAMeasurementId, type AnalyticsStore,
+  getAnalytics, clearAnalytics, getGTMContainerId, type AnalyticsStore,
 } from "@/lib/analytics";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 
@@ -423,21 +422,11 @@ function StatCard({ icon, label, value, sub, color = "green" }: { icon: React.Re
 
 function AnalyticsTab({ posts }: { posts: BlogPost[] }) {
   const [data, setData] = useState<AnalyticsStore | null>(null);
-  const [gaId, setGaId] = useState(getGAMeasurementId());
-  const [gaInput, setGaInput] = useState(getGAMeasurementId());
-  const [saved, setSaved] = useState(false);
   const [copied, setCopied] = useState(false);
+  const gtmId = getGTMContainerId();
 
   const refresh = useCallback(() => setData(getAnalytics()), []);
   useEffect(() => { refresh(); }, [refresh]);
-
-  const saveGA = () => {
-    const id = gaInput.trim().toUpperCase();
-    setGAMeasurementId(id);
-    setGaId(id);
-    setSaved(true);
-    setTimeout(() => setSaved(false), 2000);
-  };
 
   const publishedCount = posts.filter((p) => p.published).length;
   const draftCount = posts.length - publishedCount;
@@ -513,51 +502,27 @@ function AnalyticsTab({ posts }: { posts: BlogPost[] }) {
         </div>
       )}
 
-      {/* GA4 Setup */}
+      {/* GTM Status */}
       <div className="bg-white rounded-xl border border-gray-100 p-5">
-        <div className="flex items-start justify-between mb-4">
+        <div className="flex items-start justify-between mb-3">
           <div>
             <p className="text-sm font-bold text-gray-900 flex items-center gap-2">
-              <span className="text-base">📊</span> Google Analytics 4 Configuration
+              <span className="text-base">📊</span> Google Tag Manager
             </p>
-            <p className="text-xs text-gray-400 mt-0.5">Enter your GA4 Measurement ID to enable full traffic analytics</p>
-            <p className="text-xs text-amber-600 mt-1">The cards above are local diagnostics, not site-wide GA4 totals. Use Google Analytics for visitor totals.</p>
+            <p className="text-xs text-gray-400 mt-0.5">GA4 tracking is managed through GTM — configure tags, triggers, and events in the GTM dashboard.</p>
           </div>
-          {gaId && (
-            <span className="inline-flex items-center gap-1.5 text-xs font-medium text-green-700 bg-green-50 px-3 py-1 rounded-full">
-              <CheckCircle2 size={12} /> Connected
-            </span>
-          )}
+          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-green-700 bg-green-50 px-3 py-1 rounded-full">
+            <CheckCircle2 size={12} /> Active
+          </span>
         </div>
-
-        <div className="flex gap-2">
-          <input
-            value={gaInput}
-            onChange={(e) => setGaInput(e.target.value)}
-            placeholder="G-XXXXXXXXXX"
-            className="flex-1 border border-gray-200 rounded-lg px-3 py-2 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-green-600"
-          />
-          <button onClick={saveGA} className="px-4 py-2 bg-[#006C35] text-white text-sm font-semibold rounded-lg hover:bg-green-800 transition-colors">
-            {saved ? "✓ Saved" : "Save"}
-          </button>
+        <div className="p-3 bg-gray-50 rounded-lg space-y-1">
+          <p className="text-xs text-gray-500">Container ID: <code className="font-mono text-green-700">{gtmId}</code></p>
+          <p className="text-xs text-gray-400">Page views and custom events (WhatsApp clicks, form submits, etc.) are pushed to the GTM dataLayer automatically.</p>
         </div>
-        {gaId && (
-          <div className="mt-3 p-3 bg-gray-50 rounded-lg">
-            <p className="text-xs text-gray-500">Active Measurement ID: <code className="font-mono text-green-700">{gaId}</code></p>
-            <p className="text-xs text-gray-400 mt-1">GA4 is loaded on all visitor pages. View your full dashboard at <a href={`https://analytics.google.com/analytics/web/#/p${gaId.replace("G-","")}`} target="_blank" rel="noopener noreferrer" className="text-green-600 hover:underline">analytics.google.com ↗</a></p>
-          </div>
-        )}
-
-        {!gaId && (
-          <div className="mt-4 space-y-2 border-t border-gray-50 pt-4">
-            <p className="text-xs font-semibold text-gray-600">How to set up GA4 in 3 steps:</p>
-            <ol className="text-xs text-gray-500 space-y-1 list-decimal list-inside">
-              <li>Go to <a href="https://analytics.google.com" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:underline">analytics.google.com</a> and create a new property for <strong>counselo-legal.com</strong></li>
-              <li>In Data Streams, add a Web stream → copy your Measurement ID (starts with G-)</li>
-              <li>Paste it above and click Save — tracking activates immediately</li>
-            </ol>
-          </div>
-        )}
+        <div className="mt-3 flex gap-2 flex-wrap">
+          <a href="https://tagmanager.google.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#006C35] text-white text-xs font-semibold rounded-lg hover:bg-green-800">Open Tag Manager <ExternalLink size={11} /></a>
+          <a href="https://analytics.google.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 text-gray-600 text-xs font-medium rounded-lg hover:bg-gray-50">Open GA4 <ExternalLink size={11} /></a>
+        </div>
       </div>
 
       {/* Search Console setup */}

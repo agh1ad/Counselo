@@ -15,7 +15,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { RegionProvider } from "@/contexts/RegionContext";
 import { lazy, Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { trackEvent, trackPageview, getGAMeasurementId, injectGA, injectGTM } from "@/lib/analytics";
+import { trackEvent, trackPageview, injectGTM } from "@/lib/analytics";
 import type { WorkSamplePublic } from "@/lib/work-samples";
 
 import RegionPicker from "@/pages/region-picker";
@@ -79,9 +79,7 @@ function ScrollToTop() {
 function GAInit() {
   useEffect(() => {
     const loadAnalytics = () => {
-      injectGTM("GTM-WZ6SW99X");
-      const id = getGAMeasurementId() || "G-1M9ZZX7VT6";
-      injectGA(id);
+      injectGTM();
     };
 
     if ("requestIdleCallback" in window) {
