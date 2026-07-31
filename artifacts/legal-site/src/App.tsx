@@ -78,7 +78,7 @@ function ScrollToTop() {
 
 function GAInit() {
   useEffect(() => {
-    injectGA(getGAMeasurementId() || "G-1M9ZZX7VT6");
+    injectGA(getGAMeasurementId());
   }, []);
   return null;
 }

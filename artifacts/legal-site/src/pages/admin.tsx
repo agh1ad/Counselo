@@ -456,13 +456,13 @@ function AnalyticsTab({ posts }: { posts: BlogPost[] }) {
     <div className="p-6 space-y-6 max-w-6xl mx-auto">
       <div>
         <h2 className="text-xl font-bold text-gray-900">Analytics Dashboard</h2>
-        <p className="text-sm text-gray-500 mt-0.5">On-site engagement tracking + Google Analytics 4 setup</p>
+        <p className="text-sm text-gray-500 mt-0.5">This browser's test activity + Google Analytics 4 setup</p>
       </div>
 
       {/* Stat cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard icon={<MessageCircle size={18} />} label="WhatsApp Clicks" value={data?.whatsapp_clicks ?? 0} sub="all time" color="green" />
-        <StatCard icon={<Users size={18} />} label="Consultation Clicks" value={data?.consultation_clicks ?? 0} sub="all time" color="blue" />
+        <StatCard icon={<MessageCircle size={18} />} label="WhatsApp Clicks" value={data?.whatsapp_clicks ?? 0} sub="this browser only" color="green" />
+        <StatCard icon={<Users size={18} />} label="Consultation Clicks" value={data?.consultation_clicks ?? 0} sub="this browser only" color="blue" />
         <StatCard icon={<Activity size={18} />} label="Pages Tracked" value={data ? Object.keys(data.pageviews).length : 0} sub="unique routes visited" color="purple" />
         <StatCard icon={<FileText size={18} />} label="Blog Posts" value={posts.length} sub={`${publishedCount} published · ${draftCount} draft`} color="amber" />
       </div>
@@ -521,6 +521,7 @@ function AnalyticsTab({ posts }: { posts: BlogPost[] }) {
               <span className="text-base">📊</span> Google Analytics 4 Configuration
             </p>
             <p className="text-xs text-gray-400 mt-0.5">Enter your GA4 Measurement ID to enable full traffic analytics</p>
+            <p className="text-xs text-amber-600 mt-1">The cards above are local diagnostics, not site-wide GA4 totals. Use Google Analytics for visitor totals.</p>
           </div>
           {gaId && (
             <span className="inline-flex items-center gap-1.5 text-xs font-medium text-green-700 bg-green-50 px-3 py-1 rounded-full">
