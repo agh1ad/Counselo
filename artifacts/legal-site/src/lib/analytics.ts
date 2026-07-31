@@ -1,5 +1,8 @@
 const STORE_KEY = "counselo_analytics";
 const GA_ID_KEY = "counselo_ga_measurement_id";
+const DEFAULT_GA_MEASUREMENT_ID = "G-1M9ZZX7VT6";
+
+let configuredMeasurementId = "";
 
 export interface EventLog {
   event: string;
@@ -41,6 +44,12 @@ type AnalyticsDetails = Record<string, string | number | boolean | undefined>;
 
 function sendToGA(event: string, details: AnalyticsDetails) {
   if (typeof window === "undefined") return;
+  const measurementId = getGAMeasurementId();
+  if (!measurementId) return;
+
+  // Configure the destination before queuing an event. React runs child effects
+  // before parent effects, so the initial page_view can otherwise precede GAInit.
+  injectGA(measurementId);
   const gaWindow = window as unknown as {
     dataLayer?: unknown[][];
     gtag?: (...args: unknown[]) => void;
@@ -49,7 +58,7 @@ function sendToGA(event: string, details: AnalyticsDetails) {
   gaWindow.gtag = gaWindow.gtag || function (...args: unknown[]) {
     gaWindow.dataLayer?.push(args);
   };
-  gaWindow.gtag("event", event, details);
+  gaWindow.gtag("event", event, { ...details, send_to: measurementId });
 }
 
 export function trackEvent(event: string, page: string, details: AnalyticsDetails = {}) {
@@ -81,7 +90,11 @@ export function trackPageview(path: string) {
   store.pageviews[path] = (store.pageviews[path] ?? 0) + 1;
   save(store);
 
-  sendToGA("page_view", { page_path: path });
+  sendToGA("page_view", {
+    page_path: path,
+    page_location: window.location.href,
+    page_title: document.title,
+  });
 }
 
 export function getAnalytics(): AnalyticsStore {
@@ -93,7 +106,8 @@ export function clearAnalytics() {
 }
 
 export function getGAMeasurementId(): string {
-  return localStorage.getItem(GA_ID_KEY) ?? "";
+  if (typeof window === "undefined") return DEFAULT_GA_MEASUREMENT_ID;
+  return localStorage.getItem(GA_ID_KEY) || DEFAULT_GA_MEASUREMENT_ID;
 }
 
 export function setGAMeasurementId(id: string) {
@@ -123,6 +137,9 @@ export function injectGA(measurementId: string) {
     script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
     document.head.appendChild(script);
   }
-  gaWindow.gtag("js", new Date());
-  gaWindow.gtag("config", measurementId, { send_page_view: false });
+  if (configuredMeasurementId !== measurementId) {
+    gaWindow.gtag("js", new Date());
+    gaWindow.gtag("config", measurementId, { send_page_view: false });
+    configuredMeasurementId = measurementId;
+  }
 }
