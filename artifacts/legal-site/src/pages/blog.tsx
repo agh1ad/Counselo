@@ -228,7 +228,7 @@ export default function Blog() {
                     <div className="mt-auto flex flex-wrap items-center gap-6 text-xs text-white/55">
                       <span>{formatDate(post.date, lang)}</span>
                       <span className="flex items-center gap-2"><Clock className="h-3.5 w-3.5" /> {post.readTime} {ui.minRead}</span>
-                      <Link href={`/blog/${post.slug}`} className="inline-flex items-center gap-2 border-b border-[#d4b66c] pb-1 font-semibold text-white">
+                      <Link href={`${useAr ? "/ar" : ""}/blog/${post.slug}`} className="inline-flex items-center gap-2 border-b border-[#d4b66c] pb-1 font-semibold text-white">
                         {ui.readMore}<ArrowRight className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
                       </Link>
                     </div>
@@ -264,7 +264,7 @@ export default function Blog() {
                       <span>{formatDate(post.date, lang)}</span>
                       <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" />{post.readTime} {ui.minRead}</span>
                     </div>
-                    <Link href={`${isRTL ? "/ar" : ""}/blog/${post.slug}`} className="mt-5 inline-flex items-center justify-between text-sm font-semibold text-primary">
+                    <Link href={`${useAr ? "/ar" : ""}/blog/${post.slug}`} className="mt-5 inline-flex items-center justify-between text-sm font-semibold text-primary">
                       {ui.readMore}<ArrowRight className={`h-4 w-4 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180" : ""}`} />
                     </Link>
                   </motion.article>
