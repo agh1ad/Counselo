@@ -50,8 +50,10 @@ type WorkTranslation = {
 };
 
 const stringSchema = { type: "string" } as const;
-const seoTitleSchema = { type: "string", minLength: 20, maxLength: 70 } as const;
-const seoDescriptionSchema = { type: "string", minLength: 80, maxLength: 170 } as const;
+// Note: OpenAI strict json_schema does not support minLength/maxLength.
+// Character-count guidance lives in the system prompt instead.
+const seoTitleSchema = stringSchema;
+const seoDescriptionSchema = stringSchema;
 const sectionSchema = {
   type: "array",
   items: {
@@ -271,7 +273,7 @@ async function requestStructuredTranslation<T>(
       signal: controller.signal,
       body: JSON.stringify({
         model:
-          process.env["OPENAI_TRANSLATION_MODEL"]?.trim() || "gpt-4o-mini",
+          process.env["OPENAI_TRANSLATION_MODEL"]?.trim() || "gpt-5-nano",
         max_output_tokens: 12_000,
         input: [
           {
