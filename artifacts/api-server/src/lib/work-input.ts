@@ -131,20 +131,6 @@ export function parseWorkSampleInput(
   const seoDescriptionEn = stringField(body, "seoDescriptionEn", 500) || truncate(summaryEn, 160);
   const seoDescriptionAr = stringField(body, "seoDescriptionAr", 500) || truncate(summaryAr, 160);
 
-  if (published) {
-    for (const [locale, title, description] of [
-      ["English", titleEn ? seoTitleEn : "", titleEn ? seoDescriptionEn : ""],
-      ["Arabic", titleAr ? seoTitleAr : "", titleAr ? seoDescriptionAr : ""],
-    ] as const) {
-      if (!title) continue;
-      if (title.length < 20 || title.length > 70) {
-        throw new WorkInputError(`${locale} SEO title must be 20–70 characters before publishing`);
-      }
-      if (description.length < 80 || description.length > 170) {
-        throw new WorkInputError(`${locale} SEO description must be 80–170 characters before publishing`);
-      }
-    }
-  }
 
   return {
     slug,

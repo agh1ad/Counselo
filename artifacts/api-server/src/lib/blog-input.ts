@@ -203,24 +203,6 @@ export function parseBlogPostInput(
   const seoDescriptionAr =
     stringField(body, "seoDescriptionAr", 500) || plainAr.slice(0, 160);
 
-  if (published) {
-    for (const [locale, title, description] of [
-      ["English", hasEnglishArticle ? seoTitleEn : "", hasEnglishArticle ? seoDescriptionEn : ""],
-      ["Arabic", hasArabicArticle ? seoTitleAr : "", hasArabicArticle ? seoDescriptionAr : ""],
-    ] as const) {
-      if (!title) continue;
-      if (title.length < 20 || title.length > 70) {
-        throw new BlogInputError(
-          `${locale} SEO title must be 20–70 characters before publishing`,
-        );
-      }
-      if (description.length < 80 || description.length > 170) {
-        throw new BlogInputError(
-          `${locale} SEO description must be 80–170 characters before publishing`,
-        );
-      }
-    }
-  }
 
   return {
     slug,
