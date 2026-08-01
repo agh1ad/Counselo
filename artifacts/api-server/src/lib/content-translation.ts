@@ -273,7 +273,7 @@ async function requestStructuredTranslation<T>(
       signal: controller.signal,
       body: JSON.stringify({
         model:
-          process.env["OPENAI_TRANSLATION_MODEL"]?.trim() || "gpt-5-nano",
+          process.env["OPENAI_TRANSLATION_MODEL"]?.trim() || "gpt-5-mini",
         max_output_tokens: 12_000,
         input: [
           {
