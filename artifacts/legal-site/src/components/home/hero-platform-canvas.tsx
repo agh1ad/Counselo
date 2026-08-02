@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 interface HeroPlatformCanvasProps {
-  region: "sa" | "syr";
+  region: "sa" | "syr" | "uae";
   isRTL: boolean;
 }
 
@@ -83,12 +83,14 @@ export function HeroPlatformCanvas({ region, isRTL }: HeroPlatformCanvasProps) {
       context.strokeStyle = green;
       context.lineWidth = 1;
 
-      if (region === "sa") {
+      if (region === "sa" || region === "uae") {
         // Contemporary Saudi city silhouette and palm-like vertical rhythm.
         const base = height * 0.82;
         const start = width * 0.57;
         const buildingWidths = [0.038, 0.055, 0.042, 0.072, 0.044, 0.06];
-        const buildingHeights = [0.16, 0.28, 0.21, 0.37, 0.25, 0.18];
+        const buildingHeights = region === "uae"
+          ? [0.16, 0.31, 0.22, 0.48, 0.28, 0.2]
+          : [0.16, 0.28, 0.21, 0.37, 0.25, 0.18];
         let cursor = start;
         buildingWidths.forEach((fraction, index) => {
           const buildingWidth = width * fraction;

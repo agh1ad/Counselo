@@ -66,7 +66,7 @@ export const en = {
       responseTag: "Professional Response Within 24 Hours",
       h1a: "Online Legal Consultation",
       h1b: "for Saudi Arabia — Fast & Reliable.",
-      desc: "CounselO is an online legal consultation platform serving Saudi Arabia — delivering expert legal guidance for individuals, businesses and investors, directly to your phone or inbox.",
+      desc: "CounselO is an online legal consultation platform serving Saudi Arabia — delivering expert legal guidance for individuals, businesses and investors directly to your phone or inbox",
       descBold: "without leaving your desk.",
       descEnd: "",
       subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Saudi Arabia — with a target professional response time of 24 hours. 30+ years experience, 20,000+ cases and consultations.",

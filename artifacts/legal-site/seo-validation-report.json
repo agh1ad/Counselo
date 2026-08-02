@@ -1,20 +1,16 @@
 {
-  "generatedAt": "2026-07-29 12:58:43 UTC",
+  "generatedAt": "2026-08-02 10:54:31 UTC",
   "summary": {
-    "pages": 130,
-    "redirects": 40,
-    "ok": 128,
-    "warnOnly": 2,
+    "pages": 189,
+    "redirects": 42,
+    "ok": 189,
+    "warnOnly": 0,
     "errors": 0,
     "totalErrors": 0,
-    "totalWarnings": 2,
-    "score": 99
+    "totalWarnings": 0,
+    "score": 100
   },
   "ruleFrequency": {
-    "title-too-long": {
-      "errors": 0,
-      "warns": 2
-    },
     "blog-hub-articles": {
       "errors": 0,
       "warns": 0
@@ -25,16 +21,16 @@
       "file": "index.html",
       "route": "/",
       "isRedirect": false,
-      "title": "CounselO | Online Legal Consultation — Saudi Arabia & Syria",
-      "description": "Confidential online legal consultation for Saudi Arabia and Syria, in Arabic or English. Get lawyer-led guidance on family, employment, business and more within 24 hours.",
+      "title": "CounselO | Online Legal Consultation — UAE, Saudi Arabia & Syria",
+      "description": "Confidential online legal consultation for the UAE, Saudi Arabia and Syria, in Arabic or English. Choose your jurisdiction and request lawyer-led guidance.",
       "issues": [],
       "schemaTypes": [
         "WebSite",
         "LegalService",
         "FAQPage"
       ],
-      "hreflangCount": 7,
-      "internalLinkCount": 65
+      "hreflangCount": 9,
+      "internalLinkCount": 72
     },
     {
       "file": "ar-our-work.html",
@@ -49,22 +45,22 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 7
+      "internalLinkCount": 18
     },
     {
       "file": "ar.html",
       "route": "/ar",
       "isRedirect": false,
-      "title": "كاونسلو | استشارة قانونية أونلاين — السعودية وسوريا",
-      "description": "احصل على استشارة قانونية سرية في السعودية أو سوريا. استشارات بالعربية والإنجليزية خلال 24 ساعة. قانون الأسرة، العمل، العقارات، التجارة، الجنائي وأكثر.",
+      "title": "كاونسلو | استشارة قانونية أونلاين — الإمارات والسعودية وسوريا",
+      "description": "استشارة قانونية سرية ومحددة الاختصاص في الإمارات والسعودية وسوريا، بالعربية أو الإنجليزية. اختر الدولة واطلب الإرشاد القانوني المناسب.",
       "issues": [],
       "schemaTypes": [
         "WebSite",
         "LegalService",
         "FAQPage"
       ],
-      "hreflangCount": 7,
-      "internalLinkCount": 65
+      "hreflangCount": 9,
+      "internalLinkCount": 72
     },
     {
       "file": "blog-Penalty-clause-in-saudi.html",
@@ -193,18 +189,18 @@
       "internalLinkCount": 11
     },
     {
-      "file": "blog-anha-alaqd-bdwn-sbb-mshrwa.html",
-      "route": "/blog/anha-alaqd-bdwn-sbb-mshrwa",
+      "file": "blog-anha-aqd-alaml-bdwn-sbb-mshrwa.html",
+      "route": "/blog/anha-aqd-alaml-bdwn-sbb-mshrwa",
       "isRedirect": false,
-      "title": "Termination Without Legitimate Reason | CounselO",
-      "description": "Learn when termination may constitute unfair dismissal under Saudi Labor Law, including workers’ rights, compensation, evidence, and claim procedures.",
+      "title": "Unlawful Employment Termination in Saudi Arabia | CounselO",
+      "description": "Learn when employment termination may constitute unfair dismissal under Saudi Labor Law and understand workers’ rights, compensation, and procedures.",
       "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 9
+      "internalLinkCount": 10
     },
     {
       "file": "blog-aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy.html",
@@ -294,15 +290,9 @@
       "file": "blog-contract-interpretation-syrian-courts.html",
       "route": "/blog/contract-interpretation-syrian-courts",
       "isRedirect": false,
-      "title": "Contract Interpretation Before Syrian Courts: Legal Rules and Dispute Resolution | CounselO",
+      "title": "Contract Interpretation Before Syrian Courts | CounselO",
       "description": "Learn how Syrian courts interpret contracts when contractual terms are unclear, conflicting, or open to multiple meanings, and how judges rely on the parties’ common…",
-      "issues": [
-        {
-          "severity": "warn",
-          "rule": "title-too-long",
-          "detail": "91 chars (max 70)"
-        }
-      ],
+      "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
@@ -342,15 +332,9 @@
       "file": "blog-e-contracts-legal-validity-saudi-arabia.html",
       "route": "/blog/e-contracts-legal-validity-saudi-arabia",
       "isRedirect": false,
-      "title": "Electronic Contracts in Saudi Arabia | Legal Validity and Proof | CounselO",
+      "title": "Electronic Contracts in Saudi Arabia: Validity & Proof | CounselO",
       "description": "Are electronic contracts legally valid in Saudi Arabia? This article explains the requirements for valid e-signatures, digital evidence, and how electronic contracts…",
-      "issues": [
-        {
-          "severity": "warn",
-          "rule": "title-too-long",
-          "detail": "74 chars (max 70)"
-        }
-      ],
+      "issues": [],
       "schemaTypes": [
         "Article",
         "BreadcrumbList"
@@ -387,6 +371,20 @@
       "internalLinkCount": 11
     },
     {
+      "file": "blog-mhl-alaqd-fy-alqanwn-alswry.html",
+      "route": "/blog/mhl-alaqd-fy-alqanwn-alswry",
+      "isRedirect": false,
+      "title": "Contract Subject Matter under Syrian Law | CounselO",
+      "description": "Learn the requirements for valid contract subject matter under Articles 132–136 of the Syrian Civil Code and how impossibility or illegality affects validity.",
+      "issues": [],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 1,
+      "internalLinkCount": 12
+    },
+    {
       "file": "blog-performance-of-contracts-in-good-faith-under-syrian-law.html",
       "route": "/blog/performance-of-contracts-in-good-faith-under-syrian-law",
       "isRedirect": false,
@@ -404,13 +402,13 @@
       "file": "blog.html",
       "route": "/blog",
       "isRedirect": false,
-      "title": "Legal Blog | Articles & Guides | CounselO",
-      "description": "Practical legal guides on family, employment, real estate, commercial law, and foreign investment in Saudi Arabia and Syria from CounselO's legal team.",
+      "title": "Global Legal Insights | Articles & Guides | CounselO",
+      "description": "CounselO's shared publication for legal articles and guides covering UAE, Saudi and Syrian law, with each article's jurisdiction clearly identified.",
       "issues": [
         {
           "severity": "info",
           "rule": "blog-hub-articles",
-          "detail": "23 article link(s)"
+          "detail": "24 article link(s)"
         }
       ],
       "schemaTypes": [
@@ -419,7 +417,7 @@
         "ItemList"
       ],
       "hreflangCount": 1,
-      "internalLinkCount": 24
+      "internalLinkCount": 25
     },
     {
       "file": "our-work.html",
@@ -434,7 +432,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 7
+      "internalLinkCount": 18
     },
     {
       "file": "sa-about.html",
@@ -449,7 +447,7 @@
         "WebPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 2
+      "internalLinkCount": 3
     },
     {
       "file": "sa-ar-about.html",
@@ -464,7 +462,7 @@
         "WebPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 2
+      "internalLinkCount": 3
     },
     {
       "file": "sa-ar-blog-board-of-grievances-saudi-arabia.html",
@@ -563,7 +561,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 0
+      "internalLinkCount": 1
     },
     {
       "file": "sa-ar-privacy-policy.html",
@@ -577,7 +575,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 2
+      "internalLinkCount": 3
     },
     {
       "file": "sa-ar-services-administrative-law.html",
@@ -593,7 +591,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 11
+      "internalLinkCount": 10
     },
     {
       "file": "sa-ar-services-arbitration.html",
@@ -609,7 +607,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "sa-ar-services-banking-finance.html",
@@ -625,7 +623,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 10
     },
     {
       "file": "sa-ar-services-business-law.html",
@@ -657,7 +655,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 11
     },
     {
       "file": "sa-ar-services-contracts.html",
@@ -673,7 +671,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 22
+      "internalLinkCount": 24
     },
     {
       "file": "sa-ar-services-criminal-law.html",
@@ -689,7 +687,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 11
+      "internalLinkCount": 9
     },
     {
       "file": "sa-ar-services-cyber-law.html",
@@ -705,7 +703,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 11
+      "internalLinkCount": 10
     },
     {
       "file": "sa-ar-services-employment-law.html",
@@ -721,7 +719,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 15
+      "internalLinkCount": 14
     },
     {
       "file": "sa-ar-services-enforcement.html",
@@ -737,7 +735,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 11
     },
     {
       "file": "sa-ar-services-family-law.html",
@@ -753,7 +751,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 7
     },
     {
       "file": "sa-ar-services-foreign-investment.html",
@@ -769,7 +767,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "sa-ar-services-insurance-law.html",
@@ -785,7 +783,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 7
     },
     {
       "file": "sa-ar-services-intellectual-property.html",
@@ -801,7 +799,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "sa-ar-services-medical-malpractice.html",
@@ -833,7 +831,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 7
     },
     {
       "file": "sa-ar-services-tax-zakat.html",
@@ -849,7 +847,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "sa-ar-services.html",
@@ -864,7 +862,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 17
+      "internalLinkCount": 19
     },
     {
       "file": "sa-ar-terms-of-service.html",
@@ -878,7 +876,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 1
+      "internalLinkCount": 2
     },
     {
       "file": "sa-ar-vision.html",
@@ -894,7 +892,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 0
+      "internalLinkCount": 1
     },
     {
       "file": "sa-ar.html",
@@ -908,7 +906,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 36
+      "internalLinkCount": 39
     },
     {
       "file": "sa-blog-board-of-grievances-saudi-arabia.html",
@@ -1007,7 +1005,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 0
+      "internalLinkCount": 1
     },
     {
       "file": "sa-privacy-policy.html",
@@ -1021,7 +1019,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 2
+      "internalLinkCount": 3
     },
     {
       "file": "sa-services-administrative-law.html",
@@ -1037,7 +1035,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 11
+      "internalLinkCount": 10
     },
     {
       "file": "sa-services-arbitration.html",
@@ -1053,7 +1051,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "sa-services-banking-finance.html",
@@ -1069,7 +1067,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 10
     },
     {
       "file": "sa-services-business-law.html",
@@ -1101,7 +1099,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 11
     },
     {
       "file": "sa-services-contracts.html",
@@ -1117,7 +1115,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 22
+      "internalLinkCount": 24
     },
     {
       "file": "sa-services-criminal-law.html",
@@ -1133,7 +1131,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 11
+      "internalLinkCount": 9
     },
     {
       "file": "sa-services-cyber-law.html",
@@ -1149,7 +1147,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 11
+      "internalLinkCount": 10
     },
     {
       "file": "sa-services-employment-law.html",
@@ -1165,7 +1163,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 15
+      "internalLinkCount": 14
     },
     {
       "file": "sa-services-enforcement.html",
@@ -1181,7 +1179,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 11
     },
     {
       "file": "sa-services-family-law.html",
@@ -1197,7 +1195,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 7
     },
     {
       "file": "sa-services-foreign-investment.html",
@@ -1213,7 +1211,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "sa-services-insurance-law.html",
@@ -1229,7 +1227,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 7
     },
     {
       "file": "sa-services-intellectual-property.html",
@@ -1245,7 +1243,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "sa-services-medical-malpractice.html",
@@ -1277,7 +1275,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 7
     },
     {
       "file": "sa-services-tax-zakat.html",
@@ -1293,7 +1291,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "sa-services.html",
@@ -1308,7 +1306,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 17
+      "internalLinkCount": 19
     },
     {
       "file": "sa-terms-of-service.html",
@@ -1322,7 +1320,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 1
+      "internalLinkCount": 2
     },
     {
       "file": "sa-vision.html",
@@ -1338,7 +1336,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 0
+      "internalLinkCount": 1
     },
     {
       "file": "sa.html",
@@ -1352,7 +1350,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 36
+      "internalLinkCount": 39
     },
     {
       "file": "syr-about.html",
@@ -1367,7 +1365,7 @@
         "WebPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 2
+      "internalLinkCount": 3
     },
     {
       "file": "syr-ar-about.html",
@@ -1382,7 +1380,7 @@
         "WebPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 2
+      "internalLinkCount": 3
     },
     {
       "file": "syr-ar-blog-administrative-court-disputes-syria.html",
@@ -1553,7 +1551,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 0
+      "internalLinkCount": 1
     },
     {
       "file": "syr-ar-privacy-policy.html",
@@ -1567,7 +1565,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 2
+      "internalLinkCount": 3
     },
     {
       "file": "syr-ar-services-administrative-law.html",
@@ -1583,7 +1581,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-ar-services-arbitration.html",
@@ -1599,7 +1597,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-ar-services-banking-finance.html",
@@ -1615,7 +1613,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-ar-services-business-law.html",
@@ -1631,7 +1629,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-ar-services-civil-law.html",
@@ -1647,7 +1645,7 @@
         "FAQPage"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 11
+      "internalLinkCount": 10
     },
     {
       "file": "syr-ar-services-civil-procedure.html",
@@ -1663,7 +1661,7 @@
         "FAQPage"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-ar-services-companies-law.html",
@@ -1679,7 +1677,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-ar-services-contracts.html",
@@ -1695,7 +1693,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 20
+      "internalLinkCount": 21
     },
     {
       "file": "syr-ar-services-criminal-law.html",
@@ -1727,7 +1725,7 @@
         "FAQPage"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-ar-services-cyber-law.html",
@@ -1743,7 +1741,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-ar-services-employment-law.html",
@@ -1759,7 +1757,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-ar-services-enforcement.html",
@@ -1775,7 +1773,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-ar-services-family-law.html",
@@ -1791,7 +1789,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-ar-services-foreign-investment.html",
@@ -1807,7 +1805,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-ar-services-insurance-law.html",
@@ -1823,7 +1821,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-ar-services-intellectual-property.html",
@@ -1839,7 +1837,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-ar-services-medical-malpractice.html",
@@ -1871,7 +1869,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 10
     },
     {
       "file": "syr-ar-services-tax-zakat.html",
@@ -1887,7 +1885,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-ar-services.html",
@@ -1902,7 +1900,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 20
+      "internalLinkCount": 22
     },
     {
       "file": "syr-ar-terms-of-service.html",
@@ -1916,7 +1914,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 1
+      "internalLinkCount": 2
     },
     {
       "file": "syr-ar-vision.html",
@@ -1932,7 +1930,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 0
+      "internalLinkCount": 1
     },
     {
       "file": "syr-ar.html",
@@ -1946,7 +1944,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 30
+      "internalLinkCount": 32
     },
     {
       "file": "syr-blog-administrative-court-disputes-syria.html",
@@ -2117,7 +2115,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 0
+      "internalLinkCount": 1
     },
     {
       "file": "syr-privacy-policy.html",
@@ -2131,7 +2129,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 2
+      "internalLinkCount": 3
     },
     {
       "file": "syr-services-administrative-law.html",
@@ -2147,7 +2145,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-services-arbitration.html",
@@ -2163,7 +2161,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-services-banking-finance.html",
@@ -2179,7 +2177,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-services-business-law.html",
@@ -2195,7 +2193,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-services-civil-law.html",
@@ -2211,7 +2209,7 @@
         "FAQPage"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 11
+      "internalLinkCount": 10
     },
     {
       "file": "syr-services-civil-procedure.html",
@@ -2227,7 +2225,7 @@
         "FAQPage"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-services-companies-law.html",
@@ -2243,7 +2241,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-services-contracts.html",
@@ -2259,7 +2257,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 20
+      "internalLinkCount": 21
     },
     {
       "file": "syr-services-criminal-law.html",
@@ -2291,7 +2289,7 @@
         "FAQPage"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-services-cyber-law.html",
@@ -2307,7 +2305,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-services-employment-law.html",
@@ -2323,7 +2321,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-services-enforcement.html",
@@ -2339,7 +2337,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-services-family-law.html",
@@ -2355,7 +2353,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-services-foreign-investment.html",
@@ -2371,7 +2369,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-services-insurance-law.html",
@@ -2387,7 +2385,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-services-intellectual-property.html",
@@ -2403,7 +2401,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-services-medical-malpractice.html",
@@ -2435,7 +2433,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 10
     },
     {
       "file": "syr-services-tax-zakat.html",
@@ -2451,7 +2449,7 @@
         "FAQPage"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 9
+      "internalLinkCount": 8
     },
     {
       "file": "syr-services.html",
@@ -2466,7 +2464,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 20
+      "internalLinkCount": 22
     },
     {
       "file": "syr-terms-of-service.html",
@@ -2480,7 +2478,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 1
+      "internalLinkCount": 2
     },
     {
       "file": "syr-vision.html",
@@ -2496,7 +2494,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 0
+      "internalLinkCount": 1
     },
     {
       "file": "syr.html",
@@ -2510,7 +2508,941 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 30
+      "internalLinkCount": 32
+    },
+    {
+      "file": "uae-about.html",
+      "route": "/uae/about",
+      "isRedirect": false,
+      "title": "About CounselO UAE | Online Legal Consultation | CounselO",
+      "description": "Learn about CounselO UAE, an online legal consultation service for federal, emirate-level, mainland and free-zone matters, available in Arabic and English across 22…",
+      "issues": [],
+      "schemaTypes": [
+        "Organization",
+        "Person",
+        "WebPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 3
+    },
+    {
+      "file": "uae-ar-about.html",
+      "route": "/uae/ar/about",
+      "isRedirect": false,
+      "title": "عن كاونسلو الإمارات | استشارات قانونية أونلاين | كاونسلو",
+      "description": "تعرّف على كاونسلو الإمارات، خدمة الاستشارات القانونية الأونلاين للمسائل الاتحادية والمحلية ومسائل البرّ الرئيسي والمناطق الحرة، بالعربية والإنجليزية ضمن 22 مجالاً…",
+      "issues": [],
+      "schemaTypes": [
+        "Organization",
+        "Person",
+        "WebPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 3
+    },
+    {
+      "file": "uae-ar-blog.html",
+      "route": "/uae/ar/blog",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/blog",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
+    },
+    {
+      "file": "uae-ar-contact.html",
+      "route": "/uae/ar/contact",
+      "isRedirect": false,
+      "title": "احجز استشارة قانونية في الإمارات | كاونسلو",
+      "description": "تواصل مع كاونسلو الإمارات لطلب استشارة قانونية أونلاين في المسائل الاتحادية والمحلية ومسائل البرّ الرئيسي والمناطق الحرة، بالعربية أو الإنجليزية.",
+      "issues": [],
+      "schemaTypes": [
+        "ContactPage",
+        "LegalService",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 1
+    },
+    {
+      "file": "uae-ar-privacy-policy.html",
+      "route": "/uae/ar/privacy-policy",
+      "isRedirect": false,
+      "title": "سياسة الخصوصية | كيف تحمي كاونسلو بياناتك | كاونسلو",
+      "description": "سياسة خصوصية كاونسلو في الإمارات العربية المتحدة — كيفية جمع البيانات الشخصية والمعلومات القانونية السرية واستخدامها وحمايتها عند تقديم الاستشارات أونلاين.",
+      "issues": [],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 3
+    },
+    {
+      "file": "uae-ar-services-administrative-regulatory.html",
+      "route": "/uae/ar/services/administrative-regulatory",
+      "isRedirect": false,
+      "title": "القانون الإداري والتنظيمي | الإمارات | كاونسلو",
+      "description": "التراخيص وقرارات الجهات التنظيمية والعقود العامة والنزاعات الحكومية. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-arbitration-mediation.html",
+      "route": "/uae/ar/services/arbitration-mediation",
+      "isRedirect": false,
+      "title": "التحكيم والوساطة | الإمارات | كاونسلو",
+      "description": "التحكيم المحلي والدولي والوساطة واستراتيجية الأحكام. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق الحرة بالعربية.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-banking-finance.html",
+      "route": "/uae/ar/services/banking-finance",
+      "isRedirect": false,
+      "title": "البنوك والتمويل والتنظيم المالي | الإمارات | كاونسلو",
+      "description": "مستندات التمويل والضمانات والمسائل التنظيمية والنزاعات المصرفية. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-commercial-contracts.html",
+      "route": "/uae/ar/services/commercial-contracts",
+      "isRedirect": false,
+      "title": "العقود التجارية | الإمارات | كاونسلو",
+      "description": "الصياغة والتفاوض وتوزيع المخاطر واستراتيجية الإخلال. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق الحرة بالعربية.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-consumer-ecommerce.html",
+      "route": "/uae/ar/services/consumer-ecommerce",
+      "isRedirect": false,
+      "title": "التجارة الإلكترونية وحماية المستهلك | الإمارات | كاونسلو",
+      "description": "الشروط الإلكترونية وحقوق المستهلك والأسواق والإعلان والمبيعات الرقمية. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-corporate-commercial.html",
+      "route": "/uae/ar/services/corporate-commercial",
+      "isRedirect": false,
+      "title": "تأسيس الشركات وقانون الشركات التجارية | الإمارات | كاونسلو",
+      "description": "هياكل البرّ الرئيسي والمناطق الحرة والحوكمة وشؤون المساهمين. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق الحرة.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-criminal-investigations.html",
+      "route": "/uae/ar/services/criminal-investigations",
+      "isRedirect": false,
+      "title": "القانون الجزائي والتحقيقات والإجراءات | الإمارات | كاونسلو",
+      "description": "مشورة عاجلة من البلاغ والتحقيق حتى المحاكمة والطعن. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق الحرة بالعربية.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-employment-labour.html",
+      "route": "/uae/ar/services/employment-labour",
+      "isRedirect": false,
+      "title": "علاقات العمل والتوظيف | الإمارات | كاونسلو",
+      "description": "عقود العمل وسياسات مكان العمل والإنهاء ونزاعات العمل. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق الحرة.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-enforcement-debt-recovery.html",
+      "route": "/uae/ar/services/enforcement-debt-recovery",
+      "isRedirect": false,
+      "title": "التنفيذ وتحصيل الديون | الإمارات | كاونسلو",
+      "description": "الأحكام والقرارات وأدوات الدفع والحجز واسترداد الأصول. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق الحرة.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-family-personal-status.html",
+      "route": "/uae/ar/services/family-personal-status",
+      "isRedirect": false,
+      "title": "الأسرة والأحوال الشخصية | الإمارات | كاونسلو",
+      "description": "الزواج والطلاق والحضانة والنفقة والمسائل الأسرية العابرة للحدود. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-foreign-investment-market-entry.html",
+      "route": "/uae/ar/services/foreign-investment-market-entry",
+      "isRedirect": false,
+      "title": "الاستثمار الأجنبي ودخول السوق | الإمارات | كاونسلو",
+      "description": "الملكية والتراخيص والوكالات التجارية ودخول السوق عبر الحدود. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق الحرة.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-healthcare-medical-liability.html",
+      "route": "/uae/ar/services/healthcare-medical-liability",
+      "isRedirect": false,
+      "title": "الرعاية الصحية والمسؤولية الطبية | الإمارات | كاونسلو",
+      "description": "الإهمال الطبي والتراخيص والمنشآت والموافقة ونزاعات الرعاية الصحية. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-immigration-residency.html",
+      "route": "/uae/ar/services/immigration-residency",
+      "isRedirect": false,
+      "title": "الدخول والإقامة والهجرة | الإمارات | كاونسلو",
+      "description": "الدخول والإقامة ووضع العمل وكفالة الأسرة والامتثال. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق الحرة بالعربية.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-insolvency-restructuring.html",
+      "route": "/uae/ar/services/insolvency-restructuring",
+      "isRedirect": false,
+      "title": "إعادة التنظيم المالي والإفلاس | الإمارات | كاونسلو",
+      "description": "التسوية الوقائية وإعادة الهيكلة والإفلاس واستراتيجية الدائنين. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-insurance.html",
+      "route": "/uae/ar/services/insurance",
+      "isRedirect": false,
+      "title": "التأمين ومنازعات التغطية | الإمارات | كاونسلو",
+      "description": "التغطية والمطالبات وصياغة الوثائق والوسطاء والمسائل التنظيمية. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-intellectual-property.html",
+      "route": "/uae/ar/services/intellectual-property",
+      "isRedirect": false,
+      "title": "الملكية الفكرية وحماية العلامات | الإمارات | كاونسلو",
+      "description": "العلامات التجارية وحقوق المؤلف والبراءات والأسرار التجارية وحماية العلامة. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-litigation-court-disputes.html",
+      "route": "/uae/ar/services/litigation-court-disputes",
+      "isRedirect": false,
+      "title": "التقاضي المدني والتجاري | الإمارات | كاونسلو",
+      "description": "الاختصاص والمذكرات والإثبات والتدابير الوقتية والطعون. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق الحرة.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-maritime-aviation-transport.html",
+      "route": "/uae/ar/services/maritime-aviation-transport",
+      "isRedirect": false,
+      "title": "القانون البحري والجوي والنقل | الإمارات | كاونسلو",
+      "description": "النقل والبضائع والمشارطات والطيران والخدمات اللوجستية ونزاعات النقل. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-real-estate-construction.html",
+      "route": "/uae/ar/services/real-estate-construction",
+      "isRedirect": false,
+      "title": "العقارات والإنشاءات | الإمارات | كاونسلو",
+      "description": "المعاملات والإيجارات والتطوير والإنشاءات والنزاعات العقارية. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق الحرة.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-tax-vat.html",
+      "route": "/uae/ar/services/tax-vat",
+      "isRedirect": false,
+      "title": "ضريبة الشركات والقيمة المضافة | الإمارات | كاونسلو",
+      "description": "التسجيل والهيكلة وضريبة القيمة المضافة وضريبة الشركات ومنازعات الهيئة. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-technology-data-protection.html",
+      "route": "/uae/ar/services/technology-data-protection",
+      "isRedirect": false,
+      "title": "التقنية وحماية البيانات والجرائم الإلكترونية | الإمارات | كاونسلو",
+      "description": "حوكمة الخصوصية والمنتجات الرقمية والحوادث السيبرانية وعقود التقنية. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services-wills-estates.html",
+      "route": "/uae/ar/services/wills-estates",
+      "isRedirect": false,
+      "title": "الوصايا والتركات والميراث | الإمارات | كاونسلو",
+      "description": "أصول الإمارات والوصايا وإثباتها وتخطيط الميراث وإدارة التركات. استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-ar-services.html",
+      "route": "/uae/ar/services",
+      "isRedirect": false,
+      "title": "22 مجالاً قانونياً في الإمارات | كاونسلو",
+      "description": "قانوني — منصة متخصصة للاستشارات القانونية الأونلاين في الإمارات العربية المتحدة. 22 مجالاً قانونياً: تأسيس الشركات وقانون الشركات التجارية، الاستثمار الأجنبي ودخول…",
+      "issues": [],
+      "schemaTypes": [
+        "ItemList",
+        "LegalService",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 24
+    },
+    {
+      "file": "uae-ar-terms-of-service.html",
+      "route": "/uae/ar/terms-of-service",
+      "isRedirect": false,
+      "title": "شروط الخدمة | آلية الاستشارة القانونية الأونلاين | كاونسلو",
+      "description": "شروط وآلية استشارات كاونسلو القانونية الأونلاين في الإمارات العربية المتحدة: أرسل مسألتك، واحصل على عرض الرسوم، واعتمد النطاق، ثم استلم استشارتك القانونية بالعربية أو…",
+      "issues": [],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 2
+    },
+    {
+      "file": "uae-ar-vision.html",
+      "route": "/uae/ar/vision",
+      "isRedirect": false,
+      "title": "رؤيتنا لمنصة قانونية رقمية موثوقة | كاونسلو",
+      "description": "تعرّف على رؤية كاونسلو ورسالتها وقيمها لبناء مرجع قانوني رقمي عربي موثوق يجمع الخبرة القانونية والتقنية والسرية المهنية.",
+      "issues": [],
+      "schemaTypes": [
+        "AboutPage",
+        "Organization",
+        "Person",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 1
+    },
+    {
+      "file": "uae-ar.html",
+      "route": "/uae/ar",
+      "isRedirect": false,
+      "title": "منصة الإمارات للاستشارات القانونية الأونلاين | كاونسلو",
+      "description": "كاونسلو — استشارات قانونية أونلاين لمسائل الإمارات في 22 مجالاً قانونياً، وفق الإطار الاتحادي والمحلي وأنظمة البرّ الرئيسي والمناطق الحرة، بالعربية والإنجليزية.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 17
+    },
+    {
+      "file": "uae-blog.html",
+      "route": "/uae/blog",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/blog",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
+    },
+    {
+      "file": "uae-contact.html",
+      "route": "/uae/contact",
+      "isRedirect": false,
+      "title": "Book a UAE Legal Consultation | CounselO",
+      "description": "Contact CounselO UAE for confidential online legal consultation on federal, emirate-level, mainland and free-zone matters in Arabic or English.",
+      "issues": [],
+      "schemaTypes": [
+        "ContactPage",
+        "LegalService",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 1
+    },
+    {
+      "file": "uae-privacy-policy.html",
+      "route": "/uae/privacy-policy",
+      "isRedirect": false,
+      "title": "Privacy Policy | How CounselO Protects Your Data | CounselO",
+      "description": "CounselO's Privacy Policy for the United Arab Emirates — how we collect, use and protect personal data and confidential legal information for online consultations.",
+      "issues": [],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 3
+    },
+    {
+      "file": "uae-services-administrative-regulatory.html",
+      "route": "/uae/services/administrative-regulatory",
+      "isRedirect": false,
+      "title": "Administrative & Regulatory Law | UAE | CounselO",
+      "description": "Licences, regulator decisions, public contracts and government-facing disputes. UAE-focused online legal consultation covering federal, emirate-level.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-arbitration-mediation.html",
+      "route": "/uae/services/arbitration-mediation",
+      "isRedirect": false,
+      "title": "Arbitration & Mediation | UAE | CounselO",
+      "description": "Domestic and international arbitration, mediation and award strategy. UAE-focused online legal consultation covering federal, emirate-level, mainland and.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-banking-finance.html",
+      "route": "/uae/services/banking-finance",
+      "isRedirect": false,
+      "title": "Banking, Finance & Financial Regulation | UAE | CounselO",
+      "description": "Finance documents, security, regulatory questions and banking disputes. UAE-focused online legal consultation covering federal, emirate-level, mainland and.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-commercial-contracts.html",
+      "route": "/uae/services/commercial-contracts",
+      "isRedirect": false,
+      "title": "Commercial Contracts | UAE | CounselO",
+      "description": "Drafting, negotiation, risk allocation and breach strategy. UAE-focused online legal consultation covering federal, emirate-level, mainland and free-zone.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-consumer-ecommerce.html",
+      "route": "/uae/services/consumer-ecommerce",
+      "isRedirect": false,
+      "title": "Consumer, E-commerce & Digital Business | UAE | CounselO",
+      "description": "Online terms, consumer rights, marketplaces, advertising and digital sales. UAE-focused online legal consultation covering federal, emirate-level, mainland.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-corporate-commercial.html",
+      "route": "/uae/services/corporate-commercial",
+      "isRedirect": false,
+      "title": "Company Formation & Commercial Companies Law | UAE | CounselO",
+      "description": "Mainland and free-zone structures, governance and shareholder matters. UAE-focused online legal consultation covering federal, emirate-level, mainland and.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-criminal-investigations.html",
+      "route": "/uae/services/criminal-investigations",
+      "isRedirect": false,
+      "title": "Criminal Law, Investigations & Procedure | UAE | CounselO",
+      "description": "Urgent advice from complaint and investigation through trial and appeal. UAE-focused online legal consultation covering federal, emirate-level, mainland and.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-employment-labour.html",
+      "route": "/uae/services/employment-labour",
+      "isRedirect": false,
+      "title": "Employment & Labour Relations | UAE | CounselO",
+      "description": "Employment contracts, workplace policies, termination and labour disputes. UAE-focused online legal consultation covering federal, emirate-level, mainland.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-enforcement-debt-recovery.html",
+      "route": "/uae/services/enforcement-debt-recovery",
+      "isRedirect": false,
+      "title": "Enforcement & Debt Recovery | UAE | CounselO",
+      "description": "Judgments, awards, payment instruments, attachments and asset recovery. UAE-focused online legal consultation covering federal, emirate-level, mainland and.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-family-personal-status.html",
+      "route": "/uae/services/family-personal-status",
+      "isRedirect": false,
+      "title": "Family & Personal Status | UAE | CounselO",
+      "description": "Marriage, divorce, custody, maintenance and cross-border family matters. UAE-focused online legal consultation covering federal, emirate-level, mainland and.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-foreign-investment-market-entry.html",
+      "route": "/uae/services/foreign-investment-market-entry",
+      "isRedirect": false,
+      "title": "Foreign Investment & Market Entry | UAE | CounselO",
+      "description": "Ownership, licensing, commercial agencies and cross-border market entry. UAE-focused online legal consultation covering federal, emirate-level, mainland and.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-healthcare-medical-liability.html",
+      "route": "/uae/services/healthcare-medical-liability",
+      "isRedirect": false,
+      "title": "Healthcare & Medical Liability | UAE | CounselO",
+      "description": "Clinical negligence, licensing, facilities, consent and healthcare disputes. UAE-focused online legal consultation covering federal, emirate-level, mainland.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-immigration-residency.html",
+      "route": "/uae/services/immigration-residency",
+      "isRedirect": false,
+      "title": "Entry, Residency & Immigration | UAE | CounselO",
+      "description": "Entry, residence, work status, family sponsorship and compliance. UAE-focused online legal consultation covering federal, emirate-level, mainland and.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-insolvency-restructuring.html",
+      "route": "/uae/services/insolvency-restructuring",
+      "isRedirect": false,
+      "title": "Financial Restructuring & Bankruptcy | UAE | CounselO",
+      "description": "Preventive settlement, restructuring, bankruptcy and creditor strategy. UAE-focused online legal consultation covering federal, emirate-level, mainland and.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-insurance.html",
+      "route": "/uae/services/insurance",
+      "isRedirect": false,
+      "title": "Insurance & Coverage Disputes | UAE | CounselO",
+      "description": "Coverage, claims, policy wording, intermediaries and regulatory matters. UAE-focused online legal consultation covering federal, emirate-level, mainland and.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-intellectual-property.html",
+      "route": "/uae/services/intellectual-property",
+      "isRedirect": false,
+      "title": "Intellectual Property & Brand Protection | UAE | CounselO",
+      "description": "Trade marks, copyright, patents, trade secrets and brand enforcement. UAE-focused online legal consultation covering federal, emirate-level, mainland and.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-litigation-court-disputes.html",
+      "route": "/uae/services/litigation-court-disputes",
+      "isRedirect": false,
+      "title": "Civil & Commercial Litigation | UAE | CounselO",
+      "description": "Jurisdiction, pleadings, evidence, interim relief and appeals. UAE-focused online legal consultation covering federal, emirate-level, mainland and free-zone.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-maritime-aviation-transport.html",
+      "route": "/uae/services/maritime-aviation-transport",
+      "isRedirect": false,
+      "title": "Maritime, Aviation & Transport | UAE | CounselO",
+      "description": "Carriage, cargo, charter, aviation, logistics and transport disputes. UAE-focused online legal consultation covering federal, emirate-level, mainland and.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-real-estate-construction.html",
+      "route": "/uae/services/real-estate-construction",
+      "isRedirect": false,
+      "title": "Real Estate & Construction | UAE | CounselO",
+      "description": "Transactions, leases, development, construction and property disputes. UAE-focused online legal consultation covering federal, emirate-level, mainland and.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-tax-vat.html",
+      "route": "/uae/services/tax-vat",
+      "isRedirect": false,
+      "title": "Corporate Tax, VAT & Tax Disputes | UAE | CounselO",
+      "description": "Registration, structuring, VAT, corporate tax and FTA disputes. UAE-focused online legal consultation covering federal, emirate-level, mainland and.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-technology-data-protection.html",
+      "route": "/uae/services/technology-data-protection",
+      "isRedirect": false,
+      "title": "Technology, Data Protection & Cybercrime | UAE | CounselO",
+      "description": "Privacy governance, digital products, cyber incidents and technology contracts. UAE-focused online legal consultation covering federal, emirate-level.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services-wills-estates.html",
+      "route": "/uae/services/wills-estates",
+      "isRedirect": false,
+      "title": "Wills, Estates & Succession | UAE | CounselO",
+      "description": "UAE assets, wills, probate, succession planning and estate administration. UAE-focused online legal consultation covering federal, emirate-level, mainland.",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList",
+        "WebPage",
+        "FAQPage"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 8
+    },
+    {
+      "file": "uae-services.html",
+      "route": "/uae/services",
+      "isRedirect": false,
+      "title": "22 UAE Legal Practice Areas | CounselO",
+      "description": "CounselO — the United Arab Emirates's specialized online legal consultation platform. 22 practice areas: Company Formation & Commercial Companies Law, Foreign…",
+      "issues": [],
+      "schemaTypes": [
+        "ItemList",
+        "LegalService",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 24
+    },
+    {
+      "file": "uae-terms-of-service.html",
+      "route": "/uae/terms-of-service",
+      "isRedirect": false,
+      "title": "Terms of Service | Online Legal Consultation Process | CounselO",
+      "description": "CounselO's consultation terms and process for online legal advice in the United Arab Emirates: submit your matter, receive a fee quote, approve the scope, and receive…",
+      "issues": [],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 2
+    },
+    {
+      "file": "uae-vision.html",
+      "route": "/uae/vision",
+      "isRedirect": false,
+      "title": "Our Vision for Trusted Digital Legal Services | CounselO",
+      "description": "Discover CounselO's vision, mission and values: building a trusted Arab digital legal reference grounded in experience, technology and confidentiality.",
+      "issues": [],
+      "schemaTypes": [
+        "AboutPage",
+        "Organization",
+        "Person",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 1
+    },
+    {
+      "file": "uae.html",
+      "route": "/uae",
+      "isRedirect": false,
+      "title": "UAE Online Legal Consultation | CounselO",
+      "description": "CounselO provides confidential online UAE legal consultation across 22 practice areas, covering federal, emirate-level, mainland and free-zone frameworks in Arabic…",
+      "issues": [],
+      "schemaTypes": [
+        "LegalService",
+        "BreadcrumbList"
+      ],
+      "hreflangCount": 3,
+      "internalLinkCount": 17
     }
   ]
 }

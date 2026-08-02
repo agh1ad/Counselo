@@ -46,6 +46,7 @@ const { BASE_URL, CORE_PAGES, BLOG_BASE_PATH, WORK_BASE_PATH } =
 
 const { en } = await import("../translations/en.js");
 const { enSyr } = await import("../translations/en-syr.js");
+const { UAE_SERVICES } = await import("../data/uae-legal-services.js");
 
 // Maps old SA-worded Syria blog slugs to new Syria-specific canonical slugs.
 // The sitemap only emits the new Syria slugs as canonical; the old slugs have
@@ -113,11 +114,20 @@ function urlEntry(
   const loc = path === "" ? `${BASE_URL}/` : `${BASE_URL}${path}`;
   return `  <url>
     <loc>${loc}</loc>
-${hreflang(path)}
+${path.startsWith("/uae") ? hreflangUae(path) : hreflang(path)}
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-    ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}
+${lastmod ? `    <lastmod>${lastmod}</lastmod>` : ""}
   </url>`;
+}
+
+function hreflangUae(path: string): string {
+  const basePath = path.replace(/^\/uae(\/ar)?/, "");
+  return [
+    `    <xhtml:link rel="alternate" hreflang="en-AE" href="${BASE_URL}/uae${basePath}"/>`,
+    `    <xhtml:link rel="alternate" hreflang="ar-AE" href="${BASE_URL}/uae/ar${basePath}"/>`,
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/"/>`,
+  ].join("\n");
 }
 
 function urlEntrySyrOnly(
@@ -131,7 +141,7 @@ function urlEntrySyrOnly(
 ${hreflangSyrOnly(path)}
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-    ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}
+${lastmod ? `    <lastmod>${lastmod}</lastmod>` : ""}
   </url>`;
 }
 
@@ -206,6 +216,12 @@ ${lastmod ? `    <lastmod>${lastmod}</lastmod>` : ""}
 }
 
 const entries: string[] = [];
+const feedPosts: Array<{
+  slug: string;
+  date: string;
+  title: string;
+  excerpt: string;
+}> = [];
 
 entries.push("  <!-- ===== ROOT & CORE PAGES ===== -->");
 for (const page of CORE_PAGES) {
@@ -230,6 +246,12 @@ for (const slug of SYR_SERVICE_SLUGS) {
   entries.push(fn(`/syr/ar/services/${slug}`, "monthly", "0.9"));
 }
 
+entries.push("\n  <!-- ===== UAE SERVICE PAGES ===== -->");
+for (const service of UAE_SERVICES) {
+  entries.push(urlEntry(`/uae/services/${service.slug}`, "monthly", "0.9"));
+  entries.push(urlEntry(`/uae/ar/services/${service.slug}`, "monthly", "0.9"));
+}
+
 // Blog index — single URL shared by all regions/languages.
 entries.push("\n  <!-- ===== BLOG ===== -->");
 entries.push(
@@ -250,6 +272,10 @@ try {
     slug: z.string(),
     date: z.string(),
     updatedAt: z.string().optional(),
+    titleEn: z.string().optional(),
+    titleAr: z.string().optional(),
+    excerptEn: z.string().optional(),
+    excerptAr: z.string().optional(),
   });
   const blogApiUrl =
     process.env["BLOG_API_URL"]?.trim() ||
@@ -272,6 +298,12 @@ try {
           post.updatedAt?.slice(0, 10) || post.date,
         ),
       );
+      feedPosts.push({
+        slug: post.slug,
+        date: post.updatedAt?.slice(0, 10) || post.date,
+        title: post.titleEn?.trim() || post.titleAr?.trim() || post.slug,
+        excerpt: post.excerptEn?.trim() || post.excerptAr?.trim() || "CounselO legal insight",
+      });
     }
     console.log(`[sitemap] added ${posts.length} blog post(s) to sitemap`);
   } else {
@@ -322,8 +354,33 @@ ${entries.join("\n")}
 
 const outPath = resolve(rootDir, "public/sitemap.xml");
 writeFileSync(outPath, xml, "utf-8");
+
+const escapeXml = (value: string) => value
+  .replace(/&/g, "&amp;")
+  .replace(/</g, "&lt;")
+  .replace(/>/g, "&gt;")
+  .replace(/"/g, "&quot;")
+  .replace(/'/g, "&apos;");
+const feedXml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>CounselO Global Legal Insights</title>
+    <link>${BASE_URL}${BLOG_BASE_PATH}</link>
+    <description>Legal articles and guides covering UAE, Saudi and Syrian law.</description>
+    <language>en</language>
+${feedPosts.map((post) => `    <item>
+      <title>${escapeXml(post.title)}</title>
+      <link>${BASE_URL}${BLOG_BASE_PATH}/${post.slug}</link>
+      <guid isPermaLink="true">${BASE_URL}${BLOG_BASE_PATH}/${post.slug}</guid>
+      <pubDate>${new Date(`${post.date}T00:00:00Z`).toUTCString()}</pubDate>
+      <description>${escapeXml(post.excerpt)}</description>
+    </item>`).join("\n")}
+  </channel>
+</rss>
+`;
+writeFileSync(resolve(rootDir, "public/feed.xml"), feedXml, "utf-8");
 console.log(
-  `[sitemap] wrote ${outPath} (${SA_SERVICE_SLUGS.length} SA services, ${SYR_SERVICE_SLUGS.length} SYR services)`,
+  `[sitemap] wrote ${outPath} (${SA_SERVICE_SLUGS.length} SA services, ${SYR_SERVICE_SLUGS.length} SYR services, ${UAE_SERVICES.length} UAE services)`,
 );
 
 // Builds must be deterministic and side-effect free. Publishing workflows opt

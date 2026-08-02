@@ -51,7 +51,9 @@ export default function Services() {
   const { region, regionPrefix } = useRegion();
   const s = t.services;
 
-  const country = region === "syr" ? (isRTL ? "سوريا" : "Syria") : (isRTL ? "السعودية" : "Saudi Arabia");
+  const country = region === "uae"
+    ? (isRTL ? "الإمارات العربية المتحدة" : "the United Arab Emirates")
+    : region === "syr" ? (isRTL ? "سوريا" : "Syria") : (isRTL ? "السعودية" : "Saudi Arabia");
   const areaCount = s.items.length;
   const serviceIndexById = new Map(s.items.map((item, index) => [item.id, index]));
   const itemsPerColumn = Math.ceil(areaCount / 3);
@@ -59,19 +61,23 @@ export default function Services() {
     s.items.slice(column * itemsPerColumn, (column + 1) * itemsPerColumn),
   ).filter((column) => column.length > 0);
 
-  const seoTitle = isRTL
-    ? `${areaCount} مجالاً قانونياً في ${country} | منصة استشارات قانونية أونلاين | قانوني`
-    : `${areaCount} Legal Practice Areas ${country} | CounselO — Online Legal Consultation Platform`;
+  const seoTitle = region === "uae"
+    ? (isRTL ? `${areaCount} مجالاً قانونياً في الإمارات | كاونسلو` : `${areaCount} UAE Legal Practice Areas | CounselO`)
+    : isRTL
+      ? `${areaCount} مجالاً قانونياً في ${country} | منصة استشارات قانونية أونلاين | قانوني`
+      : `${areaCount} Legal Practice Areas ${country} | CounselO — Online Legal Consultation Platform`;
   const seoDesc = isRTL
     ? `قانوني — منصة متخصصة للاستشارات القانونية الأونلاين في ${country}. ${areaCount} مجالاً قانونياً: ${s.items.map((item) => item.title).join("، ")}. خبرة 30+ عاماً، 20,000+ قضية. استجابة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني.`
     : `CounselO — ${country}'s specialized online legal consultation platform. ${areaCount} practice areas: ${s.items.map((item) => item.title).join(", ")}. 30+ years experience, 20,000+ cases.`;
 
-  const baseUrl = `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}`;
+  const baseUrl = `https://counselo-legal.com/${region}${isRTL ? "/ar" : ""}`;
   const servicesSchema = [
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      "name": region === "syr"
+      "name": region === "uae"
+        ? (isRTL ? `${areaCount} مجالاً للممارسة القانونية — كاونسلو الإمارات` : `${areaCount} Legal Practice Areas — CounselO UAE`)
+        : region === "syr"
         ? (isRTL ? `${areaCount} مجالاً للممارسة القانونية — قانوني سوريا` : `${areaCount} Legal Practice Areas — CounselO Syria`)
         : (isRTL ? `${areaCount} مجالاً للممارسة القانونية — كاونسلو السعودية` : `${areaCount} Legal Practice Areas — CounselO Saudi Arabia`),
       "url": `${baseUrl}/services`,
@@ -87,16 +93,22 @@ export default function Services() {
       "@context": "https://schema.org",
       "@type": "LegalService",
       "name": "CounselO",
-      "description": region === "syr"
+      "description": region === "uae"
+        ? (isRTL ? `منصة استشارات قانونية أونلاين لمسائل الإمارات — ${areaCount} مجالاً ضمن الأطر الاتحادية والمحلية والمناطق الحرة` : `UAE online legal consultation platform — ${areaCount} practice areas across federal, emirate-level, mainland and free-zone frameworks`)
+        : region === "syr"
         ? (isRTL ? `منصة سوريا للاستشارات القانونية الأونلاين — ${areaCount} مجالاً، استجابة خلال 24 ساعة — القانون المدني السوري، قانون الشركات 29/2011، قانون العمل 17/2010` : `Syria's online legal consultation platform — ${areaCount} practice areas, response within 24 hours — Syrian Civil Code, Companies Law 29/2011, Labour Law 17/2010`)
         : (isRTL ? `منصة متخصصة للاستشارات القانونية الأونلاين في المملكة — ${areaCount} مجالاً، استجابة خلال 24 ساعة` : `Saudi Arabia's specialized online legal consultation platform — ${areaCount} practice areas, response within 24 hours`),
       "url": "https://counselo-legal.com",
       "telephone": "+966594850247",
-      "address": region === "syr"
+      "address": region === "uae"
+        ? { "@type": "PostalAddress", "addressCountry": "AE" }
+        : region === "syr"
         ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
         : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressCountry": "SA" },
       "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
-      "areaServed": region === "syr"
+      "areaServed": region === "uae"
+        ? { "@type": "Country", "name": "United Arab Emirates" }
+        : region === "syr"
         ? { "@type": "Country", "name": "Syria" }
         : { "@type": "Country", "name": "Saudi Arabia" },
       "availableLanguage": ["Arabic", "English"],
@@ -117,7 +129,11 @@ export default function Services() {
         title={seoTitle}
         description={seoDesc}
         canonical="/services"
-        keywords={region === "syr"
+        keywords={region === "uae"
+          ? (isRTL
+            ? "خدمات قانونية الإمارات, محامي دبي, محامي أبوظبي, قانون الشركات الإماراتي, قانون العمل الإماراتي, المناطق الحرة, مركز دبي المالي, أبوظبي العالمي"
+            : `UAE legal services, ${areaCount} practice areas UAE, Dubai lawyer online, Abu Dhabi legal advice, UAE company law, UAE employment law, free zones, DIFC, ADGM`)
+          : region === "syr"
           ? (isRTL
             ? "خدمات قانونية سوريا, قانون الأسرة السوري, القانون المدني السوري, قانون العمل السوري, القانون العقاري السوري, استثمار أجنبي سوريا, القانون الإداري السوري, القانون الجنائي السوري, قانون مصرف سوريا المركزي, الضرائب العامة سوريا, قانون الشركات السوري 29/2011, قانون التحكيم السوري 4/2008, محامي أونلاين سوريا, قانوني دمشق, قانوني حلب"
             : `legal services Syria, ${areaCount} practice areas Syria, family law Syria, civil law Syria, employment law Syria, real estate law Syria, foreign investment Syria, administrative law Syria, criminal law Syria, banking law Syria, tax law Syria, companies law Syria 29/2011, arbitration Syria 4/2008, cyber law Syria, medical malpractice Syria, insurance law Syria, online lawyer Damascus, CounselO Syria`)

@@ -197,10 +197,14 @@ export default function Vision() {
   const { region, regionPrefix } = useRegion();
   const c = isRTL ? copy.ar : copy.en;
   const languageCode = isRTL
-    ? region === "syr"
+    ? region === "uae"
+      ? "ar-AE"
+      : region === "syr"
       ? "ar-SY"
       : "ar-SA"
-    : region === "syr"
+    : region === "uae"
+      ? "en-AE"
+      : region === "syr"
       ? "en-SY"
       : "en-SA";
   const pageUrl = `https://counselo-legal.com${regionPrefix}/vision`;
@@ -244,7 +248,7 @@ export default function Vision() {
       knowsLanguage: ["ar", "en"],
       areaServed: {
         "@type": "Country",
-        name: region === "syr" ? "Syria" : "Saudi Arabia",
+        name: region === "uae" ? "United Arab Emirates" : region === "syr" ? "Syria" : "Saudi Arabia",
       },
       email: "info@counselo-legal.com",
       telephone: "+966594850247",

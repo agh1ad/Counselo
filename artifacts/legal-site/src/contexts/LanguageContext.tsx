@@ -6,6 +6,8 @@ import { en } from "@/translations/en";
 import { ar } from "@/translations/ar";
 import { enSyr } from "@/translations/en-syr";
 import { arSyr } from "@/translations/ar-syr";
+import { enUae } from "@/translations/en-uae";
+import { arUae } from "@/translations/ar-uae";
 import { useRegion } from "@/contexts/RegionContext";
 import { LanguageContext } from "@/contexts/LanguageContextCore";
 
@@ -54,6 +56,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const t = useMemo(() => {
     if (region === "syr") return lang === "en" ? enSyr : arSyr;
+    if (region === "uae") return lang === "en" ? enUae : arUae;
     return lang === "en" ? en : ar;
   }, [region, lang]);
 

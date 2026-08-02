@@ -174,6 +174,8 @@ function validatePage(filepath: string): PageResult {
   const ogUrl = meta(html, "property", "og:url");
   const route = ogUrl ? ogUrl.replace(BASE, "") || "/" : "/";
   const isSyr = route.startsWith("/syr");
+  const isUae = route.startsWith("/uae");
+  const isSa = route.startsWith("/sa") || route === "/" || route === "/ar";
   const isSharedWork =
     route === "/our-work" ||
     route.startsWith("/our-work/") ||
@@ -384,7 +386,7 @@ function validatePage(filepath: string): PageResult {
   }
 
   // ── SA-specific ──
-  if (!isSyr && !isSingleUrlBlog && !isSharedWork) {
+  if (isSa && !isSingleUrlBlog && !isSharedWork) {
     if (!hl["en-SA"])
       issues.push({
         severity: "error",
@@ -396,6 +398,22 @@ function validatePage(filepath: string): PageResult {
         severity: "error",
         rule: "sa-hreflang-ar-sa-missing",
         detail: "Missing ar-SA hreflang",
+      });
+  }
+
+  // ── UAE-specific ──
+  if (isUae && !isSingleUrlBlog && !isSharedWork) {
+    if (!hl["en-AE"])
+      issues.push({
+        severity: "error",
+        rule: "uae-hreflang-en-ae-missing",
+        detail: "Missing en-AE hreflang",
+      });
+    if (!hl["ar-AE"])
+      issues.push({
+        severity: "error",
+        rule: "uae-hreflang-ar-ae-missing",
+        detail: "Missing ar-AE hreflang",
       });
   }
 
