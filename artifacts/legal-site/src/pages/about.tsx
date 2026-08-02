@@ -9,6 +9,7 @@ import { SEOHead } from "@/components/seo/SEOHead";
 const founderPhoto = "/images/optimized/omar-founder-bio.png";
 const saudiFlag = "/images/optimized/saudi-arabia-hero.jpg";
 const syrianFlag = "/images/optimized/syria-hero.jpg";
+const uaeFlag = "/images/optimized/uae-flag.svg";
 
 const whyIcons = [Scale, Globe, Award, Globe, Zap, Users];
 
@@ -16,7 +17,10 @@ export default function About() {
   const { t, isRTL } = useLanguage();
   const { region, regionPrefix } = useRegion();
   const a = t.aboutPage;
-  const heroFlag = region === "syr" ? syrianFlag : saudiFlag;
+  const heroFlag = region === "uae" ? uaeFlag : region === "syr" ? syrianFlag : saudiFlag;
+  const regionPath = `/${region}${isRTL ? "/ar" : ""}`;
+  const country = region === "uae" ? "United Arab Emirates" : region === "syr" ? "Syria" : "Saudi Arabia";
+  const countryCode = region === "uae" ? "AE" : region === "syr" ? "SY" : "SA";
 
   const schema = [
     {
@@ -30,7 +34,9 @@ export default function About() {
         "width": 512,
         "height": 512,
       },
-      "description": region === "syr"
+      "description": region === "uae"
+        ? (isRTL ? "منصة استشارات قانونية أونلاين لمسائل الإمارات — بالعربية والإنجليزية ووفق الاختصاص المنطبق" : "UAE-focused online legal consultation platform in Arabic and English")
+        : region === "syr"
         ? (isRTL
           ? "منصة الاستشارات القانونية الإلكترونية المتخصصة في سوريا — تأسست على يد المحامي عمر البغدادي بخبرة 30+ عاماً في القانون السوري"
           : "Syria's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi with 30+ years of Syrian law expertise")
@@ -38,12 +44,12 @@ export default function About() {
           ? "منصة متخصصة للاستشارات القانونية الأونلاين في المملكة العربية السعودية — تأسست على يد المحامي عمر البغدادي"
           : "Saudi Arabia's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi"),
       "foundingDate": "2020",
-      "areaServed": region === "syr"
-        ? { "@type": "Country", "name": "Syria" }
-        : { "@type": "Country", "name": "Saudi Arabia" },
+      "areaServed": { "@type": "Country", "name": country },
       "telephone": "+966594850247",
       "email": "info@counselo-legal.com",
-      "address": region === "syr"
+      "address": region === "uae"
+        ? { "@type": "PostalAddress", "addressCountry": countryCode }
+        : region === "syr"
         ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
         : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA" },
       "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
@@ -61,7 +67,9 @@ export default function About() {
         "width": 800,
         "height": 1200,
       },
-      "description": region === "syr"
+      "description": region === "uae"
+        ? "Senior advocate and legal counsel with 30+ years of regional experience. Founder of CounselO's UAE-focused online consultation service."
+        : region === "syr"
         ? "Senior advocate and legal counsel with 30+ years experience across Syria, the UAE and the Arab world. Founder of CounselO."
         : "Senior advocate and legal counsel with 30+ years experience across Saudi Arabia, UAE and Syria. Founder of CounselO.",
       "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
@@ -69,16 +77,16 @@ export default function About() {
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "@id": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/about#webpage`,
+      "@id": `https://counselo-legal.com${regionPath}/about#webpage`,
       "name": isRTL ? "عن كاونسلو" : "About CounselO",
-      "url": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/about`,
+      "url": `https://counselo-legal.com${regionPath}/about`,
       "description": a.seoDesc,
-      "inLanguage": isRTL ? (region === "syr" ? "ar-SY" : "ar-SA") : (region === "syr" ? "en-SY" : "en-SA"),
+      "inLanguage": isRTL ? `ar-${countryCode}` : `en-${countryCode}`,
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
-          { "@type": "ListItem", "position": 2, "name": isRTL ? "عن كاونسلو" : "About CounselO", "item": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/about` },
+          { "@type": "ListItem", "position": 2, "name": isRTL ? "عن كاونسلو" : "About CounselO", "item": `https://counselo-legal.com${regionPath}/about` },
         ],
       },
     },
@@ -164,7 +172,19 @@ export default function About() {
                 </div>
               </div>
               <div className="mt-6 bg-card border border-border p-8">
-                {region === "syr" ? (
+                {region === "uae" ? (
+                  <>
+                    <div className="text-4xl font-serif font-bold text-primary mb-2">7</div>
+                    <p className="text-foreground font-semibold mb-2">
+                      {isRTL ? "سبع إمارات — أطر واختصاصات متعددة" : "Seven Emirates — Multiple Competent Frameworks"}
+                    </p>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {isRTL
+                        ? "تبدأ المراجعة بتحديد الإمارة والجهة والإطار الاتحادي أو المحلي أو إطار البرّ الرئيسي أو المنطقة الحرة المناسب للمسألة."
+                        : "Each review begins by identifying the Emirate, authority and appropriate federal, local, mainland or free-zone framework."}
+                    </p>
+                  </>
+                ) : region === "syr" ? (
                   <>
                     <div className="text-4xl font-serif font-bold text-primary mb-2">1957</div>
                     <p className="text-foreground font-semibold mb-2">
@@ -358,22 +378,28 @@ export default function About() {
                 </div>
                 <div className="border-t border-white/20 pt-5 mb-5">
                   <p className="text-white/80 text-sm leading-relaxed whitespace-pre-line mb-4">{a.office.address}</p>
-                  <a
-                    href={a.office.mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs font-semibold px-4 py-2 transition-colors"
-                  >
-                    <MapPin className="h-3.5 w-3.5" />
-                    {a.office.mapsLabel}
-                  </a>
+                  {a.office.mapsUrl && (
+                    <a
+                      href={a.office.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs font-semibold px-4 py-2 transition-colors"
+                    >
+                      <MapPin className="h-3.5 w-3.5" />
+                      {a.office.mapsLabel}
+                    </a>
+                  )}
                 </div>
                 <div className="border-t border-white/20 pt-5 space-y-3">
                   {[
-                    region === "syr"
+                    region === "uae"
+                      ? (isRTL ? "تنسيق وفق الاختصاص ومتطلبات الترخيص الإماراتية" : "Coordination subject to UAE jurisdiction and licensing requirements")
+                      : region === "syr"
                       ? (isRTL ? "مكتب محاماة مرخَّص في سوريا" : "Licensed law office in Syria")
                       : (isRTL ? "مكتب محاماة مرخَّص في المنطقة الشرقية" : "Licensed law office in the Eastern Province"),
-                    isRTL ? "حضور شخصي أمام المحاكم وتوثيق الوثائق" : "Court attendance & official document processing",
+                    region === "uae"
+                      ? (isRTL ? "يُرتب التمثيل المحلي فقط عند الحاجة" : "Local representation is arranged only when required")
+                      : (isRTL ? "حضور شخصي أمام المحاكم وتوثيق الوثائق" : "Court attendance & official document processing"),
                     isRTL ? "متكامل مع الخدمة الرقمية الأونلاين" : "Integrated with our full online digital service",
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">

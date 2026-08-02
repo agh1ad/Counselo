@@ -23,6 +23,13 @@ import { LatestContentCarousels } from "@/components/content/latest-content-caro
 
 type LegalSource = { en: string; ar: string; href: string };
 
+function truncateMeta(value: string, maxLength = 158): string {
+  if (value.length <= maxLength) return value;
+  const shortened = value.slice(0, maxLength - 1);
+  const boundary = shortened.lastIndexOf(" ");
+  return `${shortened.slice(0, boundary > 110 ? boundary : shortened.length).replace(/[،,;:]$/, "")}.`;
+}
+
 const SAUDI_LEGISLATION_SOURCE: LegalSource = {
   en: "Bureau of Experts — Official Saudi Laws Portal",
   ar: "هيئة الخبراء بمجلس الوزراء — بوابة الأنظمة السعودية",
@@ -91,6 +98,7 @@ export default function ServiceDetail() {
   }
 
   const isSyr = region === "syr";
+  const isUae = region === "uae";
   const syrSeo = isSyr ? SYR_SEO_DATA[id] : undefined;
 
   const d = data as Record<string, unknown>;
@@ -99,50 +107,83 @@ export default function ServiceDetail() {
   const overview2      = typeof d.overview2     === "string" ? d.overview2     : null;
   const experienceNote = typeof d.experienceNote=== "string" ? d.experienceNote: null;
   const dataSeoTitle   = typeof d.seoTitle      === "string" ? d.seoTitle      : null;
+  const dataSeoKeywords = typeof d.seoKeywords === "string" ? d.seoKeywords : null;
+  const uaeArabicSeoTitle = id === "consumer-ecommerce"
+    ? "التجارة الإلكترونية وحماية المستهلك"
+    : id === "tax-vat"
+      ? "ضريبة الشركات والقيمة المضافة"
+      : data.title;
 
-  const seoTitle = isRTL
+  const seoTitle = isUae
+    ? (isRTL
+      ? `${uaeArabicSeoTitle} | الإمارات`
+      : `${data.title} | UAE`)
+    : isRTL
     ? (syrSeo
         ? `${data.title} في سوريا | استشارة قانونية أونلاين | كاونسلو`
-        : `${data.title} في السعودية | استشارة قانونية أونلاين | كاونسلو`)
+        : `${data.title} في ${isUae ? "الإمارات" : "السعودية"} | استشارة قانونية أونلاين | كاونسلو`)
     : (isSyr
         ? (dataSeoTitle ?? `${data.title} Lawyer in Syria | Online Legal Consultation | CounselO`)
-        : `${data.title} Lawyer in Saudi Arabia | Online Legal Consultation | CounselO`);
+        : `${data.title} Lawyer in ${isUae ? "the UAE" : "Saudi Arabia"} | Online Legal Consultation | CounselO`);
 
-  const seoDesc = isRTL
-    ? (syrSeo?.descAr ?? `${data.subtitle} — كاونسلو، منصة متخصصة للاستشارات القانونية الأونلاين في ${isSyr ? "سوريا" : "المملكة"}. استجابة احترافية خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. خبرة تزيد على 30 عاماً.`)
-    : (syrSeo?.desc ?? `${data.subtitle} — CounselO, ${isSyr ? "Syria's specialized online legal platform" : "Saudi Arabia's specialized online legal platform"}. Professional response within 24 hours via WhatsApp or email. 30+ years experience, 20,000+ cases handled.`);
+  const seoDesc = isUae
+    ? truncateMeta(isRTL
+      ? `${data.subtitle} استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق الحرة بالعربية أو الإنجليزية.`
+      : `${data.subtitle} UAE-focused online legal consultation covering federal, emirate-level, mainland and free-zone requirements in Arabic or English.`)
+    : isRTL
+      ? (syrSeo?.descAr ?? `${data.subtitle} — كاونسلو، منصة استشارات قانونية أونلاين في ${isSyr ? "سوريا" : "المملكة"}.`)
+      : (syrSeo?.desc ?? `${data.subtitle} — CounselO, ${isSyr ? "Syria's" : "Saudi Arabia's"} online legal consultation platform.`);
 
-  const seoKeywords = isRTL
-    ? (syrSeo?.kwAr ?? `${data.title} محامي ${isSyr ? "سوريا" : "المملكة العربية السعودية"}, استشارة قانونية ${data.title} أونلاين, محامي ${data.title} كاونسلو`)
-    : (syrSeo?.kw ?? `${data.title} lawyer ${isSyr ? "Syria" : "Saudi Arabia"}, online ${data.title} legal advice ${isSyr ? "Syria" : "KSA"}, ${data.title} attorney CounselO`);
+  const seoKeywords = isUae && dataSeoKeywords
+    ? dataSeoKeywords
+    : isRTL
+      ? (syrSeo?.kwAr ?? `${data.title} محامي ${isSyr ? "سوريا" : "المملكة العربية السعودية"}, استشارة قانونية أونلاين`)
+      : (syrSeo?.kw ?? `${data.title} lawyer ${isSyr ? "Syria" : "Saudi Arabia"}, online legal consultation`);
 
-  const serviceAddress = isSyr
+  const serviceAddress = isUae
+    ? { "@type": "PostalAddress", "addressCountry": "AE" }
+    : isSyr
     ? { "@type": "PostalAddress", "addressCountry": "SY" }
     : { "@type": "PostalAddress", "addressCountry": "SA" };
 
   const hasFaqs = "faqs" in data && Array.isArray((data as Record<string, unknown>).faqs) && ((data as Record<string, unknown>).faqs as unknown[]).length > 0;
   const faqs = hasFaqs ? (data as Record<string, unknown>).faqs as { q: string; a: string }[] : [];
-  const isJurisdictionSafe = (value: string) =>
-    !isSyr || !/(Saudi|KSA|SAMA|CMA|ZATCA|MISA|SAIP|CITC|Vision 2030|السعود|ساما|هيئة الزكاة)/i.test(value);
+  const isJurisdictionSafe = (value: string) => {
+    if (isUae) return !/(Saudi|KSA|SAMA|ZATCA|MISA|SAIP|Vision 2030|Syria|Syrian|السعود|ساما|هيئة الزكاة|سوريا|السوري)/i.test(value);
+    if (isSyr) return !/(Saudi|KSA|SAMA|CMA|ZATCA|MISA|SAIP|CITC|Vision 2030|UAE|Emirates|DIFC|ADGM|السعود|ساما|هيئة الزكاة|الإمارات|مركز دبي المالي|أبوظبي العالمي)/i.test(value);
+    return true;
+  };
   const safeFaqs = faqs.filter((faq) => isJurisdictionSafe(`${faq.q} ${faq.a}`));
   const displayOverview = overview && isJurisdictionSafe(overview) ? overview : null;
   const displayOverview1 = overview1 && isJurisdictionSafe(overview1) ? overview1 : null;
   const displayOverview2 = overview2 && isJurisdictionSafe(overview2) ? overview2 : null;
   const displayExperienceNote = experienceNote && isJurisdictionSafe(experienceNote) ? experienceNote : null;
   const displayCovers = data.covers.filter((item) => isJurisdictionSafe(item));
-  const searchContent = SERVICE_SEARCH_CONTENT[id];
-  const relatedServiceIds = (RELATED_SERVICES[id] ?? []).filter(
-    (serviceId) => serviceId in sd.services,
-  );
-  const commonIssues = searchContent
-    ? (isRTL ? searchContent.issuesAr : searchContent.issuesEn)
-    : data.covers.slice(0, 5);
-  const documents = searchContent
-    ? (isRTL ? searchContent.documentsAr : searchContent.documentsEn)
+  const uaeCommonIssues = Array.isArray(d.commonIssues)
+    ? (d.commonIssues as string[]).filter(isJurisdictionSafe)
     : [];
+  const uaeDocuments = Array.isArray(d.documents)
+    ? (d.documents as string[]).filter(isJurisdictionSafe)
+    : [];
+  const searchContent = isUae ? undefined : SERVICE_SEARCH_CONTENT[id];
+  const relatedServiceIds = isUae
+    ? t.services.items.filter((service) => service.id !== id).slice(0, 3).map((service) => service.id)
+    : (RELATED_SERVICES[id] ?? []).filter((serviceId) =>
+        t.services.items.some((service) => service.id === serviceId),
+      );
+  const commonIssues = isUae
+    ? uaeCommonIssues
+    : searchContent
+      ? (isRTL ? searchContent.issuesAr : searchContent.issuesEn)
+      : data.covers.slice(0, 5);
+  const documents = isUae
+    ? uaeDocuments
+    : searchContent
+      ? (isRTL ? searchContent.documentsAr : searchContent.documentsEn)
+      : [];
   const countryName = isRTL
-    ? (isSyr ? "سوريا" : "السعودية")
-    : (isSyr ? "Syria" : "Saudi Arabia");
+    ? (isSyr ? "سوريا" : isUae ? "الإمارات" : "السعودية")
+    : (isSyr ? "Syria" : isUae ? "the United Arab Emirates" : "Saudi Arabia");
   const displayProcess = isSyr
     ? (isRTL
         ? [
@@ -179,11 +220,16 @@ export default function ServiceDetail() {
 
   const canonicalPath = `/services/${id}`;
   const langSeg = isRTL ? "/ar" : "";
-  const regionSeg = isSyr ? "/syr" : "/sa";
+  const regionSeg = `/${region}`;
   const canonicalUrlFull = `https://counselo-legal.com${regionSeg}${langSeg}${canonicalPath}`;
   const regionBase = `https://counselo-legal.com${regionSeg}${langSeg}`;
-  const inLanguage = isRTL ? (isSyr ? "ar-SY" : "ar-SA") : (isSyr ? "en-SY" : "en-SA");
-  const legalSources = isSyr
+  const inLanguage = isRTL ? (isSyr ? "ar-SY" : isUae ? "ar-AE" : "ar-SA") : (isSyr ? "en-SY" : isUae ? "en-AE" : "en-SA");
+  const uaeAuthority = d.authority && typeof d.authority === "object"
+    ? d.authority as LegalSource
+    : undefined;
+  const legalSources = isUae
+    ? [uaeAuthority ?? { en: "UAE Legislation", ar: "تشريعات الإمارات", href: "https://uaelegislation.gov.ae/" }]
+    : isSyr
     ? [SYRIA_GENERAL_SOURCE]
     : getSaudiLegalSources(id);
 
@@ -194,7 +240,7 @@ export default function ServiceDetail() {
       "name": isRTL ? `${data.title} — كاونسلو` : `${data.title} — CounselO`,
       "description": isRTL ? (syrSeo?.descAr ?? data.subtitle) : (syrSeo?.desc ?? data.subtitle),
       "url": canonicalUrlFull,
-      "areaServed": { "@type": "Country", "name": isSyr ? "Syria" : "Saudi Arabia" },
+      "areaServed": { "@type": "Country", "name": isSyr ? "Syria" : isUae ? "United Arab Emirates" : "Saudi Arabia" },
       "availableLanguage": ["Arabic", "English"],
       "serviceType": data.title,
       "provider": {
@@ -205,14 +251,14 @@ export default function ServiceDetail() {
         "telephone": "+966594850247",
         "email": "info@counselo-legal.com",
         "address": serviceAddress,
-        "founder": { "@type": "Person", "@id": "https://counselo-legal.com/sa/about#omar-al-baghdadi", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel", "honorificPrefix": "Lawyer" },
+        "founder": { "@type": "Person", "@id": `${regionBase}/about#omar-al-baghdadi`, "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel", "honorificPrefix": "Lawyer" },
       },
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
+        { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": regionBase },
         { "@type": "ListItem", "position": 2, "name": isRTL ? "الخدمات" : "Services", "item": `${regionBase}/services` },
         { "@type": "ListItem", "position": 3, "name": data.title, "item": canonicalUrlFull },
       ],
@@ -225,7 +271,7 @@ export default function ServiceDetail() {
       "name": seoTitle,
       "description": seoDesc,
       "inLanguage": inLanguage,
-      "dateModified": "2026-07-13",
+      "dateModified": "2026-08-02",
       "citation": legalSources.map((source) => source.href),
       "publisher": {
         "@type": "LegalService",
@@ -278,8 +324,10 @@ export default function ServiceDetail() {
             </Link>
             <h1 className="mb-6 max-w-4xl font-serif text-5xl font-medium leading-[1.02] tracking-[-0.035em] text-white lg:text-7xl">
               {isRTL
-                ? `${data.title} في ${isSyr ? "سوريا" : "المملكة العربية السعودية"}`
-                : `${data.title} Lawyer in ${isSyr ? "Syria" : "Saudi Arabia"}`}
+                ? `${data.title} في ${isSyr ? "سوريا" : isUae ? "الإمارات العربية المتحدة" : "المملكة العربية السعودية"}`
+                : isUae
+                  ? `${data.title} in the United Arab Emirates`
+                  : `${data.title} Lawyer in ${isSyr ? "Syria" : "Saudi Arabia"}`}
             </h1>
             <div className="mb-6 h-px w-20 bg-[#d5ae5d]" />
             <p className="max-w-2xl font-serif text-xl italic leading-relaxed text-white/72 lg:text-2xl">{data.subtitle}</p>
@@ -522,7 +570,7 @@ export default function ServiceDetail() {
         </div>
       </div>
       <TrustSignals isArabic={isRTL} regionPrefix={regionPrefix} />
-      <LatestContentCarousels isArabic={isRTL} region={region} serviceSlug={id} />
+      {region !== "uae" && <LatestContentCarousels isArabic={isRTL} region={region} serviceSlug={id} />}
     </div>
   );
 }

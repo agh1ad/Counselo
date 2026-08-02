@@ -1,41 +1,23 @@
 # CounselO SEO Validation Report
 
-_Generated: 2026-07-29 12:58:43 UTC_
+_Generated: 2026-08-02 10:54:31 UTC_
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| Pages validated | 130 |
-| Redirect pages  | 40 |
-| ✅ Clean pages  | 128 |
-| ⚠️  Warn-only pages | 2 |
+| Pages validated | 189 |
+| Redirect pages  | 42 |
+| ✅ Clean pages  | 189 |
+| ⚠️  Warn-only pages | 0 |
 | ❌ Error pages  | 0 |
 | Total errors    | 0 |
-| Total warnings  | 2 |
-| SEO score       | **99/100** |
+| Total warnings  | 0 |
+| SEO score       | **100/100** |
 
 > ✅ **No errors found.** All pages pass critical SEO checks.
 
-## Issues by Rule
-
-| Rule | Errors | Warnings |
-|------|--------|----------|
-| `title-too-long` | — | 2 |
-
-## ⚠️  Pages with Warnings Only
-
-### `/blog/contract-interpretation-syrian-courts`
-_Title: Contract Interpretation Before Syrian Courts: Legal Rules and Dispute Resolution | CounselO_
-
-- ⚠️  **title-too-long**: 91 chars (max 70)
-
-### `/blog/e-contracts-legal-validity-saudi-arabia`
-_Title: Electronic Contracts in Saudi Arabia | Legal Validity and Proof | CounselO_
-
-- ⚠️  **title-too-long**: 74 chars (max 70)
-
-## ✅ Clean Pages (128)
+## ✅ Clean Pages (189)
 
 - `/` — schemas: WebSite, LegalService, FAQPage
 - `/ar` — schemas: WebSite, LegalService, FAQPage
@@ -49,17 +31,20 @@ _Title: Electronic Contracts in Saudi Arabia | Legal Validity and Proof | Counse
 - `/blog/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha` — schemas: Article, BreadcrumbList
 - `/blog/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/altwsyat-alamlyh-lsyaghh-aqd-qwy` — schemas: Article, BreadcrumbList
-- `/blog/anha-alaqd-bdwn-sbb-mshrwa` — schemas: Article, BreadcrumbList
+- `/blog/anha-aqd-alaml-bdwn-sbb-mshrwa` — schemas: Article, BreadcrumbList
 - `/blog/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/aqwd-almqawlat-fy-alnzam-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd` — schemas: Article, BreadcrumbList
 - `/blog/athbat-alaqwd-amam-alqda-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/commercial-supply-contracts-in-saudi` — schemas: Article, BreadcrumbList
 - `/blog/consensual-formal-real-contracts-syrian-law` — schemas: Article, BreadcrumbList
+- `/blog/contract-interpretation-syrian-courts` — schemas: Article, BreadcrumbList
 - `/blog/contractual-liability-in-commercial-transactions` — schemas: Article, BreadcrumbList
 - `/blog/defects-of-will-syrian-law` — schemas: Article, BreadcrumbList
+- `/blog/e-contracts-legal-validity-saudi-arabia` — schemas: Article, BreadcrumbList
 - `/blog/formation-of-commercial-contracts-saudi-law` — schemas: Article, BreadcrumbList
 - `/blog/fskh-alaqd-altjary-fy-alnzam-alsawdy` — schemas: Article, BreadcrumbList
+- `/blog/mhl-alaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/Penalty-clause-in-saudi` — schemas: Article, BreadcrumbList
 - `/blog/performance-of-contracts-in-good-faith-under-syrian-law` — schemas: Article, BreadcrumbList
 - `/our-work` — schemas: CollectionPage, ItemList, BreadcrumbList
@@ -165,8 +150,66 @@ _Title: Electronic Contracts in Saudi Arabia | Legal Validity and Proof | Counse
 - `/syr/services/tax-zakat` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/syr/terms-of-service` — schemas: WebPage, BreadcrumbList
 - `/syr/vision` — schemas: AboutPage, Organization, Person, BreadcrumbList
+- `/uae` — schemas: LegalService, BreadcrumbList
+- `/uae/about` — schemas: Organization, Person, WebPage
+- `/uae/ar` — schemas: LegalService, BreadcrumbList
+- `/uae/ar/about` — schemas: Organization, Person, WebPage
+- `/uae/ar/contact` — schemas: ContactPage, LegalService, BreadcrumbList
+- `/uae/ar/privacy-policy` — schemas: WebPage, BreadcrumbList
+- `/uae/ar/services` — schemas: ItemList, LegalService, BreadcrumbList
+- `/uae/ar/services/administrative-regulatory` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/arbitration-mediation` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/banking-finance` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/commercial-contracts` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/consumer-ecommerce` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/corporate-commercial` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/criminal-investigations` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/employment-labour` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/enforcement-debt-recovery` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/family-personal-status` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/foreign-investment-market-entry` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/healthcare-medical-liability` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/immigration-residency` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/insolvency-restructuring` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/insurance` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/intellectual-property` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/litigation-court-disputes` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/maritime-aviation-transport` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/real-estate-construction` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/tax-vat` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/technology-data-protection` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/services/wills-estates` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/ar/terms-of-service` — schemas: WebPage, BreadcrumbList
+- `/uae/ar/vision` — schemas: AboutPage, Organization, Person, BreadcrumbList
+- `/uae/contact` — schemas: ContactPage, LegalService, BreadcrumbList
+- `/uae/privacy-policy` — schemas: WebPage, BreadcrumbList
+- `/uae/services` — schemas: ItemList, LegalService, BreadcrumbList
+- `/uae/services/administrative-regulatory` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/arbitration-mediation` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/banking-finance` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/commercial-contracts` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/consumer-ecommerce` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/corporate-commercial` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/criminal-investigations` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/employment-labour` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/enforcement-debt-recovery` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/family-personal-status` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/foreign-investment-market-entry` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/healthcare-medical-liability` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/immigration-residency` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/insolvency-restructuring` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/insurance` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/intellectual-property` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/litigation-court-disputes` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/maritime-aviation-transport` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/real-estate-construction` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/tax-vat` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/technology-data-protection` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/services/wills-estates` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
+- `/uae/terms-of-service` — schemas: WebPage, BreadcrumbList
+- `/uae/vision` — schemas: AboutPage, Organization, Person, BreadcrumbList
 
-## 🔀 Redirect Pages (40)
+## 🔀 Redirect Pages (42)
 
 - `/sa/ar/blog/board-of-grievances-saudi-arabia` → `https://counselo-legal.com/blog`
 - `/sa/ar/blog/child-custody-saudi-arabia` → `https://counselo-legal.com/blog`
@@ -208,3 +251,5 @@ _Title: Electronic Contracts in Saudi Arabia | Legal Validity and Proof | Counse
 - `/syr/blog/wrongful-termination-saudi-labor-law` → `https://counselo-legal.com/blog`
 - `/syr/blog/wrongful-termination-syrian-labor-law` → `https://counselo-legal.com/blog`
 - `/syr/blog` → `https://counselo-legal.com/blog`
+- `/uae/ar/blog` → `https://counselo-legal.com/blog`
+- `/uae/blog` → `https://counselo-legal.com/blog`

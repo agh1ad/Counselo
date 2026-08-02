@@ -4,6 +4,7 @@ import {
   Router as WouterRouter,
   useLocation,
   Redirect,
+  Link,
 } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -12,7 +13,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import { RegionProvider } from "@/contexts/RegionContext";
+import { RegionProvider, useRegion } from "@/contexts/RegionContext";
 import { lazy, Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { trackEvent, trackPageview, getGAMeasurementId, injectGA } from "@/lib/analytics";
@@ -78,17 +79,12 @@ function ScrollToTop() {
 
 function GAInit() {
   useEffect(() => {
-    const loadAnalytics = () => {
-      const id = getGAMeasurementId() || "G-1M9ZZX7VT6";
-      injectGA(id);
-    };
-
+    const initialize = () => injectGA(getGAMeasurementId() || "G-1M9ZZX7VT6");
     if ("requestIdleCallback" in window) {
-      const idleId = window.requestIdleCallback(loadAnalytics, { timeout: 4000 });
+      const idleId = window.requestIdleCallback(initialize, { timeout: 3_000 });
       return () => window.cancelIdleCallback(idleId);
     }
-
-    const timeoutId = globalThis.setTimeout(loadAnalytics, 2500);
+    const timeoutId = globalThis.setTimeout(initialize, 2_000);
     return () => globalThis.clearTimeout(timeoutId);
   }, []);
   return null;
@@ -146,10 +142,50 @@ function InteractionTracking() {
   return null;
 }
 
+function RegionIdentityBar() {
+  const [location] = useLocation();
+  const { region, lang } = useRegion();
+  if (!/^\/(sa|syr|uae)(?:\/|$)/.test(location)) return null;
+
+  const details = {
+    sa: {
+      en: "CounselO Saudi Arabia",
+      ar: "كاونسلو المملكة العربية السعودية",
+      flag: "/images/optimized/saudi-arabia-flag.jpg",
+    },
+    syr: {
+      en: "CounselO Syria",
+      ar: "كاونسلو سوريا",
+      flag: "/images/optimized/syria-flag.jpg",
+    },
+    uae: {
+      en: "CounselO United Arab Emirates",
+      ar: "كاونسلو الإمارات العربية المتحدة",
+      flag: "/images/optimized/uae-flag.svg",
+    },
+  } as const;
+  const current = details[region];
+
+  return (
+    <div className={`region-identity-bar region-identity-bar--${region}`} aria-label={lang === "ar" ? "الاختصاص الحالي" : "Current jurisdiction"}>
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="region-identity-bar__inner">
+          <span>
+            <img src={current.flag} alt="" width="24" height="16" />
+            <strong>{current[lang]}</strong>
+            <small>{lang === "ar" ? "محتوى وخدمات وفق قانون هذه الدولة" : "Country-specific legal content and services"}</small>
+          </span>
+          <Link href={lang === "ar" ? "/ar" : "/"}>{lang === "ar" ? "تغيير الاختصاص" : "Change jurisdiction"}</Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Every region + language combination gets its own real URL prefix, e.g.
 // "/sa/ar/about", so Arabic is a genuinely distinct, crawlable page rather
 // than a client-only toggle sharing the English URL.
-const REGION_LANG_PREFIXES = ["/sa", "/sa/ar", "/syr", "/syr/ar"];
+const REGION_LANG_PREFIXES = ["/sa", "/sa/ar", "/syr", "/syr/ar", "/uae", "/uae/ar"];
 
 function buildRegionRoutes() {
   return REGION_LANG_PREFIXES.flatMap((prefix) => [
@@ -323,6 +359,7 @@ function AppShell() {
       </a>
       <Navbar />
       <main className="flex-grow pt-21" id="main-content">
+        <RegionIdentityBar />
         <Router />
       </main>
       <Footer />

@@ -24,6 +24,13 @@ const CORE_PAGES_EN: CorePage[] = [
   { path: "/syr/vision", changefreq: "monthly", priority: "0.8" },
   { path: "/syr/terms-of-service", changefreq: "yearly", priority: "0.4" },
   { path: "/syr/privacy-policy", changefreq: "yearly", priority: "0.4" },
+  { path: "/uae", changefreq: "weekly", priority: "0.95" },
+  { path: "/uae/services", changefreq: "monthly", priority: "0.9" },
+  { path: "/uae/contact", changefreq: "monthly", priority: "0.9" },
+  { path: "/uae/about", changefreq: "monthly", priority: "0.8" },
+  { path: "/uae/vision", changefreq: "monthly", priority: "0.8" },
+  { path: "/uae/terms-of-service", changefreq: "yearly", priority: "0.4" },
+  { path: "/uae/privacy-policy", changefreq: "yearly", priority: "0.4" },
 ] as const;
 
 /**
@@ -41,6 +48,6 @@ export const CORE_PAGES = [
   ...CORE_PAGES_EN,
   ...CORE_PAGES_EN.filter((p) => !p.isRoot).map((p) => ({
     ...p,
-    path: p.path.replace(/^\/(sa|syr)/, "/$1/ar"),
+    path: p.path.replace(/^\/(sa|syr|uae)/, "/$1/ar"),
   })),
 ] as const;

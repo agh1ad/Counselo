@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 440" role="img" aria-labelledby="title desc">
+  <title id="title">Stylised map of Saudi Arabia</title>
+  <desc id="desc">A forest green map of Saudi Arabia with gold regional lines.</desc>
+  <defs>
+    <linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d5b40"/><stop offset="1" stop-color="#073528"/></linearGradient>
+    <pattern id="grid" width="54" height="47" patternUnits="userSpaceOnUse"><path d="M27 0 54 15.5v31L27 62 0 46.5v-31Z" fill="none" stroke="#c99a3b" stroke-opacity=".2"/></pattern>
+    <path id="shape" d="M76 109 124 91 157 95 196 113 245 149C259 159 270 164 291 166L348 169C361 170 357 180 366 185L385 189C394 193 401 206 410 214L418 248C422 263 430 278 441 284L468 319 530 327 542 343 527 387 456 412C433 420 407 424 381 423 355 423 339 432 327 448L313 472 288 469 232 462C220 461 219 480 210 487L200 485C194 480 199 461 191 451L176 428 159 389C150 372 136 367 124 354L111 336C103 319 106 292 98 276L76 257C65 242 55 221 44 205L22 176 28 153 52 151C63 150 66 137 76 137L94 139 103 129Z"/>
+    <clipPath id="clip"><use href="#shape"/></clipPath>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="13" flood-color="#001d14" flood-opacity=".2"/></filter>
+  </defs>
+  <rect width="600" height="440" fill="url(#grid)" opacity=".72"/>
+  <g transform="translate(15 -48)" filter="url(#shadow)">
+    <use href="#shape" fill="url(#land)" stroke="#d5aa4e" stroke-width="2.6" stroke-linejoin="round"/>
+    <g clip-path="url(#clip)" fill="none" stroke="#d5aa4e" stroke-opacity=".78" stroke-width="1.2">
+      <path d="M105 137 161 191 223 176 281 230 346 202 410 259 468 319"/>
+      <path d="M76 257 150 270 217 253 281 230 292 343 238 408"/>
+      <path d="M346 202 344 307 381 423M150 270 159 389M217 253 232 462M410 259 381 423M344 307 456 412"/>
+    </g>
+    <g fill="#fff" stroke="#d5aa4e" stroke-width="2"><circle cx="161" cy="191" r="5"/><circle cx="281" cy="230" r="5"/><circle cx="344" cy="307" r="5"/><circle cx="410" cy="259" r="5"/><circle cx="381" cy="423" r="5"/></g>
+  </g>
+</svg>

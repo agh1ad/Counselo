@@ -8,11 +8,22 @@ type TrustSignalsProps = {
 };
 
 export function TrustSignals({ isArabic, regionPrefix, compact = false }: TrustSignalsProps) {
+  const representationText = isArabic
+    ? regionPrefix.startsWith("/uae")
+      ? "إذا تطلبت المسألة تمثيلاً أو قيداً أو حضوراً في الإمارات، يُحدد الارتباط المطلوب مع ممارس مرخص محلياً ضمن نطاق منفصل."
+      : regionPrefix.startsWith("/syr")
+        ? "تُدار المسائل السورية من خلال الممارسة القانونية في سوريا، مع توضيح نطاق الاستشارة والتمثيل."
+        : "عندما تتطلب المسألة حضوراً في السعودية، تنسق كاونسلو مع مكتب محاماة سعودي متعاون ومرخص وفق نطاق التكليف."
+    : regionPrefix.startsWith("/uae")
+      ? "If a UAE matter requires formal representation, filing or attendance, the required engagement with an appropriately licensed local practitioner is scoped separately."
+      : regionPrefix.startsWith("/syr")
+        ? "Syrian matters are handled through the legal practice in Syria, with the consultation and representation scope explained to each client."
+        : "When a Saudi matter requires attendance, CounselO coordinates with a licensed cooperating Saudi law office within the agreed engagement.";
   const items = isArabic
     ? [
         { icon: Award, title: "قيادة قانونية خبيرة", text: "تأسست كاونسلو بقيادة المحامي والمستشار القانوني عمر البغدادي، بخبرة قانونية معلنة تزيد على 30 عاماً." },
         { icon: BriefcaseBusiness, title: "خبرة عملية واسعة", text: "تذكر كاونسلو أن فريقها تعامل مع أكثر من 20,000 قضية واستشارة في مجالات قانونية متعددة." },
-        { icon: Scale, title: "نموذج تمثيل واضح", text: regionPrefix.startsWith("/syr") ? "تُدار المسائل السورية من خلال الممارسة القانونية في سوريا، مع توضيح نطاق الاستشارة والتمثيل." : "عندما تتطلب المسألة حضوراً في السعودية، تنسق كاونسلو مع مكتب محاماة سعودي متعاون ومرخص وفق نطاق التكليف." },
+        { icon: Scale, title: "نموذج تمثيل واضح", text: representationText },
         { icon: Languages, title: "العربية والإنجليزية", text: "تتوفر الاستشارات ومراجعة المستندات باللغتين العربية والإنجليزية." },
         { icon: LockKeyhole, title: "سرية مهنية", text: "تُعامل معلومات العملاء ومستنداتهم باعتبارها معلومات قانونية سرية، ويُطلب فقط ما يلزم لتقييم المسألة." },
         { icon: ShieldCheck, title: "نطاق خدمة شفاف", text: "لا تنشئ الاستشارة وحدها تفويضاً بالتمثيل أمام المحاكم؛ ويتطلب التمثيل اتفاقاً منفصلاً يحدد نطاق العمل." },
@@ -20,7 +31,7 @@ export function TrustSignals({ isArabic, regionPrefix, compact = false }: TrustS
     : [
         { icon: Award, title: "Experienced legal leadership", text: "CounselO was founded and is led by Lawyer and Legal Counsel Omar Al-Baghdadi, with a stated 30+ years of legal experience." },
         { icon: BriefcaseBusiness, title: "Extensive practical experience", text: "CounselO states that its team has handled more than 20,000 cases and consultations across multiple practice areas." },
-        { icon: Scale, title: "Clear representation model", text: regionPrefix.startsWith("/syr") ? "Syrian matters are handled through the legal practice in Syria, with the consultation and representation scope explained to each client." : "When a Saudi matter requires attendance, CounselO coordinates with a licensed cooperating Saudi law office within the agreed engagement." },
+        { icon: Scale, title: "Clear representation model", text: representationText },
         { icon: Languages, title: "Arabic and English", text: "Legal consultations and document review are available in both Arabic and English." },
         { icon: LockKeyhole, title: "Professional confidentiality", text: "Client information and legal documents are treated as confidential, and only information needed to assess the matter is requested." },
         { icon: ShieldCheck, title: "Transparent service scope", text: "A consultation alone does not create a court-representation mandate; representation requires a separate agreement defining the work." },

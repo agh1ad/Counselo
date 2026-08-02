@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 440" role="img" aria-labelledby="title desc">
+  <title id="title">Stylised map of Syria</title>
+  <desc id="desc">A forest green map of Syria with gold governorate lines.</desc>
+  <defs>
+    <linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d5b40"/><stop offset="1" stop-color="#073528"/></linearGradient>
+    <pattern id="grid" width="54" height="47" patternUnits="userSpaceOnUse"><path d="M27 0 54 15.5v31L27 62 0 46.5v-31Z" fill="none" stroke="#c99a3b" stroke-opacity=".2"/></pattern>
+    <path id="shape" d="M121 70C135 73 138 83 153 84L178 78C192 84 205 74 219 68 236 66 245 81 259 84 280 83 291 91 315 88 344 84 373 67 402 57 419 53 430 61 448 60L481 57 506 45 516 49 512 61 518 68 505 81 492 92 478 110 456 113 438 111 430 124 428 151 435 166 430 190 431 224 422 253 410 282 337 319 265 355 187 394 105 435 88 430 68 419 53 421 46 410 36 404 39 388 29 384 38 367 41 348 57 334 51 324 65 314 79 306 87 292 78 279 80 267 68 255 73 245 61 232 54 216 56 197 52 183 59 167 51 154 63 137 76 139 80 127 94 124 98 110 113 109 118 98 115 86Z"/>
+    <clipPath id="clip"><use href="#shape"/></clipPath>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="13" flood-color="#001d14" flood-opacity=".2"/></filter>
+  </defs>
+  <rect width="600" height="440" fill="url(#grid)" opacity=".72"/>
+  <g transform="translate(20 -20)" filter="url(#shadow)">
+    <use href="#shape" fill="url(#land)" stroke="#d5aa4e" stroke-width="2.6" stroke-linejoin="round"/>
+    <g clip-path="url(#clip)" fill="none" stroke="#d5aa4e" stroke-opacity=".78" stroke-width="1.2">
+      <path d="M76 139 143 142 205 114 260 154 328 128 391 159 430 151"/>
+      <path d="M61 232 124 216 181 240 250 206 322 230 391 198 431 224"/>
+      <path d="M87 292 154 286 220 315 287 281 337 319"/>
+      <path d="M143 142 124 216 154 286 105 435M205 114 181 240 220 315M260 154 250 206 287 281M328 128 322 230 337 319M391 159 391 198 410 282"/>
+    </g>
+    <g fill="#fff" stroke="#d5aa4e" stroke-width="2"><circle cx="143" cy="142" r="5"/><circle cx="250" cy="206" r="5"/><circle cx="322" cy="230" r="5"/><circle cx="154" cy="286" r="5"/><circle cx="391" cy="198" r="5"/></g>
+  </g>
+</svg>

@@ -8,15 +8,16 @@ import { SEOHead } from "@/components/seo/SEOHead";
 export default function TermsOfService() {
   const { isRTL } = useLanguage();
   const { region, regionPrefix } = useRegion();
+  const isUae = region === "uae";
+  const countryEn = isUae ? "the United Arab Emirates" : region === "syr" ? "Syria" : "Saudi Arabia";
+  const countryAr = isUae ? "الإمارات العربية المتحدة" : region === "syr" ? "سوريا" : "المملكة العربية السعودية";
+  const homeUrl = `https://counselo-legal.com${regionPrefix}`;
+  const pageUrl = `${homeUrl}/terms-of-service`;
 
   const content = {
     en: {
-      seoTitle: region === "syr"
-        ? "Terms of Service | Online Legal Consultation Process | CounselO"
-        : "Terms of Service | Online Legal Consultation Process | CounselO",
-      seoDesc: region === "syr"
-        ? "CounselO's consultation terms and process for online legal advice in Syria — how it works: submit your matter, receive a cost estimate, pay securely, and receive your expert legal answer. 24/7, Arabic and English."
-        : "CounselO's consultation terms and process for online legal advice in Saudi Arabia — how it works: submit your matter, receive a cost estimate, pay securely, and receive your expert legal answer. 24/7, Arabic and English.",
+      seoTitle: "Terms of Service | Online Legal Consultation Process | CounselO",
+      seoDesc: `CounselO's consultation terms and process for online legal advice in ${countryEn}: submit your matter, receive a fee quote, approve the scope, and receive your legal consultation in Arabic or English.`,
       eyebrow: "Legal Consultation Terms",
       heading: "Terms of Service",
       subheading:
@@ -48,15 +49,17 @@ export default function TermsOfService() {
       terms: [
         {
           title: "Confidentiality",
-          desc: "All information you share with CounselO is treated as strictly confidential. We do not share your information with any third party without your consent.",
+          desc: "Information you share with CounselO is handled under applicable confidentiality and data-protection obligations. We do not disclose it without your consent except where disclosure is required or permitted by applicable law.",
         },
         {
           title: "Scope of Consultation",
-          desc: "Our consultations constitute professional legal advice based on the information you provide. The accuracy and completeness of the information you submit directly affect the quality of the advice given.",
+          desc: isUae
+            ? "The consultation is limited to the agreed scope and the information you provide. UAE court representation, formal filings and regulated local work require a separate engagement with an appropriately licensed practitioner where applicable."
+            : "Our consultations constitute professional legal advice based on the information you provide. The accuracy and completeness of the information you submit directly affect the quality of the advice given.",
         },
         {
           title: "No Refunds After Delivery",
-          desc: "Once the legal consultation has been delivered, the consultation fee is non-refundable. If you are dissatisfied with the clarity of the answer, we will provide one round of clarification at no additional cost.",
+          desc: "Once the agreed consultation has been delivered, the fee is non-refundable except where mandatory law requires otherwise. If the answer needs clarification, we will provide one clarification round at no additional cost.",
         },
         {
           title: "No Attorney-Client Relationship for Representation",
@@ -73,9 +76,7 @@ export default function TermsOfService() {
     },
     ar: {
       seoTitle: "شروط الخدمة | آلية الاستشارة القانونية الأونلاين | كاونسلو",
-      seoDesc: region === "syr"
-        ? "شروط وآلية استشارات كاونسلو القانونية الأونلاين في سوريا — كيفية العمل: أرسل قضيتك، احصل على تقدير التكلفة، ادفع بأمان، واستلم إجابتك القانونية. متاح 24/7 بالعربية والإنجليزية."
-        : "شروط وآلية استشارات كاونسلو القانونية الأونلاين في المملكة العربية السعودية — كيفية العمل: أرسل قضيتك، احصل على تقدير التكلفة، ادفع بأمان، واستلم إجابتك القانونية. متاح 24/7 بالعربية والإنجليزية.",
+      seoDesc: `شروط وآلية استشارات كاونسلو القانونية الأونلاين في ${countryAr}: أرسل مسألتك، واحصل على عرض الرسوم، واعتمد النطاق، ثم استلم استشارتك القانونية بالعربية أو الإنجليزية.`,
       eyebrow: "شروط الاستشارة القانونية",
       heading: "شروط الخدمة",
       subheading:
@@ -107,15 +108,17 @@ export default function TermsOfService() {
       terms: [
         {
           title: "السرية التامة",
-          desc: "تُعامَل جميع المعلومات التي تشاركها مع كاونسلو بسرية مطلقة. ولا نُفصح عن معلوماتك لأي طرف ثالث دون موافقتك.",
+          desc: "تُعامل المعلومات التي تشاركها مع كاونسلو وفق التزامات السرية وحماية البيانات المنطبقة. ولا نُفصح عنها دون موافقتك إلا إذا كان الإفصاح مطلوباً أو مسموحاً به بموجب القانون المنطبق.",
         },
         {
           title: "نطاق الاستشارة",
-          desc: "تمثّل استشاراتنا مشورة قانونية مهنية مبنيّة على المعلومات التي تزوّدنا بها. ويؤثّر مدى دقة واكتمال ما تُقدّمه تأثيراً مباشراً في جودة المشورة المُقدَّمة.",
+          desc: isUae
+            ? "تقتصر الاستشارة على النطاق المتفق عليه والمعلومات التي تقدمها. ويتطلب التمثيل أمام محاكم الإمارات أو القيد الرسمي أو الأعمال المحلية المنظمة ارتباطاً منفصلاً مع ممارس مرخص على النحو الواجب حيثما يلزم."
+            : "تمثّل استشاراتنا مشورة قانونية مهنية مبنيّة على المعلومات التي تزوّدنا بها. ويؤثّر مدى دقة واكتمال ما تُقدّمه تأثيراً مباشراً في جودة المشورة المُقدَّمة.",
         },
         {
           title: "عدم استرداد المبلغ بعد التسليم",
-          desc: "بعد تسليم الاستشارة القانونية، تُعدّ رسوم الاستشارة غير قابلة للاسترداد. وإن لم تكن راضياً عن وضوح الإجابة، نقدّم جولةً واحدة من التوضيح دون أي تكلفة إضافية.",
+          desc: "بعد تسليم الاستشارة المتفق عليها، لا تُسترد الرسوم إلا إذا أوجب القانون الآمر خلاف ذلك. وإذا احتاجت الإجابة إلى إيضاح، نقدّم جولةً واحدة من التوضيح دون تكلفة إضافية.",
         },
         {
           title: "الاستشارة لا تعني التمثيل القانوني",
@@ -138,7 +141,11 @@ export default function TermsOfService() {
         title={content.seoTitle}
         description={content.seoDesc}
         canonical="/terms-of-service"
-        keywords={region === "syr"
+        keywords={isUae
+          ? (isRTL
+            ? "شروط خدمة كاونسلو الإمارات, آلية الاستشارة القانونية أونلاين الإمارات, رسوم الاستشارة القانونية, استشارة واتساب الإمارات"
+            : "CounselO UAE terms of service, UAE online legal consultation process, UAE legal consultation fees, legal advice WhatsApp UAE")
+          : region === "syr"
           ? (isRTL
             ? "شروط الخدمة قانوني, كيفية الاستشارة القانونية أونلاين سوريا, استشارة قانونية بالواتساب سوريا, رسوم الاستشارة القانونية, محامي أونلاين سوريا"
             : "CounselO terms of service, how online legal consultation works Syria, legal advice WhatsApp Syria, consultation fees lawyer Syria, online legal process Syria")
@@ -149,10 +156,10 @@ export default function TermsOfService() {
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "@id": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/terms-of-service#webpage`,
+            "@id": `${pageUrl}#webpage`,
             "name": isRTL ? "شروط الخدمة | كاونسلو" : "Terms of Service | CounselO",
             "description": content.seoDesc,
-            "url": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/terms-of-service`,
+            "url": pageUrl,
             "isPartOf": { "@type": "WebSite", "name": "CounselO", "url": "https://counselo-legal.com" },
             "publisher": { "@type": "Organization", "name": "CounselO", "url": "https://counselo-legal.com" },
           },
@@ -160,8 +167,8 @@ export default function TermsOfService() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}` },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "شروط الخدمة" : "Terms of Service", "item": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/terms-of-service` },
+              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": homeUrl },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "شروط الخدمة" : "Terms of Service", "item": pageUrl },
             ],
           },
         ]}

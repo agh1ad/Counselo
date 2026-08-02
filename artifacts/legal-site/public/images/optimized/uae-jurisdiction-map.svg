@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 390" role="img" aria-labelledby="title desc">
+  <title id="title">Stylised map of the United Arab Emirates</title>
+  <desc id="desc">A forest green map with gold emirate boundaries and jurisdiction markers.</desc>
+  <defs>
+    <linearGradient id="land" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d5b40"/>
+      <stop offset="1" stop-color="#073528"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#001d14" flood-opacity=".18"/>
+    </filter>
+    <pattern id="grid" width="54" height="47" patternUnits="userSpaceOnUse">
+      <path d="M27 0 54 15.5v31L27 62 0 46.5v-31Z" fill="none" stroke="#c99a3b" stroke-opacity=".22" stroke-width="1"/>
+    </pattern>
+    <path id="uae-shape" d="M20 170C25 195 22 215 32 185C38 179 34 207 45 197L38 218C55 227 70 214 83 215C91 214 98 196 111 199C127 212 147 203 159 204C169 215 181 195 192 206C210 215 222 203 235 208C253 215 269 205 279 194C284 188 280 216 292 204C306 195 316 210 332 196C345 185 338 163 351 157C365 151 363 137 378 126C394 116 401 103 414 95C427 86 429 69 441 60C449 51 457 74 465 54C477 46 484 35 493 27C502 18 508 5 516 11C521 18 512 49 516 61C531 64 539 58 546 73C554 91 556 112 551 126C546 144 535 157 522 164C512 171 508 160 501 154C492 143 487 140 481 151C473 167 475 185 485 196C493 204 488 217 482 227C473 239 475 250 487 258C496 264 510 258 514 269C517 278 504 283 496 285C481 287 470 290 467 298C468 307 481 308 482 318C483 330 470 340 468 351C465 363 464 379 454 384L163 354L34 236Z"/>
+    <clipPath id="uae-clip"><use href="#uae-shape"/></clipPath>
+  </defs>
+  <rect width="620" height="390" fill="url(#grid)" opacity=".7"/>
+  <g filter="url(#shadow)" transform="translate(24 0)">
+    <use href="#uae-shape" fill="url(#land)" stroke="#d5aa4e" stroke-width="2.5" stroke-linejoin="round"/>
+    <g clip-path="url(#uae-clip)" fill="none" stroke="#d5aa4e" stroke-opacity=".8" stroke-width="1.2">
+      <path d="M72 222 124 260 178 248 232 278 291 252 340 285 393 253 455 279 500 252"/>
+      <path d="M159 204 178 248M235 208 232 278M292 204 291 252M351 157 340 285M414 95 393 253M465 54 455 279M516 61 500 252"/>
+    </g>
+    <path d="M514 62c18 10 29 27 29 47 0 24-16 45-39 53" fill="none" stroke="#f1d183" stroke-width="1.5" stroke-dasharray="4 5"/>
+    <g fill="#fff" stroke="#d5aa4e" stroke-width="2">
+      <circle cx="124" cy="260" r="5"/><circle cx="232" cy="278" r="5"/><circle cx="340" cy="285" r="5"/><circle cx="455" cy="279" r="5"/><circle cx="504" cy="162" r="5"/>
+    </g>
+  </g>
+</svg>
