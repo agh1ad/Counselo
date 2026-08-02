@@ -21,6 +21,7 @@ import { fileURLToPath } from "node:url";
 import type { RenderResult } from "../entry-server.js";
 import type { InitialBlogPost } from "../App.js";
 import type { WorkSamplePublic } from "../lib/work-samples.js";
+import { UAE_SERVICES } from "../data/uae-legal-services.js";
 
 // ---------------------------------------------------------------------------
 // Fetch published blog post slugs from the running API at build time.
@@ -146,6 +147,16 @@ const ENGLISH_ROUTES: string[] = [
   // Syria service detail pages (shared slugs + 3 Syria-only slugs)
   ...SERVICE_SLUGS.map((s) => `/syr/services/${s}`),
   ...SYRIA_ONLY_SERVICE_SLUGS.map((s) => `/syr/services/${s}`),
+
+  // United Arab Emirates core and UAE-specific service taxonomy
+  "/uae",
+  "/uae/services",
+  "/uae/about",
+  "/uae/vision",
+  "/uae/contact",
+  "/uae/terms-of-service",
+  "/uae/privacy-policy",
+  ...UAE_SERVICES.map((service) => `/uae/services/${service.slug}`),
 ];
 
 // Single-URL routes: not region-prefixed, no Arabic variant.
@@ -158,7 +169,7 @@ const SINGLE_URL_ROUTES: string[] = ["/blog", "/our-work", "/ar/our-work"];
 // so Arabic content is a genuinely distinct, crawlable page. This is required
 // for hreflang annotations to point to real content in that language.
 function toArabicRoute(route: string): string {
-  const match = route.match(/^\/(sa|syr)(.*)$/);
+  const match = route.match(/^\/(sa|syr|uae)(.*)$/);
   if (!match) return route;
   const [, region, rest] = match;
   return `/${region}/ar${rest}`;
@@ -252,11 +263,17 @@ function writeRoute(
   blogPosts: InitialBlogPost[],
   workSamples: WorkSamplePublic[],
 ): void {
-  const { head, body } = render(route, blogPosts, workSamples);
+  const isUaeRoute = route === "/uae" || route.startsWith("/uae/");
+  // Until UAE-specific articles and work samples exist, do not bootstrap
+  // Saudi/Syrian discovery data into UAE pages. This keeps both the visible
+  // page and its crawlable HTML strictly jurisdiction-specific.
+  const routeBlogPosts = isUaeRoute ? [] : blogPosts;
+  const routeWorkSamples = isUaeRoute ? [] : workSamples;
+  const { head, body } = render(route, routeBlogPosts, routeWorkSamples);
 
   // Discovery surfaces only need card metadata and link assignments. Avoid
   // embedding every article body into every prerendered page.
-  const discoveryPosts = blogPosts.map((post) => ({
+  const discoveryPosts = routeBlogPosts.map((post) => ({
     id: post.id,
     slug: post.slug,
     date: post.date,
@@ -272,7 +289,7 @@ function writeRoute(
     relatedBlogSlugs: post.relatedBlogSlugs,
     relatedWorkSlugs: post.relatedWorkSlugs,
   }));
-  const discoveryData = `<script>window.__SSR_POSTS__=${safeJson(discoveryPosts)};window.__SSR_WORK_SAMPLES__=${safeJson(workSamples)};</script>`;
+  const discoveryData = `<script>window.__SSR_POSTS__=${safeJson(discoveryPosts)};window.__SSR_WORK_SAMPLES__=${safeJson(routeWorkSamples)};</script>`;
   const detailData = route.startsWith("/blog/")
     ? `<script>window.__SSR_POST__=${safeJson(blogPosts.find((post) => `/blog/${post.slug}` === route))};</script>`
     : "";
@@ -345,8 +362,10 @@ const REDIRECT_ROUTES: Record<string, string> = {
   // Old region-prefixed blog index pages → new single-URL blog index
   "/sa/blog": "/blog",
   "/syr/blog": "/blog",
+  "/uae/blog": "/blog",
   "/sa/ar/blog": "/blog",
   "/syr/ar/blog": "/blog",
+  "/uae/ar/blog": "/blog",
 
   // Old SA-region blog post slugs (both EN and AR) → blog index
   // (these posts are removed from the DB; redirect to /blog rather than 404)

@@ -7,7 +7,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { useEffect, useState } from "react";
-import { HeroPlatformCanvas } from "@/components/home/hero-platform-canvas";
+import type { Translations } from "@/contexts/LanguageContext";
+import type { Region } from "@/contexts/RegionContext";
 
 const fadeIn = {
   initial: false as const,
@@ -23,6 +24,41 @@ const channelIcons = [MessageCircle, Mail];
 const trustIcons = [Award, Scale, Clock, Globe];
 const stepIcons = [MonitorSmartphone, FilePenLine, CreditCard, UserRoundCheck];
 const serviceCardIcons = [Scale, Users, BriefcaseBusiness, Building2, HomeIcon, Landmark, ShieldCheck, FileText];
+
+const regionalHeroMaps: Record<Region, string> = {
+  sa: "/images/optimized/saudi-jurisdiction-map.svg",
+  syr: "/images/optimized/syria-jurisdiction-map.svg",
+  uae: "/images/optimized/uae-jurisdiction-map.svg?v=20260802-accurate-outline",
+};
+
+function RegionalReferenceHero({ h, regionPrefix, isRTL, region }: { h: Translations["home"]; regionPrefix: string; isRTL: boolean; region: Region }) {
+  return (
+    <section className={`uae-reference-hero regional-editorial-hero regional-editorial-hero--${region}`} aria-labelledby={`${region}-reference-title`}>
+      <div className="uae-reference-hero__ornament" aria-hidden="true" />
+      <div className="uae-reference-hero__grid">
+        <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="uae-reference-hero__copy">
+          <h1 id={`${region}-reference-title`}>{h.hero.h1a}<br /><em>{h.hero.h1b}</em></h1>
+          <p className="uae-reference-hero__lede">{h.hero.desc} <strong>{h.hero.descBold}</strong></p>
+          <p className="uae-reference-hero__support">{h.hero.subDesc}</p>
+          <div className="uae-reference-hero__actions">
+            <Link href={`${regionPrefix}/contact`} className="uae-reference-button uae-reference-button--primary">{h.hero.bookBtn}<ArrowRight aria-hidden="true" /></Link>
+            <Link href={`${regionPrefix}/services`} className="uae-reference-button uae-reference-button--secondary">{h.hero.servicesBtn}<ArrowRight aria-hidden="true" /></Link>
+          </div>
+          <div className="uae-reference-hero__trust" aria-label={isRTL ? "قنوات الاستشارة" : "Consultation channels"}>
+            {h.hero.channels.map((channel, index) => {
+              const Icon = channelIcons[index] ?? MessageCircle;
+              return <span key={channel.label}><Icon aria-hidden="true" />{channel.label}<small>{channel.sub}</small></span>;
+            })}
+          </div>
+        </motion.div>
+
+        <div className="uae-reference-hero__map" aria-hidden="true">
+          <img src={regionalHeroMaps[region]} alt="" width="620" height="440" fetchPriority="high" decoding="async" />
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   const { t, isRTL } = useLanguage();
@@ -51,14 +87,20 @@ export default function Home() {
   return (
     <div className="w-full">
       <SEOHead
-        title={region === "syr"
+        title={region === "uae"
+          ? (isRTL ? "منصة الإمارات للاستشارات القانونية الأونلاين" : "UAE Online Legal Consultation")
+          : region === "syr"
           ? (isRTL
-            ? "كاونسلو | منصة سوريا للاستشارات القانونية الأونلاين | استجابة خلال 24 ساعة"
-            : "CounselO | Online Legal Consultation — Syria | Response Within 24 Hours")
+            ? "منصة سوريا للاستشارات القانونية الأونلاين | استجابة خلال 24 ساعة"
+            : "Online Legal Consultation — Syria | Response Within 24 Hours")
           : (isRTL
-            ? "كاونسلو | منصة المملكة للاستشارات القانونية الأونلاين | استجابة خلال 24 ساعة"
-            : "CounselO | Online Legal Consultation — Saudi Arabia | Response Within 24 Hours")}
-        description={region === "syr"
+            ? "منصة المملكة للاستشارات القانونية الأونلاين | استجابة خلال 24 ساعة"
+            : "Online Legal Consultation — Saudi Arabia | Response Within 24 Hours")}
+        description={region === "uae"
+          ? (isRTL
+            ? `كاونسلو — استشارات قانونية أونلاين لمسائل الإمارات في ${servicesAreaCount} مجالاً قانونياً، وفق الإطار الاتحادي والمحلي وأنظمة البرّ الرئيسي والمناطق الحرة، بالعربية والإنجليزية.`
+            : `CounselO provides confidential online UAE legal consultation across ${servicesAreaCount} practice areas, covering federal, emirate-level, mainland and free-zone frameworks in Arabic and English.`)
+          : region === "syr"
           ? (isRTL
             ? `قانوني — منصة سوريا للاستشارات القانونية الأونلاين. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. ${servicesAreaCount} مجالاً قانونياً وفق القانون المدني السوري وقانون الشركات 29/2011 وقانون العمل 17/2010. خبرة تزيد على 30 عاماً، أكثر من 20,000 قضية. بإشراف المحامي عمر البغدادي. بالعربية والإنجليزية.`
             : `CounselO is Syria's online legal consultation platform — professional legal response within 24 hours via WhatsApp or email. ${servicesAreaCount} practice areas under Syrian Civil Code, Companies Law 29/2011, Labour Law 17/2010, Personal Status Law. Founded by Lawyer Omar Al-Baghdadi. 30+ years experience, 20,000+ cases.`)
@@ -66,14 +108,32 @@ export default function Home() {
             ? `قانوني — منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني للأفراد والشركات والمستثمرين. ${servicesAreaCount} مجالاً قانونياً، خبرة تزيد على 30 عاماً، أكثر من 20,000 قضية. بإشراف المحامي والمستشار القانوني عمر البغدادي. متاحة بالعربية والإنجليزية في الجبيل والرياض وجدة والدمام وجميع مناطق المملكة. رؤية 2030.`
             : `CounselO is Saudi Arabia's online legal consultation platform — professional legal response within 24 hours via WhatsApp or email. ${servicesAreaCount} practice areas covering family law, commercial law, employment, real estate, foreign investment, administrative law, criminal law, banking, tax, and more. Founded by Lawyer and Legal Counsel Omar Al-Baghdadi. 30+ years experience, 20,000+ cases. Vision 2030 aligned.`)}
         canonical="/"
-        keywords={region === "syr"
+        keywords={region === "uae"
+          ? (isRTL
+            ? "استشارة قانونية الإمارات, محامي أونلاين دبي, محامي أبوظبي, قانون الشركات الإماراتي, قانون العمل الإماراتي, المناطق الحرة, مركز دبي المالي, أبوظبي العالمي"
+            : "UAE legal consultation, online lawyer Dubai, Abu Dhabi legal advice, UAE company law, UAE employment law, free zone lawyer, DIFC, ADGM")
+          : region === "syr"
           ? (isRTL
             ? "استشارة قانونية أونلاين سوريا, محامي أونلاين سوريا, مشورة قانونية خلال 24 ساعة, القانون المدني السوري, قانون الأسرة السوري 59/1953, قانون الشركات السوري 29/2011, قانون العمل السوري 17/2010, القانون العقاري سوريا, مصرف سوريا المركزي, هيئة الضرائب العامة سوريا, عمر البغدادي, محامي دمشق أونلاين, محامي حلب, قانوني سوريا"
             : "online legal consultation Syria, Syria legal consultation platform, lawyer online Syria, legal advice within 24 hours Syria, Syrian Civil Code, family law Syria, companies law Syria 29/2011, employment law Syria 17/2010, real estate law Syria, Central Bank of Syria, General Tax Authority Syria, Omar Al-Baghdadi, Damascus lawyer online, CounselO Syria")
           : (isRTL
             ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة, مشورة قانونية خلال 24 ساعة, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل, القانون العقاري, استثمار أجنبي, القانون الإداري, استشارة قانونية واتساب, قانون جنائي سعودي, قانون ضريبي زكاة, مشورة قانونية الجبيل, عمر البغدادي, رؤية 2030, قانوني"
             : "online legal consultation Saudi Arabia, Saudi Arabia online legal platform, lawyer online Saudi Arabia, legal advice within 24 hours KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law KSA, foreign investment lawyer Saudi Arabia, administrative law KSA, criminal law Saudi Arabia, banking finance law, tax zakat lawyer, medical malpractice KSA, WhatsApp legal consultation, Omar Al-Baghdadi, Jubail lawyer, Vision 2030 legal, CounselO")}
-        schema={region === "syr" ? {
+        schema={region === "uae" ? {
+          "@context": "https://schema.org",
+          "@type": "LegalService",
+          "name": "CounselO UAE",
+          "alternateName": "CounselO Online Legal Consultations — United Arab Emirates",
+          "description": isRTL ? "منصة استشارات قانونية أونلاين لمسائل الإمارات بالعربية والإنجليزية" : "Online legal consultation for UAE matters in Arabic and English",
+          "url": "https://counselo-legal.com/uae",
+          "logo": { "@type": "ImageObject", "url": "https://counselo-legal.com/logo.png", "width": 512, "height": 512 },
+          "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
+          "areaServed": { "@type": "Country", "name": "United Arab Emirates" },
+          "availableLanguage": ["Arabic", "English"],
+          "serviceType": t.services.items.map((service) => service.title),
+          "hasOfferCatalog": { "@type": "OfferCatalog", "name": "UAE Legal Consultation Services", "numberOfItems": servicesAreaCount },
+          "contactPoint": { "@type": "ContactPoint", "telephone": "+966594850247", "contactType": "legal consultation", "availableLanguage": ["Arabic", "English"] },
+        } : region === "syr" ? {
           "@context": "https://schema.org",
           "@type": "LegalService",
           "name": "CounselO",
@@ -166,59 +226,13 @@ export default function Home() {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": region === "syr" ? "https://counselo-legal.com/syr" : "https://counselo-legal.com/sa" },
+            { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": `https://counselo-legal.com/${region}` },
           ],
         }]}
       />
 
       {/* ── HERO ── */}
-      <section className="counselo-hero relative min-h-[calc(100svh-5.25rem)] flex items-center overflow-hidden bg-background">
-        <HeroPlatformCanvas region={region} isRTL={isRTL} />
-        <div className="counselo-hero-canvas-fade" aria-hidden="true" />
-        <div className="counselo-orbit counselo-orbit-hero" aria-hidden="true" />
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10 w-full py-14 lg:py-20">
-            <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75 }} className="relative z-10 max-w-3xl">
-              <h1 className="text-[clamp(3.25rem,6.2vw,6.75rem)] font-serif font-medium text-primary leading-[0.94] tracking-[-0.035em] mb-7 text-balance">
-                {h.hero.h1a}<br />
-                <span className="text-foreground italic">{h.hero.h1b}</span>
-              </h1>
-
-              <div className="counselo-gold-rule mb-7" aria-hidden="true" />
-              <p className="text-lg md:text-xl text-foreground/80 mb-3 leading-relaxed max-w-2xl">
-                {h.hero.desc} <strong className="text-primary font-semibold">{h.hero.descBold}</strong>
-              </p>
-              <p className="text-sm md:text-base text-muted-foreground mb-9 leading-relaxed max-w-2xl">{h.hero.subDesc}</p>
-
-              <div className="flex flex-col sm:flex-row gap-3 mb-7">
-                <Link href={`${regionPrefix}/contact`}>
-                  <Button size="lg" className="counselo-primary-cta group text-base px-8 py-6 rounded-none w-full sm:w-auto bg-primary text-white hover:bg-primary/90 font-semibold">
-                    {h.hero.bookBtn}
-                    <ArrowRight className="ms-3 h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
-                  </Button>
-                </Link>
-                <Link href={`${regionPrefix}/services`}>
-                  <Button size="lg" variant="outline" className="text-base px-8 py-6 rounded-none w-full sm:w-auto border-[#b4924a] text-foreground hover:bg-[#b4924a]/10">{h.hero.servicesBtn}</Button>
-                </Link>
-              </div>
-
-              <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
-                {h.hero.channels.map((ch, i) => {
-                  const Icon = channelIcons[i];
-                  return (
-                    <Link key={i} href={`${regionPrefix}/contact`}
-                      className="group flex items-center gap-2.5 text-primary font-semibold">
-                      <span className="w-8 h-8 border border-primary/20 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
-                        <Icon className="h-4 w-4 shrink-0" />
-                      </span>
-                      <span>{ch.label}</span>
-                      <span className="text-muted-foreground text-xs font-normal hidden sm:block">· {ch.sub.split("·")[1]?.trim()}</span>
-                    </Link>
-                  );
-                })}
-              </div>
-            </motion.div>
-        </div>
-      </section>
+      <RegionalReferenceHero h={h} regionPrefix={regionPrefix} isRTL={isRTL} region={region} />
 
       {/* ── STATS STRIP ── */}
       <section className="relative py-10 lg:py-12 bg-[#003d22] text-white overflow-hidden">
@@ -575,10 +589,10 @@ export default function Home() {
         </div>
       </section>
 
-      <LatestContentCarousels isArabic={isRTL} region={region} />
+      {region !== "uae" && <LatestContentCarousels isArabic={isRTL} region={region} />}
 
-      {/* ── TESTIMONIALS ── */}
-      <section
+      {/* UAE testimonials are withheld until region-specific reviews are verified. */}
+      {region !== "uae" && <section
         className="py-24 lg:py-32 bg-white border-y border-border relative overflow-hidden"
         onMouseEnter={() => setIsTestimonialPaused(true)}
         onMouseLeave={() => setIsTestimonialPaused(false)}
@@ -636,7 +650,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* ── CTA ── */}
       <section className="py-20 lg:py-24 relative overflow-hidden bg-[#003d22]">

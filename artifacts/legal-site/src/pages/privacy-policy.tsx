@@ -9,24 +9,46 @@ export default function PrivacyPolicy() {
   const { isRTL } = useLanguage();
   const { region, regionPrefix } = useRegion();
   const isSyr = region === "syr";
+  const isUae = region === "uae";
+  const countryEn = isUae ? "the United Arab Emirates" : isSyr ? "Syria" : "Saudi Arabia";
+  const countryAr = isUae ? "الإمارات العربية المتحدة" : isSyr ? "سوريا" : "المملكة العربية السعودية";
+  const adjectiveEn = isUae ? "UAE" : isSyr ? "Syrian" : "Saudi";
+  const adjectiveAr = isUae ? "الإماراتية" : isSyr ? "السورية" : "السعودية";
+  const homeUrl = `https://counselo-legal.com${regionPrefix}`;
+  const pageUrl = `${homeUrl}/privacy-policy`;
+  const languageCode = isRTL ? (isUae ? "ar-AE" : isSyr ? "ar-SY" : "ar-SA") : (isUae ? "en-AE" : isSyr ? "en-SY" : "en-SA");
+  const privacyFrameworkEn = isUae
+    ? "UAE Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data, where applicable; DIFC, ADGM or sector-specific rules may apply instead in some cases"
+    : isSyr
+      ? "applicable Syrian data-protection laws and regulations"
+      : "Saudi Arabia's Personal Data Protection Law (PDPL)";
+  const privacyFrameworkAr = isUae
+    ? "المرسوم بقانون اتحادي رقم 45 لسنة 2021 بشأن حماية البيانات الشخصية، حيثما ينطبق؛ وقد تسري بدلاً منه قواعد مركز دبي المالي أو أبوظبي العالمي أو قواعد قطاعية في بعض الحالات"
+    : isSyr
+      ? "أنظمة حماية البيانات الشخصية المعمول بها في سوريا"
+      : "نظام حماية البيانات الشخصية (PDPL) المعمول به في المملكة العربية السعودية";
+  const rightsFrameworkEn = isUae
+    ? "the applicable UAE federal, DIFC, ADGM or sector-specific data-protection regime"
+    : privacyFrameworkEn;
+  const rightsFrameworkAr = isUae
+    ? "نظام حماية البيانات الاتحادي أو نظام مركز دبي المالي أو أبوظبي العالمي أو النظام القطاعي المنطبق"
+    : privacyFrameworkAr;
 
   const content = {
     en: {
       seoTitle: "Privacy Policy | How CounselO Protects Your Data | CounselO",
-      seoDesc: isSyr
-        ? "CounselO's Privacy Policy — how we collect, use and protect your personal data and legal information. Strict professional confidentiality on all consultations. Syria's online legal platform."
-        : "CounselO's Privacy Policy — how we collect, use and protect your personal data and legal information. Strict professional confidentiality on all consultations. Saudi Arabia's online legal platform.",
+      seoDesc: `CounselO's Privacy Policy for ${countryEn} — how we collect, use and protect personal data and confidential legal information for online consultations.`,
       canonical: "/privacy-policy",
       eyebrow: "Data Protection & Privacy",
       heading: "Privacy Policy",
       subheading:
         "CounselO is committed to protecting your privacy and the confidentiality of your legal information. This policy explains what data we collect, how we use it, and the strict protections that apply to everything you share with us.",
-      lastUpdated: "Last updated: 28 June 2026",
+      lastUpdated: "Last updated: 2 August 2026",
       sections: [
         {
           icon: Shield,
           title: "1. Who We Are",
-          content: `CounselO is an online legal consultation platform founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with over 30 years of legal practice. We provide professional legal consultation services across ${isSyr ? "Syria" : "Saudi Arabia"} via WhatsApp and email, in Arabic and English.`,
+          content: `CounselO is an online legal consultation platform founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with over 30 years of regional legal experience. We provide professional legal consultation services for matters in ${countryEn} via WhatsApp and email, in Arabic and English.`,
         },
         {
           icon: Database,
@@ -50,19 +72,19 @@ export default function PrivacyPolicy() {
             "To review your legal matter and deliver your consultation",
             "To communicate with you about your consultation and any follow-up queries",
             "To process and verify consultation fee payments",
-            `To maintain records required by ${isSyr ? "Syrian" : "Saudi"} legal professional regulations`,
+            `To maintain records required by applicable ${adjectiveEn} laws and professional obligations`,
             "To improve the quality and efficiency of our legal service",
-            `To comply with applicable ${isSyr ? "Syrian" : "Saudi"} laws and regulatory obligations`,
+            `To comply with applicable ${adjectiveEn} laws and regulatory obligations`,
           ],
         },
         {
           icon: Lock,
           title: "4. Professional Legal Confidentiality",
-          content: `All information you share with CounselO is subject to strict professional confidentiality — the same lawyer-client privilege that governs all legal practice in ${isSyr ? "Syria" : "the Kingdom of Saudi Arabia"}. This means:`,
+          content: `All information you share with CounselO is handled under applicable professional confidentiality and data-protection obligations for matters in ${countryEn}. This means:`,
           list: [
-            "We will never share your legal matter details, documents, or personal information with any third party without your explicit written consent",
+            "We do not share your legal matter details, documents, or personal information without your consent, except where disclosure is required or permitted by applicable law",
             "Your information is accessible only to the members of the CounselO legal team directly responsible for your consultation",
-            "Professional secrecy obligations continue in perpetuity — even after your consultation is concluded",
+            "Confidentiality continues after the consultation to the extent required by applicable professional, contractual and legal obligations",
             "We do not sell, rent, or trade your personal information to any person, company, or data broker",
           ],
         },
@@ -93,13 +115,11 @@ export default function PrivacyPolicy() {
         {
           icon: UserCheck,
           title: "7. Legal Basis for Processing",
-          content: isSyr
-            ? "We process your personal data on the following legal bases under applicable Syrian data protection law and regulations:"
-            : "We process your personal data on the following legal bases under applicable Saudi data protection law and the Personal Data Protection Law (PDPL) of the Kingdom of Saudi Arabia:",
+          content: `We process personal data under ${privacyFrameworkEn}, relying on an appropriate legal basis for each processing activity:`,
           list: [
             "Contract performance: to provide the legal consultation services you have requested",
             "Legitimate interests: to maintain professional records and improve our service",
-            `Legal obligation: to comply with ${isSyr ? "Syrian" : "Saudi"} regulatory and professional legal requirements`,
+            `Legal obligation: to comply with applicable ${adjectiveEn} regulatory and professional requirements`,
             "Consent: where we ask for your explicit permission for any additional processing",
           ],
         },
@@ -112,7 +132,9 @@ export default function PrivacyPolicy() {
             "With your explicit consent: only where you have specifically authorised us to share your information",
             "Legal obligation: where disclosure is required by a court order or applicable law",
             "Service providers: third-party tools necessary to operate our website (e.g. hosting, analytics) — these providers are contractually prohibited from using your data for any other purpose",
-            `We do not transfer your personal data outside ${isSyr ? "Syria" : "the Kingdom of Saudi Arabia"} without appropriate safeguards`,
+            isUae
+              ? "Cross-border transfers are made only where permitted by the applicable UAE, DIFC, ADGM or sector-specific regime and with required safeguards"
+              : `We do not transfer your personal data outside ${countryEn} without appropriate safeguards`,
           ],
         },
         {
@@ -122,7 +144,9 @@ export default function PrivacyPolicy() {
             "We retain your personal information and consultation records for as long as necessary to:",
           list: [
             "Fulfil the purpose for which it was collected (delivering your consultation)",
-            `Meet our legal and professional record-keeping obligations under ${isSyr ? "Syrian" : "Saudi"} law (typically a minimum of five years for legal files)`,
+            isUae
+              ? "Meet applicable UAE legal, regulatory and professional record-keeping obligations for the relevant matter"
+              : `Meet our legal and professional record-keeping obligations under ${adjectiveEn} law`,
             "Defend any legal claims that may arise from the consultation",
             "After the applicable retention period, your data is securely deleted or anonymised",
           ],
@@ -130,16 +154,14 @@ export default function PrivacyPolicy() {
         {
           icon: Trash2,
           title: "10. Your Rights",
-          content: isSyr
-            ? "Under applicable Syrian data protection laws, you have the following rights with respect to your personal data:"
-            : "Under Saudi Arabia's Personal Data Protection Law (PDPL), you have the following rights with respect to your personal data:",
+          content: `Subject to applicable exceptions, ${rightsFrameworkEn} may provide the following rights in relation to your personal data:`,
           list: [
             "Right of access: to request a copy of the personal data we hold about you",
             "Right of correction: to request correction of inaccurate or incomplete data",
             "Right of deletion: to request deletion of your personal data where we no longer have a legal basis to retain it",
             "Right to withdraw consent: where processing is based on consent, you may withdraw it at any time",
             "Right to object: to object to our processing of your data in certain circumstances",
-            "To exercise any of these rights, contact us via email at info@counselo-legal.com — we will respond within 30 days",
+            "To exercise a data right, contact info@counselo-legal.com; we will respond within the period required by the applicable regime",
           ],
         },
         {
@@ -173,15 +195,13 @@ export default function PrivacyPolicy() {
     },
     ar: {
       seoTitle: "سياسة الخصوصية | كيف تحمي كاونسلو بياناتك | كاونسلو",
-      seoDesc: isSyr
-        ? "سياسة الخصوصية لمنصة كاونسلو — كيف نجمع بياناتك الشخصية ومعلوماتك القانونية ونحميها. سرية مهنية صارمة في جميع الاستشارات. منصة الاستشارات القانونية الأونلاين في سوريا."
-        : "سياسة الخصوصية لمنصة كاونسلو — كيف نجمع بياناتك الشخصية ومعلوماتك القانونية ونحميها. سرية مهنية صارمة في جميع الاستشارات. منصة الاستشارات القانونية الأونلاين في المملكة العربية السعودية.",
+      seoDesc: `سياسة خصوصية كاونسلو في ${countryAr} — كيفية جمع البيانات الشخصية والمعلومات القانونية السرية واستخدامها وحمايتها عند تقديم الاستشارات أونلاين.`,
       canonical: "/privacy-policy",
       eyebrow: "حماية البيانات والخصوصية",
       heading: "سياسة الخصوصية",
       subheading:
         "تلتزم منصة كاونسلو بحماية خصوصيتك وسرية معلوماتك القانونية. توضّح هذه السياسة البيانات التي نجمعها وكيفية استخدامها والضمانات الصارمة التي تحكم كل ما تشاركنا إياه.",
-      lastUpdated: "آخر تحديث: 28 يونيو 2026",
+      lastUpdated: "آخر تحديث: 2 أغسطس 2026",
       sections: [
         {
           icon: Shield,
@@ -209,19 +229,19 @@ export default function PrivacyPolicy() {
             "مراجعة قضيتك القانونية وتقديم استشارتك",
             "التواصل معك بشأن استشارتك وأي استفسارات متابعة",
             "معالجة مدفوعات رسوم الاستشارة والتحقق منها",
-            `الاحتفاظ بالسجلات التي تستلزمها الأنظمة المهنية القانونية ${isSyr ? "السورية" : "السعودية"}`,
+            `الاحتفاظ بالسجلات التي تستلزمها القوانين والالتزامات المهنية ${adjectiveAr} المنطبقة`,
             "تحسين جودة خدمتنا القانونية وكفاءتها",
-            `الامتثال للأنظمة ${isSyr ? "السورية" : "السعودية"} المعمول بها والالتزامات التنظيمية`,
+            `الامتثال للقوانين ${adjectiveAr} المعمول بها والالتزامات التنظيمية`,
           ],
         },
         {
           icon: Lock,
           title: "٤. السرية المهنية القانونية",
-          content: `تخضع جميع المعلومات التي تشاركها مع كاونسلو لسرية مهنية صارمة — وهي ذات الامتياز المكفول بين المحامي وموكله الذي يحكم جميع الممارسات القانونية في ${isSyr ? "سوريا" : "المملكة العربية السعودية"}. ويعني ذلك:`,
+          content: `تُعامل جميع المعلومات التي تشاركها مع كاونسلو وفق التزامات السرية المهنية وحماية البيانات المنطبقة على المسائل في ${countryAr}. ويعني ذلك:`,
           list: [
-            "لن نُفصح أبداً عن تفاصيل قضيتك القانونية أو مستنداتك أو معلوماتك الشخصية لأي طرف ثالث دون موافقتك الخطية الصريحة",
+            "لا نُفصح عن تفاصيل مسألتك القانونية أو مستنداتك أو معلوماتك الشخصية دون موافقتك، إلا إذا كان الإفصاح مطلوباً أو مسموحاً به بموجب القانون المنطبق",
             "لا يطّلع على معلوماتك إلا أعضاء الفريق القانوني في كاونسلو المعنيّون مباشرةً بمعالجة استشارتك",
-            "تظل التزامات السرية المهنية سارية إلى الأبد — حتى بعد انتهاء استشارتك",
+            "تستمر السرية بعد انتهاء الاستشارة بالقدر الذي تفرضه الالتزامات المهنية والتعاقدية والقانونية المنطبقة",
             "لا نبيع معلوماتك الشخصية أو نؤجّرها أو نتاجر بها مع أي شخص أو شركة أو وسيط بيانات",
           ],
         },
@@ -252,13 +272,11 @@ export default function PrivacyPolicy() {
         {
           icon: UserCheck,
           title: "٧. الأساس القانوني للمعالجة",
-          content: isSyr
-            ? "نعالج بياناتك الشخصية استناداً إلى الأسس القانونية التالية وفق أنظمة حماية البيانات الشخصية المعمول بها في سوريا:"
-            : "نعالج بياناتك الشخصية استناداً إلى الأسس القانونية التالية وفق نظام حماية البيانات الشخصية (PDPL) المعمول به في المملكة العربية السعودية:",
+          content: `نعالج البيانات الشخصية وفق ${privacyFrameworkAr}، وبالاستناد إلى أساس قانوني مناسب لكل نشاط معالجة:`,
           list: [
             "تنفيذ العقد: لتقديم خدمات الاستشارة القانونية التي طلبتها",
             "المصالح المشروعة: للاحتفاظ بالسجلات المهنية وتحسين خدمتنا",
-            `الالتزام القانوني: للامتثال للمتطلبات التنظيمية والمهنية القانونية ${isSyr ? "السورية" : "السعودية"}`,
+            `الالتزام القانوني: للامتثال للمتطلبات التنظيمية والمهنية ${adjectiveAr} المنطبقة`,
             "الموافقة: حيثما نطلب إذنك الصريح لأي معالجة إضافية",
           ],
         },
@@ -271,7 +289,9 @@ export default function PrivacyPolicy() {
             "بموافقتك الصريحة: فقط حين تأذن لنا تحديداً بمشاركة معلوماتك",
             "الالتزام القانوني: حين يُستلزم الإفصاح بموجب أمر قضائي أو نظام معمول به",
             "مزودو الخدمة: أدوات الطرف الثالث اللازمة لتشغيل موقعنا (الاستضافة والتحليلات مثلاً) — ويحظر على هؤلاء المزودين تعاقدياً استخدام بياناتك لأي غرض آخر",
-            `لا ننقل بياناتك الشخصية خارج ${isSyr ? "سوريا" : "المملكة العربية السعودية"} دون ضمانات مناسبة`,
+            isUae
+              ? "لا يتم نقل البيانات عبر الحدود إلا حيث يسمح النظام الإماراتي أو نظام مركز دبي المالي أو أبوظبي العالمي أو النظام القطاعي المنطبق، ومع توفير الضمانات المطلوبة"
+              : `لا ننقل بياناتك الشخصية خارج ${countryAr} دون ضمانات مناسبة`,
           ],
         },
         {
@@ -281,7 +301,9 @@ export default function PrivacyPolicy() {
             "نحتفظ بمعلوماتك الشخصية وسجلات الاستشارة المدة اللازمة لـ:",
           list: [
             "تحقيق الغرض الذي جُمعت من أجله (تقديم استشارتك)",
-            `الوفاء بالتزامات الاحتفاظ القانوني والمهني بالسجلات وفق ${isSyr ? "القانون السوري" : "النظام السعودي"} (خمس سنوات على الأقل عادةً للملفات القانونية)`,
+            isUae
+              ? "الوفاء بمتطلبات الاحتفاظ بالسجلات القانونية والتنظيمية والمهنية المنطبقة على المسألة في الإمارات"
+              : `الوفاء بالتزامات الاحتفاظ القانوني والمهني بالسجلات وفق القواعد ${adjectiveAr} المنطبقة`,
             "الدفاع عن أي مطالبات قانونية قد تنشأ عن الاستشارة",
             "بعد انتهاء مدة الاحتفاظ المعمول بها، تُحذف بياناتك بأمان أو تُجهَّل",
           ],
@@ -289,16 +311,14 @@ export default function PrivacyPolicy() {
         {
           icon: Trash2,
           title: "١٠. حقوقك",
-          content: isSyr
-            ? "بموجب أنظمة حماية البيانات الشخصية المعمول بها في سوريا، تتمتع بالحقوق التالية فيما يخص بياناتك الشخصية:"
-            : "بموجب نظام حماية البيانات الشخصية (PDPL) في المملكة العربية السعودية، تتمتع بالحقوق التالية فيما يخص بياناتك الشخصية:",
+          content: `مع مراعاة الاستثناءات المنطبقة، قد يمنحك ${rightsFrameworkAr} الحقوق التالية فيما يخص بياناتك الشخصية:`,
           list: [
             "حق الوصول: طلب نسخة من البيانات الشخصية التي نحتفظ بها عنك",
             "حق التصحيح: طلب تصحيح البيانات غير الدقيقة أو المنقوصة",
             "حق الحذف: طلب حذف بياناتك الشخصية حيثما لا يعود لدينا أساس قانوني للاحتفاظ بها",
             "حق سحب الموافقة: يمكنك سحب موافقتك في أي وقت حيثما استُند إليها أساساً للمعالجة",
             "حق الاعتراض: الاعتراض على معالجتنا لبياناتك في حالات معينة",
-            "لممارسة أي من هذه الحقوق، تواصل معنا عبر البريد الإلكتروني info@counselo-legal.com — سنردّ خلال 30 يوماً",
+            "لممارسة أحد حقوق البيانات، تواصل عبر info@counselo-legal.com؛ وسنرد خلال المدة التي يحددها النظام المنطبق",
           ],
         },
         {
@@ -338,7 +358,11 @@ export default function PrivacyPolicy() {
         title={content.seoTitle}
         description={content.seoDesc}
         canonical="/privacy-policy"
-        keywords={region === "syr"
+        keywords={isUae
+          ? (isRTL
+            ? "سياسة الخصوصية كاونسلو الإمارات, حماية البيانات الشخصية الإمارات, قانون حماية البيانات الإماراتي, سرية الاستشارة القانونية"
+            : "CounselO UAE privacy policy, UAE personal data protection law, legal consultation confidentiality UAE, UAE data privacy")
+          : region === "syr"
           ? (isRTL
             ? "سياسة الخصوصية كاونسلو, حماية البيانات الشخصية سوريا, سرية الاستشارة القانونية, حماية البيانات السورية, خصوصية المستخدم سوريا"
             : "CounselO privacy policy, data protection Syria, legal consultation confidentiality Syria, Syrian data protection law, client data privacy Syria")
@@ -349,20 +373,20 @@ export default function PrivacyPolicy() {
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "@id": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/privacy-policy#webpage`,
+            "@id": `${pageUrl}#webpage`,
             "name": isRTL ? "سياسة الخصوصية — كاونسلو" : "Privacy Policy — CounselO",
             "description": content.seoDesc,
-            "url": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/privacy-policy`,
+            "url": pageUrl,
             "isPartOf": { "@type": "WebSite", "name": "CounselO", "url": "https://counselo-legal.com" },
-            "inLanguage": isRTL ? (isSyr ? "ar-SY" : "ar-SA") : (isSyr ? "en-SY" : "en-SA"),
+            "inLanguage": languageCode,
             "about": { "@type": "LegalService", "name": "CounselO", "url": "https://counselo-legal.com" },
           },
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}` },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "سياسة الخصوصية" : "Privacy Policy", "item": `https://counselo-legal.com${region === "syr" ? "/syr" : "/sa"}${isRTL ? "/ar" : ""}/privacy-policy` },
+              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": homeUrl },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "سياسة الخصوصية" : "Privacy Policy", "item": pageUrl },
             ],
           },
         ]}

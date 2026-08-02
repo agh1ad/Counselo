@@ -107,6 +107,18 @@ interface SEOHeadProps {
 }
 
 const GEO = {
+  uae: {
+    region: "AE",
+    placename: "United Arab Emirates",
+    position: "24.453884;54.377344",
+    icbm: "24.453884, 54.377344",
+    ogLocaleAr: "ar_AE",
+    ogLocaleEn: "en_AE",
+    hrefLangEn: "en-AE",
+    hrefLangAr: "ar-AE",
+    pathPrefix: "/uae",
+    imgAlt: "CounselO — Online Legal Consultation United Arab Emirates",
+  },
   sa: {
     region: "SA",
     placename: "Saudi Arabia",
@@ -208,7 +220,15 @@ export function SEOHead({
     return m ? m[1] : null;
   })();
 
-  const rawTitle = metaOverride ? metaOverride.title : (isSyr ? syriafyText(title) : title);
+  const sharedTitleOverrides: Record<string, string> = {
+    "/blog/contract-interpretation-syrian-courts": "Contract Interpretation Before Syrian Courts",
+    "/blog/e-contracts-legal-validity-saudi-arabia": "Electronic Contracts in Saudi Arabia: Validity & Proof",
+  };
+  const rawTitle = metaOverride
+    ? metaOverride.title
+    : (noRegionPrefix && sharedTitleOverrides[basePath])
+      ? sharedTitleOverrides[basePath]
+      : (isSyr ? syriafyText(title) : title);
   // Optimized meta titles are already final — never append a suffix to them.
   // For fallback (non-map) titles, append "| CounselO" only if not already present.
   const fullTitle = metaOverride
@@ -230,6 +250,8 @@ export function SEOHead({
   // All other pages have 4 real, distinct, crawlable region×language URLs so
   // hreflang correctly routes crawlers to matching-language content.
   const HREFLANG_COMBOS = [
+    { region: "uae" as const, isArabic: false, hrefLang: GEO.uae.hrefLangEn },
+    { region: "uae" as const, isArabic: true, hrefLang: GEO.uae.hrefLangAr },
     { region: "sa" as const, isArabic: false, hrefLang: GEO.sa.hrefLangEn },
     { region: "sa" as const, isArabic: true, hrefLang: GEO.sa.hrefLangAr },
     { region: "syr" as const, isArabic: false, hrefLang: GEO.syr.hrefLangEn },
@@ -245,6 +267,9 @@ export function SEOHead({
     : noRegionPrefix
       ? []
     : HREFLANG_COMBOS
+        // UAE uses its own service taxonomy and legal concepts. Do not create
+        // cross-country alternates that would point to unrelated or missing URLs.
+        .filter((c) => region === "uae" ? c.region === "uae" : c.region !== "uae")
         // Drop en-SA/ar-SA entries for services that have no Saudi equivalent.
         .filter((c) => !(c.region === "sa" && SYRIA_ONLY_SERVICE_PATHS.has(basePath)))
         .map((c) => {
@@ -277,12 +302,16 @@ export function SEOHead({
   const alternateLocale = isArabic ? geo.ogLocaleEn : geo.ogLocaleAr;
 
   const defaultKeywordsEn =
-    region === "sa"
+    region === "uae"
+      ? "online legal consultation UAE, lawyer UAE online, legal advice Dubai, legal advice Abu Dhabi, UAE company law, UAE labour law, UAE family law, UAE arbitration, CounselO"
+      : region === "sa"
       ? "online legal consultation Saudi Arabia, lawyer Saudi Arabia online, legal advice KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law Saudi Arabia, foreign investment lawyer KSA, administrative law Saudi Arabia, CounselO"
       : "online legal consultation Syria, lawyer Syria online, legal advice Syria, family law Syria, commercial law Syria, employment law Syria, real estate law Syria, foreign investment lawyer Syria, administrative law Syria, CounselO";
 
   const defaultKeywordsAr =
-    region === "sa"
+    region === "uae"
+      ? "استشارة قانونية أونلاين الإمارات, محامي أونلاين الإمارات, مشورة قانونية دبي, قانون الشركات الإماراتي, قانون العمل الإماراتي, الأحوال الشخصية الإمارات, كاونسلو"
+      : region === "sa"
       ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة العربية السعودية, مشورة قانونية إلكترونية, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل السعودي, القانون العقاري السعودي, استثمار أجنبي محامي, القانون الإداري السعودي, كاونسلو"
       : "استشارة قانونية أونلاين سوريا, محامي أونلاين سوريا, مشورة قانونية إلكترونية سوريا, قانون الأسرة السوري, القانون التجاري السوري, قانون العمل السوري, القانون العقاري السوري, كاونسلو";
 

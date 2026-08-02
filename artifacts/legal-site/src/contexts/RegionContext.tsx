@@ -3,7 +3,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import { useLocation } from "wouter";
 
-export type Region = "sa" | "syr";
+export type Region = "sa" | "syr" | "uae";
 export type Lang = "en" | "ar";
 
 const BLOG_LANG_KEY = "counselo-blog-lang";
@@ -20,7 +20,7 @@ function loadStoredLang(): Lang {
 function loadStoredRegion(): Region {
   if (typeof window !== "undefined") {
     const value = localStorage.getItem(SHARED_REGION_KEY);
-    if (value === "sa" || value === "syr") return value;
+    if (value === "sa" || value === "syr" || value === "uae") return value;
   }
   return "sa";
 }
@@ -40,6 +40,7 @@ interface RegionContextType {
 const RegionContext = createContext<RegionContextType | null>(null);
 
 function detectRegion(path: string): Region {
+  if (path.startsWith("/uae")) return "uae";
   if (path.startsWith("/syr")) return "syr";
   return "sa";
 }
@@ -60,8 +61,10 @@ function detectLang(path: string, region: Region): Lang {
 
 export function RegionProvider({ children }: { children: ReactNode }) {
   const [location] = useLocation();
-  const [blogLang, setBlogLangState] = useState<Lang>(loadStoredLang);
-  const [sharedRegion, setSharedRegion] = useState<Region>(loadStoredRegion);
+  // Match the deterministic SSR defaults on the first client render. Stored
+  // preferences are applied after hydration to avoid React hydration errors.
+  const [blogLang, setBlogLangState] = useState<Lang>("en");
+  const [sharedRegion, setSharedRegion] = useState<Region>("sa");
 
   const isBlogPath = location === "/blog" || location.startsWith("/blog/");
   const isWorkPath =
@@ -81,7 +84,10 @@ export function RegionProvider({ children }: { children: ReactNode }) {
   // When navigating to a regional page, persist that page's language so the
   // blog shows the same language when the user visits it next.
   useEffect(() => {
-    if (!isSharedPath) {
+    if (isSharedPath) {
+      setBlogLangState(loadStoredLang());
+      setSharedRegion(loadStoredRegion());
+    } else {
       const urlRegion = detectRegion(location);
       const urlLang = detectLang(location, urlRegion);
       localStorage.setItem(BLOG_LANG_KEY, urlLang);

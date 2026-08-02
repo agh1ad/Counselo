@@ -596,7 +596,10 @@ app.get("/feed.xml", async (_req, res) => {
     res.type("application/rss+xml").setHeader("Cache-Control", "public, max-age=300, must-revalidate");
     res.send(discoveryFeed(posts, samples));
   } catch {
-    res.status(503).type("text/plain").send("Feed temporarily unavailable");
+    res
+      .type("application/rss+xml")
+      .setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+    res.send(readFileSync(resolve(publicDir, "feed.xml"), "utf-8"));
   }
 });
 

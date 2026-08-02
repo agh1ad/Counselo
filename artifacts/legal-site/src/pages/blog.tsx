@@ -33,7 +33,7 @@ declare global {
 function formatDate(dateStr: string, lang: string) {
   const date = new Date(dateStr);
   if (isNaN(date.getTime())) return dateStr;
-  return date.toLocaleDateString(lang === "ar" ? "ar-SA" : "en-GB", {
+  return date.toLocaleDateString(lang === "ar" ? "ar-AE" : "en-GB", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -55,14 +55,11 @@ export default function Blog() {
     refetchOnWindowFocus: "always",
   });
 
-  const country = region === "syr" ? "Syrian" : "Saudi";
-  const countryAr = region === "syr" ? "السورية" : "السعودية";
-
   const ui = {
     en: {
       eyebrow: "Legal Insights",
       heading: "Articles & Guides",
-      subheading: `Practical legal guidance on ${country} family law, employment, real estate, business, foreign investment, and administrative law — written by the team of Lawyer and Legal Counsel Omar Al-Baghdadi.`,
+      subheading: "A shared legal publication covering UAE, Saudi and Syrian law, with jurisdiction clearly identified in every country-specific article — written by CounselO's legal content team.",
       readMore: "Read Article",
       minRead: "min read",
       ctaHeading: "Have a Legal Question?",
@@ -74,7 +71,7 @@ export default function Blog() {
     ar: {
       eyebrow: "رؤى قانونية",
       heading: "مقالات وأدلة",
-      subheading: `إرشادات قانونية عملية في قانون الأسرة ${countryAr} والعمل والعقارات والأعمال والاستثمار الأجنبي والقانون الإداري — من فريق المحامي والمستشار القانوني عمر البغدادي.`,
+      subheading: "منصة قانونية مشتركة تغطي قوانين الإمارات والسعودية وسوريا، مع بيان الاختصاص بوضوح في كل مقال خاص بدولة — من فريق المحتوى القانوني في كاونسلو.",
       readMore: "اقرأ المقال",
       minRead: "د قراءة",
       ctaHeading: "هل لديك سؤال قانوني؟",
@@ -93,29 +90,29 @@ export default function Blog() {
       <SEOHead
         title={
           isRTL
-            ? "مدونة كاونسلو القانونية | مقالات وإرشادات قانونية | كاونسلو"
-            : "Legal Blog | Articles & Guides | CounselO"
+            ? "رؤى كاونسلو القانونية العالمية | مقالات وأدلة"
+            : "Global Legal Insights | Articles & Guides | CounselO"
         }
         description={
           isRTL
-            ? "إرشادات قانونية عملية ومجانية في قانون الأسرة والعمل والعقارات والتجارة والاستثمار الأجنبي في السعودية وسوريا، من فريق المحامي عمر البغدادي."
-            : "Practical legal guides on family, employment, real estate, commercial law, and foreign investment in Saudi Arabia and Syria from CounselO's legal team."
+            ? "منصة كاونسلو القانونية المشتركة لمقالات وأدلة حول قوانين الإمارات والسعودية وسوريا، مع تحديد الاختصاص القانوني لكل مقال بوضوح."
+            : "CounselO's shared publication for legal articles and guides covering UAE, Saudi and Syrian law, with each article's jurisdiction clearly identified."
         }
         canonical="/blog"
         noRegionPrefix
         keywords={
           isRTL
-            ? "مدونة قانونية, مقالات قانونية, إرشادات قانونية مجانية, قانون الأسرة, قانون العمل, القانون العقاري, القانون التجاري, الاستثمار الأجنبي, القانون الإداري, كاونسلو"
-            : "legal blog, free legal guides Saudi Arabia Syria, family law articles, employment law, real estate law guide, commercial law, foreign investment guide, administrative law, CounselO blog"
+            ? "رؤى قانونية, مقالات قانونية, قانون الإمارات, القانون السعودي, القانون السوري, قانون العمل, القانون التجاري, كاونسلو"
+            : "global legal insights, UAE law articles, Saudi law articles, Syrian law articles, employment law, commercial law, CounselO"
         }
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "Blog",
-            name: isRTL ? "مدونة كاونسلو القانونية" : "CounselO Legal Blog",
+            name: isRTL ? "رؤى كاونسلو القانونية العالمية" : "CounselO Global Legal Insights",
             description: isRTL
-              ? "إرشادات قانونية معمّقة للأفراد والشركات في المملكة العربية السعودية وسوريا"
-              : "In-depth legal guides for individuals and businesses in Saudi Arabia and Syria",
+              ? "مقالات وأدلة قانونية مشتركة تغطي قوانين الإمارات والسعودية وسوريا"
+              : "A shared legal publication covering UAE, Saudi and Syrian law",
             url: "https://counselo-legal.com/blog",
             publisher: {
               "@type": "Organization",

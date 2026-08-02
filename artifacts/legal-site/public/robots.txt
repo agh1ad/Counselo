@@ -46,4 +46,3 @@ Allow: /
 
 # Sitemap
 Sitemap: https://counselo-legal.com/sitemap.xml
-Sitemap: https://counselo-legal.com/feed.xml

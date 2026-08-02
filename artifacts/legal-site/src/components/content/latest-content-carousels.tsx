@@ -101,13 +101,17 @@ export function LatestContentCarousels({
   region,
   serviceSlug,
 }: LatestContentCarouselsProps) {
+  const ssrPosts = typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined;
+  const ssrWorkSamples = typeof window !== "undefined" ? window.__SSR_WORK_SAMPLES__ : undefined;
+  const isLocalStandalonePreview = typeof window !== "undefined" &&
+    (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost");
   const { data: posts = [] } = useQuery<InitialBlogPost[]>({
     queryKey: ["blog-posts"],
     queryFn: () => fetchPublicJson<InitialBlogPost[]>("/api/blog/posts"),
     // The build-time list is only a visual placeholder. Fetch immediately so
     // posts published after the last deployment can enter the carousel.
-    placeholderData: () =>
-      typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined,
+    initialData: ssrPosts,
+    enabled: !isLocalStandalonePreview || !ssrPosts?.length,
     staleTime: 60_000,
     refetchInterval: 60_000,
     refetchIntervalInBackground: false,
@@ -116,8 +120,8 @@ export function LatestContentCarousels({
   const { data: workSamples = [] } = useQuery<WorkSamplePublic[]>({
     queryKey: ["work-samples"],
     queryFn: () => fetchPublicJson<WorkSamplePublic[]>("/api/work"),
-    placeholderData: () =>
-      typeof window !== "undefined" ? window.__SSR_WORK_SAMPLES__ : undefined,
+    initialData: ssrWorkSamples,
+    enabled: !isLocalStandalonePreview || !ssrWorkSamples?.length,
     staleTime: 60_000,
     refetchInterval: 60_000,
     refetchIntervalInBackground: false,
@@ -145,7 +149,10 @@ export function LatestContentCarousels({
         .filter((sample) => sample.published !== false)
         .filter((sample) => !serviceSlug || sample.relatedServiceSlugs?.includes(serviceSlug));
       const jurisdictionMatches = assigned.filter((sample) =>
-        matchesRegion(`${sample.jurisdictionEn} ${sample.jurisdictionAr}`, region),
+        matchesRegion(
+          `${sample.jurisdictionEn} ${sample.jurisdictionAr} ${sample.titleEn} ${sample.titleAr} ${sample.summaryEn} ${sample.summaryAr} ${sample.challengeEn} ${sample.challengeAr} ${sample.approachEn} ${sample.approachAr} ${sample.outcomeEn} ${sample.outcomeAr}`,
+          region,
+        ),
       );
       return newestFirst(jurisdictionMatches).slice(0, 10);
     },

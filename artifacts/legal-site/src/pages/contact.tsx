@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useCallback, useMemo, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -20,13 +20,15 @@ const MAX_FILE_SIZE_MB = 5;
 const MAX_TOTAL_SIZE_MB = 7;
 const ACCEPTED = ["image/jpeg", "image/png", "image/gif", "image/webp", "application/pdf"];
 
-const formSchema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
-  phone: z.string().min(10),
-  service: z.string().min(1),
-  message: z.string().min(10),
+const createFormSchema = (isArabic: boolean) => z.object({
+  name: z.string().min(2, isArabic ? "يرجى إدخال الاسم الكامل." : "Please enter your full name."),
+  email: z.string().email(isArabic ? "يرجى إدخال بريد إلكتروني صحيح." : "Please enter a valid email address."),
+  phone: z.string().min(10, isArabic ? "يرجى إدخال رقم هاتف صحيح مع رمز الدولة." : "Please enter a valid phone number with country code."),
+  service: z.string().min(1, isArabic ? "يرجى اختيار المجال القانوني الأقرب لمسألتك." : "Please select the legal service closest to your matter."),
+  message: z.string().min(10, isArabic ? "يرجى وصف المسألة في 10 أحرف على الأقل." : "Please describe your matter in at least 10 characters."),
 });
+
+type ContactFormValues = z.infer<ReturnType<typeof createFormSchema>>;
 
 function FileIcon({ type }: { type: string }) {
   if (type === "application/pdf") return <FileText className="h-4 w-4 text-primary shrink-0" />;
@@ -56,9 +58,13 @@ function fileToBase64(file: File): Promise<string> {
 export default function Contact() {
   const { toast } = useToast();
   const { t, isRTL } = useLanguage();
-  const { region } = useRegion();
+  const { region, regionPrefix } = useRegion();
   const c = t.contact;
   const f = c.form;
+  const isUae = region === "uae";
+  const isSyr = region === "syr";
+  const countryName = isUae ? "United Arab Emirates" : isSyr ? "Syria" : "Saudi Arabia";
+  const pageUrl = `https://counselo-legal.com${regionPrefix}/contact`;
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
@@ -67,16 +73,21 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionError, setSubmissionError] = useState("");
   const [reference, setReference] = useState("");
+  const [prefillService, setPrefillService] = useState("");
+  const contactFormSchema = useMemo(() => createFormSchema(isRTL), [isRTL]);
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
     defaultValues: { name: "", email: "", phone: "", service: "", message: "" },
   });
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const svc = params.get("service") || "";
-    if (svc) form.setValue("service", svc);
+    const requestedService = new URLSearchParams(window.location.search).get("service") ?? "";
+    if (f.serviceOptions.some((option) => option.value === requestedService)) {
+      setPrefillService(requestedService);
+      form.setValue("service", requestedService);
+    }
+  // The regional service catalogue is stable for the life of this page.
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -109,7 +120,7 @@ export default function Contact() {
     setFiles((prev) => prev.filter((_, i) => i !== idx));
   };
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: ContactFormValues) {
     setIsSubmitting(true);
     setSubmissionError("");
     try {
@@ -178,14 +189,20 @@ export default function Contact() {
   return (
     <div className="counselo-editorial-page legal-intake-page w-full bg-background min-h-screen">
       <SEOHead
-        title={region === "syr"
+        title={region === "uae"
+          ? (isRTL ? "احجز استشارة قانونية في الإمارات | كاونسلو" : "Book a UAE Legal Consultation | CounselO")
+          : region === "syr"
           ? (isRTL
             ? "احجز استشارة قانونية أونلاين في سوريا | استجابة خلال 24 ساعة | كاونسلو"
             : "Book Online Legal Consultation Syria | Response Within 24 Hours | CounselO")
           : (isRTL
             ? "احجز استشارة قانونية أونلاين في السعودية | استجابة خلال 24 ساعة | كاونسلو"
             : "Book Online Legal Consultation Saudi Arabia | Response Within 24 Hours | CounselO")}
-        description={region === "syr"
+        description={isUae
+          ? (isRTL
+            ? "تواصل مع كاونسلو الإمارات لطلب استشارة قانونية أونلاين في المسائل الاتحادية والمحلية ومسائل البرّ الرئيسي والمناطق الحرة، بالعربية أو الإنجليزية."
+            : "Contact CounselO UAE for confidential online legal consultation on federal, emirate-level, mainland and free-zone matters in Arabic or English.")
+          : isSyr
           ? (isRTL
             ? "تواصل مع كاونسلو — منصة الاستشارات القانونية الأونلاين في سوريا. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
             : "Contact CounselO — Syria's online legal consultation platform. Professional response within 24 hours via WhatsApp (+966 59 485 0247) or email. No office visit needed. Arabic and English.")
@@ -193,7 +210,11 @@ export default function Contact() {
             ? "تواصل مع كاونسلو — منصة متخصصة للاستشارات القانونية أونلاين في المملكة. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
             : "Contact CounselO — Saudi Arabia's specialized online legal consultation platform. Professional response within 24 hours via WhatsApp (+966 59 485 0247) or email. No office visit needed. Arabic and English.")}
         canonical="/contact"
-        keywords={region === "syr"
+        keywords={isUae
+          ? (isRTL
+            ? "احجز استشارة قانونية الإمارات, استشارة قانونية أونلاين دبي, محامي أونلاين أبوظبي, استشارة قانونية واتساب الإمارات, كاونسلو الإمارات"
+            : "book UAE legal consultation, online legal advice Dubai, Abu Dhabi legal consultation, UAE lawyer consultation online, CounselO UAE contact")
+          : isSyr
           ? (isRTL
             ? "احجز استشارة قانونية سوريا, تواصل مع محامي أونلاين سوريا, استشارة قانونية واتساب سوريا, استجابة خلال 24 ساعة, محامي دمشق أونلاين, كاونسلو اتصل سوريا, استشارة قانونية إلكترونية سوريا"
             : "book legal consultation Syria, contact lawyer online Syria, WhatsApp legal consultation Syria, legal advice within 24 hours Syria, Damascus lawyer online, CounselO contact Syria, book lawyer Syria")
@@ -205,16 +226,18 @@ export default function Contact() {
             "@context": "https://schema.org",
             "@type": "ContactPage",
             "name": isRTL ? "تواصل مع كاونسلو" : "Contact CounselO",
-            "description": region === "syr"
+            "description": isUae
+              ? (isRTL
+                ? "احجز استشارة قانونية أونلاين لمسائل الإمارات بالعربية أو الإنجليزية"
+                : "Book an online legal consultation for UAE matters in Arabic or English")
+              : isSyr
               ? (isRTL
                 ? "احجز استشارة قانونية أونلاين في سوريا — استجابة احترافية خلال 24 ساعة"
                 : "Book an online legal consultation in Syria — professional response within 24 hours")
               : (isRTL
                 ? "احجز استشارة قانونية أونلاين في المملكة العربية السعودية — استجابة خلال 24 ساعة"
                 : "Book an online legal consultation in Saudi Arabia — professional response within 24 hours"),
-            "url": region === "syr"
-              ? `https://counselo-legal.com/syr${isRTL ? "/ar" : ""}/contact`
-              : `https://counselo-legal.com/sa${isRTL ? "/ar" : ""}/contact`,
+            "url": pageUrl,
           },
           {
             "@context": "https://schema.org",
@@ -223,13 +246,13 @@ export default function Contact() {
             "telephone": "+966594850247",
             "email": "info@counselo-legal.com",
             "url": "https://counselo-legal.com",
-            "address": region === "syr"
+            "address": isUae
+              ? { "@type": "PostalAddress", "addressCountry": "AE" }
+              : isSyr
               ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
               : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA", "streetAddress": "Madinah Street, Radma Hotel Apartments Building, Jubail Al-Balad" },
             "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
-            "areaServed": region === "syr"
-              ? { "@type": "Country", "name": "Syria" }
-              : { "@type": "Country", "name": "Saudi Arabia" },
+            "areaServed": { "@type": "Country", "name": countryName },
             "availableLanguage": ["Arabic", "English"],
             "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Sunday"], "opens": "09:00", "closes": "22:00" },
             "contactPoint": { "@type": "ContactPoint", "telephone": "+966594850247", "contactType": "legal consultation", "availableLanguage": ["Arabic", "English"] },
@@ -238,8 +261,8 @@ export default function Contact() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": region === "syr" ? `https://counselo-legal.com/syr${isRTL ? "/ar" : ""}` : `https://counselo-legal.com/sa${isRTL ? "/ar" : ""}` },
-              { "@type": "ListItem", "position": 2, "name": isRTL ? "اتصل بنا" : "Contact", "item": region === "syr" ? `https://counselo-legal.com/syr${isRTL ? "/ar" : ""}/contact` : `https://counselo-legal.com/sa${isRTL ? "/ar" : ""}/contact` },
+              { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": `https://counselo-legal.com${regionPrefix}` },
+              { "@type": "ListItem", "position": 2, "name": isRTL ? "اتصل بنا" : "Contact", "item": pageUrl },
             ],
           },
         ]}
@@ -389,7 +412,14 @@ export default function Contact() {
                       <FormField control={form.control} name="service" render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-foreground font-medium">{f.serviceLabel}</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <Select
+                            key={field.value || prefillService || "empty"}
+                            onValueChange={(value) => {
+                              setPrefillService("");
+                              field.onChange(value);
+                            }}
+                            value={field.value || prefillService}
+                          >
                             <FormControl>
                               <SelectTrigger className="border-border"><SelectValue placeholder={f.servicePlaceholder} /></SelectTrigger>
                             </FormControl>
