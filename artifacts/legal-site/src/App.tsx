@@ -84,10 +84,10 @@ function GAInit() {
     };
 
     if ("requestIdleCallback" in window) {
-      const idleId = window.requestIdleCallback(initialize, { timeout: 3_000 });
+      const idleId = window.requestIdleCallback(loadAnalytics, { timeout: 3_000 });
       return () => window.cancelIdleCallback(idleId);
     }
-    const timeoutId = globalThis.setTimeout(initialize, 2_000);
+    const timeoutId = globalThis.setTimeout(loadAnalytics, 2_000);
     return () => globalThis.clearTimeout(timeoutId);
   }, []);
   return null;
