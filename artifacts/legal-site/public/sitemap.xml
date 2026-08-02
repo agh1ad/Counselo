@@ -12,7 +12,7 @@
     <xhtml:link rel="alternate" hreflang="ar-SY"     href="https://counselo-legal.com/syr/ar"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa</loc>
@@ -23,7 +23,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services</loc>
@@ -34,7 +34,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/contact</loc>
@@ -45,7 +45,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/about</loc>
@@ -56,7 +56,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/vision</loc>
@@ -67,7 +67,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/terms-of-service</loc>
@@ -78,7 +78,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/privacy-policy</loc>
@@ -89,7 +89,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
-    
+
   </url>
 
   <!-- ===== SYR CORE PAGES ===== -->
@@ -102,7 +102,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services</loc>
@@ -113,7 +113,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/contact</loc>
@@ -124,7 +124,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/about</loc>
@@ -135,7 +135,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/vision</loc>
@@ -146,7 +146,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/terms-of-service</loc>
@@ -157,7 +157,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/privacy-policy</loc>
@@ -168,7 +168,70 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
-    
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/about</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/about"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/vision</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/vision"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/vision"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/terms-of-service</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar</loc>
@@ -179,7 +242,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services</loc>
@@ -190,7 +253,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/contact</loc>
@@ -201,7 +264,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/about</loc>
@@ -212,7 +275,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/vision</loc>
@@ -223,7 +286,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/terms-of-service</loc>
@@ -234,7 +297,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/privacy-policy</loc>
@@ -245,7 +308,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar</loc>
@@ -256,7 +319,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services</loc>
@@ -267,7 +330,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/contact</loc>
@@ -278,7 +341,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/about</loc>
@@ -289,7 +352,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/vision</loc>
@@ -300,7 +363,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/terms-of-service</loc>
@@ -311,7 +374,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/privacy-policy</loc>
@@ -322,7 +385,70 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
-    
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/about</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/about"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/vision</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/vision"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/vision"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/terms-of-service</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/terms-of-service"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+
   </url>
 
   <!-- ===== SA SERVICE PAGES ===== -->
@@ -335,7 +461,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/family-law</loc>
@@ -346,7 +472,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/business-law</loc>
@@ -357,7 +483,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/business-law</loc>
@@ -368,7 +494,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/real-estate</loc>
@@ -379,7 +505,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/real-estate</loc>
@@ -390,7 +516,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/employment-law</loc>
@@ -401,7 +527,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/employment-law</loc>
@@ -412,7 +538,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/foreign-investment</loc>
@@ -423,7 +549,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/foreign-investment</loc>
@@ -434,7 +560,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/administrative-law</loc>
@@ -445,7 +571,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/administrative-law</loc>
@@ -456,7 +582,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/arbitration</loc>
@@ -467,7 +593,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/arbitration</loc>
@@ -478,7 +604,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/enforcement</loc>
@@ -489,7 +615,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/enforcement</loc>
@@ -500,7 +626,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/companies-law</loc>
@@ -511,7 +637,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/companies-law</loc>
@@ -522,7 +648,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/contracts</loc>
@@ -533,7 +659,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/contracts</loc>
@@ -544,7 +670,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/criminal-law</loc>
@@ -555,7 +681,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/criminal-law</loc>
@@ -566,7 +692,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/banking-finance</loc>
@@ -577,7 +703,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/banking-finance</loc>
@@ -588,7 +714,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/intellectual-property</loc>
@@ -599,7 +725,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/intellectual-property</loc>
@@ -610,7 +736,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/tax-zakat</loc>
@@ -621,7 +747,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/tax-zakat</loc>
@@ -632,7 +758,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/cyber-law</loc>
@@ -643,7 +769,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/cyber-law</loc>
@@ -654,7 +780,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/medical-malpractice</loc>
@@ -665,7 +791,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/medical-malpractice</loc>
@@ -676,7 +802,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/services/insurance-law</loc>
@@ -687,7 +813,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/sa/ar/services/insurance-law</loc>
@@ -698,7 +824,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
 
   <!-- ===== SYR SERVICE PAGES ===== -->
@@ -711,7 +837,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/family-law</loc>
@@ -722,7 +848,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/business-law</loc>
@@ -733,7 +859,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/business-law</loc>
@@ -744,7 +870,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/real-estate</loc>
@@ -755,7 +881,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/real-estate</loc>
@@ -766,7 +892,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/employment-law</loc>
@@ -777,7 +903,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/employment-law</loc>
@@ -788,7 +914,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/foreign-investment</loc>
@@ -799,7 +925,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/foreign-investment</loc>
@@ -810,7 +936,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/administrative-law</loc>
@@ -821,7 +947,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/administrative-law</loc>
@@ -832,7 +958,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/arbitration</loc>
@@ -843,7 +969,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/arbitration</loc>
@@ -854,7 +980,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/enforcement</loc>
@@ -865,7 +991,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/enforcement</loc>
@@ -876,7 +1002,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/companies-law</loc>
@@ -887,7 +1013,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/companies-law</loc>
@@ -898,7 +1024,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/contracts</loc>
@@ -909,7 +1035,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/contracts</loc>
@@ -920,7 +1046,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/criminal-law</loc>
@@ -931,7 +1057,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/criminal-law</loc>
@@ -942,7 +1068,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/banking-finance</loc>
@@ -953,7 +1079,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/banking-finance</loc>
@@ -964,7 +1090,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/intellectual-property</loc>
@@ -975,7 +1101,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/intellectual-property</loc>
@@ -986,7 +1112,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/tax-zakat</loc>
@@ -997,7 +1123,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/tax-zakat</loc>
@@ -1008,7 +1134,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/cyber-law</loc>
@@ -1019,7 +1145,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/cyber-law</loc>
@@ -1030,7 +1156,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/medical-malpractice</loc>
@@ -1041,7 +1167,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/medical-malpractice</loc>
@@ -1052,7 +1178,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/insurance-law</loc>
@@ -1063,7 +1189,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/insurance-law</loc>
@@ -1074,7 +1200,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/civil-law</loc>
@@ -1083,7 +1209,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/civil-law</loc>
@@ -1092,7 +1218,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/civil-procedure</loc>
@@ -1101,7 +1227,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/civil-procedure</loc>
@@ -1110,7 +1236,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/services/criminal-procedure</loc>
@@ -1119,7 +1245,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
   </url>
   <url>
     <loc>https://counselo-legal.com/syr/ar/services/criminal-procedure</loc>
@@ -1128,7 +1254,405 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    
+
+  </url>
+
+  <!-- ===== UAE SERVICE PAGES ===== -->
+  <url>
+    <loc>https://counselo-legal.com/uae/services/corporate-commercial</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/corporate-commercial"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/corporate-commercial"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/corporate-commercial</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/corporate-commercial"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/corporate-commercial"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/foreign-investment-market-entry</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/foreign-investment-market-entry"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/foreign-investment-market-entry"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/foreign-investment-market-entry</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/foreign-investment-market-entry"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/foreign-investment-market-entry"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/commercial-contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/commercial-contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/commercial-contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/commercial-contracts</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/commercial-contracts"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/commercial-contracts"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/employment-labour</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/employment-labour"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/employment-labour"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/employment-labour</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/employment-labour"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/employment-labour"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/real-estate-construction</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/real-estate-construction"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/real-estate-construction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/real-estate-construction</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/real-estate-construction"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/real-estate-construction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/family-personal-status</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/family-personal-status"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/family-personal-status"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/family-personal-status</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/family-personal-status"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/family-personal-status"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/wills-estates</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/wills-estates"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/wills-estates"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/wills-estates</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/wills-estates"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/wills-estates"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/criminal-investigations</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/criminal-investigations"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/criminal-investigations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/criminal-investigations</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/criminal-investigations"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/criminal-investigations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/arbitration-mediation</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/arbitration-mediation"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/arbitration-mediation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/arbitration-mediation</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/arbitration-mediation"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/arbitration-mediation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/litigation-court-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/litigation-court-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/litigation-court-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/litigation-court-disputes</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/litigation-court-disputes"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/litigation-court-disputes"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/enforcement-debt-recovery</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/enforcement-debt-recovery"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/enforcement-debt-recovery"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/enforcement-debt-recovery</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/enforcement-debt-recovery"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/enforcement-debt-recovery"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/banking-finance</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/banking-finance"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/banking-finance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/banking-finance</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/banking-finance"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/banking-finance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/insolvency-restructuring</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/insolvency-restructuring"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/insolvency-restructuring"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/insolvency-restructuring</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/insolvency-restructuring"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/insolvency-restructuring"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/tax-vat</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/tax-vat"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/tax-vat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/tax-vat</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/tax-vat"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/tax-vat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/intellectual-property</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/intellectual-property"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/intellectual-property"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/intellectual-property</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/intellectual-property"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/intellectual-property"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/technology-data-protection</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/technology-data-protection"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/technology-data-protection"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/technology-data-protection</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/technology-data-protection"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/technology-data-protection"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/insurance</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/insurance"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/insurance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/insurance</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/insurance"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/insurance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/healthcare-medical-liability</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/healthcare-medical-liability"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/healthcare-medical-liability"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/healthcare-medical-liability</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/healthcare-medical-liability"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/healthcare-medical-liability"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/immigration-residency</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/immigration-residency"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/immigration-residency"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/immigration-residency</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/immigration-residency"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/immigration-residency"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/maritime-aviation-transport</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/maritime-aviation-transport"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/maritime-aviation-transport"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/maritime-aviation-transport</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/maritime-aviation-transport"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/maritime-aviation-transport"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/administrative-regulatory</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/administrative-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/administrative-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/administrative-regulatory</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/administrative-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/administrative-regulatory"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/services/consumer-ecommerce</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/consumer-ecommerce"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/consumer-ecommerce"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/uae/ar/services/consumer-ecommerce</loc>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/consumer-ecommerce"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/consumer-ecommerce"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+
   </url>
 
   <!-- ===== BLOG ===== -->
@@ -1592,6 +2116,24 @@
     <lastmod>2026-07-29</lastmod>
   </url>
   <url>
+    <loc>https://counselo-legal.com/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-08-02</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/ar/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-08-02</lastmod>
+  </url>
+  <url>
     <loc>https://counselo-legal.com/our-work/mnazah-tnfydh</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/our-work/mnazah-tnfydh"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/our-work/mnazah-tnfydh"/>
@@ -1605,6 +2147,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/our-work/mnazah-tnfydh"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/our-work/mnazah-tnfydh"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/our-work/mnazah-tnfydh"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-08-02</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/our-work/mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/our-work/mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/our-work/mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/our-work/mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-08-02</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/ar/our-work/mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/our-work/mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/our-work/mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/our-work/mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym"/>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <lastmod>2026-08-02</lastmod>
@@ -1736,24 +2296,6 @@
     <lastmod>2026-07-31</lastmod>
   </url>
   <url>
-    <loc>https://counselo-legal.com/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <lastmod>2026-07-30</lastmod>
-  </url>
-  <url>
-    <loc>https://counselo-legal.com/ar/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <lastmod>2026-07-30</lastmod>
-  </url>
-  <url>
     <loc>https://counselo-legal.com/our-work/maaljh-halh-khta-tby</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/our-work/maaljh-halh-khta-tby"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/our-work/maaljh-halh-khta-tby"/>
@@ -1767,6 +2309,24 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/our-work/maaljh-halh-khta-tby"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/our-work/maaljh-halh-khta-tby"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/our-work/maaljh-halh-khta-tby"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://counselo-legal.com/ar/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd"/>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <lastmod>2026-07-30</lastmod>
