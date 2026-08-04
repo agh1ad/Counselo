@@ -187,7 +187,7 @@ export default function BlogPost() {
   const seoDesc = normalizeDescription(rawSeoDesc, excerpt);
   const category = useAr ? post.categoryAr : post.categoryEn;
   const body = useAr ? post.bodyAr : post.bodyEn;
-  const content = useAr ? post.contentAr : post.contentEn;
+  const content = (useAr ? post.contentAr : post.contentEn) ?? [];
   const articleSearchText = `${post.titleEn} ${post.titleAr} ${post.excerptEn} ${post.excerptAr} ${post.categoryEn} ${post.categoryAr}`;
   const articleRegion = /United Arab Emirates|\bUAE\b|الإمارات/i.test(articleSearchText)
     ? "uae"

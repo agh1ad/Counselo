@@ -15,6 +15,7 @@ import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { RegionProvider, useRegion } from "@/contexts/RegionContext";
 import { lazy, Suspense, useEffect } from "react";
+import { ErrorBoundary } from "@/components/error-boundary";
 import { Helmet } from "react-helmet-async";
 import { trackEvent, trackPageview, injectGTM } from "@/lib/analytics";
 import type { WorkSamplePublic } from "@/lib/work-samples";
@@ -285,7 +286,7 @@ function Router() {
   }
 
   return (
-    <>
+    <ErrorBoundary>
       <ScrollToTop />
       <Switch>
         {/* Region picker — English (x-default) and Arabic */}
@@ -322,7 +323,7 @@ function Router() {
 
         <Route component={NotFound} />
       </Switch>
-    </>
+    </ErrorBoundary>
   );
 }
 
