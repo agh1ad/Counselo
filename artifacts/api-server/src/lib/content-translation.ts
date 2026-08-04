@@ -184,6 +184,47 @@ function normalizeEnglishHtml(value: unknown): unknown {
   return value.replace(/text-align\s*:\s*right/gi, "text-align:left");
 }
 
+/**
+ * Returns true when a string is predominantly Arabic (>30 % of non-whitespace
+ * characters fall in the Arabic Unicode block).  Used to catch the case where
+ * the model copies Arabic content into an English field instead of translating.
+ */
+function looksArabic(text: string): boolean {
+  const stripped = text.replace(/\s/g, "");
+  if (stripped.length === 0) return false;
+  const arabicCount = (stripped.match(/[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/g) ?? []).length;
+  return arabicCount / stripped.length > 0.3;
+}
+
+/**
+ * Throws if any English field in the translated patch contains predominantly
+ * Arabic text.  This catches silent model failures where the model echoes the
+ * Arabic source into the English output instead of translating it.
+ */
+function assertEnglishFieldsAreEnglish(patch: Record<string, unknown>): void {
+  for (const [key, value] of Object.entries(patch)) {
+    if (!key.endsWith("En")) continue;
+    if (typeof value === "string" && value.trim() && looksArabic(value)) {
+      throw new ContentTranslationError(
+        `Translation produced Arabic text in the English field "${key}". Please retry publishing.`,
+      );
+    }
+    if (Array.isArray(value)) {
+      for (const section of value) {
+        if (typeof section !== "object" || section === null) continue;
+        const s = section as Record<string, unknown>;
+        for (const text of [s["heading"], s["body"]]) {
+          if (typeof text === "string" && text.trim() && looksArabic(text)) {
+            throw new ContentTranslationError(
+              `Translation produced Arabic text in an English section of "${key}". Please retry publishing.`,
+            );
+          }
+        }
+      }
+    }
+  }
+}
+
 function missingPatch<T extends Record<string, unknown>>(
   current: T,
   translated: T,
@@ -356,10 +397,12 @@ export async function translateBlogForPublishing(
     blogTranslationSchema,
     { kind: "blog_post", content: current },
   );
-  return missingPatch(
+  const patch = missingPatch(
     current as unknown as Record<string, unknown>,
     translated as unknown as Record<string, unknown>,
-  ) as Partial<InsertBlogPost>;
+  );
+  assertEnglishFieldsAreEnglish(patch);
+  return patch as Partial<InsertBlogPost>;
 }
 
 export async function translateWorkForPublishing(
@@ -393,8 +436,10 @@ export async function translateWorkForPublishing(
     workTranslationSchema,
     { kind: "work_sample", content: current },
   );
-  return missingPatch(
+  const patch = missingPatch(
     current as unknown as Record<string, unknown>,
     translated as unknown as Record<string, unknown>,
-  ) as Partial<InsertWorkSample>;
+  );
+  assertEnglishFieldsAreEnglish(patch);
+  return patch as Partial<InsertWorkSample>;
 }
