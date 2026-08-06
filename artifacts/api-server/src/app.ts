@@ -3,7 +3,6 @@ import cors from "cors";
 import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
-import { registerOgPageRoutes } from "./og-pages.js";
 import { enforceCanonicalUrl } from "./lib/canonical-url.js";
 import {
   redirectTrailingSlash,
@@ -59,9 +58,5 @@ app.use("/api", (_req, res, next) => {
   next();
 });
 app.use("/api", router);
-
-// Public site routes must be registered after /api so the final site-level
-// 404 handler cannot swallow API requests.
-registerOgPageRoutes(app);
 
 export default app;

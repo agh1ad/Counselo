@@ -3,64 +3,27 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
 
+import {
+  BASE_URL,
+  CORE_PAGES,
+  BLOG_BASE_PATH,
+  WORK_BASE_PATH,
+  SYRIA_ONLY_SERVICE_SLUGS,
+  buildHreflangSitemapLinks,
+  buildHreflangUaeSitemapLinks,
+  buildHreflangSyrOnlySitemapLinks,
+  buildHreflangSingleUrlSitemapLink,
+  buildHreflangLanguageVariantSitemapLinks,
+  buildSitemapUrlEntry,
+  escapeXml,
+} from "../lib/server/index.js";
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, "../..");
-
-const BlogSectionSchema = z.object({
-  heading: z.string().optional(),
-  body: z.string().min(1, "body must not be empty"),
-});
-
-const BlogLocaleSchema = z.object({
-  title: z.string().min(1, "title must not be empty"),
-  excerpt: z.string().min(1, "excerpt must not be empty"),
-  seoTitle: z.string().min(1, "seoTitle must not be empty"),
-  seoDescription: z.string().min(1, "seoDescription must not be empty"),
-  content: z
-    .array(BlogSectionSchema)
-    .min(1, "content must have at least one section"),
-});
-
-const BlogPostSchema = z.object({
-  slug: z
-    .string()
-    .min(1, "slug must not be empty")
-    .regex(
-      /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
-      "slug must be kebab-case (a-z, 0-9, hyphens only)",
-    ),
-  date: z
-    .string()
-    .regex(/^\d{4}-\d{2}-\d{2}$/, "date must be in YYYY-MM-DD format"),
-  category: z.object({
-    en: z.string().min(1, "category.en must not be empty"),
-    ar: z.string().min(1, "category.ar must not be empty"),
-  }),
-  readTime: z.number().int().positive("readTime must be a positive integer"),
-  en: BlogLocaleSchema,
-  ar: BlogLocaleSchema,
-});
-
-const { BASE_URL, CORE_PAGES, BLOG_BASE_PATH, WORK_BASE_PATH } =
-  await import("../data/sitemap-sources.js");
 
 const { en } = await import("../translations/en.js");
 const { enSyr } = await import("../translations/en-syr.js");
 const { UAE_SERVICES } = await import("../data/uae-legal-services.js");
-
-// Maps old SA-worded Syria blog slugs to new Syria-specific canonical slugs.
-// The sitemap only emits the new Syria slugs as canonical; the old slugs have
-// canonicalOverride set in optimized-meta.ts so they are not indexed directly.
-const SYRIA_SLUG_OVERRIDES: Record<string, string> = {
-  "board-of-grievances-saudi-arabia": "administrative-court-disputes-syria",
-  "child-custody-saudi-arabia": "child-custody-syria",
-  "divorce-in-saudi-arabia": "divorce-in-syria",
-  "foreign-company-registration-saudi-arabia":
-    "foreign-company-registration-syria",
-  "real-estate-disputes-saudi-arabia": "real-estate-disputes-syria",
-  "wrongful-termination-saudi-labor-law":
-    "wrongful-termination-syrian-labor-law",
-};
 
 function slugFromHref(href: string): string {
   return href.replace(/^\/services\//, "");
@@ -73,38 +36,6 @@ const SYR_SERVICE_SLUGS: string[] = enSyr.nav.servicesList.map((s) =>
   slugFromHref(s.href),
 );
 
-// Arabic is a real URL segment (e.g. "/sa/ar/about"), not a client-only
-// toggle, so every entry emits all 4 region x language combos pointing at
-// their own real, distinct URLs, plus x-default — required for hreflang to
-// actually route crawlers/users to matching-language content.
-function hreflang(path: string): string {
-  const isRoot = path === "";
-  if (isRoot) {
-    return [
-      `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/"/>`,
-      `    <xhtml:link rel="alternate" hreflang="en-SA"     href="${BASE_URL}/sa"/>`,
-      `    <xhtml:link rel="alternate" hreflang="ar-SA"     href="${BASE_URL}/sa/ar"/>`,
-      `    <xhtml:link rel="alternate" hreflang="en-SY"     href="${BASE_URL}/syr"/>`,
-      `    <xhtml:link rel="alternate" hreflang="ar-SY"     href="${BASE_URL}/syr/ar"/>`,
-    ].join("\n");
-  }
-
-  const basePath = path.replace(/^\/(sa|syr)(\/ar)?/, "");
-  const combos: Array<[string, string]> = [
-    ["en-SA", `/sa${basePath}`],
-    ["ar-SA", `/sa/ar${basePath}`],
-    ["en-SY", `/syr${basePath}`],
-    ["ar-SY", `/syr/ar${basePath}`],
-  ];
-  return [
-    ...combos.map(
-      ([l, p]) =>
-        `    <xhtml:link rel="alternate" hreflang="${l}"     href="${BASE_URL}${p}"/>`,
-    ),
-    `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/"/>`,
-  ].join("\n");
-}
-
 function urlEntry(
   path: string,
   changefreq: string,
@@ -112,22 +43,10 @@ function urlEntry(
   lastmod?: string,
 ): string {
   const loc = path === "" ? `${BASE_URL}/` : `${BASE_URL}${path}`;
-  return `  <url>
-    <loc>${loc}</loc>
-${path.startsWith("/uae") ? hreflangUae(path) : hreflang(path)}
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-${lastmod ? `    <lastmod>${lastmod}</lastmod>` : ""}
-  </url>`;
-}
-
-function hreflangUae(path: string): string {
-  const basePath = path.replace(/^\/uae(\/ar)?/, "");
-  return [
-    `    <xhtml:link rel="alternate" hreflang="en-AE" href="${BASE_URL}/uae${basePath}"/>`,
-    `    <xhtml:link rel="alternate" hreflang="ar-AE" href="${BASE_URL}/uae/ar${basePath}"/>`,
-    `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/"/>`,
-  ].join("\n");
+  const alternates = path.startsWith("/uae")
+    ? buildHreflangUaeSitemapLinks(path)
+    : buildHreflangSitemapLinks(path);
+  return buildSitemapUrlEntry(loc, alternates, changefreq, priority, lastmod);
 }
 
 function urlEntrySyrOnly(
@@ -136,49 +55,9 @@ function urlEntrySyrOnly(
   priority: string,
   lastmod?: string,
 ): string {
-  return `  <url>
-    <loc>${BASE_URL}${path}</loc>
-${hreflangSyrOnly(path)}
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-${lastmod ? `    <lastmod>${lastmod}</lastmod>` : ""}
-  </url>`;
-}
-
-// Services that exist only in Syria — no Saudi equivalent URL exists.
-// Their sitemap entries must omit en-SA / ar-SA hreflang to avoid broken targets.
-const SYRIA_ONLY_SERVICE_SLUGS = new Set([
-  "civil-law",
-  "civil-procedure",
-  "criminal-procedure",
-]);
-
-/**
- * hreflang for Syria-only services: en-SY, ar-SY, x-default only.
- */
-function hreflangSyrOnly(path: string): string {
-  const basePath = path.replace(/^\/(sa|syr)(\/ar)?/, "");
-  const combos: Array<[string, string]> = [
-    ["en-SY", `/syr${basePath}`],
-    ["ar-SY", `/syr/ar${basePath}`],
-  ];
-  return [
-    ...combos.map(
-      ([l, p]) =>
-        `    <xhtml:link rel="alternate" hreflang="${l}"     href="${BASE_URL}${p}"/>`,
-    ),
-    `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/"/>`,
-  ].join("\n");
-}
-
-/**
- * hreflang for single-URL pages (blog index, blog posts).
- * The blog lives at one URL for all regions and languages — emitting
- * per-region alternates would point to redirect URLs, which Google penalises.
- * x-default points to the page itself.
- */
-function hreflangSingleUrl(fullUrl: string): string {
-  return `    <xhtml:link rel="alternate" hreflang="x-default" href="${fullUrl}"/>`;
+  const loc = `${BASE_URL}${path}`;
+  const alternates = buildHreflangSyrOnlySitemapLinks(path);
+  return buildSitemapUrlEntry(loc, alternates, changefreq, priority, lastmod);
 }
 
 function urlEntrySingleUrl(
@@ -187,13 +66,8 @@ function urlEntrySingleUrl(
   priority: string,
   lastmod?: string,
 ): string {
-  return `  <url>
-    <loc>${fullUrl}</loc>
-${hreflangSingleUrl(fullUrl)}
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-${lastmod ? `    <lastmod>${lastmod}</lastmod>` : ""}
-  </url>`;
+  const alternates = buildHreflangSingleUrlSitemapLink(fullUrl);
+  return buildSitemapUrlEntry(fullUrl, alternates, changefreq, priority, lastmod);
 }
 
 function urlEntryLanguageVariant(
@@ -204,15 +78,8 @@ function urlEntryLanguageVariant(
   priority: string,
   lastmod?: string,
 ): string {
-  return `  <url>
-    <loc>${fullUrl}</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="${englishUrl}"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="${arabicUrl}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="${englishUrl}"/>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-${lastmod ? `    <lastmod>${lastmod}</lastmod>` : ""}
-  </url>`;
+  const alternates = buildHreflangLanguageVariantSitemapLinks(englishUrl, arabicUrl);
+  return buildSitemapUrlEntry(fullUrl, alternates, changefreq, priority, lastmod);
 }
 
 const entries: string[] = [];
@@ -228,8 +95,6 @@ for (const page of CORE_PAGES) {
   if (page.path === "/syr") {
     entries.push("\n  <!-- ===== SYR CORE PAGES ===== -->");
   }
-  // Static pages omit lastmod unless a trustworthy content revision date is
-  // available. A deployment timestamp is not a meaningful modification date.
   entries.push(urlEntry(page.path, page.changefreq, page.priority));
 }
 
@@ -252,7 +117,6 @@ for (const service of UAE_SERVICES) {
   entries.push(urlEntry(`/uae/ar/services/${service.slug}`, "monthly", "0.9"));
 }
 
-// Blog index — single URL shared by all regions/languages.
 entries.push("\n  <!-- ===== BLOG ===== -->");
 entries.push(
   urlEntrySingleUrl(`${BASE_URL}${BLOG_BASE_PATH}`, "weekly", "0.8"),
@@ -264,9 +128,6 @@ const workIndexAr = `${BASE_URL}/ar${WORK_BASE_PATH}`;
 entries.push(urlEntryLanguageVariant(workIndexEn, workIndexEn, workIndexAr, "weekly", "0.85"));
 entries.push(urlEntryLanguageVariant(workIndexAr, workIndexEn, workIndexAr, "weekly", "0.85"));
 
-// Blog posts — fetch the published records from the live API by default.
-// BLOG_API_URL can point builds at a preview/local API without changing config.
-// If it is unreachable, posts are skipped without failing the static build.
 try {
   const BlogPostRowSchema = z.object({
     slug: z.string(),
@@ -355,12 +216,6 @@ ${entries.join("\n")}
 const outPath = resolve(rootDir, "public/sitemap.xml");
 writeFileSync(outPath, xml, "utf-8");
 
-const escapeXml = (value: string) => value
-  .replace(/&/g, "&amp;")
-  .replace(/</g, "&lt;")
-  .replace(/>/g, "&gt;")
-  .replace(/"/g, "&quot;")
-  .replace(/'/g, "&apos;");
 const feedXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
@@ -383,10 +238,7 @@ console.log(
   `[sitemap] wrote ${outPath} (${SA_SERVICE_SLUGS.length} SA services, ${SYR_SERVICE_SLUGS.length} SYR services, ${UAE_SERVICES.length} UAE services)`,
 );
 
-// Builds must be deterministic and side-effect free. Publishing workflows opt
-// in explicitly after a successful deployment.
 const shouldPing = process.env["INDEXNOW_PING"] === "true";
-
 const urlList = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) =>
   m[1].trim(),
 );

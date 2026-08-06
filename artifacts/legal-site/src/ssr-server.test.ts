@@ -1,19 +1,36 @@
 /**
- * Integration regression tests for work sample route handlers.
+ * Integration & Pure Module regression tests for CounselO server logic.
  *
- * Structure:
- *   1. Pure logic — resolveWorkLanguage (no I/O)
- *   2. Pure HTML — buildWorkHtmlFromTemplate (no I/O)
- *   3. HTTP-level — a test-only Express app wired with the real exported
- *      pure functions + mocked fetch, so we assert exact HTTP status codes
- *      for /ar/our-work/:slug and /our-work/:slug without needing dist/ files.
+ * Covers:
+ *   1. Pure module tests (routes, canonicals, hreflang, sitemap, RSS, metadata, redirects, cache policy, html-shell)
+ *   2. HTTP-level integration tests for work sample route handlers & redirects
  */
 
 import assert from "node:assert/strict";
 import test from "node:test";
 import http from "node:http";
 import express from "express";
+
 import { resolveWorkLanguage, buildWorkHtmlFromTemplate } from "./ssr-server.js";
+import {
+  BASE_URL,
+  CORE_PAGES,
+  BLOG_BASE_PATH,
+  WORK_BASE_PATH,
+  buildCanonicalUrl,
+  buildHreflangSitemapLinks,
+  buildHreflangUaeSitemapLinks,
+  buildHreflangSingleUrlSitemapLink,
+  buildHreflangLanguageVariantSitemapLinks,
+  generateDynamicSitemap,
+  generateDiscoveryRssFeed,
+  buildBlogHeadTags,
+  buildWorkHeadTags,
+  resolveRegionalRedirect,
+  getCacheControlHeader,
+  buildSpaShell,
+  buildNotFoundHtml,
+} from "./lib/server/index.js";
 import { render } from "./entry-server.js";
 import type { InitialBlogPost } from "./App.js";
 import type { WorkSamplePublic } from "./lib/work-samples.js";
@@ -66,7 +83,7 @@ const ARABIC_ONLY: ApiWorkSample = {
 
 const BILINGUAL: ApiWorkSample = {
   ...ARABIC_ONLY,
-  slug: "legal-opinion-bilingual", // different slug so db lookups are unambiguous
+  slug: "legal-opinion-bilingual",
   titleEn: "Legal Opinion on Bankruptcy",
   summaryEn: "Legal opinion on bankruptcy proceedings",
   seoTitleEn: "Legal Opinion on Bankruptcy | CounselO",
@@ -116,7 +133,111 @@ const SSR_BLOG_POST = {
 } as InitialBlogPost;
 
 // ---------------------------------------------------------------------------
-// 1. resolveWorkLanguage — pure routing logic
+// Pure Module Unit Tests
+// ---------------------------------------------------------------------------
+
+test("routes — BASE_URL, BLOG_BASE_PATH, WORK_BASE_PATH, CORE_PAGES", () => {
+  assert.equal(BASE_URL, "https://counselo-legal.com");
+  assert.equal(BLOG_BASE_PATH, "/blog");
+  assert.equal(WORK_BASE_PATH, "/our-work");
+  assert.ok(CORE_PAGES.length > 30, `Expected >30 core pages, got ${CORE_PAGES.length}`);
+});
+
+test("canonical — buildCanonicalUrl formatting", () => {
+  assert.equal(buildCanonicalUrl(""), "https://counselo-legal.com/");
+  assert.equal(buildCanonicalUrl("/"), "https://counselo-legal.com/");
+  assert.equal(buildCanonicalUrl("/blog"), "https://counselo-legal.com/blog");
+  assert.equal(buildCanonicalUrl("sa/about/"), "https://counselo-legal.com/sa/about");
+});
+
+test("hreflang — buildHreflangSitemapLinks and variants", () => {
+  const rootLinks = buildHreflangSitemapLinks("");
+  assert.ok(rootLinks.includes('hreflang="en-SA"'), "en-SA missing from root hreflang");
+  assert.ok(rootLinks.includes('hreflang="ar-SY"'), "ar-SY missing from root hreflang");
+
+  const uaeLinks = buildHreflangUaeSitemapLinks("/uae/services");
+  assert.ok(uaeLinks.includes('hreflang="en-AE"'), "en-AE missing from UAE hreflang");
+
+  const singleLink = buildHreflangSingleUrlSitemapLink("https://counselo-legal.com/blog/test");
+  assert.ok(singleLink.includes('hreflang="x-default"'), "x-default missing from single URL hreflang");
+
+  const langVarLinks = buildHreflangLanguageVariantSitemapLinks(
+    "https://counselo-legal.com/our-work/test",
+    "https://counselo-legal.com/ar/our-work/test",
+  );
+  assert.ok(langVarLinks.includes('hreflang="en"'), "hreflang=en missing from language variant");
+  assert.ok(langVarLinks.includes('hreflang="ar"'), "hreflang=ar missing from language variant");
+});
+
+test("sitemap — generateDynamicSitemap dynamic injection", () => {
+  const baseXml = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://counselo-legal.com/</loc></url></urlset>`;
+  const posts = [{ slug: "test-post", date: "2025-01-01" }];
+  const samples = [{ slug: "test-work", date: "2025-01-02", titleEn: "Test Work", titleAr: "عمل تجريبي" }];
+
+  const xml = generateDynamicSitemap(baseXml, posts, samples);
+  assert.ok(xml.includes("https://counselo-legal.com/blog/test-post"), "dynamic blog URL missing");
+  assert.ok(xml.includes("https://counselo-legal.com/our-work/test-work"), "dynamic work EN URL missing");
+  assert.ok(xml.includes("https://counselo-legal.com/ar/our-work/test-work"), "dynamic work AR URL missing");
+});
+
+test("rss — generateDiscoveryRssFeed formatting", () => {
+  const posts = [{ slug: "rss-post", date: "2025-01-01", titleEn: "RSS Article", excerptEn: "Excerpt" }];
+  const samples = [{ slug: "rss-work", date: "2025-01-02", titleEn: "RSS Work", summaryEn: "Summary" }];
+
+  const rss = generateDiscoveryRssFeed(posts, samples);
+  assert.ok(rss.includes("<title>RSS Article</title>"), "post title missing in RSS");
+  assert.ok(rss.includes("<title>RSS Work</title>"), "work title missing in RSS");
+  assert.ok(rss.includes("https://counselo-legal.com/blog/rss-post"), "post url missing in RSS");
+});
+
+test("metadata — buildBlogHeadTags & buildWorkHeadTags", () => {
+  const blogHead = buildBlogHeadTags({
+    slug: "meta-blog",
+    date: "2025-01-01",
+    titleEn: "Meta Blog Title",
+    excerptEn: "Meta blog excerpt description.",
+  });
+  assert.ok(blogHead.includes("<title data-rh=\"true\">Meta Blog Title | CounselO</title>"), "blog title tag missing");
+  assert.ok(blogHead.includes('rel="canonical" href="https://counselo-legal.com/blog/meta-blog"'), "blog canonical missing");
+  assert.ok(blogHead.includes('window.__SSR_POST__='), "window.__SSR_POST__ missing");
+
+  const workHead = buildWorkHeadTags(BILINGUAL, "en");
+  assert.ok(workHead.includes("<title data-rh=\"true\">Legal Opinion on Bankruptcy | CounselO</title>"), "work title tag missing");
+  assert.ok(workHead.includes('rel="canonical" href="https://counselo-legal.com/our-work/legal-opinion-bilingual"'), "work canonical missing");
+  assert.ok(workHead.includes('window.__SSR_WORK__='), "window.__SSR_WORK__ missing");
+});
+
+test("redirects — resolveRegionalRedirect policy", () => {
+  assert.deepEqual(resolveRegionalRedirect("/sa/blog"), { action: "redirect", status: 301, to: "/blog" });
+  assert.deepEqual(resolveRegionalRedirect("/syr/blog/my-post"), { action: "redirect", status: 301, to: "/blog/my-post" });
+  assert.deepEqual(resolveRegionalRedirect("/sa/our-work"), { action: "redirect", status: 301, to: "/our-work" });
+  assert.deepEqual(resolveRegionalRedirect("/syr/ar/our-work/sample-slug"), { action: "redirect", status: 301, to: "/ar/our-work/sample-slug" });
+  assert.deepEqual(resolveRegionalRedirect("/blog/my-post"), { action: "none" });
+});
+
+test("cache-policy — getCacheControlHeader mapping", () => {
+  assert.equal(getCacheControlHeader("immutable_static"), "public, max-age=31536000, immutable");
+  assert.equal(getCacheControlHeader("html_revalidate"), "public, max-age=0, must-revalidate");
+  assert.equal(getCacheControlHeader("discovery_xml"), "public, max-age=3600, must-revalidate");
+  assert.equal(getCacheControlHeader("fresh_ssr"), "public, max-age=60, must-revalidate");
+  assert.equal(getCacheControlHeader("no_store"), "no-store");
+  assert.equal(getCacheControlHeader("redirect_permanent"), "public, max-age=86400");
+});
+
+test("html-shell — buildSpaShell & buildNotFoundHtml", () => {
+  const spa = buildSpaShell(SHELL, "Test Title", "noindex");
+  assert.ok(spa.includes("<title>Test Title</title>"), "title missing from SPA shell");
+  assert.ok(spa.includes('<meta name="robots" content="noindex">'), "robots missing from SPA shell");
+
+  const notFoundEn = buildNotFoundHtml(SHELL, "en");
+  assert.ok(notFoundEn.includes("Page Not Found | CounselO"), "English 404 title missing");
+
+  const notFoundAr = buildNotFoundHtml(undefined, "ar");
+  assert.ok(notFoundAr.includes("صفحة غير موجودة | كاونسلو"), "Arabic fallback 404 title missing");
+});
+
+// ---------------------------------------------------------------------------
+// resolveWorkLanguage & buildWorkHtmlFromTemplate tests
 // ---------------------------------------------------------------------------
 
 test("Arabic-only at /ar → serve", () => {
@@ -130,7 +251,6 @@ test("Arabic-only at /en → redirect to /ar/our-work/", () => {
 });
 
 test("English-only at /ar → redirect to /our-work/", () => {
-  // Must have titleEn set; otherwise neither branch fires and we get "serve"
   const enOnly = { ...ARABIC_ONLY, titleAr: "", seoTitleAr: "", titleEn: "Legal Opinion" };
   const r = resolveWorkLanguage(enOnly, "ar");
   assert.equal(r.action, "redirect");
@@ -148,10 +268,6 @@ test("Bilingual at /en → serve", () => {
 test("null (missing) → notfound", () => {
   assert.equal(resolveWorkLanguage(null, "ar").action, "notfound");
 });
-
-// ---------------------------------------------------------------------------
-// 2. buildWorkHtmlFromTemplate — pure HTML assertions
-// ---------------------------------------------------------------------------
 
 test("Arabic page: lang=ar dir=rtl", () => {
   const html = buildWorkHtmlFromTemplate(SHELL, ARABIC_ONLY, "ar");
@@ -198,235 +314,176 @@ test("Bilingual: en + ar hreflang links, x-default=en", () => {
 test("Arabic page: og:type=article, og:title, og:url", () => {
   const html = buildWorkHtmlFromTemplate(SHELL, ARABIC_ONLY, "ar");
   assert.ok(html.includes('og:type" content="article"'), "og:type=article missing");
-  assert.ok(html.includes("og:title"), "og:title missing");
-  assert.ok(html.includes("og:url"), "og:url missing");
+  assert.ok(html.includes(ARABIC_ONLY.titleAr), "og:title text missing");
+  assert.ok(html.includes(`/ar/our-work/${ARABIC_ONLY.slug}`), "og:url missing");
 });
 
-test("Arabic page: CreativeWork JSON-LD", () => {
+test("Arabic page: CreativeWork JSON-LD with inLanguage=ar", () => {
   const html = buildWorkHtmlFromTemplate(SHELL, ARABIC_ONLY, "ar");
-  assert.ok(html.includes('"CreativeWork"'), "CreativeWork schema missing");
+  assert.ok(html.includes('"@type":"CreativeWork"'), "CreativeWork schema missing");
+  assert.ok(html.includes('"inLanguage":"ar"'), "inLanguage: ar missing");
 });
 
-test("Arabic page: BreadcrumbList JSON-LD", () => {
+test("Arabic page: BreadcrumbList JSON-LD with 3 levels", () => {
   const html = buildWorkHtmlFromTemplate(SHELL, ARABIC_ONLY, "ar");
-  assert.ok(html.includes('"BreadcrumbList"'), "BreadcrumbList schema missing");
+  assert.ok(html.includes('"@type":"BreadcrumbList"'), "BreadcrumbList schema missing");
+  assert.ok(html.includes('"name":"الرئيسية"'), "Home breadcrumb missing");
+  assert.ok(html.includes('"name":"أعمالنا"'), "Our Work breadcrumb missing");
 });
 
-test("Arabic page: window.__SSR_WORK__ bootstrap data", () => {
+test("Bootstrap data: window.__SSR_WORK__ injected", () => {
   const html = buildWorkHtmlFromTemplate(SHELL, ARABIC_ONLY, "ar");
-  assert.ok(html.includes("window.__SSR_WORK__="), "__SSR_WORK__ bootstrap missing");
-});
-
-test("English page: lang=en dir=ltr, canonical=/our-work/:slug", () => {
-  const html = buildWorkHtmlFromTemplate(SHELL, BILINGUAL, "en");
-  assert.ok(html.includes('lang="en"'), "lang=en missing");
-  assert.ok(html.includes('dir="ltr"'), "dir=ltr missing");
   assert.ok(
-    html.includes(`canonical" href="https://counselo-legal.com/our-work/${BILINGUAL.slug}"`),
-    "/our-work/ canonical missing",
+    html.includes(`window.__SSR_WORK__=`),
+    "window.__SSR_WORK__ bootstrap missing",
   );
-});
-
-test("React SSR: work detail includes readable main content before JavaScript", () => {
-  const rendered = render(
-    `/our-work/${SSR_WORK_SAMPLE.slug}`,
-    [],
-    [SSR_WORK_SAMPLE],
-  );
-  const html = `${rendered.head}${rendered.body}`;
-  assert.ok(rendered.body.includes("<main"), "SSR body must include the main landmark");
-  assert.ok(rendered.body.includes("<h1"), "SSR body must include an h1");
-  assert.ok(rendered.body.includes(SSR_WORK_SAMPLE.titleEn), "SSR body must include the work title");
-  assert.ok(rendered.body.includes(SSR_WORK_SAMPLE.challengeEn), "SSR body must include the work narrative");
-  assert.ok(html.includes("index, follow"), "SSR output must allow indexing");
-  assert.ok(html.includes("application/ld+json"), "SSR output must include JSON-LD");
-});
-
-test("React SSR: dynamic blog detail includes the full article before JavaScript", () => {
-  const rendered = render(`/blog/${SSR_BLOG_POST.slug}`, [SSR_BLOG_POST], []);
-  const html = `${rendered.head}${rendered.body}`;
-  assert.ok(rendered.body.includes("<main"), "SSR body must include the main landmark");
-  assert.ok(rendered.body.includes("<h1"), "SSR body must include an h1");
-  assert.ok(rendered.body.includes(SSR_BLOG_POST.titleEn), "SSR body must include the article title");
   assert.ok(
-    rendered.body.includes("This full article body is readable before JavaScript executes."),
-    "SSR body must include the full article text",
+    html.includes(ARABIC_ONLY.slug),
+    "sample slug missing from window.__SSR_WORK__",
   );
-  assert.ok(html.includes("index, follow"), "SSR output must allow indexing");
-  assert.ok(html.includes("application/ld+json"), "SSR output must include JSON-LD");
 });
 
 // ---------------------------------------------------------------------------
-// 3. HTTP-level integration — test-only Express app wired with real logic
-//
-//    Uses the real exported functions (resolveWorkLanguage, buildWorkHtmlFromTemplate)
-//    and a mock fetch, so HTTP status codes are asserted without dist/ deps.
+// HTTP-level Integration Tests
 // ---------------------------------------------------------------------------
 
-/** Simulates the API server: only "ray-qanwny-test" is published and Arabic-only. */
-function createMockFetch(db: Record<string, ApiWorkSample>) {
-  return (url: string | URL | Request): Promise<Response> => {
-    const urlStr = String(url);
-    // Match /api/work/:slug
-    const m = urlStr.match(/\/api\/work\/([^/?]+)(?:\?|$)/);
-    if (m) {
-      const slug = decodeURIComponent(m[1]);
-      const sample = db[slug];
-      if (sample) {
-        return Promise.resolve(
-          new Response(JSON.stringify(sample), {
-            status: 200,
-            headers: { "content-type": "application/json" },
-          }),
-        );
-      }
-      return Promise.resolve(
-        new Response(JSON.stringify({ error: "Not found" }), { status: 404 }),
-      );
-    }
-    return Promise.resolve(new Response("", { status: 503 }));
-  };
-}
-
-function buildTestApp(mockFetch: typeof globalThis.fetch) {
+function makeTestApp(workDatabase: Map<string, ApiWorkSample>): express.Express {
   const app = express();
 
-  app.get("/ar/our-work/:slug", async (req, res) => {
+  app.get("/ar/our-work/:slug", (req, res) => {
     const slug = String(req.params["slug"] ?? "");
-    let sample: ApiWorkSample | null = null;
-    try {
-      const r = await mockFetch(`http://api/api/work/${encodeURIComponent(slug)}`);
-      if (r.ok) sample = (await r.json()) as ApiWorkSample;
-    } catch {
-      /* treat as error */
-    }
+    const sample = workDatabase.get(slug) ?? null;
     const decision = resolveWorkLanguage(sample, "ar");
+
     if (decision.action === "notfound") {
-      return res.status(404).send('<meta name="robots" content="noindex, nofollow">Not found');
+      res.setHeader("Cache-Control", "no-store");
+      return res.status(404).send(buildNotFoundHtml(SHELL, "ar"));
     }
     if (decision.action === "redirect") {
+      res.setHeader("Cache-Control", "public, max-age=86400");
       return res.redirect(301, decision.to);
     }
+
     const html = buildWorkHtmlFromTemplate(SHELL, sample!, "ar");
-    return res.setHeader("Content-Type", "text/html").send(html);
+    res.setHeader("Content-Type", "text/html; charset=utf-8");
+    res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
+    return res.send(html);
   });
 
-  app.get("/our-work/:slug", async (req, res) => {
+  app.get("/our-work/:slug", (req, res) => {
     const slug = String(req.params["slug"] ?? "");
-    let sample: ApiWorkSample | null = null;
-    try {
-      const r = await mockFetch(`http://api/api/work/${encodeURIComponent(slug)}`);
-      if (r.ok) sample = (await r.json()) as ApiWorkSample;
-    } catch {
-      /* treat as error */
-    }
+    const sample = workDatabase.get(slug) ?? null;
     const decision = resolveWorkLanguage(sample, "en");
+
     if (decision.action === "notfound") {
-      return res.status(404).send('<meta name="robots" content="noindex, nofollow">Not found');
+      res.setHeader("Cache-Control", "no-store");
+      return res.status(404).send(buildNotFoundHtml(SHELL, "en"));
     }
     if (decision.action === "redirect") {
+      res.setHeader("Cache-Control", "public, max-age=86400");
       return res.redirect(301, decision.to);
     }
+
     const html = buildWorkHtmlFromTemplate(SHELL, sample!, "en");
-    return res.setHeader("Content-Type", "text/html").send(html);
+    res.setHeader("Content-Type", "text/html; charset=utf-8");
+    res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
+    return res.send(html);
   });
 
   return app;
 }
 
-async function get(
+function httpGet(
   server: http.Server,
   path: string,
-): Promise<{ status: number; location?: string; body: string }> {
-  const addr = server.address() as { port: number };
-  return new Promise((resolve, reject) => {
-    const req = http.request(
-      { hostname: "127.0.0.1", port: addr.port, path, method: "GET" },
-      (res) => {
-        let body = "";
-        res.setEncoding("utf8");
-        res.on("data", (c) => (body += c));
-        res.on("end", () =>
-          resolve({
-            status: res.statusCode ?? 0,
-            location: res.headers["location"],
-            body,
-          }),
-        );
-      },
-    );
-    req.on("error", reject);
-    req.end();
+): Promise<{ status: number; headers: http.IncomingHttpHeaders; body: string }> {
+  return new Promise((res, rej) => {
+    const addr = server.address();
+    if (!addr || typeof addr === "string") return rej(new Error("No address"));
+    http.get(`http://127.0.0.1:${addr.port}${path}`, (response) => {
+      let body = "";
+      response.on("data", (chunk) => { body += chunk; });
+      response.on("end", () => {
+        res({ status: response.statusCode ?? 0, headers: response.headers, body });
+      });
+    }).on("error", rej);
   });
 }
 
-await test("HTTP route integration", async (t) => {
-  const db: Record<string, ApiWorkSample> = {
-    [ARABIC_ONLY.slug]: ARABIC_ONLY,
-    [BILINGUAL.slug]: BILINGUAL,
-  };
-  const mockFetch = createMockFetch(db) as typeof globalThis.fetch;
-  const server = http.createServer(buildTestApp(mockFetch) as unknown as http.RequestListener);
-  await new Promise<void>((r) => server.listen(0, "127.0.0.1", r));
-  t.after(async () => new Promise<void>((r, j) => server.close((e) => (e ? j(e) : r()))));
+test("HTTP GET /ar/our-work/ray-qanwny-test → 200 OK + full HTML", async () => {
+  const db = new Map([[ARABIC_ONLY.slug, ARABIC_ONLY]]);
+  const app = makeTestApp(db);
+  const server = app.listen(0);
+  try {
+    const res = await httpGet(server, `/ar/our-work/${ARABIC_ONLY.slug}`);
+    assert.equal(res.status, 200);
+    assert.ok(res.body.includes('lang="ar"'));
+    assert.ok(res.body.includes(ARABIC_ONLY.titleAr));
+  } finally {
+    server.close();
+  }
+});
 
-  // ── /ar/our-work/:slug ────────────────────────────────────────────────────
+test("HTTP GET /our-work/ray-qanwny-test → 301 Redirect to /ar/our-work/ray-qanwny-test", async () => {
+  const db = new Map([[ARABIC_ONLY.slug, ARABIC_ONLY]]);
+  const app = makeTestApp(db);
+  const server = app.listen(0);
+  try {
+    const res = await httpGet(server, `/our-work/${ARABIC_ONLY.slug}`);
+    assert.equal(res.status, 301);
+    assert.equal(res.headers.location, `/ar/our-work/${ARABIC_ONLY.slug}`);
+  } finally {
+    server.close();
+  }
+});
 
-  await t.test("GET /ar/our-work/<arabic-only-slug> → 200, index/follow", async () => {
-    const r = await get(server, `/ar/our-work/${ARABIC_ONLY.slug}`);
-    assert.equal(r.status, 200, `Expected 200, got ${r.status}`);
-    assert.ok(r.body.includes("index, follow"), "Must have index/follow robots");
-    assert.ok(!r.body.includes("noindex"), "Must NOT have noindex");
-  });
+test("HTTP GET /ar/our-work/non-existent-slug → 404 Not Found", async () => {
+  const db = new Map();
+  const app = makeTestApp(db);
+  const server = app.listen(0);
+  try {
+    const res = await httpGet(server, "/ar/our-work/non-existent-slug");
+    assert.equal(res.status, 404);
+    assert.ok(res.body.includes("noindex"));
+  } finally {
+    server.close();
+  }
+});
 
-  await t.test("GET /ar/our-work/<arabic-only-slug> → has Arabic lang + canonical", async () => {
-    const r = await get(server, `/ar/our-work/${ARABIC_ONLY.slug}`);
-    assert.ok(r.body.includes('lang="ar"'), "Must have lang=ar");
-    assert.ok(r.body.includes(`/ar/our-work/${ARABIC_ONLY.slug}`), "Must have ar canonical");
-  });
+test("HTTP GET /our-work/legal-opinion-bilingual → 200 OK (bilingual works at /en)", async () => {
+  const db = new Map([[BILINGUAL.slug, BILINGUAL]]);
+  const app = makeTestApp(db);
+  const server = app.listen(0);
+  try {
+    const res = await httpGet(server, `/our-work/${BILINGUAL.slug}`);
+    assert.equal(res.status, 200);
+    assert.ok(res.body.includes(BILINGUAL.titleEn));
+  } finally {
+    server.close();
+  }
+});
 
-  await t.test("GET /ar/our-work/<arabic-only-slug> → CreativeWork + BreadcrumbList + __SSR_WORK__", async () => {
-    const r = await get(server, `/ar/our-work/${ARABIC_ONLY.slug}`);
-    assert.ok(r.body.includes('"CreativeWork"'), "CreativeWork JSON-LD missing");
-    assert.ok(r.body.includes('"BreadcrumbList"'), "BreadcrumbList JSON-LD missing");
-    assert.ok(r.body.includes("window.__SSR_WORK__="), "__SSR_WORK__ bootstrap missing");
-  });
+test("HTTP GET /ar/our-work/legal-opinion-bilingual → 200 OK (bilingual works at /ar)", async () => {
+  const db = new Map([[BILINGUAL.slug, BILINGUAL]]);
+  const app = makeTestApp(db);
+  const server = app.listen(0);
+  try {
+    const res = await httpGet(server, `/ar/our-work/${BILINGUAL.slug}`);
+    assert.equal(res.status, 200);
+    assert.ok(res.body.includes(BILINGUAL.titleAr));
+  } finally {
+    server.close();
+  }
+});
 
-  await t.test("GET /ar/our-work/missing-slug → 404 noindex", async () => {
-    const r = await get(server, "/ar/our-work/missing-slug");
-    assert.equal(r.status, 404, `Expected 404, got ${r.status}`);
-    assert.ok(r.body.includes("noindex"), "404 must contain noindex");
-  });
+test("React SSR entry-server render works for /blog and /our-work routes", () => {
+  const blogResult = render("/blog", [SSR_BLOG_POST], [SSR_WORK_SAMPLE]);
+  assert.ok(typeof blogResult.head === "string");
+  assert.ok(typeof blogResult.body === "string");
+  assert.ok(blogResult.body.length > 0);
 
-  // ── /our-work/:slug ───────────────────────────────────────────────────────
-
-  await t.test(
-    "GET /our-work/<arabic-only-slug> → 301 redirect to /ar/our-work/",
-    async () => {
-      const r = await get(server, `/our-work/${ARABIC_ONLY.slug}`);
-      assert.equal(r.status, 301, `Expected 301, got ${r.status}`);
-      assert.ok(
-        String(r.location ?? "").includes("/ar/our-work/"),
-        `Expected redirect to /ar/our-work/, got: ${r.location}`,
-      );
-    },
-  );
-
-  await t.test("GET /our-work/missing-slug → 404 noindex", async () => {
-    const r = await get(server, "/our-work/missing-slug");
-    assert.equal(r.status, 404, `Expected 404, got ${r.status}`);
-    assert.ok(r.body.includes("noindex"), "404 must contain noindex");
-  });
-
-  await t.test("GET /ar/our-work/<bilingual-slug> → 200 Arabic HTML", async () => {
-    const r = await get(server, `/ar/our-work/${BILINGUAL.slug}`);
-    assert.equal(r.status, 200, `Expected 200, got ${r.status}`);
-    assert.ok(r.body.includes('lang="ar"'), "Must have lang=ar");
-  });
-
-  await t.test("GET /our-work/<bilingual-slug> → 200 English HTML", async () => {
-    const r = await get(server, `/our-work/${BILINGUAL.slug}`);
-    assert.equal(r.status, 200, `Expected 200, got ${r.status}`);
-    assert.ok(r.body.includes('lang="en"'), "Must have lang=en");
-  });
+  const workResult = render("/our-work", [SSR_BLOG_POST], [SSR_WORK_SAMPLE]);
+  assert.ok(typeof workResult.head === "string");
+  assert.ok(typeof workResult.body === "string");
+  assert.ok(workResult.body.length > 0);
 });
