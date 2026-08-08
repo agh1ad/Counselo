@@ -1,16 +1,19 @@
 ---
-name: CounselO production web server is ssr-server
-description: Replit routes public HTML requests to the legal-site ssr-server, not the api-server. Any new page route must be added to ssr-server.ts.
+name: CounselO production web server routing
+description: Which server handles which HTML routes in production, and the Arabic blog route added for OG tag correctness.
 ---
 
-## Rule
-New server-rendered page routes (e.g. /ar/our-work/:slug, /our-work/:slug) MUST be added to `artifacts/legal-site/src/ssr-server.ts`. Adding them only to `artifacts/api-server/src/og-pages.ts` has no effect in production because the api-server never receives those requests.
+In production Replit routes ALL HTML page requests to the legal-site **ssr-server** (port 24438), not the api-server.
 
-**Why:** Replit's application router sends HTML/web page requests to the legal-site "web" artifact (ssr-server on port 24438, external 3000) and API requests to the api-server "api" artifact (port 8080, external 80). The ssr-server's catch-all returns 404 for any path with no prerendered flat file, which is why dynamic CMS pages were returning 404/noindex even though the api-server had correct handlers.
+**Route responsibilities:**
+- `/blog/:slug` → SSR renders English OG tags
+- `/ar/blog/:slug` → SSR renders Arabic OG tags (added July 2026); 301s to `/blog/:slug` if no Arabic content
+- `/our-work/:slug` → English work sample OG tags
+- `/ar/our-work/:slug` → Arabic work sample OG tags; 301s to `/our-work/:slug` if no Arabic content
 
-**How to apply:**
-- In dev, port 24438 is the Vite dev server (not ssr-server) — don't test ssr-server routes there.
-- Rebuild after changes: `pnpm --filter @workspace/legal-site run build:ssr-server` (esbuild → dist/ssr-server.mjs).
-- Pattern for new page types: fetch from `/api/<resource>/:slug` inside the route handler (same as /blog/:slug pattern); fall back to ssrRender if the API is unreachable.
-- Export pure functions (resolveXLanguage, buildXHtmlFromTemplate) for unit testing without filesystem deps.
-- The api-server og-pages.ts handlers are still useful as a secondary layer but are not the primary production path for HTML pages.
+**Why `ssrRender('/ar/blog/slug')` gives Arabic OG tags:**
+LanguageContext reads `/ar/` from the URL → sets `lang = "ar"` → `isRTL = true` → `useAr = true` in blog-post.tsx → Helmet outputs Arabic title/description.
+
+**Key rule:** Any new dynamic blog or work route (e.g. `/ar/blog/:slug`) must be added to `ssr-server.ts`, NOT `og-pages.ts`. og-pages.ts is for the api-server which does not handle public HTML in production.
+
+**Remaining gap:** Blog listing and related-post links use `/blog/:slug` even when browsing in Arabic. Users sharing from Arabic mode still get English OG tags until those links are updated to `/ar/blog/:slug` when `isRTL` is true.

@@ -15,7 +15,7 @@
     "sitemap:validate": "tsx src/scripts/sitemap-live-validate.ts",
     "llms:validate": "tsx --test src/lib/llms-content.test.ts",
     "seo:validate": "tsx src/scripts/seo-validate.ts",
-    "test": "tsx --test src/lib/*.test.ts"
+    "test": "tsx --test src/ssr-server.test.ts src/lib/*.test.ts"
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.10.0",

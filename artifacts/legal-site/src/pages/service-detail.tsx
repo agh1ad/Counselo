@@ -675,7 +675,7 @@ export default function ServiceDetail() {
         </div>
       </div>
       <TrustSignals isArabic={isRTL} regionPrefix={regionPrefix} compact />
-      <LatestContentCarousels isArabic={isRTL} region={region} serviceSlug={id} />
+      {region !== "uae" && <LatestContentCarousels isArabic={isRTL} region={region} serviceSlug={id} />}
     </div>
   );
 }
