@@ -10,7 +10,7 @@ import {
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
 import { WorkSamplesManager } from "@/components/admin/WorkSamplesManager";
 import {
-  getAnalytics, clearAnalytics, getGAMeasurementId, type AnalyticsStore,
+  getAnalytics, clearAnalytics, getGTMContainerId, type AnalyticsStore,
 } from "@/lib/analytics";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 
@@ -423,7 +423,7 @@ function StatCard({ icon, label, value, sub, color = "green" }: { icon: React.Re
 function AnalyticsTab({ posts }: { posts: BlogPost[] }) {
   const [data, setData] = useState<AnalyticsStore | null>(null);
   const [copied, setCopied] = useState(false);
-  const gtmId = getGAMeasurementId();
+  const gtmId = getGTMContainerId();
 
   const refresh = useCallback(() => setData(getAnalytics()), []);
   useEffect(() => { refresh(); }, [refresh]);

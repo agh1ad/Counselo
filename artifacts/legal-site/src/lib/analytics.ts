@@ -1,6 +1,6 @@
 const STORE_KEY = "counselo_analytics";
-const GA_ID_KEY = "counselo_ga_measurement_id";
-export const DEFAULT_GA_MEASUREMENT_ID = "G-1M9ZZX7VT6";
+const GTM_ID_KEY = "counselo_gtm_container_id";
+export const DEFAULT_GTM_CONTAINER_ID = "GTM-WZ6SW99X";
 
 export interface EventLog {
   event: string;
@@ -46,6 +46,13 @@ function routeDimensions(path: string): Record<string, string> {
   return { region: "shared", language: path === "/ar" || path.startsWith("/ar/") ? "ar" : "en" };
 }
 
+function pushToDataLayer(obj: Record<string, unknown>) {
+  if (typeof window === "undefined") return;
+  const w = window as unknown as { dataLayer?: unknown[] };
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push(obj);
+}
+
 export function trackEvent(event: string, page: string, details: AnalyticsDetails = {}) {
   const store = load();
   const day = today();
@@ -69,15 +76,7 @@ export function trackEvent(event: string, page: string, details: AnalyticsDetail
 
   save(store);
 
-  if (typeof window !== "undefined" && typeof (window as unknown as { gtag?: unknown }).gtag === "function") {
-    const gtag = (window as unknown as { gtag: (...args: unknown[]) => void }).gtag;
-    gtag("event", event, {
-      event_category: "engagement",
-      event_label: page,
-      page_path: page,
-      ...cleanDetails,
-    });
-  }
+  pushToDataLayer({ event, page_path: page, event_category: "engagement", event_label: page, ...cleanDetails });
 }
 
 export function trackPageview(path: string) {
@@ -85,10 +84,7 @@ export function trackPageview(path: string) {
   store.pageviews[path] = (store.pageviews[path] ?? 0) + 1;
   save(store);
 
-  if (typeof window !== "undefined" && typeof (window as unknown as { gtag?: unknown }).gtag === "function") {
-    const gtag = (window as unknown as { gtag: (...args: unknown[]) => void }).gtag;
-    gtag("event", "page_view", { page_path: path, ...routeDimensions(path) });
-  }
+  pushToDataLayer({ event: "page_view", page_path: path, ...routeDimensions(path) });
 }
 
 export function getAnalytics(): AnalyticsStore {
@@ -99,38 +95,25 @@ export function clearAnalytics() {
   localStorage.removeItem(STORE_KEY);
 }
 
-export function getGAMeasurementId(): string {
-  try { return localStorage.getItem(GA_ID_KEY) || DEFAULT_GA_MEASUREMENT_ID; } catch { return DEFAULT_GA_MEASUREMENT_ID; }
+export function getGTMContainerId(): string {
+  try { return localStorage.getItem(GTM_ID_KEY) || DEFAULT_GTM_CONTAINER_ID; } catch { return DEFAULT_GTM_CONTAINER_ID; }
 }
 
-export function setGAMeasurementId(id: string) {
+export function setGTMContainerId(id: string) {
   if (id) {
-    localStorage.setItem(GA_ID_KEY, id);
-    injectGA(id);
+    localStorage.setItem(GTM_ID_KEY, id);
+    injectGTM(id);
   } else {
-    localStorage.removeItem(GA_ID_KEY);
+    localStorage.removeItem(GTM_ID_KEY);
   }
 }
 
-export function injectGA(measurementId: string) {
-  if (!measurementId || typeof document === "undefined") return;
-  const existingScript = document.getElementById("ga-script") as HTMLScriptElement | null;
-  const existingInline = document.getElementById("ga-inline") as HTMLScriptElement | null;
-  const expectedSrc = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-  const existingMeasurementId = existingInline?.dataset.gaMeasurementId;
-  if (existingScript?.src === expectedSrc && (existingMeasurementId === measurementId || existingInline)) return;
-  existingScript?.remove();
-  existingInline?.remove();
-
-  const inline = document.createElement("script");
-  inline.id = "ga-inline";
-  inline.dataset.gaMeasurementId = measurementId;
-  inline.text = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${measurementId}',{send_page_view:false});`;
-  document.head.appendChild(inline);
+export function injectGTM(containerId: string) {
+  if (!containerId || typeof document === "undefined") return;
+  if (document.getElementById("gtm-script")) return;
 
   const script = document.createElement("script");
-  script.id = "ga-script";
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+  script.id = "gtm-script";
+  script.text = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${containerId}');`;
   document.head.appendChild(script);
 }

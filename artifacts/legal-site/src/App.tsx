@@ -17,7 +17,7 @@ import { RegionProvider, useRegion } from "@/contexts/RegionContext";
 import { lazy, Suspense, useEffect } from "react";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { Helmet } from "react-helmet-async";
-import { trackEvent, trackPageview, getGAMeasurementId, injectGA, DEFAULT_GA_MEASUREMENT_ID } from "@/lib/analytics";
+import { trackEvent, trackPageview, getGTMContainerId, injectGTM, DEFAULT_GTM_CONTAINER_ID } from "@/lib/analytics";
 import type { WorkSamplePublic } from "@/lib/work-samples";
 
 import RegionPicker from "@/pages/region-picker";
@@ -86,12 +86,9 @@ function ScrollToTop() {
   return null;
 }
 
-function GAInit() {
+function GTMInit() {
   useEffect(() => {
-    // Measurement must start during the first page lifecycle. Delaying it
-    // until idle caused short visits and fast consultation clicks to vanish
-    // from GA4, which made the site appear inactive.
-    injectGA(getGAMeasurementId() || DEFAULT_GA_MEASUREMENT_ID);
+    injectGTM(getGTMContainerId() || DEFAULT_GTM_CONTAINER_ID);
   }, []);
   return null;
 }
@@ -410,7 +407,7 @@ function App({ ssrUrl, initialBlogPosts = [], initialWorkSamples = [] }: AppProp
         >
           <RegionProvider>
             <LanguageProvider>
-              <GAInit />
+              <GTMInit />
               <InteractionTracking />
               <AppShell />
             </LanguageProvider>
