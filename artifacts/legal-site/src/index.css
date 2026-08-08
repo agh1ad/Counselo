@@ -438,7 +438,11 @@
 [dir="rtl"] .region-navbar .uae-navbar-brand small { letter-spacing: 0; font-size: .48rem; }
 .region-navbar .uae-navbar-title { margin-inline-start: 0; padding-inline-start: .6rem; font-size: .72rem; letter-spacing: .07em; white-space: nowrap; }
 [dir="rtl"] .region-navbar .uae-navbar-title { letter-spacing: 0; font-family: var(--app-font-sans); }
-.region-navbar .hidden.lg\:flex { gap: .62rem; }
+.region-navbar .h-21 > .flex.items-center.gap-3 { flex: 1 1 auto; min-width: 0; }
+.region-navbar .h-21 > .hidden.lg\:flex { flex: 0 0 auto; gap: .62rem; }
+.region-navbar .h-21 > .hidden.lg\:flex > a,
+.region-navbar .h-21 > .hidden.lg\:flex > div,
+.region-navbar .h-21 > .hidden.lg\:flex > button { flex: 0 0 auto; }
 .region-navbar .hidden.lg\:flex > a,
 .region-navbar .hidden.lg\:flex > div > a { white-space: nowrap; font-size: .7rem; }
 .region-navbar .hidden.lg\:flex button { white-space: nowrap; font-size: .7rem; }

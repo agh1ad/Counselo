@@ -104,12 +104,12 @@ export function Navbar() {
               {lang === "en" ? "عربي" : "English"}
             </button>
 
-            <Link href={p("/contact")}>
-              <Button className="group rounded-none font-medium bg-primary text-white hover:bg-primary/90 shadow-[5px_5px_0_rgba(180,146,74,0.25)]">
+            <Button asChild className="group rounded-none font-medium bg-primary text-white hover:bg-primary/90 shadow-[5px_5px_0_rgba(180,146,74,0.25)]">
+              <Link href={p("/contact")}>
                 {t.nav.bookConsultation}
                 <ArrowRight className="ms-2 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 rtl:rotate-180" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
             </>}
           </div>
 
@@ -163,9 +163,9 @@ export function Navbar() {
               <Link href={p("/contact")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.contact}</Link>
               <Link href={regionPickerPath} onClick={() => setIsOpen(false)} className="flex items-center gap-2 px-3 py-2 text-base font-medium text-foreground hover:text-primary"><Globe2 className="h-4 w-4" />{lang === "ar" ? "اختيار الدولة" : "Choose Region"}</Link>
               <div className="px-3 pt-4">
-                <Link href={p("/contact")} onClick={() => setIsOpen(false)}>
-                  <Button className="w-full bg-primary text-white hover:bg-primary/90">{t.nav.bookConsultation}</Button>
-                </Link>
+                <Button asChild className="w-full bg-primary text-white hover:bg-primary/90">
+                  <Link href={p("/contact")} onClick={() => setIsOpen(false)}>{t.nav.bookConsultation}</Link>
+                </Button>
               </div>
               </>}
             </div>

@@ -35,7 +35,7 @@ export const blogPostsTable = pgTable("blog_posts", {
   primaryAuthorName: text("primary_author_name").notNull().default("CounselO Legal team"),
   primaryAuthorNameAr: text("primary_author_name_ar").notNull().default("فريق كاونسلو القانوني"),
   primaryAuthorUrl: text("primary_author_url").notNull().default("/about"),
-  legalReviewerName: text("legal_reviewer_name").notNull().default("Lawyer and Legal Consultant Omar Al-Baghdadi"),
+  legalReviewerName: text("legal_reviewer_name").notNull().default("Lawyer and Legal Counsel Omar Al-Baghdadi"),
   legalReviewerNameAr: text("legal_reviewer_name_ar").notNull().default("المحامي والمستشار القانوني عمر البغدادي"),
   legalReviewerUrl: text("legal_reviewer_url").notNull().default("/about"),
   jurisdiction: text("jurisdiction").notNull().default("sa"),

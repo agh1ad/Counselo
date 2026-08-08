@@ -12,7 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Clock, Mail, MapPin, Phone, CreditCard, Paperclip, X, FileText, ImageIcon, CheckCircle, Loader2, AlertCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
-import { OMAR_AL_BAGHDADI } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { trackEvent } from "@/lib/analytics";
 import { getServicesForRegion } from "@workspace/api-zod";
@@ -74,6 +74,7 @@ export default function Contact() {
   const isSyr = region === "syr";
   const countryName = isUae ? "United Arab Emirates" : isSyr ? "Syria" : "Saudi Arabia";
   const pageUrl = `https://counselo-legal.com${regionPrefix}/contact`;
+  const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو، أحتاج إلى استشارة بخصوص مسألة قانونية في ${countryName === "United Arab Emirates" ? "الإمارات" : countryName === "Syria" ? "سوريا" : "السعودية"}.` : `Hello CounselO, I need a consultation about a legal matter in ${countryName}.`)}`;
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
@@ -249,7 +250,8 @@ export default function Contact() {
           },
           {
             "@context": "https://schema.org",
-            "@type": "LegalService",
+            "@type": "Organization",
+            "@id": COUNSELO_ENTITY_IDS.organization,
             "name": "CounselO",
             "telephone": "+966594850247",
             "email": "info@counselo-legal.com",
@@ -391,6 +393,28 @@ export default function Contact() {
                 className="bg-card border border-border p-10">
                 <h3 className="text-2xl font-serif font-bold text-foreground mb-2">{f.heading}</h3>
                 <div className="w-12 h-1 bg-primary mb-8" />
+                <div className="mb-8 grid gap-3 sm:grid-cols-2">
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="whatsapp"
+                    data-conversion-position="contact-form"
+                    data-region={region}
+                    className="inline-flex items-center justify-center gap-2 bg-[#0d4a31] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#12613f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  >
+                    {isRTL ? "أرسل التفاصيل عبر واتساب" : "Send details on WhatsApp"}
+                  </a>
+                  <a
+                    href={`mailto:${c.firmDetails.email}`}
+                    data-cta="email"
+                    data-conversion-position="contact-form"
+                    data-region={region}
+                    className="inline-flex items-center justify-center gap-2 border border-primary/40 px-5 py-3 text-sm font-bold text-primary transition hover:border-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  >
+                    {isRTL ? "اكتب عبر البريد الإلكتروني" : "Write by email"}
+                  </a>
+                </div>
                 <div className="mb-8 border-s-2 border-[#b4924a] bg-[#eef4f0] p-4 text-sm leading-7 text-muted-foreground">
                   {isRTL
                     ? "اكتب الوقائع بترتيب زمني، وحدد ما تريد معرفته أو إنجازه، وأرفق المستندات ذات الصلة فقط. لا ترسل النسخة الوحيدة من أي أصل ولا تدرج بيانات لا تلزم لتقييم المسألة."

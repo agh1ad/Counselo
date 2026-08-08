@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useRegion } from "@/contexts/RegionContext";
 
 const WHATSAPP_NUMBER = "966594850247";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -8,7 +10,9 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 export function WhatsAppFloat() {
   const [hovered, setHovered] = useState(false);
   const { isRTL } = useLanguage();
+  const { regionPrefix, isSharedPath, region } = useRegion();
   const label = isRTL ? "تواصل عبر واتساب" : "Chat on WhatsApp";
+  const consultationLabel = isRTL ? "ابدأ الاستشارة" : "Start consultation";
 
   return (
     <div
@@ -30,11 +34,26 @@ export function WhatsAppFloat() {
         )}
       </AnimatePresence>
 
+      {!isSharedPath && (
+        <Link
+          href={`${regionPrefix}/contact`}
+          data-cta="contact"
+          data-conversion-position="floating-dock"
+          data-region={region}
+          className="hidden sm:inline-flex h-12 items-center rounded-full bg-[#d5ae5d] px-5 text-sm font-bold text-[#0d3e2a] shadow-xl transition hover:bg-[#e0bd73] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d4a31]"
+        >
+          {consultationLabel}
+        </Link>
+      )}
+
       <a
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={label}
+        data-cta="whatsapp"
+        data-conversion-position="floating-dock"
+        data-region={region}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >

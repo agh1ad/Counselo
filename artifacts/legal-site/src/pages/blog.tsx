@@ -308,10 +308,8 @@ export default function Blog() {
             {ui.ctaHeading}
           </h2>
           <p className="text-muted-foreground mb-6">{ui.ctaDesc}</p>
-          <Link href={`${regionPrefix}/contact`}>
-            <button className="bg-primary text-white font-semibold px-8 py-3 hover:bg-primary/90 transition-colors">
-              {ui.ctaBtn}
-            </button>
+          <Link href={`${regionPrefix}/contact`} className="inline-flex items-center justify-center bg-primary text-white font-semibold px-8 py-3 hover:bg-primary/90 transition-colors">
+            {ui.ctaBtn}
           </Link>
         </div>
       </section>

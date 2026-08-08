@@ -89,6 +89,11 @@ export function Footer() {
             <span>{brandName}</span><strong>{regional.label[lang]}</strong>
           </Link>
           <p>{isSharedPath ? regional.description[lang] : f.tagline}</p>
+          <p className="mt-3 max-w-md text-xs leading-relaxed text-muted-foreground">
+            {isArabic
+              ? "كاونسلو منصة إلكترونية للاستشارات القانونية. لا ينشئ التصفح أو الاستشارة وحدهما تفويضاً بالتمثيل؛ ويُحدد أي عمل محلي أو تمثيل مع مهني مرخص ضمن نطاق مستقل."
+              : "CounselO is an online legal consultation platform. Browsing or consultation alone does not create a representation mandate; local or reserved work is separately scoped with an appropriately licensed professional."}
+          </p>
         </div>
         <nav className="regional-reference-footer__practice" aria-label={isArabic ? "مجالات الممارسة" : "Practice areas"}>
           <h3>{isSharedPath ? (isArabic ? "اختر الاختصاص" : "Choose a jurisdiction") : f.practiceAreasHeading}</h3>

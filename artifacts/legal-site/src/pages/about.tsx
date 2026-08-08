@@ -63,10 +63,10 @@ export default function About() {
         "height": 1200,
       },
       "description": region === "uae"
-        ? "Senior advocate and legal counsel with 30+ years of regional experience. Founder of CounselO's UAE-focused online consultation service."
+        ? "Lawyer and legal counsel with 30+ years of regional experience. Founder of CounselO's UAE-focused online consultation service."
         : region === "syr"
-        ? "Senior advocate and legal counsel with 30+ years experience across Syria, the UAE and the Arab world. Founder of CounselO."
-        : "Senior advocate and legal counsel with 30+ years experience across Saudi Arabia, UAE and Syria. Founder of CounselO.",
+        ? "Lawyer and legal counsel with 30+ years experience across Syria, the UAE and the Arab world. Founder of CounselO."
+        : "Lawyer and legal counsel with 30+ years experience across Saudi Arabia, UAE and Syria. Founder of CounselO.",
     },
     {
       "@context": "https://schema.org",
@@ -458,17 +458,17 @@ export default function About() {
             <div className="w-20 h-1 bg-primary/30 mx-auto mb-8" />
             <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-2xl mx-auto">{a.cta.desc}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href={`${regionPrefix}/contact`}>
-                <Button size="lg" className="rounded-none bg-primary text-white hover:bg-primary/90 px-10 py-6 text-base font-semibold">
+              <Button asChild size="lg" className="rounded-none bg-primary text-white hover:bg-primary/90 px-10 py-6 text-base font-semibold">
+                <Link href={`${regionPrefix}/contact`}>
                   {a.cta.ctaBtn}
                   <ArrowRight className={`ms-2 h-5 w-5 ${isRTL ? "rotate-180" : ""}`} />
-                </Button>
-              </Link>
-              <Link href={`${regionPrefix}/services`}>
-                <Button size="lg" variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-10 py-6 text-base font-semibold">
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-10 py-6 text-base font-semibold">
+                <Link href={`${regionPrefix}/services`}>
                   {a.cta.learnMoreBtn}
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </motion.div>
         </div>

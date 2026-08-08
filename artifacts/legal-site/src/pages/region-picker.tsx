@@ -256,7 +256,7 @@ export default function RegionPicker() {
           <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
             <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
               <p className="mb-6 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">
-                Licensed Legal Counsel · UAE · Saudi Arabia · Syria
+                Jurisdiction-Scoped Legal Guidance · UAE · Saudi Arabia · Syria
               </p>
               <h1 className="font-serif text-[clamp(2.75rem,5.5vw,5.6rem)] font-semibold leading-[0.96] tracking-[-0.035em] text-white">
                 Online Legal
@@ -428,11 +428,11 @@ export default function RegionPicker() {
                   <ul className="space-y-3">
                     {[
                       "Graduate, Faculty of Law — Damascus University (1996)",
-                      "Licensed Lawyer, Syria — License No. 289",
+                      "Regional legal leadership; local representation separately scoped",
                       "Holder of the title \"Ustaz\" (Senior Counsel) — Syrian Bar Association",
-                      "Senior Advocate & Legal Counsel across Saudi Arabia, UAE and Syria",
+                      "Senior legal experience across Saudi Arabia, UAE and Syria",
                       "20,000+ cases across civil, commercial, administrative, arbitration and criminal law",
-                      "Mentor and supervisor to 40+ licensed lawyers across three jurisdictions",
+                      "Trained or supervised more than 40 lawyers",
                       "Son of Lawyer Riyad Al-Baghdadi, founder of Al-Baghdadi Law Firm (est. 1957)",
                       "Expert in cross-border disputes and multi-jurisdictional matters",
                     ].map((c, i) => (

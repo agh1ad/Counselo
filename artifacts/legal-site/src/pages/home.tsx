@@ -2,14 +2,13 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { Scale, ShieldCheck, Users, ArrowRight, CheckCircle2, Star, Quote, MessageCircle, Mail, Award, Globe, Zap, BadgeCheck, Wifi, Clock, Lock, MapPin, MonitorSmartphone, FilePenLine, CreditCard, UserRoundCheck, Building2, BriefcaseBusiness, Landmark, Home as HomeIcon, FileText } from "lucide-react";
+import { Scale, ShieldCheck, Users, ArrowRight, CheckCircle2, MessageCircle, Mail, Award, Globe, BadgeCheck, Clock, MapPin, MonitorSmartphone, FilePenLine, CreditCard, UserRoundCheck, Building2, BriefcaseBusiness, Landmark, Home as HomeIcon, FileText } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
-import { useEffect, useState } from "react";
 import type { Translations } from "@/contexts/LanguageContext";
 import type { Region } from "@/contexts/RegionContext";
-import { CONSULTATION_OPERATING_POLICY, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS, CONSULTATION_OPERATING_POLICY, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
 
 const fadeIn = {
   initial: false as const,
@@ -18,7 +17,6 @@ const fadeIn = {
   transition: { duration: 0.6 },
 };
 
-const platformIcons = { wifi: Wifi, clock: Clock, lock: Lock, globe: Globe };
 const clientIcons = [Users, Scale, Globe, BadgeCheck];
 const channelIcons = [MessageCircle, Mail];
 const trustIcons = [Award, Scale, Clock, Globe];
@@ -70,25 +68,6 @@ export default function Home() {
   const h = t.home;
   const servicesAreaCount = t.services.items.length;
   const comprehensiveConsultation = getConsultationProduct("comprehensive-consultation");
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [isTestimonialPaused, setIsTestimonialPaused] = useState(false);
-
-  useEffect(() => {
-    const testimonialCount = h.testimonials.items.length;
-    if (testimonialCount <= 1 || isTestimonialPaused) return;
-
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reducedMotion.matches) return;
-
-    const interval = window.setInterval(() => {
-      if (!document.hidden) {
-        setActiveTestimonial((current) => (current + 1) % testimonialCount);
-      }
-    }, 3_000);
-
-    return () => window.clearInterval(interval);
-  }, [h.testimonials.items.length, isTestimonialPaused]);
-
   return (
     <div className="w-full flex flex-col">
       <SEOHead
@@ -132,6 +111,7 @@ export default function Home() {
           "alternateName": "CounselO Online Legal Consultations — United Arab Emirates",
           "description": isRTL ? "منصة قانونية إلكترونية للاستشارات ومراجعة المستندات والإرشاد المنظم لمسائل الإمارات بالعربية والإنجليزية" : "Online legal platform for UAE consultation, document review and structured guidance in Arabic and English",
           "url": "https://counselo-legal.com/uae",
+          "provider": { "@id": COUNSELO_ENTITY_IDS.organization },
           "logo": { "@type": "ImageObject", "url": "https://counselo-legal.com/logo.png", "width": 512, "height": 512 },
           "founder": OMAR_AL_BAGHDADI,
           "areaServed": { "@type": "Country", "name": "United Arab Emirates" },
@@ -149,6 +129,7 @@ export default function Home() {
             ? `منصة سوريا للاستشارات القانونية الأونلاين — ${servicesAreaCount} مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي — خبرة أكثر من 30 عاماً في القانون السوري`
             : `Syria's online legal platform — ${servicesAreaCount} practice areas for consultation, document review and structured guidance, with a target professional response within 24 hours subject to scope and urgency`,
           "url": "https://counselo-legal.com/syr",
+          "provider": { "@id": COUNSELO_ENTITY_IDS.organization },
           "logo": {
             "@type": "ImageObject",
             "url": "https://counselo-legal.com/logo.png",
@@ -192,6 +173,7 @@ export default function Home() {
             ? `منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين — ${servicesAreaCount} مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي`
             : `Saudi Arabia's online legal platform — ${servicesAreaCount} practice areas for consultation, document review and structured guidance, with a target professional response within 24 hours subject to scope and urgency`,
           "url": "https://counselo-legal.com/sa",
+          "provider": { "@id": COUNSELO_ENTITY_IDS.organization },
           "logo": {
             "@type": "ImageObject",
             "url": "https://counselo-legal.com/logo.png",
@@ -315,46 +297,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PLATFORM ADVANTAGES ── */}
-      <section className="order-5 py-24 lg:py-32 bg-background relative overflow-hidden" aria-labelledby="platform-advantages-heading">
-        <img
-          src="/images/optimized/counselo-platform-line-art-v1.png"
-          alt=""
-          aria-hidden="true"
-          width="1719"
-          height="915"
-          loading="lazy"
-          decoding="async"
-          className="absolute w-[48rem] max-w-[62vw] end-[-4rem] top-[-2rem] opacity-[0.17] pointer-events-none hidden lg:block"
-        />
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
-          <motion.div {...fadeIn} className="max-w-2xl mb-16 lg:mb-24">
-            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{h.platform.eyebrow}</p>
-            <h2 id="platform-advantages-heading" className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">{h.platform.heading}</h2>
-            <div className="counselo-gold-rule mb-6" />
-            <p className="text-muted-foreground text-lg leading-relaxed">{h.platform.subheading}</p>
-          </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 border-y border-border">
-            {h.platform.advantages.map((adv, i) => {
-              const Icon = platformIcons[adv.icon as keyof typeof platformIcons] ?? Globe;
-              return (
-                <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group py-9 px-1 sm:px-7 lg:px-8 first:ps-0 lg:border-e last:border-e-0 border-border">
-                  <div className="flex items-center justify-between mb-9">
-                    <div className="w-14 h-14 border border-primary/20 flex items-center justify-center relative">
-                      <Icon className="h-7 w-7 text-primary" strokeWidth={1.4} />
-                    </div>
-                    <span className="font-serif text-4xl text-[#b4924a]/70">0{i + 1}</span>
-                  </div>
-                  <h3 className="text-lg font-serif font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{adv.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{adv.desc}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* ── HOW IT WORKS ── */}
       <section className="order-6 py-24 lg:py-32 bg-[#003d22] text-white relative overflow-hidden" aria-labelledby="how-it-works-heading">
         <img
@@ -399,53 +341,13 @@ export default function Home() {
             })}
           </div>
           <div className="text-center mt-14">
-            <Link href={`${regionPrefix}/contact`}>
-              <Button size="lg" className="group rounded-none px-10 py-6 bg-[#d4af60] text-[#003d22] hover:bg-[#e0c078] font-semibold">
+            <Button asChild size="lg" className="group rounded-none px-10 py-6 bg-[#d4af60] text-[#003d22] hover:bg-[#e0c078] font-semibold">
+              <Link href={`${regionPrefix}/contact`}>
                 {h.consultMethods.ctaBtn}
                 <ArrowRight className="ms-3 h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
             <p className="text-white/45 text-xs mt-4">{isRTL ? "آمن · سري · مهني" : "Secure · Confidential · Professional"}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CONSULTATION METHODS ── */}
-      <section className="order-7 py-24 lg:py-28 bg-white border-b border-border" aria-labelledby="consultation-methods-heading">
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
-          <motion.div {...fadeIn} className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 mb-12 items-end">
-            <div>
-              <p className="text-[#9a7735] uppercase tracking-[0.18em] text-xs font-semibold mb-3">{h.consultMethods.eyebrow}</p>
-              <h2 id="consultation-methods-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5">{h.consultMethods.heading}</h2>
-              <div className="counselo-gold-rule" />
-            </div>
-            <p className="text-muted-foreground text-lg leading-relaxed">{h.consultMethods.intro}</p>
-          </motion.div>
-          <div className="grid md:grid-cols-2 border-y border-border mb-12">
-            {h.consultMethods.methods.map((method, i) => {
-              const Icon = channelIcons[i];
-              return (
-                <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group py-9 md:py-12 md:px-10 first:md:ps-0 md:border-e last:border-e-0 border-border relative">
-                  <div className="flex items-center justify-between mb-8">
-                    <div className="w-14 h-14 border border-primary/25 flex items-center justify-center">
-                      <Icon className="h-7 w-7 text-primary" strokeWidth={1.5} />
-                    </div>
-                    <div className="text-[#9a7735] text-[0.68rem] font-semibold uppercase tracking-[0.16em]">{method.badge}</div>
-                  </div>
-                  <h3 className="text-2xl font-serif font-medium text-foreground mb-3">{method.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed mb-6">{method.desc}</p>
-                  <Link href={`${regionPrefix}/contact`} className="inline-flex items-center gap-2 text-primary text-sm font-semibold border-b border-primary/30 pb-1 hover:border-primary transition-colors">
-                    {h.consultMethods.ctaBtn} <ArrowRight className="h-3.5 w-3.5 rtl:rotate-180" />
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </div>
-          <div className="text-center">
-            <Link href={`${regionPrefix}/contact`}>
-              <Button size="lg" className="text-lg px-12 py-6 rounded-none bg-white text-primary hover:bg-white/90 font-semibold">{h.consultMethods.ctaBtn}</Button>
-            </Link>
           </div>
         </div>
       </section>
@@ -621,66 +523,18 @@ export default function Home() {
 
       <div className="order-12"><LatestContentCarousels isArabic={isRTL} region={region} /></div>
 
-      {/* UAE testimonials are withheld until region-specific reviews are verified. */}
-      {region !== "uae" && <section
-        className="order-13 py-24 lg:py-32 bg-white border-y border-border relative overflow-hidden"
-        onMouseEnter={() => setIsTestimonialPaused(true)}
-        onMouseLeave={() => setIsTestimonialPaused(false)}
-        onFocusCapture={() => setIsTestimonialPaused(true)}
-        onBlurCapture={(event) => {
-          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-            setIsTestimonialPaused(false);
-          }
-        }}
-      >
-        <div className="counselo-orbit counselo-orbit-testimonial" aria-hidden="true" />
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
-          <div className="grid lg:grid-cols-2 gap-14 lg:gap-24">
-            <motion.div {...fadeIn}>
-              <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.testimonials.eyebrow}</p>
-              <h2 className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-10">{h.testimonials.heading}</h2>
-              <Quote className="h-12 w-12 text-[#b4924a] mb-7" strokeWidth={1.2} />
-              <div className="flex mb-6">
-                {[...Array(5)].map((_, j) => <Star key={j} className="h-4 w-4 text-[#b4924a] fill-[#b4924a]" />)}
-              </div>
-              <motion.blockquote
-                key={activeTestimonial}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="text-2xl md:text-3xl font-serif text-foreground leading-relaxed mb-8"
-                aria-live="polite"
-              >
-                “{h.testimonials.items[activeTestimonial].quote}”
-              </motion.blockquote>
-              <div className="font-bold text-foreground">{h.testimonials.items[activeTestimonial].author}</div>
-              <div className="text-sm text-primary mt-1">{h.testimonials.items[activeTestimonial].title}</div>
-            </motion.div>
-
-            <div className="self-end border-t border-border">
-              {h.testimonials.items.map((testimonial, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => setActiveTestimonial(i)}
-                  className={`w-full grid grid-cols-[3rem_1fr_auto] gap-4 text-start items-center py-5 border-b border-border transition-colors ${
-                    activeTestimonial === i ? "text-primary bg-white/55 px-4" : "text-muted-foreground hover:text-primary px-1"
-                  }`}
-                  aria-pressed={activeTestimonial === i}
-                  aria-label={`${isRTL ? "عرض مراجعة" : "Show review from"} ${testimonial.author}`}
-                >
-                  <span className="font-serif text-2xl text-[#b4924a]">0{i + 1}</span>
-                  <span>
-                    <span className="block font-semibold text-foreground">{testimonial.author}</span>
-                    <span className="block text-xs mt-1">{testimonial.title}</span>
-                  </span>
-                  <ArrowRight className="h-4 w-4 rtl:rotate-180" />
-                </button>
-              ))}
+      <section className="order-13 py-20 lg:py-24 bg-white border-y border-border" aria-labelledby="experience-evidence-heading">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="max-w-3xl">
+            <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{isRTL ? "الخبرة والشفافية" : "Experience and transparency"}</p>
+            <h2 id="experience-evidence-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6">{isRTL ? "اعرف أساس الخدمة قبل البدء" : "Know the basis of the service before you begin"}</h2>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8">{isRTL ? "توضح كاونسلو نطاق الاستشارة والاختصاص والمصادر وطريقة التنسيق مع المهنيين المرخصين قبل بدء العمل. نماذج الأعمال المنشورة منقحة وتوضيحية، ولا تضمن الأعمال أو النتائج السابقة نتيجة أي مسألة أخرى." : "CounselO explains the consultation scope, jurisdiction, sources, and any coordination with licensed professionals before work begins. Published work samples are redacted and illustrative; past work or outcomes do not guarantee the result of another matter."}</p>
+            <div className="grid sm:grid-cols-3 gap-4">
+              {[isRTL ? "اختصاص محدد" : "Jurisdiction-specific scope", isRTL ? "مصادر رسمية" : "Official-source links", isRTL ? "تكليف واضح" : "Defined engagement"].map((label) => <div key={label} className="border border-border p-5 text-sm font-semibold text-foreground">{label}</div>)}
             </div>
           </div>
         </div>
-      </section>}
+      </section>
 
       {/* ── CTA ── */}
       <section className="order-[14] py-20 lg:py-24 relative overflow-hidden bg-[#003d22]" aria-labelledby="regional-cta-heading">
@@ -715,12 +569,12 @@ export default function Home() {
                 );
               })}
             </div>
-            <Link href={`${regionPrefix}/contact`}>
-              <Button size="lg" className="group w-full text-base px-8 py-7 rounded-none bg-[#d4af60] text-[#003d22] hover:bg-[#e0c078] font-semibold">
+            <Button asChild size="lg" className="group w-full text-base px-8 py-7 rounded-none bg-[#d4af60] text-[#003d22] hover:bg-[#e0c078] font-semibold">
+              <Link href={`${regionPrefix}/contact`}>
                 {h.cta.ctaBtn}
                 <ArrowRight className="ms-3 h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
             </div>
           </motion.div>
         </div>

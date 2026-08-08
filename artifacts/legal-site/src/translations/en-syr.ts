@@ -85,27 +85,22 @@ export const enSyr: typeof en = {
     },
     testimonials: {
       ...en.home.testimonials,
-      heading: "Trusted Across Syria",
+      heading: "Transparent scope across Syria",
       items: [
-        { quote: "A client refused to pay the final installment on a signed supply contract, claiming a technicality. CounselO reviewed the contract, drafted the claim, and we recovered the full amount within weeks.", author: "Ahmad S.", title: "Business Owner — Damascus, Syria" },
-        { quote: "I was evaluating whether to invest in Syria and had no idea where to start with the licensing rules. CounselO broke down the Investment Commission process for me in plain terms, in both Arabic and English.", author: "K. Al-Habbal", title: "Foreign Investor — Syria" },
-        { quote: "A property I'd owned for years turned out to have a conflicting registration at the Real Estate Register. CounselO traced the issue back to a clerical error decades old and got it corrected.", author: "Rima T.", title: "Individual Client — Aleppo, Syria" },
-        { quote: "I was dismissed without the notice period Syrian Labour Law requires. CounselO took my case to the labour court and I walked away with my full end-of-service indemnity.", author: "Faris M.", title: "Employee — Homs, Syria" },
-        { quote: "My divorce under Personal Status Law dragged on for months with my previous lawyer. CounselO took over, moved things along, and kept me updated over WhatsApp the whole way through.", author: "Lina H.", title: "Individual Client — Lattakia, Syria" },
-        { quote: "Our family had properties in three different cities and no one could agree on the division after our father passed. CounselO worked out each heir's share and represented us in front of the Personal Status Court until it was resolved.", author: "Samer A.", title: "Family Estate Client — Damascus, Syria" },
-        { quote: "I'd tried registering a company on my own and got stuck twice. CounselO handled the Companies Law paperwork and Investment Commission registration from start to finish, entirely online.", author: "Nidal R.", title: "Business Owner — Syria" },
-        { quote: "The State Council initially sided against us on an administrative decision that threatened to close part of our operations. CounselO appealed, argued the case, and had the decision reversed.", author: "Dina K.", title: "Business Owner — Damascus, Syria" },
+        { quote: "Consultation begins with the relevant facts, jurisdiction, authority and documents.", author: "Scope", title: "Jurisdiction-first review" },
+        { quote: "Published work samples are redacted and illustrative; they do not promise a result for a new matter.", author: "Evidence", title: "Confidentiality protected" },
+        { quote: "Filing, attendance or representation is separately scoped with a licensed professional when required.", author: "Engagement", title: "Clear professional boundaries" },
       ],
     },
     cta: {
       ...en.home.cta,
       eyebrow: "Syria's Specialized Online Legal Consultation Platform",
-      desc: "Expert online legal consultations for individuals, businesses and investors across Syria — via WhatsApp or email, no office visit required. 20 practice areas. 30+ years regional experience.",
+      desc: "Online legal consultations for individuals, businesses and investors across Syria — via WhatsApp, email or the consultation form. The initial review can usually begin remotely; any required filing, attendance or representation is scoped separately. 20 practice areas.",
       subDesc: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi · Hama, Syria · WhatsApp or email · Arabic & English",
     },
     cooperation: {
       ...en.home.cooperation,
-      desc: "CounselO handles the vast majority of legal matters entirely online — consultations, document review, and legal opinions, with no need to visit an office. When a case requires court representation, appearances before competent authorities, or document notarization, CounselO works through its licensed legal partners in Syria to handle the in-person proceedings on your behalf.",
+      desc: "CounselO can begin many matters online through consultations, document review and written guidance. When a case requires court representation, attendance before a competent authority or notarisation, the applicable local licensing and engagement requirements are reviewed and any cooperating practitioner is engaged separately where appropriate.",
       officeName: "Al-Baghdadi Law Firm",
       officeDetail: "Licensed in Syria — serving clients across all of Syria",
       office2: {

@@ -10,6 +10,8 @@ import { enUae } from "@/translations/en-uae";
 import { arUae } from "@/translations/ar-uae";
 import { useRegion } from "@/contexts/RegionContext";
 import { LanguageContext } from "@/contexts/LanguageContextCore";
+import { qualifyProfessionalRoleCopy } from "@/lib/professional-role-scope";
+import { qualifyEeatCopy } from "@/lib/eeat-scope";
 
 export type { Lang, Translations, LanguageContextType } from "@/contexts/LanguageContextCore";
 export { useLanguage } from "@/contexts/LanguageContextCore";
@@ -61,9 +63,12 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const isRTL = lang === "ar";
 
   const t = useMemo(() => {
-    if (region === "syr") return lang === "en" ? enSyr : arSyr;
-    if (region === "uae") return lang === "en" ? enUae : arUae;
-    return lang === "en" ? en : ar;
+    const source = region === "syr"
+      ? (lang === "en" ? enSyr : arSyr)
+      : region === "uae"
+        ? (lang === "en" ? enUae : arUae)
+        : (lang === "en" ? en : ar);
+    return qualifyEeatCopy(qualifyProfessionalRoleCopy(source));
   }, [region, lang]);
 
   useEffect(() => {

@@ -30,7 +30,7 @@ export type ArticleProvenance = {
 
 const AUTHOR = "CounselO Legal team";
 const AUTHOR_AR = "فريق كاونسلو القانوني";
-const REVIEWER = "Lawyer and Legal Consultant Omar Al-Baghdadi";
+const REVIEWER = "Lawyer and Legal Counsel Omar Al-Baghdadi";
 const REVIEWER_AR = "المحامي والمستشار القانوني عمر البغدادي";
 
 const SOURCES: Record<Region, ArticleSource[]> = {
@@ -39,13 +39,38 @@ const SOURCES: Record<Region, ArticleSource[]> = {
     { titleEn: "Saudi Ministry of Justice", titleAr: "وزارة العدل السعودية", href: "https://www.moj.gov.sa/" },
   ],
   syr: [
-    { titleEn: "Syrian Ministry of Justice", titleAr: "وزارة العدل السورية", href: "http://www.moj.gov.sy/" },
-    { titleEn: "Syrian legal legislation portal", titleAr: "بوابة التشريعات السورية", href: "http://www.parliament.gov.sy/" },
+    { titleEn: "Syrian Ministry of Justice", titleAr: "وزارة العدل السورية", href: "https://moj.gov.sy/" },
+    { titleEn: "Syrian People's Assembly — official legislative website", titleAr: "مجلس الشعب السوري — الموقع التشريعي الرسمي", href: "https://www.parliament.gov.sy/" },
   ],
   uae: [
     { titleEn: "UAE Legislation", titleAr: "تشريعات دولة الإمارات", href: "https://uaelegislation.gov.ae/" },
     { titleEn: "UAE Government — Justice, Safety and the Law", titleAr: "حكومة الإمارات — العدل والسلامة والقانون", href: "https://u.ae/en/information-and-services/justice-safety-and-the-law" },
   ],
+};
+
+const UAE_TOPIC_SOURCES: Record<string, ArticleSource> = {
+  "corporate-commercial": { titleEn: "UAE Legislation — Commercial Companies", titleAr: "تشريعات الإمارات — الشركات التجارية", href: "https://uaelegislation.gov.ae/en/legislations/1542" },
+  "foreign-investment-market-entry": { titleEn: "UAE Ministry of Economy", titleAr: "وزارة الاقتصاد الإماراتية", href: "https://www.moec.gov.ae/" },
+  "commercial-contracts": { titleEn: "UAE Legislation — Commercial Transactions", titleAr: "تشريعات الإمارات — المعاملات التجارية", href: "https://uaelegislation.gov.ae/en/legislations/1610" },
+  "employment-labour": { titleEn: "UAE Legislation — Labour Relations", titleAr: "تشريعات الإمارات — علاقات العمل", href: "https://uaelegislation.gov.ae/en/legislations/1541" },
+  "real-estate-construction": { titleEn: "UAE Government — Housing and Property", titleAr: "حكومة الإمارات — السكن والعقار", href: "https://u.ae/en/information-and-services/housing" },
+  "family-personal-status": { titleEn: "UAE Legislation — Personal Status", titleAr: "تشريعات الإمارات — الأحوال الشخصية", href: "https://uaelegislation.gov.ae/en/legislations/2770" },
+  "wills-estates": { titleEn: "UAE Ministry of Justice", titleAr: "وزارة العدل الإماراتية", href: "https://www.moj.gov.ae/" },
+  "criminal-investigations": { titleEn: "UAE Ministry of Justice — Courts", titleAr: "وزارة العدل — المحاكم", href: "https://www.moj.gov.ae/" },
+  "arbitration-mediation": { titleEn: "UAE Legislation — Arbitration", titleAr: "تشريعات الإمارات — التحكيم", href: "https://uaelegislation.gov.ae/en/legislations/1069" },
+  "litigation-court-disputes": { titleEn: "UAE Ministry of Justice — Courts", titleAr: "وزارة العدل — المحاكم", href: "https://www.moj.gov.ae/" },
+  "enforcement-debt-recovery": { titleEn: "UAE Legislation Portal", titleAr: "بوابة تشريعات الإمارات", href: "https://uaelegislation.gov.ae/en/legislations" },
+  "banking-finance": { titleEn: "Central Bank of the UAE", titleAr: "مصرف الإمارات العربية المتحدة المركزي", href: "https://www.centralbank.ae/" },
+  "insolvency-restructuring": { titleEn: "UAE Legislation — Financial Restructuring and Bankruptcy", titleAr: "تشريعات الإمارات — إعادة التنظيم المالي والإفلاس", href: "https://uaelegislation.gov.ae/en/legislations/2190" },
+  "tax-vat": { titleEn: "UAE Federal Tax Authority", titleAr: "الهيئة الاتحادية للضرائب", href: "https://tax.gov.ae/en/taxes.aspx" },
+  "intellectual-property": { titleEn: "UAE Ministry of Economy — Intellectual Property", titleAr: "وزارة الاقتصاد — الملكية الفكرية", href: "https://www.moec.gov.ae/intellectual-property" },
+  "technology-data-protection": { titleEn: "UAE Data Office", titleAr: "مكتب الإمارات للبيانات", href: "https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws" },
+  "insurance": { titleEn: "Central Bank of the UAE — Insurance", titleAr: "مصرف الإمارات المركزي — التأمين", href: "https://www.centralbank.ae/" },
+  "healthcare-medical-liability": { titleEn: "UAE Ministry of Health and Prevention", titleAr: "وزارة الصحة ووقاية المجتمع", href: "https://mohap.gov.ae/" },
+  "immigration-residency": { titleEn: "UAE Legislation — Entry and Residence", titleAr: "تشريعات الإمارات — دخول وإقامة الأجانب", href: "https://uaelegislation.gov.ae/en/legislations/1528" },
+  "maritime-aviation-transport": { titleEn: "UAE Ministry of Energy and Infrastructure", titleAr: "وزارة الطاقة والبنية التحتية", href: "https://www.moei.gov.ae/" },
+  "administrative-regulatory": { titleEn: "UAE Legislation Portal", titleAr: "بوابة تشريعات الإمارات", href: "https://uaelegislation.gov.ae/en/legislations" },
+  "consumer-ecommerce": { titleEn: "UAE Ministry of Economy — Consumer Protection", titleAr: "وزارة الاقتصاد — حماية المستهلك", href: "https://www.moec.gov.ae/consumer-protection" },
 };
 
 const SAUDI_TOPIC_SOURCES: Record<string, ArticleSource> = {
@@ -78,6 +103,10 @@ function regionLaw(region: Region, category: string): [string, string] {
 }
 
 function sourcesForArticle(region: Region, relatedServiceSlugs: string[] = []): ArticleSource[] {
+  if (region === "uae") {
+    const topicSource = relatedServiceSlugs.map((slug) => UAE_TOPIC_SOURCES[slug]).find(Boolean);
+    return topicSource ? [topicSource, SOURCES.uae[0]] : SOURCES.uae;
+  }
   if (region !== "sa") return SOURCES[region];
   const topicSource = relatedServiceSlugs.map((slug) => SAUDI_TOPIC_SOURCES[slug]).find(Boolean);
   return topicSource ? [topicSource, SOURCES.sa[0]] : SOURCES.sa;
