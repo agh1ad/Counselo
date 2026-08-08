@@ -4,6 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
+import { TrustSignals } from "@/components/seo/TrustSignals";
 import { getLegalProblemPage, getLegalProblemPages, legalProblemPath } from "@/lib/legal-problem-pages";
 import { getSaudiLegalSources, type LegalSource } from "@/lib/saudi-legal-sources";
 import { getConsultationProduct } from "@workspace/api-zod";
@@ -172,6 +173,7 @@ export default function LegalProblemDetail() {
             <a href="#consultation-package" className="service-anchor-link">{isRTL ? "حزمة الاستشارة" : "Consultation package"}</a>
             <a href="#problem-documents" className="service-anchor-link">{isRTL ? "المستندات" : "Documents"}</a>
             <a href="#problem-experience" className="service-anchor-link">{isRTL ? "لماذا كاونسلو" : "Why CounselO"}</a>
+            <a href="#trust-signals-heading" className="service-anchor-link">{isRTL ? "الثقة والشفافية" : "Trust and transparency"}</a>
             <a href="#problem-faq" className="service-anchor-link">{isRTL ? "الأسئلة الشائعة" : "FAQs"}</a>
             <a href="#problem-contact" className="service-anchor-link">{isRTL ? "تواصل معنا" : "Contact"}</a>
           </div>
@@ -334,6 +336,7 @@ export default function LegalProblemDetail() {
           </aside>
         </div>
       </div>
+      <TrustSignals isArabic={isRTL} regionPrefix={regionPrefix} />
       <LatestContentCarousels isArabic={isRTL} region={region} serviceSlug={id} />
     </div>
   );
