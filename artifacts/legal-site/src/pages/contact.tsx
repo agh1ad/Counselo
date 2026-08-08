@@ -397,7 +397,7 @@ export default function Contact() {
                     : "Describe the facts in date order, explain what you need to know or achieve, and attach only relevant documents. Do not send the only copy of an original or include information that is not needed to assess the matter."}
                 </div>
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <form id="consultation-form" name="consultation" onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     <div className="sr-only" aria-hidden="true">
                       <label htmlFor="contact-website">Website</label>
                       <input

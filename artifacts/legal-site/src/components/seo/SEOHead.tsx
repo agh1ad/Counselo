@@ -79,6 +79,13 @@ function schemaJson(obj: object): string {
   return JSON.stringify(obj).replace(/<\/script>/gi, "<\\/script>");
 }
 
+function limitTitle(value: string, max = 68): string {
+  if (value.length <= max) return value;
+  const shortened = value.slice(0, max - 1);
+  const boundary = shortened.lastIndexOf(" ");
+  return shortened.slice(0, boundary > 24 ? boundary : shortened.length).replace(/[|،,:;]$/, "").trimEnd();
+}
+
 interface SEOHeadProps {
   title: string;
   description: string;
@@ -231,7 +238,7 @@ export function SEOHead({
       : (isSyr ? syriafyText(title) : title);
   // Optimized meta titles are already final — never append a suffix to them.
   // For fallback (non-map) titles, append "| CounselO" only if not already present.
-  const fullTitle = metaOverride
+  const fullTitle = limitTitle(metaOverride
     ? rawTitle
     : (rawTitle.endsWith("| CounselO") ||
         rawTitle.endsWith("| كاونسلو") ||
@@ -239,7 +246,7 @@ export function SEOHead({
           ? rawTitle
           : isArabic
             ? `${rawTitle} | كاونسلو`
-            : `${rawTitle} | CounselO`);
+            : `${rawTitle} | CounselO`));
 
   // Single-URL pages (noRegionPrefix=true without explicit alternates, e.g.
   // /blog or an incomplete /blog/:slug) emit no regional alternates. Bilingual

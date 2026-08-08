@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
 import { Helmet } from "react-helmet-async";
-import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowRight, MessageCircle, CheckCircle2, Award } from "lucide-react";
+import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowRight, MessageCircle, CheckCircle2, Award, Mail, Phone } from "lucide-react";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { useEffect } from "react";
 
@@ -209,7 +209,7 @@ export default function RegionPicker() {
       <Helmet>
         <html lang="en" dir="ltr" />
         <title>CounselO | Online Legal Consultation — UAE, Saudi Arabia &amp; Syria</title>
-        <meta name="description" content="CounselO is a bilingual online legal platform for fast, professional and trusted consultation, document review and structured legal guidance in the UAE, Saudi Arabia and Syria." />
+        <meta name="description" content="CounselO provides bilingual online legal consultations, document review and structured legal guidance in the UAE, Saudi Arabia and Syria." />
         <meta name="keywords" content="online legal consultation Saudi Arabia, online legal consultation Syria, استشارة قانونية أونلاين السعودية, استشارة قانونية أونلاين سوريا, lawyer Saudi Arabia online, محامي سعودي أونلاين, محامي سوريا أونلاين, CounselO, Omar Al-Baghdadi, legal advice Middle East, مشورة قانونية الشرق الأوسط" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="author" content="CounselO — Lawyer and Legal Counsel Omar Al-Baghdadi" />
@@ -584,6 +584,16 @@ export default function RegionPicker() {
             <Link href="/sa/contact" className="inline-flex items-center gap-2 border border-white/30 px-7 py-3 text-sm font-semibold text-white transition-all hover:border-[#d4b66c] hover:text-[#d4b66c]">
               Contact Form <ArrowRight className="h-4 w-4" />
             </Link>
+          </div>
+          <div className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-white/70">
+            <a href="tel:+966594850247" className="inline-flex items-center gap-2 hover:text-[#d4b66c]">
+              <Phone className="h-4 w-4" aria-hidden="true" />
+              <span dir="ltr">+966 59 485 0247</span>
+            </a>
+            <a href="mailto:info@counselo-legal.com" className="inline-flex items-center gap-2 hover:text-[#d4b66c]">
+              <Mail className="h-4 w-4" aria-hidden="true" />
+              info@counselo-legal.com
+            </a>
           </div>
         </div>
       </section>

@@ -18,7 +18,9 @@ import { SEOHead } from "@/components/seo/SEOHead";
 import { SYR_SEO_DATA } from "@/lib/seo-data-syr";
 import { RELATED_SERVICES, SERVICE_SEARCH_CONTENT } from "@/lib/service-search-content";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
+import { TrustSignals } from "@/components/seo/TrustSignals";
 import { getSaudiLegalSources, type LegalSource } from "@/lib/saudi-legal-sources";
+import { getLegalProblemPages, legalProblemPath } from "@/lib/legal-problem-pages";
 import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI, CONSULTATION_OPERATING_POLICY, getConsultationProduct } from "@workspace/api-zod";
 
 function truncateMeta(value: string, maxLength = 158): string {
@@ -135,6 +137,7 @@ export default function ServiceDetail() {
     : searchContent
       ? (isRTL ? searchContent.issuesAr : searchContent.issuesEn)
       : data.covers.slice(0, 5);
+  const problemPages = getLegalProblemPages(region, id);
   const documents = isUae
     ? uaeDocuments
     : searchContent
@@ -469,8 +472,30 @@ export default function ServiceDetail() {
                     {isRTL ? "المشكلات القانونية الشائعة" : "Common legal problems we can assess"}
                   </h2>
                   <ul className="grid gap-x-9 border-y border-[#0d4a31]/14 py-3 sm:grid-cols-2">
-                    {commonIssues.map((issue) => <li key={issue} className="flex gap-3 border-b border-[#0d4a31]/10 py-4 text-foreground"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#aa7e28]" strokeWidth={1.5}/><span>{issue}</span></li>)}
+                    {commonIssues.map((issue, index) => {
+                      const problem = problemPages[index];
+                      return (
+                        <li key={issue} className="flex gap-3 border-b border-[#0d4a31]/10 py-4 text-foreground">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#aa7e28]" strokeWidth={1.5}/>
+                          {problem ? (
+                            <Link
+                              href={legalProblemPath(region, isRTL ? "ar" : "en", id, problem.slug)}
+                              className="font-medium text-primary underline-offset-4 hover:underline"
+                            >
+                              {isRTL ? problem.titleAr : problem.titleEn}
+                            </Link>
+                          ) : <span>{issue}</span>}
+                        </li>
+                      );
+                    })}
                   </ul>
+                  {problemPages.length > 0 && (
+                    <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                      {isRTL
+                        ? "افتح أي مسألة للاطلاع على المستندات المفيدة والمسار الأولي والاختصاص ذي الصلة."
+                        : "Open a problem to see useful documents, the initial route and the relevant jurisdictional context."}
+                    </p>
+                  )}
                 </section>
               )}
 
@@ -649,7 +674,8 @@ export default function ServiceDetail() {
           </div>
         </div>
       </div>
-      {region !== "uae" && <LatestContentCarousels isArabic={isRTL} region={region} serviceSlug={id} />}
+      <TrustSignals isArabic={isRTL} regionPrefix={regionPrefix} compact />
+      <LatestContentCarousels isArabic={isRTL} region={region} serviceSlug={id} />
     </div>
   );
 }

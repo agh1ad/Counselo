@@ -16,7 +16,7 @@ import { fetchPublicJson } from "@/lib/public-api";
 
 type LatestContentCarouselsProps = {
   isArabic: boolean;
-  region?: "sa" | "syr";
+  region?: "sa" | "syr" | "uae";
   serviceSlug?: string;
 };
 
@@ -24,14 +24,15 @@ function newestFirst<T extends { date: string }>(items: T[]): T[] {
   return [...items].sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
 }
 
-function matchesRegion(text: string, region?: "sa" | "syr"): boolean {
+function matchesRegion(text: string, region?: "sa" | "syr" | "uae"): boolean {
   if (!region) return true;
   const normalized = text.toLowerCase();
   const mentionsSaudi = /(saudi|السعود|alsawd|alnzam-alsawdy)/i.test(normalized);
   const mentionsSyria = /(syria|syrian|سوريا|السوري|alswry)/i.test(normalized);
-  return region === "syr"
-    ? mentionsSyria || !mentionsSaudi
-    : mentionsSaudi || !mentionsSyria;
+  const mentionsUae = /(uae|united arab emirates|emirates|dubai|abu dhabi|difc|adgm|الإمارات|دبي|أبوظبي)/i.test(normalized);
+  if (region === "syr") return mentionsSyria || (!mentionsSaudi && !mentionsUae);
+  if (region === "uae") return mentionsUae || (!mentionsSaudi && !mentionsSyria);
+  return mentionsSaudi || (!mentionsSyria && !mentionsUae);
 }
 
 function CardLink({
@@ -167,7 +168,7 @@ export function LatestContentCarousels({
   const articleLabel = isArabic ? "أحدث المقالات" : "latest articles";
   const workLabel = isArabic ? "أحدث الأعمال" : "latest work";
 
-  if (isService && latestPosts.length === 0 && latestWork.length === 0) return null;
+  if (latestPosts.length === 0 && latestWork.length === 0) return null;
 
   return (
     <section

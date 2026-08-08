@@ -19,7 +19,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   "/": {
     title: "Online Legal Consultations in Saudi Arabia & Syria | Counselo",
     description:
-      "Book confidential online legal consultations and receive professional legal guidance across Saudi Arabia and Syria through Counselo's secure and convenient platform.",
+      "Book confidential online legal consultations and receive professional guidance across Saudi Arabia and Syria through CounselO.",
   },
   "/ar": {
     title: "استشارات قانونية أونلاين في السعودية وسوريا | كاونسلو",
