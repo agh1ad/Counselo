@@ -36,6 +36,7 @@ interface BlogPost {
   bodyEn: string;
   bodyAr: string;
   published: boolean;
+  contentType: "legal-guidance" | "professional-commentary";
   createdAt: string;
 }
 
@@ -58,6 +59,7 @@ const emptyForm = (): FormData => ({
   bodyEn: "",
   bodyAr: "",
   published: false,
+  contentType: "professional-commentary",
 });
 
 function slugify(text: string) {
@@ -184,6 +186,14 @@ function SettingsPanel({ form, set, slugManual, setSlugManual, open, manualField
             dir={lang === "ar" ? "rtl" : "ltr"}
             className={inputCls}
           />
+        </div>
+        <div>
+          <label className={labelCls}>Content basis</label>
+          <select value={form.contentType} onChange={(e) => set("contentType", e.target.value)} className={inputCls}>
+            <option value="professional-commentary">Professional commentary — no specific law or sources</option>
+            <option value="legal-guidance">Legal guidance — verified jurisdiction and sources required</option>
+          </select>
+          <p className="text-[10px] text-gray-400 mt-1">Commentary articles keep Omar’s editorial review profile but do not display a jurisdiction, applicable law, or primary-source list.</p>
         </div>
         <div className="border border-gray-100 rounded-lg overflow-hidden">
           <button type="button" onClick={() => setSeoOpen((o) => !o)} className="w-full flex items-center justify-between px-3 py-2.5 bg-gray-50 text-[10px] font-bold text-gray-600 uppercase tracking-wide">

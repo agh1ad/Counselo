@@ -59,6 +59,7 @@ interface ApiPost {
   relatedServiceSlugs: string[];
   relatedBlogSlugs: string[];
   relatedWorkSlugs: string[];
+  contentType?: "legal-guidance" | "professional-commentary";
   aiLinksAssignedAt?: string;
   primaryAuthorName?: string;
   primaryAuthorNameAr?: string;
@@ -228,23 +229,24 @@ export default function BlogPost() {
       : "sa";
   const articleRegionPrefix = `/${articleRegion}${useAr ? "/ar" : ""}`;
   const fallbackProvenance = assignArticleProvenance(post);
+  const contentType = post.contentType ?? "professional-commentary";
   const provenance = {
-    ...fallbackProvenance,
+    ...assignArticleProvenance({ ...post, contentType }),
     primaryAuthorName: post.primaryAuthorName || fallbackProvenance.primaryAuthorName,
     primaryAuthorNameAr: post.primaryAuthorNameAr || fallbackProvenance.primaryAuthorNameAr,
     primaryAuthorUrl: post.primaryAuthorUrl || fallbackProvenance.primaryAuthorUrl,
     legalReviewerName: post.legalReviewerName || fallbackProvenance.legalReviewerName,
     legalReviewerNameAr: post.legalReviewerNameAr || fallbackProvenance.legalReviewerNameAr,
     legalReviewerUrl: post.legalReviewerUrl || fallbackProvenance.legalReviewerUrl,
-    applicableLaw: post.applicableLaw || fallbackProvenance.applicableLaw,
-    applicableLawAr: post.applicableLawAr || fallbackProvenance.applicableLawAr,
-    keyLegalUpdateNote: post.keyLegalUpdateNote || fallbackProvenance.keyLegalUpdateNote,
-    keyLegalUpdateNoteAr: post.keyLegalUpdateNoteAr || fallbackProvenance.keyLegalUpdateNoteAr,
-    contentMethodology: post.contentMethodology || fallbackProvenance.contentMethodology,
-    contentMethodologyAr: post.contentMethodologyAr || fallbackProvenance.contentMethodologyAr,
+    applicableLaw: contentType === "legal-guidance" ? (post.applicableLaw || fallbackProvenance.applicableLaw) : "",
+    applicableLawAr: contentType === "legal-guidance" ? (post.applicableLawAr || fallbackProvenance.applicableLawAr) : "",
+    keyLegalUpdateNote: contentType === "legal-guidance" ? (post.keyLegalUpdateNote || fallbackProvenance.keyLegalUpdateNote) : fallbackProvenance.keyLegalUpdateNote,
+    keyLegalUpdateNoteAr: contentType === "legal-guidance" ? (post.keyLegalUpdateNoteAr || fallbackProvenance.keyLegalUpdateNoteAr) : fallbackProvenance.keyLegalUpdateNoteAr,
+    contentMethodology: contentType === "legal-guidance" ? (post.contentMethodology || fallbackProvenance.contentMethodology) : fallbackProvenance.contentMethodology,
+    contentMethodologyAr: contentType === "legal-guidance" ? (post.contentMethodologyAr || fallbackProvenance.contentMethodologyAr) : fallbackProvenance.contentMethodologyAr,
     correctionUrl: post.correctionUrl || fallbackProvenance.correctionUrl,
-    sources: post.sources?.length ? post.sources : fallbackProvenance.sources,
-    jurisdiction: post.jurisdiction || fallbackProvenance.jurisdiction,
+    sources: contentType === "legal-guidance" ? (post.sources?.length ? post.sources : fallbackProvenance.sources) : [],
+    jurisdiction: contentType === "legal-guidance" ? (post.jurisdiction || fallbackProvenance.jurisdiction) : undefined,
     lastSubstantiveReviewAt: post.lastSubstantiveReviewAt || fallbackProvenance.lastSubstantiveReviewAt,
   };
   const relatedPosts = (post.relatedBlogSlugs ?? [])
@@ -302,11 +304,13 @@ export default function BlogPost() {
       "name": useAr ? provenance.legalReviewerNameAr : provenance.legalReviewerName,
       "url": `https://counselo-legal.com${provenance.legalReviewerUrl}`,
     },
-    "citation": provenance.sources.map((source) => source.href),
-    "about": {
-      "@type": "LegalService",
-      "areaServed": articleRegion === "uae" ? "United Arab Emirates" : articleRegion === "syr" ? "Syria" : "Saudi Arabia",
-    },
+    ...(contentType === "legal-guidance" ? {
+      "citation": provenance.sources.map((source) => source.href),
+      "about": {
+        "@type": "LegalService",
+        "areaServed": articleRegion === "uae" ? "United Arab Emirates" : articleRegion === "syr" ? "Syria" : "Saudi Arabia",
+      },
+    } : {}),
   };
 
   const breadcrumbSchema = {
@@ -381,19 +385,19 @@ export default function BlogPost() {
           >
             <section className="mb-10 border border-border bg-muted/25 p-5" aria-labelledby="article-provenance-heading">
               <h2 id="article-provenance-heading" className="text-lg font-serif font-bold text-foreground mb-4">
-                {useAr ? "بيانات المراجعة والمصادر" : "Review and source information"}
+                {contentType === "legal-guidance" ? (useAr ? "بيانات المراجعة والمصادر" : "Review and source information") : (useAr ? "بيانات المقال التحريري" : "Editorial information")}
               </h2>
               <dl className="grid gap-3 text-sm sm:grid-cols-2">
                 <div><dt className="font-semibold text-foreground">{useAr ? "كتب بواسطة" : "Written by"}</dt><dd><a className="text-primary hover:underline" href={provenance.primaryAuthorUrl}>{useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}</a></dd></div>
-                <div><dt className="font-semibold text-foreground">{useAr ? "راجع قانونياً بواسطة" : "Legally reviewed by"}</dt><dd><a className="text-primary hover:underline" href={provenance.legalReviewerUrl}>{useAr ? provenance.legalReviewerNameAr : provenance.legalReviewerName}</a></dd></div>
-                <div><dt className="font-semibold text-foreground">{useAr ? "الاختصاص" : "Jurisdiction"}</dt><dd>{articleJurisdictionLabel(provenance.jurisdiction, useAr)}</dd></div>
+                <div><dt className="font-semibold text-foreground">{contentType === "legal-guidance" ? (useAr ? "راجع قانونياً بواسطة" : "Legally reviewed by") : (useAr ? "راجعها" : "Reviewed by")}</dt><dd><a className="text-primary hover:underline" href={provenance.legalReviewerUrl}>{useAr ? provenance.legalReviewerNameAr : provenance.legalReviewerName}</a></dd></div>
+                {contentType === "legal-guidance" && provenance.jurisdiction && <div><dt className="font-semibold text-foreground">{useAr ? "الاختصاص" : "Jurisdiction"}</dt><dd>{articleJurisdictionLabel(provenance.jurisdiction, useAr)}</dd></div>}
                 <div><dt className="font-semibold text-foreground">{useAr ? "تاريخ النشر" : "Publication date"}</dt><dd>{formatDate(post.date, useAr ? "ar" : "en")}</dd></div>
-                <div><dt className="font-semibold text-foreground">{useAr ? "آخر مراجعة جوهرية" : "Last substantive review"}</dt><dd>{formatDate(provenance.lastSubstantiveReviewAt, useAr ? "ar" : "en")}</dd></div>
-                <div><dt className="font-semibold text-foreground">{useAr ? "القانون المنطبق" : "Applicable law"}</dt><dd>{useAr ? provenance.applicableLawAr : provenance.applicableLaw}</dd></div>
+                <div><dt className="font-semibold text-foreground">{useAr ? (contentType === "legal-guidance" ? "آخر مراجعة جوهرية" : "آخر مراجعة تحريرية") : (contentType === "legal-guidance" ? "Last substantive review" : "Last editorial review")}</dt><dd>{formatDate(provenance.lastSubstantiveReviewAt, useAr ? "ar" : "en")}</dd></div>
+                {contentType === "legal-guidance" && <div><dt className="font-semibold text-foreground">{useAr ? "القانون المنطبق" : "Applicable law"}</dt><dd>{useAr ? provenance.applicableLawAr : provenance.applicableLaw}</dd></div>}
               </dl>
               <div className="mt-4 space-y-3 text-sm">
-                <div><p className="font-semibold text-foreground">{useAr ? "المصادر والاقتباسات" : "Sources and citations"}</p><ul className="list-disc ms-5 mt-1 space-y-1">{provenance.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{useAr ? source.titleAr : source.titleEn}</a></li>)}</ul></div>
-                <p><strong>{useAr ? "ملاحظة قانونية مهمة:" : "Key legal update note:"}</strong> {useAr ? provenance.keyLegalUpdateNoteAr : provenance.keyLegalUpdateNote}</p>
+                {contentType === "legal-guidance" && <div><p className="font-semibold text-foreground">{useAr ? "المصادر والاقتباسات" : "Sources and citations"}</p><ul className="list-disc ms-5 mt-1 space-y-1">{provenance.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{useAr ? source.titleAr : source.titleEn}</a></li>)}</ul></div>}
+                <p><strong>{useAr ? (contentType === "legal-guidance" ? "ملاحظة قانونية مهمة:" : "طبيعة هذا المقال:") : (contentType === "legal-guidance" ? "Key legal update note:" : "Article basis:")}</strong> {useAr ? provenance.keyLegalUpdateNoteAr : provenance.keyLegalUpdateNote}</p>
                 <p><strong>{useAr ? "المنهجية:" : "Methodology:"}</strong> {useAr ? provenance.contentMethodologyAr : provenance.contentMethodology}</p>
                 <p className="text-xs text-muted-foreground">{ui.disclaimer}</p>
                 <a href={provenance.correctionUrl} className="text-primary hover:underline">{useAr ? "الإبلاغ عن تصحيح أو خطأ" : "Report a correction or factual error"}</a>

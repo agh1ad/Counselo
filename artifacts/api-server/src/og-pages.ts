@@ -171,6 +171,7 @@ function buildDynamicBlogHtml(
         .join("")
     : "";
   const provenance = assignArticleProvenance(post);
+  const contentType = post.contentType ?? "professional-commentary";
   const shell = getShellHtml() ?? getIndexHtml();
   const articleSchema = safeJson({
     "@context": "https://schema.org",
@@ -194,7 +195,13 @@ function buildDynamicBlogHtml(
       name: isArabicPost ? provenance.legalReviewerNameAr : provenance.legalReviewerName,
       url: `${BASE_URL}${provenance.legalReviewerUrl}`,
     },
-    citation: provenance.sources.map((source) => source.href),
+    ...(contentType === "legal-guidance" ? {
+      citation: provenance.sources.map((source) => source.href),
+      about: {
+        "@type": "LegalService",
+        areaServed: provenance.jurisdiction === "uae" ? "United Arab Emirates" : provenance.jurisdiction === "syr" ? "Syria" : "Saudi Arabia",
+      },
+    } : {}),
   });
   const head = `<title>${esc(brandedTitle)}</title>
     <meta name="description" content="${esc(description.slice(0, 170))}">
@@ -205,7 +212,13 @@ function buildDynamicBlogHtml(
     <meta property="og:image" content="${DEFAULT_OG_IMAGE}"><meta name="twitter:card" content="summary_large_image">
     <script type="application/ld+json">${articleSchema}</script>
     <script>window.__SSR_POST__=${safeJson(post)};</script>`;
-  const body = `<article><h1>${esc(title)}</h1><p>${esc(description)}</p><section aria-labelledby="article-provenance-heading"><h2 id="article-provenance-heading">${isArabicPost ? "بيانات المراجعة والمصادر" : "Review and source information"}</h2><p>${isArabicPost ? "كتب بواسطة" : "Written by"}: <a href="${esc(provenance.primaryAuthorUrl)}">${esc(isArabicPost ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName)}</a></p><p>${isArabicPost ? "راجع قانونياً بواسطة" : "Legally reviewed by"}: <a href="${esc(provenance.legalReviewerUrl)}">${esc(isArabicPost ? provenance.legalReviewerNameAr : provenance.legalReviewerName)}</a></p><p>${isArabicPost ? "الاختصاص" : "Jurisdiction"}: ${esc(articleJurisdictionLabel(provenance.jurisdiction, isArabicPost))}</p><p>${isArabicPost ? "تاريخ النشر" : "Publication date"}: ${esc(post.date)}</p><p>${isArabicPost ? "آخر مراجعة جوهرية" : "Last substantive review"}: ${esc(provenance.lastSubstantiveReviewAt)}</p><p>${isArabicPost ? "القانون المنطبق" : "Applicable law"}: ${esc(isArabicPost ? provenance.applicableLawAr : provenance.applicableLaw)}</p><p>${isArabicPost ? "المصادر والاقتباسات" : "Sources and citations"}: ${provenance.sources.map((source) => `<a href="${esc(source.href)}">${esc(isArabicPost ? source.titleAr : source.titleEn)}</a>`).join(" · ")}</p><p>${esc(isArabicPost ? provenance.keyLegalUpdateNoteAr : provenance.keyLegalUpdateNote)}</p><p>${esc(isArabicPost ? provenance.contentMethodologyAr : provenance.contentMethodology)}</p><p>${isArabicPost ? "هذا المقال لأغراض توعوية ولا يشكل مشورة قانونية." : "This article is informational only and is not legal advice."} <a href="${esc(provenance.correctionUrl)}">${isArabicPost ? "الإبلاغ عن تصحيح" : "Report a correction"}</a></p></section></article>`;
+  const reviewerLabel = contentType === "legal-guidance"
+    ? (isArabicPost ? "راجع قانونياً بواسطة" : "Legally reviewed by")
+    : (isArabicPost ? "راجعها" : "Reviewed by");
+  const legalFields = contentType === "legal-guidance" && provenance.jurisdiction
+    ? `<p>${isArabicPost ? "الاختصاص" : "Jurisdiction"}: ${esc(articleJurisdictionLabel(provenance.jurisdiction, isArabicPost))}</p><p>${isArabicPost ? "القانون المنطبق" : "Applicable law"}: ${esc(isArabicPost ? provenance.applicableLawAr : provenance.applicableLaw)}</p><p>${isArabicPost ? "المصادر والاقتباسات" : "Sources and citations"}: ${provenance.sources.map((source) => `<a href="${esc(source.href)}">${esc(isArabicPost ? source.titleAr : source.titleEn)}</a>`).join(" · ")}</p>`
+    : "";
+  const body = `<article><h1>${esc(title)}</h1><p>${esc(description)}</p><section aria-labelledby="article-provenance-heading"><h2 id="article-provenance-heading">${contentType === "legal-guidance" ? (isArabicPost ? "بيانات المراجعة والمصادر" : "Review and source information") : (isArabicPost ? "بيانات المقال التحريري" : "Editorial information")}</h2><p>${isArabicPost ? "كتب بواسطة" : "Written by"}: <a href="${esc(provenance.primaryAuthorUrl)}">${esc(isArabicPost ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName)}</a></p><p>${reviewerLabel}: <a href="${esc(provenance.legalReviewerUrl)}">${esc(isArabicPost ? provenance.legalReviewerNameAr : provenance.legalReviewerName)}</a></p>${legalFields}<p>${isArabicPost ? "تاريخ النشر" : "Publication date"}: ${esc(post.date)}</p><p>${isArabicPost ? (contentType === "legal-guidance" ? "آخر مراجعة جوهرية" : "آخر مراجعة تحريرية") : (contentType === "legal-guidance" ? "Last substantive review" : "Last editorial review")}: ${esc(provenance.lastSubstantiveReviewAt)}</p><p>${esc(isArabicPost ? provenance.keyLegalUpdateNoteAr : provenance.keyLegalUpdateNote)}</p><p>${esc(isArabicPost ? provenance.contentMethodologyAr : provenance.contentMethodology)}</p><p>${isArabicPost ? "هذا المقال لأغراض توعوية ولا يشكل مشورة قانونية." : "This article is informational only and is not legal advice."} <a href="${esc(provenance.correctionUrl)}">${isArabicPost ? "الإبلاغ عن تصحيح" : "Report a correction"}</a></p></section></article>`;
   if (!shell) {
     return `<!doctype html><html lang="${isArabicPost ? "ar" : "en"}" dir="${isArabicPost ? "rtl" : "ltr"}"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
   }

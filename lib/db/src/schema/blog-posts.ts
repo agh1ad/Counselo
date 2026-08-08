@@ -30,6 +30,7 @@ export const blogPostsTable = pgTable("blog_posts", {
   relatedServiceSlugs: jsonb("related_service_slugs").$type<string[]>().notNull().default([]),
   relatedBlogSlugs: jsonb("related_blog_slugs").$type<string[]>().notNull().default([]),
   relatedWorkSlugs: jsonb("related_work_slugs").$type<string[]>().notNull().default([]),
+  contentType: text("content_type").$type<"legal-guidance" | "professional-commentary">().notNull().default("professional-commentary"),
   aiLinksAssignedAt: timestamp("ai_links_assigned_at"),
   primaryAuthorName: text("primary_author_name").notNull().default("CounselO Legal team"),
   primaryAuthorNameAr: text("primary_author_name_ar").notNull().default("فريق كاونسلو القانوني"),

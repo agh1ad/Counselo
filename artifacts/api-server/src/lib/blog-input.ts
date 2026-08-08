@@ -144,8 +144,12 @@ export function sanitizeRichText(html: string): string {
 export function parseBlogPostInput(
   input: unknown,
   options: { existingSlug?: string } = {},
-): InsertBlogPost {
+): Omit<InsertBlogPost, "contentType"> & {
+  contentType: "legal-guidance" | "professional-commentary";
+} {
   const body = requireRecord(input);
+  const contentType: "legal-guidance" | "professional-commentary" =
+    body.contentType === "legal-guidance" ? "legal-guidance" : "professional-commentary";
   const slug = stringField(body, "slug", 200);
   if (!SLUG_PATTERN.test(slug) && slug !== options.existingSlug) {
     throw new BlogInputError(
@@ -223,6 +227,7 @@ export function parseBlogPostInput(
   }
 
   return {
+    contentType,
     slug,
     date,
     categoryEn: hasEnglishArticle ? stringField(body, "categoryEn", 120) : "",
@@ -245,8 +250,22 @@ export function parseBlogPostInput(
 }
 
 export function sanitizeBlogPost(post: BlogPost): BlogPost {
+  const contentType: "legal-guidance" | "professional-commentary" =
+    post.contentType === "legal-guidance" ? "legal-guidance" : "professional-commentary";
+  const legalFields = contentType === "legal-guidance"
+    ? {}
+    : {
+        jurisdiction: "",
+        applicableLaw: "",
+        applicableLawAr: "",
+        sources: [],
+        keyLegalUpdateNote: "",
+        keyLegalUpdateNoteAr: "",
+      };
   return {
     ...post,
+    contentType,
+    ...legalFields,
     bodyEn: sanitizeRichText(post.bodyEn),
     bodyAr: sanitizeRichText(post.bodyAr),
   };

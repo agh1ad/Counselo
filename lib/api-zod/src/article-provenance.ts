@@ -6,14 +6,17 @@ export type ArticleSource = {
   href: string;
 };
 
+export type ArticleContentType = "legal-guidance" | "professional-commentary";
+
 export type ArticleProvenance = {
+  contentType: ArticleContentType;
   primaryAuthorName: string;
   primaryAuthorNameAr: string;
   primaryAuthorUrl: string;
   legalReviewerName: string;
   legalReviewerNameAr: string;
   legalReviewerUrl: string;
-  jurisdiction: Region;
+  jurisdiction?: Region;
   applicableLaw: string;
   applicableLawAr: string;
   sources: ArticleSource[];
@@ -81,6 +84,7 @@ function sourcesForArticle(region: Region, relatedServiceSlugs: string[] = []): 
 }
 
 export function assignArticleProvenance(input: {
+  contentType?: ArticleContentType;
   titleEn?: string;
   titleAr?: string;
   excerptEn?: string;
@@ -93,6 +97,7 @@ export function assignArticleProvenance(input: {
   date?: string;
   updatedAt?: string | Date | null;
 }): ArticleProvenance {
+  const contentType = input.contentType ?? "professional-commentary";
   const text = [input.titleEn, input.titleAr, input.excerptEn, input.excerptAr, input.categoryEn, input.categoryAr, input.bodyEn, input.bodyAr].filter(Boolean).join(" ");
   const jurisdiction = inferRegion(text);
   const [applicableLaw, applicableLawAr] = regionLaw(jurisdiction, input.categoryEn || input.categoryAr || "legal guidance");
@@ -100,20 +105,21 @@ export function assignArticleProvenance(input: {
     ? new Date(input.updatedAt).toISOString().slice(0, 10)
     : input.date || new Date().toISOString().slice(0, 10);
   return {
+    contentType,
     primaryAuthorName: AUTHOR,
     primaryAuthorNameAr: AUTHOR_AR,
     primaryAuthorUrl: "/about",
     legalReviewerName: REVIEWER,
     legalReviewerNameAr: REVIEWER_AR,
     legalReviewerUrl: "/about",
-    jurisdiction,
-    applicableLaw,
-    applicableLawAr,
-    sources: sourcesForArticle(jurisdiction, input.relatedServiceSlugs),
-    keyLegalUpdateNote: "Check the cited primary sources for amendments, implementing decisions and later official guidance before acting.",
-    keyLegalUpdateNoteAr: "تحقق من المصادر الأولية المذكورة بشأن أي تعديلات أو قرارات تنفيذية أو إرشادات رسمية لاحقة قبل اتخاذ أي إجراء.",
-    contentMethodology: "Primary-law review plus CounselO practice commentary.",
-    contentMethodologyAr: "مراجعة المصادر القانونية الأولية مع تعليق عملي من كاونسلو.",
+    jurisdiction: contentType === "legal-guidance" ? jurisdiction : undefined,
+    applicableLaw: contentType === "legal-guidance" ? applicableLaw : "",
+    applicableLawAr: contentType === "legal-guidance" ? applicableLawAr : "",
+    sources: contentType === "legal-guidance" ? sourcesForArticle(jurisdiction, input.relatedServiceSlugs) : [],
+    keyLegalUpdateNote: contentType === "legal-guidance" ? "Check the cited primary sources for amendments, implementing decisions and later official guidance before acting." : "This is CounselO professional commentary, not a statement of the law of a particular jurisdiction.",
+    keyLegalUpdateNoteAr: contentType === "legal-guidance" ? "تحقق من المصادر الأولية المذكورة بشأن أي تعديلات أو قرارات تنفيذية أو إرشادات رسمية لاحقة قبل اتخاذ أي إجراء." : "هذا تعليق مهني من كاونسلو وليس بياناً للقانون في اختصاص قضائي محدد.",
+    contentMethodology: contentType === "legal-guidance" ? "Primary-law review plus CounselO practice commentary." : "CounselO editorial analysis and professional commentary based on team experience; no jurisdiction-specific legal conclusion is made.",
+    contentMethodologyAr: contentType === "legal-guidance" ? "مراجعة المصادر القانونية الأولية مع تعليق عملي من كاونسلو." : "تحليل تحريري وتعليق مهني من فريق كاونسلو استناداً إلى الخبرة العملية، من دون إبداء نتيجة قانونية خاصة باختصاص محدد.",
     lastSubstantiveReviewAt: reviewDate,
     correctionUrl: "/contact?subject=article-correction",
   };
