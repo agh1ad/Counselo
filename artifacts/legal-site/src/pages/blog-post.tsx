@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Clock, ArrowLeft, ArrowRight, Calendar, MessageCircle } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { qualifyProfessionalRoleCopy } from "@/lib/professional-role-scope";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { TrustSignals } from "@/components/seo/TrustSignals";
 import { type WorkSamplePublic, localized } from "@/lib/work-samples";
@@ -158,7 +159,7 @@ export default function BlogPost() {
       minRead: "min read",
       consultHeading: "Need Legal Advice?",
       consultDesc:
-        "CounselO offers confidential online legal consultations for its supported jurisdictions via WhatsApp or email — no office visit required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of legal practice, 20,000+ matters handled.",
+        "CounselO offers confidential initial online consultations for its supported jurisdictions via WhatsApp, email or the consultation form. Filing, attendance and reserved representation work are scoped separately where required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of legal practice, 20,000+ matters handled.",
       whatsapp: "Chat on WhatsApp",
       consultation: "Start Consultation",
       disclaimer:
@@ -236,8 +237,8 @@ export default function BlogPost() {
     primaryAuthorName: post.primaryAuthorName || fallbackProvenance.primaryAuthorName,
     primaryAuthorNameAr: post.primaryAuthorNameAr || fallbackProvenance.primaryAuthorNameAr,
     primaryAuthorUrl: post.primaryAuthorUrl || fallbackProvenance.primaryAuthorUrl,
-    legalReviewerName: post.legalReviewerName || fallbackProvenance.legalReviewerName,
-    legalReviewerNameAr: post.legalReviewerNameAr || fallbackProvenance.legalReviewerNameAr,
+    legalReviewerName: qualifyProfessionalRoleCopy(post.legalReviewerName || fallbackProvenance.legalReviewerName),
+    legalReviewerNameAr: qualifyProfessionalRoleCopy(post.legalReviewerNameAr || fallbackProvenance.legalReviewerNameAr),
     legalReviewerUrl: post.legalReviewerUrl || fallbackProvenance.legalReviewerUrl,
     applicableLaw: contentType === "legal-guidance" ? (post.applicableLaw || fallbackProvenance.applicableLaw) : "",
     applicableLawAr: contentType === "legal-guidance" ? (post.applicableLawAr || fallbackProvenance.applicableLawAr) : "",

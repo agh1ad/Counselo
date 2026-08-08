@@ -6,14 +6,8 @@ import { SEOHead } from "@/components/seo/SEOHead";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { TrustSignals } from "@/components/seo/TrustSignals";
 import { getLegalProblemPage, getLegalProblemPages, legalProblemPath } from "@/lib/legal-problem-pages";
-import { getSaudiLegalSources, type LegalSource } from "@/lib/saudi-legal-sources";
-import { getConsultationProduct } from "@workspace/api-zod";
-
-const SYRIA_SOURCE: LegalSource = {
-  en: "Syrian Ministry of Justice",
-  ar: "وزارة العدل السورية",
-  href: "https://moj.gov.sy/",
-};
+import { getRegionalLegalSources, type LegalSource } from "@/lib/regional-legal-sources";
+import { COUNSELO_ENTITY_IDS, getConsultationProduct } from "@workspace/api-zod";
 
 function truncateSeo(value: string, max = 158): string {
   if (value.length <= max) return value;
@@ -71,14 +65,12 @@ export default function LegalProblemDetail() {
     parentTitle,
     "online legal consultation",
     isRTL ? page.titleAr : `${page.titleEn} lawyer`,
+    ...(isRTL ? page.searchVariantsAr : page.searchVariantsEn),
   ].join(", ");
-  const sources: LegalSource[] = region === "sa"
-    ? getSaudiLegalSources(id)
-    : region === "syr"
-      ? [SYRIA_SOURCE]
-      : [{ en: "UAE Legislation", ar: "تشريعات الإمارات", href: "https://uaelegislation.gov.ae/" }];
+  const sources: LegalSource[] = getRegionalLegalSources(region, id);
   const relatedProblems = getLegalProblemPages(region, id).filter((item) => item.slug !== problem).slice(0, 4);
   const consultationPackage = getConsultationProduct("comprehensive-consultation");
+  const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو، أحتاج إلى مراجعة بخصوص: ${page.titleAr}.` : `Hello CounselO, I need a review regarding: ${page.titleEn}.`)}`;
 
   return (
     <div className="counselo-editorial-page service-brief-page w-full bg-background min-h-screen" id="main-content">
@@ -97,7 +89,12 @@ export default function LegalProblemDetail() {
           "dateModified": "2026-08-08",
           "author": { "@id": "https://counselo-legal.com/#person-omar-al-baghdadi" },
           "publisher": { "@id": "https://counselo-legal.com/#organization" },
-          "about": { "@type": "LegalService", "name": parentTitle },
+          "about": {
+            "@type": "LegalService",
+            "@id": `https://counselo-legal.com/#${region}-service-${id}`,
+            "name": parentTitle,
+            "provider": { "@id": COUNSELO_ENTITY_IDS.organization },
+          },
           "isPartOf": { "@id": "https://counselo-legal.com/#website" },
           "inLanguage": isRTL ? "ar" : "en",
           "keywords": keywords,
@@ -268,7 +265,7 @@ export default function LegalProblemDetail() {
           <ul className="space-y-2">
             {sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{isRTL ? source.ar : source.en}</a></li>)}
           </ul>
-          <p className="text-xs text-muted-foreground mt-5">{isRTL ? "هذه الصفحة معلومات عامة وليست بديلاً عن دراسة قانونية مخصصة." : "This page provides general information and is not a substitute for a matter-specific legal study."}</p>
+          <p className="text-xs text-muted-foreground mt-5">{isRTL ? "هذه الصفحة معلومات عامة وليست بديلاً عن دراسة قانونية مخصصة. الروابط الرسمية نقاط بدء للتحقق من النص النافذ، ولا تثبت وحدها انطباق قاعدة أو ميعاد أو وسيلة معالجة على وقائعك." : "This page provides general information and is not a substitute for a matter-specific legal study. Official links are starting points for checking operative law; they do not alone establish that a rule, deadline or remedy applies to your facts."}</p>
         </section>
 
         <section id="problem-faq" className="scroll-mt-36">
@@ -289,10 +286,10 @@ export default function LegalProblemDetail() {
             {isRTL ? "أرسل الوقائع والمستندات الأساسية عبر واتساب أو البريد الإلكتروني. تؤكد كاونسلو النطاق والرسوم والمخرج قبل بدء العمل المدفوع." : "Send the key facts and documents through WhatsApp, email or the consultation form. CounselO confirms scope, fee and deliverable before paid work begins."}
           </p>
           <div className="mt-7 flex flex-wrap gap-4">
-            <Link href={`${regionPrefix}/contact?service=${id}`} className="inline-flex items-center gap-2 bg-white px-5 py-3 font-semibold text-primary hover:bg-white/90">
+            <Link href={`${regionPrefix}/contact?service=${id}`} data-cta="contact" data-conversion-position="problem-contact" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex items-center gap-2 bg-white px-5 py-3 font-semibold text-primary hover:bg-white/90">
               <MessageSquareText size={18} /> {isRTL ? "نموذج التواصل" : "Contact form"}
             </Link>
-            <a href="https://wa.me/966594850247" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/50 px-5 py-3 font-semibold hover:bg-white/10">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-cta="whatsapp" data-conversion-position="problem-contact" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex items-center gap-2 border border-white/50 px-5 py-3 font-semibold hover:bg-white/10">
               <Phone size={18} /> WhatsApp
             </a>
           </div>
@@ -325,7 +322,7 @@ export default function LegalProblemDetail() {
                 <li className="flex items-center gap-3"><ShieldCheck className="h-4 w-4 text-[#d5ae5d]" />{isRTL ? "النطاق والرسوم قبل العمل" : "Scope and fee confirmed first"}</li>
                 <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-[#d5ae5d]" />{isRTL ? "استجابة مستهدفة خلال 24 ساعة" : "Target response within 24 hours"}</li>
               </ul>
-              <Link href={`${regionPrefix}/contact?service=${id}`} data-cta="contact" className="block w-full bg-[#d5ae5d] px-5 py-4 text-center font-bold text-[#0d3e2a] transition-colors hover:bg-[#e0bd73]">
+              <Link href={`${regionPrefix}/contact?service=${id}`} data-cta="contact" data-conversion-position="problem-sidebar" data-region={region} data-lang={isRTL ? "ar" : "en"} className="block w-full bg-[#d5ae5d] px-5 py-4 text-center font-bold text-[#0d3e2a] transition-colors hover:bg-[#e0bd73]">
                 {isRTL ? "اطلب مراجعة قانونية" : "Request a legal review"}
               </Link>
               <div className="mt-6 space-y-3 border-t border-white/12 pt-6 text-sm text-white/80">

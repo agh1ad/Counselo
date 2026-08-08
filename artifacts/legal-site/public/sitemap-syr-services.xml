@@ -250,6 +250,8 @@
     <xhtml:link rel="alternate" hreflang="ar-SA" href="https://counselo-legal.com/sa/ar/services/banking-finance"/>
     <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr/services/banking-finance"/>
     <xhtml:link rel="alternate" hreflang="ar-SY" href="https://counselo-legal.com/syr/ar/services/banking-finance"/>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/banking-finance"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/banking-finance"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -261,6 +263,8 @@
     <xhtml:link rel="alternate" hreflang="ar-SA" href="https://counselo-legal.com/sa/ar/services/banking-finance"/>
     <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr/services/banking-finance"/>
     <xhtml:link rel="alternate" hreflang="ar-SY" href="https://counselo-legal.com/syr/ar/services/banking-finance"/>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/banking-finance"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/banking-finance"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -272,6 +276,8 @@
     <xhtml:link rel="alternate" hreflang="ar-SA" href="https://counselo-legal.com/sa/ar/services/intellectual-property"/>
     <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr/services/intellectual-property"/>
     <xhtml:link rel="alternate" hreflang="ar-SY" href="https://counselo-legal.com/syr/ar/services/intellectual-property"/>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/intellectual-property"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/intellectual-property"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -283,6 +289,8 @@
     <xhtml:link rel="alternate" hreflang="ar-SA" href="https://counselo-legal.com/sa/ar/services/intellectual-property"/>
     <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr/services/intellectual-property"/>
     <xhtml:link rel="alternate" hreflang="ar-SY" href="https://counselo-legal.com/syr/ar/services/intellectual-property"/>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/intellectual-property"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/intellectual-property"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -647,6 +655,42 @@
 
   </url>
 <url>
+    <loc>https://counselo-legal.com/syr/services/family-law/marriage-registration-and-family-status-certificate-problem</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/family-law/marriage-registration-and-family-status-certificate-problem"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/family-law/marriage-registration-and-family-status-certificate-problem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/family-law/marriage-registration-and-family-status-certificate-problem"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/family-law/marriage-registration-and-family-status-certificate-problem</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/family-law/marriage-registration-and-family-status-certificate-problem"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/family-law/marriage-registration-and-family-status-certificate-problem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/family-law/marriage-registration-and-family-status-certificate-problem"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/family-law/inheritance-document-and-civil-record-correction</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/family-law/inheritance-document-and-civil-record-correction"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/family-law/inheritance-document-and-civil-record-correction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/family-law/inheritance-document-and-civil-record-correction"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/family-law/inheritance-document-and-civil-record-correction</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/family-law/inheritance-document-and-civil-record-correction"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/family-law/inheritance-document-and-civil-record-correction"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/family-law/inheritance-document-and-civil-record-correction"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
     <loc>https://counselo-legal.com/syr/services/employment-law/wrongful-termination</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/employment-law/wrongful-termination"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/employment-law/wrongful-termination"/>
@@ -876,6 +920,60 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/employment-law/work-permit-or-employment-status-problem"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/employment-law/work-permit-or-employment-status-problem"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/employment-law/work-permit-or-employment-status-problem"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/employment-law/employment-settlement-and-final-dues-calculation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/employment-law/employment-settlement-and-final-dues-calculation"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/employment-law/employment-settlement-and-final-dues-calculation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/employment-law/employment-settlement-and-final-dues-calculation"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/employment-law/employment-settlement-and-final-dues-calculation</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/employment-law/employment-settlement-and-final-dues-calculation"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/employment-law/employment-settlement-and-final-dues-calculation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/employment-law/employment-settlement-and-final-dues-calculation"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/employment-law/work-permit-residency-or-employment-status-problem</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/employment-law/work-permit-residency-or-employment-status-problem"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/employment-law/work-permit-residency-or-employment-status-problem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/employment-law/work-permit-residency-or-employment-status-problem"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/employment-law/work-permit-residency-or-employment-status-problem</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/employment-law/work-permit-residency-or-employment-status-problem"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/employment-law/work-permit-residency-or-employment-status-problem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/employment-law/work-permit-residency-or-employment-status-problem"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
 
@@ -1380,6 +1478,42 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/real-estate/property-possession-and-handover-dispute"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/real-estate/property-possession-and-handover-dispute"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/real-estate/property-possession-and-handover-dispute"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/real-estate/landlord-or-tenant-notice-and-settlement-problem</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/real-estate/landlord-or-tenant-notice-and-settlement-problem"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/real-estate/landlord-or-tenant-notice-and-settlement-problem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/real-estate/landlord-or-tenant-notice-and-settlement-problem"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/real-estate/landlord-or-tenant-notice-and-settlement-problem</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/real-estate/landlord-or-tenant-notice-and-settlement-problem"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/real-estate/landlord-or-tenant-notice-and-settlement-problem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/real-estate/landlord-or-tenant-notice-and-settlement-problem"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/real-estate/property-service-charge-and-maintenance-dispute</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/real-estate/property-service-charge-and-maintenance-dispute"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/real-estate/property-service-charge-and-maintenance-dispute"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/real-estate/property-service-charge-and-maintenance-dispute"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/real-estate/property-service-charge-and-maintenance-dispute</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/real-estate/property-service-charge-and-maintenance-dispute"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/real-estate/property-service-charge-and-maintenance-dispute"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/real-estate/property-service-charge-and-maintenance-dispute"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
 
@@ -2141,6 +2275,42 @@
 
   </url>
 <url>
+    <loc>https://counselo-legal.com/syr/services/enforcement/bounced-cheque-defence-and-criminal-complaint-concern</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/enforcement/bounced-cheque-defence-and-criminal-complaint-concern"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/enforcement/bounced-cheque-defence-and-criminal-complaint-concern"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/enforcement/bounced-cheque-defence-and-criminal-complaint-concern"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/enforcement/bounced-cheque-defence-and-criminal-complaint-concern</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/enforcement/bounced-cheque-defence-and-criminal-complaint-concern"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/enforcement/bounced-cheque-defence-and-criminal-complaint-concern"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/enforcement/bounced-cheque-defence-and-criminal-complaint-concern"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/enforcement/wrongful-debt-collection-or-creditor-harassment-complaint</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/enforcement/wrongful-debt-collection-or-creditor-harassment-complaint"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/enforcement/wrongful-debt-collection-or-creditor-harassment-complaint"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/enforcement/wrongful-debt-collection-or-creditor-harassment-complaint"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/enforcement/wrongful-debt-collection-or-creditor-harassment-complaint</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/enforcement/wrongful-debt-collection-or-creditor-harassment-complaint"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/enforcement/wrongful-debt-collection-or-creditor-harassment-complaint"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/enforcement/wrongful-debt-collection-or-creditor-harassment-complaint"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
     <loc>https://counselo-legal.com/syr/services/companies-law/company-formation-and-restructuring</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/companies-law/company-formation-and-restructuring"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/companies-law/company-formation-and-restructuring"/>
@@ -2496,6 +2666,114 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/contracts/contract-authentication-and-evidence-problem"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/contracts/contract-authentication-and-evidence-problem"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/contracts/contract-authentication-and-evidence-problem"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/contracts/legal-notice-and-demand-letter-drafting</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/contracts/legal-notice-and-demand-letter-drafting"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/contracts/legal-notice-and-demand-letter-drafting"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/contracts/legal-notice-and-demand-letter-drafting"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/contracts/legal-notice-and-demand-letter-drafting</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/contracts/legal-notice-and-demand-letter-drafting"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/contracts/legal-notice-and-demand-letter-drafting"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/contracts/legal-notice-and-demand-letter-drafting"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/contracts/power-of-attorney-drafting-and-authority-problem</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/contracts/power-of-attorney-drafting-and-authority-problem"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/contracts/power-of-attorney-drafting-and-authority-problem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/contracts/power-of-attorney-drafting-and-authority-problem"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/contracts/power-of-attorney-drafting-and-authority-problem</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/contracts/power-of-attorney-drafting-and-authority-problem"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/contracts/power-of-attorney-drafting-and-authority-problem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/contracts/power-of-attorney-drafting-and-authority-problem"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/contracts/document-attestation-and-legalisation-problem</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/contracts/document-attestation-and-legalisation-problem"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/contracts/document-attestation-and-legalisation-problem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/contracts/document-attestation-and-legalisation-problem"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/contracts/document-attestation-and-legalisation-problem</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/contracts/document-attestation-and-legalisation-problem"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/contracts/document-attestation-and-legalisation-problem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/contracts/document-attestation-and-legalisation-problem"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/contracts/consumer-refund-and-purchase-cancellation-dispute</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/contracts/consumer-refund-and-purchase-cancellation-dispute"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/contracts/consumer-refund-and-purchase-cancellation-dispute"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/contracts/consumer-refund-and-purchase-cancellation-dispute"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/contracts/consumer-refund-and-purchase-cancellation-dispute</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/contracts/consumer-refund-and-purchase-cancellation-dispute"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/contracts/consumer-refund-and-purchase-cancellation-dispute"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/contracts/consumer-refund-and-purchase-cancellation-dispute"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/contracts/defective-product-and-consumer-compensation-claim</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/contracts/defective-product-and-consumer-compensation-claim"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/contracts/defective-product-and-consumer-compensation-claim"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/contracts/defective-product-and-consumer-compensation-claim"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/contracts/defective-product-and-consumer-compensation-claim</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/contracts/defective-product-and-consumer-compensation-claim"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/contracts/defective-product-and-consumer-compensation-claim"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/contracts/defective-product-and-consumer-compensation-claim"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/contracts/unpaid-professional-fees-and-service-invoice-dispute</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/contracts/unpaid-professional-fees-and-service-invoice-dispute"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/contracts/unpaid-professional-fees-and-service-invoice-dispute"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/contracts/unpaid-professional-fees-and-service-invoice-dispute"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/contracts/unpaid-professional-fees-and-service-invoice-dispute</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/contracts/unpaid-professional-fees-and-service-invoice-dispute"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/contracts/unpaid-professional-fees-and-service-invoice-dispute"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/contracts/unpaid-professional-fees-and-service-invoice-dispute"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
 
@@ -3221,6 +3499,42 @@
 
   </url>
 <url>
+    <loc>https://counselo-legal.com/syr/services/tax-zakat/corporate-tax-registration-and-filing-problem</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/tax-zakat/corporate-tax-registration-and-filing-problem"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/tax-zakat/corporate-tax-registration-and-filing-problem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/tax-zakat/corporate-tax-registration-and-filing-problem"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/tax-zakat/corporate-tax-registration-and-filing-problem</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/tax-zakat/corporate-tax-registration-and-filing-problem"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/tax-zakat/corporate-tax-registration-and-filing-problem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/tax-zakat/corporate-tax-registration-and-filing-problem"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/tax-zakat/vat-invoice-and-tax-correction-dispute</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/tax-zakat/vat-invoice-and-tax-correction-dispute"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/tax-zakat/vat-invoice-and-tax-correction-dispute"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/tax-zakat/vat-invoice-and-tax-correction-dispute"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/tax-zakat/vat-invoice-and-tax-correction-dispute</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/tax-zakat/vat-invoice-and-tax-correction-dispute"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/tax-zakat/vat-invoice-and-tax-correction-dispute"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/tax-zakat/vat-invoice-and-tax-correction-dispute"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
     <loc>https://counselo-legal.com/syr/services/cyber-law/cybercrime-allegations-and-defence</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/cyber-law/cybercrime-allegations-and-defence"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/cyber-law/cybercrime-allegations-and-defence"/>
@@ -3378,6 +3692,42 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/cyber-law/online-defamation-and-removal-request-in-syria"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/cyber-law/online-defamation-and-removal-request-in-syria"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/cyber-law/online-defamation-and-removal-request-in-syria"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/cyber-law/personal-data-access-correction-or-deletion-request</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/cyber-law/personal-data-access-correction-or-deletion-request"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/cyber-law/personal-data-access-correction-or-deletion-request"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/cyber-law/personal-data-access-correction-or-deletion-request"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/cyber-law/personal-data-access-correction-or-deletion-request</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/cyber-law/personal-data-access-correction-or-deletion-request"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/cyber-law/personal-data-access-correction-or-deletion-request"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/cyber-law/personal-data-access-correction-or-deletion-request"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/cyber-law/online-account-recovery-and-platform-complaint</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/cyber-law/online-account-recovery-and-platform-complaint"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/cyber-law/online-account-recovery-and-platform-complaint"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/cyber-law/online-account-recovery-and-platform-complaint"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/cyber-law/online-account-recovery-and-platform-complaint</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/cyber-law/online-account-recovery-and-platform-complaint"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/cyber-law/online-account-recovery-and-platform-complaint"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/cyber-law/online-account-recovery-and-platform-complaint"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
 
@@ -3720,6 +4070,42 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/insurance-law/traffic-accident-compensation-and-fault-dispute-in-syria"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/insurance-law/traffic-accident-compensation-and-fault-dispute-in-syria"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/insurance-law/traffic-accident-compensation-and-fault-dispute-in-syria"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/insurance-law/traffic-accident-compensation-and-liability-claim</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/insurance-law/traffic-accident-compensation-and-liability-claim"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/insurance-law/traffic-accident-compensation-and-liability-claim"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/insurance-law/traffic-accident-compensation-and-liability-claim"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/insurance-law/traffic-accident-compensation-and-liability-claim</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/insurance-law/traffic-accident-compensation-and-liability-claim"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/insurance-law/traffic-accident-compensation-and-liability-claim"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/insurance-law/traffic-accident-compensation-and-liability-claim"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/services/insurance-law/personal-injury-compensation-after-an-accident</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/insurance-law/personal-injury-compensation-after-an-accident"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/insurance-law/personal-injury-compensation-after-an-accident"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/insurance-law/personal-injury-compensation-after-an-accident"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/syr/ar/services/insurance-law/personal-injury-compensation-after-an-accident</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/syr/services/insurance-law/personal-injury-compensation-after-an-accident"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/syr/ar/services/insurance-law/personal-injury-compensation-after-an-accident"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/syr/services/insurance-law/personal-injury-compensation-after-an-accident"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
 

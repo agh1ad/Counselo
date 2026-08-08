@@ -87,7 +87,7 @@ export const enUae = {
       bio4: "He has trained and supervised more than 40 lawyers. CounselO applies that senior review discipline to its UAE consultation process while avoiding any implication that an online consultation alone constitutes local court representation.",
       credentials: [
         "Graduate, Faculty of Law — Damascus University (1996)",
-        "Licensed Lawyer in Syria — License No. 289",
+        "Regional legal leadership; local representation separately scoped",
         "Holder of the title \"Ustaz\" (Senior Counsel), conferred by the Syrian Bar Association",
         "30+ years of regional legal experience",
         "20,000+ regional cases and consultations",
@@ -209,11 +209,11 @@ export const enUae = {
     },
     testimonials: {
       ...en.home.testimonials,
-      heading: "Built for UAE Clients",
+      heading: "Transparent scope across the UAE",
       items: [
-        { quote: "The team separated the mainland licensing issue from the free-zone contract question and gave us a clear action list.", author: "Corporate Client", title: "Dubai, UAE" },
-        { quote: "I could send the tenancy documents online and understand the practical options before taking the next step.", author: "Individual Client", title: "Abu Dhabi, UAE" },
-        { quote: "The bilingual explanation made a complex employment matter much easier for our management team to handle.", author: "Business Client", title: "Sharjah, UAE" },
+        { quote: "Consultation begins with the relevant Emirate, authority, framework and documents.", author: "Scope", title: "Jurisdiction-first review" },
+        { quote: "Published work samples are redacted and illustrative; they do not promise a result for a new matter.", author: "Evidence", title: "Confidentiality protected" },
+        { quote: "Filing, attendance or representation is separately scoped with a licensed professional when required.", author: "Engagement", title: "Clear professional boundaries" },
       ],
     },
     cta: {

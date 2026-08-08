@@ -18,6 +18,7 @@ import {
   UAE_SERVICES,
   type UaeLegalService,
 } from "@/data/uae-legal-services";
+import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod";
 
 const WHATSAPP = "https://wa.me/966594850247";
 const EMAIL = "mailto:info@counselo-legal.com";
@@ -102,11 +103,12 @@ function LegalServiceSchema({ service, lang }: { service: UaeLegalService; lang:
         {
           "@context": "https://schema.org",
           "@type": "Service",
+          "@id": `https://counselo-legal.com/#uae-service-${service.slug}`,
           name: service.title[lang],
           description: service.overview[lang],
           url: `https://counselo-legal.com${regionPrefix}/services/${service.slug}`,
           areaServed: { "@type": "Country", name: "United Arab Emirates" },
-          provider: { "@type": "LegalService", name: "CounselO", url: "https://counselo-legal.com/uae" },
+          provider: { "@id": COUNSELO_ENTITY_IDS.organization },
           availableLanguage: ["Arabic", "English"],
         },
         {

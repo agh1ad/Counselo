@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, getConsultationProduct, OMAR_AL_BAGHDADI, type Region } from "@workspace/api-zod";
 import { Helmet } from "react-helmet-async";
 import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowRight, MessageCircle, CheckCircle2, Award, Mail, Phone } from "lucide-react";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { useEffect } from "react";
+import { REGIONAL_SERVICE_CLUSTERS, REGION_ORDER } from "@/lib/regional-service-catalog";
 
 const counseloLogo = "/images/optimized/counselo-region-logo.png";
 const saudiFlag = "/images/optimized/saudi-arabia-flag.jpg";
@@ -150,32 +151,6 @@ const faqSchema = {
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 
-const SERVICES = [
-  { slug: "family-law",            en: "Family Law" },
-  { slug: "employment-law",        en: "Employment Law" },
-  { slug: "real-estate",           en: "Real Estate Law" },
-  { slug: "business-law",          en: "Business Law" },
-  { slug: "foreign-investment",    en: "Foreign Investment" },
-  { slug: "criminal-law",          en: "Criminal Law" },
-  { slug: "administrative-law",    en: "Administrative Law" },
-  { slug: "contracts",             en: "Contracts" },
-  { slug: "arbitration",           en: "Arbitration & Mediation" },
-  { slug: "companies-law",         en: "Companies Law" },
-  { slug: "banking-finance",       en: "Banking & Finance" },
-  { slug: "intellectual-property", en: "Intellectual Property" },
-  { slug: "tax-zakat",             en: "Tax & Zakat" },
-  { slug: "cyber-law",             en: "Cyber & IT Law" },
-  { slug: "medical-malpractice",   en: "Medical Malpractice" },
-  { slug: "insurance-law",         en: "Insurance Law" },
-  { slug: "enforcement",           en: "Enforcement & Debt Collection" },
-];
-
-const REGION_SERVICE_LINKS = [
-  { key: "sa", label: "SA", href: (slug: string) => `/sa/services/${slug}` },
-  { key: "syr", label: "SYR", href: (slug: string) => `/syr/services/${slug}` },
-  { key: "uae", label: "UAE", href: (slug: string) => `/uae/services/${slug}` },
-] as const;
-
 const FAQS = [
   { q: "What is CounselO?", a: "CounselO is an online legal consultation platform founded by Lawyer Omar Al-Baghdadi (30+ years of experience and 20,000+ matters handled). We provide bilingual, jurisdiction-specific legal guidance for the UAE, Saudi Arabia and Syria." },
   { q: "Which jurisdictions does CounselO cover?", a: "We provide country-specific services for the United Arab Emirates, Saudi Arabia and Syria. Each regional platform uses the legal concepts, authorities and procedures relevant to that jurisdiction." },
@@ -281,7 +256,7 @@ export default function RegionPicker() {
           <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
             <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
               <p className="mb-6 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">
-                Licensed Legal Counsel · UAE · Saudi Arabia · Syria
+                Jurisdiction-Scoped Legal Guidance · UAE · Saudi Arabia · Syria
               </p>
               <h1 className="font-serif text-[clamp(2.75rem,5.5vw,5.6rem)] font-semibold leading-[0.96] tracking-[-0.035em] text-white">
                 Online Legal
@@ -453,11 +428,11 @@ export default function RegionPicker() {
                   <ul className="space-y-3">
                     {[
                       "Graduate, Faculty of Law — Damascus University (1996)",
-                      "Licensed Lawyer, Syria — License No. 289",
+                      "Regional legal leadership; local representation separately scoped",
                       "Holder of the title \"Ustaz\" (Senior Counsel) — Syrian Bar Association",
-                      "Senior Advocate & Legal Counsel across Saudi Arabia, UAE and Syria",
+                      "Senior legal experience across Saudi Arabia, UAE and Syria",
                       "20,000+ cases across civil, commercial, administrative, arbitration and criminal law",
-                      "Mentor and supervisor to 40+ licensed lawyers across three jurisdictions",
+                      "Trained or supervised more than 40 lawyers",
                       "Son of Lawyer Riyad Al-Baghdadi, founder of Al-Baghdadi Law Firm (est. 1957)",
                       "Expert in cross-border disputes and multi-jurisdictional matters",
                     ].map((c, i) => (
@@ -518,15 +493,20 @@ export default function RegionPicker() {
           </motion.div>
 
           <div className="mb-12 grid grid-cols-2 border-s border-t border-[#0d4a31]/15 sm:grid-cols-3 lg:grid-cols-4">
-            {SERVICES.map(({ slug, en }, index) => {
+            {REGIONAL_SERVICE_CLUSTERS.map(({ clusterSlug, titleEn, services }, index) => {
               const Icon = serviceIcons[index] ?? Scale;
               return (
-                <motion.div key={slug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: (index % 8) * 0.05 }}
+                <motion.div key={clusterSlug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: (index % 8) * 0.05 }}
                   className="group min-h-40 border-b border-e border-[#0d4a31]/15 bg-white p-5 transition-colors hover:bg-[#eef4f0] lg:p-7">
                   <Icon className="mb-5 h-7 w-7 text-[#aa7e28] transition-transform duration-300 group-hover:-translate-y-1" strokeWidth={1.4} />
-                  <div className="mb-4 font-serif text-base font-semibold leading-snug text-[#0d4a31]">{en}</div>
+                  <div className="mb-4 font-serif text-base font-semibold leading-snug text-[#0d4a31]">{titleEn}</div>
                   <div className="flex gap-2 flex-wrap">
-                    {REGION_SERVICE_LINKS.map(({ key, label, href }) => <Link key={key} href={href(slug)} className="text-xs px-2 py-0.5 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors">{label}</Link>)}
+                    {REGION_ORDER.map((region: Region) => {
+                      const service = services[region];
+                      if (!service) return null;
+                      const label = region === "sa" ? "SA" : region === "syr" ? "SYR" : "UAE";
+                      return <Link key={region} href={`/${region}/services/${service.slug}`} className="text-xs px-2 py-0.5 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors">{label}</Link>;
+                    })}
                   </div>
                 </motion.div>
               );

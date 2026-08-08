@@ -113,6 +113,10 @@ function InteractionTracking() {
         click_text: label,
         link_url: href.slice(0, 300),
         outbound: Boolean(anchor?.origin && anchor.origin !== window.location.origin),
+        cta: element.dataset.cta,
+        conversion_position: element.dataset.conversionPosition,
+        region: element.dataset.region,
+        language: element.dataset.lang,
       };
       trackEvent("click", window.location.pathname, details);
       if (/wa\.me|whatsapp/i.test(href) || element.dataset.cta === "whatsapp") {

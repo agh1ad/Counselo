@@ -1,4 +1,5 @@
-import { getServicesForRegion } from "./region-services";
+import { getServicesForRegion, type Region } from "./region-services";
+import { REGIONAL_SEO_REGISTRY } from "./regional-seo";
 
 export const PUBLIC_BASE_URL = "https://counselo-legal.com";
 
@@ -11,14 +12,12 @@ export const PUBLIC_CACHE_POLICY = {
   notFound: "no-store",
 } as const;
 
-export const PUBLIC_REGION_PREFIXES = [
-  "/sa",
-  "/sa/ar",
-  "/syr",
-  "/syr/ar",
-  "/uae",
-  "/uae/ar",
-] as const;
+export const PUBLIC_REGION_PREFIXES = REGIONAL_SEO_REGISTRY.flatMap((entry) => [
+  entry.pathPrefix,
+  `${entry.pathPrefix}/ar`,
+]) as readonly string[];
+
+const REGION_PREFIX_PATTERN = REGIONAL_SEO_REGISTRY.map((entry) => entry.region).join("|");
 
 export const LEGACY_REDIRECTS = {
   regionalBlog: ["/sa/blog", "/syr/blog", "/sa/ar/blog", "/syr/ar/blog"],
@@ -31,41 +30,23 @@ export function routeToFlatFilename(route: string): string {
 }
 
 export function toArabicRoute(route: string): string {
-  const match = route.match(/^\/(sa|syr|uae)(.*)$/);
+  const match = route.match(new RegExp(`^/(${REGION_PREFIX_PATTERN})(.*)$`));
   if (!match) return route;
   return `/${match[1]}/ar${match[2]}`;
 }
 
 /** The complete build-time inventory for the public renderer. */
 export function getPublicRouteInventory(): string[] {
-  const serviceRoutes = (region: "sa" | "syr" | "uae") =>
-    getServicesForRegion(region).map((service) => `/${region}/services/${service.slug}`);
-  const englishRoutes = [
-    "/sa",
-    "/sa/services",
-    "/sa/about",
-    "/sa/vision",
-    "/sa/contact",
-    "/sa/terms-of-service",
-    "/sa/privacy-policy",
-    "/syr",
-    "/syr/services",
-    "/syr/about",
-    "/syr/vision",
-    "/syr/contact",
-    "/syr/terms-of-service",
-    "/syr/privacy-policy",
-    ...serviceRoutes("sa"),
-    ...serviceRoutes("syr"),
-    "/uae",
-    "/uae/services",
-    "/uae/about",
-    "/uae/vision",
-    "/uae/contact",
-    "/uae/terms-of-service",
-    "/uae/privacy-policy",
-    ...serviceRoutes("uae"),
-  ];
+  const englishRoutes = REGIONAL_SEO_REGISTRY.flatMap(({ region, pathPrefix }) => [
+    pathPrefix,
+    `${pathPrefix}/services`,
+    `${pathPrefix}/about`,
+    `${pathPrefix}/vision`,
+    `${pathPrefix}/contact`,
+    `${pathPrefix}/terms-of-service`,
+    `${pathPrefix}/privacy-policy`,
+    ...getServicesForRegion(region as Region).map((service) => `${pathPrefix}/services/${service.slug}`),
+  ]);
   return [
     "/",
     "/ar",
@@ -155,28 +136,33 @@ export function buildHreflangLinks(path: string): string[] {
   if (path === "/") {
     return [
       ["x-default", "/"],
-      ["en-SA", "/sa"],
-      ["ar-SA", "/sa/ar"],
-      ["en-SY", "/syr"],
-      ["ar-SY", "/syr/ar"],
-      ["en-AE", "/uae"],
-      ["ar-AE", "/uae/ar"],
+      ...REGIONAL_SEO_REGISTRY.flatMap((entry) => [
+        [entry.hreflang.en, entry.pathPrefix],
+        [entry.hreflang.ar, `${entry.pathPrefix}/ar`],
+      ]),
     ].map(([language, target]) => `${language}|${canonicalPublicUrl(target)}`);
   }
-  if (path.startsWith("/uae")) {
+  const regionMatch = path.match(new RegExp(`^/(${REGION_PREFIX_PATTERN})(/ar)?(?=/|$)`));
+  const currentRegion = regionMatch?.[1] as Region | undefined;
+  if (currentRegion === "uae") {
     const basePath = path.replace(/^\/uae(\/ar)?/, "");
+    const profile = REGIONAL_SEO_REGISTRY.find((entry) => entry.region === currentRegion)!;
     return [
-      ["en-AE", `/uae${basePath}`],
-      ["ar-AE", `/uae/ar${basePath}`],
+      [profile.hreflang.en, `/uae${basePath}`],
+      [profile.hreflang.ar, `/uae/ar${basePath}`],
       ["x-default", "/"],
     ].map(([language, target]) => `${language}|${canonicalPublicUrl(target)}`);
   }
-  const basePath = path.replace(/^\/(sa|syr)(\/ar)?/, "");
+  const basePath = path.replace(new RegExp(`^/(${REGION_PREFIX_PATTERN})(/ar)?`), "");
+  const serviceSlug = path.match(/\/services\/([^/]+)/)?.[1];
+  const eligibleRegions = serviceSlug
+    ? REGIONAL_SEO_REGISTRY.filter((entry) => entry.serviceSlugs.includes(serviceSlug))
+    : REGIONAL_SEO_REGISTRY.filter((entry) => entry.region === "sa" || entry.region === "syr");
   return [
-    ["en-SA", `/sa${basePath}`],
-    ["ar-SA", `/sa/ar${basePath}`],
-    ["en-SY", `/syr${basePath}`],
-    ["ar-SY", `/syr/ar${basePath}`],
+    ...eligibleRegions.flatMap((entry) => [
+      [entry.hreflang.en, `${entry.pathPrefix}${basePath}`],
+      [entry.hreflang.ar, `${entry.pathPrefix}/ar${basePath}`],
+    ]),
     ["x-default", "/"],
   ].map(([language, target]) => `${language}|${canonicalPublicUrl(target)}`);
 }

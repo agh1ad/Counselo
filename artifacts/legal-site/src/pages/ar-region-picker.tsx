@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, getConsultationProduct, OMAR_AL_BAGHDADI, type Region } from "@workspace/api-zod";
 import { Helmet } from "react-helmet-async";
 import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowLeft, MessageCircle, CheckCircle2, Award } from "lucide-react";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { useEffect } from "react";
+import { REGIONAL_SERVICE_CLUSTERS, REGION_ORDER } from "@/lib/regional-service-catalog";
 
 const counseloLogo = "/images/optimized/counselo-region-logo.png";
 const saudiFlag = "/images/optimized/saudi-arabia-flag.jpg";
@@ -101,32 +102,6 @@ const faqSchema = {
 };
 
 // ── Data ──────────────────────────────────────────────────────────────────────
-
-const SERVICES = [
-  { slug: "family-law",            ar: "قانون الأسرة" },
-  { slug: "employment-law",        ar: "قانون العمل" },
-  { slug: "real-estate",           ar: "القانون العقاري" },
-  { slug: "business-law",          ar: "القانون التجاري" },
-  { slug: "foreign-investment",    ar: "الاستثمار الأجنبي" },
-  { slug: "criminal-law",          ar: "القانون الجنائي" },
-  { slug: "administrative-law",    ar: "القانون الإداري" },
-  { slug: "contracts",             ar: "العقود" },
-  { slug: "arbitration",           ar: "التحكيم والوساطة" },
-  { slug: "companies-law",         ar: "قانون الشركات" },
-  { slug: "banking-finance",       ar: "البنوك والتمويل" },
-  { slug: "intellectual-property", ar: "الملكية الفكرية" },
-  { slug: "tax-zakat",             ar: "الضرائب والزكاة" },
-  { slug: "cyber-law",             ar: "قانون الإنترنت والتقنية" },
-  { slug: "medical-malpractice",   ar: "الأخطاء الطبية" },
-  { slug: "insurance-law",         ar: "قانون التأمين" },
-  { slug: "enforcement",           ar: "التنفيذ وتحصيل الديون" },
-];
-
-const REGION_SERVICE_LINKS = [
-  { key: "sa", label: "السعودية", href: (slug: string) => `/sa/ar/services/${slug}` },
-  { key: "syr", label: "سوريا", href: (slug: string) => `/syr/ar/services/${slug}` },
-  { key: "uae", label: "الإمارات", href: (slug: string) => `/uae/ar/services/${slug}` },
-] as const;
 
 const FAQS = [
   { q: "ما هو كاونسلو؟", a: "كاونسلو منصة استشارات قانونية إلكترونية يقودها المحامي عمر البغدادي بخبرة تزيد على 30 عاماً وأكثر من 20,000 قضية واستشارة. نقدم إرشاداً قانونياً محدد الاختصاص في الإمارات والسعودية وسوريا." },
@@ -439,11 +414,11 @@ export default function ArRegionPicker() {
                   <ul className="space-y-3">
                     {[
                       "خريج كلية الحقوق — جامعة دمشق (1996)",
-                      "محامٍ مرخّص في سوريا — رقم الترخيص 289",
+                      "قيادة قانونية إقليمية؛ ويُحدد التمثيل المحلي بشكل مستقل",
                       "حاصل على لقب «الأستاذ» من نقابة المحامين في سوريا",
                       "محامٍ أول ومستشار قانوني في المملكة والإمارات وسوريا",
                       "أكثر من 20,000 قضية واستشارة في القانون المدني والتجاري والإداري والجزائي والتحكيم",
-                      "أشرف على تأهيل أكثر من 40 محامياً مرخصاً في ثلاث ولايات قضائية",
+                      "درّب أو أشرف على أكثر من 40 محامياً",
                       "نجل المحامي رياض البغدادي، مؤسس مكتب البغدادي للمحاماة (تأسس 1957)",
                       "خبير في النزاعات العابرة للحدود والقضايا متعددة الولايات",
                     ].map((c, i) => (
@@ -471,15 +446,20 @@ export default function ArRegionPicker() {
           </motion.div>
 
           <div className="mb-12 grid grid-cols-2 border-e border-t border-[#0d4a31]/15 sm:grid-cols-3 lg:grid-cols-4">
-            {SERVICES.map(({ slug, ar }, index) => {
+            {REGIONAL_SERVICE_CLUSTERS.map(({ clusterSlug, titleAr, services }, index) => {
               const Icon = serviceIcons[index] ?? Scale;
               return (
-                <motion.div key={slug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: (index % 8) * 0.05 }}
+                <motion.div key={clusterSlug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: (index % 8) * 0.05 }}
                   className="group min-h-40 border-b border-s border-[#0d4a31]/15 bg-white p-5 transition-colors hover:bg-[#eef4f0] lg:p-7">
                   <Icon className="mb-5 h-7 w-7 text-[#aa7e28] transition-transform duration-300 group-hover:-translate-y-1" strokeWidth={1.4} />
-                  <div className="mb-4 font-serif text-base font-semibold leading-snug text-[#0d4a31]">{ar}</div>
+                  <div className="mb-4 font-serif text-base font-semibold leading-snug text-[#0d4a31]">{titleAr}</div>
                   <div className="flex gap-2 flex-wrap">
-                    {REGION_SERVICE_LINKS.map(({ key, label, href }) => <Link key={key} href={href(slug)} className="text-xs px-2 py-0.5 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors">{label}</Link>)}
+                    {REGION_ORDER.map((region: Region) => {
+                      const service = services[region];
+                      if (!service) return null;
+                      const label = region === "sa" ? "السعودية" : region === "syr" ? "سوريا" : "الإمارات";
+                      return <Link key={region} href={`/${region}/ar/services/${service.slug}`} className="text-xs px-2 py-0.5 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors">{label}</Link>;
+                    })}
                   </div>
                 </motion.div>
               );

@@ -12,7 +12,7 @@ test("articles default to safe professional commentary", () => {
   assert.equal(provenance.contentType, "professional-commentary");
   assert.equal(provenance.jurisdiction, undefined);
   assert.equal(provenance.primaryAuthorName, "CounselO Legal team");
-  assert.equal(provenance.legalReviewerName, "Lawyer and Legal Consultant Omar Al-Baghdadi");
+  assert.equal(provenance.legalReviewerName, "Lawyer and Legal Counsel Omar Al-Baghdadi");
   assert.equal(provenance.lastSubstantiveReviewAt, "2025-01-10");
   assert.equal(provenance.sources.length, 0);
   assert.ok(provenance.correctionUrl.includes("article-correction"));
@@ -27,7 +27,7 @@ test("legal guidance requires an explicit content type", () => {
   });
   assert.equal(provenance.jurisdiction, "sa");
   assert.equal(provenance.sources[0]?.href, "https://rega.gov.sa/");
-  assert.equal(provenance.legalReviewerName, "Lawyer and Legal Consultant Omar Al-Baghdadi");
+  assert.equal(provenance.legalReviewerName, "Lawyer and Legal Counsel Omar Al-Baghdadi");
 });
 
 test("provenance assigns jurisdiction-specific sources and labels", () => {

@@ -1,14 +1,14 @@
 # CounselO SEO Validation Report
 
-_Generated: 2026-08-08 04:43:10 UTC_
+_Generated: 2026-08-08 21:21:06 UTC_
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| Pages validated | 1466 |
+| Pages validated | 1598 |
 | Redirect pages  | 42 |
-| ✅ Clean pages  | 1466 |
+| ✅ Clean pages  | 1598 |
 | ⚠️  Warn-only pages | 0 |
 | ❌ Error pages  | 0 |
 | Total errors    | 0 |
@@ -17,7 +17,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 
 > ✅ **No errors found.** All pages pass critical SEO checks.
 
-## ✅ Clean Pages (1466)
+## ✅ Clean Pages (1598)
 
 - `/` — schemas: WebSite, Organization, FAQPage
 - `/ar` — schemas: WebSite, Organization, FAQPage
@@ -77,7 +77,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/about` — schemas: Organization, Person, ProfilePage,WebPage, LegalService, LegalService, LegalService
 - `/sa/ar` — schemas: LegalService, BreadcrumbList
 - `/sa/ar/about` — schemas: Organization, Person, ProfilePage,WebPage, LegalService, LegalService, LegalService
-- `/sa/ar/contact` — schemas: ContactPage, LegalService, BreadcrumbList
+- `/sa/ar/contact` — schemas: ContactPage, Organization, BreadcrumbList
 - `/sa/ar/privacy-policy` — schemas: WebPage, BreadcrumbList
 - `/sa/ar/services` — schemas: CollectionPage, ItemList, LegalService, BreadcrumbList
 - `/sa/ar/services/administrative-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
@@ -145,16 +145,22 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/ar/services/companies-law/shareholder-exit-and-buyout-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/contracts` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/sa/ar/services/contracts/breach-of-contract` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/contracts/consumer-refund-and-purchase-cancellation-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/contracts/contract-drafting-and-review` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/contracts/contract-evidence-and-electronic-messages` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/contracts/defective-goods-and-non-conforming-delivery` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/contracts/defective-product-and-consumer-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/contracts/document-attestation-and-contract-authentication-problem` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/contracts/document-attestation-and-legalisation-problem` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/contracts/legal-notice-and-demand-letter-drafting` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/contracts/negotiation-and-enforcement` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/contracts/penalty-and-compensation-clauses` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/contracts/power-of-attorney-drafting-and-authority-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/contracts/power-of-attorney-drafting-and-authority-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/contracts/service-agreement-breach` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/contracts/supply-contract-non-delivery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/contracts/termination-and-cancellation` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/contracts/unpaid-professional-fees-and-service-invoice-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/criminal-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/sa/ar/services/criminal-law/arrest-and-detention-concerns` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/criminal-law/breach-of-trust-complaint-or-defence` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -175,7 +181,9 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/ar/services/cyber-law/data-protection-incidents` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/cyber-law/digital-evidence-and-platform-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/cyber-law/hacked-account-and-unauthorized-access` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/cyber-law/online-account-recovery-and-platform-complaint` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/cyber-law/online-defamation-and-removal-request` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/cyber-law/personal-data-access-correction-or-deletion-request` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/cyber-law/personal-data-breach-response` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/cyber-law/unauthorized-access-and-account-misuse` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/employment-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
@@ -184,6 +192,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/ar/services/employment-law/disciplinary-warning-and-workplace-investigation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/employment-law/employment-contract-review` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/employment-law/employment-dispute-after-resignation-or-job-transfer` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/employment-law/employment-settlement-and-final-dues-calculation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/employment-law/end-of-service-entitlements` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/employment-law/experience-certificate-and-service-transfer-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/employment-law/gosi-registration-or-contribution-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -192,13 +201,16 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/ar/services/employment-law/sick-leave-and-annual-leave-entitlement-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/employment-law/sponsorship-transfer-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/employment-law/unpaid-wages-and-benefits` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/employment-law/work-injury-and-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/employment-law/work-permit-residency-or-employment-status-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/employment-law/workplace-and-disciplinary-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/employment-law/workplace-discrimination-and-harassment-complaint` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/employment-law/wrongful-termination` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/enforcement` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/sa/ar/services/enforcement/asset-tracing-and-debtor-investigation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/enforcement/bank-account-and-salary-seizure-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/enforcement/bounced-cheque-defence-and-criminal-complaint-concern` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/enforcement/bounced-cheque-execution` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/enforcement/commercial-debt-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/enforcement/enforcement-objections-and-settlement` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -211,6 +223,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/ar/services/enforcement/service-suspension-and-asset-freezing-request` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/enforcement/travel-ban-application-for-debt-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/enforcement/unpaid-invoices-and-payment-claims` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/enforcement/wrongful-debt-collection-or-creditor-harassment-complaint` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/family-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/sa/ar/services/family-law/alimony-and-child-maintenance` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/family-law/child-custody-and-visitation` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -219,9 +232,11 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/ar/services/family-law/divorce-and-separation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/family-law/domestic-violence-protection-and-family-safety-application` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/family-law/inheritance-and-family-settlements` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/family-law/inheritance-document-and-civil-record-correction` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/family-law/khul-and-marriage-annulment-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/family-law/marital-status-document-and-record-correction` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/family-law/marriage-and-personal-status-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/family-law/marriage-registration-and-family-status-certificate-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/family-law/paternity-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/family-law/recognition-of-foreign-family-judgments` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/family-law/visitation-order-enforcement` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -242,7 +257,9 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/ar/services/insurance-law/delayed-insurance-settlement` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/insurance-law/denied-insurance-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/insurance-law/insurer-and-broker-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/insurance-law/personal-injury-compensation-after-an-accident` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/insurance-law/policy-coverage-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/insurance-law/traffic-accident-compensation-and-liability-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/insurance-law/traffic-accident-liability-and-compensation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/insurance-law/traffic-report-and-fault-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/insurance-law/uninsured-accident-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -270,12 +287,14 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/ar/services/real-estate/eviction-notice-and-eviction-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/real-estate/expropriation-and-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/real-estate/foreign-property-ownership-eligibility-problem` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/real-estate/landlord-or-tenant-notice-and-settlement-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/real-estate/lease-and-eviction-matters` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/real-estate/mortgage-financing-and-property-lien-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/real-estate/off-plan-property-purchase-and-developer-delay-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/real-estate/property-encroachment-and-boundary-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/real-estate/property-handover-and-defects-after-purchase` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/real-estate/property-ownership-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/real-estate/property-service-charge-and-maintenance-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/real-estate/registration-and-title-problems` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/real-estate/sale-and-purchase-contract-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/real-estate/security-deposit-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -283,6 +302,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/ar/services/real-estate/unpaid-rent-and-rental-payment-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/tax-zakat` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/sa/ar/services/tax-zakat/business-tax-compliance` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/tax-zakat/corporate-tax-registration-and-filing-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/tax-zakat/customs-penalty-challenge` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/tax-zakat/objections-and-appeals` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/tax-zakat/tax-and-zakat-assessments` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -290,13 +310,14 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/ar/services/tax-zakat/tax-certificate-and-clearance-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/tax-zakat/tax-penalties-and-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/tax-zakat/vat-and-customs-issues` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/ar/services/tax-zakat/vat-invoice-and-tax-correction-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/tax-zakat/vat-penalty-and-late-registration-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/tax-zakat/vat-refund-and-registration-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/tax-zakat/withholding-tax-assessment-and-objection` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/services/tax-zakat/zatca-e-invoicing-compliance-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/ar/terms-of-service` — schemas: WebPage, BreadcrumbList
 - `/sa/ar/vision` — schemas: AboutPage, Organization, Person, BreadcrumbList
-- `/sa/contact` — schemas: ContactPage, LegalService, BreadcrumbList
+- `/sa/contact` — schemas: ContactPage, Organization, BreadcrumbList
 - `/sa/privacy-policy` — schemas: WebPage, BreadcrumbList
 - `/sa/services` — schemas: CollectionPage, ItemList, LegalService, BreadcrumbList
 - `/sa/services/administrative-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
@@ -364,16 +385,22 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/services/companies-law/shareholder-exit-and-buyout-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/contracts` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/sa/services/contracts/breach-of-contract` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/contracts/consumer-refund-and-purchase-cancellation-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/contracts/contract-drafting-and-review` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/contracts/contract-evidence-and-electronic-messages` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/contracts/defective-goods-and-non-conforming-delivery` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/contracts/defective-product-and-consumer-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/contracts/document-attestation-and-contract-authentication-problem` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/contracts/document-attestation-and-legalisation-problem` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/contracts/legal-notice-and-demand-letter-drafting` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/contracts/negotiation-and-enforcement` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/contracts/penalty-and-compensation-clauses` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/contracts/power-of-attorney-drafting-and-authority-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/contracts/power-of-attorney-drafting-and-authority-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/contracts/service-agreement-breach` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/contracts/supply-contract-non-delivery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/contracts/termination-and-cancellation` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/contracts/unpaid-professional-fees-and-service-invoice-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/criminal-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/sa/services/criminal-law/arrest-and-detention-concerns` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/criminal-law/breach-of-trust-complaint-or-defence` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -394,7 +421,9 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/services/cyber-law/data-protection-incidents` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/cyber-law/digital-evidence-and-platform-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/cyber-law/hacked-account-and-unauthorized-access` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/cyber-law/online-account-recovery-and-platform-complaint` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/cyber-law/online-defamation-and-removal-request` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/cyber-law/personal-data-access-correction-or-deletion-request` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/cyber-law/personal-data-breach-response` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/cyber-law/unauthorized-access-and-account-misuse` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/employment-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
@@ -403,6 +432,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/services/employment-law/disciplinary-warning-and-workplace-investigation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/employment-law/employment-contract-review` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/employment-law/employment-dispute-after-resignation-or-job-transfer` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/employment-law/employment-settlement-and-final-dues-calculation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/employment-law/end-of-service-entitlements` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/employment-law/experience-certificate-and-service-transfer-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/employment-law/gosi-registration-or-contribution-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -411,13 +441,16 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/services/employment-law/sick-leave-and-annual-leave-entitlement-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/employment-law/sponsorship-transfer-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/employment-law/unpaid-wages-and-benefits` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/employment-law/work-injury-and-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/employment-law/work-permit-residency-or-employment-status-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/employment-law/workplace-and-disciplinary-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/employment-law/workplace-discrimination-and-harassment-complaint` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/employment-law/wrongful-termination` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/enforcement` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/sa/services/enforcement/asset-tracing-and-debtor-investigation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/enforcement/bank-account-and-salary-seizure-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/enforcement/bounced-cheque-defence-and-criminal-complaint-concern` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/enforcement/bounced-cheque-execution` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/enforcement/commercial-debt-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/enforcement/enforcement-objections-and-settlement` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -430,6 +463,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/services/enforcement/service-suspension-and-asset-freezing-request` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/enforcement/travel-ban-application-for-debt-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/enforcement/unpaid-invoices-and-payment-claims` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/enforcement/wrongful-debt-collection-or-creditor-harassment-complaint` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/family-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/sa/services/family-law/alimony-and-child-maintenance` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/family-law/child-custody-and-visitation` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -438,9 +472,11 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/services/family-law/divorce-and-separation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/family-law/domestic-violence-protection-and-family-safety-application` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/family-law/inheritance-and-family-settlements` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/family-law/inheritance-document-and-civil-record-correction` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/family-law/khul-and-marriage-annulment-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/family-law/marital-status-document-and-record-correction` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/family-law/marriage-and-personal-status-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/family-law/marriage-registration-and-family-status-certificate-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/family-law/paternity-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/family-law/recognition-of-foreign-family-judgments` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/family-law/visitation-order-enforcement` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -461,7 +497,9 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/services/insurance-law/delayed-insurance-settlement` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/insurance-law/denied-insurance-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/insurance-law/insurer-and-broker-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/insurance-law/personal-injury-compensation-after-an-accident` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/insurance-law/policy-coverage-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/insurance-law/traffic-accident-compensation-and-liability-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/insurance-law/traffic-accident-liability-and-compensation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/insurance-law/traffic-report-and-fault-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/insurance-law/uninsured-accident-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -489,12 +527,14 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/services/real-estate/eviction-notice-and-eviction-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/real-estate/expropriation-and-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/real-estate/foreign-property-ownership-eligibility-problem` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/real-estate/landlord-or-tenant-notice-and-settlement-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/real-estate/lease-and-eviction-matters` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/real-estate/mortgage-financing-and-property-lien-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/real-estate/off-plan-property-purchase-and-developer-delay-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/real-estate/property-encroachment-and-boundary-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/real-estate/property-handover-and-defects-after-purchase` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/real-estate/property-ownership-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/real-estate/property-service-charge-and-maintenance-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/real-estate/registration-and-title-problems` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/real-estate/sale-and-purchase-contract-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/real-estate/security-deposit-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -502,6 +542,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/services/real-estate/unpaid-rent-and-rental-payment-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/tax-zakat` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/sa/services/tax-zakat/business-tax-compliance` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/tax-zakat/corporate-tax-registration-and-filing-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/tax-zakat/customs-penalty-challenge` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/tax-zakat/objections-and-appeals` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/tax-zakat/tax-and-zakat-assessments` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -509,6 +550,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/sa/services/tax-zakat/tax-certificate-and-clearance-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/tax-zakat/tax-penalties-and-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/tax-zakat/vat-and-customs-issues` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/sa/services/tax-zakat/vat-invoice-and-tax-correction-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/tax-zakat/vat-penalty-and-late-registration-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/tax-zakat/vat-refund-and-registration-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/sa/services/tax-zakat/withholding-tax-assessment-and-objection` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -519,7 +561,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/about` — schemas: Organization, Person, ProfilePage,WebPage, LegalService, LegalService, LegalService
 - `/syr/ar` — schemas: LegalService, BreadcrumbList
 - `/syr/ar/about` — schemas: Organization, Person, ProfilePage,WebPage, LegalService, LegalService, LegalService
-- `/syr/ar/contact` — schemas: ContactPage, LegalService, BreadcrumbList
+- `/syr/ar/contact` — schemas: ContactPage, Organization, BreadcrumbList
 - `/syr/ar/privacy-policy` — schemas: WebPage, BreadcrumbList
 - `/syr/ar/services` — schemas: CollectionPage, ItemList, LegalService, BreadcrumbList
 - `/syr/ar/services/administrative-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
@@ -604,15 +646,21 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/ar/services/contracts` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/syr/ar/services/contracts/breach-of-contract` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/contracts/commercial-contract-dispute-under-syrian-law` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/contracts/consumer-refund-and-purchase-cancellation-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/contracts/contract-authentication-and-evidence-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/contracts/contract-drafting-and-review` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/contracts/contract-evidence-and-electronic-messages` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/contracts/defective-goods-and-non-conforming-delivery` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/contracts/defective-product-and-consumer-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/contracts/document-attestation-and-legalisation-problem` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/contracts/legal-notice-and-demand-letter-drafting` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/contracts/negotiation-and-enforcement` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/contracts/penalty-and-compensation-clauses` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/contracts/power-of-attorney-drafting-and-authority-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/contracts/service-agreement-breach` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/contracts/supply-contract-non-delivery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/contracts/termination-and-cancellation` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/contracts/unpaid-professional-fees-and-service-invoice-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/criminal-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/syr/ar/services/criminal-law/arrest-and-detention-concerns` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/criminal-law/criminal-case-settlement-and-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -642,26 +690,32 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/ar/services/cyber-law/data-protection-incidents` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/cyber-law/digital-evidence-and-platform-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/cyber-law/hacked-account-and-unauthorized-access` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/cyber-law/online-account-recovery-and-platform-complaint` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/cyber-law/online-defamation-and-removal-request` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/cyber-law/online-defamation-and-removal-request-in-syria` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/cyber-law/personal-data-access-correction-or-deletion-request` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/cyber-law/personal-data-breach-response` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/cyber-law/unauthorized-access-and-account-misuse` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/employment-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/syr/ar/services/employment-law/delayed-or-unpaid-salary` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/employment-law/disciplinary-warning-and-workplace-investigation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/employment-law/employment-contract-review` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/employment-law/employment-settlement-and-final-dues-calculation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/employment-law/employment-termination-and-labour-record-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/employment-law/end-of-service-entitlements` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/employment-law/experience-certificate-and-service-transfer-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/employment-law/resignation-because-of-unpaid-wages` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/employment-law/sponsorship-transfer-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/employment-law/unpaid-wages-and-benefits` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/employment-law/work-injury-and-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/employment-law/work-permit-or-employment-status-problem` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/employment-law/work-permit-residency-or-employment-status-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/employment-law/workplace-and-disciplinary-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/employment-law/wrongful-termination` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/enforcement` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/syr/ar/services/enforcement/asset-tracing-and-debtor-investigation` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/enforcement/bounced-cheque-defence-and-criminal-complaint-concern` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/enforcement/bounced-cheque-execution` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/enforcement/commercial-debt-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/enforcement/enforcement-objections-and-settlement` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -673,6 +727,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/ar/services/enforcement/service-suspension-and-asset-freezing-request` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/enforcement/travel-ban-application-for-debt-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/enforcement/unpaid-invoices-and-payment-claims` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/enforcement/wrongful-debt-collection-or-creditor-harassment-complaint` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/family-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/syr/ar/services/family-law/alimony-and-child-maintenance` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/family-law/child-custody-and-visitation` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -680,7 +735,9 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/ar/services/family-law/divorce-and-separation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/family-law/family-status-document-or-civil-record-correction` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/family-law/inheritance-and-family-settlements` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/family-law/inheritance-document-and-civil-record-correction` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/family-law/marriage-and-personal-status-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/family-law/marriage-registration-and-family-status-certificate-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/family-law/paternity-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/family-law/recognition-and-enforcement-of-a-syrian-family-judgment` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/family-law/recognition-of-foreign-family-judgments` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -703,8 +760,10 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/ar/services/insurance-law/denied-insurance-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/insurance-law/insurance-claim-dispute-with-a-syrian-insurer` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/insurance-law/insurer-and-broker-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/insurance-law/personal-injury-compensation-after-an-accident` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/insurance-law/policy-coverage-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/insurance-law/traffic-accident-compensation-and-fault-dispute-in-syria` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/insurance-law/traffic-accident-compensation-and-liability-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/insurance-law/traffic-accident-liability-and-compensation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/insurance-law/traffic-report-and-fault-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/insurance-law/uninsured-accident-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -735,10 +794,12 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/ar/services/real-estate/eviction-notice-and-eviction-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/real-estate/expropriation-and-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/real-estate/land-registry-and-title-record-correction` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/real-estate/landlord-or-tenant-notice-and-settlement-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/real-estate/lease-and-eviction-matters` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/real-estate/property-encroachment-and-boundary-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/real-estate/property-ownership-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/real-estate/property-possession-and-handover-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/real-estate/property-service-charge-and-maintenance-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/real-estate/registration-and-title-problems` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/real-estate/sale-and-purchase-contract-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/real-estate/security-deposit-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -746,6 +807,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/ar/services/real-estate/unpaid-rent-and-rental-payment-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/tax-zakat` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/syr/ar/services/tax-zakat/business-tax-compliance` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/tax-zakat/corporate-tax-registration-and-filing-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/tax-zakat/customs-penalty-challenge` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/tax-zakat/customs-valuation-or-penalty-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/tax-zakat/objections-and-appeals` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -754,10 +816,11 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/ar/services/tax-zakat/tax-audit-and-assessment-objection` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/tax-zakat/tax-penalties-and-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/tax-zakat/vat-and-customs-issues` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/ar/services/tax-zakat/vat-invoice-and-tax-correction-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/services/tax-zakat/vat-refund-and-registration-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/ar/terms-of-service` — schemas: WebPage, BreadcrumbList
 - `/syr/ar/vision` — schemas: AboutPage, Organization, Person, BreadcrumbList
-- `/syr/contact` — schemas: ContactPage, LegalService, BreadcrumbList
+- `/syr/contact` — schemas: ContactPage, Organization, BreadcrumbList
 - `/syr/privacy-policy` — schemas: WebPage, BreadcrumbList
 - `/syr/services` — schemas: CollectionPage, ItemList, LegalService, BreadcrumbList
 - `/syr/services/administrative-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
@@ -842,15 +905,21 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/services/contracts` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/syr/services/contracts/breach-of-contract` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/contracts/commercial-contract-dispute-under-syrian-law` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/contracts/consumer-refund-and-purchase-cancellation-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/contracts/contract-authentication-and-evidence-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/contracts/contract-drafting-and-review` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/contracts/contract-evidence-and-electronic-messages` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/contracts/defective-goods-and-non-conforming-delivery` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/contracts/defective-product-and-consumer-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/contracts/document-attestation-and-legalisation-problem` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/contracts/legal-notice-and-demand-letter-drafting` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/contracts/negotiation-and-enforcement` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/contracts/penalty-and-compensation-clauses` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/contracts/power-of-attorney-drafting-and-authority-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/contracts/service-agreement-breach` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/contracts/supply-contract-non-delivery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/contracts/termination-and-cancellation` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/contracts/unpaid-professional-fees-and-service-invoice-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/criminal-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/syr/services/criminal-law/arrest-and-detention-concerns` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/criminal-law/criminal-case-settlement-and-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -880,26 +949,32 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/services/cyber-law/data-protection-incidents` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/cyber-law/digital-evidence-and-platform-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/cyber-law/hacked-account-and-unauthorized-access` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/cyber-law/online-account-recovery-and-platform-complaint` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/cyber-law/online-defamation-and-removal-request` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/cyber-law/online-defamation-and-removal-request-in-syria` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/cyber-law/personal-data-access-correction-or-deletion-request` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/cyber-law/personal-data-breach-response` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/cyber-law/unauthorized-access-and-account-misuse` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/employment-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/syr/services/employment-law/delayed-or-unpaid-salary` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/employment-law/disciplinary-warning-and-workplace-investigation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/employment-law/employment-contract-review` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/employment-law/employment-settlement-and-final-dues-calculation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/employment-law/employment-termination-and-labour-record-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/employment-law/end-of-service-entitlements` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/employment-law/experience-certificate-and-service-transfer-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/employment-law/resignation-because-of-unpaid-wages` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/employment-law/sponsorship-transfer-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/employment-law/unpaid-wages-and-benefits` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/employment-law/work-injury-and-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/employment-law/work-permit-or-employment-status-problem` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/employment-law/work-permit-residency-or-employment-status-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/employment-law/workplace-and-disciplinary-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/employment-law/wrongful-termination` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/enforcement` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/syr/services/enforcement/asset-tracing-and-debtor-investigation` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/enforcement/bounced-cheque-defence-and-criminal-complaint-concern` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/enforcement/bounced-cheque-execution` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/enforcement/commercial-debt-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/enforcement/enforcement-objections-and-settlement` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -911,6 +986,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/services/enforcement/service-suspension-and-asset-freezing-request` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/enforcement/travel-ban-application-for-debt-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/enforcement/unpaid-invoices-and-payment-claims` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/enforcement/wrongful-debt-collection-or-creditor-harassment-complaint` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/family-law` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/syr/services/family-law/alimony-and-child-maintenance` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/family-law/child-custody-and-visitation` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -918,7 +994,9 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/services/family-law/divorce-and-separation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/family-law/family-status-document-or-civil-record-correction` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/family-law/inheritance-and-family-settlements` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/family-law/inheritance-document-and-civil-record-correction` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/family-law/marriage-and-personal-status-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/family-law/marriage-registration-and-family-status-certificate-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/family-law/paternity-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/family-law/recognition-and-enforcement-of-a-syrian-family-judgment` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/family-law/recognition-of-foreign-family-judgments` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -941,8 +1019,10 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/services/insurance-law/denied-insurance-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/insurance-law/insurance-claim-dispute-with-a-syrian-insurer` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/insurance-law/insurer-and-broker-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/insurance-law/personal-injury-compensation-after-an-accident` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/insurance-law/policy-coverage-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/insurance-law/traffic-accident-compensation-and-fault-dispute-in-syria` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/insurance-law/traffic-accident-compensation-and-liability-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/insurance-law/traffic-accident-liability-and-compensation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/insurance-law/traffic-report-and-fault-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/insurance-law/uninsured-accident-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -973,10 +1053,12 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/services/real-estate/eviction-notice-and-eviction-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/real-estate/expropriation-and-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/real-estate/land-registry-and-title-record-correction` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/real-estate/landlord-or-tenant-notice-and-settlement-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/real-estate/lease-and-eviction-matters` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/real-estate/property-encroachment-and-boundary-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/real-estate/property-ownership-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/real-estate/property-possession-and-handover-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/real-estate/property-service-charge-and-maintenance-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/real-estate/registration-and-title-problems` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/real-estate/sale-and-purchase-contract-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/real-estate/security-deposit-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -984,6 +1066,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/services/real-estate/unpaid-rent-and-rental-payment-claim` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/tax-zakat` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/syr/services/tax-zakat/business-tax-compliance` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/tax-zakat/corporate-tax-registration-and-filing-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/tax-zakat/customs-penalty-challenge` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/tax-zakat/customs-valuation-or-penalty-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/tax-zakat/objections-and-appeals` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -992,6 +1075,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/syr/services/tax-zakat/tax-audit-and-assessment-objection` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/tax-zakat/tax-penalties-and-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/tax-zakat/vat-and-customs-issues` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/syr/services/tax-zakat/vat-invoice-and-tax-correction-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/services/tax-zakat/vat-refund-and-registration-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/syr/terms-of-service` — schemas: WebPage, BreadcrumbList
 - `/syr/vision` — schemas: AboutPage, Organization, Person, BreadcrumbList
@@ -999,7 +1083,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/about` — schemas: Organization, Person, ProfilePage,WebPage, LegalService, LegalService, LegalService
 - `/uae/ar` — schemas: LegalService, BreadcrumbList
 - `/uae/ar/about` — schemas: Organization, Person, ProfilePage,WebPage, LegalService, LegalService, LegalService
-- `/uae/ar/contact` — schemas: ContactPage, LegalService, BreadcrumbList
+- `/uae/ar/contact` — schemas: ContactPage, Organization, BreadcrumbList
 - `/uae/ar/privacy-policy` — schemas: WebPage, BreadcrumbList
 - `/uae/ar/services` — schemas: CollectionPage, ItemList, LegalService, BreadcrumbList
 - `/uae/ar/services/administrative-regulatory` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
@@ -1035,15 +1119,21 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/ar/services/commercial-contracts` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/ar/services/commercial-contracts/a-missed-notice-filing-objection-or-appeal-deadline-affecting-commercial-contracts` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/commercial-contracts/a-need-to-preserve-commercial-contracts-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/commercial-contracts/consumer-refund-and-purchase-cancellation-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/commercial-contracts/contract-evidence-and-electronic-messages` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/commercial-contracts/defective-goods-and-non-conforming-delivery` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/commercial-contracts/defective-product-and-consumer-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/commercial-contracts/document-attestation-and-legalisation-problem` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/commercial-contracts/legal-notice-and-demand-letter-drafting` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/commercial-contracts/missing-or-inconsistent-records-concerning-supply-services-and-distribution-agreements` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/commercial-contracts/potentially-conflicting-obligations-involving-good-faith-and-agreed-obligations` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/commercial-contracts/power-of-attorney-drafting-and-authority-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/commercial-contracts/service-agreement-breach` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/commercial-contracts/supply-contract-non-delivery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/commercial-contracts/uncertainty-about-the-application-of-civil-transactions-and-commercial-transactions-rules-to-the-facts` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/commercial-contracts/unclear-authority-court-or-forum-for-a-commercial-contracts-matter-in-the-uae` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/commercial-contracts/unpaid-business-invoice` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/commercial-contracts/unpaid-professional-fees-and-service-invoice-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/consumer-ecommerce` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/ar/services/consumer-ecommerce/a-missed-notice-filing-objection-or-appeal-deadline-affecting-consumer-e-commerce-digital-business` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/consumer-ecommerce/a-need-to-preserve-consumer-e-commerce-digital-business-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -1078,8 +1168,10 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/ar/services/employment-labour` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/ar/services/employment-labour/a-missed-notice-filing-objection-or-appeal-deadline-affecting-employment-labour-relations` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/employment-labour/a-need-to-preserve-employment-labour-relations-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/employment-labour/commission-and-bonus-payment-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/employment-labour/delayed-or-unpaid-salary` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/employment-labour/disciplinary-warning-and-workplace-investigation` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/employment-labour/end-of-service-benefits-and-final-settlement-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/employment-labour/experience-certificate-and-work-permit-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/employment-labour/missing-or-inconsistent-records-concerning-employment-contracts-and-handbooks` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/employment-labour/potentially-conflicting-obligations-involving-mohre-procedures` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -1088,10 +1180,12 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/ar/services/employment-labour/uncertainty-about-the-application-of-federal-labour-relations-framework-to-the-facts` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/employment-labour/unclear-authority-court-or-forum-for-a-employment-labour-relations-matter-in-the-uae` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/employment-labour/work-injury-and-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/employment-labour/wrongful-termination-and-labour-complaint` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/enforcement-debt-recovery` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/ar/services/enforcement-debt-recovery/a-missed-notice-filing-objection-or-appeal-deadline-affecting-enforcement-debt-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/enforcement-debt-recovery/a-need-to-preserve-enforcement-debt-recovery-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/enforcement-debt-recovery/asset-tracing-and-debtor-investigation` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/enforcement-debt-recovery/bounced-cheque-defence-and-criminal-complaint-concern` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/enforcement-debt-recovery/bounced-cheque-execution` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/enforcement-debt-recovery/foreign-judgment-enforcement` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/enforcement-debt-recovery/missing-or-inconsistent-records-concerning-uae-judgment-enforcement` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -1101,10 +1195,16 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/ar/services/enforcement-debt-recovery/travel-ban-application-for-debt-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/enforcement-debt-recovery/uncertainty-about-the-application-of-execution-judge-and-enforceable-instruments-to-the-facts` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/enforcement-debt-recovery/unclear-authority-court-or-forum-for-a-enforcement-debt-recovery-matter-in-the-uae` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/enforcement-debt-recovery/wrongful-debt-collection-or-creditor-harassment-complaint` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/family-personal-status` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/ar/services/family-personal-status/a-missed-notice-filing-objection-or-appeal-deadline-affecting-family-personal-status` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/family-personal-status/a-need-to-preserve-family-personal-status-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/family-personal-status/alimony-and-child-maintenance-claim` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/family-personal-status/child-custody-and-visitation-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/family-personal-status/child-relocation-and-travel-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/family-personal-status/divorce-filing-and-personal-status-procedure` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/family-personal-status/inheritance-document-and-civil-record-correction` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/family-personal-status/marriage-registration-and-certificate-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/family-personal-status/missing-or-inconsistent-records-concerning-marriage-and-marital-agreements` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/family-personal-status/paternity-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/family-personal-status/potentially-conflicting-obligations-involving-civil-personal-status-for-non-muslims` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -1135,12 +1235,15 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/ar/services/immigration-residency` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/ar/services/immigration-residency/a-missed-notice-filing-objection-or-appeal-deadline-affecting-entry-residency-immigration` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/immigration-residency/a-need-to-preserve-entry-residency-immigration-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/immigration-residency/emirates-id-and-residency-cancellation-problem` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/immigration-residency/entry-exit-and-travel-restriction-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/immigration-residency/missing-or-inconsistent-records-concerning-employment-and-investor-residence` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/immigration-residency/potentially-conflicting-obligations-involving-icp-and-gdrfa-processes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/immigration-residency/residence-ban-and-entry-restriction` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/immigration-residency/uncertainty-about-the-application-of-entry-and-residence-of-foreigners-law-to-the-facts` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/immigration-residency/unclear-authority-court-or-forum-for-a-entry-residency-immigration-matter-in-the-uae` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/immigration-residency/visa-cancellation-and-overstay-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/immigration-residency/visa-overstay-and-immigration-penalty-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/immigration-residency/work-permit-refusal-or-cancellation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/insolvency-restructuring` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/ar/services/insolvency-restructuring/a-missed-notice-filing-objection-or-appeal-deadline-affecting-financial-restructuring-bankruptcy` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -1200,11 +1303,14 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/ar/services/real-estate-construction/a-need-to-preserve-real-estate-construction-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/real-estate-construction/bounced-rental-cheque` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/real-estate-construction/construction-delay-and-defective-construction` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/real-estate-construction/dubai-tenancy-and-rera-rental-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/real-estate-construction/eviction-notice-and-eviction-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/real-estate-construction/expropriation-and-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/real-estate-construction/landlord-notice-and-tenant-settlement-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/real-estate-construction/missing-or-inconsistent-records-concerning-property-acquisition-and-due-diligence` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/real-estate-construction/potentially-conflicting-obligations-involving-registration-and-title-requirements` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/real-estate-construction/property-encroachment-and-boundary-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/real-estate-construction/property-service-charge-and-maintenance-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/real-estate-construction/security-deposit-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/real-estate-construction/title-deed-and-registration-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/real-estate-construction/uncertainty-about-the-application-of-emirate-level-land-rules-to-the-facts` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -1213,12 +1319,14 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/ar/services/tax-vat` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/ar/services/tax-vat/a-missed-notice-filing-objection-or-appeal-deadline-affecting-corporate-tax-vat-tax-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/tax-vat/a-need-to-preserve-corporate-tax-vat-tax-disputes-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/tax-vat/corporate-tax-registration-and-filing-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/tax-vat/customs-penalty-challenge` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/tax-vat/missing-or-inconsistent-records-concerning-corporate-tax-registration-and-scope` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/tax-vat/potentially-conflicting-obligations-involving-vat-and-tax-procedures` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/tax-vat/tax-audit-and-assessment-objection` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/tax-vat/uncertainty-about-the-application-of-federal-corporate-tax-to-the-facts` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/tax-vat/unclear-authority-court-or-forum-for-a-corporate-tax-vat-tax-disputes-matter-in-the-uae` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/ar/services/tax-vat/vat-invoice-and-tax-correction-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/tax-vat/vat-refund-and-registration-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/services/technology-data-protection` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/ar/services/technology-data-protection/a-missed-notice-filing-objection-or-appeal-deadline-affecting-technology-data-protection-cybercrime` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -1242,7 +1350,7 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/ar/services/wills-estates/unclear-authority-court-or-forum-for-a-wills-estates-succession-matter-in-the-uae` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/ar/terms-of-service` — schemas: WebPage, BreadcrumbList
 - `/uae/ar/vision` — schemas: AboutPage, Organization, Person, BreadcrumbList
-- `/uae/contact` — schemas: ContactPage, LegalService, BreadcrumbList
+- `/uae/contact` — schemas: ContactPage, Organization, BreadcrumbList
 - `/uae/privacy-policy` — schemas: WebPage, BreadcrumbList
 - `/uae/services` — schemas: CollectionPage, ItemList, LegalService, BreadcrumbList
 - `/uae/services/administrative-regulatory` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
@@ -1278,15 +1386,21 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/services/commercial-contracts` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/services/commercial-contracts/a-missed-notice-filing-objection-or-appeal-deadline-affecting-commercial-contracts` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/commercial-contracts/a-need-to-preserve-commercial-contracts-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/commercial-contracts/consumer-refund-and-purchase-cancellation-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/commercial-contracts/contract-evidence-and-electronic-messages` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/commercial-contracts/defective-goods-and-non-conforming-delivery` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/commercial-contracts/defective-product-and-consumer-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/commercial-contracts/document-attestation-and-legalisation-problem` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/commercial-contracts/legal-notice-and-demand-letter-drafting` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/commercial-contracts/missing-or-inconsistent-records-concerning-supply-services-and-distribution-agreements` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/commercial-contracts/potentially-conflicting-obligations-involving-good-faith-and-agreed-obligations` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/commercial-contracts/power-of-attorney-drafting-and-authority-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/commercial-contracts/service-agreement-breach` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/commercial-contracts/supply-contract-non-delivery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/commercial-contracts/uncertainty-about-the-application-of-civil-transactions-and-commercial-transactions-rules-to-the-facts` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/commercial-contracts/unclear-authority-court-or-forum-for-a-commercial-contracts-matter-in-the-uae` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/commercial-contracts/unpaid-business-invoice` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/commercial-contracts/unpaid-professional-fees-and-service-invoice-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/consumer-ecommerce` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/services/consumer-ecommerce/a-missed-notice-filing-objection-or-appeal-deadline-affecting-consumer-e-commerce-digital-business` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/consumer-ecommerce/a-need-to-preserve-consumer-e-commerce-digital-business-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -1321,8 +1435,10 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/services/employment-labour` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/services/employment-labour/a-missed-notice-filing-objection-or-appeal-deadline-affecting-employment-labour-relations` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/employment-labour/a-need-to-preserve-employment-labour-relations-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/employment-labour/commission-and-bonus-payment-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/employment-labour/delayed-or-unpaid-salary` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/employment-labour/disciplinary-warning-and-workplace-investigation` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/employment-labour/end-of-service-benefits-and-final-settlement-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/employment-labour/experience-certificate-and-work-permit-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/employment-labour/missing-or-inconsistent-records-concerning-employment-contracts-and-handbooks` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/employment-labour/potentially-conflicting-obligations-involving-mohre-procedures` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -1331,10 +1447,12 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/services/employment-labour/uncertainty-about-the-application-of-federal-labour-relations-framework-to-the-facts` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/employment-labour/unclear-authority-court-or-forum-for-a-employment-labour-relations-matter-in-the-uae` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/employment-labour/work-injury-and-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/employment-labour/wrongful-termination-and-labour-complaint` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/enforcement-debt-recovery` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/services/enforcement-debt-recovery/a-missed-notice-filing-objection-or-appeal-deadline-affecting-enforcement-debt-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/enforcement-debt-recovery/a-need-to-preserve-enforcement-debt-recovery-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/enforcement-debt-recovery/asset-tracing-and-debtor-investigation` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/enforcement-debt-recovery/bounced-cheque-defence-and-criminal-complaint-concern` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/enforcement-debt-recovery/bounced-cheque-execution` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/enforcement-debt-recovery/foreign-judgment-enforcement` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/enforcement-debt-recovery/missing-or-inconsistent-records-concerning-uae-judgment-enforcement` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -1344,10 +1462,16 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/services/enforcement-debt-recovery/travel-ban-application-for-debt-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/enforcement-debt-recovery/uncertainty-about-the-application-of-execution-judge-and-enforceable-instruments-to-the-facts` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/enforcement-debt-recovery/unclear-authority-court-or-forum-for-a-enforcement-debt-recovery-matter-in-the-uae` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/enforcement-debt-recovery/wrongful-debt-collection-or-creditor-harassment-complaint` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/family-personal-status` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/services/family-personal-status/a-missed-notice-filing-objection-or-appeal-deadline-affecting-family-personal-status` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/family-personal-status/a-need-to-preserve-family-personal-status-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/family-personal-status/alimony-and-child-maintenance-claim` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/family-personal-status/child-custody-and-visitation-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/family-personal-status/child-relocation-and-travel-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/family-personal-status/divorce-filing-and-personal-status-procedure` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/family-personal-status/inheritance-document-and-civil-record-correction` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/family-personal-status/marriage-registration-and-certificate-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/family-personal-status/missing-or-inconsistent-records-concerning-marriage-and-marital-agreements` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/family-personal-status/paternity-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/family-personal-status/potentially-conflicting-obligations-involving-civil-personal-status-for-non-muslims` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -1378,12 +1502,15 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/services/immigration-residency` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/services/immigration-residency/a-missed-notice-filing-objection-or-appeal-deadline-affecting-entry-residency-immigration` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/immigration-residency/a-need-to-preserve-entry-residency-immigration-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/immigration-residency/emirates-id-and-residency-cancellation-problem` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/immigration-residency/entry-exit-and-travel-restriction-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/immigration-residency/missing-or-inconsistent-records-concerning-employment-and-investor-residence` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/immigration-residency/potentially-conflicting-obligations-involving-icp-and-gdrfa-processes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/immigration-residency/residence-ban-and-entry-restriction` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/immigration-residency/uncertainty-about-the-application-of-entry-and-residence-of-foreigners-law-to-the-facts` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/immigration-residency/unclear-authority-court-or-forum-for-a-entry-residency-immigration-matter-in-the-uae` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/immigration-residency/visa-cancellation-and-overstay-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/immigration-residency/visa-overstay-and-immigration-penalty-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/immigration-residency/work-permit-refusal-or-cancellation` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/insolvency-restructuring` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/services/insolvency-restructuring/a-missed-notice-filing-objection-or-appeal-deadline-affecting-financial-restructuring-bankruptcy` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -1443,11 +1570,14 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/services/real-estate-construction/a-need-to-preserve-real-estate-construction-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/real-estate-construction/bounced-rental-cheque` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/real-estate-construction/construction-delay-and-defective-construction` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/real-estate-construction/dubai-tenancy-and-rera-rental-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/real-estate-construction/eviction-notice-and-eviction-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/real-estate-construction/expropriation-and-compensation-claim` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/real-estate-construction/landlord-notice-and-tenant-settlement-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/real-estate-construction/missing-or-inconsistent-records-concerning-property-acquisition-and-due-diligence` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/real-estate-construction/potentially-conflicting-obligations-involving-registration-and-title-requirements` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/real-estate-construction/property-encroachment-and-boundary-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/real-estate-construction/property-service-charge-and-maintenance-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/real-estate-construction/security-deposit-recovery` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/real-estate-construction/title-deed-and-registration-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/real-estate-construction/uncertainty-about-the-application-of-emirate-level-land-rules-to-the-facts` — schemas: WebPage, FAQPage, BreadcrumbList
@@ -1456,12 +1586,14 @@ _Generated: 2026-08-08 04:43:10 UTC_
 - `/uae/services/tax-vat` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/services/tax-vat/a-missed-notice-filing-objection-or-appeal-deadline-affecting-corporate-tax-vat-tax-disputes` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/tax-vat/a-need-to-preserve-corporate-tax-vat-tax-disputes-evidence-or-obtain-urgent-protection` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/tax-vat/corporate-tax-registration-and-filing-problem` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/tax-vat/customs-penalty-challenge` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/tax-vat/missing-or-inconsistent-records-concerning-corporate-tax-registration-and-scope` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/tax-vat/potentially-conflicting-obligations-involving-vat-and-tax-procedures` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/tax-vat/tax-audit-and-assessment-objection` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/tax-vat/uncertainty-about-the-application-of-federal-corporate-tax-to-the-facts` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/tax-vat/unclear-authority-court-or-forum-for-a-corporate-tax-vat-tax-disputes-matter-in-the-uae` — schemas: WebPage, FAQPage, BreadcrumbList
+- `/uae/services/tax-vat/vat-invoice-and-tax-correction-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/tax-vat/vat-refund-and-registration-dispute` — schemas: WebPage, FAQPage, BreadcrumbList
 - `/uae/services/technology-data-protection` — schemas: LegalService, BreadcrumbList, WebPage, FAQPage
 - `/uae/services/technology-data-protection/a-missed-notice-filing-objection-or-appeal-deadline-affecting-technology-data-protection-cybercrime` — schemas: WebPage, FAQPage, BreadcrumbList

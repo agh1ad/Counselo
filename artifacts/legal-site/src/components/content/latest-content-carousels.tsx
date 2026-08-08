@@ -168,7 +168,41 @@ export function LatestContentCarousels({
   const articleLabel = isArabic ? "أحدث المقالات" : "latest articles";
   const workLabel = isArabic ? "أحدث الأعمال" : "latest work";
 
-  if (latestPosts.length === 0 && latestWork.length === 0) return null;
+  if (latestPosts.length === 0 && latestWork.length === 0) {
+    return (
+      <section
+        className="border-y border-border bg-[#eef4f0] py-16 lg:py-20"
+        aria-labelledby={isArabic ? "latest-content-empty-heading-ar" : "latest-content-empty-heading"}
+      >
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a7735]">
+            {isArabic ? "محتوى كاونسلو" : "CounselO content"}
+          </p>
+          <h2
+            id={isArabic ? "latest-content-empty-heading-ar" : "latest-content-empty-heading"}
+            className="mb-5 font-serif text-4xl font-medium text-foreground md:text-5xl"
+          >
+            {isArabic ? "أحدث المقالات والأعمال القانونية" : "Latest legal articles and work"}
+          </h2>
+          <p className="mb-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            {isArabic
+              ? "استكشف المقالات القانونية ونماذج الأعمال المنشورة حديثاً من كاونسلو."
+              : "Explore CounselO's latest legal articles and published work samples."}
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/blog" className="inline-flex items-center gap-2 bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90">
+              {isArabic ? "أحدث المقالات" : "Latest articles"}
+              {isArabic ? <ArrowLeft className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
+            </Link>
+            <Link href="/our-work" className="inline-flex items-center gap-2 border border-primary/30 bg-white px-5 py-3 text-sm font-semibold text-primary hover:border-primary">
+              {isArabic ? "أحدث الأعمال" : "Latest our work"}
+              {isArabic ? <ArrowLeft className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
+            </Link>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section
