@@ -34,9 +34,9 @@ const CORE_PAGES_EN: CorePage[] = [
 ] as const;
 
 /**
- * The blog lives at a single, region-agnostic URL /blog (and /blog/:slug).
- * Listed separately so the sitemap emits it with x-default-only hreflang,
- * not with region-prefixed alternates that would redirect.
+ * The blog index remains region-agnostic at /blog. Individual posts use
+ * /blog/:slug until both language versions meet the bilingual quality gate;
+ * eligible posts use reciprocal /blog/en/:slug and /blog/ar/:slug URLs.
  */
 export const BLOG_BASE_PATH = "/blog";
 export const WORK_BASE_PATH = "/our-work";

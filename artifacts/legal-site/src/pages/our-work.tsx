@@ -7,6 +7,7 @@ import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized } from "@/lib/work-samples";
 import { fetchPublicJson } from "@/lib/public-api";
+import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod";
 
 declare global {
   interface Window {
@@ -70,8 +71,8 @@ export default function OurWork() {
       description: ui.intro,
       url: `https://counselo-legal.com${workBasePath}`,
       inLanguage: ar ? "ar" : "en",
-      isPartOf: { "@id": "https://counselo-legal.com/#website" },
-      about: { "@id": "https://counselo-legal.com/#organization" },
+      isPartOf: { "@id": COUNSELO_ENTITY_IDS.website },
+      about: { "@id": COUNSELO_ENTITY_IDS.organization },
     },
     {
       "@context": "https://schema.org",

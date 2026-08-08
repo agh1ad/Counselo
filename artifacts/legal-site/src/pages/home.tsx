@@ -9,6 +9,7 @@ import { LatestContentCarousels } from "@/components/content/latest-content-caro
 import { useEffect, useState } from "react";
 import type { Translations } from "@/contexts/LanguageContext";
 import type { Region } from "@/contexts/RegionContext";
+import { CONSULTATION_OPERATING_POLICY, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
 
 const fadeIn = {
   initial: false as const,
@@ -18,7 +19,6 @@ const fadeIn = {
 };
 
 const platformIcons = { wifi: Wifi, clock: Clock, lock: Lock, globe: Globe };
-const whyIcons = [Zap, ShieldCheck, Award, Globe];
 const clientIcons = [Users, Scale, Globe, BadgeCheck];
 const channelIcons = [MessageCircle, Mail];
 const trustIcons = [Award, Scale, Clock, Globe];
@@ -37,9 +37,13 @@ function RegionalReferenceHero({ h, regionPrefix, isRTL, region }: { h: Translat
       <div className="uae-reference-hero__ornament" aria-hidden="true" />
       <div className="uae-reference-hero__grid">
         <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="uae-reference-hero__copy">
+          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#d4af60]">{h.hero.badge}</p>
           <h1 id={`${region}-reference-title`}>{h.hero.h1a}<br /><em>{h.hero.h1b}</em></h1>
           <p className="uae-reference-hero__lede">{h.hero.desc} <strong>{h.hero.descBold}</strong></p>
           <p className="uae-reference-hero__support">{h.hero.subDesc}</p>
+          <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs font-medium text-white/75" aria-label={isRTL ? "مزايا الخدمة" : "Service highlights"}>
+            {h.hero.chips.slice(0, 4).map((chip) => <li key={chip}>{chip.replace(/^✓\s*/, "")}</li>)}
+          </ul>
           <div className="uae-reference-hero__actions">
             <Link href={`${regionPrefix}/contact`} className="uae-reference-button uae-reference-button--primary">{h.hero.bookBtn}<ArrowRight aria-hidden="true" /></Link>
             <Link href={`${regionPrefix}/services`} className="uae-reference-button uae-reference-button--secondary">{h.hero.servicesBtn}<ArrowRight aria-hidden="true" /></Link>
@@ -65,6 +69,7 @@ export default function Home() {
   const { region, regionPrefix } = useRegion();
   const h = t.home;
   const servicesAreaCount = t.services.items.length;
+  const comprehensiveConsultation = getConsultationProduct("comprehensive-consultation");
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [isTestimonialPaused, setIsTestimonialPaused] = useState(false);
 
@@ -85,28 +90,28 @@ export default function Home() {
   }, [h.testimonials.items.length, isTestimonialPaused]);
 
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-col">
       <SEOHead
         title={region === "uae"
-          ? (isRTL ? "منصة الإمارات للاستشارات القانونية الأونلاين" : "UAE Online Legal Consultation")
+          ? (isRTL ? "منصة الإمارات القانونية الإلكترونية | استشارات أونلاين" : "UAE Online Legal Platform | Legal Consultation")
           : region === "syr"
           ? (isRTL
             ? "منصة سوريا للاستشارات القانونية الأونلاين | استجابة خلال 24 ساعة"
-            : "Online Legal Consultation — Syria | Response Within 24 Hours")
+            : "Syria Online Legal Platform | Legal Consultation")
           : (isRTL
             ? "منصة المملكة للاستشارات القانونية الأونلاين | استجابة خلال 24 ساعة"
-            : "Online Legal Consultation — Saudi Arabia | Response Within 24 Hours")}
+            : "Saudi Arabia Online Legal Platform | Legal Consultation")}
         description={region === "uae"
           ? (isRTL
             ? `كاونسلو — استشارات قانونية أونلاين لمسائل الإمارات في ${servicesAreaCount} مجالاً قانونياً، وفق الإطار الاتحادي والمحلي وأنظمة البرّ الرئيسي والمناطق الحرة، بالعربية والإنجليزية.`
-            : `CounselO provides confidential online UAE legal consultation across ${servicesAreaCount} practice areas, covering federal, emirate-level, mainland and free-zone frameworks in Arabic and English.`)
+            : `CounselO is a bilingual online legal platform for UAE consultation, document review and structured guidance across ${servicesAreaCount} practice areas, covering federal, emirate-level, mainland and free-zone frameworks.`)
           : region === "syr"
           ? (isRTL
             ? `قانوني — منصة سوريا للاستشارات القانونية الأونلاين. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. ${servicesAreaCount} مجالاً قانونياً وفق القانون المدني السوري وقانون الشركات 29/2011 وقانون العمل 17/2010. خبرة تزيد على 30 عاماً، أكثر من 20,000 قضية. بإشراف المحامي عمر البغدادي. بالعربية والإنجليزية.`
-            : `CounselO is Syria's online legal consultation platform — professional legal response within 24 hours via WhatsApp or email. ${servicesAreaCount} practice areas under Syrian Civil Code, Companies Law 29/2011, Labour Law 17/2010, Personal Status Law. Founded by Lawyer Omar Al-Baghdadi. 30+ years experience, 20,000+ cases.`)
+            : `CounselO is Syria's online legal platform for consultation, document review and structured guidance — ${servicesAreaCount} practice areas under Syrian law, in Arabic and English. Target professional response within 24 hours, subject to scope and urgency.`)
           : (isRTL
             ? `قانوني — منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني للأفراد والشركات والمستثمرين. ${servicesAreaCount} مجالاً قانونياً، خبرة تزيد على 30 عاماً، أكثر من 20,000 قضية. بإشراف المحامي والمستشار القانوني عمر البغدادي. متاحة بالعربية والإنجليزية في الجبيل والرياض وجدة والدمام وجميع مناطق المملكة. رؤية 2030.`
-            : `CounselO is Saudi Arabia's online legal consultation platform — professional legal response within 24 hours via WhatsApp or email. ${servicesAreaCount} practice areas covering family law, commercial law, employment, real estate, foreign investment, administrative law, criminal law, banking, tax, and more. Founded by Lawyer and Legal Counsel Omar Al-Baghdadi. 30+ years experience, 20,000+ cases. Vision 2030 aligned.`)}
+            : `CounselO is Saudi Arabia's online legal platform for consultation, document review and structured guidance across ${servicesAreaCount} practice areas, covering family, commercial, employment, real estate, investment and administrative matters. Target professional response within 24 hours, subject to scope and urgency.`)}
         canonical="/"
         keywords={region === "uae"
           ? (isRTL
@@ -122,12 +127,13 @@ export default function Home() {
         schema={region === "uae" ? {
           "@context": "https://schema.org",
           "@type": "LegalService",
+          "@id": "https://counselo-legal.com/#uae-service-directory",
           "name": "CounselO UAE",
           "alternateName": "CounselO Online Legal Consultations — United Arab Emirates",
-          "description": isRTL ? "منصة استشارات قانونية أونلاين لمسائل الإمارات بالعربية والإنجليزية" : "Online legal consultation for UAE matters in Arabic and English",
+          "description": isRTL ? "منصة قانونية إلكترونية للاستشارات ومراجعة المستندات والإرشاد المنظم لمسائل الإمارات بالعربية والإنجليزية" : "Online legal platform for UAE consultation, document review and structured guidance in Arabic and English",
           "url": "https://counselo-legal.com/uae",
           "logo": { "@type": "ImageObject", "url": "https://counselo-legal.com/logo.png", "width": 512, "height": 512 },
-          "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
+          "founder": OMAR_AL_BAGHDADI,
           "areaServed": { "@type": "Country", "name": "United Arab Emirates" },
           "availableLanguage": ["Arabic", "English"],
           "serviceType": t.services.items.map((service) => service.title),
@@ -136,11 +142,12 @@ export default function Home() {
         } : region === "syr" ? {
           "@context": "https://schema.org",
           "@type": "LegalService",
+          "@id": "https://counselo-legal.com/#syr-service-directory",
           "name": "CounselO",
           "alternateName": "CounselO Online Legal Consultations",
           "description": isRTL
             ? `منصة سوريا للاستشارات القانونية الأونلاين — ${servicesAreaCount} مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي — خبرة أكثر من 30 عاماً في القانون السوري`
-            : `Syria's online legal consultation platform — ${servicesAreaCount} practice areas, professional response within 24 hours, founded by Lawyer Omar Al-Baghdadi — 30+ years Syrian law expertise`,
+            : `Syria's online legal platform — ${servicesAreaCount} practice areas for consultation, document review and structured guidance, with a target professional response within 24 hours subject to scope and urgency`,
           "url": "https://counselo-legal.com/syr",
           "logo": {
             "@type": "ImageObject",
@@ -149,9 +156,7 @@ export default function Home() {
             "height": 512,
           },
           "founder": {
-            "@type": "Person",
-            "name": "Omar Al-Baghdadi",
-            "jobTitle": "Lawyer and Legal Counsel",
+            ...OMAR_AL_BAGHDADI,
           },
           "address": {
             "@type": "PostalAddress",
@@ -180,11 +185,12 @@ export default function Home() {
         } : {
           "@context": "https://schema.org",
           "@type": "LegalService",
+          "@id": "https://counselo-legal.com/#sa-service-directory",
           "name": "CounselO",
           "alternateName": "CounselO Online Legal Consultations",
           "description": isRTL
             ? `منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين — ${servicesAreaCount} مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي`
-            : `Saudi Arabia's online legal consultation platform — ${servicesAreaCount} practice areas, professional response within 24 hours, founded by Lawyer Omar Al-Baghdadi`,
+            : `Saudi Arabia's online legal platform — ${servicesAreaCount} practice areas for consultation, document review and structured guidance, with a target professional response within 24 hours subject to scope and urgency`,
           "url": "https://counselo-legal.com/sa",
           "logo": {
             "@type": "ImageObject",
@@ -193,9 +199,7 @@ export default function Home() {
             "height": 512,
           },
           "founder": {
-            "@type": "Person",
-            "name": "Omar Al-Baghdadi",
-            "jobTitle": "Lawyer and Legal Counsel",
+            ...OMAR_AL_BAGHDADI,
           },
           "address": {
             "@type": "PostalAddress",
@@ -232,10 +236,66 @@ export default function Home() {
       />
 
       {/* ── HERO ── */}
-      <RegionalReferenceHero h={h} regionPrefix={regionPrefix} isRTL={isRTL} region={region} />
+      <div className="order-1"><RegionalReferenceHero h={h} regionPrefix={regionPrefix} isRTL={isRTL} region={region} /></div>
+
+      {/* ── ANSWER-FIRST REGIONAL SUMMARY ── */}
+      <section className="order-2 border-b border-border bg-white py-16 lg:py-20" aria-labelledby={`${region}-platform-summary`}>
+        <div className="mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
+          <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a7735]">{isRTL ? "نطاق الخدمة" : "Regional service scope"}</p>
+              <h2 id={`${region}-platform-summary`} className="text-3xl font-serif font-medium leading-tight text-foreground md:text-5xl">
+                {isRTL ? `منصة قانونية إلكترونية لمسائل ${region === "uae" ? "الإمارات" : region === "syr" ? "سوريا" : "السعودية"}` : `Online legal platform for ${region === "uae" ? "UAE" : region === "syr" ? "Syria" : "Saudi Arabia"} matters`}
+              </h2>
+            </div>
+            <div className="space-y-5 text-base leading-8 text-muted-foreground md:text-lg">
+              <p><strong className="text-foreground">{isRTL ? `كاونسلو تقدم استشارات قانونية أونلاين ومراجعة مستندات وإرشاداً مكتوباً وفق اختصاص ${region === "uae" ? "الإمارات" : region === "syr" ? "القانون السوري" : "القانون السعودي"}.` : `CounselO provides online legal consultation, document review and structured written guidance for ${region === "uae" ? "UAE" : region === "syr" ? "Syrian" : "Saudi"} matters.`}</strong> {isRTL ? "ابدأ بتحديد المسألة وإرسال المعلومات الأساسية بالعربية أو الإنجليزية." : "Start by describing the matter and sending the essential information in Arabic or English."}</p>
+              <p>{isRTL ? "يحدد الفريق القانون والجهة والنطاق المناسب قبل تأكيد العمل. وقت الاستجابة المهني مستهدف خلال 24 ساعة وفق نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوفر الخدمة." : "The team identifies the applicable law, authority and scope before confirming the work. A professional response is targeted within 24 hours, subject to scope, urgency, intake completeness and service availability."}</p>
+              <dl className="grid gap-3 sm:grid-cols-2">
+                {[
+                  [isRTL ? "الخدمات" : "Services", isRTL ? "استشارة · مراجعة مستندات · تحليل أولي · إرشاد مكتوب" : "Consultation · document review · preliminary analysis · written guidance"],
+                  [isRTL ? "اللغة" : "Language", isRTL ? "العربية والإنجليزية" : "Arabic and English"],
+                  [isRTL ? "الوصول" : "Access", isRTL ? "واتساب أو البريد الإلكتروني" : "WhatsApp or email"],
+                  [isRTL ? "التمثيل أمام المحاكم" : "Court representation", isRTL ? "إذا طُلب أو أصبح ضرورياً، يرتب بشكل مستقل عبر مهنيين شركاء أو مكاتب متعاونة مرخصة" : "If requested or necessary, arranged separately through licensed partner professionals or cooperating offices"],
+                ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b4924a] bg-[#f4f7f4] px-4 py-3"><dt className="text-xs font-semibold uppercase tracking-[0.12em] text-primary/70">{label}</dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {comprehensiveConsultation && (
+        <section className="order-3 border-b border-border bg-[#eef4f0] py-16 lg:py-20" aria-labelledby="regional-consultation-package-heading">
+          <div className="mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
+            <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
+              <div>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a7735]">{isRTL ? "حزمة الاستشارة" : "Consultation package"}</p>
+                <h2 id="regional-consultation-package-heading" className="text-3xl font-serif font-medium leading-tight text-foreground md:text-5xl">
+                  {isRTL ? comprehensiveConsultation.titleAr : comprehensiveConsultation.titleEn}
+                </h2>
+                <p className="mt-5 text-base leading-8 text-muted-foreground md:text-lg">{isRTL ? comprehensiveConsultation.summaryAr : comprehensiveConsultation.summaryEn}</p>
+              </div>
+              <div>
+                <ul className="grid gap-3 sm:grid-cols-2">
+                  {(isRTL ? comprehensiveConsultation.includesAr : comprehensiveConsultation.includesEn).map((item) => (
+                    <li key={item} className="flex items-start gap-3 border-s border-[#b4924a] bg-white px-4 py-3 text-sm leading-6 text-foreground">
+                      <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-primary" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-5 text-sm leading-7 text-muted-foreground">
+                  <strong className="text-foreground">{isRTL ? "النطاق والتكليف:" : "Scope and engagement:"}</strong>{" "}
+                  {isRTL ? `${CONSULTATION_OPERATING_POLICY.monitoringAr} ${CONSULTATION_OPERATING_POLICY.representationAr}` : `${CONSULTATION_OPERATING_POLICY.monitoringEn} ${CONSULTATION_OPERATING_POLICY.representationEn}`}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── STATS STRIP ── */}
-      <section className="relative py-10 lg:py-12 bg-[#003d22] text-white overflow-hidden">
+      <section className="order-4 relative py-10 lg:py-12 bg-[#003d22] text-white overflow-hidden" aria-label={isRTL ? "أرقام ونطاق الخدمة" : "Service credentials and scope"}>
         <div className="counselo-orbit counselo-orbit-stats" aria-hidden="true" />
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 divide-x rtl:divide-x-reverse divide-white/20">
@@ -256,7 +316,7 @@ export default function Home() {
       </section>
 
       {/* ── PLATFORM ADVANTAGES ── */}
-      <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
+      <section className="order-5 py-24 lg:py-32 bg-background relative overflow-hidden" aria-labelledby="platform-advantages-heading">
         <img
           src="/images/optimized/counselo-platform-line-art-v1.png"
           alt=""
@@ -270,7 +330,7 @@ export default function Home() {
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
           <motion.div {...fadeIn} className="max-w-2xl mb-16 lg:mb-24">
             <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{h.platform.eyebrow}</p>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">{h.platform.heading}</h2>
+            <h2 id="platform-advantages-heading" className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">{h.platform.heading}</h2>
             <div className="counselo-gold-rule mb-6" />
             <p className="text-muted-foreground text-lg leading-relaxed">{h.platform.subheading}</p>
           </motion.div>
@@ -296,7 +356,7 @@ export default function Home() {
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section className="py-24 lg:py-32 bg-[#003d22] text-white relative overflow-hidden">
+      <section className="order-6 py-24 lg:py-32 bg-[#003d22] text-white relative overflow-hidden" aria-labelledby="how-it-works-heading">
         <img
           src="/images/optimized/counselo-gold-legal-line-art-v1.png"
           alt=""
@@ -310,7 +370,7 @@ export default function Home() {
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
           <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
             <p className="text-[#d4af60] font-medium uppercase tracking-[0.18em] text-xs mb-3">{h.howItWorks.eyebrow}</p>
-            <h2 className="text-4xl md:text-5xl font-serif font-medium text-white mb-4">{h.howItWorks.heading}</h2>
+            <h2 id="how-it-works-heading" className="text-4xl md:text-5xl font-serif font-medium text-white mb-4">{h.howItWorks.heading}</h2>
             <div className="w-20 h-px bg-[#d4af60] mx-auto mb-6" />
             <p className="text-white/65 text-lg">{h.howItWorks.subheading}</p>
           </motion.div>
@@ -351,12 +411,12 @@ export default function Home() {
       </section>
 
       {/* ── CONSULTATION METHODS ── */}
-      <section className="py-24 lg:py-28 bg-white border-b border-border">
+      <section className="order-7 py-24 lg:py-28 bg-white border-b border-border" aria-labelledby="consultation-methods-heading">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
           <motion.div {...fadeIn} className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-20 mb-12 items-end">
             <div>
               <p className="text-[#9a7735] uppercase tracking-[0.18em] text-xs font-semibold mb-3">{h.consultMethods.eyebrow}</p>
-              <h2 className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5">{h.consultMethods.heading}</h2>
+              <h2 id="consultation-methods-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5">{h.consultMethods.heading}</h2>
               <div className="counselo-gold-rule" />
             </div>
             <p className="text-muted-foreground text-lg leading-relaxed">{h.consultMethods.intro}</p>
@@ -391,13 +451,13 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT / FOUNDER ── */}
-      <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
+      <section className="order-8 py-24 lg:py-32 bg-background relative overflow-hidden" aria-labelledby="about-founder-heading">
         <div className="counselo-orbit counselo-orbit-founder" aria-hidden="true" />
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-end">
             <motion.div {...fadeIn}>
               <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.about.eyebrow}</p>
-              <h2 className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6 leading-tight">{h.about.heading}</h2>
+              <h2 id="about-founder-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6 leading-tight">{h.about.heading}</h2>
               <div className="counselo-gold-rule mb-8" />
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">{h.about.p1}</p>
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">{h.about.p2}</p>
@@ -441,13 +501,13 @@ export default function Home() {
       </section>
 
       {/* ── COOPERATING OFFICE / PHYSICAL PRESENCE ── */}
-      <section className="py-24 lg:py-28 bg-white border-y border-border relative overflow-hidden">
+      <section className="order-9 py-24 lg:py-28 bg-white border-y border-border relative overflow-hidden" aria-labelledby="cooperation-heading">
         <div className="counselo-orbit counselo-orbit-section" aria-hidden="true" />
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
           <div className="grid lg:grid-cols-[0.78fr_1.22fr] gap-12 lg:gap-20 items-start">
             <motion.div {...fadeIn}>
               <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.cooperation.eyebrow}</p>
-              <h2 className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6 leading-tight">{h.cooperation.heading}</h2>
+              <h2 id="cooperation-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6 leading-tight">{h.cooperation.heading}</h2>
               <div className="counselo-gold-rule mb-8" />
               <p className="text-muted-foreground text-lg leading-relaxed">{h.cooperation.desc}</p>
             </motion.div>
@@ -489,11 +549,11 @@ export default function Home() {
       </section>
 
       {/* ── WHO WE SERVE ── */}
-      <section className="py-24 lg:py-32 bg-background border-b border-border">
+      <section className="order-10 py-24 lg:py-32 bg-background border-b border-border" aria-labelledby="who-we-serve-heading">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
           <motion.div {...fadeIn} className="max-w-3xl mb-16 lg:mb-20">
             <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.whoWeServe.eyebrow}</p>
-            <h2 className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5">{h.whoWeServe.heading}</h2>
+            <h2 id="who-we-serve-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5">{h.whoWeServe.heading}</h2>
             <div className="counselo-gold-rule mb-6" />
             <p className="text-muted-foreground text-lg leading-relaxed">{h.whoWeServe.subheading}</p>
           </motion.div>
@@ -519,13 +579,13 @@ export default function Home() {
       </section>
 
       {/* ── PRACTICE AREAS ── */}
-      <section className="py-24 lg:py-32 bg-background relative overflow-hidden">
+      <section className="order-11 py-24 lg:py-32 bg-background relative overflow-hidden" aria-labelledby="practice-areas-heading">
         <div className="counselo-orbit counselo-orbit-practice" aria-hidden="true" />
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
           <div className="grid lg:grid-cols-[0.72fr_1.28fr] gap-12 lg:gap-20">
             <motion.div {...fadeIn} className="lg:sticky lg:top-32 lg:self-start">
               <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.practiceAreas.eyebrow}</p>
-              <h2 className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5 leading-tight">{h.practiceAreas.heading}</h2>
+              <h2 id="practice-areas-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5 leading-tight">{h.practiceAreas.heading}</h2>
               <div className="counselo-gold-rule mb-7" />
               <p className="text-muted-foreground text-lg max-w-xl leading-relaxed">{h.practiceAreas.subheading}</p>
               <Link href={`${regionPrefix}/services`} className="inline-flex items-center gap-3 text-primary font-semibold mt-8 group">
@@ -559,41 +619,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── WHY ADLIX ── */}
-      <section className="py-24 lg:py-28 bg-[#003d22] text-white relative overflow-hidden">
-        <div className="counselo-orbit counselo-orbit-stats" aria-hidden="true" />
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
-          <motion.div {...fadeIn} className="max-w-3xl mb-16">
-            <p className="text-[#d4af60] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.whyAdlix.eyebrow}</p>
-            <h2 className="text-4xl md:text-5xl font-serif font-medium text-white mb-5">{h.whyAdlix.heading}</h2>
-            <div className="w-24 h-px bg-[#d4af60]" />
-          </motion.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 border-y border-white/20">
-            {h.whyAdlix.features.map((feature, i) => {
-              const Icon = whyIcons[i];
-              return (
-                <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="py-10 px-1 md:px-7 lg:px-8 first:ps-0 lg:border-e last:border-e-0 border-white/20">
-                  <div className="flex items-center justify-between mb-8">
-                    <div className="w-14 h-14 border border-[#d4af60]/50 flex items-center justify-center">
-                      <Icon className="h-7 w-7 text-[#d4af60]" strokeWidth={1.4} />
-                    </div>
-                    <span className="font-serif text-4xl text-[#d4af60]/75">0{i + 1}</span>
-                  </div>
-                  <h3 className="text-xl font-serif font-medium text-white mb-3">{feature.title}</h3>
-                  <p className="text-white/65 text-sm leading-relaxed">{feature.desc}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {region !== "uae" && <LatestContentCarousels isArabic={isRTL} region={region} />}
+      {region !== "uae" && <div className="order-12"><LatestContentCarousels isArabic={isRTL} region={region} /></div>}
 
       {/* UAE testimonials are withheld until region-specific reviews are verified. */}
       {region !== "uae" && <section
-        className="py-24 lg:py-32 bg-white border-y border-border relative overflow-hidden"
+        className="order-13 py-24 lg:py-32 bg-white border-y border-border relative overflow-hidden"
         onMouseEnter={() => setIsTestimonialPaused(true)}
         onMouseLeave={() => setIsTestimonialPaused(false)}
         onFocusCapture={() => setIsTestimonialPaused(true)}
@@ -653,7 +683,7 @@ export default function Home() {
       </section>}
 
       {/* ── CTA ── */}
-      <section className="py-20 lg:py-24 relative overflow-hidden bg-[#003d22]">
+      <section className="order-[14] py-20 lg:py-24 relative overflow-hidden bg-[#003d22]" aria-labelledby="regional-cta-heading">
         <img
           src="/images/optimized/counselo-gold-legal-line-art-v1.png"
           alt=""
@@ -668,7 +698,7 @@ export default function Home() {
           <motion.div {...fadeIn} className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-20 items-center">
             <div>
               <p className="text-[#d4af60] uppercase tracking-[0.18em] text-xs font-semibold mb-4">{h.cta.eyebrow}</p>
-              <h2 className="text-4xl md:text-5xl font-serif font-medium text-white mb-6 leading-tight">{h.cta.heading}</h2>
+              <h2 id="regional-cta-heading" className="text-4xl md:text-5xl font-serif font-medium text-white mb-6 leading-tight">{h.cta.heading}</h2>
               <p className="text-lg text-white/70 mb-4 max-w-3xl leading-relaxed">{h.cta.desc}</p>
               <p className="text-white/45 text-sm">{h.cta.subDesc}</p>
             </div>

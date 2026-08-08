@@ -167,7 +167,7 @@ export const en = {
       heading: "Fast. Reliable. Professional.",
       features: [
         { title: "Target Response Within 24 Hours", desc: "Submit your matter without an office visit. CounselO targets a professional response within 24 hours, subject to the matter's scope and urgency." },
-        { title: "Reliable & Confidential", desc: "Strict professional confidentiality on every matter. Your legal information is never shared." },
+        { title: "Professional Confidentiality", desc: "Information is handled confidentially under applicable professional, privacy and data-protection obligations, subject to legally required or permitted disclosures." },
         { title: "Team Led by a Senior Founder", desc: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi. His professional legal team operates under his direct supervision — ensuring senior-level quality on every matter." },
         { title: "Arabic & English", desc: "Fully bilingual consultations. Legal guidance in your preferred language, with no barriers." },
       ],
@@ -1713,7 +1713,7 @@ export const en = {
   contact: {
     hero: {
       heading: "Start Your Consultation",
-      subheading: "Describe your matter via WhatsApp or email and receive a structured legal response within 24 hours — from a team with 30+ years of experience and 20,000+ cases handled. Fully confidential.",
+      subheading: "Tell us what happened and what you need help with through WhatsApp or email. We review your request and target a professional response within 24 hours, subject to the matter and information provided.",
     },
     firmDetails: {
       heading: "Firm Details",
@@ -1762,8 +1762,8 @@ export const en = {
       uploadBtn: "Click to select files",
       uploadRemove: "Remove",
       submitBtn: "Submit Consultation Request",
-      disclaimer: "All submissions are confidential. A member of our team will respond within 24 hours.",
-      paymentNotice: "After reviewing your request, our team will contact you via WhatsApp to confirm the consultation fee — which varies by matter type and is agreed in advance. Your legal answer is delivered once payment is confirmed.",
+      disclaimer: "Your information is handled confidentially. CounselO targets a professional response within 24 hours, subject to the matter and information provided.",
+      paymentNotice: "After reviewing your request, we explain the service, timing and fee. The fee depends on the matter and is agreed before paid work begins. The written legal answer is provided after payment is confirmed.",
     },
   },
   administrativeLawDetail: {

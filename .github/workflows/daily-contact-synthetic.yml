@@ -1,0 +1,45 @@
+name: Daily public contact synthetic
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+jobs:
+  contact-form:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Submit all region-language combinations
+        env:
+          API_BASE_URL: ${{ vars.PUBLIC_FORM_API_URL || 'https://counselo-legal.com' }}
+        run: |
+          set -euo pipefail
+          cases=(
+            "sa en business-law"
+            "sa ar business-law"
+            "syr en civil-law"
+            "syr ar civil-law"
+            "uae en corporate-commercial"
+            "uae ar corporate-commercial"
+          )
+          for item in "${cases[@]}"; do
+            read -r region language service <<<"$item"
+            response=$(curl --fail-with-body --silent --show-error --max-time 30 \
+              -X POST "${API_BASE_URL%/}/api/contact" \
+              -H 'Content-Type: application/json' \
+              -H 'Origin: https://counselo-legal.com' \
+              --data "{\"name\":\"CounselO Synthetic\",\"email\":\"synthetic@example.com\",\"phone\":\"+966550001234\",\"service\":\"$service\",\"message\":\"Daily public contact form synthetic check.\",\"region\":\"$region\",\"language\":\"$language\",\"website\":\"counselo-daily-synthetic\",\"attachments\":[]}")
+            echo "$region/$language/$service: $response"
+            echo "$response" | jq -e '.reference and (.notificationStatus == "accepted")' >/dev/null
+          done
+
+      - name: Alert Slack on failure
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          if [ -z "${SLACK_WEBHOOK_URL:-}" ]; then exit 0; fi
+          curl --fail --silent --show-error -X POST "$SLACK_WEBHOOK_URL" \
+            -H 'Content-Type: application/json' \
+            --data '{"text":"CounselO daily public contact synthetic failed. Check the GitHub Actions run."}'
