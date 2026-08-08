@@ -14,6 +14,7 @@ import {
   UserRoundCheck,
   Waypoints,
 } from "lucide-react";
+import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
@@ -111,7 +112,7 @@ const copy = {
     seoDescription:
       "Discover CounselO's vision, mission and values: building a trusted Arab digital legal reference grounded in experience, technology and confidentiality.",
     seoKeywords:
-      "CounselO vision, digital legal platform, Arab legal reference, online legal services, trusted legal consultation, Omar Riyad Al-Baghdadi",
+      "CounselO vision, digital legal platform, Arab legal reference, online legal services, trusted legal consultation, Omar Al-Baghdadi",
     eyebrow: "Our Vision",
     title: "Law—closer, clearer, and more trustworthy",
     lead:
@@ -178,9 +179,9 @@ const copy = {
       "Today, CounselO extends that conviction: a project that puts legal experience and technology to work for individuals and businesses, with quality and reliability as the first measure of everything it provides.",
       "My vision is not simply to create another legal-services platform. It is to build a digital legal reference that brings real value to the legal community and makes professional knowledge and service easier and more efficient to access.",
     ],
-    founderName: "Omar Riyad Al-Baghdadi",
+    founderName: "Omar Al-Baghdadi",
     founderRole: "Lawyer & Legal Counsel · Founder",
-    founderImageAlt: "Lawyer and Legal Counsel Omar Riyad Al-Baghdadi, founder of CounselO",
+    founderImageAlt: "Lawyer and Legal Counsel Omar Al-Baghdadi, founder of CounselO",
     ctaEyebrow: "Clearer knowledge. More confident decisions.",
     ctaTitle: "Take your next legal step with CounselO",
     ctaBody:
@@ -221,12 +222,12 @@ export default function Vision() {
       dateModified: "2026-07-18",
       isPartOf: {
         "@type": "WebSite",
-        "@id": "https://counselo-legal.com/#website",
+        "@id": COUNSELO_ENTITY_IDS.website,
         name: "CounselO",
         url: "https://counselo-legal.com/",
       },
-      about: { "@id": "https://counselo-legal.com/#organization" },
-      author: { "@id": "https://counselo-legal.com/#founder" },
+      about: { "@id": COUNSELO_ENTITY_IDS.organization },
+      author: { "@id": COUNSELO_ENTITY_IDS.omar },
       speakable: {
         "@type": "SpeakableSpecification",
         cssSelector: ["#vision-title", "#vision-summary", "#founder-statement"],
@@ -235,16 +236,13 @@ export default function Vision() {
     },
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "@id": "https://counselo-legal.com/#organization",
-      name: "CounselO",
-      alternateName: "كاونسلو",
+      ...COUNSELO_ORGANIZATION,
       url: "https://counselo-legal.com/",
       logo: "https://counselo-legal.com/logo.png",
       slogan: isRTL
         ? "القانون… أقرب، أوضح، وأكثر موثوقية"
         : "Law—closer, clearer, and more trustworthy",
-      founder: { "@id": "https://counselo-legal.com/#founder" },
+      founder: { "@id": COUNSELO_ENTITY_IDS.omar },
       knowsLanguage: ["ar", "en"],
       areaServed: {
         "@type": "Country",
@@ -256,13 +254,10 @@ export default function Vision() {
     },
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "@id": "https://counselo-legal.com/#founder",
-      name: "Omar Riyad Al-Baghdadi",
-      alternateName: "عمر رياض بغدادي",
+      ...OMAR_AL_BAGHDADI,
       jobTitle: isRTL ? "محامٍ ومستشار قانوني" : "Lawyer & Legal Counsel",
       image: "https://counselo-legal.com/omar-baghdadi.jpg",
-      worksFor: { "@id": "https://counselo-legal.com/#organization" },
+      worksFor: { "@id": COUNSELO_ENTITY_IDS.organization },
       sameAs: ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
     },
     {

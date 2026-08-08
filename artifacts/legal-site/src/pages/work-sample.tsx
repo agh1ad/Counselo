@@ -7,6 +7,7 @@ import { SEOHead } from "@/components/seo/SEOHead";
 import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized } from "@/lib/work-samples";
 import type { InitialBlogPost } from "@/App";
 import { fetchPublicJson, publicApiUrl } from "@/lib/public-api";
+import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod";
 
 declare global {
   interface Window {
@@ -100,7 +101,7 @@ export default function WorkSample() {
     inLanguage: lang,
     genre: workType,
     contentLocation: jurisdiction,
-    creator: { "@type": "LegalService", "@id": "https://counselo-legal.com/#organization", name: "CounselO" },
+    creator: { "@type": "Organization", "@id": COUNSELO_ENTITY_IDS.organization, name: "CounselO", alternateName: "كاونسلو" },
     encoding: { "@type": "MediaObject", contentUrl: `https://counselo-legal.com${fileUrl}`, encodingFormat: sample.fileMimeType },
   };
   const breadcrumbSchema = {

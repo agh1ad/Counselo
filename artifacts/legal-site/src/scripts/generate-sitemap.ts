@@ -2,6 +2,11 @@ import { writeFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
+import {
+  buildHreflangLinks,
+  getServicesForRegion,
+  hasQualityBilingualBlogContent,
+} from "@workspace/api-zod";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, "../..");
@@ -44,9 +49,6 @@ const BlogPostSchema = z.object({
 const { BASE_URL, CORE_PAGES, BLOG_BASE_PATH, WORK_BASE_PATH } =
   await import("../data/sitemap-sources.js");
 
-const { en } = await import("../translations/en.js");
-const { enSyr } = await import("../translations/en-syr.js");
-const { UAE_SERVICES } = await import("../data/uae-legal-services.js");
 
 // Maps old SA-worded Syria blog slugs to new Syria-specific canonical slugs.
 // The sitemap only emits the new Syria slugs as canonical; the old slugs have
@@ -62,47 +64,18 @@ const SYRIA_SLUG_OVERRIDES: Record<string, string> = {
     "wrongful-termination-syrian-labor-law",
 };
 
-function slugFromHref(href: string): string {
-  return href.replace(/^\/services\//, "");
-}
+const SA_SERVICE_SLUGS: string[] = getServicesForRegion("sa").map((s) => s.slug);
+const SYR_SERVICE_SLUGS: string[] = getServicesForRegion("syr").map((s) => s.slug);
+const UAE_SERVICE_SLUGS: string[] = getServicesForRegion("uae").map((s) => s.slug);
 
-const SA_SERVICE_SLUGS: string[] = en.nav.servicesList.map((s) =>
-  slugFromHref(s.href),
-);
-const SYR_SERVICE_SLUGS: string[] = enSyr.nav.servicesList.map((s) =>
-  slugFromHref(s.href),
-);
-
-// Arabic is a real URL segment (e.g. "/sa/ar/about"), not a client-only
-// toggle, so every entry emits all 4 region x language combos pointing at
-// their own real, distinct URLs, plus x-default — required for hreflang to
-// actually route crawlers/users to matching-language content.
-function hreflang(path: string): string {
-  const isRoot = path === "";
-  if (isRoot) {
-    return [
-      `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/"/>`,
-      `    <xhtml:link rel="alternate" hreflang="en-SA"     href="${BASE_URL}/sa"/>`,
-      `    <xhtml:link rel="alternate" hreflang="ar-SA"     href="${BASE_URL}/sa/ar"/>`,
-      `    <xhtml:link rel="alternate" hreflang="en-SY"     href="${BASE_URL}/syr"/>`,
-      `    <xhtml:link rel="alternate" hreflang="ar-SY"     href="${BASE_URL}/syr/ar"/>`,
-    ].join("\n");
-  }
-
-  const basePath = path.replace(/^\/(sa|syr)(\/ar)?/, "");
-  const combos: Array<[string, string]> = [
-    ["en-SA", `/sa${basePath}`],
-    ["ar-SA", `/sa/ar${basePath}`],
-    ["en-SY", `/syr${basePath}`],
-    ["ar-SY", `/syr/ar${basePath}`],
-  ];
-  return [
-    ...combos.map(
-      ([l, p]) =>
-        `    <xhtml:link rel="alternate" hreflang="${l}"     href="${BASE_URL}${p}"/>`,
-    ),
-    `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/"/>`,
-  ].join("\n");
+function sharedHreflang(path: string): string {
+  const normalizedPath = path === "" ? "/" : path;
+  return buildHreflangLinks(normalizedPath)
+    .map((link) => {
+      const [language, target] = link.split("|");
+      return `    <xhtml:link rel="alternate" hreflang="${language}" href="${target}"/>`;
+    })
+    .join("\n");
 }
 
 function urlEntry(
@@ -114,20 +87,11 @@ function urlEntry(
   const loc = path === "" ? `${BASE_URL}/` : `${BASE_URL}${path}`;
   return `  <url>
     <loc>${loc}</loc>
-${path.startsWith("/uae") ? hreflangUae(path) : hreflang(path)}
+${sharedHreflang(path)}
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
 ${lastmod ? `    <lastmod>${lastmod}</lastmod>` : ""}
   </url>`;
-}
-
-function hreflangUae(path: string): string {
-  const basePath = path.replace(/^\/uae(\/ar)?/, "");
-  return [
-    `    <xhtml:link rel="alternate" hreflang="en-AE" href="${BASE_URL}/uae${basePath}"/>`,
-    `    <xhtml:link rel="alternate" hreflang="ar-AE" href="${BASE_URL}/uae/ar${basePath}"/>`,
-    `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/"/>`,
-  ].join("\n");
 }
 
 function urlEntrySyrOnly(
@@ -147,11 +111,11 @@ ${lastmod ? `    <lastmod>${lastmod}</lastmod>` : ""}
 
 // Services that exist only in Syria — no Saudi equivalent URL exists.
 // Their sitemap entries must omit en-SA / ar-SA hreflang to avoid broken targets.
-const SYRIA_ONLY_SERVICE_SLUGS = new Set([
-  "civil-law",
-  "civil-procedure",
-  "criminal-procedure",
-]);
+const SYRIA_ONLY_SERVICE_SLUGS = new Set(
+  getServicesForRegion("syr")
+    .filter((service) => service.regions.length === 1)
+    .map((service) => service.slug),
+);
 
 /**
  * hreflang for Syria-only services: en-SY, ar-SY, x-default only.
@@ -172,9 +136,7 @@ function hreflangSyrOnly(path: string): string {
 }
 
 /**
- * hreflang for single-URL pages (blog index, blog posts).
- * The blog lives at one URL for all regions and languages — emitting
- * per-region alternates would point to redirect URLs, which Google penalises.
+ * hreflang for single-URL pages (blog index and incomplete blog posts).
  * x-default points to the page itself.
  */
 function hreflangSingleUrl(fullUrl: string): string {
@@ -221,6 +183,7 @@ const feedPosts: Array<{
   date: string;
   title: string;
   excerpt: string;
+  url: string;
 }> = [];
 
 entries.push("  <!-- ===== ROOT & CORE PAGES ===== -->");
@@ -247,9 +210,9 @@ for (const slug of SYR_SERVICE_SLUGS) {
 }
 
 entries.push("\n  <!-- ===== UAE SERVICE PAGES ===== -->");
-for (const service of UAE_SERVICES) {
-  entries.push(urlEntry(`/uae/services/${service.slug}`, "monthly", "0.9"));
-  entries.push(urlEntry(`/uae/ar/services/${service.slug}`, "monthly", "0.9"));
+for (const slug of UAE_SERVICE_SLUGS) {
+  entries.push(urlEntry(`/uae/services/${slug}`, "monthly", "0.9"));
+  entries.push(urlEntry(`/uae/ar/services/${slug}`, "monthly", "0.9"));
 }
 
 // Blog index — single URL shared by all regions/languages.
@@ -276,6 +239,14 @@ try {
     titleAr: z.string().optional(),
     excerptEn: z.string().optional(),
     excerptAr: z.string().optional(),
+    seoTitleEn: z.string().optional(),
+    seoTitleAr: z.string().optional(),
+    seoDescriptionEn: z.string().optional(),
+    seoDescriptionAr: z.string().optional(),
+    bodyEn: z.string().optional(),
+    bodyAr: z.string().optional(),
+    contentEn: z.array(z.object({ body: z.string().optional() })).optional(),
+    contentAr: z.array(z.object({ body: z.string().optional() })).optional(),
   });
   const blogApiUrl =
     process.env["BLOG_API_URL"]?.trim() ||
@@ -290,25 +261,22 @@ try {
       .filter((r) => r.success)
       .map((r) => r.data);
     for (const post of posts) {
-      const enUrl = `${BASE_URL}${BLOG_BASE_PATH}/${post.slug}`;
-      const arUrl = `${BASE_URL}/ar${BLOG_BASE_PATH}/${post.slug}`;
       const modified = post.updatedAt?.slice(0, 10) || post.date;
-      if (post.titleEn && post.titleAr) {
-        // Bilingual post: index both URLs with proper hreflang cross-linking.
+      const bilingual = hasQualityBilingualBlogContent(post);
+      const enUrl = `${BASE_URL}/blog/en/${post.slug}`;
+      const arUrl = `${BASE_URL}/blog/ar/${post.slug}`;
+      if (bilingual) {
         entries.push(urlEntryLanguageVariant(enUrl, enUrl, arUrl, "monthly", "0.7", modified));
         entries.push(urlEntryLanguageVariant(arUrl, enUrl, arUrl, "monthly", "0.7", modified));
-      } else if (post.titleAr) {
-        // Arabic-only post: canonical is /ar/blog/:slug.
-        entries.push(urlEntrySingleUrl(arUrl, "monthly", "0.7", modified));
       } else {
-        // English-only post: canonical is /blog/:slug.
-        entries.push(urlEntrySingleUrl(enUrl, "monthly", "0.7", modified));
+        entries.push(urlEntrySingleUrl(`${BASE_URL}${BLOG_BASE_PATH}/${post.slug}`, "monthly", "0.7", modified));
       }
       feedPosts.push({
         slug: post.slug,
         date: modified,
         title: post.titleEn?.trim() || post.titleAr?.trim() || post.slug,
         excerpt: post.excerptEn?.trim() || post.excerptAr?.trim() || "CounselO legal insight",
+        url: bilingual ? enUrl : `${BASE_URL}${BLOG_BASE_PATH}/${post.slug}`,
       });
     }
     console.log(`[sitemap] added ${posts.length} blog post(s) to sitemap`);
@@ -349,17 +317,59 @@ try {
   console.warn(`[sitemap] could not fetch work samples (${(err as Error).message}) — skipping`);
 }
 
-const xml = `<?xml version="1.0" encoding="UTF-8"?>
+function sitemapBucket(url: string): "core" | "uae-services" | "sa-services" | "syr-services" | "blog" | "work" {
+  const pathname = new URL(url).pathname;
+  if (/^\/uae\/(?:ar\/)?services\//.test(pathname)) return "uae-services";
+  if (/^\/sa\/(?:ar\/)?services\//.test(pathname)) return "sa-services";
+  if (/^\/syr\/(?:ar\/)?services\//.test(pathname)) return "syr-services";
+  if (pathname === "/blog" || pathname.startsWith("/blog/")) return "blog";
+  if (pathname === "/our-work" || pathname.startsWith("/our-work/") || pathname === "/ar/our-work" || pathname.startsWith("/ar/our-work/")) return "work";
+  return "core";
+}
+
+function renderUrlset(urlEntries: string[]): string {
+  return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-${entries.join("\n")}
+${urlEntries.join("\n")}
 
 </urlset>
 `;
+}
+
+const buckets: Record<ReturnType<typeof sitemapBucket>, string[]> = {
+  core: [],
+  "uae-services": [],
+  "sa-services": [],
+  "syr-services": [],
+  blog: [],
+  work: [],
+};
+for (const match of entries.join("\n").matchAll(/<url>[\s\S]*?<\/url>/g)) {
+  const loc = match[0].match(/<loc>([^<]+)<\/loc>/)?.[1];
+  if (loc) buckets[sitemapBucket(loc)].push(match[0]);
+}
+
+const sitemapFiles = [
+  ["core", "sitemap-core.xml"],
+  ["uae-services", "sitemap-uae-services.xml"],
+  ["sa-services", "sitemap-sa-services.xml"],
+  ["syr-services", "sitemap-syr-services.xml"],
+  ["blog", "sitemap-blog.xml"],
+  ["work", "sitemap-work.xml"],
+] as const;
+for (const [bucket, filename] of sitemapFiles) {
+  writeFileSync(resolve(rootDir, "public", filename), renderUrlset(buckets[bucket]), "utf-8");
+}
 
 const outPath = resolve(rootDir, "public/sitemap.xml");
-writeFileSync(outPath, xml, "utf-8");
+const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapFiles.map(([, filename]) => `  <sitemap><loc>${BASE_URL}/${filename}</loc></sitemap>`).join("\n")}
+</sitemapindex>
+`;
+writeFileSync(outPath, sitemapIndex, "utf-8");
 
 const escapeXml = (value: string) => value
   .replace(/&/g, "&amp;")
@@ -376,8 +386,8 @@ const feedXml = `<?xml version="1.0" encoding="UTF-8"?>
     <language>en</language>
 ${feedPosts.map((post) => `    <item>
       <title>${escapeXml(post.title)}</title>
-      <link>${BASE_URL}${BLOG_BASE_PATH}/${post.slug}</link>
-      <guid isPermaLink="true">${BASE_URL}${BLOG_BASE_PATH}/${post.slug}</guid>
+      <link>${escapeXml(post.url)}</link>
+      <guid isPermaLink="true">${escapeXml(post.url)}</guid>
       <pubDate>${new Date(`${post.date}T00:00:00Z`).toUTCString()}</pubDate>
       <description>${escapeXml(post.excerpt)}</description>
     </item>`).join("\n")}
@@ -386,16 +396,17 @@ ${feedPosts.map((post) => `    <item>
 `;
 writeFileSync(resolve(rootDir, "public/feed.xml"), feedXml, "utf-8");
 console.log(
-  `[sitemap] wrote ${outPath} (${SA_SERVICE_SLUGS.length} SA services, ${SYR_SERVICE_SLUGS.length} SYR services, ${UAE_SERVICES.length} UAE services)`,
+  `[sitemap] wrote index and ${sitemapFiles.length} purpose-specific sitemaps (${SA_SERVICE_SLUGS.length} SA services, ${SYR_SERVICE_SLUGS.length} SYR services, ${UAE_SERVICE_SLUGS.length} UAE services)`,
 );
 
 // Builds must be deterministic and side-effect free. Publishing workflows opt
 // in explicitly after a successful deployment.
 const shouldPing = process.env["INDEXNOW_PING"] === "true";
 
-const urlList = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) =>
-  m[1].trim(),
-);
+const urlList = sitemapFiles.flatMap(([bucket]) => buckets[bucket].flatMap((entry) => {
+  const loc = entry.match(/<loc>([^<]+)<\/loc>/)?.[1];
+  return loc ? [loc.trim()] : [];
+}));
 
 if (shouldPing) {
   const INDEXNOW_KEY = "611ed21ca6ffe639fa0e476e8ea1aedb9df6601ed775825f6aa2d75da664ab5a";

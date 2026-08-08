@@ -1,5 +1,6 @@
 const STORE_KEY = "counselo_analytics";
-const GTM_CONTAINER_ID = "GTM-WZ6SW99X";
+const GA_ID_KEY = "counselo_ga_measurement_id";
+export const DEFAULT_GA_MEASUREMENT_ID = "G-1M9ZZX7VT6";
 
 export interface EventLog {
   event: string;
@@ -39,11 +40,10 @@ function today() {
 
 type AnalyticsDetails = Record<string, string | number | boolean | undefined>;
 
-function pushToDataLayer(data: Record<string, unknown>) {
-  if (typeof window === "undefined") return;
-  const win = window as unknown as { dataLayer?: Record<string, unknown>[] };
-  win.dataLayer = win.dataLayer || [];
-  win.dataLayer.push(data);
+function routeDimensions(path: string): Record<string, string> {
+  const match = path.match(/^\/(sa|syr|uae)(\/ar)?(?:\/|$)/);
+  if (match) return { region: match[1], language: match[2] ? "ar" : "en" };
+  return { region: "shared", language: path === "/ar" || path.startsWith("/ar/") ? "ar" : "en" };
 }
 
 export function trackEvent(event: string, page: string, details: AnalyticsDetails = {}) {
@@ -56,7 +56,9 @@ export function trackEvent(event: string, page: string, details: AnalyticsDetail
   if (event === "email_click") store.email_clicks++;
 
   const cleanDetails = Object.fromEntries(
-    Object.entries(details).filter((entry): entry is [string, string | number | boolean] => entry[1] !== undefined),
+    Object.entries({ ...routeDimensions(page), ...details }).filter(
+      (entry): entry is [string, string | number | boolean] => entry[1] !== undefined,
+    ),
   );
   store.events.push({ event, page, ts: Date.now(), ...(Object.keys(cleanDetails).length ? { details: cleanDetails } : {}) });
   store.pageviews[page] = (store.pageviews[page] ?? 0);
@@ -67,8 +69,15 @@ export function trackEvent(event: string, page: string, details: AnalyticsDetail
 
   save(store);
 
-  // Push to GTM dataLayer — GTM forwards this to GA4 via configured tags
-  pushToDataLayer({ event, event_category: "engagement", event_label: page, page_path: page, ...cleanDetails });
+  if (typeof window !== "undefined" && typeof (window as unknown as { gtag?: unknown }).gtag === "function") {
+    const gtag = (window as unknown as { gtag: (...args: unknown[]) => void }).gtag;
+    gtag("event", event, {
+      event_category: "engagement",
+      event_label: page,
+      page_path: page,
+      ...cleanDetails,
+    });
+  }
 }
 
 export function trackPageview(path: string) {
@@ -76,15 +85,10 @@ export function trackPageview(path: string) {
   store.pageviews[path] = (store.pageviews[path] ?? 0) + 1;
   save(store);
 
-  // SPA navigation: GTM's All-Pages trigger doesn't fire on client-side route
-  // changes, so we push explicitly. Configure a GTM trigger on this event to
-  // fire the GA4 Configuration tag / Page View event tag.
-  pushToDataLayer({
-    event: "page_view",
-    page_path: path,
-    page_location: typeof window !== "undefined" ? window.location.href : path,
-    page_title: typeof document !== "undefined" ? document.title : "",
-  });
+  if (typeof window !== "undefined" && typeof (window as unknown as { gtag?: unknown }).gtag === "function") {
+    const gtag = (window as unknown as { gtag: (...args: unknown[]) => void }).gtag;
+    gtag("event", "page_view", { page_path: path, ...routeDimensions(path) });
+  }
 }
 
 export function getAnalytics(): AnalyticsStore {
@@ -95,20 +99,34 @@ export function clearAnalytics() {
   localStorage.removeItem(STORE_KEY);
 }
 
-export function getGTMContainerId(): string {
-  return GTM_CONTAINER_ID;
+export function getGAMeasurementId(): string {
+  try { return localStorage.getItem(GA_ID_KEY) || DEFAULT_GA_MEASUREMENT_ID; } catch { return DEFAULT_GA_MEASUREMENT_ID; }
 }
 
-export function injectGTM() {
-  if (typeof document === "undefined") return;
-  if (document.getElementById("gtm-script")) return; // already injected
-  const win = window as unknown as { dataLayer?: object[] };
-  win.dataLayer = win.dataLayer || [];
-  win.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-  const f = document.getElementsByTagName("script")[0];
-  const j = document.createElement("script");
-  j.id = "gtm-script";
-  j.async = true;
-  j.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
-  f.parentNode?.insertBefore(j, f);
+export function setGAMeasurementId(id: string) {
+  if (id) {
+    localStorage.setItem(GA_ID_KEY, id);
+    injectGA(id);
+  } else {
+    localStorage.removeItem(GA_ID_KEY);
+  }
+}
+
+export function injectGA(measurementId: string) {
+  if (!measurementId || typeof document === "undefined") return;
+  const existingId = document.getElementById("ga-script");
+  if (existingId) existingId.remove();
+  const existingInline = document.getElementById("ga-inline");
+  if (existingInline) existingInline.remove();
+
+  const inline = document.createElement("script");
+  inline.id = "ga-inline";
+  inline.text = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${measurementId}',{send_page_view:false});`;
+  document.head.appendChild(inline);
+
+  const script = document.createElement("script");
+  script.id = "ga-script";
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+  document.head.appendChild(script);
 }

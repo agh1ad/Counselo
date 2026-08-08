@@ -17,7 +17,7 @@ import { RegionProvider, useRegion } from "@/contexts/RegionContext";
 import { lazy, Suspense, useEffect } from "react";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { Helmet } from "react-helmet-async";
-import { trackEvent, trackPageview, injectGTM } from "@/lib/analytics";
+import { trackEvent, trackPageview, getGAMeasurementId, injectGA, DEFAULT_GA_MEASUREMENT_ID } from "@/lib/analytics";
 import type { WorkSamplePublic } from "@/lib/work-samples";
 
 import RegionPicker from "@/pages/region-picker";
@@ -50,6 +50,14 @@ export interface InitialBlogPost {
   titleAr: string;
   excerptEn: string;
   excerptAr: string;
+  seoTitleEn?: string;
+  seoTitleAr?: string;
+  seoDescriptionEn?: string;
+  seoDescriptionAr?: string;
+  bodyEn?: string;
+  bodyAr?: string;
+  contentEn?: Array<{ body?: string }>;
+  contentAr?: Array<{ body?: string }>;
   published: boolean;
   relatedServiceSlugs?: string[];
   relatedBlogSlugs?: string[];
@@ -80,16 +88,10 @@ function ScrollToTop() {
 
 function GAInit() {
   useEffect(() => {
-    const loadAnalytics = () => {
-      injectGTM();
-    };
-
-    if ("requestIdleCallback" in window) {
-      const idleId = window.requestIdleCallback(loadAnalytics, { timeout: 3_000 });
-      return () => window.cancelIdleCallback(idleId);
-    }
-    const timeoutId = globalThis.setTimeout(loadAnalytics, 2_000);
-    return () => globalThis.clearTimeout(timeoutId);
+    // Measurement must start during the first page lifecycle. Delaying it
+    // until idle caused short visits and fast consultation clicks to vanish
+    // from GA4, which made the site appear inactive.
+    injectGA(getGAMeasurementId() || DEFAULT_GA_MEASUREMENT_ID);
   }, []);
   return null;
 }
@@ -299,6 +301,8 @@ function Router() {
         {/* Legacy routes (no prefix → defaults to SA/English) */}
         <Route path="/services/:id" component={ServiceDetail} />
         <Route path="/services" component={Services} />
+        <Route path="/blog/en/:slug" component={BlogPost} />
+        <Route path="/blog/ar/:slug" component={BlogPost} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/ar/blog/:slug" component={BlogPost} />
         <Route path="/ar/our-work/:slug" component={WorkSample} />

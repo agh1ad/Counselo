@@ -815,7 +815,23 @@ app.get("/ar/blog/:slug", async (req: Request, res: Response) => {
   }
 });
 
-// 3c. "/ar/our-work/:slug" — Arabic work sample detail page.
+// 3c. "/blog/en/:slug" and "/blog/ar/:slug" — language-prefixed blog routes
+//     introduced in PR #20. These delegate to the same SSR logic as the legacy
+//     routes so both URL schemes work without breaking existing indexed links.
+app.get("/blog/en/:slug", async (req: Request, res: Response) => {
+  req.params["slug"] = String(req.params["slug"] ?? "");
+  // Reuse the /blog/:slug handler logic by redirecting internally via wouter URL.
+  // Simplest: just forward to the canonical English route.
+  const slug = req.params["slug"];
+  res.redirect(301, `/blog/${encodeURIComponent(slug)}`);
+});
+
+app.get("/blog/ar/:slug", async (req: Request, res: Response) => {
+  const slug = String(req.params["slug"] ?? "");
+  res.redirect(301, `/ar/blog/${encodeURIComponent(slug)}`);
+});
+
+// 3d. "/ar/our-work/:slug" — Arabic work sample detail page.
 //     Fetch from the API on every request so newly published records are
 //     immediately live without redeployment.
 app.get("/ar/our-work/:slug", async (req: Request, res: Response) => {

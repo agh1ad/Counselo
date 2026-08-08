@@ -171,8 +171,8 @@ export function SEOHead({
   const basePath = canonical === "/" ? "" : canonical ?? "";
   const langSegment = isArabic ? "/ar" : "";
 
-  // For single-URL pages (blog), skip the region/language prefix so the
-  // canonical URL and meta lookups use the path exactly as provided.
+  // Shared blog pages and language-specific blog article URLs skip the
+  // region/language prefix so canonical and metadata paths remain exact.
   const prefixedPath = noRegionPrefix
     ? basePath
     : `${geo.pathPrefix}${langSegment}${basePath}`;
@@ -241,11 +241,9 @@ export function SEOHead({
             ? `${rawTitle} | كاونسلو`
             : `${rawTitle} | CounselO`);
 
-  // Single-URL pages (noRegionPrefix=true, e.g. /blog, /blog/:slug) live at one
-  // canonical URL shared by all regions and languages.  hreflang with per-region
-  // alternates would point to non-existent (or redirect) URLs, which Google
-  // penalises.  For these pages we emit no alternates and let x-default carry
-  // the canonical — the correct approach for a single shared URL.
+  // Single-URL pages (noRegionPrefix=true without explicit alternates, e.g.
+  // /blog or an incomplete /blog/:slug) emit no regional alternates. Bilingual
+  // article pages pass explicit reciprocal en/ar URLs instead.
   //
   // All other pages have 4 real, distinct, crawlable region×language URLs so
   // hreflang correctly routes crawlers to matching-language content.
@@ -290,7 +288,8 @@ export function SEOHead({
             href: `https://counselo-legal.com${GEO[c.region].pathPrefix}${c.isArabic ? "/ar" : ""}${hrefPath}`,
           };
         });
-  // x-default: region picker for normal pages; the canonical itself for single-URL pages.
+  // x-default: region picker for normal pages; the canonical or explicit
+  // primary-language article URL for shared pages.
   const xDefaultUrl = sharedLanguageAlternates
     ? absoluteUrl(sharedLanguageAlternates.xDefault ?? sharedLanguageAlternates.en)
     : noRegionPrefix

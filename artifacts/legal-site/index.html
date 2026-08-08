@@ -23,6 +23,11 @@
     <link rel="alternate" type="application/rss+xml" title="CounselO Legal Updates" href="/feed.xml" />
     <link rel="alternate" type="text/plain" href="/llms.txt" title="CounselO AI content guide" />
 
+    <!-- GA4 is intentionally present in the first response so short visits and
+         conversion clicks are measured; the client also tracks SPA routes. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1M9ZZX7VT6"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1M9ZZX7VT6',{send_page_view:false});</script>
+
     <!--app-head-->
 
     <!-- Google Fonts — loaded after app-head so route head tags come first -->

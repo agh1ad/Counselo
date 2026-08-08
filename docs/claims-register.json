@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "purpose": "Central approval register for public quantitative, licensing, confidentiality, testimonial, result, response-time, and service-scope claims.",
+  "policy": "Only approved wording may be used in public copy. Every claim requires an evidence owner, evidence location, jurisdiction scope, verification date, review expiry, and any required qualification.",
+  "claims": [
+    {
+      "id": "response-target",
+      "category": "response-time",
+      "approvedWordingEn": "CounselO targets a professional response within 24 hours, subject to the matter's scope, urgency, intake completeness, and service availability.",
+      "approvedWordingAr": "تستهدف كاونسلو تقديم رد مهني خلال 24 ساعة، بحسب نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوفر الخدمة.",
+      "evidenceOwner": "Operations lead",
+      "evidenceLocation": "Contact intake logs and notification delivery records",
+      "jurisdictions": ["uae", "sa", "syr"],
+      "lastVerified": "2026-08-08",
+      "reviewBy": "2026-11-08",
+      "requiredDisclaimer": "A target is not a guarantee; urgent or incomplete matters may require a different response path."
+    },
+    {
+      "id": "confidentiality",
+      "category": "confidentiality",
+      "approvedWordingEn": "Information is handled confidentially under applicable professional, contractual, privacy, and data-protection obligations, subject to legally required or permitted disclosures.",
+      "approvedWordingAr": "تُعامل المعلومات بسرية وفق الالتزامات المهنية والتعاقدية وواجبات الخصوصية وحماية البيانات المنطبقة، مع مراعاة الإفصاحات التي يوجبها القانون أو يسمح بها.",
+      "evidenceOwner": "Privacy and compliance owner",
+      "evidenceLocation": "Privacy policy, consultation terms, encrypted contact payload and access controls",
+      "jurisdictions": ["uae", "sa", "syr"],
+      "lastVerified": "2026-08-08",
+      "reviewBy": "2026-11-08",
+      "requiredDisclaimer": "Do not state that information is never shared or that privilege applies identically in every jurisdiction."
+    },
+    {
+      "id": "representation-scope",
+      "category": "licensing-and-scope",
+      "approvedWordingEn": "CounselO provides online consultation, document review, preliminary analysis, and written guidance. If court representation is requested or necessary, it can be arranged through an appropriately licensed partner professional or cooperating office in the relevant served jurisdiction under a separate agreed engagement.",
+      "approvedWordingAr": "تقدم كاونسلو الاستشارات الأونلاين ومراجعة المستندات والتحليل الأولي والإرشاد المكتوب. وإذا طُلب التمثيل أمام المحاكم أو أصبح ضرورياً، يمكن ترتيبه من خلال مهني شريك أو مكتب متعاون مرخص في الدولة المعنية بموجب تكليف مستقل متفق عليه.",
+      "evidenceOwner": "Legal leadership",
+      "evidenceLocation": "Terms of service, regional service pages, cooperating-office records",
+      "jurisdictions": ["uae", "sa", "syr"],
+      "lastVerified": "2026-08-08",
+      "reviewBy": "2026-11-08",
+      "requiredDisclaimer": "Formal representation is not implied by an online consultation and is confirmed only in an agreed engagement."
+    },
+    {
+      "id": "experience-volume",
+      "category": "quantitative",
+      "approvedWordingEn": "CounselO states that its legal leadership and team have handled more than 20,000 cases and consultations across the region.",
+      "approvedWordingAr": "تذكر كاونسلو أن قيادتها القانونية وفريقها تعاملا مع أكثر من 20,000 قضية واستشارة في المنطقة.",
+      "evidenceOwner": "Managing partner and operations lead",
+      "evidenceLocation": "Matter and consultation archive with deduplication methodology",
+      "jurisdictions": ["uae", "sa", "syr"],
+      "lastVerified": "2026-08-08",
+      "reviewBy": "2026-11-08",
+      "requiredDisclaimer": "Use as a stated experience figure, not as an independently audited result or guarantee of outcome."
+    },
+    {
+      "id": "mentored-lawyers",
+      "category": "quantitative",
+      "approvedWordingEn": "Omar Al-Baghdadi states that he has trained or supervised more than 40 lawyers.",
+      "approvedWordingAr": "يذكر عمر البغدادي أنه درّب أو أشرف على أكثر من 40 محامياً.",
+      "evidenceOwner": "Omar Al-Baghdadi",
+      "evidenceLocation": "Professional biography and mentoring records",
+      "jurisdictions": ["uae", "sa", "syr"],
+      "lastVerified": "2026-08-08",
+      "reviewBy": "2026-11-08",
+      "requiredDisclaimer": "Do not convert this figure into a licensing, expertise, or outcome guarantee."
+    },
+    {
+      "id": "licensed-coordination",
+      "category": "licensing",
+      "approvedWordingEn": "Where local licensing or physical attendance is required, CounselO identifies and separately scopes coordination with an appropriately licensed professional or cooperating office.",
+      "approvedWordingAr": "عند الحاجة إلى ترخيص محلي أو حضور فعلي، تحدد كاونسلو التنسيق مع مهني أو مكتب متعاون مرخّص بشكل مناسب وتفصل نطاقه.",
+      "evidenceOwner": "Regional legal lead",
+      "evidenceLocation": "Verified professional and cooperating-office register",
+      "jurisdictions": ["uae", "sa", "syr"],
+      "lastVerified": "2026-08-08",
+      "reviewBy": "2026-09-08",
+      "requiredDisclaimer": "Never imply that CounselO or an individual is locally licensed unless the relevant licence and jurisdiction are verified in the register."
+    },
+    {
+      "id": "redacted-work",
+      "category": "testimonial-and-result",
+      "approvedWordingEn": "Published work samples are redacted and illustrative; past work, stated outcomes, testimonials, and timelines do not guarantee the result of another matter.",
+      "approvedWordingAr": "نماذج الأعمال المنشورة منقحة وتوضيحية؛ ولا تضمن الأعمال السابقة أو النتائج أو الشهادات أو المدد نتيجة أي مسألة أخرى.",
+      "evidenceOwner": "Editorial and confidentiality reviewer",
+      "evidenceLocation": "Redacted work approval record and source case file",
+      "jurisdictions": ["uae", "sa", "syr"],
+      "lastVerified": "2026-08-08",
+      "reviewBy": "2026-11-08",
+      "requiredDisclaimer": "Precise financial recovery, reversal, success, or timeline claims require a linked verified case record and approval before publication."
+    }
+  ]
+}
