@@ -21,7 +21,11 @@ import { fileURLToPath } from "node:url";
 import type { RenderResult } from "../entry-server.js";
 import type { InitialBlogPost } from "../App.js";
 import type { WorkSamplePublic } from "../lib/work-samples.js";
-import { UAE_SERVICES } from "../data/uae-legal-services.js";
+import {
+  getPublicRouteInventory,
+  hasQualityBilingualBlogContent,
+  routeToFlatFilename,
+} from "@workspace/api-zod";
 
 // ---------------------------------------------------------------------------
 // Fetch published blog post slugs from the running API at build time.
@@ -89,102 +93,12 @@ const distDir = resolve(__dirname, "../../dist");
 const publicDir = resolve(distDir, "public");
 const serverEntryPath = resolve(distDir, "server/entry-server.js");
 
-// ---------------------------------------------------------------------------
-// Route list
-// All routes are known at build time (blog posts array is empty).
-// Service slugs are derived from the same source used by the sitemap.
-// ---------------------------------------------------------------------------
-
-const SERVICE_SLUGS = [
-  "family-law",
-  "business-law",
-  "real-estate",
-  "employment-law",
-  "foreign-investment",
-  "administrative-law",
-  "arbitration",
-  "enforcement",
-  "companies-law",
-  "contracts",
-  "criminal-law",
-  "banking-finance",
-  "intellectual-property",
-  "tax-zakat",
-  "cyber-law",
-  "medical-malpractice",
-  "insurance-law",
-] as const;
-
-// Syria has 3 additional service pages beyond the shared list above.
-const SYRIA_ONLY_SERVICE_SLUGS = [
-  "civil-law",
-  "civil-procedure",
-  "criminal-procedure",
-] as const;
-
-const ENGLISH_ROUTES: string[] = [
-  // Saudi Arabia core pages
-  "/sa",
-  "/sa/services",
-  "/sa/about",
-  "/sa/vision",
-  "/sa/contact",
-  "/sa/terms-of-service",
-  "/sa/privacy-policy",
-
-  // Syria core pages
-  "/syr",
-  "/syr/services",
-  "/syr/about",
-  "/syr/vision",
-  "/syr/contact",
-  "/syr/terms-of-service",
-  "/syr/privacy-policy",
-
-  // Saudi Arabia service detail pages
-  ...SERVICE_SLUGS.map((s) => `/sa/services/${s}`),
-
-  // Syria service detail pages (shared slugs + 3 Syria-only slugs)
-  ...SERVICE_SLUGS.map((s) => `/syr/services/${s}`),
-  ...SYRIA_ONLY_SERVICE_SLUGS.map((s) => `/syr/services/${s}`),
-
-  // United Arab Emirates core and UAE-specific service taxonomy
-  "/uae",
-  "/uae/services",
-  "/uae/about",
-  "/uae/vision",
-  "/uae/contact",
-  "/uae/terms-of-service",
-  "/uae/privacy-policy",
-  ...UAE_SERVICES.map((service) => `/uae/services/${service.slug}`),
-];
-
-// Single-URL routes: not region-prefixed, no Arabic variant.
-// The blog lives at /blog for all regions and languages.
-// DB blog post routes are fetched and added dynamically in prerender().
-const SINGLE_URL_ROUTES: string[] = ["/blog", "/our-work", "/ar/our-work"];
-
 // Arabic is a real URL segment, not a client-side-only toggle: every English
 // route above has a matching "/ar" variant (e.g. "/sa/about" -> "/sa/ar/about")
 // so Arabic content is a genuinely distinct, crawlable page. This is required
 // for hreflang annotations to point to real content in that language.
-function toArabicRoute(route: string): string {
-  const match = route.match(/^\/(sa|syr|uae)(.*)$/);
-  if (!match) return route;
-  const [, region, rest] = match;
-  return `/${region}/ar${rest}`;
-}
-
-// ROUTES is extended at runtime with DB blog post slugs (see prerender()).
-const ROUTES: string[] = [
-  // Region picker — English (x-default) and Arabic
-  "/",
-  "/ar",
-  ...ENGLISH_ROUTES,
-  ...ENGLISH_ROUTES.map(toArabicRoute),
-  // Single-URL pages: blog index (+ post pages added dynamically below)
-  ...SINGLE_URL_ROUTES,
-];
+// ROUTES is extended at runtime with DB blog/work slugs (see prerender()).
+const ROUTES: string[] = [...getPublicRouteInventory()];
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -192,9 +106,7 @@ const ROUTES: string[] = [
 
 // Convert a route path to its flat prerendered filename, e.g.
 // "/sa/services/family-law" -> "sa-services-family-law.html"
-export function routeToFlatFilename(route: string): string {
-  return `${route.slice(1).replace(/\//g, "-")}.html`;
-}
+export { routeToFlatFilename } from "@workspace/api-zod";
 
 /**
  * Tag every SSR-injected head element with data-rh="true" so that
@@ -473,7 +385,11 @@ async function prerender(): Promise<void> {
     fetchWorkSamples(),
   ]);
   const blogSlugs = blogPosts.map((post) => post.slug);
-  const blogPostRoutes = blogSlugs.map((slug) => `/blog/${slug}`);
+  const blogPostRoutes = blogPosts.flatMap((post) =>
+    hasQualityBilingualBlogContent(post)
+      ? [`/blog/en/${post.slug}`, `/blog/ar/${post.slug}`]
+      : [`/blog/${post.slug}`],
+  );
   if (blogSlugs.length > 0) {
     console.log(`  Found ${blogSlugs.length} post(s): ${blogSlugs.join(", ")}`);
     ROUTES.push(...blogPostRoutes);

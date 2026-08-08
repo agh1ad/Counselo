@@ -10,14 +10,14 @@ type TrustSignalsProps = {
 export function TrustSignals({ isArabic, regionPrefix, compact = false }: TrustSignalsProps) {
   const representationText = isArabic
     ? regionPrefix.startsWith("/uae")
-      ? "إذا تطلبت المسألة تمثيلاً أو قيداً أو حضوراً في الإمارات، يُحدد الارتباط المطلوب مع ممارس مرخص محلياً ضمن نطاق منفصل."
+      ? "إذا تطلبت المسألة تمثيلاً أمام المحاكم أو إيداعاً أو حضوراً في الإمارات، يمكن ترتيب تكليف مستقل مع مهني شريك أو مكتب متعاون مرخص في الإمارات."
       : regionPrefix.startsWith("/syr")
-        ? "تُدار المسائل السورية من خلال الممارسة القانونية في سوريا، مع توضيح نطاق الاستشارة والتمثيل."
+        ? "إذا تطلبت المسألة السورية تمثيلاً أمام المحاكم أو إيداعاً أو حضوراً، يمكن ترتيب تكليف مستقل مع مهني شريك أو مكتب متعاون مرخص في سوريا."
         : "عندما تتطلب المسألة حضوراً في السعودية، تنسق كاونسلو مع مكتب محاماة سعودي متعاون ومرخص وفق نطاق التكليف."
     : regionPrefix.startsWith("/uae")
-      ? "If a UAE matter requires formal representation, filing or attendance, the required engagement with an appropriately licensed local practitioner is scoped separately."
+      ? "If a UAE matter requires court representation, filing or attendance, CounselO can arrange a separate engagement with an appropriately licensed UAE partner professional or cooperating office."
       : regionPrefix.startsWith("/syr")
-        ? "Syrian matters are handled through the legal practice in Syria, with the consultation and representation scope explained to each client."
+        ? "If a Syrian matter requires court representation, filing or attendance, CounselO can arrange a separate engagement through an appropriately licensed Syrian partner professional or cooperating office."
         : "When a Saudi matter requires attendance, CounselO coordinates with a licensed cooperating Saudi law office within the agreed engagement.";
   const items = isArabic
     ? [

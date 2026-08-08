@@ -12,8 +12,10 @@ import { useToast } from "@/hooks/use-toast";
 import { Clock, Mail, MapPin, Phone, CreditCard, Paperclip, X, FileText, ImageIcon, CheckCircle, Loader2, AlertCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
+import { OMAR_AL_BAGHDADI } from "@workspace/api-zod";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { trackEvent } from "@/lib/analytics";
+import { getServicesForRegion } from "@workspace/api-zod";
 
 const MAX_FILES = 10;
 const MAX_FILE_SIZE_MB = 5;
@@ -61,6 +63,13 @@ export default function Contact() {
   const { region, regionPrefix } = useRegion();
   const c = t.contact;
   const f = c.form;
+  const serviceOptions = useMemo(
+    () => getServicesForRegion(region).map((service) => ({
+      value: service.slug,
+      label: isRTL ? service.titleAr : service.titleEn,
+    })),
+    [region, isRTL],
+  );
   const isUae = region === "uae";
   const isSyr = region === "syr";
   const countryName = isUae ? "United Arab Emirates" : isSyr ? "Syria" : "Saudi Arabia";
@@ -83,13 +92,11 @@ export default function Contact() {
 
   useEffect(() => {
     const requestedService = new URLSearchParams(window.location.search).get("service") ?? "";
-    if (f.serviceOptions.some((option) => option.value === requestedService)) {
+    if (serviceOptions.some((option) => option.value === requestedService)) {
       setPrefillService(requestedService);
       form.setValue("service", requestedService);
     }
-  // The regional service catalogue is stable for the life of this page.
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [form, serviceOptions]);
 
   const handleFiles = useCallback((incoming: FileList | null) => {
     if (!incoming) return;
@@ -158,9 +165,10 @@ export default function Contact() {
 
       setReference(result.reference);
       setWasSent(true);
-      trackEvent("form_submit_success", window.location.pathname, {
+      trackEvent("generate_lead", window.location.pathname, {
         form_name: "consultation",
         service: values.service,
+        consultation_product: "comprehensive-consultation",
         region,
         attachment_count: attachments.length,
       });
@@ -201,14 +209,14 @@ export default function Contact() {
         description={isUae
           ? (isRTL
             ? "تواصل مع كاونسلو الإمارات لطلب استشارة قانونية أونلاين في المسائل الاتحادية والمحلية ومسائل البرّ الرئيسي والمناطق الحرة، بالعربية أو الإنجليزية."
-            : "Contact CounselO UAE for confidential online legal consultation on federal, emirate-level, mainland and free-zone matters in Arabic or English.")
+            : "Contact CounselO, the UAE online legal platform, for confidential consultation on federal, emirate-level, mainland and free-zone matters in Arabic or English.")
           : isSyr
           ? (isRTL
             ? "تواصل مع كاونسلو — منصة الاستشارات القانونية الأونلاين في سوريا. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
-            : "Contact CounselO — Syria's online legal consultation platform. Professional response within 24 hours via WhatsApp (+966 59 485 0247) or email. No office visit needed. Arabic and English.")
+            : "Contact CounselO — Syria's online legal platform for fast, professional legal consultation. Target response within 24 hours via WhatsApp (+966 59 485 0247) or email, in Arabic or English.")
           : (isRTL
             ? "تواصل مع كاونسلو — منصة متخصصة للاستشارات القانونية أونلاين في المملكة. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
-            : "Contact CounselO — Saudi Arabia's specialized online legal consultation platform. Professional response within 24 hours via WhatsApp (+966 59 485 0247) or email. No office visit needed. Arabic and English.")}
+            : "Contact CounselO — Saudi Arabia's online legal platform for fast, professional legal consultation. Target response within 24 hours via WhatsApp (+966 59 485 0247) or email, in Arabic or English.")}
         canonical="/contact"
         keywords={isUae
           ? (isRTL
@@ -251,7 +259,7 @@ export default function Contact() {
               : isSyr
               ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
               : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA", "streetAddress": "Madinah Street, Radma Hotel Apartments Building, Jubail Al-Balad" },
-            "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
+            "founder": OMAR_AL_BAGHDADI,
             "areaServed": { "@type": "Country", "name": countryName },
             "availableLanguage": ["Arabic", "English"],
             "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Sunday"], "opens": "09:00", "closes": "22:00" },
@@ -279,21 +287,32 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="border-b border-white/10 bg-[#073d29] text-white" aria-label={isRTL ? "ما الذي يحدث بعد إرسال الطلب" : "What happens after submitting"}>
-        <div className="premium-content-shell grid md:grid-cols-4">
-          {[
-            { Icon: FileText, en: "Tell Us About It", ar: "أخبرنا عن مسألتك", enBody: "Share the key facts and any useful documents.", arBody: "شارك الوقائع الأساسية وأي مستندات مفيدة." },
-            { Icon: CheckCircle, en: "We Review", ar: "نراجع الطلب", enBody: "The legal team reviews the scope confidentially.", arBody: "يراجع الفريق القانوني نطاق المسألة بسرية." },
-            { Icon: Clock, en: "Consultation", ar: "الاستشارة", enBody: "We respond with the consultation path and timing.", arBody: "نوضح مسار الاستشارة والوقت المتوقع." },
-            { Icon: CreditCard, en: "Plan Forward", ar: "الخطوة التالية", enBody: "You receive clear options before further work begins.", arBody: "تتلقى خيارات واضحة قبل بدء أي عمل إضافي." },
-          ].map(({ Icon, en, ar, enBody, arBody }, index) => (
-            <div key={en} className="relative min-h-48 border-b border-white/15 p-7 md:border-b-0 md:border-e md:last:border-e-0">
-              <span className="absolute end-6 top-5 font-serif text-5xl text-white/[0.06]">0{index + 1}</span>
-              <Icon className="mb-5 h-7 w-7 text-[#d4b66c]" strokeWidth={1.4} />
-              <h2 className="mb-2 font-serif text-xl font-semibold text-white">{isRTL ? ar : en}</h2>
-              <p className="text-sm leading-relaxed text-white/60">{isRTL ? arBody : enBody}</p>
-            </div>
-          ))}
+      <section className="border-b border-white/10 bg-[#073d29] py-14 text-white lg:py-16" aria-labelledby="consultation-process-heading">
+        <div className="premium-content-shell">
+          <div className="mb-8 max-w-3xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#d4b66c]">{isRTL ? "من رسالتك الأولى إلى الخطوة التالية" : "From your first message to next steps"}</p>
+            <h2 id="consultation-process-heading" className="mb-3 text-3xl font-serif font-bold text-white md:text-4xl">{isRTL ? "كيف تعمل الاستشارة القانونية أونلاين؟" : "How online legal consultation works"}</h2>
+            <p className="text-sm leading-7 text-white/65">{isRTL ? "أرسل التفاصيل، نراجع مسألتك، نشرح ما يمكننا تقديمه وتكلفته، ثم تتلقى مشورة مكتوبة وخطوات عملية واضحة." : "Send the details, let us review your matter, understand what you need and its cost, then receive written advice and clear practical next steps."}</p>
+          </div>
+          <ol className="grid border-y border-white/15 md:grid-cols-2 lg:grid-cols-4">
+            {(isRTL ? [
+              ["١", "أرسل التفاصيل", "الوقائع والسؤال والدولة والمستندات ذات الصلة عبر النموذج أو واتساب أو البريد."],
+              ["٢", "نراجع مسألتك", "نحدد القانون والجهة ودرجة الاستعجال، ونشرح مسار الاستشارة وما نحتاجه لفهم المسألة."],
+              ["٣", "اتفق على الخدمة والرسوم", "نوضح ما ستحصل عليه والمدة والرسوم قبل بدء العمل المدفوع؛ لا يوجد سعر ثابت قبل فهم المسألة."],
+              ["٤", "استلم المشورة والخطوة التالية", "تتلقى مشورة مكتوبة وتوضيحات عبر البريد أو واتساب، مع دعم صوتي أو مرئي ومتابعة عند الاتفاق. التمثيل أمام المحكمة منفصل."],
+            ] : [
+              ["1", "Send the details", "Share the facts, question, country and relevant documents through the form, WhatsApp or email."],
+              ["2", "We review your matter", "We identify the relevant law, authority and urgency, then explain the consultation route and what we need to understand the matter."],
+              ["3", "Agree on the service and fee", "We explain what you will receive, how long it should take and the fee before paid work begins; there is no fixed price before the matter is understood."],
+              ["4", "Receive advice and next steps", "You receive written advice and clarifications by email or WhatsApp, with voice/video support and monitoring when agreed. Court representation is separate."],
+            ]).map(([number, title, body]) => (
+              <li key={number} className="border-b border-white/15 p-6 last:border-b-0 md:border-e md:last:border-e-0 lg:p-7">
+                <span className="mb-3 block font-mono text-sm font-bold text-[#d4b66c]">{number}</span>
+                <h3 className="mb-2 text-lg font-serif font-bold text-white">{title}</h3>
+                <p className="text-sm leading-6 text-white/65">{body}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
@@ -316,8 +335,8 @@ export default function Contact() {
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {isRTL
-                    ? "تم استلام طلبك بنجاح. سيتواصل معك فريقنا القانوني خلال 24 ساعة."
-                    : "Your consultation request has been received. Our legal team will contact you within 24 hours."}
+                    ? "تم استلام طلبك بنجاح. تستهدف كاونسلو تقديم رد مهني خلال 24 ساعة، بحسب نطاق المسألة واكتمال المعلومات وتوفر الخدمة."
+                    : "Your consultation request has been received. CounselO targets a professional response within 24 hours, depending on the matter, the details provided and service availability."}
                 </p>
                 {reference && (
                   <p className="text-sm font-semibold text-primary" dir="ltr">
@@ -329,8 +348,8 @@ export default function Contact() {
                 <Clock className="h-5 w-5 text-primary shrink-0" />
                 <p className="text-sm text-foreground/80 font-medium">
                   {isRTL
-                    ? "وقت الاستجابة المتوقع: خلال 24 ساعة — عبر واتساب أو البريد الإلكتروني"
-                    : "Expected response time: within 24 hours — via WhatsApp or email"}
+                    ? "وقت الاستجابة المهني المستهدف: خلال 24 ساعة — عبر واتساب أو البريد الإلكتروني، بحسب المسألة والاستعجال وكفاية المعلومات"
+                    : "Target professional response: within 24 hours via WhatsApp or email, depending on the matter, urgency and information provided"}
                 </p>
               </div>
             </motion.div>
@@ -372,6 +391,11 @@ export default function Contact() {
                 className="bg-card border border-border p-10">
                 <h3 className="text-2xl font-serif font-bold text-foreground mb-2">{f.heading}</h3>
                 <div className="w-12 h-1 bg-primary mb-8" />
+                <div className="mb-8 border-s-2 border-[#b4924a] bg-[#eef4f0] p-4 text-sm leading-7 text-muted-foreground">
+                  {isRTL
+                    ? "اكتب الوقائع بترتيب زمني، وحدد ما تريد معرفته أو إنجازه، وأرفق المستندات ذات الصلة فقط. لا ترسل النسخة الوحيدة من أي أصل ولا تدرج بيانات لا تلزم لتقييم المسألة."
+                    : "Describe the facts in date order, explain what you need to know or achieve, and attach only relevant documents. Do not send the only copy of an original or include information that is not needed to assess the matter."}
+                </div>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     <div className="sr-only" aria-hidden="true">
@@ -424,7 +448,7 @@ export default function Contact() {
                               <SelectTrigger className="border-border"><SelectValue placeholder={f.servicePlaceholder} /></SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              {f.serviceOptions.map((opt) => (
+                              {serviceOptions.map((opt) => (
                                 <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
                               ))}
                             </SelectContent>

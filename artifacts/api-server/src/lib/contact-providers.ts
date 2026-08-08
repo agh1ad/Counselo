@@ -1,4 +1,5 @@
 import type { ContactInput } from "./contact-input.js";
+import { getConsultationProduct, getCrmRoute, getRegionLabel, getServiceDefinition } from "@workspace/api-zod";
 
 const RESEND_API_BASE = "https://api.resend.com";
 const REQUEST_TIMEOUT_MS = 12_000;
@@ -54,6 +55,8 @@ async function readErrorBody(response: Response): Promise<string> {
 }
 
 function emailText(input: ContactInput, reference: string): string {
+  const service = getServiceDefinition(input.service, input.region);
+  const product = getConsultationProduct(input.consultationProduct);
   const attachmentSummary = input.attachments.length
     ? input.attachments
         .map((file) => `- ${file.name} (${Math.ceil(file.size / 1024)} KB)`)
@@ -63,9 +66,11 @@ function emailText(input: ContactInput, reference: string): string {
     "New CounselO legal consultation",
     "",
     `Reference: ${reference}`,
-    `Region: ${input.region === "sa" ? "Saudi Arabia" : "Syria"}`,
+    `Region: ${getRegionLabel(input.region)}`,
     `Language: ${input.language === "ar" ? "Arabic" : "English"}`,
-    `Practice area: ${input.service}`,
+    `Practice area: ${service?.titleEn ?? input.service}`,
+    `Consultation route: ${product?.titleEn ?? input.consultationProduct}`,
+    `CRM route: ${getCrmRoute(input.region, service?.leadCategory ?? "general")}`,
     `Name: ${input.name}`,
     `Email: ${input.email}`,
     `Phone: ${input.phone}`,
@@ -88,11 +93,14 @@ function escapeHtml(value: string): string {
 }
 
 function customerEmailText(input: ContactInput, reference: string): string {
+  const product = getConsultationProduct(input.consultationProduct);
   return [
     `Hello ${input.name},`,
     "",
     "Thank you for choosing CounselO.",
-    "We have received your consultation request. Our legal team will review it shortly, and you can expect a reply within 24 hours.",
+    `Region: ${getRegionLabel(input.region)}`,
+    `Requested consultation route: ${product?.titleEn ?? input.consultationProduct}`,
+    "We have received your consultation request. Our legal team will review it shortly, and CounselO targets a reply within 24 hours, subject to scope, urgency, intake completeness and service availability.",
     "",
     "Please monitor:",
     "- Your email inbox, including the spam or junk folder",
@@ -112,7 +120,7 @@ function customerEmailText(input: ContactInput, reference: string): string {
     `مرحباً ${input.name}،`,
     "",
     "شكراً لاختيارك كاونسلو.",
-    "تم استلام طلب الاستشارة الخاص بك، وسيقوم فريقنا القانوني بمراجعته قريباً. يُتوقع أن يصلك رد خلال 24 ساعة.",
+    "تم استلام طلب الاستشارة الخاص بك، وسيقوم فريقنا القانوني بمراجعته قريباً. تستهدف كاونسلو الرد خلال 24 ساعة بحسب النطاق والاستعجال واكتمال المعلومات وتوفر الخدمة.",
     "",
     "يرجى متابعة:",
     "- صندوق بريدك الإلكتروني، بما في ذلك مجلد الرسائل غير المرغوب فيها",
@@ -137,6 +145,9 @@ function customerEmailHtml(
   const name = escapeHtml(input.name);
   const phone = escapeHtml(input.phone);
   const safeReference = escapeHtml(reference);
+  const product = getConsultationProduct(input.consultationProduct);
+  const productEn = escapeHtml(product?.titleEn ?? input.consultationProduct);
+  const productAr = escapeHtml(product?.titleAr ?? input.consultationProduct);
   const teamEmail = escapeHtml(config.teamEmail);
   const logoUrl = `${config.siteUrl}/images/counselo-logo.png`;
   const siteUrl = escapeHtml(config.siteUrl);
@@ -160,7 +171,9 @@ function customerEmailHtml(
                 <div style="display:inline-block;background:#e8f3ed;color:#176044;border-radius:999px;padding:7px 13px;font-size:13px;font-weight:700;">Request received</div>
                 <h1 style="margin:18px 0 12px;font-size:27px;line-height:1.25;color:#123d32;">Thank you for choosing CounselO</h1>
                 <p style="margin:0 0 14px;font-size:16px;line-height:1.7;">Hello ${name},</p>
-                <p style="margin:0 0 18px;font-size:16px;line-height:1.7;">We have received your consultation request. Our legal team will review it shortly, and you can expect a reply <strong>within 24 hours</strong>.</p>
+                <p style="margin:0 0 18px;font-size:16px;line-height:1.7;">We have received your consultation request. Our legal team will review it shortly, and CounselO targets a reply <strong>within 24 hours</strong>, subject to scope, urgency, intake completeness and service availability.</p>
+                <p style="margin:0 0 18px;font-size:15px;line-height:1.7;"><strong>Region:</strong> ${escapeHtml(getRegionLabel(input.region))}</p>
+                <p style="margin:0 0 18px;font-size:15px;line-height:1.7;"><strong>Requested route:</strong> ${productEn}</p>
                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f7f9f6;border:1px solid #dce7e1;border-radius:10px;margin:22px 0;">
                   <tr><td style="padding:18px 20px;font-size:15px;line-height:1.7;">
                     <strong>Please monitor:</strong><br>
@@ -179,7 +192,9 @@ function customerEmailHtml(
                   <div style="display:inline-block;background:#e8f3ed;color:#176044;border-radius:999px;padding:7px 13px;font-size:13px;font-weight:700;">تم استلام الطلب</div>
                   <h2 style="margin:18px 0 12px;font-size:25px;line-height:1.45;color:#123d32;">شكراً لاختيارك كاونسلو</h2>
                   <p style="margin:0 0 14px;font-size:16px;line-height:1.9;">مرحباً ${name}،</p>
-                  <p style="margin:0 0 18px;font-size:16px;line-height:1.9;">تم استلام طلب الاستشارة الخاص بك، وسيقوم فريقنا القانوني بمراجعته قريباً. يُتوقع أن يصلك رد <strong>خلال 24 ساعة</strong>.</p>
+                  <p style="margin:0 0 18px;font-size:16px;line-height:1.9;">تم استلام طلب الاستشارة الخاص بك، وسيقوم فريقنا القانوني بمراجعته قريباً. تستهدف كاونسلو الرد <strong>خلال 24 ساعة</strong> بحسب النطاق والاستعجال واكتمال المعلومات وتوفر الخدمة.</p>
+                  <p style="margin:0 0 18px;font-size:15px;line-height:1.9;"><strong>المنطقة:</strong> ${escapeHtml(getRegionLabel(input.region))}</p>
+                  <p style="margin:0 0 18px;font-size:15px;line-height:1.9;"><strong>مسار الاستشارة المطلوب:</strong> ${productAr}</p>
                   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f7f9f6;border:1px solid #dce7e1;border-radius:10px;margin:22px 0;text-align:right;">
                     <tr><td style="padding:18px 20px;font-size:15px;line-height:1.9;">
                       <strong>يرجى متابعة:</strong><br>
@@ -252,7 +267,7 @@ export async function sendConsultationEmail(
       from: config.fromEmail,
       to: [config.teamEmail, config.ownerEmail],
       reply_to: input.email,
-      subject: `New Legal Consultation — ${input.service} — ${input.name} — ${reference}`,
+      subject: `New Legal Consultation — ${getRegionLabel(input.region)} — ${input.service} — ${input.name} — ${reference}`,
       text: emailText(input, reference),
       attachments: input.attachments.map((file) => ({
         filename: file.name,
@@ -261,6 +276,9 @@ export async function sendConsultationEmail(
       tags: [
         { name: "category", value: "legal_consultation" },
         { name: "reference", value: reference },
+        { name: "region", value: input.region },
+        { name: "consultation_product", value: input.consultationProduct },
+        { name: "crm_route", value: getCrmRoute(input.region, getServiceDefinition(input.service, input.region)?.leadCategory ?? "general") },
       ],
     },
     `counselo-consultation/${reference}/internal`,
@@ -284,6 +302,8 @@ export async function sendCustomerConfirmationEmail(
       tags: [
         { name: "category", value: "customer_confirmation" },
         { name: "reference", value: reference },
+        { name: "region", value: input.region },
+        { name: "consultation_product", value: input.consultationProduct },
       ],
     },
     `counselo-consultation/${reference}/customer`,

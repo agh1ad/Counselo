@@ -5,6 +5,7 @@ import { CheckCircle2, ArrowRight, MapPin, Award, Users, Globe, Zap, Scale, Star
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI, COOPERATING_OFFICES } from "@workspace/api-zod";
 
 const founderPhoto = "/images/optimized/omar-founder-bio.png";
 const saudiFlag = "/images/optimized/saudi-arabia-hero.jpg";
@@ -25,8 +26,7 @@ export default function About() {
   const schema = [
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "CounselO",
+      ...COUNSELO_ORGANIZATION,
       "url": "https://counselo-legal.com",
       "logo": {
         "@type": "ImageObject",
@@ -52,15 +52,10 @@ export default function About() {
         : region === "syr"
         ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
         : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA" },
-      "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
     },
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Omar Al-Baghdadi",
-      "jobTitle": "Lawyer & Legal Counsel",
-      "worksFor": { "@type": "Organization", "name": "CounselO" },
-      "alumniOf": { "@type": "EducationalOrganization", "name": "Faculty of Law, Damascus University" },
+      ...OMAR_AL_BAGHDADI,
       "image": {
         "@type": "ImageObject",
         "url": "https://counselo-legal.com/omar-baghdadi.jpg",
@@ -72,15 +67,15 @@ export default function About() {
         : region === "syr"
         ? "Senior advocate and legal counsel with 30+ years experience across Syria, the UAE and the Arab world. Founder of CounselO."
         : "Senior advocate and legal counsel with 30+ years experience across Saudi Arabia, UAE and Syria. Founder of CounselO.",
-      "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
     },
     {
       "@context": "https://schema.org",
-      "@type": "WebPage",
+      "@type": ["ProfilePage", "WebPage"],
       "@id": `https://counselo-legal.com${regionPath}/about#webpage`,
       "name": isRTL ? "عن كاونسلو" : "About CounselO",
       "url": `https://counselo-legal.com${regionPath}/about`,
       "description": a.seoDesc,
+      "mainEntity": { "@id": "https://counselo-legal.com/#person-omar-al-baghdadi" },
       "inLanguage": isRTL ? `ar-${countryCode}` : `en-${countryCode}`,
       "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -90,6 +85,7 @@ export default function About() {
         ],
       },
     },
+    ...Object.values(COOPERATING_OFFICES),
   ];
 
   return (

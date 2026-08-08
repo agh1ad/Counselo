@@ -50,6 +50,14 @@ export interface InitialBlogPost {
   titleAr: string;
   excerptEn: string;
   excerptAr: string;
+  seoTitleEn?: string;
+  seoTitleAr?: string;
+  seoDescriptionEn?: string;
+  seoDescriptionAr?: string;
+  bodyEn?: string;
+  bodyAr?: string;
+  contentEn?: Array<{ body?: string }>;
+  contentAr?: Array<{ body?: string }>;
   published: boolean;
   relatedServiceSlugs?: string[];
   relatedBlogSlugs?: string[];
@@ -80,16 +88,7 @@ function ScrollToTop() {
 
 function GAInit() {
   useEffect(() => {
-    const loadAnalytics = () => {
-      injectGTM();
-    };
-
-    if ("requestIdleCallback" in window) {
-      const idleId = window.requestIdleCallback(loadAnalytics, { timeout: 3_000 });
-      return () => window.cancelIdleCallback(idleId);
-    }
-    const timeoutId = globalThis.setTimeout(loadAnalytics, 2_000);
-    return () => globalThis.clearTimeout(timeoutId);
+    injectGTM();
   }, []);
   return null;
 }
@@ -299,8 +298,9 @@ function Router() {
         {/* Legacy routes (no prefix → defaults to SA/English) */}
         <Route path="/services/:id" component={ServiceDetail} />
         <Route path="/services" component={Services} />
+        <Route path="/blog/en/:slug" component={BlogPost} />
+        <Route path="/blog/ar/:slug" component={BlogPost} />
         <Route path="/blog/:slug" component={BlogPost} />
-        <Route path="/ar/blog/:slug" component={BlogPost} />
         <Route path="/ar/our-work/:slug" component={WorkSample} />
         <Route path="/ar/our-work" component={OurWork} />
         <Route path="/our-work/:slug" component={WorkSample} />

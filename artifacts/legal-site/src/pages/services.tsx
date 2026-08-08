@@ -23,6 +23,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { COUNSELO_ENTITY_IDS, COUNSELO_PLATFORM_POSITIONING, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 
@@ -62,16 +63,23 @@ export default function Services() {
   ).filter((column) => column.length > 0);
 
   const seoTitle = region === "uae"
-    ? (isRTL ? `${areaCount} مجالاً قانونياً في الإمارات | كاونسلو` : `${areaCount} UAE Legal Practice Areas | CounselO`)
+    ? (isRTL ? `${areaCount} خدمة قانونية أونلاين في الإمارات | كاونسلو` : `${areaCount} UAE Online Legal Services | CounselO`)
     : isRTL
       ? `${areaCount} مجالاً قانونياً في ${country} | منصة استشارات قانونية أونلاين | قانوني`
       : `${areaCount} Legal Practice Areas ${country} | CounselO — Online Legal Consultation Platform`;
   const seoDesc = isRTL
     ? `قانوني — منصة متخصصة للاستشارات القانونية الأونلاين في ${country}. ${areaCount} مجالاً قانونياً: ${s.items.map((item) => item.title).join("، ")}. خبرة 30+ عاماً، 20,000+ قضية. استجابة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني.`
-    : `CounselO — ${country}'s specialized online legal consultation platform. ${areaCount} practice areas: ${s.items.map((item) => item.title).join(", ")}. 30+ years experience, 20,000+ cases.`;
+    : `${COUNSELO_PLATFORM_POSITIONING.name} — ${country}'s online legal platform for consultation, document review and structured legal guidance. ${areaCount} practice areas: ${s.items.map((item) => item.title).join(", ")}.`;
 
   const baseUrl = `https://counselo-legal.com/${region}${isRTL ? "/ar" : ""}`;
   const servicesSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": region === "uae" ? "UAE Online Legal Services" : region === "syr" ? "Syria Online Legal Services" : "Saudi Arabia Online Legal Services",
+      "url": `${baseUrl}/services`,
+      "about": { "@id": `https://counselo-legal.com/#${region}-service-directory` },
+    },
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
@@ -92,6 +100,7 @@ export default function Services() {
     {
       "@context": "https://schema.org",
       "@type": "LegalService",
+      "@id": `https://counselo-legal.com/#${region}-service-directory`,
       "name": "CounselO",
       "description": region === "uae"
         ? (isRTL ? `منصة استشارات قانونية أونلاين لمسائل الإمارات — ${areaCount} مجالاً ضمن الأطر الاتحادية والمحلية والمناطق الحرة` : `UAE online legal consultation platform — ${areaCount} practice areas across federal, emirate-level, mainland and free-zone frameworks`)
@@ -99,13 +108,14 @@ export default function Services() {
         ? (isRTL ? `منصة سوريا للاستشارات القانونية الأونلاين — ${areaCount} مجالاً، استجابة خلال 24 ساعة — القانون المدني السوري، قانون الشركات 29/2011، قانون العمل 17/2010` : `Syria's online legal consultation platform — ${areaCount} practice areas, response within 24 hours — Syrian Civil Code, Companies Law 29/2011, Labour Law 17/2010`)
         : (isRTL ? `منصة متخصصة للاستشارات القانونية الأونلاين في المملكة — ${areaCount} مجالاً، استجابة خلال 24 ساعة` : `Saudi Arabia's specialized online legal consultation platform — ${areaCount} practice areas, response within 24 hours`),
       "url": "https://counselo-legal.com",
+      "provider": { "@id": COUNSELO_ENTITY_IDS.organization },
       "telephone": "+966594850247",
       "address": region === "uae"
         ? { "@type": "PostalAddress", "addressCountry": "AE" }
         : region === "syr"
         ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
         : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressCountry": "SA" },
-      "founder": { "@type": "Person", "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel" },
+      "founder": OMAR_AL_BAGHDADI,
       "areaServed": region === "uae"
         ? { "@type": "Country", "name": "United Arab Emirates" }
         : region === "syr"

@@ -1,42 +1,64 @@
-# CounselO — Online Legal Consultation Platform
+# CounselO — optional machine-readable documentation
 
-CounselO is an online legal consultation platform serving Saudi Arabia and Syria. Clients submit their legal question via WhatsApp or email and receive a professional written response within 24 hours. No office visit required. Available in Arabic and English.
+Last updated: 2026-08-08
 
-## Key Pages
+CounselO is a bilingual online legal platform for fast, professional and trusted legal consultations, document review and structured legal guidance. It provides jurisdiction-first legal intake across the UAE, Saudi Arabia and Syria and—where separately scoped—coordinates with licensed local professionals for filings, court appearances, notarisation, or other work requiring local authorisation.
 
-- [Home — Saudi Arabia (English)](https://counselo-legal.com/sa)
-- [Home — Saudi Arabia (Arabic)](https://counselo-legal.com/sa/ar)
-- [Home — Syria (English)](https://counselo-legal.com/syr)
-- [Home — Syria (Arabic)](https://counselo-legal.com/syr/ar)
-- [Services — Saudi Arabia](https://counselo-legal.com/sa/services)
-- [Services — Syria](https://counselo-legal.com/syr/services)
-- [Legal Blog and Guides](https://counselo-legal.com/blog)
-- [Selected Legal Work and Redacted Documents](https://counselo-legal.com/our-work)
-- [نماذج أعمال قانونية ومستندات منقحة](https://counselo-legal.com/ar/our-work)
-- [About](https://counselo-legal.com/sa/about)
-- [Contact](https://counselo-legal.com/sa/contact)
+This file is optional machine-readable documentation. It is not a ranking factor, does not replace ordinary SEO, and is not legal advice.
 
-## Services
+## Jurisdictions and languages
 
-- [Family Law](https://counselo-legal.com/sa/services/family-law) — divorce, custody, inheritance
-- [Business & Commercial Law](https://counselo-legal.com/sa/services/business-law)
-- [Employment Law](https://counselo-legal.com/sa/services/employment-law)
-- [Real Estate Law](https://counselo-legal.com/sa/services/real-estate)
-- [Foreign Investment Law](https://counselo-legal.com/sa/services/foreign-investment)
-- [Administrative Law](https://counselo-legal.com/sa/services/administrative-law)
-- [Criminal Law](https://counselo-legal.com/sa/services/criminal-law)
-- [Banking & Finance Law](https://counselo-legal.com/sa/services/banking-finance)
-- [Tax Law](https://counselo-legal.com/sa/services/tax-zakat)
-- [Cyber Law](https://counselo-legal.com/sa/services/cyber-law)
-- [Medical Malpractice](https://counselo-legal.com/sa/services/medical-malpractice)
-- [Insurance Law](https://counselo-legal.com/sa/services/insurance-law)
-- [Arbitration](https://counselo-legal.com/sa/services/arbitration)
-- [Enforcement Law](https://counselo-legal.com/sa/services/enforcement)
-- [Companies Law](https://counselo-legal.com/sa/services/companies-law)
-- [Contracts Law](https://counselo-legal.com/sa/services/contracts)
+CounselO has distinct service hubs for:
 
-## Contact
+- United Arab Emirates (UAE): federal, emirate-level, mainland, free-zone, DIFC and ADGM context where applicable
+- Saudi Arabia (SA): Saudi laws, authorities, courts and regulatory procedures
+- Syria (SY): Syrian legislation, authorities, courts and regulatory procedures
 
-- WhatsApp / Phone: +966 59 485 0247
+Services and articles identify the applicable jurisdiction. Arabic and English are supported. The language of a consultation does not change the governing law or licensing requirements.
+
+## Licensing and representation scope
+
+CounselO’s online intake, consultation, document review and preliminary legal analysis are scoped according to the facts and applicable jurisdiction. If court representation is requested or necessary, CounselO can arrange it through an appropriately licensed partner professional or cooperating office in the relevant served jurisdiction under a separate agreed engagement. No representation, court appearance, filing, or outcome is promised before the scope and engagement are agreed.
+
+## Regional service hubs
+
+- [UAE services — English](https://counselo-legal.com/uae/services)
+- [UAE services — Arabic](https://counselo-legal.com/uae/ar/services)
+- [Saudi Arabia services — English](https://counselo-legal.com/sa/services)
+- [Saudi Arabia services — Arabic](https://counselo-legal.com/sa/ar/services)
+- [Syria services — English](https://counselo-legal.com/syr/services)
+- [Syria services — Arabic](https://counselo-legal.com/syr/ar/services)
+
+## Main pages
+
+- [UAE — English](https://counselo-legal.com/uae)
+- [UAE — Arabic](https://counselo-legal.com/uae/ar)
+- [Saudi Arabia — English](https://counselo-legal.com/sa)
+- [Saudi Arabia — Arabic](https://counselo-legal.com/sa/ar)
+- [Syria — English](https://counselo-legal.com/syr)
+- [Syria — Arabic](https://counselo-legal.com/syr/ar)
+- [Contact and consultation intake](https://counselo-legal.com/sa/contact)
+- [Terms of service and engagement boundaries](https://counselo-legal.com/sa/terms-of-service)
+- [Privacy policy](https://counselo-legal.com/sa/privacy-policy)
+
+## Blog, work, and editorial information
+
+- [Blog and legal guides index](https://counselo-legal.com/blog)
+- [Redacted legal work index](https://counselo-legal.com/our-work)
+- [Redacted legal work index — Arabic](https://counselo-legal.com/ar/our-work)
+- [Author, legal leadership, and professional profile](https://counselo-legal.com/sa/about)
+- [Arabic author and professional profile](https://counselo-legal.com/sa/ar/about)
+- [Editorial standards, methodology, sources, reviewer and correction information](https://counselo-legal.com/blog)
+- [Report a correction or factual error](https://counselo-legal.com/sa/contact?subject=article-correction)
+
+Articles should be read with their visible author, legal reviewer, jurisdiction, applicable-law, source, last-review, methodology, disclaimer, and correction information. Redacted work samples protect client confidentiality and do not guarantee a result in another matter.
+
+## Consultation
+
+Consultation routes include an initial case assessment, focused legal consultation, document review, and matter roadmap. There is no fixed published price: after an initial study of the request, CounselO confirms scope, deliverables, timing, fee, payment method, follow-up inclusion, and any rescheduling terms before paid work begins.
+
+- [Start a consultation — UAE](https://counselo-legal.com/uae/contact)
+- [Start a consultation — Saudi Arabia](https://counselo-legal.com/sa/contact)
+- [Start a consultation — Syria](https://counselo-legal.com/syr/contact)
+- WhatsApp / phone: +966 59 485 0247
 - Email: info@counselo-legal.com
-- [Start a Consultation](https://counselo-legal.com/sa/contact)
