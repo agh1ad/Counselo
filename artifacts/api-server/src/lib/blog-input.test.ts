@@ -5,6 +5,7 @@ import {
   parseBlogPostInput,
   parsePositiveId,
   sanitizeRichText,
+  sanitizeBlogPost,
 } from "./blog-input.js";
 
 const validPost = {
@@ -80,6 +81,50 @@ test("accepts bilingual articles while clearing metadata for absent languages", 
   assert.equal(arabicPost.seoTitleEn, "");
   assert.equal(arabicPost.seoDescriptionEn, "");
   assert.equal(arabicPost.titleAr, "عنوان عربي صالح");
+});
+
+test("commentary posts do not expose legal provenance fields", () => {
+  const post = sanitizeBlogPost({
+    ...validPost,
+    id: 1,
+    categoryEn: "Commentary",
+    categoryAr: "",
+    excerptEn: "A sufficiently complete article excerpt.",
+    excerptAr: "",
+    seoTitleEn: "A valid article title for testing",
+    seoTitleAr: "",
+    seoDescriptionEn: "A sufficiently complete description for a commentary article used in this test.",
+    seoDescriptionAr: "",
+    contentAr: [],
+    relatedServiceSlugs: [],
+    relatedBlogSlugs: [],
+    relatedWorkSlugs: [],
+    published: true,
+    contentType: "professional-commentary",
+    primaryAuthorName: "CounselO Legal team",
+    primaryAuthorNameAr: "فريق كاونسلو القانوني",
+    primaryAuthorUrl: "/about",
+    legalReviewerName: "Lawyer and Legal Consultant Omar Al-Baghdadi",
+    legalReviewerNameAr: "المحامي والمستشار القانوني عمر البغدادي",
+    legalReviewerUrl: "/about",
+    jurisdiction: "sa",
+    applicableLaw: "Saudi law",
+    applicableLawAr: "القانون السعودي",
+    sources: [{ titleEn: "Old source", titleAr: "مصدر قديم", href: "https://example.com" }],
+    keyLegalUpdateNote: "Old note",
+    keyLegalUpdateNoteAr: "ملاحظة قديمة",
+    contentMethodology: "Editorial analysis",
+    contentMethodologyAr: "تحليل تحريري",
+    lastSubstantiveReviewAt: "2026-08-08",
+    correctionUrl: "/contact?subject=article-correction",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    aiLinksAssignedAt: null,
+  });
+  assert.equal(post.jurisdiction, "");
+  assert.equal(post.applicableLaw, "");
+  assert.deepEqual(post.sources, []);
+  assert.equal(post.legalReviewerName, "Lawyer and Legal Consultant Omar Al-Baghdadi");
 });
 
 test("permits an unchanged legacy slug during an update", () => {

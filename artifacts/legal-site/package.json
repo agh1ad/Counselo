@@ -13,8 +13,10 @@
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "generate-sitemap": "tsx src/scripts/generate-sitemap.ts",
+    "sitemap:validate": "tsx src/scripts/sitemap-live-validate.ts",
+    "llms:validate": "tsx --test src/lib/llms-content.test.ts",
     "seo:validate": "tsx src/scripts/seo-validate.ts",
-    "test": "tsx --test src/ssr-server.test.ts"
+    "test": "tsx --test src/ssr-server.test.ts src/lib/*.test.ts"
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -58,6 +60,7 @@
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
     "@workspace/api-client-react": "workspace:*",
+    "@workspace/api-zod": "workspace:*",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "cmdk": "^1.1.1",

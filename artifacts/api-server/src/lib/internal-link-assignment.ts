@@ -2,29 +2,12 @@ import { blogPostsTable, db, workSamplesTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import { logger } from "./logger.js";
 import { extractResponsesOutputText } from "./openai-response.js";
+import { SERVICE_REGISTRY } from "@workspace/api-zod";
 
-const SERVICE_CATALOG = [
-  ["family-law", "family divorce custody inheritance marriage personal status الأسرة طلاق حضانة ميراث زواج أحوال شخصية"],
-  ["business-law", "business commercial trade corporate company contracts أعمال تجاري تجارة شركات عقود"],
-  ["real-estate", "real estate property land lease rent ownership عقار عقارات ملكية إيجار أرض"],
-  ["employment-law", "employment labor employee employer wages dismissal عمل عمال موظف أجور فصل"],
-  ["foreign-investment", "foreign investment investor licensing تأسيس استثمار أجنبي مستثمر ترخيص"],
-  ["administrative-law", "administrative government authority public decision إداري حكومة جهة قرار"],
-  ["arbitration", "arbitration dispute award تحكيم نزاع حكم"],
-  ["enforcement", "enforcement execution judgment debt تنفيذ حكم دين"],
-  ["companies-law", "company companies shareholder partner governance شركة شركات مساهم شريك حوكمة"],
-  ["contracts", "contract agreement drafting review عقد عقود اتفاقية صياغة مراجعة"],
-  ["criminal-law", "criminal crime defense prosecution جنائي جزائي جريمة دفاع نيابة"],
-  ["banking-finance", "bank banking finance loan credit بنك مصرف تمويل قرض ائتمان"],
-  ["intellectual-property", "intellectual property trademark copyright patent ملكية فكرية علامة حقوق مؤلف براءة"],
-  ["tax-zakat", "tax zakat vat customs ضريبة زكاة قيمة مضافة جمارك"],
-  ["cyber-law", "cyber data privacy digital online إلكتروني سيبراني بيانات خصوصية رقمي"],
-  ["medical-malpractice", "medical malpractice patient hospital doctor طبي خطأ طبي مريض مستشفى طبيب"],
-  ["insurance-law", "insurance claim policy coverage تأمين مطالبة وثيقة تغطية"],
-  ["civil-law", "civil liability damages obligation مدني مسؤولية تعويض التزام"],
-  ["civil-procedure", "civil procedure court claim evidence مرافعات مدنية محكمة دعوى إثبات"],
-  ["criminal-procedure", "criminal procedure investigation arrest trial أصول جزائية تحقيق توقيف محاكمة"],
-] as const;
+const SERVICE_CATALOG = SERVICE_REGISTRY.map((service) => [
+  service.slug,
+  `${service.titleEn} ${service.titleAr} ${service.leadCategory}`,
+] as const);
 
 export interface InternalLinkAssignment {
   relatedServiceSlugs: string[];
@@ -114,20 +97,13 @@ async function askOpenAI(
   blogs: Candidate[],
   work: Candidate[],
 ): Promise<InternalLinkAssignment | null> {
-  const baseUrl = (
-    process.env["AI_INTEGRATIONS_OPENAI_BASE_URL"]?.trim() ||
-    "https://api.openai.com/v1"
-  ).replace(/\/$/, "");
-  const apiKey = (
-    process.env["AI_INTEGRATIONS_OPENAI_API_KEY"] ||
-    process.env["OPENAI_API_KEY"]
-  )?.trim();
+  const apiKey = process.env["OPENAI_API_KEY"]?.trim();
   if (!apiKey) return null;
 
   const controller = new AbortController();
   const timeout = globalThis.setTimeout(() => controller.abort(), 20_000);
   try {
-    const response = await fetch(`${baseUrl}/responses`, {
+    const response = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
@@ -136,7 +112,7 @@ async function askOpenAI(
       signal: controller.signal,
       body: JSON.stringify({
         model:
-          process.env["OPENAI_INTERNAL_LINK_MODEL"]?.trim() || "gpt-5-mini",
+          process.env["OPENAI_INTERNAL_LINK_MODEL"]?.trim() || "gpt-5.6-sol",
         input: [
           {
             role: "system",

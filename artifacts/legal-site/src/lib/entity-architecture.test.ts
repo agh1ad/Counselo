@@ -1,0 +1,42 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import {
+  COUNSELO_ENTITY_IDS,
+  COUNSELO_ORGANIZATION,
+  COUNSELO_WEBSITE,
+  OMAR_AL_BAGHDADI,
+  COOPERATING_OFFICES,
+  regionalServiceEntity,
+  COUNSELO_PLATFORM_POSITIONING,
+} from "@workspace/api-zod";
+
+test("core CounselO entities have stable IDs and canonical names", () => {
+  assert.equal(COUNSELO_ORGANIZATION["@id"], "https://counselo-legal.com/#organization");
+  assert.equal(COUNSELO_WEBSITE["@id"], "https://counselo-legal.com/#website");
+  assert.equal(COUNSELO_ORGANIZATION.name, "CounselO");
+  assert.equal(COUNSELO_ORGANIZATION.alternateName, "كاونسلو");
+  assert.match(COUNSELO_ORGANIZATION.description, /online legal platform/i);
+  assert.deepEqual(COUNSELO_ORGANIZATION.areaServed.map((country) => country.name), COUNSELO_PLATFORM_POSITIONING.jurisdictions);
+  assert.deepEqual(COUNSELO_ORGANIZATION.availableLanguage, ["Arabic", "English"]);
+  assert.equal(OMAR_AL_BAGHDADI["@id"], "https://counselo-legal.com/#person-omar-al-baghdadi");
+  assert.equal(OMAR_AL_BAGHDADI.name, "Omar Al-Baghdadi");
+  assert.ok(OMAR_AL_BAGHDADI.alternateName.includes("Omar Riyad Al-Baghdadi"));
+  assert.equal(OMAR_AL_BAGHDADI.worksFor["@id"], COUNSELO_ENTITY_IDS.organization);
+});
+
+test("platform positioning covers every served jurisdiction and language", () => {
+  assert.deepEqual(COUNSELO_PLATFORM_POSITIONING.jurisdictions, ["United Arab Emirates", "Saudi Arabia", "Syria"]);
+  assert.deepEqual(COUNSELO_PLATFORM_POSITIONING.languages, ["Arabic", "English"]);
+  assert.match(COUNSELO_PLATFORM_POSITIONING.descriptionEn, /fast, professional and trusted/i);
+  assert.match(COUNSELO_PLATFORM_POSITIONING.descriptionEn, /UAE, Saudi Arabia and Syria/i);
+  assert.match(COUNSELO_PLATFORM_POSITIONING.descriptionAr, /الإمارات والسعودية وسوريا/);
+  assert.match(COUNSELO_PLATFORM_POSITIONING.scopeEn, /licensed partner professional|cooperating office/i);
+});
+
+test("cooperating offices and regional services use durable entity IDs", () => {
+  const officeIds = Object.values(COOPERATING_OFFICES).map((office) => office["@id"]);
+  assert.equal(new Set(officeIds).size, officeIds.length);
+  const service = regionalServiceEntity("uae", "real-estate", "Real Estate Law", "UAE property guidance");
+  assert.equal(service["@id"], "https://counselo-legal.com/#uae-service-real-estate");
+  assert.equal(service.provider["@id"], COUNSELO_ENTITY_IDS.organization);
+});

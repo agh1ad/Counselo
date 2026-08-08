@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { getConsultationProduct, isServiceValidForRegion } from "@workspace/api-zod";
 
 export const MAX_CONTACT_FILES = 10;
 export const MAX_CONTACT_FILE_BYTES = 5 * 1024 * 1024;
@@ -12,26 +13,6 @@ const allowedFileTypes = new Set([
   "image/webp",
 ]);
 
-const allowedServices = [
-  "administrative-law",
-  "arbitration",
-  "banking-finance",
-  "business-law",
-  "companies-law",
-  "contracts",
-  "criminal-law",
-  "cyber-law",
-  "employment-law",
-  "enforcement",
-  "family-law",
-  "foreign-investment",
-  "insurance-law",
-  "intellectual-property",
-  "medical-malpractice",
-  "real-estate",
-  "tax-zakat",
-] as const;
-
 const attachmentSchema = z.object({
   name: z.string().trim().min(1).max(180),
   type: z.string().trim().min(1).max(100),
@@ -42,9 +23,10 @@ const contactInputSchema = z.object({
   name: z.string().trim().min(2).max(120),
   email: z.string().trim().email().max(254),
   phone: z.string().trim().min(10).max(30),
-  service: z.enum(allowedServices),
+  service: z.string().trim().min(1),
+  consultationProduct: z.string().trim().min(1).default("comprehensive-consultation"),
   message: z.string().trim().min(10).max(5_000),
-  region: z.enum(["sa", "syr"]),
+  region: z.enum(["uae", "sa", "syr"]),
   language: z.enum(["en", "ar"]),
   website: z.string().max(200).optional().default(""),
   attachments: z
@@ -149,6 +131,12 @@ export function parseContactInput(value: unknown): ContactInput {
 
   if (!/^[+\d][\d\s().-]{8,28}\d$/.test(result.data.phone)) {
     throw new ContactInputError("Enter a valid phone number.");
+  }
+  if (!isServiceValidForRegion(result.data.region, result.data.service)) {
+    throw new ContactInputError("That service is not available for this region.");
+  }
+  if (!getConsultationProduct(result.data.consultationProduct)) {
+    throw new ContactInputError("That consultation product is not available.");
   }
   if (/[\u0000-\u001f\u007f]/.test(result.data.name)) {
     throw new ContactInputError("The name contains unsupported characters.");
