@@ -128,11 +128,12 @@ export default function BlogPost() {
       ) {
         return window.__SSR_POST__;
       }
-      if (typeof window !== "undefined") {
-        return (window.__SSR_POSTS__ as ApiPost[] | undefined)?.find(
-          (candidate) => candidate.slug === dbSlug,
-        );
-      }
+      // __SSR_POSTS__ contains discovery cards only (titles/excerpts and
+      // relationship metadata), not the article body. Do not use a matching
+      // card as detail-page initialData: React Query would mark the query as
+      // loaded, the render would try to read missing content, and a dynamic
+      // article could appear blank until a full reload. Let the detail query
+      // fetch the complete record instead.
       return undefined;
     },
     staleTime: 60_000,
@@ -220,7 +221,7 @@ export default function BlogPost() {
   const seoDesc = normalizeDescription(rawSeoDesc, excerpt);
   const category = useAr ? post.categoryAr : post.categoryEn;
   const body = useAr ? post.bodyAr : post.bodyEn;
-  const content = useAr ? post.contentAr : post.contentEn;
+  const content = (useAr ? post.contentAr : post.contentEn) ?? [];
   const articleSearchText = `${post.titleEn} ${post.titleAr} ${post.excerptEn} ${post.excerptAr} ${post.categoryEn} ${post.categoryAr}`;
   const articleRegion = /United Arab Emirates|\bUAE\b|الإمارات/i.test(articleSearchText)
     ? "uae"
