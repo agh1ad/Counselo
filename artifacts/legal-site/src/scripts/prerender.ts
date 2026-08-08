@@ -203,7 +203,11 @@ function writeRoute(
   }));
   const discoveryData = `<script>window.__SSR_POSTS__=${safeJson(discoveryPosts)};window.__SSR_WORK_SAMPLES__=${safeJson(routeWorkSamples)};</script>`;
   const detailData = route.startsWith("/blog/")
-    ? `<script>window.__SSR_POST__=${safeJson(blogPosts.find((post) => `/blog/${post.slug}` === route))};</script>`
+    ? `<script>window.__SSR_POST__=${safeJson(blogPosts.find((post) =>
+        `/blog/${post.slug}` === route ||
+        `/blog/en/${post.slug}` === route ||
+        `/blog/ar/${post.slug}` === route
+      ))};</script>`
     : "";
   const initialData = `${discoveryData}${detailData}`;
 
