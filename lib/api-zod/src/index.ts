@@ -1,6 +1,7 @@
 export * from "./generated/api";
 export * from "./generated/types";
 export * from "./region-services";
+export * from "./regional-seo";
 export * from "./public-site-policy";
 export * from "./article-provenance";
 export * from "./entity-architecture";

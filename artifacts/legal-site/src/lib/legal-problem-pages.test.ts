@@ -12,6 +12,7 @@ test("problem-page registry covers every served region and language", () => {
     assert.ok(pages.every((page) => page.keyQuestions.en.length >= 5 && page.keyQuestions.ar.length >= 5));
     assert.ok(pages.every((page) => page.deliverables.en.length >= 5 && page.process.en.length === 4 && page.process.ar.length === 4));
     assert.ok(pages.every((page) => page.experience.en.length > 120 && page.faqs.en.length >= 5 && page.faqs.ar.length >= 5));
+    assert.ok(pages.every((page) => page.searchVariantsEn.length >= 12 && page.searchVariantsAr.length >= 12));
     assert.deepEqual(
       new Set(pages.map((page) => page.parentServiceSlug)),
       new Set(getServicesForRegion(region).map((service) => service.slug)),
@@ -47,6 +48,9 @@ test("problem inventories do not contain duplicate slugs or duplicate search tar
       assert.equal(new Set(pages.map((page) => page.slug)).size, pages.length, `${region}/${service.slug} has duplicate slugs`);
       const normalizedTitles = pages.map((page) => page.titleEn.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim());
       assert.equal(new Set(normalizedTitles).size, normalizedTitles.length, `${region}/${service.slug} has duplicate English problem targets`);
+      assert.ok(pages.every((page) => page.searchVariantsEn.some((variant) => variant.includes("lawyer"))), `${region}/${service.slug} is missing lawyer-intent variants`);
+      assert.ok(pages.every((page) => page.searchVariantsEn.some((variant) => variant.includes("documents"))), `${region}/${service.slug} is missing document-intent variants`);
+      assert.ok(pages.every((page) => page.searchVariantsEn.some((variant) => variant.includes("urgent"))), `${region}/${service.slug} is missing urgent-intent variants`);
     }
   }
 });
@@ -62,5 +66,56 @@ test("UAE problem titles stay tied to the service instead of using bare generic 
   for (const page of getLegalProblemPages("uae")) {
     assert.ok(!generic.test(page.titleEn) || page.titleEn.includes(page.serviceTitleEn), `Generic UAE title leaked into ${page.parentServiceSlug}: ${page.titleEn}`);
     assert.ok(page.overview.en.includes("UAE") || page.overview.en.includes("the UAE"), `${page.slug} is missing UAE context`);
+  }
+});
+
+test("every region carries the cross-region lead-gap coverage set", () => {
+  const requiredByRegion: Record<"sa" | "syr" | "uae", RegExp[]> = {
+    sa: [
+      /Legal notice and demand letter/i,
+      /Power-of-attorney/i,
+      /Document attestation/i,
+      /Consumer refund/i,
+      /Defective product/i,
+      /Employment settlement/i,
+      /residency or employment-status/i,
+      /Bounced-cheque defence/i,
+      /Traffic accident compensation/i,
+      /Personal injury compensation/i,
+      /Corporate-tax registration/i,
+      /VAT invoice/i,
+    ],
+    syr: [
+      /Legal notice and demand letter/i,
+      /Power-of-attorney/i,
+      /Document attestation/i,
+      /Consumer refund/i,
+      /Defective product/i,
+      /Employment settlement/i,
+      /residency or employment-status/i,
+      /Bounced-cheque defence/i,
+      /Traffic accident compensation/i,
+      /Personal injury compensation/i,
+      /Corporate-tax registration/i,
+      /VAT invoice/i,
+    ],
+    uae: [
+      /Divorce filing/i,
+      /Child custody/i,
+      /Alimony/i,
+      /Dubai tenancy/i,
+      /Wrongful termination/i,
+      /End-of-service/i,
+      /Bounced-cheque defence/i,
+      /Corporate-tax registration/i,
+      /Emirates ID/i,
+      /Visa overstay/i,
+    ],
+  };
+  for (const region of ["sa", "syr", "uae"] as const) {
+    const titles = getLegalProblemPages(region).map((page) => page.titleEn);
+    for (const pattern of requiredByRegion[region]) {
+      assert.ok(titles.some((title) => pattern.test(title)), `${region} is missing lead-gap coverage: ${pattern}`);
+    }
   }
 });
