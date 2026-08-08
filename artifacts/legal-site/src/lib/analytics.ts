@@ -114,13 +114,17 @@ export function setGAMeasurementId(id: string) {
 
 export function injectGA(measurementId: string) {
   if (!measurementId || typeof document === "undefined") return;
-  const existingId = document.getElementById("ga-script");
-  if (existingId) existingId.remove();
-  const existingInline = document.getElementById("ga-inline");
-  if (existingInline) existingInline.remove();
+  const existingScript = document.getElementById("ga-script") as HTMLScriptElement | null;
+  const existingInline = document.getElementById("ga-inline") as HTMLScriptElement | null;
+  const expectedSrc = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+  const existingMeasurementId = existingInline?.dataset.gaMeasurementId;
+  if (existingScript?.src === expectedSrc && (existingMeasurementId === measurementId || existingInline)) return;
+  existingScript?.remove();
+  existingInline?.remove();
 
   const inline = document.createElement("script");
   inline.id = "ga-inline";
+  inline.dataset.gaMeasurementId = measurementId;
   inline.text = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${measurementId}',{send_page_view:false});`;
   document.head.appendChild(inline);
 
