@@ -26,6 +26,12 @@ export type LegalProblemPage = {
   process: LocalizedProcess;
   experience: LocalizedText;
   faqs: LocalizedFaq;
+  /**
+   * Search variants are grouped onto the canonical problem page instead of
+   * generating thin pages for every wording a customer may use.
+   */
+  searchVariantsEn: string[];
+  searchVariantsAr: string[];
 };
 
 function slugify(value: string): string {
@@ -43,6 +49,42 @@ function countryName(region: Region): LocalizedText {
     : region === "syr"
       ? { en: "Syria", ar: "سوريا" }
       : { en: "Saudi Arabia", ar: "السعودية" };
+}
+
+function searchVariants(region: Region, titleEn: string, titleAr: string, serviceTitleEn: string, serviceTitleAr: string): LocalizedList {
+  const country = countryName(region);
+  const title = titleEn.toLowerCase();
+  const arabicTitle = titleAr;
+  return {
+    en: [
+      `${titleEn} lawyer in ${country.en}`,
+      `${titleEn} legal advice ${country.en}`,
+      `how to resolve ${title}`,
+      `urgent help with ${title}`,
+      `${title} documents and evidence`,
+      `${title} legal process`,
+      `${title} cost and consultation`,
+      `online consultation for ${title}`,
+      `${title} dispute lawyer`,
+      `prevent ${title} legal problem`,
+      `${serviceTitleEn} lawyer for ${title}`,
+      `${title} rights and options`,
+    ],
+    ar: [
+      `${arabicTitle} محامي في ${country.ar}`,
+      `استشارة قانونية بشأن ${arabicTitle} ${country.ar}`,
+      `كيفية حل ${arabicTitle}`,
+      `مساعدة عاجلة في ${arabicTitle}`,
+      `مستندات وأدلة ${arabicTitle}`,
+      `إجراءات ${arabicTitle}`,
+      `تكلفة الاستشارة في ${arabicTitle}`,
+      `استشارة أونلاين بشأن ${arabicTitle}`,
+      `محامي نزاع ${arabicTitle}`,
+      `تجنب مشكلة ${arabicTitle}`,
+      `محامي ${serviceTitleAr} في مسألة ${arabicTitle}`,
+      `حقوق وخيارات ${arabicTitle}`,
+    ],
+  };
 }
 
 type ProblemProfile = {
@@ -187,6 +229,208 @@ const SAUDI_ADDITIONAL_ISSUES: Record<string, LocalizedList> = {
     ar: ["صياغة الوكالة ومنازعة حدود الصلاحية", "مشكلة تصديق المستند وتوثيق العقد"],
   },
 };
+
+/**
+ * Cross-region lead-intent coverage. These are explicit customer problems,
+ * not keyword variants, and are mapped to the closest existing service so
+ * every served jurisdiction can answer the same high-intent need without
+ * inventing unsupported regional service hubs.
+ */
+const ALL_REGION_LEAD_ISSUES: Record<string, LocalizedList> = {
+  contracts: {
+    en: [
+      "Legal notice and demand letter drafting",
+      "Power-of-attorney drafting and authority problem",
+      "Document attestation and legalisation problem",
+      "Consumer refund and purchase cancellation dispute",
+      "Defective product and consumer compensation claim",
+      "Unpaid professional fees and service invoice dispute",
+    ],
+    ar: [
+      "صياغة الإنذار والمطالبة القانونية",
+      "صياغة الوكالة ومشكلة حدود الصلاحية",
+      "مشكلة تصديق المستند وإضفاء الصفة القانونية",
+      "منازعة استرداد قيمة الشراء وإلغاء المعاملة",
+      "المنتج المعيب ومطالبة المستهلك بالتعويض",
+      "منازعة أتعاب المهنة والفاتورة الخدمية غير المدفوعة",
+    ],
+  },
+  "employment-law": {
+    en: [
+      "Employment settlement and final-dues calculation",
+      "Work-permit, residency or employment-status problem",
+      "Visa, exit and re-entry restriction affecting employment",
+    ],
+    ar: [
+      "تسوية العمل وحساب المستحقات النهائية",
+      "مشكلة تصريح العمل أو الإقامة أو الوضع الوظيفي",
+      "قيود التأشيرة أو الخروج والعودة المؤثرة في العمل",
+    ],
+  },
+  "family-law": {
+    en: [
+      "Marriage registration and family-status certificate problem",
+      "Inheritance document and civil-record correction",
+    ],
+    ar: [
+      "مشكلة تسجيل الزواج وشهادة الحالة الأسرية",
+      "تصحيح مستندات الميراث والسجل المدني",
+    ],
+  },
+  "real-estate": {
+    en: [
+      "Landlord or tenant notice and settlement problem",
+      "Property service-charge and maintenance dispute",
+    ],
+    ar: [
+      "مشكلة إخطار المالك أو المستأجر والتسوية",
+      "منازعة رسوم الخدمات وصيانة العقار",
+    ],
+  },
+  enforcement: {
+    en: [
+      "Bounced-cheque defence and criminal complaint concern",
+      "Wrongful debt-collection or creditor harassment complaint",
+    ],
+    ar: [
+      "الدفاع في الشيك المرتجع ومشكلة الشكوى الجزائية",
+      "شكوى التحصيل غير المشروع أو مضايقة الدائن",
+    ],
+  },
+  "insurance-law": {
+    en: [
+      "Traffic accident compensation and liability claim",
+      "Personal injury compensation after an accident",
+    ],
+    ar: [
+      "مطالبة التعويض والمسؤولية عن الحادث المروري",
+      "التعويض عن الإصابة الشخصية بعد الحادث",
+    ],
+  },
+  "cyber-law": {
+    en: [
+      "Personal-data access, correction or deletion request",
+      "Online account recovery and platform complaint",
+    ],
+    ar: [
+      "طلب الوصول إلى البيانات الشخصية أو تصحيحها أو حذفها",
+      "استرداد الحساب الإلكتروني والشكوى أمام المنصة",
+    ],
+  },
+  "tax-zakat": {
+    en: [
+      "Corporate-tax registration and filing problem",
+      "VAT invoice and tax-correction dispute",
+    ],
+    ar: [
+      "مشكلة التسجيل والإقرار بضريبة الشركات",
+      "منازعة فاتورة ضريبة القيمة المضافة وتصحيحها",
+    ],
+  },
+};
+
+const UAE_LEAD_ISSUES: Record<string, LocalizedList> = {
+  "family-personal-status": {
+    en: [
+      "Divorce filing and personal-status procedure",
+      "Child custody and visitation dispute",
+      "Alimony and child-maintenance claim",
+      "Marriage registration and certificate problem",
+      "Inheritance document and civil-record correction",
+    ],
+    ar: [
+      "قيد دعوى الطلاق وإجراءات الأحوال الشخصية",
+      "منازعة حضانة الأطفال والزيارة",
+      "مطالبة النفقة الزوجية ونفقة الأطفال",
+      "مشكلة تسجيل الزواج وشهادة الزواج",
+      "تصحيح مستندات الميراث والسجل المدني",
+    ],
+  },
+  "employment-labour": {
+    en: [
+      "Wrongful termination and labour complaint",
+      "End-of-service benefits and final-settlement dispute",
+      "Commission and bonus payment dispute",
+    ],
+    ar: [
+      "الفصل التعسفي والشكوى العمالية",
+      "منازعة مكافأة نهاية الخدمة والتسوية النهائية",
+      "منازعة صرف العمولة والمكافأة",
+    ],
+  },
+  "real-estate-construction": {
+    en: [
+      "Dubai tenancy and RERA rental dispute",
+      "Landlord notice and tenant settlement problem",
+      "Property service-charge and maintenance dispute",
+    ],
+    ar: [
+      "منازعة إيجار دبي وعقد الإيجار أمام ريرا",
+      "مشكلة إخطار المالك وتسوية المستأجر",
+      "منازعة رسوم الخدمات وصيانة العقار",
+    ],
+  },
+  "enforcement-debt-recovery": {
+    en: [
+      "Bounced-cheque defence and criminal complaint concern",
+      "Wrongful debt-collection or creditor harassment complaint",
+    ],
+    ar: [
+      "الدفاع في الشيك المرتجع ومشكلة الشكوى الجزائية",
+      "شكوى التحصيل غير المشروع أو مضايقة الدائن",
+    ],
+  },
+  "tax-vat": {
+    en: [
+      "Corporate-tax registration and filing problem",
+      "VAT invoice and tax-correction dispute",
+    ],
+    ar: [
+      "مشكلة التسجيل والإقرار بضريبة الشركات",
+      "منازعة فاتورة ضريبة القيمة المضافة وتصحيحها",
+    ],
+  },
+  "immigration-residency": {
+    en: [
+      "Emirates ID and residency cancellation problem",
+      "Visa overstay and immigration penalty dispute",
+      "Entry, exit and travel restriction problem",
+    ],
+    ar: [
+      "مشكلة إلغاء الهوية الإماراتية والإقامة",
+      "منازعة مخالفة مدة التأشيرة والغرامة والهجرة",
+      "مشكلة قيود الدخول والخروج والسفر",
+    ],
+  },
+  "commercial-contracts": {
+    en: [
+      "Legal notice and demand letter drafting",
+      "Power-of-attorney drafting and authority problem",
+      "Document attestation and legalisation problem",
+      "Consumer refund and purchase cancellation dispute",
+      "Defective product and consumer compensation claim",
+      "Unpaid professional fees and service invoice dispute",
+    ],
+    ar: [
+      "صياغة الإنذار والمطالبة القانونية",
+      "صياغة الوكالة ومشكلة حدود الصلاحية",
+      "مشكلة تصديق المستند وإضفاء الصفة القانونية",
+      "منازعة استرداد قيمة الشراء وإلغاء المعاملة",
+      "المنتج المعيب ومطالبة المستهلك بالتعويض",
+      "منازعة أتعاب المهنة والفاتورة الخدمية غير المدفوعة",
+    ],
+  },
+};
+
+function appendUniqueIssues(base: LocalizedList, ...additional: LocalizedList[]): LocalizedList {
+  const en = [...base.en];
+  const ar = [...base.ar];
+  for (const list of additional) {
+    for (const item of list.en) if (!en.includes(item)) en.push(item);
+    for (const item of list.ar) if (!ar.includes(item)) ar.push(item);
+  }
+  return { en, ar };
+}
 
 const OVERLAPPING_SHARED_ISSUES: Record<string, Set<string>> = {
   "insurance-law": new Set(["Denied or delayed insurance claims", "Liability and compensation", "Settlement negotiation"]),
@@ -458,12 +702,19 @@ function sharedPages(region: "sa" | "syr"): LegalProblemPage[] {
         : region === "sa"
           ? (SAUDI_ADDITIONAL_ISSUES[parentServiceSlug] ?? { en: [], ar: [] })
           : { en: [], ar: [] };
+      const allRegion = ALL_REGION_LEAD_ISSUES[parentServiceSlug] ?? { en: [], ar: [] };
       const excluded = OVERLAPPING_SHARED_ISSUES[parentServiceSlug] ?? new Set<string>();
       const pairedIssues = content.issuesEn
         .map((titleEn, index) => ({ titleEn, titleAr: content.issuesAr[index] ?? titleEn }))
         .filter(({ titleEn }) => !excluded.has(titleEn));
-      const issuesEn = [...pairedIssues.map((item) => item.titleEn), ...extra.en, ...regional.en];
-      const issuesAr = [...pairedIssues.map((item) => item.titleAr), ...extra.ar, ...regional.ar];
+      const issueList = appendUniqueIssues(
+        { en: pairedIssues.map((item) => item.titleEn), ar: pairedIssues.map((item) => item.titleAr) },
+        extra,
+        regional,
+        allRegion,
+      );
+      const issuesEn = issueList.en;
+      const issuesAr = issueList.ar;
       return issuesEn.map((titleEn, index) => {
         const titleAr = issuesAr[index] ?? titleEn;
         const details = buildDetailedContent({
@@ -473,6 +724,7 @@ function sharedPages(region: "sa" | "syr"): LegalProblemPage[] {
           titleEn,
           titleAr,
         });
+        const variants = searchVariants(region, titleEn, titleAr, service?.titleEn ?? parentServiceSlug, service?.titleAr ?? parentServiceSlug);
         return {
           region,
           parentServiceSlug,
@@ -483,6 +735,8 @@ function sharedPages(region: "sa" | "syr"): LegalProblemPage[] {
           serviceTitleAr: service?.titleAr ?? parentServiceSlug,
           documentsEn: content.documentsEn,
           documentsAr: content.documentsAr,
+          searchVariantsEn: variants.en,
+          searchVariantsAr: variants.ar,
           ...details,
         };
       });
@@ -492,8 +746,12 @@ function sharedPages(region: "sa" | "syr"): LegalProblemPage[] {
 function uaePages(): LegalProblemPage[] {
   return UAE_SERVICES.flatMap((service) => {
     const content = buildUaeServicePageContent(service);
-    return content.issues.en.map((titleEn, index) => {
-      const titleAr = content.issues.ar[index] ?? titleEn;
+    const issueList = appendUniqueIssues(
+      content.issues,
+      UAE_LEAD_ISSUES[service.slug] ?? { en: [], ar: [] },
+    );
+    return issueList.en.map((titleEn, index) => {
+      const titleAr = issueList.ar[index] ?? titleEn;
       const details = buildDetailedContent({
         region: "uae",
         serviceTitleEn: service.title.en,
@@ -503,6 +761,7 @@ function uaePages(): LegalProblemPage[] {
         conceptsEn: service.concepts.en,
         conceptsAr: service.concepts.ar,
       });
+      const variants = searchVariants("uae", titleEn, titleAr, service.title.en, service.title.ar);
       return {
         region: "uae" as const,
         parentServiceSlug: service.slug,
@@ -513,6 +772,8 @@ function uaePages(): LegalProblemPage[] {
         serviceTitleAr: service.title.ar,
         documentsEn: content.documents.en,
         documentsAr: content.documents.ar,
+        searchVariantsEn: variants.en,
+        searchVariantsAr: variants.ar,
         ...details,
         experience: content.experienceNote,
         faqs: {

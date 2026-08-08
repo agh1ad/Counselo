@@ -619,7 +619,7 @@ export default function Home() {
         </div>
       </section>
 
-      {region !== "uae" && <div className="order-12"><LatestContentCarousels isArabic={isRTL} region={region} /></div>}
+      <div className="order-12"><LatestContentCarousels isArabic={isRTL} region={region} /></div>
 
       {/* UAE testimonials are withheld until region-specific reviews are verified. */}
       {region !== "uae" && <section

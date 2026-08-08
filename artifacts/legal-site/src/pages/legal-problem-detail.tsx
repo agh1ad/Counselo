@@ -71,6 +71,7 @@ export default function LegalProblemDetail() {
     parentTitle,
     "online legal consultation",
     isRTL ? page.titleAr : `${page.titleEn} lawyer`,
+    ...(isRTL ? page.searchVariantsAr : page.searchVariantsEn),
   ].join(", ");
   const sources: LegalSource[] = region === "sa"
     ? getSaudiLegalSources(id)
