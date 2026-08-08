@@ -26,6 +26,7 @@ import Home from "@/pages/home";
 import Services from "@/pages/services";
 import Contact from "@/pages/contact";
 import ServiceDetail from "@/pages/service-detail";
+import LegalProblemDetail from "@/pages/legal-problem-detail";
 import About from "@/pages/about";
 import Vision from "@/pages/vision";
 import Blog from "@/pages/blog";
@@ -196,6 +197,11 @@ function buildRegionRoutes() {
       key={`${prefix}-services-id`}
       path={`${prefix}/services/:id`}
       component={ServiceDetail}
+    />,
+    <Route
+      key={`${prefix}-services-problem`}
+      path={`${prefix}/services/:id/:problem`}
+      component={LegalProblemDetail}
     />,
     <Route
       key={`${prefix}-services`}

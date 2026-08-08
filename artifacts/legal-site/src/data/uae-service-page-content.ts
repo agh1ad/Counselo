@@ -78,25 +78,121 @@ const DOCUMENTS_BY_CATEGORY: Record<UaeLegalService["category"], LocalizedList> 
   },
 };
 
+const SEO_ISSUES_BY_SERVICE: Record<string, LocalizedList> = {
+  "corporate-commercial": {
+    en: ["Company formation and registration problem", "Shareholder exit and buyout dispute", "Director and manager liability", "Company dissolution and liquidation dispute"],
+    ar: ["مشكلة تأسيس الشركة وتسجيلها", "خروج المساهم أو الشريك ومنازعة شراء الحصة", "مسؤولية المدير وعضو مجلس الإدارة", "منازعة حل الشركة وتصفيتها"],
+  },
+  "foreign-investment-market-entry": {
+    en: ["Investment licence refusal or cancellation", "Foreign investor compensation claim", "Foreign investor and local-partner dispute"],
+    ar: ["رفض أو إلغاء ترخيص الاستثمار", "مطالبة المستثمر الأجنبي بالتعويض", "منازعة المستثمر الأجنبي والشريك المحلي"],
+  },
+  "commercial-contracts": {
+    en: ["Unpaid business invoice", "Supply contract non-delivery", "Defective goods and non-conforming delivery", "Service agreement breach", "Contract evidence and electronic messages"],
+    ar: ["الفاتورة التجارية غير المدفوعة", "عدم التسليم في عقد التوريد", "عيوب البضائع وعدم مطابقة التسليم", "الإخلال بعقد الخدمات", "إثبات العقد والرسائل الإلكترونية"],
+  },
+  "employment-labour": {
+    en: ["Delayed or unpaid salary", "Resignation because of unpaid wages", "Experience certificate and work-permit dispute", "Sponsorship and work-permit transfer dispute", "Work injury and compensation claim", "Disciplinary warning and workplace investigation"],
+    ar: ["تأخر الراتب أو عدم دفعه", "الاستقالة بسبب عدم دفع الأجور", "منازعة شهادة الخبرة وتصريح العمل", "منازعة نقل الكفالة وتصريح العمل", "إصابة العمل ومطالبة التعويض", "الإنذار التأديبي والتحقيق في مكان العمل"],
+  },
+  "real-estate-construction": {
+    en: ["Eviction notice and eviction dispute", "Unpaid rent and rental payment claim", "Bounced rental cheque", "Security deposit recovery", "Construction delay and defective construction", "Title deed and registration dispute", "Property encroachment and boundary dispute", "Expropriation and compensation claim"],
+    ar: ["إخطار الإخلاء ومنازعة الإخلاء", "الإيجار غير المدفوع ومطالبة الأجرة", "الشيك الإيجاري المرتجع", "استرداد مبلغ التأمين", "تأخر البناء وعيوب الإنشاء", "منازعة سند الملكية والتسجيل", "التعدي على العقار ومنازعة الحدود", "نزع الملكية ومطالبة التعويض"],
+  },
+  "family-personal-status": {
+    en: ["Visitation order enforcement", "Child relocation and travel dispute", "Recognition of foreign family judgment", "Paternity dispute"],
+    ar: ["تنفيذ حكم الزيارة", "منازعة انتقال الأطفال والسفر بهم", "الاعتراف بالحكم الأسري الأجنبي", "منازعة إثبات النسب"],
+  },
+  "wills-estates": {
+    en: ["Foreign will recognition and probate", "Inheritance distribution dispute", "Estate administration and asset transfer"],
+    ar: ["الاعتراف بالوصية الأجنبية وإثباتها", "منازعة توزيع الميراث", "إدارة التركة ونقل الأصول"],
+  },
+  "criminal-investigations": {
+    en: ["Police complaint defence", "Travel-ban and detention concern", "Fraud and breach-of-trust accusation"],
+    ar: ["الدفاع في الشكوى أمام الشرطة", "مشكلة منع السفر أو التوقيف", "اتهام بالاحتيال أو خيانة الأمانة"],
+  },
+  "arbitration-mediation": {
+    en: ["Foreign arbitral award enforcement", "Emergency arbitration and interim measures", "Challenge to arbitration jurisdiction"],
+    ar: ["تنفيذ حكم التحكيم الأجنبي", "التحكيم الطارئ والتدابير المؤقتة", "الطعن في اختصاص هيئة التحكيم"],
+  },
+  "litigation-court-disputes": {
+    en: ["Court service and notification problem", "Expert evidence and report dispute", "Appeal deadline and filing problem"],
+    ar: ["مشكلة إعلان الدعوى والتبليغ القضائي", "منازعة الخبرة والتقرير الفني", "مشكلة ميعاد الطعن والقيد"],
+  },
+  "enforcement-debt-recovery": {
+    en: ["Bounced cheque execution", "Foreign judgment enforcement", "Payment order and urgent debt recovery", "Asset tracing and debtor investigation", "Travel-ban application for debt recovery", "Service suspension and asset-freezing request"],
+    ar: ["تنفيذ الشيك المرتجع", "تنفيذ الحكم الأجنبي", "أمر الأداء والتحصيل العاجل للدين", "تتبع الأصول والتحري عن المدين", "طلب منع السفر لتحصيل الدين", "طلب إيقاف الخدمات وتجميد الأصول"],
+  },
+  "banking-finance": {
+    en: ["Unauthorized bank transaction", "Loan default and restructuring", "Personal guarantee enforcement"],
+    ar: ["المعاملة المصرفية غير المصرح بها", "التعثر في سداد القرض وإعادة الهيكلة", "تنفيذ الكفالة الشخصية"],
+  },
+  "insolvency-restructuring": {
+    en: ["Creditor claim in insolvency", "Business debt restructuring", "Director liability in insolvency"],
+    ar: ["مطالبة الدائن في الإعسار", "إعادة هيكلة ديون المنشأة", "مسؤولية المدير في الإعسار"],
+  },
+  "tax-vat": {
+    en: ["Tax audit and assessment objection", "VAT refund and registration dispute", "Customs penalty challenge"],
+    ar: ["الفحص والربط الضريبي والاعتراض عليه", "استرداد ضريبة القيمة المضافة ومنازعة التسجيل", "الطعن في الغرامة الجمركية"],
+  },
+  "intellectual-property": {
+    en: ["Trademark opposition and cancellation", "Counterfeit and brand infringement", "Copyright infringement online"],
+    ar: ["الاعتراض على العلامة التجارية وإلغاؤها", "تقليد العلامة التجارية والتعدي عليها", "التعدي على حقوق المؤلف أونلاين"],
+  },
+  "technology-data-protection": {
+    en: ["Online defamation and removal request", "Hacked account and unauthorized access", "Personal-data breach response"],
+    ar: ["التشهير الإلكتروني وطلب الإزالة", "اختراق الحساب والدخول غير المصرح به", "الاستجابة لحادث خرق البيانات الشخصية"],
+  },
+  insurance: {
+    en: ["Denied insurance claim", "Delayed insurance settlement", "Policy coverage dispute", "Traffic accident liability and compensation", "Traffic report and fault dispute", "Uninsured accident compensation claim"],
+    ar: ["رفض مطالبة التأمين", "تأخر تسوية مطالبة التأمين", "منازعة تغطية وثيقة التأمين", "المسؤولية والتعويض عن حادث مروري", "منازعة تقرير الحادث ونسبة الخطأ", "مطالبة التعويض عن حادث دون تأمين"],
+  },
+  "healthcare-medical-liability": {
+    en: ["Misdiagnosis and delayed diagnosis", "Medical-record access dispute", "Treatment injury and compensation claim"],
+    ar: ["سوء التشخيص وتأخره", "منازعة الحصول على السجل الطبي", "إصابة العلاج ومطالبة التعويض"],
+  },
+  "immigration-residency": {
+    en: ["Visa cancellation and overstay dispute", "Residence ban and entry restriction", "Work-permit refusal or cancellation"],
+    ar: ["منازعة إلغاء التأشيرة ومخالفة مدة الإقامة", "منع الإقامة وقيود الدخول", "رفض أو إلغاء تصريح العمل"],
+  },
+  "maritime-aviation-transport": {
+    en: ["Cargo damage and transport claim", "Shipping delay and delivery dispute", "Passenger compensation claim"],
+    ar: ["تلف البضائع ومطالبة النقل", "تأخر الشحن ومنازعة التسليم", "مطالبة تعويض المسافر"],
+  },
+  "administrative-regulatory": {
+    en: ["Licence refusal or cancellation", "Government penalty challenge", "Public procurement dispute"],
+    ar: ["رفض أو إلغاء الترخيص", "الطعن في الغرامة الحكومية", "منازعة المشتريات العامة"],
+  },
+  "consumer-ecommerce": {
+    en: ["Online purchase refund dispute", "Defective product and consumer claim", "E-commerce platform account dispute"],
+    ar: ["منازعة استرداد قيمة الشراء الإلكتروني", "المنتج المعيب ومطالبة المستهلك", "منازعة حساب منصة التجارة الإلكترونية"],
+  },
+};
+
 export function buildUaeServicePageContent(service: UaeLegalService) {
   const documents = DOCUMENTS_BY_CATEGORY[service.category];
-  const issues: LocalizedList = {
+  const baseIssues: LocalizedList = {
     en: [
       `Uncertainty about the application of ${service.concepts.en[0]} to the facts`,
       `Missing or inconsistent records concerning ${service.covers.en[0]}`,
       `Potentially conflicting obligations involving ${service.concepts.en[1]}`,
-      "A missed notice, filing, objection or appeal deadline",
-      "Unclear allocation between federal, emirate-level, mainland or free-zone competence",
-      "The need to preserve evidence or obtain urgent protective measures",
+      `A missed notice, filing, objection or appeal deadline affecting ${service.title.en}`,
+      `Unclear authority, court or forum for a ${service.title.en} matter in the UAE`,
+      `A need to preserve ${service.title.en.toLowerCase()} evidence or obtain urgent protection`,
     ],
     ar: [
       `عدم وضوح مدى انطباق ${service.concepts.ar[0]} على الوقائع`,
       `نقص أو تعارض السجلات بشأن ${service.covers.ar[0]}`,
       `تعارض الالتزامات بشأن ${service.concepts.ar[1]}`,
-      "فوات أو اقتراب ميعاد إخطار أو قيد أو اعتراض أو طعن",
-      "عدم وضوح توزيع الاختصاص بين الإطار الاتحادي أو المحلي أو البرّ الرئيسي أو المنطقة الحرة",
-      "الحاجة إلى حفظ الأدلة أو طلب تدبير وقائي عاجل",
+      `فوات أو اقتراب ميعاد إخطار أو قيد أو اعتراض أو طعن في مسألة ${service.title.ar}`,
+      `عدم وضوح الجهة أو المحكمة أو المنتدى المختص بمسألة ${service.title.ar} في الإمارات`,
+      `الحاجة إلى حفظ أدلة ${service.title.ar} أو طلب حماية عاجلة`,
     ],
+  };
+  const extraIssues = SEO_ISSUES_BY_SERVICE[service.slug] ?? { en: [], ar: [] };
+  const issues: LocalizedList = {
+    en: [...baseIssues.en, ...extraIssues.en],
+    ar: [...baseIssues.ar, ...extraIssues.ar],
   };
 
   const faqs: LocalizedFaq = {

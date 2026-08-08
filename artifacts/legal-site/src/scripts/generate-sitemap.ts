@@ -7,6 +7,7 @@ import {
   getServicesForRegion,
   hasQualityBilingualBlogContent,
 } from "@workspace/api-zod";
+import { getLegalProblemPages, legalProblemPath } from "../lib/legal-problem-pages.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, "../..");
@@ -213,6 +214,16 @@ entries.push("\n  <!-- ===== UAE SERVICE PAGES ===== -->");
 for (const slug of UAE_SERVICE_SLUGS) {
   entries.push(urlEntry(`/uae/services/${slug}`, "monthly", "0.9"));
   entries.push(urlEntry(`/uae/ar/services/${slug}`, "monthly", "0.9"));
+}
+
+entries.push("\n  <!-- ===== LEGAL PROBLEM PAGES ===== -->");
+for (const region of ["sa", "syr", "uae"] as const) {
+  for (const page of getLegalProblemPages(region)) {
+    const enPath = legalProblemPath(region, "en", page.parentServiceSlug, page.slug);
+    const arPath = legalProblemPath(region, "ar", page.parentServiceSlug, page.slug);
+    entries.push(urlEntryLanguageVariant(`${BASE_URL}${enPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8"));
+    entries.push(urlEntryLanguageVariant(`${BASE_URL}${arPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8"));
+  }
 }
 
 // Blog index — single URL shared by all regions/languages.

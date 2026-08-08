@@ -728,7 +728,7 @@ const TOOLS = [
     color: "purple",
     items: [
       { name: "GTmetrix", desc: "Detailed waterfall, LCP, TBT, CLS analysis", url: "https://gtmetrix.com/?url=https%3A%2F%2Fcounselo-legal.com", icon: "📈" },
-      { name: "Sitemap.xml", desc: "View your live sitemap (169 URLs)", url: "https://counselo-legal.com/sitemap.xml", icon: "🗺️" },
+      { name: "Sitemap index", desc: "View the purpose-split sitemap index", url: "https://counselo-legal.com/sitemap.xml", icon: "🗺️" },
       { name: "Robots.txt", desc: "View crawl rules and sitemap directive", url: "https://counselo-legal.com/robots.txt", icon: "🤖" },
       { name: "DNS Checker", desc: "Verify DNS propagation and domain health", url: "https://dnschecker.org/#A/counselo-legal.com", icon: "🔧" },
       { name: "SSL Check", desc: "Verify HTTPS certificate is valid and trusted", url: "https://www.ssllabs.com/ssltest/analyze.html?d=counselo-legal.com", icon: "🔒" },

@@ -21,6 +21,7 @@ import { fileURLToPath } from "node:url";
 import type { RenderResult } from "../entry-server.js";
 import type { InitialBlogPost } from "../App.js";
 import type { WorkSamplePublic } from "../lib/work-samples.js";
+import { getLegalProblemPaths } from "../lib/legal-problem-pages.js";
 import {
   getPublicRouteInventory,
   hasQualityBilingualBlogContent,
@@ -98,7 +99,7 @@ const serverEntryPath = resolve(distDir, "server/entry-server.js");
 // so Arabic content is a genuinely distinct, crawlable page. This is required
 // for hreflang annotations to point to real content in that language.
 // ROUTES is extended at runtime with DB blog/work slugs (see prerender()).
-const ROUTES: string[] = [...getPublicRouteInventory()];
+const ROUTES: string[] = [...getPublicRouteInventory(), ...getLegalProblemPaths()];
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -203,7 +204,11 @@ function writeRoute(
   }));
   const discoveryData = `<script>window.__SSR_POSTS__=${safeJson(discoveryPosts)};window.__SSR_WORK_SAMPLES__=${safeJson(routeWorkSamples)};</script>`;
   const detailData = route.startsWith("/blog/")
-    ? `<script>window.__SSR_POST__=${safeJson(blogPosts.find((post) => `/blog/${post.slug}` === route || `/blog/en/${post.slug}` === route || `/blog/ar/${post.slug}` === route))};</script>`
+    ? `<script>window.__SSR_POST__=${safeJson(blogPosts.find((post) =>
+        route === `/blog/${post.slug}` ||
+        route === `/blog/en/${post.slug}` ||
+        route === `/blog/ar/${post.slug}`
+      ))};</script>`
     : "";
   const initialData = `${discoveryData}${detailData}`;
 

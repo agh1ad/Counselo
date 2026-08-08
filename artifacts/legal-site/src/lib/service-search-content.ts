@@ -5,6 +5,89 @@ export type SearchContent = {
   documentsAr: string[];
 };
 
+export const ADDITIONAL_SEARCH_ISSUES: Record<string, { en: string[]; ar: string[] }> = {
+  "family-law": {
+    en: ["Visitation order enforcement", "Child relocation and travel disputes", "Recognition of foreign family judgments", "Paternity dispute", "Will validity and estate distribution"],
+    ar: ["تنفيذ أحكام الزيارة", "منازعات انتقال الأطفال والسفر بهم", "الاعتراف بالأحكام الأسرية الأجنبية", "منازعة إثبات النسب", "صحة الوصية وتوزيع التركة"],
+  },
+  "employment-law": {
+    en: ["Delayed or unpaid salary", "Resignation because of unpaid wages", "Experience certificate and service-transfer dispute", "Sponsorship transfer dispute", "Work injury and compensation claim", "Disciplinary warning and workplace investigation"],
+    ar: ["تأخر الراتب أو عدم دفعه", "الاستقالة بسبب عدم دفع الأجور", "منازعة شهادة الخبرة ونقل الخدمات", "منازعة نقل الكفالة", "إصابة العمل ومطالبة التعويض", "الإنذار التأديبي والتحقيق في مكان العمل"],
+  },
+  "business-law": {
+    en: ["Company formation and registration", "Unpaid business invoices", "Commercial supply contract dispute", "Commercial agency termination", "Commercial concealment dispute", "Shareholder and partner dispute", "Government tender dispute"],
+    ar: ["تأسيس الشركة وتسجيلها", "الفواتير التجارية غير المدفوعة", "منازعة عقد التوريد التجاري", "إنهاء الوكالة التجارية", "منازعة التستر التجاري", "منازعة المساهمين والشركاء", "منازعة المناقصة الحكومية"],
+  },
+  "real-estate": {
+    en: ["Eviction notice and eviction dispute", "Unpaid rent and rental payment claim", "Security deposit recovery", "Construction delay and defective construction", "Title deed and registration dispute", "Property encroachment and boundary dispute", "Expropriation and compensation claim"],
+    ar: ["إخطار الإخلاء ومنازعة الإخلاء", "الإيجار غير المدفوع ومطالبة الأجرة", "استرداد مبلغ التأمين", "تأخر البناء وعيوب الإنشاء", "منازعة سند الملكية والتسجيل", "التعدي على العقار ومنازعة الحدود", "نزع الملكية ومطالبة التعويض"],
+  },
+  "foreign-investment": {
+    en: ["Investment licence refusal or cancellation", "Foreign investor compensation claim", "Foreign investor and local-partner dispute"],
+    ar: ["رفض أو إلغاء ترخيص الاستثمار", "مطالبة المستثمر الأجنبي بالتعويض", "منازعة المستثمر الأجنبي والشريك المحلي"],
+  },
+  "administrative-law": {
+    en: ["Licence refusal or cancellation", "Government penalty challenge", "Public procurement dispute"],
+    ar: ["رفض أو إلغاء الترخيص", "الطعن في الغرامة الحكومية", "منازعة المشتريات العامة"],
+  },
+  arbitration: {
+    en: ["Foreign arbitral award enforcement", "Emergency arbitration and interim measures", "Challenge to arbitration jurisdiction"],
+    ar: ["تنفيذ حكم التحكيم الأجنبي", "التحكيم الطارئ والتدابير المؤقتة", "الطعن في اختصاص هيئة التحكيم"],
+  },
+  enforcement: {
+    en: ["Bounced cheque execution", "Foreign judgment enforcement", "Payment order and urgent debt recovery", "Asset tracing and debtor investigation", "Travel-ban application for debt recovery", "Service suspension and asset-freezing request"],
+    ar: ["تنفيذ الشيك المرتجع", "تنفيذ الحكم الأجنبي", "أمر الأداء والتحصيل العاجل للدين", "تتبع الأصول والتحري عن المدين", "طلب منع السفر لتحصيل الدين", "طلب إيقاف الخدمات وتجميد الأصول"],
+  },
+  "companies-law": {
+    en: ["Shareholder exit and buyout dispute", "Company dissolution and liquidation dispute"],
+    ar: ["خروج المساهم أو الشريك ومنازعة شراء الحصة", "منازعة حل الشركة وتصفيتها"],
+  },
+  contracts: {
+    en: ["Supply contract non-delivery", "Defective goods and non-conforming delivery", "Service agreement breach", "Contract evidence and electronic messages"],
+    ar: ["عدم التسليم في عقد التوريد", "عيوب البضائع وعدم مطابقة التسليم", "الإخلال بعقد الخدمات", "إثبات العقد والرسائل الإلكترونية"],
+  },
+  "criminal-law": {
+    en: ["Police complaint defence", "Travel-ban and detention concern", "Online defamation complaint", "Cybercrime accusation and defence"],
+    ar: ["الدفاع في الشكوى أمام الشرطة", "مشكلة منع السفر أو التوقيف", "شكوى التشهير الإلكتروني", "اتهام بجريمة إلكترونية والدفاع فيها"],
+  },
+  "banking-finance": {
+    en: ["Unauthorized bank transaction", "Loan default and restructuring", "Personal guarantee enforcement"],
+    ar: ["المعاملة المصرفية غير المصرح بها", "التعثر في سداد القرض وإعادة الهيكلة", "تنفيذ الكفالة الشخصية"],
+  },
+  "intellectual-property": {
+    en: ["Trademark opposition and cancellation", "Counterfeit and brand infringement", "Copyright infringement online"],
+    ar: ["الاعتراض على العلامة التجارية وإلغاؤها", "تقليد العلامة التجارية والتعدي عليها", "التعدي على حقوق المؤلف أونلاين"],
+  },
+  "tax-zakat": {
+    en: ["Tax audit and assessment objection", "VAT refund and registration dispute", "Customs penalty challenge"],
+    ar: ["الفحص والربط الضريبي والاعتراض عليه", "استرداد ضريبة القيمة المضافة ومنازعة التسجيل", "الطعن في الغرامة الجمركية"],
+  },
+  "cyber-law": {
+    en: ["Online defamation and removal request", "Hacked account and unauthorized access", "Personal-data breach response"],
+    ar: ["التشهير الإلكتروني وطلب الإزالة", "اختراق الحساب والدخول غير المصرح به", "الاستجابة لحادث خرق البيانات الشخصية"],
+  },
+  "medical-malpractice": {
+    en: ["Medical-record access dispute", "Treatment injury and compensation claim"],
+    ar: ["منازعة الحصول على السجل الطبي", "إصابة العلاج ومطالبة التعويض"],
+  },
+  "insurance-law": {
+    en: ["Denied insurance claim", "Delayed insurance settlement", "Policy coverage dispute", "Traffic accident liability and compensation", "Traffic report and fault dispute", "Uninsured accident compensation claim"],
+    ar: ["رفض مطالبة التأمين", "تأخر تسوية مطالبة التأمين", "منازعة تغطية وثيقة التأمين", "المسؤولية والتعويض عن حادث مروري", "منازعة تقرير الحادث ونسبة الخطأ", "مطالبة التعويض عن حادث دون تأمين"],
+  },
+  "civil-law": {
+    en: ["Personal injury compensation claim", "Defamation and reputation damage claim", "Possession and interference dispute"],
+    ar: ["مطالبة التعويض عن الإصابة الشخصية", "مطالبة التشهير والضرر بالسمعة", "منازعة الحيازة والتعرض لها"],
+  },
+  "civil-procedure": {
+    en: ["Court service and notification problem", "Expert evidence and report dispute", "Appeal deadline and filing problem"],
+    ar: ["مشكلة إعلان الدعوى والتبليغ القضائي", "منازعة الخبرة والتقرير الفني", "مشكلة ميعاد الطعن والقيد"],
+  },
+  "criminal-procedure": {
+    en: ["Release and detention application", "Evidence challenge in criminal case", "Criminal appeal deadline"],
+    ar: ["طلب الإفراج والتوقيف", "الطعن في الدليل في القضية الجزائية", "ميعاد الطعن الجزائي"],
+  },
+};
+
 export const RELATED_SERVICES: Record<string, string[]> = {
   "family-law": ["civil-law", "real-estate", "enforcement"],
   "employment-law": ["contracts", "business-law", "enforcement"],
