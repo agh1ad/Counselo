@@ -13,6 +13,7 @@ import {
   sanitizeBlogPost,
 } from "../lib/blog-input.js";
 import { assignInternalLinks } from "../lib/internal-link-assignment.js";
+import { assignArticleProvenance } from "@workspace/api-zod";
 import {
   ContentTranslationError,
   translateBlogForPublishing,
@@ -97,6 +98,7 @@ router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
         relatedBlogSlugs: assignment.relatedBlogSlugs,
         relatedWorkSlugs: assignment.relatedWorkSlugs,
         aiLinksAssignedAt: new Date(),
+      ...assignArticleProvenance(values),
       };
     }
     const [post] = await db
@@ -169,6 +171,7 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
           relatedBlogSlugs: assignment.relatedBlogSlugs,
           relatedWorkSlugs: assignment.relatedWorkSlugs,
           aiLinksAssignedAt: new Date(),
+          ...assignArticleProvenance({ ...values, updatedAt: new Date() }),
         };
       }
     }

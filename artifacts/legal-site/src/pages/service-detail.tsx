@@ -7,7 +7,6 @@ import {
   CheckCircle2,
   ChevronRight,
   ChevronDown,
-  Clock3,
   ExternalLink,
   MessageSquareText,
   Phone,
@@ -18,10 +17,9 @@ import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { SYR_SEO_DATA } from "@/lib/seo-data-syr";
 import { RELATED_SERVICES, SERVICE_SEARCH_CONTENT } from "@/lib/service-search-content";
-import { TrustSignals } from "@/components/seo/TrustSignals";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
-
-type LegalSource = { en: string; ar: string; href: string };
+import { getSaudiLegalSources, type LegalSource } from "@/lib/saudi-legal-sources";
+import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI, CONSULTATION_OPERATING_POLICY, getConsultationProduct } from "@workspace/api-zod";
 
 function truncateMeta(value: string, maxLength = 158): string {
   if (value.length <= maxLength) return value;
@@ -30,46 +28,6 @@ function truncateMeta(value: string, maxLength = 158): string {
   return `${shortened.slice(0, boundary > 110 ? boundary : shortened.length).replace(/[،,;:]$/, "")}.`;
 }
 
-const SAUDI_LEGISLATION_SOURCE: LegalSource = {
-  en: "Bureau of Experts — Official Saudi Laws Portal",
-  ar: "هيئة الخبراء بمجلس الوزراء — بوابة الأنظمة السعودية",
-  href: "https://laws.boe.gov.sa/",
-};
-
-const SAUDI_AUTHORITY_SOURCES = {
-  justice: { en: "Saudi Ministry of Justice", ar: "وزارة العدل السعودية", href: "https://www.moj.gov.sa/" },
-  labor: { en: "Ministry of Human Resources and Social Development", ar: "وزارة الموارد البشرية والتنمية الاجتماعية", href: "https://www.hrsd.gov.sa/" },
-  business: { en: "Saudi Ministry of Commerce", ar: "وزارة التجارة السعودية", href: "https://mc.gov.sa/" },
-  investment: { en: "Saudi Ministry of Investment", ar: "وزارة الاستثمار السعودية", href: "https://misa.gov.sa/" },
-  interior: { en: "Saudi Ministry of Interior", ar: "وزارة الداخلية السعودية", href: "https://www.moi.gov.sa/" },
-  realEstate: { en: "Real Estate General Authority", ar: "الهيئة العامة للعقار", href: "https://rega.gov.sa/" },
-  finance: { en: "Saudi Central Bank", ar: "البنك المركزي السعودي", href: "https://www.sama.gov.sa/" },
-  capitalMarkets: { en: "Capital Market Authority", ar: "هيئة السوق المالية", href: "https://cma.org.sa/" },
-  intellectualProperty: { en: "Saudi Authority for Intellectual Property", ar: "الهيئة السعودية للملكية الفكرية", href: "https://www.saip.gov.sa/" },
-  tax: { en: "Zakat, Tax and Customs Authority", ar: "هيئة الزكاة والضريبة والجمارك", href: "https://zatca.gov.sa/" },
-  data: { en: "Saudi Data and AI Authority", ar: "الهيئة السعودية للبيانات والذكاء الاصطناعي", href: "https://sdaia.gov.sa/" },
-  health: { en: "Saudi Ministry of Health", ar: "وزارة الصحة السعودية", href: "https://www.moh.gov.sa/" },
-  insurance: { en: "Insurance Authority", ar: "هيئة التأمين", href: "https://www.ia.gov.sa/" },
-} satisfies Record<string, LegalSource>;
-
-function getSaudiLegalSources(serviceId: string): LegalSource[] {
-  const authority =
-    /employment|labor|wages|dismissal|workplace|end-of-service/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.labor
-    : /foreign-investment|investment-/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.investment
-    : /business-visas|family-visas|work-visas|iqama|residency|kafala|deportation|immigration/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.interior
-    : /real-estate|property|lease|rental|ownership|neighbor|real-rights/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.realEstate
-    : /bank|finance|credit|loan|sukuk|financial-regulatory/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.finance
-    : /capital-|share-|shareholder|assembly|director|partner|company-records|conflict-of-interest/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.capitalMarkets
-    : /intellectual-property|trademark|brand|patent|copyright|trade-secrets|ip-|unfair-competition/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.intellectualProperty
-    : /tax|zakat|vat|excise|customs|transfer-pricing/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.tax
-    : /cyber|data-protection|digital-privacy|hacking|online-/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.data
-    : /medical|healthcare|hospital|patient|pharmaceutical|surgical|dental|misdiagnosis/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.health
-    : /insurance/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.insurance
-    : /business|companies|company|commercial|partnership|contract/.test(serviceId) ? SAUDI_AUTHORITY_SOURCES.business
-    : SAUDI_AUTHORITY_SOURCES.justice;
-
-  return [authority, SAUDI_LEGISLATION_SOURCE];
-}
 
 const SYRIA_GENERAL_SOURCE: LegalSource = {
   en: "Syrian Ministry of Justice",
@@ -85,6 +43,7 @@ export default function ServiceDetail() {
   const sd = t.serviceDetail;
   const data = sd.services[id as keyof typeof sd.services];
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const comprehensiveConsultation = getConsultationProduct("comprehensive-consultation");
 
   if (!data) {
     return (
@@ -217,6 +176,23 @@ export default function ServiceDetail() {
   const displayFaqs = [...safeFaqs, ...universalFaqs].filter(
     (faq, index, all) => all.findIndex((item) => item.q === faq.q) === index,
   );
+  const counselOJourney = isRTL
+    ? [
+        { title: "نحدد الاختصاص والهدف", desc: `نبدأ بتحديد الدولة والإمارة أو الجهة المختصة، ونفهم ما تريد الوصول إليه في مسألة ${data.title} قبل اقتراح أي إجراء. هذا يمنع توجيهك إلى مسار أو جهة غير مناسبة.` },
+        { title: "نستمع إلى الوقائع ونرتبها", desc: "نحوّل قصتك ومراسلاتك وتواريخها إلى ملخص واضح للمشكلة القانونية، والأطراف المعنية، والقرارات التي تحتاج إلى اتخاذها الآن." },
+        { title: "نراجع المستندات والأدلة", desc: "نفحص العقود والإشعارات والقرارات والأدلة المتاحة لتحديد نقاط القوة والمخاطر والمعلومات الناقصة، مع توضيح ما يجب حفظه أو طلبه." },
+        { title: "نشرح الخيارات والاستثناءات", desc: "نشرح القواعد والجهة المختصة والمهل المحتملة والبدائل العملية بلغة مفهومة، ونبين ما يعتمد على وقائع أو مستندات لم تُحسم بعد." },
+        { title: "نحوّل المشورة إلى مخرج عملي", desc: "بعد الدراسة الأولية، نؤكد نطاق العمل والرسوم والمخرج—مثل مذكرة قانونية أو مراجعة عقد أو إعداد طلب أو خطة تفاوض—قبل بدء العمل المدفوع." },
+        { title: "نؤكد الخطوة التالية", desc: "نقدم خطة واضحة للتفاوض أو الإجراء الرسمي أو العمل القانوني اللاحق، مع تأكيد أي تكليف إضافي بشكل منفصل قبل البدء." },
+      ]
+    : [
+        { title: "We identify jurisdiction and goal", desc: `We first identify the country, Emirate or competent authority and understand what you need to achieve in your ${data.title.toLowerCase()} matter before recommending action. This helps avoid the wrong forum or route.` },
+        { title: "We listen and structure the facts", desc: "We turn your account, correspondence and timeline into a clear legal problem statement, identifying the people involved and the decisions that need to be made now." },
+        { title: "We review documents and evidence", desc: "We examine contracts, notices, decisions and available evidence to identify strengths, risks and missing information, and explain what should be preserved or obtained." },
+        { title: "We explain options and exceptions", desc: "We explain the applicable framework, authority, possible deadlines and practical alternatives in plain language, including what still depends on facts or documents to be confirmed." },
+        { title: "We turn advice into a defined deliverable", desc: "After the initial study, we confirm the scope, fee and deliverable—such as a legal memo, contract review, application preparation or negotiation plan—before paid work begins." },
+        { title: "We confirm the next step", desc: "We provide a clear action plan for negotiation, a formal procedure or further legal work, with any additional engagement confirmed separately before it begins." },
+      ];
 
   const canonicalPath = `/services/${id}`;
   const langSeg = isRTL ? "/ar" : "";
@@ -237,21 +213,22 @@ export default function ServiceDetail() {
     {
       "@context": "https://schema.org",
       "@type": "LegalService",
+      "@id": `https://counselo-legal.com/#${region}-service-${id}`,
       "name": isRTL ? `${data.title} — كاونسلو` : `${data.title} — CounselO`,
-      "description": isRTL ? (syrSeo?.descAr ?? data.subtitle) : (syrSeo?.desc ?? data.subtitle),
+      "description": seoDesc,
       "url": canonicalUrlFull,
       "areaServed": { "@type": "Country", "name": isSyr ? "Syria" : isUae ? "United Arab Emirates" : "Saudi Arabia" },
       "availableLanguage": ["Arabic", "English"],
       "serviceType": data.title,
       "provider": {
         "@type": "LegalService",
-        "@id": "https://counselo-legal.com/#organization",
+        "@id": COUNSELO_ENTITY_IDS.organization,
         "name": isRTL ? "كاونسلو" : "CounselO",
         "url": "https://counselo-legal.com",
         "telephone": "+966594850247",
         "email": "info@counselo-legal.com",
         "address": serviceAddress,
-        "founder": { "@type": "Person", "@id": `${regionBase}/about#omar-al-baghdadi`, "name": "Omar Al-Baghdadi", "jobTitle": "Lawyer and Legal Counsel", "honorificPrefix": "Lawyer" },
+        "founder": { ...OMAR_AL_BAGHDADI, "honorificPrefix": "Lawyer" },
       },
     },
     {
@@ -275,7 +252,7 @@ export default function ServiceDetail() {
       "citation": legalSources.map((source) => source.href),
       "publisher": {
         "@type": "LegalService",
-        "@id": "https://counselo-legal.com/#organization",
+        "@id": COUNSELO_ENTITY_IDS.organization,
         "name": "CounselO",
         "url": "https://counselo-legal.com",
       },
@@ -338,14 +315,17 @@ export default function ServiceDetail() {
       <nav aria-label={isRTL ? "أقسام صفحة الخدمة" : "Service page sections"} className="service-anchor-rail sticky top-[4.5rem] z-30 border-b border-[#0d4a31]/12 bg-white/95 backdrop-blur">
         <div className="premium-content-shell overflow-x-auto">
           <div className="flex min-w-max items-center gap-7 py-4 text-sm font-semibold text-[#355447]">
+            <a href="#consultation-package-heading" className="service-anchor-link">{isRTL ? "حزمة الاستشارة" : "Consultation package"}</a>
             <a href="#service-overview" className="service-anchor-link">{isRTL ? "نظرة عامة" : "Overview"}</a>
+            <a href="#counselO-role-heading" className="service-anchor-link">{isRTL ? "دور كاونسلو" : "How CounselO helps"}</a>
             <a href="#service-covers-heading" className="service-anchor-link">{sd.coversHeading}</a>
             {commonIssues.length > 0 && <a href="#common-problems-heading" className="service-anchor-link">{isRTL ? "المشكلات الشائعة" : "Common problems"}</a>}
             {documents.length > 0 && <a href="#documents-heading" className="service-anchor-link">{isRTL ? "المستندات" : "Documents"}</a>}
-            <a href="#related-services-heading" className="service-anchor-link">{isRTL ? "الخدمات المرتبطة" : "Related services"}</a>
+            <a href="#service-scope-heading" className="service-anchor-link">{isRTL ? "النطاق والتمثيل" : "Scope and representation"}</a>
             <a href="#service-process-heading" className="service-anchor-link">{isRTL ? "خطوات العمل" : "Our process"}</a>
             {displayFaqs.length > 0 && <a href="#service-faq-heading" className="service-anchor-link">{isRTL ? "الأسئلة الشائعة" : "FAQs"}</a>}
             <a href="#official-sources-heading" className="service-anchor-link">{isRTL ? "المصادر الرسمية" : "Legal sources"}</a>
+            <a href="#related-services-heading" className="service-anchor-link">{isRTL ? "الخدمات المرتبطة" : "Related services"}</a>
           </div>
         </div>
       </nav>
@@ -363,25 +343,57 @@ export default function ServiceDetail() {
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
                   {isRTL
-                    ? `تساعد كاونسلو الأفراد والشركات في فهم مسائل ${data.title}، ومراجعة المستندات، وتحديد الخيارات العملية، وبدء الاستشارة أونلاين بسرية عبر واتساب أو البريد الإلكتروني.`
-                    : `CounselO helps individuals and businesses understand ${data.title.toLowerCase()} matters, review documents, identify practical options, and begin a confidential online consultation through WhatsApp or email.`}
+                    ? `تساعد كاونسلو الأفراد والشركات في فهم مسائل ${data.title} في ${countryName}، ومراجعة المستندات، وتحديد الخيارات العملية، وبدء حزمة استشارة مهنية أونلاين عبر واتساب أو البريد الإلكتروني، مع تحديد القانون والجهة والنطاق قبل تأكيد العمل.`
+                    : `CounselO helps individuals and businesses understand ${data.title.toLowerCase()} matters in ${countryName}, review documents, identify practical options, and begin a professional online consultation package through WhatsApp or email, with the law, authority and scope identified before work is confirmed.`}
                 </p>
               </section>
 
               <nav aria-label={isRTL ? "محتويات الصفحة" : "On this page"} className="service-page-index mb-12 border-y border-[#0d4a31]/16 py-5">
                 <p className="text-sm font-bold text-foreground mb-3">{isRTL ? "في هذه الصفحة" : "On this page"}</p>
                 <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+                  <a href="#service-overview" className="text-primary hover:underline">{isRTL ? "نظرة عامة" : "Overview"}</a>
+                  <a href="#consultation-package-heading" className="text-primary hover:underline">{isRTL ? "حزمة الاستشارة" : "Consultation package"}</a>
+                  <a href="#counselO-role-heading" className="text-primary hover:underline">{isRTL ? "دور كاونسلو" : "How CounselO helps"}</a>
+                  <a href="#service-covers-heading" className="text-primary hover:underline">{sd.coversHeading}</a>
                   {commonIssues.length > 0 && <a href="#common-problems-heading" className="text-primary hover:underline">{isRTL ? "المشكلات الشائعة" : "Common problems"}</a>}
                   {documents.length > 0 && <a href="#documents-heading" className="text-primary hover:underline">{isRTL ? "المستندات" : "Documents"}</a>}
-                  <a href="#related-services-heading" className="text-primary hover:underline">{isRTL ? "الخدمات المرتبطة" : "Related services"}</a>
+                  <a href="#service-scope-heading" className="text-primary hover:underline">{isRTL ? "النطاق والتمثيل" : "Scope and representation"}</a>
                   <a href="#service-process-heading" className="text-primary hover:underline">{isRTL ? "خطوات العمل" : "Our process"}</a>
                   {displayFaqs.length > 0 && <a href="#service-faq-heading" className="text-primary hover:underline">{isRTL ? "الأسئلة الشائعة" : "FAQs"}</a>}
                   <a href="#official-sources-heading" className="text-primary hover:underline">{isRTL ? "المصادر الرسمية" : "Official sources"}</a>
+                  <a href="#related-services-heading" className="text-primary hover:underline">{isRTL ? "الخدمات المرتبطة" : "Related services"}</a>
                 </div>
               </nav>
 
+              {comprehensiveConsultation && (
+                <section className="service-content-band mb-12 border border-[#0d4a31]/14 bg-white p-7 lg:p-9" aria-labelledby="consultation-package-heading">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-primary">{isRTL ? "حزمة الاستشارة" : "Consultation package"}</p>
+                  <h2 id="consultation-package-heading" className="scroll-mt-36 text-3xl font-serif font-bold text-foreground mb-4">
+                    {isRTL ? comprehensiveConsultation.titleAr : comprehensiveConsultation.titleEn}
+                  </h2>
+                  <p className="mb-6 max-w-3xl leading-relaxed text-muted-foreground">
+                    {isRTL ? comprehensiveConsultation.summaryAr : comprehensiveConsultation.summaryEn}
+                  </p>
+                  <ul className="grid gap-3 text-muted-foreground sm:grid-cols-2">
+                    {(isRTL ? comprehensiveConsultation.includesAr : comprehensiveConsultation.includesEn).map((item) => (
+                      <li key={item} className="flex items-start gap-3 rounded-sm bg-[#eef4f0] p-4">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-6 grid gap-4 border-t border-[#0d4a31]/14 pt-5 text-sm text-muted-foreground md:grid-cols-2">
+                    <p><strong className="text-foreground">{isRTL ? "المخرج الأساسي:" : "Primary deliverable:"}</strong> {isRTL ? CONSULTATION_OPERATING_POLICY.deliveryAr : CONSULTATION_OPERATING_POLICY.deliveryEn}</p>
+                    <p><strong className="text-foreground">{isRTL ? "المتابعة والتمثيل:" : "Follow-up and representation:"}</strong> {isRTL ? `${CONSULTATION_OPERATING_POLICY.monitoringAr} ${CONSULTATION_OPERATING_POLICY.representationAr}` : `${CONSULTATION_OPERATING_POLICY.monitoringEn} ${CONSULTATION_OPERATING_POLICY.representationEn}`}</p>
+                  </div>
+                </section>
+              )}
+
               {/* Overview — handles both single-string and multi-paragraph formats */}
-              <div id="service-overview" className="prose prose-green max-w-none mb-16 scroll-mt-36 speakable-overview">
+              <section id="service-overview" className="prose prose-green max-w-none mb-16 scroll-mt-36 speakable-overview" aria-labelledby="service-overview-heading">
+                <h2 id="service-overview-heading" className="not-prose mb-5 text-3xl font-serif font-bold text-foreground">
+                  {isRTL ? `عن ${data.title} في ${countryName}` : `About ${data.title} in ${countryName}`}
+                </h2>
                 {displayOverview && (
                   <p className="text-lg text-muted-foreground leading-relaxed">{displayOverview}</p>
                 )}
@@ -396,7 +408,50 @@ export default function ServiceDetail() {
                     {displayExperienceNote}
                   </p>
                 )}
-              </div>
+              </section>
+
+              <section className="service-content-band mb-16 border border-[#0d4a31]/14 bg-white p-7 lg:p-9" aria-labelledby="counselO-role-heading">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-primary">{isRTL ? "من البداية إلى الخطوة التالية" : "From first question to next step"}</p>
+                <h2 id="counselO-role-heading" className="scroll-mt-36 text-3xl font-serif font-bold text-foreground mb-4">
+                  {isRTL ? `كيف تساعدك كاونسلو في مسألة ${data.title}؟` : `How CounselO helps with ${data.title.toLowerCase()}`}
+                </h2>
+                <p className="mb-7 max-w-3xl leading-relaxed text-muted-foreground">
+                  {isRTL
+                    ? `دور كاونسلو ليس تقديم تعريف عام بـ${data.title} فقط. نساعدك على تحويل المسألة إلى قرار عملي قابل للتنفيذ، مع دراسة الوقائع والمستندات وتحديد الاختصاص والوثائق والنطاق المناسب قبل أن تدفع أو تلتزم بمسار قانوني.`
+                    : `CounselO’s role is not limited to explaining what ${data.title.toLowerCase()} means. We study the facts and documents and help turn the matter into a practical, defined next step by identifying jurisdiction, evidence and scope before you pay for work or commit to a legal route.`}
+                </p>
+                <ol className="grid gap-0 border-y border-[#0d4a31]/14 md:grid-cols-2">
+                  {counselOJourney.map((stage, index) => (
+                    <li key={stage.title} className="relative border-b border-e border-[#0d4a31]/12 p-5 last:border-b-0">
+                      <div className="mb-3 flex items-center gap-3">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0d4a31] font-serif text-sm font-bold text-[#d5ae5d]">{index + 1}</span>
+                        <h3 className="font-serif text-xl font-bold text-foreground">{stage.title}</h3>
+                      </div>
+                      <p className="ps-11 text-sm leading-relaxed text-muted-foreground">{stage.desc}</p>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+
+              <section className="service-content-band mb-16 grid gap-0 border-y border-[#0d4a31]/14 bg-[#eef4f0] sm:grid-cols-2 lg:grid-cols-4" aria-label={isRTL ? "مزايا خدمة كاونسلو" : "CounselO service benefits"}>
+                <h2 className="sr-only">{isRTL ? "مزايا حزمة كاونسلو" : "CounselO service benefits"}</h2>
+                <div className="border-b border-e border-[#0d4a31]/12 bg-white/60 p-5 lg:border-b-0">
+                  <h3 className="mb-2 font-serif text-lg font-bold text-foreground">{isRTL ? "خبرة قانونية عملية" : "Practical legal experience"}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{isRTL ? "قيادة قانونية وفريق يذكران تعاملهما مع أكثر من 20,000 قضية واستشارة في المنطقة." : "CounselO states that its legal leadership and team have handled more than 20,000 cases and consultations across the region."}</p>
+                </div>
+                <div className="border-b border-e border-[#0d4a31]/12 bg-white/60 p-5 lg:border-b-0">
+                  <h3 className="mb-2 font-serif text-lg font-bold text-foreground">{isRTL ? "استجابة رقمية سريعة" : "Fast digital response"}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{isRTL ? "نستهدف رداً مهنياً خلال 24 ساعة، بحسب الاستعجال واكتمال المعلومات وتوفر الخدمة." : "A professional response is targeted within 24 hours, subject to urgency, intake completeness and service availability."}</p>
+                </div>
+                <div className="border-b border-e border-[#0d4a31]/12 bg-white/60 p-5 lg:border-b-0">
+                  <h3 className="mb-2 font-serif text-lg font-bold text-foreground">{isRTL ? "كفاءة أونلاين" : "Online efficiency"}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{isRTL ? "يقلل النموذج الرقمي وقت التنقل وبعض تكاليف المكتب، مع تأكيد الرسوم بعد الدراسة الأولية." : "An online-first process can reduce travel time and some office overhead; the fee is confirmed after the initial study."}</p>
+                </div>
+                <div className="border-b border-[#0d4a31]/12 bg-white/60 p-5 lg:border-b-0">
+                  <h3 className="mb-2 font-serif text-lg font-bold text-foreground">{isRTL ? "العربية والإنجليزية" : "Arabic and English"}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{isRTL ? "يمكن تقديم الاستشارة ومراجعة المستندات بالعربية أو الإنجليزية بحسب المسألة والحاجة." : "Consultation and document review can be provided in Arabic or English according to the matter and need."}</p>
+                </div>
+              </section>
 
               <h2 id="service-covers-heading" className="scroll-mt-36 text-3xl font-serif font-bold text-foreground mb-7">{sd.coversHeading}</h2>
               <div className="service-content-band mb-16 grid bg-[#eef4f0] p-2 sm:grid-cols-2 speakable-covers">
@@ -433,38 +488,29 @@ export default function ServiceDetail() {
                 </section>
               )}
 
-              <section className="mb-16" aria-labelledby="related-services-heading">
-                <h2 id="related-services-heading" className="scroll-mt-36 text-3xl font-serif font-bold text-foreground mb-6">
-                  {isRTL ? "خدمات قانونية مرتبطة" : "Related legal services"}
+              <section className="service-content-band mb-16 border border-[#0d4a31]/14 bg-white p-7 lg:p-9" aria-labelledby="service-scope-heading">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-primary">{isRTL ? "النطاق والالتزام" : "Scope and engagement"}</p>
+                <h2 id="service-scope-heading" className="scroll-mt-36 text-3xl font-serif font-bold text-foreground mb-6">
+                  {isRTL ? "ماذا يحدث بعد التقييم الأولي؟" : "What happens after the initial assessment?"}
                 </h2>
-                <p className="text-muted-foreground mb-5">
-                  {isRTL
-                    ? "قد تتداخل المسألة الواحدة مع أكثر من مجال قانوني. استكشف الخدمات المرتبطة أو اطّلع على المقالات القانونية قبل طلب الاستشارة."
-                    : "One matter can involve several areas of law. Explore closely related services or read the legal guides before requesting a consultation."}
-                </p>
-                <div className="grid border-y border-[#0d4a31]/14 sm:grid-cols-2">
-                  {relatedServiceIds.map((serviceId) => {
-                    const related = sd.services[serviceId as keyof typeof sd.services];
-                    return (
-                      <Link
-                        key={serviceId}
-                        href={`${regionPrefix}/services/${serviceId}`}
-                        className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31]/12 bg-white p-5 font-semibold text-foreground transition-colors hover:bg-[#eef4f0] hover:text-primary"
-                      >
-                        <span>{isRTL ? `استشارة ${related.title}` : `${related.title} legal consultation`}</span>
-                        <ChevronRight className="h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
-                      </Link>
-                    );
-                  })}
-                  <Link href="/blog" className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31]/12 bg-white p-5 font-semibold text-foreground transition-colors hover:bg-[#eef4f0] hover:text-primary">
-                    <span>{isRTL ? "مقالات وإرشادات قانونية" : "Legal articles and practical guides"}</span>
-                    <ChevronRight className="h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
-                  </Link>
-                  <Link href={`${regionPrefix}/contact?service=${id}`} className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31] bg-[#0d4a31] p-5 font-semibold text-white transition-colors hover:bg-[#073d29]">
-                    <span>{isRTL ? `احجز استشارة ${data.title}` : `Book a ${data.title.toLowerCase()} consultation`}</span>
-                    <ChevronRight className="h-4 w-4 shrink-0 text-[#d5ae5d] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
-                  </Link>
-                </div>
+                <dl className="grid gap-4 sm:grid-cols-2">
+                  <div className="border-s-2 border-[#b4924a] bg-[#eef4f0] p-4">
+                    <dt className="font-semibold text-foreground">{isRTL ? "الرد المتوقع" : "Response"}</dt>
+                    <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{isRTL ? "وقت استجابة مهني مستهدف خلال 24 ساعة، بحسب النطاق والاستعجال واكتمال المعلومات وتوفر الخدمة." : "A professional response is targeted within 24 hours, subject to scope, urgency, intake completeness and service availability."}</dd>
+                  </div>
+                  <div className="border-s-2 border-[#b4924a] bg-[#eef4f0] p-4">
+                    <dt className="font-semibold text-foreground">{isRTL ? "الرسوم والمخرجات" : "Fee and deliverable"}</dt>
+                    <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{isRTL ? "يحدد المنتج والرسوم والمخرج بعد الدراسة الأولية وقبل بدء العمل المدفوع." : "The consultation product, fee and deliverable are confirmed after the initial study and before paid work begins."}</dd>
+                  </div>
+                  <div className="border-s-2 border-[#b4924a] bg-[#eef4f0] p-4">
+                    <dt className="font-semibold text-foreground">{isRTL ? "التمثيل أمام المحاكم" : "Court representation"}</dt>
+                    <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{isRTL ? "إذا طُلب أو أصبح ضرورياً، يمكن ترتيبه بتكليف مستقل عبر شريك أو مكتب متعاون مرخص في الدولة المعنية." : "If requested or necessary, it can be arranged under a separate engagement through a licensed partner professional or cooperating office in the relevant jurisdiction."}</dd>
+                  </div>
+                  <div className="border-s-2 border-[#b4924a] bg-[#eef4f0] p-4">
+                    <dt className="font-semibold text-foreground">{isRTL ? "حدود الاستشارة" : "Consultation boundary"}</dt>
+                    <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{isRTL ? "لا تنشئ الاستشارة وحدها تفويضاً بالتمثيل أو الحضور أو الإيداع أمام محكمة أو جهة." : "An online consultation alone does not create a mandate for court appearance, filing or representation."}</dd>
+                  </div>
+                </dl>
               </section>
 
               <h2 id="service-process-heading" className="scroll-mt-36 text-3xl font-serif font-bold text-foreground mb-8">{sd.processHeading}</h2>
@@ -529,8 +575,42 @@ export default function ServiceDetail() {
                 <div className="mt-6 border-s-2 border-[#b4924a] bg-white/65 p-4 text-sm text-muted-foreground leading-relaxed">
                   <strong className="text-foreground">{isRTL ? "مسؤول المحتوى:" : "Content responsibility:"}</strong>{" "}
                   {isRTL
-                    ? `فريق المحتوى القانوني في كاونسلو. آخر تحديث: 13 يوليو 2026. هذه الصفحة معلومات عامة عن ${data.title} في ${countryName} وليست بديلاً عن استشارة مبنية على الوقائع.`
-                    : `CounselO legal content team. Last updated 13 July 2026. This page provides general information about ${data.title.toLowerCase()} in ${countryName} and does not replace advice based on the facts.`}
+                    ? `أعدّها فريق المحتوى القانوني في كاونسلو وراجعها قانونياً المحامي والمستشار القانوني عمر البغدادي. آخر تحديث جوهري: 13 يوليو 2026. هذه الصفحة معلومات عامة عن ${data.title} في ${countryName} وليست بديلاً عن استشارة مبنية على الوقائع.`
+                    : `Written by the CounselO legal content team and legally reviewed by Lawyer and Legal Counsel Omar Al-Baghdadi. Last substantive review: 13 July 2026. This page provides general information about ${data.title.toLowerCase()} in ${countryName} and does not replace advice based on the facts.`}
+                </div>
+              </section>
+
+              <section className="mb-16" aria-labelledby="related-services-heading">
+                <h2 id="related-services-heading" className="scroll-mt-36 text-3xl font-serif font-bold text-foreground mb-6">
+                  {isRTL ? "خدمات قانونية مرتبطة" : "Related legal services"}
+                </h2>
+                <p className="text-muted-foreground mb-5">
+                  {isRTL
+                    ? "قد تتداخل المسألة الواحدة مع أكثر من مجال قانوني. استكشف الخدمات المرتبطة أو اطّلع على المقالات القانونية قبل طلب الاستشارة."
+                    : "One matter can involve several areas of law. Explore closely related services or read the legal guides before requesting a consultation."}
+                </p>
+                <div className="grid border-y border-[#0d4a31]/14 sm:grid-cols-2">
+                  {relatedServiceIds.map((serviceId) => {
+                    const related = sd.services[serviceId as keyof typeof sd.services];
+                    return (
+                      <Link
+                        key={serviceId}
+                        href={`${regionPrefix}/services/${serviceId}`}
+                        className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31]/12 bg-white p-5 font-semibold text-foreground transition-colors hover:bg-[#eef4f0] hover:text-primary"
+                      >
+                        <span>{isRTL ? `استشارة ${related.title}` : `${related.title} legal consultation`}</span>
+                        <ChevronRight className="h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
+                      </Link>
+                    );
+                  })}
+                  <Link href="/blog" className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31]/12 bg-white p-5 font-semibold text-foreground transition-colors hover:bg-[#eef4f0] hover:text-primary">
+                    <span>{isRTL ? "مقالات وإرشادات قانونية" : "Legal articles and practical guides"}</span>
+                    <ChevronRight className="h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
+                  </Link>
+                  <Link href={`${regionPrefix}/contact?service=${id}`} className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31] bg-[#0d4a31] p-5 font-semibold text-white transition-colors hover:bg-[#073d29]">
+                    <span>{isRTL ? `احجز استشارة ${data.title}` : `Book a ${data.title.toLowerCase()} consultation`}</span>
+                    <ChevronRight className="h-4 w-4 shrink-0 text-[#d5ae5d] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
+                  </Link>
                 </div>
               </section>
 
@@ -547,8 +627,8 @@ export default function ServiceDetail() {
                 {sd.sidebar.descPrefix}{data.title.toLowerCase()}{sd.sidebar.descSuffix}
               </p>
               <ul className="mb-7 space-y-3 border-y border-white/12 py-5 text-sm text-white/82">
-                <li className="flex items-center gap-3"><Clock3 className="h-4 w-4 text-[#d5ae5d]" />{isRTL ? "استجابة مهنية خلال 24 ساعة" : "Professional response within 24 hours"}</li>
-                <li className="flex items-center gap-3"><ShieldCheck className="h-4 w-4 text-[#d5ae5d]" />{isRTL ? "معلوماتك تعامل بسرية" : "Your information is treated confidentially"}</li>
+                <li className="flex items-center gap-3"><MessageSquareText className="h-4 w-4 text-[#d5ae5d]" />{isRTL ? "مخرج مكتوب عبر واتساب أو البريد الإلكتروني" : "Written deliverable via WhatsApp or email"}</li>
+                <li className="flex items-center gap-3"><ShieldCheck className="h-4 w-4 text-[#d5ae5d]" />{isRTL ? "النطاق والرسوم يؤكدان قبل العمل المدفوع" : "Scope and fee confirmed before paid work"}</li>
               </ul>
               <Link
                 href={`${regionPrefix}/contact?service=${id}`}
@@ -569,7 +649,6 @@ export default function ServiceDetail() {
           </div>
         </div>
       </div>
-      <TrustSignals isArabic={isRTL} regionPrefix={regionPrefix} />
       {region !== "uae" && <LatestContentCarousels isArabic={isRTL} region={region} serviceSlug={id} />}
     </div>
   );

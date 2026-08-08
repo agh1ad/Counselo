@@ -11,6 +11,7 @@ const input: ContactInput = {
   email: "ahmed@example.com",
   phone: "+966550001234",
   service: "business-law",
+  consultationProduct: "case-assessment",
   message: "I need advice about a commercial contract dispute.",
   region: "sa",
   language: "en",
@@ -118,5 +119,26 @@ test("escapes customer-provided values in confirmation HTML", async () => {
     const body = JSON.parse(String(request?.body)) as { html: string };
     assert.doesNotMatch(body.html, /<img src=x onerror/);
     assert.match(body.html, /&lt;img src=x onerror=alert\(1\)&gt;/);
+  });
+});
+
+test("labels UAE in both internal and customer email templates", async () => {
+  await withProviderEnvironment(async () => {
+    const bodies: Array<Record<string, unknown>> = [];
+    globalThis.fetch = async (_input, init) => {
+      bodies.push(JSON.parse(String(init?.body)) as Record<string, unknown>);
+      return new Response(JSON.stringify({ id: "uae-email-id" }), { status: 200 });
+    };
+    const uaeInput: ContactInput = {
+      ...input,
+      region: "uae",
+      service: "corporate-commercial",
+    };
+    await sendConsultationEmail(uaeInput, "CON-20260808-UAE");
+    await sendCustomerConfirmationEmail(uaeInput, "CON-20260808-UAE");
+    assert.match(String(bodies[0]?.text), /Region: United Arab Emirates/);
+    assert.match(String(bodies[0]?.text), /counselo-uae-business/);
+    assert.match(String(bodies[1]?.text), /Region: United Arab Emirates/);
+    assert.match(String(bodies[1]?.html), /United Arab Emirates/);
   });
 });

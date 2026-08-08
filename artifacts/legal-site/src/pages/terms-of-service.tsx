@@ -4,6 +4,7 @@ import { CheckCircle2, MessageCircle, Mail, CreditCard, FileText, ArrowRight } f
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod";
 
 export default function TermsOfService() {
   const { isRTL } = useLanguage();
@@ -160,8 +161,8 @@ export default function TermsOfService() {
             "name": isRTL ? "شروط الخدمة | كاونسلو" : "Terms of Service | CounselO",
             "description": content.seoDesc,
             "url": pageUrl,
-            "isPartOf": { "@type": "WebSite", "name": "CounselO", "url": "https://counselo-legal.com" },
-            "publisher": { "@type": "Organization", "name": "CounselO", "url": "https://counselo-legal.com" },
+            "isPartOf": { "@id": COUNSELO_ENTITY_IDS.website },
+            "publisher": { "@id": COUNSELO_ENTITY_IDS.organization },
           },
           {
             "@context": "https://schema.org",

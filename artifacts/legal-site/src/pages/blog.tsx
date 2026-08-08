@@ -5,7 +5,9 @@ import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod";
 import { fetchPublicJson } from "@/lib/public-api";
+import { blogPath, hasQualityBilingualBlogContent } from "@workspace/api-zod";
 
 interface ApiPost {
   id: number;
@@ -18,6 +20,14 @@ interface ApiPost {
   titleAr: string;
   excerptEn: string;
   excerptAr: string;
+  seoTitleEn?: string;
+  seoTitleAr?: string;
+  seoDescriptionEn?: string;
+  seoDescriptionAr?: string;
+  bodyEn?: string;
+  bodyAr?: string;
+  contentEn?: Array<{ body?: string }>;
+  contentAr?: Array<{ body?: string }>;
   published: boolean;
   relatedServiceSlugs?: string[];
   relatedBlogSlugs?: string[];
@@ -43,6 +53,9 @@ function formatDate(dateStr: string, lang: string) {
 export default function Blog() {
   const { lang, isRTL } = useLanguage();
   const { region, regionPrefix } = useRegion();
+  const articlePath = (post: ApiPost) => hasQualityBilingualBlogContent(post)
+    ? blogPath(post.slug, lang === "ar" ? "ar" : "en")
+    : blogPath(post.slug);
 
   const { data: posts = [], isLoading } = useQuery<ApiPost[]>({
     queryKey: ["blog-posts"],
@@ -108,7 +121,8 @@ export default function Blog() {
         schema={[
           {
             "@context": "https://schema.org",
-            "@type": "Blog",
+            "@type": ["CollectionPage", "Blog"],
+            "@id": "https://counselo-legal.com/blog#collection",
             name: isRTL ? "رؤى كاونسلو القانونية العالمية" : "CounselO Global Legal Insights",
             description: isRTL
               ? "مقالات وأدلة قانونية مشتركة تغطي قوانين الإمارات والسعودية وسوريا"
@@ -116,10 +130,25 @@ export default function Blog() {
             url: "https://counselo-legal.com/blog",
             publisher: {
               "@type": "Organization",
+              "@id": COUNSELO_ENTITY_IDS.organization,
               name: "CounselO",
+              alternateName: "كاونسلو",
               url: "https://counselo-legal.com",
             },
             inLanguage: ["ar", "en"],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "@id": "https://counselo-legal.com/blog#item-list",
+            name: isRTL ? "مقالات كاونسلو القانونية" : "CounselO legal articles",
+            url: "https://counselo-legal.com/blog",
+            itemListElement: posts.slice(0, 50).map((post, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: isRTL ? post.titleAr || post.titleEn : post.titleEn || post.titleAr,
+              url: `https://counselo-legal.com${articlePath(post)}`,
+            })),
           },
           {
             "@context": "https://schema.org",
@@ -148,7 +177,7 @@ export default function Blog() {
               "@type": "ListItem",
               position: i + 1,
               name: isRTL ? (p.titleAr || p.titleEn) : (p.titleEn || p.titleAr),
-              url: `https://counselo-legal.com/blog/${p.slug}`,
+              url: `https://counselo-legal.com${articlePath(p)}`,
             })),
           },
         ]}
@@ -225,7 +254,7 @@ export default function Blog() {
                     <div className="mt-auto flex flex-wrap items-center gap-6 text-xs text-white/55">
                       <span>{formatDate(post.date, lang)}</span>
                       <span className="flex items-center gap-2"><Clock className="h-3.5 w-3.5" /> {post.readTime} {ui.minRead}</span>
-                      <Link href={`/blog/${post.slug}`} className="inline-flex items-center gap-2 border-b border-[#d4b66c] pb-1 font-semibold text-white">
+                      <Link href={articlePath(post)} className="inline-flex items-center gap-2 border-b border-[#d4b66c] pb-1 font-semibold text-white">
                         {ui.readMore}<ArrowRight className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
                       </Link>
                     </div>
@@ -261,7 +290,7 @@ export default function Blog() {
                       <span>{formatDate(post.date, lang)}</span>
                       <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" />{post.readTime} {ui.minRead}</span>
                     </div>
-                    <Link href={`/blog/${post.slug}`} className="mt-5 inline-flex items-center justify-between text-sm font-semibold text-primary">
+                    <Link href={articlePath(post)} className="mt-5 inline-flex items-center justify-between text-sm font-semibold text-primary">
                       {ui.readMore}<ArrowRight className={`h-4 w-4 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180" : ""}`} />
                     </Link>
                   </motion.article>

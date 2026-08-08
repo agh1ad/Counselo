@@ -5,6 +5,22 @@ import * as fs from "fs";
 import * as path from "path";
 import * as http from "http";
 import { logger } from "./lib/logger.js";
+import {
+  buildDiscoveryFeed,
+  buildDynamicSitemap,
+  buildBlogHtmlMetadata,
+  buildWorkHtmlMetadata,
+  articleJurisdictionLabel,
+  assignArticleProvenance,
+  blogLanguageAlternates,
+  blogPath,
+  hasQualityBilingualBlogContent,
+  buildNotFoundHtml,
+  LEGACY_REDIRECTS,
+  PUBLIC_CACHE_POLICY,
+  routeToFlatFilename,
+  COUNSELO_ENTITY_IDS,
+} from "@workspace/api-zod";
 
 const BASE_URL = "https://counselo-legal.com";
 
@@ -123,17 +139,38 @@ function normalizeDescription(primary: string, fallback: string): string {
   return `${combined.slice(0, 167).replace(/\s+\S*$/, "").trimEnd()}…`;
 }
 
-function buildDynamicBlogHtml(post: typeof blogPostsTable.$inferSelect): string {
-  const isArabicPost = Boolean(post.titleAr.trim() && !post.titleEn.trim());
-  const title = post.seoTitleEn || post.titleEn || post.seoTitleAr || post.titleAr || SITE_NAME;
+function buildDynamicBlogHtml(
+  post: typeof blogPostsTable.$inferSelect,
+  requestedLanguage?: "en" | "ar",
+): string {
+  const isBilingual = hasQualityBilingualBlogContent(post);
+  const isArabicPost = requestedLanguage === "ar"
+    || (!requestedLanguage && Boolean(post.titleAr.trim() && !post.titleEn.trim()));
+  const title = isArabicPost
+    ? post.seoTitleAr || post.titleAr || post.seoTitleEn || post.titleEn || SITE_NAME
+    : post.seoTitleEn || post.titleEn || post.seoTitleAr || post.titleAr || SITE_NAME;
   const brandedTitle = /(?:CounselO|كاونسلو)$/i.test(title)
     ? title
     : `${title} | ${isArabicPost ? "كاونسلو" : "CounselO"}`;
   const description = normalizeDescription(
-    post.seoDescriptionEn || post.seoDescriptionAr || "",
-    post.excerptEn || post.excerptAr || "Online legal guidance from CounselO.",
+    isArabicPost ? post.seoDescriptionAr || post.seoDescriptionEn || "" : post.seoDescriptionEn || post.seoDescriptionAr || "",
+    isArabicPost ? post.excerptAr || post.excerptEn || "Online legal guidance from CounselO." : post.excerptEn || post.excerptAr || "Online legal guidance from CounselO.",
   );
-  const canonical = `${BASE_URL}/blog/${post.slug}`;
+  const metadata = buildBlogHtmlMetadata({
+    slug: post.slug,
+    title,
+    description,
+    language: isArabicPost ? "ar" : "en",
+  });
+  const canonical = isBilingual && requestedLanguage
+    ? metadata.canonical
+    : buildBlogHtmlMetadata({ slug: post.slug, title, description }).canonical;
+  const languageAlternates = isBilingual && requestedLanguage
+    ? blogLanguageAlternates(post.slug)
+        .map(([language, target]) => `<link rel="alternate" hreflang="${language}" href="${target}">`)
+        .join("")
+    : "";
+  const provenance = assignArticleProvenance(post);
   const shell = getShellHtml() ?? getIndexHtml();
   const articleSchema = safeJson({
     "@context": "https://schema.org",
@@ -142,27 +179,33 @@ function buildDynamicBlogHtml(post: typeof blogPostsTable.$inferSelect): string 
     description,
     inLanguage: isArabicPost ? "ar" : "en",
     datePublished: post.date,
-    dateModified: post.updatedAt?.toISOString?.() ?? post.date,
+    dateModified: provenance.lastSubstantiveReviewAt,
     mainEntityOfPage: canonical,
-    author: { "@type": "Organization", "@id": `${BASE_URL}/#organization`, name: "CounselO", url: BASE_URL },
+    author: { "@type": "Organization", "@id": COUNSELO_ENTITY_IDS.organization, name: "CounselO", alternateName: "كاونسلو", url: BASE_URL },
     publisher: {
       "@type": "Organization",
-      "@id": `${BASE_URL}/#organization`,
+      "@id": COUNSELO_ENTITY_IDS.organization,
       name: "CounselO",
       url: BASE_URL,
       logo: { "@type": "ImageObject", url: `${BASE_URL}/logo.png` },
     },
+    reviewedBy: {
+      "@type": "Person",
+      name: isArabicPost ? provenance.legalReviewerNameAr : provenance.legalReviewerName,
+      url: `${BASE_URL}${provenance.legalReviewerUrl}`,
+    },
+    citation: provenance.sources.map((source) => source.href),
   });
   const head = `<title>${esc(brandedTitle)}</title>
     <meta name="description" content="${esc(description.slice(0, 170))}">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="${esc(canonical)}">
+    <link rel="canonical" href="${esc(canonical)}">${languageAlternates}
     <meta property="og:type" content="article"><meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description.slice(0, 170))}"><meta property="og:url" content="${esc(canonical)}">
     <meta property="og:image" content="${DEFAULT_OG_IMAGE}"><meta name="twitter:card" content="summary_large_image">
     <script type="application/ld+json">${articleSchema}</script>
     <script>window.__SSR_POST__=${safeJson(post)};</script>`;
-  const body = `<article><h1>${esc(title)}</h1><p>${esc(description)}</p></article>`;
+  const body = `<article><h1>${esc(title)}</h1><p>${esc(description)}</p><section aria-labelledby="article-provenance-heading"><h2 id="article-provenance-heading">${isArabicPost ? "بيانات المراجعة والمصادر" : "Review and source information"}</h2><p>${isArabicPost ? "كتب بواسطة" : "Written by"}: <a href="${esc(provenance.primaryAuthorUrl)}">${esc(isArabicPost ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName)}</a></p><p>${isArabicPost ? "راجع قانونياً بواسطة" : "Legally reviewed by"}: <a href="${esc(provenance.legalReviewerUrl)}">${esc(isArabicPost ? provenance.legalReviewerNameAr : provenance.legalReviewerName)}</a></p><p>${isArabicPost ? "الاختصاص" : "Jurisdiction"}: ${esc(articleJurisdictionLabel(provenance.jurisdiction, isArabicPost))}</p><p>${isArabicPost ? "تاريخ النشر" : "Publication date"}: ${esc(post.date)}</p><p>${isArabicPost ? "آخر مراجعة جوهرية" : "Last substantive review"}: ${esc(provenance.lastSubstantiveReviewAt)}</p><p>${isArabicPost ? "القانون المنطبق" : "Applicable law"}: ${esc(isArabicPost ? provenance.applicableLawAr : provenance.applicableLaw)}</p><p>${isArabicPost ? "المصادر والاقتباسات" : "Sources and citations"}: ${provenance.sources.map((source) => `<a href="${esc(source.href)}">${esc(isArabicPost ? source.titleAr : source.titleEn)}</a>`).join(" · ")}</p><p>${esc(isArabicPost ? provenance.keyLegalUpdateNoteAr : provenance.keyLegalUpdateNote)}</p><p>${esc(isArabicPost ? provenance.contentMethodologyAr : provenance.contentMethodology)}</p><p>${isArabicPost ? "هذا المقال لأغراض توعوية ولا يشكل مشورة قانونية." : "This article is informational only and is not legal advice."} <a href="${esc(provenance.correctionUrl)}">${isArabicPost ? "الإبلاغ عن تصحيح" : "Report a correction"}</a></p></section></article>`;
   if (!shell) {
     return `<!doctype html><html lang="${isArabicPost ? "ar" : "en"}" dir="${isArabicPost ? "rtl" : "ltr"}"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
   }
@@ -180,6 +223,14 @@ function buildDynamicBlogIndex(
   const description =
     "Practical legal guides on family, employment, real estate, commercial law, and foreign investment in Saudi Arabia and Syria from CounselO's legal team.";
   const canonical = `${BASE_URL}/blog`;
+  const collection = safeJson({
+    "@context": "https://schema.org",
+    "@type": ["CollectionPage", "Blog"],
+    "@id": `${canonical}#collection`,
+    name: title,
+    description,
+    url: canonical,
+  });
   const itemList = safeJson({
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -195,7 +246,7 @@ function buildDynamicBlogIndex(
     <meta name="description" content="${esc(description)}"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="${canonical}"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}">
-    <script type="application/ld+json">${itemList}</script><script>window.__SSR_POSTS__=${safeJson(posts)};</script>`;
+    <script type="application/ld+json">${collection}</script><script type="application/ld+json">${itemList}</script><script>window.__SSR_POSTS__=${safeJson(posts)};</script>`;
   const links = posts
     .map(
       (post) =>
@@ -222,7 +273,8 @@ function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | "ar"): 
     sample.summaryEn || sample.summaryAr,
   );
   const basePath = isArabic ? "/ar/our-work" : "/our-work";
-  const canonical = `${BASE_URL}${basePath}/${sample.slug}`;
+  const metadata = buildWorkHtmlMetadata({ slug: sample.slug, title, description, language });
+  const canonical = metadata.canonical;
   const englishUrl = `${BASE_URL}/our-work/${sample.slug}`;
   const arabicUrl = `${BASE_URL}/ar/our-work/${sample.slug}`;
   const fileUrl = `${BASE_URL}/api/work/${sample.slug}/file`;
@@ -238,7 +290,7 @@ function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | "ar"): 
     inLanguage: language,
     genre: sample.workTypeEn || sample.workTypeAr,
     contentLocation: sample.jurisdictionEn || sample.jurisdictionAr,
-    creator: { "@type": "LegalService", "@id": `${BASE_URL}/#organization`, name: "CounselO", url: BASE_URL },
+    creator: { "@type": "Organization", "@id": COUNSELO_ENTITY_IDS.organization, name: "CounselO", alternateName: "كاونسلو", url: BASE_URL },
     encoding: { "@type": "MediaObject", contentUrl: fileUrl, encodingFormat: sample.fileMimeType },
   });
   const breadcrumbs = safeJson({
@@ -286,134 +338,12 @@ function buildDynamicWorkIndex(samples: PublicWorkSample[], language: "en" | "ar
   return shell.replace(/<html\b[^>]*>/i, `<html lang="${language}" dir="${isArabic ? "rtl" : "ltr"}">`).replace("<!--app-head-->", head).replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
 }
 
-function buildLiveSitemap(
-  baseXml: string,
-  posts: Array<typeof blogPostsTable.$inferSelect>,
-  samples: PublicWorkSample[],
-): string {
-  // Blog post inventory is database-owned. Remove any stale build-time post
-  // entries, then insert exactly the currently published records.
-  const withoutPostEntries = baseXml.replace(
-    /\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/blog\/[^<]+<\/loc>[\s\S]*?<\/url>/g,
-    "",
-  );
-  const entries = posts.map((post) => {
-    const url = `${BASE_URL}/blog/${escapeXml(post.slug)}`;
-    const modified = post.updatedAt?.toISOString?.().slice(0, 10) || post.date;
-    return `  <url>
-    <loc>${url}</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="${url}"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <lastmod>${escapeXml(modified)}</lastmod>
-  </url>`;
-  });
-  const withoutWorkEntries = withoutPostEntries.replace(
-    /\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/(?:ar\/)?our-work\/[^<]+<\/loc>[\s\S]*?<\/url>/g,
-    "",
-  );
-  const workEntries = samples.flatMap((sample) => {
-    const enUrl = `${BASE_URL}/our-work/${escapeXml(sample.slug)}`;
-    const arUrl = `${BASE_URL}/ar/our-work/${escapeXml(sample.slug)}`;
-    const modified = sample.updatedAt?.toISOString?.().slice(0, 10) || sample.date;
-    const single = (url: string) => `  <url>
-    <loc>${url}</loc>
-    <xhtml:link rel="alternate" hreflang="x-default" href="${url}"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <lastmod>${escapeXml(modified)}</lastmod>
-  </url>`;
-    if (!sample.titleEn) return [single(arUrl)];
-    if (!sample.titleAr) return [single(enUrl)];
-    const paired = (url: string) => `  <url>
-    <loc>${url}</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="${arUrl}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="${enUrl}"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <lastmod>${escapeXml(modified)}</lastmod>
-  </url>`;
-    return [paired(enUrl), paired(arUrl)];
-  });
-  const latestDate = (values: Array<string | Date | null | undefined>): string | undefined => {
-    const dates = values
-      .map((value) => value instanceof Date ? value.toISOString().slice(0, 10) : value?.slice(0, 10))
-      .filter((value): value is string => Boolean(value))
-      .sort();
-    return dates.at(-1);
-  };
-  const addIndexLastmod = (xml: string, url: string, lastmod?: string): string => {
-    if (!lastmod) return xml;
-    return xml.replace(`<loc>${url}</loc>`, `<loc>${url}</loc>\n    <lastmod>${escapeXml(lastmod)}</lastmod>`);
-  };
-  let withIndexDates = withoutWorkEntries;
-  withIndexDates = addIndexLastmod(
-    withIndexDates,
-    `${BASE_URL}/blog`,
-    latestDate(posts.map((post) => post.updatedAt ?? post.date)),
-  );
-  const latestWork = latestDate(samples.map((sample) => sample.updatedAt ?? sample.date));
-  withIndexDates = addIndexLastmod(withIndexDates, `${BASE_URL}/our-work`, latestWork);
-  withIndexDates = addIndexLastmod(withIndexDates, `${BASE_URL}/ar/our-work`, latestWork);
-  const allEntries = [...entries, ...workEntries];
-  return withIndexDates.replace("</urlset>", `${allEntries.length ? `\n${allEntries.join("\n")}\n` : ""}</urlset>`);
-}
-
-function buildDiscoveryFeed(
-  posts: Array<typeof blogPostsTable.$inferSelect>,
-  samples: PublicWorkSample[],
-): string {
-  const blogItems = posts.map((post) => ({
-    title: post.titleEn || post.titleAr,
-    description: post.excerptEn || post.excerptAr,
-    url: `${BASE_URL}/blog/${post.slug}`,
-    modified: post.updatedAt?.toISOString?.() ?? post.date,
-  }));
-  const workItems = samples.flatMap((sample) => {
-    const modified = sample.updatedAt?.toISOString?.() ?? sample.date;
-    const items: Array<{ title: string; description: string; url: string; modified: string }> = [];
-    if (sample.titleEn) items.push({ title: sample.titleEn, description: sample.summaryEn, url: `${BASE_URL}/our-work/${sample.slug}`, modified });
-    if (sample.titleAr) items.push({ title: sample.titleAr, description: sample.summaryAr, url: `${BASE_URL}/ar/our-work/${sample.slug}`, modified });
-    return items;
-  });
-  const items = [...blogItems, ...workItems]
-    .sort((a, b) => Date.parse(b.modified) - Date.parse(a.modified))
-    .slice(0, 50);
-  const lastBuildDate = items[0]?.modified ? new Date(items[0].modified).toUTCString() : new Date(0).toUTCString();
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
-  <channel>
-    <title>CounselO Legal Articles and Work</title>
-    <link>${BASE_URL}/</link>
-    <description>Recently published legal articles and redacted professional work from CounselO.</description>
-    <language>en</language>
-    <lastBuildDate>${escapeXml(lastBuildDate)}</lastBuildDate>
-${items.map((item) => `    <item>
-      <title>${escapeXml(item.title)}</title>
-      <link>${escapeXml(item.url)}</link>
-      <guid isPermaLink="true">${escapeXml(item.url)}</guid>
-      <description>${escapeXml(item.description)}</description>
-      <pubDate>${escapeXml(new Date(item.modified).toUTCString())}</pubDate>
-    </item>`).join("\n")}
-  </channel>
-</rss>`;
-}
-
-/**
- * Convert a URL path to its flat prerendered filename.
- * e.g. "/sa/services/family-law" → "sa-services-family-law.html"
- */
-function pathToPrerenderedFile(urlPath: string): string {
-  return `${urlPath.slice(1).replace(/\//g, "-")}.html`;
-}
-
 /**
  * Try to find and return a prerendered HTML file for the given path.
  * Returns the absolute file path if it exists, null otherwise.
  */
 function findPrerenderedFile(urlPath: string): string | null {
-  const fileName = pathToPrerenderedFile(urlPath);
+  const fileName = routeToFlatFilename(urlPath);
   const filePath = path.join(LEGAL_DIST, "__pages", fileName);
   return fs.existsSync(filePath) ? filePath : null;
 }
@@ -446,11 +376,25 @@ function proxyToVite(req: Request, res: Response): void {
 }
 
 export function registerOgPageRoutes(app: Express): void {
-  // Sitemap is database-backed so newly published articles appear immediately
-  // and drafts/unpublished records never leak into discovery surfaces.
+  // The index and regional/core child sitemaps are build artifacts. Blog and
+  // work child sitemaps stay database-backed so newly published records appear
+  // immediately while drafts/unpublished records never leak into discovery.
   app.get("/sitemap.xml", async (_req, res) => {
     try {
-      const baseXml = fs.readFileSync(path.join(LEGAL_DIST, "sitemap.xml"), "utf-8");
+      const sitemapIndex = fs.readFileSync(path.join(LEGAL_DIST, "sitemap.xml"), "utf-8");
+      res.type("application/xml");
+      res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
+      res.send(sitemapIndex);
+    } catch (err) {
+      logger.error({ err }, "Failed to read sitemap index");
+      res.status(503).type("text/plain").send("Sitemap temporarily unavailable");
+    }
+  });
+
+  app.get(["/sitemap-blog.xml", "/sitemap-work.xml"], async (req, res) => {
+    try {
+      const filename = req.path.endsWith("blog.xml") ? "sitemap-blog.xml" : "sitemap-work.xml";
+      const baseXml = fs.readFileSync(path.join(LEGAL_DIST, filename), "utf-8");
       const posts = await db
         .select()
         .from(blogPostsTable)
@@ -460,8 +404,14 @@ export function registerOgPageRoutes(app: Express): void {
         .from(workSamplesTable)
         .where(eq(workSamplesTable.published, true));
       res.type("application/xml");
-      res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
-      res.send(buildLiveSitemap(baseXml, posts, samples));
+      res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
+      res.send(
+        buildDynamicSitemap(
+          baseXml,
+          filename === "sitemap-blog.xml" ? posts : [],
+          filename === "sitemap-work.xml" ? samples : [],
+        ),
+      );
     } catch (err) {
       logger.error({ err }, "Failed to generate live sitemap");
       res.status(503).type("text/plain").send("Sitemap temporarily unavailable");
@@ -482,7 +432,7 @@ export function registerOgPageRoutes(app: Express): void {
         .from(workSamplesTable)
         .where(eq(workSamplesTable.published, true));
       res.type("application/rss+xml");
-      res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+      res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
       res.send(buildDiscoveryFeed(posts, samples));
     } catch (err) {
       logger.error({ err }, "Failed to generate discovery feed");
@@ -498,9 +448,9 @@ export function registerOgPageRoutes(app: Express): void {
       immutable: true,
       setHeaders(res, filePath) {
         if (filePath.endsWith("robots.txt") || filePath.endsWith("llms.txt")) {
-          res.setHeader("Cache-Control", "public, max-age=3600, must-revalidate");
+          res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.crawlControl);
         } else if (filePath.endsWith(".html")) {
-          res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
+          res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.prerenderedHtml);
         }
       },
     }),
@@ -508,7 +458,7 @@ export function registerOgPageRoutes(app: Express): void {
 
   app.get("/counselo-admin", (_req, res) => {
     const shell = getShellHtml();
-    res.setHeader("Cache-Control", "no-store");
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.notFound);
     res.setHeader("X-Robots-Tag", "noindex, nofollow, noarchive");
     res.status(200).send(
       shell?.replace(
@@ -520,8 +470,8 @@ export function registerOgPageRoutes(app: Express): void {
 
   // Legacy regional blog URLs permanently consolidate into the single
   // canonical blog URL space.
-  app.get(["/sa/blog", "/syr/blog", "/sa/ar/blog", "/syr/ar/blog"], (_req, res) => {
-    res.setHeader("Cache-Control", "public, max-age=86400");
+  app.get([...LEGACY_REDIRECTS.regionalBlog], (_req, res) => {
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
     res.redirect(301, "/blog");
   });
   app.get(
@@ -537,27 +487,27 @@ export function registerOgPageRoutes(app: Express): void {
             eq(blogPostsTable.published, true),
           ),
         );
-      res.setHeader("Cache-Control", "public, max-age=86400");
+      res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
       // Preserve a published article destination; retired legacy articles
       // consolidate to the blog hub instead of producing a redirect-to-404.
       res.redirect(301, post ? `/blog/${encodeURIComponent(slug)}` : "/blog");
     },
   );
 
-  app.get(["/sa/our-work", "/syr/our-work"], (_req, res) => {
-    res.setHeader("Cache-Control", "public, max-age=86400");
+  app.get([...LEGACY_REDIRECTS.regionalWork], (_req, res) => {
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
     res.redirect(301, "/our-work");
   });
-  app.get(["/sa/ar/our-work", "/syr/ar/our-work"], (_req, res) => {
-    res.setHeader("Cache-Control", "public, max-age=86400");
+  app.get([...LEGACY_REDIRECTS.regionalArabicWork], (_req, res) => {
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
     res.redirect(301, "/ar/our-work");
   });
   app.get(["/sa/our-work/:slug", "/syr/our-work/:slug"], (req, res) => {
-    res.setHeader("Cache-Control", "public, max-age=86400");
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
     res.redirect(301, `/our-work/${encodeURIComponent(String(req.params["slug"] ?? ""))}`);
   });
   app.get(["/sa/ar/our-work/:slug", "/syr/ar/our-work/:slug"], (req, res) => {
-    res.setHeader("Cache-Control", "public, max-age=86400");
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
     res.redirect(301, `/ar/our-work/${encodeURIComponent(String(req.params["slug"] ?? ""))}`);
   });
 
@@ -575,7 +525,7 @@ export function registerOgPageRoutes(app: Express): void {
       return;
     }
     res.type("html");
-    res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
     res.send(buildDynamicWorkHtml(sample, "ar"));
   });
 
@@ -585,7 +535,7 @@ export function registerOgPageRoutes(app: Express): void {
       .from(workSamplesTable)
       .where(eq(workSamplesTable.published, true));
     res.type("html");
-    res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
     res.send(buildDynamicWorkIndex(samples, "ar"));
   });
 
@@ -603,7 +553,7 @@ export function registerOgPageRoutes(app: Express): void {
       return;
     }
     res.type("html");
-    res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
     res.send(buildDynamicWorkHtml(sample, "en"));
   });
 
@@ -613,8 +563,34 @@ export function registerOgPageRoutes(app: Express): void {
       .from(workSamplesTable)
       .where(eq(workSamplesTable.published, true));
     res.type("html");
-    res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
     res.send(buildDynamicWorkIndex(samples, "en"));
+  });
+
+  app.get(["/blog/en/:slug", "/blog/ar/:slug"], async (req, res) => {
+    const slug = String(req.params["slug"] ?? "");
+    const language: "en" | "ar" = req.path.startsWith("/blog/ar/") ? "ar" : "en";
+    const [post] = await db
+      .select()
+      .from(blogPostsTable)
+      .where(
+        and(
+          eq(blogPostsTable.slug, slug),
+          eq(blogPostsTable.published, true),
+        ),
+      );
+    if (!post) {
+      sendNotFound(res);
+      return;
+    }
+    if (!hasQualityBilingualBlogContent(post)) {
+      res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
+      res.redirect(302, blogPath(slug));
+      return;
+    }
+    res.type("html");
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
+    res.send(buildDynamicBlogHtml(post, language));
   });
 
   app.get("/blog/:slug", async (req, res) => {
@@ -632,8 +608,13 @@ export function registerOgPageRoutes(app: Express): void {
       sendNotFound(res);
       return;
     }
+    if (hasQualityBilingualBlogContent(post)) {
+      res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
+      res.redirect(301, blogPath(slug, "en"));
+      return;
+    }
     res.type("html");
-    res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
     res.send(buildDynamicBlogHtml(post));
   });
 
@@ -643,7 +624,7 @@ export function registerOgPageRoutes(app: Express): void {
       .from(blogPostsTable)
       .where(eq(blogPostsTable.published, true));
     res.type("html");
-    res.setHeader("Cache-Control", "public, max-age=300, must-revalidate");
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
     res.send(buildDynamicBlogIndex(posts));
   });
 
@@ -683,13 +664,13 @@ export function registerOgPageRoutes(app: Express): void {
   app.get("/{*path}", (req, res) => {
     const reqPath = req.path;
     if (reqPath === "/") {
-      res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.prerenderedHtml);
       res.sendFile(path.join(LEGAL_DIST, "index.html"));
       return;
     }
     const prerenderedFile = findPrerenderedFile(reqPath);
     if (prerenderedFile) {
-      res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
+      res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.prerenderedHtml);
       res.sendFile(prerenderedFile);
       return;
     }
@@ -699,18 +680,11 @@ export function registerOgPageRoutes(app: Express): void {
 
 function sendNotFound(res: Response): void {
   const shellHtml = getShellHtml();
-  res.setHeader("Cache-Control", "no-store");
+  res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.notFound);
   res.type("html");
   if (shellHtml) {
-    res.status(404).send(
-      shellHtml.replace(
-        "<!--app-head-->",
-        '<title>Page Not Found | CounselO</title><meta name="robots" content="noindex, nofollow">',
-      ),
-    );
+    res.status(404).send(buildNotFoundHtml(shellHtml));
   } else {
-    res.status(404).send(
-      '<!doctype html><html><head><title>Page Not Found | CounselO</title><meta name="robots" content="noindex,nofollow"></head><body><h1>Page not found</h1></body></html>',
-    );
+    res.status(404).send(buildNotFoundHtml());
   }
 }

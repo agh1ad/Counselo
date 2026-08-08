@@ -1,5 +1,6 @@
 const STORE_KEY = "counselo_analytics";
 const GA_ID_KEY = "counselo_ga_measurement_id";
+export const DEFAULT_GA_MEASUREMENT_ID = "G-1M9ZZX7VT6";
 
 export interface EventLog {
   event: string;
@@ -39,6 +40,12 @@ function today() {
 
 type AnalyticsDetails = Record<string, string | number | boolean | undefined>;
 
+function routeDimensions(path: string): Record<string, string> {
+  const match = path.match(/^\/(sa|syr|uae)(\/ar)?(?:\/|$)/);
+  if (match) return { region: match[1], language: match[2] ? "ar" : "en" };
+  return { region: "shared", language: path === "/ar" || path.startsWith("/ar/") ? "ar" : "en" };
+}
+
 export function trackEvent(event: string, page: string, details: AnalyticsDetails = {}) {
   const store = load();
   const day = today();
@@ -49,7 +56,9 @@ export function trackEvent(event: string, page: string, details: AnalyticsDetail
   if (event === "email_click") store.email_clicks++;
 
   const cleanDetails = Object.fromEntries(
-    Object.entries(details).filter((entry): entry is [string, string | number | boolean] => entry[1] !== undefined),
+    Object.entries({ ...routeDimensions(page), ...details }).filter(
+      (entry): entry is [string, string | number | boolean] => entry[1] !== undefined,
+    ),
   );
   store.events.push({ event, page, ts: Date.now(), ...(Object.keys(cleanDetails).length ? { details: cleanDetails } : {}) });
   store.pageviews[page] = (store.pageviews[page] ?? 0);
@@ -62,7 +71,12 @@ export function trackEvent(event: string, page: string, details: AnalyticsDetail
 
   if (typeof window !== "undefined" && typeof (window as unknown as { gtag?: unknown }).gtag === "function") {
     const gtag = (window as unknown as { gtag: (...args: unknown[]) => void }).gtag;
-    gtag("event", event, { event_category: "engagement", event_label: page });
+    gtag("event", event, {
+      event_category: "engagement",
+      event_label: page,
+      page_path: page,
+      ...cleanDetails,
+    });
   }
 }
 
@@ -73,7 +87,7 @@ export function trackPageview(path: string) {
 
   if (typeof window !== "undefined" && typeof (window as unknown as { gtag?: unknown }).gtag === "function") {
     const gtag = (window as unknown as { gtag: (...args: unknown[]) => void }).gtag;
-    gtag("event", "page_view", { page_path: path });
+    gtag("event", "page_view", { page_path: path, ...routeDimensions(path) });
   }
 }
 
@@ -105,14 +119,14 @@ export function injectGA(measurementId: string) {
   const existingInline = document.getElementById("ga-inline");
   if (existingInline) existingInline.remove();
 
+  const inline = document.createElement("script");
+  inline.id = "ga-inline";
+  inline.text = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${measurementId}',{send_page_view:false});`;
+  document.head.appendChild(inline);
+
   const script = document.createElement("script");
   script.id = "ga-script";
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
   document.head.appendChild(script);
-
-  const inline = document.createElement("script");
-  inline.id = "ga-inline";
-  inline.text = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${measurementId}',{send_page_view:false});`;
-  document.head.appendChild(inline);
 }

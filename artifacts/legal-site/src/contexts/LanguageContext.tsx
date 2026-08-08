@@ -20,8 +20,9 @@ export { useLanguage } from "@/contexts/LanguageContextCore";
  * a real, distinct, crawlable URL rather than being a client-only toggle.
  * See RegionContext.tsx for the /ar URL-segment detection logic.
  *
- * Exception: the blog is at a single URL (/blog). On blog pages the language
- * is stored in localStorage and toggled client-side without URL navigation.
+ * Blog posts with equivalent bilingual content use /blog/en/:slug and
+ * /blog/ar/:slug. Single-language or incomplete posts remain at /blog/:slug
+ * and use the stored preference only as a deterministic display fallback.
  * The shared Our Work section has crawlable /our-work and /ar/our-work URLs.
  */
 export function LanguageProvider({ children }: { children: ReactNode }) {
@@ -37,8 +38,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       location === "/ar/our-work" ||
       location.startsWith("/ar/our-work/");
     if (isBlogPath) {
-      // Blog has a single URL — switch language client-side via localStorage.
-      setBlogLang(next);
+      if (location.startsWith("/blog/en/") || location.startsWith("/blog/ar/")) {
+        navigate(next === "ar"
+          ? location.replace(/^\/blog\/en\//, "/blog/ar/")
+          : location.replace(/^\/blog\/ar\//, "/blog/en/"));
+      } else {
+        setBlogLang(next);
+      }
     } else if (isWorkPath) {
       navigate(
         next === "ar"

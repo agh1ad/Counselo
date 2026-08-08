@@ -17,6 +17,12 @@ function loadStoredLang(): Lang {
   return "en";
 }
 
+function detectBlogLanguage(path: string): Lang | null {
+  if (path.startsWith("/blog/ar/")) return "ar";
+  if (path.startsWith("/blog/en/")) return "en";
+  return null;
+}
+
 function loadStoredRegion(): Region {
   if (typeof window !== "undefined") {
     const value = localStorage.getItem(SHARED_REGION_KEY);
@@ -27,7 +33,7 @@ function loadStoredRegion(): Region {
 
 interface RegionContextType {
   region: Region;
-  /** Language derived from URL, except for the single-URL blog preference. */
+  /** Language derived from URL for bilingual blog posts; otherwise preference/fallback. */
   lang: Lang;
   /** Region + language path prefix, e.g. "/sa", "/sa/ar", "/syr", "/syr/ar". */
   regionPrefix: string;
@@ -76,7 +82,7 @@ export function RegionProvider({ children }: { children: ReactNode }) {
 
   const region = isSharedPath ? sharedRegion : detectRegion(location);
   const lang: Lang = isBlogPath
-    ? blogLang
+    ? (detectBlogLanguage(location) ?? blogLang)
     : isWorkPath
       ? (location.startsWith("/ar/our-work") ? "ar" : "en")
       : detectLang(location, region);
@@ -103,8 +109,8 @@ export function RegionProvider({ children }: { children: ReactNode }) {
   };
 
   // On blog pages, use a real region prefix so navbar links (About, Contact, etc.)
-  // still navigate to the correct language region. Blog-specific links (/blog, /blog/:slug)
-  // are hardcoded and bypass this prefix, so they always resolve to the single blog URL.
+  // still navigate to the correct language region. Blog links bypass this prefix
+  // because their language URL policy is content-dependent.
   const regionPrefix = `/${region}${lang === "ar" ? "/ar" : ""}`;
 
   return (

@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": 1,
+  "baseUrl": "https://counselo-legal.com",
+  "defaultCanonical": "/",
+  "pageTypes": [
+    {
+      "id": "region-picker",
+      "paths": ["/", "/ar"],
+      "canonical": "self",
+      "hreflang": "region-home-alternates",
+      "indexable": true
+    },
+    {
+      "id": "regional-home",
+      "paths": ["/{region}", "/{region}/ar"],
+      "regions": ["sa", "syr", "uae"],
+      "languages": ["en", "ar"],
+      "canonical": "self",
+      "hreflang": "same-region-language",
+      "indexable": true
+    },
+    {
+      "id": "regional-static",
+      "paths": [
+        "/{region}/{page}",
+        "/{region}/ar/{page}"
+      ],
+      "pages": ["about", "vision", "contact", "terms-of-service", "privacy-policy"],
+      "regions": ["sa", "syr", "uae"],
+      "languages": ["en", "ar"],
+      "canonical": "self",
+      "hreflang": "same-page-all-regions",
+      "indexable": true
+    },
+    {
+      "id": "services-index",
+      "paths": ["/{region}/services", "/{region}/ar/services"],
+      "regions": ["sa", "syr", "uae"],
+      "languages": ["en", "ar"],
+      "canonical": "self",
+      "hreflang": "same-page-all-regions",
+      "indexable": true
+    },
+    {
+      "id": "service-detail",
+      "paths": [
+        "/{region}/services/{serviceSlug}",
+        "/{region}/ar/services/{serviceSlug}"
+      ],
+      "regions": ["sa", "syr", "uae"],
+      "languages": ["en", "ar"],
+      "serviceSource": "region-service-registry",
+      "canonical": "self",
+      "hreflang": "same-page-all-regions-when-supported",
+      "indexable": true
+    },
+    {
+      "id": "blog-index",
+      "paths": ["/blog"],
+      "canonical": "self",
+      "hreflang": "x-default-only",
+      "indexable": true
+    },
+    {
+      "id": "blog-detail-single-language",
+      "paths": ["/blog/{slug}"],
+      "canonical": "self",
+      "hreflang": "x-default-only",
+      "indexable": true,
+      "source": "published-blog-post-slug-without-quality-bilingual-content",
+      "fallback": "language-specific-request-redirects-here"
+    },
+    {
+      "id": "blog-detail-bilingual",
+      "paths": ["/blog/en/{slug}", "/blog/ar/{slug}"],
+      "canonical": "self",
+      "hreflang": "reciprocal-en-ar",
+      "indexable": true,
+      "source": "published-blog-post-slug-with-quality-bilingual-content",
+      "fallback": "redirect-to-blog-slug"
+    },
+    {
+      "id": "work-index",
+      "paths": ["/our-work", "/ar/our-work"],
+      "canonical": "self",
+      "hreflang": "en-ar-pair",
+      "indexable": true
+    },
+    {
+      "id": "work-detail",
+      "paths": ["/our-work/{slug}", "/ar/our-work/{slug}"],
+      "canonical": "self",
+      "hreflang": "en-ar-pair-when-supported",
+      "indexable": true,
+      "source": "published-work-sample-slug"
+    },
+    {
+      "id": "legacy-redirect",
+      "paths": [
+        "/sa/blog",
+        "/syr/blog",
+        "/sa/ar/blog",
+        "/syr/ar/blog",
+        "/sa/our-work",
+        "/syr/our-work",
+        "/sa/ar/our-work",
+        "/syr/ar/our-work"
+      ],
+      "canonical": "redirect-target",
+      "indexable": false,
+      "status": 301
+    },
+    {
+      "id": "not-found",
+      "paths": ["/*"],
+      "canonical": "none",
+      "hreflang": "none",
+      "indexable": false,
+      "status": 404
+    }
+  ]
+}

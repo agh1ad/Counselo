@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
 import { Helmet } from "react-helmet-async";
 import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowRight, MessageCircle, CheckCircle2, Award } from "lucide-react";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
@@ -9,40 +10,39 @@ const counseloLogo = "/images/optimized/counselo-region-logo.png";
 const saudiFlag = "/images/optimized/saudi-arabia-flag.jpg";
 const syrianFlag = "/images/optimized/syria-flag.jpg";
 const uaeFlag = "/images/optimized/uae-flag.svg";
+const comprehensiveConsultation = getConsultationProduct("comprehensive-consultation");
 
 // ── Structured Data ───────────────────────────────────────────────────────────
 
 const websiteSchema = {
+  ...COUNSELO_WEBSITE,
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "CounselO",
   "alternateName": "كاونسلو",
   "url": "https://counselo-legal.com/",
-  "description": "Online legal consultation platform serving the UAE, Saudi Arabia and Syria — professional Arabic & English legal guidance with a target response within 24 hours.",
+  "description": "CounselO is a bilingual online legal platform serving the UAE, Saudi Arabia and Syria with fast, professional and trusted legal consultation, document review and structured guidance — with a target response within 24 hours.",
   "potentialAction": {
     "@type": "SearchAction",
     "target": { "@type": "EntryPoint", "urlTemplate": "https://counselo-legal.com/blog?q={search_term_string}" },
     "query-input": "required name=search_term_string",
   },
-  "publisher": { "@type": "Organization", "name": "CounselO", "url": "https://counselo-legal.com" },
+  "publisher": { "@id": COUNSELO_ENTITY_IDS.organization },
 };
 
 const organizationSchema = {
+  ...COUNSELO_ORGANIZATION,
   "@context": "https://schema.org",
-  "@type": "LegalService",
-  "name": "CounselO",
-  "alternateName": "كاونسلو",
+  "@type": "Organization",
   "url": "https://counselo-legal.com",
   "logo": "https://counselo-legal.com/logo.png",
   "image": "https://counselo-legal.com/og-image.png",
   "description": "CounselO is an online legal consultation platform founded by Lawyer and Legal Counsel Omar Al-Baghdadi. We provide confidential legal guidance for individuals, families and businesses in the UAE, Saudi Arabia and Syria, in Arabic and English.",
   "founder": {
-    "@type": "Person",
-    "name": "Omar Al-Baghdadi",
+    ...OMAR_AL_BAGHDADI,
     "jobTitle": "Lawyer and Legal Counsel",
     "description": "Lawyer Omar Al-Baghdadi has 30+ years of legal experience and has handled more than 20,000 cases and consultations across the region.",
     "knowsAbout": ["Family Law", "Employment Law", "Real Estate Law", "Business Law", "Criminal Law", "Foreign Investment", "Administrative Law", "UAE Law", "Saudi Law", "Syrian Law"],
-    "worksFor": { "@type": "Organization", "name": "CounselO" },
     "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
   },
   "areaServed": [
@@ -110,7 +110,7 @@ const faqSchema = {
       "name": "Are legal consultations on CounselO confidential?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. All consultations are strictly confidential. CounselO follows professional legal ethics and attorney-client privilege principles. Your personal and legal information is never shared with third parties.",
+        "text": "Information is handled confidentially under applicable professional, privacy and data-protection obligations, subject to legally required or permitted disclosures.",
       },
     },
     {
@@ -170,11 +170,17 @@ const SERVICES = [
   { slug: "enforcement",           en: "Enforcement & Debt Collection" },
 ];
 
+const REGION_SERVICE_LINKS = [
+  { key: "sa", label: "SA", href: (slug: string) => `/sa/services/${slug}` },
+  { key: "syr", label: "SYR", href: (slug: string) => `/syr/services/${slug}` },
+  { key: "uae", label: "UAE", href: (slug: string) => `/uae/services/${slug}` },
+] as const;
+
 const FAQS = [
   { q: "What is CounselO?", a: "CounselO is an online legal consultation platform founded by Lawyer Omar Al-Baghdadi (30+ years of experience and 20,000+ matters handled). We provide bilingual, jurisdiction-specific legal guidance for the UAE, Saudi Arabia and Syria." },
   { q: "Which jurisdictions does CounselO cover?", a: "We provide country-specific services for the United Arab Emirates, Saudi Arabia and Syria. Each regional platform uses the legal concepts, authorities and procedures relevant to that jurisdiction." },
-  { q: "How quickly do I get a response?", a: "You receive a professional legal response within 24 hours of submitting your query. Urgent matters are handled as a priority." },
-  { q: "Are consultations confidential?", a: "Yes. All consultations are strictly confidential under attorney-client privilege. Your information is never shared with third parties." },
+  { q: "How quickly do I get a response?", a: "CounselO targets a professional response within 24 hours, subject to the matter's scope, urgency, intake completeness and service availability." },
+  { q: "Are consultations confidential?", a: "Information is handled confidentially under applicable professional, privacy and data-protection obligations, subject to legally required or permitted disclosures." },
   { q: "What languages does CounselO support?", a: "We provide legal consultations in both Arabic and English. All service pages and legal guides are fully bilingual." },
   { q: "How do I start a consultation?", a: "Choose the UAE, Saudi Arabia or Syria, then send your legal question through the consultation form or WhatsApp. CounselO targets a response within 24 hours, subject to scope and urgency." },
   { q: "Does CounselO advise businesses too?", a: "Yes. We serve both individuals and businesses — from company formation, commercial contracts, and foreign investment licensing to employment disputes and debt collection." },
@@ -203,7 +209,7 @@ export default function RegionPicker() {
       <Helmet>
         <html lang="en" dir="ltr" />
         <title>CounselO | Online Legal Consultation — UAE, Saudi Arabia &amp; Syria</title>
-        <meta name="description" content="Confidential online legal consultation for the UAE, Saudi Arabia and Syria, in Arabic or English. Choose your jurisdiction and request lawyer-led guidance." />
+        <meta name="description" content="CounselO is a bilingual online legal platform for fast, professional and trusted consultation, document review and structured legal guidance in the UAE, Saudi Arabia and Syria." />
         <meta name="keywords" content="online legal consultation Saudi Arabia, online legal consultation Syria, استشارة قانونية أونلاين السعودية, استشارة قانونية أونلاين سوريا, lawyer Saudi Arabia online, محامي سعودي أونلاين, محامي سوريا أونلاين, CounselO, Omar Al-Baghdadi, legal advice Middle East, مشورة قانونية الشرق الأوسط" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="author" content="CounselO — Lawyer and Legal Counsel Omar Al-Baghdadi" />
@@ -287,7 +293,7 @@ export default function RegionPicker() {
                 <span className="h-2 w-2 rotate-45 border border-[#b58b32]" />
               </div>
               <p className="max-w-xl text-lg font-light leading-8 text-white/72 sm:text-xl">
-                Expert, confidential legal advice in Arabic &amp; English —{" "}
+                Fast, professional and trusted online legal guidance in Arabic &amp; English —{" "}
                 <strong className="font-semibold text-white">target response within 24 hours.</strong>
               </p>
 
@@ -330,7 +336,7 @@ export default function RegionPicker() {
                       <img src={flag} alt={alt} width="72" height="48" decoding="async" className="h-11 w-[66px] border border-white/25 object-cover shadow-md" />
                     </div>
                     <div className="absolute inset-x-7 bottom-7 sm:inset-x-8 sm:bottom-8">
-                      <p className={`mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] ${dark ? "text-[#d4b66c]" : "text-[#9b7426]"}`}>Legal services in</p>
+                      <p className={`mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] ${dark ? "text-[#d4b66c]" : "text-[#9b7426]"}`}>Online legal services in</p>
                       <h3 className="mb-7 font-serif text-3xl font-semibold sm:text-4xl">{label}</h3>
                       <span className={`flex items-center justify-between border-t pt-4 text-xs font-semibold uppercase tracking-[0.18em] ${dark ? "border-white/25 text-white/75" : "border-[#0d4a31]/20 text-[#0d4a31]/70"}`}>
                         Enter platform
@@ -345,11 +351,57 @@ export default function RegionPicker() {
                 <Link href="/sa/ar" className="transition-colors hover:text-[#aa7e28]">عربي — السعودية</Link>
                 <span aria-hidden="true">·</span>
                 <Link href="/syr/ar" className="transition-colors hover:text-[#aa7e28]">عربي — سوريا</Link>
+                <span aria-hidden="true">·</span>
+                <Link href="/uae/ar" className="transition-colors hover:text-[#aa7e28]">عربي — الإمارات</Link>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
+
+      {/* ── ANSWER-FIRST PLATFORM SUMMARY ── */}
+      <section className="border-b border-[#0d4a31]/10 bg-white py-20 lg:py-24" aria-labelledby="platform-heading">
+        <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+            <div>
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">The CounselO platform</p>
+              <h2 id="platform-heading" className="font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl">One online starting point for legal help</h2>
+            </div>
+            <div className="space-y-5 text-base leading-8 text-muted-foreground sm:text-lg">
+              <p><strong className="text-foreground">CounselO is a bilingual online legal platform for individuals, families and businesses seeking professional legal consultation, document review and structured guidance.</strong> Choose the jurisdiction first, describe the matter in Arabic or English, and receive a scoped next step based on the applicable law and authority.</p>
+              <p>Services are available online across the United Arab Emirates, Saudi Arabia and Syria. A professional response is targeted within 24 hours, subject to scope, urgency, intake completeness and service availability.</p>
+              <dl className="grid gap-3 pt-3 sm:grid-cols-2" aria-label="Platform scope">
+                {[
+                  ["What we do", "Consultation, preliminary analysis, document review and written guidance"],
+                  ["Where", "UAE · Saudi Arabia · Syria"],
+                  ["Languages", "Arabic and English"],
+                  ["Court representation", "If requested or necessary, arranged separately through licensed partner professionals or cooperating offices in the relevant jurisdiction"],
+                ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b58b32] bg-[#eef4f0] px-4 py-3"><dt className="text-xs font-bold uppercase tracking-[0.14em] text-[#0d4a31]/65">{label}</dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {comprehensiveConsultation && (
+        <section className="border-b border-[#0d4a31]/10 bg-[#eef4f0] py-20 lg:py-24" aria-labelledby="consultation-package-heading">
+          <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+              <div>
+                <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">Consultation package</p>
+                <h2 id="consultation-package-heading" className="font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl">Comprehensive online legal consultation</h2>
+                <p className="mt-5 text-base leading-8 text-muted-foreground sm:text-lg">{comprehensiveConsultation.summaryEn}</p>
+              </div>
+              <div>
+                <ul className="grid gap-3 sm:grid-cols-2">
+                  {comprehensiveConsultation.includesEn.map((item) => <li key={item} className="flex items-start gap-3 border-s-2 border-[#b58b32] bg-white px-4 py-3 text-sm leading-6 text-foreground"><CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-primary" /><span>{item}</span></li>)}
+                </ul>
+                <p className="mt-5 text-sm leading-7 text-muted-foreground"><strong className="text-foreground">Scope:</strong> Follow-up monitoring is included only when agreed. Court representation, filing and other reserved work are separate and can be arranged through an appropriately licensed partner professional or cooperating office when requested or necessary.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── STATS BAR ── */}
       <section aria-label="Key credentials of CounselO" className="border-y border-white/10 bg-[#073d29] py-11 text-white">
@@ -358,7 +410,7 @@ export default function RegionPicker() {
             {[
               { stat: "30+",     label: "Years of Legal Practice" },
               { stat: "20,000+", label: "Cases Handled" },
-              { stat: "24 h",    label: "Guaranteed Response" },
+              { stat: "24 h",    label: "Target Response" },
               { stat: "3",       label: "Jurisdictions" },
             ].map(({ stat, label }, i, arr) => (
               <motion.div key={stat} {...fadeIn} className={`px-4 py-3 text-center ${i < arr.length - 1 ? "border-e border-white/15" : ""}`}>
@@ -439,8 +491,8 @@ export default function RegionPicker() {
               </p>
               <div className="mt-10 grid border-y border-[#0d4a31]/20 sm:grid-cols-3">
                 {[
-                  { Icon: Lock,        title: "Fully Confidential",  body: "Attorney-client privilege on every consultation. Your information is never shared." },
-                  { Icon: Clock,       title: "24-Hour Response",    body: "Expert legal response within 24 hours. Urgent matters prioritised." },
+                  { Icon: Lock,        title: "Professional Confidentiality",  body: "Information is handled under applicable professional, privacy and data-protection obligations, with legal exceptions explained in the privacy policy." },
+                  { Icon: Clock,       title: "Target Response Within 24 Hours",    body: "CounselO targets a professional response within 24 hours, subject to scope, urgency, intake completeness and service availability." },
                   { Icon: Globe,       title: "Online — No Office",  body: "Consult from anywhere via WhatsApp or email. No travel, no waiting room." },
                 ].map(({ Icon, title, body }) => (
                   <div key={title} className="border-b border-[#0d4a31]/20 p-5 last:border-b-0 sm:border-b-0 sm:border-e sm:last:border-e-0">
@@ -474,8 +526,7 @@ export default function RegionPicker() {
                   <Icon className="mb-5 h-7 w-7 text-[#aa7e28] transition-transform duration-300 group-hover:-translate-y-1" strokeWidth={1.4} />
                   <div className="mb-4 font-serif text-base font-semibold leading-snug text-[#0d4a31]">{en}</div>
                   <div className="flex gap-2 flex-wrap">
-                    <Link href={`/sa/services/${slug}`} className="text-xs px-2 py-0.5 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors">SA</Link>
-                    <Link href={`/syr/services/${slug}`} className="text-xs px-2 py-0.5 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors">SYR</Link>
+                    {REGION_SERVICE_LINKS.map(({ key, label, href }) => <Link key={key} href={href(slug)} className="text-xs px-2 py-0.5 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors">{label}</Link>)}
                   </div>
                 </motion.div>
               );
@@ -511,8 +562,8 @@ export default function RegionPicker() {
             {[
               { step: "01", title: "Choose Your Jurisdiction", body: "Select the UAE, Saudi Arabia or Syria. Each country has legal services and content tailored to its applicable law and authorities." },
               { step: "02", title: "Describe Your Legal Matter", body: "Send your legal question via WhatsApp or the contact form — in Arabic or English. Include any relevant documents if needed." },
-              { step: "03", title: "Pay the Consultation Fee",  body: "Payment is made by bank transfer before you receive the legal opinion. You will receive a payment confirmation and expected response time." },
-              { step: "04", title: "Receive Expert Advice",     body: "Lawyer Omar Al-Baghdadi or a qualified CounselO team member reviews your matter and responds within 24 hours." },
+              { step: "03", title: "Confirm scope and fee",  body: "After the initial study, CounselO confirms the appropriate consultation product, scope, fee and next step. No fixed price is promised before the matter is understood." },
+              { step: "04", title: "Receive structured guidance",     body: "A qualified CounselO professional reviews the matter and responds through the agreed channel, with a target response within 24 hours subject to scope and urgency." },
             ].map(({ step, title, body }, i) => (
               <motion.div key={step} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
                 className="relative border-b border-white/15 p-8 transition-colors hover:bg-white/[0.04] md:border-e lg:border-b-0">
@@ -588,7 +639,7 @@ export default function RegionPicker() {
       <section className="border-t border-white/10 bg-[#062d20] py-16 text-white [&_.text-foreground]:text-white [&_.text-muted-foreground]:text-white/55 [&_a:hover]:text-[#d4b66c]">
         <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">
           <nav aria-label="Site-wide navigation links">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm text-muted-foreground mb-12">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-sm text-muted-foreground mb-12">
               <div>
                 <div className="font-semibold text-foreground mb-4">Saudi Arabia</div>
                 <ul className="space-y-2.5">
@@ -612,6 +663,17 @@ export default function RegionPicker() {
                 </ul>
               </div>
               <div>
+                <div className="font-semibold text-foreground mb-4">United Arab Emirates</div>
+                <ul className="space-y-2.5">
+                  <li><Link href="/uae" className="hover:text-primary transition-colors">Home — UAE</Link></li>
+                  <li><Link href="/uae/services" className="hover:text-primary transition-colors">All Services</Link></li>
+                  <li><Link href="/blog" className="hover:text-primary transition-colors">Legal Blog</Link></li>
+                  <li><Link href="/uae/about" className="hover:text-primary transition-colors">About Us</Link></li>
+                  <li><Link href="/uae/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+                  <li><Link href="/uae/ar" className="hover:text-primary transition-colors">عربي</Link></li>
+                </ul>
+              </div>
+              <div>
                 <div className="font-semibold text-foreground mb-4">Top Services</div>
                 <ul className="space-y-2.5">
                   <li><Link href="/sa/services/family-law" className="hover:text-primary transition-colors">Family Law</Link></li>
@@ -623,14 +685,14 @@ export default function RegionPicker() {
                 </ul>
               </div>
               <div>
-                <div className="font-semibold text-foreground mb-4">Legal Guides</div>
+                <div className="font-semibold text-foreground mb-4">UAE Service Pages</div>
                 <ul className="space-y-2.5">
-                  <li><Link href="/blog" className="hover:text-primary transition-colors">Divorce in Saudi Arabia</Link></li>
-                  <li><Link href="/blog" className="hover:text-primary transition-colors">Child Custody</Link></li>
-                  <li><Link href="/blog" className="hover:text-primary transition-colors">Wrongful Termination</Link></li>
-                  <li><Link href="/blog" className="hover:text-primary transition-colors">Company Registration</Link></li>
-                  <li><Link href="/blog" className="hover:text-primary transition-colors">Divorce in Syria</Link></li>
-                  <li><Link href="/blog" className="hover:text-primary transition-colors">Termination — Syria</Link></li>
+                  <li><Link href="/uae/services/corporate-commercial" className="hover:text-primary transition-colors">Corporate &amp; Commercial</Link></li>
+                  <li><Link href="/uae/services/foreign-investment-market-entry" className="hover:text-primary transition-colors">Foreign Investment</Link></li>
+                  <li><Link href="/uae/services/commercial-contracts" className="hover:text-primary transition-colors">Commercial Contracts</Link></li>
+                  <li><Link href="/uae/services/employment-labour" className="hover:text-primary transition-colors">Employment &amp; Labour</Link></li>
+                  <li><Link href="/uae/services/real-estate-construction" className="hover:text-primary transition-colors">Real Estate &amp; Construction</Link></li>
+                  <li><Link href="/uae/services/family-personal-status" className="hover:text-primary transition-colors">Family &amp; Personal Status</Link></li>
                 </ul>
               </div>
             </div>

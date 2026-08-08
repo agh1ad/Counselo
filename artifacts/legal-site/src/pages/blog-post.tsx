@@ -1,4 +1,4 @@
-import { useParams, Link } from "wouter";
+import { useParams, Link, Redirect, useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { Clock, ArrowLeft, ArrowRight, Calendar, MessageCircle } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
@@ -7,6 +7,13 @@ import { SEOHead } from "@/components/seo/SEOHead";
 import { TrustSignals } from "@/components/seo/TrustSignals";
 import { type WorkSamplePublic, localized } from "@/lib/work-samples";
 import { fetchPublicJson } from "@/lib/public-api";
+import {
+  articleJurisdictionLabel,
+  assignArticleProvenance,
+  blogPath,
+  hasQualityBilingualBlogContent,
+  COUNSELO_ENTITY_IDS,
+} from "@workspace/api-zod";
 
 const BLOG_CATEGORY_TO_SERVICE: Record<string, { slug: string; nameEn: string; nameAr: string }> = {
   "Family Law":        { slug: "family-law",       nameEn: "Family Law Services",              nameAr: "خدمات قانون الأسرة" },
@@ -53,6 +60,22 @@ interface ApiPost {
   relatedBlogSlugs: string[];
   relatedWorkSlugs: string[];
   aiLinksAssignedAt?: string;
+  primaryAuthorName?: string;
+  primaryAuthorNameAr?: string;
+  primaryAuthorUrl?: string;
+  legalReviewerName?: string;
+  legalReviewerNameAr?: string;
+  legalReviewerUrl?: string;
+  jurisdiction?: "uae" | "sa" | "syr";
+  applicableLaw?: string;
+  applicableLawAr?: string;
+  sources?: Array<{ titleEn: string; titleAr: string; href: string }>;
+  keyLegalUpdateNote?: string;
+  keyLegalUpdateNoteAr?: string;
+  contentMethodology?: string;
+  contentMethodologyAr?: string;
+  lastSubstantiveReviewAt?: string;
+  correctionUrl?: string;
 }
 
 function formatDate(dateStr: string, lang: string) {
@@ -81,7 +104,13 @@ declare global {
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
+  const [location] = useLocation();
   const { lang, isRTL } = useLanguage();
+  const requestedLanguage = location.startsWith("/blog/ar/")
+    ? "ar"
+    : location.startsWith("/blog/en/")
+      ? "en"
+      : undefined;
 
   const dbSlug = slug ?? "";
 
@@ -173,11 +202,14 @@ export default function BlogPost() {
     );
   }
 
-  // A post is intentionally single-language. Use the available article language
-  // regardless of the language selected for the surrounding site navigation.
   const hasEnglish = !!(post.titleEn && post.titleEn.trim());
   const hasArabic = !!(post.titleAr && post.titleAr.trim());
-  const useAr = hasArabic && (isRTL || !hasEnglish);
+  const isBilingual = hasQualityBilingualBlogContent(post);
+  if (requestedLanguage && !isBilingual) {
+    return <Redirect to={blogPath(post.slug)} replace />;
+  }
+  const useAr = requestedLanguage === "ar"
+    || (!requestedLanguage && hasArabic && (isRTL || !hasEnglish));
   const contentDir = useAr ? "rtl" : "ltr";
 
   const title = useAr ? post.titleAr : post.titleEn;
@@ -195,6 +227,26 @@ export default function BlogPost() {
       ? "syr"
       : "sa";
   const articleRegionPrefix = `/${articleRegion}${useAr ? "/ar" : ""}`;
+  const fallbackProvenance = assignArticleProvenance(post);
+  const provenance = {
+    ...fallbackProvenance,
+    primaryAuthorName: post.primaryAuthorName || fallbackProvenance.primaryAuthorName,
+    primaryAuthorNameAr: post.primaryAuthorNameAr || fallbackProvenance.primaryAuthorNameAr,
+    primaryAuthorUrl: post.primaryAuthorUrl || fallbackProvenance.primaryAuthorUrl,
+    legalReviewerName: post.legalReviewerName || fallbackProvenance.legalReviewerName,
+    legalReviewerNameAr: post.legalReviewerNameAr || fallbackProvenance.legalReviewerNameAr,
+    legalReviewerUrl: post.legalReviewerUrl || fallbackProvenance.legalReviewerUrl,
+    applicableLaw: post.applicableLaw || fallbackProvenance.applicableLaw,
+    applicableLawAr: post.applicableLawAr || fallbackProvenance.applicableLawAr,
+    keyLegalUpdateNote: post.keyLegalUpdateNote || fallbackProvenance.keyLegalUpdateNote,
+    keyLegalUpdateNoteAr: post.keyLegalUpdateNoteAr || fallbackProvenance.keyLegalUpdateNoteAr,
+    contentMethodology: post.contentMethodology || fallbackProvenance.contentMethodology,
+    contentMethodologyAr: post.contentMethodologyAr || fallbackProvenance.contentMethodologyAr,
+    correctionUrl: post.correctionUrl || fallbackProvenance.correctionUrl,
+    sources: post.sources?.length ? post.sources : fallbackProvenance.sources,
+    jurisdiction: post.jurisdiction || fallbackProvenance.jurisdiction,
+    lastSubstantiveReviewAt: post.lastSubstantiveReviewAt || fallbackProvenance.lastSubstantiveReviewAt,
+  };
   const relatedPosts = (post.relatedBlogSlugs ?? [])
     .map((relatedSlug) => allPosts.find((candidate) => candidate.slug === relatedSlug))
     .filter((candidate): candidate is ApiPost => Boolean(candidate));
@@ -202,7 +254,8 @@ export default function BlogPost() {
     .map((relatedSlug) => allWork.find((candidate) => candidate.slug === relatedSlug))
     .filter((candidate): candidate is WorkSamplePublic => Boolean(candidate));
 
-  const canonicalArticleUrl = `https://counselo-legal.com/blog/${slug}`;
+  const canonicalArticlePath = blogPath(post.slug, requestedLanguage);
+  const canonicalArticleUrl = `https://counselo-legal.com${canonicalArticlePath}`;
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -212,7 +265,7 @@ export default function BlogPost() {
     "description": seoDesc,
     "inLanguage": useAr ? "ar" : "en",
     "datePublished": post.date,
-    "dateModified": post.updatedAt || post.date,
+    "dateModified": provenance.lastSubstantiveReviewAt,
     "image": {
       "@type": "ImageObject",
       "url": "https://counselo-legal.com/og-image.png",
@@ -221,9 +274,9 @@ export default function BlogPost() {
     },
     "author": {
       "@type": "Organization",
-      "@id": "https://counselo-legal.com/#organization",
-      "name": "CounselO",
-      "url": "https://counselo-legal.com",
+      "@id": COUNSELO_ENTITY_IDS.organization,
+      "name": useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName,
+      "url": `https://counselo-legal.com${provenance.primaryAuthorUrl}`,
       "logo": {
         "@type": "ImageObject",
         "url": "https://counselo-legal.com/logo.png",
@@ -233,7 +286,7 @@ export default function BlogPost() {
     },
     "publisher": {
       "@type": "Organization",
-      "@id": "https://counselo-legal.com/#organization",
+      "@id": COUNSELO_ENTITY_IDS.organization,
       "name": "CounselO",
       "url": "https://counselo-legal.com",
       "logo": {
@@ -243,6 +296,13 @@ export default function BlogPost() {
         "height": 512,
       },
     },
+    "reviewedBy": {
+      "@type": "Person",
+      "@id": COUNSELO_ENTITY_IDS.omar,
+      "name": useAr ? provenance.legalReviewerNameAr : provenance.legalReviewerName,
+      "url": `https://counselo-legal.com${provenance.legalReviewerUrl}`,
+    },
+    "citation": provenance.sources.map((source) => source.href),
     "about": {
       "@type": "LegalService",
       "areaServed": articleRegion === "uae" ? "United Arab Emirates" : articleRegion === "syr" ? "Syria" : "Saudi Arabia",
@@ -255,7 +315,7 @@ export default function BlogPost() {
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
       { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": "https://counselo-legal.com/blog" },
-      { "@type": "ListItem", "position": 3, "name": seoTitle, "item": `https://counselo-legal.com/blog/${slug}` },
+      { "@type": "ListItem", "position": 3, "name": seoTitle, "item": canonicalArticleUrl },
     ],
   };
 
@@ -264,8 +324,13 @@ export default function BlogPost() {
       <SEOHead
         title={seoTitle}
         description={seoDesc}
-        canonical={`/blog/${post.slug}`}
+        canonical={canonicalArticlePath}
         noRegionPrefix
+        sharedLanguageAlternates={isBilingual ? {
+          en: blogPath(post.slug, "en"),
+          ar: blogPath(post.slug, "ar"),
+          xDefault: blogPath(post.slug, "en"),
+        } : undefined}
         contentLanguage={useAr ? "ar" : "en"}
         keywords={useAr
           ? `${category}, مقالات قانونية, إرشادات قانونية مجانية, كاونسلو, مدونة كاونسلو القانونية, استشارة قانونية أونلاين`
@@ -314,6 +379,26 @@ export default function BlogPost() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="lg:col-span-2"
           >
+            <section className="mb-10 border border-border bg-muted/25 p-5" aria-labelledby="article-provenance-heading">
+              <h2 id="article-provenance-heading" className="text-lg font-serif font-bold text-foreground mb-4">
+                {useAr ? "بيانات المراجعة والمصادر" : "Review and source information"}
+              </h2>
+              <dl className="grid gap-3 text-sm sm:grid-cols-2">
+                <div><dt className="font-semibold text-foreground">{useAr ? "كتب بواسطة" : "Written by"}</dt><dd><a className="text-primary hover:underline" href={provenance.primaryAuthorUrl}>{useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}</a></dd></div>
+                <div><dt className="font-semibold text-foreground">{useAr ? "راجع قانونياً بواسطة" : "Legally reviewed by"}</dt><dd><a className="text-primary hover:underline" href={provenance.legalReviewerUrl}>{useAr ? provenance.legalReviewerNameAr : provenance.legalReviewerName}</a></dd></div>
+                <div><dt className="font-semibold text-foreground">{useAr ? "الاختصاص" : "Jurisdiction"}</dt><dd>{articleJurisdictionLabel(provenance.jurisdiction, useAr)}</dd></div>
+                <div><dt className="font-semibold text-foreground">{useAr ? "تاريخ النشر" : "Publication date"}</dt><dd>{formatDate(post.date, useAr ? "ar" : "en")}</dd></div>
+                <div><dt className="font-semibold text-foreground">{useAr ? "آخر مراجعة جوهرية" : "Last substantive review"}</dt><dd>{formatDate(provenance.lastSubstantiveReviewAt, useAr ? "ar" : "en")}</dd></div>
+                <div><dt className="font-semibold text-foreground">{useAr ? "القانون المنطبق" : "Applicable law"}</dt><dd>{useAr ? provenance.applicableLawAr : provenance.applicableLaw}</dd></div>
+              </dl>
+              <div className="mt-4 space-y-3 text-sm">
+                <div><p className="font-semibold text-foreground">{useAr ? "المصادر والاقتباسات" : "Sources and citations"}</p><ul className="list-disc ms-5 mt-1 space-y-1">{provenance.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{useAr ? source.titleAr : source.titleEn}</a></li>)}</ul></div>
+                <p><strong>{useAr ? "ملاحظة قانونية مهمة:" : "Key legal update note:"}</strong> {useAr ? provenance.keyLegalUpdateNoteAr : provenance.keyLegalUpdateNote}</p>
+                <p><strong>{useAr ? "المنهجية:" : "Methodology:"}</strong> {useAr ? provenance.contentMethodologyAr : provenance.contentMethodology}</p>
+                <p className="text-xs text-muted-foreground">{ui.disclaimer}</p>
+                <a href={provenance.correctionUrl} className="text-primary hover:underline">{useAr ? "الإبلاغ عن تصحيح أو خطأ" : "Report a correction or factual error"}</a>
+              </div>
+            </section>
             <div className="legal-article-body prose prose-slate max-w-none tiptap-content" dir={contentDir}>
               {body ? (
                 <div dangerouslySetInnerHTML={{ __html: body }} />
@@ -340,7 +425,7 @@ export default function BlogPost() {
                   {relatedPosts.map((related) => {
                     const relatedUseAr = Boolean(related.titleAr) && (useAr || !related.titleEn);
                     return (
-                      <Link key={related.slug} href={`/blog/${related.slug}`} className="border border-border bg-card p-4 hover:border-primary transition-colors">
+                      <Link key={related.slug} href={hasQualityBilingualBlogContent(related) ? blogPath(related.slug, useAr ? "ar" : "en") : blogPath(related.slug)} className="border border-border bg-card p-4 hover:border-primary transition-colors">
                         <span className="text-xs uppercase tracking-wider text-primary font-semibold">{useAr ? "مقال" : "Article"}</span>
                         <span className="block font-semibold text-foreground mt-2">{relatedUseAr ? related.titleAr : related.titleEn}</span>
                       </Link>

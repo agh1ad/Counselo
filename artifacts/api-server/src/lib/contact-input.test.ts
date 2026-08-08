@@ -20,7 +20,49 @@ const validInput = {
 test("accepts a valid consultation request", () => {
   const parsed = parseContactInput(validInput);
   assert.equal(parsed.email, "ahmed@example.com");
+  assert.equal(parsed.consultationProduct, "comprehensive-consultation");
   assert.deepEqual(parsed.attachments, []);
+});
+
+test("validates consultation products independently from practice areas", () => {
+  const parsed = parseContactInput({ ...validInput, consultationProduct: "document-review" });
+  assert.equal(parsed.consultationProduct, "document-review");
+  assert.throws(
+    () => parseContactInput({ ...validInput, consultationProduct: "fixed-price-package" }),
+    ContactInputError,
+  );
+});
+
+test("accepts one valid service for every region and language", () => {
+  const cases = [
+    ["sa", "en", "business-law"],
+    ["sa", "ar", "business-law"],
+    ["syr", "en", "civil-law"],
+    ["syr", "ar", "civil-law"],
+    ["uae", "en", "corporate-commercial"],
+    ["uae", "ar", "corporate-commercial"],
+  ] as const;
+  for (const [region, language, service] of cases) {
+    const parsed = parseContactInput({ ...validInput, region, language, service });
+    assert.equal(parsed.region, region);
+    assert.equal(parsed.language, language);
+    assert.equal(parsed.service, service);
+  }
+});
+
+test("rejects every cross-region service", () => {
+  assert.throws(
+    () => parseContactInput({ ...validInput, region: "uae", service: "business-law" }),
+    ContactInputError,
+  );
+  assert.throws(
+    () => parseContactInput({ ...validInput, region: "sa", service: "corporate-commercial" }),
+    ContactInputError,
+  );
+  assert.throws(
+    () => parseContactInput({ ...validInput, region: "syr", service: "corporate-commercial" }),
+    ContactInputError,
+  );
 });
 
 test("accepts a real PDF attachment and records its decoded size", () => {
