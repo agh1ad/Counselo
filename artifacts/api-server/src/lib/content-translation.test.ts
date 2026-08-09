@@ -91,7 +91,7 @@ test("fills missing English blog, repairs SEO, and requests strict structured ou
   );
   assert.equal(patch.seoTitleAr, "تكوين العقد في القانون السوري | كاونسلو");
   assert.equal(patch.titleAr, undefined, "Arabic source must be preserved");
-  assert.equal(requestBody?.model, "gpt-5-mini");
+  assert.equal(requestBody?.model, "gpt-5.6-sol");
   assert.deepEqual(requestBody?.reasoning, { effort: "low" });
   assert.equal(requestBody?.max_output_tokens, 16_000);
   assert.equal(requestBody?.text?.format?.strict, true);
