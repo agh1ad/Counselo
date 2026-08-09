@@ -4,7 +4,6 @@ import type {
   InsertWorkSample,
 } from "@workspace/db";
 import { logger } from "./logger.js";
-import { extractResponsesOutputText } from "./openai-response.js";
 
 export class ContentTranslationError extends Error {
   constructor(message: string) {
@@ -270,12 +269,12 @@ async function requestStructuredTranslation<T>(
     );
   }
 
+  // Chat Completions API — higher rate-limit quota than Responses API on the
+  // Replit AI integrations proxy, and universally supported across all models.
   const body = JSON.stringify({
     model: process.env["OPENAI_TRANSLATION_MODEL"]?.trim() || "gpt-5.6-luna",
-    // The bilingual work schema is compact; reserving 64k output tokens can
-    // exceed tokens-per-minute limits before the model has a chance to run.
-    max_output_tokens: 16_000,
-    input: [
+    max_completion_tokens: 16_000,
+    messages: [
       {
         role: "system",
         content:
@@ -286,9 +285,9 @@ async function requestStructuredTranslation<T>(
         content: JSON.stringify(content),
       },
     ],
-    text: {
-      format: {
-        type: "json_schema",
+    response_format: {
+      type: "json_schema",
+      json_schema: {
         name,
         strict: true,
         schema,
@@ -303,7 +302,7 @@ async function requestStructuredTranslation<T>(
     const controller = new AbortController();
     const timeout = globalThis.setTimeout(() => controller.abort(), 180_000);
     try {
-      const response = await fetch(`${apiBase}/responses`, {
+      const response = await fetch(`${apiBase}/chat/completions`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${apiKey}`,
@@ -343,8 +342,10 @@ async function requestStructuredTranslation<T>(
         );
       }
 
-      const payload: unknown = await response.json();
-      const outputText = extractResponsesOutputText(payload);
+      const payload = (await response.json()) as {
+        choices?: Array<{ message?: { content?: string } }>;
+      };
+      const outputText = payload.choices?.[0]?.message?.content?.trim();
       if (!outputText) {
         throw new ContentTranslationError(
           "Automatic translation returned no usable content",
