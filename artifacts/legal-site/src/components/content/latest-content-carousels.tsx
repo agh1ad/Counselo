@@ -129,27 +129,32 @@ export function LatestContentCarousels({
     refetchOnWindowFocus: "always",
   });
 
-  const latestPosts = useMemo(
-    () =>
-      newestFirst(
-        posts
-          .filter((post) => post.published !== false)
-          .filter((post) => !serviceSlug || post.relatedServiceSlugs?.includes(serviceSlug))
-          .filter((post) =>
-            matchesRegion(
-              `${post.slug} ${post.titleEn} ${post.titleAr} ${post.excerptEn} ${post.excerptAr}`,
-              region,
-            ),
-          ),
-      ).slice(0, 10),
-    [posts, region, serviceSlug],
-  );
+  const latestPosts = useMemo(() => {
+    const regionalPosts = posts
+      .filter((post) => post.published !== false)
+      .filter((post) => matchesRegion(
+        `${post.slug} ${post.titleEn} ${post.titleAr} ${post.excerptEn} ${post.excerptAr}`,
+        region,
+      ));
+    const assignedPosts = serviceSlug
+      ? regionalPosts.filter((post) => post.relatedServiceSlugs?.includes(serviceSlug))
+      : regionalPosts;
+    // AI-assigned relationships are preferred. The regional fallback keeps
+    // older records discoverable until their metadata is backfilled.
+    return newestFirst(assignedPosts.length > 0 ? assignedPosts : regionalPosts).slice(0, 10);
+  }, [posts, region, serviceSlug]);
   const latestWork = useMemo(
     () => {
-      const assigned = workSamples
+      const regionalWork = workSamples
         .filter((sample) => sample.published !== false)
-        .filter((sample) => !serviceSlug || sample.relatedServiceSlugs?.includes(serviceSlug));
-      const jurisdictionMatches = assigned.filter((sample) =>
+        .filter((sample) => matchesRegion(
+          `${sample.jurisdictionEn} ${sample.jurisdictionAr} ${sample.titleEn} ${sample.titleAr} ${sample.summaryEn} ${sample.summaryAr} ${sample.challengeEn} ${sample.challengeAr} ${sample.approachEn} ${sample.approachAr} ${sample.outcomeEn} ${sample.outcomeAr}`,
+          region,
+        ));
+      const assigned = serviceSlug
+        ? regionalWork.filter((sample) => sample.relatedServiceSlugs?.includes(serviceSlug))
+        : regionalWork;
+      const jurisdictionMatches = (assigned.length > 0 ? assigned : regionalWork).filter((sample) =>
         matchesRegion(
           `${sample.jurisdictionEn} ${sample.jurisdictionAr} ${sample.titleEn} ${sample.titleAr} ${sample.summaryEn} ${sample.summaryAr} ${sample.challengeEn} ${sample.challengeAr} ${sample.approachEn} ${sample.approachAr} ${sample.outcomeEn} ${sample.outcomeAr}`,
           region,
@@ -165,6 +170,11 @@ export function LatestContentCarousels({
   );
 
   const isService = Boolean(serviceSlug);
+  const testimonialWork = serviceSlug
+    ? latestWork.filter((sample) => sample.testimonials?.some((testimonial) => testimonial.text.trim()))
+    : [];
+  const visibleWork = isService && testimonialWork.length > 0 ? testimonialWork : latestWork;
+  const showingTestimonials = isService && testimonialWork.length > 0;
   const articleLabel = isArabic ? "أحدث المقالات" : "latest articles";
   const workLabel = isArabic ? "أحدث الأعمال" : "latest work";
 
@@ -290,15 +300,19 @@ export function LatestContentCarousels({
             </div>
           ) : null}
 
-          {latestWork.length > 0 ? (
+          {visibleWork.length > 0 ? (
             <div data-content-carousel="work">
               <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
                 <div>
                   <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                    {isArabic ? "خبرة يمكنك الاطلاع عليها" : "Experience you can examine"}
+                    {showingTestimonials
+                      ? isArabic ? "شهادات مرتبطة بأعمال منشورة" : "Testimonials from published work"
+                      : isArabic ? "خبرة يمكنك الاطلاع عليها" : "Experience you can examine"}
                   </p>
                   <h3 className="font-serif text-2xl font-bold text-foreground">
-                    {isArabic ? "أحدث أعمالنا" : "Latest our work"}
+                    {showingTestimonials
+                      ? isArabic ? "ما يقوله أصحاب الأعمال المنشورة" : "What clients say about related work"
+                      : isArabic ? "أحدث أعمالنا" : "Latest our work"}
                   </h3>
                 </div>
                 <Link
@@ -310,7 +324,7 @@ export function LatestContentCarousels({
                 </Link>
               </div>
               <AutoCarousel isArabic={isArabic} label={workLabel} opts={carouselOptions}>
-                {latestWork.map((sample) => (
+                {visibleWork.map((sample) => (
                   <CarouselItem key={sample.slug} className="sm:basis-1/2 lg:basis-1/3">
                     <article
                       data-content-title={localized(sample.titleEn, sample.titleAr, isArabic ? "ar" : "en")}
@@ -325,9 +339,15 @@ export function LatestContentCarousels({
                       <h4 className="mb-3 font-serif text-xl font-bold leading-snug text-foreground">
                         {localized(sample.titleEn, sample.titleAr, isArabic ? "ar" : "en")}
                       </h4>
-                      <p className="mb-6 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-                        {localized(sample.summaryEn, sample.summaryAr, isArabic ? "ar" : "en")}
-                      </p>
+                      {isService && sample.testimonials?.find((testimonial) => testimonial.text.trim())?.text ? (
+                        <blockquote className="mb-6 border-s-2 border-[#b4924a] bg-[#f8faf8] px-4 py-3 text-sm italic leading-6 text-foreground/80">
+                          “{sample.testimonials.find((testimonial) => testimonial.text.trim())?.text}”
+                        </blockquote>
+                      ) : (
+                        <p className="mb-6 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                          {localized(sample.summaryEn, sample.summaryAr, isArabic ? "ar" : "en")}
+                        </p>
+                      )}
                       <p className="mb-5 text-xs text-muted-foreground">
                         {region === "syr"
                           ? (isArabic ? "سوريا" : "Syria")
@@ -335,6 +355,13 @@ export function LatestContentCarousels({
                             ? (isArabic ? "السعودية" : "Saudi Arabia")
                             : localized(sample.jurisdictionEn, sample.jurisdictionAr, isArabic ? "ar" : "en")}
                       </p>
+                      {(!serviceSlug || sample.relatedServiceSlugs?.includes(serviceSlug)) && sample.testimonials?.find((testimonial) => testimonial.text.trim())?.text && (
+                        <div className="mb-5 text-xs text-muted-foreground">
+                          <span className="mb-1 block text-[0.65rem] font-semibold not-italic uppercase tracking-[0.14em] text-primary">
+                            {isArabic ? "شهادة مرتبطة بنموذج العمل" : "Testimonial from this work sample"}
+                          </span>
+                        </div>
+                      )}
                       <CardLink href={`${isArabic ? "/ar" : ""}/our-work/${sample.slug}`} isArabic={isArabic}>
                         {isArabic ? "عرض نموذج العمل" : "View work sample"}
                       </CardLink>

@@ -11,7 +11,8 @@ test("articles default to safe professional commentary", () => {
   });
   assert.equal(provenance.contentType, "professional-commentary");
   assert.equal(provenance.jurisdiction, undefined);
-  assert.equal(provenance.primaryAuthorName, "CounselO Legal team");
+  assert.equal(provenance.primaryAuthorName, "Lawyer and Legal Counsel Omar Al-Baghdadi");
+  assert.equal(provenance.primaryAuthorNameAr, "المحامي والمستشار القانوني عمر البغدادي");
   assert.equal(provenance.legalReviewerName, "Lawyer and Legal Counsel Omar Al-Baghdadi");
   assert.equal(provenance.lastSubstantiveReviewAt, "2025-01-10");
   assert.equal(provenance.sources.length, 0);
@@ -57,4 +58,20 @@ test("Saudi topic sources are selected by exact related service slug", () => {
   });
   assert.equal(intellectualProperty.sources[0]?.href, "https://www.saip.gov.sa/");
   assert.equal(realEstate.sources[0]?.href, "https://rega.gov.sa/");
+});
+
+test("Syria topic sources are selected by exact related service slug", () => {
+  const intellectualProperty = assignArticleProvenance({
+    contentType: "legal-guidance",
+    titleEn: "Trademark registration in Syria",
+    relatedServiceSlugs: ["intellectual-property"],
+  });
+  const realEstate = assignArticleProvenance({
+    contentType: "legal-guidance",
+    titleEn: "Property title registration in Syria",
+    relatedServiceSlugs: ["real-estate"],
+  });
+  assert.equal(intellectualProperty.sources[0]?.href, "https://www.parliament.gov.sy/");
+  assert.equal(realEstate.sources[0]?.href, "https://www.parliament.gov.sy/");
+  assert.notEqual(intellectualProperty.sources[0]?.href, "https://moj.gov.sy/");
 });

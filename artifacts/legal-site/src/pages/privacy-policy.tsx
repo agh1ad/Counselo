@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
         {
           icon: Shield,
           title: "1. Who We Are",
-          content: `CounselO is an online legal consultation platform founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with over 30 years of regional legal experience. We provide professional legal consultation services for matters in ${countryEn} via WhatsApp and email, in Arabic and English.`,
+          content: `CounselO is an online legal consultation platform founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice. We provide professional legal consultation services for matters in ${countryEn} via WhatsApp and email, in Arabic and English.`,
         },
         {
           icon: Database,
@@ -96,7 +96,7 @@ export default function PrivacyPolicy() {
           list: [
             "WhatsApp messages are transmitted via Meta's encrypted infrastructure — please review WhatsApp's own privacy policy for information on their data practices",
             "Email communications may be subject to standard internet transmission risks — we recommend using secure email where possible for highly sensitive matters",
-            "All consultation content received by CounselO through any channel is treated as strictly confidential regardless of transmission method",
+            "Consultation content received by CounselO is handled confidentially under applicable professional, privacy and data-protection obligations, regardless of transmission method, subject to legally required or permitted disclosures",
             "We do not proactively contact you by WhatsApp or email for marketing purposes without your consent",
           ],
         },
@@ -207,7 +207,7 @@ export default function PrivacyPolicy() {
           icon: Shield,
           title: "١. من نحن",
           content:
-            "كاونسلو منصة للاستشارات القانونية الأونلاين، أسّسها ويقودها المحامي والمستشار القانوني عمر البغدادي بخبرة تتجاوز 30 عاماً. نقدّم خدمات الاستشارة القانونية المهنية عبر واتساب والبريد الإلكتروني بالعربية والإنجليزية.",
+            "كاونسلو منصة للاستشارات القانونية الأونلاين، أسّسها ويقودها المحامي والمستشار القانوني عمر البغدادي بخبرة 30+ عاماً من الممارسة القانونية. نقدّم خدمات الاستشارة القانونية المهنية عبر واتساب والبريد الإلكتروني بالعربية والإنجليزية.",
         },
         {
           icon: Database,
@@ -253,7 +253,7 @@ export default function PrivacyPolicy() {
           list: [
             "تُنقَل رسائل واتساب عبر البنية التحتية المشفرة لـ Meta — يُرجى الاطّلاع على سياسة خصوصية واتساب للتعرف على ممارساتهم في معالجة البيانات",
             "قد تخضع مراسلات البريد الإلكتروني لمخاطر النقل الإلكتروني المعتادة عبر الإنترنت — ننصح باستخدام بريد إلكتروني آمن للمسائل بالغة الحساسية",
-            "تُعامَل جميع محتويات الاستشارة التي يتلقّاها كاونسلو عبر أي قناة كانت بسرية تامة بصرف النظر عن أسلوب الإرسال",
+            "تُعامل محتويات الاستشارة التي يتلقّاها كاونسلو بسرية وفق الالتزامات المهنية وواجبات الخصوصية وحماية البيانات المنطبقة، بصرف النظر عن أسلوب الإرسال، مع مراعاة الإفصاحات التي يوجبها القانون أو يسمح بها",
             "لا نتواصل معك عبر واتساب أو البريد الإلكتروني لأغراض تسويقية دون موافقتك المسبقة",
           ],
         },

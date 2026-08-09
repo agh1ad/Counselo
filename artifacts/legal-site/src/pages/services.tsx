@@ -68,7 +68,7 @@ export default function Services() {
       ? `${areaCount} مجالاً قانونياً في ${country} | منصة استشارات قانونية أونلاين | قانوني`
       : `${areaCount} Legal Practice Areas ${country} | CounselO — Online Legal Consultation Platform`;
   const seoDesc = isRTL
-    ? `قانوني — منصة متخصصة للاستشارات القانونية الأونلاين في ${country}. ${areaCount} مجالاً قانونياً: ${s.items.map((item) => item.title).join("، ")}. خبرة 30+ عاماً، 20,000+ قضية. استجابة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني.`
+    ? `قانوني — منصة متخصصة للاستشارات القانونية الأونلاين في ${country}. ${areaCount} مجالاً قانونياً: ${s.items.map((item) => item.title).join("، ")}. خبرة 30+ عاماً من الممارسة القانونية، أكثر من 20,000 مسألة واستشارة قانونية. استجابة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني.`
     : `${COUNSELO_PLATFORM_POSITIONING.name} — ${country}'s online legal platform for consultation, document review and structured legal guidance. ${areaCount} practice areas: ${s.items.map((item) => item.title).join(", ")}.`;
 
   const baseUrl = `https://counselo-legal.com/${region}${isRTL ? "/ar" : ""}`;

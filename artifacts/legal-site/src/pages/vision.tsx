@@ -18,6 +18,7 @@ import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI } from "@w
 import { SEOHead } from "@/components/seo/SEOHead";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
+import { COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
 
 type ValueItem = { title: string; description: string; icon: LucideIcon };
 type EcosystemItem = { title: string; description: string; icon: LucideIcon };
@@ -43,7 +44,7 @@ const copy = {
     whyEyebrow: "لماذا أُنشئت كاونسلو؟",
     whyTitle: "خبرة عملية تستجيب لتحديات قانونية حقيقية",
     whyBody:
-      "على مدى أكثر من ثلاثين عامًا من الممارسة القانونية، شهدنا العديد من التحديات التي تواجه طالبي الخدمات القانونية، ومن أبرزها صعوبة الوصول إلى المعلومة الموثوقة، واختلاف مستوى الخدمات، وطول الإجراءات، وضعف الاستفادة من التقنيات الحديثة.",
+      `على مدار ${COUNSELO_LEGAL_PRACTICE_CLAIM.ar}، شهدنا العديد من التحديات التي تواجه طالبي الخدمات القانونية، ومن أبرزها صعوبة الوصول إلى المعلومة الموثوقة، واختلاف مستوى الخدمات، وطول الإجراءات، وضعف الاستفادة من التقنيات الحديثة.`,
     whyClosing:
       "ومن هنا جاءت فكرة إنشاء منصة يكون هدفها بناء بيئة قانونية رقمية تعتمد على المعرفة والاحترافية قبل أي شيء آخر.",
     challenges: [
@@ -91,7 +92,7 @@ const copy = {
     founderQuote:
       "قوة المحامي لا تُقاس فقط بقدرته على كسب القضايا، بل بقدرته على بناء الثقة، وتقديم المعرفة، وإيجاد الحلول قبل نشوء النزاعات.",
     founderParagraphs: [
-      "عندما بدأت رحلتي في العمل القانوني قبل أكثر من ثلاثين عاماً، ترسخت لديّ قناعة بأن الخدمة القانونية الحقيقية تبدأ بالفهم والثقة، لا بالإجراء وحده.",
+      `على مدار ${COUNSELO_LEGAL_PRACTICE_CLAIM.ar}، ترسخت لديّ قناعة بأن الخدمة القانونية الحقيقية تبدأ بالفهم والثقة، لا بالإجراء وحده.`,
       "واليوم تمثل كاونسلو امتداداً لهذه القناعة؛ مشروعاً يسخّر الخبرة القانونية والتقنية لخدمة الأفراد والشركات، ويضع الجودة والموثوقية معياراً أول لكل ما يقدمه.",
       "لا تتمثل رؤيتي في إنشاء منصة تقدم خدمات قانونية فحسب، بل في بناء مرجع قانوني رقمي يضيف قيمة حقيقية للمجتمع القانوني، ويجعل الوصول إلى المعرفة والخدمة الاحترافية أكثر سهولة وكفاءة.",
     ],
@@ -151,7 +152,7 @@ const copy = {
     values: [
       { title: "Professionalism", description: "A clear method and consistent standards at every stage.", icon: BriefcaseBusiness },
       { title: "Integrity", description: "Independent, candid advice focused on the client's interests.", icon: Scale },
-      { title: "Confidentiality", description: "Strict protection of information and professional privacy.", icon: LockKeyhole },
+      { title: "Professional Legal Confidentiality", description: "Information is handled under applicable professional, privacy and data-protection obligations.", icon: LockKeyhole },
       { title: "Precision", description: "Careful research and verified detail before guidance is given.", icon: Target },
       { title: "Innovation", description: "Technology used purposefully to improve access and service.", icon: Lightbulb },
       { title: "Continuous improvement", description: "Knowledge that evolves with law, practice, and technology.", icon: Sparkles },

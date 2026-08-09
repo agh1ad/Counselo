@@ -6,6 +6,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI, COOPERATING_OFFICES } from "@workspace/api-zod";
+import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
+import { COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
 
 const founderPhoto = "/images/optimized/omar-founder-bio.png";
 const saudiFlag = "/images/optimized/saudi-arabia-hero.jpg";
@@ -38,8 +40,8 @@ export default function About() {
         ? (isRTL ? "منصة استشارات قانونية أونلاين لمسائل الإمارات — بالعربية والإنجليزية ووفق الاختصاص المنطبق" : "UAE-focused online legal consultation platform in Arabic and English")
         : region === "syr"
         ? (isRTL
-          ? "منصة الاستشارات القانونية الإلكترونية المتخصصة في سوريا — تأسست على يد المحامي عمر البغدادي بخبرة 30+ عاماً في القانون السوري"
-          : "Syria's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi with 30+ years of Syrian law expertise")
+          ? `منصة الاستشارات القانونية الإلكترونية المتخصصة في سوريا — تأسست على يد المحامي عمر البغدادي بـ${COUNSELO_LEGAL_PRACTICE_CLAIM.ar} في القانون السوري`
+          : `Syria's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en} in Syrian law`)
         : (isRTL
           ? "منصة متخصصة للاستشارات القانونية الأونلاين في المملكة العربية السعودية — تأسست على يد المحامي عمر البغدادي"
           : "Saudi Arabia's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi"),
@@ -63,10 +65,10 @@ export default function About() {
         "height": 1200,
       },
       "description": region === "uae"
-        ? "Lawyer and legal counsel with 30+ years of regional experience. Founder of CounselO's UAE-focused online consultation service."
+        ? `Lawyer and legal counsel with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en}. Founder of CounselO's UAE-focused online consultation service.`
         : region === "syr"
-        ? "Lawyer and legal counsel with 30+ years experience across Syria, the UAE and the Arab world. Founder of CounselO."
-        : "Lawyer and legal counsel with 30+ years experience across Saudi Arabia, UAE and Syria. Founder of CounselO.",
+        ? `Lawyer and legal counsel with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en} across Syria, the UAE and the Arab world. Founder of CounselO.`
+        : `Lawyer and legal counsel with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en} across Saudi Arabia, UAE and Syria. Founder of CounselO.`,
     },
     {
       "@context": "https://schema.org",
@@ -196,12 +198,12 @@ export default function About() {
                   <>
                     <div className="text-4xl font-serif font-bold text-primary mb-2">2030</div>
                     <p className="text-foreground font-semibold mb-2">
-                      {isRTL ? "رؤية السعودية 2030 — الشريك القانوني الرقمي" : "Saudi Vision 2030 — Digital Legal Partner"}
+                      {isRTL ? "التحول الرقمي في السعودية — خدمات قانونية إلكترونية" : "Saudi digital transformation — Online Legal Services"}
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {isRTL
-                        ? "كاونسلو منصة رقمية تُجسّد أهداف رؤية 2030 في التحول الرقمي وتيسير الوصول إلى العدالة وتمكين المواطنين والمستثمرين."
-                        : "CounselO embodies Vision 2030's goals of digital transformation, access to justice, and empowering citizens and investors across the Kingdom."}
+                        ? "تقدم كاونسلو خدمات قانونية إلكترونية تساعد الأفراد والشركات والمستثمرين على الوصول إلى الإرشاد المهني عبر القنوات الرقمية."
+                        : "CounselO provides online legal services that help individuals, businesses and investors access professional guidance through digital channels."}
                     </p>
                   </>
                 )}
@@ -448,6 +450,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <JurisdictionDisclosure jurisdiction={region} />
 
       {/* ── CTA ── */}
       <section className="py-24 bg-background">

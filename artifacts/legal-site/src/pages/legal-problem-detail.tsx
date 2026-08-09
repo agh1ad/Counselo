@@ -5,9 +5,11 @@ import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { TrustSignals } from "@/components/seo/TrustSignals";
+import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
 import { getLegalProblemPage, getLegalProblemPages, legalProblemPath } from "@/lib/legal-problem-pages";
 import { getRegionalLegalSources, type LegalSource } from "@/lib/regional-legal-sources";
 import { COUNSELO_ENTITY_IDS, getConsultationProduct } from "@workspace/api-zod";
+import { COUNSELO_LEGAL_MATTERS_CLAIM } from "@/lib/public-claims";
 
 function truncateSeo(value: string, max = 158): string {
   if (value.length <= max) return value;
@@ -151,7 +153,7 @@ export default function LegalProblemDetail() {
           </div>
           <div className="border-s-2 border-[#d5ae5d] ps-4">
             <p className="font-serif text-2xl text-[#0d4a31]">20,000+</p>
-            <p className="text-sm text-muted-foreground">{isRTL ? "قضية واستشارة قانونية" : "Cases and consultations"}</p>
+            <p className="text-sm text-muted-foreground">{isRTL ? COUNSELO_LEGAL_MATTERS_CLAIM.ar : COUNSELO_LEGAL_MATTERS_CLAIM.en}</p>
           </div>
           <div className="border-s-2 border-[#d5ae5d] ps-4">
             <p className="font-serif text-2xl text-[#0d4a31]">WhatsApp · Email</p>
@@ -334,6 +336,7 @@ export default function LegalProblemDetail() {
         </div>
       </div>
       <TrustSignals isArabic={isRTL} regionPrefix={regionPrefix} />
+      <JurisdictionDisclosure jurisdiction={region} compact />
       <LatestContentCarousels isArabic={isRTL} region={region} serviceSlug={id} />
     </div>
   );

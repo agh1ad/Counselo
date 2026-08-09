@@ -39,7 +39,7 @@ export const enSyr: typeof en = {
       h1a: "Online Legal Consultation",
       h1b: "for Syria — Fast & Reliable.",
       desc: "CounselO is an online legal consultation platform serving Syria — delivering expert legal guidance for individuals, businesses and investors across all major areas of Syrian law",
-      subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Syria — with a target professional response time of 24 hours. 30+ years regional experience, 20,000+ cases and consultations.",
+      subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Syria — with a target professional response time of 24 hours. 30+ years of legal practice, 20,000+ legal matters and consultations.",
     },
     platform: {
       ...en.home.platform,
@@ -47,13 +47,13 @@ export const enSyr: typeof en = {
       advantages: [
         { icon: "wifi", title: "Fully Online — Anywhere in Syria", desc: "Consult from Damascus, Aleppo, Homs, Lattakia or anywhere in Syria — no office visit, no commute, no waiting room." },
         { icon: "clock", title: "Target Response Within 24 Hours", desc: "Submit your legal matter for a structured professional response. CounselO targets a response within 24 hours, subject to the matter's scope and urgency." },
-        { icon: "lock", title: "Secure & Confidential", desc: "All consultations are handled with strict professional confidentiality. Your legal matters stay private." },
+        { icon: "lock", title: "Professional Legal Confidentiality", desc: "Information is handled confidentially under applicable professional, privacy and data-protection obligations, subject to legally required or permitted disclosures." },
         { icon: "globe", title: "Arabic & English", desc: "Fully bilingual platform. Legal advice in the language you think and work in — no barriers." },
       ],
     },
     about: {
       ...en.home.about,
-      p1: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi — one of the region's most established senior advocates, with over 30 years of active legal practice and more than 20,000 cases and consultations handled across Syria and the region. His career spans every major area of law — from commercial litigation and arbitration to family law, real estate, employment, foreign investment and administrative proceedings.",
+      p1: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi — one of the region's most established senior advocates, with 30+ years of legal practice and 20,000+ legal matters and consultations handled across Syria and the region. His career spans every major area of law — from commercial litigation and arbitration to family law, real estate, employment, foreign investment and administrative proceedings.",
       founderTeamLine: "Leading a professional legal team across Syria & the region",
     },
     consultMethods: {
@@ -158,7 +158,7 @@ export const enSyr: typeof en = {
       "business-law": {
         title: "Commercial Law",
         subtitle: "Strategic legal representation under the Syrian Commercial Code.",
-        overview: "Syria's commercial law — codified in the Syrian Commercial Code (Legislative Decree No. 149 of 1949) and administered by Commercial Courts in Damascus, Aleppo, Homs, and Lattakia — governs all commercial relationships and disputes in the country. At CounselO, our commercial law practice covers the full range of Syrian commercial matters: contract disputes, company conflicts, banking disputes, commercial agency, and litigation before Syrian commercial courts. With 30+ years of regional legal experience and 20,000+ cases and consultations handled, CounselO delivers decisive results for businesses operating in Syria.",
+        overview: "Syria's commercial law — codified in the Syrian Commercial Code (Legislative Decree No. 149 of 1949) and administered by Commercial Courts in Damascus, Aleppo, Homs, and Lattakia — governs all commercial relationships and disputes in the country. At CounselO, our commercial law practice covers the full range of Syrian commercial matters: contract disputes, company conflicts, banking disputes, commercial agency, and litigation before Syrian commercial courts. With 30+ years of legal practice and 20,000+ legal matters and consultations handled, CounselO delivers decisive results for businesses operating in Syria.",
         covers: ["Commercial Contract Disputes", "Shareholder & Partner Conflicts", "Company Formation under Syrian Law", "Commercial Agency Disputes", "Corporate Governance & Compliance"],
         process: [
           { title: "Commercial Assessment", desc: "We analyse your dispute or transaction under Syrian commercial law — identifying your strongest legal position and the most effective forum." },
@@ -194,7 +194,7 @@ export const enSyr: typeof en = {
       "foreign-investment": {
         title: "Foreign Investment & Business Law",
         subtitle: "Guiding foreign investors through Syria's investment legal framework under Investment Law No. 18/2021.",
-        overview: "Syria's Investment Law No. 18 of 2021 replaced the earlier Investment Law No. 10 of 1991, establishing a new framework for foreign investment administered by the Syrian Investment Commission (هيئة الاستثمار السورية). Foreign investors in Syria must navigate sector restrictions, registration requirements, and an evolving regulatory environment. CounselO has advised investors entering the Syrian market for over 30 years, covering every stage from initial licensing through investment disputes, partner conflicts, and regulatory challenges. Our online consultation means specialist advice is available via WhatsApp or email within 24 hours.",
+        overview: "Syria's Investment Law No. 18 of 2021 replaced the earlier Investment Law No. 10 of 1991, establishing a new framework for foreign investment administered by the Syrian Investment Commission (هيئة الاستثمار السورية). Foreign investors in Syria must navigate sector restrictions, registration requirements, and an evolving regulatory environment. CounselO has advised investors entering the Syrian market for 30+ years of legal practice, covering every stage from initial licensing through investment disputes, partner conflicts, and regulatory challenges. Our online consultation means specialist advice is available via WhatsApp or email within 24 hours.",
         covers: ["Syrian Investment Commission Licensing", "Foreign Company Formation (Syrian Companies Law No. 29/2011)", "Investment Disputes & Appeals", "Free Zone Entity Registration", "Joint Venture Agreements & Disputes"],
         process: [
           { title: "Investment Structure Assessment", desc: "Advising on the optimal legal structure for your Syria market entry — branch, subsidiary, or joint venture under Syrian law." },
@@ -206,7 +206,7 @@ export const enSyr: typeof en = {
       "administrative-law": {
         title: "Administrative Law",
         subtitle: "Challenging unlawful government decisions before Syria's State Council and administrative courts.",
-        overview: "Administrative law in Syria is administered by the State Council (مجلس الدولة) — Syria's dedicated administrative court system — comprising the Administrative Court of First Instance and the Supreme Administrative Court (High Administrative Court). When a Syrian government authority makes a decision that affects your rights — refusing a license, cancelling a contract, imposing a penalty, or taking an unlawful administrative action — CounselO has the specialist expertise to challenge it before the State Council. With over 30 years of experience in Syrian and regional administrative law, we provide decisive representation for individuals and businesses facing government authority.",
+        overview: "Administrative law in Syria is administered by the State Council (مجلس الدولة) — Syria's dedicated administrative court system — comprising the Administrative Court of First Instance and the Supreme Administrative Court (High Administrative Court). When a Syrian government authority makes a decision that affects your rights — refusing a license, cancelling a contract, imposing a penalty, or taking an unlawful administrative action — CounselO has the specialist expertise to challenge it before the State Council. With 30+ years of legal practice in Syrian and regional administrative law, we provide decisive representation for individuals and businesses facing government authority.",
         covers: ["State Council (مجلس الدولة) Litigation", "Administrative Decision Appeals", "Government Contract Disputes", "Regulatory & Licensing Challenges", "Public Procurement Disputes", "Customs & Tax Authority Disputes"],
         process: [
           { title: "Administrative Decision Review", desc: "Analysing the challenged decision for legal errors, procedural irregularities, and grounds for challenge before the State Council." },
@@ -225,14 +225,14 @@ export const enSyr: typeof en = {
       "enforcement": {
         title: "Enforcement & Debt Collection",
         subtitle: "Specialist enforcement lawyers enforcing court judgments and collecting commercial debts under Syrian civil procedure.",
-        overview: "Enforcing a Syrian court judgment or arbitral award requires specialist knowledge of the Syrian Code of Civil Procedure and the procedural requirements of the competent enforcement court. At CounselO, we bring over 30 years of regional enforcement experience — converting favorable judgments into real recovery through asset attachment, bank account garnishment, real estate enforcement, and all available enforcement tools under Syrian law. Online consultation via WhatsApp or email within 24 hours.",
+        overview: "Enforcing a Syrian court judgment or arbitral award requires specialist knowledge of the Syrian Code of Civil Procedure and the procedural requirements of the competent enforcement court. At CounselO, we bring 30+ years of legal practice — converting favorable judgments into real recovery through asset attachment, bank account garnishment, real estate enforcement, and all available enforcement tools under Syrian law. Online consultation via WhatsApp or email within 24 hours.",
         covers: en.serviceDetail.services["enforcement"].covers,
         process: en.serviceDetail.services["enforcement"].process,
       },
       "contracts": {
         title: "Contracts",
         subtitle: "Expert contract lawyers for drafting, disputes, and enforcement under the Syrian Civil Code.",
-        overview: "Syria's contract law is primarily governed by the Syrian Civil Code (Legislative Decree No. 84 of 1949) — a comprehensive code based on French civil law tradition and Egyptian civil law — supplemented by the Syrian Commercial Code for commercial contracts. At CounselO, our contracts practice covers the full lifecycle: from drafting and negotiation through to dispute resolution, specific performance, and enforcement before Syrian courts. With 30+ years of regional legal experience and over 20,000 cases and consultations, CounselO's contracts team provides decisive guidance for individuals and businesses across Syria.",
+        overview: "Syria's contract law is primarily governed by the Syrian Civil Code (Legislative Decree No. 84 of 1949) — a comprehensive code based on French civil law tradition and Egyptian civil law — supplemented by the Syrian Commercial Code for commercial contracts. At CounselO, our contracts practice covers the full lifecycle: from drafting and negotiation through to dispute resolution, specific performance, and enforcement before Syrian courts. With 30+ years of legal practice and 20,000+ legal matters and consultations, CounselO's contracts team provides decisive guidance for individuals and businesses across Syria.",
         covers: ["Commercial Contract Drafting & Review", "Contract Disputes & Breach of Contract Claims (Syrian Civil Code Art. 148+)", "Government & Public Procurement Contracts", "Real Estate Contracts", "Employment & Labour Contracts", "Partnership & Joint Venture Agreements", "International & Cross-Border Contracts"],
         process: en.serviceDetail.services["contracts"].process,
       },
@@ -246,7 +246,7 @@ export const enSyr: typeof en = {
       "criminal-law": {
         title: "Criminal Law",
         subtitle: "Expert criminal defense lawyers representing individuals and businesses before Syrian courts — from investigation through the Court of Cassation.",
-        overview: "Syria's criminal justice system is governed by the Syrian Penal Code (Legislative Decree No. 148 of 1949) and the Code of Criminal Procedure (Legislative Decree No. 112 of 1950). Criminal proceedings in Syria move through the Public Prosecution (النيابة العامة) to trial courts — the Court of First Instance for felonies and misdemeanors, the Court of Appeal, and the Court of Cassation (محكمة النقض) for final appeals. At CounselO, our criminal defense practice covers the full spectrum: from investigation-stage representation and bail applications through criminal trials and Court of Cassation appeals. With 30+ years of regional criminal law experience, we provide decisive, urgent defense.",
+        overview: "Syria's criminal justice system is governed by the Syrian Penal Code (Legislative Decree No. 148 of 1949) and the Code of Criminal Procedure (Legislative Decree No. 112 of 1950). Criminal proceedings in Syria move through the Public Prosecution (النيابة العامة) to trial courts — the Court of First Instance for felonies and misdemeanors, the Court of Appeal, and the Court of Cassation (محكمة النقض) for final appeals. At CounselO, our criminal defense practice covers the full spectrum: from investigation-stage representation and bail applications through criminal trials and Court of Cassation appeals. With 30+ years of legal practice, we provide decisive, urgent defense.",
         covers: ["Criminal Defense in Syrian Courts", "Bail & Pre-trial Detention", "Criminal Appeals (Court of Appeal & Court of Cassation)", "Financial Crimes & Commercial Fraud Defense", "Cybercrime Defense (Legislative Decree No. 17/2012)", "Drug Offense Cases", "Criminal Investigation Representation"],
         process: en.serviceDetail.services["criminal-law"].process,
       },
@@ -362,7 +362,7 @@ export const enSyr: typeof en = {
     ...en.familyLawDetail,
     parentTitle: "Family Law — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Family Law — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     services: Object.fromEntries(
       Object.entries(en.familyLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
@@ -373,7 +373,7 @@ export const enSyr: typeof en = {
           .replace(/Saudi Arabia/g, "Syria").replace(/Saudi law/g, "Syrian law")
           .replace(/MHRSD|Ministry of Human Resources/g, "Ministry of Social Affairs and Labour")
           .replace(/Personal Status Courts?/g, "Syrian Personal Status Courts")
-          .replace(/30 years/g, "30 years").replace(/KSA/g, "Syria")
+          .replace(/KSA/g, "Syria")
           .replace(/Board of Grievances/g, "State Council (مجلس الدولة)")
           .replace(/Vision 2030/g, "Syrian Investment Law No. 18/2021"),
         overview2: svc.overview2
@@ -395,7 +395,7 @@ export const enSyr: typeof en = {
     ...en.businessLawDetail,
     parentTitle: "Commercial Law — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Commercial Law — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     services: Object.fromEntries(
       Object.entries(en.businessLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
@@ -416,7 +416,7 @@ export const enSyr: typeof en = {
     ...en.realEstateLawDetail,
     parentTitle: "Property Law — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Property Law — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     services: Object.fromEntries(
       Object.entries(en.realEstateLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
@@ -437,7 +437,7 @@ export const enSyr: typeof en = {
     ...en.employmentLawDetail,
     parentTitle: "Employment Law — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Employment Law — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     services: Object.fromEntries(
       Object.entries(en.employmentLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
@@ -458,7 +458,7 @@ export const enSyr: typeof en = {
     ...en.foreignInvestmentDetail,
     parentTitle: "Foreign Investment — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Foreign Investment — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     services: Object.fromEntries(
       Object.entries(en.foreignInvestmentDetail.services).map(([id, svc]) => [id, {
         ...svc,
@@ -480,7 +480,7 @@ export const enSyr: typeof en = {
     ...en.administrativeLawDetail,
     parentTitle: "Administrative Law — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Administrative Law — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     subAreas: [
       { id: "board-of-grievances", label: "State Council (مجلس الدولة) Litigation" },
       { id: "administrative-appeals", label: "Administrative Decision Appeals" },
@@ -511,7 +511,7 @@ export const enSyr: typeof en = {
     ...en.arbitrationDetail,
     parentTitle: "Arbitration & Mediation — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Arbitration & Mediation — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     services: Object.fromEntries(
       Object.entries(en.arbitrationDetail.services).map(([id, svc]) => [id, {
         ...svc,
@@ -532,7 +532,7 @@ export const enSyr: typeof en = {
     ...en.enforcementDetail,
     parentTitle: "Enforcement & Debt Collection — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Enforcement & Debt Collection — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     services: Object.fromEntries(
       Object.entries(en.enforcementDetail.services).map(([id, svc]) => [id, {
         ...svc,
@@ -553,7 +553,7 @@ export const enSyr: typeof en = {
     ...en.companiesLawDetail,
     parentTitle: "Companies Law — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Companies Law — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     services: Object.fromEntries(
       Object.entries(en.companiesLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
@@ -574,7 +574,7 @@ export const enSyr: typeof en = {
     ...en.contractsDetail,
     parentTitle: "Contracts — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Contracts — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     services: Object.fromEntries(
       Object.entries(en.contractsDetail.services).map(([id, svc]) => [id, {
         ...svc,
@@ -595,7 +595,7 @@ export const enSyr: typeof en = {
     ...en.criminalLawDetail,
     parentTitle: "Criminal Law — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Criminal Law — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     services: Object.fromEntries(
       Object.entries(en.criminalLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
@@ -616,7 +616,7 @@ export const enSyr: typeof en = {
     ...en.bankingFinanceDetail,
     parentTitle: "Banking & Finance Law — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Banking & Finance Law — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     sidebar: {
       heading: "Need a Banking & Finance Lawyer?",
       desc: "Get expert Syrian banking and finance law advice — Central Bank of Syria regulations, banking disputes, and Islamic finance under Syrian law. Online consultation available.",
@@ -646,7 +646,7 @@ export const enSyr: typeof en = {
     ...en.intellectualPropertyDetail,
     parentTitle: "Intellectual Property — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Intellectual Property — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     sidebar: {
       heading: "Need an IP Lawyer in Syria?",
       desc: "Get expert intellectual property advice online — trademark registration, patent protection, copyright, and IP disputes under Syrian law. Response within 24 hours.",
@@ -676,7 +676,7 @@ export const enSyr: typeof en = {
     ...en.taxZakatDetail,
     parentTitle: "Tax Law — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Tax Law — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     notFoundLink: "Return to Tax Law",
     relatedHeading: "Other Tax Services",
     sidebar: {
@@ -717,7 +717,7 @@ export const enSyr: typeof en = {
     ...en.cyberLawDetail,
     parentTitle: "Cyber & IT Law — Syria",
     breadcrumb: { home: "Home", services: "Services", parent: "Cyber & IT Law — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     sidebar: {
       heading: "Need a Cybercrime Lawyer?",
       desc: "Get urgent cybercrime law advice in Syria — online via WhatsApp or email under the Syrian Cybercrime Law (Decree 17/2012). Confidential, rapid response for digital legal emergencies.",
@@ -746,7 +746,7 @@ export const enSyr: typeof en = {
   medicalMalpracticeDetail: {
     ...en.medicalMalpracticeDetail,
     breadcrumb: { home: "Home", services: "Services", parent: "Medical Malpractice — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     sidebar: {
       heading: "Need a Medical Malpractice Lawyer?",
       desc: "Get expert advice on medical negligence and healthcare law in Syria — online via WhatsApp or email. Confidential consultation under Syrian Medical Association regulations. Response within 24 hours.",
@@ -775,7 +775,7 @@ export const enSyr: typeof en = {
   insuranceLawDetail: {
     ...en.insuranceLawDetail,
     breadcrumb: { home: "Home", services: "Services", parent: "Insurance Law — Syria" },
-    experienceBadge: "30+ Years Regional Experience · 20,000+ Cases & Consultations · Online Consultations Available",
+    experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     sidebar: {
       heading: "Need an Insurance Dispute Lawyer?",
       desc: "Get expert advice on insurance claim disputes in Syria under Insurance Law No. 68/2001 — online via WhatsApp or email. Response within 24 hours.",
@@ -817,13 +817,13 @@ export const enSyr: typeof en = {
   aboutPage: {
     ...en.aboutPage,
     stats: [
-      { stat: "20,000+", label: "Cases & Consultations Handled" },
+      { stat: "20,000+", label: "Legal Matters & Consultations" },
       { stat: "30+", label: "Years of Legal Experience" },
       { stat: "20", label: "Practice Areas" },
       { stat: "40+", label: "Lawyers Mentored" },
     ],
     seoTitle: "About CounselO — Syria's Specialized Online Legal Consultation Platform",
-    seoDesc: "CounselO is Syria's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi, with 30+ years regional experience and 20,000+ cases and consultations handled across Syria and the region.",
+    seoDesc: "CounselO is Syria's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi, with 30+ years of legal practice and 20,000+ legal matters and consultations handled across Syria and the region.",
     seoKeywords: "about CounselO, online legal platform Syria, lawyer Omar Al-Baghdadi, specialized legal platform Syria, online legal consultation Syria, Syrian law expert",
     hero: {
       ...en.aboutPage.hero,
@@ -855,7 +855,7 @@ export const enSyr: typeof en = {
     cta: {
       eyebrow: "Get Expert Legal Advice Today",
       heading: "Consult CounselO — Syria's Specialized Online Legal Consultation Platform",
-      desc: "Professional legal guidance delivered online — fast, confidential, and backed by 30+ years of regional legal experience across Syria and the Arab world. Start your consultation today via WhatsApp or email.",
+      desc: "Professional legal guidance delivered online — fast, confidential, and backed by 30+ years of legal practice across Syria and the Arab world. Start your consultation today via WhatsApp or email.",
       ctaBtn: "Start Your Consultation",
       learnMoreBtn: "View All Services",
     },

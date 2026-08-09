@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, getConsultationProduct, OMAR_AL_BAGHDADI, type Region } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
 import { Helmet } from "react-helmet-async";
-import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowRight, MessageCircle, CheckCircle2, Award, Mail, Phone } from "lucide-react";
+import { Globe, Clock, Lock, ArrowRight, MessageCircle, CheckCircle2, Award, Mail, Phone } from "lucide-react";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { useEffect } from "react";
-import { REGIONAL_SERVICE_CLUSTERS, REGION_ORDER } from "@/lib/regional-service-catalog";
+import { COUNSELO_LEGAL_MATTERS_CLAIM, COUNSELO_LEGAL_MATTERS_STAT, COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
 
 const counseloLogo = "/images/optimized/counselo-region-logo.png";
 const saudiFlag = "/images/optimized/saudi-arabia-flag.jpg";
@@ -42,7 +42,7 @@ const organizationSchema = {
   "founder": {
     ...OMAR_AL_BAGHDADI,
     "jobTitle": "Lawyer and Legal Counsel",
-    "description": "Lawyer Omar Al-Baghdadi has 30+ years of legal experience and has handled more than 20,000 cases and consultations across the region.",
+    "description": `Lawyer Omar Al-Baghdadi has ${COUNSELO_LEGAL_PRACTICE_CLAIM.en} and has handled ${COUNSELO_LEGAL_MATTERS_CLAIM.en} across the region.`,
     "knowsAbout": ["Family Law", "Employment Law", "Real Estate Law", "Business Law", "Criminal Law", "Foreign Investment", "Administrative Law", "UAE Law", "Saudi Law", "Syrian Law"],
     "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
   },
@@ -87,7 +87,7 @@ const faqSchema = {
       "name": "What is CounselO?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CounselO is an online legal consultation platform founded by Lawyer and Legal Counsel Omar Al-Baghdadi with 30+ years of experience. We provide confidential legal guidance for individuals, families and businesses in the UAE, Saudi Arabia and Syria, in Arabic and English.",
+        "text": `CounselO is an online legal consultation platform founded by Lawyer and Legal Counsel Omar Al-Baghdadi with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en}. We provide confidential legal guidance for individuals, families and businesses in the UAE, Saudi Arabia and Syria, in Arabic and English.`,
       },
     },
     {
@@ -152,7 +152,7 @@ const faqSchema = {
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const FAQS = [
-  { q: "What is CounselO?", a: "CounselO is an online legal consultation platform founded by Lawyer Omar Al-Baghdadi (30+ years of experience and 20,000+ matters handled). We provide bilingual, jurisdiction-specific legal guidance for the UAE, Saudi Arabia and Syria." },
+  { q: "What is CounselO?", a: `CounselO is an online legal consultation platform founded by Lawyer Omar Al-Baghdadi (${COUNSELO_LEGAL_PRACTICE_CLAIM.en} and ${COUNSELO_LEGAL_MATTERS_CLAIM.en} handled). We provide bilingual, jurisdiction-specific legal guidance for the UAE, Saudi Arabia and Syria.` },
   { q: "Which jurisdictions does CounselO cover?", a: "We provide country-specific services for the United Arab Emirates, Saudi Arabia and Syria. Each regional platform uses the legal concepts, authorities and procedures relevant to that jurisdiction." },
   { q: "How quickly do I get a response?", a: "CounselO targets a professional response within 24 hours, subject to the matter's scope, urgency, intake completeness and service availability." },
   { q: "Are consultations confidential?", a: "Information is handled confidentially under applicable professional, privacy and data-protection obligations, subject to legally required or permitted disclosures." },
@@ -169,7 +169,6 @@ const fadeIn = {
   transition: { duration: 0.6 },
 };
 
-const serviceIcons = [Scale, ShieldCheck, Globe, Clock, Lock, CheckCircle2, Globe, Scale, ShieldCheck, Globe, Clock, Lock, CheckCircle2, Globe, Scale, ShieldCheck, Clock];
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
@@ -273,7 +272,7 @@ export default function RegionPicker() {
               </p>
 
               <div className="mt-10 grid max-w-xl gap-0 border-y border-white/20 sm:grid-cols-3">
-                {["Attorney-Client Privilege", "24-Hour Response", "Arabic & English"].map((label, index) => (
+                {["Professional Legal Confidentiality", "24-Hour Response", "Arabic & English"].map((label, index) => (
                   <div key={label} className={`flex min-h-16 items-center py-4 text-[0.68rem] font-semibold uppercase leading-5 tracking-[0.14em] text-white/78 ${index > 0 ? "border-t border-white/20 sm:border-s sm:border-t-0 sm:ps-5" : ""}`}>
                     {label}
                   </div>
@@ -384,7 +383,7 @@ export default function RegionPicker() {
           <div className="grid grid-cols-2 md:grid-cols-4">
             {[
               { stat: "30+",     label: "Years of Legal Practice" },
-              { stat: "20,000+", label: "Cases Handled" },
+              { stat: COUNSELO_LEGAL_MATTERS_STAT.en, label: "Legal Matters & Consultations" },
               { stat: "24 h",    label: "Target Response" },
               { stat: "3",       label: "Jurisdictions" },
             ].map(({ stat, label }, i, arr) => (
@@ -431,7 +430,7 @@ export default function RegionPicker() {
                       "Regional legal leadership; local representation separately scoped",
                       "Holder of the title \"Ustaz\" (Senior Counsel) — Syrian Bar Association",
                       "Senior legal experience across Saudi Arabia, UAE and Syria",
-                      "20,000+ cases across civil, commercial, administrative, arbitration and criminal law",
+                      `${COUNSELO_LEGAL_MATTERS_CLAIM.en} across civil, commercial, administrative, arbitration and criminal law`,
                       "Trained or supervised more than 40 lawyers",
                       "Son of Lawyer Riyad Al-Baghdadi, founder of Al-Baghdadi Law Firm (est. 1957)",
                       "Expert in cross-border disputes and multi-jurisdictional matters",
@@ -456,8 +455,8 @@ export default function RegionPicker() {
               <p className="text-muted-foreground leading-relaxed mb-5">
                 <strong className="text-foreground">CounselO</strong> is an online legal consultation platform founded and led by{" "}
                 <strong className="text-foreground">Lawyer and Legal Counsel Omar Al-Baghdadi</strong>, with over{" "}
-                <strong className="text-foreground">30 years of legal practice</strong> and more than{" "}
-                <strong className="text-foreground">20,000+ matters</strong> handled across the region.
+                <strong className="text-foreground">{COUNSELO_LEGAL_PRACTICE_CLAIM.en}</strong> and{" "}
+                <strong className="text-foreground">20,000+ legal matters and consultations</strong> handled across the region.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
                 We make professional legal advice accessible to everyone — individuals, families, and businesses — without the need for an office visit. Consultations are conducted via WhatsApp or email, in{" "}
@@ -482,47 +481,30 @@ export default function RegionPicker() {
         </div>
       </section>
 
-      {/* ── PRACTICE AREAS ── */}
-      <section className="border-y border-[#0d4a31]/10 bg-white py-24 lg:py-32" aria-labelledby="services-heading">
+      {/* ── JURISDICTIONS ── */}
+      <section className="border-y border-[#0d4a31]/10 bg-white py-24 lg:py-32" aria-labelledby="jurisdictions-heading">
         <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeIn} className="mb-16 max-w-3xl">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">Legal Services</p>
-            <h2 id="services-heading" className="mb-4 font-serif text-5xl font-semibold text-[#0d4a31] sm:text-6xl">Practice Areas</h2>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">Choose your jurisdiction</p>
+            <h2 id="jurisdictions-heading" className="mb-4 font-serif text-5xl font-semibold text-[#0d4a31] sm:text-6xl">Three legal environments, one starting point</h2>
             <div className="mb-6 flex items-center gap-3"><span className="h-px w-20 bg-[#b58b32]" /><span className="h-2 w-2 rotate-45 border border-[#b58b32]" /></div>
-            <p className="text-muted-foreground">Explore each country-specific legal services catalogue</p>
+            <p className="text-muted-foreground">Start with the country whose law and authorities apply. Each regional hub contains its own service catalogue, legal sources, consultation route and bilingual content.</p>
           </motion.div>
 
-          <div className="mb-12 grid grid-cols-2 border-s border-t border-[#0d4a31]/15 sm:grid-cols-3 lg:grid-cols-4">
-            {REGIONAL_SERVICE_CLUSTERS.map(({ clusterSlug, titleEn, services }, index) => {
-              const Icon = serviceIcons[index] ?? Scale;
-              return (
-                <motion.div key={clusterSlug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: (index % 8) * 0.05 }}
-                  className="group min-h-40 border-b border-e border-[#0d4a31]/15 bg-white p-5 transition-colors hover:bg-[#eef4f0] lg:p-7">
-                  <Icon className="mb-5 h-7 w-7 text-[#aa7e28] transition-transform duration-300 group-hover:-translate-y-1" strokeWidth={1.4} />
-                  <div className="mb-4 font-serif text-base font-semibold leading-snug text-[#0d4a31]">{titleEn}</div>
-                  <div className="flex gap-2 flex-wrap">
-                    {REGION_ORDER.map((region: Region) => {
-                      const service = services[region];
-                      if (!service) return null;
-                      const label = region === "sa" ? "SA" : region === "syr" ? "SYR" : "UAE";
-                      return <Link key={region} href={`/${region}/services/${service.slug}`} className="text-xs px-2 py-0.5 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors">{label}</Link>;
-                    })}
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          <div className="flex justify-center gap-4 flex-wrap">
-            <Link href="/sa/services" className="inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-8 py-3 hover:bg-primary/90 transition-colors">
-              All Saudi Arabia Services <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link href="/syr/services" className="inline-flex items-center gap-2 border border-border text-foreground text-sm font-semibold px-8 py-3 hover:border-primary/50 hover:shadow-sm transition-all">
-              All Syria Services <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link href="/uae/services" className="inline-flex items-center gap-2 border border-border text-foreground text-sm font-semibold px-8 py-3 hover:border-primary/50 hover:shadow-sm transition-all">
-              All UAE Services <ArrowRight className="h-4 w-4" />
-            </Link>
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              { href: "/sa", name: "Saudi Arabia", native: "المملكة العربية السعودية", icon: "🇸🇦", body: "Saudi-specific legal guidance across family, commercial, employment, property, investment and dispute matters." },
+              { href: "/syr", name: "Syria", native: "سوريا", icon: "🇸🇾", body: "Syrian-law consultation, document review and structured guidance for individuals, families and businesses." },
+              { href: "/uae", name: "United Arab Emirates", native: "الإمارات العربية المتحدة", icon: "🇦🇪", body: "UAE federal, emirate-level, mainland and free-zone legal guidance through the relevant regional framework." },
+            ].map(({ href, name, native, icon, body }) => (
+              <Link key={href} href={href} className="group flex min-h-64 flex-col border border-[#0d4a31]/15 bg-[#f8faf8] p-7 transition-all hover:-translate-y-1 hover:border-[#b58b32] hover:bg-[#eef4f0] hover:shadow-[0_18px_45px_rgba(0,61,34,0.09)]">
+                <div className="mb-7 flex items-start justify-between"><span className="text-4xl" aria-hidden="true">{icon}</span><Globe className="h-6 w-6 text-[#aa7e28]" strokeWidth={1.4} /></div>
+                <h3 className="font-serif text-2xl font-semibold text-[#0d4a31] group-hover:text-primary">{name}</h3>
+                <p className="mt-1 text-sm font-medium text-[#9b7426]">{native}</p>
+                <p className="mt-5 text-sm leading-7 text-muted-foreground">{body}</p>
+                <span className="mt-auto flex items-center gap-2 pt-7 text-sm font-semibold text-primary">Open regional hub <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -664,25 +646,12 @@ export default function RegionPicker() {
                 </ul>
               </div>
               <div>
-                <div className="font-semibold text-foreground mb-4">Top Services</div>
+                <div className="font-semibold text-foreground mb-4">Resources</div>
                 <ul className="space-y-2.5">
-                  <li><Link href="/sa/services/family-law" className="hover:text-primary transition-colors">Family Law</Link></li>
-                  <li><Link href="/sa/services/employment-law" className="hover:text-primary transition-colors">Employment Law</Link></li>
-                  <li><Link href="/sa/services/real-estate" className="hover:text-primary transition-colors">Real Estate Law</Link></li>
-                  <li><Link href="/sa/services/business-law" className="hover:text-primary transition-colors">Business Law</Link></li>
-                  <li><Link href="/sa/services/foreign-investment" className="hover:text-primary transition-colors">Foreign Investment</Link></li>
-                  <li><Link href="/sa/services/criminal-law" className="hover:text-primary transition-colors">Criminal Law</Link></li>
-                </ul>
-              </div>
-              <div>
-                <div className="font-semibold text-foreground mb-4">UAE Service Pages</div>
-                <ul className="space-y-2.5">
-                  <li><Link href="/uae/services/corporate-commercial" className="hover:text-primary transition-colors">Corporate &amp; Commercial</Link></li>
-                  <li><Link href="/uae/services/foreign-investment-market-entry" className="hover:text-primary transition-colors">Foreign Investment</Link></li>
-                  <li><Link href="/uae/services/commercial-contracts" className="hover:text-primary transition-colors">Commercial Contracts</Link></li>
-                  <li><Link href="/uae/services/employment-labour" className="hover:text-primary transition-colors">Employment &amp; Labour</Link></li>
-                  <li><Link href="/uae/services/real-estate-construction" className="hover:text-primary transition-colors">Real Estate &amp; Construction</Link></li>
-                  <li><Link href="/uae/services/family-personal-status" className="hover:text-primary transition-colors">Family &amp; Personal Status</Link></li>
+                  <li><Link href="/blog" className="hover:text-primary transition-colors">Knowledge centre</Link></li>
+                  <li><Link href="/our-work" className="hover:text-primary transition-colors">Case studies and work</Link></li>
+                  <li><Link href="/sa/about" className="hover:text-primary transition-colors">About CounselO</Link></li>
+                  <li><Link href="/sa/contact" className="hover:text-primary transition-colors">Start a consultation</Link></li>
                 </ul>
               </div>
             </div>

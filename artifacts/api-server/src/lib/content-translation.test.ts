@@ -30,7 +30,8 @@ test.afterEach(() => {
   globalThis.fetch = originalFetch;
   if (originalKey === undefined) delete process.env["OPENAI_API_KEY"];
   else process.env["OPENAI_API_KEY"] = originalKey;
-  if (originalModel === undefined) delete process.env["OPENAI_TRANSLATION_MODEL"];
+  if (originalModel === undefined)
+    delete process.env["OPENAI_TRANSLATION_MODEL"];
   else process.env["OPENAI_TRANSLATION_MODEL"] = originalModel;
 });
 
@@ -88,18 +89,13 @@ test("fills missing English blog, repairs SEO, and requests strict structured ou
     patch.bodyEn,
     '<p style="text-align:left">Translated legal body.</p>',
   );
-  assert.equal(
-    patch.seoTitleAr,
-    "تكوين العقد في القانون السوري | كاونسلو",
-  );
+  assert.equal(patch.seoTitleAr, "تكوين العقد في القانون السوري | كاونسلو");
   assert.equal(patch.titleAr, undefined, "Arabic source must be preserved");
   assert.equal(requestBody?.model, "gpt-5.6-sol");
   assert.deepEqual(requestBody?.reasoning, { effort: "low" });
+  assert.equal(requestBody?.max_output_tokens, 16_000);
   assert.equal(requestBody?.text?.format?.strict, true);
-  assert.equal(
-    requestBody?.text?.format?.schema?.additionalProperties,
-    false,
-  );
+  assert.equal(requestBody?.text?.format?.schema?.additionalProperties, false);
 });
 
 test("fills missing Arabic work fields and preserves English source", async () => {

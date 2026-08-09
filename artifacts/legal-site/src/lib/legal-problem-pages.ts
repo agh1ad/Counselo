@@ -638,8 +638,8 @@ function buildDetailedContent({
       ],
     },
     experience: {
-      en: `CounselO is founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with more than 30 years of regional legal practice and more than 20,000 cases and consultations across civil, commercial, employment, family, property, administrative, arbitration and enforcement matters. For ${titleEn.toLowerCase()}, that experience means testing ${profile.factsEn} against ${profile.evidenceEn}, then matching the advice to the relevant forum and remedy—not applying a one-size-fits-all answer.`,
-      ar: `تأسست كاونسلو ويقودها المحامي والمستشار القانوني عمر البغدادي، مع خبرة قانونية إقليمية تزيد على 30 عاماً وأكثر من 20,000 قضية واستشارة في المسائل المدنية والتجارية والعمالية والأسرية والعقارية والإدارية والتحكيم والتنفيذ. وفي مسألة ${titleAr} تعني هذه الخبرة اختبار ${profile.factsAr} في ضوء ${profile.evidenceAr} ثم مواءمة المشورة مع الجهة ووسيلة المعالجة، لا تطبيق إجابة عامة واحدة للجميع.`,
+      en: `CounselO is founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice and 20,000+ legal matters and consultations across civil, commercial, employment, family, property, administrative, arbitration and enforcement matters. For ${titleEn.toLowerCase()}, that experience means testing ${profile.factsEn} against ${profile.evidenceEn}, then matching the advice to the relevant forum and remedy—not applying a one-size-fits-all answer.`,
+      ar: `تأسست كاونسلو ويقودها المحامي والمستشار القانوني عمر البغدادي، مع خبرة قانونية إقليمية 30+ عاماً من الممارسة القانونية وأكثر من 20,000 مسألة واستشارة قانونية واستشارة في المسائل المدنية والتجارية والعمالية والأسرية والعقارية والإدارية والتحكيم والتنفيذ. وفي مسألة ${titleAr} تعني هذه الخبرة اختبار ${profile.factsAr} في ضوء ${profile.evidenceAr} ثم مواءمة المشورة مع الجهة ووسيلة المعالجة، لا تطبيق إجابة عامة واحدة للجميع.`,
     },
     faqs: {
       en: [

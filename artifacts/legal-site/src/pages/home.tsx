@@ -6,6 +6,7 @@ import { Scale, ShieldCheck, Users, ArrowRight, CheckCircle2, MessageCircle, Mai
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
+import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
 import type { Translations } from "@/contexts/LanguageContext";
 import type { Region } from "@/contexts/RegionContext";
 import { COUNSELO_ENTITY_IDS, CONSULTATION_OPERATING_POLICY, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
@@ -86,10 +87,10 @@ export default function Home() {
             : `CounselO is a bilingual online legal platform for UAE consultation, document review and structured guidance across ${servicesAreaCount} practice areas, covering federal, emirate-level, mainland and free-zone frameworks.`)
           : region === "syr"
           ? (isRTL
-            ? `قانوني — منصة سوريا للاستشارات القانونية الأونلاين. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. ${servicesAreaCount} مجالاً قانونياً وفق القانون المدني السوري وقانون الشركات 29/2011 وقانون العمل 17/2010. خبرة تزيد على 30 عاماً، أكثر من 20,000 قضية. بإشراف المحامي عمر البغدادي. بالعربية والإنجليزية.`
+            ? `قانوني — منصة سوريا للاستشارات القانونية الأونلاين. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني. ${servicesAreaCount} مجالاً قانونياً وفق القانون المدني السوري وقانون الشركات 29/2011 وقانون العمل 17/2010. خبرة 30+ عاماً من الممارسة القانونية، أكثر من 20,000 مسألة واستشارة قانونية. بإشراف المحامي عمر البغدادي. بالعربية والإنجليزية.`
             : `CounselO is Syria's online legal platform for consultation, document review and structured guidance — ${servicesAreaCount} practice areas under Syrian law, in Arabic and English. Target professional response within 24 hours, subject to scope and urgency.`)
           : (isRTL
-            ? `قانوني — منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني للأفراد والشركات والمستثمرين. ${servicesAreaCount} مجالاً قانونياً، خبرة تزيد على 30 عاماً، أكثر من 20,000 قضية. بإشراف المحامي والمستشار القانوني عمر البغدادي. متاحة بالعربية والإنجليزية في الجبيل والرياض وجدة والدمام وجميع مناطق المملكة. رؤية 2030.`
+            ? `قانوني — منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين. مشورة قانونية متخصصة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني للأفراد والشركات والمستثمرين. ${servicesAreaCount} مجالاً قانونياً، خبرة 30+ عاماً من الممارسة القانونية، أكثر من 20,000 مسألة واستشارة قانونية. بإشراف المحامي والمستشار القانوني عمر البغدادي. متاحة بالعربية والإنجليزية في الجبيل والرياض وجدة والدمام وجميع مناطق المملكة. رؤية 2030.`
             : `CounselO is Saudi Arabia's online legal platform for consultation, document review and structured guidance across ${servicesAreaCount} practice areas, covering family, commercial, employment, real estate, investment and administrative matters. Target professional response within 24 hours, subject to scope and urgency.`)}
         canonical="/"
         keywords={region === "uae"
@@ -126,7 +127,7 @@ export default function Home() {
           "name": "CounselO",
           "alternateName": "CounselO Online Legal Consultations",
           "description": isRTL
-            ? `منصة سوريا للاستشارات القانونية الأونلاين — ${servicesAreaCount} مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي — خبرة أكثر من 30 عاماً في القانون السوري`
+            ? `منصة سوريا للاستشارات القانونية الأونلاين — ${servicesAreaCount} مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي — خبرة 30+ عاماً من الممارسة القانونية في القانون السوري`
             : `Syria's online legal platform — ${servicesAreaCount} practice areas for consultation, document review and structured guidance, with a target professional response within 24 hours subject to scope and urgency`,
           "url": "https://counselo-legal.com/syr",
           "provider": { "@id": COUNSELO_ENTITY_IDS.organization },
@@ -393,7 +394,7 @@ export default function Home() {
             <motion.div initial={false} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative self-stretch min-h-[560px]">
               <div className="counselo-orbit counselo-orbit-founder-portrait" aria-hidden="true" />
               <div className="absolute inset-0 overflow-hidden">
-                <img src="/omar-baghdadi.jpg" alt="Lawyer Omar Al-Baghdadi — Lawyer and Legal Counsel, Founder of CounselO — 30+ years, 20,000+ cases"
+                <img src="/omar-baghdadi.jpg" alt="Lawyer Omar Al-Baghdadi — Lawyer and Legal Counsel, Founder of CounselO — 30+ years of legal practice, 20,000+ legal matters and consultations"
                   className="counselo-founder-art w-full h-full object-cover object-top"
                   width="800" height="1200" loading="lazy" decoding="async" />
               </div>
@@ -523,7 +524,9 @@ export default function Home() {
 
       <div className="order-12"><LatestContentCarousels isArabic={isRTL} region={region} /></div>
 
-      <section className="order-13 py-20 lg:py-24 bg-white border-y border-border" aria-labelledby="experience-evidence-heading">
+      <div className="order-13"><JurisdictionDisclosure jurisdiction={region} /></div>
+
+      <section className="order-14 py-20 lg:py-24 bg-white border-y border-border" aria-labelledby="experience-evidence-heading">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="max-w-3xl">
             <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{isRTL ? "الخبرة والشفافية" : "Experience and transparency"}</p>
@@ -537,7 +540,7 @@ export default function Home() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="order-[14] py-20 lg:py-24 relative overflow-hidden bg-[#003d22]" aria-labelledby="regional-cta-heading">
+      <section className="order-[15] py-20 lg:py-24 relative overflow-hidden bg-[#003d22]" aria-labelledby="regional-cta-heading">
         <img
           src="/images/optimized/counselo-gold-legal-line-art-v1.png"
           alt=""

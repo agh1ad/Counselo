@@ -1,6 +1,7 @@
 import { pgTable, serial, text, boolean, timestamp, integer, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { z } from "zod/v4";
+import type { TestimonialMetadata } from "@workspace/api-zod";
 
 export const workSamplesTable = pgTable("work_samples", {
   id: serial("id").primaryKey(),
@@ -35,6 +36,8 @@ export const workSamplesTable = pgTable("work_samples", {
   relatedServiceSlugs: jsonb("related_service_slugs").$type<string[]>().notNull().default([]),
   relatedBlogSlugs: jsonb("related_blog_slugs").$type<string[]>().notNull().default([]),
   relatedWorkSlugs: jsonb("related_work_slugs").$type<string[]>().notNull().default([]),
+  testimonials: jsonb("testimonials").$type<TestimonialMetadata[]>().notNull().default([]),
+  testimonialGovernanceVersion: integer("testimonial_governance_version").notNull().default(0),
   aiLinksAssignedAt: timestamp("ai_links_assigned_at"),
   featured: boolean("featured").notNull().default(false),
   published: boolean("published").notNull().default(false),

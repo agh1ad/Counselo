@@ -19,6 +19,7 @@ import { SYR_SEO_DATA } from "@/lib/seo-data-syr";
 import { RELATED_SERVICES, SERVICE_SEARCH_CONTENT } from "@/lib/service-search-content";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { TrustSignals } from "@/components/seo/TrustSignals";
+import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
 import { getRegionalLegalSources, type LegalSource } from "@/lib/regional-legal-sources";
 import { getLegalProblemPages, legalProblemPath } from "@/lib/legal-problem-pages";
 import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI, CONSULTATION_OPERATING_POLICY, getConsultationProduct } from "@workspace/api-zod";
@@ -121,11 +122,14 @@ export default function ServiceDetail() {
     ? (d.documents as string[]).filter(isJurisdictionSafe)
     : [];
   const searchContent = isUae ? undefined : SERVICE_SEARCH_CONTENT[id];
-  const relatedServiceIds = isUae
+  const configuredRelatedServiceIds = isUae
     ? t.services.items.filter((service) => service.id !== id).slice(0, 3).map((service) => service.id)
     : (RELATED_SERVICES[id] ?? []).filter((serviceId) =>
         t.services.items.some((service) => service.id === serviceId),
       );
+  const relatedServiceIds = [...new Set(configuredRelatedServiceIds)]
+    .filter((serviceId) => serviceId !== id)
+    .slice(0, 4);
   const commonIssues = isUae
     ? uaeCommonIssues
     : searchContent
@@ -523,7 +527,7 @@ export default function ServiceDetail() {
                         href={`${regionPrefix}/services/${serviceId}`}
                         className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31]/12 bg-white p-5 font-semibold text-foreground transition-colors hover:bg-[#eef4f0] hover:text-primary"
                       >
-                        <span>{isRTL ? `استشارة ${related.title}` : `${related.title} legal consultation`}</span>
+                        <span>{isRTL ? related.title : related.title}</span>
                         <ChevronRight className="h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                       </Link>
                     );
@@ -533,7 +537,7 @@ export default function ServiceDetail() {
                     <ChevronRight className="h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                   </Link>
                   <Link href={`${regionPrefix}/contact?service=${id}`} data-cta="contact" data-conversion-position="service-related" data-region={region} data-lang={isRTL ? "ar" : "en"} className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31] bg-[#0d4a31] p-5 font-semibold text-white transition-colors hover:bg-[#073d29]">
-                    <span>{isRTL ? `احجز استشارة ${data.title}` : `Book a ${data.title.toLowerCase()} consultation`}</span>
+                    <span>{isRTL ? "ابدأ مناقشة مسألتك" : "Discuss your matter"}</span>
                     <ChevronRight className="h-4 w-4 shrink-0 text-[#d5ae5d] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                   </Link>
                 </div>
@@ -577,6 +581,7 @@ export default function ServiceDetail() {
         </div>
       </div>
       <TrustSignals isArabic={isRTL} regionPrefix={regionPrefix} compact />
+      <JurisdictionDisclosure jurisdiction={region} compact />
       <LatestContentCarousels isArabic={isRTL} region={region} serviceSlug={id} />
     </div>
   );
