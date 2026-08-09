@@ -263,7 +263,10 @@ async function requestStructuredTranslation<T>(
   }
 
   const body = JSON.stringify({
-    model: process.env["OPENAI_TRANSLATION_MODEL"]?.trim() || "gpt-5.6-sol",
+    // Keep the model configurable, but use the smaller general-purpose model
+    // by default so publishing is not blocked by the higher-throughput Sol
+    // model's project limit.
+    model: process.env["OPENAI_TRANSLATION_MODEL"]?.trim() || "gpt-5-mini",
     reasoning: { effort: "low" },
     // The bilingual work schema is compact; reserving 64k output tokens can
     // exceed tokens-per-minute limits before the model has a chance to run.
