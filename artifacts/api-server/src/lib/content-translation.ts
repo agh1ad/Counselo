@@ -1,4 +1,8 @@
-import type { BlogSection, InsertBlogPost, InsertWorkSample } from "@workspace/db";
+import type {
+  BlogSection,
+  InsertBlogPost,
+  InsertWorkSample,
+} from "@workspace/db";
 import { logger } from "./logger.js";
 import { extractResponsesOutputText } from "./openai-response.js";
 
@@ -50,8 +54,16 @@ type WorkTranslation = {
 };
 
 const stringSchema = { type: "string" } as const;
-const seoTitleSchema = { type: "string", minLength: 20, maxLength: 70 } as const;
-const seoDescriptionSchema = { type: "string", minLength: 80, maxLength: 170 } as const;
+const seoTitleSchema = {
+  type: "string",
+  minLength: 20,
+  maxLength: 70,
+} as const;
+const seoDescriptionSchema = {
+  type: "string",
+  minLength: 80,
+  maxLength: 170,
+} as const;
 const sectionSchema = {
   type: "array",
   items: {
@@ -204,15 +216,15 @@ function missingPatch<T extends Record<string, unknown>>(
 function isCompleteBlog(values: InsertBlogPost): boolean {
   return Boolean(
     values.categoryEn &&
-      values.categoryAr &&
-      values.titleEn &&
-      values.titleAr &&
-      values.excerptEn &&
-      values.excerptAr &&
-      hasValidSeo(values.seoTitleEn, values.seoDescriptionEn) &&
-      hasValidSeo(values.seoTitleAr, values.seoDescriptionAr) &&
-      (values.bodyEn || (values.contentEn?.length ?? 0)) &&
-      (values.bodyAr || (values.contentAr?.length ?? 0)),
+    values.categoryAr &&
+    values.titleEn &&
+    values.titleAr &&
+    values.excerptEn &&
+    values.excerptAr &&
+    hasValidSeo(values.seoTitleEn, values.seoDescriptionEn) &&
+    hasValidSeo(values.seoTitleAr, values.seoDescriptionAr) &&
+    (values.bodyEn || (values.contentEn?.length ?? 0)) &&
+    (values.bodyAr || (values.contentAr?.length ?? 0)),
   );
 }
 
@@ -253,7 +265,9 @@ async function requestStructuredTranslation<T>(
   const body = JSON.stringify({
     model: process.env["OPENAI_TRANSLATION_MODEL"]?.trim() || "gpt-5.6-sol",
     reasoning: { effort: "low" },
-    max_output_tokens: 64_000,
+    // The bilingual work schema is compact; reserving 64k output tokens can
+    // exceed tokens-per-minute limits before the model has a chance to run.
+    max_output_tokens: 16_000,
     input: [
       {
         role: "system",
@@ -307,7 +321,9 @@ async function requestStructuredTranslation<T>(
           { attempt: attempt + 1, backoffMs, name },
           "OpenAI rate limit (429); retrying after delay",
         );
-        await new Promise((resolve) => globalThis.setTimeout(resolve, backoffMs));
+        await new Promise((resolve) =>
+          globalThis.setTimeout(resolve, backoffMs),
+        );
         continue;
       }
 
@@ -337,7 +353,10 @@ async function requestStructuredTranslation<T>(
       }
     } catch (error) {
       if (error instanceof ContentTranslationError) throw error;
-      logger.warn({ err: error, name }, "OpenAI content translation unavailable");
+      logger.warn(
+        { err: error, name },
+        "OpenAI content translation unavailable",
+      );
       throw new ContentTranslationError(
         "Automatic translation could not be completed; nothing was published",
       );
