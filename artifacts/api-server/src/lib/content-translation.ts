@@ -255,16 +255,23 @@ async function requestStructuredTranslation<T>(
   schema: Record<string, unknown>,
   content: Record<string, unknown>,
 ): Promise<T> {
-  const apiKey = process.env["OPENAI_API_KEY"]?.trim();
+  // Prefer Replit AI integrations proxy — separate quota pool, avoids rate
+  // contention with the user's personal OpenAI key. Fall back to direct key.
+  const integrationBase = process.env["AI_INTEGRATIONS_OPENAI_BASE_URL"]?.trim();
+  const integrationKey = process.env["AI_INTEGRATIONS_OPENAI_API_KEY"]?.trim();
+  const directKey = process.env["OPENAI_API_KEY"]?.trim();
+
+  const apiBase = integrationBase ?? "https://api.openai.com/v1";
+  const apiKey = (integrationBase && integrationKey) ? integrationKey : directKey;
+
   if (!apiKey) {
     throw new ContentTranslationError(
-      "Automatic bilingual publishing needs OPENAI_API_KEY",
+      "Automatic bilingual publishing needs AI_INTEGRATIONS_OPENAI_API_KEY or OPENAI_API_KEY",
     );
   }
 
   const body = JSON.stringify({
-    model: process.env["OPENAI_TRANSLATION_MODEL"]?.trim() || "gpt-5.6-sol",
-    reasoning: { effort: "low" },
+    model: process.env["OPENAI_TRANSLATION_MODEL"]?.trim() || "gpt-5.6-luna",
     // The bilingual work schema is compact; reserving 64k output tokens can
     // exceed tokens-per-minute limits before the model has a chance to run.
     max_output_tokens: 16_000,
@@ -280,7 +287,6 @@ async function requestStructuredTranslation<T>(
       },
     ],
     text: {
-      verbosity: "low",
       format: {
         type: "json_schema",
         name,
@@ -297,7 +303,7 @@ async function requestStructuredTranslation<T>(
     const controller = new AbortController();
     const timeout = globalThis.setTimeout(() => controller.abort(), 180_000);
     try {
-      const response = await fetch("https://api.openai.com/v1/responses", {
+      const response = await fetch(`${apiBase}/responses`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${apiKey}`,
@@ -366,7 +372,7 @@ async function requestStructuredTranslation<T>(
   }
 
   throw new ContentTranslationError(
-    `Automatic translation failed (OpenAI HTTP ${lastStatus}); rate limit persisted after ${MAX_RETRIES} retries`,
+    `Automatic translation failed after ${MAX_RETRIES} retries (last status: ${lastStatus})`,
   );
 }
 
