@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 import test from "node:test";
 import { qualifyProfessionalRoleCopy } from "@/lib/professional-role-scope";
 import { qualifyEeatCopy } from "@/lib/eeat-scope";
+import { COUNSELO_LEGAL_MATTERS_CLAIM, COUNSELO_LEGAL_PRACTICE_CLAIM, COUNSELO_PROFESSIONAL_START_YEAR, getCounseloLegalPracticeClaim } from "@/lib/public-claims";
 
 type Claim = {
   id: string;
@@ -33,6 +34,52 @@ test("every public claim register entry has approval and evidence metadata", () 
   }
 });
 
+test("the experience-volume claim uses the neutral centralized wording", () => {
+  assert.deepEqual(COUNSELO_LEGAL_MATTERS_CLAIM, {
+    en: "20,000+ legal matters and consultations",
+    ar: "أكثر من 20,000 مسألة واستشارة قانونية",
+  });
+  const sourceFiles = [
+    resolve(process.cwd(), "src/pages/region-picker.tsx"),
+    resolve(process.cwd(), "src/pages/ar-region-picker.tsx"),
+    resolve(process.cwd(), "src/pages/home.tsx"),
+    resolve(process.cwd(), "src/pages/services.tsx"),
+    resolve(process.cwd(), "src/pages/blog-post.tsx"),
+    resolve(process.cwd(), "src/pages/legal-problem-detail.tsx"),
+    resolve(process.cwd(), "src/lib/legal-problem-pages.ts"),
+  ];
+  const copy = sourceFiles.map((file) => readFileSync(file, "utf8")).join("\n");
+  assert.doesNotMatch(copy, /20,000\+\s+(?:cases|matters|consultations)\b/i);
+  assert.doesNotMatch(copy, /(?:more than|over)\s+20,000\s+(?:cases|matters|consultations)\b/i);
+  assert.doesNotMatch(copy, /(?:أكثر من\s+)?20,000\s+(?:قضية|قضايا|مسألة)\b(?! واستشارة قانونية)/);
+});
+
+test("the professional-experience claim is derived from the approved start year", () => {
+  assert.equal(COUNSELO_PROFESSIONAL_START_YEAR, 1996);
+  assert.deepEqual(getCounseloLegalPracticeClaim(2026), {
+    en: "30+ years of legal practice",
+    ar: "30+ عاماً من الممارسة القانونية",
+  });
+  assert.deepEqual(COUNSELO_LEGAL_PRACTICE_CLAIM, getCounseloLegalPracticeClaim());
+
+  const sourceFiles = [
+    resolve(process.cwd(), "src/pages/region-picker.tsx"),
+    resolve(process.cwd(), "src/pages/ar-region-picker.tsx"),
+    resolve(process.cwd(), "src/pages/about.tsx"),
+    resolve(process.cwd(), "src/pages/vision.tsx"),
+    resolve(process.cwd(), "src/pages/home.tsx"),
+    resolve(process.cwd(), "src/pages/services.tsx"),
+    resolve(process.cwd(), "src/pages/blog-post.tsx"),
+    resolve(process.cwd(), "src/pages/legal-problem-detail.tsx"),
+    resolve(process.cwd(), "src/lib/legal-problem-pages.ts"),
+  ];
+  const copy = sourceFiles.map((file) => readFileSync(file, "utf8")).join("\n");
+  assert.doesNotMatch(copy, /(?:more than|over) 30 years|three decades|3 decades/i);
+  assert.doesNotMatch(copy, /30\+ Years/);
+  assert.doesNotMatch(copy, /(?<!\+)\b30 years\b/i);
+  assert.doesNotMatch(copy, /(?:أكثر من|تتجاوز|تزيد على)\s+30\s*عاماً|ثلاثين عاماً|ثلاثة عقود/);
+});
+
 test("known high-risk claim contradictions are absent from the public shell copy", () => {
   const files = [
     resolve(process.cwd(), "src/pages/region-picker.tsx"),
@@ -41,6 +88,22 @@ test("known high-risk claim contradictions are absent from the public shell copy
   ];
   const copy = files.map((file) => readFileSync(file, "utf8")).join("\n");
   assert.doesNotMatch(copy, /Guaranteed Response|never shared|never share|يضمن كاونسلو|لا تُشارَك/);
+});
+
+test("unsupported Vision 2030 partnership and endorsement wording is absent", () => {
+  const files = [
+    resolve(process.cwd(), "src/pages/about.tsx"),
+    resolve(process.cwd(), "src/translations/en.ts"),
+    resolve(process.cwd(), "src/translations/ar.ts"),
+    resolve(process.cwd(), "src/translations/en-uae.ts"),
+    resolve(process.cwd(), "src/translations/ar-uae.ts"),
+    resolve(process.cwd(), "src/translations/en-syr.ts"),
+    resolve(process.cwd(), "src/translations/ar-syr.ts"),
+  ];
+  const copy = files.map((file) => readFileSync(file, "utf8")).join("\n");
+  assert.doesNotMatch(copy, /Vision 2030[^.\n]{0,60}(?:partner|aligned|certified)/i);
+  assert.doesNotMatch(copy, /(?:official|certified|approved|appointed)\s+partner[^.\n]{0,60}Vision 2030/i);
+  assert.doesNotMatch(copy, /شريك(?:\s+قانوني)?(?:\s+لرؤية)?\s*رؤية\s*2030|شريك قانوني لرؤية 2030|شريك رسمي|شريك معتمد/);
 });
 
 test("confirmed Saudi legal inaccuracies are absent from every public source file", () => {

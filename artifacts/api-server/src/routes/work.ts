@@ -6,6 +6,7 @@ import { parsePositiveId } from "../lib/blog-input.js";
 import { WorkInputError, parseWorkSampleInput } from "../lib/work-input.js";
 import { notifyWorkPublished, notifyWorkRemoved } from "../lib/google-indexing.js";
 import { assignInternalLinks } from "../lib/internal-link-assignment.js";
+import { publicTestimonial } from "@workspace/api-zod";
 import {
   ContentTranslationError,
   translateWorkForPublishing,
@@ -15,13 +16,30 @@ const router = Router();
 const { fileData: _fileData, confidentialityConfirmed: _confidentiality, ...publicColumns } = getTableColumns(workSamplesTable);
 const { fileData: _adminFileData, ...adminColumns } = getTableColumns(workSamplesTable);
 
+function publicTestimonials(sample: { testimonials?: unknown[]; testimonialGovernanceVersion?: number }) {
+  const testimonials = Array.isArray(sample.testimonials) ? sample.testimonials : [];
+  if (sample.testimonialGovernanceVersion === 1) {
+    return testimonials.map(publicTestimonial);
+  }
+  // Legacy records are preserved. Internal references are never sent to the public API.
+  return testimonials.map((testimonial) => {
+    if (!testimonial || typeof testimonial !== "object") return testimonial;
+    const { internalReference: _internalReference, ...safe } = testimonial as Record<string, unknown>;
+    return safe;
+  });
+}
+
 router.get("/work", async (_req, res) => {
   const samples = await db
     .select(publicColumns)
     .from(workSamplesTable)
     .where(eq(workSamplesTable.published, true))
     .orderBy(workSamplesTable.date);
-  res.json(samples.reverse().map((sample) => ({ ...sample, hasFile: sample.fileSize > 0 })));
+  res.json(samples.reverse().map((sample) => ({
+    ...sample,
+    testimonials: publicTestimonials(sample),
+    hasFile: sample.fileSize > 0,
+  })));
 });
 
 router.get("/work/:slug/file", async (req, res) => {
@@ -59,7 +77,11 @@ router.get("/work/:slug", async (req, res) => {
     res.status(404).json({ error: "Not found" });
     return;
   }
-  res.json({ ...sample, hasFile: sample.fileSize > 0 });
+  res.json({
+    ...sample,
+    testimonials: publicTestimonials(sample),
+    hasFile: sample.fileSize > 0,
+  });
 });
 
 router.get("/admin/work", requireAdmin, async (_req, res) => {
@@ -143,7 +165,7 @@ router.put("/admin/work/:id", requireAdmin, async (req, res) => {
       req.body?.published === true || req.body?.published === "true";
     const draftValues = parseWorkSampleInput(
       requestedPublished ? { ...req.body, published: false } : req.body,
-      { existingSlug: before.slug, existingFile: before },
+      { existingSlug: before.slug, existingFile: before, existingTestimonials: before },
     );
     let values = draftValues;
     let linkValues = {};
@@ -151,7 +173,7 @@ router.put("/admin/work/:id", requireAdmin, async (req, res) => {
       const translation = await translateWorkForPublishing(draftValues);
       values = parseWorkSampleInput(
         { ...draftValues, ...translation, published: true },
-        { existingSlug: before.slug, existingFile: before },
+        { existingSlug: before.slug, existingFile: before, existingTestimonials: before },
       );
       if (!before.published) {
         const assignment = await assignInternalLinks({

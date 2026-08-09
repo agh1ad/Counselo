@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, getConsultationProduct, OMAR_AL_BAGHDADI, type Region } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
 import { Helmet } from "react-helmet-async";
-import { Scale, ShieldCheck, Globe, Clock, Lock, ArrowLeft, MessageCircle, CheckCircle2, Award } from "lucide-react";
+import { Globe, Clock, Lock, ArrowLeft, MessageCircle, CheckCircle2, Award } from "lucide-react";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { useEffect } from "react";
-import { REGIONAL_SERVICE_CLUSTERS, REGION_ORDER } from "@/lib/regional-service-catalog";
+import { COUNSELO_LEGAL_MATTERS_CLAIM, COUNSELO_LEGAL_MATTERS_STAT, COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
 
 const counseloLogo = "/images/optimized/counselo-region-logo.png";
 const saudiFlag = "/images/optimized/saudi-arabia-flag.jpg";
@@ -36,7 +36,7 @@ const organizationSchema = {
   "founder": {
     ...OMAR_AL_BAGHDADI,
     "jobTitle": "محامٍ ومستشار قانوني",
-    "description": "يمتلك المحامي عمر البغدادي خبرة تزيد على 30 عاماً وتعامل مع أكثر من 20,000 قضية واستشارة في المنطقة.",
+    "description": `يمتلك المحامي عمر البغدادي ${COUNSELO_LEGAL_PRACTICE_CLAIM.ar} وتعامل مع ${COUNSELO_LEGAL_MATTERS_CLAIM.ar} في المنطقة.`,
     "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
   },
   "areaServed": [
@@ -61,7 +61,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "ما هو كاونسلو؟",
-      "acceptedAnswer": { "@type": "Answer", "text": "كاونسلو منصة استشارات قانونية إلكترونية يقودها المحامي والمستشار القانوني عمر البغدادي بخبرة تزيد على 30 عاماً وأكثر من 20,000 قضية واستشارة. نقدم إرشاداً قانونياً محدد الاختصاص في الإمارات والسعودية وسوريا بالعربية والإنجليزية." },
+      "acceptedAnswer": { "@type": "Answer", "text": `كاونسلو منصة استشارات قانونية إلكترونية يقودها المحامي والمستشار القانوني عمر البغدادي بـ${COUNSELO_LEGAL_PRACTICE_CLAIM.ar} و${COUNSELO_LEGAL_MATTERS_CLAIM.ar}. نقدم إرشاداً قانونياً محدد الاختصاص في الإمارات والسعودية وسوريا بالعربية والإنجليزية.` },
     },
     {
       "@type": "Question",
@@ -104,7 +104,7 @@ const faqSchema = {
 // ── Data ──────────────────────────────────────────────────────────────────────
 
 const FAQS = [
-  { q: "ما هو كاونسلو؟", a: "كاونسلو منصة استشارات قانونية إلكترونية يقودها المحامي عمر البغدادي بخبرة تزيد على 30 عاماً وأكثر من 20,000 قضية واستشارة. نقدم إرشاداً قانونياً محدد الاختصاص في الإمارات والسعودية وسوريا." },
+  { q: "ما هو كاونسلو؟", a: "كاونسلو منصة استشارات قانونية إلكترونية يقودها المحامي عمر البغدادي بخبرة 30+ عاماً من الممارسة القانونية وأكثر من 20,000 مسألة واستشارة قانونية واستشارة. نقدم إرشاداً قانونياً محدد الاختصاص في الإمارات والسعودية وسوريا." },
   { q: "ما الدول التي يخدمها كاونسلو؟", a: "نقدم خدمات قانونية خاصة بالإمارات العربية المتحدة والمملكة العربية السعودية وسوريا، مع مراعاة القانون والجهات والإجراءات المنطبقة في كل دولة." },
   { q: "كم يستغرق الرد؟", a: "تستهدف كاونسلو تقديم رد مهني خلال 24 ساعة، بحسب نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوفر الخدمة." },
   { q: "هل الاستشارات سرية؟", a: "تُعامل المعلومات بسرية وفق الالتزامات المهنية والتعاقدية وواجبات الخصوصية وحماية البيانات المنطبقة، مع مراعاة الإفصاحات التي يوجبها القانون أو يسمح بها." },
@@ -121,7 +121,6 @@ const fadeIn = {
   transition: { duration: 0.6 },
 };
 
-const serviceIcons = [Scale, ShieldCheck, Globe, Clock, Lock, CheckCircle2, Globe, Scale, ShieldCheck, Globe, Clock, Lock, CheckCircle2, Globe, Scale, ShieldCheck, Clock];
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
@@ -225,7 +224,7 @@ export default function ArRegionPicker() {
               </p>
 
               <div className="mt-10 grid max-w-xl gap-0 border-y border-white/20 sm:grid-cols-3">
-                {["السرية المهنية بين المحامي والموكّل", "وقت استجابة مستهدف خلال 24 ساعة", "بالعربية والإنجليزية"].map((label, index) => (
+                {["السرية المهنية القانونية", "وقت استجابة مستهدف خلال 24 ساعة", "بالعربية والإنجليزية"].map((label, index) => (
                   <div key={label} className={`flex min-h-16 items-center py-4 text-[0.72rem] font-semibold leading-5 tracking-[0.04em] text-white/78 ${index > 0 ? "border-t border-white/20 sm:border-e sm:border-t-0 sm:pe-5" : ""}`}>
                     {label}
                   </div>
@@ -336,7 +335,7 @@ export default function ArRegionPicker() {
           <div className="grid grid-cols-2 md:grid-cols-4">
             {[
               { stat: "+30",      label: "عاماً من الخبرة القانونية" },
-              { stat: "+20,000",  label: "قضية تمت معالجتها" },
+              { stat: COUNSELO_LEGAL_MATTERS_STAT.ar,  label: "مسائل واستشارات قانونية" },
               { stat: "24 ساعة", label: "وقت الاستجابة المستهدف" },
               { stat: "3",        label: "ثلاث دول: الإمارات والسعودية وسوريا" },
             ].map(({ stat, label }, i, arr) => (
@@ -364,8 +363,8 @@ export default function ArRegionPicker() {
               <p className="text-muted-foreground leading-relaxed mb-5">
                 <strong className="text-foreground">كاونسلو</strong> منصة قانونية إلكترونية سريعة ومهنية وموثوقة أسسها وقادها{" "}
                 <strong className="text-foreground">المحامي والمستشار القانوني عمر البغدادي</strong>، صاحب خبرة تمتد لأكثر من{" "}
-                <strong className="text-foreground">30 عاماً</strong> وأكثر من{" "}
-                <strong className="text-foreground">أكثر من 20,000 قضية واستشارة</strong> في المنطقة.
+                <strong className="text-foreground">30+ عاماً من الممارسة القانونية</strong> وأكثر من{" "}
+                <strong className="text-foreground">أكثر من 20,000 مسألة واستشارة قانونية واستشارة</strong> في المنطقة.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
                 نجعل الاستشارة القانونية المتخصصة في متناول الجميع — أفراداً وأسراً وشركات — دون الحاجة لزيارة المكتب. الاستشارات عبر الواتساب أو البريد الإلكتروني{" "}
@@ -417,7 +416,7 @@ export default function ArRegionPicker() {
                       "قيادة قانونية إقليمية؛ ويُحدد التمثيل المحلي بشكل مستقل",
                       "حاصل على لقب «الأستاذ» من نقابة المحامين في سوريا",
                       "محامٍ أول ومستشار قانوني في المملكة والإمارات وسوريا",
-                      "أكثر من 20,000 قضية واستشارة في القانون المدني والتجاري والإداري والجزائي والتحكيم",
+                      `${COUNSELO_LEGAL_MATTERS_CLAIM.ar} في القانون المدني والتجاري والإداري والجزائي والتحكيم`,
                       "درّب أو أشرف على أكثر من 40 محامياً",
                       "نجل المحامي رياض البغدادي، مؤسس مكتب البغدادي للمحاماة (تأسس 1957)",
                       "خبير في النزاعات العابرة للحدود والقضايا متعددة الولايات",
@@ -435,47 +434,29 @@ export default function ArRegionPicker() {
         </div>
       </section>
 
-      {/* ── PRACTICE AREAS ── */}
-      <section className="border-y border-[#0d4a31]/10 bg-white py-24 lg:py-32" aria-labelledby="services-heading-ar">
+      {/* ── JURISDICTIONS ── */}
+      <section className="border-y border-[#0d4a31]/10 bg-white py-24 lg:py-32" aria-labelledby="jurisdictions-heading-ar">
         <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeIn} className="mb-16 max-w-3xl">
-            <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">الخدمات القانونية</p>
-            <h2 id="services-heading-ar" className="mb-4 font-serif text-5xl font-semibold text-[#0d4a31] sm:text-6xl">مجالات الممارسة القانونية</h2>
+            <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">اختر الاختصاص القضائي</p>
+            <h2 id="jurisdictions-heading-ar" className="mb-4 font-serif text-5xl font-semibold text-[#0d4a31] sm:text-6xl">ثلاث بيئات قانونية ونقطة بداية واحدة</h2>
             <div className="mb-6 flex items-center gap-3"><span className="h-px w-20 bg-[#b58b32]" /><span className="h-2 w-2 rotate-45 border border-[#b58b32]" /></div>
-            <p className="text-muted-foreground">استكشف دليل الخدمات القانونية الخاص بكل دولة</p>
+            <p className="text-muted-foreground">ابدأ بالدولة التي ينطبق قانونها وجهاتها المختصة. يحتوي كل مركز إقليمي على دليل خدماته ومصادره ومسار الاستشارة ومحتواه الثنائي اللغة.</p>
           </motion.div>
 
-          <div className="mb-12 grid grid-cols-2 border-e border-t border-[#0d4a31]/15 sm:grid-cols-3 lg:grid-cols-4">
-            {REGIONAL_SERVICE_CLUSTERS.map(({ clusterSlug, titleAr, services }, index) => {
-              const Icon = serviceIcons[index] ?? Scale;
-              return (
-                <motion.div key={clusterSlug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: (index % 8) * 0.05 }}
-                  className="group min-h-40 border-b border-s border-[#0d4a31]/15 bg-white p-5 transition-colors hover:bg-[#eef4f0] lg:p-7">
-                  <Icon className="mb-5 h-7 w-7 text-[#aa7e28] transition-transform duration-300 group-hover:-translate-y-1" strokeWidth={1.4} />
-                  <div className="mb-4 font-serif text-base font-semibold leading-snug text-[#0d4a31]">{titleAr}</div>
-                  <div className="flex gap-2 flex-wrap">
-                    {REGION_ORDER.map((region: Region) => {
-                      const service = services[region];
-                      if (!service) return null;
-                      const label = region === "sa" ? "السعودية" : region === "syr" ? "سوريا" : "الإمارات";
-                      return <Link key={region} href={`/${region}/ar/services/${service.slug}`} className="text-xs px-2 py-0.5 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors">{label}</Link>;
-                    })}
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          <div className="flex justify-center gap-4 flex-wrap">
-            <Link href="/sa/ar/services" className="inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-8 py-3 hover:bg-primary/90 transition-colors">
-              <ArrowLeft className="h-4 w-4" /> جميع خدمات السعودية
-            </Link>
-            <Link href="/syr/ar/services" className="inline-flex items-center gap-2 border border-border text-foreground text-sm font-semibold px-8 py-3 hover:border-primary/50 hover:shadow-sm transition-all">
-              <ArrowLeft className="h-4 w-4" /> جميع خدمات سوريا
-            </Link>
-            <Link href="/uae/ar/services" className="inline-flex items-center gap-2 border border-border text-foreground text-sm font-semibold px-8 py-3 hover:border-primary/50 hover:shadow-sm transition-all">
-              <ArrowLeft className="h-4 w-4" /> جميع خدمات الإمارات
-            </Link>
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              { href: "/sa/ar", name: "المملكة العربية السعودية", body: "إرشاد قانوني خاص بالسعودية في مسائل الأسرة والتجارة والعمل والعقارات والاستثمار والنزاعات.", icon: "🇸🇦" },
+              { href: "/syr/ar", name: "سوريا", body: "استشارات ومراجعة مستندات وإرشاد منظم وفق القانون السوري للأفراد والأسر والشركات.", icon: "🇸🇾" },
+              { href: "/uae/ar", name: "الإمارات العربية المتحدة", body: "إرشاد قانوني وفق الأطر الاتحادية والمحلية والبر الرئيسي والمناطق الحرة في الإمارات.", icon: "🇦🇪" },
+            ].map(({ href, name, body, icon }) => (
+              <Link key={href} href={href} className="group flex min-h-64 flex-col border border-[#0d4a31]/15 bg-[#f8faf8] p-7 transition-all hover:-translate-y-1 hover:border-[#b58b32] hover:bg-[#eef4f0] hover:shadow-[0_18px_45px_rgba(0,61,34,0.09)]">
+                <div className="mb-7 flex items-start justify-between"><span className="text-4xl" aria-hidden="true">{icon}</span><Globe className="h-6 w-6 text-[#aa7e28]" strokeWidth={1.4} /></div>
+                <h3 className="font-serif text-2xl font-semibold text-[#0d4a31] group-hover:text-primary">{name}</h3>
+                <p className="mt-5 text-sm leading-7 text-muted-foreground">{body}</p>
+                <span className="mt-auto flex items-center gap-2 pt-7 text-sm font-semibold text-primary">افتح المركز الإقليمي <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" /></span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -607,25 +588,12 @@ export default function ArRegionPicker() {
                 </ul>
               </div>
               <div>
-                <div className="font-semibold text-foreground mb-4">أبرز الخدمات</div>
+                <div className="font-semibold text-foreground mb-4">المصادر</div>
                 <ul className="space-y-2.5">
-                  <li><Link href="/sa/ar/services/family-law" className="hover:text-primary transition-colors">قانون الأسرة</Link></li>
-                  <li><Link href="/sa/ar/services/employment-law" className="hover:text-primary transition-colors">قانون العمل</Link></li>
-                  <li><Link href="/sa/ar/services/real-estate" className="hover:text-primary transition-colors">القانون العقاري</Link></li>
-                  <li><Link href="/sa/ar/services/business-law" className="hover:text-primary transition-colors">القانون التجاري</Link></li>
-                  <li><Link href="/sa/ar/services/foreign-investment" className="hover:text-primary transition-colors">الاستثمار الأجنبي</Link></li>
-                  <li><Link href="/sa/ar/services/criminal-law" className="hover:text-primary transition-colors">القانون الجنائي</Link></li>
-                </ul>
-              </div>
-              <div>
-                <div className="font-semibold text-foreground mb-4">خدمات الإمارات</div>
-                <ul className="space-y-2.5">
-                  <li><Link href="/uae/ar/services/corporate-commercial" className="hover:text-primary transition-colors">الشركات والتجارة</Link></li>
-                  <li><Link href="/uae/ar/services/foreign-investment-market-entry" className="hover:text-primary transition-colors">الاستثمار الأجنبي</Link></li>
-                  <li><Link href="/uae/ar/services/commercial-contracts" className="hover:text-primary transition-colors">العقود التجارية</Link></li>
-                  <li><Link href="/uae/ar/services/employment-labour" className="hover:text-primary transition-colors">العمل والعمال</Link></li>
-                  <li><Link href="/uae/ar/services/real-estate-construction" className="hover:text-primary transition-colors">العقارات والإنشاءات</Link></li>
-                  <li><Link href="/uae/ar/services/family-personal-status" className="hover:text-primary transition-colors">الأسرة والأحوال الشخصية</Link></li>
+                  <li><Link href="/blog" className="hover:text-primary transition-colors">مركز المعرفة</Link></li>
+                  <li><Link href="/ar/our-work" className="hover:text-primary transition-colors">دراسات الحالة والأعمال</Link></li>
+                  <li><Link href="/sa/ar/about" className="hover:text-primary transition-colors">عن كاونسلو</Link></li>
+                  <li><Link href="/sa/ar/contact" className="hover:text-primary transition-colors">ابدأ استشارة</Link></li>
                 </ul>
               </div>
             </div>

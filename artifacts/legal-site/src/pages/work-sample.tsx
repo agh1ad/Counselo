@@ -5,9 +5,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized } from "@/lib/work-samples";
+import { getRegionalLegalSources } from "@/lib/regional-legal-sources";
 import type { InitialBlogPost } from "@/App";
 import { fetchPublicJson, publicApiUrl } from "@/lib/public-api";
-import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
 
 declare global {
   interface Window {
@@ -20,7 +21,7 @@ declare global {
 export default function WorkSample() {
   const { slug = "" } = useParams<{ slug: string }>();
   const { lang, isRTL } = useLanguage();
-  const { regionPrefix } = useRegion();
+  const { region, regionPrefix } = useRegion();
   const { data: sample, isLoading, isError } = useQuery<WorkSamplePublic>({
     queryKey: ["work-sample", slug],
     queryFn: () => fetchPublicJson<WorkSamplePublic>(`/api/work/${encodeURIComponent(slug)}`),
@@ -83,25 +84,50 @@ export default function WorkSample() {
   const fileUrl = publicApiUrl(`/api/work/${encodeURIComponent(sample.slug)}/file`);
   const canonicalPath = `${workBasePath}/${sample.slug}`;
   const canonical = `https://counselo-legal.com${canonicalPath}`;
-  const relatedPosts = (sample.relatedBlogSlugs ?? [])
+  const validServiceSlugs = new Set(getServicesForRegion(region).map((service) => service.slug));
+  const relatedServiceSlugs = (sample.relatedServiceSlugs ?? [])
+    .filter((serviceSlug) => validServiceSlugs.has(serviceSlug))
+    .slice(0, 2);
+  const relatedPostsAssigned = (sample.relatedBlogSlugs ?? [])
     .map((relatedSlug) => allPosts.find((candidate) => candidate.slug === relatedSlug))
-    .filter((candidate): candidate is InitialBlogPost => Boolean(candidate));
+    .filter((candidate): candidate is InitialBlogPost => candidate !== undefined && candidate.published !== false);
+  const relatedPosts = relatedPostsAssigned.length > 0
+    ? relatedPostsAssigned.slice(0, 3)
+    : allPosts
+      .filter((candidate) => candidate.published !== false)
+      .filter((candidate) => relatedServiceSlugs.some((serviceSlug) => candidate.relatedServiceSlugs?.includes(serviceSlug)))
+      .slice(0, 3);
   const relatedWork = (sample.relatedWorkSlugs ?? [])
     .map((relatedSlug) => allWork.find((candidate) => candidate.slug === relatedSlug))
-    .filter((candidate): candidate is WorkSamplePublic => Boolean(candidate));
+    .filter((candidate): candidate is WorkSamplePublic => candidate !== undefined && candidate.slug !== sample.slug && candidate.published !== false)
+    .slice(0, 3);
+  const relatedService = relatedServiceSlugs[0]
+    ? getServiceDefinition(relatedServiceSlugs[0], region)
+    : undefined;
+  const legalSources = relatedService ? getRegionalLegalSources(region, relatedService.slug) : [];
   const schema = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     "@id": `${canonical}#work-sample`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${canonical}#webpage` },
     name: title,
+    headline: title,
     description: seoDescription,
     url: canonical,
     dateCreated: sample.date,
     dateModified: sample.updatedAt || sample.date,
     inLanguage: lang,
-    genre: workType,
+    genre: ["Legal case study", workType].filter(Boolean),
     contentLocation: jurisdiction,
+    about: relatedService
+      ? { "@type": "Service", name: localized(relatedService.titleEn, relatedService.titleAr, lang), url: `https://counselo-legal.com${regionPrefix}/services/${relatedService.slug}` }
+      : { "@type": "Thing", name: jurisdiction },
+    keywords: [workType, jurisdiction, relatedService && localized(relatedService.titleEn, relatedService.titleAr, lang), "legal case study"].filter(Boolean),
+    citation: legalSources.map((source) => source.href),
     creator: { "@type": "Organization", "@id": COUNSELO_ENTITY_IDS.organization, name: "CounselO", alternateName: "كاونسلو" },
+    author: { ...OMAR_AL_BAGHDADI, "@type": "Person" },
+    publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
+    isPartOf: { "@id": COUNSELO_ENTITY_IDS.website },
     encoding: { "@type": "MediaObject", contentUrl: `https://counselo-legal.com${fileUrl}`, encodingFormat: sample.fileMimeType },
   };
   const breadcrumbSchema = {
@@ -158,11 +184,15 @@ export default function WorkSample() {
         <div className="border-t border-border pt-10">
           <h2 className="text-2xl font-serif font-bold mb-6">{ar ? "روابط ومحتوى ذو صلة" : "Related services and content"}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {(sample.relatedServiceSlugs ?? []).map((serviceSlug) => (
+            {relatedServiceSlugs.map((serviceSlug) => {
+              const service = getServiceDefinition(serviceSlug, region);
+              if (!service) return null;
+              return (
               <Link key={serviceSlug} href={`${regionPrefix}/services/${serviceSlug}`} className="border border-border bg-card p-5 font-semibold text-primary hover:border-primary">
-                {ar ? "الخدمة القانونية ذات الصلة" : "Related legal service"}
+                {localized(service.titleEn, service.titleAr, lang)}
               </Link>
-            ))}
+              );
+            })}
             {relatedPosts.map((post) => {
               const useArabic = Boolean(post.titleAr) && (ar || !post.titleEn);
               return <Link key={post.slug} href={`/blog/${post.slug}`} className="border border-border bg-card p-5 font-semibold hover:border-primary">{useArabic ? post.titleAr : post.titleEn}</Link>;

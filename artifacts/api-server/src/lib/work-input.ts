@@ -1,4 +1,5 @@
 import type { InsertWorkSample, WorkSample } from "@workspace/db";
+import { publicTestimonial, testimonialMetadataSchema, type TestimonialMetadata } from "@workspace/api-zod";
 
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
@@ -13,6 +14,7 @@ const ALLOWED_MIME_TYPES = new Set([
 export class WorkInputError extends Error {}
 
 type ExistingFile = Pick<WorkSample, "fileName" | "fileMimeType" | "fileSize" | "fileData">;
+type ExistingTestimonialState = Pick<WorkSample, "testimonials" | "testimonialGovernanceVersion">;
 
 function requireRecord(value: unknown): Record<string, unknown> {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
@@ -54,7 +56,7 @@ function brandedTitle(title: string, arabic: boolean): string {
 
 export function parseWorkSampleInput(
   input: unknown,
-  options: { existingSlug?: string; existingFile?: ExistingFile } = {},
+  options: { existingSlug?: string; existingFile?: ExistingFile; existingTestimonials?: ExistingTestimonialState } = {},
 ): InsertWorkSample {
   const body = requireRecord(input);
   const slug = stringField(body, "slug", 200);
@@ -80,6 +82,18 @@ export function parseWorkSampleInput(
   const outcomeAr = stringField(body, "outcomeAr", 1800);
   const published = body.published === true || body.published === "true";
   const confidentialityConfirmed = body.confidentialityConfirmed === true || body.confidentialityConfirmed === "true";
+  const governanceVersion = body.testimonialGovernanceVersion === 1 || body.testimonialGovernanceVersion === "1"
+    ? 1
+    : options.existingTestimonials?.testimonialGovernanceVersion ?? 0;
+  let testimonials: TestimonialMetadata[] = options.existingTestimonials?.testimonials ?? [];
+  if (governanceVersion === 1 && body.testimonials !== undefined) {
+    if (!Array.isArray(body.testimonials)) throw new WorkInputError("testimonials must be an array");
+    try {
+      testimonials = body.testimonials.map((testimonial) => testimonialMetadataSchema.parse(testimonial));
+    } catch {
+      throw new WorkInputError("Each testimonial must include text, jurisdiction, service, sourceType, verification, consent, anonymization, and internalReference metadata");
+    }
+  }
 
   if (!titleEn && !titleAr) throw new WorkInputError("Add an English or Arabic title");
   if (titleEn && !summaryEn) throw new WorkInputError("English title requires an English summary");
@@ -175,6 +189,8 @@ export function parseWorkSampleInput(
     fileSize,
     fileData,
     confidentialityConfirmed,
+    testimonials,
+    testimonialGovernanceVersion: governanceVersion,
     featured: body.featured === true || body.featured === "true",
     published,
   };
@@ -182,5 +198,8 @@ export function parseWorkSampleInput(
 
 export function publicWorkSample(sample: WorkSample): Omit<WorkSample, "fileData" | "confidentialityConfirmed"> & { hasFile: boolean } {
   const { fileData, confidentialityConfirmed: _confirmed, ...safe } = sample;
-  return { ...safe, hasFile: Boolean(fileData) };
+  const testimonials = sample.testimonialGovernanceVersion === 1
+    ? sample.testimonials.map(publicTestimonial)
+    : sample.testimonials.map(({ internalReference: _internalReference, ...legacy }) => legacy);
+  return { ...safe, testimonials, hasFile: Boolean(fileData) } as Omit<WorkSample, "fileData" | "confidentialityConfirmed"> & { hasFile: boolean };
 }

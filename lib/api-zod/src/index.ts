@@ -4,6 +4,7 @@ export * from "./region-services";
 export * from "./regional-seo";
 export * from "./public-site-policy";
 export * from "./article-provenance";
+export * from "./testimonial-governance";
 export * from "./entity-architecture";
 export * from "./consultation-products";
 export * from "./platform-positioning";

@@ -63,7 +63,7 @@ export const enUae = {
       badge: "Federal · Emirate-level · Mainland · Free zones",
     },
     stats: [
-      { stat: "20,000+", label: "Regional Cases & Consultations" },
+      { stat: "20,000+", label: "Legal Matters & Consultations" },
       { stat: "30+", label: "Years of Regional Experience" },
       { stat: "22", label: "UAE Practice Areas" },
       { stat: "2", label: "Service Languages" },
@@ -81,15 +81,15 @@ export const enUae = {
       eyebrow: "Our Founder",
       heading: "Lawyer & Legal Counsel Omar Al-Baghdadi",
       subheading: "Senior Counsel · Regional Experience · Mentor to 40+ Lawyers",
-      bio1: "Lawyer and Legal Counsel Omar Al-Baghdadi has more than 30 years of regional legal experience across litigation, commercial disputes, contracts, arbitration and cross-border matters. He founded CounselO to make structured legal guidance easier to access online.",
+      bio1: "Lawyer and Legal Counsel Omar Al-Baghdadi has 30+ years of legal practice across litigation, commercial disputes, contracts, arbitration and cross-border matters. He founded CounselO to make structured legal guidance easier to access online.",
       bio2: "He graduated from the Faculty of Law at Damascus University in 1996 and developed his practice within a legal family whose professional history began with Al-Baghdadi Law Firm in 1957.",
-      bio3: "His regional work has included more than 20,000 cases and consultations for individuals, businesses and institutions. UAE matters are reviewed according to the competent federal, emirate-level, mainland or free-zone framework and the licensing requirements applicable to any formal representation.",
+      bio3: "His regional work has included 20,000+ legal matters and consultations for individuals, businesses and institutions. UAE matters are reviewed according to the competent federal, emirate-level, mainland or free-zone framework and the licensing requirements applicable to any formal representation.",
       bio4: "He has trained and supervised more than 40 lawyers. CounselO applies that senior review discipline to its UAE consultation process while avoiding any implication that an online consultation alone constitutes local court representation.",
       credentials: [
         "Graduate, Faculty of Law — Damascus University (1996)",
         "Regional legal leadership; local representation separately scoped",
         "Holder of the title \"Ustaz\" (Senior Counsel), conferred by the Syrian Bar Association",
-        "30+ years of regional legal experience",
+        "30+ years of legal practice",
         "20,000+ regional cases and consultations",
         "Mentor and supervisor to 40+ lawyers",
         "Experience in commercial, civil, administrative, arbitration and cross-border matters",
@@ -97,7 +97,7 @@ export const enUae = {
       ],
       stats: [
         { stat: "1996", label: "Legal Career Began" },
-        { stat: "20,000+", label: "Regional Matters" },
+        { stat: "20,000+", label: "Legal Matters & Consultations" },
         { stat: "40+", label: "Lawyers Mentored" },
         { stat: "30+", label: "Years of Experience" },
       ],
@@ -146,7 +146,7 @@ export const enUae = {
       h1b: "for the UAE — Fast & Reliable.",
       desc: "CounselO is an online legal consultation platform serving the United Arab Emirates — delivering expert legal guidance for individuals, families, businesses and investors across federal, emirate-level, mainland and free-zone matters",
       descBold: "without leaving your desk.",
-      subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in the UAE — with a target professional response time of 24 hours. We identify the relevant UAE framework before advising. 30+ years regional experience, 20,000+ cases and consultations.",
+      subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in the UAE — with a target professional response time of 24 hours. We identify the relevant UAE framework before advising. 30+ years of legal practice, 20,000+ legal matters and consultations.",
       chips: ["✓ UAE-focused legal guidance", "✓ Arabic & English", "✓ Individuals & Businesses", "✓ Online across all Emirates"],
     },
     platform: {
@@ -161,7 +161,7 @@ export const enUae = {
     },
     about: {
       ...en.home.about,
-      p1: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi, a senior advocate with more than 30 years of legal experience across the region. The UAE service brings that experience to matters involving federal law, emirate-level authorities, mainland businesses and financial free zones.",
+      p1: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi, a senior advocate with 30+ years of legal practice across the region. The UAE service brings that experience to matters involving federal law, emirate-level authorities, mainland businesses and financial free zones.",
       p2: "The platform coordinates UAE-focused legal analysis across corporate, commercial, employment, property, family, disputes and regulated-sector matters, with senior review and a clear scope for each consultation.",
       p3: "Whether you are an individual, a UAE company, a founder or a foreign investor, CounselO provides a direct bilingual route to structured legal guidance without unnecessary office visits.",
       founderTeamLine: "Leading a professional legal network across the UAE and the region",
@@ -203,7 +203,7 @@ export const enUae = {
       features: [
         { title: "Jurisdiction First", desc: "We identify the Emirate, authority, court, mainland or free-zone framework before recommending a route." },
         { title: "Confidential & Structured", desc: "Your facts and documents are reviewed through a clear professional consultation process." },
-        { title: "Senior Legal Oversight", desc: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi, with more than 30 years of regional legal experience." },
+        { title: "Senior Legal Oversight", desc: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice." },
         { title: "Arabic & English", desc: "Bilingual legal guidance for UAE residents, businesses and international clients." },
       ],
     },

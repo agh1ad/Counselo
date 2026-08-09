@@ -14,6 +14,8 @@ import {
   blogPath,
   hasQualityBilingualBlogContent,
   COUNSELO_ENTITY_IDS,
+  getServiceDefinition,
+  getServicesForRegion,
 } from "@workspace/api-zod";
 
 const BLOG_CATEGORY_TO_SERVICE: Record<string, { slug: string; nameEn: string; nameAr: string }> = {
@@ -159,7 +161,7 @@ export default function BlogPost() {
       minRead: "min read",
       consultHeading: "Need Legal Advice?",
       consultDesc:
-        "CounselO offers confidential initial online consultations for its supported jurisdictions via WhatsApp, email or the consultation form. Filing, attendance and reserved representation work are scoped separately where required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of legal practice, 20,000+ matters handled.",
+        "CounselO offers confidential initial online consultations for its supported jurisdictions via WhatsApp, email or the consultation form. Filing, attendance and reserved representation work are scoped separately where required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of legal practice, 20,000+ legal matters and consultations handled.",
       whatsapp: "Chat on WhatsApp",
       consultation: "Start Consultation",
       disclaimer:
@@ -173,7 +175,7 @@ export default function BlogPost() {
       back: "العودة إلى المدونة",
       minRead: "د قراءة",
       consultHeading: "هل تحتاج إلى مشورة قانونية؟",
-      consultDesc: "يقدم كاونسلو استشارات سرية عبر واتساب أو البريد الإلكتروني — دون الحاجة لزيارة مكتب. من تأسيس المحامي والمستشار القانوني عمر البغدادي — خبرة قانونية تزيد على 30 عاماً.",
+      consultDesc: "يقدم كاونسلو استشارات سرية عبر واتساب أو البريد الإلكتروني — دون الحاجة لزيارة مكتب. من تأسيس المحامي والمستشار القانوني عمر البغدادي — خبرة قانونية 30+ عاماً من الممارسة القانونية.",
       whatsapp: "تواصل عبر واتساب",
       consultation: "ابدأ الاستشارة",
       disclaimer:
@@ -251,9 +253,19 @@ export default function BlogPost() {
     jurisdiction: contentType === "legal-guidance" ? (post.jurisdiction || fallbackProvenance.jurisdiction) : undefined,
     lastSubstantiveReviewAt: post.lastSubstantiveReviewAt || fallbackProvenance.lastSubstantiveReviewAt,
   };
-  const relatedPosts = (post.relatedBlogSlugs ?? [])
+  const validRegionServices = new Set(getServicesForRegion(articleRegion).map((service) => service.slug));
+  const categoryService = BLOG_CATEGORY_TO_SERVICE[post.categoryEn] ?? BLOG_CATEGORY_TO_SERVICE[post.categoryAr];
+  const articleServiceSlug = (post.relatedServiceSlugs ?? []).find((slug) => validRegionServices.has(slug))
+    ?? (categoryService && validRegionServices.has(categoryService.slug) ? categoryService.slug : undefined);
+  const relatedPostsAssigned = (post.relatedBlogSlugs ?? [])
     .map((relatedSlug) => allPosts.find((candidate) => candidate.slug === relatedSlug))
-    .filter((candidate): candidate is ApiPost => Boolean(candidate));
+    .filter((candidate): candidate is ApiPost => candidate !== undefined && candidate.slug !== post.slug && candidate.published !== false);
+  const relatedPosts = relatedPostsAssigned.length > 0
+    ? relatedPostsAssigned.slice(0, 3)
+    : allPosts
+      .filter((candidate) => candidate.slug !== post.slug && candidate.published !== false)
+      .filter((candidate) => articleServiceSlug && candidate.relatedServiceSlugs?.includes(articleServiceSlug))
+      .slice(0, 3);
   const relatedWork = (post.relatedWorkSlugs ?? [])
     .map((relatedSlug) => allWork.find((candidate) => candidate.slug === relatedSlug))
     .filter((candidate): candidate is WorkSamplePublic => Boolean(candidate));
@@ -515,15 +527,13 @@ export default function BlogPost() {
               </div>
 
               {(() => {
-                const assignedSlug = post.relatedServiceSlugs?.[0];
-                const categoryService = BLOG_CATEGORY_TO_SERVICE[post.categoryEn] ?? BLOG_CATEGORY_TO_SERVICE[post.categoryAr];
-                const svc = assignedSlug
+                const svc = articleServiceSlug
                   ? {
-                      slug: assignedSlug,
-                      nameEn: categoryService?.slug === assignedSlug ? categoryService.nameEn : "Related Legal Service",
-                      nameAr: categoryService?.slug === assignedSlug ? categoryService.nameAr : "الخدمة القانونية ذات الصلة",
+                      slug: articleServiceSlug,
+                      nameEn: getServiceDefinition(articleServiceSlug, articleRegion)?.titleEn ?? categoryService?.nameEn ?? "Related service",
+                      nameAr: getServiceDefinition(articleServiceSlug, articleRegion)?.titleAr ?? categoryService?.nameAr ?? "الخدمة ذات الصلة",
                     }
-                  : categoryService;
+                  : undefined;
                 if (!svc) return null;
                 return (
                   <div className="border border-border p-5 mt-4">

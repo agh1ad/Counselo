@@ -1,3 +1,5 @@
+import { isPublishableTestimonial, publicTestimonial, type TestimonialMetadata } from "@workspace/api-zod";
+
 export interface WorkSamplePublic {
   id: number;
   slug: string;
@@ -33,6 +35,8 @@ export interface WorkSamplePublic {
   relatedServiceSlugs: string[];
   relatedBlogSlugs: string[];
   relatedWorkSlugs: string[];
+  testimonials: Array<Omit<TestimonialMetadata, "internalReference">>;
+  testimonialGovernanceVersion: number;
   aiLinksAssignedAt?: string;
 }
 
@@ -44,6 +48,10 @@ export function formatWorkDate(date: string, lang: "en" | "ar"): string {
   const parsed = new Date(`${date}T00:00:00`);
   if (Number.isNaN(parsed.getTime())) return date;
   return parsed.toLocaleDateString(lang === "ar" ? "ar" : "en-GB", { year: "numeric", month: "long" });
+}
+
+export function governedPublicTestimonials(testimonials: TestimonialMetadata[] = []): Array<Omit<TestimonialMetadata, "internalReference">> {
+  return testimonials.filter(isPublishableTestimonial).map(publicTestimonial);
 }
 
 export function documentLanguageLabel(value: WorkSamplePublic["documentLanguage"], lang: "en" | "ar"): string {

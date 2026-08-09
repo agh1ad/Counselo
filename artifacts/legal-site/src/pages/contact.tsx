@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Clock, Mail, MapPin, Phone, CreditCard, Paperclip, X, FileText, ImageIcon, CheckCircle, Loader2, AlertCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
+import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
 import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { trackEvent } from "@/lib/analytics";
@@ -568,6 +569,8 @@ export default function Contact() {
           </div>
         </div>
       </section>}
+
+      <JurisdictionDisclosure jurisdiction={region} />
     </div>
   );
 }

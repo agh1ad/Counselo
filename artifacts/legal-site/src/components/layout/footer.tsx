@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { ArrowRight, Mail, BookOpen, Landmark, Building2, Mountain, Globe2, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion, type Region } from "@/contexts/RegionContext";
+import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
 
 const brandMark = "/images/optimized/counselo-footer-logo.png";
 
@@ -81,6 +82,8 @@ export function Footer() {
           {regional.jurisdictions[lang].map(([Icon, label]) => <li key={label}><Icon aria-hidden="true" /><span>{label}</span></li>)}
         </ul>
       </section>
+
+      {!isSharedPath && <JurisdictionDisclosure jurisdiction={region} compact />}
 
       <div className="uae-reference-footer__main">
         <div className="uae-reference-footer__brand">

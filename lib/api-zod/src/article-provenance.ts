@@ -28,10 +28,10 @@ export type ArticleProvenance = {
   correctionUrl: string;
 };
 
-const AUTHOR = "CounselO Legal team";
-const AUTHOR_AR = "فريق كاونسلو القانوني";
 const REVIEWER = "Lawyer and Legal Counsel Omar Al-Baghdadi";
 const REVIEWER_AR = "المحامي والمستشار القانوني عمر البغدادي";
+const AUTHOR = REVIEWER;
+const AUTHOR_AR = REVIEWER_AR;
 
 const SOURCES: Record<Region, ArticleSource[]> = {
   sa: [
@@ -89,6 +89,29 @@ const SAUDI_TOPIC_SOURCES: Record<string, ArticleSource> = {
   arbitration: { titleEn: "Saudi Center for Commercial Arbitration", titleAr: "المركز السعودي للتحكيم التجاري", href: "https://sadr.org/" },
 };
 
+const SYRIA_TOPIC_SOURCES: Record<string, ArticleSource> = {
+  "family-law": SOURCES.syr[0],
+  "business-law": SOURCES.syr[1],
+  "real-estate": SOURCES.syr[1],
+  "employment-law": SOURCES.syr[1],
+  "foreign-investment": SOURCES.syr[1],
+  "administrative-law": SOURCES.syr[0],
+  arbitration: SOURCES.syr[1],
+  enforcement: SOURCES.syr[0],
+  "companies-law": SOURCES.syr[1],
+  contracts: SOURCES.syr[1],
+  "criminal-law": SOURCES.syr[0],
+  "banking-finance": SOURCES.syr[1],
+  "intellectual-property": SOURCES.syr[1],
+  "tax-zakat": SOURCES.syr[1],
+  "cyber-law": SOURCES.syr[1],
+  "medical-malpractice": SOURCES.syr[0],
+  "insurance-law": SOURCES.syr[1],
+  "civil-law": SOURCES.syr[0],
+  "civil-procedure": SOURCES.syr[0],
+  "criminal-procedure": SOURCES.syr[0],
+};
+
 function inferRegion(text: string): Region {
   if (/United Arab Emirates|\bUAE\b|Dubai|Abu Dhabi|الإمارات|دبي|أبو ظبي/i.test(text)) return "uae";
   if (/Syria|Syrian|Damascus|سوريا|السوري|دمشق/i.test(text)) return "syr";
@@ -107,7 +130,10 @@ function sourcesForArticle(region: Region, relatedServiceSlugs: string[] = []): 
     const topicSource = relatedServiceSlugs.map((slug) => UAE_TOPIC_SOURCES[slug]).find(Boolean);
     return topicSource ? [topicSource, SOURCES.uae[0]] : SOURCES.uae;
   }
-  if (region !== "sa") return SOURCES[region];
+  if (region === "syr") {
+    const topicSource = relatedServiceSlugs.map((slug) => SYRIA_TOPIC_SOURCES[slug]).find(Boolean);
+    return topicSource ? [topicSource, SOURCES.syr[topicSource === SOURCES.syr[0] ? 1 : 0]] : SOURCES.syr;
+  }
   const topicSource = relatedServiceSlugs.map((slug) => SAUDI_TOPIC_SOURCES[slug]).find(Boolean);
   return topicSource ? [topicSource, SOURCES.sa[0]] : SOURCES.sa;
 }

@@ -42,14 +42,26 @@
     {
       "id": "experience-volume",
       "category": "quantitative",
-      "approvedWordingEn": "CounselO states that its legal leadership and team have handled more than 20,000 cases and consultations across the region.",
-      "approvedWordingAr": "تذكر كاونسلو أن قيادتها القانونية وفريقها تعاملا مع أكثر من 20,000 قضية واستشارة في المنطقة.",
+      "approvedWordingEn": "20,000+ legal matters and consultations",
+      "approvedWordingAr": "أكثر من 20,000 مسألة واستشارة قانونية",
       "evidenceOwner": "Managing partner and operations lead",
       "evidenceLocation": "Matter and consultation archive with deduplication methodology",
       "jurisdictions": ["uae", "sa", "syr"],
       "lastVerified": "2026-08-08",
       "reviewBy": "2026-11-08",
       "requiredDisclaimer": "Use as a stated experience figure, not as an independently audited result or guarantee of outcome."
+    },
+    {
+      "id": "professional-experience",
+      "category": "quantitative",
+      "approvedWordingEn": "30+ years of legal practice",
+      "approvedWordingAr": "30+ عاماً من الممارسة القانونية",
+      "evidenceOwner": "Legal leadership",
+      "evidenceLocation": "Approved professional biography and verified professional-start record dated 1996",
+      "jurisdictions": ["uae", "sa", "syr"],
+      "lastVerified": "2026-08-09",
+      "reviewBy": "2026-11-09",
+      "requiredDisclaimer": "Derived from the approved professional-start year of 1996; do not imply jurisdiction-specific licensing or court rights."
     },
     {
       "id": "mentored-lawyers",

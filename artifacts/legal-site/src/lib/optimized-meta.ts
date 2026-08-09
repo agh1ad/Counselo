@@ -170,7 +170,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   "/sa/privacy-policy": {
     title: "Privacy Policy | Counselo Saudi Arabia",
     description:
-      "Learn how Counselo collects, protects, and handles legal consultation data in Saudi Arabia while maintaining full client confidentiality.",
+      "Learn how Counselo collects, protects, and handles legal consultation data in Saudi Arabia under applicable professional, privacy and data-protection obligations.",
   },
   "/sa/ar/privacy-policy": {
     title: "سياسة الخصوصية | كاونسلو السعودية",
@@ -180,7 +180,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   "/syr/privacy-policy": {
     title: "Privacy Policy | Counselo Syria",
     description:
-      "Learn how Counselo collects, protects, and handles legal consultation data in Syria while maintaining full client confidentiality.",
+      "Learn how Counselo collects, protects, and handles legal consultation data in Syria under applicable professional, privacy and data-protection obligations.",
   },
   "/syr/ar/privacy-policy": {
     title: "سياسة الخصوصية | كاونسلو سوريا",
