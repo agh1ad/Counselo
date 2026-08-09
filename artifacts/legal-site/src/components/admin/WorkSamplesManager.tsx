@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import type { TestimonialMetadata } from "@workspace/api-zod";
 import { AlertTriangle, ArrowLeft, BriefcaseBusiness, CheckCircle2, Edit2, Eye, FileCheck2, Plus, Save, Trash2, Upload, X } from "lucide-react";
 
 const API = "/api";
@@ -38,8 +37,6 @@ interface WorkSampleAdmin {
   featured: boolean;
   published: boolean;
   hasFile: boolean;
-  testimonials: TestimonialMetadata[];
-  testimonialGovernanceVersion: number;
 }
 
 type WorkForm = Omit<WorkSampleAdmin, "id" | "hasFile"> & { fileData?: string };
@@ -54,8 +51,6 @@ const emptyWork = (): WorkForm => ({
   seoTitleEn: "", seoTitleAr: "", seoDescriptionEn: "", seoDescriptionAr: "",
   documentLanguage: "ar", fileName: "", fileMimeType: "", fileSize: 0,
   confidentialityConfirmed: false, featured: false, published: false,
-  testimonials: [],
-  testimonialGovernanceVersion: 1,
 });
 
 const ARABIC_MAP: Record<string, string> = {
@@ -173,7 +168,6 @@ function WorkEditor({ initial, token, onBack, onSaved }: { initial: WorkForm & {
 
           <div className="bg-white border border-gray-200 rounded-xl p-5"><h2 className="font-bold text-gray-900 mb-1">Search metadata</h2><p className="text-xs text-gray-500 mb-4">Automatically follows the title and summary; you can refine it afterward.</p><div className="space-y-4" dir={lang === "ar" ? "rtl" : "ltr"}><Field label={lang === "ar" ? "عنوان SEO" : "SEO title"} value={value("seoTitle")} onChange={(v) => set(key("seoTitle"), v)} dir={lang === "ar" ? "rtl" : "ltr"} /><Field label={lang === "ar" ? "وصف SEO" : "SEO description"} value={value("seoDescription")} onChange={(v) => set(key("seoDescription"), v)} textarea rows={3} dir={lang === "ar" ? "rtl" : "ltr"} /></div></div>
 
-          <div className="bg-white border border-gray-200 rounded-xl p-5"><h2 className="font-bold text-gray-900 mb-1">Testimonials</h2><p className="text-xs text-gray-500 mb-3">Each real testimonial must include the governance metadata. AI may classify jurisdiction, service, and source type; verification and consent remain human approvals.</p><textarea defaultValue={JSON.stringify(form.testimonials ?? [], null, 2)} onBlur={(event) => { try { const parsed = JSON.parse(event.target.value) as TestimonialMetadata[]; if (!Array.isArray(parsed)) throw new Error(); set("testimonials", parsed); } catch { setMessage({ text: "Testimonials must be a valid JSON array with governance metadata.", error: true }); } }} rows={12} className="w-full border border-gray-200 rounded-lg px-3 py-2 text-xs font-mono" spellCheck={false} aria-label="Testimonial governance metadata" /></div>
         </main>
 
         <aside className="space-y-5">
