@@ -30,7 +30,8 @@ test.afterEach(() => {
   globalThis.fetch = originalFetch;
   if (originalKey === undefined) delete process.env["OPENAI_API_KEY"];
   else process.env["OPENAI_API_KEY"] = originalKey;
-  if (originalModel === undefined) delete process.env["OPENAI_TRANSLATION_MODEL"];
+  if (originalModel === undefined)
+    delete process.env["OPENAI_TRANSLATION_MODEL"];
   else process.env["OPENAI_TRANSLATION_MODEL"] = originalModel;
 });
 
@@ -88,18 +89,12 @@ test("fills missing English blog, repairs SEO, and requests strict structured ou
     patch.bodyEn,
     '<p style="text-align:left">Translated legal body.</p>',
   );
-  assert.equal(
-    patch.seoTitleAr,
-    "تكوين العقد في القانون السوري | كاونسلو",
-  );
+  assert.equal(patch.seoTitleAr, "تكوين العقد في القانون السوري | كاونسلو");
   assert.equal(patch.titleAr, undefined, "Arabic source must be preserved");
   assert.equal(requestBody?.model, "gpt-5.6-sol");
   assert.deepEqual(requestBody?.reasoning, { effort: "low" });
   assert.equal(requestBody?.text?.format?.strict, true);
-  assert.equal(
-    requestBody?.text?.format?.schema?.additionalProperties,
-    false,
-  );
+  assert.equal(requestBody?.text?.format?.schema?.additionalProperties, false);
 });
 
 test("fills missing Arabic work fields and preserves English source", async () => {
@@ -245,5 +240,53 @@ test("missing API key prevents incomplete bilingual publication", async () => {
   await assert.rejects(
     translateBlogForPublishing(incomplete),
     ContentTranslationError,
+  );
+});
+
+test("exposes OpenAI billing-limit details for HTTP 429 responses", async () => {
+  process.env["OPENAI_API_KEY"] = "test-key";
+  globalThis.fetch = async () =>
+    new Response(
+      JSON.stringify({
+        error: {
+          code: "project_spend_limit_exceeded",
+          message: "Project spend limit reached",
+          type: "insufficient_quota",
+        },
+      }),
+      { status: 429, headers: { "Content-Type": "application/json" } },
+    );
+
+  const incomplete = {
+    slug: "arabic-only-work",
+    date: "2026-07-29",
+    titleEn: "",
+    titleAr: "مراجعة عقد",
+    summaryEn: "",
+    summaryAr: "ملخص عربي",
+    workTypeEn: "",
+    workTypeAr: "مراجعة العقود",
+    jurisdictionEn: "",
+    jurisdictionAr: "المملكة العربية السعودية",
+    clientTypeEn: "",
+    clientTypeAr: "",
+    challengeEn: "",
+    challengeAr: "التحدي القانوني",
+    approachEn: "",
+    approachAr: "منهجية العمل",
+    outcomeEn: "",
+    outcomeAr: "",
+    seoTitleEn: "",
+    seoTitleAr: "",
+    seoDescriptionEn: "",
+    seoDescriptionAr: "",
+    published: false,
+  } satisfies InsertWorkSample;
+
+  await assert.rejects(
+    translateWorkForPublishing(incomplete),
+    (error: unknown) =>
+      error instanceof ContentTranslationError &&
+      error.message.includes("Project spend limit reached"),
   );
 });
