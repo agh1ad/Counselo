@@ -279,7 +279,6 @@ async function requestStructuredTranslation<T>(
       },
     ],
     text: {
-      verbosity: "low",
       format: {
         type: "json_schema",
         name,
