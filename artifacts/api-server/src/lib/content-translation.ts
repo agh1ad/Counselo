@@ -263,8 +263,7 @@ async function requestStructuredTranslation<T>(
   }
 
   const body = JSON.stringify({
-    model: process.env["OPENAI_TRANSLATION_MODEL"]?.trim() || "gpt-5.6-sol",
-    reasoning: { effort: "low" },
+    model: process.env["OPENAI_TRANSLATION_MODEL"]?.trim() || "gpt-4.1-mini",
     // The bilingual work schema is compact; reserving 64k output tokens can
     // exceed tokens-per-minute limits before the model has a chance to run.
     max_output_tokens: 16_000,
