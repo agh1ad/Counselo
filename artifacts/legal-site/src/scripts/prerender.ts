@@ -99,7 +99,7 @@ const serverEntryPath = resolve(distDir, "server/entry-server.js");
 // so Arabic content is a genuinely distinct, crawlable page. This is required
 // for hreflang annotations to point to real content in that language.
 // ROUTES is extended at runtime with DB blog/work slugs (see prerender()).
-const ROUTES: string[] = [...getPublicRouteInventory(), ...getLegalProblemPaths()];
+const ROUTES: string[] = [...getPublicRouteInventory(), ...getLegalProblemPaths(), "/blog/ar"];
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -262,7 +262,10 @@ function writeRoute(
 }
 
 function safeJson(value: unknown): string {
-  return JSON.stringify(value)
+  // JSON.stringify(undefined) returns undefined (not a string), so guard with ?? "null"
+  // to avoid calling .replace() on undefined and crashing the prerender step.
+  const json = JSON.stringify(value) ?? "null";
+  return json
     .replace(/</g, "\\u003c")
     .replace(/\u2028/g, "\\u2028")
     .replace(/\u2029/g, "\\u2029");
@@ -276,13 +279,13 @@ function safeJson(value: unknown): string {
 // ---------------------------------------------------------------------------
 
 const REDIRECT_ROUTES: Record<string, string> = {
-  // Old region-prefixed blog index pages → new single-URL blog index
+  // Old region-prefixed blog index pages → language-split blog index
   "/sa/blog": "/blog",
   "/syr/blog": "/blog",
   "/uae/blog": "/blog",
-  "/sa/ar/blog": "/blog",
-  "/syr/ar/blog": "/blog",
-  "/uae/ar/blog": "/blog",
+  "/sa/ar/blog": "/blog/ar",
+  "/syr/ar/blog": "/blog/ar",
+  "/uae/ar/blog": "/blog/ar",
 
   // Old SA-region blog post slugs (both EN and AR) → blog index
   // (these posts are removed from the DB; redirect to /blog rather than 404)

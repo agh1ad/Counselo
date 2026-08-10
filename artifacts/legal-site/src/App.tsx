@@ -308,6 +308,7 @@ function Router() {
         {/* Legacy routes (no prefix → defaults to SA/English) */}
         <Route path="/services/:id" component={ServiceDetail} />
         <Route path="/services" component={Services} />
+        <Route path="/blog/ar" component={Blog} />
         <Route path="/blog/en/:slug" component={BlogPost} />
         <Route path="/blog/ar/:slug" component={BlogPost} />
         <Route path="/blog/:slug" component={BlogPost} />
@@ -317,7 +318,6 @@ function Router() {
         <Route path="/our-work" component={OurWork} />
         <Route path="/about" component={About} />
         <Route path="/vision" component={Vision} />
-        <Route path="/blog/ar" component={Blog} />
         <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
         <Route path="/terms-of-service" component={TermsOfService} />

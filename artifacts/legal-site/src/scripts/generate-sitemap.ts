@@ -226,11 +226,12 @@ for (const region of ["sa", "syr", "uae"] as const) {
   }
 }
 
-// Blog index — single URL shared by all regions/languages.
+// Blog index — English and Arabic each have their own crawlable URL.
 entries.push("\n  <!-- ===== BLOG ===== -->");
-entries.push(
-  urlEntrySingleUrl(`${BASE_URL}${BLOG_BASE_PATH}`, "weekly", "0.8"),
-);
+const blogIndexEn = `${BASE_URL}${BLOG_BASE_PATH}`;
+const blogIndexAr = `${BASE_URL}${BLOG_BASE_PATH}/ar`;
+entries.push(urlEntryLanguageVariant(blogIndexEn, blogIndexEn, blogIndexAr, "weekly", "0.8"));
+entries.push(urlEntryLanguageVariant(blogIndexAr, blogIndexEn, blogIndexAr, "weekly", "0.8"));
 
 entries.push("\n  <!-- ===== OUR WORK ===== -->");
 const workIndexEn = `${BASE_URL}${WORK_BASE_PATH}`;
