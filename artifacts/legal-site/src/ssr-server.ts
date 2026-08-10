@@ -26,6 +26,8 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { RenderResult } from "./entry-server.js";
 import type { WorkSamplePublic } from "./lib/work-samples.js";
+import { resolveBlogRoute } from "./lib/blog-route-policy.js";
+import type { BlogLanguage } from "@workspace/api-zod";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -71,6 +73,8 @@ interface ApiPost {
   seoDescriptionAr?: string;
   bodyEn?: string;
   bodyAr?: string;
+  contentEn?: Array<{ body?: string }>;
+  contentAr?: Array<{ body?: string }>;
   categoryEn: string;
   categoryAr: string;
   readTime: number;
@@ -685,25 +689,64 @@ app.get("/", (_req: Request, res: Response) => {
 // URL space, so return a real permanent redirect instead of a 200 HTML page
 // containing a client/meta-refresh redirect. This consolidates link equity and
 // prevents crawlers from treating the legacy pages as soft duplicates.
-app.get(["/sa/blog", "/syr/blog"], (_req: Request, res: Response) => {
-  res.setHeader("Cache-Control", "public, max-age=86400");
-  return res.redirect(301, "/blog");
-});
-
 app.get(
-  ["/sa/blog/:slug", "/syr/blog/:slug"],
-  (req: Request, res: Response) => {
-    const slug = encodeURIComponent(String(req.params["slug"] ?? ""));
+  [
+    "/sa/blog",
+    "/syr/blog",
+    "/uae/blog",
+    "/sa/ar/blog",
+    "/syr/ar/blog",
+    "/uae/ar/blog",
+  ],
+  (_req: Request, res: Response) => {
     res.setHeader("Cache-Control", "public, max-age=86400");
-    return res.redirect(301, `/blog/${slug}`);
+    return res.redirect(301, "/blog");
   },
 );
 
-// 3. "/blog/:slug" — prerendered file if available, else fetch from API +
-//    build accurate meta tags, injecting window.__SSR_POST__ for hydration.
-app.get("/blog/:slug", async (req: Request, res: Response) => {
+app.get(
+  ["/sa/blog/:slug", "/syr/blog/:slug", "/uae/blog/:slug"],
+  (req: Request, res: Response) => {
+    const slug = encodeURIComponent(String(req.params["slug"] ?? ""));
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    return res.redirect(301, `/blog/en/${slug}`);
+  },
+);
+
+app.get(
+  [
+    "/ar/blog/:slug",
+    "/sa/ar/blog/:slug",
+    "/syr/ar/blog/:slug",
+    "/uae/ar/blog/:slug",
+  ],
+  (req: Request, res: Response) => {
+    const slug = encodeURIComponent(String(req.params["slug"] ?? ""));
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    return res.redirect(301, `/blog/ar/${slug}`);
+  },
+);
+
+// Blog detail handler shared by /blog/:slug and the bilingual canonical URLs.
+// The sitemap, hreflang, canonical, Open Graph, and Twitter metadata all emit
+// /blog/en/:slug and /blog/ar/:slug for complete bilingual articles, so these
+// routes must be handled dynamically even when a deployment has no matching
+// prerendered file.
+async function serveBlogPost(
+  req: Request,
+  res: Response,
+  requestedLanguage?: BlogLanguage,
+) {
   const slug = String(req.params["slug"] ?? "");
-  const prerendered = resolve(pagesDir, `blog-${slug}.html`);
+  const route = requestedLanguage
+    ? `/blog/${requestedLanguage}/${slug}`
+    : `/blog/${slug}`;
+  const prerendered = resolve(
+    pagesDir,
+    requestedLanguage
+      ? `blog-${requestedLanguage}-${slug}.html`
+      : `blog-${slug}.html`,
+  );
 
   if (existsSync(prerendered)) {
     res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
@@ -725,11 +768,16 @@ app.get("/blog/:slug", async (req: Request, res: Response) => {
   }
 
   if (result.status === "found") {
-    // Arabic-only post: the canonical URL is /ar/blog/:slug — redirect there
-    // so crawlers and sharing bots always get the correct Arabic OG tags.
-    if (!result.post.titleEn?.trim() && result.post.titleAr?.trim()) {
+    const decision = resolveBlogRoute(result.post, requestedLanguage);
+    if (decision.action === "redirect") {
       res.setHeader("Cache-Control", "public, max-age=86400");
-      return res.redirect(301, `/ar/blog/${encodeURIComponent(slug)}`);
+      return res.redirect(decision.status, decision.to);
+    }
+    if (decision.action === "notfound") {
+      res.setHeader("Cache-Control", "no-store");
+      return res
+        .status(404)
+        .send(spaShell("Article Not Found | CounselO", "noindex, nofollow"));
     }
     try {
       const posts = [
@@ -739,7 +787,7 @@ app.get("/blog/:slug", async (req: Request, res: Response) => {
         ),
       ];
       const html = await ssrRender(
-        `/blog/${slug}`,
+        decision.route,
         posts,
         discovery?.samples ?? [],
       );
@@ -753,67 +801,20 @@ app.get("/blog/:slug", async (req: Request, res: Response) => {
 
   // Fallback when API is unreachable: React SSR (loading skeleton).
   try {
-    const html = await ssrRender(`/blog/${slug}`);
+    const html = await ssrRender(route);
     res.setHeader("Content-Type", "text/html; charset=utf-8");
     res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
     return res.send(html);
   } catch (err) {
-    console.error(`SSR fallback failed for /blog/${slug}:`, err);
-    res.setHeader("Cache-Control", "no-store");
-    res.sendFile(indexHtml);
-  }
-});
-
-// 3b. "/ar/blog/:slug" — Arabic blog post detail page.
-//     Serves the same post as /blog/:slug but rendered at an /ar/ URL so
-//     LanguageContext sets isRTL=true, which flips the React component to use
-//     Arabic title/description/OG tags. Posts with no Arabic content 301 to
-//     the English URL to avoid a blank page.
-app.get("/ar/blog/:slug", async (req: Request, res: Response) => {
-  const slug = String(req.params["slug"] ?? "");
-
-  const [result, discovery] = await Promise.all([
-    fetchBlogPost(slug),
-    fetchDiscoveryInventory().catch(() => null),
-  ]);
-
-  if (result.status === "notfound") {
-    res.setHeader("Cache-Control", "no-store");
-    return res.status(404).send(spaShell("مقال غير موجود | كاونسلو", "noindex, nofollow"));
-  }
-
-  if (result.status === "found") {
-    // If the post has no Arabic content, redirect to the English URL.
-    if (!result.post.titleAr?.trim() && result.post.titleEn?.trim()) {
-      res.setHeader("Cache-Control", "public, max-age=86400");
-      return res.redirect(301, `/blog/${encodeURIComponent(slug)}`);
-    }
-    try {
-      const posts = [
-        result.post,
-        ...(discovery?.posts ?? []).filter((c) => c.slug !== result.post.slug),
-      ];
-      const html = await ssrRender(`/ar/blog/${slug}`, posts, discovery?.samples ?? []);
-      res.setHeader("Content-Type", "text/html; charset=utf-8");
-      res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
-      return res.send(html);
-    } catch (err) {
-      console.error(`Failed to build Arabic blog HTML for /ar/blog/${slug}:`, err);
-    }
-  }
-
-  // Fallback: React SSR skeleton when API is unreachable.
-  try {
-    const html = await ssrRender(`/ar/blog/${slug}`);
-    res.setHeader("Content-Type", "text/html; charset=utf-8");
-    res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
-    return res.send(html);
-  } catch (err) {
-    console.error(`SSR fallback failed for /ar/blog/${slug}:`, err);
+    console.error(`SSR fallback failed for ${route}:`, err);
     res.setHeader("Cache-Control", "no-store");
     return res.sendFile(indexHtml);
   }
-});
+}
+
+app.get("/blog/en/:slug", (req, res) => serveBlogPost(req, res, "en"));
+app.get("/blog/ar/:slug", (req, res) => serveBlogPost(req, res, "ar"));
+app.get("/blog/:slug", (req, res) => serveBlogPost(req, res));
 
 // 3c. "/ar/our-work/:slug" — Arabic work sample detail page.
 //     Fetch from the API on every request so newly published records are
