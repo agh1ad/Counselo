@@ -111,8 +111,9 @@ export default function Blog() {
             ? "منصة كاونسلو القانونية المشتركة لمقالات وأدلة حول قوانين الإمارات والسعودية وسوريا، مع تحديد الاختصاص القانوني لكل مقال بوضوح."
             : "CounselO's shared publication for legal articles and guides covering UAE, Saudi and Syrian law, with each article's jurisdiction clearly identified."
         }
-        canonical="/blog"
+        canonical={isRTL ? "/blog/ar" : "/blog"}
         noRegionPrefix
+        sharedLanguageAlternates={{ en: "/blog", ar: "/blog/ar", xDefault: "/blog" }}
         keywords={
           isRTL
             ? "رؤى قانونية, مقالات قانونية, قانون الإمارات, القانون السعودي, القانون السوري, قانون العمل, القانون التجاري, كاونسلو"
@@ -122,12 +123,12 @@ export default function Blog() {
           {
             "@context": "https://schema.org",
             "@type": ["CollectionPage", "Blog"],
-            "@id": "https://counselo-legal.com/blog#collection",
+            "@id": `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}#collection`,
             name: isRTL ? "رؤى كاونسلو القانونية العالمية" : "CounselO Global Legal Insights",
             description: isRTL
               ? "مقالات وأدلة قانونية مشتركة تغطي قوانين الإمارات والسعودية وسوريا"
               : "A shared legal publication covering UAE, Saudi and Syrian law",
-            url: "https://counselo-legal.com/blog",
+            url: `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}`,
             publisher: {
               "@type": "Organization",
               "@id": COUNSELO_ENTITY_IDS.organization,
@@ -135,14 +136,14 @@ export default function Blog() {
               alternateName: "كاونسلو",
               url: "https://counselo-legal.com",
             },
-            inLanguage: ["ar", "en"],
+            inLanguage: isRTL ? "ar" : "en",
           },
           {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            "@id": "https://counselo-legal.com/blog#item-list",
+            "@id": `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}#item-list`,
             name: isRTL ? "مقالات كاونسلو القانونية" : "CounselO legal articles",
-            url: "https://counselo-legal.com/blog",
+            url: `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}`,
             itemListElement: posts.slice(0, 50).map((post, index) => ({
               "@type": "ListItem",
               position: index + 1,
@@ -164,7 +165,7 @@ export default function Blog() {
                 "@type": "ListItem",
                 position: 2,
                 name: isRTL ? "المدونة" : "Blog",
-                item: "https://counselo-legal.com/blog",
+                item: `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}`,
               },
             ],
           },

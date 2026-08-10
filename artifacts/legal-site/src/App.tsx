@@ -262,7 +262,7 @@ function buildRegionRedirects() {
       )}
     </Route>,
     <Route key={`${prefix}-blog-redirect-index`} path={`${prefix}/blog`}>
-      {() => <Redirect to="/blog" replace />}
+      {() => <Redirect to={prefix.includes("/ar") ? "/blog/ar" : "/blog"} replace />}
     </Route>,
     <Route key={`${prefix}-work-detail-redirect`} path={`${prefix}/our-work/:slug`}>
       {(params: { slug: string }) => <Redirect to={`${prefix.includes("/ar") ? "/ar" : ""}/our-work/${params.slug}`} replace />}
@@ -317,6 +317,7 @@ function Router() {
         <Route path="/our-work" component={OurWork} />
         <Route path="/about" component={About} />
         <Route path="/vision" component={Vision} />
+        <Route path="/blog/ar" component={Blog} />
         <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
         <Route path="/terms-of-service" component={TermsOfService} />

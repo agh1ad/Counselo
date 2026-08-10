@@ -18,8 +18,8 @@ function loadStoredLang(): Lang {
 }
 
 function detectBlogLanguage(path: string): Lang | null {
-  if (path.startsWith("/blog/ar/")) return "ar";
-  if (path.startsWith("/blog/en/")) return "en";
+  if (path === "/blog/ar" || path.startsWith("/blog/ar/")) return "ar";
+  if (path === "/blog" || path.startsWith("/blog/en/")) return "en";
   return null;
 }
 

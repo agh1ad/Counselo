@@ -40,7 +40,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       location === "/ar/our-work" ||
       location.startsWith("/ar/our-work/");
     if (isBlogPath) {
-      if (location.startsWith("/blog/en/") || location.startsWith("/blog/ar/")) {
+      if (location === "/blog") {
+        navigate("/blog/ar");
+      } else if (location === "/blog/ar") {
+        navigate("/blog");
+      } else if (location.startsWith("/blog/en/") || location.startsWith("/blog/ar/")) {
         navigate(next === "ar"
           ? location.replace(/^\/blog\/en\//, "/blog/ar/")
           : location.replace(/^\/blog\/ar\//, "/blog/en/"));

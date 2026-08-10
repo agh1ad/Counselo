@@ -658,6 +658,7 @@ app.get(
     "/syr",
     "/syr/ar",
     "/blog",
+    "/blog/ar",
     "/our-work",
     "/ar/our-work",
     "/sa/services/:id",
@@ -690,17 +691,18 @@ app.get("/", (_req: Request, res: Response) => {
 // containing a client/meta-refresh redirect. This consolidates link equity and
 // prevents crawlers from treating the legacy pages as soft duplicates.
 app.get(
-  [
-    "/sa/blog",
-    "/syr/blog",
-    "/uae/blog",
-    "/sa/ar/blog",
-    "/syr/ar/blog",
-    "/uae/ar/blog",
-  ],
+  ["/sa/blog", "/syr/blog", "/uae/blog"],
   (_req: Request, res: Response) => {
     res.setHeader("Cache-Control", "public, max-age=86400");
     return res.redirect(301, "/blog");
+  },
+);
+
+app.get(
+  ["/sa/ar/blog", "/syr/ar/blog", "/uae/ar/blog", "/ar/blog"],
+  (_req: Request, res: Response) => {
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    return res.redirect(301, "/blog/ar");
   },
 );
 
