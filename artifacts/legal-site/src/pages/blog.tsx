@@ -28,6 +28,9 @@ interface ApiPost {
   bodyAr?: string;
   contentEn?: Array<{ body?: string }>;
   contentAr?: Array<{ body?: string }>;
+  /** Pre-computed by the prerender/server. Falls back to hasQualityBilingualBlogContent
+   *  when absent (e.g. live API data which carries the full body fields). */
+  bilingual?: boolean;
   published: boolean;
   relatedServiceSlugs?: string[];
   relatedBlogSlugs?: string[];
@@ -53,7 +56,12 @@ function formatDate(dateStr: string, lang: string) {
 export default function Blog() {
   const { lang, isRTL } = useLanguage();
   const { region, regionPrefix } = useRegion();
-  const articlePath = (post: ApiPost) => hasQualityBilingualBlogContent(post)
+  // Use the pre-computed bilingual flag when present (discovery/SSR posts strip body
+  // fields, so hasQualityBilingualBlogContent would always return false for them).
+  // Fall back to the full check for live API data which carries the body fields.
+  const isBilingual = (post: ApiPost) =>
+    post.bilingual ?? hasQualityBilingualBlogContent(post);
+  const articlePath = (post: ApiPost) => isBilingual(post)
     ? blogPath(post.slug, lang === "ar" ? "ar" : "en")
     : blogPath(post.slug);
 

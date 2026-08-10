@@ -197,6 +197,9 @@ function writeRoute(
     titleAr: post.titleAr,
     excerptEn: post.excerptEn,
     excerptAr: post.excerptAr,
+    // Pre-compute using the full post data so the collection page can determine
+    // correct article URLs without needing body fields in the discovery payload.
+    bilingual: hasQualityBilingualBlogContent(post),
     published: post.published,
     relatedServiceSlugs: post.relatedServiceSlugs,
     relatedBlogSlugs: post.relatedBlogSlugs,

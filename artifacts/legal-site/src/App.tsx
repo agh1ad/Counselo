@@ -59,6 +59,9 @@ export interface InitialBlogPost {
   bodyAr?: string;
   contentEn?: Array<{ body?: string }>;
   contentAr?: Array<{ body?: string }>;
+  /** Pre-computed by the prerender/server so the collection page can determine
+   *  correct article URLs without needing the full body fields in discovery data. */
+  bilingual?: boolean;
   published: boolean;
   relatedServiceSlugs?: string[];
   relatedBlogSlugs?: string[];
