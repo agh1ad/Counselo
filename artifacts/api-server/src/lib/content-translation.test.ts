@@ -14,13 +14,7 @@ const originalModel = process.env["OPENAI_TRANSLATION_MODEL"];
 function responseWithJson(value: unknown): Response {
   return new Response(
     JSON.stringify({
-      status: "completed",
-      output: [
-        {
-          type: "message",
-          content: [{ type: "output_text", text: JSON.stringify(value) }],
-        },
-      ],
+      choices: [{ message: { content: JSON.stringify(value) } }],
     }),
     { status: 200, headers: { "Content-Type": "application/json" } },
   );
@@ -37,8 +31,11 @@ test.afterEach(() => {
 
 test("fills missing English blog, repairs SEO, and requests strict structured output", async () => {
   process.env["OPENAI_API_KEY"] = "test-key";
+  delete process.env["OPENAI_TRANSLATION_MODEL"];
   let requestBody: Record<string, any> | undefined;
-  globalThis.fetch = async (_input, init) => {
+  let requestUrl = "";
+  globalThis.fetch = async (input, init) => {
+    requestUrl = String(input);
     requestBody = JSON.parse(String(init?.body));
     return responseWithJson({
       categoryEn: "Contracts",
@@ -91,11 +88,16 @@ test("fills missing English blog, repairs SEO, and requests strict structured ou
   );
   assert.equal(patch.seoTitleAr, "تكوين العقد في القانون السوري | كاونسلو");
   assert.equal(patch.titleAr, undefined, "Arabic source must be preserved");
-  assert.equal(requestBody?.model, "gpt-5.6-sol");
-  assert.deepEqual(requestBody?.reasoning, { effort: "low" });
-  assert.equal(requestBody?.max_output_tokens, 16_000);
-  assert.equal(requestBody?.text?.format?.strict, true);
-  assert.equal(requestBody?.text?.format?.schema?.additionalProperties, false);
+  assert.match(requestUrl, /\/chat\/completions$/);
+  assert.equal(requestBody?.model, "gpt-5.6-luna");
+  assert.equal(requestBody?.reasoning, undefined);
+  assert.equal(requestBody?.input, undefined);
+  assert.equal(requestBody?.max_completion_tokens, 16_000);
+  assert.equal(requestBody?.response_format?.json_schema?.strict, true);
+  assert.equal(
+    requestBody?.response_format?.json_schema?.schema?.additionalProperties,
+    false,
+  );
 });
 
 test("fills missing Arabic work fields and preserves English source", async () => {

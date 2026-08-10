@@ -1,14 +1,14 @@
 # CounselO SEO Validation Report
 
-_Generated: 2026-08-08 21:21:06 UTC_
+_Generated: 2026-08-10 15:00:37 UTC_
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| Pages validated | 1598 |
+| Pages validated | 1608 |
 | Redirect pages  | 42 |
-| ✅ Clean pages  | 1598 |
+| ✅ Clean pages  | 1608 |
 | ⚠️  Warn-only pages | 0 |
 | ❌ Error pages  | 0 |
 | Total errors    | 0 |
@@ -17,7 +17,7 @@ _Generated: 2026-08-08 21:21:06 UTC_
 
 > ✅ **No errors found.** All pages pass critical SEO checks.
 
-## ✅ Clean Pages (1598)
+## ✅ Clean Pages (1608)
 
 - `/` — schemas: WebSite, Organization, FAQPage
 - `/ar` — schemas: WebSite, Organization, FAQPage
@@ -26,7 +26,9 @@ _Generated: 2026-08-08 21:21:06 UTC_
 - `/blog/ar/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/ar/alahlyh-fy-altaaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/ar/alaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
+- `/blog/ar/almswwlyh-alaqdyh-fy-almaamlat-altjaryh` — schemas: Article, BreadcrumbList
 - `/blog/ar/almswwlyh-alaqdyh-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
+- `/blog/ar/almswwlyh-an-fal-alghyr` — schemas: Article, BreadcrumbList
 - `/blog/ar/alrda-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/ar/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha` — schemas: Article, BreadcrumbList
 - `/blog/ar/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
@@ -43,14 +45,19 @@ _Generated: 2026-08-08 21:21:06 UTC_
 - `/blog/ar/defects-of-will-syrian-law` — schemas: Article, BreadcrumbList
 - `/blog/ar/e-contracts-legal-validity-saudi-arabia` — schemas: Article, BreadcrumbList
 - `/blog/ar/fskh-alaqd-altjary-fy-alnzam-alsawdy` — schemas: Article, BreadcrumbList
+- `/blog/ar/hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry` — schemas: Article, BreadcrumbList
+- `/blog/ar/hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh` — schemas: Article, BreadcrumbList
 - `/blog/ar/mhl-alaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/ar/mnhjyh-5why-fy-alaml-alqanwny` — schemas: Article, BreadcrumbList
 - `/blog/ar/Penalty-clause-in-saudi` — schemas: Article, BreadcrumbList
 - `/blog/ar/performance-of-contracts-in-good-faith-under-syrian-law` — schemas: Article, BreadcrumbList
+- `/blog/ar/syghh-mdhkrh-tfahm-qablh-lltadyl` — schemas: Article, BreadcrumbList
 - `/blog/en/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/en/alahlyh-fy-altaaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/en/alaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
+- `/blog/en/almswwlyh-alaqdyh-fy-almaamlat-altjaryh` — schemas: Article, BreadcrumbList
 - `/blog/en/almswwlyh-alaqdyh-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
+- `/blog/en/almswwlyh-an-fal-alghyr` — schemas: Article, BreadcrumbList
 - `/blog/en/alrda-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/en/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha` — schemas: Article, BreadcrumbList
 - `/blog/en/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
@@ -67,10 +74,13 @@ _Generated: 2026-08-08 21:21:06 UTC_
 - `/blog/en/defects-of-will-syrian-law` — schemas: Article, BreadcrumbList
 - `/blog/en/e-contracts-legal-validity-saudi-arabia` — schemas: Article, BreadcrumbList
 - `/blog/en/fskh-alaqd-altjary-fy-alnzam-alsawdy` — schemas: Article, BreadcrumbList
+- `/blog/en/hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry` — schemas: Article, BreadcrumbList
+- `/blog/en/hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh` — schemas: Article, BreadcrumbList
 - `/blog/en/mhl-alaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/en/mnhjyh-5why-fy-alaml-alqanwny` — schemas: Article, BreadcrumbList
 - `/blog/en/Penalty-clause-in-saudi` — schemas: Article, BreadcrumbList
 - `/blog/en/performance-of-contracts-in-good-faith-under-syrian-law` — schemas: Article, BreadcrumbList
+- `/blog/en/syghh-mdhkrh-tfahm-qablh-lltadyl` — schemas: Article, BreadcrumbList
 - `/blog/formation-of-commercial-contracts-saudi-law` — schemas: Article, BreadcrumbList
 - `/our-work` — schemas: CollectionPage, ItemList, BreadcrumbList
 - `/sa` — schemas: LegalService, BreadcrumbList
