@@ -5,7 +5,6 @@ import { fileURLToPath } from "node:url";
 import {
   getPublicRouteInventory,
   getServicesForRegion,
-  hasQualityBilingualBlogContent,
 } from "@workspace/api-zod";
 
 const BASE_URL = (process.env["SITEMAP_BASE_URL"] ?? "https://counselo-legal.com").replace(/\/$/, "");
@@ -182,12 +181,8 @@ function expectedUrls(blogPosts: Array<Record<string, unknown>>, workSamples: Ar
   const expected = new Set(getPublicRouteInventory().map((route) => absoluteUrl(route)));
   for (const post of blogPosts) {
     const slug = String(post.slug);
-    if (hasQualityBilingualBlogContent(post)) {
-      expected.add(absoluteUrl(`/blog/en/${slug}`));
-      expected.add(absoluteUrl(`/blog/ar/${slug}`));
-    } else {
-      expected.add(absoluteUrl(`/blog/${slug}`));
-    }
+    expected.add(absoluteUrl(`/blog/en/${slug}`));
+    expected.add(absoluteUrl(`/blog/ar/${slug}`));
   }
   for (const sample of workSamples) {
     const slug = String(sample.slug);
@@ -230,7 +225,7 @@ async function validate(): Promise<void> {
   const entries = documents.flatMap(({ child, document }) => (document?.entries ?? []).map((entry) => ({ ...entry, child })));
   const byUrl = new Map(entries.map((entry) => [entry.loc, entry]));
   const [blogPosts, workSamples] = await Promise.all([
-    publishedRecords("/api/blog/posts"),
+    publishedRecords("/api/blog/posts/discovery"),
     publishedRecords("/api/work"),
   ]);
   const expected = expectedUrls(blogPosts, workSamples);

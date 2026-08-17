@@ -19,6 +19,7 @@ import { ErrorBoundary } from "@/components/error-boundary";
 import { Helmet } from "react-helmet-async";
 import { trackEvent, trackPageview, injectGTM } from "@/lib/analytics";
 import type { WorkSamplePublic } from "@/lib/work-samples";
+import { blogPath } from "@workspace/api-zod";
 
 import RegionPicker from "@/pages/region-picker";
 import ArRegionPicker from "@/pages/ar-region-picker";
@@ -32,6 +33,7 @@ import Vision from "@/pages/vision";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import OurWork from "@/pages/our-work";
+import LegalLibrary from "@/pages/legal-library";
 import WorkSample from "@/pages/work-sample";
 import TermsOfService from "@/pages/terms-of-service";
 import PrivacyPolicy from "@/pages/privacy-policy";
@@ -256,12 +258,12 @@ function buildRegionRedirects() {
     </Route>,
     <Route key={`${prefix}-blog-redirect`} path={`${prefix}/blog/:slug/:rest*`}>
       {(params: { slug: string }) => (
-        <Redirect to={`/blog/${params.slug}`} replace />
+        <Redirect to={blogPath(params.slug, prefix.includes("/ar") ? "ar" : "en")} replace />
       )}
     </Route>,
     <Route key={`${prefix}-blog-slug-redirect`} path={`${prefix}/blog/:slug`}>
       {(params: { slug: string }) => (
-        <Redirect to={`/blog/${params.slug}`} replace />
+        <Redirect to={blogPath(params.slug, prefix.includes("/ar") ? "ar" : "en")} replace />
       )}
     </Route>,
     <Route key={`${prefix}-blog-redirect-index`} path={`${prefix}/blog`}>
@@ -312,13 +314,21 @@ function Router() {
         <Route path="/services/:id" component={ServiceDetail} />
         <Route path="/services" component={Services} />
         <Route path="/blog/ar" component={Blog} />
+        <Route path="/ar/blog/:slug">
+          {(params: { slug: string }) => <Redirect to={blogPath(params.slug, "ar")} replace />}
+        </Route>
+        <Route path="/ar/blog"><Redirect to="/blog/ar" replace /></Route>
         <Route path="/blog/en/:slug" component={BlogPost} />
         <Route path="/blog/ar/:slug" component={BlogPost} />
-        <Route path="/blog/:slug" component={BlogPost} />
+        <Route path="/blog/:slug">
+          {(params: { slug: string }) => <Redirect to={blogPath(params.slug, "en")} replace />}
+        </Route>
         <Route path="/ar/our-work/:slug" component={WorkSample} />
         <Route path="/ar/our-work" component={OurWork} />
         <Route path="/our-work/:slug" component={WorkSample} />
         <Route path="/our-work" component={OurWork} />
+        <Route path="/ar/legal-library" component={LegalLibrary} />
+        <Route path="/legal-library" component={LegalLibrary} />
         <Route path="/about" component={About} />
         <Route path="/vision" component={Vision} />
         <Route path="/blog" component={Blog} />
@@ -331,8 +341,14 @@ function Router() {
         <Route path="/services/:id/:rest*">
           {(params) => <Redirect to={`/services/${params.id}`} replace />}
         </Route>
+        <Route path="/blog/en/:slug/:rest*">
+          {(params) => <Redirect to={blogPath(params.slug, "en")} replace />}
+        </Route>
+        <Route path="/blog/ar/:slug/:rest*">
+          {(params) => <Redirect to={blogPath(params.slug, "ar")} replace />}
+        </Route>
         <Route path="/blog/:slug/:rest*">
-          {(params) => <Redirect to={`/blog/${params.slug}`} replace />}
+          {(params) => <Redirect to={blogPath(params.slug, "en")} replace />}
         </Route>
 
         <Route component={NotFound} />

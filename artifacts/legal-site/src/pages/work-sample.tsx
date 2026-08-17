@@ -8,7 +8,7 @@ import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized
 import { getRegionalLegalSources } from "@/lib/regional-legal-sources";
 import type { InitialBlogPost } from "@/App";
 import { fetchPublicJson, publicApiUrl } from "@/lib/public-api";
-import { COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
+import { blogPath, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
 
 declare global {
   interface Window {
@@ -47,7 +47,7 @@ export default function WorkSample() {
   });
   const { data: allPosts = [] } = useQuery<InitialBlogPost[]>({
     queryKey: ["blog-posts"],
-    queryFn: () => fetchPublicJson<InitialBlogPost[]>("/api/blog/posts"),
+    queryFn: () => fetchPublicJson<InitialBlogPost[]>("/api/blog/posts/discovery"),
     initialData: () => typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined,
     staleTime: 60_000,
   });
@@ -127,7 +127,7 @@ export default function WorkSample() {
     creator: { "@type": "Organization", "@id": COUNSELO_ENTITY_IDS.organization, name: "CounselO", alternateName: "كاونسلو" },
     author: { ...OMAR_AL_BAGHDADI, "@type": "Person" },
     publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
-    isPartOf: { "@id": COUNSELO_ENTITY_IDS.website },
+    isPartOf: { "@id": `https://counselo-legal.com${workBasePath}#webpage` },
     encoding: { "@type": "MediaObject", contentUrl: `https://counselo-legal.com${fileUrl}`, encodingFormat: sample.fileMimeType },
   };
   const breadcrumbSchema = {
@@ -135,8 +135,9 @@ export default function WorkSample() {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: ar ? "الرئيسية" : "Home", item: "https://counselo-legal.com/" },
-      { "@type": "ListItem", position: 2, name: ar ? "أعمالنا" : "Our Work", item: `https://counselo-legal.com${workBasePath}` },
-      { "@type": "ListItem", position: 3, name: title, item: canonical },
+      { "@type": "ListItem", position: 2, name: ar ? "المكتبة القانونية" : "Legal Library", item: `https://counselo-legal.com${ar ? "/ar/legal-library" : "/legal-library"}` },
+      { "@type": "ListItem", position: 3, name: ar ? "أعمالنا" : "Our Work", item: `https://counselo-legal.com${workBasePath}` },
+      { "@type": "ListItem", position: 4, name: title, item: canonical },
     ],
   };
 
@@ -195,7 +196,7 @@ export default function WorkSample() {
             })}
             {relatedPosts.map((post) => {
               const useArabic = Boolean(post.titleAr) && (ar || !post.titleEn);
-              return <Link key={post.slug} href={`/blog/${post.slug}`} className="border border-border bg-card p-5 font-semibold hover:border-primary">{useArabic ? post.titleAr : post.titleEn}</Link>;
+              return <Link key={post.slug} href={blogPath(post.slug, useArabic ? "ar" : "en")} className="border border-border bg-card p-5 font-semibold hover:border-primary">{useArabic ? post.titleAr : post.titleEn}</Link>;
             })}
             {relatedWork.map((work) => (
               <Link key={work.slug} href={`${workBasePath}/${work.slug}`} className="border border-border bg-card p-5 font-semibold hover:border-primary">{localized(work.titleEn, work.titleAr, lang)}</Link>

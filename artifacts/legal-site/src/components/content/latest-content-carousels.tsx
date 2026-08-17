@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/carousel";
 import { type WorkSamplePublic, localized } from "@/lib/work-samples";
 import { fetchPublicJson } from "@/lib/public-api";
+import { blogPath } from "@workspace/api-zod";
 
 type LatestContentCarouselsProps = {
   isArabic: boolean;
@@ -108,7 +109,7 @@ export function LatestContentCarousels({
     (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost");
   const { data: posts = [] } = useQuery<InitialBlogPost[]>({
     queryKey: ["blog-posts"],
-    queryFn: () => fetchPublicJson<InitialBlogPost[]>("/api/blog/posts"),
+    queryFn: () => fetchPublicJson<InitialBlogPost[]>("/api/blog/posts/discovery"),
     // The build-time list is only a visual placeholder. Fetch immediately so
     // posts published after the last deployment can enter the carousel.
     initialData: ssrPosts,
@@ -200,11 +201,15 @@ export function LatestContentCarousels({
               : "Explore CounselO's latest legal articles and published work samples."}
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/blog" className="inline-flex items-center gap-2 bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90">
+            <Link href={isArabic ? "/ar/legal-library" : "/legal-library"} className="inline-flex items-center gap-2 bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90">
+              {isArabic ? "استكشف المكتبة القانونية" : "Explore the Legal Library"}
+              {isArabic ? <ArrowLeft className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
+            </Link>
+            <Link href={isArabic ? "/blog/ar" : "/blog"} className="inline-flex items-center gap-2 bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90">
               {isArabic ? "أحدث المقالات" : "Latest articles"}
               {isArabic ? <ArrowLeft className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
             </Link>
-            <Link href="/our-work" className="inline-flex items-center gap-2 border border-primary/30 bg-white px-5 py-3 text-sm font-semibold text-primary hover:border-primary">
+            <Link href={isArabic ? "/ar/our-work" : "/our-work"} className="inline-flex items-center gap-2 border border-primary/30 bg-white px-5 py-3 text-sm font-semibold text-primary hover:border-primary">
               {isArabic ? "أحدث الأعمال" : "Latest our work"}
               {isArabic ? <ArrowLeft className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
             </Link>
@@ -220,7 +225,8 @@ export function LatestContentCarousels({
       aria-labelledby={isService ? "related-content-heading" : isArabic ? "latest-content-heading-ar" : "latest-content-heading"}
     >
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-        <div className="mb-14 max-w-3xl">
+        <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div className="max-w-3xl">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a7735]">
             {isService
               ? isArabic ? "محتوى مرتبط" : "Related content"
@@ -244,6 +250,11 @@ export function LatestContentCarousels({
                 ? "محتوى حقيقي يُحدَّث تلقائياً عند نشر مقال أو نموذج عمل جديد."
                 : "Real content that updates automatically whenever a new article or work sample is published."}
           </p>
+          </div>
+          <Link href={isArabic ? "/ar/legal-library" : "/legal-library"} className="group inline-flex w-fit shrink-0 items-center gap-3 border-b border-primary pb-1 font-semibold text-primary">
+            {isArabic ? "استكشف المكتبة القانونية" : "Explore the Legal Library"}
+            {isArabic ? <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />}
+          </Link>
         </div>
 
         <div className="space-y-16">
@@ -258,7 +269,7 @@ export function LatestContentCarousels({
                     {isArabic ? "أحدث المقالات" : "Latest articles"}
                   </h3>
                 </div>
-                <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                <Link href={isArabic ? "/blog/ar" : "/blog"} className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
                   {isArabic ? "عرض جميع المقالات" : "View all articles"}
                   {isArabic ? <ArrowLeft className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
                 </Link>
@@ -289,7 +300,7 @@ export function LatestContentCarousels({
                           <Clock className="h-3.5 w-3.5" aria-hidden="true" />
                           <span>{post.readTime} {isArabic ? "دقائق قراءة" : "min read"}</span>
                         </div>
-                        <CardLink href={`/blog/${post.slug}`} isArabic={isArabic}>
+                        <CardLink href={blogPath(post.slug, useArabic ? "ar" : "en")} isArabic={isArabic}>
                           {isArabic ? "اقرأ المقال" : "Read article"}
                         </CardLink>
                       </article>

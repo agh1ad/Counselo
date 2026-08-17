@@ -23,27 +23,17 @@ export function resolveBlogRoute(
   if (!post) return { action: "notfound" };
 
   const bilingual = hasQualityBilingualBlogContent(post);
+  if (!bilingual) return { action: "notfound" };
   if (requestedLanguage) {
-    if (!bilingual) {
-      return {
-        action: "redirect",
-        to: blogPath(post.slug),
-        status: 302,
-      };
-    }
     return {
       action: "serve",
       route: blogPath(post.slug, requestedLanguage),
     };
   }
 
-  if (bilingual) {
-    return {
-      action: "redirect",
-      to: blogPath(post.slug, "en"),
-      status: 301,
-    };
-  }
-
-  return { action: "serve", route: blogPath(post.slug) };
+  return {
+    action: "redirect",
+    to: blogPath(post.slug, "en"),
+    status: 301,
+  };
 }

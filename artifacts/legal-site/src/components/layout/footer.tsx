@@ -62,7 +62,8 @@ export function Footer() {
   const f = t.footer;
   const regional = isSharedPath ? globalFooterContent : regionalFooterContent[region];
   const p = (path: string) => regionPrefix + path;
-  const workPath = isArabic ? "/ar/our-work" : "/our-work";
+  const libraryPath = isArabic ? "/ar/legal-library" : "/legal-library";
+  const blogIndexPath = isArabic ? "/blog/ar" : "/blog";
   const regionPickerPath = isArabic ? "/ar" : "/";
   const brandName = isArabic ? "كاونسلو" : "CounselO";
 
@@ -109,8 +110,8 @@ export function Footer() {
           {!isSharedPath && <Link href={p("/services")}>{f.links.allServices}<ArrowRight /></Link>}
           {!isSharedPath && <Link href={p("/about")}>{f.links.about}<ArrowRight /></Link>}
           {!isSharedPath && <Link href={p("/vision")}>{isArabic ? "رؤيتنا" : "Our Vision"}<ArrowRight /></Link>}
-          <Link href={workPath}>{f.links.ourWork}<ArrowRight /></Link>
-          <Link href="/blog">{f.links.blog}<ArrowRight /></Link>
+          <Link href={libraryPath}>{f.links.ourWork}<ArrowRight /></Link>
+          <Link href={blogIndexPath}>{f.links.blog}<ArrowRight /></Link>
           {!isSharedPath && <Link href={p("/contact")}>{f.links.contact}<ArrowRight /></Link>}
           {!isSharedPath && <Link href={p("/contact")}>{f.links.book}<ArrowRight /></Link>}
           <Link href={regionPickerPath}>{isArabic ? "اختيار الدولة" : "Choose Region"}<Globe2 /></Link>

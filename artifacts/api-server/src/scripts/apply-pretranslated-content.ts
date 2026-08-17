@@ -13,6 +13,7 @@ type BlogTranslation = {
   seoDescriptionEn: string;
   bodyEn: string;
   contentEn: Array<{ heading?: string; body: string }>;
+  excerptAr?: string;
 };
 
 type WorkTranslation = {
@@ -43,6 +44,7 @@ type BlogEnglishValues = Pick<
   | "seoDescriptionEn"
   | "bodyEn"
   | "contentEn"
+  | "excerptAr"
 >;
 
 type WorkEnglishValues = Pick<
@@ -138,6 +140,7 @@ async function main() {
       "seoDescriptionEn",
       "bodyEn",
       "contentEn",
+      "excerptAr",
     ]);
     if (!Object.keys(patch).length) continue;
     // Validate and sanitize the prepared English article without re-running
@@ -154,6 +157,7 @@ async function main() {
       seoDescriptionEn: validated.seoDescriptionEn,
       bodyEn: validated.bodyEn,
       contentEn: validated.contentEn,
+      excerptAr: validated.excerptAr,
     };
     blogUpdates.push({ id: post.id, slug: post.slug, values });
   }
@@ -218,7 +222,7 @@ async function main() {
   });
 
   for (const update of blogUpdates) {
-    console.log(`Applied prepared English translation: blog ${update.slug}`);
+    console.log(`Applied prepared bilingual content repair: blog ${update.slug}`);
   }
   for (const update of workUpdates) {
     console.log(`Applied prepared English translation: work ${update.slug}`);

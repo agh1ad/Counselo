@@ -35,10 +35,11 @@ const CORE_PAGES_EN: CorePage[] = [
 
 /**
  * The blog index remains region-agnostic at /blog. Individual posts use
- * /blog/:slug until both language versions meet the bilingual quality gate;
+ * /blog/en/:slug and /blog/ar/:slug only after both versions meet the bilingual quality gate;
  * eligible posts use reciprocal /blog/en/:slug and /blog/ar/:slug URLs.
  */
 export const BLOG_BASE_PATH = "/blog";
+export const LEGAL_LIBRARY_BASE_PATH = "/legal-library";
 export const WORK_BASE_PATH = "/our-work";
 
 // Arabic is a real URL segment (e.g. "/sa/ar/about"), not a client-only

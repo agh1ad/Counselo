@@ -13,7 +13,10 @@ import {
   sanitizeBlogPost,
 } from "../lib/blog-input.js";
 import { assignInternalLinks } from "../lib/internal-link-assignment.js";
-import { assignArticleProvenance } from "@workspace/api-zod";
+import {
+  assignArticleProvenance,
+  hasQualityBilingualBlogContent,
+} from "@workspace/api-zod";
 import {
   ContentTranslationError,
   translateBlogForPublishing,
@@ -27,7 +30,47 @@ router.get("/blog/posts", async (_req, res) => {
     .from(blogPostsTable)
     .where(eq(blogPostsTable.published, true))
     .orderBy(blogPostsTable.date);
-  res.json(posts.reverse().map(sanitizeBlogPost));
+  res.json(
+    posts
+      .reverse()
+      .filter(hasQualityBilingualBlogContent)
+      .map(sanitizeBlogPost),
+  );
+});
+
+router.get("/blog/posts/discovery", async (_req, res) => {
+  const posts = await db
+    .select()
+    .from(blogPostsTable)
+    .where(eq(blogPostsTable.published, true))
+    .orderBy(blogPostsTable.date);
+  res.json(
+    posts
+      .reverse()
+      .filter(hasQualityBilingualBlogContent)
+      .map((post) => ({
+        id: post.id,
+        slug: post.slug,
+        date: post.date,
+        updatedAt: post.updatedAt,
+        categoryEn: post.categoryEn,
+        categoryAr: post.categoryAr,
+        readTime: post.readTime,
+        titleEn: post.titleEn,
+        titleAr: post.titleAr,
+        excerptEn: post.excerptEn,
+        excerptAr: post.excerptAr,
+        seoTitleEn: post.seoTitleEn,
+        seoTitleAr: post.seoTitleAr,
+        seoDescriptionEn: post.seoDescriptionEn,
+        seoDescriptionAr: post.seoDescriptionAr,
+        relatedServiceSlugs: post.relatedServiceSlugs,
+        relatedBlogSlugs: post.relatedBlogSlugs,
+        relatedWorkSlugs: post.relatedWorkSlugs,
+        published: true,
+        bilingual: true,
+      })),
+  );
 });
 
 router.get("/blog/posts/:slug", async (req, res) => {
@@ -36,7 +79,7 @@ router.get("/blog/posts/:slug", async (req, res) => {
     .select()
     .from(blogPostsTable)
     .where(eq(blogPostsTable.slug, slug));
-  if (!post || !post.published) {
+  if (!post || !post.published || !hasQualityBilingualBlogContent(post)) {
     res.status(404).json({ error: "Not found" });
     return;
   }

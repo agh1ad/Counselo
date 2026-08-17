@@ -248,8 +248,8 @@ export function SEOHead({
             ? `${rawTitle} | كاونسلو`
             : `${rawTitle} | CounselO`));
 
-  // Single-URL pages (noRegionPrefix=true without explicit alternates, e.g.
-  // /blog or an incomplete /blog/:slug) emit no regional alternates. Bilingual
+  // Shared collection pages (noRegionPrefix=true without explicit alternates,
+  // e.g. /blog) emit no regional alternates. Bilingual
   // article pages pass explicit reciprocal en/ar URLs instead.
   //
   // All other pages have 4 real, distinct, crawlable region×language URLs so
@@ -409,7 +409,12 @@ export function SEOHead({
       <meta property="og:locale:alternate" content={alternateLocale} />
 
       {/* Author */}
-      <meta name="author" content="CounselO — Lawyer and Legal Counsel Omar Al-Baghdadi" />
+      <meta
+        name="author"
+        content={ogType === "article" && articleAuthor
+          ? articleAuthor
+          : "CounselO — Lawyer and Legal Counsel Omar Al-Baghdadi"}
+      />
 
       {/* Twitter / X */}
       <meta name="twitter:card" content="summary_large_image" />

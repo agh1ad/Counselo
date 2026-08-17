@@ -37,7 +37,7 @@ interface RegionContextType {
   lang: Lang;
   /** Region + language path prefix, e.g. "/sa", "/sa/ar", "/syr", "/syr/ar". */
   regionPrefix: string;
-  /** True for region-independent content such as blog and Our Work pages. */
+  /** True for region-independent content such as blog, Legal Library and Our Work pages. */
   isSharedPath: boolean;
   /** Updates the blog-page language preference (localStorage-backed). */
   setBlogLang: (lang: Lang) => void;
@@ -78,12 +78,15 @@ export function RegionProvider({ children }: { children: ReactNode }) {
     location.startsWith("/our-work/") ||
     location === "/ar/our-work" ||
     location.startsWith("/ar/our-work/");
-  const isSharedPath = isBlogPath || isWorkPath;
+  const isLibraryPath = location === "/legal-library" || location === "/ar/legal-library";
+  const isSharedPath = isBlogPath || isLibraryPath || isWorkPath;
 
   const region = isSharedPath ? sharedRegion : detectRegion(location);
   const lang: Lang = isBlogPath
     ? (detectBlogLanguage(location) ?? blogLang)
-    : isWorkPath
+    : isLibraryPath
+      ? (location.startsWith("/ar/") ? "ar" : "en")
+      : isWorkPath
       ? (location.startsWith("/ar/our-work") ? "ar" : "en")
       : detectLang(location, region);
 

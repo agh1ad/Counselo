@@ -559,7 +559,7 @@ export default function ArRegionPicker() {
                 <ul className="space-y-2.5">
                   <li><Link href="/sa/ar" className="hover:text-primary transition-colors">الرئيسية — السعودية</Link></li>
                   <li><Link href="/sa/ar/services" className="hover:text-primary transition-colors">جميع الخدمات</Link></li>
-                  <li><Link href="/blog" className="hover:text-primary transition-colors">المدونة القانونية</Link></li>
+                  <li><Link href="/blog/ar" className="hover:text-primary transition-colors">المدونة القانونية</Link></li>
                   <li><Link href="/sa/ar/about" className="hover:text-primary transition-colors">من نحن</Link></li>
                   <li><Link href="/sa/ar/contact" className="hover:text-primary transition-colors">تواصل معنا</Link></li>
                   <li><Link href="/sa" className="hover:text-primary transition-colors">English</Link></li>
@@ -570,7 +570,7 @@ export default function ArRegionPicker() {
                 <ul className="space-y-2.5">
                   <li><Link href="/syr/ar" className="hover:text-primary transition-colors">الرئيسية — سوريا</Link></li>
                   <li><Link href="/syr/ar/services" className="hover:text-primary transition-colors">جميع الخدمات</Link></li>
-                  <li><Link href="/blog" className="hover:text-primary transition-colors">المدونة القانونية</Link></li>
+                  <li><Link href="/blog/ar" className="hover:text-primary transition-colors">المدونة القانونية</Link></li>
                   <li><Link href="/syr/ar/about" className="hover:text-primary transition-colors">من نحن</Link></li>
                   <li><Link href="/syr/ar/contact" className="hover:text-primary transition-colors">تواصل معنا</Link></li>
                   <li><Link href="/syr" className="hover:text-primary transition-colors">English</Link></li>
@@ -581,7 +581,7 @@ export default function ArRegionPicker() {
                 <ul className="space-y-2.5">
                   <li><Link href="/uae/ar" className="hover:text-primary transition-colors">الرئيسية — الإمارات</Link></li>
                   <li><Link href="/uae/ar/services" className="hover:text-primary transition-colors">جميع الخدمات</Link></li>
-                  <li><Link href="/blog" className="hover:text-primary transition-colors">المدونة القانونية</Link></li>
+                  <li><Link href="/blog/ar" className="hover:text-primary transition-colors">المدونة القانونية</Link></li>
                   <li><Link href="/uae/ar/about" className="hover:text-primary transition-colors">من نحن</Link></li>
                   <li><Link href="/uae/ar/contact" className="hover:text-primary transition-colors">تواصل معنا</Link></li>
                   <li><Link href="/uae" className="hover:text-primary transition-colors">English</Link></li>
@@ -590,7 +590,7 @@ export default function ArRegionPicker() {
               <div>
                 <div className="font-semibold text-foreground mb-4">المصادر</div>
                 <ul className="space-y-2.5">
-                  <li><Link href="/blog" className="hover:text-primary transition-colors">مركز المعرفة</Link></li>
+                  <li><Link href="/blog/ar" className="hover:text-primary transition-colors">مركز المعرفة</Link></li>
                   <li><Link href="/ar/our-work" className="hover:text-primary transition-colors">دراسات الحالة والأعمال</Link></li>
                   <li><Link href="/sa/ar/about" className="hover:text-primary transition-colors">عن كاونسلو</Link></li>
                   <li><Link href="/sa/ar/contact" className="hover:text-primary transition-colors">ابدأ استشارة</Link></li>

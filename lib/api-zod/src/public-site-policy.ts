@@ -20,9 +20,10 @@ export const PUBLIC_REGION_PREFIXES = REGIONAL_SEO_REGISTRY.flatMap((entry) => [
 const REGION_PREFIX_PATTERN = REGIONAL_SEO_REGISTRY.map((entry) => entry.region).join("|");
 
 export const LEGACY_REDIRECTS = {
-  regionalBlog: ["/sa/blog", "/syr/blog", "/sa/ar/blog", "/syr/ar/blog"],
-  regionalWork: ["/sa/our-work", "/syr/our-work"],
-  regionalArabicWork: ["/sa/ar/our-work", "/syr/ar/our-work"],
+  regionalBlog: ["/sa/blog", "/syr/blog", "/uae/blog"],
+  regionalArabicBlog: ["/ar/blog", "/sa/ar/blog", "/syr/ar/blog", "/uae/ar/blog"],
+  regionalWork: ["/sa/our-work", "/syr/our-work", "/uae/our-work"],
+  regionalArabicWork: ["/sa/ar/our-work", "/syr/ar/our-work", "/uae/ar/our-work"],
 } as const;
 
 export function routeToFlatFilename(route: string): string {
@@ -53,6 +54,9 @@ export function getPublicRouteInventory(): string[] {
     ...englishRoutes,
     ...englishRoutes.map(toArabicRoute),
     "/blog",
+    "/blog/ar",
+    "/legal-library",
+    "/ar/legal-library",
     "/our-work",
     "/ar/our-work",
   ];
@@ -83,12 +87,32 @@ function hasWrittenContent(body: string | null | undefined, sections: Array<{ bo
   return Boolean(body?.trim() || sections?.some((section) => section.body?.trim()));
 }
 
+function normalizedComparableText(value: string | null | undefined): string {
+  return (value ?? "")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&(?:nbsp|amp|lt|gt|quot|#39);/gi, " ")
+    .normalize("NFKC")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLocaleLowerCase("en");
+}
+
+function normalizedArticleText(
+  body: string | null | undefined,
+  sections: Array<{ body?: string | null }> | null | undefined,
+): string {
+  return normalizedComparableText([
+    body ?? "",
+    ...(sections ?? []).map((section) => section.body ?? ""),
+  ].join(" "));
+}
+
 /**
  * Only complete, independently readable translations receive language URLs.
  * This deliberately excludes partial or automatically translated records.
  */
 export function hasQualityBilingualBlogContent(post: BilingualBlogContent): boolean {
-  return [
+  const complete = [
     post.titleEn,
     post.titleAr,
     post.excerptEn,
@@ -100,10 +124,38 @@ export function hasQualityBilingualBlogContent(post: BilingualBlogContent): bool
   ].every((value) => Boolean(value?.trim()))
     && hasWrittenContent(post.bodyEn, post.contentEn)
     && hasWrittenContent(post.bodyAr, post.contentAr);
+  if (!complete) return false;
+
+  const distinctMetadata = [
+    [post.titleEn, post.titleAr],
+    [post.excerptEn, post.excerptAr],
+    [post.seoTitleEn, post.seoTitleAr],
+    [post.seoDescriptionEn, post.seoDescriptionAr],
+  ].every(([english, arabic]) =>
+    normalizedComparableText(english) !== normalizedComparableText(arabic),
+  );
+  const englishArticle = normalizedArticleText(post.bodyEn, post.contentEn);
+  const arabicArticle = normalizedArticleText(post.bodyAr, post.contentAr);
+  const englishMetadata = normalizedComparableText([
+    post.titleEn,
+    post.excerptEn,
+    post.seoTitleEn,
+    post.seoDescriptionEn,
+  ].join(" "));
+  const arabicMetadata = normalizedComparableText([
+    post.titleAr,
+    post.excerptAr,
+    post.seoTitleAr,
+    post.seoDescriptionAr,
+  ].join(" "));
+  return distinctMetadata
+    && englishArticle !== arabicArticle
+    && /[a-z]/i.test(`${englishMetadata} ${englishArticle}`)
+    && /[\u0600-\u06ff]/u.test(`${arabicMetadata} ${arabicArticle}`);
 }
 
-export function blogPath(slug: string, language?: BlogLanguage): string {
-  return language ? `/blog/${language}/${slug}` : `/blog/${slug}`;
+export function blogPath(slug: string, language: BlogLanguage = "en"): string {
+  return `/blog/${language}/${slug}`;
 }
 
 export function blogLanguageAlternates(slug: string): Array<[string, string]> {
@@ -178,13 +230,13 @@ export function buildBlogHtmlMetadata(input: {
   slug: string;
   title: string;
   description: string;
-  language?: "en" | "ar";
+  language: "en" | "ar";
 }): PublicHtmlMetadata {
   return {
     title: input.title,
     description: input.description,
     canonical: canonicalPublicUrl(blogPath(input.slug, input.language)),
-    language: input.language ?? "en",
+    language: input.language,
   };
 }
 
@@ -219,6 +271,7 @@ export type DiscoveryPost = {
   bodyAr?: string | null;
   contentEn?: Array<{ body?: string | null }> | null;
   contentAr?: Array<{ body?: string | null }> | null;
+  bilingual?: boolean;
 };
 
 export type DiscoveryWorkSample = {
@@ -243,19 +296,18 @@ export function buildDynamicSitemap(
   samples: DiscoveryWorkSample[],
 ): string {
   let xml = baseXml
-    .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/blog\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "")
+    .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/blog\/([^<]+)<\/loc>[\s\S]*?<\/url>/g, (entry, suffix: string) => suffix === "ar" ? entry : "")
     .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/(?:ar\/)?our-work\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "");
-  const entries = posts.flatMap((post) => {
+  const bilingualPosts = posts.filter((post) =>
+    post.bilingual === true || hasQualityBilingualBlogContent(post),
+  );
+  const entries = bilingualPosts.flatMap((post) => {
     const modified = dateOnly(post.updatedAt) ?? post.date;
-    if (hasQualityBilingualBlogContent(post)) {
-      const links = blogLanguageAlternates(post.slug);
-      return [
-        sitemapEntry(canonicalPublicUrl(blogPath(post.slug, "en")), modified, links),
-        sitemapEntry(canonicalPublicUrl(blogPath(post.slug, "ar")), modified, links),
-      ];
-    }
-    const path = blogPath(post.slug);
-    return [sitemapEntry(canonicalPublicUrl(path), modified, [["x-default", canonicalPublicUrl(path)] as [string, string]])];
+    const links = blogLanguageAlternates(post.slug);
+    return [
+      sitemapEntry(canonicalPublicUrl(blogPath(post.slug, "en")), modified, links),
+      sitemapEntry(canonicalPublicUrl(blogPath(post.slug, "ar")), modified, links),
+    ];
   });
   const workEntries = samples.flatMap((sample) => {
     const modified = dateOnly(sample.updatedAt) ?? sample.date;
@@ -269,9 +321,16 @@ export function buildDynamicSitemap(
   const addIndexLastmod = (url: string, date: string | undefined) => {
     if (date) xml = xml.replace(`<loc>${url}</loc>`, `<loc>${url}</loc>\n    <lastmod>${date}</lastmod>`);
   };
-  const latestBlog = latestDate(posts.map((post) => post.updatedAt ?? post.date));
+  const latestBlog = latestDate(bilingualPosts.map((post) => post.updatedAt ?? post.date));
   addIndexLastmod(canonicalPublicUrl("/blog"), latestBlog);
+  addIndexLastmod(canonicalPublicUrl("/blog/ar"), latestBlog);
   const latestWork = latestDate(samples.map((sample) => sample.updatedAt ?? sample.date));
+  const latestLibrary = latestDate([
+    ...bilingualPosts.map((post) => post.updatedAt ?? post.date),
+    ...samples.map((sample) => sample.updatedAt ?? sample.date),
+  ]);
+  addIndexLastmod(canonicalPublicUrl("/legal-library"), latestLibrary);
+  addIndexLastmod(canonicalPublicUrl("/ar/legal-library"), latestLibrary);
   addIndexLastmod(canonicalPublicUrl("/our-work"), latestWork);
   addIndexLastmod(canonicalPublicUrl("/ar/our-work"), latestWork);
   const allEntries = [...entries, ...workEntries];
@@ -283,7 +342,10 @@ export function buildDiscoveryFeed(
   samples: DiscoveryWorkSample[],
 ): string {
   const items = [
-    ...posts.map((post) => ({ title: post.titleEn || post.titleAr, description: post.excerptEn || post.excerptAr, url: canonicalPublicUrl(blogPath(post.slug, hasQualityBilingualBlogContent(post) ? "en" : undefined)), modified: post.updatedAt ?? post.date })),
+    ...posts.filter((post) => post.bilingual === true || hasQualityBilingualBlogContent(post)).flatMap((post) => [
+      { title: post.titleEn, description: post.excerptEn, url: canonicalPublicUrl(blogPath(post.slug, "en")), modified: post.updatedAt ?? post.date },
+      { title: post.titleAr, description: post.excerptAr, url: canonicalPublicUrl(blogPath(post.slug, "ar")), modified: post.updatedAt ?? post.date },
+    ]),
     ...samples.flatMap((sample) => [
       ...(sample.titleEn ? [{ title: sample.titleEn, description: sample.summaryEn, url: canonicalPublicUrl(`/our-work/${sample.slug}`), modified: sample.updatedAt ?? sample.date }] : []),
       ...(sample.titleAr ? [{ title: sample.titleAr, description: sample.summaryAr, url: canonicalPublicUrl(`/ar/our-work/${sample.slug}`), modified: sample.updatedAt ?? sample.date }] : []),

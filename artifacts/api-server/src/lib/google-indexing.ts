@@ -3,7 +3,15 @@ import { logger } from "./logger.js";
 const BASE = "https://counselo-legal.com";
 const INDEXNOW_KEY = "611ed21ca6ffe639fa0e476e8ea1aedb9df6601ed775825f6aa2d75da664ab5a";
 const INDEXNOW_URL = "https://api.indexnow.org/indexnow";
-const DISCOVERY_HOMES = [`${BASE}/sa`, `${BASE}/sa/ar`, `${BASE}/syr`, `${BASE}/syr/ar`];
+const LEGAL_LIBRARY_URLS = [`${BASE}/legal-library`, `${BASE}/ar/legal-library`];
+const DISCOVERY_HOMES = [
+  `${BASE}/sa`,
+  `${BASE}/sa/ar`,
+  `${BASE}/syr`,
+  `${BASE}/syr/ar`,
+  `${BASE}/uae`,
+  `${BASE}/uae/ar`,
+];
 
 /**
  * Ping IndexNow with the given URLs so Bing, Yandex, and other participating
@@ -35,13 +43,16 @@ async function pingIndexNow(urls: string[]): Promise<void> {
 /**
  * Returns the canonical URLs to notify when a blog post is published.
  * Includes the post page itself and the blog index (which now lists the post).
- * Only the single canonical URL is used — region-prefixed variants redirect
- * and must not be submitted directly to indexing APIs.
+ * Both language canonicals are submitted; region-prefixed legacy variants
+ * redirect and must not be submitted directly to indexing APIs.
  */
 export function blogPostUrls(slug: string): string[] {
   return [
-    `${BASE}/blog/${slug}`,
+    `${BASE}/blog/en/${slug}`,
+    `${BASE}/blog/ar/${slug}`,
     `${BASE}/blog`,
+    `${BASE}/blog/ar`,
+    ...LEGAL_LIBRARY_URLS,
     ...DISCOVERY_HOMES,
   ];
 }
@@ -67,6 +78,7 @@ export function workSampleUrls(slug: string): string[] {
     `${BASE}/ar/our-work/${slug}`,
     `${BASE}/our-work`,
     `${BASE}/ar/our-work`,
+    ...LEGAL_LIBRARY_URLS,
     ...DISCOVERY_HOMES,
   ];
 }

@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Clock, ArrowLeft, ArrowRight, Calendar, MessageCircle } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { qualifyProfessionalRoleCopy } from "@/lib/professional-role-scope";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { TrustSignals } from "@/components/seo/TrustSignals";
 import { type WorkSamplePublic, localized } from "@/lib/work-samples";
@@ -13,6 +12,7 @@ import {
   assignArticleProvenance,
   blogPath,
   hasQualityBilingualBlogContent,
+  localizeArticleProvenanceUrl,
   COUNSELO_ENTITY_IDS,
   getServiceDefinition,
   getServicesForRegion,
@@ -144,7 +144,7 @@ export default function BlogPost() {
   });
   const { data: allPosts = [] } = useQuery<ApiPost[]>({
     queryKey: ["blog-posts"],
-    queryFn: () => fetchPublicJson<ApiPost[]>("/api/blog/posts"),
+    queryFn: () => fetchPublicJson<ApiPost[]>("/api/blog/posts/discovery"),
     initialData: () => typeof window !== "undefined" ? window.__SSR_POSTS__ as ApiPost[] | undefined : undefined,
     staleTime: 60_000,
   });
@@ -202,19 +202,17 @@ export default function BlogPost() {
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-4" dir={isRTL ? "rtl" : "ltr"}>
         <h1 className="text-2xl font-serif font-bold text-foreground">{ui.notFound}</h1>
         <p className="text-muted-foreground">{ui.notFoundDesc}</p>
-        <Link href="/blog" className="text-primary font-medium hover:underline">{ui.backBlog}</Link>
+        <Link href={lang === "ar" ? "/blog/ar" : "/blog"} className="text-primary font-medium hover:underline">{ui.backBlog}</Link>
       </div>
     );
   }
 
-  const hasEnglish = !!(post.titleEn && post.titleEn.trim());
-  const hasArabic = !!(post.titleAr && post.titleAr.trim());
   const isBilingual = hasQualityBilingualBlogContent(post);
-  if (requestedLanguage && !isBilingual) {
-    return <Redirect to={blogPath(post.slug)} replace />;
+  if (!isBilingual) {
+    return <Redirect to={lang === "ar" ? "/blog/ar" : "/blog"} replace />;
   }
-  const useAr = requestedLanguage === "ar"
-    || (!requestedLanguage && hasArabic && (isRTL || !hasEnglish));
+  const effectiveLanguage = requestedLanguage ?? "en";
+  const useAr = effectiveLanguage === "ar";
   const contentDir = useAr ? "rtl" : "ltr";
 
   const title = useAr ? post.titleAr : post.titleEn;
@@ -236,11 +234,11 @@ export default function BlogPost() {
   const contentType = post.contentType ?? "professional-commentary";
   const provenance = {
     ...assignArticleProvenance({ ...post, contentType }),
-    primaryAuthorName: post.primaryAuthorName || fallbackProvenance.primaryAuthorName,
-    primaryAuthorNameAr: post.primaryAuthorNameAr || fallbackProvenance.primaryAuthorNameAr,
+    primaryAuthorName: fallbackProvenance.primaryAuthorName,
+    primaryAuthorNameAr: fallbackProvenance.primaryAuthorNameAr,
     primaryAuthorUrl: post.primaryAuthorUrl || fallbackProvenance.primaryAuthorUrl,
-    legalReviewerName: qualifyProfessionalRoleCopy(post.legalReviewerName || fallbackProvenance.legalReviewerName),
-    legalReviewerNameAr: qualifyProfessionalRoleCopy(post.legalReviewerNameAr || fallbackProvenance.legalReviewerNameAr),
+    legalReviewerName: fallbackProvenance.legalReviewerName,
+    legalReviewerNameAr: fallbackProvenance.legalReviewerNameAr,
     legalReviewerUrl: post.legalReviewerUrl || fallbackProvenance.legalReviewerUrl,
     applicableLaw: contentType === "legal-guidance" ? (post.applicableLaw || fallbackProvenance.applicableLaw) : "",
     applicableLawAr: contentType === "legal-guidance" ? (post.applicableLawAr || fallbackProvenance.applicableLawAr) : "",
@@ -253,6 +251,9 @@ export default function BlogPost() {
     jurisdiction: contentType === "legal-guidance" ? (post.jurisdiction || fallbackProvenance.jurisdiction) : undefined,
     lastSubstantiveReviewAt: post.lastSubstantiveReviewAt || fallbackProvenance.lastSubstantiveReviewAt,
   };
+  provenance.primaryAuthorUrl = localizeArticleProvenanceUrl(provenance.primaryAuthorUrl, articleRegion, effectiveLanguage, "profile");
+  provenance.legalReviewerUrl = localizeArticleProvenanceUrl(provenance.legalReviewerUrl, articleRegion, effectiveLanguage, "profile");
+  provenance.correctionUrl = localizeArticleProvenanceUrl(provenance.correctionUrl, articleRegion, effectiveLanguage, "correction");
   const validRegionServices = new Set(getServicesForRegion(articleRegion).map((service) => service.slug));
   const categoryService = BLOG_CATEGORY_TO_SERVICE[post.categoryEn] ?? BLOG_CATEGORY_TO_SERVICE[post.categoryAr];
   const articleServiceSlug = (post.relatedServiceSlugs ?? []).find((slug) => validRegionServices.has(slug))
@@ -270,7 +271,7 @@ export default function BlogPost() {
     .map((relatedSlug) => allWork.find((candidate) => candidate.slug === relatedSlug))
     .filter((candidate): candidate is WorkSamplePublic => Boolean(candidate));
 
-  const canonicalArticlePath = blogPath(post.slug, requestedLanguage);
+  const canonicalArticlePath = blogPath(post.slug, effectiveLanguage);
   const canonicalArticleUrl = `https://counselo-legal.com${canonicalArticlePath}`;
   const articleSchema = {
     "@context": "https://schema.org",
@@ -312,6 +313,7 @@ export default function BlogPost() {
         "height": 512,
       },
     },
+    "isPartOf": { "@id": `https://counselo-legal.com${useAr ? "/blog/ar" : "/blog"}#collection` },
     "reviewedBy": {
       "@type": "Person",
       "@id": COUNSELO_ENTITY_IDS.omar,
@@ -332,8 +334,9 @@ export default function BlogPost() {
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
-      { "@type": "ListItem", "position": 2, "name": isRTL ? "المدونة" : "Blog", "item": "https://counselo-legal.com/blog" },
-      { "@type": "ListItem", "position": 3, "name": seoTitle, "item": canonicalArticleUrl },
+      { "@type": "ListItem", "position": 2, "name": useAr ? "المكتبة القانونية" : "Legal Library", "item": `https://counselo-legal.com${useAr ? "/ar/legal-library" : "/legal-library"}` },
+      { "@type": "ListItem", "position": 3, "name": useAr ? "المدونة" : "Blog", "item": `https://counselo-legal.com${useAr ? "/blog/ar" : "/blog"}` },
+      { "@type": "ListItem", "position": 4, "name": seoTitle, "item": canonicalArticleUrl },
     ],
   };
 
@@ -355,7 +358,7 @@ export default function BlogPost() {
           : `${category}, legal articles, free legal guides, CounselO blog, online legal advice, CounselO`}
         ogType="article"
         articlePublishedTime={post.date}
-        articleAuthor={useAr ? "فريق كاونسلو" : "CounselO Team"}
+        articleAuthor={useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}
         articleSection={category}
         extraSchemas={[articleSchema, breadcrumbSchema]}
       />
@@ -364,7 +367,7 @@ export default function BlogPost() {
       <section className="premium-page-hero text-white py-16 px-4">
         <div className="max-w-3xl mx-auto">
           <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Link href="/blog" className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium mb-8 transition-colors">
+            <Link href={useAr ? "/blog/ar" : "/blog"} className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium mb-8 transition-colors">
               <BackArrow className="h-4 w-4" /> {ui.back}
             </Link>
             <div className="flex items-center gap-3 mb-4 flex-wrap">
@@ -403,7 +406,7 @@ export default function BlogPost() {
               </h2>
               <dl className="grid gap-3 text-sm sm:grid-cols-2">
                 <div><dt className="font-semibold text-foreground">{useAr ? "كتب بواسطة" : "Written by"}</dt><dd><a className="text-primary hover:underline" href={provenance.primaryAuthorUrl}>{useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}</a></dd></div>
-                <div><dt className="font-semibold text-foreground">{contentType === "legal-guidance" ? (useAr ? "راجع قانونياً بواسطة" : "Legally reviewed by") : (useAr ? "راجعها" : "Reviewed by")}</dt><dd><a className="text-primary hover:underline" href={provenance.legalReviewerUrl}>{useAr ? provenance.legalReviewerNameAr : provenance.legalReviewerName}</a></dd></div>
+                <div><dt className="font-semibold text-foreground">{useAr ? "تمت المراجعة بواسطة" : "Reviewed by"}</dt><dd><a className="text-primary hover:underline" href={provenance.legalReviewerUrl}>{useAr ? provenance.legalReviewerNameAr : provenance.legalReviewerName}</a></dd></div>
                 {contentType === "legal-guidance" && provenance.jurisdiction && <div><dt className="font-semibold text-foreground">{useAr ? "الاختصاص" : "Jurisdiction"}</dt><dd>{articleJurisdictionLabel(provenance.jurisdiction, useAr)}</dd></div>}
                 <div><dt className="font-semibold text-foreground">{useAr ? "تاريخ النشر" : "Publication date"}</dt><dd>{formatDate(post.date, useAr ? "ar" : "en")}</dd></div>
                 <div><dt className="font-semibold text-foreground">{useAr ? (contentType === "legal-guidance" ? "آخر مراجعة جوهرية" : "آخر مراجعة تحريرية") : (contentType === "legal-guidance" ? "Last substantive review" : "Last editorial review")}</dt><dd>{formatDate(provenance.lastSubstantiveReviewAt, useAr ? "ar" : "en")}</dd></div>
@@ -443,7 +446,7 @@ export default function BlogPost() {
                   {relatedPosts.map((related) => {
                     const relatedUseAr = Boolean(related.titleAr) && (useAr || !related.titleEn);
                     return (
-                      <Link key={related.slug} href={hasQualityBilingualBlogContent(related) ? blogPath(related.slug, useAr ? "ar" : "en") : blogPath(related.slug)} className="border border-border bg-card p-4 hover:border-primary transition-colors">
+                      <Link key={related.slug} href={blogPath(related.slug, useAr ? "ar" : "en")} className="border border-border bg-card p-4 hover:border-primary transition-colors">
                         <span className="text-xs uppercase tracking-wider text-primary font-semibold">{useAr ? "مقال" : "Article"}</span>
                         <span className="block font-semibold text-foreground mt-2">{relatedUseAr ? related.titleAr : related.titleEn}</span>
                       </Link>
@@ -466,9 +469,15 @@ export default function BlogPost() {
               حقوق النشر والملكية محفوظة لكاونسيلو
             </div>
             <div className="mt-8">
-              <Link href="/blog" className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm">
-                <BackArrow className="h-4 w-4" /> {ui.back}
-              </Link>
+              <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-7">
+                <Link href={useAr ? "/blog/ar" : "/blog"} className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm">
+                  <BackArrow className="h-4 w-4" /> {ui.back}
+                </Link>
+                <Link href={useAr ? "/ar/legal-library" : "/legal-library"} className="inline-flex items-center gap-2 text-primary font-semibold hover:underline text-sm">
+                  {useAr ? "المزيد من المكتبة القانونية" : "Explore more in the Legal Library"}
+                  <ArrowRight className={`h-4 w-4 ${useAr ? "rotate-180" : ""}`} />
+                </Link>
+              </div>
             </div>
           </motion.article>
 
@@ -514,7 +523,7 @@ export default function BlogPost() {
                   {lang === "en" ? "Content information" : "معلومات المحتوى"}
                 </p>
                 <p className="font-serif font-bold text-foreground">
-                  {lang === "en" ? "CounselO Legal Content Team" : "فريق المحتوى القانوني في كاونسلو"}
+                  {useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   {lang === "en"
@@ -550,7 +559,7 @@ export default function BlogPost() {
                       {lang === "en" ? svc.nameEn : svc.nameAr}
                     </Link>
                     <Link
-                      href="/blog"
+                      href={useAr ? "/blog/ar" : "/blog"}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors block mb-2"
                     >
                       {lang === "en" ? "← Back to Blog" : "المدونة ←"}

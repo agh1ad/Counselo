@@ -7,7 +7,7 @@ import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod";
 import { fetchPublicJson } from "@/lib/public-api";
-import { blogPath, hasQualityBilingualBlogContent } from "@workspace/api-zod";
+import { blogPath } from "@workspace/api-zod";
 
 interface ApiPost {
   id: number;
@@ -28,9 +28,6 @@ interface ApiPost {
   bodyAr?: string;
   contentEn?: Array<{ body?: string }>;
   contentAr?: Array<{ body?: string }>;
-  /** Pre-computed by the prerender/server. Falls back to hasQualityBilingualBlogContent
-   *  when absent (e.g. live API data which carries the full body fields). */
-  bilingual?: boolean;
   published: boolean;
   relatedServiceSlugs?: string[];
   relatedBlogSlugs?: string[];
@@ -56,18 +53,12 @@ function formatDate(dateStr: string, lang: string) {
 export default function Blog() {
   const { lang, isRTL } = useLanguage();
   const { region, regionPrefix } = useRegion();
-  // Use the pre-computed bilingual flag when present (discovery/SSR posts strip body
-  // fields, so hasQualityBilingualBlogContent would always return false for them).
-  // Fall back to the full check for live API data which carries the body fields.
-  const isBilingual = (post: ApiPost) =>
-    post.bilingual ?? hasQualityBilingualBlogContent(post);
-  const articlePath = (post: ApiPost) => isBilingual(post)
-    ? blogPath(post.slug, lang === "ar" ? "ar" : "en")
-    : blogPath(post.slug);
+  const articlePath = (post: ApiPost) =>
+    blogPath(post.slug, lang === "ar" ? "ar" : "en");
 
   const { data: posts = [], isLoading } = useQuery<ApiPost[]>({
     queryKey: ["blog-posts"],
-    queryFn: () => fetchPublicJson<ApiPost[]>("/api/blog/posts"),
+    queryFn: () => fetchPublicJson<ApiPost[]>("/api/blog/posts/discovery"),
     // Render the deployment snapshot immediately, but do not let it suppress
     // the live request for posts published after that deployment.
     placeholderData: () =>
@@ -137,6 +128,7 @@ export default function Blog() {
               ? "مقالات وأدلة قانونية مشتركة تغطي قوانين الإمارات والسعودية وسوريا"
               : "A shared legal publication covering UAE, Saudi and Syrian law",
             url: `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}`,
+            isPartOf: { "@id": `https://counselo-legal.com${isRTL ? "/ar/legal-library" : "/legal-library"}#webpage` },
             publisher: {
               "@type": "Organization",
               "@id": COUNSELO_ENTITY_IDS.organization,
@@ -172,6 +164,12 @@ export default function Blog() {
               {
                 "@type": "ListItem",
                 position: 2,
+                name: isRTL ? "المكتبة القانونية" : "Legal Library",
+                item: `https://counselo-legal.com${isRTL ? "/ar/legal-library" : "/legal-library"}`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
                 name: isRTL ? "المدونة" : "Blog",
                 item: `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}`,
               },
@@ -213,6 +211,10 @@ export default function Blog() {
             <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
               {ui.subheading}
             </p>
+            <Link href={isRTL ? "/ar/legal-library" : "/legal-library"} className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#e0c078] hover:underline">
+              {isRTL ? "استكشف المكتبة القانونية" : "Explore the CounselO Legal Library"}
+              <ArrowRight className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
+            </Link>
           </motion.div>
         </div>
       </section>

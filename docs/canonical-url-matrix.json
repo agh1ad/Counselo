@@ -57,19 +57,10 @@
     },
     {
       "id": "blog-index",
-      "paths": ["/blog"],
+      "paths": ["/blog", "/blog/ar"],
       "canonical": "self",
-      "hreflang": "x-default-only",
+      "hreflang": "reciprocal-en-ar",
       "indexable": true
-    },
-    {
-      "id": "blog-detail-single-language",
-      "paths": ["/blog/{slug}"],
-      "canonical": "self",
-      "hreflang": "x-default-only",
-      "indexable": true,
-      "source": "published-blog-post-slug-without-quality-bilingual-content",
-      "fallback": "language-specific-request-redirects-here"
     },
     {
       "id": "blog-detail-bilingual",
@@ -77,8 +68,16 @@
       "canonical": "self",
       "hreflang": "reciprocal-en-ar",
       "indexable": true,
-      "source": "published-blog-post-slug-with-quality-bilingual-content",
-      "fallback": "redirect-to-blog-slug"
+      "source": "published-blog-post-slug-with-complete-distinct-bilingual-content",
+      "fallback": "unqualified-blog-slug-redirects-to-english"
+    },
+    {
+      "id": "legal-library-index",
+      "paths": ["/legal-library", "/ar/legal-library"],
+      "canonical": "self",
+      "hreflang": "reciprocal-en-ar",
+      "indexable": true,
+      "source": "published-blog-and-work-discovery-inventory"
     },
     {
       "id": "work-index",
@@ -100,8 +99,12 @@
       "paths": [
         "/sa/blog",
         "/syr/blog",
+        "/uae/blog",
+        "/ar/blog",
         "/sa/ar/blog",
         "/syr/ar/blog",
+        "/uae/ar/blog",
+        "/blog/{slug}",
         "/sa/our-work",
         "/syr/our-work",
         "/sa/ar/our-work",

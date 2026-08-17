@@ -33,7 +33,7 @@ export default function OurWork() {
   const workBasePath = ar ? "/ar/our-work" : "/our-work";
   const visibleSamples = samples.filter((sample) => ar ? Boolean(sample.titleAr) : Boolean(sample.titleEn));
   const ui = ar ? {
-    eyebrow: "نماذج من أعمالنا",
+    eyebrow: "مكتبة كاونسلو القانونية · نماذج الأعمال",
     title: "خبرة قانونية يمكن الاطلاع عليها",
     intro: "نماذج مختارة ومنقحة من مستندات وأعمال قانونية أعدها فريق كاونسلو. نحذف بيانات العملاء والمعلومات السرية قبل النشر.",
     trustTitle: "كيف نحمي خصوصية العملاء",
@@ -47,7 +47,7 @@ export default function OurWork() {
     ctaText: "شارك متطلباتك معنا للحصول على تقييم واضح لنطاق العمل والوقت والتكلفة قبل البدء.",
     cta: "ابدأ استشارتك",
   } : {
-    eyebrow: "Selected Work",
+    eyebrow: "CounselO Legal Library · Selected Work",
     title: "Legal experience you can examine",
     intro: "A selection of redacted legal documents and professional work prepared by CounselO. Client identities and confidential information are removed before publication.",
     trustTitle: "How client privacy is protected",
@@ -71,7 +71,7 @@ export default function OurWork() {
       description: ui.intro,
       url: `https://counselo-legal.com${workBasePath}`,
       inLanguage: ar ? "ar" : "en",
-      isPartOf: { "@id": COUNSELO_ENTITY_IDS.website },
+      isPartOf: { "@id": `https://counselo-legal.com${ar ? "/ar/legal-library" : "/legal-library"}#webpage` },
       about: { "@id": COUNSELO_ENTITY_IDS.organization },
     },
     {
@@ -90,7 +90,8 @@ export default function OurWork() {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: ar ? "الرئيسية" : "Home", item: "https://counselo-legal.com/" },
-        { "@type": "ListItem", position: 2, name: ui.title, item: `https://counselo-legal.com${workBasePath}` },
+        { "@type": "ListItem", position: 2, name: ar ? "المكتبة القانونية" : "Legal Library", item: `https://counselo-legal.com${ar ? "/ar/legal-library" : "/legal-library"}` },
+        { "@type": "ListItem", position: 3, name: ui.title, item: `https://counselo-legal.com${workBasePath}` },
       ],
     },
   ];
@@ -114,6 +115,9 @@ export default function OurWork() {
           <h1 className="text-4xl md:text-6xl font-serif font-bold leading-tight mb-6">{ui.title}</h1>
           <div className="premium-hero-rule mx-auto mb-7" />
           <p className="text-lg text-white/75 leading-relaxed max-w-3xl mx-auto">{ui.intro}</p>
+          <Link href={ar ? "/ar/legal-library" : "/legal-library"} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#e0c078] hover:underline">
+            {ar ? "العودة إلى المكتبة القانونية" : "Back to the Legal Library"}<ArrowRight className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} />
+          </Link>
           <div className="grid sm:grid-cols-3 gap-3 max-w-3xl mx-auto mt-10 text-sm">
             {[ar ? "صياغة مدروسة" : "Careful drafting", ar ? "مراجعة قانونية" : "Legal review", ar ? "سرية محفوظة" : "Confidentiality protected"].map((label, i) => (
               <div key={label} className="flex items-center justify-center gap-2 border border-white/20 bg-white/10 px-4 py-3"><BadgeCheck className="h-4 w-4" />{label}</div>

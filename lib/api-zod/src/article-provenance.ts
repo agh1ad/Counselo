@@ -28,10 +28,10 @@ export type ArticleProvenance = {
   correctionUrl: string;
 };
 
-const REVIEWER = "Lawyer and Legal Counsel Omar Al-Baghdadi";
-const REVIEWER_AR = "المحامي والمستشار القانوني عمر البغدادي";
-const AUTHOR = REVIEWER;
-const AUTHOR_AR = REVIEWER_AR;
+const REVIEWER = "Omar Al-Baghdadi";
+const REVIEWER_AR = "عمر البغدادي";
+const AUTHOR = "CounselO Legal Team";
+const AUTHOR_AR = "فريق كاونسلو القانوني";
 
 const SOURCES: Record<Region, ArticleSource[]> = {
   sa: [
@@ -118,6 +118,27 @@ function inferRegion(text: string): Region {
   return "sa";
 }
 
+export function localizeArticleProvenanceUrl(
+  url: string | null | undefined,
+  region: Region,
+  language: "en" | "ar",
+  kind: "profile" | "correction",
+): string {
+  const prefix = `/${region}${language === "ar" ? "/ar" : ""}`;
+  const fallback = kind === "profile"
+    ? `${prefix}/about`
+    : `${prefix}/contact?subject=article-correction`;
+  const value = url?.trim();
+  if (!value) return fallback;
+  const isLegacyProfile = /^\/(?:sa|syr|uae)(?:\/ar)?\/about\/?$/.test(value) || value === "/about";
+  const isLegacyCorrection = /^\/(?:sa|syr|uae)(?:\/ar)?\/contact\?subject=article-correction$/.test(value)
+    || value === "/contact?subject=article-correction";
+  if ((kind === "profile" && isLegacyProfile) || (kind === "correction" && isLegacyCorrection)) {
+    return fallback;
+  }
+  return value;
+}
+
 function regionLaw(region: Region, category: string): [string, string] {
   const topic = category.trim() || "the subject discussed in this article";
   if (region === "uae") return [`UAE federal, emirate-level or free-zone law applicable to ${topic}`, `القانون الاتحادي أو المحلي أو قانون المنطقة الحرة في الإمارات المنطبق على ${topic}`];
@@ -163,10 +184,10 @@ export function assignArticleProvenance(input: {
     contentType,
     primaryAuthorName: AUTHOR,
     primaryAuthorNameAr: AUTHOR_AR,
-    primaryAuthorUrl: "/about",
+    primaryAuthorUrl: `/${jurisdiction}/about`,
     legalReviewerName: REVIEWER,
     legalReviewerNameAr: REVIEWER_AR,
-    legalReviewerUrl: "/about",
+    legalReviewerUrl: `/${jurisdiction}/about`,
     jurisdiction: contentType === "legal-guidance" ? jurisdiction : undefined,
     applicableLaw: contentType === "legal-guidance" ? applicableLaw : "",
     applicableLawAr: contentType === "legal-guidance" ? applicableLawAr : "",
@@ -176,7 +197,7 @@ export function assignArticleProvenance(input: {
     contentMethodology: contentType === "legal-guidance" ? "Primary-law review plus CounselO practice commentary." : "CounselO editorial analysis and professional commentary based on team experience; no jurisdiction-specific legal conclusion is made.",
     contentMethodologyAr: contentType === "legal-guidance" ? "مراجعة المصادر القانونية الأولية مع تعليق عملي من كاونسلو." : "تحليل تحريري وتعليق مهني من فريق كاونسلو استناداً إلى الخبرة العملية، من دون إبداء نتيجة قانونية خاصة باختصاص محدد.",
     lastSubstantiveReviewAt: reviewDate,
-    correctionUrl: "/contact?subject=article-correction",
+    correctionUrl: `/${jurisdiction}/contact?subject=article-correction`,
   };
 }
 

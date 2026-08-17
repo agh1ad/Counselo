@@ -3,6 +3,7 @@ import type {
   InsertBlogPost,
   InsertWorkSample,
 } from "@workspace/db";
+import { hasQualityBilingualBlogContent } from "@workspace/api-zod";
 import { logger } from "./logger.js";
 
 export class ContentTranslationError extends Error {
@@ -196,6 +197,7 @@ function normalizeEnglishHtml(value: unknown): unknown {
 function missingPatch<T extends Record<string, unknown>>(
   current: T,
   translated: T,
+  forceKeys: ReadonlySet<string> = new Set(),
 ): Partial<T> {
   return Object.fromEntries(
     Object.entries(translated)
@@ -205,11 +207,53 @@ function missingPatch<T extends Record<string, unknown>>(
       ])
       .filter(
         ([key, value]) =>
-          (!nonEmpty(current[key as string]) ||
+          (forceKeys.has(key as string) ||
+            !nonEmpty(current[key as string]) ||
             needsSeoRepair(key as string, current[key as string])) &&
           nonEmpty(value),
       ),
   ) as Partial<T>;
+}
+
+function comparable(value: unknown): string {
+  if (Array.isArray(value)) {
+    return value
+      .map((section) => {
+        if (!section || typeof section !== "object") return "";
+        const record = section as Record<string, unknown>;
+        return `${String(record.heading ?? "")} ${String(record.body ?? "")}`;
+      })
+      .join(" ")
+      .replace(/<[^>]*>/g, " ")
+      .normalize("NFKC")
+      .replace(/\s+/g, " ")
+      .trim()
+      .toLocaleLowerCase("en");
+  }
+  return String(value ?? "")
+    .replace(/<[^>]*>/g, " ")
+    .normalize("NFKC")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLocaleLowerCase("en");
+}
+
+function duplicateArabicFields(current: BlogTranslation): Set<string> {
+  const duplicates = new Set<string>();
+  for (const [englishKey, arabicKey] of [
+    ["categoryEn", "categoryAr"],
+    ["titleEn", "titleAr"],
+    ["excerptEn", "excerptAr"],
+    ["seoTitleEn", "seoTitleAr"],
+    ["seoDescriptionEn", "seoDescriptionAr"],
+    ["bodyEn", "bodyAr"],
+    ["contentEn", "contentAr"],
+  ] as const) {
+    const english = comparable(current[englishKey]);
+    const arabic = comparable(current[arabicKey]);
+    if (english && english === arabic) duplicates.add(arabicKey);
+  }
+  return duplicates;
 }
 
 function isCompleteBlog(values: InsertBlogPost): boolean {
@@ -223,7 +267,8 @@ function isCompleteBlog(values: InsertBlogPost): boolean {
     hasValidSeo(values.seoTitleEn, values.seoDescriptionEn) &&
     hasValidSeo(values.seoTitleAr, values.seoDescriptionAr) &&
     (values.bodyEn || (values.contentEn?.length ?? 0)) &&
-    (values.bodyAr || (values.contentAr?.length ?? 0)),
+    (values.bodyAr || (values.contentAr?.length ?? 0)) &&
+    hasQualityBilingualBlogContent(values),
   );
 }
 
@@ -405,6 +450,7 @@ export async function translateBlogForPublishing(
   return missingPatch(
     current as unknown as Record<string, unknown>,
     translated as unknown as Record<string, unknown>,
+    duplicateArabicFields(current),
   ) as Partial<InsertBlogPost>;
 }
 

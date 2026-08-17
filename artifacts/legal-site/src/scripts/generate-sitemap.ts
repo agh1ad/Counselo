@@ -47,8 +47,26 @@ const BlogPostSchema = z.object({
   ar: BlogLocaleSchema,
 });
 
-const { BASE_URL, CORE_PAGES, BLOG_BASE_PATH, WORK_BASE_PATH } =
+const { BASE_URL, CORE_PAGES, BLOG_BASE_PATH, LEGAL_LIBRARY_BASE_PATH, WORK_BASE_PATH } =
   await import("../data/sitemap-sources.js");
+
+async function fetchRequiredDiscovery(urls: string[], label: string): Promise<Response> {
+  const failures: string[] = [];
+  for (const url of urls) {
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      try {
+        const response = await fetch(url, { signal: AbortSignal.timeout(15_000) });
+        if (response.ok) return response;
+        failures.push(`${url} attempt ${attempt}: HTTP ${response.status}`);
+      } catch (error) {
+        failures.push(`${url} attempt ${attempt}: ${(error as Error).message}`);
+      }
+    }
+  }
+  throw new Error(
+    `${label} discovery is unavailable; refusing to emit incomplete sitemap/feed files (${failures.join("; ")})`,
+  );
+}
 
 
 // Maps old SA-worded Syria blog slugs to new Syria-specific canonical slugs.
@@ -233,6 +251,12 @@ const blogIndexAr = `${BASE_URL}${BLOG_BASE_PATH}/ar`;
 entries.push(urlEntryLanguageVariant(blogIndexEn, blogIndexEn, blogIndexAr, "weekly", "0.8"));
 entries.push(urlEntryLanguageVariant(blogIndexAr, blogIndexEn, blogIndexAr, "weekly", "0.8"));
 
+entries.push("\n  <!-- ===== LEGAL LIBRARY ===== -->");
+const libraryIndexEn = `${BASE_URL}${LEGAL_LIBRARY_BASE_PATH}`;
+const libraryIndexAr = `${BASE_URL}/ar${LEGAL_LIBRARY_BASE_PATH}`;
+entries.push(urlEntryLanguageVariant(libraryIndexEn, libraryIndexEn, libraryIndexAr, "weekly", "0.9"));
+entries.push(urlEntryLanguageVariant(libraryIndexAr, libraryIndexEn, libraryIndexAr, "weekly", "0.9"));
+
 entries.push("\n  <!-- ===== OUR WORK ===== -->");
 const workIndexEn = `${BASE_URL}${WORK_BASE_PATH}`;
 const workIndexAr = `${BASE_URL}/ar${WORK_BASE_PATH}`;
@@ -257,56 +281,58 @@ try {
     seoDescriptionAr: z.string().optional(),
     bodyEn: z.string().optional(),
     bodyAr: z.string().optional(),
-    contentEn: z.array(z.object({ body: z.string().optional() })).optional(),
-    contentAr: z.array(z.object({ body: z.string().optional() })).optional(),
+    contentEn: z.array(z.object({ body: z.string().optional() }).passthrough()).optional(),
+    contentAr: z.array(z.object({ body: z.string().optional() }).passthrough()).optional(),
+    bilingual: z.boolean().optional(),
   });
-  const blogApiUrl =
-    process.env["BLOG_API_URL"]?.trim() ||
-    "https://counselo-legal.com/api/blog/posts";
-  const res = await fetch(blogApiUrl, {
-    signal: AbortSignal.timeout(8_000),
-  });
-  if (res.ok) {
+  const configuredBlogApiUrl = process.env["BLOG_API_URL"]?.trim();
+  const res = await fetchRequiredDiscovery(
+    configuredBlogApiUrl
+      ? [configuredBlogApiUrl]
+      : [
+          "https://counselo-legal.com/api/blog/posts/discovery",
+          "https://counselo-legal.com/api/blog/posts",
+        ],
+    "Blog",
+  );
+  {
     const raw = (await res.json()) as unknown[];
     const posts = raw
       .map((p) => BlogPostRowSchema.safeParse(p))
       .filter((r) => r.success)
-      .map((r) => r.data);
+      .map((r) => r.data)
+      .filter((post) => post.bilingual === true || hasQualityBilingualBlogContent(post));
     for (const post of posts) {
       const modified = post.updatedAt?.slice(0, 10) || post.date;
-      const bilingual = hasQualityBilingualBlogContent(post);
       const enUrl = `${BASE_URL}/blog/en/${post.slug}`;
       const arUrl = `${BASE_URL}/blog/ar/${post.slug}`;
-      if (bilingual) {
-        entries.push(urlEntryLanguageVariant(enUrl, enUrl, arUrl, "monthly", "0.7", modified));
-        entries.push(urlEntryLanguageVariant(arUrl, enUrl, arUrl, "monthly", "0.7", modified));
-      } else {
-        entries.push(urlEntrySingleUrl(`${BASE_URL}${BLOG_BASE_PATH}/${post.slug}`, "monthly", "0.7", modified));
-      }
+      entries.push(urlEntryLanguageVariant(enUrl, enUrl, arUrl, "monthly", "0.7", modified));
+      entries.push(urlEntryLanguageVariant(arUrl, enUrl, arUrl, "monthly", "0.7", modified));
       feedPosts.push({
         slug: post.slug,
         date: post.updatedAt?.slice(0, 10) || post.date,
-        title: post.titleEn?.trim() || post.titleAr?.trim() || post.slug,
-        excerpt: post.excerptEn?.trim() || post.excerptAr?.trim() || "CounselO legal insight",
-        url: bilingual ? enUrl : `${BASE_URL}${BLOG_BASE_PATH}/${post.slug}`,
+        title: post.titleEn?.trim() || post.slug,
+        excerpt: post.excerptEn?.trim() || "CounselO legal insight",
+        url: enUrl,
+      });
+      feedPosts.push({
+        slug: post.slug,
+        date: post.updatedAt?.slice(0, 10) || post.date,
+        title: post.titleAr?.trim() || post.slug,
+        excerpt: post.excerptAr?.trim() || "رؤية قانونية من كاونسلو",
+        url: arUrl,
       });
     }
     console.log(`[sitemap] added ${posts.length} blog post(s) to sitemap`);
-  } else {
-    console.warn(
-      `[sitemap] blog API returned HTTP ${res.status} — skipping post entries`,
-    );
   }
 } catch (err) {
-  console.warn(
-    `[sitemap] could not fetch blog posts (${(err as Error).message}) — skipping`,
-  );
+  throw new Error(`[sitemap] ${(err as Error).message}`, { cause: err });
 }
 
 try {
   const WorkRowSchema = z.object({ slug: z.string(), date: z.string(), updatedAt: z.string().optional(), titleEn: z.string().optional(), titleAr: z.string().optional() });
   const workApiUrl = process.env["WORK_API_URL"]?.trim() || "https://counselo-legal.com/api/work";
-  const res = await fetch(workApiUrl, { signal: AbortSignal.timeout(8_000) });
+  const res = await fetchRequiredDiscovery([workApiUrl], "Work sample");
   if (res.ok) {
     const raw = (await res.json()) as unknown[];
     const samples = raw.map((item) => WorkRowSchema.safeParse(item)).filter((item) => item.success).map((item) => item.data);
@@ -326,7 +352,7 @@ try {
     console.log(`[sitemap] added ${samples.length} work sample(s) to sitemap`);
   }
 } catch (err) {
-  console.warn(`[sitemap] could not fetch work samples (${(err as Error).message}) — skipping`);
+  throw new Error(`[sitemap] ${(err as Error).message}`, { cause: err });
 }
 
 function sitemapBucket(url: string): "core" | "uae-services" | "sa-services" | "syr-services" | "blog" | "work" {
