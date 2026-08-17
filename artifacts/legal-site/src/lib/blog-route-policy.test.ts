@@ -35,19 +35,13 @@ test("redirects the old unqualified bilingual URL to its English canonical", () 
   });
 });
 
-test("keeps monolingual posts on the shared blog URL", () => {
+test("rejects incomplete or duplicate language variants", () => {
   const monolingualPost = { ...bilingualPost, titleAr: "", bodyAr: "" };
-  assert.deepEqual(resolveBlogRoute(monolingualPost), {
-    action: "serve",
-    route: "/blog/contract-guide",
-  });
-  assert.deepEqual(resolveBlogRoute(monolingualPost, "ar"), {
-    action: "redirect",
-    to: "/blog/contract-guide",
-    status: 302,
-  });
+  assert.deepEqual(resolveBlogRoute(monolingualPost), { action: "notfound" });
+  assert.deepEqual(resolveBlogRoute(monolingualPost, "ar"), { action: "notfound" });
+  assert.deepEqual(resolveBlogRoute({ ...bilingualPost, bodyAr: bilingualPost.bodyEn }, "ar"), { action: "notfound" });
 });
 
-test("returns notfound only when the article record is absent", () => {
+test("returns notfound when the article record is absent", () => {
   assert.deepEqual(resolveBlogRoute(null, "en"), { action: "notfound" });
 });

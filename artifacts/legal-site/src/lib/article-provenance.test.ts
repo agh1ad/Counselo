@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { articleJurisdictionLabel, assignArticleProvenance } from "@workspace/api-zod";
+import { articleJurisdictionLabel, assignArticleProvenance, localizeArticleProvenanceUrl } from "@workspace/api-zod";
 
 test("articles default to safe professional commentary", () => {
   const provenance = assignArticleProvenance({
@@ -11,9 +11,10 @@ test("articles default to safe professional commentary", () => {
   });
   assert.equal(provenance.contentType, "professional-commentary");
   assert.equal(provenance.jurisdiction, undefined);
-  assert.equal(provenance.primaryAuthorName, "Lawyer and Legal Counsel Omar Al-Baghdadi");
-  assert.equal(provenance.primaryAuthorNameAr, "المحامي والمستشار القانوني عمر البغدادي");
-  assert.equal(provenance.legalReviewerName, "Lawyer and Legal Counsel Omar Al-Baghdadi");
+  assert.equal(provenance.primaryAuthorName, "CounselO Legal Team");
+  assert.equal(provenance.primaryAuthorNameAr, "فريق كاونسلو القانوني");
+  assert.equal(provenance.legalReviewerName, "Omar Al-Baghdadi");
+  assert.equal(provenance.legalReviewerNameAr, "عمر البغدادي");
   assert.equal(provenance.lastSubstantiveReviewAt, "2025-01-10");
   assert.equal(provenance.sources.length, 0);
   assert.ok(provenance.correctionUrl.includes("article-correction"));
@@ -28,7 +29,7 @@ test("legal guidance requires an explicit content type", () => {
   });
   assert.equal(provenance.jurisdiction, "sa");
   assert.equal(provenance.sources[0]?.href, "https://rega.gov.sa/");
-  assert.equal(provenance.legalReviewerName, "Lawyer and Legal Counsel Omar Al-Baghdadi");
+  assert.equal(provenance.legalReviewerName, "Omar Al-Baghdadi");
 });
 
 test("provenance assigns jurisdiction-specific sources and labels", () => {
@@ -74,4 +75,16 @@ test("Syria topic sources are selected by exact related service slug", () => {
   assert.equal(intellectualProperty.sources[0]?.href, "https://www.parliament.gov.sy/");
   assert.equal(realEstate.sources[0]?.href, "https://www.parliament.gov.sy/");
   assert.notEqual(intellectualProperty.sources[0]?.href, "https://moj.gov.sy/");
+});
+
+test("legacy provenance links follow the article jurisdiction and language", () => {
+  assert.equal(localizeArticleProvenanceUrl("/about", "uae", "ar", "profile"), "/uae/ar/about");
+  assert.equal(
+    localizeArticleProvenanceUrl("/contact?subject=article-correction", "syr", "en", "correction"),
+    "/syr/contact?subject=article-correction",
+  );
+  assert.equal(
+    localizeArticleProvenanceUrl("https://example.com/independent-author", "sa", "ar", "profile"),
+    "https://example.com/independent-author",
+  );
 });

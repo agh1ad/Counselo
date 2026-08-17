@@ -1,14 +1,14 @@
 # CounselO SEO Validation Report
 
-_Generated: 2026-08-10 15:00:37 UTC_
+_Generated: 2026-08-17 21:10:36 UTC_
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| Pages validated | 1608 |
-| Redirect pages  | 42 |
-| ✅ Clean pages  | 1608 |
+| Pages validated | 1620 |
+| Redirect pages  | 43 |
+| ✅ Clean pages  | 1620 |
 | ⚠️  Warn-only pages | 0 |
 | ❌ Error pages  | 0 |
 | Total errors    | 0 |
@@ -17,27 +17,32 @@ _Generated: 2026-08-10 15:00:37 UTC_
 
 > ✅ **No errors found.** All pages pass critical SEO checks.
 
-## ✅ Clean Pages (1608)
+## ✅ Clean Pages (1620)
 
 - `/` — schemas: WebSite, Organization, FAQPage
 - `/ar` — schemas: WebSite, Organization, FAQPage
+- `/ar/legal-library` — schemas: CollectionPage, ItemList, BreadcrumbList
 - `/ar/our-work` — schemas: CollectionPage, ItemList, BreadcrumbList
 - `/blog` — schemas: CollectionPage,Blog, ItemList, BreadcrumbList, ItemList
+- `/blog/ar` — schemas: CollectionPage,Blog, ItemList, BreadcrumbList, ItemList
 - `/blog/ar/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/ar/alahlyh-fy-altaaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/ar/alaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
+- `/blog/ar/alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh` — schemas: Article, BreadcrumbList
 - `/blog/ar/almswwlyh-alaqdyh-fy-almaamlat-altjaryh` — schemas: Article, BreadcrumbList
 - `/blog/ar/almswwlyh-alaqdyh-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/ar/almswwlyh-an-fal-alghyr` — schemas: Article, BreadcrumbList
 - `/blog/ar/alrda-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/ar/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha` — schemas: Article, BreadcrumbList
 - `/blog/ar/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
+- `/blog/ar/altwqya-ala-byad` — schemas: Article, BreadcrumbList
 - `/blog/ar/altwsyat-alamlyh-lsyaghh-aqd-qwy` — schemas: Article, BreadcrumbList
 - `/blog/ar/anha-aqd-alaml-bdwn-sbb-mshrwa` — schemas: Article, BreadcrumbList
 - `/blog/ar/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/ar/aqwd-almqawlat-fy-alnzam-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/ar/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd` — schemas: Article, BreadcrumbList
 - `/blog/ar/athbat-alaqwd-amam-alqda-alsawdy` — schemas: Article, BreadcrumbList
+- `/blog/ar/bna-astratyjyh-aldfaa-qbl-bd-alkhswmh` — schemas: Article, BreadcrumbList
 - `/blog/ar/commercial-supply-contracts-in-saudi` — schemas: Article, BreadcrumbList
 - `/blog/ar/consensual-formal-real-contracts-syrian-law` — schemas: Article, BreadcrumbList
 - `/blog/ar/contract-interpretation-syrian-courts` — schemas: Article, BreadcrumbList
@@ -49,24 +54,29 @@ _Generated: 2026-08-10 15:00:37 UTC_
 - `/blog/ar/hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh` — schemas: Article, BreadcrumbList
 - `/blog/ar/mhl-alaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/ar/mnhjyh-5why-fy-alaml-alqanwny` — schemas: Article, BreadcrumbList
+- `/blog/ar/mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa` — schemas: Article, BreadcrumbList
+- `/blog/ar/mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm` — schemas: Article, BreadcrumbList
 - `/blog/ar/Penalty-clause-in-saudi` — schemas: Article, BreadcrumbList
 - `/blog/ar/performance-of-contracts-in-good-faith-under-syrian-law` — schemas: Article, BreadcrumbList
 - `/blog/ar/syghh-mdhkrh-tfahm-qablh-lltadyl` — schemas: Article, BreadcrumbList
 - `/blog/en/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/en/alahlyh-fy-altaaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/en/alaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
+- `/blog/en/alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh` — schemas: Article, BreadcrumbList
 - `/blog/en/almswwlyh-alaqdyh-fy-almaamlat-altjaryh` — schemas: Article, BreadcrumbList
 - `/blog/en/almswwlyh-alaqdyh-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/en/almswwlyh-an-fal-alghyr` — schemas: Article, BreadcrumbList
 - `/blog/en/alrda-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/en/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha` — schemas: Article, BreadcrumbList
 - `/blog/en/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
+- `/blog/en/altwqya-ala-byad` — schemas: Article, BreadcrumbList
 - `/blog/en/altwsyat-alamlyh-lsyaghh-aqd-qwy` — schemas: Article, BreadcrumbList
 - `/blog/en/anha-aqd-alaml-bdwn-sbb-mshrwa` — schemas: Article, BreadcrumbList
 - `/blog/en/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/en/aqwd-almqawlat-fy-alnzam-alsawdy` — schemas: Article, BreadcrumbList
 - `/blog/en/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd` — schemas: Article, BreadcrumbList
 - `/blog/en/athbat-alaqwd-amam-alqda-alsawdy` — schemas: Article, BreadcrumbList
+- `/blog/en/bna-astratyjyh-aldfaa-qbl-bd-alkhswmh` — schemas: Article, BreadcrumbList
 - `/blog/en/commercial-supply-contracts-in-saudi` — schemas: Article, BreadcrumbList
 - `/blog/en/consensual-formal-real-contracts-syrian-law` — schemas: Article, BreadcrumbList
 - `/blog/en/contract-interpretation-syrian-courts` — schemas: Article, BreadcrumbList
@@ -78,10 +88,12 @@ _Generated: 2026-08-10 15:00:37 UTC_
 - `/blog/en/hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh` — schemas: Article, BreadcrumbList
 - `/blog/en/mhl-alaqd-fy-alqanwn-alswry` — schemas: Article, BreadcrumbList
 - `/blog/en/mnhjyh-5why-fy-alaml-alqanwny` — schemas: Article, BreadcrumbList
+- `/blog/en/mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa` — schemas: Article, BreadcrumbList
+- `/blog/en/mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm` — schemas: Article, BreadcrumbList
 - `/blog/en/Penalty-clause-in-saudi` — schemas: Article, BreadcrumbList
 - `/blog/en/performance-of-contracts-in-good-faith-under-syrian-law` — schemas: Article, BreadcrumbList
 - `/blog/en/syghh-mdhkrh-tfahm-qablh-lltadyl` — schemas: Article, BreadcrumbList
-- `/blog/formation-of-commercial-contracts-saudi-law` — schemas: Article, BreadcrumbList
+- `/legal-library` — schemas: CollectionPage, ItemList, BreadcrumbList
 - `/our-work` — schemas: CollectionPage, ItemList, BreadcrumbList
 - `/sa` — schemas: LegalService, BreadcrumbList
 - `/sa/about` — schemas: Organization, Person, ProfilePage,WebPage, LegalService, LegalService, LegalService
@@ -1628,15 +1640,16 @@ _Generated: 2026-08-10 15:00:37 UTC_
 - `/uae/terms-of-service` — schemas: WebPage, BreadcrumbList
 - `/uae/vision` — schemas: AboutPage, Organization, Person, BreadcrumbList
 
-## 🔀 Redirect Pages (42)
+## 🔀 Redirect Pages (43)
 
-- `/sa/ar/blog/board-of-grievances-saudi-arabia` → `https://counselo-legal.com/blog`
-- `/sa/ar/blog/child-custody-saudi-arabia` → `https://counselo-legal.com/blog`
-- `/sa/ar/blog/divorce-in-saudi-arabia` → `https://counselo-legal.com/blog`
-- `/sa/ar/blog/foreign-company-registration-saudi-arabia` → `https://counselo-legal.com/blog`
-- `/sa/ar/blog/real-estate-disputes-saudi-arabia` → `https://counselo-legal.com/blog`
-- `/sa/ar/blog/wrongful-termination-saudi-labor-law` → `https://counselo-legal.com/blog`
-- `/sa/ar/blog` → `https://counselo-legal.com/blog`
+- `/ar/blog` → `https://counselo-legal.com/blog/ar`
+- `/sa/ar/blog/board-of-grievances-saudi-arabia` → `https://counselo-legal.com/blog/ar`
+- `/sa/ar/blog/child-custody-saudi-arabia` → `https://counselo-legal.com/blog/ar`
+- `/sa/ar/blog/divorce-in-saudi-arabia` → `https://counselo-legal.com/blog/ar`
+- `/sa/ar/blog/foreign-company-registration-saudi-arabia` → `https://counselo-legal.com/blog/ar`
+- `/sa/ar/blog/real-estate-disputes-saudi-arabia` → `https://counselo-legal.com/blog/ar`
+- `/sa/ar/blog/wrongful-termination-saudi-labor-law` → `https://counselo-legal.com/blog/ar`
+- `/sa/ar/blog` → `https://counselo-legal.com/blog/ar`
 - `/sa/blog/board-of-grievances-saudi-arabia` → `https://counselo-legal.com/blog`
 - `/sa/blog/child-custody-saudi-arabia` → `https://counselo-legal.com/blog`
 - `/sa/blog/divorce-in-saudi-arabia` → `https://counselo-legal.com/blog`
@@ -1644,19 +1657,19 @@ _Generated: 2026-08-10 15:00:37 UTC_
 - `/sa/blog/real-estate-disputes-saudi-arabia` → `https://counselo-legal.com/blog`
 - `/sa/blog/wrongful-termination-saudi-labor-law` → `https://counselo-legal.com/blog`
 - `/sa/blog` → `https://counselo-legal.com/blog`
-- `/syr/ar/blog/administrative-court-disputes-syria` → `https://counselo-legal.com/blog`
-- `/syr/ar/blog/board-of-grievances-saudi-arabia` → `https://counselo-legal.com/blog`
-- `/syr/ar/blog/child-custody-saudi-arabia` → `https://counselo-legal.com/blog`
-- `/syr/ar/blog/child-custody-syria` → `https://counselo-legal.com/blog`
-- `/syr/ar/blog/divorce-in-saudi-arabia` → `https://counselo-legal.com/blog`
-- `/syr/ar/blog/divorce-in-syria` → `https://counselo-legal.com/blog`
-- `/syr/ar/blog/foreign-company-registration-saudi-arabia` → `https://counselo-legal.com/blog`
-- `/syr/ar/blog/foreign-company-registration-syria` → `https://counselo-legal.com/blog`
-- `/syr/ar/blog/real-estate-disputes-saudi-arabia` → `https://counselo-legal.com/blog`
-- `/syr/ar/blog/real-estate-disputes-syria` → `https://counselo-legal.com/blog`
-- `/syr/ar/blog/wrongful-termination-saudi-labor-law` → `https://counselo-legal.com/blog`
-- `/syr/ar/blog/wrongful-termination-syrian-labor-law` → `https://counselo-legal.com/blog`
-- `/syr/ar/blog` → `https://counselo-legal.com/blog`
+- `/syr/ar/blog/administrative-court-disputes-syria` → `https://counselo-legal.com/blog/ar`
+- `/syr/ar/blog/board-of-grievances-saudi-arabia` → `https://counselo-legal.com/blog/ar`
+- `/syr/ar/blog/child-custody-saudi-arabia` → `https://counselo-legal.com/blog/ar`
+- `/syr/ar/blog/child-custody-syria` → `https://counselo-legal.com/blog/ar`
+- `/syr/ar/blog/divorce-in-saudi-arabia` → `https://counselo-legal.com/blog/ar`
+- `/syr/ar/blog/divorce-in-syria` → `https://counselo-legal.com/blog/ar`
+- `/syr/ar/blog/foreign-company-registration-saudi-arabia` → `https://counselo-legal.com/blog/ar`
+- `/syr/ar/blog/foreign-company-registration-syria` → `https://counselo-legal.com/blog/ar`
+- `/syr/ar/blog/real-estate-disputes-saudi-arabia` → `https://counselo-legal.com/blog/ar`
+- `/syr/ar/blog/real-estate-disputes-syria` → `https://counselo-legal.com/blog/ar`
+- `/syr/ar/blog/wrongful-termination-saudi-labor-law` → `https://counselo-legal.com/blog/ar`
+- `/syr/ar/blog/wrongful-termination-syrian-labor-law` → `https://counselo-legal.com/blog/ar`
+- `/syr/ar/blog` → `https://counselo-legal.com/blog/ar`
 - `/syr/blog/administrative-court-disputes-syria` → `https://counselo-legal.com/blog`
 - `/syr/blog/board-of-grievances-saudi-arabia` → `https://counselo-legal.com/blog`
 - `/syr/blog/child-custody-saudi-arabia` → `https://counselo-legal.com/blog`
@@ -1670,5 +1683,5 @@ _Generated: 2026-08-10 15:00:37 UTC_
 - `/syr/blog/wrongful-termination-saudi-labor-law` → `https://counselo-legal.com/blog`
 - `/syr/blog/wrongful-termination-syrian-labor-law` → `https://counselo-legal.com/blog`
 - `/syr/blog` → `https://counselo-legal.com/blog`
-- `/uae/ar/blog` → `https://counselo-legal.com/blog`
+- `/uae/ar/blog` → `https://counselo-legal.com/blog/ar`
 - `/uae/blog` → `https://counselo-legal.com/blog`

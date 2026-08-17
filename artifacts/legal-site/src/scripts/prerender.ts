@@ -39,7 +39,7 @@ async function fetchBlogPosts(): Promise<InitialBlogPost[]> {
       process.env["BLOG_API_URL"]?.trim() ||
       "https://counselo-legal.com/api/blog/posts";
     const res = await fetch(blogApiUrl, {
-      signal: AbortSignal.timeout(10_000),
+      signal: AbortSignal.timeout(30_000),
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = (await res.json()) as unknown;
@@ -49,7 +49,8 @@ async function fetchBlogPosts(): Promise<InitialBlogPost[]> {
         !!post &&
         typeof post === "object" &&
         typeof (post as { slug?: unknown }).slug === "string" &&
-        (post as { published?: unknown }).published !== false,
+        (post as { published?: unknown }).published !== false &&
+        hasQualityBilingualBlogContent(post as InitialBlogPost),
     );
   } catch (err) {
     console.warn(
@@ -66,7 +67,7 @@ async function fetchWorkSamples(): Promise<WorkSamplePublic[]> {
       process.env["WORK_API_URL"]?.trim() ||
       "https://counselo-legal.com/api/work";
     const res = await fetch(workApiUrl, {
-      signal: AbortSignal.timeout(10_000),
+      signal: AbortSignal.timeout(30_000),
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = (await res.json()) as unknown;
@@ -99,7 +100,7 @@ const serverEntryPath = resolve(distDir, "server/entry-server.js");
 // so Arabic content is a genuinely distinct, crawlable page. This is required
 // for hreflang annotations to point to real content in that language.
 // ROUTES is extended at runtime with DB blog/work slugs (see prerender()).
-const ROUTES: string[] = [...getPublicRouteInventory(), ...getLegalProblemPaths(), "/blog/ar"];
+const ROUTES: string[] = [...getPublicRouteInventory(), ...getLegalProblemPaths()];
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -199,7 +200,7 @@ function writeRoute(
     excerptAr: post.excerptAr,
     // Pre-compute using the full post data so the collection page can determine
     // correct article URLs without needing body fields in the discovery payload.
-    bilingual: hasQualityBilingualBlogContent(post),
+    bilingual: true,
     published: post.published,
     relatedServiceSlugs: post.relatedServiceSlugs,
     relatedBlogSlugs: post.relatedBlogSlugs,
@@ -208,7 +209,6 @@ function writeRoute(
   const discoveryData = `<script>window.__SSR_POSTS__=${safeJson(discoveryPosts)};window.__SSR_WORK_SAMPLES__=${safeJson(routeWorkSamples)};</script>`;
   const detailData = route.startsWith("/blog/")
     ? `<script>window.__SSR_POST__=${safeJson(blogPosts.find((post) =>
-        route === `/blog/${post.slug}` ||
         route === `/blog/en/${post.slug}` ||
         route === `/blog/ar/${post.slug}`
       ))};</script>`
@@ -289,6 +289,7 @@ const REDIRECT_ROUTES: Record<string, string> = {
   "/sa/ar/blog": "/blog/ar",
   "/syr/ar/blog": "/blog/ar",
   "/uae/ar/blog": "/blog/ar",
+  "/ar/blog": "/blog/ar",
 
   // Old SA-region blog post slugs (both EN and AR) → blog index
   // (these posts are removed from the DB; redirect to /blog rather than 404)
@@ -299,12 +300,12 @@ const REDIRECT_ROUTES: Record<string, string> = {
   "/sa/blog/real-estate-disputes-saudi-arabia": "/blog",
   "/sa/blog/child-custody-saudi-arabia": "/blog",
 
-  "/sa/ar/blog/divorce-in-saudi-arabia": "/blog",
-  "/sa/ar/blog/wrongful-termination-saudi-labor-law": "/blog",
-  "/sa/ar/blog/foreign-company-registration-saudi-arabia": "/blog",
-  "/sa/ar/blog/board-of-grievances-saudi-arabia": "/blog",
-  "/sa/ar/blog/real-estate-disputes-saudi-arabia": "/blog",
-  "/sa/ar/blog/child-custody-saudi-arabia": "/blog",
+  "/sa/ar/blog/divorce-in-saudi-arabia": "/blog/ar",
+  "/sa/ar/blog/wrongful-termination-saudi-labor-law": "/blog/ar",
+  "/sa/ar/blog/foreign-company-registration-saudi-arabia": "/blog/ar",
+  "/sa/ar/blog/board-of-grievances-saudi-arabia": "/blog/ar",
+  "/sa/ar/blog/real-estate-disputes-saudi-arabia": "/blog/ar",
+  "/sa/ar/blog/child-custody-saudi-arabia": "/blog/ar",
 
   // Old SYR-region SA-named slugs → blog index (collapsed from two hops)
   "/syr/blog/divorce-in-saudi-arabia": "/blog",
@@ -314,12 +315,12 @@ const REDIRECT_ROUTES: Record<string, string> = {
   "/syr/blog/real-estate-disputes-saudi-arabia": "/blog",
   "/syr/blog/child-custody-saudi-arabia": "/blog",
 
-  "/syr/ar/blog/divorce-in-saudi-arabia": "/blog",
-  "/syr/ar/blog/wrongful-termination-saudi-labor-law": "/blog",
-  "/syr/ar/blog/foreign-company-registration-saudi-arabia": "/blog",
-  "/syr/ar/blog/board-of-grievances-saudi-arabia": "/blog",
-  "/syr/ar/blog/real-estate-disputes-saudi-arabia": "/blog",
-  "/syr/ar/blog/child-custody-saudi-arabia": "/blog",
+  "/syr/ar/blog/divorce-in-saudi-arabia": "/blog/ar",
+  "/syr/ar/blog/wrongful-termination-saudi-labor-law": "/blog/ar",
+  "/syr/ar/blog/foreign-company-registration-saudi-arabia": "/blog/ar",
+  "/syr/ar/blog/board-of-grievances-saudi-arabia": "/blog/ar",
+  "/syr/ar/blog/real-estate-disputes-saudi-arabia": "/blog/ar",
+  "/syr/ar/blog/child-custody-saudi-arabia": "/blog/ar",
 
   // Old SYR-region Syria-named canonical slugs → blog index
   // (these static posts are also removed from DB)
@@ -330,12 +331,12 @@ const REDIRECT_ROUTES: Record<string, string> = {
   "/syr/blog/real-estate-disputes-syria": "/blog",
   "/syr/blog/child-custody-syria": "/blog",
 
-  "/syr/ar/blog/divorce-in-syria": "/blog",
-  "/syr/ar/blog/wrongful-termination-syrian-labor-law": "/blog",
-  "/syr/ar/blog/foreign-company-registration-syria": "/blog",
-  "/syr/ar/blog/administrative-court-disputes-syria": "/blog",
-  "/syr/ar/blog/real-estate-disputes-syria": "/blog",
-  "/syr/ar/blog/child-custody-syria": "/blog",
+  "/syr/ar/blog/divorce-in-syria": "/blog/ar",
+  "/syr/ar/blog/wrongful-termination-syrian-labor-law": "/blog/ar",
+  "/syr/ar/blog/foreign-company-registration-syria": "/blog/ar",
+  "/syr/ar/blog/administrative-court-disputes-syria": "/blog/ar",
+  "/syr/ar/blog/real-estate-disputes-syria": "/blog/ar",
+  "/syr/ar/blog/child-custody-syria": "/blog/ar",
 };
 
 function writeRedirectRoute(fromRoute: string, toRoute: string): void {
@@ -396,11 +397,10 @@ async function prerender(): Promise<void> {
     fetchWorkSamples(),
   ]);
   const blogSlugs = blogPosts.map((post) => post.slug);
-  const blogPostRoutes = blogPosts.flatMap((post) =>
-    hasQualityBilingualBlogContent(post)
-      ? [`/blog/en/${post.slug}`, `/blog/ar/${post.slug}`]
-      : [`/blog/${post.slug}`],
-  );
+  const blogPostRoutes = blogPosts.flatMap((post) => [
+    `/blog/en/${post.slug}`,
+    `/blog/ar/${post.slug}`,
+  ]);
   if (blogSlugs.length > 0) {
     console.log(`  Found ${blogSlugs.length} post(s): ${blogSlugs.join(", ")}`);
     ROUTES.push(...blogPostRoutes);

@@ -532,8 +532,12 @@ export default function ServiceDetail() {
                       </Link>
                     );
                   })}
-                  <Link href="/blog" className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31]/12 bg-white p-5 font-semibold text-foreground transition-colors hover:bg-[#eef4f0] hover:text-primary">
+                  <Link href={isRTL ? "/blog/ar" : "/blog"} className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31]/12 bg-white p-5 font-semibold text-foreground transition-colors hover:bg-[#eef4f0] hover:text-primary">
                     <span>{isRTL ? "مقالات وإرشادات قانونية" : "Legal articles and practical guides"}</span>
+                    <ChevronRight className="h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
+                  </Link>
+                  <Link href={isRTL ? "/ar/legal-library" : "/legal-library"} className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31]/12 bg-white p-5 font-semibold text-foreground transition-colors hover:bg-[#eef4f0] hover:text-primary">
+                    <span>{isRTL ? "مكتبة كاونسلو القانونية" : "CounselO Legal Library"}</span>
                     <ChevronRight className="h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                   </Link>
                   <Link href={`${regionPrefix}/contact?service=${id}`} data-cta="contact" data-conversion-position="service-related" data-region={region} data-lang={isRTL ? "ar" : "en"} className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31] bg-[#0d4a31] p-5 font-semibold text-white transition-colors hover:bg-[#073d29]">

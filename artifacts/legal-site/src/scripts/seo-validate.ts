@@ -177,6 +177,8 @@ function validatePage(filepath: string): PageResult {
   const isUae = route.startsWith("/uae");
   const isSa = route.startsWith("/sa") || route === "/" || route === "/ar";
   const isSharedWork =
+    route === "/legal-library" ||
+    route === "/ar/legal-library" ||
     route === "/our-work" ||
     route.startsWith("/our-work/") ||
     route === "/ar/our-work" ||
@@ -433,14 +435,29 @@ function validatePage(filepath: string): PageResult {
   }
 
   const bodyLinks = internalLinksFromBody(html);
+  const isArabicRoute = route === "/ar"
+    || route.startsWith("/ar/")
+    || route === "/blog/ar"
+    || route.startsWith("/blog/ar/")
+    || /\/(?:sa|syr|uae)\/ar(?:\/|$)/.test(route);
+  if (isArabicRoute && bodyLinks.includes("/blog")) {
+    issues.push({
+      severity: "error",
+      rule: "arabic-page-links-english-blog-hub",
+      detail: "Arabic page links to the English blog hub instead of /blog/ar",
+    });
+  }
 
   // ── blog hubs — must have article links ──
   if (
     route === "/blog" ||
+    route === "/blog/ar" ||
     route === "/sa/blog" ||
     route === "/syr/blog" ||
+    route === "/uae/blog" ||
     route === "/sa/ar/blog" ||
-    route === "/syr/ar/blog"
+    route === "/syr/ar/blog" ||
+    route === "/uae/ar/blog"
   ) {
     const links = internalLinksFromBody(html);
     const articleLinks = links.filter(
@@ -468,7 +485,7 @@ function validatePage(filepath: string): PageResult {
   }
 
   // ── blog posts — must have Article schema ──
-  if (/\/blog\/[^/]+$/.test(route)) {
+  if (/^\/blog\/(?:en|ar)\/[^/]+$/.test(route)) {
     if (!schemaTypes.includes("Article"))
       issues.push({
         severity: "warn",

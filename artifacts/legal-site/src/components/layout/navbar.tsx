@@ -23,7 +23,10 @@ export function Navbar() {
   const regionPickerPath = lang === "ar" ? "/ar" : "/";
 
   const p = (path: string) => regionPrefix + path;
+  const libraryPath = lang === "ar" ? "/ar/legal-library" : "/legal-library";
+  const blogIndexPath = lang === "ar" ? "/blog/ar" : "/blog";
   const workPath = lang === "ar" ? "/ar/our-work" : "/our-work";
+  const workLabel = lang === "ar" ? "أعمالنا" : "Our Work";
 
   const isActive = (path: string) =>
     path === "" ? location === regionPrefix || location === regionPrefix + "/"
@@ -50,8 +53,9 @@ export function Navbar() {
               <Link href={lang === "ar" ? "/uae/ar" : "/uae"} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">{lang === "ar" ? "الإمارات" : "UAE"}</Link>
               <Link href={lang === "ar" ? "/sa/ar" : "/sa"} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">{lang === "ar" ? "السعودية" : "Saudi Arabia"}</Link>
               <Link href={lang === "ar" ? "/syr/ar" : "/syr"} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">{lang === "ar" ? "سوريا" : "Syria"}</Link>
-              <Link href={workPath} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">{t.nav.ourWork}</Link>
-              <Link href="/blog" className="text-sm font-medium text-primary">{t.nav.blog}</Link>
+              <Link href={libraryPath} className={`text-sm font-medium transition-colors hover:text-primary ${location.includes("legal-library") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.ourWork}</Link>
+              <Link href={blogIndexPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location === "/blog" || location.startsWith("/blog/")) ? "text-primary" : "text-muted-foreground"}`}>{t.nav.blog}</Link>
+              <Link href={workPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location.startsWith("/our-work") || location.startsWith("/ar/our-work")) ? "text-primary" : "text-muted-foreground"}`}>{workLabel}</Link>
               <Link href={regionPickerPath} className="region-picker-nav-link" aria-label={lang === "ar" ? "اختيار الدولة" : "Choose region"}>
                 <Globe2 aria-hidden="true" /><span>{lang === "ar" ? "الدول" : "Regions"}</span>
               </Link>
@@ -86,8 +90,9 @@ export function Navbar() {
 
             <Link href={p("/about")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/about") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.about}</Link>
             <Link href={p("/vision")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/vision") ? "text-primary" : "text-muted-foreground"}`}>{lang === "ar" ? "رؤيتنا" : "Our Vision"}</Link>
-            <Link href={workPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location.startsWith("/our-work") || location.startsWith("/ar/our-work")) ? "text-primary" : "text-muted-foreground"}`}>{t.nav.ourWork}</Link>
-            <Link href="/blog" className={`text-sm font-medium transition-colors hover:text-primary ${(location === "/blog" || location.startsWith("/blog/")) ? "text-primary" : "text-muted-foreground"}`}>{t.nav.blog}</Link>
+            <Link href={libraryPath} className={`text-sm font-medium transition-colors hover:text-primary ${location.includes("legal-library") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.ourWork}</Link>
+            <Link href={blogIndexPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location === "/blog" || location.startsWith("/blog/")) ? "text-primary" : "text-muted-foreground"}`}>{t.nav.blog}</Link>
+            <Link href={workPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location.startsWith("/our-work") || location.startsWith("/ar/our-work")) ? "text-primary" : "text-muted-foreground"}`}>{workLabel}</Link>
             <Link href={p("/contact")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/contact") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.contact}</Link>
 
             <Link href={regionPickerPath} className="region-picker-nav-link" aria-label={lang === "ar" ? "اختيار الدولة" : "Choose region"}>
@@ -143,8 +148,9 @@ export function Navbar() {
                 <Link href={lang === "ar" ? "/uae/ar" : "/uae"} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{lang === "ar" ? "الإمارات العربية المتحدة" : "United Arab Emirates"}</Link>
                 <Link href={lang === "ar" ? "/sa/ar" : "/sa"} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{lang === "ar" ? "المملكة العربية السعودية" : "Saudi Arabia"}</Link>
                 <Link href={lang === "ar" ? "/syr/ar" : "/syr"} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{lang === "ar" ? "سوريا" : "Syria"}</Link>
-                <Link href={workPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.ourWork}</Link>
-                <Link href="/blog" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-primary">{t.nav.blog}</Link>
+                <Link href={libraryPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.ourWork}</Link>
+                <Link href={blogIndexPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-primary">{t.nav.blog}</Link>
+                <Link href={workPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{workLabel}</Link>
                 <Link href={regionPickerPath} onClick={() => setIsOpen(false)} className="flex items-center gap-2 px-3 py-2 text-base font-medium text-foreground hover:text-primary"><Globe2 className="h-4 w-4" />{lang === "ar" ? "اختيار الدولة" : "Choose Region"}</Link>
               </> : <>
               <Link href={regionPrefix} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.home}</Link>
@@ -158,8 +164,9 @@ export function Navbar() {
               </div>
               <Link href={p("/about")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.about}</Link>
               <Link href={p("/vision")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{lang === "ar" ? "رؤيتنا" : "Our Vision"}</Link>
-              <Link href={workPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.ourWork}</Link>
-              <Link href="/blog" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.blog}</Link>
+              <Link href={libraryPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.ourWork}</Link>
+              <Link href={blogIndexPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.blog}</Link>
+              <Link href={workPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{workLabel}</Link>
               <Link href={p("/contact")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.contact}</Link>
               <Link href={regionPickerPath} onClick={() => setIsOpen(false)} className="flex items-center gap-2 px-3 py-2 text-base font-medium text-foreground hover:text-primary"><Globe2 className="h-4 w-4" />{lang === "ar" ? "اختيار الدولة" : "Choose Region"}</Link>
               <div className="px-3 pt-4">

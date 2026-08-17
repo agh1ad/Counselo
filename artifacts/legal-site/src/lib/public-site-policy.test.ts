@@ -5,6 +5,8 @@ import test from "node:test";
 import {
   blogLanguageAlternates,
   blogPath,
+  buildDiscoveryFeed,
+  buildDynamicSitemap,
   buildHreflangLinks,
   getPublicRouteInventory,
   hasQualityBilingualBlogContent,
@@ -37,6 +39,9 @@ test("the shared route inventory contains every region and language", () => {
     "/uae/services/corporate-commercial",
     "/uae/ar/services/corporate-commercial",
     "/blog",
+    "/blog/ar",
+    "/legal-library",
+    "/ar/legal-library",
     "/our-work",
     "/ar/our-work",
   ]) {
@@ -63,8 +68,8 @@ test("the checked-in canonical URL matrix covers the generated public inventory"
     "services-index",
     "service-detail",
     "blog-index",
-    "blog-detail-single-language",
     "blog-detail-bilingual",
+    "legal-library-index",
     "work-index",
     "work-detail",
     "legacy-redirect",
@@ -100,9 +105,39 @@ test("blog language URLs require complete independent translations", () => {
   };
   assert.equal(hasQualityBilingualBlogContent(complete), true);
   assert.equal(hasQualityBilingualBlogContent({ ...complete, bodyAr: "" }), false);
+  assert.equal(hasQualityBilingualBlogContent({ ...complete, seoTitleAr: complete.seoTitleEn }), false);
+  assert.equal(hasQualityBilingualBlogContent({ ...complete, bodyAr: complete.bodyEn }), false);
+  assert.equal(blogPath("contract-guide"), "/blog/en/contract-guide");
   assert.equal(blogPath("contract-guide", "en"), "/blog/en/contract-guide");
   assert.equal(blogPath("contract-guide", "ar"), "/blog/ar/contract-guide");
   assert.deepEqual(blogLanguageAlternates("contract-guide").map(([lang]) => lang), ["en", "ar", "x-default"]);
+});
+
+test("dynamic discovery emits both language canonicals and preserves both blog hubs", () => {
+  const post = {
+    slug: "contract-guide",
+    date: "2026-08-17",
+    titleEn: "English title",
+    titleAr: "عنوان عربي",
+    excerptEn: "English excerpt",
+    excerptAr: "ملخص عربي",
+    seoTitleEn: "English SEO title",
+    seoTitleAr: "عنوان محرك البحث العربي",
+    seoDescriptionEn: "A complete English description for this published article.",
+    seoDescriptionAr: "وصف عربي كامل لهذا المقال المنشور.",
+    bodyEn: "English article body",
+    bodyAr: "محتوى المقال العربي",
+  };
+  const base = `<?xml version="1.0"?><urlset><url><loc>https://counselo-legal.com/blog</loc></url><url><loc>https://counselo-legal.com/blog/ar</loc></url><url><loc>https://counselo-legal.com/blog/legacy</loc></url></urlset>`;
+  const sitemap = buildDynamicSitemap(base, [post], []);
+  assert.match(sitemap, /<loc>https:\/\/counselo-legal\.com\/blog<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/counselo-legal\.com\/blog\/ar<\/loc>/);
+  assert.match(sitemap, /\/blog\/en\/contract-guide/);
+  assert.match(sitemap, /\/blog\/ar\/contract-guide/);
+  assert.doesNotMatch(sitemap, /\/blog\/legacy/);
+  const feed = buildDiscoveryFeed([post], []);
+  assert.match(feed, /\/blog\/en\/contract-guide/);
+  assert.match(feed, /\/blog\/ar\/contract-guide/);
 });
 
 test("checked-in sitemap index and child files are purpose-separated", () => {

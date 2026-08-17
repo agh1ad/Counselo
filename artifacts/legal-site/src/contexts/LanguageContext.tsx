@@ -22,10 +22,9 @@ export { useLanguage } from "@/contexts/LanguageContextCore";
  * a real, distinct, crawlable URL rather than being a client-only toggle.
  * See RegionContext.tsx for the /ar URL-segment detection logic.
  *
- * Blog posts with equivalent bilingual content use /blog/en/:slug and
- * /blog/ar/:slug. Single-language or incomplete posts remain at /blog/:slug
- * and use the stored preference only as a deterministic display fallback.
- * The shared Our Work section has crawlable /our-work and /ar/our-work URLs.
+ * Every published blog post uses /blog/en/:slug and /blog/ar/:slug. Incomplete
+ * or duplicate language records remain drafts and have no public article URL.
+ * The shared Legal Library and Our Work sections have distinct crawlable language URLs.
  */
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const { region, lang, regionPrefix, setBlogLang } = useRegion();
@@ -39,6 +38,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       location.startsWith("/our-work/") ||
       location === "/ar/our-work" ||
       location.startsWith("/ar/our-work/");
+    const isLibraryPath = location === "/legal-library" || location === "/ar/legal-library";
     if (isBlogPath) {
       if (location === "/blog") {
         navigate("/blog/ar");
@@ -51,6 +51,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       } else {
         setBlogLang(next);
       }
+    } else if (isLibraryPath) {
+      navigate(next === "ar" ? "/ar/legal-library" : "/legal-library");
     } else if (isWorkPath) {
       navigate(
         next === "ar"

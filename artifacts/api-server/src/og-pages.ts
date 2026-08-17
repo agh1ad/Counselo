@@ -15,6 +15,7 @@ import {
   blogLanguageAlternates,
   blogPath,
   hasQualityBilingualBlogContent,
+  localizeArticleProvenanceUrl,
   buildNotFoundHtml,
   LEGACY_REDIRECTS,
   PUBLIC_CACHE_POLICY,
@@ -141,11 +142,9 @@ function normalizeDescription(primary: string, fallback: string): string {
 
 function buildDynamicBlogHtml(
   post: typeof blogPostsTable.$inferSelect,
-  requestedLanguage?: "en" | "ar",
+  requestedLanguage: "en" | "ar",
 ): string {
-  const isBilingual = hasQualityBilingualBlogContent(post);
-  const isArabicPost = requestedLanguage === "ar"
-    || (!requestedLanguage && Boolean(post.titleAr.trim() && !post.titleEn.trim()));
+  const isArabicPost = requestedLanguage === "ar";
   const title = isArabicPost
     ? post.seoTitleAr || post.titleAr || post.seoTitleEn || post.titleEn || SITE_NAME
     : post.seoTitleEn || post.titleEn || post.seoTitleAr || post.titleAr || SITE_NAME;
@@ -162,16 +161,21 @@ function buildDynamicBlogHtml(
     description,
     language: isArabicPost ? "ar" : "en",
   });
-  const canonical = isBilingual && requestedLanguage
-    ? metadata.canonical
-    : buildBlogHtmlMetadata({ slug: post.slug, title, description }).canonical;
-  const languageAlternates = isBilingual && requestedLanguage
-    ? blogLanguageAlternates(post.slug)
-        .map(([language, target]) => `<link rel="alternate" hreflang="${language}" href="${target}">`)
-        .join("")
-    : "";
+  const canonical = metadata.canonical;
+  const languageAlternates = blogLanguageAlternates(post.slug)
+    .map(([language, target]) => `<link rel="alternate" hreflang="${language}" href="${target}">`)
+    .join("");
   const provenance = assignArticleProvenance(post);
   const contentType = post.contentType ?? "professional-commentary";
+  const articleText = [post.titleEn, post.titleAr, post.excerptEn, post.excerptAr, post.bodyEn, post.bodyAr].filter(Boolean).join(" ");
+  const articleRegion = /United Arab Emirates|\bUAE\b|Dubai|Abu Dhabi|الإمارات|دبي|أبو ظبي/i.test(articleText)
+    ? "uae"
+    : /Syria|Syrian|Damascus|سوريا|السوري|دمشق/i.test(articleText)
+      ? "syr"
+      : "sa";
+  const authorUrl = localizeArticleProvenanceUrl(post.primaryAuthorUrl || provenance.primaryAuthorUrl, articleRegion, requestedLanguage, "profile");
+  const reviewerUrl = localizeArticleProvenanceUrl(post.legalReviewerUrl || provenance.legalReviewerUrl, articleRegion, requestedLanguage, "profile");
+  const correctionUrl = localizeArticleProvenanceUrl(post.correctionUrl || provenance.correctionUrl, articleRegion, requestedLanguage, "correction");
   const shell = getShellHtml() ?? getIndexHtml();
   const articleSchema = safeJson({
     "@context": "https://schema.org",
@@ -182,7 +186,13 @@ function buildDynamicBlogHtml(
     datePublished: post.date,
     dateModified: provenance.lastSubstantiveReviewAt,
     mainEntityOfPage: canonical,
-    author: { "@type": "Organization", "@id": COUNSELO_ENTITY_IDS.organization, name: "CounselO", alternateName: "كاونسلو", url: BASE_URL },
+    author: {
+      "@type": "Organization",
+      "@id": COUNSELO_ENTITY_IDS.organization,
+      name: isArabicPost ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName,
+      alternateName: isArabicPost ? provenance.primaryAuthorName : provenance.primaryAuthorNameAr,
+      url: `${BASE_URL}${authorUrl}`,
+    },
     publisher: {
       "@type": "Organization",
       "@id": COUNSELO_ENTITY_IDS.organization,
@@ -193,7 +203,7 @@ function buildDynamicBlogHtml(
     reviewedBy: {
       "@type": "Person",
       name: isArabicPost ? provenance.legalReviewerNameAr : provenance.legalReviewerName,
-      url: `${BASE_URL}${provenance.legalReviewerUrl}`,
+      url: `${BASE_URL}${reviewerUrl}`,
     },
     ...(contentType === "legal-guidance" ? {
       citation: provenance.sources.map((source) => source.href),
@@ -209,16 +219,16 @@ function buildDynamicBlogHtml(
     <link rel="canonical" href="${esc(canonical)}">${languageAlternates}
     <meta property="og:type" content="article"><meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description.slice(0, 170))}"><meta property="og:url" content="${esc(canonical)}">
-    <meta property="og:image" content="${DEFAULT_OG_IMAGE}"><meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="${DEFAULT_OG_IMAGE}"><meta property="og:locale" content="${isArabicPost ? "ar_SA" : "en_US"}">
+    <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}">
+    <meta name="twitter:description" content="${esc(description.slice(0, 170))}"><meta name="twitter:image" content="${DEFAULT_OG_IMAGE}">
     <script type="application/ld+json">${articleSchema}</script>
     <script>window.__SSR_POST__=${safeJson(post)};</script>`;
-  const reviewerLabel = contentType === "legal-guidance"
-    ? (isArabicPost ? "راجع قانونياً بواسطة" : "Legally reviewed by")
-    : (isArabicPost ? "راجعها" : "Reviewed by");
+  const reviewerLabel = isArabicPost ? "تمت المراجعة بواسطة" : "Reviewed by";
   const legalFields = contentType === "legal-guidance" && provenance.jurisdiction
     ? `<p>${isArabicPost ? "الاختصاص" : "Jurisdiction"}: ${esc(articleJurisdictionLabel(provenance.jurisdiction, isArabicPost))}</p><p>${isArabicPost ? "القانون المنطبق" : "Applicable law"}: ${esc(isArabicPost ? provenance.applicableLawAr : provenance.applicableLaw)}</p><p>${isArabicPost ? "المصادر والاقتباسات" : "Sources and citations"}: ${provenance.sources.map((source) => `<a href="${esc(source.href)}">${esc(isArabicPost ? source.titleAr : source.titleEn)}</a>`).join(" · ")}</p>`
     : "";
-  const body = `<article><h1>${esc(title)}</h1><p>${esc(description)}</p><section aria-labelledby="article-provenance-heading"><h2 id="article-provenance-heading">${contentType === "legal-guidance" ? (isArabicPost ? "بيانات المراجعة والمصادر" : "Review and source information") : (isArabicPost ? "بيانات المقال التحريري" : "Editorial information")}</h2><p>${isArabicPost ? "كتب بواسطة" : "Written by"}: <a href="${esc(provenance.primaryAuthorUrl)}">${esc(isArabicPost ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName)}</a></p><p>${reviewerLabel}: <a href="${esc(provenance.legalReviewerUrl)}">${esc(isArabicPost ? provenance.legalReviewerNameAr : provenance.legalReviewerName)}</a></p>${legalFields}<p>${isArabicPost ? "تاريخ النشر" : "Publication date"}: ${esc(post.date)}</p><p>${isArabicPost ? (contentType === "legal-guidance" ? "آخر مراجعة جوهرية" : "آخر مراجعة تحريرية") : (contentType === "legal-guidance" ? "Last substantive review" : "Last editorial review")}: ${esc(provenance.lastSubstantiveReviewAt)}</p><p>${esc(isArabicPost ? provenance.keyLegalUpdateNoteAr : provenance.keyLegalUpdateNote)}</p><p>${esc(isArabicPost ? provenance.contentMethodologyAr : provenance.contentMethodology)}</p><p>${isArabicPost ? "هذا المقال لأغراض توعوية ولا يشكل مشورة قانونية." : "This article is informational only and is not legal advice."} <a href="${esc(provenance.correctionUrl)}">${isArabicPost ? "الإبلاغ عن تصحيح" : "Report a correction"}</a></p></section></article>`;
+  const body = `<article><h1>${esc(title)}</h1><p>${esc(description)}</p><section aria-labelledby="article-provenance-heading"><h2 id="article-provenance-heading">${contentType === "legal-guidance" ? (isArabicPost ? "بيانات المراجعة والمصادر" : "Review and source information") : (isArabicPost ? "بيانات المقال التحريري" : "Editorial information")}</h2><p>${isArabicPost ? "كتب بواسطة" : "Written by"}: <a href="${esc(authorUrl)}">${esc(isArabicPost ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName)}</a></p><p>${reviewerLabel}: <a href="${esc(reviewerUrl)}">${esc(isArabicPost ? provenance.legalReviewerNameAr : provenance.legalReviewerName)}</a></p>${legalFields}<p>${isArabicPost ? "تاريخ النشر" : "Publication date"}: ${esc(post.date)}</p><p>${isArabicPost ? (contentType === "legal-guidance" ? "آخر مراجعة جوهرية" : "آخر مراجعة تحريرية") : (contentType === "legal-guidance" ? "Last substantive review" : "Last editorial review")}: ${esc(provenance.lastSubstantiveReviewAt)}</p><p>${esc(isArabicPost ? provenance.keyLegalUpdateNoteAr : provenance.keyLegalUpdateNote)}</p><p>${esc(isArabicPost ? provenance.contentMethodologyAr : provenance.contentMethodology)}</p><p>${isArabicPost ? "هذا المقال لأغراض توعوية ولا يشكل مشورة قانونية." : "This article is informational only and is not legal advice."} <a href="${esc(correctionUrl)}">${isArabicPost ? "الإبلاغ عن تصحيح" : "Report a correction"}</a></p></section></article>`;
   if (!shell) {
     return `<!doctype html><html lang="${isArabicPost ? "ar" : "en"}" dir="${isArabicPost ? "rtl" : "ltr"}"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
   }
@@ -230,12 +240,40 @@ function buildDynamicBlogHtml(
 
 function buildDynamicBlogIndex(
   posts: Array<typeof blogPostsTable.$inferSelect>,
+  language: "en" | "ar",
 ): string {
+  const isArabic = language === "ar";
+  const visiblePosts = posts.filter(hasQualityBilingualBlogContent);
+  const discoveryPosts = visiblePosts.map((post) => ({
+    id: post.id,
+    slug: post.slug,
+    date: post.date,
+    updatedAt: post.updatedAt,
+    categoryEn: post.categoryEn,
+    categoryAr: post.categoryAr,
+    readTime: post.readTime,
+    titleEn: post.titleEn,
+    titleAr: post.titleAr,
+    excerptEn: post.excerptEn,
+    excerptAr: post.excerptAr,
+    seoTitleEn: post.seoTitleEn,
+    seoTitleAr: post.seoTitleAr,
+    seoDescriptionEn: post.seoDescriptionEn,
+    seoDescriptionAr: post.seoDescriptionAr,
+    relatedServiceSlugs: post.relatedServiceSlugs,
+    relatedBlogSlugs: post.relatedBlogSlugs,
+    relatedWorkSlugs: post.relatedWorkSlugs,
+    published: true,
+    bilingual: true,
+  }));
   const shell = getShellHtml() ?? getIndexHtml();
-  const title = "Legal Blog | Articles & Guides | CounselO";
-  const description =
-    "Practical legal guides on family, employment, real estate, commercial law, and foreign investment in Saudi Arabia and Syria from CounselO's legal team.";
-  const canonical = `${BASE_URL}/blog`;
+  const title = isArabic
+    ? "المدونة القانونية | مقالات وأدلة | كاونسلو"
+    : "Legal Blog | Articles & Guides | CounselO";
+  const description = isArabic
+    ? "مقالات وأدلة قانونية عربية حول قوانين الإمارات والسعودية وسوريا من فريق كاونسلو القانوني."
+    : "Practical legal guides covering UAE, Saudi and Syrian law from CounselO's legal team.";
+  const canonical = `${BASE_URL}${isArabic ? "/blog/ar" : "/blog"}`;
   const collection = safeJson({
     "@context": "https://schema.org",
     "@type": ["CollectionPage", "Blog"],
@@ -247,30 +285,32 @@ function buildDynamicBlogIndex(
   const itemList = safeJson({
     "@context": "https://schema.org",
     "@type": "ItemList",
-    numberOfItems: posts.length,
-    itemListElement: posts.map((post, index) => ({
+    numberOfItems: visiblePosts.length,
+    itemListElement: visiblePosts.map((post, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      name: post.titleEn || post.titleAr,
-      url: `${canonical}/${post.slug}`,
+      name: isArabic ? post.titleAr : post.titleEn,
+      url: `${BASE_URL}${blogPath(post.slug, language)}`,
     })),
   });
   const head = `<title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <link rel="canonical" href="${canonical}"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}">
-    <meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}">
-    <script type="application/ld+json">${collection}</script><script type="application/ld+json">${itemList}</script><script>window.__SSR_POSTS__=${safeJson(posts)};</script>`;
-  const links = posts
+    <link rel="canonical" href="${canonical}"><link rel="alternate" hreflang="en" href="${BASE_URL}/blog"><link rel="alternate" hreflang="ar" href="${BASE_URL}/blog/ar"><link rel="alternate" hreflang="x-default" href="${BASE_URL}/blog"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}">
+    <meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${DEFAULT_OG_IMAGE}"><meta property="og:locale" content="${isArabic ? "ar_SA" : "en_US"}">
+    <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(description)}"><meta name="twitter:image" content="${DEFAULT_OG_IMAGE}">
+    <script type="application/ld+json">${collection}</script><script type="application/ld+json">${itemList}</script><script>window.__SSR_POSTS__=${safeJson(discoveryPosts)};</script>`;
+  const links = visiblePosts
     .map(
       (post) =>
-        `<article><h2><a href="/blog/${encodeURIComponent(post.slug)}">${esc(post.titleEn || post.titleAr)}</a></h2><p>${esc(post.excerptEn || post.excerptAr)}</p></article>`,
+        `<article><h2><a href="${blogPath(encodeURIComponent(post.slug), language)}">${esc(isArabic ? post.titleAr : post.titleEn)}</a></h2><p>${esc(isArabic ? post.excerptAr : post.excerptEn)}</p></article>`,
     )
     .join("");
-  const body = `<main><h1>Legal Blog</h1>${links}</main>`;
+  const body = `<main><h1>${isArabic ? "المدونة القانونية" : "Legal Blog"}</h1>${links}</main>`;
   if (!shell) {
-    return `<!doctype html><html lang="en"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
+    return `<!doctype html><html lang="${language}"${isArabic ? ' dir="rtl"' : ""}><head>${head}</head><body><div id="root">${body}</div></body></html>`;
   }
   return shell
+    .replace(/<html\b[^>]*>/i, `<html lang="${language}" dir="${isArabic ? "rtl" : "ltr"}">`)
     .replace("<!--app-head-->", head)
     .replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
 }
@@ -487,8 +527,12 @@ export function registerOgPageRoutes(app: Express): void {
     res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
     res.redirect(301, "/blog");
   });
+  app.get([...LEGACY_REDIRECTS.regionalArabicBlog], (_req, res) => {
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
+    res.redirect(301, "/blog/ar");
+  });
   app.get(
-    ["/sa/blog/:slug", "/syr/blog/:slug", "/sa/ar/blog/:slug", "/syr/ar/blog/:slug"],
+    ["/sa/blog/:slug", "/syr/blog/:slug", "/uae/blog/:slug"],
     async (req, res) => {
       const slug = String(req.params["slug"] ?? "");
       const [post] = await db
@@ -503,7 +547,19 @@ export function registerOgPageRoutes(app: Express): void {
       res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
       // Preserve a published article destination; retired legacy articles
       // consolidate to the blog hub instead of producing a redirect-to-404.
-      res.redirect(301, post ? `/blog/${encodeURIComponent(slug)}` : "/blog");
+      res.redirect(301, post ? blogPath(encodeURIComponent(slug), "en") : "/blog");
+    },
+  );
+  app.get(
+    ["/ar/blog/:slug", "/sa/ar/blog/:slug", "/syr/ar/blog/:slug", "/uae/ar/blog/:slug"],
+    async (req, res) => {
+      const slug = String(req.params["slug"] ?? "");
+      const [post] = await db
+        .select({ slug: blogPostsTable.slug })
+        .from(blogPostsTable)
+        .where(and(eq(blogPostsTable.slug, slug), eq(blogPostsTable.published, true)));
+      res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
+      res.redirect(301, post ? blogPath(encodeURIComponent(slug), "ar") : "/blog/ar");
     },
   );
 
@@ -515,11 +571,11 @@ export function registerOgPageRoutes(app: Express): void {
     res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
     res.redirect(301, "/ar/our-work");
   });
-  app.get(["/sa/our-work/:slug", "/syr/our-work/:slug"], (req, res) => {
+  app.get(["/sa/our-work/:slug", "/syr/our-work/:slug", "/uae/our-work/:slug"], (req, res) => {
     res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
     res.redirect(301, `/our-work/${encodeURIComponent(String(req.params["slug"] ?? ""))}`);
   });
-  app.get(["/sa/ar/our-work/:slug", "/syr/ar/our-work/:slug"], (req, res) => {
+  app.get(["/sa/ar/our-work/:slug", "/syr/ar/our-work/:slug", "/uae/ar/our-work/:slug"], (req, res) => {
     res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
     res.redirect(301, `/ar/our-work/${encodeURIComponent(String(req.params["slug"] ?? ""))}`);
   });
@@ -580,6 +636,16 @@ export function registerOgPageRoutes(app: Express): void {
     res.send(buildDynamicWorkIndex(samples, "en"));
   });
 
+  app.get("/blog/ar", async (_req, res) => {
+    const posts = await db
+      .select()
+      .from(blogPostsTable)
+      .where(eq(blogPostsTable.published, true));
+    res.type("html");
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
+    res.send(buildDynamicBlogIndex(posts, "ar"));
+  });
+
   app.get(["/blog/en/:slug", "/blog/ar/:slug"], async (req, res) => {
     const slug = String(req.params["slug"] ?? "");
     const language: "en" | "ar" = req.path.startsWith("/blog/ar/") ? "ar" : "en";
@@ -597,8 +663,7 @@ export function registerOgPageRoutes(app: Express): void {
       return;
     }
     if (!hasQualityBilingualBlogContent(post)) {
-      res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
-      res.redirect(302, blogPath(slug));
+      sendNotFound(res);
       return;
     }
     res.type("html");
@@ -621,14 +686,12 @@ export function registerOgPageRoutes(app: Express): void {
       sendNotFound(res);
       return;
     }
-    if (hasQualityBilingualBlogContent(post)) {
-      res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
-      res.redirect(301, blogPath(slug, "en"));
+    if (!hasQualityBilingualBlogContent(post)) {
+      sendNotFound(res);
       return;
     }
-    res.type("html");
-    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
-    res.send(buildDynamicBlogHtml(post));
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
+    res.redirect(301, blogPath(post.slug, "en"));
   });
 
   app.get("/blog", async (_req, res) => {
@@ -638,7 +701,7 @@ export function registerOgPageRoutes(app: Express): void {
       .where(eq(blogPostsTable.published, true));
     res.type("html");
     res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
-    res.send(buildDynamicBlogIndex(posts));
+    res.send(buildDynamicBlogIndex(posts, "en"));
   });
 
   /**

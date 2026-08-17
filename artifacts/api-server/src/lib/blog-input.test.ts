@@ -20,6 +20,20 @@ const validPost = {
   contentAr: [],
 };
 
+const publishableBilingualPost = {
+  ...validPost,
+  titleEn: "A practical guide to commercial contract disputes",
+  titleAr: "دليل عملي لمنازعات العقود التجارية",
+  bodyEn: "<p>Complete English guidance written independently for English readers.</p>",
+  bodyAr: "<p>إرشادات عربية كاملة مكتوبة بصورة مستقلة للقارئ العربي.</p>",
+  excerptEn: "A practical English overview of commercial contract disputes and the steps parties should consider before acting.",
+  excerptAr: "نظرة عربية عملية إلى منازعات العقود التجارية والخطوات التي ينبغي للأطراف دراستها قبل اتخاذ أي إجراء.",
+  seoTitleEn: "Commercial Contract Disputes: A Practical Guide",
+  seoTitleAr: "منازعات العقود التجارية: دليل عملي شامل",
+  seoDescriptionEn: "Understand common commercial contract disputes, the evidence to preserve, and the practical legal steps to assess before taking action.",
+  seoDescriptionAr: "تعرّف على منازعات العقود التجارية الشائعة والأدلة الواجب حفظها والخطوات القانونية العملية التي ينبغي تقييمها قبل اتخاذ الإجراء.",
+};
+
 test("sanitizes executable HTML while preserving editor formatting", () => {
   const sanitized = sanitizeRichText(
     '<p style="text-align: center; position: fixed">Safe <strong>text</strong></p>' +
@@ -51,11 +65,43 @@ test("rejects malformed slugs, dates, and reading times", () => {
   );
 });
 
-test("allows drafts but blocks publication with weak search metadata", () => {
+test("allows incomplete drafts but requires both languages before publication", () => {
   assert.equal(parseBlogPostInput(validPost).published, false);
   assert.throws(
     () => parseBlogPostInput({ ...validPost, published: true }),
+    /require complete, independently readable English and Arabic articles/,
+  );
+  assert.throws(
+    () => parseBlogPostInput({
+      ...publishableBilingualPost,
+      seoTitleEn: "Weak title",
+      published: true,
+    }),
     /SEO title must be 20–70 characters before publishing/,
+  );
+});
+
+test("publishes only distinct bilingual content and metadata", () => {
+  const post = parseBlogPostInput({ ...publishableBilingualPost, published: true });
+  assert.equal(post.published, true);
+  assert.equal(post.titleEn, publishableBilingualPost.titleEn);
+  assert.equal(post.titleAr, publishableBilingualPost.titleAr);
+
+  assert.throws(
+    () => parseBlogPostInput({
+      ...publishableBilingualPost,
+      seoTitleAr: publishableBilingualPost.seoTitleEn,
+      published: true,
+    }),
+    /SEO titles must contain distinct localized text/,
+  );
+  assert.throws(
+    () => parseBlogPostInput({
+      ...publishableBilingualPost,
+      bodyAr: publishableBilingualPost.bodyEn,
+      published: true,
+    }),
+    /article bodies must contain distinct localized content/,
   );
 });
 

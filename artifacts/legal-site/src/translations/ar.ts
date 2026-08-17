@@ -5,7 +5,7 @@ export const ar: typeof en = {
     home: "الرئيسية",
     services: "الخدمات",
     about: "من نحن",
-    ourWork: "أعمالنا",
+    ourWork: "المكتبة القانونية",
     blog: "المدونة",
     contact: "اتصل بنا",
     bookConsultation: "احجز استشارة",
@@ -34,7 +34,7 @@ export const ar: typeof en = {
     practiceAreasHeading: "مجالات الممارسة",
     quickLinksHeading: "روابط سريعة",
     contactHeading: "اتصل بنا",
-    links: { home: "الرئيسية", allServices: "جميع الخدمات", about: "من نحن", ourWork: "أعمالنا", blog: "المدونة القانونية", contact: "اتصل بنا", book: "احجز استشارة" },
+    links: { home: "الرئيسية", allServices: "جميع الخدمات", about: "من نحن", ourWork: "المكتبة القانونية", blog: "المدونة القانونية", contact: "اتصل بنا", book: "احجز استشارة" },
     practiceAreaLinks: [
       { label: "نظام الأحوال الشخصية", href: "/services/family-law" },
       { label: "النظام التجاري", href: "/services/business-law" },

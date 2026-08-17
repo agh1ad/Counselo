@@ -80,6 +80,19 @@ function stripHtml(html: string): string {
     .trim();
 }
 
+function normalizedComparableText(value: string): string {
+  return stripHtml(value)
+    .normalize("NFKC")
+    .toLocaleLowerCase("en");
+}
+
+function articleText(body: string, sections: BlogSection[]): string {
+  return normalizedComparableText([
+    body,
+    ...sections.map((section) => `${section.heading ?? ""} ${section.body}`),
+  ].join(" "));
+}
+
 export function sanitizeRichText(html: string): string {
   return sanitizeHtml(html, {
     allowedTags: [
@@ -206,11 +219,18 @@ export function parseBlogPostInput(
     stringField(body, "seoDescriptionEn", 500) || plainEn.slice(0, 160);
   const seoDescriptionAr =
     stringField(body, "seoDescriptionAr", 500) || plainAr.slice(0, 160);
+  const excerptEn = stringField(body, "excerptEn", 500) || plainEn.slice(0, 250);
+  const excerptAr = stringField(body, "excerptAr", 500) || plainAr.slice(0, 250);
 
   if (published) {
+    if (!hasEnglishArticle || !hasArabicArticle) {
+      throw new BlogInputError(
+        "Published blog posts require complete, independently readable English and Arabic articles",
+      );
+    }
     for (const [locale, title, description] of [
-      ["English", hasEnglishArticle ? seoTitleEn : "", hasEnglishArticle ? seoDescriptionEn : ""],
-      ["Arabic", hasArabicArticle ? seoTitleAr : "", hasArabicArticle ? seoDescriptionAr : ""],
+      ["English", seoTitleEn, seoDescriptionEn],
+      ["Arabic", seoTitleAr, seoDescriptionAr],
     ] as const) {
       if (!title) continue;
       if (title.length < 20 || title.length > 70) {
@@ -224,6 +244,30 @@ export function parseBlogPostInput(
         );
       }
     }
+
+    for (const [label, english, arabic] of [
+      ["article titles", titleEn, titleAr],
+      ["article excerpts", excerptEn, excerptAr],
+      ["SEO titles", seoTitleEn, seoTitleAr],
+      ["SEO descriptions", seoDescriptionEn, seoDescriptionAr],
+    ] as const) {
+      if (normalizedComparableText(english) === normalizedComparableText(arabic)) {
+        throw new BlogInputError(
+          `Published English and Arabic ${label} must contain distinct localized text`,
+        );
+      }
+    }
+    if (articleText(bodyEn, contentEn) === articleText(bodyAr, contentAr)) {
+      throw new BlogInputError(
+        "Published English and Arabic article bodies must contain distinct localized content",
+      );
+    }
+    if (!/[a-z]/i.test(`${titleEn} ${excerptEn} ${seoDescriptionEn} ${articleText(bodyEn, contentEn)}`)) {
+      throw new BlogInputError("Published English content must contain English-language text");
+    }
+    if (!/[\u0600-\u06ff]/u.test(`${titleAr} ${excerptAr} ${seoDescriptionAr} ${articleText(bodyAr, contentAr)}`)) {
+      throw new BlogInputError("Published Arabic content must contain Arabic-language text");
+    }
   }
 
   return {
@@ -235,8 +279,8 @@ export function parseBlogPostInput(
     readTime,
     titleEn: hasEnglishArticle ? titleEn : "",
     titleAr: hasArabicArticle ? titleAr : "",
-    excerptEn: hasEnglishArticle ? stringField(body, "excerptEn", 500) || plainEn.slice(0, 250) : "",
-    excerptAr: hasArabicArticle ? stringField(body, "excerptAr", 500) || plainAr.slice(0, 250) : "",
+    excerptEn: hasEnglishArticle ? excerptEn : "",
+    excerptAr: hasArabicArticle ? excerptAr : "",
     seoTitleEn: hasEnglishArticle ? seoTitleEn : "",
     seoTitleAr: hasArabicArticle ? seoTitleAr : "",
     seoDescriptionEn: hasEnglishArticle ? seoDescriptionEn : "",

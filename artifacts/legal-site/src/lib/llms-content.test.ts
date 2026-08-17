@@ -18,6 +18,8 @@ test("llms.txt documents all jurisdictions, scope, editorial links, and contact 
     "/sa/services",
     "/syr/services",
     "https://counselo-legal.com/blog",
+    "https://counselo-legal.com/legal-library",
+    "https://counselo-legal.com/ar/legal-library",
     "https://counselo-legal.com/our-work",
     "/sa/about",
     "article-correction",

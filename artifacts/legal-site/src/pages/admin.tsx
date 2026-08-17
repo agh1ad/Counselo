@@ -13,6 +13,7 @@ import {
   getAnalytics, clearAnalytics, getGTMContainerId, type AnalyticsStore,
 } from "@/lib/analytics";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
+import { blogPath } from "@workspace/api-zod";
 
 const API = "/api";
 type Tab = "blog" | "work" | "analytics" | "seo" | "tools";
@@ -980,7 +981,7 @@ export default function AdminCMS() {
                       </td>
                       <td className="px-5 py-4">
                         <div className="flex items-center justify-end gap-1" onClick={(e) => e.stopPropagation()}>
-                          <a href={`/blog/${p.slug}`} target="_blank" rel="noopener noreferrer" className="p-1.5 text-gray-300 hover:text-gray-600 rounded" title="Preview"><Eye size={15} /></a>
+                          <a href={blogPath(p.slug, p.titleEn ? "en" : "ar")} target="_blank" rel="noopener noreferrer" className="p-1.5 text-gray-300 hover:text-gray-600 rounded" title="Preview"><Eye size={15} /></a>
                           <button onClick={() => setEditing({ ...p })} className="p-1.5 text-gray-300 hover:text-green-700 rounded" title="Edit"><Edit2 size={15} /></button>
                           <button onClick={() => void deletePost(p.id, p.titleEn || p.titleAr)} className="p-1.5 text-gray-300 hover:text-red-600 rounded" title="Delete"><Trash2 size={15} /></button>
                         </div>

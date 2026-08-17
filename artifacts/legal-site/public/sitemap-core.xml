@@ -449,5 +449,23 @@
     <priority>0.4</priority>
 
   </url>
+<url>
+    <loc>https://counselo-legal.com/legal-library</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/legal-library"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/legal-library"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/legal-library"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
+<url>
+    <loc>https://counselo-legal.com/ar/legal-library</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/legal-library"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/legal-library"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/legal-library"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+
+  </url>
 
 </urlset>

@@ -1,14 +1,14 @@
 /**
  * Production SSR server for the legal-site artifact.
  *
- * Replaces the plain static file server so that blog post pages (/blog/:slug)
+ * Replaces the plain static file server so that bilingual blog post pages
  * are always rendered to full HTML on the first byte — even for posts
  * published after the last deployment, with no redeployment required.
  *
  * Routing priority (checked in order):
  *   1. Static assets (JS, CSS, images, fonts, …) from dist/public/
  *   2. Root "/" → index.html (prerendered homepage)
- *   3. "/blog/:slug" → prerendered __pages/blog-<slug>.html if it exists,
+ *   3. "/blog/en/:slug" or "/blog/ar/:slug" → matching prerendered HTML,
  *                      otherwise SSR render on-demand via entry-server.js
  *   4. Any other path → flat prerendered file __pages/<path-as-filename>.html
  *                       if it exists (e.g. /sa/about → sa-about.html)
@@ -27,7 +27,12 @@ import { fileURLToPath } from "node:url";
 import type { RenderResult } from "./entry-server.js";
 import type { WorkSamplePublic } from "./lib/work-samples.js";
 import { resolveBlogRoute } from "./lib/blog-route-policy.js";
-import type { BlogLanguage } from "@workspace/api-zod";
+import {
+  buildDiscoveryFeed,
+  buildDynamicSitemap,
+  LEGACY_REDIRECTS,
+  type BlogLanguage,
+} from "@workspace/api-zod";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -80,6 +85,7 @@ interface ApiPost {
   readTime: number;
   published: boolean;
   updatedAt?: string;
+  bilingual?: boolean;
 }
 
 interface ApiWorkSample {
@@ -115,13 +121,9 @@ function escapeHtml(s: string): string {
     .replace(/"/g, "&quot;");
 }
 
-function escapeXml(s: string): string {
-  return escapeHtml(s).replace(/'/g, "&apos;");
-}
-
 async function fetchDiscoveryInventory(): Promise<{ posts: ApiPost[]; samples: WorkSamplePublic[] }> {
   const [postsRes, workRes] = await Promise.all([
-    fetch(`${apiOrigin}/api/blog/posts`),
+    fetch(`${apiOrigin}/api/blog/posts/discovery`),
     fetch(`${apiOrigin}/api/work`),
   ]);
   if (!postsRes.ok || !workRes.ok) throw new Error("Discovery API unavailable");
@@ -145,55 +147,11 @@ function toDiscoveryPost(post: ApiPost): ApiPost {
 }
 
 function dynamicSitemap(baseXml: string, posts: ApiPost[], samples: WorkSamplePublic[]): string {
-  let xml = baseXml
-    .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/blog\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "")
-    .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/(?:ar\/)?our-work\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "");
-  const entry = (url: string, modified: string, alternates: string) => `  <url>
-    <loc>${escapeXml(url)}</loc>
-${alternates}
-    <lastmod>${escapeXml(modified.slice(0, 10))}</lastmod>
-  </url>`;
-  const items = posts.map((post) => {
-    const url = `${apiOrigin}/blog/${post.slug}`;
-    return entry(url, post.updatedAt || post.date, `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(url)}"/>`);
-  });
-  for (const sample of samples) {
-    const enUrl = `${apiOrigin}/our-work/${sample.slug}`;
-    const arUrl = `${apiOrigin}/ar/our-work/${sample.slug}`;
-    const modified = sample.updatedAt || sample.date;
-    if (sample.titleEn && sample.titleAr) {
-      const alternates = `    <xhtml:link rel="alternate" hreflang="en" href="${escapeXml(enUrl)}"/>\n    <xhtml:link rel="alternate" hreflang="ar" href="${escapeXml(arUrl)}"/>\n    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(enUrl)}"/>`;
-      items.push(entry(enUrl, modified, alternates), entry(arUrl, modified, alternates));
-    } else if (sample.titleAr) {
-      items.push(entry(arUrl, modified, `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(arUrl)}"/>`));
-    } else if (sample.titleEn) {
-      items.push(entry(enUrl, modified, `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(enUrl)}"/>`));
-    }
-  }
-  const latestBlog = posts.map((post) => (post.updatedAt || post.date).slice(0, 10)).sort().at(-1);
-  const latestWork = samples.map((sample) => (sample.updatedAt || sample.date).slice(0, 10)).sort().at(-1);
-  const addLastmod = (url: string, date?: string) => {
-    if (date) xml = xml.replace(`<loc>${url}</loc>`, `<loc>${url}</loc>\n    <lastmod>${date}</lastmod>`);
-  };
-  addLastmod(`${apiOrigin}/blog`, latestBlog);
-  addLastmod(`${apiOrigin}/our-work`, latestWork);
-  addLastmod(`${apiOrigin}/ar/our-work`, latestWork);
-  return xml.replace("</urlset>", `${items.length ? `\n${items.join("\n")}\n` : ""}</urlset>`);
+  return buildDynamicSitemap(baseXml, posts, samples);
 }
 
 function discoveryFeed(posts: ApiPost[], samples: WorkSamplePublic[]): string {
-  const items = [
-    ...posts.map((post) => ({ title: post.titleEn || post.titleAr, description: post.excerptEn || post.excerptAr, url: `${apiOrigin}/blog/${post.slug}`, modified: post.updatedAt || post.date })),
-    ...samples.flatMap((sample) => {
-      const modified = sample.updatedAt || sample.date;
-      return [
-        ...(sample.titleEn ? [{ title: sample.titleEn, description: sample.summaryEn, url: `${apiOrigin}/our-work/${sample.slug}`, modified }] : []),
-        ...(sample.titleAr ? [{ title: sample.titleAr, description: sample.summaryAr, url: `${apiOrigin}/ar/our-work/${sample.slug}`, modified }] : []),
-      ];
-    }),
-  ].sort((a, b) => Date.parse(b.modified) - Date.parse(a.modified)).slice(0, 50);
-  const built = items[0] ? new Date(items[0].modified).toUTCString() : new Date(0).toUTCString();
-  return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>CounselO Legal Articles and Work</title><link>${apiOrigin}/</link><description>Recently published legal articles and redacted professional work from CounselO.</description><lastBuildDate>${escapeXml(built)}</lastBuildDate>${items.map((item) => `<item><title>${escapeXml(item.title)}</title><link>${escapeXml(item.url)}</link><guid isPermaLink="true">${escapeXml(item.url)}</guid><description>${escapeXml(item.description)}</description><pubDate>${escapeXml(new Date(item.modified).toUTCString())}</pubDate></item>`).join("")}</channel></rss>`;
+  return buildDiscoveryFeed(posts, samples);
 }
 
 function stripHtml(html: string): string {
@@ -659,6 +617,8 @@ app.get(
     "/syr/ar",
     "/blog",
     "/blog/ar",
+    "/legal-library",
+    "/ar/legal-library",
     "/our-work",
     "/ar/our-work",
     "/sa/services/:id",
@@ -715,6 +675,32 @@ app.get(
   },
 );
 
+app.get([...LEGACY_REDIRECTS.regionalWork], (_req: Request, res: Response) => {
+  res.setHeader("Cache-Control", "public, max-age=86400");
+  return res.redirect(301, "/our-work");
+});
+
+app.get([...LEGACY_REDIRECTS.regionalArabicWork], (_req: Request, res: Response) => {
+  res.setHeader("Cache-Control", "public, max-age=86400");
+  return res.redirect(301, "/ar/our-work");
+});
+
+app.get(
+  ["/sa/our-work/:slug", "/syr/our-work/:slug", "/uae/our-work/:slug"],
+  (req: Request, res: Response) => {
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    return res.redirect(301, `/our-work/${encodeURIComponent(String(req.params["slug"] ?? ""))}`);
+  },
+);
+
+app.get(
+  ["/sa/ar/our-work/:slug", "/syr/ar/our-work/:slug", "/uae/ar/our-work/:slug"],
+  (req: Request, res: Response) => {
+    res.setHeader("Cache-Control", "public, max-age=86400");
+    return res.redirect(301, `/ar/our-work/${encodeURIComponent(String(req.params["slug"] ?? ""))}`);
+  },
+);
+
 app.get(
   [
     "/ar/blog/:slug",
@@ -729,7 +715,7 @@ app.get(
   },
 );
 
-// Blog detail handler shared by /blog/:slug and the bilingual canonical URLs.
+// Blog detail handler shared by the bilingual canonicals and legacy redirect URL.
 // The sitemap, hreflang, canonical, Open Graph, and Twitter metadata all emit
 // /blog/en/:slug and /blog/ar/:slug for complete bilingual articles, so these
 // routes must be handled dynamically even when a deployment has no matching
