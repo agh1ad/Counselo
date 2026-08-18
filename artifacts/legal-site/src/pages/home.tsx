@@ -37,7 +37,7 @@ function RegionalReferenceHero({ h, regionPrefix, isRTL, region }: { h: Translat
       <div className="uae-reference-hero__grid">
         <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="uae-reference-hero__copy">
           <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#d4af60]">{h.hero.badge}</p>
-          <h1 id={`${region}-reference-title`}>{h.hero.h1a}<br /><em>{h.hero.h1b}</em></h1>
+          <h1 id={`${region}-reference-title`}>{h.hero.h1a}{" "}<br /><em>{h.hero.h1b}</em></h1>
           <p className="uae-reference-hero__lede">{h.hero.desc} <strong>{h.hero.descBold}</strong></p>
           <p className="uae-reference-hero__support">{h.hero.subDesc}</p>
           <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs font-medium text-white/75" aria-label={isRTL ? "مزايا الخدمة" : "Service highlights"}>
@@ -226,7 +226,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
           <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
             <div>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a7735]">{isRTL ? "نطاق الخدمة" : "Regional service scope"}</p>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#755615]">{isRTL ? "نطاق الخدمة" : "Regional service scope"}</p>
               <h2 id={`${region}-platform-summary`} className="text-3xl font-serif font-medium leading-tight text-foreground md:text-5xl">
                 {isRTL ? `منصة قانونية إلكترونية لمسائل ${region === "uae" ? "الإمارات" : region === "syr" ? "سوريا" : "السعودية"}` : `Online legal platform for ${region === "uae" ? "UAE" : region === "syr" ? "Syria" : "Saudi Arabia"} matters`}
               </h2>
@@ -252,7 +252,7 @@ export default function Home() {
           <div className="mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
             <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
               <div>
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a7735]">{isRTL ? "حزمة الاستشارة" : "Consultation package"}</p>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#755615]">{isRTL ? "حزمة الاستشارة" : "Consultation package"}</p>
                 <h2 id="regional-consultation-package-heading" className="text-3xl font-serif font-medium leading-tight text-foreground md:text-5xl">
                   {isRTL ? comprehensiveConsultation.titleAr : comprehensiveConsultation.titleEn}
                 </h2>
@@ -359,7 +359,7 @@ export default function Home() {
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-end">
             <motion.div {...fadeIn}>
-              <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.about.eyebrow}</p>
+              <p className="text-[#755615] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.about.eyebrow}</p>
               <h2 id="about-founder-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6 leading-tight">{h.about.heading}</h2>
               <div className="counselo-gold-rule mb-8" />
               <p className="text-muted-foreground text-lg mb-6 leading-relaxed">{h.about.p1}</p>
@@ -368,13 +368,13 @@ export default function Home() {
               <div className="grid grid-cols-2 border-y border-border mb-8">
                 <div className="py-6 pe-5 border-e border-border">
                   <span className="block text-4xl font-serif text-primary font-medium mb-1">30+</span>
-                  <span className="block text-[#9a7735] font-semibold uppercase tracking-[0.12em] text-[0.65rem] leading-snug">
+                  <span className="block text-[#755615] font-semibold uppercase tracking-[0.12em] text-[0.65rem] leading-snug">
                     {h.about.yearsLabel ?? (isRTL ? "سنة خبرة قانونية" : "Years of Legal Experience")}
                   </span>
                 </div>
                 <div className="py-6 ps-6">
                   <span className="block text-4xl font-serif text-primary font-medium mb-1">{h.about.caseStat}</span>
-                  <span className="block text-[#9a7735] font-semibold uppercase tracking-[0.12em] text-[0.65rem] leading-snug">{h.about.caseLabel}</span>
+                  <span className="block text-[#755615] font-semibold uppercase tracking-[0.12em] text-[0.65rem] leading-snug">{h.about.caseLabel}</span>
                 </div>
               </div>
               <ul className="space-y-4 border-t border-border pt-7">
@@ -409,7 +409,7 @@ export default function Home() {
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
           <div className="grid lg:grid-cols-[0.78fr_1.22fr] gap-12 lg:gap-20 items-start">
             <motion.div {...fadeIn}>
-              <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.cooperation.eyebrow}</p>
+              <p className="text-[#755615] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.cooperation.eyebrow}</p>
               <h2 id="cooperation-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6 leading-tight">{h.cooperation.heading}</h2>
               <div className="counselo-gold-rule mb-8" />
               <p className="text-muted-foreground text-lg leading-relaxed">{h.cooperation.desc}</p>
@@ -421,7 +421,7 @@ export default function Home() {
                   <MapPin className="h-7 w-7 text-primary" strokeWidth={1.4} />
                 </div>
                 <div>
-                  <div className="text-[#9a7735] text-[0.68rem] font-semibold uppercase tracking-[0.16em] mb-2">{h.cooperation.officeLabel}</div>
+                  <div className="text-[#755615] text-[0.68rem] font-semibold uppercase tracking-[0.16em] mb-2">{h.cooperation.officeLabel}</div>
                   <div className="font-serif font-medium text-2xl text-foreground mb-4">{h.cooperation.officeName}</div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
@@ -437,7 +437,7 @@ export default function Home() {
                     <MapPin className="h-7 w-7 text-primary" strokeWidth={1.4} />
                   </div>
                   <div>
-                    <div className="text-[#9a7735] text-[0.68rem] font-semibold uppercase tracking-[0.16em] mb-2">{h.cooperation.officeLabel}</div>
+                    <div className="text-[#755615] text-[0.68rem] font-semibold uppercase tracking-[0.16em] mb-2">{h.cooperation.officeLabel}</div>
                     <div className="font-serif font-medium text-2xl text-foreground mb-4">{h.cooperation.office2.officeName}</div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
@@ -455,7 +455,7 @@ export default function Home() {
       <section className="order-10 py-24 lg:py-32 bg-background border-b border-border" aria-labelledby="who-we-serve-heading">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
           <motion.div {...fadeIn} className="max-w-3xl mb-16 lg:mb-20">
-            <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.whoWeServe.eyebrow}</p>
+            <p className="text-[#755615] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.whoWeServe.eyebrow}</p>
             <h2 id="who-we-serve-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5">{h.whoWeServe.heading}</h2>
             <div className="counselo-gold-rule mb-6" />
             <p className="text-muted-foreground text-lg leading-relaxed">{h.whoWeServe.subheading}</p>
@@ -487,7 +487,7 @@ export default function Home() {
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
           <div className="grid lg:grid-cols-[0.72fr_1.28fr] gap-12 lg:gap-20">
             <motion.div {...fadeIn} className="lg:sticky lg:top-32 lg:self-start">
-              <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.practiceAreas.eyebrow}</p>
+              <p className="text-[#755615] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.practiceAreas.eyebrow}</p>
               <h2 id="practice-areas-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5 leading-tight">{h.practiceAreas.heading}</h2>
               <div className="counselo-gold-rule mb-7" />
               <p className="text-muted-foreground text-lg max-w-xl leading-relaxed">{h.practiceAreas.subheading}</p>
@@ -529,7 +529,7 @@ export default function Home() {
       <section className="order-14 py-20 lg:py-24 bg-white border-y border-border" aria-labelledby="experience-evidence-heading">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="max-w-3xl">
-            <p className="text-[#9a7735] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{isRTL ? "الخبرة والشفافية" : "Experience and transparency"}</p>
+            <p className="text-[#755615] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{isRTL ? "الخبرة والشفافية" : "Experience and transparency"}</p>
             <h2 id="experience-evidence-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6">{isRTL ? "اعرف أساس الخدمة قبل البدء" : "Know the basis of the service before you begin"}</h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">{isRTL ? "توضح كاونسلو نطاق الاستشارة والاختصاص والمصادر وطريقة التنسيق مع المهنيين المرخصين قبل بدء العمل. نماذج الأعمال المنشورة منقحة وتوضيحية، ولا تضمن الأعمال أو النتائج السابقة نتيجة أي مسألة أخرى." : "CounselO explains the consultation scope, jurisdiction, sources, and any coordination with licensed professionals before work begins. Published work samples are redacted and illustrative; past work or outcomes do not guarantee the result of another matter."}</p>
             <div className="grid sm:grid-cols-3 gap-4">

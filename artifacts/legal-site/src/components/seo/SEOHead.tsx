@@ -111,6 +111,8 @@ interface SEOHeadProps {
   noRegionPrefix?: boolean;
   /** Crawlable language alternates for a region-independent bilingual page. */
   sharedLanguageAlternates?: { en: string; ar: string; xDefault?: string };
+  /** Exact regional alternates for route families whose slugs differ by jurisdiction. */
+  regionalLanguageAlternates?: Array<{ hrefLang: string; href: string }>;
 }
 
 const GEO = {
@@ -166,6 +168,7 @@ export function SEOHead({
   contentLanguage,
   noRegionPrefix = false,
   sharedLanguageAlternates,
+  regionalLanguageAlternates,
 }: SEOHeadProps) {
   const { lang } = useLanguage();
   const { region } = useRegion();
@@ -264,7 +267,12 @@ export function SEOHead({
   ];
   const absoluteUrl = (path: string) =>
     path.startsWith("http") ? path : `https://counselo-legal.com${path}`;
-  const hreflangAlternates = sharedLanguageAlternates
+  const hreflangAlternates = regionalLanguageAlternates
+    ? regionalLanguageAlternates.map((alternate) => ({
+        hrefLang: alternate.hrefLang,
+        href: absoluteUrl(alternate.href),
+      }))
+    : sharedLanguageAlternates
     ? [
         { hrefLang: "en", href: absoluteUrl(sharedLanguageAlternates.en) },
         { hrefLang: "ar", href: absoluteUrl(sharedLanguageAlternates.ar) },

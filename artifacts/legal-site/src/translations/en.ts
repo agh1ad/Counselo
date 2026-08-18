@@ -65,7 +65,7 @@ export const en = {
       availableNow: "🟢 Available Now",
       responseTag: "Professional Response Within 24 Hours",
       h1a: "Online Legal Consultation",
-      h1b: "for Saudi Arabia — Fast & Reliable.",
+      h1b: "for Saudi Arabia — Focused & Structured.",
       desc: "CounselO is an online legal consultation platform serving Saudi Arabia — delivering expert legal guidance for individuals, businesses and investors directly to your phone or inbox",
       descBold: "without leaving your desk.",
       descEnd: "",
@@ -130,7 +130,7 @@ export const en = {
     consultMethods: {
       eyebrow: "Available Online — Across Saudi Arabia",
       heading: "Two Ways to Consult with Us",
-      intro: "Hundreds of successful online consultations completed. CounselO's professional legal team — founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi — delivers structured legal analysis and practical guidance without the need for in-person attendance.",
+      intro: "CounselO's legal team — founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi — provides structured legal analysis and practical guidance. Published work examples are redacted and do not guarantee the result of another matter.",
       methods: [
         { badge: "Fastest", title: "WhatsApp Consultation", desc: "The fastest way to get legal guidance. Send your case details and receive a professional response directly from the CounselO legal team." },
         { badge: "Most Detailed", title: "Email Legal Review", desc: "Submit your legal matter by email for a thorough written analysis. Ideal for complex commercial disputes requiring a detailed written opinion." },
@@ -531,7 +531,7 @@ export const en = {
         subtitle: "Resolving commercial and regulatory investment disputes for foreign investors in Saudi Arabia.",
         overview1: "Investment disputes in Saudi Arabia — whether between investors, with local partners, or with government authorities — require specialist legal expertise spanning Saudi commercial law, foreign investment regulations, and international dispute resolution mechanisms. As Saudi Arabia's Vision 2030 transformation accelerates foreign investment inflows, the frequency and complexity of investment disputes has increased commensurately. CounselO has advised and represented investors in Saudi investment disputes for 30+ years of legal practice, with a track record across both domestic courts and international arbitration. Our online consultation service puts specialist investment dispute advice at your fingertips — via WhatsApp or email — within 24 hours.",
         overview2: "Investment disputes arise across many contexts: breach of joint venture agreements, partner deadlock, regulatory interference with investment operations, expropriation or regulatory taking, and contract disputes with Saudi government entities. Each requires a distinct legal strategy informed by the specific facts, the parties involved, and the available dispute resolution forums.",
-        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of legal practice spans Saudi Arabia, the UAE, and Syria — encompassing a wide range of commercial and investment disputes before Saudi courts, GCC arbitration bodies, and international tribunals. CounselO brings this depth of multi-jurisdictional experience to every investment dispute.",
+        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of legal practice spans Saudi Arabia, Syria and the UAE — encompassing a wide range of commercial and investment disputes before Saudi courts, GCC arbitration bodies, and international tribunals. CounselO brings this depth of multi-jurisdictional experience to every investment dispute.",
         covers: [
           "Joint venture partner disputes",
           "Shareholder deadlock and minority rights protection",
@@ -841,7 +841,7 @@ export const en = {
         subtitle: "Guiding you through divorce proceedings under Saudi Personal Status Law with sensitivity and expertise.",
         overview1: "Divorce is one of the most significant legal and personal events in a person's life, and navigating Saudi Arabia's Personal Status law — which governs divorce for Muslim families — requires both deep legal knowledge and genuine human sensitivity. CounselO has guided hundreds of clients through divorce proceedings under Saudi law for 30+ years of legal practice, with a thorough command of the Personal Status Courts, the MASAR digital family court system, and the Sharia-based legal principles that govern divorce in the Kingdom. Our fully online consultation service means you can seek expert guidance in complete privacy — via WhatsApp or email, from wherever you are.",
         overview2: "Saudi law recognises several forms of divorce — talaq (husband-initiated), khul (wife-initiated), judicial divorce (faskh), and separation by mutual agreement. Each has specific legal requirements, timelines, and financial consequences. CounselO advises clients on the most appropriate form of divorce for their situation and manages the entire legal process with precision and care.",
-        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of legal practice in Saudi Arabia, the UAE, and Syria has produced a deep and nuanced understanding of Islamic personal status law as applied in Saudi courts — enabling CounselO clients to navigate even the most complex divorce matters with confidence.",
+        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of legal practice in Saudi Arabia, Syria and the UAE has produced a deep and nuanced understanding of Islamic personal status law as applied in Saudi courts — enabling CounselO clients to navigate even the most complex divorce matters with confidence.",
         covers: [
           "Talaq (husband-initiated divorce) proceedings",
           "Judicial divorce (faskh) on grounds of harm or absence",
@@ -965,7 +965,7 @@ export const en = {
         subtitle: "Resolving inheritance disputes and ensuring Sharia-compliant estate distribution across the Kingdom.",
         overview1: "Inheritance in Saudi Arabia is governed by Islamic law (Sharia) — with specific rules on the entitlement of each heir based on their relationship to the deceased. Despite this clear framework, inheritance disputes are extremely common — arising from contested heirs, missing wills, disputed property valuations, disagreements among co-heirs, and situations where the estate includes assets across multiple countries. CounselO has resolved inheritance disputes for families across Saudi Arabia for 30+ years of legal practice, combining precise knowledge of Islamic inheritance law with practical litigation experience before the Personal Status Courts and the general civil courts. Our online consultation service is available immediately — via WhatsApp or email.",
         overview2: "Inheritance disputes often involve deeply personal family dynamics alongside complex legal questions — including disputed paternity, contested relationships, valuation of business assets, and real estate holdings spanning multiple jurisdictions. CounselO brings both the legal precision and the interpersonal sensitivity these cases demand.",
-        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of legal practice across Saudi Arabia, the UAE, and Syria includes extensive experience with complex cross-border inheritance cases — including estates with assets in multiple GCC countries and disputes involving both Saudi and foreign nationals.",
+        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of legal practice across Saudi Arabia, Syria and the UAE includes extensive experience with complex cross-border inheritance cases — including estates with assets in multiple GCC countries and disputes involving both Saudi and foreign nationals.",
         covers: [
           "Contested heirs and disputed heirship certificates",
           "Exclusion of rightful heirs from estate distribution",
@@ -1275,7 +1275,7 @@ export const en = {
         subtitle: "Resolving contested property ownership and title disputes across the Kingdom.",
         overview1: "Property ownership disputes are among the most consequential legal matters in Saudi Arabia — involving land, residential, and commercial real estate worth potentially millions of riyals. At CounselO, our real estate lawyers have handled ownership disputes across the Kingdom for 30+ years of legal practice, building unparalleled expertise in Saudi title law, the Real Estate General Authority (REGA) framework, and the notarial and court systems that govern property rights in the Kingdom. We offer full online legal consultation for ownership disputes — you can speak with our team today via WhatsApp or email.",
         overview2: "Whether your dispute involves a contested inheritance of property, a fraudulent title transfer, a boundary conflict with a neighbour, or a disputed ownership registration, CounselO provides decisive, experienced legal representation. We have successfully resolved hundreds of ownership disputes before Saudi courts and before the Ministry of Justice's real estate dispute committees.",
-        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of legal practice spanning Saudi Arabia, the UAE, and Syria includes hundreds of property ownership cases — giving CounselO's clients a decisive advantage grounded in deep knowledge of Saudi real estate law and court practice.",
+        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's 30+ years of legal practice spanning Saudi Arabia, Syria and the UAE includes hundreds of property ownership cases — giving CounselO's clients a decisive advantage grounded in deep knowledge of Saudi real estate law and court practice.",
         covers: [
           "Disputed property title & ownership registration",
           "Fraudulent title transfers",
@@ -1554,7 +1554,7 @@ export const en = {
         subtitle: "Expert representation for commercial agents, principals, and distributors across the Kingdom.",
         overview1: "Saudi Arabia's Commercial Agency Law imposes strict, non-waivable protections on commercial agents operating in the Kingdom. Foreign principals entering the Saudi market often underestimate the legal obligations they assume when appointing a Saudi commercial agent — obligations that can result in significant compensation claims upon termination. CounselO has advised both Saudi commercial agents and foreign principals for 30+ years of legal practice, giving us a uniquely balanced perspective on agency disputes.",
         overview2: "Whether you are a Saudi agent seeking compensation for wrongful termination, a foreign company restructuring its distribution arrangements, or a business entering the Saudi market for the first time, CounselO provides decisive guidance grounded in decades of direct experience with the Saudi Ministry of Commerce (MOCI) and Commercial Courts.",
-        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's extensive experience spanning Saudi Arabia, the UAE, and Syria means CounselO clients benefit from a cross-jurisdictional understanding of agency law that pure domestic practitioners cannot match.",
+        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's extensive experience spanning Saudi Arabia, Syria and the UAE means CounselO clients benefit from a cross-jurisdictional understanding of agency law that pure domestic practitioners cannot match.",
         covers: [
           "Commercial agency agreement drafting & review",
           "MOCI agency registration & compliance",
@@ -3280,7 +3280,7 @@ export const en = {
         subtitle: "Specialist advice on international contracts involving Saudi Arabia — governing law, jurisdiction, and cross-border dispute resolution.",
         overview1: "International contracts involving Saudi parties or Saudi-based performance present a unique set of legal challenges: which law governs the contract, which court or tribunal has jurisdiction, how will a foreign judgment be enforced in Saudi Arabia, and how do Saudi law mandatory provisions interact with a chosen foreign law? These questions are critical — and answering them incorrectly can render an international contract unenforceable or expose a party to unexpected liability. CounselO's international contracts practice provides specialist guidance on cross-border contracts involving Saudi Arabia from 30+ years of legal practice of experience in Saudi law and cross-border commercial practice.",
         overview2: "Whether you are drafting an international supply agreement, reviewing a foreign-law contract for Saudi compliance, enforcing a foreign judgment in Saudi Arabia, or defending against an international arbitration claim, CounselO provides the specialist guidance that cross-border contracts demand. We advise on governing law selection, jurisdiction clauses, arbitration agreements, and Saudi law mandatory provisions that apply regardless of the chosen law.",
-        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's practice spanning Saudi Arabia, the UAE, and Syria gives CounselO's clients a uniquely cross-jurisdictional perspective on international contracts — combining Saudi law expertise with direct experience of GCC cross-border legal frameworks that purely domestic practitioners cannot offer.",
+        experienceNote: "Lawyer and Legal Counsel Omar Al-Baghdadi's practice spanning Saudi Arabia, Syria and the UAE gives CounselO's clients a uniquely cross-jurisdictional perspective on international contracts — combining Saudi law expertise with direct experience of GCC cross-border legal frameworks that purely domestic practitioners cannot offer.",
         covers: [
           "International contract governing law advice",
           "Jurisdiction & dispute resolution clause review",
@@ -4887,15 +4887,15 @@ export const en = {
       eyebrow: "Our Founder",
       heading: "Lawyer & Legal Counsel Omar Al-Baghdadi",
       subheading: "Senior Advocate · Regional Legal Authority · Mentor to 40+ Lawyers",
-      bio1: "Lawyer and Legal Counsel Omar Al-Baghdadi is one of the most distinguished senior advocates in the region — with 30+ years of legal practice of active legal practice spanning litigation, commercial disputes, arbitration, and dispute resolution across Saudi Arabia, the UAE, and Syria. He is widely regarded as a prominent legal authority at the regional level.",
+      bio1: "Lawyer and Legal Counsel Omar Al-Baghdadi is one of the most distinguished senior advocates in the region — with 30+ years of legal practice of active legal practice spanning litigation, commercial disputes, arbitration, and dispute resolution across Saudi Arabia, Syria and the UAE. He is widely regarded as a prominent legal authority at the regional level.",
       bio2: "Omar Al-Baghdadi graduated from the Faculty of Law at Damascus University in 1996 and began his professional career under the guidance of his father, the esteemed Lawyer Riyad Al-Baghdadi — founder of Al-Baghdadi Law Firm, established in 1957. Raised in a distinguished legal family of this calibre, he acquired early mastery of litigation strategy, case management, and the nuances of civil, commercial, and administrative law.",
-      bio3: "Throughout his career, Omar Al-Baghdadi has managed and personally represented 20,000+ legal matters and consultations — for major corporations, investors, institutions, and individuals across the Saudi Arabian courts, UAE courts, and Syrian courts. His track record spans commercial litigation, contract disputes, arbitration proceedings, administrative matters, cross-border enforcement, and investor dispute resolution.",
-      bio4: "Beyond his courtroom practice, Omar Al-Baghdadi is recognised as a regional legal mentor and educator — having trained and supervised more than 40 lawyers across Syria, the UAE, and Saudi Arabia. This rare combination of senior advocacy, cross-jurisdictional expertise, and leadership of a professional legal team makes CounselO uniquely positioned to deliver premium legal services to clients across the Kingdom.",
+      bio3: "Throughout his career, Omar Al-Baghdadi has managed and personally represented 20,000+ legal matters and consultations — for major corporations, investors, institutions, and individuals across the Saudi Arabian, Syrian and UAE courts. His track record spans commercial litigation, contract disputes, arbitration proceedings, administrative matters, cross-border enforcement, and investor dispute resolution.",
+      bio4: "Beyond his courtroom practice, Omar Al-Baghdadi is recognised as a regional legal mentor and educator — having trained and supervised more than 40 lawyers across Saudi Arabia, Syria and the UAE. This rare combination of senior advocacy, cross-jurisdictional expertise, and leadership of a professional legal team makes CounselO uniquely positioned to deliver premium legal services to clients across the Kingdom.",
       credentials: [
         "Graduate, Faculty of Law — Damascus University (1996)",
         "Regional legal leadership; local representation separately scoped",
         "Holder of the title \"Ustaz\" (Senior Counsel), conferred by the Syrian Bar Association",
-        "Senior legal experience across Saudi Arabia, UAE and Syria",
+        "Senior legal experience across Saudi Arabia, Syria and the UAE",
         "20,000+ legal matters and consultations across civil, commercial, administrative, arbitration and criminal law",
         "Trained or supervised more than 40 lawyers",
         "Son of Lawyer Riyad Al-Baghdadi, founder of Al-Baghdadi Law Firm (est. 1957)",

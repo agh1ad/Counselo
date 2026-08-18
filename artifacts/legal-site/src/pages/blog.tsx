@@ -71,7 +71,7 @@ export default function Blog() {
     en: {
       eyebrow: "Legal Insights",
       heading: "Articles & Guides",
-      subheading: "A shared legal publication covering UAE, Saudi and Syrian law, with jurisdiction clearly identified in every country-specific article — written by CounselO's legal content team.",
+      subheading: "A shared legal publication covering Saudi, Syrian and UAE law, with jurisdiction clearly identified in every country-specific article — written by CounselO's legal content team.",
       readMore: "Read Article",
       minRead: "min read",
       ctaHeading: "Have a Legal Question?",
@@ -83,7 +83,7 @@ export default function Blog() {
     ar: {
       eyebrow: "رؤى قانونية",
       heading: "مقالات وأدلة",
-      subheading: "منصة قانونية مشتركة تغطي قوانين الإمارات والسعودية وسوريا، مع بيان الاختصاص بوضوح في كل مقال خاص بدولة — من فريق المحتوى القانوني في كاونسلو.",
+      subheading: "منصة قانونية مشتركة تغطي قوانين السعودية وسوريا والإمارات، مع بيان الاختصاص بوضوح في كل مقال خاص بدولة — من فريق المحتوى القانوني في كاونسلو.",
       readMore: "اقرأ المقال",
       minRead: "د قراءة",
       ctaHeading: "هل لديك سؤال قانوني؟",
@@ -107,8 +107,8 @@ export default function Blog() {
         }
         description={
           isRTL
-            ? "منصة كاونسلو القانونية المشتركة لمقالات وأدلة حول قوانين الإمارات والسعودية وسوريا، مع تحديد الاختصاص القانوني لكل مقال بوضوح."
-            : "CounselO's shared publication for legal articles and guides covering UAE, Saudi and Syrian law, with each article's jurisdiction clearly identified."
+            ? "منصة كاونسلو القانونية المشتركة لمقالات وأدلة حول قوانين السعودية وسوريا والإمارات، مع تحديد الاختصاص القانوني لكل مقال بوضوح."
+            : "CounselO's shared publication for legal articles and guides covering Saudi, Syrian and UAE law, with each article's jurisdiction clearly identified."
         }
         canonical={isRTL ? "/blog/ar" : "/blog"}
         noRegionPrefix
@@ -116,7 +116,7 @@ export default function Blog() {
         keywords={
           isRTL
             ? "رؤى قانونية, مقالات قانونية, قانون الإمارات, القانون السعودي, القانون السوري, قانون العمل, القانون التجاري, كاونسلو"
-            : "global legal insights, UAE law articles, Saudi law articles, Syrian law articles, employment law, commercial law, CounselO"
+            : "global legal insights, Saudi law articles, Syrian law articles, UAE law articles, employment law, commercial law, CounselO"
         }
         schema={[
           {
@@ -125,8 +125,8 @@ export default function Blog() {
             "@id": `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}#collection`,
             name: isRTL ? "رؤى كاونسلو القانونية العالمية" : "CounselO Global Legal Insights",
             description: isRTL
-              ? "مقالات وأدلة قانونية مشتركة تغطي قوانين الإمارات والسعودية وسوريا"
-              : "A shared legal publication covering UAE, Saudi and Syrian law",
+              ? "مقالات وأدلة قانونية مشتركة تغطي قوانين السعودية وسوريا والإمارات"
+              : "A shared legal publication covering Saudi, Syrian and UAE law",
             url: `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}`,
             isPartOf: { "@id": `https://counselo-legal.com${isRTL ? "/ar/legal-library" : "/legal-library"}#webpage` },
             publisher: {
@@ -293,7 +293,7 @@ export default function Blog() {
                       <span className="flex h-12 w-12 items-center justify-center border border-[#0d4a31]/18 bg-[#eef4f0] text-[#0d4a31]">
                         <BookOpen className="h-6 w-6" strokeWidth={1.4} />
                       </span>
-                      <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[#9a7735]">{category}</span>
+                      <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[#755615]">{category}</span>
                     </div>
                     <h2 dir={useAr ? "rtl" : "ltr"} className="mb-4 font-serif text-xl font-semibold leading-snug text-[#0d4a31] transition-colors group-hover:text-[#aa7e28]">{title}</h2>
                     <p dir={useAr ? "rtl" : "ltr"} className="mb-7 line-clamp-3 text-sm leading-relaxed text-muted-foreground">{excerpt}</p>

@@ -54,13 +54,13 @@ const copy = {
       "محدودية الاستفادة من التقنية في العمل القانوني.",
     ],
     visionLabel: "رؤيتنا",
-    visionTitle: "المرجع القانوني الرقمي الأكثر موثوقية في العالم العربي",
+    visionTitle: "مرجع قانوني رقمي موثوق للعالم العربي",
     visionBody:
-      "أن تصبح كاونسلو المرجع القانوني الرقمي الأكثر موثوقية في العالم العربي، ومنصة تجمع بين المعرفة القانونية المتخصصة والخدمات القانونية الاحترافية، بما يواكب التطور التقني ويحقق أعلى معايير الجودة والسرية.",
+      "أن تصبح كاونسلو مرجعاً قانونياً رقمياً موثوقاً للعالم العربي، ومنصة تجمع بين المعرفة القانونية المتخصصة والخدمات المهنية، بمعايير واضحة للجودة والسرية المهنية وفق الالتزامات الواجبة التطبيق.",
     missionLabel: "رسالتنا",
     missionTitle: "خبرة ودقة وتقنية، في خدمة قرار قانوني أفضل",
     missionBody:
-      "تقديم خدمات قانونية متكاملة تعتمد على الخبرة، والدقة، والتقنية، مع الالتزام بأعلى معايير المهنية، بما يمكّن الأفراد والشركات من الوصول إلى حلول قانونية موثوقة بكفاءة وسهولة.",
+      "تقديم خدمات قانونية تعتمد على الخبرة والدقة والتقنية ومعايير مهنية واضحة، بما يساعد الأفراد والشركات على فهم الخيارات واتخاذ قرارات قانونية أكثر وعياً.",
     valuesEyebrow: "قيمنا",
     valuesTitle: "قيمنا المهنية",
     valuesBody:
@@ -102,7 +102,7 @@ const copy = {
     ctaEyebrow: "معرفة أوضح. قرار أكثر ثقة.",
     ctaTitle: "ابدأ خطوتك القانونية مع كاونسلو",
     ctaBody:
-      "شاركنا مسألتك بسرية، وسيقوم فريق كاونسلو بمراجعتها وتوجيهك إلى المسار القانوني الأنسب.",
+      "شارك الوقائع والمستندات المتاحة. تُعامل المعلومات وفق التزامات السرية المهنية والخصوصية وحماية البيانات الواجبة التطبيق، ويؤكد الفريق نطاق المراجعة قبل بدء العمل.",
     ctaPrimary: "ابدأ استشارة",
     ctaSecondary: "تعرّف على المؤسس",
     home: "الرئيسية",
@@ -138,13 +138,13 @@ const copy = {
       "Legal services that underuse modern technology.",
     ],
     visionLabel: "Our vision",
-    visionTitle: "The Arab world's most trusted digital legal reference",
+    visionTitle: "A trusted digital legal reference for the Arab world",
     visionBody:
-      "For CounselO to become the most trusted digital legal reference in the Arab world: a platform that brings together specialized legal knowledge and professional legal services, keeps pace with technological development, and achieves the highest standards of quality and confidentiality.",
+      "For CounselO to become a trusted digital legal reference for the Arab world: a platform combining specialized legal knowledge and professional services with clear quality standards and confidentiality under applicable obligations.",
     missionLabel: "Our mission",
     missionTitle: "Experience, precision, and technology for better legal decisions",
     missionBody:
-      "To provide integrated legal services based on expertise, precision, and technology, while adhering to the highest professional standards, enabling individuals and businesses to access reliable legal solutions efficiently and easily.",
+      "To provide legal services built on experience, precision and technology, with clear professional standards that help individuals and businesses understand their options and make better-informed legal decisions.",
     valuesEyebrow: "Our values",
     valuesTitle: "Our professional values",
     valuesBody:
@@ -186,7 +186,7 @@ const copy = {
     ctaEyebrow: "Clearer knowledge. More confident decisions.",
     ctaTitle: "Take your next legal step with CounselO",
     ctaBody:
-      "Share your matter confidentially. The CounselO team will review it and guide you toward the most appropriate legal path.",
+      "Share the facts and available documents. Information is handled under applicable professional-confidentiality, privacy and data-protection obligations, and the team confirms the review scope before work begins.",
     ctaPrimary: "Start a consultation",
     ctaSecondary: "Meet the founder",
     home: "Home",
@@ -220,7 +220,7 @@ export default function Vision() {
       name: c.pageName,
       description: c.seoDescription,
       inLanguage: languageCode,
-      dateModified: "2026-07-18",
+      dateModified: "2026-08-18",
       isPartOf: {
         "@type": "WebSite",
         "@id": COUNSELO_ENTITY_IDS.website,

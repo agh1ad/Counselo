@@ -37,7 +37,7 @@ export const enSyr: typeof en = {
       ...en.home.hero,
       badge: "Syria's Specialized Online Legal Consultation Platform · CounselO",
       h1a: "Online Legal Consultation",
-      h1b: "for Syria — Fast & Reliable.",
+      h1b: "for Syria — Focused & Structured.",
       desc: "CounselO is an online legal consultation platform serving Syria — delivering expert legal guidance for individuals, businesses and investors across all major areas of Syrian law",
       subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Syria — with a target professional response time of 24 hours. 30+ years of legal practice, 20,000+ legal matters and consultations.",
     },
@@ -843,7 +843,7 @@ export const enSyr: typeof en = {
     founder: {
       ...en.aboutPage.founder,
       subheading: "Senior Advocate · Regional Legal Authority · Syria & the Region",
-      bio4: "Beyond his courtroom practice, Omar Al-Baghdadi is recognised as a regional legal mentor and educator — having trained and supervised more than 40 lawyers across Syria, the UAE, and Saudi Arabia. This rare combination of senior advocacy, cross-jurisdictional expertise, and leadership of a professional legal team makes CounselO uniquely positioned to deliver premium legal services to clients across Syria.",
+      bio4: "Beyond his courtroom practice, Omar Al-Baghdadi is recognised as a regional legal mentor and educator — having trained and supervised more than 40 lawyers across Saudi Arabia, Syria and the UAE. This rare combination of senior advocacy, cross-jurisdictional expertise, and leadership of a professional legal team makes CounselO uniquely positioned to deliver premium legal services to clients across Syria.",
     },
     why: {
       eyebrow: "Why CounselO",

@@ -1,6 +1,13 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
-import { getLegalProblemPages, getLegalProblemPaths, legalProblemPath } from "./legal-problem-pages.js";
+import {
+  getLegalProblemLanguageAlternates,
+  getLegalProblemPages,
+  getLegalProblemPaths,
+  getRelatedLegalProblemPages,
+  legalProblemPath,
+} from "./legal-problem-pages.js";
 import { getServicesForRegion } from "@workspace/api-zod";
 
 test("problem-page registry covers every served region and language", () => {
@@ -9,10 +16,17 @@ test("problem-page registry covers every served region and language", () => {
     assert.ok(pages.length > 0, `${region} has no legal problem pages`);
     assert.ok(pages.every((page) => page.titleEn && page.titleAr && page.documentsEn.length > 0 && page.documentsAr.length > 0));
     assert.ok(pages.every((page) => page.overview.en.length > 120 && page.overview.ar.length > 120));
+    assert.ok(pages.every((page) => page.heroSummary.en.length >= 80 && page.heroSummary.en.length <= 320));
+    assert.ok(pages.every((page) => page.heroSummary.ar.length >= 70 && page.heroSummary.ar.length <= 320));
+    assert.ok(pages.every((page) => page.atAGlance.en.length === 3 && page.atAGlance.ar.length === 3));
     assert.ok(pages.every((page) => page.keyQuestions.en.length >= 5 && page.keyQuestions.ar.length >= 5));
     assert.ok(pages.every((page) => page.deliverables.en.length >= 5 && page.process.en.length === 4 && page.process.ar.length === 4));
     assert.ok(pages.every((page) => page.experience.en.length > 120 && page.faqs.en.length >= 5 && page.faqs.ar.length >= 5));
     assert.ok(pages.every((page) => page.searchVariantsEn.length >= 12 && page.searchVariantsAr.length >= 12));
+    assert.ok(pages.every((page) => page.legalAccuracy.reviewedAt === "2026-08-18"));
+    assert.ok(pages.every((page) => page.legalAccuracy.status === "framework-verified-matter-review-required"));
+    assert.ok(pages.every((page) => page.legalAccuracy.checks.en.length === 3 && page.legalAccuracy.checks.ar.length === 3));
+    assert.ok(pages.every((page) => page.legalAccuracy.intakeChecklist.en.length === 4 && page.legalAccuracy.intakeChecklist.ar.length === 4));
     assert.deepEqual(
       new Set(pages.map((page) => page.parentServiceSlug)),
       new Set(getServicesForRegion(region).map((service) => service.slug)),
@@ -31,6 +45,58 @@ test("problem-page registry covers every served region and language", () => {
   }
 });
 
+test("problem template keeps the scan-first hierarchy concise", () => {
+  const template = readFileSync(new URL("../pages/legal-problem-detail.tsx", import.meta.url), "utf8");
+  assert.equal(template.match(/className="service-anchor-link"/g)?.length, 5, "sticky navigation should expose only five primary choices");
+  assert.match(template, /page\.heroSummary/);
+  assert.match(template, /problem-at-a-glance-heading/);
+  assert.match(template, /<details id="problem-context"/);
+  assert.match(template, /<details id="problem-questions"/);
+  assert.match(template, /<details id="problem-process"/);
+  assert.match(template, /<details id="consultation-package"/);
+  assert.match(template, /<details id="problem-sources"/);
+  assert.doesNotMatch(template, /id="problem-experience"/, "experience should be consolidated into the trust strip");
+});
+
+test("every problem page preserves the legal-accuracy and engagement boundary", () => {
+  const unsafeOutcomeClaims = /\b(?:we guarantee|guaranteed success|you will win|you are entitled to|will definitely recover)\b/i;
+  for (const region of ["sa", "syr", "uae"] as const) {
+    for (const page of getLegalProblemPages(region)) {
+      const publicCopy = [
+        page.overview.en,
+        page.overview.ar,
+        ...page.keyQuestions.en,
+        ...page.keyQuestions.ar,
+        ...page.deliverables.en,
+        ...page.deliverables.ar,
+        ...page.process.en.flatMap((step) => [step.title, step.desc]),
+        ...page.process.ar.flatMap((step) => [step.title, step.desc]),
+        ...page.faqs.en.flatMap((faq) => [faq.q, faq.a]),
+        ...page.faqs.ar.flatMap((faq) => [faq.q, faq.a]),
+        page.legalAccuracy.urgentWarning.en,
+        page.legalAccuracy.urgentWarning.ar,
+        page.legalAccuracy.engagementWarning.en,
+        page.legalAccuracy.engagementWarning.ar,
+      ].join(" ");
+      assert.doesNotMatch(publicCopy, unsafeOutcomeClaims, `${region}/${page.parentServiceSlug}/${page.slug} contains an outcome guarantee`);
+      assert.match(page.legalAccuracy.urgentWarning.en, /does not suspend or extend a deadline/i);
+      assert.match(page.legalAccuracy.engagementWarning.en, /does not determine entitlement, liability, forum, deadline or outcome/i);
+      assert.match(page.legalAccuracy.engagementWarning.en, /does not by itself create an engagement/i);
+      assert.ok(page.deliverables.en.some((item) => /potentially applicable framework/i.test(item)));
+      assert.ok(page.deliverables.en.some((item) => /within the agreed scope/i.test(item)));
+    }
+  }
+});
+
+test("legal-accuracy checks distinguish Saudi, Syrian and UAE jurisdiction risks", () => {
+  const sa = getLegalProblemPages("sa")[0]?.legalAccuracy.checks.en.join(" ") ?? "";
+  const syr = getLegalProblemPages("syr")[0]?.legalAccuracy.checks.en.join(" ") ?? "";
+  const uae = getLegalProblemPages("uae")[0]?.legalAccuracy.checks.en.join(" ") ?? "";
+  assert.match(sa, /nationality, residency, sector/i);
+  assert.match(syr, /official publication/i);
+  assert.match(uae, /DIFC or ADGM/i);
+});
+
 test("problem-page paths are unique and bilingual", () => {
   const paths = getLegalProblemPaths();
   assert.equal(new Set(paths).size, paths.length);
@@ -38,6 +104,51 @@ test("problem-page paths are unique and bilingual", () => {
   assert.ok(paths.some((path) => path.startsWith("/uae/ar/services/")));
   assert.ok(paths.some((path) => path.startsWith("/sa/services/")));
   assert.ok(paths.some((path) => path.startsWith("/syr/ar/services/")));
+});
+
+test("search-target refinements preserve published canonical problem paths", () => {
+  const cases = [
+    ["sa", "administrative-law", "Bid exclusion and tender-award challenge", "public-procurement-dispute"],
+    ["sa", "contracts", "Power-of-attorney misuse, rejection or scope dispute", "power-of-attorney-drafting-and-authority-problem"],
+    ["syr", "employment-law", "Correction of a work permit or labour record", "work-permit-or-employment-status-problem"],
+    ["syr", "insurance-law", "Personal injury compensation for a non-traffic accident", "personal-injury-compensation-after-an-accident"],
+  ] as const;
+  for (const [region, service, title, slug] of cases) {
+    const page = getLegalProblemPages(region, service).find((candidate) => candidate.titleEn === title);
+    assert.equal(page?.slug, slug, `${region}/${service} changed the published slug for ${title}`);
+  }
+});
+
+test("problem hreflang alternates only reference real reciprocal routes", () => {
+  const paths = new Set(getLegalProblemPaths().map((path) => `https://counselo-legal.com${path}`));
+  for (const region of ["sa", "syr", "uae"] as const) {
+    for (const page of getLegalProblemPages(region)) {
+      const alternates = getLegalProblemLanguageAlternates(page);
+      assert.equal(new Set(alternates.map((alternate) => alternate.hrefLang)).size, alternates.length);
+      assert.ok(alternates.some((alternate) => alternate.hrefLang === (region === "uae" ? "en-AE" : region === "sa" ? "en-SA" : "en-SY")));
+      assert.ok(alternates.some((alternate) => alternate.hrefLang === (region === "uae" ? "ar-AE" : region === "sa" ? "ar-SA" : "ar-SY")));
+      for (const alternate of alternates) {
+        assert.ok(paths.has(alternate.href), `${page.region}/${page.slug} emits missing hreflang ${alternate.href}`);
+      }
+    }
+  }
+});
+
+test("related-problem clusters distribute contextual inbound links across every sibling", () => {
+  for (const region of ["sa", "syr", "uae"] as const) {
+    for (const service of getServicesForRegion(region)) {
+      const pages = getLegalProblemPages(region, service.slug);
+      const inbound = new Map(pages.map((page) => [page.slug, 0]));
+      for (const page of pages) {
+        const related = getRelatedLegalProblemPages(page);
+        assert.equal(related.length, Math.min(6, pages.length - 1));
+        assert.equal(new Set(related.map((item) => item.slug)).size, related.length);
+        assert.ok(related.every((item) => item.parentServiceSlug === service.slug && item.slug !== page.slug));
+        for (const item of related) inbound.set(item.slug, (inbound.get(item.slug) ?? 0) + 1);
+      }
+      assert.ok([...inbound.values()].every((count) => count >= Math.min(4, pages.length - 1)), `${region}/${service.slug} has an under-linked problem page`);
+    }
+  }
 });
 
 test("problem inventories do not contain duplicate slugs or duplicate search targets", () => {

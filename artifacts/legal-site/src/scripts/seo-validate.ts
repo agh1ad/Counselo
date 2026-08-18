@@ -143,6 +143,8 @@ interface PageResult {
   schemaTypes: string[];
   hreflangCount: number;
   internalLinkCount: number;
+  hreflangs: Record<string, string>;
+  internalLinks: string[];
 }
 
 function validatePage(filepath: string): PageResult {
@@ -168,6 +170,8 @@ function validatePage(filepath: string): PageResult {
       schemaTypes: [],
       hreflangCount: 0,
       internalLinkCount: 0,
+      hreflangs: {},
+      internalLinks: [],
     };
   }
 
@@ -295,6 +299,13 @@ function validatePage(filepath: string): PageResult {
   // ── structured data ──
   const sc = schemas(html);
   const schemaTypes = sc.map((s: any) => s["@type"] ?? "unknown");
+  const webPageSchemas = sc.filter((schema: any) => schema?.["@type"] === "WebPage");
+  if (webPageSchemas.some((schema: any) => schema["@context"] !== "https://schema.org"))
+    issues.push({
+      severity: "error",
+      rule: "webpage-schema-context-missing",
+      detail: "Standalone WebPage JSON-LD must declare https://schema.org context",
+    });
   const hasBreadcrumbSchema = sc.some((schema: any) => {
     const visit = (value: unknown): boolean => {
       if (!value || typeof value !== "object") return false;
@@ -435,6 +446,19 @@ function validatePage(filepath: string): PageResult {
   }
 
   const bodyLinks = internalLinksFromBody(html);
+  const isProblemPage = /^\/(?:sa|syr|uae)(?:\/ar)?\/services\/[^/]+\/[^/]+$/.test(route);
+  if (isProblemPage && !/(CounselO|كاونسلو)/.test(t))
+    issues.push({
+      severity: "error",
+      rule: "problem-title-brand-missing",
+      detail: "Problem-page title was truncated before the CounselO brand",
+    });
+  if (isProblemPage && /\b(?:a|an|and|for|in|of|or|the|to|with)$/i.test(t))
+    issues.push({
+      severity: "error",
+      rule: "problem-title-dangling-word",
+      detail: "Problem-page title ends with an incomplete connector word",
+    });
   const isArabicRoute = route === "/ar"
     || route.startsWith("/ar/")
     || route === "/blog/ar"
@@ -541,6 +565,8 @@ function validatePage(filepath: string): PageResult {
     schemaTypes,
     hreflangCount: hlCount,
     internalLinkCount: bodyLinks.length,
+    hreflangs: hl,
+    internalLinks: bodyLinks,
   };
 }
 
@@ -564,6 +590,45 @@ function main() {
   const results: PageResult[] = files.map(validatePage);
   const pages = results.filter((r) => !r.isRedirect);
   const redirects = results.filter((r) => r.isRedirect);
+
+  const routeSet = new Set(pages.map((page) => page.route));
+  const normalizeInternalRoute = (href: string) => {
+    const withoutOrigin = href.replace(/^https:\/\/counselo-legal\.com/, "");
+    const clean = withoutOrigin.split(/[?#]/, 1)[0] || "/";
+    return clean.length > 1 ? clean.replace(/\/$/, "") : clean;
+  };
+  const inboundSources = new Map<string, Set<string>>();
+  for (const source of pages) {
+    for (const href of source.internalLinks) {
+      const target = normalizeInternalRoute(href);
+      if (!inboundSources.has(target)) inboundSources.set(target, new Set());
+      if (target !== source.route) inboundSources.get(target)?.add(source.route);
+    }
+  }
+
+  for (const page of pages) {
+    for (const [hrefLang, href] of Object.entries(page.hreflangs)) {
+      if (hrefLang === "x-default" || !href.startsWith(BASE)) continue;
+      const target = normalizeInternalRoute(href);
+      if (!routeSet.has(target)) {
+        page.issues.push({
+          severity: "error",
+          rule: "hreflang-target-missing",
+          detail: `${hrefLang} points to a non-rendered route: ${target}`,
+        });
+      }
+    }
+    if (/^\/(?:sa|syr|uae)(?:\/ar)?\/services\/[^/]+\/[^/]+$/.test(page.route)) {
+      const inboundCount = inboundSources.get(page.route)?.size ?? 0;
+      if (inboundCount < 3) {
+        page.issues.push({
+          severity: "error",
+          rule: "problem-contextual-inbound-links-weak",
+          detail: `Problem page has ${inboundCount} contextual inbound page(s); minimum is 3`,
+        });
+      }
+    }
+  }
 
   // ── counts ──
   const errors = pages.flatMap((p) =>
@@ -717,7 +782,10 @@ function main() {
           score,
         },
         ruleFrequency: ruleCount,
-        pages: results,
+        // Link graphs are used by the cross-page checks above but omitted from
+        // the checked-in report to keep it reviewable and avoid duplicating
+        // tens of thousands of href values already present in rendered HTML.
+        pages: results.map(({ hreflangs: _hreflangs, internalLinks: _internalLinks, ...result }) => result),
       },
       null,
       2,

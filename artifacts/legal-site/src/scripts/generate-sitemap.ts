@@ -420,7 +420,7 @@ const feedXml = `<?xml version="1.0" encoding="UTF-8"?>
   <channel>
     <title>CounselO Global Legal Insights</title>
     <link>${BASE_URL}${BLOG_BASE_PATH}</link>
-    <description>Legal articles and guides covering UAE, Saudi and Syrian law.</description>
+    <description>Legal articles and guides covering Saudi, Syrian and UAE law.</description>
     <language>en</language>
 ${feedPosts.map((post) => `    <item>
       <title>${escapeXml(post.title)}</title>

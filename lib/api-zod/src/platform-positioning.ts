@@ -1,11 +1,11 @@
 export const COUNSELO_PLATFORM_POSITIONING = {
   name: "CounselO",
-  jurisdictions: ["United Arab Emirates", "Saudi Arabia", "Syria"],
+  jurisdictions: ["Saudi Arabia", "Syria", "United Arab Emirates"],
   languages: ["Arabic", "English"],
   descriptionEn:
-    "CounselO is a bilingual online legal platform for fast, professional and trusted legal consultations, document review and structured legal guidance across the UAE, Saudi Arabia and Syria.",
+    "CounselO is a bilingual online legal platform for fast, professional and trusted legal consultations, document review and structured legal guidance across Saudi Arabia, Syria and the UAE.",
   descriptionAr:
-    "كاونسلو منصة قانونية إلكترونية ثنائية اللغة للاستشارات القانونية السريعة والمهنية والموثوقة، ومراجعة المستندات والإرشاد القانوني المنظم في الإمارات والسعودية وسوريا.",
+    "كاونسلو منصة قانونية إلكترونية ثنائية اللغة للاستشارات القانونية السريعة والمهنية والموثوقة، ومراجعة المستندات والإرشاد القانوني المنظم في السعودية وسوريا والإمارات.",
   scopeEn:
     "Online intake, consultation, preliminary legal analysis, document review and written guidance. If court representation is requested or necessary, CounselO can arrange it through an appropriately licensed partner professional or cooperating office in the relevant served jurisdiction; representation, filings, notarisation and other reserved work are separately scoped and agreed.",
   scopeAr:
@@ -16,14 +16,14 @@ export const COUNSELO_PLATFORM_POSITIONING = {
     "استقبال رقمي سريع مع وقت استجابة مهني مستهدف خلال 24 ساعة، وفق نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوافر الخدمة.",
   differentiatorsEn: [
     "Senior legal leadership and documented review",
-    "Jurisdiction-first analysis across the UAE, Saudi Arabia and Syria",
+    "Jurisdiction-first analysis across Saudi Arabia, Syria and the UAE",
     "Arabic-English legal communication",
     "Structured written legal outputs",
     "Fast digital intake without sacrificing legal rigor",
   ],
   differentiatorsAr: [
     "إشراف قانوني رفيع ومراجعة موثقة",
-    "تحليل يبدأ بالاختصاص القضائي في الإمارات والسعودية وسوريا",
+    "تحليل يبدأ بالاختصاص القضائي في السعودية وسوريا والإمارات",
     "تواصل قانوني بالعربية والإنجليزية",
     "مخرجات قانونية مكتوبة ومنظمة",
     "استقبال رقمي سريع دون التنازل عن الدقة القانونية",

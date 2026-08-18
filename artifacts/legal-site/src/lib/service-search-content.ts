@@ -27,8 +27,8 @@ export const ADDITIONAL_SEARCH_ISSUES: Record<string, { en: string[]; ar: string
     ar: ["رفض أو إلغاء ترخيص الاستثمار", "مطالبة المستثمر الأجنبي بالتعويض", "منازعة المستثمر الأجنبي والشريك المحلي"],
   },
   "administrative-law": {
-    en: ["Licence refusal or cancellation", "Government penalty challenge", "Public procurement dispute"],
-    ar: ["رفض أو إلغاء الترخيص", "الطعن في الغرامة الحكومية", "منازعة المشتريات العامة"],
+    en: ["Licence refusal or cancellation", "Government penalty challenge", "Bid exclusion and tender-award challenge"],
+    ar: ["رفض أو إلغاء الترخيص", "الطعن في الغرامة الحكومية", "الطعن في استبعاد العرض أو ترسية المناقصة"],
   },
   arbitration: {
     en: ["Foreign arbitral award enforcement", "Emergency arbitration and interim measures", "Challenge to arbitration jurisdiction"],
@@ -63,16 +63,16 @@ export const ADDITIONAL_SEARCH_ISSUES: Record<string, { en: string[]; ar: string
     ar: ["الفحص والربط الضريبي والاعتراض عليه", "استرداد ضريبة القيمة المضافة ومنازعة التسجيل", "الطعن في الغرامة الجمركية"],
   },
   "cyber-law": {
-    en: ["Online defamation and removal request", "Hacked account and unauthorized access", "Personal-data breach response"],
-    ar: ["التشهير الإلكتروني وطلب الإزالة", "اختراق الحساب والدخول غير المصرح به", "الاستجابة لحادث خرق البيانات الشخصية"],
+    en: ["Online defamation and removal request", "Compromised-account recovery and access restoration", "Personal-data breach response"],
+    ar: ["التشهير الإلكتروني وطلب الإزالة", "استرداد الحساب المخترق واستعادة الوصول", "الاستجابة لحادث خرق البيانات الشخصية"],
   },
   "medical-malpractice": {
     en: ["Medical-record access dispute", "Treatment injury and compensation claim"],
     ar: ["منازعة الحصول على السجل الطبي", "إصابة العلاج ومطالبة التعويض"],
   },
   "insurance-law": {
-    en: ["Denied insurance claim", "Delayed insurance settlement", "Policy coverage dispute", "Traffic accident liability and compensation", "Traffic report and fault dispute", "Uninsured accident compensation claim"],
-    ar: ["رفض مطالبة التأمين", "تأخر تسوية مطالبة التأمين", "منازعة تغطية وثيقة التأمين", "المسؤولية والتعويض عن حادث مروري", "منازعة تقرير الحادث ونسبة الخطأ", "مطالبة التعويض عن حادث دون تأمين"],
+    en: ["Denied insurance claim", "Delayed insurance settlement", "Claim denial based on a policy exclusion", "Traffic accident liability and compensation", "Traffic report and fault dispute", "Uninsured accident compensation claim"],
+    ar: ["رفض مطالبة التأمين", "تأخر تسوية مطالبة التأمين", "رفض المطالبة استناداً إلى استثناء في الوثيقة", "المسؤولية والتعويض عن حادث مروري", "منازعة تقرير الحادث ونسبة الخطأ", "مطالبة التعويض عن حادث دون تأمين"],
   },
   "civil-law": {
     en: ["Personal injury compensation claim", "Defamation and reputation damage claim", "Possession and interference dispute"],

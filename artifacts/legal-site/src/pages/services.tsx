@@ -68,7 +68,7 @@ export default function Services() {
       ? `${areaCount} مجالاً قانونياً في ${country} | منصة استشارات قانونية أونلاين | قانوني`
       : `${areaCount} Legal Practice Areas ${country} | CounselO — Online Legal Consultation Platform`;
   const seoDesc = isRTL
-    ? `قانوني — منصة متخصصة للاستشارات القانونية الأونلاين في ${country}. ${areaCount} مجالاً قانونياً: ${s.items.map((item) => item.title).join("، ")}. خبرة 30+ عاماً من الممارسة القانونية، أكثر من 20,000 مسألة واستشارة قانونية. استجابة خلال 24 ساعة عبر واتساب أو البريد الإلكتروني.`
+    ? `كاونسلو — منصة استشارات قانونية أونلاين لمسائل ${country}. ${areaCount} مجالاً قانونياً: ${s.items.map((item) => item.title).join("، ")}. يبدأ التقييم بتحديد الوقائع والاختصاص والنطاق المناسب.`
     : `${COUNSELO_PLATFORM_POSITIONING.name} — ${country}'s online legal platform for consultation, document review and structured legal guidance. ${areaCount} practice areas: ${s.items.map((item) => item.title).join(", ")}.`;
 
   const baseUrl = `https://counselo-legal.com/${region}${isRTL ? "/ar" : ""}`;
@@ -105,8 +105,8 @@ export default function Services() {
       "description": region === "uae"
         ? (isRTL ? `منصة استشارات قانونية أونلاين لمسائل الإمارات — ${areaCount} مجالاً ضمن الأطر الاتحادية والمحلية والمناطق الحرة` : `UAE online legal consultation platform — ${areaCount} practice areas across federal, emirate-level, mainland and free-zone frameworks`)
         : region === "syr"
-        ? (isRTL ? `منصة سوريا للاستشارات القانونية الأونلاين — ${areaCount} مجالاً، استجابة خلال 24 ساعة — القانون المدني السوري، قانون الشركات 29/2011، قانون العمل 17/2010` : `Syria's online legal consultation platform — ${areaCount} practice areas, response within 24 hours — Syrian Civil Code, Companies Law 29/2011, Labour Law 17/2010`)
-        : (isRTL ? `منصة متخصصة للاستشارات القانونية الأونلاين في المملكة — ${areaCount} مجالاً، استجابة خلال 24 ساعة` : `Saudi Arabia's specialized online legal consultation platform — ${areaCount} practice areas, response within 24 hours`),
+        ? (isRTL ? `منصة سوريا للاستشارات القانونية الأونلاين — ${areaCount} مجالاً مع تحديد النص النافذ والجهة والنطاق قبل تقديم المشورة` : `Syria's online legal consultation platform — ${areaCount} practice areas with the operative text, authority and scope identified before advice`)
+        : (isRTL ? `منصة استشارات قانونية أونلاين لمسائل المملكة — ${areaCount} مجالاً مع تحديد الوقائع والاختصاص والنطاق` : `Saudi Arabia online legal consultation platform — ${areaCount} practice areas with facts, jurisdiction and scope identified before advice`),
       "url": "https://counselo-legal.com",
       "provider": { "@id": COUNSELO_ENTITY_IDS.organization },
       "telephone": "+966594850247",
@@ -177,6 +177,10 @@ export default function Services() {
             </div>
             <Link
               href={`${regionPrefix}/contact`}
+              data-cta="contact"
+              data-conversion-position="services-guidance"
+              data-region={region}
+              data-lang={isRTL ? "ar" : "en"}
               className="inline-flex min-h-12 items-center justify-center gap-3 bg-[#0d4a31] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#073d29] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b4924a]"
             >
               {t.nav.bookConsultation}
@@ -216,7 +220,11 @@ export default function Services() {
                             <span className="me-2 text-base font-normal text-[#b4924a]">{String(index + 1).padStart(2, "0")}.</span>
                             {service.title}
                           </span>
-                          <span className="line-clamp-3 block text-sm leading-6 text-[#52675e]">{service.longDesc}</span>
+                          <span className="line-clamp-3 block text-sm leading-6 text-[#52675e]">
+                            {isRTL
+                              ? `استكشف مسائل ${service.title} في ${country}، والمستندات المفيدة، وما يجب التحقق منه قانونياً، وخيارات الاستشارة محددة النطاق.`
+                              : `Explore ${service.title.toLowerCase()} matters in ${country}, useful documents, legal checks and scoped consultation options.`}
+                          </span>
                         </span>
                         <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                       </Link>
