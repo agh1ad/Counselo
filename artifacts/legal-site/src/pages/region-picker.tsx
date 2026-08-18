@@ -22,7 +22,7 @@ const websiteSchema = {
   "name": "CounselO",
   "alternateName": "كاونسلو",
   "url": "https://counselo-legal.com/",
-  "description": "CounselO is a bilingual online legal platform serving the UAE, Saudi Arabia and Syria with fast, professional and trusted legal consultation, document review and structured guidance — with a target response within 24 hours.",
+  "description": "CounselO is a bilingual online legal platform for Saudi, Syrian and UAE matters, providing jurisdiction-scoped consultation, document review and structured guidance with a target response subject to scope, urgency and availability.",
   "potentialAction": {
     "@type": "SearchAction",
     "target": { "@type": "EntryPoint", "urlTemplate": "https://counselo-legal.com/blog?q={search_term_string}" },
@@ -38,18 +38,18 @@ const organizationSchema = {
   "url": "https://counselo-legal.com",
   "logo": "https://counselo-legal.com/logo.png",
   "image": "https://counselo-legal.com/og-image.png",
-  "description": "CounselO is an online legal consultation platform founded by Lawyer and Legal Counsel Omar Al-Baghdadi. We provide confidential legal guidance for individuals, families and businesses in the UAE, Saudi Arabia and Syria, in Arabic and English.",
+  "description": "CounselO is an online legal consultation platform founded by Lawyer and Legal Counsel Omar Al-Baghdadi. Information is handled under applicable professional-confidentiality, privacy and data-protection obligations.",
   "founder": {
     ...OMAR_AL_BAGHDADI,
     "jobTitle": "Lawyer and Legal Counsel",
     "description": `Lawyer Omar Al-Baghdadi has ${COUNSELO_LEGAL_PRACTICE_CLAIM.en} and has handled ${COUNSELO_LEGAL_MATTERS_CLAIM.en} across the region.`,
-    "knowsAbout": ["Family Law", "Employment Law", "Real Estate Law", "Business Law", "Criminal Law", "Foreign Investment", "Administrative Law", "UAE Law", "Saudi Law", "Syrian Law"],
+    "knowsAbout": ["Family Law", "Employment Law", "Real Estate Law", "Business Law", "Criminal Law", "Foreign Investment", "Administrative Law", "Saudi Law", "Syrian Law", "UAE Law"],
     "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
   },
   "areaServed": [
-    { "@type": "Country", "name": "United Arab Emirates" },
     { "@type": "Country", "name": "Saudi Arabia" },
     { "@type": "Country", "name": "Syria" },
+    { "@type": "Country", "name": "United Arab Emirates" },
   ],
   "availableLanguage": ["Arabic", "English"],
   "contactPoint": {
@@ -57,13 +57,13 @@ const organizationSchema = {
     "telephone": "+966594850247",
     "contactType": "customer service",
     "contactOption": "TollFree",
-    "areaServed": ["AE", "SA", "SY"],
+    "areaServed": ["SA", "SY", "AE"],
     "availableLanguage": ["Arabic", "English"],
   },
   "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Legal Services — UAE, Saudi Arabia & Syria",
+    "name": "Legal Services — Saudi Arabia, Syria & UAE",
     "itemListElement": [
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Family Law", "url": "https://counselo-legal.com/sa/services/family-law" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Employment Law", "url": "https://counselo-legal.com/sa/services/employment-law" } },
@@ -87,7 +87,7 @@ const faqSchema = {
       "name": "What is CounselO?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": `CounselO is an online legal consultation platform founded by Lawyer and Legal Counsel Omar Al-Baghdadi with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en}. We provide confidential legal guidance for individuals, families and businesses in the UAE, Saudi Arabia and Syria, in Arabic and English.`,
+        "text": `CounselO is an online legal consultation platform founded by Lawyer and Legal Counsel Omar Al-Baghdadi with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en}. We provide confidential legal guidance for individuals, families and businesses in Saudi Arabia, Syria and the UAE, in Arabic and English.`,
       },
     },
     {
@@ -95,7 +95,7 @@ const faqSchema = {
       "name": "Which countries does CounselO serve?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CounselO provides jurisdiction-specific services for the United Arab Emirates, Saudi Arabia and Syria. Consultations are delivered online, subject to the applicable law, authority and professional scope in each country.",
+        "text": "CounselO provides jurisdiction-specific services for Saudi Arabia, Syria and the United Arab Emirates. Consultations are delivered online, subject to the applicable law, authority and professional scope in each country.",
       },
     },
     {
@@ -135,7 +135,7 @@ const faqSchema = {
       "name": "How do I start a legal consultation with CounselO?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Starting is simple: (1) Choose the UAE, Saudi Arabia or Syria. (2) Browse the relevant service or contact us directly. (3) Send your legal question through the consultation form or WhatsApp. CounselO targets a response within 24 hours, subject to scope and urgency.",
+        "text": "Starting is simple: (1) Choose Saudi Arabia, Syria or the UAE. (2) Browse the relevant service or contact us directly. (3) Send your legal question through the consultation form or WhatsApp. CounselO targets a response within 24 hours, subject to scope and urgency.",
       },
     },
     {
@@ -143,7 +143,7 @@ const faqSchema = {
       "name": "Is CounselO suitable for businesses as well as individuals?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. CounselO advises individuals and businesses through country-specific services for the UAE, Saudi Arabia and Syria, including contracts, company formation, investment, employment and disputes.",
+        "text": "Yes. CounselO advises individuals and businesses through country-specific services for Saudi Arabia, Syria and the UAE, including contracts, company formation, investment, employment and disputes.",
       },
     },
   ],
@@ -152,12 +152,12 @@ const faqSchema = {
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const FAQS = [
-  { q: "What is CounselO?", a: `CounselO is an online legal consultation platform founded by Lawyer Omar Al-Baghdadi (${COUNSELO_LEGAL_PRACTICE_CLAIM.en} and ${COUNSELO_LEGAL_MATTERS_CLAIM.en} handled). We provide bilingual, jurisdiction-specific legal guidance for the UAE, Saudi Arabia and Syria.` },
-  { q: "Which jurisdictions does CounselO cover?", a: "We provide country-specific services for the United Arab Emirates, Saudi Arabia and Syria. Each regional platform uses the legal concepts, authorities and procedures relevant to that jurisdiction." },
+  { q: "What is CounselO?", a: `CounselO is an online legal consultation platform founded by Lawyer Omar Al-Baghdadi (${COUNSELO_LEGAL_PRACTICE_CLAIM.en} and ${COUNSELO_LEGAL_MATTERS_CLAIM.en} handled). We provide bilingual, jurisdiction-specific legal guidance for Saudi Arabia, Syria and the UAE.` },
+  { q: "Which jurisdictions does CounselO cover?", a: "We provide country-specific services for Saudi Arabia, Syria and the United Arab Emirates. Each regional platform uses the legal concepts, authorities and procedures relevant to that jurisdiction." },
   { q: "How quickly do I get a response?", a: "CounselO targets a professional response within 24 hours, subject to the matter's scope, urgency, intake completeness and service availability." },
   { q: "Are consultations confidential?", a: "Information is handled confidentially under applicable professional, privacy and data-protection obligations, subject to legally required or permitted disclosures." },
   { q: "What languages does CounselO support?", a: "We provide legal consultations in both Arabic and English. All service pages and legal guides are fully bilingual." },
-  { q: "How do I start a consultation?", a: "Choose the UAE, Saudi Arabia or Syria, then send your legal question through the consultation form or WhatsApp. CounselO targets a response within 24 hours, subject to scope and urgency." },
+  { q: "How do I start a consultation?", a: "Choose Saudi Arabia, Syria or the UAE, then send your legal question through the consultation form or WhatsApp. CounselO targets a response within 24 hours, subject to scope and urgency." },
   { q: "Does CounselO advise businesses too?", a: "Yes. We serve both individuals and businesses — from company formation, commercial contracts, and foreign investment licensing to employment disputes and debt collection." },
   { q: "What areas of law does CounselO cover?", a: "Family law, divorce, custody, employment, real estate, business law, foreign investment, criminal law, administrative law, contracts, banking, IP, tax, cyber law, medical malpractice, insurance, arbitration, and more." },
 ];
@@ -182,8 +182,8 @@ export default function RegionPicker() {
     <main className="w-full bg-background" id="main-content">
       <Helmet>
         <html lang="en" dir="ltr" />
-        <title>CounselO | Online Legal Consultation — UAE, Saudi Arabia &amp; Syria</title>
-        <meta name="description" content="CounselO provides bilingual online legal consultations, document review and structured legal guidance in the UAE, Saudi Arabia and Syria." />
+        <title>CounselO | Online Legal Consultation — Saudi Arabia, Syria &amp; UAE</title>
+        <meta name="description" content="CounselO provides bilingual online legal consultations, document review and structured legal guidance in Saudi Arabia, Syria and the UAE." />
         <meta name="keywords" content="online legal consultation Saudi Arabia, online legal consultation Syria, استشارة قانونية أونلاين السعودية, استشارة قانونية أونلاين سوريا, lawyer Saudi Arabia online, محامي سعودي أونلاين, محامي سوريا أونلاين, CounselO, Omar Al-Baghdadi, legal advice Middle East, مشورة قانونية الشرق الأوسط" />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="author" content="CounselO — Lawyer and Legal Counsel Omar Al-Baghdadi" />
@@ -199,22 +199,22 @@ export default function RegionPicker() {
         <link rel="alternate" hrefLang="en-AE" href="https://counselo-legal.com/uae" />
         <link rel="alternate" hrefLang="ar-AE" href="https://counselo-legal.com/uae/ar" />
         <link rel="alternate" hrefLang="x-default" href="https://counselo-legal.com/" />
-        <meta property="og:title" content="CounselO | Online Legal Consultation — UAE, Saudi Arabia & Syria" />
-        <meta property="og:description" content="Choose the UAE, Saudi Arabia or Syria for confidential, jurisdiction-specific legal guidance in Arabic or English." />
+        <meta property="og:title" content="CounselO | Online Legal Consultation — Saudi Arabia, Syria & UAE" />
+        <meta property="og:description" content="Choose Saudi Arabia, Syria or the UAE for confidential, jurisdiction-specific legal guidance in Arabic or English." />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="CounselO كاونسلو" />
         <meta property="og:url" content="https://counselo-legal.com/" />
         <meta property="og:image" content="https://counselo-legal.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="CounselO — Online Legal Consultation for the UAE, Saudi Arabia and Syria" />
+        <meta property="og:image:alt" content="CounselO — Online Legal Consultation for Saudi Arabia, Syria and the UAE" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:locale:alternate" content="ar_SA" />
         <meta property="og:locale:alternate" content="ar_SY" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@CounselOLegal" />
-        <meta name="twitter:title" content="CounselO | Online Legal Consultation — UAE, Saudi Arabia & Syria" />
-        <meta name="twitter:description" content="Jurisdiction-specific legal guidance for the UAE, Saudi Arabia and Syria in Arabic and English." />
+        <meta name="twitter:title" content="CounselO | Online Legal Consultation — Saudi Arabia, Syria & UAE" />
+        <meta name="twitter:description" content="Jurisdiction-specific legal guidance for Saudi Arabia, Syria and the UAE in Arabic and English." />
         <meta name="twitter:image" content="https://counselo-legal.com/og-image.png" />
         <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
@@ -239,7 +239,7 @@ export default function RegionPicker() {
             <Link href="/sa" aria-label="CounselO Saudi Arabia">
               <img
                 src={counseloLogo}
-                alt="CounselO — Online Legal Consultations for the UAE, Saudi Arabia and Syria"
+                alt="CounselO — Online Legal Consultations for Saudi Arabia, Syria and the UAE"
                 width="193"
                 height="80"
                 fetchPriority="high"
@@ -255,10 +255,10 @@ export default function RegionPicker() {
           <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
             <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
               <p className="mb-6 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">
-                Jurisdiction-Scoped Legal Guidance · UAE · Saudi Arabia · Syria
+                Jurisdiction-Scoped Legal Guidance · Saudi Arabia · Syria · UAE
               </p>
               <h1 className="font-serif text-[clamp(2.75rem,5.5vw,5.6rem)] font-semibold leading-[0.96] tracking-[-0.035em] text-white">
-                Online Legal
+                Online Legal{" "}
                 <br />
                 <span className="font-normal italic text-[#d5ae5d]">Consultation.</span>
               </h1>
@@ -267,12 +267,12 @@ export default function RegionPicker() {
                 <span className="h-2 w-2 rotate-45 border border-[#b58b32]" />
               </div>
               <p className="max-w-xl text-lg font-light leading-8 text-white/72 sm:text-xl">
-                Fast, professional and trusted online legal guidance in Arabic &amp; English —{" "}
+                Jurisdiction-scoped online legal guidance in Arabic &amp; English —{" "}
                 <strong className="font-semibold text-white">target response within 24 hours.</strong>
               </p>
 
               <div className="mt-10 grid max-w-xl gap-0 border-y border-white/20 sm:grid-cols-3">
-                {["Professional Legal Confidentiality", "24-Hour Response", "Arabic & English"].map((label, index) => (
+                {["Professional Legal Confidentiality", "Target Response", "Arabic & English"].map((label, index) => (
                   <div key={label} className={`flex min-h-16 items-center py-4 text-[0.68rem] font-semibold uppercase leading-5 tracking-[0.14em] text-white/78 ${index > 0 ? "border-t border-white/20 sm:border-s sm:border-t-0 sm:ps-5" : ""}`}>
                     {label}
                   </div>
@@ -343,11 +343,11 @@ export default function RegionPicker() {
             </div>
             <div className="space-y-5 text-base leading-8 text-muted-foreground sm:text-lg">
               <p><strong className="text-foreground">CounselO is a bilingual online legal platform for individuals, families and businesses seeking professional legal consultation, document review and structured guidance.</strong> Choose the jurisdiction first, describe the matter in Arabic or English, and receive a scoped next step based on the applicable law and authority.</p>
-              <p>Services are available online across the United Arab Emirates, Saudi Arabia and Syria. A professional response is targeted within 24 hours, subject to scope, urgency, intake completeness and service availability.</p>
+              <p>Services are available online across Saudi Arabia, Syria and the United Arab Emirates. A professional response is targeted within 24 hours, subject to scope, urgency, intake completeness and service availability.</p>
               <dl className="grid gap-3 pt-3 sm:grid-cols-2" aria-label="Platform scope">
                 {[
                   ["What we do", "Consultation, preliminary analysis, document review and written guidance"],
-                  ["Where", "UAE · Saudi Arabia · Syria"],
+                  ["Where", "Saudi Arabia · Syria · UAE"],
                   ["Languages", "Arabic and English"],
                   ["Court representation", "If requested or necessary, arranged separately through licensed partner professionals or cooperating offices in the relevant jurisdiction"],
                 ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b58b32] bg-[#eef4f0] px-4 py-3"><dt className="text-xs font-bold uppercase tracking-[0.14em] text-[#0d4a31]/65">{label}</dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
@@ -429,7 +429,7 @@ export default function RegionPicker() {
                       "Graduate, Faculty of Law — Damascus University (1996)",
                       "Regional legal leadership; local representation separately scoped",
                       "Holder of the title \"Ustaz\" (Senior Counsel) — Syrian Bar Association",
-                      "Senior legal experience across Saudi Arabia, UAE and Syria",
+                      "Senior legal experience across Saudi Arabia, Syria and the UAE",
                       `${COUNSELO_LEGAL_MATTERS_CLAIM.en} across civil, commercial, administrative, arbitration and criminal law`,
                       "Trained or supervised more than 40 lawyers",
                       "Son of Lawyer Riyad Al-Baghdadi, founder of Al-Baghdadi Law Firm (est. 1957)",
@@ -522,7 +522,7 @@ export default function RegionPicker() {
 
           <div className="relative mb-12 grid md:grid-cols-2 lg:grid-cols-4">
             {[
-              { step: "01", title: "Choose Your Jurisdiction", body: "Select the UAE, Saudi Arabia or Syria. Each country has legal services and content tailored to its applicable law and authorities." },
+              { step: "01", title: "Choose Your Jurisdiction", body: "Select Saudi Arabia, Syria or the UAE. Each country has legal services and content tailored to its applicable law and authorities." },
               { step: "02", title: "Describe Your Legal Matter", body: "Send your legal question via WhatsApp or the contact form — in Arabic or English. Include any relevant documents if needed." },
               { step: "03", title: "Confirm scope and fee",  body: "After the initial study, CounselO confirms the appropriate consultation product, scope, fee and next step. No fixed price is promised before the matter is understood." },
               { step: "04", title: "Receive structured guidance",     body: "A qualified CounselO professional reviews the matter and responds through the agreed channel, with a target response within 24 hours subject to scope and urgency." },

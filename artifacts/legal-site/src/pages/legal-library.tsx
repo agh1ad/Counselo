@@ -13,9 +13,9 @@ import { blogPath, COUNSELO_ENTITY_IDS } from "@workspace/api-zod";
 type LibraryPost = NonNullable<Window["__SSR_POSTS__"]>[number];
 
 const JURISDICTIONS = [
-  { key: "uae", en: "United Arab Emirates", ar: "الإمارات العربية المتحدة", path: "/uae" },
   { key: "sa", en: "Saudi Arabia", ar: "المملكة العربية السعودية", path: "/sa" },
   { key: "syr", en: "Syria", ar: "سوريا", path: "/syr" },
+  { key: "uae", en: "United Arab Emirates", ar: "الإمارات العربية المتحدة", path: "/uae" },
 ] as const;
 
 const Arrow = ({ rtl = false }: { rtl?: boolean }) => (
@@ -60,7 +60,7 @@ export default function LegalLibrary() {
 
   const ui = ar ? {
     title: "معرفة قانونية منظّمة لقرارات عملية.",
-    intro: "استكشف تحليلات قانونية مستقلة بالعربية والإنجليزية، ومراجع خضعت للمراجعة، وأعمالاً منقحة من كاونسلو تغطي الإمارات والسعودية وسوريا.",
+    intro: "استكشف تحليلات قانونية مستقلة بالعربية والإنجليزية، ومراجع خضعت للمراجعة، وأعمالاً منقحة من كاونسلو تغطي السعودية وسوريا والإمارات.",
     browseArticles: "تصفح التحليلات القانونية",
     examineWork: "استعرض أعمالنا",
     articles: "المقالات والتحليلات القانونية",
@@ -82,7 +82,7 @@ export default function LegalLibrary() {
     cta: "ابدأ استشارة",
   } : {
     title: "Legal knowledge, organised for practical decisions.",
-    intro: "Explore independently written Arabic and English legal analysis, reviewed guidance, and redacted work from CounselO across the UAE, Saudi Arabia, and Syria.",
+    intro: "Explore independently written Arabic and English legal analysis, reviewed guidance, and redacted work from CounselO across Saudi Arabia, Syria and the UAE.",
     browseArticles: "Browse legal analysis",
     examineWork: "Examine our work",
     articles: "Legal Articles & Analysis",
@@ -150,7 +150,7 @@ export default function LegalLibrary() {
     <div className="legal-library-page min-h-screen bg-white" dir={isRTL ? "rtl" : "ltr"}>
       <SEOHead
         title={ar ? "مكتبة كاونسلو القانونية | مقالات ونماذج أعمال قانونية" : "CounselO Legal Library | Articles, Analysis & Work Samples"}
-        description={ar ? "استكشف مكتبة كاونسلو القانونية ثنائية اللغة: مقالات وتحليلات قانونية ونماذج أعمال منقحة تغطي الإمارات والسعودية وسوريا." : "Explore the bilingual CounselO Legal Library: reviewed legal articles, practical analysis, and redacted work samples covering the UAE, Saudi Arabia, and Syria."}
+        description={ar ? "استكشف مكتبة كاونسلو القانونية ثنائية اللغة: مقالات وتحليلات قانونية ونماذج أعمال منقحة تغطي السعودية وسوريا والإمارات." : "Explore the bilingual CounselO Legal Library: reviewed legal articles, practical analysis, and redacted work samples covering Saudi Arabia, Syria and the UAE."}
         canonical={libraryPath}
         noRegionPrefix
         sharedLanguageAlternates={{ en: "/legal-library", ar: "/ar/legal-library" }}
@@ -159,7 +159,7 @@ export default function LegalLibrary() {
         schema={schemas}
       />
 
-      <main>
+      <div>
         <section className="border-b border-[#c9a254]/45 bg-white">
           <div className="mx-auto grid min-h-[650px] max-w-[1440px] lg:grid-cols-[1.02fr_.98fr]">
             <div className="flex flex-col justify-center px-5 py-20 sm:px-8 lg:px-12 lg:py-24 xl:px-20">
@@ -295,7 +295,7 @@ export default function LegalLibrary() {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }

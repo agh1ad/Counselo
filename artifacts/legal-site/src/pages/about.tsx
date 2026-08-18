@@ -68,7 +68,7 @@ export default function About() {
         ? `Lawyer and legal counsel with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en}. Founder of CounselO's UAE-focused online consultation service.`
         : region === "syr"
         ? `Lawyer and legal counsel with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en} across Syria, the UAE and the Arab world. Founder of CounselO.`
-        : `Lawyer and legal counsel with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en} across Saudi Arabia, UAE and Syria. Founder of CounselO.`,
+        : `Lawyer and legal counsel with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en} across Saudi Arabia, Syria and the UAE. Founder of CounselO.`,
     },
     {
       "@context": "https://schema.org",

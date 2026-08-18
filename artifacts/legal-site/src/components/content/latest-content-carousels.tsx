@@ -186,7 +186,7 @@ export function LatestContentCarousels({
         aria-labelledby={isArabic ? "latest-content-empty-heading-ar" : "latest-content-empty-heading"}
       >
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a7735]">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#755615]">
             {isArabic ? "محتوى كاونسلو" : "CounselO content"}
           </p>
           <h2
@@ -227,7 +227,7 @@ export function LatestContentCarousels({
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div className="max-w-3xl">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a7735]">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#755615]">
             {isService
               ? isArabic ? "محتوى مرتبط" : "Related content"
               : isArabic ? "منشور حديثاً" : "Recently published"}

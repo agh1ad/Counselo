@@ -49,6 +49,11 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+.legal-problem-deferred-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 720px;
+}
+
 :root {
   --app-font-sans: 'Inter', sans-serif;
   --app-font-serif: 'Playfair Display', serif;
@@ -184,7 +189,7 @@
   margin-inline-start: -.15rem;
   border-inline-start: 1px solid rgb(180 146 74 / .55);
   padding-inline-start: .7rem;
-  color: #a97c28;
+  color: #755615;
   font-family: var(--app-font-serif);
   font-size: 1.05rem;
   font-weight: 700;
@@ -434,7 +439,7 @@
 .region-navbar .uae-navbar-brand { display: grid; color: #073d2b; line-height: 1; }
 .region-navbar .uae-navbar-brand strong { font-family: var(--app-font-serif); font-size: 1.72rem; font-weight: 500; letter-spacing: -.035em; white-space: nowrap; }
 [dir="rtl"] .region-navbar .uae-navbar-brand strong { font-family: var(--app-font-sans); font-size: 1.45rem; font-weight: 700; letter-spacing: 0; }
-.region-navbar .uae-navbar-brand small { margin-top: .23rem; color: #a97c28; font-size: .38rem; font-weight: 800; letter-spacing: .1em; white-space: nowrap; }
+.region-navbar .uae-navbar-brand small { margin-top: .23rem; color: #755615; font-size: .38rem; font-weight: 800; letter-spacing: .1em; white-space: nowrap; }
 [dir="rtl"] .region-navbar .uae-navbar-brand small { letter-spacing: 0; font-size: .48rem; }
 .region-navbar .uae-navbar-title { margin-inline-start: 0; padding-inline-start: .6rem; font-size: .72rem; letter-spacing: .07em; white-space: nowrap; }
 [dir="rtl"] .region-navbar .uae-navbar-title { letter-spacing: 0; font-family: var(--app-font-sans); }

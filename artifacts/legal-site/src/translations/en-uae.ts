@@ -143,7 +143,7 @@ export const enUae = {
       ...en.home.hero,
       badge: "Online Legal Consultation Platform — United Arab Emirates",
       h1a: "Online Legal Consultation",
-      h1b: "for the UAE — Fast & Reliable.",
+      h1b: "for the UAE — Focused & Structured.",
       desc: "CounselO is an online legal consultation platform serving the United Arab Emirates — delivering expert legal guidance for individuals, families, businesses and investors across federal, emirate-level, mainland and free-zone matters",
       descBold: "without leaving your desk.",
       subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in the UAE — with a target professional response time of 24 hours. We identify the relevant UAE framework before advising. 30+ years of legal practice, 20,000+ legal matters and consultations.",

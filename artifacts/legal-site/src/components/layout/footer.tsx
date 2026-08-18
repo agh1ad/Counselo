@@ -48,10 +48,10 @@ const globalFooterContent = {
   map: "/images/optimized/counselo-platform-line-art-v1.png",
   label: { en: "GLOBAL INSIGHTS", ar: "رؤى عالمية" },
   heading: { en: "One publication. Jurisdiction-specific legal analysis.", ar: "منصة واحدة. تحليل قانوني محدد الاختصاص." },
-  description: { en: "CounselO's shared legal publication covers UAE, Saudi and Syrian law. Every country-specific article identifies the legal system it addresses.", ar: "تغطي منصة كاونسلو المشتركة قوانين الإمارات والسعودية وسوريا، ويحدد كل مقال خاص بدولة النظام القانوني الذي يتناوله." },
+  description: { en: "CounselO's shared legal publication covers Saudi, Syrian and UAE law. Every country-specific article identifies the legal system it addresses.", ar: "تغطي منصة كاونسلو المشتركة قوانين السعودية وسوريا والإمارات، ويحدد كل مقال خاص بدولة النظام القانوني الذي يتناوله." },
   jurisdictions: {
-    en: [[BookOpen, "Shared legal publication"], [Landmark, "United Arab Emirates"], [Building2, "Saudi Arabia"], [Mountain, "Syria"], [Globe2, "Arabic & English"]] as const,
-    ar: [[BookOpen, "منصة قانونية مشتركة"], [Landmark, "الإمارات العربية المتحدة"], [Building2, "المملكة العربية السعودية"], [Mountain, "سوريا"], [Globe2, "العربية والإنجليزية"]] as const,
+    en: [[BookOpen, "Shared legal publication"], [Building2, "Saudi Arabia"], [Mountain, "Syria"], [Landmark, "United Arab Emirates"], [Globe2, "Arabic & English"]] as const,
+    ar: [[BookOpen, "منصة قانونية مشتركة"], [Building2, "المملكة العربية السعودية"], [Mountain, "سوريا"], [Landmark, "الإمارات العربية المتحدة"], [Globe2, "العربية والإنجليزية"]] as const,
   },
 };
 

@@ -25,11 +25,11 @@ test("core CounselO entities have stable IDs and canonical names", () => {
 });
 
 test("platform positioning covers every served jurisdiction and language", () => {
-  assert.deepEqual(COUNSELO_PLATFORM_POSITIONING.jurisdictions, ["United Arab Emirates", "Saudi Arabia", "Syria"]);
+  assert.deepEqual(COUNSELO_PLATFORM_POSITIONING.jurisdictions, ["Saudi Arabia", "Syria", "United Arab Emirates"]);
   assert.deepEqual(COUNSELO_PLATFORM_POSITIONING.languages, ["Arabic", "English"]);
   assert.match(COUNSELO_PLATFORM_POSITIONING.descriptionEn, /fast, professional and trusted/i);
-  assert.match(COUNSELO_PLATFORM_POSITIONING.descriptionEn, /UAE, Saudi Arabia and Syria/i);
-  assert.match(COUNSELO_PLATFORM_POSITIONING.descriptionAr, /الإمارات والسعودية وسوريا/);
+  assert.match(COUNSELO_PLATFORM_POSITIONING.descriptionEn, /Saudi Arabia, Syria and the UAE/i);
+  assert.match(COUNSELO_PLATFORM_POSITIONING.descriptionAr, /السعودية وسوريا والإمارات/);
   assert.match(COUNSELO_PLATFORM_POSITIONING.scopeEn, /licensed partner professional|cooperating office/i);
 });
 

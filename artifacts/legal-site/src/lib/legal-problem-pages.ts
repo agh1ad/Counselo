@@ -9,6 +9,14 @@ export type LocalizedList = { en: string[]; ar: string[] };
 export type LocalizedFaq = { en: { q: string; a: string }[]; ar: { q: string; a: string }[] };
 export type ProcessStep = { title: string; desc: string };
 export type LocalizedProcess = { en: ProcessStep[]; ar: ProcessStep[] };
+export type LegalAccuracyBoundary = {
+  reviewedAt: string;
+  status: "framework-verified-matter-review-required";
+  checks: LocalizedList;
+  urgentWarning: LocalizedText;
+  engagementWarning: LocalizedText;
+  intakeChecklist: LocalizedList;
+};
 
 export type LegalProblemPage = {
   region: Region;
@@ -18,6 +26,8 @@ export type LegalProblemPage = {
   titleAr: string;
   serviceTitleEn: string;
   serviceTitleAr: string;
+  heroSummary: LocalizedText;
+  atAGlance: LocalizedList;
   overview: LocalizedText;
   keyQuestions: LocalizedList;
   documentsEn: string[];
@@ -26,6 +36,7 @@ export type LegalProblemPage = {
   process: LocalizedProcess;
   experience: LocalizedText;
   faqs: LocalizedFaq;
+  legalAccuracy: LegalAccuracyBoundary;
   /**
    * Search variants are grouped onto the canonical problem page instead of
    * generating thin pages for every wording a customer may use.
@@ -41,6 +52,28 @@ function slugify(value: string): string {
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "") || "legal-problem";
+}
+
+// Search-target wording may evolve, but published canonical paths must remain
+// stable so refinements do not discard backlinks or create avoidable 404s.
+const PRESERVED_PROBLEM_SLUGS: Readonly<Record<string, string>> = {
+  "Termination of an exclusive distribution relationship": "commercial-agency-and-distribution-termination",
+  "Correction of a work permit or labour record": "work-permit-or-employment-status-problem",
+  "Claim for reputational harm caused by online publication in Syria": "online-defamation-and-removal-request-in-syria",
+  "Challenge to an adverse medical expert report": "medical-record-access-and-expert-evidence-dispute",
+  "Civil damages for reputational harm in Syria": "defamation-and-reputation-damage-claim-in-syria",
+  "Challenge to court jurisdiction or improper service in Syria": "court-filing-and-jurisdiction-objection-in-syria",
+  "Power-of-attorney misuse, rejection or scope dispute": "power-of-attorney-drafting-and-authority-problem",
+  "Residency or employment-status restriction affecting work authorisation": "work-permit-residency-or-employment-status-problem",
+  "Traffic accident compensation for personal injury and vehicle damage": "traffic-accident-compensation-and-liability-claim",
+  "Personal injury compensation for a non-traffic accident": "personal-injury-compensation-after-an-accident",
+  "Bid exclusion and tender-award challenge": "public-procurement-dispute",
+  "Compromised-account recovery and access restoration": "hacked-account-and-unauthorized-access",
+  "Claim denial based on a policy exclusion": "policy-coverage-dispute",
+};
+
+function canonicalProblemSlug(titleEn: string): string {
+  return PRESERVED_PROBLEM_SLUGS[titleEn] ?? slugify(titleEn);
 }
 
 function countryName(region: Region): LocalizedText {
@@ -102,16 +135,16 @@ const SYRIA_ADDITIONAL_ISSUES: Record<string, LocalizedList> = {
     ar: ["الاعتراف بالحكم الأسري السوري وتنفيذه", "تصحيح وثيقة الحالة الأسرية أو السجل المدني"],
   },
   "business-law": {
-    en: ["Commercial-register and company-record dispute", "Commercial agency and distribution termination"],
-    ar: ["منازعة السجل التجاري وسجلات الشركة", "إنهاء الوكالة التجارية أو التوزيع"],
+    en: ["Commercial-register and company-record dispute", "Termination of an exclusive distribution relationship"],
+    ar: ["منازعة السجل التجاري وسجلات الشركة", "إنهاء علاقة توزيع حصرية"],
   },
   "real-estate": {
     en: ["Land-registry and title-record correction", "Property possession and handover dispute"],
     ar: ["تصحيح قيود السجل العقاري وسند الملكية", "منازعة حيازة العقار وتسليمه"],
   },
   "employment-law": {
-    en: ["Employment termination and labour-record dispute", "Work-permit or employment-status problem"],
-    ar: ["منازعة إنهاء العمل والسجل العمالي", "مشكلة تصريح العمل أو الوضع الوظيفي"],
+    en: ["Employment termination and labour-record dispute", "Correction of a work permit or labour record"],
+    ar: ["منازعة إنهاء العمل والسجل العمالي", "تصحيح تصريح العمل أو السجل العمالي"],
   },
   "foreign-investment": {
     en: ["Foreign-investor licensing and registration problem", "Cross-border investment payment or exit dispute"],
@@ -154,24 +187,24 @@ const SYRIA_ADDITIONAL_ISSUES: Record<string, LocalizedList> = {
     ar: ["الربط الضريبي السوري والاعتراض عليه", "منازعة التقييم الجمركي أو الغرامة"],
   },
   "cyber-law": {
-    en: ["Cybercrime complaint and digital-evidence problem in Syria", "Online defamation and removal request in Syria"],
-    ar: ["الشكوى في الجريمة الإلكترونية ومشكلة الدليل الرقمي في سوريا", "التشهير الإلكتروني وطلب الإزالة في سوريا"],
+    en: ["Cybercrime complaint and digital-evidence problem in Syria", "Claim for reputational harm caused by online publication in Syria"],
+    ar: ["الشكوى في الجريمة الإلكترونية ومشكلة الدليل الرقمي في سوريا", "مطالبة عن ضرر السمعة الناتج عن النشر الإلكتروني في سوريا"],
   },
   "medical-malpractice": {
-    en: ["Medical negligence complaint and compensation in Syria", "Medical-record access and expert-evidence dispute"],
-    ar: ["الشكوى عن الخطأ الطبي والتعويض في سوريا", "منازعة الحصول على السجل الطبي ودليل الخبرة"],
+    en: ["Medical negligence complaint and compensation in Syria", "Challenge to an adverse medical expert report"],
+    ar: ["الشكوى عن الخطأ الطبي والتعويض في سوريا", "الطعن في تقرير خبرة طبية ضار بالموقف"],
   },
   "insurance-law": {
     en: ["Insurance claim dispute with a Syrian insurer", "Traffic-accident compensation and fault dispute in Syria"],
     ar: ["منازعة مطالبة تأمينية مع شركة تأمين سورية", "التعويض عن الحادث المروري ومنازعة نسبة الخطأ في سوريا"],
   },
   "civil-law": {
-    en: ["Civil compensation claim in Syria", "Defamation and reputation-damage claim in Syria"],
-    ar: ["المطالبة بالتعويض المدني في سوريا", "مطالبة التعويض عن التشهير والضرر بالسمعة في سوريا"],
+    en: ["Civil compensation claim in Syria", "Civil damages for reputational harm in Syria"],
+    ar: ["المطالبة بالتعويض المدني في سوريا", "التعويض المدني عن الإضرار بالسمعة في سوريا"],
   },
   "civil-procedure": {
-    en: ["Court filing and jurisdiction objection in Syria", "Appeal deadline and service problem in Syria"],
-    ar: ["الاعتراض على قيد الدعوى والاختصاص في سوريا", "مشكلة ميعاد الطعن والتبليغ في سوريا"],
+    en: ["Challenge to court jurisdiction or improper service in Syria", "Appeal deadline and service problem in Syria"],
+    ar: ["الطعن في اختصاص المحكمة أو التبليغ غير الصحيح في سوريا", "مشكلة ميعاد الطعن والتبليغ في سوريا"],
   },
   "criminal-procedure": {
     en: ["Arrest, detention and release application in Syria", "Criminal appeal and evidence objection in Syria"],
@@ -240,7 +273,7 @@ const ALL_REGION_LEAD_ISSUES: Record<string, LocalizedList> = {
   contracts: {
     en: [
       "Legal notice and demand letter drafting",
-      "Power-of-attorney drafting and authority problem",
+      "Power-of-attorney misuse, rejection or scope dispute",
       "Document attestation and legalisation problem",
       "Consumer refund and purchase cancellation dispute",
       "Defective product and consumer compensation claim",
@@ -248,7 +281,7 @@ const ALL_REGION_LEAD_ISSUES: Record<string, LocalizedList> = {
     ],
     ar: [
       "صياغة الإنذار والمطالبة القانونية",
-      "صياغة الوكالة ومشكلة حدود الصلاحية",
+      "إساءة استخدام الوكالة أو رفضها أو تجاوز نطاقها",
       "مشكلة تصديق المستند وإضفاء الصفة القانونية",
       "منازعة استرداد قيمة الشراء وإلغاء المعاملة",
       "المنتج المعيب ومطالبة المستهلك بالتعويض",
@@ -258,12 +291,12 @@ const ALL_REGION_LEAD_ISSUES: Record<string, LocalizedList> = {
   "employment-law": {
     en: [
       "Employment settlement and final-dues calculation",
-      "Work-permit, residency or employment-status problem",
+      "Residency or employment-status restriction affecting work authorisation",
       "Visa, exit and re-entry restriction affecting employment",
     ],
     ar: [
       "تسوية العمل وحساب المستحقات النهائية",
-      "مشكلة تصريح العمل أو الإقامة أو الوضع الوظيفي",
+      "قيود الإقامة أو الوضع الوظيفي المؤثرة في تصريح العمل",
       "قيود التأشيرة أو الخروج والعودة المؤثرة في العمل",
     ],
   },
@@ -299,12 +332,12 @@ const ALL_REGION_LEAD_ISSUES: Record<string, LocalizedList> = {
   },
   "insurance-law": {
     en: [
-      "Traffic accident compensation and liability claim",
-      "Personal injury compensation after an accident",
+      "Traffic accident compensation for personal injury and vehicle damage",
+      "Personal injury compensation for a non-traffic accident",
     ],
     ar: [
-      "مطالبة التعويض والمسؤولية عن الحادث المروري",
-      "التعويض عن الإصابة الشخصية بعد الحادث",
+      "تعويض الحادث المروري عن الإصابة الشخصية وأضرار المركبة",
+      "التعويض عن الإصابة الشخصية في حادث غير مروري",
     ],
   },
   "cyber-law": {
@@ -564,6 +597,75 @@ function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string
   };
 }
 
+function legalAccuracyBoundary(region: Region): LegalAccuracyBoundary {
+  const regionalChecks: LocalizedList = region === "uae"
+    ? {
+        en: [
+          "Whether federal, emirate-level, free-zone, DIFC or ADGM rules and institutions govern the matter",
+          "Which current legislation, implementing rules and contractual terms were operative on the relevant date",
+          "Which court, tribunal, regulator or administrative authority is competent and whether a preliminary step is required",
+        ],
+        ar: [
+          "ما إذا كانت القواعد والجهات الاتحادية أو المحلية أو الخاصة بالمناطق الحرة أو مركز دبي المالي العالمي أو سوق أبوظبي العالمي هي المنطبقة",
+          "ما التشريع واللائحة التنفيذية والشروط التعاقدية النافذة في التاريخ ذي الصلة",
+          "ما المحكمة أو اللجنة أو الجهة التنظيمية أو الإدارية المختصة وما إذا كانت توجد خطوة أولية لازمة",
+        ],
+      }
+    : region === "syr"
+      ? {
+          en: [
+            "The operative statutory text and amendments for the relevant date, checked against available official publication",
+            "The court or authority with subject-matter and territorial competence, including any preliminary procedure",
+            "Whether civil-status, registration, authentication, enforcement or cross-border facts change the available route",
+          ],
+          ar: [
+            "النص التشريعي النافذ وتعديلاته في التاريخ ذي الصلة بالرجوع إلى النشر الرسمي المتاح",
+            "المحكمة أو الجهة المختصة نوعياً ومكانياً وأي إجراء أولي لازم",
+            "ما إذا كانت وقائع الأحوال المدنية أو التسجيل أو التصديق أو التنفيذ أو العنصر العابر للحدود تغير المسار المتاح",
+          ],
+        }
+      : {
+          en: [
+            "Which current law, regulation, implementing decision and contractual terms govern the matter",
+            "Which court, committee, regulator or administrative authority is competent and whether a pre-filing step is required",
+            "Whether nationality, residency, sector, employment status, registration or the date of the event changes the analysis",
+          ],
+          ar: [
+            "ما النظام واللائحة والقرار التنفيذي والشروط التعاقدية النافذة على المسألة",
+            "ما المحكمة أو اللجنة أو الجهة التنظيمية أو الإدارية المختصة وما إذا كانت توجد خطوة سابقة على القيد",
+            "ما إذا كانت الجنسية أو الإقامة أو القطاع أو صفة العمل أو التسجيل أو تاريخ الواقعة تغير التحليل",
+          ],
+        };
+
+  return {
+    reviewedAt: "2026-08-18",
+    status: "framework-verified-matter-review-required",
+    checks: regionalChecks,
+    urgentWarning: {
+      en: "If you have a hearing, detention, notice, appeal, limitation or filing date, state the exact date in your first message and seek immediate advice. Contacting CounselO does not suspend or extend a deadline.",
+      ar: "إذا كان لديك توقيف أو جلسة أو إخطار أو ميعاد اعتراض أو تقادم أو قيد، فاذكر التاريخ الدقيق في أول رسالة واطلب المشورة فوراً. التواصل مع كاونسلو لا يوقف الميعاد ولا يمدده.",
+    },
+    engagementWarning: {
+      en: "This page identifies issues for intake; it does not determine entitlement, liability, forum, deadline or outcome. Sending information does not by itself create an engagement. Matter-specific advice begins only after CounselO accepts the scope and confirms the service terms.",
+      ar: "تحدد هذه الصفحة مسائل الفحص الأولي ولا تحسم الاستحقاق أو المسؤولية أو الاختصاص أو الميعاد أو النتيجة. ولا ينشئ إرسال المعلومات وحده علاقة تكليف. تبدأ المشورة الخاصة بالملف بعد قبول كاونسلو للنطاق وتأكيد شروط الخدمة.",
+    },
+    intakeChecklist: {
+      en: [
+        "Country, city or emirate, and any free-zone or cross-border connection",
+        "The exact date of any hearing, notice, appeal or filing deadline",
+        "A five-line chronology and the outcome you want",
+        "The key contract, decision, notice or other document—redacted where appropriate",
+      ],
+      ar: [
+        "الدولة والمدينة أو الإمارة وأي صلة بمنطقة حرة أو عنصر عابر للحدود",
+        "التاريخ الدقيق لأي جلسة أو إخطار أو اعتراض أو ميعاد قيد",
+        "تسلسل زمني في خمسة أسطر والنتيجة التي تريدها",
+        "العقد أو القرار أو الإخطار أو المستند الأساسي بعد حجب البيانات غير اللازمة عند الاقتضاء",
+      ],
+    },
+  };
+}
+
 function buildDetailedContent({
   region,
   serviceTitleEn,
@@ -587,9 +689,25 @@ function buildDetailedContent({
   const profile = problemProfile(titleEn, titleAr, serviceTitleEn);
 
   return {
+    heroSummary: {
+      en: `${titleEn} requires a focused check of the facts, evidence, jurisdiction and any urgent date before the legal position can be confirmed.`,
+      ar: `تتطلب مسألة ${titleAr} فحصاً مركزاً للوقائع والأدلة والاختصاص وأي ميعاد عاجل قبل تأكيد المركز القانوني.`,
+    },
+    atAGlance: {
+      en: [
+        `Issue: ${profile.factsEn}`,
+        `Evidence: ${profile.evidenceEn}`,
+        "Output: a written issue map and prioritized next steps within the agreed scope",
+      ],
+      ar: [
+        `المسألة: ${profile.factsAr}`,
+        `الأدلة: ${profile.evidenceAr}`,
+        "المخرج: خريطة مكتوبة للمسائل وخطوات تالية مرتبة ضمن النطاق المتفق عليه",
+      ],
+    },
     overview: {
-      en: `${titleEn} concerns ${profile.factsEn}. In ${country.en}, the answer depends on the applicable ${serviceTitleEn.toLowerCase()} framework, the competent authority or forum, the available evidence and any notice or deadline. CounselO uses this page to focus the initial review on the facts that change the legal position and the outcome you need: ${profile.outcomeEn}.`,
-      ar: `تتعلق مسألة ${titleAr} بـ${profile.factsAr}. وفي ${country.ar} تعتمد الإجابة على إطار ${serviceTitleAr} المنطبق والجهة أو المحكمة المختصة والأدلة المتاحة وأي إخطار أو ميعاد. تستخدم كاونسلو هذه الصفحة لتركيز المراجعة الأولية على الوقائع التي تغير المركز القانوني والنتيجة المطلوبة، وهي: ${profile.outcomeAr}.`,
+      en: `${titleEn} concerns ${profile.factsEn}. In ${country.en}, the answer depends on the potentially applicable ${serviceTitleEn.toLowerCase()} framework, the competent authority or forum, the available evidence and any notice or deadline. CounselO uses this page to focus intake on the facts that may change the legal position and the outcome you need: ${profile.outcomeEn}.`,
+      ar: `تتعلق مسألة ${titleAr} بـ${profile.factsAr}. وفي ${country.ar} تعتمد الإجابة على إطار ${serviceTitleAr} المحتمل انطباقه والجهة أو المحكمة المختصة والأدلة المتاحة وأي إخطار أو ميعاد. تستخدم كاونسلو هذه الصفحة لتركيز الفحص الأولي على الوقائع التي قد تغير المركز القانوني والنتيجة المطلوبة، وهي: ${profile.outcomeAr}.`,
     },
     keyQuestions: {
       en: [
@@ -611,15 +729,15 @@ function buildDetailedContent({
       en: [
         `A focused statement and chronology explaining how ${titleEn.toLowerCase()} arose`,
         `A problem-specific review of ${profile.evidenceEn}`,
-        `A clear assessment of the rule, authority, deadline, risk and remedy for this problem`,
-        `A written legal response and next-step plan directed to this outcome: ${profile.outcomeEn}`,
+        "An issue map identifying the potentially applicable framework and the exact current provisions, authority and deadlines that must be verified",
+        `A written analysis and prioritized next-step plan, within the agreed scope, directed to this objective: ${profile.outcomeEn}`,
         "A clear explanation of what the consultation covers and whether separate representation, filing or attendance is needed",
       ],
       ar: [
         `عرض مركز للمسألة وتسلسل زمني يوضح كيف نشأت ${titleAr}`,
         `مراجعة مخصصة لـ${profile.evidenceAr}`,
-        "تقييم واضح للقاعدة والجهة والميعاد والمخاطر ووسيلة المعالجة الخاصة بهذه المسألة",
-        `رد قانوني مكتوب وخطة للخطوة التالية موجهة إلى النتيجة المطلوبة: ${profile.outcomeAr}`,
+        "خريطة للمسائل تحدد الإطار المحتمل انطباقه والنصوص النافذة والجهة والمواعيد الواجب التحقق منها بدقة",
+        `تحليل مكتوب وخطة مرتبة للخطوة التالية ضمن النطاق المتفق عليه وموجهة إلى الهدف المطلوب: ${profile.outcomeAr}`,
         "توضيح نطاق الاستشارة وما إذا كان يلزم تمثيل أو قيد أو حضور مستقل",
       ],
     },
@@ -657,7 +775,7 @@ function buildDetailedContent({
         },
         {
           q: `How does CounselO help with ${titleEn.toLowerCase()}?`,
-          a: `CounselO focuses the review on ${profile.factsEn}, checks ${profile.evidenceEn}, identifies the applicable framework and authority, and delivers advice directed to whether and how to ${profile.outcomeEn}.`,
+          a: `CounselO focuses the review on ${profile.factsEn}, checks ${profile.evidenceEn}, identifies the potentially applicable framework and authority, verifies the operative provisions within the agreed scope, and delivers advice directed to whether and how to ${profile.outcomeEn}.`,
         },
         {
           q: "How quickly will I receive a response?",
@@ -679,7 +797,7 @@ function buildDetailedContent({
         },
         {
           q: `كيف تساعد كاونسلو في ${titleAr}؟`,
-          a: `تركز كاونسلو على ${profile.factsAr} وتراجع ${profile.evidenceAr} وتحدد الإطار والجهة المختصة وتقدم مشورة موجهة إلى ${profile.outcomeAr}.`,
+          a: `تركز كاونسلو على ${profile.factsAr} وتراجع ${profile.evidenceAr} وتحدد الإطار المحتمل والجهة المختصة وتتحقق من النصوص النافذة ضمن النطاق المتفق عليه وتقدم مشورة موجهة إلى ${profile.outcomeAr}.`,
         },
         {
           q: "متى يصل الرد المهني؟",
@@ -687,6 +805,7 @@ function buildDetailedContent({
         },
       ],
     },
+    legalAccuracy: legalAccuracyBoundary(region),
   };
 }
 
@@ -728,7 +847,7 @@ function sharedPages(region: "sa" | "syr"): LegalProblemPage[] {
         return {
           region,
           parentServiceSlug,
-          slug: slugify(titleEn),
+          slug: canonicalProblemSlug(titleEn),
           titleEn,
           titleAr,
           serviceTitleEn: service?.titleEn ?? parentServiceSlug,
@@ -765,7 +884,7 @@ function uaePages(): LegalProblemPage[] {
       return {
         region: "uae" as const,
         parentServiceSlug: service.slug,
-        slug: slugify(titleEn),
+        slug: canonicalProblemSlug(titleEn),
         titleEn,
         titleAr,
         serviceTitleEn: service.title.en,
@@ -801,6 +920,85 @@ export function getLegalProblemPage(region: Region, parentServiceSlug: string, s
   return LEGAL_PROBLEM_PAGES.find(
     (page) => page.region === region && page.parentServiceSlug === parentServiceSlug && page.slug === slug,
   );
+}
+
+function relatedProblemTokens(value: string): Set<string> {
+  const ignored = new Set([
+    "a", "an", "and", "for", "in", "of", "or", "the", "to", "with",
+    "claim", "dispute", "matter", "problem", "request",
+  ]);
+  return new Set(
+    value
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, " ")
+      .split(/\s+/)
+      .filter((token) => token && !ignored.has(token)),
+  );
+}
+
+function relatedProblemScore(source: LegalProblemPage, candidate: LegalProblemPage): number {
+  const sourceTokens = relatedProblemTokens(source.titleEn);
+  const candidateTokens = relatedProblemTokens(candidate.titleEn);
+  let overlap = 0;
+  for (const token of sourceTokens) if (candidateTokens.has(token)) overlap += 1;
+  return overlap / Math.max(1, new Set([...sourceTokens, ...candidateTokens]).size);
+}
+
+/**
+ * Build a balanced sibling cluster for a problem page. Ring neighbours ensure
+ * that every page receives contextual inbound links; semantic matches fill the
+ * remaining positions without repeatedly favouring the first registry items.
+ */
+export function getRelatedLegalProblemPages(page: LegalProblemPage, limit = 6): LegalProblemPage[] {
+  const siblings = getLegalProblemPages(page.region, page.parentServiceSlug);
+  if (siblings.length <= 1 || limit <= 0) return [];
+
+  const currentIndex = siblings.findIndex((candidate) => candidate.slug === page.slug);
+  const selected: LegalProblemPage[] = [];
+  const add = (candidate: LegalProblemPage | undefined) => {
+    if (candidate && candidate.slug !== page.slug && !selected.some((item) => item.slug === candidate.slug)) {
+      selected.push(candidate);
+    }
+  };
+
+  for (let distance = 1; distance < siblings.length && selected.length < Math.min(4, limit); distance++) {
+    add(siblings[(currentIndex + distance) % siblings.length]);
+    if (selected.length < Math.min(4, limit)) {
+      add(siblings[(currentIndex - distance + siblings.length) % siblings.length]);
+    }
+  }
+
+  const semanticCandidates = siblings
+    .filter((candidate) => candidate.slug !== page.slug && !selected.some((item) => item.slug === candidate.slug))
+    .map((candidate, registryIndex) => ({ candidate, registryIndex, score: relatedProblemScore(page, candidate) }))
+    .sort((left, right) => right.score - left.score || left.registryIndex - right.registryIndex);
+  for (const { candidate } of semanticCandidates) {
+    if (selected.length >= limit) break;
+    add(candidate);
+  }
+  return selected.slice(0, limit);
+}
+
+export type LegalProblemLanguageAlternate = {
+  hrefLang: "en-AE" | "ar-AE" | "en-SA" | "ar-SA" | "en-SY" | "ar-SY";
+  href: string;
+};
+
+/** Return only real reciprocal jurisdiction/language variants for hreflang. */
+export function getLegalProblemLanguageAlternates(page: LegalProblemPage): LegalProblemLanguageAlternate[] {
+  const candidateRegions: Region[] = page.region === "uae" ? ["uae"] : ["sa", "syr"];
+  return candidateRegions.flatMap((candidateRegion) => {
+    if (!getLegalProblemPage(candidateRegion, page.parentServiceSlug, page.slug)) return [];
+    const languageCodes = candidateRegion === "uae"
+      ? ({ en: "en-AE", ar: "ar-AE" } as const)
+      : candidateRegion === "sa"
+        ? ({ en: "en-SA", ar: "ar-SA" } as const)
+        : ({ en: "en-SY", ar: "ar-SY" } as const);
+    return (["en", "ar"] as const).map((language) => ({
+      hrefLang: languageCodes[language],
+      href: `https://counselo-legal.com${legalProblemPath(candidateRegion, language, page.parentServiceSlug, page.slug)}`,
+    }));
+  });
 }
 
 export function legalProblemPath(region: Region, lang: Lang, parentServiceSlug: string, slug: string): string {

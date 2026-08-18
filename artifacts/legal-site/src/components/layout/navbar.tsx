@@ -44,7 +44,7 @@ export function Navbar() {
                 <small>{lang === "ar" ? "استشارات قانونية أونلاين" : "LEGAL CONSULTATION, ONLINE"}</small>
               </span>
             </Link>
-            <span className="uae-navbar-title" aria-label={`${lang === "ar" ? "كاونسلو" : "CounselO"} ${regionTitle}`}>{regionTitle}</span>
+            <span className="uae-navbar-title">{regionTitle}</span>
           </div>
 
           <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 rtl:space-x-reverse">
@@ -56,10 +56,10 @@ export function Navbar() {
               <Link href={libraryPath} className={`text-sm font-medium transition-colors hover:text-primary ${location.includes("legal-library") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.ourWork}</Link>
               <Link href={blogIndexPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location === "/blog" || location.startsWith("/blog/")) ? "text-primary" : "text-muted-foreground"}`}>{t.nav.blog}</Link>
               <Link href={workPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location.startsWith("/our-work") || location.startsWith("/ar/our-work")) ? "text-primary" : "text-muted-foreground"}`}>{workLabel}</Link>
-              <Link href={regionPickerPath} className="region-picker-nav-link" aria-label={lang === "ar" ? "اختيار الدولة" : "Choose region"}>
+              <Link href={regionPickerPath} className="region-picker-nav-link">
                 <Globe2 aria-hidden="true" /><span>{lang === "ar" ? "الدول" : "Regions"}</span>
               </Link>
-              <button onClick={toggleLang} className="flex items-center gap-1.5 border border-border px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:border-primary hover:text-primary" aria-label="Toggle language">
+              <button onClick={toggleLang} className="flex items-center gap-1.5 border border-border px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:border-primary hover:text-primary" aria-label={lang === "en" ? "عربي — Switch to Arabic" : "English — التبديل إلى الإنجليزية"}>
                 <Languages className="w-4 h-4" />{lang === "en" ? "عربي" : "English"}
               </button>
             </> : <>
@@ -95,7 +95,7 @@ export function Navbar() {
             <Link href={workPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location.startsWith("/our-work") || location.startsWith("/ar/our-work")) ? "text-primary" : "text-muted-foreground"}`}>{workLabel}</Link>
             <Link href={p("/contact")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/contact") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.contact}</Link>
 
-            <Link href={regionPickerPath} className="region-picker-nav-link" aria-label={lang === "ar" ? "اختيار الدولة" : "Choose region"}>
+            <Link href={regionPickerPath} className="region-picker-nav-link">
               <Globe2 aria-hidden="true" />
               <span>{lang === "ar" ? "الدول" : "Regions"}</span>
             </Link>
@@ -103,7 +103,7 @@ export function Navbar() {
             <button
               onClick={toggleLang}
               className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors border border-border px-3 py-1.5 hover:border-primary"
-              aria-label="Toggle language"
+              aria-label={lang === "en" ? "عربي — Switch to Arabic" : "English — التبديل إلى الإنجليزية"}
             >
               <Languages className="w-4 h-4" />
               {lang === "en" ? "عربي" : "English"}
@@ -122,7 +122,7 @@ export function Navbar() {
             <Link href={regionPickerPath} aria-label={lang === "ar" ? "اختيار الدولة" : "Choose region"} className="text-[#886b31] hover:text-primary">
               <Globe2 className="h-5 w-5" />
             </Link>
-            <button onClick={toggleLang} aria-label={lang === "en" ? "Switch to Arabic" : "Switch to English"} className="text-muted-foreground hover:text-primary text-sm font-medium border border-border px-2 py-1">
+            <button onClick={toggleLang} aria-label={lang === "en" ? "ع — Switch to Arabic" : "EN — Switch to English"} className="text-muted-foreground hover:text-primary text-sm font-medium border border-border px-2 py-1">
               {lang === "en" ? "ع" : "EN"}
             </button>
             <button onClick={() => setIsOpen(!isOpen)} aria-label={isOpen ? "Close menu" : "Open menu"} aria-expanded={isOpen} className="text-muted-foreground hover:text-primary">
