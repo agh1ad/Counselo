@@ -19,6 +19,7 @@ export const COUNSELO_ORGANIZATION = {
   url: ENTITY_BASE_URL,
   logo: { "@type": "ImageObject", url: `${ENTITY_BASE_URL}/logo.png`, width: 512, height: 512 },
   sameAs: ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
+  founder: { "@id": COUNSELO_ENTITY_IDS.omar },
   areaServed: COUNSELO_PLATFORM_POSITIONING.jurisdictions.map((name) => ({ "@type": "Country", name })),
   availableLanguage: [...COUNSELO_PLATFORM_POSITIONING.languages],
   knowsAbout: ["Online legal consultation", "Document review", "Legal analysis", "Written legal guidance"],
@@ -43,7 +44,10 @@ export const OMAR_AL_BAGHDADI = {
   jobTitle: "Lawyer and Legal Counsel",
   worksFor: { "@id": COUNSELO_ENTITY_IDS.organization },
   alumniOf: { "@type": "EducationalOrganization", name: "Faculty of Law, Damascus University" },
-  sameAs: ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
+  sameAs: [
+    "https://www.linkedin.com/in/lawyeromarbaghdadi/",
+    "https://www.baghdadilaw.co/who-we-are",
+  ],
 } as const;
 
 export const COOPERATING_OFFICES = {

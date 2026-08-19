@@ -1,0 +1,58 @@
+{
+  "name": "GoDaddy-style reusable SEO and delivery patterns",
+  "evidenceDate": "2026-08-19",
+  "classification": "observed reproducible techniques, not proprietary ranking secrets",
+  "patterns": [
+    {
+      "id": "exact-intent-snippet",
+      "priority": 1,
+      "use": "Write language-native titles and descriptions around the exact problem, truthful jurisdiction, relevant professional or service term, and a real differentiator.",
+      "verify": ["unique title", "unique description", "query relevance", "claim substantiation"]
+    },
+    {
+      "id": "named-expert-entity",
+      "priority": 2,
+      "use": "Connect the organization, founder or reviewer, profile page, visible attribution, and stable structured-data IDs.",
+      "verify": ["visible attribution", "supported role", "Organization schema", "Person schema", "canonical identity URL"]
+    },
+    {
+      "id": "durable-problem-clusters",
+      "priority": 3,
+      "use": "Create stable, substantive problem pages under region, language, and service hierarchies with contextual internal links.",
+      "verify": ["non-thin content", "stable URL", "service parent link", "related content links", "conversion path"]
+    },
+    {
+      "id": "single-route-contract",
+      "priority": 4,
+      "use": "Generate navigation, SSR, canonical, hreflang, social metadata, sitemap, and prerender behavior from the same URL inventory.",
+      "verify": ["HTTP 200", "SSR content", "canonical match", "reciprocal hreflang", "sitemap match"]
+    },
+    {
+      "id": "compact-delivery",
+      "priority": 5,
+      "use": "Reduce repeated HTML data, split noncritical code and translations, compress responses, cache public HTML briefly, and cache hashed assets immutably.",
+      "verify": ["HTML transfer size", "entry JS size", "cache headers", "Brotli or gzip", "field performance"]
+    },
+    {
+      "id": "responsive-images",
+      "priority": 6,
+      "use": "Serve right-sized modern images, preload only the LCP image, and lazy-load noncritical media.",
+      "verify": ["srcset", "sizes", "width and height", "LCP preload", "below-fold lazy loading"]
+    }
+  ],
+  "falseShortcuts": [
+    "mass sitemap priority values",
+    "unreliable bulk lastmod dates",
+    "thin page volume",
+    "language declaration mismatches",
+    "multiple competing H1 elements",
+    "unsupported authority or outcome claims"
+  ],
+  "requiredOutcomeData": [
+    "Google Search Console query and page metrics",
+    "index coverage and canonical selection",
+    "backlink and referring-domain evidence",
+    "real-user Core Web Vitals",
+    "qualified conversion events"
+  ]
+}

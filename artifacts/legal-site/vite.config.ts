@@ -77,10 +77,18 @@ export default defineConfig({
       : []),
   ],
   resolve: {
-    alias: {
-      "@": path.resolve(import.meta.dirname, "src"),
-      "@assets": path.resolve(import.meta.dirname, "..", "..", "attached_assets"),
-    },
+    alias: [
+      {
+        find: "@/route-pages",
+        replacement: path.resolve(import.meta.dirname, isSSR ? "src/route-pages.ssr.ts" : "src/route-pages.ts"),
+      },
+      {
+        find: "@/contexts/LanguageContext",
+        replacement: path.resolve(import.meta.dirname, isSSR ? "src/contexts/LanguageContext.ssr.tsx" : "src/contexts/LanguageContext.tsx"),
+      },
+      { find: "@", replacement: path.resolve(import.meta.dirname, "src") },
+      { find: "@assets", replacement: path.resolve(import.meta.dirname, "..", "..", "attached_assets") },
+    ],
     dedupe: ["react", "react-dom"],
   },
   root: path.resolve(import.meta.dirname),

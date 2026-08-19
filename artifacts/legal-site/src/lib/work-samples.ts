@@ -40,6 +40,28 @@ export interface WorkSamplePublic {
   aiLinksAssignedAt?: string;
 }
 
+/**
+ * Keeps discovery-card and relationship fields while removing document-detail
+ * prose duplicated into every prerendered page. Dynamic detail pages receive
+ * the complete record separately through __SSR_WORK__.
+ */
+export function compactWorkSamplesForDiscovery(samples: WorkSamplePublic[]): WorkSamplePublic[] {
+  return samples.map((sample) => ({
+    ...sample,
+    challengeEn: "",
+    challengeAr: "",
+    approachEn: "",
+    approachAr: "",
+    outcomeEn: "",
+    outcomeAr: "",
+    seoTitleEn: "",
+    seoTitleAr: "",
+    seoDescriptionEn: "",
+    seoDescriptionAr: "",
+    fileName: "",
+  }));
+}
+
 export function localized(valueEn: string, valueAr: string, lang: "en" | "ar"): string {
   return lang === "ar" ? (valueAr || valueEn) : (valueEn || valueAr);
 }

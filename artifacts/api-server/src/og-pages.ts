@@ -729,6 +729,7 @@ export function registerOgPageRoutes(app: Express): void {
     // ── 1. Prerendered file ──────────────────────────────────────────────────
     const prerenderedFile = findPrerenderedFile(reqPath);
     if (prerenderedFile) {
+      res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.prerenderedHtml);
       res.sendFile(prerenderedFile);
       return;
     }

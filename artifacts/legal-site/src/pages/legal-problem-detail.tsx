@@ -8,28 +8,9 @@ import { TrustSignals } from "@/components/seo/TrustSignals";
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
 import { getLegalProblemLanguageAlternates, getLegalProblemPage, getRelatedLegalProblemPages, legalProblemPath } from "@/lib/legal-problem-pages";
 import { getRegionalLegalSources, type LegalSource } from "@/lib/regional-legal-sources";
-import { COUNSELO_ENTITY_IDS, getConsultationProduct } from "@workspace/api-zod";
+import { buildArabicProblemDescription, buildArabicProblemTitle, buildEnglishProblemDescription, buildEnglishProblemTitle } from "@/lib/problem-snippet";
+import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
 import { COUNSELO_LEGAL_MATTERS_CLAIM } from "@/lib/public-claims";
-
-function truncateSeo(value: string, max = 158): string {
-  if (value.length <= max) return value;
-  const shortened = value.slice(0, max - 1);
-  const boundary = shortened.lastIndexOf(" ");
-  return `${shortened.slice(0, boundary > 110 ? boundary : shortened.length).replace(/[,:;]$/, "")}.`;
-}
-
-function buildSeoTitle(topic: string, location: string, brand: string, max = 68): string {
-  const suffix = ` | ${location} | ${brand}`;
-  const available = Math.max(24, max - suffix.length);
-  if (topic.length <= available) return `${topic}${suffix}`;
-  const shortened = topic.slice(0, available + 1);
-  const boundary = shortened.lastIndexOf(" ");
-  const safeTopic = shortened
-    .slice(0, boundary > Math.floor(available * 0.6) ? boundary : available)
-    .replace(/[|،,:;\-]$/, "")
-    .trimEnd();
-  return `${safeTopic}${suffix}`;
-}
 
 export default function LegalProblemDetail() {
   const { id = "", problem = "" } = useParams<{ id: string; problem: string }>();
@@ -60,14 +41,28 @@ export default function LegalProblemDetail() {
   const documents = isRTL ? page.documentsAr : page.documentsEn;
   const countryName = region === "uae" ? (isRTL ? "الإمارات" : "the UAE") : region === "syr" ? (isRTL ? "سوريا" : "Syria") : (isRTL ? "السعودية" : "Saudi Arabia");
   const canonical = `/services/${id}/${problem}`;
-  const title = buildSeoTitle(
-    isRTL ? page.titleAr : page.titleEn,
-    countryName,
-    isRTL ? "كاونسلو" : "CounselO",
-  );
-  const description = truncateSeo(isRTL
-    ? `استشارة ${page.titleAr} في ${countryName}: الوقائع والأدلة والخيارات والمستندات وحزمة كاونسلو المكتوبة عبر واتساب أو البريد الإلكتروني.`
-    : `${page.titleEn} in ${countryName}: facts, evidence, options, documents and CounselO’s written consultation package via WhatsApp or email.`);
+  const title = isRTL
+    ? buildArabicProblemTitle({
+        titleAr: page.titleAr,
+        serviceTitleAr: page.serviceTitleAr,
+        countryNameAr: countryName,
+      })
+    : buildEnglishProblemTitle({
+        titleEn: page.titleEn,
+        serviceTitleEn: page.serviceTitleEn,
+        countryNameEn: countryName,
+      });
+  const description = isRTL
+    ? buildArabicProblemDescription({
+        titleAr: page.titleAr,
+        serviceTitleAr: page.serviceTitleAr,
+        countryNameAr: countryName,
+      })
+    : buildEnglishProblemDescription({
+        titleEn: page.titleEn,
+        serviceTitleEn: page.serviceTitleEn,
+        countryNameEn: countryName,
+      });
   const keywords = [
     page.titleEn,
     `${page.titleEn} lawyer ${countryName}`,
@@ -100,6 +95,7 @@ export default function LegalProblemDetail() {
           "url": `https://counselo-legal.com${regionPrefix}${isRTL ? "/ar" : ""}${canonical}`,
           "dateModified": page.legalAccuracy.reviewedAt,
           "author": { "@id": "https://counselo-legal.com/#person-omar-al-baghdadi" },
+          "reviewedBy": { "@id": COUNSELO_ENTITY_IDS.omar },
           "publisher": { "@id": "https://counselo-legal.com/#organization" },
           "about": {
             "@type": "LegalService",
@@ -112,6 +108,12 @@ export default function LegalProblemDetail() {
           "keywords": keywords,
         }}
         extraSchemas={[{
+          "@context": "https://schema.org",
+          ...COUNSELO_ORGANIZATION,
+        }, {
+          "@context": "https://schema.org",
+          ...OMAR_AL_BAGHDADI,
+        }, {
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": (isRTL ? page.faqs.ar : page.faqs.en).map((faq) => ({
@@ -165,7 +167,13 @@ export default function LegalProblemDetail() {
       </section>
 
       <section className="border-b border-[#0d4a31]/12 bg-white" aria-label={isRTL ? "مؤشرات الثقة" : "Trust highlights"}>
-        <div className="premium-content-shell grid gap-5 py-6 sm:grid-cols-3">
+        <div className="premium-content-shell grid gap-5 py-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="border-s-2 border-[#d5ae5d] ps-4">
+            <Link href={`${regionPrefix}/about`} className="font-serif text-xl text-[#0d4a31] hover:underline">
+              {isRTL ? "المحامي عمر البغدادي" : "Lawyer Omar Al-Baghdadi"}
+            </Link>
+            <p className="text-sm text-muted-foreground">{isRTL ? "المحامي والمستشار القانوني مؤسس كاونسلو" : "Lawyer, Legal Counsel and founder of CounselO"}</p>
+          </div>
           <div className="border-s-2 border-[#d5ae5d] ps-4">
             <p className="font-serif text-2xl text-[#0d4a31]">30+</p>
             <p className="text-sm text-muted-foreground">{isRTL ? "عاماً من الخبرة القانونية الإقليمية" : "Years of regional legal experience"}</p>
