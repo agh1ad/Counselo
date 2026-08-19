@@ -31,6 +31,11 @@ import {
   buildDiscoveryFeed,
   buildDynamicSitemap,
   LEGACY_REDIRECTS,
+  assignArticleProvenance,
+  BLOG_SOCIAL_IMAGE,
+  BLOG_REVIEWER_ATTRIBUTION,
+  buildBlogSocialMetaTags,
+  COUNSELO_ENTITY_IDS,
   type BlogLanguage,
 } from "@workspace/api-zod";
 
@@ -222,6 +227,8 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
     seoDescEn || seoDescAr,
     post.excerptEn || post.excerptAr || stripHtml(post.bodyEn || post.bodyAr || ""),
   );
+  const provenance = assignArticleProvenance(post);
+  const reviewerAttribution = isArabicPost ? BLOG_REVIEWER_ATTRIBUTION.ar : BLOG_REVIEWER_ATTRIBUTION.en;
 
   const articleSchema = JSON.stringify({
     "@context": "https://schema.org",
@@ -248,6 +255,19 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
         url: "https://counselo-legal.com/logo.png",
       },
     },
+    image: {
+      "@type": "ImageObject",
+      url: BLOG_SOCIAL_IMAGE.url,
+      width: BLOG_SOCIAL_IMAGE.width,
+      height: BLOG_SOCIAL_IMAGE.height,
+    },
+    reviewedBy: {
+      "@type": "Person",
+      "@id": COUNSELO_ENTITY_IDS.omar,
+      name: isArabicPost ? provenance.legalReviewerNameAr : provenance.legalReviewerName,
+      jobTitle: isArabicPost ? "محامٍ ومستشار قانوني" : "Lawyer and Legal Counsel",
+      url: `https://counselo-legal.com${provenance.legalReviewerUrl}`,
+    },
   });
 
   const breadcrumbSchema = JSON.stringify({
@@ -273,14 +293,13 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
   const headTags = [
     `<title data-rh="true">${escapeHtml(brandedTitle)}</title>`,
     `<meta data-rh="true" name="description" content="${escapeHtml(primaryDesc)}">`,
-    `<meta data-rh="true" property="og:title" content="${escapeHtml(primaryTitle)}">`,
-    `<meta data-rh="true" property="og:description" content="${escapeHtml(primaryDesc)}">`,
-    `<meta data-rh="true" property="og:url" content="${escapeHtml(canonical)}">`,
-    `<meta data-rh="true" property="og:type" content="article">`,
-    `<meta data-rh="true" property="og:image" content="https://counselo-legal.com/og-image.png">`,
-    `<meta data-rh="true" name="twitter:card" content="summary_large_image">`,
-    `<meta data-rh="true" name="twitter:title" content="${escapeHtml(primaryTitle)}">`,
-    `<meta data-rh="true" name="twitter:description" content="${escapeHtml(primaryDesc)}">`,
+    buildBlogSocialMetaTags({
+      title: primaryTitle,
+      description: primaryDesc,
+      canonical,
+      language: isArabicPost ? "ar" : "en",
+      reviewerName: reviewerAttribution,
+    }),
     `<link data-rh="true" rel="canonical" href="${escapeHtml(canonical)}">`,
     `<script data-rh="true" type="application/ld+json">${articleSchema}</script>`,
     `<script data-rh="true" type="application/ld+json">${breadcrumbSchema}</script>`,

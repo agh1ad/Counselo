@@ -1,6 +1,6 @@
 import { useParams, Link, Redirect, useLocation } from "wouter";
 import { motion } from "framer-motion";
-import { Clock, ArrowLeft, ArrowRight, Calendar, MessageCircle } from "lucide-react";
+import { Clock, ArrowLeft, ArrowRight, BadgeCheck, Calendar, MessageCircle } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEOHead } from "@/components/seo/SEOHead";
@@ -10,6 +10,7 @@ import { fetchPublicJson } from "@/lib/public-api";
 import {
   articleJurisdictionLabel,
   assignArticleProvenance,
+  BLOG_REVIEWER_ATTRIBUTION,
   blogPath,
   hasQualityBilingualBlogContent,
   localizeArticleProvenanceUrl,
@@ -237,9 +238,11 @@ export default function BlogPost() {
     primaryAuthorName: fallbackProvenance.primaryAuthorName,
     primaryAuthorNameAr: fallbackProvenance.primaryAuthorNameAr,
     primaryAuthorUrl: post.primaryAuthorUrl || fallbackProvenance.primaryAuthorUrl,
+    // Every public article carries the same verified legal reviewer attribution,
+    // including legacy records that may contain an older reviewer label.
     legalReviewerName: fallbackProvenance.legalReviewerName,
     legalReviewerNameAr: fallbackProvenance.legalReviewerNameAr,
-    legalReviewerUrl: post.legalReviewerUrl || fallbackProvenance.legalReviewerUrl,
+    legalReviewerUrl: fallbackProvenance.legalReviewerUrl,
     applicableLaw: contentType === "legal-guidance" ? (post.applicableLaw || fallbackProvenance.applicableLaw) : "",
     applicableLawAr: contentType === "legal-guidance" ? (post.applicableLawAr || fallbackProvenance.applicableLawAr) : "",
     keyLegalUpdateNote: contentType === "legal-guidance" ? (post.keyLegalUpdateNote || fallbackProvenance.keyLegalUpdateNote) : fallbackProvenance.keyLegalUpdateNote,
@@ -254,6 +257,7 @@ export default function BlogPost() {
   provenance.primaryAuthorUrl = localizeArticleProvenanceUrl(provenance.primaryAuthorUrl, articleRegion, effectiveLanguage, "profile");
   provenance.legalReviewerUrl = localizeArticleProvenanceUrl(provenance.legalReviewerUrl, articleRegion, effectiveLanguage, "profile");
   provenance.correctionUrl = localizeArticleProvenanceUrl(provenance.correctionUrl, articleRegion, effectiveLanguage, "correction");
+  const reviewerAttribution = useAr ? BLOG_REVIEWER_ATTRIBUTION.ar : BLOG_REVIEWER_ATTRIBUTION.en;
   const validRegionServices = new Set(getServicesForRegion(articleRegion).map((service) => service.slug));
   const categoryService = BLOG_CATEGORY_TO_SERVICE[post.categoryEn] ?? BLOG_CATEGORY_TO_SERVICE[post.categoryAr];
   const articleServiceSlug = (post.relatedServiceSlugs ?? []).find((slug) => validRegionServices.has(slug))
@@ -360,6 +364,10 @@ export default function BlogPost() {
         articlePublishedTime={post.date}
         articleAuthor={useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}
         articleSection={category}
+        reviewedBy={reviewerAttribution}
+        ogImageAlt={useAr
+          ? `مقال قانوني من كاونسلو، راجعه ${reviewerAttribution}`
+          : `CounselO legal article reviewed by ${reviewerAttribution}`}
         extraSchemas={[articleSchema, breadcrumbSchema]}
       />
 
@@ -386,6 +394,13 @@ export default function BlogPost() {
             </h1>
             <div className="premium-hero-rule mb-6" />
             <p dir={contentDir} className="text-lg text-white/70 leading-relaxed">{excerpt}</p>
+            <a
+              href={provenance.legalReviewerUrl}
+              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white transition-colors"
+            >
+              <BadgeCheck className="h-4 w-4 text-[#e0c078]" aria-hidden="true" />
+              {useAr ? "راجعه" : "Reviewed by"} {reviewerAttribution}
+            </a>
           </motion.div>
         </div>
       </section>
@@ -406,7 +421,7 @@ export default function BlogPost() {
               </h2>
               <dl className="grid gap-3 text-sm sm:grid-cols-2">
                 <div><dt className="font-semibold text-foreground">{useAr ? "كتب بواسطة" : "Written by"}</dt><dd><a className="text-primary hover:underline" href={provenance.primaryAuthorUrl}>{useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}</a></dd></div>
-                <div><dt className="font-semibold text-foreground">{useAr ? "تمت المراجعة بواسطة" : "Reviewed by"}</dt><dd><a className="text-primary hover:underline" href={provenance.legalReviewerUrl}>{useAr ? provenance.legalReviewerNameAr : provenance.legalReviewerName}</a></dd></div>
+                <div><dt className="font-semibold text-foreground">{useAr ? "تمت المراجعة بواسطة" : "Reviewed by"}</dt><dd><a className="text-primary hover:underline" href={provenance.legalReviewerUrl}>{reviewerAttribution}</a></dd></div>
                 {contentType === "legal-guidance" && provenance.jurisdiction && <div><dt className="font-semibold text-foreground">{useAr ? "الاختصاص" : "Jurisdiction"}</dt><dd>{articleJurisdictionLabel(provenance.jurisdiction, useAr)}</dd></div>}
                 <div><dt className="font-semibold text-foreground">{useAr ? "تاريخ النشر" : "Publication date"}</dt><dd>{formatDate(post.date, useAr ? "ar" : "en")}</dd></div>
                 <div><dt className="font-semibold text-foreground">{useAr ? (contentType === "legal-guidance" ? "آخر مراجعة جوهرية" : "آخر مراجعة تحريرية") : (contentType === "legal-guidance" ? "Last substantive review" : "Last editorial review")}</dt><dd>{formatDate(provenance.lastSubstantiveReviewAt, useAr ? "ar" : "en")}</dd></div>
