@@ -25,7 +25,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { RenderResult } from "./entry-server.js";
-import type { WorkSamplePublic } from "./lib/work-samples.js";
+import { compactWorkSamplesForDiscovery, type WorkSamplePublic } from "./lib/work-samples.js";
 import { resolveBlogRoute } from "./lib/blog-route-policy.js";
 import {
   buildDiscoveryFeed,
@@ -508,7 +508,8 @@ async function ssrRender(
 
   const template = readFileSync(shellHtml, "utf-8");
   const { head, body } = _render(url, posts, samples);
-  const discoveryData = `<script>window.__SSR_POSTS__=${JSON.stringify(posts).replace(/</g, "\\u003c")};window.__SSR_WORK_SAMPLES__=${JSON.stringify(samples).replace(/</g, "\\u003c")};</script>`;
+  const discoveryWorkSamples = compactWorkSamplesForDiscovery(samples);
+  const discoveryData = `<script>window.__SSR_POSTS__=${JSON.stringify(posts).replace(/</g, "\\u003c")};window.__SSR_WORK_SAMPLES__=${JSON.stringify(discoveryWorkSamples).replace(/</g, "\\u003c")};</script>`;
 
   return template
     .replace('<html lang="en">', htmlTag(url))

@@ -21,23 +21,25 @@ import { trackEvent, trackPageview, injectGTM } from "@/lib/analytics";
 import type { WorkSamplePublic } from "@/lib/work-samples";
 import { blogPath } from "@workspace/api-zod";
 
-import RegionPicker from "@/pages/region-picker";
-import ArRegionPicker from "@/pages/ar-region-picker";
-import Home from "@/pages/home";
-import Services from "@/pages/services";
-import Contact from "@/pages/contact";
-import ServiceDetail from "@/pages/service-detail";
-import LegalProblemDetail from "@/pages/legal-problem-detail";
-import About from "@/pages/about";
-import Vision from "@/pages/vision";
-import Blog from "@/pages/blog";
-import BlogPost from "@/pages/blog-post";
-import OurWork from "@/pages/our-work";
-import LegalLibrary from "@/pages/legal-library";
-import WorkSample from "@/pages/work-sample";
-import TermsOfService from "@/pages/terms-of-service";
-import PrivacyPolicy from "@/pages/privacy-policy";
-import NotFound from "@/pages/not-found";
+import {
+  About,
+  ArRegionPicker,
+  Blog,
+  BlogPost,
+  Contact,
+  Home,
+  LegalLibrary,
+  LegalProblemDetail,
+  NotFound,
+  OurWork,
+  PrivacyPolicy,
+  RegionPicker,
+  ServiceDetail,
+  Services,
+  TermsOfService,
+  Vision,
+  WorkSample,
+} from "@/route-pages";
 
 const queryClient = new QueryClient();
 const AdminCMS = lazy(() => import("@/pages/admin"));
@@ -302,6 +304,7 @@ function Router() {
   return (
     <ErrorBoundary>
       <ScrollToTop />
+      <Suspense fallback={<div className="min-h-[60vh]" aria-live="polite" />}>
       <Switch>
         {/* Region picker — English (x-default) and Arabic */}
         <Route path="/" component={RegionPicker} />
@@ -353,6 +356,7 @@ function Router() {
 
         <Route component={NotFound} />
       </Switch>
+      </Suspense>
     </ErrorBoundary>
   );
 }
@@ -435,11 +439,13 @@ function App({ ssrUrl, initialBlogPosts = [], initialWorkSamples = [] }: AppProp
           ssrPath={ssrUrl}
         >
           <RegionProvider>
-            <LanguageProvider>
-              <GAInit />
-              <InteractionTracking />
-              <AppShell />
-            </LanguageProvider>
+            <Suspense fallback={<div className="min-h-screen bg-background" aria-live="polite" />}>
+              <LanguageProvider>
+                <GAInit />
+                <InteractionTracking />
+                <AppShell />
+              </LanguageProvider>
+            </Suspense>
           </RegionProvider>
         </WouterRouter>
       </TooltipProvider>

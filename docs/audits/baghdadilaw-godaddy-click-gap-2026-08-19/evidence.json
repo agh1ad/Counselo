@@ -1,0 +1,65 @@
+{
+  "audit_date": "2026-08-19",
+  "mode": "read-only",
+  "primary_language": "ar",
+  "domains": {
+    "baghdadilaw.co": {
+      "whois_creation_date": "2024-08-20",
+      "age_days_on_audit_date": 729,
+      "builder": "GoDaddy Website Builder Pro / Duda-derived runtime",
+      "dev_mode_named_pages_ar": 147,
+      "dev_mode_named_pages_en": 147,
+      "sitemap_urls": 664,
+      "sitemap_ar_path_urls": 145,
+      "sitemap_root_depth_one_urls": 387,
+      "sitemap_root_my_post_urls": 332,
+      "sitemap_alternate_links": 876,
+      "sitemap_priority_1_urls": 292,
+      "sitemap_lastmod_2026_04_21_urls": 567,
+      "sample_ar_home_bytes": 335119,
+      "sample_ar_unpaid_wages_bytes": 164743,
+      "median_ar_home_ttfb_seconds_5_requests": 0.482238,
+      "median_ar_home_total_seconds_5_requests": 1.368795,
+      "median_ar_unpaid_wages_ttfb_seconds_5_requests": 0.562421,
+      "median_ar_unpaid_wages_total_seconds_5_requests": 0.880018
+    },
+    "counselo-legal.com": {
+      "whois_creation_date": "2026-07-01",
+      "age_days_on_audit_date": 49,
+      "live_sitemap_urls": 1690,
+      "approximate_live_ar_path_urls": 845,
+      "live_ar_blog_urls": 36,
+      "live_ar_work_urls": 36,
+      "sample_sa_ar_home_bytes": 449698,
+      "sample_sa_ar_unpaid_wages_bytes": 414609,
+      "median_sa_ar_home_ttfb_seconds_5_requests": 0.960441,
+      "median_sa_ar_home_total_seconds_5_requests": 1.920120,
+      "median_sa_ar_unpaid_wages_ttfb_seconds_5_requests": 0.730945,
+      "median_sa_ar_unpaid_wages_total_seconds_5_requests": 1.929730
+    }
+  },
+  "leading_explanation": [
+    "domain and indexing history",
+    "older Arabic exact-intent page and post corpus",
+    "more aggressive Arabic query and snippet wording",
+    "named-lawyer identity signals",
+    "lighter and faster sampled pages",
+    "GoDaddy CDN, caching, preload, and responsive-image defaults"
+  ],
+  "important_counter_evidence": [
+    "CounselO has more live and Arabic sitemap URLs",
+    "CounselO sampled pages have richer schema, hreflang, and substantive Arabic content",
+    "sampled BaghdadiLaw Arabic-titled my-post pages declare lang=en",
+    "sampled BaghdadiLaw my-post pages use generic English descriptions and no hreflang",
+    "one sampled BaghdadiLaw page emitted seven H1 elements",
+    "mass sitemap priority and lastmod values are not ranking secrets"
+  ],
+  "unverified_without_external_data": [
+    "query-level click gap",
+    "index coverage difference",
+    "backlink and referring-domain difference",
+    "branded-search demand",
+    "real-user Core Web Vitals",
+    "conversion quality"
+  ]
+}

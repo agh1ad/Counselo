@@ -6,7 +6,7 @@ export const PUBLIC_BASE_URL = "https://counselo-legal.com";
 export const PUBLIC_CACHE_POLICY = {
   immutableAsset: "public, max-age=31536000, immutable",
   crawlControl: "public, max-age=3600, must-revalidate",
-  prerenderedHtml: "public, max-age=0, must-revalidate",
+  prerenderedHtml: "public, max-age=300, must-revalidate",
   dynamicHtml: "public, max-age=300, must-revalidate",
   redirect: "public, max-age=86400",
   notFound: "no-store",

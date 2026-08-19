@@ -1,13 +1,7 @@
 // @refresh reset
-import { useEffect, useMemo } from "react";
+import { use, useEffect, useMemo } from "react";
 import type { ReactNode } from "react";
 import { useLocation } from "wouter";
-import { en } from "@/translations/en";
-import { ar } from "@/translations/ar";
-import { enSyr } from "@/translations/en-syr";
-import { arSyr } from "@/translations/ar-syr";
-import { enUae } from "@/translations/en-uae";
-import { arUae } from "@/translations/ar-uae";
 import { useRegion } from "@/contexts/RegionContext";
 import { LanguageContext } from "@/contexts/LanguageContextCore";
 import { qualifyProfessionalRoleCopy } from "@/lib/professional-role-scope";
@@ -15,6 +9,34 @@ import { qualifyEeatCopy } from "@/lib/eeat-scope";
 
 export type { Lang, Translations, LanguageContextType } from "@/contexts/LanguageContextCore";
 export { useLanguage } from "@/contexts/LanguageContextCore";
+
+type TranslationModule = typeof import("@/translations/en");
+type TranslationValue = TranslationModule["en"];
+
+const translationLoaders = {
+  sa: {
+    en: () => import("@/translations/en").then((module) => module.en),
+    ar: () => import("@/translations/ar").then((module) => module.ar),
+  },
+  syr: {
+    en: () => import("@/translations/en-syr").then((module) => module.enSyr),
+    ar: () => import("@/translations/ar-syr").then((module) => module.arSyr),
+  },
+  uae: {
+    en: () => import("@/translations/en-uae").then((module) => module.enUae),
+    ar: () => import("@/translations/ar-uae").then((module) => module.arUae),
+  },
+} as const;
+const translationPromises = new Map<string, Promise<TranslationValue>>();
+
+function loadTranslation(region: keyof typeof translationLoaders, lang: "en" | "ar"): Promise<TranslationValue> {
+  const key = `${region}:${lang}`;
+  const existing = translationPromises.get(key);
+  if (existing) return existing;
+  const promise = translationLoaders[region][lang]() as Promise<TranslationValue>;
+  translationPromises.set(key, promise);
+  return promise;
+}
 
 /**
  * Language is derived entirely from the URL (via RegionContext) so that
@@ -68,14 +90,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const isRTL = lang === "ar";
 
+  const source = use(loadTranslation(region, lang));
   const t = useMemo(() => {
-    const source = region === "syr"
-      ? (lang === "en" ? enSyr : arSyr)
-      : region === "uae"
-        ? (lang === "en" ? enUae : arUae)
-        : (lang === "en" ? en : ar);
     return qualifyEeatCopy(qualifyProfessionalRoleCopy(source));
-  }, [region, lang]);
+  }, [source]);
 
   useEffect(() => {
     document.documentElement.dir = isRTL ? "rtl" : "ltr";

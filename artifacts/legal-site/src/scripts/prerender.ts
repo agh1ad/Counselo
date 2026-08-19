@@ -20,7 +20,7 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { RenderResult } from "../entry-server.js";
 import type { InitialBlogPost } from "../App.js";
-import type { WorkSamplePublic } from "../lib/work-samples.js";
+import { compactWorkSamplesForDiscovery, type WorkSamplePublic } from "../lib/work-samples.js";
 import { getLegalProblemPaths } from "../lib/legal-problem-pages.js";
 import {
   getPublicRouteInventory,
@@ -206,7 +206,8 @@ function writeRoute(
     relatedBlogSlugs: post.relatedBlogSlugs,
     relatedWorkSlugs: post.relatedWorkSlugs,
   }));
-  const discoveryData = `<script>window.__SSR_POSTS__=${safeJson(discoveryPosts)};window.__SSR_WORK_SAMPLES__=${safeJson(routeWorkSamples)};</script>`;
+  const discoveryWorkSamples = compactWorkSamplesForDiscovery(routeWorkSamples);
+  const discoveryData = `<script>window.__SSR_POSTS__=${safeJson(discoveryPosts)};window.__SSR_WORK_SAMPLES__=${safeJson(discoveryWorkSamples)};</script>`;
   const detailData = route.startsWith("/blog/")
     ? `<script>window.__SSR_POST__=${safeJson(blogPosts.find((post) =>
         route === `/blog/en/${post.slug}` ||

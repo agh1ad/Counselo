@@ -17,6 +17,7 @@
     "links:validate": "tsx src/scripts/live-link-crawl.ts",
     "llms:validate": "tsx --test src/lib/llms-content.test.ts",
     "seo:validate": "tsx src/scripts/seo-validate.ts",
+    "click:score": "tsx src/scripts/click-readiness-score.ts",
     "test": "tsx --test src/ssr-server.test.ts src/lib/*.test.ts"
   },
   "devDependencies": {

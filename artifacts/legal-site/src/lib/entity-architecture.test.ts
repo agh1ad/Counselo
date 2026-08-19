@@ -18,10 +18,12 @@ test("core CounselO entities have stable IDs and canonical names", () => {
   assert.match(COUNSELO_ORGANIZATION.description, /online legal platform/i);
   assert.deepEqual(COUNSELO_ORGANIZATION.areaServed.map((country) => country.name), COUNSELO_PLATFORM_POSITIONING.jurisdictions);
   assert.deepEqual(COUNSELO_ORGANIZATION.availableLanguage, ["Arabic", "English"]);
+  assert.equal(COUNSELO_ORGANIZATION.founder["@id"], COUNSELO_ENTITY_IDS.omar);
   assert.equal(OMAR_AL_BAGHDADI["@id"], "https://counselo-legal.com/#person-omar-al-baghdadi");
   assert.equal(OMAR_AL_BAGHDADI.name, "Omar Al-Baghdadi");
   assert.ok(OMAR_AL_BAGHDADI.alternateName.includes("Omar Riyad Al-Baghdadi"));
   assert.equal(OMAR_AL_BAGHDADI.worksFor["@id"], COUNSELO_ENTITY_IDS.organization);
+  assert.ok(OMAR_AL_BAGHDADI.sameAs.includes("https://www.baghdadilaw.co/who-we-are"));
 });
 
 test("platform positioning covers every served jurisdiction and language", () => {
