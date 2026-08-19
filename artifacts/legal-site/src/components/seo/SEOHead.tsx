@@ -13,6 +13,7 @@ import { Helmet } from "react-helmet-async";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { COUNSELO_OPTIMIZED_META } from "@/lib/optimized-meta";
+import { BLOG_SOCIAL_IMAGE } from "@workspace/api-zod";
 
 const SYR_TEXT_MAP: [RegExp, string][] = [
   [/Saudi Arabia/gi, "Syria"],
@@ -100,6 +101,10 @@ interface SEOHeadProps {
   articleAuthor?: string;
   /** For blog/article pages: article section/category */
   articleSection?: string;
+  /** For reviewed articles: reviewer name exposed in first-response metadata. */
+  reviewedBy?: string;
+  /** Accessible description of the social-share image. */
+  ogImageAlt?: string;
   /** Override the document language when content intentionally differs from the site UI. */
   contentLanguage?: "en" | "ar";
   /**
@@ -165,6 +170,8 @@ export function SEOHead({
   articlePublishedTime,
   articleAuthor,
   articleSection,
+  reviewedBy,
+  ogImageAlt,
   contentLanguage,
   noRegionPrefix = false,
   sharedLanguageAlternates,
@@ -311,7 +318,8 @@ export function SEOHead({
       ? canonicalUrl
       : "https://counselo-legal.com/";
 
-  const ogImage = "https://counselo-legal.com/og-image.png";
+  const ogImage = BLOG_SOCIAL_IMAGE.url;
+  const socialImageAlt = ogImageAlt ?? geo.imgAlt;
   const locale = isArabic ? geo.ogLocaleAr : geo.ogLocaleEn;
   const alternateLocale = isArabic ? geo.ogLocaleEn : geo.ogLocaleAr;
 
@@ -408,11 +416,11 @@ export function SEOHead({
       <meta property="og:site_name" content="CounselO كاونسلو" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:image:secure_url" content={ogImage} />
-      <meta property="og:image:type" content="image/png" />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={geo.imgAlt} />
+      <meta property="og:image:secure_url" content={BLOG_SOCIAL_IMAGE.secureUrl} />
+      <meta property="og:image:type" content={BLOG_SOCIAL_IMAGE.type} />
+      <meta property="og:image:width" content={String(BLOG_SOCIAL_IMAGE.width)} />
+      <meta property="og:image:height" content={String(BLOG_SOCIAL_IMAGE.height)} />
+      <meta property="og:image:alt" content={socialImageAlt} />
       <meta property="og:locale" content={locale} />
       <meta property="og:locale:alternate" content={alternateLocale} />
 
@@ -423,6 +431,7 @@ export function SEOHead({
           ? articleAuthor
           : "CounselO — Lawyer and Legal Counsel Omar Al-Baghdadi"}
       />
+      {reviewedBy && <meta name="reviewed-by" content={reviewedBy} />}
 
       {/* Twitter / X */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -430,7 +439,7 @@ export function SEOHead({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={finalDescription} />
       <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:image:alt" content={geo.imgAlt} />
+      <meta name="twitter:image:alt" content={socialImageAlt} />
 
       {/* Article-specific Open Graph (blog posts) */}
       {ogType === "article" && articlePublishedTime && (
