@@ -140,20 +140,23 @@ export default function BlogPost() {
       // fetch the complete record instead.
       return undefined;
     },
-    staleTime: 60_000,
+    staleTime: 0,
+    refetchOnMount: "always",
     retry: false,
   });
   const { data: allPosts = [] } = useQuery<ApiPost[]>({
     queryKey: ["blog-posts"],
     queryFn: () => fetchPublicJson<ApiPost[]>("/api/blog/posts/discovery"),
     initialData: () => typeof window !== "undefined" ? window.__SSR_POSTS__ as ApiPost[] | undefined : undefined,
-    staleTime: 60_000,
+    staleTime: 0,
+    refetchOnMount: "always",
   });
   const { data: allWork = [] } = useQuery<WorkSamplePublic[]>({
     queryKey: ["work-samples"],
     queryFn: () => fetchPublicJson<WorkSamplePublic[]>("/api/work"),
     initialData: () => typeof window !== "undefined" ? window.__SSR_WORK_SAMPLES__ : undefined,
-    staleTime: 60_000,
+    staleTime: 0,
+    refetchOnMount: "always",
   });
 
   const ui = {

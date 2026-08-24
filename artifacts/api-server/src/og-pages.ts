@@ -143,9 +143,10 @@ function normalizeDescription(primary: string, fallback: string): string {
   return `${combined.slice(0, 167).replace(/\s+\S*$/, "").trimEnd()}…`;
 }
 
-function buildDynamicBlogHtml(
+export function buildDynamicBlogHtml(
   post: typeof blogPostsTable.$inferSelect,
   requestedLanguage: "en" | "ar",
+  shellOverride?: string | null,
 ): string {
   const isArabicPost = requestedLanguage === "ar";
   const title = isArabicPost
@@ -180,7 +181,13 @@ function buildDynamicBlogHtml(
   const authorUrl = localizeArticleProvenanceUrl(post.primaryAuthorUrl || provenance.primaryAuthorUrl, articleRegion, requestedLanguage, "profile");
   const reviewerUrl = localizeArticleProvenanceUrl(post.legalReviewerUrl || provenance.legalReviewerUrl, articleRegion, requestedLanguage, "profile");
   const correctionUrl = localizeArticleProvenanceUrl(post.correctionUrl || provenance.correctionUrl, articleRegion, requestedLanguage, "correction");
-  const shell = getShellHtml() ?? getIndexHtml();
+  // Tests pass a minimal shell so the future-post contract is validated
+  // without depending on whichever posts happened to exist at build time.
+  // Production deliberately loads only the generic SSR template/index shell;
+  // all article-specific metadata below comes from the live database record.
+  const shell = shellOverride === undefined
+    ? getShellHtml() ?? getIndexHtml()
+    : shellOverride;
   const articleSchema = safeJson({
     "@context": "https://schema.org",
     "@type": "Article",
@@ -682,6 +689,7 @@ export function registerOgPageRoutes(app: Express): void {
     }
     res.type("html");
     res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
+    res.setHeader("X-CounselO-Page-Source", "live-blog-database");
     res.send(buildDynamicBlogHtml(post, language));
   });
 

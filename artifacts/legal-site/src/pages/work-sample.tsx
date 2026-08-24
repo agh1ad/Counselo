@@ -42,20 +42,23 @@ export default function WorkSample() {
       }
       return undefined;
     },
-    staleTime: 60_000,
+    staleTime: 0,
+    refetchOnMount: "always",
     retry: false,
   });
   const { data: allPosts = [] } = useQuery<InitialBlogPost[]>({
     queryKey: ["blog-posts"],
     queryFn: () => fetchPublicJson<InitialBlogPost[]>("/api/blog/posts/discovery"),
     initialData: () => typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined,
-    staleTime: 60_000,
+    staleTime: 0,
+    refetchOnMount: "always",
   });
   const { data: allWork = [] } = useQuery<WorkSamplePublic[]>({
     queryKey: ["work-samples"],
     queryFn: () => fetchPublicJson<WorkSamplePublic[]>("/api/work"),
     initialData: () => typeof window !== "undefined" ? window.__SSR_WORK_SAMPLES__ : undefined,
-    staleTime: 60_000,
+    staleTime: 0,
+    refetchOnMount: "always",
   });
 
   const ar = lang === "ar";

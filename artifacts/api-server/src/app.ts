@@ -9,6 +9,7 @@ import {
   redirectTrailingSlash,
   redirectWww,
 } from "./middlewares/normalize.js";
+import { PUBLIC_CACHE_POLICY } from "@workspace/api-zod";
 
 const app: Express = express();
 
@@ -56,6 +57,10 @@ app.use(redirectTrailingSlash);
 
 app.use("/api", (_req, res, next) => {
   res.setHeader("X-Robots-Tag", "noindex, nofollow, noarchive");
+  // Published blog/work APIs are the live source of truth. Browser or edge
+  // caching here made a successful publication look missing until the cached
+  // collection/detail response expired.
+  res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
   next();
 });
 app.use("/api", router);
