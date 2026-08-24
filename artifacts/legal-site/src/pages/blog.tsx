@@ -63,7 +63,8 @@ export default function Blog() {
     // the live request for posts published after that deployment.
     placeholderData: () =>
       typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined,
-    staleTime: 60_000,
+    staleTime: 0,
+    refetchOnMount: "always",
     refetchOnWindowFocus: "always",
   });
 

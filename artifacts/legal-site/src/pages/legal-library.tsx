@@ -34,13 +34,15 @@ export default function LegalLibrary() {
     queryKey: ["blog-posts"],
     queryFn: () => fetchPublicJson<LibraryPost[]>("/api/blog/posts/discovery"),
     placeholderData: () => typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined,
-    staleTime: 60_000,
+    staleTime: 0,
+    refetchOnMount: "always",
   });
   const { data: samples = [] } = useQuery<WorkSamplePublic[]>({
     queryKey: ["work-samples"],
     queryFn: () => fetchPublicJson<WorkSamplePublic[]>("/api/work"),
     placeholderData: () => typeof window !== "undefined" ? window.__SSR_WORK_SAMPLES__ : undefined,
-    staleTime: 60_000,
+    staleTime: 0,
+    refetchOnMount: "always",
   });
 
   const visiblePosts = useMemo(

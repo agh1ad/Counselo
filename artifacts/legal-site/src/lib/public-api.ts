@@ -10,6 +10,7 @@ export function publicApiUrl(path: string): string {
 
 export async function fetchPublicJson<T>(path: string): Promise<T> {
   const response = await fetch(publicApiUrl(path), {
+    cache: "no-store",
     headers: { Accept: "application/json" },
   });
   const contentType = response.headers.get("content-type") ?? "";

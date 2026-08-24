@@ -57,6 +57,7 @@ test("shared canonical, hreflang, cache, and prerender policies are deterministi
   assert.ok(buildHreflangLinks("/uae/services/corporate-commercial").some((link) => link.startsWith("en-AE|")));
   assert.ok(buildHreflangLinks("/sa/services/real-estate").some((link) => link.startsWith("ar-SA|")));
   assert.equal(PUBLIC_CACHE_POLICY.redirect, "public, max-age=86400");
+  assert.equal(PUBLIC_CACHE_POLICY.dynamicHtml, "no-store");
   assert.equal(PUBLIC_CACHE_POLICY.notFound, "no-store");
 });
 
