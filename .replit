@@ -3,7 +3,7 @@ modules = ["nodejs-24", "python-3.11", "postgresql-16"]
 [deployment]
 router = "application"
 deploymentTarget = "autoscale"
-build = "pnpm build"
+build = "pnpm --filter @workspace/legal-site typecheck && pnpm --filter @workspace/api-server typecheck && pnpm --filter @workspace/legal-site build && pnpm --filter @workspace/api-server build"
 run = "NODE_ENV=production pnpm --filter @workspace/api-server start"
 
 [deployment.postBuild]
