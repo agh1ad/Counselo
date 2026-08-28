@@ -1,4 +1,4 @@
-import express, { type Express } from "express";
+import express, { type Express, type RequestHandler } from "express";
 import cors from "cors";
 import pinoHttp from "pino-http";
 import router from "./routes";
@@ -13,10 +13,10 @@ import { PUBLIC_CACHE_POLICY } from "@workspace/api-zod";
 
 const app: Express = express();
 
-// Database-backed public pages are immutable between CMS mutations. Keep a
+// Database-backed public content changes only when the CMS changes. Keep a
 // small process-local response cache so repeated visitor/crawler requests do
 // not wake PostgreSQL. Admin blog/work writes clear it immediately on the
-// serving instance; the short TTL also bounds cross-instance staleness.
+// serving instance; the short TTL bounds cross-instance staleness.
 const PUBLIC_RESPONSE_TTL_MS = 60_000;
 type CachedPublicResponse = {
   expiresAt: number;
@@ -30,7 +30,57 @@ function clearPublicResponseCache(): void {
   publicResponseCache.clear();
 }
 
-function isDatabaseBackedPublicPath(path: string): boolean {
+function cachePublicResponse(keyPrefix: string, isEligible: (path: string) => boolean): RequestHandler {
+  return (req, res, next) => {
+    if (req.method !== "GET" || !isEligible(req.path)) {
+      next();
+      return;
+    }
+
+    const cacheKey = `${keyPrefix}:${req.originalUrl}`;
+    const cached = publicResponseCache.get(cacheKey);
+    if (cached && cached.expiresAt > Date.now()) {
+      res.status(cached.statusCode);
+      if (cached.contentType) res.setHeader("Content-Type", cached.contentType);
+      res.setHeader("X-CounselO-Response-Cache", "HIT");
+      res.send(cached.body);
+      return;
+    }
+    if (cached) publicResponseCache.delete(cacheKey);
+
+    const originalSend = res.send.bind(res);
+    res.send = ((body: unknown) => {
+      if (
+        res.statusCode === 200 &&
+        (typeof body === "string" || Buffer.isBuffer(body))
+      ) {
+        const contentType = res.getHeader("Content-Type");
+        publicResponseCache.set(cacheKey, {
+          expiresAt: Date.now() + PUBLIC_RESPONSE_TTL_MS,
+          statusCode: res.statusCode,
+          body,
+          contentType: typeof contentType === "string" ? contentType : undefined,
+        });
+      }
+      return originalSend(body);
+    }) as typeof res.send;
+
+    res.setHeader("X-CounselO-Response-Cache", "MISS");
+    next();
+  };
+}
+
+function isDatabaseBackedPublicApiPath(path: string): boolean {
+  return (
+    path === "/blog/posts" ||
+    path === "/blog/posts/discovery" ||
+    path.startsWith("/blog/posts/") ||
+    path === "/work" ||
+    (path.startsWith("/work/") && !path.endsWith("/file"))
+  );
+}
+
+function isDatabaseBackedPublicPagePath(path: string): boolean {
   return (
     path === "/blog" ||
     path === "/blog/ar" ||
@@ -98,18 +148,9 @@ app.use("/api", (req, res, next) => {
     clearPublicResponseCache();
   }
 
-  const isPublicRead =
-    req.method === "GET" &&
-    (req.path === "/blog/posts" ||
-      req.path === "/blog/posts/discovery" ||
-      req.path.startsWith("/blog/posts/") ||
-      req.path === "/work" ||
-      (req.path.startsWith("/work/") && !req.path.endsWith("/file")));
-
-  if (isPublicRead) {
-    // Browsers revalidate immediately, while shared caches may reuse identical
-    // public CMS reads for a very short window. This cuts repeated database
-    // reads without materially delaying newly published content.
+  if (isDatabaseBackedPublicApiPath(req.path)) {
+    // Browsers revalidate immediately. Shared caches get a very small reuse
+    // window in addition to the process-local cache below.
     res.setHeader(
       "Cache-Control",
       "public, max-age=0, s-maxage=15, stale-while-revalidate=30, must-revalidate",
@@ -120,45 +161,10 @@ app.use("/api", (req, res, next) => {
   }
   next();
 });
+app.use("/api", cachePublicResponse("api", isDatabaseBackedPublicApiPath));
 app.use("/api", router);
 
-app.use((req, res, next) => {
-  if (req.method !== "GET" || !isDatabaseBackedPublicPath(req.path)) {
-    next();
-    return;
-  }
-
-  const cacheKey = req.originalUrl;
-  const cached = publicResponseCache.get(cacheKey);
-  if (cached && cached.expiresAt > Date.now()) {
-    res.status(cached.statusCode);
-    if (cached.contentType) res.setHeader("Content-Type", cached.contentType);
-    res.setHeader("X-CounselO-Response-Cache", "HIT");
-    res.send(cached.body);
-    return;
-  }
-  if (cached) publicResponseCache.delete(cacheKey);
-
-  const originalSend = res.send.bind(res);
-  res.send = ((body: unknown) => {
-    if (
-      res.statusCode === 200 &&
-      (typeof body === "string" || Buffer.isBuffer(body))
-    ) {
-      const contentType = res.getHeader("Content-Type");
-      publicResponseCache.set(cacheKey, {
-        expiresAt: Date.now() + PUBLIC_RESPONSE_TTL_MS,
-        statusCode: res.statusCode,
-        body,
-        contentType: typeof contentType === "string" ? contentType : undefined,
-      });
-    }
-    return originalSend(body);
-  }) as typeof res.send;
-
-  res.setHeader("X-CounselO-Response-Cache", "MISS");
-  next();
-});
+app.use(cachePublicResponse("page", isDatabaseBackedPublicPagePath));
 
 // Public site routes must be registered after /api so the final site-level
 // 404 handler cannot swallow API requests.
