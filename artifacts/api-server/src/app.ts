@@ -3,6 +3,7 @@ import cors from "cors";
 import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
+import { registerDiscoveryRoutes } from "./discovery-routes.js";
 import { registerOgPageRoutes } from "./og-pages.js";
 import { enforceCanonicalUrl } from "./lib/canonical-url.js";
 import {
@@ -230,6 +231,11 @@ app.use("/api", cachePublicResponse("api", isDatabaseBackedPublicApiPath));
 app.use("/api", router);
 
 app.use(cachePublicResponse("page", isCacheablePublicPagePath));
+
+// Lean crawler discovery routes come first so each child sitemap queries only
+// the table it actually needs. The broader public renderer remains the fallback
+// for all other pages and legacy routes.
+registerDiscoveryRoutes(app);
 
 // Public site routes must be registered after /api so the final site-level
 // 404 handler cannot swallow API requests.
