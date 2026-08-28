@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { db, workSamplesTable } from "@workspace/db";
-import { eq, getTableColumns } from "drizzle-orm";
+import { desc, eq, getTableColumns } from "drizzle-orm";
 import { requireAdmin } from "../middlewares/auth.js";
 import { parsePositiveId } from "../lib/blog-input.js";
 import { WorkInputError, parseWorkSampleInput } from "../lib/work-input.js";
@@ -34,8 +34,8 @@ router.get("/work", async (_req, res) => {
     .select(publicColumns)
     .from(workSamplesTable)
     .where(eq(workSamplesTable.published, true))
-    .orderBy(workSamplesTable.date);
-  res.json(samples.reverse().map((sample) => ({
+    .orderBy(desc(workSamplesTable.date));
+  res.json(samples.map((sample) => ({
     ...sample,
     testimonials: publicTestimonials(sample),
     hasFile: sample.fileSize > 0,
@@ -85,8 +85,11 @@ router.get("/work/:slug", async (req, res) => {
 });
 
 router.get("/admin/work", requireAdmin, async (_req, res) => {
-  const samples = await db.select(adminColumns).from(workSamplesTable).orderBy(workSamplesTable.createdAt);
-  res.json(samples.reverse().map((sample) => ({ ...sample, hasFile: sample.fileSize > 0 })));
+  const samples = await db
+    .select(adminColumns)
+    .from(workSamplesTable)
+    .orderBy(desc(workSamplesTable.createdAt));
+  res.json(samples.map((sample) => ({ ...sample, hasFile: sample.fileSize > 0 })));
 });
 
 router.post("/admin/work", requireAdmin, async (req, res) => {
