@@ -15,14 +15,17 @@ const app: Express = express();
 
 // Database-backed public content changes only when the CMS changes. Keep a
 // small process-local response cache so repeated visitor/crawler requests do
-// not wake PostgreSQL. Admin blog/work writes clear it immediately on the
-// serving instance; the short TTL bounds cross-instance staleness.
-const PUBLIC_RESPONSE_TTL_MS = 60_000;
+// not wake PostgreSQL. User-facing CMS content keeps only a 15-second window;
+// discovery documents can safely reuse a response for five minutes.
+const PUBLIC_CONTENT_TTL_MS = 15_000;
+const DISCOVERY_TTL_MS = 300_000;
 type CachedPublicResponse = {
   expiresAt: number;
   statusCode: number;
   body: string | Buffer;
   contentType?: string;
+  cacheControl?: string;
+  pageSource?: string;
 };
 const publicResponseCache = new Map<string, CachedPublicResponse>();
 
@@ -30,7 +33,18 @@ function clearPublicResponseCache(): void {
   publicResponseCache.clear();
 }
 
-function cachePublicResponse(keyPrefix: string, isEligible: (path: string) => boolean): RequestHandler {
+function publicResponseTtl(path: string): number {
+  return path === "/sitemap-blog.xml" ||
+    path === "/sitemap-work.xml" ||
+    path === "/feed.xml"
+    ? DISCOVERY_TTL_MS
+    : PUBLIC_CONTENT_TTL_MS;
+}
+
+function cachePublicResponse(
+  keyPrefix: string,
+  isEligible: (path: string) => boolean,
+): RequestHandler {
   return (req, res, next) => {
     if (req.method !== "GET" || !isEligible(req.path)) {
       next();
@@ -42,6 +56,10 @@ function cachePublicResponse(keyPrefix: string, isEligible: (path: string) => bo
     if (cached && cached.expiresAt > Date.now()) {
       res.status(cached.statusCode);
       if (cached.contentType) res.setHeader("Content-Type", cached.contentType);
+      if (cached.cacheControl) res.setHeader("Cache-Control", cached.cacheControl);
+      if (cached.pageSource) {
+        res.setHeader("X-CounselO-Page-Source", cached.pageSource);
+      }
       res.setHeader("X-CounselO-Response-Cache", "HIT");
       res.send(cached.body);
       return;
@@ -55,11 +73,16 @@ function cachePublicResponse(keyPrefix: string, isEligible: (path: string) => bo
         (typeof body === "string" || Buffer.isBuffer(body))
       ) {
         const contentType = res.getHeader("Content-Type");
+        const cacheControl = res.getHeader("Cache-Control");
+        const pageSource = res.getHeader("X-CounselO-Page-Source");
         publicResponseCache.set(cacheKey, {
-          expiresAt: Date.now() + PUBLIC_RESPONSE_TTL_MS,
+          expiresAt: Date.now() + publicResponseTtl(req.path),
           statusCode: res.statusCode,
           body,
           contentType: typeof contentType === "string" ? contentType : undefined,
+          cacheControl:
+            typeof cacheControl === "string" ? cacheControl : undefined,
+          pageSource: typeof pageSource === "string" ? pageSource : undefined,
         });
       }
       return originalSend(body);
@@ -149,8 +172,8 @@ app.use("/api", (req, res, next) => {
   }
 
   if (isDatabaseBackedPublicApiPath(req.path)) {
-    // Browsers revalidate immediately. Shared caches get a very small reuse
-    // window in addition to the process-local cache below.
+    // Browsers revalidate immediately. Shared caches receive the same short
+    // freshness window as the process-local cache.
     res.setHeader(
       "Cache-Control",
       "public, max-age=0, s-maxage=15, stale-while-revalidate=30, must-revalidate",
