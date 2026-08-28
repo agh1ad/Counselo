@@ -33,12 +33,22 @@ function clearPublicResponseCache(): void {
   publicResponseCache.clear();
 }
 
-function publicResponseTtl(path: string): number {
-  return path === "/sitemap-blog.xml" ||
+function isDiscoveryPath(path: string): boolean {
+  return (
+    path === "/sitemap-blog.xml" ||
     path === "/sitemap-work.xml" ||
     path === "/feed.xml"
-    ? DISCOVERY_TTL_MS
-    : PUBLIC_CONTENT_TTL_MS;
+  );
+}
+
+function publicResponseTtl(path: string): number {
+  return isDiscoveryPath(path) ? DISCOVERY_TTL_MS : PUBLIC_CONTENT_TTL_MS;
+}
+
+function publicCacheControl(path: string): string {
+  return isDiscoveryPath(path)
+    ? "public, max-age=0, s-maxage=300, stale-while-revalidate=600, must-revalidate"
+    : "public, max-age=0, s-maxage=15, stale-while-revalidate=30, must-revalidate";
 }
 
 function cachePublicResponse(
@@ -72,6 +82,9 @@ function cachePublicResponse(
         res.statusCode === 200 &&
         (typeof body === "string" || Buffer.isBuffer(body))
       ) {
+        // These are public, read-only CMS responses. Allow a shared edge cache
+        // to absorb repeated requests while keeping browsers on revalidation.
+        res.setHeader("Cache-Control", publicCacheControl(req.path));
         const contentType = res.getHeader("Content-Type");
         const cacheControl = res.getHeader("Cache-Control");
         const pageSource = res.getHeader("X-CounselO-Page-Source");
@@ -113,9 +126,7 @@ function isDatabaseBackedPublicPagePath(path: string): boolean {
     path === "/ar/our-work" ||
     path.startsWith("/our-work/") ||
     path.startsWith("/ar/our-work/") ||
-    path === "/sitemap-blog.xml" ||
-    path === "/sitemap-work.xml" ||
-    path === "/feed.xml"
+    isDiscoveryPath(path)
   );
 }
 
@@ -172,12 +183,7 @@ app.use("/api", (req, res, next) => {
   }
 
   if (isDatabaseBackedPublicApiPath(req.path)) {
-    // Browsers revalidate immediately. Shared caches receive the same short
-    // freshness window as the process-local cache.
-    res.setHeader(
-      "Cache-Control",
-      "public, max-age=0, s-maxage=15, stale-while-revalidate=30, must-revalidate",
-    );
+    res.setHeader("Cache-Control", publicCacheControl(req.path));
   } else {
     // Admin, contact, and other stateful API traffic must never be cached.
     res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
