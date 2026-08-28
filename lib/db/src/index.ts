@@ -10,7 +10,14 @@ if (!process.env.DATABASE_URL) {
   );
 }
 
-export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+export const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  // Keep the pool burst-capable, but release idle connections quickly so the
+  // serverless database has a better chance to return to an idle state between
+  // traffic bursts. Active requests still reuse warm pooled connections.
+  idleTimeoutMillis: 5_000,
+  allowExitOnIdle: true,
+});
 export const db = drizzle(pool, { schema });
 
 export * from "./schema";

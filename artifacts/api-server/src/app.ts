@@ -1,4 +1,4 @@
-import express, { type Express } from "express";
+import express, { type Express, type RequestHandler } from "express";
 import cors from "cors";
 import pinoHttp from "pino-http";
 import router from "./routes";
@@ -12,6 +12,123 @@ import {
 import { PUBLIC_CACHE_POLICY } from "@workspace/api-zod";
 
 const app: Express = express();
+
+// Database-backed public content changes only when the CMS changes. Keep a
+// small process-local response cache so repeated visitor/crawler requests do
+// not wake PostgreSQL. User-facing CMS content keeps only a 15-second window;
+// discovery documents can safely reuse a response for five minutes.
+const PUBLIC_CONTENT_TTL_MS = 15_000;
+const DISCOVERY_TTL_MS = 300_000;
+type CachedPublicResponse = {
+  expiresAt: number;
+  statusCode: number;
+  body: string | Buffer;
+  contentType?: string;
+  cacheControl?: string;
+  pageSource?: string;
+};
+const publicResponseCache = new Map<string, CachedPublicResponse>();
+
+function clearPublicResponseCache(): void {
+  publicResponseCache.clear();
+}
+
+function isDiscoveryPath(path: string): boolean {
+  return (
+    path === "/sitemap-blog.xml" ||
+    path === "/sitemap-work.xml" ||
+    path === "/feed.xml"
+  );
+}
+
+function publicResponseTtl(path: string): number {
+  return isDiscoveryPath(path) ? DISCOVERY_TTL_MS : PUBLIC_CONTENT_TTL_MS;
+}
+
+function publicCacheControl(path: string): string {
+  return isDiscoveryPath(path)
+    ? "public, max-age=0, s-maxage=300, stale-while-revalidate=600, must-revalidate"
+    : "public, max-age=0, s-maxage=15, stale-while-revalidate=30, must-revalidate";
+}
+
+function cachePublicResponse(
+  keyPrefix: string,
+  isEligible: (path: string) => boolean,
+): RequestHandler {
+  return (req, res, next) => {
+    if (req.method !== "GET" || !isEligible(req.path)) {
+      next();
+      return;
+    }
+
+    const cacheKey = `${keyPrefix}:${req.originalUrl}`;
+    const cached = publicResponseCache.get(cacheKey);
+    if (cached && cached.expiresAt > Date.now()) {
+      res.status(cached.statusCode);
+      if (cached.contentType) res.setHeader("Content-Type", cached.contentType);
+      if (cached.cacheControl) res.setHeader("Cache-Control", cached.cacheControl);
+      if (cached.pageSource) {
+        res.setHeader("X-CounselO-Page-Source", cached.pageSource);
+      }
+      res.setHeader("X-CounselO-Response-Cache", "HIT");
+      res.send(cached.body);
+      return;
+    }
+    if (cached) publicResponseCache.delete(cacheKey);
+
+    const originalSend = res.send.bind(res);
+    res.send = ((body: unknown) => {
+      if (
+        res.statusCode === 200 &&
+        (typeof body === "string" || Buffer.isBuffer(body))
+      ) {
+        // These are public, read-only CMS responses. Allow a shared edge cache
+        // to absorb repeated requests while keeping browsers on revalidation.
+        res.setHeader("Cache-Control", publicCacheControl(req.path));
+        const contentType = res.getHeader("Content-Type");
+        const cacheControl = res.getHeader("Cache-Control");
+        const pageSource = res.getHeader("X-CounselO-Page-Source");
+        publicResponseCache.set(cacheKey, {
+          expiresAt: Date.now() + publicResponseTtl(req.path),
+          statusCode: res.statusCode,
+          body,
+          contentType: typeof contentType === "string" ? contentType : undefined,
+          cacheControl:
+            typeof cacheControl === "string" ? cacheControl : undefined,
+          pageSource: typeof pageSource === "string" ? pageSource : undefined,
+        });
+      }
+      return originalSend(body);
+    }) as typeof res.send;
+
+    res.setHeader("X-CounselO-Response-Cache", "MISS");
+    next();
+  };
+}
+
+function isDatabaseBackedPublicApiPath(path: string): boolean {
+  return (
+    path === "/blog/posts" ||
+    path === "/blog/posts/discovery" ||
+    path.startsWith("/blog/posts/") ||
+    path === "/work" ||
+    (path.startsWith("/work/") && !path.endsWith("/file"))
+  );
+}
+
+function isDatabaseBackedPublicPagePath(path: string): boolean {
+  return (
+    path === "/blog" ||
+    path === "/blog/ar" ||
+    path.startsWith("/blog/en/") ||
+    path.startsWith("/blog/ar/") ||
+    path === "/our-work" ||
+    path === "/ar/our-work" ||
+    path.startsWith("/our-work/") ||
+    path.startsWith("/ar/our-work/") ||
+    isDiscoveryPath(path)
+  );
+}
 
 app.disable("x-powered-by");
 app.set("trust proxy", 1);
@@ -55,15 +172,28 @@ app.use(express.urlencoded({ extended: true, limit: "12mb" }));
 app.use(redirectWww);
 app.use(redirectTrailingSlash);
 
-app.use("/api", (_req, res, next) => {
+app.use("/api", (req, res, next) => {
   res.setHeader("X-Robots-Tag", "noindex, nofollow, noarchive");
-  // Published blog/work APIs are the live source of truth. Browser or edge
-  // caching here made a successful publication look missing until the cached
-  // collection/detail response expired.
-  res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
+
+  if (
+    req.method !== "GET" &&
+    (req.path.startsWith("/admin/blog/") || req.path.startsWith("/admin/work"))
+  ) {
+    clearPublicResponseCache();
+  }
+
+  if (isDatabaseBackedPublicApiPath(req.path)) {
+    res.setHeader("Cache-Control", publicCacheControl(req.path));
+  } else {
+    // Admin, contact, and other stateful API traffic must never be cached.
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
+  }
   next();
 });
+app.use("/api", cachePublicResponse("api", isDatabaseBackedPublicApiPath));
 app.use("/api", router);
+
+app.use(cachePublicResponse("page", isDatabaseBackedPublicPagePath));
 
 // Public site routes must be registered after /api so the final site-level
 // 404 handler cannot swallow API requests.
