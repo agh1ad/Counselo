@@ -74,7 +74,11 @@ function cachePublicResponse(
       return;
     }
 
-    const cacheKey = `${keyPrefix}:${req.method}:${req.originalUrl}`;
+    // Express runs GET handlers for HEAD requests and still builds the same
+    // response body before suppressing it on the wire. Share one cache entry
+    // so GET and HEAD probes can reuse each other's work.
+    const cacheMethod = req.method === "HEAD" ? "GET" : req.method;
+    const cacheKey = `${keyPrefix}:${cacheMethod}:${req.originalUrl}`;
     const cached = publicResponseCache.get(cacheKey);
     if (cached && cached.expiresAt > Date.now()) {
       res.status(cached.statusCode);
@@ -147,6 +151,15 @@ function isCacheablePublicPagePath(path: string): boolean {
   );
 }
 
+function isStaticAssetRequest(url: string | undefined): boolean {
+  const path = url?.split("?", 1)[0] ?? "";
+  return (
+    path.startsWith("/assets/") ||
+    path.startsWith("/images/") ||
+    /\.(?:css|js|mjs|png|jpe?g|webp|avif|svg|ico|woff2?|map)$/i.test(path)
+  );
+}
+
 app.disable("x-powered-by");
 app.set("trust proxy", 1);
 app.use((_req, res, next) => {
@@ -164,6 +177,12 @@ app.use(enforceCanonicalUrl);
 app.use(
   pinoHttp({
     logger,
+    // Immutable static assets are high-volume and already protected by normal
+    // HTTP status handling. Skipping per-request info logs removes avoidable
+    // stdout/serialization work without changing response behavior.
+    autoLogging: {
+      ignore: (req) => isStaticAssetRequest(req.url),
+    },
     serializers: {
       req(req) {
         return {
