@@ -10,7 +10,11 @@ export function publicApiUrl(path: string): string {
 
 export async function fetchPublicJson<T>(path: string): Promise<T> {
   const response = await fetch(publicApiUrl(path), {
-    cache: "no-store",
+    // Let the response Cache-Control policy decide reuse. Public API responses
+    // keep max-age=0 for browsers, so freshness/revalidation behavior is
+    // preserved while shared caches can honor s-maxage instead of every fetch
+    // explicitly bypassing HTTP caching with cache: "no-store".
+    cache: "default",
     headers: { Accept: "application/json" },
   });
   const contentType = response.headers.get("content-type") ?? "";
