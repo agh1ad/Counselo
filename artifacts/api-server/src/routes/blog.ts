@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { db, blogPostsTable } from "@workspace/db";
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { requireAdmin, secretsMatch } from "../middlewares/auth.js";
 import {
   notifyPublished,
@@ -29,24 +29,47 @@ router.get("/blog/posts", async (_req, res) => {
     .select()
     .from(blogPostsTable)
     .where(eq(blogPostsTable.published, true))
-    .orderBy(blogPostsTable.date);
+    .orderBy(desc(blogPostsTable.date));
   res.json(
     posts
-      .reverse()
       .filter(hasQualityBilingualBlogContent)
       .map(sanitizeBlogPost),
   );
 });
 
 router.get("/blog/posts/discovery", async (_req, res) => {
+  // Discovery consumers only need listing/SEO fields. Avoid loading legal
+  // provenance and other large columns that are never returned by this route.
   const posts = await db
-    .select()
+    .select({
+      id: blogPostsTable.id,
+      slug: blogPostsTable.slug,
+      date: blogPostsTable.date,
+      updatedAt: blogPostsTable.updatedAt,
+      categoryEn: blogPostsTable.categoryEn,
+      categoryAr: blogPostsTable.categoryAr,
+      readTime: blogPostsTable.readTime,
+      titleEn: blogPostsTable.titleEn,
+      titleAr: blogPostsTable.titleAr,
+      excerptEn: blogPostsTable.excerptEn,
+      excerptAr: blogPostsTable.excerptAr,
+      seoTitleEn: blogPostsTable.seoTitleEn,
+      seoTitleAr: blogPostsTable.seoTitleAr,
+      seoDescriptionEn: blogPostsTable.seoDescriptionEn,
+      seoDescriptionAr: blogPostsTable.seoDescriptionAr,
+      bodyEn: blogPostsTable.bodyEn,
+      bodyAr: blogPostsTable.bodyAr,
+      contentEn: blogPostsTable.contentEn,
+      contentAr: blogPostsTable.contentAr,
+      relatedServiceSlugs: blogPostsTable.relatedServiceSlugs,
+      relatedBlogSlugs: blogPostsTable.relatedBlogSlugs,
+      relatedWorkSlugs: blogPostsTable.relatedWorkSlugs,
+    })
     .from(blogPostsTable)
     .where(eq(blogPostsTable.published, true))
-    .orderBy(blogPostsTable.date);
+    .orderBy(desc(blogPostsTable.date));
   res.json(
     posts
-      .reverse()
       .filter(hasQualityBilingualBlogContent)
       .map((post) => ({
         id: post.id,
@@ -104,8 +127,8 @@ router.get("/admin/blog/posts", requireAdmin, async (_req, res) => {
   const posts = await db
     .select()
     .from(blogPostsTable)
-    .orderBy(blogPostsTable.createdAt);
-  res.json(posts.reverse().map(sanitizeBlogPost));
+    .orderBy(desc(blogPostsTable.createdAt));
+  res.json(posts.map(sanitizeBlogPost));
 });
 
 router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
@@ -141,7 +164,7 @@ router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
         relatedBlogSlugs: assignment.relatedBlogSlugs,
         relatedWorkSlugs: assignment.relatedWorkSlugs,
         aiLinksAssignedAt: new Date(),
-      ...assignArticleProvenance(values),
+        ...assignArticleProvenance(values),
       };
     }
     const [post] = await db
