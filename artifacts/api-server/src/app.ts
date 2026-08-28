@@ -55,12 +55,29 @@ app.use(express.urlencoded({ extended: true, limit: "12mb" }));
 app.use(redirectWww);
 app.use(redirectTrailingSlash);
 
-app.use("/api", (_req, res, next) => {
+app.use("/api", (req, res, next) => {
   res.setHeader("X-Robots-Tag", "noindex, nofollow, noarchive");
-  // Published blog/work APIs are the live source of truth. Browser or edge
-  // caching here made a successful publication look missing until the cached
-  // collection/detail response expired.
-  res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
+
+  const isPublicRead =
+    req.method === "GET" &&
+    (req.path === "/blog/posts" ||
+      req.path === "/blog/posts/discovery" ||
+      req.path.startsWith("/blog/posts/") ||
+      req.path === "/work" ||
+      (req.path.startsWith("/work/") && !req.path.endsWith("/file")));
+
+  if (isPublicRead) {
+    // Browsers revalidate immediately, while shared caches may reuse identical
+    // public CMS reads for a very short window. This cuts repeated database
+    // reads without materially delaying newly published content.
+    res.setHeader(
+      "Cache-Control",
+      "public, max-age=0, s-maxage=15, stale-while-revalidate=30, must-revalidate",
+    );
+  } else {
+    // Admin, contact, and other stateful API traffic must never be cached.
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
+  }
   next();
 });
 app.use("/api", router);
