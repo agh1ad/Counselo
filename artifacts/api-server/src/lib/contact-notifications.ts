@@ -20,11 +20,29 @@ import {
 import { logger } from "./logger.js";
 
 const MAX_NOTIFICATION_ATTEMPTS = 5;
-const WORKER_INTERVAL_MS = 60_000;
+const RECOVERY_SCAN_INTERVAL_MS = 15 * 60_000;
+const DELIVERY_STATUS_INTERVAL_MS = 60 * 60_000;
 const LOCK_TIMEOUT_MS = 5 * 60_000;
+const retryTimers = new Map<number, ReturnType<typeof setTimeout>>();
 
 function retryDelay(attempt: number): number {
   return Math.min(30 * 60_000, 30_000 * 2 ** Math.max(0, attempt - 1));
+}
+
+function scheduleNotificationRetry(id: number, delayMs: number): void {
+  if (retryTimers.has(id)) return;
+
+  const timer = setTimeout(() => {
+    retryTimers.delete(id);
+    void processContactNotification(id).catch((error) => {
+      logger.error(
+        { err: error, submissionId: id },
+        "Scheduled contact notification retry failed",
+      );
+    });
+  }, delayMs);
+  timer.unref();
+  retryTimers.set(id, timer);
 }
 
 function safeError(error: unknown): string {
@@ -138,6 +156,7 @@ export async function processContactNotification(id: number): Promise<{
       : "",
   ].filter(Boolean);
   const exhausted = attempt >= MAX_NOTIFICATION_ATTEMPTS;
+  const nextDelay = retryDelay(attempt);
 
   await db
     .update(contactSubmissionsTable)
@@ -159,7 +178,7 @@ export async function processContactNotification(id: number): Promise<{
         ? customerEmailResult.value.id
         : submission.customerEmailProviderId,
       notificationAttempts: attempt,
-      nextAttemptAt: new Date(Date.now() + retryDelay(attempt)),
+      nextAttemptAt: new Date(Date.now() + nextDelay),
       processingAt: null,
       lastError: errors.join(" | ") || null,
       encryptedPayload: emailAccepted ? "" : submission.encryptedPayload,
@@ -178,6 +197,10 @@ export async function processContactNotification(id: number): Promise<{
     },
     "Consultation notification attempt completed",
   );
+
+  if (!emailAccepted && !exhausted) {
+    scheduleNotificationRetry(submission.id, nextDelay);
+  }
 
   return { emailAccepted };
 }
@@ -222,7 +245,14 @@ async function processPendingNotifications(): Promise<void> {
 async function refreshDeliveryStatuses(): Promise<void> {
   const recentCutoff = new Date(Date.now() - 48 * 60 * 60_000);
   const submissions = await db
-    .select()
+    .select({
+      id: contactSubmissionsTable.id,
+      emailProviderId: contactSubmissionsTable.emailProviderId,
+      emailStatus: contactSubmissionsTable.emailStatus,
+      customerEmailProviderId: contactSubmissionsTable.customerEmailProviderId,
+      customerEmailStatus: contactSubmissionsTable.customerEmailStatus,
+      completedAt: contactSubmissionsTable.completedAt,
+    })
     .from(contactSubmissionsTable)
     .where(
       and(
@@ -284,17 +314,42 @@ export function startContactNotificationWorker(): void {
   if (workerStarted || process.env.NODE_ENV === "test") return;
   workerStarted = true;
 
-  const run = async () => {
+  const runRecoveryScan = async () => {
     try {
       await processPendingNotifications();
-      await refreshDeliveryStatuses();
     } catch (error) {
-      logger.error({ err: error }, "Contact notification worker failed");
+      logger.error({ err: error }, "Contact notification recovery scan failed");
     }
   };
 
-  const initialTimer = setTimeout(run, 5_000);
+  const runDeliveryStatusRefresh = async () => {
+    try {
+      await refreshDeliveryStatuses();
+    } catch (error) {
+      logger.error({ err: error }, "Contact delivery status refresh failed");
+    }
+  };
+
+  // Initial recovery preserves crash/restart resilience. Normal submissions are
+  // still delivered synchronously and failed sends retry on precise in-memory
+  // timers, so idle deployments no longer need to wake PostgreSQL every minute.
+  const initialTimer = setTimeout(() => {
+    void runRecoveryScan();
+    void runDeliveryStatusRefresh();
+  }, 5_000);
   initialTimer.unref();
-  const interval = setInterval(run, WORKER_INTERVAL_MS);
-  interval.unref();
+
+  const recoveryInterval = setInterval(
+    runRecoveryScan,
+    RECOVERY_SCAN_INTERVAL_MS,
+  );
+  recoveryInterval.unref();
+
+  // Provider delivery-state reconciliation does not affect delivery itself, so
+  // hourly refreshes preserve observability without continuous database polling.
+  const deliveryStatusInterval = setInterval(
+    runDeliveryStatusRefresh,
+    DELIVERY_STATUS_INTERVAL_MS,
+  );
+  deliveryStatusInterval.unref();
 }
