@@ -19,6 +19,7 @@ const app: Express = express();
 // discovery documents can safely reuse a response for five minutes.
 const PUBLIC_CONTENT_TTL_MS = 15_000;
 const DISCOVERY_TTL_MS = 300_000;
+const MAX_PUBLIC_RESPONSE_CACHE_ENTRIES = 500;
 type CachedPublicResponse = {
   expiresAt: number;
   statusCode: number;
@@ -33,8 +34,17 @@ function clearPublicResponseCache(): void {
   publicResponseCache.clear();
 }
 
+function trimPublicResponseCache(): void {
+  while (publicResponseCache.size > MAX_PUBLIC_RESPONSE_CACHE_ENTRIES) {
+    const oldestKey = publicResponseCache.keys().next().value as string | undefined;
+    if (!oldestKey) return;
+    publicResponseCache.delete(oldestKey);
+  }
+}
+
 function isDiscoveryPath(path: string): boolean {
   return (
+    path === "/sitemap.xml" ||
     path === "/sitemap-blog.xml" ||
     path === "/sitemap-work.xml" ||
     path === "/feed.xml"
@@ -56,12 +66,15 @@ function cachePublicResponse(
   isEligible: (path: string) => boolean,
 ): RequestHandler {
   return (req, res, next) => {
-    if (req.method !== "GET" || !isEligible(req.path)) {
+    if (
+      (req.method !== "GET" && req.method !== "HEAD") ||
+      !isEligible(req.path)
+    ) {
       next();
       return;
     }
 
-    const cacheKey = `${keyPrefix}:${req.originalUrl}`;
+    const cacheKey = `${keyPrefix}:${req.method}:${req.originalUrl}`;
     const cached = publicResponseCache.get(cacheKey);
     if (cached && cached.expiresAt > Date.now()) {
       res.status(cached.statusCode);
@@ -78,13 +91,16 @@ function cachePublicResponse(
 
     const originalSend = res.send.bind(res);
     res.send = ((body: unknown) => {
+      const cacheableStatus = res.statusCode === 200 || res.statusCode === 404;
       if (
-        res.statusCode === 200 &&
+        cacheableStatus &&
         (typeof body === "string" || Buffer.isBuffer(body))
       ) {
-        // These are public, read-only CMS responses. Allow a shared edge cache
-        // to absorb repeated requests while keeping browsers on revalidation.
-        res.setHeader("Cache-Control", publicCacheControl(req.path));
+        if (res.statusCode === 200) {
+          // These are public, read-only CMS responses. Allow a shared edge cache
+          // to absorb repeated requests while keeping browsers on revalidation.
+          res.setHeader("Cache-Control", publicCacheControl(req.path));
+        }
         const contentType = res.getHeader("Content-Type");
         const cacheControl = res.getHeader("Cache-Control");
         const pageSource = res.getHeader("X-CounselO-Page-Source");
@@ -97,6 +113,7 @@ function cachePublicResponse(
             typeof cacheControl === "string" ? cacheControl : undefined,
           pageSource: typeof pageSource === "string" ? pageSource : undefined,
         });
+        trimPublicResponseCache();
       }
       return originalSend(body);
     }) as typeof res.send;
@@ -116,7 +133,7 @@ function isDatabaseBackedPublicApiPath(path: string): boolean {
   );
 }
 
-function isDatabaseBackedPublicPagePath(path: string): boolean {
+function isCacheablePublicPagePath(path: string): boolean {
   return (
     path === "/blog" ||
     path === "/blog/ar" ||
@@ -193,7 +210,7 @@ app.use("/api", (req, res, next) => {
 app.use("/api", cachePublicResponse("api", isDatabaseBackedPublicApiPath));
 app.use("/api", router);
 
-app.use(cachePublicResponse("page", isDatabaseBackedPublicPagePath));
+app.use(cachePublicResponse("page", isCacheablePublicPagePath));
 
 // Public site routes must be registered after /api so the final site-level
 // 404 handler cannot swallow API requests.
