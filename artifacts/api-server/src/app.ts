@@ -13,6 +13,39 @@ import { PUBLIC_CACHE_POLICY } from "@workspace/api-zod";
 
 const app: Express = express();
 
+// Database-backed public pages are immutable between CMS mutations. Keep a
+// small process-local response cache so repeated visitor/crawler requests do
+// not wake PostgreSQL. Admin blog/work writes clear it immediately on the
+// serving instance; the short TTL also bounds cross-instance staleness.
+const PUBLIC_RESPONSE_TTL_MS = 60_000;
+type CachedPublicResponse = {
+  expiresAt: number;
+  statusCode: number;
+  body: string | Buffer;
+  contentType?: string;
+};
+const publicResponseCache = new Map<string, CachedPublicResponse>();
+
+function clearPublicResponseCache(): void {
+  publicResponseCache.clear();
+}
+
+function isDatabaseBackedPublicPath(path: string): boolean {
+  return (
+    path === "/blog" ||
+    path === "/blog/ar" ||
+    path.startsWith("/blog/en/") ||
+    path.startsWith("/blog/ar/") ||
+    path === "/our-work" ||
+    path === "/ar/our-work" ||
+    path.startsWith("/our-work/") ||
+    path.startsWith("/ar/our-work/") ||
+    path === "/sitemap-blog.xml" ||
+    path === "/sitemap-work.xml" ||
+    path === "/feed.xml"
+  );
+}
+
 app.disable("x-powered-by");
 app.set("trust proxy", 1);
 app.use((_req, res, next) => {
@@ -58,6 +91,13 @@ app.use(redirectTrailingSlash);
 app.use("/api", (req, res, next) => {
   res.setHeader("X-Robots-Tag", "noindex, nofollow, noarchive");
 
+  if (
+    req.method !== "GET" &&
+    (req.path.startsWith("/admin/blog/") || req.path.startsWith("/admin/work"))
+  ) {
+    clearPublicResponseCache();
+  }
+
   const isPublicRead =
     req.method === "GET" &&
     (req.path === "/blog/posts" ||
@@ -81,6 +121,44 @@ app.use("/api", (req, res, next) => {
   next();
 });
 app.use("/api", router);
+
+app.use((req, res, next) => {
+  if (req.method !== "GET" || !isDatabaseBackedPublicPath(req.path)) {
+    next();
+    return;
+  }
+
+  const cacheKey = req.originalUrl;
+  const cached = publicResponseCache.get(cacheKey);
+  if (cached && cached.expiresAt > Date.now()) {
+    res.status(cached.statusCode);
+    if (cached.contentType) res.setHeader("Content-Type", cached.contentType);
+    res.setHeader("X-CounselO-Response-Cache", "HIT");
+    res.send(cached.body);
+    return;
+  }
+  if (cached) publicResponseCache.delete(cacheKey);
+
+  const originalSend = res.send.bind(res);
+  res.send = ((body: unknown) => {
+    if (
+      res.statusCode === 200 &&
+      (typeof body === "string" || Buffer.isBuffer(body))
+    ) {
+      const contentType = res.getHeader("Content-Type");
+      publicResponseCache.set(cacheKey, {
+        expiresAt: Date.now() + PUBLIC_RESPONSE_TTL_MS,
+        statusCode: res.statusCode,
+        body,
+        contentType: typeof contentType === "string" ? contentType : undefined,
+      });
+    }
+    return originalSend(body);
+  }) as typeof res.send;
+
+  res.setHeader("X-CounselO-Response-Cache", "MISS");
+  next();
+});
 
 // Public site routes must be registered after /api so the final site-level
 // 404 handler cannot swallow API requests.
