@@ -7,6 +7,7 @@ on:
       - "lib/**"
       - "pnpm-lock.yaml"
       - "pnpm-workspace.yaml"
+      - ".github/workflows/legal-site-performance-validation.yml"
   workflow_dispatch:
 
 permissions:
@@ -15,7 +16,7 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -45,17 +46,16 @@ jobs:
       - name: Build complete production site
         run: pnpm --filter @workspace/legal-site run build
 
-      - name: Smoke test production server
+      - name: Start and smoke test production server
         shell: bash
         run: |
-          PORT=24438 NODE_ENV=production node artifacts/legal-site/dist/ssr-server.mjs > /tmp/counselo-server.log 2>&1 &
-          server_pid=$!
-          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
-          for attempt in {1..30}; do
+          PORT=24438 NODE_ENV=production nohup node artifacts/legal-site/dist/ssr-server.mjs > /tmp/counselo-server.log 2>&1 &
+          echo $! > /tmp/counselo-server.pid
+          for attempt in {1..45}; do
             if curl --fail --silent --show-error http://127.0.0.1:24438/ > /tmp/counselo-root.html; then
               break
             fi
-            if ! kill -0 "$server_pid" 2>/dev/null; then
+            if ! kill -0 "$(cat /tmp/counselo-server.pid)" 2>/dev/null; then
               cat /tmp/counselo-server.log
               exit 1
             fi
@@ -65,3 +65,104 @@ jobs:
           curl --fail --silent --show-error http://127.0.0.1:24438/sa > /tmp/counselo-sa.html
           grep -q 'id="root"' /tmp/counselo-root.html
           grep -q 'CounselO' /tmp/counselo-root.html
+
+      - name: Desktop Lighthouse diagnostics
+        shell: bash
+        run: |
+          npx --yes lighthouse@13.0.1 http://127.0.0.1:24438/ \
+            --preset=desktop \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --throttling-method=simulate \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+            --output=json \
+            --output-path=lighthouse-desktop.json \
+            --quiet
+
+      - name: Mobile Lighthouse diagnostics
+        shell: bash
+        run: |
+          npx --yes lighthouse@13.0.1 http://127.0.0.1:24438/ \
+            --form-factor=mobile \
+            --screenEmulation.mobile=true \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --throttling-method=simulate \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+            --output=json \
+            --output-path=lighthouse-mobile.json \
+            --quiet
+
+      - name: Summarize Lighthouse diagnostics
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const auditIds = [
+            'first-contentful-paint',
+            'largest-contentful-paint',
+            'speed-index',
+            'total-blocking-time',
+            'cumulative-layout-shift',
+            'layout-shifts',
+            'layout-shift-elements',
+            'cls-culprits-insight',
+            'largest-contentful-paint-element',
+            'lcp-discovery-insight',
+            'image-delivery-insight',
+            'render-blocking-insight',
+            'forced-reflow-insight',
+            'unused-javascript',
+            'long-tasks',
+          ];
+          const result = {};
+          for (const [name, file] of [['desktop', 'lighthouse-desktop.json'], ['mobile', 'lighthouse-mobile.json']]) {
+            const report = JSON.parse(fs.readFileSync(file, 'utf8'));
+            const categories = report.categories;
+            const audits = {};
+            for (const id of auditIds) {
+              const audit = report.audits[id];
+              if (!audit) continue;
+              audits[id] = {
+                score: audit.score,
+                displayValue: audit.displayValue,
+                numericValue: audit.numericValue,
+                details: audit.details,
+              };
+            }
+            result[name] = {
+              scores: {
+                performance: categories.performance.score,
+                accessibility: categories.accessibility.score,
+                bestPractices: categories['best-practices'].score,
+                seo: categories.seo.score,
+              },
+              audits,
+            };
+          }
+          fs.writeFileSync('lighthouse-summary.json', JSON.stringify(result, null, 2));
+          console.log(JSON.stringify({
+            desktop: {
+              scores: result.desktop.scores,
+              fcp: result.desktop.audits['first-contentful-paint']?.displayValue,
+              lcp: result.desktop.audits['largest-contentful-paint']?.displayValue,
+              tbt: result.desktop.audits['total-blocking-time']?.displayValue,
+              cls: result.desktop.audits['cumulative-layout-shift']?.displayValue,
+            },
+            mobile: {
+              scores: result.mobile.scores,
+              fcp: result.mobile.audits['first-contentful-paint']?.displayValue,
+              lcp: result.mobile.audits['largest-contentful-paint']?.displayValue,
+              tbt: result.mobile.audits['total-blocking-time']?.displayValue,
+              cls: result.mobile.audits['cumulative-layout-shift']?.displayValue,
+            },
+          }, null, 2));
+          NODE
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: legal-site-lighthouse
+          path: |
+            lighthouse-desktop.json
+            lighthouse-mobile.json
+            lighthouse-summary.json
+          if-no-files-found: warn
