@@ -1,0 +1,62 @@
+name: CounselO live PageSpeed diagnostics
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/pagespeed-live-diagnostics.yml"
+      - "artifacts/legal-site/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pagespeed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Request PageSpeed desktop report
+        shell: bash
+        run: |
+          url='https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=https%3A%2F%2Fcounselo-legal.com%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo'
+          curl --fail-with-body --retry 3 --retry-delay 5 --compressed "$url" -o pagespeed-live-desktop.json
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const data = JSON.parse(fs.readFileSync('pagespeed-live-desktop.json', 'utf8'));
+          const report = data.lighthouseResult;
+          if (!report) {
+            console.error(JSON.stringify(data, null, 2));
+            process.exit(1);
+          }
+          const a = report.audits;
+          const summary = {
+            fetchedAt: data.analysisUTCTimestamp,
+            performance: report.categories.performance?.score,
+            accessibility: report.categories.accessibility?.score,
+            bestPractices: report.categories['best-practices']?.score,
+            seo: report.categories.seo?.score,
+            fcp: a['first-contentful-paint']?.displayValue,
+            lcp: a['largest-contentful-paint']?.displayValue,
+            tbt: a['total-blocking-time']?.displayValue,
+            cls: a['cumulative-layout-shift']?.displayValue,
+            speedIndex: a['speed-index']?.displayValue,
+            shiftElements: a['layout-shift-elements']?.details?.items ?? [],
+            shiftEvents: a['layout-shifts']?.details?.items ?? [],
+            imageDelivery: a['image-delivery-insight']?.details?.items ?? [],
+            forcedReflow: a['forced-reflow-insight']?.details?.items ?? [],
+            renderBlocking: a['render-blocking-insight']?.details?.items ?? [],
+            unusedJavaScript: a['unused-javascript']?.details?.items ?? [],
+          };
+          fs.writeFileSync('pagespeed-live-desktop-summary.json', JSON.stringify(summary, null, 2));
+          console.log(JSON.stringify(summary, null, 2));
+          NODE
+
+      - name: Upload PageSpeed report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: counselo-live-pagespeed
+          path: |
+            pagespeed-live-desktop.json
+            pagespeed-live-desktop-summary.json
