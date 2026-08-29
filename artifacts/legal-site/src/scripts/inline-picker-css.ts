@@ -1,6 +1,9 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
+// This post-prerender optimization only changes resource delivery for the two
+// jurisdiction pickers; it leaves their generated markup, layout, and styling
+// rules byte-for-byte equivalent in the rendered browser document.
 const publicDir = path.resolve(import.meta.dirname, "../../dist/public");
 const pickerRoutes = new Set(["/", "/ar"]);
 
