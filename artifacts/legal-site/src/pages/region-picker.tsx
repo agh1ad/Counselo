@@ -7,10 +7,9 @@ import { LatestContentCarousels } from "@/components/content/latest-content-caro
 import { useEffect } from "react";
 import { COUNSELO_LEGAL_MATTERS_CLAIM, COUNSELO_LEGAL_MATTERS_STAT, COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
 
-const counseloLogo = "/images/optimized/counselo-region-logo-193.webp";
-const counseloLogoRetina = "/images/optimized/counselo-region-logo-310.webp";
-const saudiFlag = "/images/optimized/saudi-arabia-flag-72.webp";
-const syrianFlag = "/images/optimized/syria-flag-72.webp";
+const counseloLogo = "/images/optimized/counselo-region-logo.png";
+const saudiFlag = "/images/optimized/saudi-arabia-flag.jpg";
+const syrianFlag = "/images/optimized/syria-flag.jpg";
 const uaeFlag = "/images/optimized/uae-flag.svg";
 const comprehensiveConsultation = getConsultationProduct("comprehensive-consultation");
 
@@ -225,40 +224,24 @@ export default function RegionPicker() {
       {/* ── HERO ── */}
       <section className="region-picker-hero relative isolate min-h-[88svh] overflow-hidden bg-[#073d2b] px-4 pb-16 pt-10 text-white sm:px-6 lg:px-8 lg:pb-20 lg:pt-14" aria-label="Region selection">
         <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_72%_42%,rgba(194,157,70,0.12),transparent_30%)]" />
-        <picture className="contents" aria-hidden="true">
-          <source
-            media="(min-width: 1024px)"
-            type="image/webp"
-            srcSet="/images/optimized/counselo-platform-line-art-v1.webp"
-          />
-          <source
-            media="(min-width: 1024px)"
-            type="image/png"
-            srcSet="/images/optimized/counselo-platform-line-art-v1.png"
-          />
-          <img
-            src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-            alt=""
-            width="1200"
-            height="900"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            className="pointer-events-none absolute -end-32 top-4 -z-10 hidden h-[92%] w-auto max-w-none object-contain opacity-[0.13] lg:block"
-          />
-        </picture>
+        <img
+          src="/images/optimized/counselo-platform-line-art-v1.png"
+          alt=""
+          aria-hidden="true"
+          width="1200"
+          height="900"
+          decoding="async"
+          className="pointer-events-none absolute -end-32 top-4 -z-10 hidden h-[92%] w-auto max-w-none object-contain opacity-[0.13] lg:block"
+        />
 
         <div className="relative mx-auto w-full max-w-[1380px]">
           <div className="mb-10 flex items-center justify-between border-b border-[#0d4a31]/15 bg-white px-4 pb-4 pt-3">
             <Link href="/sa" aria-label="CounselO Saudi Arabia">
               <img
                 src={counseloLogo}
-                srcSet={`${counseloLogo} 193w, ${counseloLogoRetina} 310w`}
-                sizes="(min-width: 640px) 154px, 135px"
                 alt="CounselO — Online Legal Consultations for Saudi Arabia, Syria and the UAE"
                 width="193"
                 height="80"
-                loading="eager"
                 fetchPriority="high"
                 decoding="async"
                 className="h-14 w-auto object-contain transition-opacity hover:opacity-80 sm:h-16"
@@ -271,7 +254,7 @@ export default function RegionPicker() {
 
           <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
             <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
-              <p className="mb-6 text-xs font-bold uppercase tracking-[0.24em] text-[#d4b66c]">
+              <p className="mb-6 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">
                 Jurisdiction-Scoped Legal Guidance · Saudi Arabia · Syria · UAE
               </p>
               <h1 className="font-serif text-[clamp(2.75rem,5.5vw,5.6rem)] font-semibold leading-[0.96] tracking-[-0.035em] text-white">
@@ -300,7 +283,7 @@ export default function RegionPicker() {
             <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="lg:pt-14">
               <div className="mb-6 flex items-end justify-between gap-5">
                 <div>
-                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-[#d4b66c]">Choose your jurisdiction</p>
+                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">Choose your jurisdiction</p>
                   <h2 className="font-serif text-3xl text-white sm:text-4xl">Where do you need counsel?</h2>
                 </div>
                 <span className="hidden text-xs uppercase tracking-[0.16em] text-white/50 sm:block">Select to enter</span>
@@ -323,11 +306,7 @@ export default function RegionPicker() {
                   >
                     <div className="absolute inset-x-0 top-0 h-1 bg-[#b58b32] transition-all duration-300 group-hover:h-2" />
                     <div className="flex items-start justify-between">
-                      <span
-                        aria-hidden="true"
-                        data-number={number}
-                        className={`region-card-number font-serif text-5xl italic ${dark ? "region-card-number--dark" : "region-card-number--light"}`}
-                      />
+                      <span className={`font-serif text-5xl italic ${dark ? "text-white/15" : "text-[#0d4a31]/12"}`}>{number}</span>
                       <img src={flag} alt={alt} width="72" height="48" decoding="async" className="h-11 w-[66px] border border-white/25 object-cover shadow-md" />
                     </div>
                     <div className="absolute inset-x-7 bottom-7 sm:inset-x-8 sm:bottom-8">
@@ -359,7 +338,7 @@ export default function RegionPicker() {
         <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <div>
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#8e651d]">The CounselO platform</p>
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">The CounselO platform</p>
               <h2 id="platform-heading" className="font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl">One online starting point for legal help</h2>
             </div>
             <div className="space-y-5 text-base leading-8 text-muted-foreground sm:text-lg">
@@ -371,7 +350,7 @@ export default function RegionPicker() {
                   ["Where", "Saudi Arabia · Syria · UAE"],
                   ["Languages", "Arabic and English"],
                   ["Court representation", "If requested or necessary, arranged separately through licensed partner professionals or cooperating offices in the relevant jurisdiction"],
-                ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b58b32] bg-[#eef4f0] px-4 py-3"><dt className="text-xs font-bold uppercase tracking-[0.14em] text-[#4d7665]">{label}</dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
+                ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b58b32] bg-[#eef4f0] px-4 py-3"><dt className="text-xs font-bold uppercase tracking-[0.14em] text-[#0d4a31]/65">{label}</dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
               </dl>
             </div>
           </div>
@@ -383,7 +362,7 @@ export default function RegionPicker() {
           <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
             <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
               <div>
-                <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#8e651d]">Consultation package</p>
+                <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">Consultation package</p>
                 <h2 id="consultation-package-heading" className="font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl">Comprehensive online legal consultation</h2>
                 <p className="mt-5 text-base leading-8 text-muted-foreground sm:text-lg">{comprehensiveConsultation.summaryEn}</p>
               </div>
@@ -436,7 +415,7 @@ export default function RegionPicker() {
                       href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-white/60 hover:text-white text-xs transition-colors border border-white/25 hover:border-white/50 px-2 py-1"
+                      className="inline-flex items-center gap-1.5 text-white/55 hover:text-white text-xs transition-colors border border-white/25 hover:border-white/50 px-2 py-1"
                     >
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                       LinkedIn
@@ -468,7 +447,7 @@ export default function RegionPicker() {
 
             {/* About text */}
             <motion.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-3">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#8e651d]">About CounselO</p>
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">About CounselO</p>
               <h2 id="about-heading" className="mb-6 font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl lg:text-6xl">
                 Professional Legal Counsel,<br />Delivered Online
               </h2>
@@ -506,7 +485,7 @@ export default function RegionPicker() {
       <section className="border-y border-[#0d4a31]/10 bg-white py-24 lg:py-32" aria-labelledby="jurisdictions-heading">
         <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeIn} className="mb-16 max-w-3xl">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#8e651d]">Choose your jurisdiction</p>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">Choose your jurisdiction</p>
             <h2 id="jurisdictions-heading" className="mb-4 font-serif text-5xl font-semibold text-[#0d4a31] sm:text-6xl">Three legal environments, one starting point</h2>
             <div className="mb-6 flex items-center gap-3"><span className="h-px w-20 bg-[#b58b32]" /><span className="h-2 w-2 rotate-45 border border-[#b58b32]" /></div>
             <p className="text-muted-foreground">Start with the country whose law and authorities apply. Each regional hub contains its own service catalogue, legal sources, consultation route and bilingual content.</p>
@@ -587,7 +566,7 @@ export default function RegionPicker() {
       <section className="bg-[#eef4f0] py-24 lg:py-32" aria-labelledby="faq-heading">
         <div className="mx-auto grid max-w-[1380px] gap-14 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24 lg:px-8">
           <motion.div {...fadeIn} className="lg:sticky lg:top-24 lg:self-start">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#8e651d]">Support</p>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">Support</p>
             <h2 id="faq-heading" className="mb-6 font-serif text-5xl font-semibold leading-tight text-[#0d4a31]">Frequently Asked Questions</h2>
             <div className="flex items-center gap-3"><span className="h-px w-20 bg-[#b58b32]" /><span className="h-2 w-2 rotate-45 border border-[#b58b32]" /></div>
           </motion.div>

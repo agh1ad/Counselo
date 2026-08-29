@@ -1,185 +1,66 @@
 /**
- * Client-side entry point.
+ * Client-side entry point — replaces the simple createRoot call in main.tsx.
  *
- * `/` and `/ar` are fully prerendered documents: their copy, links, structured
- * content, images, and layout already exist before JavaScript runs. Keep that
- * exact HTML interactive as ordinary web content and postpone the React runtime
- * until a visitor approaches the below-fold carousel. This removes ReactDOM,
- * Helmet, query, router, and carousel work from the landing page's critical
- * rendering path without changing the server-rendered page.
+ * Strategy:
+ *   - Production (prerendered): the <div id="root"> already contains server-
+ *     rendered HTML. Use hydrateRoot so React attaches to existing DOM nodes
+ *     instead of replacing them, preserving SEO-critical content before JS loads.
+ *   - Development (no prerender): root is empty; fall back to createRoot so
+ *     there are no hydration-mismatch warnings during development.
  *
- * All other routes keep normal immediate React hydration.
+ * This file is referenced by index.html via <script type="module" src="/src/main.tsx">.
+ * (main.tsx re-exports this logic to keep the HTML entry point filename stable.)
  */
 
+import { createRoot, hydrateRoot } from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async";
+import App from "./App";
 import "./index.css";
 
-const rootElement = document.getElementById("root");
-if (!rootElement) throw new Error("Root element #root not found");
-const rootEl: HTMLElement = rootElement;
-
-const pathname = window.location.pathname;
-const normalizedPath = pathname.replace(/\/+$/, "") || "/";
-const isPickerRoute = normalizedPath === "/" || normalizedPath === "/ar";
+const rootEl = document.getElementById("root")!;
 
 // Detect prerendered content via attributes stamped by prerender.ts.
+//
+// data-ssr      → root div was prerendered (any route)
+// data-ssr-url  → which URL was prerendered (e.g. "/sa/ar/blog/divorce-in-saudi-arabia")
+//
+// We compare data-ssr-url against the current pathname so that when index.html
+// (prerendered for "/") is served as the static catch-all fallback for an
+// unprerendered path (e.g. a new dynamic blog post created via AdminCMS), we
+// detect the URL mismatch and use createRoot instead of hydrateRoot. Without
+// this check, hydrateRoot would receive region-picker SSR HTML while React
+// expects a blog post — a fatal mismatch that leaves the user stuck on the
+// region picker and unable to reach the intended page.
 const ssrUrl = rootEl.getAttribute("data-ssr-url");
 const isPrerendered =
   import.meta.env.PROD &&
   rootEl.hasAttribute("data-ssr") &&
-  ssrUrl === pathname;
+  ssrUrl === window.location.pathname;
 
-let analyticsPromise: Promise<typeof import("./lib/analytics")> | null = null;
-
-function loadAnalytics() {
-  analyticsPromise ??= import("./lib/analytics");
-  return analyticsPromise;
-}
-
-function afterWindowLoad(callback: () => void) {
-  if (document.readyState === "complete") {
-    window.setTimeout(callback, 0);
-    return;
-  }
-  window.addEventListener("load", callback, { once: true });
-}
-
-/**
- * Preserve picker analytics independently of React hydration. This is important
- * for short visits: page views and conversion clicks continue to queue even if
- * the visitor never scrolls far enough to need the React carousel runtime.
- */
-function installPickerAnalytics() {
-  afterWindowLoad(() => {
-    void loadAnalytics().then(({ injectGTM, trackPageview }) => {
-      trackPageview(window.location.pathname);
-      injectGTM();
-    });
-  });
-
-  const onClick = (event: MouseEvent) => {
-    const rawTarget = event.target;
-    if (!(rawTarget instanceof Element)) return;
-    const element = (rawTarget.closest<HTMLElement>("a,button,input,select,textarea,[role='button']") ?? rawTarget) as HTMLElement;
-    const anchor = element.closest<HTMLAnchorElement>("a[href]");
-    const href = anchor?.getAttribute("href") ?? "";
-    const input = element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement || element instanceof HTMLSelectElement;
-    const label = input
-      ? (element.getAttribute("aria-label") || element.getAttribute("name") || element.tagName).slice(0, 100)
-      : (element.getAttribute("aria-label") || element.textContent || element.tagName).replace(/\s+/g, " ").trim().slice(0, 100);
-    const details = {
-      element_tag: element.tagName.toLowerCase(),
-      element_id: element.id.slice(0, 80),
-      element_name: element.getAttribute("name")?.slice(0, 80),
-      click_text: label,
-      link_url: href.slice(0, 300),
-      outbound: Boolean(anchor?.origin && anchor.origin !== window.location.origin),
-      cta: element.dataset.cta,
-      conversion_position: element.dataset.conversionPosition,
-      region: element.dataset.region,
-      language: element.dataset.lang,
-    };
-
-    void loadAnalytics().then(({ trackEvent }) => {
-      trackEvent("click", window.location.pathname, details);
-      if (/wa\.me|whatsapp/i.test(href) || element.dataset.cta === "whatsapp") {
-        trackEvent("whatsapp_click", window.location.pathname, details);
-      } else if (href.startsWith("tel:")) {
-        trackEvent("phone_click", window.location.pathname, details);
-      } else if (href.startsWith("mailto:")) {
-        trackEvent("email_click", window.location.pathname, details);
-      } else if (element.dataset.cta === "contact" || /\/contact(?:\?|$)/.test(href)) {
-        trackEvent("consultation_click", window.location.pathname, details);
-      }
-      if (anchor?.hasAttribute("download") || /[?&]download=1/.test(href)) {
-        trackEvent("file_download", window.location.pathname, details);
-      }
-    });
-  };
-
-  const onSubmit = (event: SubmitEvent) => {
-    const form = event.target;
-    if (!(form instanceof HTMLFormElement)) return;
-    void loadAnalytics().then(({ trackEvent }) => {
-      trackEvent("form_submit_attempt", window.location.pathname, {
-        form_id: form.id.slice(0, 80),
-        form_name: form.getAttribute("name")?.slice(0, 80),
-      });
-    });
-  };
-
-  document.addEventListener("click", onClick, true);
-  document.addEventListener("submit", onSubmit, true);
-}
-
-function progressivelyHydratePicker() {
-  let started = false;
-  let observer: IntersectionObserver | null = null;
-
-  const cleanup = () => {
-    window.removeEventListener("scroll", startHydration);
-    window.removeEventListener("wheel", startHydration);
-    window.removeEventListener("touchmove", startHydration);
-    observer?.disconnect();
-    observer = null;
-  };
-
-  const startHydration = () => {
-    if (started) return;
-    started = true;
-    cleanup();
-    void import("./hydrate-picker").then(({ mountPicker }) => {
-      mountPicker(rootEl, true, true);
-    });
-  };
-
-  // Scrolling means the visitor is leaving the static above-the-fold picker and
-  // may soon need the dynamic content below it. Passive listeners do no work
-  // during the initial render and are removed as soon as hydration begins.
-  window.addEventListener("scroll", startHydration, { passive: true, once: true });
-  window.addEventListener("wheel", startHydration, { passive: true, once: true });
-  window.addEventListener("touchmove", startHydration, { passive: true, once: true });
-
-  // On browsers with IntersectionObserver, also hydrate just before a carousel
-  // enters view so its controls/autoplay/query refresh are ready when needed.
-  if ("IntersectionObserver" in window) {
-    const carousels = document.querySelectorAll<HTMLElement>("[aria-roledescription='carousel']");
-    if (carousels.length) {
-      observer = new IntersectionObserver(
-        (entries) => {
-          if (entries.some((entry) => entry.isIntersecting)) startHydration();
-        },
-        { rootMargin: "300px 0px" },
-      );
-      carousels.forEach((carousel) => observer?.observe(carousel));
-    }
-  }
-}
-
-async function boot() {
-  if (!isPrerendered && rootEl.hasAttribute("data-ssr")) {
-    // If the prerendered fallback belongs to a different URL, remove that stale
-    // markup before mounting the correct client route.
+if (isPrerendered) {
+  // Prerendered HTML is present and matches the current URL — hydrate to
+  // attach React event handlers without discarding the server-rendered DOM.
+  hydrateRoot(
+    rootEl,
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>,
+  );
+} else {
+  // Dev mode, URL mismatch (catch-all fallback), or production page without
+  // prerender (e.g. /counselo-admin) — mount fresh with createRoot so React
+  // renders the correct content for the actual URL.
+  //
+  // If stale prerendered HTML is present (e.g. the region-picker index.html
+  // was served as the catch-all for a dynamic blog post URL), wipe it before
+  // React mounts. Without this the user briefly sees the wrong page (e.g. the
+  // region picker) while createRoot is initialising — the flash the user reported.
+  if (rootEl.hasAttribute("data-ssr")) {
     rootEl.innerHTML = "";
   }
-
-  if (!isPickerRoute) {
-    const { mountApp } = await import("./hydrate-app");
-    mountApp(rootEl, isPrerendered);
-    return;
-  }
-
-  if (!isPrerendered) {
-    const { mountPicker } = await import("./hydrate-picker");
-    mountPicker(rootEl, false, false);
-    return;
-  }
-
-  // PickerApp historically reset to the top on initial hydration. Preserve that
-  // behavior before installing scroll-based hydration listeners so a restored
-  // browser scroll position cannot accidentally trigger the heavy runtime.
-  window.scrollTo({ top: 0, behavior: "instant" });
-  installPickerAnalytics();
-  progressivelyHydratePicker();
+  createRoot(rootEl).render(
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>,
+  );
 }
-
-void boot();

@@ -1,6 +1,5 @@
 const STORE_KEY = "counselo_analytics";
 const GTM_CONTAINER_ID = "GTM-WZ6SW99X";
-let gtmScheduled = false;
 
 export interface EventLog {
   event: string;
@@ -68,8 +67,7 @@ export function trackEvent(event: string, page: string, details: AnalyticsDetail
 
   save(store);
 
-  // Push to GTM dataLayer — GTM forwards this to GA4 via configured tags.
-  // Events remain queued even before the external GTM runtime is downloaded.
+  // Push to GTM dataLayer — GTM forwards this to GA4 via configured tags
   pushToDataLayer({ event, event_category: "engagement", event_label: page, page_path: page, ...cleanDetails });
 }
 
@@ -79,8 +77,8 @@ export function trackPageview(path: string) {
   save(store);
 
   // SPA navigation: GTM's All-Pages trigger doesn't fire on client-side route
-  // changes, so we push explicitly. If GTM is still deferred, it consumes this
-  // queued event as soon as the container loads.
+  // changes, so we push explicitly. Configure a GTM trigger on this event to
+  // fire the GA4 Configuration tag / Page View event tag.
   pushToDataLayer({
     event: "page_view",
     page_path: path,
@@ -102,65 +100,15 @@ export function getGTMContainerId(): string {
 }
 
 export function injectGTM() {
-  if (typeof document === "undefined" || typeof window === "undefined") return;
-  if (gtmScheduled || document.getElementById("gtm-script")) return;
-  gtmScheduled = true;
-
+  if (typeof document === "undefined") return;
+  if (document.getElementById("gtm-script")) return; // already injected
   const win = window as unknown as { dataLayer?: object[] };
   win.dataLayer = win.dataLayer || [];
   win.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-
-  let scheduledTimer: number | undefined;
-  let idleHandle: number | undefined;
-  let loaded = false;
-
-  const cleanupInteractionListeners = () => {
-    window.removeEventListener("pointerdown", loadAfterInteraction);
-    window.removeEventListener("keydown", loadAfterInteraction);
-    window.removeEventListener("touchstart", loadAfterInteraction);
-  };
-
-  const loadGTM = () => {
-    if (loaded || document.getElementById("gtm-script")) return;
-    loaded = true;
-    cleanupInteractionListeners();
-    if (scheduledTimer !== undefined) window.clearTimeout(scheduledTimer);
-    if (idleHandle !== undefined && "cancelIdleCallback" in window) {
-      window.cancelIdleCallback(idleHandle);
-    }
-
-    const firstScript = document.getElementsByTagName("script")[0];
-    const script = document.createElement("script");
-    script.id = "gtm-script";
-    script.async = true;
-    script.fetchPriority = "low";
-    script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
-    firstScript.parentNode?.insertBefore(script, firstScript);
-  };
-
-  function loadAfterInteraction() {
-    loadGTM();
-  }
-
-  const scheduleAfterCriticalLoad = () => {
-    // Keep a short post-load quiet window so analytics cannot compete with
-    // LCP, font, or image work. The dataLayer and local store remain active.
-    scheduledTimer = window.setTimeout(() => {
-      if ("requestIdleCallback" in window) {
-        idleHandle = window.requestIdleCallback(loadGTM, { timeout: 2_000 });
-      } else {
-        loadGTM();
-      }
-    }, 3_000);
-  };
-
-  window.addEventListener("pointerdown", loadAfterInteraction, { once: true, passive: true });
-  window.addEventListener("keydown", loadAfterInteraction, { once: true });
-  window.addEventListener("touchstart", loadAfterInteraction, { once: true, passive: true });
-
-  if (document.readyState === "complete") {
-    scheduleAfterCriticalLoad();
-  } else {
-    window.addEventListener("load", scheduleAfterCriticalLoad, { once: true });
-  }
+  const f = document.getElementsByTagName("script")[0];
+  const j = document.createElement("script");
+  j.id = "gtm-script";
+  j.async = true;
+  j.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
+  f.parentNode?.insertBefore(j, f);
 }
