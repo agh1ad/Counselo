@@ -1,0 +1,73 @@
+name: Live CounselO PageSpeed diagnostic
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/live-pagespeed-diagnostic.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Live desktop Lighthouse
+        run: |
+          npx --yes lighthouse@13.0.1 https://counselo-legal.com/ \
+            --preset=desktop \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --throttling-method=simulate \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+            --output=json \
+            --output-path=live-desktop.json \
+            --quiet
+
+      - name: Live mobile Lighthouse
+        run: |
+          npx --yes lighthouse@13.0.1 https://counselo-legal.com/ \
+            --form-factor=mobile \
+            --screenEmulation.mobile=true \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --throttling-method=simulate \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+            --output=json \
+            --output-path=live-mobile.json \
+            --quiet
+
+      - name: Summarize
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          for (const [name, file] of [['desktop', 'live-desktop.json'], ['mobile', 'live-mobile.json']]) {
+            const report = JSON.parse(fs.readFileSync(file, 'utf8'));
+            const c = report.categories;
+            const a = report.audits;
+            console.log(name, JSON.stringify({
+              performance: c.performance.score,
+              accessibility: c.accessibility.score,
+              bestPractices: c['best-practices'].score,
+              seo: c.seo.score,
+              fcp: a['first-contentful-paint']?.displayValue,
+              lcp: a['largest-contentful-paint']?.displayValue,
+              speedIndex: a['speed-index']?.displayValue,
+              tbt: a['total-blocking-time']?.displayValue,
+              cls: a['cumulative-layout-shift']?.displayValue,
+            }, null, 2));
+          }
+          NODE
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-pagespeed-diagnostic
+          path: |
+            live-desktop.json
+            live-mobile.json
+          if-no-files-found: warn
