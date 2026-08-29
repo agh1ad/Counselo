@@ -46,18 +46,22 @@ jobs:
 
               if rel.endswith("ar-region-picker.tsx"):
                   old_number = '<span aria-hidden="true" className={`font-serif text-5xl ${dark ? "text-white/15" : "text-[#0d4a31]/12"}`}>{number}</span>'
-                  new_number = '''<span
-                        aria-hidden="true"
-                        data-number={number}
-                        className={`region-card-number font-serif text-5xl ${dark ? "region-card-number--dark" : "region-card-number--light"}`}
-                      />'''
+                  new_number = "\n".join([
+                      '<span',
+                      '                        aria-hidden="true"',
+                      '                        data-number={number}',
+                      '                        className={`region-card-number font-serif text-5xl ${dark ? "region-card-number--dark" : "region-card-number--light"}`}',
+                      '                      />',
+                  ])
               else:
                   old_number = '<span aria-hidden="true" className={`font-serif text-5xl italic ${dark ? "text-white/15" : "text-[#0d4a31]/12"}`}>{number}</span>'
-                  new_number = '''<span
-                        aria-hidden="true"
-                        data-number={number}
-                        className={`region-card-number font-serif text-5xl italic ${dark ? "region-card-number--dark" : "region-card-number--light"}`}
-                      />'''
+                  new_number = "\n".join([
+                      '<span',
+                      '                        aria-hidden="true"',
+                      '                        data-number={number}',
+                      '                        className={`region-card-number font-serif text-5xl italic ${dark ? "region-card-number--dark" : "region-card-number--light"}`}',
+                      '                      />',
+                  ])
               if old_number not in source:
                   raise SystemExit(f"Expected decorative number missing from {rel}")
               source = source.replace(old_number, new_number, 1)
@@ -65,19 +69,20 @@ jobs:
 
           css_path = root / "src/index.css"
           css = css_path.read_text()
-          marker = """
-.region-card-number::before {
-  content: attr(data-number);
-}
-
-.region-card-number--dark::before {
-  color: rgb(255 255 255 / 0.15);
-}
-
-.region-card-number--light::before {
-  color: rgb(13 74 49 / 0.12);
-}
-"""
+          marker = "\n".join([
+              "",
+              ".region-card-number::before {",
+              "  content: attr(data-number);",
+              "}",
+              "",
+              ".region-card-number--dark::before {",
+              "  color: rgb(255 255 255 / 0.15);",
+              "}",
+              "",
+              ".region-card-number--light::before {",
+              "  color: rgb(13 74 49 / 0.12);",
+              "}",
+          ])
           if ".region-card-number::before" not in css:
               anchor = "\n.counselo-gold-rule"
               if anchor not in css:
@@ -93,17 +98,19 @@ jobs:
           end = prerender.find(end_marker, start)
           if start < 0 or end < 0:
               raise SystemExit("Picker resource-hint block missing")
-          replacement = '''const PICKER_ROUTES = new Set(["/", "/ar"]);
-
-function pickerResourceHints(route: string): string {
-  if (!PICKER_ROUTES.has(route)) return "";
-
-  return [
-    '<link rel="preload" as="image" href="/images/optimized/counselo-region-logo-193.webp" imagesrcset="/images/optimized/counselo-region-logo-193.webp 193w, /images/optimized/counselo-region-logo-310.webp 310w" imagesizes="(min-width: 640px) 154px, 135px" type="image/webp" fetchpriority="high">',
-    '<link rel="preload" as="image" href="/images/optimized/counselo-platform-line-art-v1.webp" type="image/webp" media="(min-width: 1024px)" fetchpriority="high">',
-  ].join("");
-}
-'''
+          replacement = "\n".join([
+              'const PICKER_ROUTES = new Set(["/", "/ar"]);',
+              "",
+              'function pickerResourceHints(route: string): string {',
+              '  if (!PICKER_ROUTES.has(route)) return "";',
+              "",
+              "  return [",
+              "    '<link rel=\"preload\" as=\"image\" href=\"/images/optimized/counselo-region-logo-193.webp\" imagesrcset=\"/images/optimized/counselo-region-logo-193.webp 193w, /images/optimized/counselo-region-logo-310.webp 310w\" imagesizes=\"(min-width: 640px) 154px, 135px\" type=\"image/webp\" fetchpriority=\"high\">',",
+              "    '<link rel=\"preload\" as=\"image\" href=\"/images/optimized/counselo-platform-line-art-v1.webp\" type=\"image/webp\" media=\"(min-width: 1024px)\" fetchpriority=\"high\">',",
+              '  ].join("");',
+              "}",
+              "",
+          ])
           prerender = prerender[:start] + replacement + prerender[end:]
           prerender_path.write_text(prerender)
           PY
