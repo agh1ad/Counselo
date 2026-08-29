@@ -67,7 +67,8 @@ export function trackEvent(event: string, page: string, details: AnalyticsDetail
 
   save(store);
 
-  // Push to GTM dataLayer — GTM forwards this to GA4 via configured tags
+  // Push to GTM dataLayer — GTM forwards this to GA4 via configured tags.
+  // Events remain queued even before the external GTM runtime is downloaded.
   pushToDataLayer({ event, event_category: "engagement", event_label: page, page_path: page, ...cleanDetails });
 }
 
@@ -77,8 +78,8 @@ export function trackPageview(path: string) {
   save(store);
 
   // SPA navigation: GTM's All-Pages trigger doesn't fire on client-side route
-  // changes, so we push explicitly. Configure a GTM trigger on this event to
-  // fire the GA4 Configuration tag / Page View event tag.
+  // changes, so we push explicitly. If GTM is still deferred, it consumes this
+  // queued event as soon as the container loads.
   pushToDataLayer({
     event: "page_view",
     page_path: path,
@@ -100,16 +101,31 @@ export function getGTMContainerId(): string {
 }
 
 export function injectGTM() {
-  if (typeof document === "undefined") return;
-  if (document.getElementById("gtm-script")) return; // already injected
+  if (typeof document === "undefined" || typeof window === "undefined") return;
+  if (document.getElementById("gtm-script")) return;
+
   const win = window as unknown as { dataLayer?: object[] };
   win.dataLayer = win.dataLayer || [];
   win.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-  const f = document.getElementsByTagName("script")[0];
-  const j = document.createElement("script");
-  j.id = "gtm-script";
-  j.async = true;
-  j.fetchPriority = "low";
-  j.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
-  f.parentNode?.insertBefore(j, f);
+
+  const loadGTM = () => {
+    if (document.getElementById("gtm-script")) return;
+    const f = document.getElementsByTagName("script")[0];
+    const j = document.createElement("script");
+    j.id = "gtm-script";
+    j.async = true;
+    j.fetchPriority = "low";
+    j.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
+    f.parentNode?.insertBefore(j, f);
+  };
+
+  // Analytics is not needed to render or operate the page. Waiting until the
+  // load event prevents the third-party request from competing with CSS,
+  // fonts, images, and route chunks on constrained mobile connections. The
+  // dataLayer queue above preserves pageview/conversion events in the meantime.
+  if (document.readyState === "complete") {
+    window.setTimeout(loadGTM, 0);
+  } else {
+    window.addEventListener("load", loadGTM, { once: true });
+  }
 }
