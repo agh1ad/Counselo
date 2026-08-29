@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -9,14 +9,15 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { Toaster } from "@/components/ui/toaster";
 import { Clock, Mail, MapPin, Phone, CreditCard, Paperclip, X, FileText, ImageIcon, CheckCircle, Loader2, AlertCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
-import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { trackEvent } from "@/lib/analytics";
-import { getServicesForRegion } from "@workspace/api-zod";
+import { getServicesForRegion } from "@workspace/api-zod/browser";
 
 const MAX_FILES = 10;
 const MAX_FILE_SIZE_MB = 5;
@@ -282,11 +283,11 @@ export default function Contact() {
       {/* Hero */}
       <section className="premium-page-hero py-24 lg:py-28 border-b border-[#d4af60]/20">
         <div className="premium-content-shell relative z-10 text-center">
-          <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">{c.hero.heading}</h1>
             <div className="premium-hero-rule mx-auto mb-8" />
             <p className="text-xl text-white/75 max-w-2xl mx-auto leading-relaxed">{c.hero.subheading}</p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -323,7 +324,7 @@ export default function Contact() {
       {wasSent && (
         <section className="py-24 bg-background">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-            <motion.div
+            <m.div
               initial={false}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
@@ -355,7 +356,7 @@ export default function Contact() {
                     : "Target professional response: within 24 hours via WhatsApp or email, depending on the matter, urgency and information provided"}
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}
@@ -365,7 +366,7 @@ export default function Contact() {
           <div className="grid lg:grid-cols-12 gap-16">
             {/* Info */}
             <div className="lg:col-span-4 space-y-12">
-              <motion.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
+              <m.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
                 <h3 className="text-2xl font-serif font-bold text-foreground mb-8">{c.firmDetails.heading}</h3>
                 <div className="space-y-8">
                   {[
@@ -385,12 +386,12 @@ export default function Contact() {
                     </div>
                   ))}
                 </div>
-              </motion.div>
+              </m.div>
             </div>
 
             {/* Form */}
             <div className="lg:col-span-8">
-              <motion.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
+              <m.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
                 className="bg-card border border-border p-10">
                 <h3 className="text-2xl font-serif font-bold text-foreground mb-2">{f.heading}</h3>
                 <div className="w-12 h-1 bg-primary mb-8" />
@@ -564,13 +565,14 @@ export default function Contact() {
                     <p className="text-xs text-muted-foreground text-center">{f.disclaimer}</p>
                   </form>
                 </Form>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </div>
       </section>}
 
       <JurisdictionDisclosure jurisdiction={region} />
+      <Toaster />
     </div>
   );
 }

@@ -2,7 +2,8 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Languages, ArrowRight, Globe2 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+import * as m from "framer-motion/m";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 
@@ -71,7 +72,7 @@ export function Navbar() {
               </Link>
               <AnimatePresence>
                 {servicesOpen && (
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
@@ -83,7 +84,7 @@ export function Navbar() {
                         {service.name}
                       </Link>
                     ))}
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
             </div>
@@ -134,7 +135,7 @@ export function Navbar() {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -177,7 +178,7 @@ export function Navbar() {
               </>}
             </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </nav>

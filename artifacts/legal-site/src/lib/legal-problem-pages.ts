@@ -2,7 +2,7 @@ import type { Region, Lang } from "../contexts/RegionContext.js";
 import { ADDITIONAL_SEARCH_ISSUES, SERVICE_SEARCH_CONTENT } from "./service-search-content.js";
 import { UAE_SERVICES } from "../data/uae-legal-services.js";
 import { buildUaeServicePageContent } from "../data/uae-service-page-content.js";
-import { getServiceDefinition, getServicesForRegion } from "@workspace/api-zod";
+import { getServiceDefinition, getServicesForRegion } from "@workspace/api-zod/browser";
 
 export type LocalizedText = { en: string; ar: string };
 export type LocalizedList = { en: string[]; ar: string[] };

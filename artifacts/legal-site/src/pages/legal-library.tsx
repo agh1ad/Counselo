@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import { Link } from "wouter";
 import { ArrowRight, BookOpen, BriefcaseBusiness, FileCheck2, Scale } from "lucide-react";
 import { SEOHead } from "@/components/seo/SEOHead";
@@ -8,7 +8,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { fetchPublicJson } from "@/lib/public-api";
 import { type WorkSamplePublic, localized } from "@/lib/work-samples";
-import { blogPath, COUNSELO_ENTITY_IDS } from "@workspace/api-zod";
+import { blogPath, COUNSELO_ENTITY_IDS } from "@workspace/api-zod/browser";
 
 type LibraryPost = NonNullable<Window["__SSR_POSTS__"]>[number];
 
@@ -220,21 +220,21 @@ export default function LegalLibrary() {
               </div>
               <div className="grid lg:grid-cols-[1fr_1.25fr]">
                 {recentPosts[0] ? (
-                  <motion.article initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="border-b border-[#c7a45d] pb-10 lg:border-b-0 lg:border-e lg:pe-12">
+                  <m.article initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="border-b border-[#c7a45d] pb-10 lg:border-b-0 lg:border-e lg:pe-12">
                     <p className="text-xs font-bold uppercase tracking-[.12em] text-[#9a711f]">{ar ? recentPosts[0].categoryAr : recentPosts[0].categoryEn}<span className="mx-3 text-[#8a918d]">|</span><time>{recentPosts[0].date}</time></p>
                     <h3 className="mt-6 font-serif text-3xl font-medium leading-[1.12] text-[#10251e] md:text-5xl">{ar ? recentPosts[0].titleAr : recentPosts[0].titleEn}</h3>
                     <p className="mt-6 max-w-xl text-lg leading-8 text-[#52605a]">{ar ? recentPosts[0].excerptAr : recentPosts[0].excerptEn}</p>
                     <Link href={blogPath(recentPosts[0].slug, lang)} className="group mt-7 inline-flex items-center gap-4 border-b border-[#073d2a] pb-1 font-medium text-[#073d2a]">{ui.viewArticle}<Arrow rtl={ar} /></Link>
-                  </motion.article>
+                  </m.article>
                 ) : null}
                 <div className="lg:ps-10">
                   {recentPosts.slice(1).map((post, index) => (
-                    <motion.article key={post.slug} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .06 }} className="border-b border-[#c7a45d] py-9 first:pt-9 lg:first:pt-0">
+                    <m.article key={post.slug} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .06 }} className="border-b border-[#c7a45d] py-9 first:pt-9 lg:first:pt-0">
                       <p className="text-xs font-bold uppercase tracking-[.12em] text-[#9a711f]">{ar ? post.categoryAr : post.categoryEn}<span className="mx-3 text-[#8a918d]">|</span><time>{post.date}</time></p>
                       <h3 className="mt-4 font-serif text-2xl font-medium leading-tight text-[#10251e] md:text-3xl">{ar ? post.titleAr : post.titleEn}</h3>
                       <p className="mt-3 line-clamp-2 leading-7 text-[#52605a]">{ar ? post.excerptAr : post.excerptEn}</p>
                       <Link href={blogPath(post.slug, lang)} className="group mt-5 inline-flex items-center gap-4 border-b border-[#073d2a] pb-1 font-medium text-[#073d2a]">{ui.viewArticle}<Arrow rtl={ar} /></Link>
-                    </motion.article>
+                    </m.article>
                   ))}
                 </div>
               </div>
@@ -253,7 +253,7 @@ export default function LegalLibrary() {
               </div>
               <div className="border-t border-[#c7a45d]">
                 {recentSamples.map((sample, index) => (
-                  <motion.article key={sample.slug} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid gap-5 border-b border-[#c7a45d] py-8 md:grid-cols-[90px_1.35fr_1fr_auto] md:items-center">
+                  <m.article key={sample.slug} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid gap-5 border-b border-[#c7a45d] py-8 md:grid-cols-[90px_1.35fr_1fr_auto] md:items-center">
                     <span className="font-serif text-5xl font-medium text-[#0d4a31]">{String(index + 1).padStart(2, "0")}</span>
                     <div className="md:border-s md:border-[#c7a45d] md:ps-9">
                       <p className="text-xs font-bold uppercase tracking-[.12em] text-[#9a711f]">{localized(sample.workTypeEn, sample.workTypeAr, lang)}<span className="mx-3 text-[#8a918d]">|</span>{localized(sample.jurisdictionEn, sample.jurisdictionAr, lang)}</p>
@@ -261,7 +261,7 @@ export default function LegalLibrary() {
                     </div>
                     <p className="line-clamp-3 leading-7 text-[#52605a]">{localized(sample.summaryEn, sample.summaryAr, lang)}</p>
                     <Link href={`${ar ? "/ar" : ""}/our-work/${sample.slug}`} className="group inline-flex w-fit items-center gap-4 border-b border-[#073d2a] pb-1 font-medium text-[#073d2a]">{ui.viewWork}<Arrow rtl={ar} /></Link>
-                  </motion.article>
+                  </m.article>
                 ))}
               </div>
               <Link href={workIndexPath} className="group mt-8 inline-flex items-center gap-4 border-b border-[#073d2a] pb-1 font-medium text-[#073d2a] sm:hidden">{ui.viewAllWork}<Arrow rtl={ar} /></Link>

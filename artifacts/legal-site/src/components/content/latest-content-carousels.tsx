@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/carousel";
 import { type WorkSamplePublic, localized } from "@/lib/work-samples";
 import { fetchPublicJson } from "@/lib/public-api";
-import { blogPath } from "@workspace/api-zod";
+import { blogPath } from "@workspace/api-zod/browser";
 
 type LatestContentCarouselsProps = {
   isArabic: boolean;

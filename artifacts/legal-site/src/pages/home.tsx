@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SEOHead } from "@/components/seo/SEOHead";
@@ -9,7 +9,7 @@ import { LatestContentCarousels } from "@/components/content/latest-content-caro
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
 import type { Translations } from "@/contexts/LanguageContext";
 import type { Region } from "@/contexts/RegionContext";
-import { COUNSELO_ENTITY_IDS, CONSULTATION_OPERATING_POLICY, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS, CONSULTATION_OPERATING_POLICY, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 
 const fadeIn = {
   initial: false as const,
@@ -35,7 +35,7 @@ function RegionalReferenceHero({ h, regionPrefix, isRTL, region }: { h: Translat
     <section className={`uae-reference-hero regional-editorial-hero regional-editorial-hero--${region}`} aria-labelledby={`${region}-reference-title`}>
       <div className="uae-reference-hero__ornament" aria-hidden="true" />
       <div className="uae-reference-hero__grid">
-        <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="uae-reference-hero__copy">
+        <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="uae-reference-hero__copy">
           <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#d4af60]">{h.hero.badge}</p>
           <h1 id={`${region}-reference-title`}>{h.hero.h1a}{" "}<br /><em>{h.hero.h1b}</em></h1>
           <p className="uae-reference-hero__lede">{h.hero.desc} <strong>{h.hero.descBold}</strong></p>
@@ -53,7 +53,7 @@ function RegionalReferenceHero({ h, regionPrefix, isRTL, region }: { h: Translat
               return <span key={channel.label}><Icon aria-hidden="true" />{channel.label}<small>{channel.sub}</small></span>;
             })}
           </div>
-        </motion.div>
+        </m.div>
 
         <div className="uae-reference-hero__map" aria-hidden="true">
           <img src={regionalHeroMaps[region]} alt="" width="620" height="440" fetchPriority="high" decoding="async" />
@@ -283,7 +283,7 @@ export default function Home() {
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 divide-x rtl:divide-x-reverse divide-white/20">
             {h.stats.map((item, i) => (
-              <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.08 }} className="px-4 md:px-8 lg:px-10 flex items-center gap-3 md:gap-5">
+              <m.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.08 }} className="px-4 md:px-8 lg:px-10 flex items-center gap-3 md:gap-5">
                 {(() => {
                   const Icon = trustIcons[i] ?? Award;
                   return <Icon className="hidden sm:block h-7 w-7 text-[#d4af60] shrink-0" strokeWidth={1.4} />;
@@ -292,7 +292,7 @@ export default function Home() {
                   <div className="text-3xl md:text-4xl font-serif font-medium text-white mb-1 leading-tight">{item.stat}</div>
                   <div className="text-[0.65rem] md:text-xs font-medium text-white/65 uppercase tracking-[0.14em] leading-snug">{item.label}</div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -301,7 +301,7 @@ export default function Home() {
       {/* ── HOW IT WORKS ── */}
       <section className="order-6 py-24 lg:py-32 bg-[#003d22] text-white relative overflow-hidden" aria-labelledby="how-it-works-heading">
         <img
-          src="/images/optimized/counselo-gold-legal-line-art-v1.png"
+          src="/images/optimized/counselo-gold-legal-line-art-v1.webp"
           alt=""
           aria-hidden="true"
           width="1254"
@@ -311,12 +311,12 @@ export default function Home() {
           className="absolute w-[34rem] -start-48 top-24 opacity-[0.13] pointer-events-none"
         />
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
-          <motion.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
+          <m.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
             <p className="text-[#d4af60] font-medium uppercase tracking-[0.18em] text-xs mb-3">{h.howItWorks.eyebrow}</p>
             <h2 id="how-it-works-heading" className="text-4xl md:text-5xl font-serif font-medium text-white mb-4">{h.howItWorks.heading}</h2>
             <div className="w-20 h-px bg-[#d4af60] mx-auto mb-6" />
             <p className="text-white/65 text-lg">{h.howItWorks.subheading}</p>
-          </motion.div>
+          </m.div>
           <div className="relative grid md:grid-cols-4 gap-8 md:gap-0">
             <div className="hidden md:block absolute top-8 inset-x-[10%] h-px bg-[#d4af60]/55" aria-hidden="true">
               {[25, 50, 75].map((position) => (
@@ -330,14 +330,14 @@ export default function Home() {
             {h.howItWorks.steps.map((s, i) => {
               const StepIcon = stepIcons[i] ?? CheckCircle2;
               return (
-                <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
+                <m.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
                   className="relative px-4 lg:px-8 text-center">
                   <div className="relative z-10 w-16 h-16 rounded-full border border-[#d4af60] bg-[#003d22] text-[#e0c078] flex items-center justify-center mx-auto mb-5 font-serif text-xl shadow-[0_0_0_8px_#003d22]">{s.step.replace(/^0/, "")}</div>
                   <div className="h-9 border-s border-dashed border-[#d4af60]/70 w-px mx-auto mb-3" aria-hidden="true" />
                   <StepIcon className="w-10 h-10 text-[#d4af60] mx-auto mb-5" strokeWidth={1.25} aria-hidden="true" />
                   <h3 className="text-xl font-serif font-medium text-white mb-4">{s.title}</h3>
                   <p className="text-white/60 leading-relaxed text-sm">{s.desc}</p>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
@@ -358,7 +358,7 @@ export default function Home() {
         <div className="counselo-orbit counselo-orbit-founder" aria-hidden="true" />
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-end">
-            <motion.div {...fadeIn}>
+            <m.div {...fadeIn}>
               <p className="text-[#755615] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.about.eyebrow}</p>
               <h2 id="about-founder-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6 leading-tight">{h.about.heading}</h2>
               <div className="counselo-gold-rule mb-8" />
@@ -389,16 +389,16 @@ export default function Home() {
                 <div className="font-serif italic text-2xl text-primary leading-tight">{h.about.founderName}</div>
                 <div className="text-xs text-muted-foreground uppercase tracking-[0.14em] mt-1">{h.about.founderRole}</div>
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div initial={false} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative self-stretch min-h-[560px]">
+            <m.div initial={false} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative self-stretch min-h-[560px]">
               <div className="counselo-orbit counselo-orbit-founder-portrait" aria-hidden="true" />
               <div className="absolute inset-0 overflow-hidden">
                 <img src="/omar-baghdadi.jpg" alt="Lawyer Omar Al-Baghdadi — Lawyer and Legal Counsel, Founder of CounselO — 30+ years of legal practice, 20,000+ legal matters and consultations"
                   className="counselo-founder-art w-full h-full object-cover object-top"
                   width="800" height="1200" loading="lazy" decoding="async" />
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -408,13 +408,13 @@ export default function Home() {
         <div className="counselo-orbit counselo-orbit-section" aria-hidden="true" />
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
           <div className="grid lg:grid-cols-[0.78fr_1.22fr] gap-12 lg:gap-20 items-start">
-            <motion.div {...fadeIn}>
+            <m.div {...fadeIn}>
               <p className="text-[#755615] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.cooperation.eyebrow}</p>
               <h2 id="cooperation-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6 leading-tight">{h.cooperation.heading}</h2>
               <div className="counselo-gold-rule mb-8" />
               <p className="text-muted-foreground text-lg leading-relaxed">{h.cooperation.desc}</p>
-            </motion.div>
-            <motion.div initial={false} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="border-t border-border">
+            </m.div>
+            <m.div initial={false} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="border-t border-border">
               {/* Primary office card */}
               <div className="grid sm:grid-cols-[5rem_1fr] gap-5 sm:gap-8 py-8 border-b border-border">
                 <div className="w-16 h-16 border border-primary/20 flex items-center justify-center shrink-0">
@@ -446,7 +446,7 @@ export default function Home() {
                   </div>
                 </div>
               )}
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -454,17 +454,17 @@ export default function Home() {
       {/* ── WHO WE SERVE ── */}
       <section className="order-10 py-24 lg:py-32 bg-background border-b border-border" aria-labelledby="who-we-serve-heading">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
-          <motion.div {...fadeIn} className="max-w-3xl mb-16 lg:mb-20">
+          <m.div {...fadeIn} className="max-w-3xl mb-16 lg:mb-20">
             <p className="text-[#755615] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.whoWeServe.eyebrow}</p>
             <h2 id="who-we-serve-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5">{h.whoWeServe.heading}</h2>
             <div className="counselo-gold-rule mb-6" />
             <p className="text-muted-foreground text-lg leading-relaxed">{h.whoWeServe.subheading}</p>
-          </motion.div>
+          </m.div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 border-y border-border">
             {h.whoWeServe.clients.map((client, i) => {
               const Icon = clientIcons[i];
               return (
-                <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                <m.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="group py-10 px-1 sm:px-7 lg:px-8 first:ps-0 lg:border-e last:border-e-0 border-border">
                   <div className="flex items-center justify-between mb-8">
                     <div className="w-14 h-14 border border-primary/20 flex items-center justify-center">
@@ -474,7 +474,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-serif font-medium text-foreground mb-3 group-hover:text-primary transition-colors">{client.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{client.desc}</p>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
@@ -486,7 +486,7 @@ export default function Home() {
         <div className="counselo-orbit counselo-orbit-practice" aria-hidden="true" />
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
           <div className="grid lg:grid-cols-[0.72fr_1.28fr] gap-12 lg:gap-20">
-            <motion.div {...fadeIn} className="lg:sticky lg:top-32 lg:self-start">
+            <m.div {...fadeIn} className="lg:sticky lg:top-32 lg:self-start">
               <p className="text-[#755615] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.practiceAreas.eyebrow}</p>
               <h2 id="practice-areas-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5 leading-tight">{h.practiceAreas.heading}</h2>
               <div className="counselo-gold-rule mb-7" />
@@ -495,12 +495,12 @@ export default function Home() {
                 {h.practiceAreas.viewAllBtn}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
               </Link>
-            </motion.div>
+            </m.div>
             <div className="grid sm:grid-cols-2 gap-5">
               {h.practiceAreas.areas.map((area, i) => {
                 const Icon = serviceCardIcons[i % serviceCardIcons.length];
                 return (
-                <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.06 }}>
+                <m.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.06 }}>
                   <Link
                     href={regionPrefix + area.path}
                     className="group flex h-full min-h-56 flex-col border border-primary/15 bg-white p-6 transition-all hover:-translate-y-1 hover:border-[#b4924a] hover:shadow-[0_18px_45px_rgba(0,61,34,0.09)]"
@@ -515,7 +515,7 @@ export default function Home() {
                     <p className="mb-7 text-muted-foreground text-sm leading-relaxed">{area.desc}</p>
                     <ArrowRight className="mt-auto h-5 w-5 text-primary transition-transform group-hover:translate-x-1 rtl:rotate-180" />
                   </Link>
-                </motion.div>
+                </m.div>
               )})}
             </div>
           </div>
@@ -542,7 +542,7 @@ export default function Home() {
       {/* ── CTA ── */}
       <section className="order-[15] py-20 lg:py-24 relative overflow-hidden bg-[#003d22]" aria-labelledby="regional-cta-heading">
         <img
-          src="/images/optimized/counselo-gold-legal-line-art-v1.png"
+          src="/images/optimized/counselo-gold-legal-line-art-v1.webp"
           alt=""
           aria-hidden="true"
           width="1254"
@@ -552,7 +552,7 @@ export default function Home() {
           className="absolute w-[30rem] -end-32 -top-32 opacity-[0.13] pointer-events-none"
         />
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
-          <motion.div {...fadeIn} className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-20 items-center">
+          <m.div {...fadeIn} className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-20 items-center">
             <div>
               <p className="text-[#d4af60] uppercase tracking-[0.18em] text-xs font-semibold mb-4">{h.cta.eyebrow}</p>
               <h2 id="regional-cta-heading" className="text-4xl md:text-5xl font-serif font-medium text-white mb-6 leading-tight">{h.cta.heading}</h2>
@@ -579,7 +579,7 @@ export default function Home() {
               </Link>
             </Button>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 

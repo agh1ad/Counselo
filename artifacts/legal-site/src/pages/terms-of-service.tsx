@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import { Link } from "wouter";
 import { CheckCircle2, MessageCircle, Mail, CreditCard, FileText, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod/browser";
 
 export default function TermsOfService() {
   const { isRTL } = useLanguage();
@@ -178,12 +178,12 @@ export default function TermsOfService() {
       {/* Hero */}
       <section className="premium-page-hero py-20 px-4">
         <div className="max-w-4xl mx-auto">
-          <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <p className="text-white/60 font-medium uppercase tracking-widest text-sm mb-3">{content.eyebrow}</p>
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4 leading-tight">{content.heading}</h1>
             <div className="premium-hero-rule mb-6" />
             <p className="text-lg text-white/70 leading-relaxed max-w-2xl">{content.subheading}</p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -200,7 +200,7 @@ export default function TermsOfService() {
         <div>
 
         {/* Process Steps */}
-        <motion.section
+        <m.section
           id="terms-process"
           initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
           className="mb-20"
@@ -212,7 +212,7 @@ export default function TermsOfService() {
             {content.steps.map((step, i) => {
               const Icon = step.icon;
               return (
-                <motion.div
+                <m.div
                   key={i}
                   initial={false}
                   animate={{ opacity: 1, y: 0 }}
@@ -226,14 +226,14 @@ export default function TermsOfService() {
                     <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
                     <p className="text-muted-foreground leading-relaxed">{step.desc}</p>
                   </div>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
-        </motion.section>
+        </m.section>
 
         {/* General Terms */}
-        <motion.section
+        <m.section
           id="terms-general"
           initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-16"
@@ -249,10 +249,10 @@ export default function TermsOfService() {
               </div>
             ))}
           </div>
-        </motion.section>
+        </m.section>
 
         {/* CTA */}
-        <motion.section
+        <m.section
           initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
           className="bg-primary p-10 text-center"
         >
@@ -274,7 +274,7 @@ export default function TermsOfService() {
               <span>info@counselo-legal.com</span>
             </a>
           </div>
-        </motion.section>
+        </m.section>
 
         </div>
       </div>

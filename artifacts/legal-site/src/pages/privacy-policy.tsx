@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import { Link } from "wouter";
 import { Shield, Eye, Lock, Database, Globe, UserCheck, Bell, Trash2, MessageCircle, Mail, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -397,13 +397,13 @@ export default function PrivacyPolicy() {
         className="premium-page-hero py-20 px-4"
       >
         <div className="max-w-4xl mx-auto">
-          <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <p className="text-white/60 font-medium uppercase tracking-widest text-sm mb-3">{content.eyebrow}</p>
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4 leading-tight">{content.heading}</h1>
             <div className="premium-hero-rule mb-6" />
             <p className="text-lg text-white/70 leading-relaxed max-w-2xl mb-4">{content.subheading}</p>
             <p className="text-sm text-white/40">{content.lastUpdated}</p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -428,7 +428,7 @@ export default function PrivacyPolicy() {
           {content.sections.map((section, i) => {
             const Icon = section.icon;
             return (
-              <motion.section
+              <m.section
                 key={i}
                 id={`privacy-section-${i + 1}`}
                 initial={false}
@@ -455,13 +455,13 @@ export default function PrivacyPolicy() {
                     </ul>
                   )}
                 </div>
-              </motion.section>
+              </m.section>
             );
           })}
         </div>
 
         {/* Contact CTA */}
-        <motion.section
+        <m.section
           initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -491,7 +491,7 @@ export default function PrivacyPolicy() {
               <span>info@counselo-legal.com</span>
             </a>
           </div>
-        </motion.section>
+        </m.section>
 
         {/* Back link */}
         <div className="mt-10 text-center lg:col-start-2">

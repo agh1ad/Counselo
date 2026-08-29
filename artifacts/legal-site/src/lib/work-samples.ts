@@ -1,4 +1,4 @@
-import { isPublishableTestimonial, publicTestimonial, type TestimonialMetadata } from "@workspace/api-zod";
+import { isPublishableTestimonial, publicTestimonial, type TestimonialMetadata } from "@workspace/api-zod/testimonial-governance";
 
 export interface WorkSamplePublic {
   id: number;

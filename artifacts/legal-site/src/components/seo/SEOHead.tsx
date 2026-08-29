@@ -13,7 +13,7 @@ import { Helmet } from "react-helmet-async";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { COUNSELO_OPTIMIZED_META } from "@/lib/optimized-meta";
-import { BLOG_SOCIAL_IMAGE } from "@workspace/api-zod";
+import { BLOG_SOCIAL_IMAGE } from "@workspace/api-zod/browser";
 
 const SYR_TEXT_MAP: [RegExp, string][] = [
   [/Saudi Arabia/gi, "Syria"],

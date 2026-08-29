@@ -2,7 +2,7 @@ import {
   SERVICE_REGISTRY,
   type Region,
   type ServiceDefinition,
-} from "@workspace/api-zod";
+} from "@workspace/api-zod/browser";
 
 export const REGION_ORDER: readonly Region[] = ["sa", "syr", "uae"];
 

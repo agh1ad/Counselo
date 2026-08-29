@@ -13,7 +13,7 @@ import {
   getAnalytics, clearAnalytics, getGTMContainerId, type AnalyticsStore,
 } from "@/lib/analytics";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
-import { blogPath } from "@workspace/api-zod";
+import { blogPath } from "@workspace/api-zod/browser";
 
 const API = "/api";
 type Tab = "blog" | "work" | "analytics" | "seo" | "tools";
