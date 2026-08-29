@@ -1,5 +1,6 @@
 const STORE_KEY = "counselo_analytics";
 const GTM_CONTAINER_ID = "GTM-WZ6SW99X";
+let gtmScheduled = false;
 
 export interface EventLog {
   event: string;
@@ -102,30 +103,64 @@ export function getGTMContainerId(): string {
 
 export function injectGTM() {
   if (typeof document === "undefined" || typeof window === "undefined") return;
-  if (document.getElementById("gtm-script")) return;
+  if (gtmScheduled || document.getElementById("gtm-script")) return;
+  gtmScheduled = true;
 
   const win = window as unknown as { dataLayer?: object[] };
   win.dataLayer = win.dataLayer || [];
   win.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
 
-  const loadGTM = () => {
-    if (document.getElementById("gtm-script")) return;
-    const f = document.getElementsByTagName("script")[0];
-    const j = document.createElement("script");
-    j.id = "gtm-script";
-    j.async = true;
-    j.fetchPriority = "low";
-    j.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
-    f.parentNode?.insertBefore(j, f);
+  let scheduledTimer: number | undefined;
+  let idleHandle: number | undefined;
+  let loaded = false;
+
+  const cleanupInteractionListeners = () => {
+    window.removeEventListener("pointerdown", loadAfterInteraction);
+    window.removeEventListener("keydown", loadAfterInteraction);
+    window.removeEventListener("touchstart", loadAfterInteraction);
   };
 
-  // Analytics is not needed to render or operate the page. Waiting until the
-  // load event prevents the third-party request from competing with CSS,
-  // fonts, images, and route chunks on constrained mobile connections. The
-  // dataLayer queue above preserves pageview/conversion events in the meantime.
+  const loadGTM = () => {
+    if (loaded || document.getElementById("gtm-script")) return;
+    loaded = true;
+    cleanupInteractionListeners();
+    if (scheduledTimer !== undefined) window.clearTimeout(scheduledTimer);
+    if (idleHandle !== undefined && "cancelIdleCallback" in window) {
+      window.cancelIdleCallback(idleHandle);
+    }
+
+    const firstScript = document.getElementsByTagName("script")[0];
+    const script = document.createElement("script");
+    script.id = "gtm-script";
+    script.async = true;
+    script.fetchPriority = "low";
+    script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
+    firstScript.parentNode?.insertBefore(script, firstScript);
+  };
+
+  function loadAfterInteraction() {
+    loadGTM();
+  }
+
+  const scheduleAfterCriticalLoad = () => {
+    // Keep a short post-load quiet window so analytics cannot compete with
+    // LCP, font, or image work. The dataLayer and local store remain active.
+    scheduledTimer = window.setTimeout(() => {
+      if ("requestIdleCallback" in window) {
+        idleHandle = window.requestIdleCallback(loadGTM, { timeout: 2_000 });
+      } else {
+        loadGTM();
+      }
+    }, 3_000);
+  };
+
+  window.addEventListener("pointerdown", loadAfterInteraction, { once: true, passive: true });
+  window.addEventListener("keydown", loadAfterInteraction, { once: true });
+  window.addEventListener("touchstart", loadAfterInteraction, { once: true, passive: true });
+
   if (document.readyState === "complete") {
-    window.setTimeout(loadGTM, 0);
+    scheduleAfterCriticalLoad();
   } else {
-    window.addEventListener("load", loadGTM, { once: true });
+    window.addEventListener("load", scheduleAfterCriticalLoad, { once: true });
   }
 }
