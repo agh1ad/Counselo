@@ -37,6 +37,7 @@ const basePath = process.env.BASE_PATH ?? "/";
 
 // Whether this is the SSR bundle build (VITE_SSR=true vite build)
 const isSSR = process.env.VITE_SSR === "true";
+const isProduction = process.env.NODE_ENV === "production";
 
 /**
  * Vite plugin: generate the XML sitemap once during the client build.
@@ -55,15 +56,41 @@ function sitemapPlugin() {
   };
 }
 
+/**
+ * The two jurisdiction-picker pages use Framer Motion components whose
+ * `initial={false}` configuration leaves them at their ordinary resting CSS
+ * state. Resolve only those two imports to a tiny DOM-compatible shim so the
+ * landing-page chunk does not pay for the animation runtime. Every other page
+ * continues using the real framer-motion package unchanged.
+ */
+function staticMotionForRegionPickers() {
+  const shim = path.resolve(import.meta.dirname, "src/lib/static-motion.tsx");
+  return {
+    name: "static-motion-region-pickers",
+    enforce: "pre" as const,
+    resolveId(source: string, importer?: string) {
+      if (source !== "framer-motion" || !importer) return null;
+      const normalizedImporter = importer.split(path.sep).join("/");
+      if (
+        normalizedImporter.endsWith("/src/pages/region-picker.tsx") ||
+        normalizedImporter.endsWith("/src/pages/ar-region-picker.tsx")
+      ) {
+        return shim;
+      }
+      return null;
+    },
+  };
+}
+
 export default defineConfig({
   base: basePath,
   plugins: [
     sitemapPlugin(),
+    staticMotionForRegionPickers(),
     react(),
     tailwindcss(),
-    runtimeErrorOverlay(),
-    ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
+    ...(!isProduction ? [runtimeErrorOverlay()] : []),
+    ...(!isProduction && process.env.REPL_ID !== undefined
       ? [
           await import("@replit/vite-plugin-cartographer").then((m) =>
             m.cartographer({
