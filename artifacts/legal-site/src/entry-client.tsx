@@ -174,6 +174,10 @@ async function boot() {
     return;
   }
 
+  // PickerApp historically reset to the top on initial hydration. Preserve that
+  // behavior before installing scroll-based hydration listeners so a restored
+  // browser scroll position cannot accidentally trigger the heavy runtime.
+  window.scrollTo({ top: 0, behavior: "instant" });
   installPickerAnalytics();
   progressivelyHydratePicker();
 }
