@@ -1,0 +1,146 @@
+diff --git a/artifacts/legal-site/index.html b/artifacts/legal-site/index.html
+index bf0526eb04cdac810f145c963ce6860e624e8f31..14b4c81fa79f3069e1c36a25eaf762c75cf3b5c5 100644
+--- a/artifacts/legal-site/index.html
++++ b/artifacts/legal-site/index.html
+@@ -23,16 +23,18 @@
+     <link rel="alternate" type="application/rss+xml" title="CounselO Legal Updates" href="/feed.xml" />
+     <link rel="alternate" type="text/plain" href="/llms.txt" title="CounselO AI content guide" />
+ 
+-    <!-- The picker logo is above the fold only on / and /ar. Discover it from
+-         the head on those routes without making every regional page fetch it. -->
++    <!-- The decorative hero artwork is the desktop LCP element on / and /ar.
++         Start its pixel-identical WebP transfer from the document head without
++         making regional pages request a picker-only asset. -->
+     <script>
+       if(location.pathname==='/'||location.pathname==='/ar'){
+-        var heroLogo=document.createElement('link');
+-        heroLogo.rel='preload';
+-        heroLogo.as='image';
+-        heroLogo.href='/images/optimized/counselo-region-logo.png';
+-        heroLogo.fetchPriority='high';
+-        document.head.appendChild(heroLogo);
++        var heroArtwork=document.createElement('link');
++        heroArtwork.rel='preload';
++        heroArtwork.as='image';
++        heroArtwork.type='image/webp';
++        heroArtwork.href='/images/optimized/counselo-platform-line-art-v1.webp';
++        heroArtwork.fetchPriority='high';
++        document.head.appendChild(heroArtwork);
+       }
+     </script>
+ 
+@@ -57,29 +59,16 @@
+     </style>
+ 
+     <!--
+-      Keep GA4 command queuing available immediately, but defer the external
+-      gtag.js payload until the page load event. GTM remains responsible for
+-      the site's SPA/conversion events, while this avoids making analytics
+-      compete with first-paint resources on slow mobile connections.
++      Keep the GA4 command queue available immediately. The configured GTM
++      container is the single external analytics runtime, so loading a second
++      gtag.js copy here would duplicate network and JavaScript work without
++      sending an additional automatic page view.
+     -->
+     <script id="ga-inline" data-ga-measurement-id="G-1M9ZZX7VT6">
+       window.dataLayer=window.dataLayer||[];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js',new Date());
+       gtag('config','G-1M9ZZX7VT6',{send_page_view:false});
+-      (function(){
+-        function loadGA(){
+-          if(document.getElementById('ga-script'))return;
+-          var s=document.createElement('script');
+-          s.id='ga-script';
+-          s.async=true;
+-          s.fetchPriority='low';
+-          s.src='https://www.googletagmanager.com/gtag/js?id=G-1M9ZZX7VT6';
+-          document.head.appendChild(s);
+-        }
+-        if(document.readyState==='complete')setTimeout(loadGA,0);
+-        else window.addEventListener('load',loadGA,{once:true});
+-      })();
+     </script>
+ 
+     <!--app-head-->
+diff --git a/artifacts/legal-site/package.json b/artifacts/legal-site/package.json
+index 7592dfedc0f9873b62d4e4b5a5bc29ea1c717bbe..73037aa1cea04ebf67c6de0d898fe1c855646f9b 100644
+--- a/artifacts/legal-site/package.json
++++ b/artifacts/legal-site/package.json
+@@ -5,7 +5,7 @@
+   "type": "module",
+   "scripts": {
+     "dev": "vite --config vite.config.ts --host 0.0.0.0",
+-    "build": "pnpm run generate-sitemap && pnpm run build:client && pnpm run build:ssr && pnpm run build:prerender && pnpm run build:server",
++    "build": "pnpm run generate-sitemap && pnpm run build:client && pnpm run build:ssr && pnpm run build:prerender && pnpm run inline:picker-css && pnpm run build:server",
+     "build:client": "vite build --config vite.config.ts && tsx src/scripts/optimize-built-pngs.ts",
+     "build:ssr": "VITE_SSR=true vite build --config vite.config.ts",
+     "build:prerender": "tsx src/scripts/prerender.ts",
+@@ -19,7 +19,8 @@
+     "llms:validate": "tsx --test src/lib/llms-content.test.ts",
+     "seo:validate": "tsx src/scripts/seo-validate.ts",
+     "click:score": "tsx src/scripts/click-readiness-score.ts",
+-    "test": "tsx --test src/ssr-server.test.ts src/lib/*.test.ts"
++    "test": "tsx --test src/ssr-server.test.ts src/lib/*.test.ts",
++    "inline:picker-css": "tsx src/scripts/inline-picker-css.ts"
+   },
+   "devDependencies": {
+     "@hookform/resolvers": "^3.10.0",
+diff --git a/artifacts/legal-site/src/lib/analytics.ts b/artifacts/legal-site/src/lib/analytics.ts
+index 124c6a082cbd4b167181d02d5a063f700c13b389..9dd87c27a63a7a451f98a9996ca8adfc8a670a28 100644
+--- a/artifacts/legal-site/src/lib/analytics.ts
++++ b/artifacts/legal-site/src/lib/analytics.ts
+@@ -100,32 +100,62 @@ export function getGTMContainerId(): string {
+   return GTM_CONTAINER_ID;
+ }
+ 
++let gtmScheduled = false;
++
+ export function injectGTM() {
+   if (typeof document === "undefined" || typeof window === "undefined") return;
+-  if (document.getElementById("gtm-script")) return;
++  if (document.getElementById("gtm-script") || gtmScheduled) return;
++  gtmScheduled = true;
+ 
+   const win = window as unknown as { dataLayer?: object[] };
+   win.dataLayer = win.dataLayer || [];
+-  win.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
++
++  let fallbackTimer: number | undefined;
++  let loaded = false;
++  const interactionEvents: Array<keyof WindowEventMap> = ["pointerdown", "keydown", "touchstart"];
++
++  const cleanup = () => {
++    if (fallbackTimer !== undefined) window.clearTimeout(fallbackTimer);
++    for (const eventName of interactionEvents) {
++      window.removeEventListener(eventName, loadGTM);
++    }
++    document.removeEventListener("visibilitychange", onVisibilityChange);
++  };
+ 
+   const loadGTM = () => {
+-    if (document.getElementById("gtm-script")) return;
+-    const f = document.getElementsByTagName("script")[0];
+-    const j = document.createElement("script");
+-    j.id = "gtm-script";
+-    j.async = true;
+-    j.fetchPriority = "low";
+-    j.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
+-    f.parentNode?.insertBefore(j, f);
++    if (loaded || document.getElementById("gtm-script")) return;
++    loaded = true;
++    cleanup();
++    win.dataLayer!.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
++
++    const firstScript = document.getElementsByTagName("script")[0];
++    const script = document.createElement("script");
++    script.id = "gtm-script";
++    script.async = true;
++    script.fetchPriority = "low";
++    script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
++    firstScript?.parentNode?.insertBefore(script, firstScript);
+   };
+ 
+-  // Analytics is not needed to render or operate the page. Waiting until the
+-  // load event prevents the third-party request from competing with CSS,
+-  // fonts, images, and route chunks on constrained mobile connections. The
