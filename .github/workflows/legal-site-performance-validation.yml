@@ -1,0 +1,43 @@
+name: Legal site performance validation
+
+on:
+  pull_request:
+    paths:
+      - "artifacts/legal-site/**"
+      - "lib/**"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck legal site
+        run: pnpm --filter @workspace/legal-site run typecheck
+
+      - name: Build optimized client
+        run: pnpm --filter @workspace/legal-site run build:client
