@@ -1,0 +1,41 @@
+name: Correct CounselO font preload paths
+
+on:
+  push:
+    branches:
+      - perf/cls-complete-zero-visual-20260829
+    paths:
+      - ".github/workflows/fix-counselo-font-preloads.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: perf/cls-complete-zero-visual-20260829
+          fetch-depth: 0
+
+      - name: Correct generated font names and commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          file="artifacts/legal-site/src/scripts/prerender.ts"
+          sed -i \
+            -e 's|/fonts/07-UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2|/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2|g' \
+            -e 's|/fonts/15-nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2|/fonts/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2|g' \
+            -e 's|/fonts/11-nuFkD-vYSZviVYUb_rj3ij__anPXDTnogkk7.woff2|/fonts/nuFkD-vYSZviVYUb_rj3ij__anPXDTnogkk7.woff2|g' \
+            -e 's|/fonts/18-Iura6YBj_oCad4k1nzSBC45I.woff2|/fonts/Iura6YBj_oCad4k1nzSBC45I.woff2|g' \
+            -e 's|/fonts/22-Iurf6YBj_oCad4k1l4qkHrRpiYlJ.woff2|/fonts/Iurf6YBj_oCad4k1l4qkHrRpiYlJ.woff2|g' \
+            "$file"
+          rm -f .github/workflows/fix-counselo-font-preloads.yml
+          git config user.name "CounselO Performance Automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Correct self-hosted font preload paths"
+          git push origin HEAD:perf/cls-complete-zero-visual-20260829
