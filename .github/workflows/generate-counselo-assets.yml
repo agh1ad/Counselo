@@ -1,0 +1,73 @@
+name: Generate CounselO optimized assets
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/generate-counselo-assets.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install image tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends imagemagick webp
+
+      - name: Generate responsive WebP assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          src="artifacts/legal-site/public/images/optimized"
+          out="generated-assets/images"
+          mkdir -p "$out"
+
+          magick "$src/counselo-region-logo.png" -resize 193x80 -define webp:lossless=true "$out/counselo-region-logo-193.webp"
+          magick "$src/counselo-region-logo.png" -resize 386x160 -define webp:lossless=true "$out/counselo-region-logo-386.webp"
+          cwebp -quiet -q 90 -m 6 -alpha_q 100 "$src/counselo-platform-line-art-v1.png" -o "$out/counselo-platform-line-art-v1.webp"
+          cwebp -quiet -q 92 -m 6 "$src/saudi-arabia-flag.jpg" -resize 72 48 -o "$out/saudi-arabia-flag-72.webp"
+          cwebp -quiet -q 92 -m 6 "$src/syria-flag.jpg" -resize 72 48 -o "$out/syria-flag-72.webp"
+          ls -lh "$out"
+
+      - name: Download and localize Google Fonts
+        shell: bash
+        run: |
+          set -euo pipefail
+          out="generated-assets/fonts"
+          mkdir -p "$out"
+          font_url='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=optional'
+          user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36'
+          curl -fsSL -A "$user_agent" "$font_url" -o "$out/counselo-fonts.remote.css"
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const { execFileSync } = require('node:child_process');
+          const dir = 'generated-assets/fonts';
+          let css = fs.readFileSync(path.join(dir, 'counselo-fonts.remote.css'), 'utf8');
+          const urls = [...new Set([...css.matchAll(/url\((https:\/\/fonts\.gstatic\.com\/[^)]+)\)/g)].map((m) => m[1]))];
+          for (const [index, url] of urls.entries()) {
+            const original = new URL(url).pathname.split('/').pop() || `font-${index}.woff2`;
+            const filename = `${String(index + 1).padStart(2, '0')}-${original}`;
+            execFileSync('curl', ['-fsSL', url, '-o', path.join(dir, filename)], { stdio: 'inherit' });
+            css = css.split(url).join(`/fonts/${filename}`);
+          }
+          fs.writeFileSync(path.join(dir, 'counselo-fonts.css'), css);
+          fs.unlinkSync(path.join(dir, 'counselo-fonts.remote.css'));
+          console.log(`Localized ${urls.length} font files`);
+          NODE
+          ls -lh "$out"
+
+      - name: Upload generated assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: counselo-optimized-assets
+          path: generated-assets
+          if-no-files-found: error
