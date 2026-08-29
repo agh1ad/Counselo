@@ -1,0 +1,169 @@
+name: Apply CounselO PageSpeed hardening
+
+on:
+  push:
+    branches:
+      - perf/counselo-pagespeed-final-20260829
+    paths:
+      - .github/scripts/apply-counselo-pagespeed.mjs
+      - .github/workflows/apply-counselo-pagespeed.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout performance branch
+        uses: actions/checkout@v4
+        with:
+          ref: perf/counselo-pagespeed-final-20260829
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Enable pnpm
+        run: corepack enable
+
+      - name: Install lossless WebP encoder
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y webp
+
+      - name: Apply deterministic performance changes
+        run: node .github/scripts/apply-counselo-pagespeed.mjs
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck legal site
+        run: pnpm --filter @workspace/legal-site typecheck
+
+      - name: Run legal-site tests
+        run: pnpm --filter @workspace/legal-site test
+
+      - name: Validate SEO sources
+        run: pnpm --filter @workspace/legal-site seo:validate
+
+      - name: Build production site
+        run: pnpm --filter @workspace/legal-site build
+
+      - name: Start production SSR server
+        run: |
+          PORT=4173 NODE_ENV=production node artifacts/legal-site/dist/ssr-server.mjs > /tmp/counselo-ssr.log 2>&1 &
+          echo $! > /tmp/counselo-ssr.pid
+          for i in {1..45}; do
+            if curl -fsS http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/counselo-ssr.log
+          exit 1
+
+      - name: Verify rendered picker invariants
+        run: |
+          curl -fsS http://127.0.0.1:4173/ > /tmp/counselo-home.html
+          grep -q 'Online Legal' /tmp/counselo-home.html
+          grep -q 'counselo-region-logo.webp' /tmp/counselo-home.html
+          grep -q 'data-ssr="true"' /tmp/counselo-home.html
+          grep -q 'font-display: block' /tmp/counselo-home.html
+          if grep -q 'fonts.googleapis.com' /tmp/counselo-home.html; then
+            echo 'External Google Fonts reference remains in rendered homepage'
+            exit 1
+          fi
+
+      - name: Desktop Lighthouse
+        run: |
+          pnpm dlx lighthouse@13.0.1 http://127.0.0.1:4173/ \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --form-factor=desktop \
+            --screenEmulation.width=1350 \
+            --screenEmulation.height=940 \
+            --screenEmulation.deviceScaleFactor=1 \
+            --throttling-method=simulate \
+            --chrome-flags="--headless --no-sandbox" \
+            --output=json \
+            --output-path=lighthouse-desktop.json \
+            --quiet
+
+      - name: Mobile Lighthouse
+        run: |
+          pnpm dlx lighthouse@13.0.1 http://127.0.0.1:4173/ \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --form-factor=mobile \
+            --screenEmulation.mobile=true \
+            --throttling-method=simulate \
+            --chrome-flags="--headless --no-sandbox" \
+            --output=json \
+            --output-path=lighthouse-mobile.json \
+            --quiet
+
+      - name: Enforce stability and quality gates
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+
+          const reports = [
+            ['desktop', JSON.parse(fs.readFileSync('lighthouse-desktop.json', 'utf8'))],
+            ['mobile', JSON.parse(fs.readFileSync('lighthouse-mobile.json', 'utf8'))],
+          ];
+          let failed = false;
+          for (const [label, report] of reports) {
+            const c = report.categories;
+            const metrics = {
+              performance: c.performance.score,
+              accessibility: c.accessibility.score,
+              bestPractices: c['best-practices'].score,
+              seo: c.seo.score,
+              fcpMs: report.audits['first-contentful-paint'].numericValue,
+              lcpMs: report.audits['largest-contentful-paint'].numericValue,
+              tbtMs: report.audits['total-blocking-time'].numericValue,
+              cls: report.audits['cumulative-layout-shift'].numericValue,
+              speedIndexMs: report.audits['speed-index'].numericValue,
+            };
+            console.log(label, JSON.stringify(metrics, null, 2));
+            if (metrics.cls > 0.1) {
+              console.error(`${label}: CLS must be <= 0.1`);
+              failed = true;
+            }
+            if (metrics.accessibility < 0.95 || metrics.bestPractices < 1 || metrics.seo < 1) {
+              console.error(`${label}: category regression detected`);
+              failed = true;
+            }
+          }
+          if (failed) process.exit(1);
+          NODE
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: counselo-pagespeed-reports
+          path: |
+            lighthouse-desktop.json
+            lighthouse-mobile.json
+          if-no-files-found: warn
+
+      - name: Commit validated optimizations
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            artifacts/legal-site/index.html \
+            artifacts/legal-site/src/entry-client.tsx \
+            artifacts/legal-site/src/pages/region-picker.tsx \
+            artifacts/legal-site/src/pages/ar-region-picker.tsx \
+            artifacts/legal-site/vite.config.ts \
+            artifacts/legal-site/public/fonts \
+            artifacts/legal-site/public/images/optimized/counselo-region-logo.webp \
+            artifacts/legal-site/public/images/optimized/counselo-platform-line-art-v1.webp
+          git diff --cached --check
+          git commit -m "Harden CounselO layout stability and critical delivery [skip ci]"
+          git push origin HEAD:perf/counselo-pagespeed-final-20260829
