@@ -118,6 +118,23 @@ function lightweightPublicImports() {
   };
 }
 
+/**
+ * Keep react-helmet-async external at runtime so its server environment check
+ * remains correct, but bridge its CommonJS package shape through createRequire
+ * so Node ESM can consume Helmet/HelmetProvider during prerendering.
+ */
+function helmetSsrInterop() {
+  const wrapper = path.resolve(import.meta.dirname, "src/lib/helmet-async-ssr.ts");
+  return {
+    name: "helmet-ssr-interop",
+    enforce: "pre" as const,
+    resolveId(source: string) {
+      if (isSSR && source === "react-helmet-async") return wrapper;
+      return null;
+    },
+  };
+}
+
 /** Temporary build diagnostics used by the performance PR. */
 function entryBundleReport() {
   return {
@@ -145,6 +162,7 @@ export default defineConfig({
     sitemapPlugin(),
     staticMotionForRegionPickers(),
     lightweightPublicImports(),
+    helmetSsrInterop(),
     entryBundleReport(),
     react(),
     tailwindcss(),
@@ -199,11 +217,4 @@ export default defineConfig({
     host: "0.0.0.0",
     allowedHosts: true,
   },
-  // SSR build: do NOT add noExternal for react-helmet-async.
-  // Its canUseDOM static field reads `typeof window !== "undefined"` at module
-  // load time. If Vite bundles it (noExternal), its browser-target transform
-  // replaces typeof-window with `true`, making canUseDOM=true → Helmet skips
-  // SSR context population entirely. Leaving it external lets Node.js require()
-  // it at runtime where window is genuinely undefined → canUseDOM=false → SSR
-  // context is populated correctly after renderToString.
 });
