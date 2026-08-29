@@ -23,17 +23,45 @@
     <link rel="alternate" type="application/rss+xml" title="CounselO Legal Updates" href="/feed.xml" />
     <link rel="alternate" type="text/plain" href="/llms.txt" title="CounselO AI content guide" />
 
-    <!-- GA4 is intentionally present in the first response so short visits and
-         conversion clicks are measured; the client also tracks SPA routes. -->
-    <script id="ga-script" async src="https://www.googletagmanager.com/gtag/js?id=G-1M9ZZX7VT6"></script>
-    <script id="ga-inline" data-ga-measurement-id="G-1M9ZZX7VT6">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1M9ZZX7VT6',{send_page_view:false});</script>
+    <!--
+      Keep GA4 command queuing available immediately, but defer the external
+      gtag.js payload until the page load event. GTM remains responsible for
+      the site's SPA/conversion events, while this avoids making analytics
+      compete with first-paint resources on slow mobile connections.
+    -->
+    <script id="ga-inline" data-ga-measurement-id="G-1M9ZZX7VT6">
+      window.dataLayer=window.dataLayer||[];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js',new Date());
+      gtag('config','G-1M9ZZX7VT6',{send_page_view:false});
+      (function(){
+        function loadGA(){
+          if(document.getElementById('ga-script'))return;
+          var s=document.createElement('script');
+          s.id='ga-script';
+          s.async=true;
+          s.fetchPriority='low';
+          s.src='https://www.googletagmanager.com/gtag/js?id=G-1M9ZZX7VT6';
+          document.head.appendChild(s);
+        }
+        if(document.readyState==='complete')setTimeout(loadGA,0);
+        else window.addEventListener('load',loadGA,{once:true});
+      })();
+    </script>
 
     <!--app-head-->
 
-    <!-- Google Fonts — loaded after app-head so route head tags come first -->
+    <!--
+      Fonts are still fetched immediately so the final typography remains
+      unchanged, but the Google Fonts stylesheet no longer blocks first paint.
+      The preload starts the request early; the media switch applies it once
+      downloaded. The noscript fallback preserves typography with JS disabled.
+    -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=optional" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet"></noscript>
   </head>
   <body>
     <!--
