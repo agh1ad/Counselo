@@ -22,7 +22,9 @@ test("core CounselO entities have stable IDs and canonical names", () => {
   assert.equal(OMAR_AL_BAGHDADI["@id"], "https://counselo-legal.com/#person-omar-al-baghdadi");
   assert.equal(OMAR_AL_BAGHDADI.name, "Omar Al-Baghdadi");
   assert.ok(OMAR_AL_BAGHDADI.alternateName.includes("Omar Riyad Al-Baghdadi"));
+  assert.equal(OMAR_AL_BAGHDADI.url, "https://omarbaghdadi.com");
   assert.equal(OMAR_AL_BAGHDADI.worksFor["@id"], COUNSELO_ENTITY_IDS.organization);
+  assert.ok(OMAR_AL_BAGHDADI.sameAs.includes("https://omarbaghdadi.com"));
   assert.ok(OMAR_AL_BAGHDADI.sameAs.includes("https://www.baghdadilaw.co/who-we-are"));
 });
 
