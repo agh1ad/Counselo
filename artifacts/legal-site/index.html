@@ -23,17 +23,77 @@
     <link rel="alternate" type="application/rss+xml" title="CounselO Legal Updates" href="/feed.xml" />
     <link rel="alternate" type="text/plain" href="/llms.txt" title="CounselO AI content guide" />
 
-    <!-- GA4 is intentionally present in the first response so short visits and
-         conversion clicks are measured; the client also tracks SPA routes. -->
-    <script id="ga-script" async src="https://www.googletagmanager.com/gtag/js?id=G-1M9ZZX7VT6"></script>
-    <script id="ga-inline" data-ga-measurement-id="G-1M9ZZX7VT6">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1M9ZZX7VT6',{send_page_view:false});</script>
+    <!-- The picker logo is above the fold only on / and /ar. Discover it from
+         the head on those routes without making every regional page fetch it. -->
+    <script>
+      if(location.pathname==='/'||location.pathname==='/ar'){
+        var heroLogo=document.createElement('link');
+        heroLogo.rel='preload';
+        heroLogo.as='image';
+        heroLogo.href='/images/optimized/counselo-region-logo.png';
+        heroLogo.fetchPriority='high';
+        document.head.appendChild(heroLogo);
+      }
+    </script>
+
+    <!--
+      The jurisdiction picker is a long prerendered document. Let Chromium skip
+      layout/paint work for its off-screen sections while keeping every node in
+      the HTML/DOM for SEO, accessibility, anchors, and hydration. The selector
+      matches only / and /ar because all other public routes have an AppShell
+      wrapper between #root and #main-content.
+    -->
+    <style>
+      #root > main#main-content > section:nth-of-type(n+2) {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 900px;
+      }
+      @media print {
+        #root > main#main-content > section:nth-of-type(n+2) {
+          content-visibility: visible;
+          contain-intrinsic-size: none;
+        }
+      }
+    </style>
+
+    <!--
+      Keep GA4 command queuing available immediately, but defer the external
+      gtag.js payload until the page load event. GTM remains responsible for
+      the site's SPA/conversion events, while this avoids making analytics
+      compete with first-paint resources on slow mobile connections.
+    -->
+    <script id="ga-inline" data-ga-measurement-id="G-1M9ZZX7VT6">
+      window.dataLayer=window.dataLayer||[];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js',new Date());
+      gtag('config','G-1M9ZZX7VT6',{send_page_view:false});
+      (function(){
+        function loadGA(){
+          if(document.getElementById('ga-script'))return;
+          var s=document.createElement('script');
+          s.id='ga-script';
+          s.async=true;
+          s.fetchPriority='low';
+          s.src='https://www.googletagmanager.com/gtag/js?id=G-1M9ZZX7VT6';
+          document.head.appendChild(s);
+        }
+        if(document.readyState==='complete')setTimeout(loadGA,0);
+        else window.addEventListener('load',loadGA,{once:true});
+      })();
+    </script>
 
     <!--app-head-->
 
-    <!-- Google Fonts — loaded after app-head so route head tags come first -->
+    <!--
+      Keep the same Google font families, weights and `display=optional`
+      behavior as before, but make the stylesheet non-render-blocking. This
+      avoids late font swaps/layout shifts on constrained mobile connections.
+    -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=optional" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=optional">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=optional" rel="stylesheet"></noscript>
   </head>
   <body>
     <!--

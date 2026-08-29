@@ -1,0 +1,67 @@
+name: Legal site performance validation
+
+on:
+  pull_request:
+    paths:
+      - "artifacts/legal-site/**"
+      - "lib/**"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck legal site
+        run: pnpm --filter @workspace/legal-site run typecheck
+
+      - name: Test legal site
+        run: pnpm --filter @workspace/legal-site run test
+
+      - name: Build complete production site
+        run: pnpm --filter @workspace/legal-site run build
+
+      - name: Smoke test production server
+        shell: bash
+        run: |
+          PORT=24438 NODE_ENV=production node artifacts/legal-site/dist/ssr-server.mjs > /tmp/counselo-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent --show-error http://127.0.0.1:24438/ > /tmp/counselo-root.html; then
+              break
+            fi
+            if ! kill -0 "$server_pid" 2>/dev/null; then
+              cat /tmp/counselo-server.log
+              exit 1
+            fi
+            sleep 1
+          done
+          curl --fail --silent --show-error http://127.0.0.1:24438/ar > /tmp/counselo-ar.html
+          curl --fail --silent --show-error http://127.0.0.1:24438/sa > /tmp/counselo-sa.html
+          grep -q 'id="root"' /tmp/counselo-root.html
+          grep -q 'CounselO' /tmp/counselo-root.html
