@@ -3,23 +3,41 @@ import { Suspense, useEffect } from "react";
 import { Router as WouterRouter, useLocation } from "wouter";
 import RegionPicker from "@/pages/region-picker";
 import ArRegionPicker from "@/pages/ar-region-picker";
-import { injectGTM, trackEvent, trackPageview } from "@/lib/analytics";
 
 const queryClient = new QueryClient();
+let analyticsPromise: Promise<typeof import("@/lib/analytics")> | null = null;
+
+function loadAnalytics() {
+  analyticsPromise ??= import("@/lib/analytics");
+  return analyticsPromise;
+}
+
+function afterWindowLoad(callback: () => void) {
+  if (document.readyState === "complete") {
+    window.setTimeout(callback, 0);
+    return () => undefined;
+  }
+  window.addEventListener("load", callback, { once: true });
+  return () => window.removeEventListener("load", callback);
+}
 
 function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
-    trackPageview(location);
+    return afterWindowLoad(() => {
+      void loadAnalytics().then(({ trackPageview }) => trackPageview(location));
+    });
   }, [location]);
   return null;
 }
 
 function GAInit() {
-  useEffect(() => {
-    injectGTM();
-  }, []);
+  useEffect(() =>
+    afterWindowLoad(() => {
+      void loadAnalytics().then(({ injectGTM }) => injectGTM());
+    }),
+  []);
   return null;
 }
 
@@ -47,27 +65,32 @@ function InteractionTracking() {
         region: element.dataset.region,
         language: element.dataset.lang,
       };
-      trackEvent("click", window.location.pathname, details);
-      if (/wa\.me|whatsapp/i.test(href) || element.dataset.cta === "whatsapp") {
-        trackEvent("whatsapp_click", window.location.pathname, details);
-      } else if (href.startsWith("tel:")) {
-        trackEvent("phone_click", window.location.pathname, details);
-      } else if (href.startsWith("mailto:")) {
-        trackEvent("email_click", window.location.pathname, details);
-      } else if (element.dataset.cta === "contact" || /\/contact(?:\?|$)/.test(href)) {
-        trackEvent("consultation_click", window.location.pathname, details);
-      }
-      if (anchor?.hasAttribute("download") || /[?&]download=1/.test(href)) {
-        trackEvent("file_download", window.location.pathname, details);
-      }
+
+      void loadAnalytics().then(({ trackEvent }) => {
+        trackEvent("click", window.location.pathname, details);
+        if (/wa\.me|whatsapp/i.test(href) || element.dataset.cta === "whatsapp") {
+          trackEvent("whatsapp_click", window.location.pathname, details);
+        } else if (href.startsWith("tel:")) {
+          trackEvent("phone_click", window.location.pathname, details);
+        } else if (href.startsWith("mailto:")) {
+          trackEvent("email_click", window.location.pathname, details);
+        } else if (element.dataset.cta === "contact" || /\/contact(?:\?|$)/.test(href)) {
+          trackEvent("consultation_click", window.location.pathname, details);
+        }
+        if (anchor?.hasAttribute("download") || /[?&]download=1/.test(href)) {
+          trackEvent("file_download", window.location.pathname, details);
+        }
+      });
     };
 
     const onSubmit = (event: SubmitEvent) => {
       const form = event.target;
       if (!(form instanceof HTMLFormElement)) return;
-      trackEvent("form_submit_attempt", window.location.pathname, {
-        form_id: form.id.slice(0, 80),
-        form_name: form.getAttribute("name")?.slice(0, 80),
+      void loadAnalytics().then(({ trackEvent }) => {
+        trackEvent("form_submit_attempt", window.location.pathname, {
+          form_id: form.id.slice(0, 80),
+          form_name: form.getAttribute("name")?.slice(0, 80),
+        });
       });
     };
 
