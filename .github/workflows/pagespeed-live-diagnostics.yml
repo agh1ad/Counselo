@@ -34,13 +34,16 @@ jobs:
         shell: bash
         run: |
           npx --yes lighthouse@13.4.1 'https://counselo-legal.com/?diagnostic=20260829' \
+            --preset=desktop \
             --only-categories=performance,accessibility,best-practices,seo \
-            --form-factor=desktop \
-            --screenEmulation.mobile=false \
             --throttling-method=devtools \
             --throttling.rttMs=150 \
             --throttling.throughputKbps=1600 \
             --throttling.cpuSlowdownMultiplier=1 \
+            --screenEmulation.width=1350 \
+            --screenEmulation.height=940 \
+            --screenEmulation.deviceScaleFactor=1 \
+            --screenEmulation.mobile=false \
             --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage --disable-cache' \
             --output=json \
             --output-path=lighthouse-live-desktop.json \
@@ -55,6 +58,8 @@ jobs:
             finalUrl: report.finalDisplayedUrl,
             fetchTime: report.fetchTime,
             lighthouseVersion: report.lighthouseVersion,
+            userAgent: report.configSettings?.emulatedUserAgent,
+            screenEmulation: report.configSettings?.screenEmulation,
             performance: report.categories.performance?.score,
             accessibility: report.categories.accessibility?.score,
             bestPractices: report.categories['best-practices']?.score,
