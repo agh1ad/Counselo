@@ -170,6 +170,58 @@ function htmlTag(route: string): string {
   return isArabic ? '<html lang="ar" dir="rtl">' : '<html lang="en" dir="ltr">';
 }
 
+const PICKER_ROUTES = new Set(["/", "/ar"]);
+
+const ENGLISH_PICKER_FONT_PRELOADS = [
+  "/fonts/07-UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
+  "/fonts/15-nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2",
+  "/fonts/11-nuFkD-vYSZviVYUb_rj3ij__anPXDTnogkk7.woff2",
+] as const;
+
+const ARABIC_PICKER_FONT_PRELOADS = [
+  "/fonts/18-Iura6YBj_oCad4k1nzSBC45I.woff2",
+  "/fonts/22-Iurf6YBj_oCad4k1l4qkHrRpiYlJ.woff2",
+] as const;
+
+function pickerResourceHints(route: string): string {
+  if (!PICKER_ROUTES.has(route)) return "";
+  const fontPreloads = (route === "/ar"
+    ? ARABIC_PICKER_FONT_PRELOADS
+    : ENGLISH_PICKER_FONT_PRELOADS
+  )
+    .map(
+      (href) =>
+        `<link rel="preload" as="font" href="${href}" type="font/woff2" crossorigin>`,
+    )
+    .join("");
+
+  return [
+    fontPreloads,
+    '<link rel="preload" as="image" href="/images/optimized/counselo-region-logo-193.webp" imagesrcset="/images/optimized/counselo-region-logo-193.webp 1x, /images/optimized/counselo-region-logo-386.webp 2x" type="image/webp" fetchpriority="high">',
+    '<link rel="preload" as="image" href="/images/optimized/counselo-platform-line-art-v1.webp" type="image/webp" media="(min-width: 1024px)" fetchpriority="high">',
+  ].join("");
+}
+
+function inlinePickerStyles(route: string, template: string): string {
+  if (!PICKER_ROUTES.has(route)) return template;
+
+  return template.replace(/<link\b[^>]*>/gi, (tag) => {
+    if (!/\brel=["']stylesheet["']/i.test(tag)) return tag;
+    const href = tag.match(/\bhref=["']([^"']+)["']/i)?.[1];
+    if (!href || !href.startsWith("/") || !href.includes(".css")) return tag;
+
+    const stylesheetPath = resolve(
+      publicDir,
+      href.replace(/^\/+/, "").replace(/[?#].*$/, ""),
+    );
+    const css = readFileSync(stylesheetPath, "utf-8").replace(
+      /<\/style/gi,
+      "<\\/style",
+    );
+    return `<style data-picker-critical-css>${css}</style>`;
+  });
+}
+
 function writeRoute(
   route: string,
   template: string,
@@ -216,7 +268,8 @@ function writeRoute(
     : "";
   const initialData = `${discoveryData}${detailData}`;
 
-  const routeHtml = template
+  const routeTemplate = inlinePickerStyles(route, template);
+  const routeHtml = routeTemplate
     // Patch the static <html lang="en"> to the correct lang + dir for this route.
     .replace('<html lang="en">', htmlTag(route))
     // Inject per-route head tags (title, meta, canonical, OG, schemas).
@@ -226,7 +279,7 @@ function writeRoute(
     // and meta content so SEO crawlers see the intended character.
     .replace(
       "<!--app-head-->",
-      `${unescapeHeadEntities(addDataRh(head))}${initialData}`,
+      `${pickerResourceHints(route)}${unescapeHeadEntities(addDataRh(head))}${initialData}`,
     )
     // Inject server-rendered app HTML into the root div.
     // data-ssr signals entry-client.tsx to use hydrateRoot instead of createRoot.
