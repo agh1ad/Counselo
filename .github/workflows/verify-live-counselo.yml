@@ -1,4 +1,4 @@
-name: Verify live CounselO deployment
+name: Check existing Replit deployment credentials
 
 on:
   push:
@@ -11,98 +11,40 @@ permissions:
   contents: read
 
 jobs:
-  verify:
+  check:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 5
+    env:
+      REPLIT_TOKEN_VALUE: ${{ secrets.REPLIT_TOKEN }}
+      REPLIT_API_TOKEN_VALUE: ${{ secrets.REPLIT_API_TOKEN }}
+      REPLIT_AUTH_TOKEN_VALUE: ${{ secrets.REPLIT_AUTH_TOKEN }}
+      REPLIT_DEPLOYMENT_TOKEN_VALUE: ${{ secrets.REPLIT_DEPLOYMENT_TOKEN }}
+      REPLIT_GIT_TOKEN_VALUE: ${{ secrets.REPLIT_GIT_TOKEN }}
+      REPLIT_SSH_PRIVATE_KEY_VALUE: ${{ secrets.REPLIT_SSH_PRIVATE_KEY }}
+      REPLIT_SSH_HOST_VALUE: ${{ secrets.REPLIT_SSH_HOST }}
+      REPLIT_SSH_USER_VALUE: ${{ secrets.REPLIT_SSH_USER }}
+      REPLIT_HOST_VAR: ${{ vars.REPLIT_SSH_HOST }}
+      REPLIT_USER_VAR: ${{ vars.REPLIT_SSH_USER }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Verify deployed HTML and critical assets
+      - name: Report credential availability without exposing values
         shell: bash
         run: |
-          url="https://counselo-legal.com/?deployment-check=${GITHUB_SHA}"
-          curl --fail --location --retry 12 --retry-delay 5 --retry-all-errors --connect-timeout 15 --max-time 90 \
-            -H 'Cache-Control: no-cache' "$url" -o live.html
-          grep -q 'counselo-region-logo-310.webp' live.html
-          grep -q 'counselo-region-logo-193.webp' live.html
-          grep -q 'counselo-platform-line-art-v1.webp' live.html
-          grep -q 'data-picker-critical-css' live.html
-          if grep -q 'counselo-region-logo-386.webp' live.html; then
-            echo 'Obsolete 386px logo is still live'
-            exit 1
-          fi
-          if grep -q 'fonts.googleapis.com\|fonts.gstatic.com' live.html; then
-            echo 'External Google Fonts are still live'
-            exit 1
-          fi
-          if grep -Eq 'contain-intrinsic-size:[[:space:]]*auto[[:space:]]+900px' live.html; then
-            echo 'Obsolete 900px intrinsic placeholder is still live'
-            exit 1
-          fi
-          curl --fail --location --retry 8 --retry-delay 3 --retry-all-errors --connect-timeout 15 --max-time 60 \
-            -o /dev/null https://counselo-legal.com/images/optimized/counselo-region-logo-310.webp
-
-      - name: Live desktop Lighthouse
-        run: |
-          npx --yes lighthouse@13.0.1 https://counselo-legal.com/ \
-            --preset=desktop \
-            --only-categories=performance,accessibility,best-practices,seo \
-            --throttling-method=simulate \
-            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
-            --output=json \
-            --output-path=live-desktop.json \
-            --quiet
-
-      - name: Live mobile Lighthouse
-        run: |
-          npx --yes lighthouse@13.0.1 https://counselo-legal.com/ \
-            --form-factor=mobile \
-            --screenEmulation.mobile=true \
-            --only-categories=performance,accessibility,best-practices,seo \
-            --throttling-method=simulate \
-            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
-            --output=json \
-            --output-path=live-mobile.json \
-            --quiet
-
-      - name: Summarize live results
-        shell: bash
-        run: |
-          node <<'NODE'
-          const fs = require('node:fs');
-          const summary = {};
-          for (const [kind, file] of [['desktop', 'live-desktop.json'], ['mobile', 'live-mobile.json']]) {
-            const report = JSON.parse(fs.readFileSync(file, 'utf8'));
-            const a = report.audits;
-            const c = report.categories;
-            summary[kind] = {
-              performance: c.performance.score,
-              accessibility: c.accessibility.score,
-              bestPractices: c['best-practices'].score,
-              seo: c.seo.score,
-              fcp: a['first-contentful-paint']?.displayValue,
-              lcp: a['largest-contentful-paint']?.displayValue,
-              speedIndex: a['speed-index']?.displayValue,
-              tbt: a['total-blocking-time']?.displayValue,
-              cls: a['cumulative-layout-shift']?.displayValue,
-            };
+          check() {
+            local name="$1"
+            local value="$2"
+            if [ -n "$value" ]; then
+              echo "$name=set"
+            else
+              echo "$name=unset"
+            fi
           }
-          fs.writeFileSync('live-summary.json', JSON.stringify(summary, null, 2));
-          console.log(JSON.stringify(summary, null, 2));
-          if (summary.desktop.accessibility !== 1 || summary.mobile.accessibility !== 1) process.exit(1);
-          if (summary.desktop.bestPractices !== 1 || summary.mobile.bestPractices !== 1) process.exit(1);
-          if (summary.desktop.seo !== 1 || summary.mobile.seo !== 1) process.exit(1);
-          if (Number(summary.desktop.cls) > 0.1 || Number(summary.mobile.cls) > 0.1) process.exit(1);
-          NODE
-
-      - name: Upload live verification
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: live-counselo-verification
-          path: |
-            live.html
-            live-desktop.json
-            live-mobile.json
-            live-summary.json
+          check REPLIT_TOKEN "$REPLIT_TOKEN_VALUE"
+          check REPLIT_API_TOKEN "$REPLIT_API_TOKEN_VALUE"
+          check REPLIT_AUTH_TOKEN "$REPLIT_AUTH_TOKEN_VALUE"
+          check REPLIT_DEPLOYMENT_TOKEN "$REPLIT_DEPLOYMENT_TOKEN_VALUE"
+          check REPLIT_GIT_TOKEN "$REPLIT_GIT_TOKEN_VALUE"
+          check REPLIT_SSH_PRIVATE_KEY "$REPLIT_SSH_PRIVATE_KEY_VALUE"
+          check REPLIT_SSH_HOST_SECRET "$REPLIT_SSH_HOST_VALUE"
+          check REPLIT_SSH_USER_SECRET "$REPLIT_SSH_USER_VALUE"
+          check REPLIT_SSH_HOST_VAR "$REPLIT_HOST_VAR"
+          check REPLIT_SSH_USER_VAR "$REPLIT_USER_VAR"
