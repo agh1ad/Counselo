@@ -123,6 +123,26 @@ export function Footer() {
           <a href={`mailto:${f.email}`}><Mail aria-hidden="true" />{f.email}</a>
         </div>
       </div>
+      <section className="legal-network-footer" aria-labelledby="legal-network-footer-title">
+        <div className="legal-network-footer__intro">
+          <h2 id="legal-network-footer-title">{isArabic ? "شبكة عمر البغدادي القانونية" : "Omar Al-Baghdadi Legal Network"}</h2>
+          <p>{isArabic ? "منصات ومواقع مهنية مترابطة، لكل منها دوره ونطاقه المستقل." : "Connected professional platforms, each with its own role and scope."}</p>
+        </div>
+        <nav className="legal-network-footer__list" aria-label={isArabic ? "مواقع شبكة عمر البغدادي القانونية" : "Omar Al-Baghdadi Legal Network websites"}>
+          <a href={isArabic ? "https://omarbaghdadi.com/ar" : "https://omarbaghdadi.com"} target="_blank" rel="noopener noreferrer" className="legal-network-footer__item">
+            <span className="legal-network-footer__icon legal-network-footer__icon--omar" aria-hidden="true" />
+            <span><strong>{isArabic ? "عمر البغدادي" : "Omar Al-Baghdadi"}</strong><small>{isArabic ? "الموقع المهني الرسمي" : "Official professional profile"}</small></span>
+          </a>
+          <div className="legal-network-footer__item is-current" aria-current="page">
+            <span className="legal-network-footer__icon legal-network-footer__icon--counselo" aria-hidden="true" />
+            <span><strong>CounselO</strong><small>{isArabic ? "منصة الاستشارات القانونية الرقمية · الموقع الحالي" : "Online legal consultation platform · Current site"}</small></span>
+          </div>
+          <a href={isArabic ? "https://www.baghdadilaw.co/ar/who-we-are" : "https://www.baghdadilaw.co/who-we-are"} target="_blank" rel="noopener noreferrer" className="legal-network-footer__item">
+            <span className="legal-network-footer__icon legal-network-footer__icon--baghdadi" aria-hidden="true" />
+            <span><strong>{isArabic ? "البغدادي للمحاماة" : "BaghdadiLaw"}</strong><small>{isArabic ? "مكتب محاماة تأسس عام 1957" : "Law firm established in 1957"}</small></span>
+          </a>
+        </nav>
+      </section>
       <div className="uae-reference-footer__bottom">
         <span>&copy; {new Date().getFullYear()} {brandName}. {f.copyright}</span>
         <div><Link href={regionPickerPath}>{isArabic ? "اختيار الدولة" : "Region Picker"}</Link>{!isSharedPath && <><i /> <Link href={p("/privacy-policy")}>{f.privacy}</Link><i /> <Link href={p("/terms-of-service")}>{f.terms}</Link></>}</div>

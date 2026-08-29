@@ -1,4 +1,6 @@
 export const ENTITY_BASE_URL = "https://counselo-legal.com";
+export const OMAR_OFFICIAL_PROFILE_URL = "https://omarbaghdadi.com";
+export const BAGHDADI_LAW_PROFILE_URL = "https://www.baghdadilaw.co/who-we-are";
 import { COUNSELO_PLATFORM_POSITIONING } from "./platform-positioning";
 
 export const COUNSELO_ENTITY_IDS = {
@@ -18,7 +20,6 @@ export const COUNSELO_ORGANIZATION = {
   description: COUNSELO_PLATFORM_POSITIONING.descriptionEn,
   url: ENTITY_BASE_URL,
   logo: { "@type": "ImageObject", url: `${ENTITY_BASE_URL}/logo.png`, width: 512, height: 512 },
-  sameAs: ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
   founder: { "@id": COUNSELO_ENTITY_IDS.omar },
   areaServed: COUNSELO_PLATFORM_POSITIONING.jurisdictions.map((name) => ({ "@type": "Country", name })),
   availableLanguage: [...COUNSELO_PLATFORM_POSITIONING.languages],
@@ -40,14 +41,20 @@ export const OMAR_AL_BAGHDADI = {
   "@id": COUNSELO_ENTITY_IDS.omar,
   name: "Omar Al-Baghdadi",
   alternateName: ["Omar Riyad Al-Baghdadi", "عمر البغدادي"],
-  url: `${ENTITY_BASE_URL}/about`,
+  url: OMAR_OFFICIAL_PROFILE_URL,
   jobTitle: "Lawyer and Legal Counsel",
   worksFor: { "@id": COUNSELO_ENTITY_IDS.organization },
   alumniOf: { "@type": "EducationalOrganization", name: "Faculty of Law, Damascus University" },
   sameAs: [
+    OMAR_OFFICIAL_PROFILE_URL,
     "https://www.linkedin.com/in/lawyeromarbaghdadi/",
-    "https://www.baghdadilaw.co/who-we-are",
+    BAGHDADI_LAW_PROFILE_URL,
   ],
+  affiliation: {
+    "@type": "LegalService",
+    name: "Al-Baghdadi Law Firm",
+    url: "https://www.baghdadilaw.co/",
+  },
 } as const;
 
 export const COOPERATING_OFFICES = {

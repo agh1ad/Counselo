@@ -5,7 +5,7 @@ import { CheckCircle2, ArrowRight, MapPin, Award, Users, Globe, Zap, Scale, Star
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI, COOPERATING_OFFICES } from "@workspace/api-zod";
+import { BAGHDADI_LAW_PROFILE_URL, COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI, COOPERATING_OFFICES, OMAR_OFFICIAL_PROFILE_URL } from "@workspace/api-zod";
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
 import { COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
 
@@ -250,15 +250,26 @@ export default function About() {
                   <p className="text-primary text-sm font-medium mb-3">
                     {isRTL ? "محامٍ ومستشار قانوني" : "Lawyer & Legal Counsel"}
                   </p>
-                  <a
-                    href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors border border-border hover:border-primary px-3 py-1.5"
-                  >
-                    <Linkedin className="h-3.5 w-3.5" />
-                    LinkedIn
-                  </a>
+                  <div className="flex flex-wrap gap-2">
+                    <a
+                      href={`${OMAR_OFFICIAL_PROFILE_URL}${isRTL ? "/ar" : ""}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors border border-border hover:border-primary px-3 py-1.5"
+                    >
+                      <Globe className="h-3.5 w-3.5" />
+                      {isRTL ? "الموقع المهني الرسمي" : "Official professional profile"}
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors border border-border hover:border-primary px-3 py-1.5"
+                    >
+                      <Linkedin className="h-3.5 w-3.5" />
+                      LinkedIn
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -319,6 +330,15 @@ export default function About() {
                     ? "تأسس مكتب البغدادي للمحاماة عام 1957 على يد المحامي رياض البغدادي — والد المحامي عمر البغدادي. نشأة عمر في كنف هذا الإرث القانوني العريق أرست دعائم خبرته الاستثنائية وعمقه القانوني الفريد."
                     : "Al-Baghdadi Law Firm was founded in 1957 by Lawyer Riyad Al-Baghdadi — father of Lawyer Omar Al-Baghdadi. Omar's upbringing within this distinguished legal legacy laid the foundation for his exceptional expertise and depth of legal knowledge."}
                 </p>
+                <a
+                  href={isRTL ? "https://www.baghdadilaw.co/ar/who-we-are" : BAGHDADI_LAW_PROFILE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-4"
+                >
+                  {isRTL ? "تعرّف على تاريخ المكتب وقيادته" : "Explore the firm’s history and leadership"}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </a>
               </div>
             </motion.div>
           </div>
