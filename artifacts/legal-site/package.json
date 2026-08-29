@@ -9,7 +9,7 @@
     "build:client": "vite build --config vite.config.ts && tsx src/scripts/optimize-built-pngs.ts",
     "build:ssr": "VITE_SSR=true vite build --config vite.config.ts",
     "build:prerender": "tsx src/scripts/prerender.ts",
-    "build:server": "esbuild src/ssr-server.ts --bundle --platform=node --format=esm --target=node22 --outfile=dist/ssr-server.mjs --sourcemap",
+    "build:server": "esbuild src/ssr-server.ts --bundle --platform=node --format=esm --target=node22 --outfile=dist/ssr-server.mjs --sourcemap --external:express --external:compression",
     "seo:matrix": "tsx src/scripts/generate-regional-seo-matrix.ts",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit",
