@@ -24,8 +24,10 @@ jobs:
       - name: Apply final performance and accessibility corrections
         shell: bash
         run: |
+          python3 -m pip install --quiet pillow
           python3 - <<'PY'
           from pathlib import Path
+          from PIL import Image
 
           root = Path("artifacts/legal-site")
 
@@ -113,21 +115,20 @@ jobs:
           ])
           prerender = prerender[:start] + replacement + prerender[end:]
           prerender_path.write_text(prerender)
+
+          source_image = root / "public/images/optimized/counselo-region-logo.png"
+          output_image = root / "public/images/optimized/counselo-region-logo-310.webp"
+          with Image.open(source_image) as image:
+              image.resize((310, 128), Image.Resampling.LANCZOS).save(
+                  output_image,
+                  format="WEBP",
+                  quality=95,
+                  method=6,
+              )
+          if output_image.stat().st_size >= 30000:
+              raise SystemExit("Responsive logo exceeded 30 KB")
           PY
 
-          source_image="artifacts/legal-site/public/images/optimized/counselo-region-logo.png"
-          output_image="artifacts/legal-site/public/images/optimized/counselo-region-logo-310.webp"
-          if command -v magick >/dev/null 2>&1; then
-            magick "$source_image" -resize 310x128! -quality 95 -define webp:method=6 "$output_image"
-          elif command -v convert >/dev/null 2>&1; then
-            convert "$source_image" -resize 310x128! -quality 95 -define webp:method=6 "$output_image"
-          else
-            echo "ImageMagick is unavailable"
-            exit 1
-          fi
-
-          test -s "$output_image"
-          test "$(stat -c%s "$output_image")" -lt 30000
           rm -f artifacts/legal-site/public/images/optimized/counselo-region-logo-386.webp
           rm -f .github/workflows/export-pr51-source.yml
           rm -f .github/workflows/finalize-pr51.yml
