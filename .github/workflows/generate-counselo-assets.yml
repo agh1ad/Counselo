@@ -30,8 +30,8 @@ jobs:
           out="generated-assets/images"
           mkdir -p "$out"
 
-          magick "$src/counselo-region-logo.png" -resize 193x80 -define webp:lossless=true "$out/counselo-region-logo-193.webp"
-          magick "$src/counselo-region-logo.png" -resize 386x160 -define webp:lossless=true "$out/counselo-region-logo-386.webp"
+          convert "$src/counselo-region-logo.png" -resize 193x80 -define webp:lossless=true "$out/counselo-region-logo-193.webp"
+          convert "$src/counselo-region-logo.png" -resize 386x160 -define webp:lossless=true "$out/counselo-region-logo-386.webp"
           cwebp -quiet -q 90 -m 6 -alpha_q 100 "$src/counselo-platform-line-art-v1.png" -o "$out/counselo-platform-line-art-v1.webp"
           cwebp -quiet -q 92 -m 6 "$src/saudi-arabia-flag.jpg" -resize 72 48 -o "$out/saudi-arabia-flag-72.webp"
           cwebp -quiet -q 92 -m 6 "$src/syria-flag.jpg" -resize 72 48 -o "$out/syria-flag-72.webp"
