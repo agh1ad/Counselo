@@ -135,27 +135,6 @@ function helmetSsrInterop() {
   };
 }
 
-/** Temporary build diagnostics used by the performance PR. */
-function entryBundleReport() {
-  return {
-    name: "entry-bundle-report",
-    apply: "build" as const,
-    generateBundle(_options: unknown, bundle: Record<string, any>) {
-      if (isSSR) return;
-      for (const output of Object.values(bundle)) {
-        if (output.type !== "chunk" || !output.isEntry) continue;
-        const modules = Object.entries(output.modules as Record<string, { renderedLength: number }>)
-          .map(([id, info]) => ({ id, bytes: info.renderedLength ?? 0 }))
-          .sort((a, b) => b.bytes - a.bytes);
-        console.log(`[bundle-entry] ${output.fileName} modules=${modules.length}`);
-        for (const module of modules.slice(0, 35)) {
-          console.log(`[bundle-entry] ${module.bytes.toString().padStart(8)} ${module.id}`);
-        }
-      }
-    },
-  };
-}
-
 export default defineConfig({
   base: basePath,
   plugins: [
@@ -163,7 +142,6 @@ export default defineConfig({
     staticMotionForRegionPickers(),
     lightweightPublicImports(),
     helmetSsrInterop(),
-    entryBundleReport(),
     react(),
     tailwindcss(),
     ...(!isProduction ? [runtimeErrorOverlay()] : []),
