@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
+import { readFileSync } from "node:fs";
 import { execSync } from "child_process";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
@@ -68,6 +69,58 @@ function staticMotionForRegionPickers() {
         return shim;
       }
       return null;
+    },
+  };
+}
+
+/**
+ * The root jurisdiction picker is prerendered with the normal production
+ * components, so SEO/body HTML remains exactly the same. For the browser-only
+ * production bundle, give only those two picker pages a second module instance
+ * of LatestContentCarousels whose data refresh and carousel engines are tiny
+ * compatibility runtimes. The first client render deliberately matches the
+ * SSR markup; the lighter engines take over only after hydration.
+ *
+ * Development and the SSR/prerender build are intentionally excluded, and the
+ * normal App lazy chunk keeps TanStack Query + Embla unchanged for every other
+ * route.
+ */
+function lightweightPickerRuntime() {
+  const queryRuntime = path.resolve(import.meta.dirname, "src/lib/react-query-picker-lite.tsx");
+  const carouselRuntime = path.resolve(import.meta.dirname, "src/components/ui/carousel-picker-lite.tsx");
+  const latestContent = path.resolve(import.meta.dirname, "src/components/content/latest-content-carousels.tsx");
+  const pickerVariant = `${latestContent}?picker-lite-runtime`;
+
+  return {
+    name: "lightweight-picker-runtime",
+    enforce: "pre" as const,
+    resolveId(source: string, importer?: string) {
+      if (!isBuildStep || isSSR || !importer) return null;
+      const normalizedImporter = importer.split(path.sep).join("/");
+
+      if (
+        source === "@tanstack/react-query" &&
+        normalizedImporter.endsWith("/src/PickerApp.tsx")
+      ) {
+        return queryRuntime;
+      }
+
+      if (
+        source === "@/components/content/latest-content-carousels" &&
+        (normalizedImporter.endsWith("/src/pages/region-picker.tsx") ||
+          normalizedImporter.endsWith("/src/pages/ar-region-picker.tsx"))
+      ) {
+        return pickerVariant;
+      }
+
+      return null;
+    },
+    load(id: string) {
+      if (id !== pickerVariant) return null;
+      return readFileSync(latestContent, "utf8")
+        .replace('from "@tanstack/react-query"', 'from "@/lib/react-query-picker-lite"')
+        .replace('from "@/components/ui/carousel"', 'from "@/components/ui/carousel-picker-lite"')
+        .replace('from "@workspace/api-zod"', 'from "@/lib/blog-path-light"');
     },
   };
 }
@@ -140,6 +193,7 @@ export default defineConfig({
   plugins: [
     sitemapPlugin(),
     staticMotionForRegionPickers(),
+    lightweightPickerRuntime(),
     lightweightPublicImports(),
     helmetSsrInterop(),
     react(),
