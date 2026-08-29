@@ -15,7 +15,7 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
@@ -39,5 +39,8 @@ jobs:
       - name: Typecheck legal site
         run: pnpm --filter @workspace/legal-site run typecheck
 
-      - name: Build optimized client
-        run: pnpm --filter @workspace/legal-site run build:client
+      - name: Test legal site
+        run: pnpm --filter @workspace/legal-site run test
+
+      - name: Build complete production site
+        run: pnpm --filter @workspace/legal-site run build
