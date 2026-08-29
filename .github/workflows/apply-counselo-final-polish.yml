@@ -1,0 +1,121 @@
+name: Apply CounselO final performance polish
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/apply-counselo-final-polish.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout pull-request branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Apply source and image refinements
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check --quiet pillow
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageChops, ImageStat
+          import math
+
+          pages = [
+              Path("artifacts/legal-site/src/pages/region-picker.tsx"),
+              Path("artifacts/legal-site/src/pages/ar-region-picker.tsx"),
+          ]
+
+          common_replacements = [
+              ("counselo-region-logo-386.webp 386w", "counselo-region-logo-256.webp 256w"),
+              ('dark ? "text-white/15" : "text-[#0d4a31]/12"', 'dark ? "text-white/45" : "text-[#0d4a31]/60"'),
+              ("text-[#0d4a31]/65", "text-[#4a6f5e]"),
+              ("text-[#9b7426]", "text-[#8f671f]"),
+          ]
+
+          contextual_replacements = [
+              ('aria-hidden="true" className="mb-6 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]"', 'aria-hidden="true" className="mb-6 text-xs font-bold uppercase tracking-[0.24em] text-[#c49a45]"'),
+              ('aria-hidden="true" className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]"', 'aria-hidden="true" className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-[#c49a45]"'),
+              ('aria-hidden="true" className="mb-6 text-xs font-bold tracking-[0.12em] text-[#aa7e28]"', 'aria-hidden="true" className="mb-6 text-xs font-bold tracking-[0.12em] text-[#c49a45]"'),
+              ('aria-hidden="true" className="mb-2 text-xs font-bold tracking-[0.12em] text-[#aa7e28]"', 'aria-hidden="true" className="mb-2 text-xs font-bold tracking-[0.12em] text-[#c49a45]"'),
+              ('aria-hidden="true" className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]"', 'aria-hidden="true" className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#8f671f]"'),
+              ('aria-hidden="true" className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]"', 'aria-hidden="true" className="mb-4 text-xs font-bold tracking-[0.12em] text-[#8f671f]"'),
+          ]
+
+          for path in pages:
+              text = path.read_text()
+              original = text
+              for old, new in common_replacements + contextual_replacements:
+                  text = text.replace(old, new)
+              if text == original:
+                  raise RuntimeError(f"No expected refinements applied to {path}")
+              path.write_text(text)
+              print(f"[source] refined {path}")
+
+          images = Path("artifacts/legal-site/public/images/optimized")
+
+          def psnr(expected: Image.Image, actual: Image.Image) -> float:
+              a = expected.convert("RGBA")
+              b = actual.convert("RGBA")
+              difference = ImageChops.difference(a, b)
+              rms = ImageStat.Stat(difference).rms
+              mse = sum(value * value for value in rms) / len(rms)
+              return float("inf") if mse == 0 else 20 * math.log10(255 / math.sqrt(mse))
+
+          def save_webp(source_name: str, output_name: str, *, size=None, quality: int, minimum_psnr: float) -> None:
+              source = Image.open(images / source_name)
+              rendered = source.resize(size, Image.Resampling.LANCZOS) if size else source.copy()
+              output = images / output_name
+              rendered.save(output, "WEBP", quality=quality, method=6, exact=True)
+              decoded = Image.open(output)
+              score = psnr(rendered, decoded)
+              if decoded.size != rendered.size or score < minimum_psnr:
+                  raise RuntimeError(f"Visual verification failed for {output_name}: PSNR={score:.2f}")
+              print(f"[image] {output_name}: {decoded.width}x{decoded.height}, {output.stat().st_size} bytes, PSNR={score:.2f}")
+
+          # The line art is displayed at 13% opacity; quality 92 retains the same
+          # visible artwork while removing most of the PNG transfer overhead.
+          save_webp("counselo-platform-line-art-v1.png", "counselo-platform-line-art-v1.webp", quality=92, minimum_psnr=38.0)
+          save_webp("counselo-region-logo.png", "counselo-region-logo-193.webp", size=(193, 80), quality=95, minimum_psnr=34.0)
+          save_webp("counselo-region-logo.png", "counselo-region-logo-256.webp", size=(256, 106), quality=95, minimum_psnr=35.0)
+          save_webp("saudi-arabia-flag.jpg", "saudi-arabia-flag-72.webp", size=(72, 48), quality=92, minimum_psnr=37.0)
+          save_webp("saudi-arabia-flag.jpg", "saudi-arabia-flag-144.webp", size=(144, 96), quality=92, minimum_psnr=41.0)
+          save_webp("syria-flag.jpg", "syria-flag-72.webp", size=(72, 48), quality=92, minimum_psnr=34.0)
+          save_webp("syria-flag.jpg", "syria-flag-144.webp", size=(144, 96), quality=92, minimum_psnr=40.0)
+
+          obsolete = images / "counselo-region-logo-386.webp"
+          if obsolete.exists():
+              obsolete.unlink()
+          PY
+
+          git diff --check
+
+      - name: Commit refinements to pull-request branch
+        shell: bash
+        run: |
+          git add artifacts/legal-site
+          if git diff --cached --quiet; then
+            echo "No refinements to commit."
+            exit 0
+          fi
+          git config user.name "CounselO performance validation"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "perf: finish picker image and accessibility optimization"
+          git push origin "HEAD:${{ github.head_ref || github.ref_name }}"
