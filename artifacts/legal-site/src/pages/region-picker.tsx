@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { COUNSELO_LEGAL_MATTERS_CLAIM, COUNSELO_LEGAL_MATTERS_STAT, COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
 
 const counseloLogo = "/images/optimized/counselo-region-logo-193.webp";
-const counseloLogo2x = "/images/optimized/counselo-region-logo-386.webp";
+const counseloLogoRetina = "/images/optimized/counselo-region-logo-310.webp";
 const saudiFlag = "/images/optimized/saudi-arabia-flag-72.webp";
 const syrianFlag = "/images/optimized/syria-flag-72.webp";
 const uaeFlag = "/images/optimized/uae-flag.svg";
@@ -253,7 +253,8 @@ export default function RegionPicker() {
             <Link href="/sa" aria-label="CounselO Saudi Arabia">
               <img
                 src={counseloLogo}
-                srcSet={`${counseloLogo} 1x, ${counseloLogo2x} 2x`}
+                srcSet={`${counseloLogo} 193w, ${counseloLogoRetina} 310w`}
+                sizes="(min-width: 640px) 154px, 135px"
                 alt="CounselO — Online Legal Consultations for Saudi Arabia, Syria and the UAE"
                 width="193"
                 height="80"
@@ -322,7 +323,11 @@ export default function RegionPicker() {
                   >
                     <div className="absolute inset-x-0 top-0 h-1 bg-[#b58b32] transition-all duration-300 group-hover:h-2" />
                     <div className="flex items-start justify-between">
-                      <span aria-hidden="true" className={`font-serif text-5xl italic ${dark ? "text-white/15" : "text-[#0d4a31]/12"}`}>{number}</span>
+                      <span
+                        aria-hidden="true"
+                        data-number={number}
+                        className={`region-card-number font-serif text-5xl italic ${dark ? "region-card-number--dark" : "region-card-number--light"}`}
+                      />
                       <img src={flag} alt={alt} width="72" height="48" decoding="async" className="h-11 w-[66px] border border-white/25 object-cover shadow-md" />
                     </div>
                     <div className="absolute inset-x-7 bottom-7 sm:inset-x-8 sm:bottom-8">

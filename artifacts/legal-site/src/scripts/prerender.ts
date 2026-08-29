@@ -172,32 +172,11 @@ function htmlTag(route: string): string {
 
 const PICKER_ROUTES = new Set(["/", "/ar"]);
 
-const ENGLISH_PICKER_FONT_PRELOADS = [
-  "/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
-  "/fonts/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2",
-  "/fonts/nuFkD-vYSZviVYUb_rj3ij__anPXDTnogkk7.woff2",
-] as const;
-
-const ARABIC_PICKER_FONT_PRELOADS = [
-  "/fonts/Iura6YBj_oCad4k1nzSBC45I.woff2",
-  "/fonts/Iurf6YBj_oCad4k1l4qkHrRpiYlJ.woff2",
-] as const;
-
 function pickerResourceHints(route: string): string {
   if (!PICKER_ROUTES.has(route)) return "";
-  const fontPreloads = (route === "/ar"
-    ? ARABIC_PICKER_FONT_PRELOADS
-    : ENGLISH_PICKER_FONT_PRELOADS
-  )
-    .map(
-      (href) =>
-        `<link rel="preload" as="font" href="${href}" type="font/woff2" crossorigin>`,
-    )
-    .join("");
 
   return [
-    fontPreloads,
-    '<link rel="preload" as="image" href="/images/optimized/counselo-region-logo-193.webp" imagesrcset="/images/optimized/counselo-region-logo-193.webp 1x, /images/optimized/counselo-region-logo-386.webp 2x" type="image/webp" fetchpriority="high">',
+    '<link rel="preload" as="image" href="/images/optimized/counselo-region-logo-193.webp" imagesrcset="/images/optimized/counselo-region-logo-193.webp 193w, /images/optimized/counselo-region-logo-310.webp 310w" imagesizes="(min-width: 640px) 154px, 135px" type="image/webp" fetchpriority="high">',
     '<link rel="preload" as="image" href="/images/optimized/counselo-platform-line-art-v1.webp" type="image/webp" media="(min-width: 1024px)" fetchpriority="high">',
   ].join("");
 }

@@ -284,6 +284,17 @@
   }
 }
 
+.region-card-number::before {
+  content: attr(data-number);
+}
+
+.region-card-number--dark::before {
+  color: rgb(255 255 255 / 0.15);
+}
+
+.region-card-number--light::before {
+  color: rgb(13 74 49 / 0.12);
+}
 .counselo-gold-rule {
   position: relative;
   width: min(100%, 30rem);
