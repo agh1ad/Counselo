@@ -5,9 +5,12 @@ the submission, applies a database-backed rate limit, encrypts the pending
 payload with AES-256-GCM, and sends one consultation email to the team and
 owner through Resend.
 
-If the provider call fails, the database-backed worker retries it up to five
-times. The provider ID and delivery state are retained for operational logging.
-The encrypted client payload is erased after the provider accepts the email.
+If the provider call fails, the request process schedules precise retries up to
+five times. A once-daily recovery command handles the uncommon case where a
+deployment stops before a retry runs. Resend webhooks update delivery state
+without polling either Resend or PostgreSQL while the site is idle. The provider
+ID and delivery state are retained for operational logging. The encrypted client
+payload is erased after the provider accepts the email.
 
 Authenticated administrators can inspect the latest 100 delivery records at
 `GET /api/admin/contact-submissions`. This endpoint returns status metadata
@@ -22,6 +25,7 @@ Configure these in the Replit deployment secrets UI. Do not commit real values.
 PUBLIC_SITE_URL=https://counselo-legal.com
 
 RESEND_API_KEY=re_...
+RESEND_WEBHOOK_SECRET=whsec_...
 CONTACT_FROM_EMAIL=CounselO <consultations@counselo-legal.com>
 CONTACT_TEAM_EMAIL=...
 CONTACT_OWNER_EMAIL=...
@@ -50,8 +54,19 @@ for `CONTACT_RATE_LIMIT_SECRET`.
    pnpm --filter @workspace/db push
    ```
 
-4. Build and deploy the application.
-5. Submit one clearly marked test request and confirm delivery to the team
+4. In Resend, create a webhook for
+   `https://counselo-legal.com/api/webhooks/resend` and subscribe to outbound
+   email status events (`scheduled`, `sent`, `delivery_delayed`, `delivered`,
+   `opened`, `clicked`, `bounced`, `complained`, `failed`, and `suppressed`).
+   Save its signing secret as `RESEND_WEBHOOK_SECRET`.
+5. Create one Replit Scheduled Deployment that runs once daily:
+
+   ```bash
+   pnpm --filter @workspace/api-server recover:contact-notifications
+   ```
+
+6. Build and deploy the application.
+7. Submit one clearly marked test request and confirm delivery to the team
    inbox and owner inbox.
 
 The form intentionally does not use CAPTCHA. Abuse controls are the hidden

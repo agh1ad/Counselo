@@ -1,6 +1,7 @@
 import { blogPostsTable, db, pool, workSamplesTable } from "@workspace/db";
 import { eq, isNull } from "drizzle-orm";
 import { assignInternalLinks } from "../lib/internal-link-assignment.js";
+import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 
 const force = process.argv.includes("--all");
 
@@ -59,6 +60,7 @@ try {
     backfillBlogPosts(),
     backfillWorkSamples(),
   ]);
+  if (blogCount || workCount) await invalidatePublicResponseCache();
   console.log(`Backfill complete: ${blogCount} blog posts and ${workCount} work samples assigned.`);
 } finally {
   await pool.end();

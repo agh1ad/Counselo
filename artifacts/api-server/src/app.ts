@@ -1,4 +1,4 @@
-import express, { type Express, type RequestHandler } from "express";
+import express, { type Express } from "express";
 import cors from "cors";
 import pinoHttp from "pino-http";
 import router from "./routes";
@@ -11,37 +11,10 @@ import {
   redirectWww,
 } from "./middlewares/normalize.js";
 import { PUBLIC_CACHE_POLICY } from "@workspace/api-zod";
+import { cachePublicResponses } from "./lib/public-response-cache.js";
+import { handleResendWebhook } from "./lib/resend-webhook.js";
 
 const app: Express = express();
-
-// Database-backed public content changes only when the CMS changes. Keep a
-// small process-local response cache so repeated visitor/crawler requests do
-// not wake PostgreSQL. User-facing CMS content keeps only a 15-second window;
-// discovery documents can safely reuse a response for five minutes.
-const PUBLIC_CONTENT_TTL_MS = 15_000;
-const DISCOVERY_TTL_MS = 300_000;
-const MAX_PUBLIC_RESPONSE_CACHE_ENTRIES = 500;
-type CachedPublicResponse = {
-  expiresAt: number;
-  statusCode: number;
-  body: string | Buffer;
-  contentType?: string;
-  cacheControl?: string;
-  pageSource?: string;
-};
-const publicResponseCache = new Map<string, CachedPublicResponse>();
-
-function clearPublicResponseCache(): void {
-  publicResponseCache.clear();
-}
-
-function trimPublicResponseCache(): void {
-  while (publicResponseCache.size > MAX_PUBLIC_RESPONSE_CACHE_ENTRIES) {
-    const oldestKey = publicResponseCache.keys().next().value as string | undefined;
-    if (!oldestKey) return;
-    publicResponseCache.delete(oldestKey);
-  }
-}
 
 function isDiscoveryPath(path: string): boolean {
   return (
@@ -52,80 +25,10 @@ function isDiscoveryPath(path: string): boolean {
   );
 }
 
-function publicResponseTtl(path: string): number {
-  return isDiscoveryPath(path) ? DISCOVERY_TTL_MS : PUBLIC_CONTENT_TTL_MS;
-}
-
 function publicCacheControl(path: string): string {
   return isDiscoveryPath(path)
     ? "public, max-age=0, s-maxage=300, stale-while-revalidate=600, must-revalidate"
     : "public, max-age=0, s-maxage=15, stale-while-revalidate=30, must-revalidate";
-}
-
-function cachePublicResponse(
-  keyPrefix: string,
-  isEligible: (path: string) => boolean,
-): RequestHandler {
-  return (req, res, next) => {
-    if (
-      (req.method !== "GET" && req.method !== "HEAD") ||
-      !isEligible(req.path)
-    ) {
-      next();
-      return;
-    }
-
-    // Express runs GET handlers for HEAD requests and still builds the same
-    // response body before suppressing it on the wire. Share one cache entry
-    // so GET and HEAD probes can reuse each other's work.
-    const cacheMethod = req.method === "HEAD" ? "GET" : req.method;
-    const cacheKey = `${keyPrefix}:${cacheMethod}:${req.originalUrl}`;
-    const cached = publicResponseCache.get(cacheKey);
-    if (cached && cached.expiresAt > Date.now()) {
-      res.status(cached.statusCode);
-      if (cached.contentType) res.setHeader("Content-Type", cached.contentType);
-      if (cached.cacheControl) res.setHeader("Cache-Control", cached.cacheControl);
-      if (cached.pageSource) {
-        res.setHeader("X-CounselO-Page-Source", cached.pageSource);
-      }
-      res.setHeader("X-CounselO-Response-Cache", "HIT");
-      res.send(cached.body);
-      return;
-    }
-    if (cached) publicResponseCache.delete(cacheKey);
-
-    const originalSend = res.send.bind(res);
-    res.send = ((body: unknown) => {
-      const cacheableStatus = res.statusCode === 200 || res.statusCode === 404;
-      if (
-        cacheableStatus &&
-        (typeof body === "string" || Buffer.isBuffer(body))
-      ) {
-        if (res.statusCode === 200) {
-          // These are public, read-only CMS responses. Allow a shared edge cache
-          // to absorb repeated requests while keeping browsers on revalidation.
-          res.setHeader("Cache-Control", publicCacheControl(req.path));
-        }
-        const contentType = res.getHeader("Content-Type");
-        const cacheControl = res.getHeader("Cache-Control");
-        const pageSource = res.getHeader("X-CounselO-Page-Source");
-        publicResponseCache.set(cacheKey, {
-          expiresAt: Date.now() + publicResponseTtl(req.path),
-          statusCode: res.statusCode,
-          body,
-          contentType: typeof contentType === "string" ? contentType : undefined,
-          cacheControl:
-            typeof cacheControl === "string" ? cacheControl : undefined,
-          pageSource: typeof pageSource === "string" ? pageSource : undefined,
-        });
-        trimPublicResponseCache();
-      }
-      return originalSend(body);
-    }) as typeof res.send;
-
-    res.setHeader("X-CounselO-Response-Cache", "MISS");
-    next();
-  };
 }
 
 function isDatabaseBackedPublicApiPath(path: string): boolean {
@@ -134,7 +37,7 @@ function isDatabaseBackedPublicApiPath(path: string): boolean {
     path === "/blog/posts/discovery" ||
     path.startsWith("/blog/posts/") ||
     path === "/work" ||
-    (path.startsWith("/work/") && !path.endsWith("/file"))
+    path.startsWith("/work/")
   );
 }
 
@@ -201,6 +104,11 @@ app.use(
   }),
 );
 app.use(cors());
+app.post(
+  "/api/webhooks/resend",
+  express.text({ type: "application/json", limit: "256kb" }),
+  handleResendWebhook,
+);
 app.use(express.json({ limit: "12mb" }));
 app.use(express.urlencoded({ extended: true, limit: "12mb" }));
 
@@ -212,13 +120,6 @@ app.use(redirectTrailingSlash);
 app.use("/api", (req, res, next) => {
   res.setHeader("X-Robots-Tag", "noindex, nofollow, noarchive");
 
-  if (
-    req.method !== "GET" &&
-    (req.path.startsWith("/admin/blog/") || req.path.startsWith("/admin/work"))
-  ) {
-    clearPublicResponseCache();
-  }
-
   if (isDatabaseBackedPublicApiPath(req.path)) {
     res.setHeader("Cache-Control", publicCacheControl(req.path));
   } else {
@@ -227,10 +128,10 @@ app.use("/api", (req, res, next) => {
   }
   next();
 });
-app.use("/api", cachePublicResponse("api", isDatabaseBackedPublicApiPath));
+app.use("/api", cachePublicResponses("api", isDatabaseBackedPublicApiPath));
 app.use("/api", router);
 
-app.use(cachePublicResponse("page", isCacheablePublicPagePath));
+app.use(cachePublicResponses("page", isCacheablePublicPagePath));
 
 // Lean crawler discovery routes come first so each child sitemap queries only
 // the table it actually needs. The broader public renderer remains the fallback

@@ -1,27 +1,21 @@
 import {
   and,
   eq,
-  gte,
-  isNotNull,
   isNull,
   lt,
   lte,
-  notInArray,
   or,
 } from "drizzle-orm";
 import { contactSubmissionsTable, db } from "@workspace/db";
 import type { ContactInput } from "./contact-input.js";
 import { decryptContactPayload } from "./contact-crypto.js";
 import {
-  getEmailDeliveryStatus,
   sendCustomerConfirmationEmail,
   sendConsultationEmail,
 } from "./contact-providers.js";
 import { logger } from "./logger.js";
 
 const MAX_NOTIFICATION_ATTEMPTS = 5;
-const RECOVERY_SCAN_INTERVAL_MS = 15 * 60_000;
-const DELIVERY_STATUS_INTERVAL_MS = 60 * 60_000;
 const LOCK_TIMEOUT_MS = 5 * 60_000;
 const retryTimers = new Map<number, ReturnType<typeof setTimeout>>();
 
@@ -48,18 +42,6 @@ function scheduleNotificationRetry(id: number, delayMs: number): void {
 function safeError(error: unknown): string {
   if (error instanceof Error) return error.message.slice(0, 500);
   return "Unknown notification error";
-}
-
-function isEmailTerminal(status: string): boolean {
-  return [
-    "delivered",
-    "opened",
-    "clicked",
-    "bounced",
-    "complained",
-    "failed",
-    "canceled",
-  ].includes(status);
 }
 
 async function claimSubmission(id: number) {
@@ -205,20 +187,7 @@ export async function processContactNotification(id: number): Promise<{
   return { emailAccepted };
 }
 
-async function deliveryResult(
-  providerId: string | null,
-  currentStatus: string,
-): Promise<string> {
-  if (!providerId || isEmailTerminal(currentStatus)) return currentStatus;
-  return Promise.resolve(getEmailDeliveryStatus(providerId)).then(
-    (value) => ({ status: "fulfilled" as const, value }),
-    () => ({ status: "rejected" as const }),
-  ).then((result) =>
-    result.status === "fulfilled" ? result.value : currentStatus,
-  );
-}
-
-async function processPendingNotifications(): Promise<void> {
+export async function processPendingNotifications(): Promise<number> {
   const pending = await db
     .select({ id: contactSubmissionsTable.id })
     .from(contactSubmissionsTable)
@@ -240,116 +209,5 @@ async function processPendingNotifications(): Promise<void> {
   for (const submission of pending) {
     await processContactNotification(submission.id);
   }
-}
-
-async function refreshDeliveryStatuses(): Promise<void> {
-  const recentCutoff = new Date(Date.now() - 48 * 60 * 60_000);
-  const submissions = await db
-    .select({
-      id: contactSubmissionsTable.id,
-      emailProviderId: contactSubmissionsTable.emailProviderId,
-      emailStatus: contactSubmissionsTable.emailStatus,
-      customerEmailProviderId: contactSubmissionsTable.customerEmailProviderId,
-      customerEmailStatus: contactSubmissionsTable.customerEmailStatus,
-      completedAt: contactSubmissionsTable.completedAt,
-    })
-    .from(contactSubmissionsTable)
-    .where(
-      and(
-        or(
-          isNotNull(contactSubmissionsTable.emailProviderId),
-          isNotNull(contactSubmissionsTable.customerEmailProviderId),
-        ),
-        gte(contactSubmissionsTable.createdAt, recentCutoff),
-        or(
-          notInArray(contactSubmissionsTable.emailStatus, [
-            "delivered",
-            "opened",
-            "clicked",
-            "bounced",
-            "complained",
-            "failed",
-            "canceled",
-          ]),
-          notInArray(contactSubmissionsTable.customerEmailStatus, [
-            "delivered",
-            "opened",
-            "clicked",
-            "bounced",
-            "complained",
-            "failed",
-            "canceled",
-          ]),
-        ),
-      ),
-    )
-    .limit(20);
-
-  for (const submission of submissions) {
-    const [emailStatus, customerEmailStatus] = await Promise.all([
-      deliveryResult(submission.emailProviderId, submission.emailStatus),
-      deliveryResult(
-        submission.customerEmailProviderId,
-        submission.customerEmailStatus,
-      ),
-    ]);
-    const completed =
-      isEmailTerminal(emailStatus) && isEmailTerminal(customerEmailStatus);
-
-    await db
-      .update(contactSubmissionsTable)
-      .set({
-        emailStatus,
-        customerEmailStatus,
-        completedAt: completed ? new Date() : submission.completedAt,
-        updatedAt: new Date(),
-      })
-      .where(eq(contactSubmissionsTable.id, submission.id));
-  }
-}
-
-let workerStarted = false;
-
-export function startContactNotificationWorker(): void {
-  if (workerStarted || process.env.NODE_ENV === "test") return;
-  workerStarted = true;
-
-  const runRecoveryScan = async () => {
-    try {
-      await processPendingNotifications();
-    } catch (error) {
-      logger.error({ err: error }, "Contact notification recovery scan failed");
-    }
-  };
-
-  const runDeliveryStatusRefresh = async () => {
-    try {
-      await refreshDeliveryStatuses();
-    } catch (error) {
-      logger.error({ err: error }, "Contact delivery status refresh failed");
-    }
-  };
-
-  // Initial recovery preserves crash/restart resilience. Normal submissions are
-  // still delivered synchronously and failed sends retry on precise in-memory
-  // timers, so idle deployments no longer need to wake PostgreSQL every minute.
-  const initialTimer = setTimeout(() => {
-    void runRecoveryScan();
-    void runDeliveryStatusRefresh();
-  }, 5_000);
-  initialTimer.unref();
-
-  const recoveryInterval = setInterval(
-    runRecoveryScan,
-    RECOVERY_SCAN_INTERVAL_MS,
-  );
-  recoveryInterval.unref();
-
-  // Provider delivery-state reconciliation does not affect delivery itself, so
-  // hourly refreshes preserve observability without continuous database polling.
-  const deliveryStatusInterval = setInterval(
-    runDeliveryStatusRefresh,
-    DELIVERY_STATUS_INTERVAL_MS,
-  );
-  deliveryStatusInterval.unref();
+  return pending.length;
 }

@@ -27,6 +27,7 @@ kind = "api"
   [services.production.run.env]
   PORT = "8080"
   NODE_ENV = "production"
+  PUBLIC_RESPONSE_CACHE_BACKEND = "object-storage"
 
   [services.production.health.startup]
   path = "/api/healthz"

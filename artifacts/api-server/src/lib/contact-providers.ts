@@ -310,29 +310,6 @@ export async function sendCustomerConfirmationEmail(
   );
 }
 
-export async function getEmailDeliveryStatus(id: string): Promise<string> {
-  const config = getProviderConfig();
-  const response = await fetch(
-    `${RESEND_API_BASE}/emails/${encodeURIComponent(id)}`,
-    {
-      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
-      headers: {
-        Authorization: `Bearer ${config.resendApiKey}`,
-        "User-Agent": "CounselO-Contact/1.0",
-      },
-    },
-  );
-  if (!response.ok) {
-    throw new NotificationProviderError(
-      "resend",
-      response.status,
-      await readErrorBody(response),
-    );
-  }
-  const result = (await response.json()) as { last_event?: string };
-  return result.last_event ?? "sent";
-}
-
 export function assertContactNotificationConfiguration(): void {
   getProviderConfig();
 }
