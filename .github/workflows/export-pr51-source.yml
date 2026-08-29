@@ -1,0 +1,48 @@
+name: Export PR51 source snapshot
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/export-pr51-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Collect source snapshot
+        shell: bash
+        run: |
+          mkdir -p snapshot/artifacts/legal-site/src/pages snapshot/artifacts/legal-site/src/scripts snapshot/artifacts/legal-site/src/lib snapshot/artifacts/legal-site/public/images/optimized snapshot/artifacts/legal-site/public/fonts
+          cp artifacts/legal-site/index.html snapshot/artifacts/legal-site/index.html
+          cp artifacts/legal-site/package.json snapshot/artifacts/legal-site/package.json
+          cp artifacts/legal-site/vite.config.ts snapshot/artifacts/legal-site/vite.config.ts
+          cp artifacts/legal-site/src/index.css snapshot/artifacts/legal-site/src/index.css
+          cp artifacts/legal-site/src/entry-client.tsx snapshot/artifacts/legal-site/src/entry-client.tsx
+          cp artifacts/legal-site/src/PickerApp.tsx snapshot/artifacts/legal-site/src/PickerApp.tsx
+          cp artifacts/legal-site/src/lib/analytics.ts snapshot/artifacts/legal-site/src/lib/analytics.ts
+          cp artifacts/legal-site/src/pages/region-picker.tsx snapshot/artifacts/legal-site/src/pages/region-picker.tsx
+          cp artifacts/legal-site/src/pages/ar-region-picker.tsx snapshot/artifacts/legal-site/src/pages/ar-region-picker.tsx
+          cp artifacts/legal-site/src/scripts/prerender.ts snapshot/artifacts/legal-site/src/scripts/prerender.ts
+          cp artifacts/legal-site/public/images/optimized/counselo-region-logo.png snapshot/artifacts/legal-site/public/images/optimized/
+          cp artifacts/legal-site/public/images/optimized/counselo-region-logo-193.webp snapshot/artifacts/legal-site/public/images/optimized/
+          cp artifacts/legal-site/public/images/optimized/counselo-region-logo-386.webp snapshot/artifacts/legal-site/public/images/optimized/
+          cp artifacts/legal-site/public/images/optimized/counselo-platform-line-art-v1.webp snapshot/artifacts/legal-site/public/images/optimized/
+          cp artifacts/legal-site/public/images/optimized/saudi-arabia-flag-72.webp snapshot/artifacts/legal-site/public/images/optimized/
+          cp artifacts/legal-site/public/images/optimized/syria-flag-72.webp snapshot/artifacts/legal-site/public/images/optimized/
+          cp artifacts/legal-site/public/fonts/*.woff2 snapshot/artifacts/legal-site/public/fonts/
+          find snapshot -type f -printf '%P %s bytes\n' | sort
+
+      - name: Upload snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr51-source-snapshot
+          path: snapshot
