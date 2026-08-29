@@ -1,0 +1,101 @@
+name: Finalize PR51 mobile and accessibility
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/finalize-pr51-mobile.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout pull-request head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Apply final lossless-behavior optimizations
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check --quiet pillow
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+
+          root = Path('artifacts/legal-site')
+          page_paths = [
+              root / 'src/pages/region-picker.tsx',
+              root / 'src/pages/ar-region-picker.tsx',
+          ]
+
+          for path in page_paths:
+              text = path.read_text()
+              replacements = [
+                  ('const counseloLogo2x = "/images/optimized/counselo-region-logo-386.webp";',
+                   'const counseloLogo2x = "/images/optimized/counselo-region-logo-320.webp";'),
+                  ('srcSet={`${counseloLogo} 1x, ${counseloLogo2x} 2x`}',
+                   'srcSet={`${counseloLogo} 193w, ${counseloLogo2x} 320w`}\\n                sizes="(min-width: 640px) 154px, 135px"'),
+                  ('width="1200"\\n            height="900"',
+                   'width="1719"\\n            height="915"'),
+                  ('dark ? "text-white/15" : "text-[#0d4a31]/12"',
+                   'dark ? "text-white/45" : "text-[#0d4a31]/12"'),
+              ]
+              original = text
+              for old, new in replacements:
+                  text = text.replace(old, new)
+              if text == original:
+                  raise RuntimeError(f'Expected picker replacements were not applied to {path}')
+              path.write_text(text)
+
+          prerender = root / 'src/scripts/prerender.ts'
+          text = prerender.read_text()
+          old = '<link rel="preload" as="image" href="/images/optimized/counselo-region-logo-193.webp" imagesrcset="/images/optimized/counselo-region-logo-193.webp 1x, /images/optimized/counselo-region-logo-386.webp 2x" type="image/webp" fetchpriority="high">'
+          new = '<link rel="preload" as="image" href="/images/optimized/counselo-region-logo-193.webp" imagesrcset="/images/optimized/counselo-region-logo-193.webp 193w, /images/optimized/counselo-region-logo-320.webp 320w" imagesizes="(min-width: 640px) 154px, 135px" type="image/webp" fetchpriority="high">'
+          if old not in text:
+              raise RuntimeError('Expected picker logo preload was not found')
+          prerender.write_text(text.replace(old, new))
+
+          images = root / 'public/images/optimized'
+          source = Image.open(images / 'counselo-region-logo.png').convert('RGB')
+          for size, name in [
+              ((193, 80), 'counselo-region-logo-193.webp'),
+              ((320, 133), 'counselo-region-logo-320.webp'),
+          ]:
+              rendered = source.resize(size, Image.Resampling.LANCZOS)
+              rendered.save(images / name, 'WEBP', quality=95, method=6)
+              decoded = Image.open(images / name)
+              if decoded.size != size:
+                  raise RuntimeError(f'Unexpected output dimensions for {name}')
+              print(f'[image] {name}: {(images / name).stat().st_size} bytes')
+
+          obsolete = images / 'counselo-region-logo-386.webp'
+          if obsolete.exists():
+              obsolete.unlink()
+          PY
+
+          rm -f .github/workflows/finalize-pr51-mobile.yml
+          git diff --check
+
+      - name: Commit to pull-request branch
+        shell: bash
+        run: |
+          git add .github/workflows/finalize-pr51-mobile.yml artifacts/legal-site
+          git config user.name "CounselO performance validation"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "perf: finish picker image delivery and accessibility"
+          git push origin "HEAD:${{ github.head_ref || github.ref_name }}"
