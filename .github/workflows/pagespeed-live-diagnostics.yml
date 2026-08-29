@@ -1,4 +1,4 @@
-name: CounselO live PageSpeed diagnostics
+name: CounselO live Lighthouse diagnostics
 
 on:
   pull_request:
@@ -12,26 +12,49 @@ permissions:
   contents: read
 
 jobs:
-  pagespeed:
+  live-lighthouse:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
+
     steps:
-      - name: Request PageSpeed desktop report
+      - name: Capture live HTML and asset inventory
         shell: bash
         run: |
-          url='https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?url=https%3A%2F%2Fcounselo-legal.com%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo'
-          curl --fail-with-body --retry 3 --retry-delay 5 --compressed "$url" -o pagespeed-live-desktop.json
+          curl --fail --silent --show-error --compressed \
+            -H 'Cache-Control: no-cache' \
+            'https://counselo-legal.com/?diagnostic=20260829' \
+            -o live-root.html
+          grep -oE '/assets/[^" ]+\.(js|css)' live-root.html | sort -u > live-assets.txt || true
+          grep -oE 'data-ssr(-url)?="[^"]*"' live-root.html > live-ssr-markers.txt || true
+          wc -c live-root.html
+          cat live-assets.txt
+          cat live-ssr-markers.txt
+
+      - name: Run live desktop Lighthouse diagnostics
+        shell: bash
+        run: |
+          npx --yes lighthouse@13.4.1 'https://counselo-legal.com/?diagnostic=20260829' \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --form-factor=desktop \
+            --screenEmulation.mobile=false \
+            --throttling-method=devtools \
+            --throttling.rttMs=150 \
+            --throttling.throughputKbps=1600 \
+            --throttling.cpuSlowdownMultiplier=1 \
+            --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage --disable-cache' \
+            --output=json \
+            --output-path=lighthouse-live-desktop.json \
+            --quiet
+
           node - <<'NODE'
           const fs = require('node:fs');
-          const data = JSON.parse(fs.readFileSync('pagespeed-live-desktop.json', 'utf8'));
-          const report = data.lighthouseResult;
-          if (!report) {
-            console.error(JSON.stringify(data, null, 2));
-            process.exit(1);
-          }
+          const report = JSON.parse(fs.readFileSync('lighthouse-live-desktop.json', 'utf8'));
           const a = report.audits;
+          const pick = (id) => a[id]?.details?.items ?? [];
           const summary = {
-            fetchedAt: data.analysisUTCTimestamp,
+            finalUrl: report.finalDisplayedUrl,
+            fetchTime: report.fetchTime,
+            lighthouseVersion: report.lighthouseVersion,
             performance: report.categories.performance?.score,
             accessibility: report.categories.accessibility?.score,
             bestPractices: report.categories['best-practices']?.score,
@@ -41,22 +64,30 @@ jobs:
             tbt: a['total-blocking-time']?.displayValue,
             cls: a['cumulative-layout-shift']?.displayValue,
             speedIndex: a['speed-index']?.displayValue,
-            shiftElements: a['layout-shift-elements']?.details?.items ?? [],
-            shiftEvents: a['layout-shifts']?.details?.items ?? [],
-            imageDelivery: a['image-delivery-insight']?.details?.items ?? [],
-            forcedReflow: a['forced-reflow-insight']?.details?.items ?? [],
-            renderBlocking: a['render-blocking-insight']?.details?.items ?? [],
-            unusedJavaScript: a['unused-javascript']?.details?.items ?? [],
+            shiftElements: pick('layout-shift-elements'),
+            shiftEvents: pick('layout-shifts'),
+            layoutShiftCulprits: pick('layout-shift-insight'),
+            lcpBreakdown: pick('lcp-breakdown-insight'),
+            lcpDiscovery: pick('lcp-discovery-insight'),
+            imageDelivery: pick('image-delivery-insight'),
+            forcedReflow: pick('forced-reflow-insight'),
+            renderBlocking: pick('render-blocking-insight'),
+            networkDependencyTree: pick('network-dependency-tree-insight'),
+            unusedJavaScript: pick('unused-javascript'),
+            fontDisplay: pick('font-display'),
           };
-          fs.writeFileSync('pagespeed-live-desktop-summary.json', JSON.stringify(summary, null, 2));
+          fs.writeFileSync('lighthouse-live-desktop-summary.json', JSON.stringify(summary, null, 2));
           console.log(JSON.stringify(summary, null, 2));
           NODE
 
-      - name: Upload PageSpeed report
+      - name: Upload live diagnostics
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: counselo-live-pagespeed
+          name: counselo-live-lighthouse
           path: |
-            pagespeed-live-desktop.json
-            pagespeed-live-desktop-summary.json
+            live-root.html
+            live-assets.txt
+            live-ssr-markers.txt
+            lighthouse-live-desktop.json
+            lighthouse-live-desktop-summary.json
