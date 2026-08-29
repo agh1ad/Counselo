@@ -37,7 +37,7 @@ const basePath = process.env.BASE_PATH ?? "/";
 
 // Whether this is the SSR bundle build (VITE_SSR=true vite build)
 const isSSR = process.env.VITE_SSR === "true";
-const isProduction = process.env.NODE_ENV === "production";
+const isProduction = isBuildStep || process.env.NODE_ENV === "production";
 
 /**
  * Vite plugin: generate the XML sitemap once during the client build.
