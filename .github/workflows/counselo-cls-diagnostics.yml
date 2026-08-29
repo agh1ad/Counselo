@@ -1,0 +1,116 @@
+name: CounselO CLS diagnostics
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "artifacts/legal-site/**"
+      - ".github/workflows/counselo-cls-diagnostics.yml"
+      - "lib/**"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build legal site
+        run: pnpm --filter @workspace/legal-site run build
+
+      - name: Run desktop and mobile Lighthouse diagnostics
+        shell: bash
+        run: |
+          PORT=24438 NODE_ENV=production node artifacts/legal-site/dist/ssr-server.mjs > /tmp/counselo-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..45}; do
+            if curl --fail --silent --show-error http://127.0.0.1:24438/ > /dev/null; then
+              break
+            fi
+            if ! kill -0 "$server_pid" 2>/dev/null; then
+              cat /tmp/counselo-server.log
+              exit 1
+            fi
+            sleep 1
+          done
+
+          npx --yes lighthouse@13.0.1 http://127.0.0.1:24438/ \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --form-factor=desktop \
+            --screenEmulation.mobile=false \
+            --throttling-method=simulate \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+            --output=json \
+            --output-path=lighthouse-desktop.json \
+            --quiet
+
+          npx --yes lighthouse@13.0.1 http://127.0.0.1:24438/ \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --form-factor=mobile \
+            --screenEmulation.mobile=true \
+            --throttling-method=simulate \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+            --output=json \
+            --output-path=lighthouse-mobile.json \
+            --quiet
+
+          node - <<'NODE'
+          const fs = require('node:fs');
+          for (const kind of ['desktop', 'mobile']) {
+            const report = JSON.parse(fs.readFileSync(`lighthouse-${kind}.json`, 'utf8'));
+            const a = report.audits;
+            const summary = {
+              kind,
+              performance: report.categories.performance.score,
+              accessibility: report.categories.accessibility.score,
+              bestPractices: report.categories['best-practices'].score,
+              seo: report.categories.seo.score,
+              fcp: a['first-contentful-paint']?.displayValue,
+              lcp: a['largest-contentful-paint']?.displayValue,
+              tbt: a['total-blocking-time']?.displayValue,
+              cls: a['cumulative-layout-shift']?.displayValue,
+              speedIndex: a['speed-index']?.displayValue,
+              shiftElements: a['layout-shift-elements']?.details?.items ?? [],
+              shiftEvents: a['layout-shifts']?.details?.items ?? [],
+              lcpElement: a['largest-contentful-paint-element']?.details?.items ?? [],
+              forcedReflow: a['forced-reflow-insight']?.details?.items ?? [],
+            };
+            fs.writeFileSync(`lighthouse-${kind}-summary.json`, JSON.stringify(summary, null, 2));
+            console.log(JSON.stringify(summary, null, 2));
+          }
+          NODE
+
+      - name: Upload Lighthouse diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: counselo-lighthouse-diagnostics
+          path: |
+            lighthouse-desktop.json
+            lighthouse-mobile.json
+            lighthouse-desktop-summary.json
+            lighthouse-mobile-summary.json
