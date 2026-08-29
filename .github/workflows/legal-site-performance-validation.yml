@@ -65,6 +65,18 @@ jobs:
           curl --fail --silent --show-error http://127.0.0.1:24438/sa > /tmp/counselo-sa.html
           grep -q 'id="root"' /tmp/counselo-root.html
           grep -q 'CounselO' /tmp/counselo-root.html
+          grep -q 'data-picker-critical-css' /tmp/counselo-root.html
+          grep -q 'counselo-platform-line-art-v1.webp' /tmp/counselo-root.html
+          grep -q 'counselo-region-logo-193.webp' /tmp/counselo-root.html
+          grep -q 'data-picker-critical-css' /tmp/counselo-ar.html
+          if grep -q 'fonts.googleapis.com\|fonts.gstatic.com' /tmp/counselo-root.html /tmp/counselo-ar.html; then
+            echo "External Google Fonts remained in a picker page"
+            exit 1
+          fi
+          if grep -q 'googletagmanager.com/gtag/js' /tmp/counselo-root.html /tmp/counselo-ar.html; then
+            echo "Duplicate direct GA runtime remained in a picker page"
+            exit 1
+          fi
 
       - name: Desktop Lighthouse diagnostics
         shell: bash
@@ -91,7 +103,7 @@ jobs:
             --output-path=lighthouse-mobile.json \
             --quiet
 
-      - name: Summarize Lighthouse diagnostics
+      - name: Enforce Lighthouse stability and quality gates
         run: |
           node <<'NODE'
           const fs = require('node:fs');
@@ -113,6 +125,7 @@ jobs:
             'long-tasks',
           ];
           const result = {};
+          const failures = [];
           for (const [name, file] of [['desktop', 'lighthouse-desktop.json'], ['mobile', 'lighthouse-mobile.json']]) {
             const report = JSON.parse(fs.readFileSync(file, 'utf8'));
             const categories = report.categories;
@@ -137,23 +150,52 @@ jobs:
               audits,
             };
           }
+
+          const check = (condition, message) => { if (!condition) failures.push(message); };
+          const d = result.desktop;
+          const m = result.mobile;
+          check(d.scores.performance >= 0.95, `Desktop performance ${d.scores.performance} < 0.95`);
+          check(m.scores.performance >= 0.90, `Mobile performance ${m.scores.performance} < 0.90`);
+          check(d.scores.accessibility >= 0.99, `Desktop accessibility ${d.scores.accessibility} < 0.99`);
+          check(m.scores.accessibility >= 0.99, `Mobile accessibility ${m.scores.accessibility} < 0.99`);
+          check(d.scores.bestPractices === 1 && m.scores.bestPractices === 1, 'Best Practices must remain 100');
+          check(d.scores.seo === 1 && m.scores.seo === 1, 'SEO must remain 100');
+          check((d.audits['cumulative-layout-shift']?.numericValue ?? 1) <= 0.02, 'Desktop CLS exceeded 0.02');
+          check((m.audits['cumulative-layout-shift']?.numericValue ?? 1) <= 0.02, 'Mobile CLS exceeded 0.02');
+          check((d.audits['largest-contentful-paint']?.numericValue ?? Infinity) <= 2500, 'Desktop LCP exceeded 2.5 s');
+          check((m.audits['largest-contentful-paint']?.numericValue ?? Infinity) <= 3000, 'Mobile LCP exceeded 3.0 s');
+          check((d.audits['total-blocking-time']?.numericValue ?? Infinity) <= 200, 'Desktop TBT exceeded 200 ms');
+          check((m.audits['total-blocking-time']?.numericValue ?? Infinity) <= 200, 'Mobile TBT exceeded 200 ms');
+          for (const name of ['desktop', 'mobile']) {
+            for (const id of ['lcp-discovery-insight', 'render-blocking-insight']) {
+              const score = result[name].audits[id]?.score;
+              check(score === null || score === undefined || score === 1, `${name} ${id} still reports an actionable issue`);
+            }
+          }
+
           fs.writeFileSync('lighthouse-summary.json', JSON.stringify(result, null, 2));
           console.log(JSON.stringify({
             desktop: {
-              scores: result.desktop.scores,
-              fcp: result.desktop.audits['first-contentful-paint']?.displayValue,
-              lcp: result.desktop.audits['largest-contentful-paint']?.displayValue,
-              tbt: result.desktop.audits['total-blocking-time']?.displayValue,
-              cls: result.desktop.audits['cumulative-layout-shift']?.displayValue,
+              scores: d.scores,
+              fcp: d.audits['first-contentful-paint']?.displayValue,
+              lcp: d.audits['largest-contentful-paint']?.displayValue,
+              speedIndex: d.audits['speed-index']?.displayValue,
+              tbt: d.audits['total-blocking-time']?.displayValue,
+              cls: d.audits['cumulative-layout-shift']?.displayValue,
             },
             mobile: {
-              scores: result.mobile.scores,
-              fcp: result.mobile.audits['first-contentful-paint']?.displayValue,
-              lcp: result.mobile.audits['largest-contentful-paint']?.displayValue,
-              tbt: result.mobile.audits['total-blocking-time']?.displayValue,
-              cls: result.mobile.audits['cumulative-layout-shift']?.displayValue,
+              scores: m.scores,
+              fcp: m.audits['first-contentful-paint']?.displayValue,
+              lcp: m.audits['largest-contentful-paint']?.displayValue,
+              speedIndex: m.audits['speed-index']?.displayValue,
+              tbt: m.audits['total-blocking-time']?.displayValue,
+              cls: m.audits['cumulative-layout-shift']?.displayValue,
             },
           }, null, 2));
+          if (failures.length) {
+            console.error(`Performance validation failed:\n- ${failures.join('\n- ')}`);
+            process.exit(1);
+          }
           NODE
 
       - name: Upload Lighthouse reports
