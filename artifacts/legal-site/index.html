@@ -37,6 +37,26 @@
     </script>
 
     <!--
+      The jurisdiction picker is a long prerendered document. Let Chromium skip
+      layout/paint work for its off-screen sections while keeping every node in
+      the HTML/DOM for SEO, accessibility, anchors, and hydration. The selector
+      matches only / and /ar because all other public routes have an AppShell
+      wrapper between #root and #main-content.
+    -->
+    <style>
+      #root > main#main-content > section:nth-of-type(n+2) {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 900px;
+      }
+      @media print {
+        #root > main#main-content > section:nth-of-type(n+2) {
+          content-visibility: visible;
+          contain-intrinsic-size: none;
+        }
+      }
+    </style>
+
+    <!--
       Keep GA4 command queuing available immediately, but defer the external
       gtag.js payload until the page load event. GTM remains responsible for
       the site's SPA/conversion events, while this avoids making analytics
