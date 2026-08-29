@@ -17,7 +17,7 @@ permissions:
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -41,7 +41,7 @@ jobs:
       - name: Build legal site
         run: pnpm --filter @workspace/legal-site run build
 
-      - name: Run desktop and mobile Lighthouse diagnostics
+      - name: Run Lighthouse diagnostics
         shell: bash
         run: |
           PORT=24438 NODE_ENV=production node artifacts/legal-site/dist/ssr-server.mjs > /tmp/counselo-server.log 2>&1 &
@@ -70,6 +70,19 @@ jobs:
 
           npx --yes lighthouse@13.0.1 http://127.0.0.1:24438/ \
             --only-categories=performance,accessibility,best-practices,seo \
+            --form-factor=desktop \
+            --screenEmulation.mobile=false \
+            --throttling-method=devtools \
+            --throttling.rttMs=150 \
+            --throttling.throughputKbps=1600 \
+            --throttling.cpuSlowdownMultiplier=1 \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+            --output=json \
+            --output-path=lighthouse-desktop-applied.json \
+            --quiet
+
+          npx --yes lighthouse@13.0.1 http://127.0.0.1:24438/ \
+            --only-categories=performance,accessibility,best-practices,seo \
             --form-factor=mobile \
             --screenEmulation.mobile=true \
             --throttling-method=simulate \
@@ -80,7 +93,7 @@ jobs:
 
           node - <<'NODE'
           const fs = require('node:fs');
-          for (const kind of ['desktop', 'mobile']) {
+          for (const kind of ['desktop', 'desktop-applied', 'mobile']) {
             const report = JSON.parse(fs.readFileSync(`lighthouse-${kind}.json`, 'utf8'));
             const a = report.audits;
             const summary = {
@@ -111,6 +124,8 @@ jobs:
           name: counselo-lighthouse-diagnostics
           path: |
             lighthouse-desktop.json
+            lighthouse-desktop-applied.json
             lighthouse-mobile.json
             lighthouse-desktop-summary.json
+            lighthouse-desktop-applied-summary.json
             lighthouse-mobile-summary.json
