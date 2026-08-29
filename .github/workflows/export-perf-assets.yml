@@ -21,7 +21,7 @@ jobs:
       - name: Collect assets and source snapshot
         shell: bash
         run: |
-          mkdir -p perf-assets/images perf-assets/source/src/pages perf-assets/source/src/scripts
+          mkdir -p perf-assets/images perf-assets/source/src/pages perf-assets/source/src/scripts perf-assets/source/src/lib
           cp artifacts/legal-site/public/images/optimized/counselo-region-logo.png perf-assets/images/
           cp artifacts/legal-site/public/images/optimized/counselo-platform-line-art-v1.png perf-assets/images/
           cp artifacts/legal-site/public/images/optimized/saudi-arabia-flag.jpg perf-assets/images/
@@ -30,6 +30,9 @@ jobs:
           cp artifacts/legal-site/index.html perf-assets/source/index.html
           cp artifacts/legal-site/package.json perf-assets/source/package.json
           cp artifacts/legal-site/src/index.css perf-assets/source/src/index.css
+          cp artifacts/legal-site/src/entry-client.tsx perf-assets/source/src/entry-client.tsx
+          cp artifacts/legal-site/src/PickerApp.tsx perf-assets/source/src/PickerApp.tsx
+          cp artifacts/legal-site/src/lib/analytics.ts perf-assets/source/src/lib/analytics.ts
           cp artifacts/legal-site/src/pages/region-picker.tsx perf-assets/source/src/pages/region-picker.tsx
           cp artifacts/legal-site/src/pages/ar-region-picker.tsx perf-assets/source/src/pages/ar-region-picker.tsx
           cp artifacts/legal-site/src/scripts/prerender.ts perf-assets/source/src/scripts/prerender.ts
