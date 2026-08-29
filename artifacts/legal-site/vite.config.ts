@@ -49,6 +49,36 @@ function sitemapPlugin() {
 }
 
 /**
+ * Temporary build-only diagnostics for the picker dependency graph. It emits
+ * no files and changes no runtime code. Remove after the remaining Lighthouse
+ * JavaScript is attributed to concrete modules.
+ */
+function pickerBundleTrace() {
+  return {
+    name: "picker-bundle-trace",
+    generateBundle(_options: unknown, bundle: Record<string, any>) {
+      if (isSSR) return;
+      const interesting = /(?:index-|PickerApp-|region-picker-|latest-content-carousels-|blog-path-light-)/;
+      for (const [fileName, output] of Object.entries(bundle)) {
+        if (output.type !== "chunk") continue;
+        const moduleIds = Object.keys(output.modules);
+        const hasRuntime = moduleIds.some((id) =>
+          /tanstack\/react-query|embla-carousel|react-query-picker-lite|carousel-picker-lite|picker-lite-runtime/.test(id),
+        );
+        if (!interesting.test(fileName) && !hasRuntime) continue;
+        const top = moduleIds
+          .map((id) => ({ id, size: output.modules[id]?.renderedLength ?? 0 }))
+          .sort((a, b) => b.size - a.size)
+          .slice(0, 18)
+          .map(({ id, size }) => `${size}:${id.replace(import.meta.dirname, "<site>")}`)
+          .join(" | ");
+        console.log(`[perf-trace] ${fileName} imports=${output.imports.join(",")} modules=${top}`);
+      }
+    },
+  };
+}
+
+/**
  * The two jurisdiction-picker pages use Framer Motion components whose
  * `initial={false}` configuration leaves them at their ordinary resting CSS
  * state. Resolve only those two imports to a tiny DOM-compatible shim so the
@@ -192,6 +222,7 @@ export default defineConfig({
   base: basePath,
   plugins: [
     sitemapPlugin(),
+    pickerBundleTrace(),
     staticMotionForRegionPickers(),
     lightweightPickerRuntime(),
     lightweightPublicImports(),
