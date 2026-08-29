@@ -45,7 +45,7 @@ const regionalFooterContent: Record<Region, {
 };
 
 const globalFooterContent = {
-  map: "/images/optimized/counselo-platform-line-art-v1.png",
+  map: "/images/optimized/counselo-platform-line-art-v1.webp",
   label: { en: "GLOBAL INSIGHTS", ar: "رؤى عالمية" },
   heading: { en: "One publication. Jurisdiction-specific legal analysis.", ar: "منصة واحدة. تحليل قانوني محدد الاختصاص." },
   description: { en: "CounselO's shared legal publication covers Saudi, Syrian and UAE law. Every country-specific article identifies the legal system it addresses.", ar: "تغطي منصة كاونسلو المشتركة قوانين السعودية وسوريا والإمارات، ويحدد كل مقال خاص بدولة النظام القانوني الذي يتناوله." },

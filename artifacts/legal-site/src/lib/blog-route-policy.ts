@@ -3,7 +3,7 @@ import {
   hasQualityBilingualBlogContent,
   type BlogLanguage,
   type BilingualBlogContent,
-} from "@workspace/api-zod";
+} from "@workspace/api-zod/browser";
 
 type BlogRoutePost = BilingualBlogContent & { slug: string };
 

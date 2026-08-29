@@ -14,7 +14,7 @@ import {
   UserRoundCheck,
   Waypoints,
 } from "lucide-react";
-import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";

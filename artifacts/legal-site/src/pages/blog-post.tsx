@@ -1,5 +1,5 @@
 import { useParams, Link, Redirect, useLocation } from "wouter";
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import { Clock, ArrowLeft, ArrowRight, BadgeCheck, Calendar, MessageCircle } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -17,7 +17,7 @@ import {
   COUNSELO_ENTITY_IDS,
   getServiceDefinition,
   getServicesForRegion,
-} from "@workspace/api-zod";
+} from "@workspace/api-zod/browser";
 
 const BLOG_CATEGORY_TO_SERVICE: Record<string, { slug: string; nameEn: string; nameAr: string }> = {
   "Family Law":        { slug: "family-law",       nameEn: "Family Law Services",              nameAr: "خدمات قانون الأسرة" },
@@ -377,7 +377,7 @@ export default function BlogPost() {
       {/* Hero */}
       <section className="premium-page-hero text-white py-16 px-4">
         <div className="max-w-3xl mx-auto">
-          <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Link href={useAr ? "/blog/ar" : "/blog"} className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm font-medium mb-8 transition-colors">
               <BackArrow className="h-4 w-4" /> {ui.back}
             </Link>
@@ -404,7 +404,7 @@ export default function BlogPost() {
               <BadgeCheck className="h-4 w-4 text-[#e0c078]" aria-hidden="true" />
               {useAr ? "راجعه" : "Reviewed by"} {reviewerAttribution}
             </a>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -412,7 +412,7 @@ export default function BlogPost() {
       <section className="premium-content-shell py-14">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Article body */}
-          <motion.article
+          <m.article
             initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
@@ -497,10 +497,10 @@ export default function BlogPost() {
                 </Link>
               </div>
             </div>
-          </motion.article>
+          </m.article>
 
           {/* Sidebar */}
-          <motion.aside
+          <m.aside
             initial={false}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
@@ -595,7 +595,7 @@ export default function BlogPost() {
                 );
               })()}
             </div>
-          </motion.aside>
+          </m.aside>
         </div>
       </section>
       <TrustSignals isArabic={useAr} regionPrefix={articleRegionPrefix} compact />

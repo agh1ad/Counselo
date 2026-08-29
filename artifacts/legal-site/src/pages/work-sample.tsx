@@ -8,7 +8,7 @@ import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized
 import { getRegionalLegalSources } from "@/lib/regional-legal-sources";
 import type { InitialBlogPost } from "@/App";
 import { fetchPublicJson, publicApiUrl } from "@/lib/public-api";
-import { blogPath, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
+import { blogPath, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 
 declare global {
   interface Window {

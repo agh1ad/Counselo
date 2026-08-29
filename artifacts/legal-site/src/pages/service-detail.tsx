@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import { useParams, Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,7 +22,7 @@ import { TrustSignals } from "@/components/seo/TrustSignals";
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
 import { getRegionalLegalSources, type LegalSource } from "@/lib/regional-legal-sources";
 import { getLegalProblemPages, legalProblemPath } from "@/lib/legal-problem-pages";
-import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI, CONSULTATION_OPERATING_POLICY, getConsultationProduct } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI, CONSULTATION_OPERATING_POLICY, getConsultationProduct } from "@workspace/api-zod/browser";
 
 function truncateMeta(value: string, maxLength = 158): string {
   if (value.length <= maxLength) return value;
@@ -265,7 +265,7 @@ export default function ServiceDetail() {
             <span className="font-medium text-white">{data.title}</span>
           </nav>
 
-          <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }} className="max-w-4xl">
+          <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }} className="max-w-4xl">
             <Link href={`${regionPrefix}/services`} className="mb-7 inline-flex items-center text-sm font-medium text-[#d5ae5d] transition-colors hover:text-white">
               <ArrowLeft className={`me-2 h-4 w-4 ${isRTL ? "rotate-180" : ""}`} /> {sd.backLink}
             </Link>
@@ -283,7 +283,7 @@ export default function ServiceDetail() {
             </div>
             <p className="mt-4 max-w-3xl text-xs leading-5 text-white/58">{isRTL ? "اذكر الدولة وأي ميعاد قريب والنتيجة المطلوبة. نؤكد النطاق والرسوم قبل بدء العمل المدفوع." : "State the jurisdiction, any urgent date and the outcome you need. Scope and fee are confirmed before paid work begins."}</p>
             <p className="mt-7 max-w-3xl font-serif text-xl italic leading-relaxed text-white/72 lg:text-2xl">{serviceSummary}</p>
-          </motion.div>
+          </m.div>
           </div>
       </section>
 
@@ -302,7 +302,7 @@ export default function ServiceDetail() {
       <div className="premium-content-shell py-12 lg:py-16">
         <div className="grid gap-12 lg:grid-cols-12 xl:gap-16">
           <div className="lg:col-span-8 xl:col-span-9">
-            <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <section id="service-overview" className="mb-12 scroll-mt-36" aria-labelledby="service-overview-heading">
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary">{isRTL ? "ابدأ من هنا" : "Start here"}</p>
                 <h2 id="service-overview-heading" className="mb-6 font-serif text-3xl lg:text-4xl">{isRTL ? "الخدمة في لمحة" : "The service at a glance"}</h2>
@@ -545,12 +545,12 @@ export default function ServiceDetail() {
                 </div>
               </section>
 
-            </motion.div>
+            </m.div>
           </div>
 
           {/* Sidebar */}
           <div className="lg:col-span-4 xl:col-span-3">
-            <motion.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
+            <m.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
               className="service-consultation-panel sticky top-36 overflow-hidden bg-[#0d4a31] p-7 text-white shadow-[0_24px_65px_rgba(13,74,49,0.18)] lg:p-8">
               <h3 className="mb-4 font-serif text-3xl font-semibold leading-tight text-white">{sd.sidebar.heading}</h3>
               <div className="mb-6 h-px w-14 bg-[#d5ae5d]" />
@@ -578,7 +578,7 @@ export default function ServiceDetail() {
                   <p className="font-mono text-lg font-medium text-white" dir="ltr">{sd.sidebar.phone}</p>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </div>

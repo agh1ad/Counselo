@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import { Link } from "wouter";
 import {
   ArrowRight,
@@ -23,7 +23,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { COUNSELO_ENTITY_IDS, COUNSELO_PLATFORM_POSITIONING, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS, COUNSELO_PLATFORM_POSITIONING, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 
@@ -154,13 +154,13 @@ export default function Services() {
       />
       <section className="services-directory-hero premium-page-hero py-20 lg:py-28">
         <div className="premium-content-shell relative z-10">
-          <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">
+          <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">
             <h1 className="mb-7 font-serif text-5xl font-medium leading-[0.98] tracking-[-0.035em] text-white md:text-7xl">
               {s.hero.heading}
             </h1>
             <div className="premium-hero-rule mb-8" />
             <p className="max-w-2xl text-lg leading-relaxed text-white/75 md:text-xl">{s.hero.desc}</p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -199,7 +199,7 @@ export default function Services() {
                   const index = serviceIndexById.get(service.id) ?? 0;
                   const Icon = serviceIcons[service.id] ?? Gavel;
                   return (
-                    <motion.article
+                    <m.article
                       key={service.id}
                       initial={false}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -228,7 +228,7 @@ export default function Services() {
                         </span>
                         <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                       </Link>
-                    </motion.article>
+                    </m.article>
                   );
                 })}
               </div>

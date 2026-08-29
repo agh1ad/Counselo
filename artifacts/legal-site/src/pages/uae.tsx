@@ -18,7 +18,7 @@ import {
   UAE_SERVICES,
   type UaeLegalService,
 } from "@/data/uae-legal-services";
-import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod/browser";
 
 const WHATSAPP = "https://wa.me/966594850247";
 const EMAIL = "mailto:info@counselo-legal.com";
