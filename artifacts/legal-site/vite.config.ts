@@ -2,7 +2,6 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
-import { readFileSync } from "node:fs";
 import { execSync } from "child_process";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
@@ -49,36 +48,6 @@ function sitemapPlugin() {
 }
 
 /**
- * Temporary build-only diagnostics for the picker dependency graph. It emits
- * no files and changes no runtime code. Remove after the remaining Lighthouse
- * JavaScript is attributed to concrete modules.
- */
-function pickerBundleTrace() {
-  return {
-    name: "picker-bundle-trace",
-    generateBundle(_options: unknown, bundle: Record<string, any>) {
-      if (isSSR) return;
-      const interesting = /(?:index-|PickerApp-|region-picker-|latest-content-carousels-|blog-path-light-)/;
-      for (const [fileName, output] of Object.entries(bundle)) {
-        if (output.type !== "chunk") continue;
-        const moduleIds = Object.keys(output.modules);
-        const hasRuntime = moduleIds.some((id) =>
-          /tanstack\/react-query|embla-carousel|react-query-picker-lite|carousel-picker-lite|picker-lite-runtime/.test(id),
-        );
-        if (!interesting.test(fileName) && !hasRuntime) continue;
-        const top = moduleIds
-          .map((id) => ({ id, size: output.modules[id]?.renderedLength ?? 0 }))
-          .sort((a, b) => b.size - a.size)
-          .slice(0, 18)
-          .map(({ id, size }) => `${size}:${id.replace(import.meta.dirname, "<site>")}`)
-          .join(" | ");
-        console.log(`[perf-trace] ${fileName} imports=${output.imports.join(",")} modules=${top}`);
-      }
-    },
-  };
-}
-
-/**
  * The two jurisdiction-picker pages use Framer Motion components whose
  * `initial={false}` configuration leaves them at their ordinary resting CSS
  * state. Resolve only those two imports to a tiny DOM-compatible shim so the
@@ -99,58 +68,6 @@ function staticMotionForRegionPickers() {
         return shim;
       }
       return null;
-    },
-  };
-}
-
-/**
- * The root jurisdiction picker is prerendered with the normal production
- * components, so SEO/body HTML remains exactly the same. For the browser-only
- * production bundle, give only those two picker pages a second module instance
- * of LatestContentCarousels whose data refresh and carousel engines are tiny
- * compatibility runtimes. The first client render deliberately matches the
- * SSR markup; the lighter engines take over only after hydration.
- *
- * Development and the SSR/prerender build are intentionally excluded, and the
- * normal App lazy chunk keeps TanStack Query + Embla unchanged for every other
- * route.
- */
-function lightweightPickerRuntime() {
-  const queryRuntime = path.resolve(import.meta.dirname, "src/lib/react-query-picker-lite.tsx");
-  const carouselRuntime = path.resolve(import.meta.dirname, "src/components/ui/carousel-picker-lite.tsx");
-  const latestContent = path.resolve(import.meta.dirname, "src/components/content/latest-content-carousels.tsx");
-  const pickerVariant = `${latestContent}?picker-lite-runtime`;
-
-  return {
-    name: "lightweight-picker-runtime",
-    enforce: "pre" as const,
-    resolveId(source: string, importer?: string) {
-      if (!isBuildStep || isSSR || !importer) return null;
-      const normalizedImporter = importer.split(path.sep).join("/");
-
-      if (
-        source === "@tanstack/react-query" &&
-        normalizedImporter.endsWith("/src/PickerApp.tsx")
-      ) {
-        return queryRuntime;
-      }
-
-      if (
-        source === "@/components/content/latest-content-carousels" &&
-        (normalizedImporter.endsWith("/src/pages/region-picker.tsx") ||
-          normalizedImporter.endsWith("/src/pages/ar-region-picker.tsx"))
-      ) {
-        return pickerVariant;
-      }
-
-      return null;
-    },
-    load(id: string) {
-      if (id !== pickerVariant) return null;
-      return readFileSync(latestContent, "utf8")
-        .replace('from "@tanstack/react-query"', 'from "@/lib/react-query-picker-lite"')
-        .replace('from "@/components/ui/carousel"', 'from "@/components/ui/carousel-picker-lite"')
-        .replace('from "@workspace/api-zod"', 'from "@/lib/blog-path-light"');
     },
   };
 }
@@ -222,9 +139,7 @@ export default defineConfig({
   base: basePath,
   plugins: [
     sitemapPlugin(),
-    pickerBundleTrace(),
     staticMotionForRegionPickers(),
-    lightweightPickerRuntime(),
     lightweightPublicImports(),
     helmetSsrInterop(),
     react(),
