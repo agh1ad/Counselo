@@ -1,0 +1,108 @@
+name: Verify live CounselO deployment
+
+on:
+  push:
+    branches:
+      - verify/live-counselo-20260829
+    paths:
+      - ".github/workflows/verify-live-counselo.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify deployed HTML and critical assets
+        shell: bash
+        run: |
+          url="https://counselo-legal.com/?deployment-check=${GITHUB_SHA}"
+          curl --fail --location --retry 12 --retry-delay 5 --retry-all-errors --connect-timeout 15 --max-time 90 \
+            -H 'Cache-Control: no-cache' "$url" -o live.html
+          grep -q 'counselo-region-logo-310.webp' live.html
+          grep -q 'counselo-region-logo-193.webp' live.html
+          grep -q 'counselo-platform-line-art-v1.webp' live.html
+          grep -q 'data-picker-critical-css' live.html
+          if grep -q 'counselo-region-logo-386.webp' live.html; then
+            echo 'Obsolete 386px logo is still live'
+            exit 1
+          fi
+          if grep -q 'fonts.googleapis.com\|fonts.gstatic.com' live.html; then
+            echo 'External Google Fonts are still live'
+            exit 1
+          fi
+          if grep -Eq 'contain-intrinsic-size:[[:space:]]*auto[[:space:]]+900px' live.html; then
+            echo 'Obsolete 900px intrinsic placeholder is still live'
+            exit 1
+          fi
+          curl --fail --location --retry 8 --retry-delay 3 --retry-all-errors --connect-timeout 15 --max-time 60 \
+            -o /dev/null https://counselo-legal.com/images/optimized/counselo-region-logo-310.webp
+
+      - name: Live desktop Lighthouse
+        run: |
+          npx --yes lighthouse@13.0.1 https://counselo-legal.com/ \
+            --preset=desktop \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --throttling-method=simulate \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+            --output=json \
+            --output-path=live-desktop.json \
+            --quiet
+
+      - name: Live mobile Lighthouse
+        run: |
+          npx --yes lighthouse@13.0.1 https://counselo-legal.com/ \
+            --form-factor=mobile \
+            --screenEmulation.mobile=true \
+            --only-categories=performance,accessibility,best-practices,seo \
+            --throttling-method=simulate \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" \
+            --output=json \
+            --output-path=live-mobile.json \
+            --quiet
+
+      - name: Summarize live results
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const summary = {};
+          for (const [kind, file] of [['desktop', 'live-desktop.json'], ['mobile', 'live-mobile.json']]) {
+            const report = JSON.parse(fs.readFileSync(file, 'utf8'));
+            const a = report.audits;
+            const c = report.categories;
+            summary[kind] = {
+              performance: c.performance.score,
+              accessibility: c.accessibility.score,
+              bestPractices: c['best-practices'].score,
+              seo: c.seo.score,
+              fcp: a['first-contentful-paint']?.displayValue,
+              lcp: a['largest-contentful-paint']?.displayValue,
+              speedIndex: a['speed-index']?.displayValue,
+              tbt: a['total-blocking-time']?.displayValue,
+              cls: a['cumulative-layout-shift']?.displayValue,
+            };
+          }
+          fs.writeFileSync('live-summary.json', JSON.stringify(summary, null, 2));
+          console.log(JSON.stringify(summary, null, 2));
+          if (summary.desktop.accessibility !== 1 || summary.mobile.accessibility !== 1) process.exit(1);
+          if (summary.desktop.bestPractices !== 1 || summary.mobile.bestPractices !== 1) process.exit(1);
+          if (summary.desktop.seo !== 1 || summary.mobile.seo !== 1) process.exit(1);
+          if (Number(summary.desktop.cls) > 0.1 || Number(summary.mobile.cls) > 0.1) process.exit(1);
+          NODE
+
+      - name: Upload live verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-counselo-verification
+          path: |
+            live.html
+            live-desktop.json
+            live-mobile.json
+            live-summary.json
