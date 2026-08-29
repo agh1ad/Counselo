@@ -13,8 +13,9 @@
 
 import "./index.css";
 
-const rootEl = document.getElementById("root");
-if (!rootEl) throw new Error("Root element #root not found");
+const rootElement = document.getElementById("root");
+if (!rootElement) throw new Error("Root element #root not found");
+const rootEl: HTMLElement = rootElement;
 
 const pathname = window.location.pathname;
 const normalizedPath = pathname.replace(/\/+$/, "") || "/";
