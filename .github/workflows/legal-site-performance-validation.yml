@@ -44,3 +44,24 @@ jobs:
 
       - name: Build complete production site
         run: pnpm --filter @workspace/legal-site run build
+
+      - name: Smoke test production server
+        shell: bash
+        run: |
+          PORT=24438 NODE_ENV=production node artifacts/legal-site/dist/ssr-server.mjs > /tmp/counselo-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent --show-error http://127.0.0.1:24438/ > /tmp/counselo-root.html; then
+              break
+            fi
+            if ! kill -0 "$server_pid" 2>/dev/null; then
+              cat /tmp/counselo-server.log
+              exit 1
+            fi
+            sleep 1
+          done
+          curl --fail --silent --show-error http://127.0.0.1:24438/ar > /tmp/counselo-ar.html
+          curl --fail --silent --show-error http://127.0.0.1:24438/sa > /tmp/counselo-sa.html
+          grep -q 'id="root"' /tmp/counselo-root.html
+          grep -q 'CounselO' /tmp/counselo-root.html
