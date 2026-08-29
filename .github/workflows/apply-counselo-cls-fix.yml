@@ -1,0 +1,80 @@
+name: Apply CounselO CLS fix
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/apply-counselo-cls-fix.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout pull-request branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Apply source patch and materialize pixel-equivalent WebP assets
+        shell: bash
+        run: |
+          cat .github/counselo-cls-patch/part-*.patch > /tmp/counselo-cls-fix.patch
+          git apply --check /tmp/counselo-cls-fix.patch
+          git apply /tmp/counselo-cls-fix.patch
+
+          python -m pip install --disable-pip-version-check --quiet pillow
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageChops
+
+          images = Path("artifacts/legal-site/public/images/optimized")
+
+          def save_lossless(source_name: str, output_name: str, size: tuple[int, int] | None = None) -> None:
+              source = Image.open(images / source_name)
+              rendered = source.resize(size, Image.Resampling.LANCZOS) if size else source.copy()
+              rendered.save(images / output_name, "WEBP", lossless=True, method=6, exact=True)
+
+              decoded = Image.open(images / output_name)
+              expected = rendered.convert("RGBA")
+              actual = decoded.convert("RGBA")
+              if expected.size != actual.size or ImageChops.difference(expected, actual).getbbox() is not None:
+                  raise RuntimeError(f"WebP verification failed for {output_name}")
+              print(f"[image] {output_name}: {actual.width}x{actual.height}, {(images / output_name).stat().st_size} bytes")
+
+          save_lossless("counselo-platform-line-art-v1.png", "counselo-platform-line-art-v1.webp")
+          save_lossless("counselo-region-logo.png", "counselo-region-logo-193.webp", (193, 80))
+          save_lossless("counselo-region-logo.png", "counselo-region-logo-386.webp", (386, 160))
+          save_lossless("saudi-arabia-flag.jpg", "saudi-arabia-flag-72.webp", (72, 48))
+          save_lossless("saudi-arabia-flag.jpg", "saudi-arabia-flag-144.webp", (144, 96))
+          save_lossless("syria-flag.jpg", "syria-flag-72.webp", (72, 48))
+          save_lossless("syria-flag.jpg", "syria-flag-144.webp", (144, 96))
+          PY
+
+          git diff --check
+
+      - name: Commit fixes to pull-request branch
+        shell: bash
+        run: |
+          git add artifacts/legal-site
+          if git diff --cached --quiet; then
+            echo "No source changes to commit."
+            exit 0
+          fi
+          git config user.name "CounselO performance validation"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "perf: eliminate picker CLS and critical-path waste"
+          git push origin "HEAD:${{ github.head_ref || github.ref_name }}"
