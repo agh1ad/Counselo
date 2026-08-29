@@ -23,6 +23,19 @@
     <link rel="alternate" type="application/rss+xml" title="CounselO Legal Updates" href="/feed.xml" />
     <link rel="alternate" type="text/plain" href="/llms.txt" title="CounselO AI content guide" />
 
+    <!-- The picker logo is above the fold only on / and /ar. Discover it from
+         the head on those routes without making every regional page fetch it. -->
+    <script>
+      if(location.pathname==='/'||location.pathname==='/ar'){
+        var heroLogo=document.createElement('link');
+        heroLogo.rel='preload';
+        heroLogo.as='image';
+        heroLogo.href='/images/optimized/counselo-region-logo.png';
+        heroLogo.fetchPriority='high';
+        document.head.appendChild(heroLogo);
+      }
+    </script>
+
     <!--
       Keep GA4 command queuing available immediately, but defer the external
       gtag.js payload until the page load event. GTM remains responsible for
