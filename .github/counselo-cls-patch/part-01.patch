@@ -1,0 +1,115 @@
+-  // dataLayer queue above preserves pageview/conversion events in the meantime.
+-  if (document.readyState === "complete") {
+-    window.setTimeout(loadGTM, 0);
+-  } else {
+-    window.addEventListener("load", loadGTM, { once: true });
++  const onVisibilityChange = () => {
++    if (document.visibilityState === "hidden") loadGTM();
++  };
++
++  const normalizedPath = window.location.pathname.replace(/\/+$/, "") || "/";
++  const isPrerenderedPicker = normalizedPath === "/" || normalizedPath === "/ar";
++
++  // Other application routes retain the existing post-load behavior. The two
++  // fully prerendered picker routes need no third-party runtime to render or
++  // navigate, so their queued analytics load on first intent or a short safety
++  // timeout instead of competing with the LCP image and initial CSS.
++  if (!isPrerenderedPicker) {
++    loadGTM();
++    return;
++  }
++
++  for (const eventName of interactionEvents) {
++    window.addEventListener(eventName, loadGTM, { once: true, passive: eventName !== "keydown" });
+   }
++  document.addEventListener("visibilitychange", onVisibilityChange);
++  fallbackTimer = window.setTimeout(loadGTM, 6000);
+ }
+diff --git a/artifacts/legal-site/src/pages/ar-region-picker.tsx b/artifacts/legal-site/src/pages/ar-region-picker.tsx
+index febaf71e5dd1c465fb93ff6b799effaaed476c45..820a770e71b964b9a2650fb3700f30dd0c3adcfd 100644
+--- a/artifacts/legal-site/src/pages/ar-region-picker.tsx
++++ b/artifacts/legal-site/src/pages/ar-region-picker.tsx
+@@ -8,8 +8,11 @@ import { useEffect } from "react";
+ import { COUNSELO_LEGAL_MATTERS_CLAIM, COUNSELO_LEGAL_MATTERS_STAT, COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
+ 
+ const counseloLogo = "/images/optimized/counselo-region-logo.png";
++const counseloLogoWebp = "/images/optimized/counselo-region-logo-193.webp 193w, /images/optimized/counselo-region-logo-386.webp 386w";
+ const saudiFlag = "/images/optimized/saudi-arabia-flag.jpg";
++const saudiFlagWebp = "/images/optimized/saudi-arabia-flag-72.webp 72w, /images/optimized/saudi-arabia-flag-144.webp 144w";
+ const syrianFlag = "/images/optimized/syria-flag.jpg";
++const syrianFlagWebp = "/images/optimized/syria-flag-72.webp 72w, /images/optimized/syria-flag-144.webp 144w";
+ const uaeFlag = "/images/optimized/uae-flag.svg";
+ const comprehensiveConsultation = getConsultationProduct("comprehensive-consultation");
+ 
+@@ -176,28 +179,36 @@ export default function ArRegionPicker() {
+       {/* ── HERO ── */}
+       <section className="region-picker-hero relative isolate min-h-[88svh] overflow-hidden bg-[#073d2b] px-4 pb-16 pt-10 text-white sm:px-6 lg:px-8 lg:pb-20 lg:pt-14" aria-label="اختيار المنطقة">
+         <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_28%_42%,rgba(194,157,70,0.12),transparent_30%)]" />
+-        <img
+-          src="/images/optimized/counselo-platform-line-art-v1.png"
+-          alt=""
+-          aria-hidden="true"
+-          width="1200"
+-          height="900"
+-          decoding="async"
+-          className="pointer-events-none absolute -start-32 top-4 -z-10 hidden h-[92%] w-auto max-w-none object-contain opacity-[0.13] lg:block"
+-        />
++        <picture className="contents">
++          <source type="image/webp" srcSet="/images/optimized/counselo-platform-line-art-v1.webp" />
++          <img
++            src="/images/optimized/counselo-platform-line-art-v1.png"
++            alt=""
++            aria-hidden="true"
++            width="1719"
++            height="915"
++            loading="eager"
++            fetchPriority="high"
++            decoding="async"
++            className="pointer-events-none absolute -start-32 top-4 -z-10 hidden h-[92%] w-auto max-w-none object-contain opacity-[0.13] lg:block"
++          />
++        </picture>
+ 
+         <div className="relative mx-auto w-full max-w-[1380px]">
+           <div className="mb-10 flex items-center justify-between border-b border-[#0d4a31]/15 bg-white px-4 pb-4 pt-3">
+             <Link href="/sa/ar" aria-label="كاونسلو السعودية">
+-              <img
+-                src={counseloLogo}
++              <picture className="contents">
++                <source type="image/webp" srcSet={counseloLogoWebp} sizes="(min-width: 640px) 154px, 135px" />
++                <img
++                  src={counseloLogo}
+                 alt="كاونسلو — استشارات قانونية أونلاين للسعودية وسوريا والإمارات"
+                 width="193"
+                 height="80"
+                 fetchPriority="high"
+                 decoding="async"
+-                className="h-14 w-auto object-contain transition-opacity hover:opacity-80 sm:h-16"
+-              />
++                  className="h-14 w-auto object-contain transition-opacity hover:opacity-80 sm:h-16"
++                />
++              </picture>
+             </Link>
+             <Link href="/" className="border-b border-[#b58b32] pb-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#0d4a31] transition-colors hover:text-[#b58b32]" dir="ltr">
+               English
+@@ -206,7 +217,7 @@ export default function ArRegionPicker() {
+ 
+           <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
+             <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
+-              <p className="mb-6 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">
++              <p aria-hidden="true" className="mb-6 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">
+                 إرشاد قانوني محدد الاختصاص · السعودية · سوريا · الإمارات
+               </p>
+               <h1 className="font-serif text-[clamp(2.75rem,5.5vw,5.6rem)] font-semibold leading-[1.05] tracking-[-0.025em] text-white">
+@@ -235,7 +246,7 @@ export default function ArRegionPicker() {
+             <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="lg:pt-14">
+               <div className="mb-6 flex items-end justify-between gap-5">
+                 <div>
+-                  <p className="mb-2 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">اختر نطاق قضائك</p>
++                  <p aria-hidden="true" className="mb-2 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">اختر نطاق قضائك</p>
+                   <h2 className="font-serif text-3xl text-white sm:text-4xl">أين تحتاج إلى الاستشارة؟</h2>
+                 </div>
+                 <span className="hidden text-xs tracking-[0.08em] text-white/50 sm:block">اختر للدخول</span>
+@@ -243,10 +254,10 @@ export default function ArRegionPicker() {
+ 
+               <div className="grid gap-4 sm:grid-cols-2">
+                 {[
