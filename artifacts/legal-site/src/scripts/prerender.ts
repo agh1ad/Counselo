@@ -173,14 +173,14 @@ function htmlTag(route: string): string {
 const PICKER_ROUTES = new Set(["/", "/ar"]);
 
 const ENGLISH_PICKER_FONT_PRELOADS = [
-  "/fonts/07-UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
-  "/fonts/15-nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2",
-  "/fonts/11-nuFkD-vYSZviVYUb_rj3ij__anPXDTnogkk7.woff2",
+  "/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2",
+  "/fonts/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2",
+  "/fonts/nuFkD-vYSZviVYUb_rj3ij__anPXDTnogkk7.woff2",
 ] as const;
 
 const ARABIC_PICKER_FONT_PRELOADS = [
-  "/fonts/18-Iura6YBj_oCad4k1nzSBC45I.woff2",
-  "/fonts/22-Iurf6YBj_oCad4k1l4qkHrRpiYlJ.woff2",
+  "/fonts/Iura6YBj_oCad4k1nzSBC45I.woff2",
+  "/fonts/Iurf6YBj_oCad4k1l4qkHrRpiYlJ.woff2",
 ] as const;
 
 function pickerResourceHints(route: string): string {
