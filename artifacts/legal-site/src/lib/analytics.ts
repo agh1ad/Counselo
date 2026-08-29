@@ -109,6 +109,7 @@ export function injectGTM() {
   const j = document.createElement("script");
   j.id = "gtm-script";
   j.async = true;
+  j.fetchPriority = "low";
   j.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
   f.parentNode?.insertBefore(j, f);
 }
