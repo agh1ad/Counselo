@@ -104,15 +104,15 @@ function InteractionTracking() {
   return null;
 }
 
-export default function PickerApp() {
+export default function PickerApp({ externalRuntime = false }: { externalRuntime?: boolean }) {
   const isArabic = window.location.pathname === "/ar";
   return (
     <QueryClientProvider client={queryClient}>
       <WouterRouter base={(import.meta.env?.BASE_URL ?? "/").replace(/\/$/, "")}>
         <Suspense fallback={<div className="min-h-screen bg-background" aria-live="polite" />}>
-          <GAInit />
-          <InteractionTracking />
-          <ScrollToTop />
+          {!externalRuntime && <GAInit />}
+          {!externalRuntime && <InteractionTracking />}
+          {!externalRuntime && <ScrollToTop />}
           <Suspense fallback={<div className="min-h-[60vh]" aria-live="polite" />}>
             {isArabic ? <ArRegionPicker /> : <RegionPicker />}
           </Suspense>
