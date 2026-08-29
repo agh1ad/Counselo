@@ -1,0 +1,67 @@
+-                  { href: "/sa/ar", flag: saudiFlag, label: "المملكة العربية السعودية", alt: "السعودية — استشارة قانونية", number: "٠١", dark: true },
+-                  { href: "/syr/ar", flag: syrianFlag, label: "سوريا", alt: "سوريا — استشارة قانونية", number: "٠٢", dark: false },
+-                  { href: "/uae/ar", flag: uaeFlag, label: "الإمارات العربية المتحدة", alt: "الإمارات — استشارة قانونية", number: "٠٣", dark: true },
+-                ].map(({ href, flag, label, alt, number, dark }) => (
++                  { href: "/sa/ar", flag: saudiFlag, flagWebp: saudiFlagWebp, label: "المملكة العربية السعودية", alt: "السعودية — استشارة قانونية", number: "٠١", dark: true },
++                  { href: "/syr/ar", flag: syrianFlag, flagWebp: syrianFlagWebp, label: "سوريا", alt: "سوريا — استشارة قانونية", number: "٠٢", dark: false },
++                  { href: "/uae/ar", flag: uaeFlag, flagWebp: undefined, label: "الإمارات العربية المتحدة", alt: "الإمارات — استشارة قانونية", number: "٠٣", dark: true },
++                ].map(({ href, flag, flagWebp, label, alt, number, dark }) => (
+                   <Link
+                     key={href}
+                     href={href}
+@@ -258,8 +269,11 @@ export default function ArRegionPicker() {
+                   >
+                     <div className="absolute inset-x-0 top-0 h-1 bg-[#b58b32] transition-all duration-300 group-hover:h-2" />
+                     <div className="flex items-start justify-between">
+-                      <span className={`font-serif text-5xl ${dark ? "text-white/15" : "text-[#0d4a31]/12"}`}>{number}</span>
+-                      <img src={flag} alt={alt} width="72" height="48" decoding="async" className="h-11 w-[66px] border border-white/25 object-cover shadow-md" />
++                      <span aria-hidden="true" className={`font-serif text-5xl ${dark ? "text-white/15" : "text-[#0d4a31]/12"}`}>{number}</span>
++                      <picture className="contents">
++                        {flagWebp && <source type="image/webp" srcSet={flagWebp} sizes="66px" />}
++                        <img src={flag} alt={alt} width="72" height="48" loading="eager" decoding="async" className="h-11 w-[66px] border border-white/25 object-cover shadow-md" />
++                      </picture>
+                     </div>
+                     <div className="absolute inset-x-7 bottom-7 sm:inset-x-8 sm:bottom-8">
+                       <p className={`mb-3 text-[0.7rem] font-semibold tracking-[0.08em] ${dark ? "text-[#d4b66c]" : "text-[#9b7426]"}`}>خدمات قانونية أونلاين في</p>
+@@ -290,7 +304,7 @@ export default function ArRegionPicker() {
+         <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
+           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+             <div>
+-              <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">منصة كاونسلو</p>
++              <p aria-hidden="true" className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">منصة كاونسلو</p>
+               <h2 id="platform-heading-ar" className="font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl">بوابة إلكترونية واحدة للمساعدة القانونية</h2>
+             </div>
+             <div className="space-y-5 text-base leading-8 text-muted-foreground sm:text-lg">
+@@ -302,7 +316,7 @@ export default function ArRegionPicker() {
+                   ["أين", "السعودية · سوريا · الإمارات"],
+                   ["اللغات", "العربية والإنجليزية"],
+                   ["التمثيل أمام المحاكم", "إذا طُلب أو أصبح ضرورياً، يرتب بشكل مستقل عبر مهنيين شركاء أو مكاتب متعاونة مرخصة في الدولة المعنية"],
+-                ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b58b32] bg-[#eef4f0] px-4 py-3"><dt className="text-xs font-bold tracking-[0.1em] text-[#0d4a31]/65">{label}</dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
++                ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b58b32] bg-[#eef4f0] px-4 py-3"><dt><span className="sr-only">{label}</span><span aria-hidden="true" className="text-xs font-bold tracking-[0.1em] text-[#0d4a31]/65">{label}</span></dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
+               </dl>
+             </div>
+           </div>
+@@ -314,7 +328,7 @@ export default function ArRegionPicker() {
+           <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
+             <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+               <div>
+-                <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">حزمة الاستشارة</p>
++                <p aria-hidden="true" className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">حزمة الاستشارة</p>
+                 <h2 id="consultation-package-heading-ar" className="font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl">الاستشارة القانونية الإلكترونية المتكاملة</h2>
+                 <p className="mt-5 text-base leading-8 text-muted-foreground sm:text-lg">{comprehensiveConsultation.summaryAr}</p>
+               </div>
+@@ -355,7 +369,7 @@ export default function ArRegionPicker() {
+ 
+             {/* About text — comes first in RTL so shows on right */}
+             <motion.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-3">
+-              <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">عن كاونسلو</p>
++              <p aria-hidden="true" className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">عن كاونسلو</p>
+               <h2 id="about-heading-ar" className="mb-6 font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl lg:text-6xl">
+                 استشارة قانونية احترافية<br />عبر الإنترنت
+               </h2>
+@@ -400,7 +414,8 @@ export default function ArRegionPicker() {
+                       href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+-                      className="inline-flex items-center gap-1.5 text-white/55 hover:text-white text-xs transition-colors border border-white/25 hover:border-white/50 px-2 py-1"
++                      aria-label="LinkedIn"
