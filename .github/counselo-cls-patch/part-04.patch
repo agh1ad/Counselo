@@ -1,0 +1,73 @@
+           <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
+             <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
+-              <p className="mb-6 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">
++              <p aria-hidden="true" className="mb-6 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">
+                 Jurisdiction-Scoped Legal Guidance · Saudi Arabia · Syria · UAE
+               </p>
+               <h1 className="font-serif text-[clamp(2.75rem,5.5vw,5.6rem)] font-semibold leading-[0.96] tracking-[-0.035em] text-white">
+@@ -283,7 +294,7 @@ export default function RegionPicker() {
+             <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="lg:pt-14">
+               <div className="mb-6 flex items-end justify-between gap-5">
+                 <div>
+-                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">Choose your jurisdiction</p>
++                  <p aria-hidden="true" className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">Choose your jurisdiction</p>
+                   <h2 className="font-serif text-3xl text-white sm:text-4xl">Where do you need counsel?</h2>
+                 </div>
+                 <span className="hidden text-xs uppercase tracking-[0.16em] text-white/50 sm:block">Select to enter</span>
+@@ -291,10 +302,10 @@ export default function RegionPicker() {
+ 
+               <div className="grid gap-4 sm:grid-cols-2">
+                 {[
+-                  { href: "/sa", flag: saudiFlag, label: "Saudi Arabia", alt: "Saudi Arabia — Legal Consultation", number: "01", dark: true },
+-                  { href: "/syr", flag: syrianFlag, label: "Syria", alt: "Syria — Legal Consultation", number: "02", dark: false },
+-                  { href: "/uae", flag: uaeFlag, label: "United Arab Emirates", alt: "UAE — Legal Consultation", number: "03", dark: true },
+-                ].map(({ href, flag, label, alt, number, dark }) => (
++                  { href: "/sa", flag: saudiFlag, flagWebp: saudiFlagWebp, label: "Saudi Arabia", alt: "Saudi Arabia — Legal Consultation", number: "01", dark: true },
++                  { href: "/syr", flag: syrianFlag, flagWebp: syrianFlagWebp, label: "Syria", alt: "Syria — Legal Consultation", number: "02", dark: false },
++                  { href: "/uae", flag: uaeFlag, flagWebp: undefined, label: "United Arab Emirates", alt: "UAE — Legal Consultation", number: "03", dark: true },
++                ].map(({ href, flag, flagWebp, label, alt, number, dark }) => (
+                   <Link
+                     key={href}
+                     href={href}
+@@ -306,8 +317,11 @@ export default function RegionPicker() {
+                   >
+                     <div className="absolute inset-x-0 top-0 h-1 bg-[#b58b32] transition-all duration-300 group-hover:h-2" />
+                     <div className="flex items-start justify-between">
+-                      <span className={`font-serif text-5xl italic ${dark ? "text-white/15" : "text-[#0d4a31]/12"}`}>{number}</span>
+-                      <img src={flag} alt={alt} width="72" height="48" decoding="async" className="h-11 w-[66px] border border-white/25 object-cover shadow-md" />
++                      <span aria-hidden="true" className={`font-serif text-5xl italic ${dark ? "text-white/15" : "text-[#0d4a31]/12"}`}>{number}</span>
++                      <picture className="contents">
++                        {flagWebp && <source type="image/webp" srcSet={flagWebp} sizes="66px" />}
++                        <img src={flag} alt={alt} width="72" height="48" loading="eager" decoding="async" className="h-11 w-[66px] border border-white/25 object-cover shadow-md" />
++                      </picture>
+                     </div>
+                     <div className="absolute inset-x-7 bottom-7 sm:inset-x-8 sm:bottom-8">
+                       <p className={`mb-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] ${dark ? "text-[#d4b66c]" : "text-[#9b7426]"}`}>Online legal services in</p>
+@@ -338,7 +352,7 @@ export default function RegionPicker() {
+         <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
+           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+             <div>
+-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">The CounselO platform</p>
++              <p aria-hidden="true" className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">The CounselO platform</p>
+               <h2 id="platform-heading" className="font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl">One online starting point for legal help</h2>
+             </div>
+             <div className="space-y-5 text-base leading-8 text-muted-foreground sm:text-lg">
+@@ -350,7 +364,7 @@ export default function RegionPicker() {
+                   ["Where", "Saudi Arabia · Syria · UAE"],
+                   ["Languages", "Arabic and English"],
+                   ["Court representation", "If requested or necessary, arranged separately through licensed partner professionals or cooperating offices in the relevant jurisdiction"],
+-                ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b58b32] bg-[#eef4f0] px-4 py-3"><dt className="text-xs font-bold uppercase tracking-[0.14em] text-[#0d4a31]/65">{label}</dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
++                ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b58b32] bg-[#eef4f0] px-4 py-3"><dt><span className="sr-only">{label}</span><span aria-hidden="true" className="text-xs font-bold uppercase tracking-[0.14em] text-[#0d4a31]/65">{label}</span></dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
+               </dl>
+             </div>
+           </div>
+@@ -362,7 +376,7 @@ export default function RegionPicker() {
+           <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
+             <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+               <div>
+-                <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">Consultation package</p>
++                <p aria-hidden="true" className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">Consultation package</p>
+                 <h2 id="consultation-package-heading" className="font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl">Comprehensive online legal consultation</h2>
+                 <p className="mt-5 text-base leading-8 text-muted-foreground sm:text-lg">{comprehensiveConsultation.summaryEn}</p>
+               </div>
+@@ -415,7 +429,8 @@ export default function RegionPicker() {
