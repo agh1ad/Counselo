@@ -4,7 +4,10 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./entity-architecture": "./src/entity-architecture.ts",
+    "./consultation-products": "./src/consultation-products.ts",
+    "./public-site-policy": "./src/public-site-policy.ts"
   },
   "dependencies": {
     "zod": "catalog:"
