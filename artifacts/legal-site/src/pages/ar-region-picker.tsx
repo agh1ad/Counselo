@@ -8,8 +8,11 @@ import { useEffect } from "react";
 import { COUNSELO_LEGAL_MATTERS_CLAIM, COUNSELO_LEGAL_MATTERS_STAT, COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
 
 const counseloLogo = "/images/optimized/counselo-region-logo.png";
+const counseloLogoWebp = "/images/optimized/counselo-region-logo-193.webp 193w, /images/optimized/counselo-region-logo-386.webp 386w";
 const saudiFlag = "/images/optimized/saudi-arabia-flag.jpg";
+const saudiFlagWebp = "/images/optimized/saudi-arabia-flag-72.webp 72w, /images/optimized/saudi-arabia-flag-144.webp 144w";
 const syrianFlag = "/images/optimized/syria-flag.jpg";
+const syrianFlagWebp = "/images/optimized/syria-flag-72.webp 72w, /images/optimized/syria-flag-144.webp 144w";
 const uaeFlag = "/images/optimized/uae-flag.svg";
 const comprehensiveConsultation = getConsultationProduct("comprehensive-consultation");
 
@@ -176,28 +179,36 @@ export default function ArRegionPicker() {
       {/* ── HERO ── */}
       <section className="region-picker-hero relative isolate min-h-[88svh] overflow-hidden bg-[#073d2b] px-4 pb-16 pt-10 text-white sm:px-6 lg:px-8 lg:pb-20 lg:pt-14" aria-label="اختيار المنطقة">
         <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_28%_42%,rgba(194,157,70,0.12),transparent_30%)]" />
-        <img
-          src="/images/optimized/counselo-platform-line-art-v1.png"
-          alt=""
-          aria-hidden="true"
-          width="1200"
-          height="900"
-          decoding="async"
-          className="pointer-events-none absolute -start-32 top-4 -z-10 hidden h-[92%] w-auto max-w-none object-contain opacity-[0.13] lg:block"
-        />
+        <picture className="contents">
+          <source type="image/webp" srcSet="/images/optimized/counselo-platform-line-art-v1.webp" />
+          <img
+            src="/images/optimized/counselo-platform-line-art-v1.png"
+            alt=""
+            aria-hidden="true"
+            width="1719"
+            height="915"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            className="pointer-events-none absolute -start-32 top-4 -z-10 hidden h-[92%] w-auto max-w-none object-contain opacity-[0.13] lg:block"
+          />
+        </picture>
 
         <div className="relative mx-auto w-full max-w-[1380px]">
           <div className="mb-10 flex items-center justify-between border-b border-[#0d4a31]/15 bg-white px-4 pb-4 pt-3">
             <Link href="/sa/ar" aria-label="كاونسلو السعودية">
-              <img
-                src={counseloLogo}
+              <picture className="contents">
+                <source type="image/webp" srcSet={counseloLogoWebp} sizes="(min-width: 640px) 154px, 135px" />
+                <img
+                  src={counseloLogo}
                 alt="كاونسلو — استشارات قانونية أونلاين للسعودية وسوريا والإمارات"
                 width="193"
                 height="80"
                 fetchPriority="high"
                 decoding="async"
-                className="h-14 w-auto object-contain transition-opacity hover:opacity-80 sm:h-16"
-              />
+                  className="h-14 w-auto object-contain transition-opacity hover:opacity-80 sm:h-16"
+                />
+              </picture>
             </Link>
             <Link href="/" className="border-b border-[#b58b32] pb-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#0d4a31] transition-colors hover:text-[#b58b32]" dir="ltr">
               English
@@ -206,7 +217,7 @@ export default function ArRegionPicker() {
 
           <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
             <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
-              <p className="mb-6 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">
+              <p aria-hidden="true" className="mb-6 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">
                 إرشاد قانوني محدد الاختصاص · السعودية · سوريا · الإمارات
               </p>
               <h1 className="font-serif text-[clamp(2.75rem,5.5vw,5.6rem)] font-semibold leading-[1.05] tracking-[-0.025em] text-white">
@@ -235,7 +246,7 @@ export default function ArRegionPicker() {
             <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="lg:pt-14">
               <div className="mb-6 flex items-end justify-between gap-5">
                 <div>
-                  <p className="mb-2 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">اختر نطاق قضائك</p>
+                  <p aria-hidden="true" className="mb-2 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">اختر نطاق قضائك</p>
                   <h2 className="font-serif text-3xl text-white sm:text-4xl">أين تحتاج إلى الاستشارة؟</h2>
                 </div>
                 <span className="hidden text-xs tracking-[0.08em] text-white/50 sm:block">اختر للدخول</span>
@@ -243,10 +254,10 @@ export default function ArRegionPicker() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 {[
-                  { href: "/sa/ar", flag: saudiFlag, label: "المملكة العربية السعودية", alt: "السعودية — استشارة قانونية", number: "٠١", dark: true },
-                  { href: "/syr/ar", flag: syrianFlag, label: "سوريا", alt: "سوريا — استشارة قانونية", number: "٠٢", dark: false },
-                  { href: "/uae/ar", flag: uaeFlag, label: "الإمارات العربية المتحدة", alt: "الإمارات — استشارة قانونية", number: "٠٣", dark: true },
-                ].map(({ href, flag, label, alt, number, dark }) => (
+                  { href: "/sa/ar", flag: saudiFlag, flagWebp: saudiFlagWebp, label: "المملكة العربية السعودية", alt: "السعودية — استشارة قانونية", number: "٠١", dark: true },
+                  { href: "/syr/ar", flag: syrianFlag, flagWebp: syrianFlagWebp, label: "سوريا", alt: "سوريا — استشارة قانونية", number: "٠٢", dark: false },
+                  { href: "/uae/ar", flag: uaeFlag, flagWebp: undefined, label: "الإمارات العربية المتحدة", alt: "الإمارات — استشارة قانونية", number: "٠٣", dark: true },
+                ].map(({ href, flag, flagWebp, label, alt, number, dark }) => (
                   <Link
                     key={href}
                     href={href}
@@ -258,8 +269,11 @@ export default function ArRegionPicker() {
                   >
                     <div className="absolute inset-x-0 top-0 h-1 bg-[#b58b32] transition-all duration-300 group-hover:h-2" />
                     <div className="flex items-start justify-between">
-                      <span className={`font-serif text-5xl ${dark ? "text-white/15" : "text-[#0d4a31]/12"}`}>{number}</span>
-                      <img src={flag} alt={alt} width="72" height="48" decoding="async" className="h-11 w-[66px] border border-white/25 object-cover shadow-md" />
+                      <span aria-hidden="true" className={`font-serif text-5xl ${dark ? "text-white/15" : "text-[#0d4a31]/12"}`}>{number}</span>
+                      <picture className="contents">
+                        {flagWebp && <source type="image/webp" srcSet={flagWebp} sizes="66px" />}
+                        <img src={flag} alt={alt} width="72" height="48" loading="eager" decoding="async" className="h-11 w-[66px] border border-white/25 object-cover shadow-md" />
+                      </picture>
                     </div>
                     <div className="absolute inset-x-7 bottom-7 sm:inset-x-8 sm:bottom-8">
                       <p className={`mb-3 text-[0.7rem] font-semibold tracking-[0.08em] ${dark ? "text-[#d4b66c]" : "text-[#9b7426]"}`}>خدمات قانونية أونلاين في</p>
@@ -290,7 +304,7 @@ export default function ArRegionPicker() {
         <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <div>
-              <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">منصة كاونسلو</p>
+              <p aria-hidden="true" className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">منصة كاونسلو</p>
               <h2 id="platform-heading-ar" className="font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl">بوابة إلكترونية واحدة للمساعدة القانونية</h2>
             </div>
             <div className="space-y-5 text-base leading-8 text-muted-foreground sm:text-lg">
@@ -302,7 +316,7 @@ export default function ArRegionPicker() {
                   ["أين", "السعودية · سوريا · الإمارات"],
                   ["اللغات", "العربية والإنجليزية"],
                   ["التمثيل أمام المحاكم", "إذا طُلب أو أصبح ضرورياً، يرتب بشكل مستقل عبر مهنيين شركاء أو مكاتب متعاونة مرخصة في الدولة المعنية"],
-                ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b58b32] bg-[#eef4f0] px-4 py-3"><dt className="text-xs font-bold tracking-[0.1em] text-[#0d4a31]/65">{label}</dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
+                ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b58b32] bg-[#eef4f0] px-4 py-3"><dt><span className="sr-only">{label}</span><span aria-hidden="true" className="text-xs font-bold tracking-[0.1em] text-[#0d4a31]/65">{label}</span></dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
               </dl>
             </div>
           </div>
@@ -314,7 +328,7 @@ export default function ArRegionPicker() {
           <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
             <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
               <div>
-                <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">حزمة الاستشارة</p>
+                <p aria-hidden="true" className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">حزمة الاستشارة</p>
                 <h2 id="consultation-package-heading-ar" className="font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl">الاستشارة القانونية الإلكترونية المتكاملة</h2>
                 <p className="mt-5 text-base leading-8 text-muted-foreground sm:text-lg">{comprehensiveConsultation.summaryAr}</p>
               </div>
@@ -355,7 +369,7 @@ export default function ArRegionPicker() {
 
             {/* About text — comes first in RTL so shows on right */}
             <motion.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-3">
-              <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">عن كاونسلو</p>
+              <p aria-hidden="true" className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">عن كاونسلو</p>
               <h2 id="about-heading-ar" className="mb-6 font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl lg:text-6xl">
                 استشارة قانونية احترافية<br />عبر الإنترنت
               </h2>
@@ -400,7 +414,8 @@ export default function ArRegionPicker() {
                       href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-white/55 hover:text-white text-xs transition-colors border border-white/25 hover:border-white/50 px-2 py-1"
+                      aria-label="LinkedIn"
+                      className="inline-flex items-center gap-1.5 text-white/60 hover:text-white text-xs transition-colors border border-white/25 hover:border-white/50 px-2 py-1"
                       dir="ltr"
                     >
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -438,7 +453,7 @@ export default function ArRegionPicker() {
       <section className="border-y border-[#0d4a31]/10 bg-white py-24 lg:py-32" aria-labelledby="jurisdictions-heading-ar">
         <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeIn} className="mb-16 max-w-3xl">
-            <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">اختر الاختصاص القضائي</p>
+            <p aria-hidden="true" className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">اختر الاختصاص القضائي</p>
             <h2 id="jurisdictions-heading-ar" className="mb-4 font-serif text-5xl font-semibold text-[#0d4a31] sm:text-6xl">ثلاث بيئات قانونية ونقطة بداية واحدة</h2>
             <div className="mb-6 flex items-center gap-3"><span className="h-px w-20 bg-[#b58b32]" /><span className="h-2 w-2 rotate-45 border border-[#b58b32]" /></div>
             <p className="text-muted-foreground">ابدأ بالدولة التي ينطبق قانونها وجهاتها المختصة. يحتوي كل مركز إقليمي على دليل خدماته ومصادره ومسار الاستشارة ومحتواه الثنائي اللغة.</p>
@@ -508,7 +523,7 @@ export default function ArRegionPicker() {
       <section className="bg-[#eef4f0] py-24 lg:py-32" aria-labelledby="faq-heading-ar">
         <div className="mx-auto grid max-w-[1380px] gap-14 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24 lg:px-8">
           <motion.div {...fadeIn} className="lg:sticky lg:top-24 lg:self-start">
-            <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">الدعم والمساعدة</p>
+            <p aria-hidden="true" className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">الدعم والمساعدة</p>
             <h2 id="faq-heading-ar" className="mb-6 font-serif text-5xl font-semibold leading-tight text-[#0d4a31]">الأسئلة الشائعة</h2>
             <div className="flex items-center gap-3"><span className="h-px w-20 bg-[#b58b32]" /><span className="h-2 w-2 rotate-45 border border-[#b58b32]" /></div>
           </motion.div>

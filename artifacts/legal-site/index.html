@@ -23,16 +23,18 @@
     <link rel="alternate" type="application/rss+xml" title="CounselO Legal Updates" href="/feed.xml" />
     <link rel="alternate" type="text/plain" href="/llms.txt" title="CounselO AI content guide" />
 
-    <!-- The picker logo is above the fold only on / and /ar. Discover it from
-         the head on those routes without making every regional page fetch it. -->
+    <!-- The decorative hero artwork is the desktop LCP element on / and /ar.
+         Start its pixel-identical WebP transfer from the document head without
+         making regional pages request a picker-only asset. -->
     <script>
       if(location.pathname==='/'||location.pathname==='/ar'){
-        var heroLogo=document.createElement('link');
-        heroLogo.rel='preload';
-        heroLogo.as='image';
-        heroLogo.href='/images/optimized/counselo-region-logo.png';
-        heroLogo.fetchPriority='high';
-        document.head.appendChild(heroLogo);
+        var heroArtwork=document.createElement('link');
+        heroArtwork.rel='preload';
+        heroArtwork.as='image';
+        heroArtwork.type='image/webp';
+        heroArtwork.href='/images/optimized/counselo-platform-line-art-v1.webp';
+        heroArtwork.fetchPriority='high';
+        document.head.appendChild(heroArtwork);
       }
     </script>
 
@@ -57,29 +59,16 @@
     </style>
 
     <!--
-      Keep GA4 command queuing available immediately, but defer the external
-      gtag.js payload until the page load event. GTM remains responsible for
-      the site's SPA/conversion events, while this avoids making analytics
-      compete with first-paint resources on slow mobile connections.
+      Keep the GA4 command queue available immediately. The configured GTM
+      container is the single external analytics runtime, so loading a second
+      gtag.js copy here would duplicate network and JavaScript work without
+      sending an additional automatic page view.
     -->
     <script id="ga-inline" data-ga-measurement-id="G-1M9ZZX7VT6">
       window.dataLayer=window.dataLayer||[];
       function gtag(){dataLayer.push(arguments);}
       gtag('js',new Date());
       gtag('config','G-1M9ZZX7VT6',{send_page_view:false});
-      (function(){
-        function loadGA(){
-          if(document.getElementById('ga-script'))return;
-          var s=document.createElement('script');
-          s.id='ga-script';
-          s.async=true;
-          s.fetchPriority='low';
-          s.src='https://www.googletagmanager.com/gtag/js?id=G-1M9ZZX7VT6';
-          document.head.appendChild(s);
-        }
-        if(document.readyState==='complete')setTimeout(loadGA,0);
-        else window.addEventListener('load',loadGA,{once:true});
-      })();
     </script>
 
     <!--app-head-->

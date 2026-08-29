@@ -100,32 +100,62 @@ export function getGTMContainerId(): string {
   return GTM_CONTAINER_ID;
 }
 
+let gtmScheduled = false;
+
 export function injectGTM() {
   if (typeof document === "undefined" || typeof window === "undefined") return;
-  if (document.getElementById("gtm-script")) return;
+  if (document.getElementById("gtm-script") || gtmScheduled) return;
+  gtmScheduled = true;
 
   const win = window as unknown as { dataLayer?: object[] };
   win.dataLayer = win.dataLayer || [];
-  win.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
 
-  const loadGTM = () => {
-    if (document.getElementById("gtm-script")) return;
-    const f = document.getElementsByTagName("script")[0];
-    const j = document.createElement("script");
-    j.id = "gtm-script";
-    j.async = true;
-    j.fetchPriority = "low";
-    j.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
-    f.parentNode?.insertBefore(j, f);
+  let fallbackTimer: number | undefined;
+  let loaded = false;
+  const interactionEvents: Array<keyof WindowEventMap> = ["pointerdown", "keydown", "touchstart"];
+
+  const cleanup = () => {
+    if (fallbackTimer !== undefined) window.clearTimeout(fallbackTimer);
+    for (const eventName of interactionEvents) {
+      window.removeEventListener(eventName, loadGTM);
+    }
+    document.removeEventListener("visibilitychange", onVisibilityChange);
   };
 
-  // Analytics is not needed to render or operate the page. Waiting until the
-  // load event prevents the third-party request from competing with CSS,
-  // fonts, images, and route chunks on constrained mobile connections. The
-  // dataLayer queue above preserves pageview/conversion events in the meantime.
-  if (document.readyState === "complete") {
-    window.setTimeout(loadGTM, 0);
-  } else {
-    window.addEventListener("load", loadGTM, { once: true });
+  const loadGTM = () => {
+    if (loaded || document.getElementById("gtm-script")) return;
+    loaded = true;
+    cleanup();
+    win.dataLayer!.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+    const firstScript = document.getElementsByTagName("script")[0];
+    const script = document.createElement("script");
+    script.id = "gtm-script";
+    script.async = true;
+    script.fetchPriority = "low";
+    script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`;
+    firstScript?.parentNode?.insertBefore(script, firstScript);
+  };
+
+  const onVisibilityChange = () => {
+    if (document.visibilityState === "hidden") loadGTM();
+  };
+
+  const normalizedPath = window.location.pathname.replace(/\/+$/, "") || "/";
+  const isPrerenderedPicker = normalizedPath === "/" || normalizedPath === "/ar";
+
+  // Other application routes retain the existing post-load behavior. The two
+  // fully prerendered picker routes need no third-party runtime to render or
+  // navigate, so their queued analytics load on first intent or a short safety
+  // timeout instead of competing with the LCP image and initial CSS.
+  if (!isPrerenderedPicker) {
+    loadGTM();
+    return;
   }
+
+  for (const eventName of interactionEvents) {
+    window.addEventListener(eventName, loadGTM, { once: true, passive: eventName !== "keydown" });
+  }
+  document.addEventListener("visibilitychange", onVisibilityChange);
+  fallbackTimer = window.setTimeout(loadGTM, 6000);
 }

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
-    "build": "pnpm run generate-sitemap && pnpm run build:client && pnpm run build:ssr && pnpm run build:prerender && pnpm run build:server",
+    "build": "pnpm run generate-sitemap && pnpm run build:client && pnpm run build:ssr && pnpm run build:prerender && pnpm run inline:picker-css && pnpm run build:server",
     "build:client": "vite build --config vite.config.ts && tsx src/scripts/optimize-built-pngs.ts",
     "build:ssr": "VITE_SSR=true vite build --config vite.config.ts",
     "build:prerender": "tsx src/scripts/prerender.ts",
@@ -19,7 +19,8 @@
     "llms:validate": "tsx --test src/lib/llms-content.test.ts",
     "seo:validate": "tsx src/scripts/seo-validate.ts",
     "click:score": "tsx src/scripts/click-readiness-score.ts",
-    "test": "tsx --test src/ssr-server.test.ts src/lib/*.test.ts"
+    "test": "tsx --test src/ssr-server.test.ts src/lib/*.test.ts",
+    "inline:picker-css": "tsx src/scripts/inline-picker-css.ts"
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.10.0",
