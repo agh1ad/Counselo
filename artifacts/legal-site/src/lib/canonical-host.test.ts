@@ -12,7 +12,6 @@ test("redirects the duplicate www host while preserving path and query", () => {
     "https://counselo-legal.com/sa/services?utm_source=test",
   );
 });
-
 test("normalizes forwarded host lists and ports", () => {
   assert.equal(
     canonicalHostRedirect(
@@ -34,4 +33,3 @@ test("does not redirect the canonical or hosting-internal host", () => {
     null,
   );
 });
-

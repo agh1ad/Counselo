@@ -22,4 +22,3 @@ export function canonicalHostRedirect(
     : `/${originalUrl}`;
   return `https://${CANONICAL_HOST}${pathAndQuery}`;
 }
-
