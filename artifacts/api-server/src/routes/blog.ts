@@ -21,6 +21,7 @@ import {
   ContentTranslationError,
   translateBlogForPublishing,
 } from "../lib/content-translation.js";
+import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 
 const router = Router();
 
@@ -172,6 +173,7 @@ router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
       .values({ ...values, ...linkValues })
       .returning();
     if (post.published) {
+      await invalidatePublicResponseCache();
       notifyPublished(post.slug);
     }
     res.status(201).json(sanitizeBlogPost(post));
@@ -251,10 +253,12 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
       return;
     }
     if (post.published) {
+      await invalidatePublicResponseCache();
       // Covers first publication and substantive updates; the live sitemap also
       // exposes updatedAt immediately.
       notifyPublished(post.slug);
     } else if (before.published) {
+      await invalidatePublicResponseCache();
       notifyRemoved(post.slug);
     }
     res.json(sanitizeBlogPost(post));
@@ -291,7 +295,10 @@ router.delete("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
     res.status(404).json({ error: "Not found" });
     return;
   }
-  if (deleted.published) notifyRemoved(deleted.slug);
+  if (deleted.published) {
+    await invalidatePublicResponseCache();
+    notifyRemoved(deleted.slug);
+  }
   res.json({ deleted: true });
 });
 

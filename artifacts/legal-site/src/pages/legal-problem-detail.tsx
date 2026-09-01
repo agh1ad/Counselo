@@ -9,7 +9,7 @@ import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosur
 import { getLegalProblemLanguageAlternates, getLegalProblemPage, getRelatedLegalProblemPages, legalProblemPath } from "@/lib/legal-problem-pages";
 import { getRegionalLegalSources, type LegalSource } from "@/lib/regional-legal-sources";
 import { buildArabicProblemDescription, buildArabicProblemTitle, buildEnglishProblemDescription, buildEnglishProblemTitle } from "@/lib/problem-snippet";
-import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 import { COUNSELO_LEGAL_MATTERS_CLAIM } from "@/lib/public-claims";
 
 export default function LegalProblemDetail() {
@@ -94,7 +94,7 @@ export default function LegalProblemDetail() {
           "description": description,
           "url": `https://counselo-legal.com${regionPrefix}${isRTL ? "/ar" : ""}${canonical}`,
           "dateModified": page.legalAccuracy.reviewedAt,
-          "author": { "@id": "https://counselo-legal.com/#person-omar-al-baghdadi" },
+          "author": { "@id": COUNSELO_ENTITY_IDS.omar },
           "reviewedBy": { "@id": COUNSELO_ENTITY_IDS.omar },
           "publisher": { "@id": "https://counselo-legal.com/#organization" },
           "about": {

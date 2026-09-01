@@ -1,14 +1,16 @@
 export const ENTITY_BASE_URL = "https://counselo-legal.com";
 export const OMAR_OFFICIAL_PROFILE_URL = "https://omarbaghdadi.com";
 export const BAGHDADI_LAW_PROFILE_URL = "https://www.baghdadilaw.co/who-we-are";
+export const OMAR_CANONICAL_ENTITY_ID = `${OMAR_OFFICIAL_PROFILE_URL}/#omar-al-baghdadi`;
+export const BAGHDADI_LAW_CANONICAL_ENTITY_ID = "https://www.baghdadilaw.co/#legalservice";
 import { COUNSELO_PLATFORM_POSITIONING } from "./platform-positioning";
 
 export const COUNSELO_ENTITY_IDS = {
   organization: `${ENTITY_BASE_URL}/#organization`,
   website: `${ENTITY_BASE_URL}/#website`,
-  omar: `${ENTITY_BASE_URL}/#person-omar-al-baghdadi`,
+  omar: OMAR_CANONICAL_ENTITY_ID,
   saudiOffice: `${ENTITY_BASE_URL}/#office-abdullah-al-anzi`,
-  alBaghdadiOffice: `${ENTITY_BASE_URL}/#office-al-baghdadi-law-firm`,
+  alBaghdadiOffice: BAGHDADI_LAW_CANONICAL_ENTITY_ID,
   syriaAbdullahOffice: `${ENTITY_BASE_URL}/#office-omar-al-abdullah`,
 } as const;
 
@@ -22,7 +24,13 @@ export const COUNSELO_ORGANIZATION = {
   logo: { "@type": "ImageObject", url: `${ENTITY_BASE_URL}/logo.png`, width: 512, height: 512 },
   founder: { "@id": COUNSELO_ENTITY_IDS.omar },
   areaServed: COUNSELO_PLATFORM_POSITIONING.jurisdictions.map((name) => ({ "@type": "Country", name })),
-  availableLanguage: [...COUNSELO_PLATFORM_POSITIONING.languages],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+966594850247",
+    contactType: "legal consultation",
+    areaServed: ["SA", "SY", "AE"],
+    availableLanguage: [...COUNSELO_PLATFORM_POSITIONING.languages],
+  },
   knowsAbout: ["Online legal consultation", "Document review", "Legal analysis", "Written legal guidance"],
 } as const;
 
@@ -43,18 +51,17 @@ export const OMAR_AL_BAGHDADI = {
   alternateName: ["Omar Riyad Al-Baghdadi", "عمر البغدادي"],
   url: OMAR_OFFICIAL_PROFILE_URL,
   jobTitle: "Lawyer and Legal Counsel",
-  worksFor: { "@id": COUNSELO_ENTITY_IDS.organization },
+  worksFor: [
+    { "@id": BAGHDADI_LAW_CANONICAL_ENTITY_ID },
+    { "@id": COUNSELO_ENTITY_IDS.organization },
+  ],
   alumniOf: { "@type": "EducationalOrganization", name: "Faculty of Law, Damascus University" },
   sameAs: [
     OMAR_OFFICIAL_PROFILE_URL,
     "https://www.linkedin.com/in/lawyeromarbaghdadi/",
     BAGHDADI_LAW_PROFILE_URL,
   ],
-  affiliation: {
-    "@type": "LegalService",
-    name: "Al-Baghdadi Law Firm",
-    url: "https://www.baghdadilaw.co/",
-  },
+  affiliation: { "@id": BAGHDADI_LAW_CANONICAL_ENTITY_ID },
 } as const;
 
 export const COOPERATING_OFFICES = {
@@ -71,7 +78,8 @@ export const COOPERATING_OFFICES = {
     "@id": COUNSELO_ENTITY_IDS.alBaghdadiOffice,
     name: "Al-Baghdadi Law Firm",
     alternateName: "مكتب البغدادي للمحاماة",
-    areaServed: { "@type": "Country", name: "Syria" },
+    url: "https://www.baghdadilaw.co/",
+    areaServed: ["Saudi Arabia", "United Arab Emirates", "Syria"],
   },
   syriaAbdullah: {
     "@type": "LegalService",
@@ -87,13 +95,17 @@ const REGION_NAMES = { uae: "United Arab Emirates", sa: "Saudi Arabia", syr: "Sy
 
 export function regionalServiceEntity(region: keyof typeof REGION_NAMES, slug: string, name: string, description: string) {
   return {
-    "@type": "LegalService",
+    "@type": "Service",
     "@id": `${ENTITY_BASE_URL}/#${region}-service-${slug}`,
     name: `${name} — CounselO`,
     description,
     url: `${ENTITY_BASE_URL}/${region}/services/${slug}`,
     areaServed: { "@type": "Country", name: REGION_NAMES[region] },
     provider: { "@id": COUNSELO_ENTITY_IDS.organization },
-    availableLanguage: ["Arabic", "English"],
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: `${ENTITY_BASE_URL}/${region}/services/${slug}`,
+      availableLanguage: ["Arabic", "English"],
+    },
   };
 }

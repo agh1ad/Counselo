@@ -4,7 +4,7 @@ modules = ["nodejs-24", "python-3.11", "postgresql-16"]
 router = "application"
 deploymentTarget = "autoscale"
 build = "pnpm --filter @workspace/legal-site typecheck && pnpm --filter @workspace/api-server typecheck && pnpm --filter @workspace/legal-site build && pnpm --filter @workspace/api-server build"
-run = "NODE_ENV=production pnpm --filter @workspace/api-server start"
+run = "PUBLIC_RESPONSE_CACHE_BACKEND=object-storage NODE_ENV=production pnpm --filter @workspace/api-server start"
 
 [deployment.postBuild]
 args = ["pnpm", "store", "prune"]
@@ -27,7 +27,6 @@ channel = "stable-25_05"
 [userenv]
 
 [userenv.shared]
-ADMIN_PASSWORD = "aghiadomar1970"
 CONTACT_OWNER_EMAIL = "bagdadio@gmail.com"
 CONTACT_TEAM_EMAIL = "info@counselo-legal.com"
 PUBLIC_SITE_URL = "https://counselo-legal.com"

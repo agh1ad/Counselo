@@ -1,13 +1,13 @@
 import { Link } from "wouter";
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import { Clock, ArrowRight, BookOpen } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod/browser";
 import { fetchPublicJson } from "@/lib/public-api";
-import { blogPath } from "@workspace/api-zod";
+import { blogPath } from "@workspace/api-zod/browser";
 
 interface ApiPost {
   id: number;
@@ -194,7 +194,7 @@ export default function Blog() {
       {/* Hero */}
       <section className="premium-page-hero py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <m.div
             initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -216,7 +216,7 @@ export default function Blog() {
               {isRTL ? "استكشف المكتبة القانونية" : "Explore the CounselO Legal Library"}
               <ArrowRight className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
             </Link>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -246,7 +246,7 @@ export default function Blog() {
               const excerpt = useAr ? post.excerptAr : post.excerptEn;
               const category = useAr ? post.categoryAr : post.categoryEn;
               return (
-                <motion.article
+                <m.article
                   key={post.slug}
                   initial={false}
                   animate={{ opacity: 1, y: 0 }}
@@ -272,10 +272,10 @@ export default function Blog() {
                     </div>
                   </div>
                   <div className="relative min-h-56 overflow-hidden border-t border-white/15 bg-white lg:border-s lg:border-t-0">
-                    <img src="/images/optimized/counselo-platform-line-art-v1.png" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover opacity-40" />
+                    <img src="/images/optimized/counselo-platform-line-art-v1.webp" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover opacity-40" />
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent,rgba(248,246,240,0.3))]" />
                   </div>
-                </motion.article>
+                </m.article>
               );
             })}
 
@@ -288,7 +288,7 @@ export default function Blog() {
                 const category = useAr ? post.categoryAr : post.categoryEn;
                 const excerpt = useAr ? post.excerptAr : post.excerptEn;
                 return (
-                  <motion.article key={post.slug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: Math.min(i * 0.03, 0.18) }}
+                  <m.article key={post.slug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: Math.min(i * 0.03, 0.18) }}
                     className="group flex min-h-80 flex-col border border-[#0d4a31]/15 bg-white p-7 transition-all hover:-translate-y-1 hover:border-[#b58b32] hover:shadow-[0_18px_45px_rgba(0,61,34,0.09)]">
                     <div className="mb-7 flex items-center justify-between">
                       <span className="flex h-12 w-12 items-center justify-center border border-[#0d4a31]/18 bg-[#eef4f0] text-[#0d4a31]">
@@ -305,7 +305,7 @@ export default function Blog() {
                     <Link href={articlePath(post)} className="mt-5 inline-flex items-center justify-between text-sm font-semibold text-primary">
                       {ui.readMore}<ArrowRight className={`h-4 w-4 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180" : ""}`} />
                     </Link>
-                  </motion.article>
+                  </m.article>
                 );
               })}
             </div>

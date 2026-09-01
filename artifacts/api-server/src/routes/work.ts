@@ -11,6 +11,7 @@ import {
   ContentTranslationError,
   translateWorkForPublishing,
 } from "../lib/content-translation.js";
+import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 
 const router = Router();
 const { fileData: _fileData, confidentialityConfirmed: _confidentiality, ...publicColumns } = getTableColumns(workSamplesTable);
@@ -134,6 +135,7 @@ router.post("/admin/work", requireAdmin, async (req, res) => {
       .values({ ...values, ...linkValues })
       .returning(adminColumns);
     if (sample.published) {
+      await invalidatePublicResponseCache();
       notifyWorkPublished(sample.slug);
     }
     res.status(201).json({ ...sample, hasFile: sample.fileSize > 0 });
@@ -210,8 +212,13 @@ router.put("/admin/work/:id", requireAdmin, async (req, res) => {
       res.status(404).json({ error: "Not found" });
       return;
     }
-    if (sample.published) notifyWorkPublished(sample.slug);
-    else if (before.published) notifyWorkRemoved(sample.slug);
+    if (sample.published) {
+      await invalidatePublicResponseCache();
+      notifyWorkPublished(sample.slug);
+    } else if (before.published) {
+      await invalidatePublicResponseCache();
+      notifyWorkRemoved(sample.slug);
+    }
     res.json({ ...sample, hasFile: sample.fileSize > 0 });
   } catch (error) {
     if (error instanceof WorkInputError) {
@@ -242,7 +249,10 @@ router.delete("/admin/work/:id", requireAdmin, async (req, res) => {
     res.status(404).json({ error: "Not found" });
     return;
   }
-  if (deleted.published) notifyWorkRemoved(deleted.slug);
+  if (deleted.published) {
+    await invalidatePublicResponseCache();
+    notifyWorkRemoved(deleted.slug);
+  }
   res.json({ deleted: true });
 });
 

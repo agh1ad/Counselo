@@ -170,37 +170,6 @@ function htmlTag(route: string): string {
   return isArabic ? '<html lang="ar" dir="rtl">' : '<html lang="en" dir="ltr">';
 }
 
-const PICKER_ROUTES = new Set(["/", "/ar"]);
-
-function pickerResourceHints(route: string): string {
-  if (!PICKER_ROUTES.has(route)) return "";
-
-  return [
-    '<link rel="preload" as="image" href="/images/optimized/counselo-region-logo-193.webp" imagesrcset="/images/optimized/counselo-region-logo-193.webp 193w, /images/optimized/counselo-region-logo-310.webp 310w" imagesizes="(min-width: 640px) 154px, 135px" type="image/webp" fetchpriority="high">',
-    '<link rel="preload" as="image" href="/images/optimized/counselo-platform-line-art-v1.webp" type="image/webp" media="(min-width: 1024px)" fetchpriority="high">',
-  ].join("");
-}
-
-function inlinePickerStyles(route: string, template: string): string {
-  if (!PICKER_ROUTES.has(route)) return template;
-
-  return template.replace(/<link\b[^>]*>/gi, (tag) => {
-    if (!/\brel=["']stylesheet["']/i.test(tag)) return tag;
-    const href = tag.match(/\bhref=["']([^"']+)["']/i)?.[1];
-    if (!href || !href.startsWith("/") || !href.includes(".css")) return tag;
-
-    const stylesheetPath = resolve(
-      publicDir,
-      href.replace(/^\/+/, "").replace(/[?#].*$/, ""),
-    );
-    const css = readFileSync(stylesheetPath, "utf-8").replace(
-      /<\/style/gi,
-      "<\\/style",
-    );
-    return `<style data-picker-critical-css>${css}</style>`;
-  });
-}
-
 function writeRoute(
   route: string,
   template: string,
@@ -247,8 +216,7 @@ function writeRoute(
     : "";
   const initialData = `${discoveryData}${detailData}`;
 
-  const routeTemplate = inlinePickerStyles(route, template);
-  const routeHtml = routeTemplate
+  const routeHtml = template
     // Patch the static <html lang="en"> to the correct lang + dir for this route.
     .replace('<html lang="en">', htmlTag(route))
     // Inject per-route head tags (title, meta, canonical, OG, schemas).
@@ -258,7 +226,7 @@ function writeRoute(
     // and meta content so SEO crawlers see the intended character.
     .replace(
       "<!--app-head-->",
-      `${pickerResourceHints(route)}${unescapeHeadEntities(addDataRh(head))}${initialData}`,
+      `${unescapeHeadEntities(addDataRh(head))}${initialData}`,
     )
     // Inject server-rendered app HTML into the root div.
     // data-ssr signals entry-client.tsx to use hydrateRoot instead of createRoot.

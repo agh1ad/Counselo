@@ -8,7 +8,7 @@ import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized
 import { getRegionalLegalSources } from "@/lib/regional-legal-sources";
 import type { InitialBlogPost } from "@/App";
 import { fetchPublicJson, publicApiUrl } from "@/lib/public-api";
-import { blogPath, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
+import { blogPath, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 
 declare global {
   interface Window {
@@ -119,6 +119,7 @@ export default function WorkSample() {
     url: canonical,
     dateCreated: sample.date,
     dateModified: sample.updatedAt || sample.date,
+    reviewedBy: { "@id": OMAR_AL_BAGHDADI["@id"] },
     inLanguage: lang,
     genre: ["Legal case study", workType].filter(Boolean),
     contentLocation: jurisdiction,
@@ -146,7 +147,7 @@ export default function WorkSample() {
 
   return (
     <div className="counselo-editorial-page case-file-page min-h-screen bg-background" dir={isRTL ? "rtl" : "ltr"}>
-      <SEOHead title={seoTitle} description={seoDescription} canonical={canonicalPath} noRegionPrefix contentLanguage={lang} sharedLanguageAlternates={sample.titleEn && sample.titleAr ? { en: `/our-work/${sample.slug}`, ar: `/ar/our-work/${sample.slug}` } : undefined} keywords={`${workType}, ${jurisdiction}, ${ar ? "نموذج عمل قانوني, صياغة قانونية, كاونسلو" : "legal work sample, legal drafting, CounselO"}`} schema={schema} extraSchemas={[breadcrumbSchema]} ogType="article" />
+      <SEOHead title={seoTitle} description={seoDescription} canonical={canonicalPath} noRegionPrefix contentLanguage={lang} sharedLanguageAlternates={sample.titleEn && sample.titleAr ? { en: `/our-work/${sample.slug}`, ar: `/ar/our-work/${sample.slug}` } : undefined} keywords={`${workType}, ${jurisdiction}, ${ar ? "نموذج عمل قانوني, صياغة قانونية, كاونسلو" : "legal work sample, legal drafting, CounselO"}`} schema={schema} extraSchemas={[breadcrumbSchema]} ogType="article" articlePublishedTime={sample.date} articleModifiedTime={sample.updatedAt || sample.date} articleAuthor={OMAR_AL_BAGHDADI.url} reviewedBy={ar ? "المحامي والمستشار القانوني عمر البغدادي" : "Lawyer and Legal Counsel Omar Al-Baghdadi"} />
       <section className="premium-page-hero text-white px-4 py-14">
         <div className="max-w-6xl mx-auto"><Link href={workBasePath} className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 text-sm"><ArrowLeft className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} />{ui.back}</Link><div className="max-w-4xl"><div className="flex flex-wrap gap-2 mb-5">{workType && <span className="border border-white/25 bg-white/10 px-3 py-1 text-sm">{workType}</span>}{sample.featured && <span className="bg-white text-primary px-3 py-1 text-sm font-semibold">{ar ? "عمل مميز" : "Featured work"}</span>}</div><h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-5">{title}</h1><div className="premium-hero-rule mb-6" /><p className="text-lg text-white/75 leading-relaxed">{summary}</p></div></div>
       </section>

@@ -14,7 +14,7 @@ import {
   UserRoundCheck,
   Waypoints,
 } from "lucide-react";
-import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI } from "@workspace/api-zod";
+import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
@@ -251,15 +251,12 @@ export default function Vision() {
       },
       email: "info@counselo-legal.com",
       telephone: "+966594850247",
-      sameAs: ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
     },
     {
       "@context": "https://schema.org",
       ...OMAR_AL_BAGHDADI,
       jobTitle: isRTL ? "محامٍ ومستشار قانوني" : "Lawyer & Legal Counsel",
       image: "https://counselo-legal.com/omar-baghdadi.jpg",
-      worksFor: { "@id": COUNSELO_ENTITY_IDS.organization },
-      sameAs: ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
     },
     {
       "@context": "https://schema.org",

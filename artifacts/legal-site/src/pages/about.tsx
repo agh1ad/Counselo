@@ -1,11 +1,18 @@
-import { motion } from "framer-motion";
+import * as m from "framer-motion/m";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight, MapPin, Award, Users, Globe, Zap, Scale, Star, Building2, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { BAGHDADI_LAW_PROFILE_URL, COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI, COOPERATING_OFFICES, OMAR_OFFICIAL_PROFILE_URL } from "@workspace/api-zod";
+import {
+  BAGHDADI_LAW_PROFILE_URL,
+  COUNSELO_ORGANIZATION,
+  OMAR_AL_BAGHDADI,
+  COOPERATING_OFFICES,
+  COUNSELO_ENTITY_IDS,
+  OMAR_OFFICIAL_PROFILE_URL,
+} from "@workspace/api-zod/browser";
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
 import { COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
 
@@ -77,7 +84,7 @@ export default function About() {
       "name": isRTL ? "عن كاونسلو" : "About CounselO",
       "url": `https://counselo-legal.com${regionPath}/about`,
       "description": a.seoDesc,
-      "mainEntity": { "@id": "https://counselo-legal.com/#person-omar-al-baghdadi" },
+      "mainEntity": { "@id": COUNSELO_ENTITY_IDS.omar },
       "inLanguage": isRTL ? `ar-${countryCode}` : `en-${countryCode}`,
       "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -106,7 +113,7 @@ export default function About() {
         <img src={heroFlag} alt="" aria-hidden="true" width={region === "syr" ? 645 : 1600} height={region === "syr" ? 360 : 900} fetchPriority="high" decoding="async" className="absolute inset-y-0 end-0 h-full w-[62%] object-cover object-center opacity-[0.08] mix-blend-multiply" />
         <div className="absolute inset-0 bg-[#073d2b]/82" />
         <div className="premium-content-shell relative z-10">
-          <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">
+          <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-2 mb-6">
               {a.hero.badge}
             </span>
@@ -116,7 +123,7 @@ export default function About() {
             </h1>
             <div className="premium-hero-rule mb-8" />
             <p className="text-lg text-white/75 leading-relaxed max-w-2xl">{a.hero.subheading}</p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -125,10 +132,10 @@ export default function About() {
         <div className="premium-content-shell">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {a.stats.map((s, i) => (
-              <motion.div key={i} initial={false} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
+              <m.div key={i} initial={false} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
                 <div className="text-3xl md:text-4xl font-serif font-bold text-white mb-1">{s.stat}</div>
                 <div className="text-sm text-white/70 uppercase tracking-wider">{s.label}</div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -138,15 +145,15 @@ export default function About() {
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <motion.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{a.mission.eyebrow}</p>
               <h2 className="text-4xl font-serif font-bold text-foreground mb-6">{a.mission.heading}</h2>
               <div className="w-16 h-1 bg-primary/40 mb-8" />
               <p className="text-muted-foreground leading-relaxed mb-5">{a.mission.p1}</p>
               <p className="text-muted-foreground leading-relaxed mb-5">{a.mission.p2}</p>
               <p className="text-muted-foreground leading-relaxed">{a.mission.p3}</p>
-            </motion.div>
-            <motion.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            </m.div>
+            <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <div className="bg-primary p-10 text-white">
                 <div className="flex items-center gap-3 mb-6">
                   <Star className="h-8 w-8 text-white/80" />
@@ -208,7 +215,7 @@ export default function About() {
                   </>
                 )}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -216,16 +223,16 @@ export default function About() {
       {/* ── Founder Biography ── */}
       <section className="py-24 bg-card border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
+          <m.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
             <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{t.aboutPage.founder.eyebrow}</p>
             <h2 className="text-4xl font-serif font-bold text-foreground mb-4">{t.aboutPage.founder.heading}</h2>
             <p className="text-muted-foreground text-lg">{t.aboutPage.founder.subheading}</p>
             <div className="w-20 h-1 bg-primary/30 mx-auto mt-6" />
-          </motion.div>
+          </m.div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left col: photo + bio */}
-            <motion.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               {/* Founder Photo */}
               <div className="mb-10 flex items-start gap-6">
                 <div className="relative shrink-0">
@@ -286,9 +293,9 @@ export default function About() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <div className="bg-primary p-8 text-white mb-6">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-14 h-14 bg-white/15 border border-white/25 flex items-center justify-center">
@@ -340,7 +347,7 @@ export default function About() {
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </a>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -348,23 +355,23 @@ export default function About() {
       {/* ── Why CounselO ── */}
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <m.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
             <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{a.why.eyebrow}</p>
             <h2 className="text-4xl font-serif font-bold text-foreground mb-4">{a.why.heading}</h2>
             <div className="w-16 h-1 bg-primary/30 mx-auto" />
-          </motion.div>
+          </m.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {a.why.points.map((point, i) => {
               const Icon = whyIcons[i] ?? Scale;
               return (
-                <motion.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
+                <m.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
                   className="bg-card border border-border p-8 hover:border-primary/40 transition-colors">
                   <div className="w-12 h-12 bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
                     <Icon className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-3">{point.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{point.desc}</p>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
@@ -375,14 +382,14 @@ export default function About() {
       <section className="py-20 bg-card border-t border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <motion.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+            <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{a.office.eyebrow}</p>
               <h2 className="text-3xl font-serif font-bold text-foreground mb-6">{a.office.heading}</h2>
               <div className="w-16 h-1 bg-primary/30 mb-8" />
               <p className="text-muted-foreground leading-relaxed mb-5">{a.office.p1}</p>
               <p className="text-muted-foreground leading-relaxed">{a.office.p2}</p>
-            </motion.div>
-            <motion.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
+            </m.div>
+            <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
               {/* Office card — always shown */}
               <div className="bg-primary p-8 text-white">
                 <div className="flex items-start gap-4 mb-5">
@@ -466,7 +473,7 @@ export default function About() {
                   </div>
                 </div>
               )}
-            </motion.div>
+            </m.div>
           </div>
         </div>
       </section>
@@ -476,7 +483,7 @@ export default function About() {
       {/* ── CTA ── */}
       <section className="py-24 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <m.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <p className="text-primary font-medium uppercase tracking-widest text-sm mb-4">{a.cta.eyebrow}</p>
             <h2 className="text-4xl font-serif font-bold text-foreground mb-6">{a.cta.heading}</h2>
             <div className="w-20 h-1 bg-primary/30 mx-auto mb-8" />
@@ -494,7 +501,7 @@ export default function About() {
                 </Link>
               </Button>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </div>

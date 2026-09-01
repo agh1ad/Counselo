@@ -7,19 +7,18 @@ import {
   Link,
 } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { RegionProvider, useRegion } from "@/contexts/RegionContext";
 import { lazy, Suspense, useEffect } from "react";
+import { LazyMotion, domAnimation } from "framer-motion";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { Helmet } from "react-helmet-async";
 import { trackEvent, trackPageview, injectGTM } from "@/lib/analytics";
 import type { WorkSamplePublic } from "@/lib/work-samples";
-import { blogPath } from "@workspace/api-zod";
+import { blogPath } from "@workspace/api-zod/browser";
 
 import {
   About,
@@ -166,12 +165,12 @@ function RegionIdentityBar() {
     sa: {
       en: "CounselO Saudi Arabia",
       ar: "كاونسلو المملكة العربية السعودية",
-      flag: "/images/optimized/saudi-arabia-flag.jpg",
+      flag: "/images/optimized/saudi-arabia-flag.webp",
     },
     syr: {
       en: "CounselO Syria",
       ar: "كاونسلو سوريا",
-      flag: "/images/optimized/syria-flag.jpg",
+      flag: "/images/optimized/syria-flag.webp",
     },
     uae: {
       en: "CounselO United Arab Emirates",
@@ -374,7 +373,6 @@ function AppShell() {
           <meta name="robots" content="noindex, nofollow, noarchive" />
         </Helmet>
         <Router />
-        <Toaster />
       </div>
     );
   }
@@ -383,7 +381,6 @@ function AppShell() {
     return (
       <>
         <Router />
-        <Toaster />
       </>
     );
   }
@@ -403,9 +400,26 @@ function AppShell() {
       </main>
       <Footer />
       <WhatsAppFloat />
-      <Toaster />
     </div>
   );
+}
+
+function RoutedLanguageBoundary() {
+  const [location] = useLocation();
+  const app = (
+    <>
+      <GAInit />
+      <InteractionTracking />
+      <AppShell />
+    </>
+  );
+
+  // The bilingual jurisdiction pickers contain their own localized copy and
+  // do not consume the large regional translation dictionaries. Keeping them
+  // outside LanguageProvider avoids downloading a 200+ KiB compressed locale
+  // bundle before visitors can choose a jurisdiction.
+  if (location === "/" || location === "/ar") return app;
+  return <LanguageProvider>{app}</LanguageProvider>;
 }
 
 interface AppProps {
@@ -428,7 +442,7 @@ function App({ ssrUrl, initialBlogPosts = [], initialWorkSamples = [] }: AppProp
     : queryClient;
   return (
     <QueryClientProvider client={activeQueryClient}>
-      <TooltipProvider>
+      <LazyMotion features={domAnimation} strict>
         {/*
           ssrPath tells wouter which URL to use during server-side rendering.
           On the client ssrPath is undefined so wouter uses window.location.
@@ -440,15 +454,11 @@ function App({ ssrUrl, initialBlogPosts = [], initialWorkSamples = [] }: AppProp
         >
           <RegionProvider>
             <Suspense fallback={<div className="min-h-screen bg-background" aria-live="polite" />}>
-              <LanguageProvider>
-                <GAInit />
-                <InteractionTracking />
-                <AppShell />
-              </LanguageProvider>
+              <RoutedLanguageBoundary />
             </Suspense>
           </RegionProvider>
         </WouterRouter>
-      </TooltipProvider>
+      </LazyMotion>
     </QueryClientProvider>
   );
 }

@@ -3,6 +3,7 @@ import { blogPostsTable, db, pool, workSamplesTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import { parseBlogPostInput } from "../lib/blog-input.js";
 import { parseWorkSampleInput } from "../lib/work-input.js";
+import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 
 type BlogTranslation = {
   slug: string;
@@ -220,6 +221,10 @@ async function main() {
         .where(eq(workSamplesTable.id, update.id));
     }
   });
+
+  if (blogUpdates.length || workUpdates.length) {
+    await invalidatePublicResponseCache();
+  }
 
   for (const update of blogUpdates) {
     console.log(`Applied prepared bilingual content repair: blog ${update.slug}`);

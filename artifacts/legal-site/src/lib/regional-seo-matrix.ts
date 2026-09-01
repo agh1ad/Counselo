@@ -4,7 +4,7 @@ import {
   regionalSeoRoutePrefix,
   type RegionalSeoIntent,
   type Region,
-} from "@workspace/api-zod";
+} from "@workspace/api-zod/browser";
 import { getLegalProblemPages, legalProblemPath } from "./legal-problem-pages";
 
 export type RegionalSeoMatrixRow = {
