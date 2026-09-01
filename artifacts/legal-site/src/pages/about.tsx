@@ -84,7 +84,8 @@ export default function About() {
       "name": isRTL ? "عن كاونسلو" : "About CounselO",
       "url": `https://counselo-legal.com${regionPath}/about`,
       "description": a.seoDesc,
-      "mainEntity": { "@id": COUNSELO_ENTITY_IDS.omar },
+      "dateModified": "2026-09-01",
+      "mainEntity": { "@id": COUNSELO_ENTITY_IDS.organization },
       "inLanguage": isRTL ? `ar-${countryCode}` : `en-${countryCode}`,
       "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -94,7 +95,10 @@ export default function About() {
         ],
       },
     },
-    ...Object.values(COOPERATING_OFFICES),
+    ...Object.values(COOPERATING_OFFICES).map((office) => ({
+      "@context": "https://schema.org",
+      ...office,
+    })),
   ];
 
   return (
