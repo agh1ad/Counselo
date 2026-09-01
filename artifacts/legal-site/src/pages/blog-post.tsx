@@ -365,6 +365,7 @@ export default function BlogPost() {
           : `${category}, legal articles, free legal guides, CounselO blog, online legal advice, CounselO`}
         ogType="article"
         articlePublishedTime={post.date}
+        articleModifiedTime={post.updatedAt || post.date}
         articleAuthor={useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}
         articleSection={category}
         reviewedBy={reviewerAttribution}

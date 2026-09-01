@@ -612,11 +612,13 @@ app.use(
   }),
 );
 
-function spaShell(title: string, robots: string): string {
-  return readFileSync(shellHtml, "utf-8").replace(
-    "<!--app-head-->",
-    `<title>${escapeHtml(title)}</title><meta name="robots" content="${robots}">`,
-  );
+function spaShell(title: string, robots: string, fallbackBody = ""): string {
+  return readFileSync(shellHtml, "utf-8")
+    .replace(
+      "<!--app-head-->",
+      `<title>${escapeHtml(title)}</title><meta name="robots" content="${robots}">`,
+    )
+    .replace('<div id="root"></div>', `<div id="root">${fallbackBody}</div>`);
 }
 
 app.get("/counselo-admin", (_req: Request, res: Response) => {
@@ -965,7 +967,11 @@ app.use((req: Request, res: Response, _next: NextFunction) => {
   res.setHeader("Cache-Control", "no-store");
   res
     .status(404)
-    .send(spaShell("Page Not Found | CounselO", "noindex, nofollow"));
+    .send(spaShell(
+      "Page Not Found | CounselO",
+      "noindex, nofollow",
+      '<main><h1>Page not found</h1><p>The requested CounselO page is unavailable.</p><p><a href="/">Return to CounselO</a></p></main>',
+    ));
 });
 
 // Export app for integration testing. The server only binds a port when this

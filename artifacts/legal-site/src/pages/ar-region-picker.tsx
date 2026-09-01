@@ -37,14 +37,12 @@ const organizationSchema = {
     ...OMAR_AL_BAGHDADI,
     "jobTitle": "محامٍ ومستشار قانوني",
     "description": `يمتلك المحامي عمر البغدادي ${COUNSELO_LEGAL_PRACTICE_CLAIM.ar} وتعامل مع ${COUNSELO_LEGAL_MATTERS_CLAIM.ar} في المنطقة.`,
-    "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
   },
   "areaServed": [
     { "@type": "Country", "name": "Saudi Arabia" },
     { "@type": "Country", "name": "Syria" },
     { "@type": "Country", "name": "United Arab Emirates" },
   ],
-  "availableLanguage": ["Arabic", "English"],
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+966594850247",

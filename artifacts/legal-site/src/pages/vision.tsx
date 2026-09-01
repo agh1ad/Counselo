@@ -251,15 +251,12 @@ export default function Vision() {
       },
       email: "info@counselo-legal.com",
       telephone: "+966594850247",
-      sameAs: ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
     },
     {
       "@context": "https://schema.org",
       ...OMAR_AL_BAGHDADI,
       jobTitle: isRTL ? "محامٍ ومستشار قانوني" : "Lawyer & Legal Counsel",
       image: "https://counselo-legal.com/omar-baghdadi.jpg",
-      worksFor: { "@id": COUNSELO_ENTITY_IDS.organization },
-      sameAs: ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
     },
     {
       "@context": "https://schema.org",

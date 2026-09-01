@@ -94,7 +94,7 @@ export default function LegalProblemDetail() {
           "description": description,
           "url": `https://counselo-legal.com${regionPrefix}${isRTL ? "/ar" : ""}${canonical}`,
           "dateModified": page.legalAccuracy.reviewedAt,
-          "author": { "@id": "https://counselo-legal.com/#person-omar-al-baghdadi" },
+          "author": { "@id": COUNSELO_ENTITY_IDS.omar },
           "reviewedBy": { "@id": COUNSELO_ENTITY_IDS.omar },
           "publisher": { "@id": "https://counselo-legal.com/#organization" },
           "about": {

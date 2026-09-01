@@ -17,13 +17,14 @@ test("core CounselO entities have stable IDs and canonical names", () => {
   assert.equal(COUNSELO_ORGANIZATION.alternateName, "كاونسلو");
   assert.match(COUNSELO_ORGANIZATION.description, /online legal platform/i);
   assert.deepEqual(COUNSELO_ORGANIZATION.areaServed.map((country) => country.name), COUNSELO_PLATFORM_POSITIONING.jurisdictions);
-  assert.deepEqual(COUNSELO_ORGANIZATION.availableLanguage, ["Arabic", "English"]);
+  assert.deepEqual(COUNSELO_ORGANIZATION.contactPoint.availableLanguage, ["Arabic", "English"]);
   assert.equal(COUNSELO_ORGANIZATION.founder["@id"], COUNSELO_ENTITY_IDS.omar);
-  assert.equal(OMAR_AL_BAGHDADI["@id"], "https://counselo-legal.com/#person-omar-al-baghdadi");
+  assert.equal(OMAR_AL_BAGHDADI["@id"], "https://omarbaghdadi.com/#omar-al-baghdadi");
   assert.equal(OMAR_AL_BAGHDADI.name, "Omar Al-Baghdadi");
   assert.ok(OMAR_AL_BAGHDADI.alternateName.includes("Omar Riyad Al-Baghdadi"));
   assert.equal(OMAR_AL_BAGHDADI.url, "https://omarbaghdadi.com");
-  assert.equal(OMAR_AL_BAGHDADI.worksFor["@id"], COUNSELO_ENTITY_IDS.organization);
+  assert.ok(OMAR_AL_BAGHDADI.worksFor.some((organization) => organization["@id"] === COUNSELO_ENTITY_IDS.organization));
+  assert.ok(OMAR_AL_BAGHDADI.worksFor.some((organization) => organization["@id"] === "https://www.baghdadilaw.co/#legalservice"));
   assert.ok(OMAR_AL_BAGHDADI.sameAs.includes("https://omarbaghdadi.com"));
   assert.ok(OMAR_AL_BAGHDADI.sameAs.includes("https://www.baghdadilaw.co/who-we-are"));
 });
@@ -43,4 +44,6 @@ test("cooperating offices and regional services use durable entity IDs", () => {
   const service = regionalServiceEntity("uae", "real-estate", "Real Estate Law", "UAE property guidance");
   assert.equal(service["@id"], "https://counselo-legal.com/#uae-service-real-estate");
   assert.equal(service.provider["@id"], COUNSELO_ENTITY_IDS.organization);
+  assert.equal(service["@type"], "Service");
+  assert.deepEqual(service.availableChannel.availableLanguage, ["Arabic", "English"]);
 });

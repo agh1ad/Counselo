@@ -10,6 +10,7 @@ import {
   COUNSELO_ORGANIZATION,
   OMAR_AL_BAGHDADI,
   COOPERATING_OFFICES,
+  COUNSELO_ENTITY_IDS,
   OMAR_OFFICIAL_PROFILE_URL,
 } from "@workspace/api-zod/browser";
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
@@ -83,7 +84,7 @@ export default function About() {
       "name": isRTL ? "عن كاونسلو" : "About CounselO",
       "url": `https://counselo-legal.com${regionPath}/about`,
       "description": a.seoDesc,
-      "mainEntity": { "@id": "https://counselo-legal.com/#person-omar-al-baghdadi" },
+      "mainEntity": { "@id": COUNSELO_ENTITY_IDS.omar },
       "inLanguage": isRTL ? `ar-${countryCode}` : `en-${countryCode}`,
       "breadcrumb": {
         "@type": "BreadcrumbList",

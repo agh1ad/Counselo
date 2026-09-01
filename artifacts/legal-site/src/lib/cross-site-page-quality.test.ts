@@ -6,6 +6,7 @@ import test from "node:test";
 const readPage = (name: string) => readFileSync(resolve(import.meta.dirname, `../pages/${name}`), "utf8");
 const readComponent = (name: string) => readFileSync(resolve(import.meta.dirname, `../components/${name}`), "utf8");
 const readPublic = (name: string) => readFileSync(resolve(import.meta.dirname, `../../public/${name}`), "utf8");
+const readLib = (name: string) => readFileSync(resolve(import.meta.dirname, name), "utf8");
 
 test("service directories use scoped descriptions instead of legacy promotional narratives", () => {
   const template = readPage("services.tsx");
@@ -36,11 +37,17 @@ test("global entry pages keep qualified positioning and accessible heading spaci
 test("evidence and publishing surfaces retain their trust boundaries", () => {
   const blog = readPage("blog-post.tsx");
   const work = readPage("work-sample.tsx");
+  const seoHead = readComponent("seo/SEOHead.tsx");
   const library = readPage("legal-library.tsx");
   assert.match(blog, /Report a correction or factual error/);
   assert.match(blog, /does not constitute legal advice/);
   assert.match(work, /past work or outcomes do not guarantee the result of another matter/);
   assert.match(work, /Client names, personal and commercially sensitive data/);
+  assert.match(work, /articlePublishedTime=\{sample\.date\}/);
+  assert.match(work, /articleModifiedTime=\{sample\.updatedAt \|\| sample\.date\}/);
+  assert.match(work, /reviewedBy: \{ "@id": OMAR_AL_BAGHDADI\["@id"\] \}/);
+  assert.match(blog, /articleModifiedTime=\{post\.updatedAt \|\| post\.date\}/);
+  assert.match(seoHead, /articleModifiedTime \|\| articlePublishedTime/);
   assert.doesNotMatch(library, /<main[\s>]/);
 });
 
@@ -66,4 +73,8 @@ test("global jurisdiction mentions consistently prioritize Saudi Arabia, then Sy
   assert.match(globalCopy, /السعودية وسوريا والإمارات|السعودية · سوريا · الإمارات/);
   assert.doesNotMatch(globalCopy, /UAE, Saudi(?: Arabia)? (?:and|&) Syria|UAE · Saudi Arabia · Syria/);
   assert.doesNotMatch(globalCopy, /الإمارات والسعودية وسوريا|الإمارات · السعودية · سوريا/);
+});
+
+test("the CounselO brand uses one English capitalization", () => {
+  assert.doesNotMatch(readLib("optimized-meta.ts"), /\bCounselo\b/);
 });

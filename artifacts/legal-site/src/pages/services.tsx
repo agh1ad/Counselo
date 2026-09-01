@@ -121,7 +121,11 @@ export default function Services() {
         : region === "syr"
         ? { "@type": "Country", "name": "Syria" }
         : { "@type": "Country", "name": "Saudi Arabia" },
-      "availableLanguage": ["Arabic", "English"],
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": baseUrl,
+        "availableLanguage": ["Arabic", "English"],
+      },
     },
     {
       "@context": "https://schema.org",

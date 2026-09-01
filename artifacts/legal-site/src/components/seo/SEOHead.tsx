@@ -97,6 +97,8 @@ interface SEOHeadProps {
   ogType?: string;
   /** For blog/article pages: ISO date string (e.g. post.date) */
   articlePublishedTime?: string;
+  /** For blog/article pages: independently verified ISO modification date. */
+  articleModifiedTime?: string;
   /** For blog/article pages: author display name */
   articleAuthor?: string;
   /** For blog/article pages: article section/category */
@@ -168,6 +170,7 @@ export function SEOHead({
   extraSchemas,
   ogType = "website",
   articlePublishedTime,
+  articleModifiedTime,
   articleAuthor,
   articleSection,
   reviewedBy,
@@ -445,8 +448,8 @@ export function SEOHead({
       {ogType === "article" && articlePublishedTime && (
         <meta property="article:published_time" content={articlePublishedTime} />
       )}
-      {ogType === "article" && articlePublishedTime && (
-        <meta property="article:modified_time" content={articlePublishedTime} />
+      {ogType === "article" && (articleModifiedTime || articlePublishedTime) && (
+        <meta property="article:modified_time" content={articleModifiedTime || articlePublishedTime} />
       )}
       {ogType === "article" && articleAuthor && (
         <meta property="article:author" content={articleAuthor} />

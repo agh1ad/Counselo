@@ -17,7 +17,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── REGION PICKERS ───────────────────────────────────────────────────────
 
   "/": {
-    title: "Online Legal Consultations in Saudi Arabia & Syria | Counselo",
+    title: "Online Legal Consultations in Saudi Arabia & Syria | CounselO",
     description:
       "Book confidential online legal consultations and receive professional guidance across Saudi Arabia and Syria through CounselO.",
   },
@@ -30,7 +30,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── SAUDI ARABIA — COUNTRY PAGES ────────────────────────────────────────
 
   "/sa": {
-    title: "Online Legal Consultations in Saudi Arabia | Counselo",
+    title: "Online Legal Consultations in Saudi Arabia | CounselO",
     description:
       "Book confidential online legal consultations in Saudi Arabia and receive professional guidance on family, employment, business, immigration, and other legal matters.",
   },
@@ -43,7 +43,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── SYRIA — COUNTRY PAGES ───────────────────────────────────────────────
 
   "/syr": {
-    title: "Online Legal Consultations in Syria | Counselo",
+    title: "Online Legal Consultations in Syria | CounselO",
     description:
       "Get confidential online legal consultations in Syria and receive professional guidance for family, business, employment, property, and other legal matters.",
   },
@@ -56,9 +56,9 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── ABOUT PAGES ─────────────────────────────────────────────────────────
 
   "/sa/about": {
-    title: "About Counselo | Online Legal Consultations in Saudi Arabia",
+    title: "About CounselO | Online Legal Consultations in Saudi Arabia",
     description:
-      "Learn about Counselo, an online legal consultation platform serving Saudi Arabia. Connect with experienced legal professionals and receive confidential guidance.",
+      "Learn about CounselO, an online legal consultation platform serving Saudi Arabia. Connect with experienced legal professionals and receive confidential guidance.",
   },
   "/sa/ar/about": {
     title: "عن كاونسلو | استشارات قانونية أونلاين في السعودية",
@@ -66,9 +66,9 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "تعرف على كاونسلو، منصة استشارات قانونية أونلاين متخصصة في السعودية، تتيح التواصل مع محامين ذوي خبرة والحصول على توجيه قانوني بسرية.",
   },
   "/syr/about": {
-    title: "About Counselo | Online Legal Consultations in Syria",
+    title: "About CounselO | Online Legal Consultations in Syria",
     description:
-      "Learn about Counselo, an online legal consultation platform serving Syria. Connect with experienced legal professionals and receive confidential guidance.",
+      "Learn about CounselO, an online legal consultation platform serving Syria. Connect with experienced legal professionals and receive confidential guidance.",
   },
   "/syr/ar/about": {
     title: "عن كاونسلو | استشارات قانونية أونلاين في سوريا",
@@ -79,9 +79,9 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── CONTACT PAGES ───────────────────────────────────────────────────────
 
   "/sa/contact": {
-    title: "Book an Online Legal Consultation in Saudi Arabia | Counselo",
+    title: "Book an Online Legal Consultation in Saudi Arabia | CounselO",
     description:
-      "Contact Counselo to book a confidential online legal consultation in Saudi Arabia. Send your case details and receive professional legal guidance within 24 hours.",
+      "Contact CounselO to book a confidential online legal consultation in Saudi Arabia. Send your case details and receive professional legal guidance within 24 hours.",
   },
   "/sa/ar/contact": {
     title: "احجز استشارة قانونية أونلاين في السعودية | كاونسلو",
@@ -89,9 +89,9 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "تواصل مع كاونسلو لحجز استشارة قانونية أونلاين بسرية في السعودية. أرسل تفاصيل قضيتك واحصل على توجيه قانوني مهني خلال 24 ساعة.",
   },
   "/syr/contact": {
-    title: "Book an Online Legal Consultation in Syria | Counselo",
+    title: "Book an Online Legal Consultation in Syria | CounselO",
     description:
-      "Contact Counselo to book a confidential online legal consultation in Syria. Send your case details and receive professional legal guidance within 24 hours.",
+      "Contact CounselO to book a confidential online legal consultation in Syria. Send your case details and receive professional legal guidance within 24 hours.",
   },
   "/syr/ar/contact": {
     title: "احجز استشارة قانونية أونلاين في سوريا | كاونسلو",
@@ -102,7 +102,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── SERVICES INDEX ───────────────────────────────────────────────────────
 
   "/sa/services": {
-    title: "Legal Practice Areas in Saudi Arabia | Counselo",
+    title: "Legal Practice Areas in Saudi Arabia | CounselO",
     description:
       "Choose your legal consultation area in Saudi Arabia: family, employment, real estate, corporate, contracts, arbitration, criminal law, tax, and more.",
   },
@@ -112,7 +112,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "اختر مجال استشارتك القانونية في السعودية: الأسرة، العمل، العقارات، الشركات، العقود، التحكيم، القضايا الجزائية، الضرائب وغيرها.",
   },
   "/syr/services": {
-    title: "Legal Practice Areas in Syria | Counselo",
+    title: "Legal Practice Areas in Syria | CounselO",
     description:
       "Choose your legal consultation area in Syria: family, employment, real estate, corporate, contracts, arbitration, criminal law, civil law, and more.",
   },
@@ -125,7 +125,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── BLOG INDEX ───────────────────────────────────────────────────────────
 
   "/sa/blog": {
-    title: "Legal Blog for Saudi Arabia | Counselo",
+    title: "Legal Blog for Saudi Arabia | CounselO",
     description:
       "Practical legal guides for Saudi Arabia covering family law, employment, real estate, corporate law, contracts, investment, and dispute resolution.",
   },
@@ -135,7 +135,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "مقالات وإرشادات قانونية عملية في السعودية حول الأسرة والعمل والعقارات والشركات والعقود والاستثمار وتسوية النزاعات.",
   },
   "/syr/blog": {
-    title: "Legal Blog for Syria | Counselo",
+    title: "Legal Blog for Syria | CounselO",
     description:
       "Practical legal guides for Syria covering family law, employment, real estate, corporate law, contracts, investment, and dispute resolution.",
   },
@@ -148,9 +148,9 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── LEGAL PAGES ─────────────────────────────────────────────────────────
 
   "/sa/terms-of-service": {
-    title: "Terms of Service | Counselo Saudi Arabia",
+    title: "Terms of Service | CounselO Saudi Arabia",
     description:
-      "Review Counselo's consultation process for Saudi Arabia, including how to submit your case, confirm fees, complete payment, and receive your legal guidance.",
+      "Review CounselO's consultation process for Saudi Arabia, including how to submit your case, confirm fees, complete payment, and receive your legal guidance.",
   },
   "/sa/ar/terms-of-service": {
     title: "شروط الخدمة | كاونسلو السعودية",
@@ -158,9 +158,9 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "تعرف على آلية طلب الاستشارة القانونية في السعودية عبر كاونسلو، من إرسال التفاصيل إلى تأكيد الرسوم والدفع واستلام الرد القانوني.",
   },
   "/syr/terms-of-service": {
-    title: "Terms of Service | Counselo Syria",
+    title: "Terms of Service | CounselO Syria",
     description:
-      "Review Counselo's consultation process for Syria, including how to submit your case, confirm fees, complete payment, and receive your legal guidance.",
+      "Review CounselO's consultation process for Syria, including how to submit your case, confirm fees, complete payment, and receive your legal guidance.",
   },
   "/syr/ar/terms-of-service": {
     title: "شروط الخدمة | كاونسلو سوريا",
@@ -168,9 +168,9 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "تعرف على آلية طلب الاستشارة القانونية في سوريا عبر كاونسلو، من إرسال التفاصيل إلى تأكيد الرسوم والدفع واستلام الرد القانوني.",
   },
   "/sa/privacy-policy": {
-    title: "Privacy Policy | Counselo Saudi Arabia",
+    title: "Privacy Policy | CounselO Saudi Arabia",
     description:
-      "Learn how Counselo collects, protects, and handles legal consultation data in Saudi Arabia under applicable professional, privacy and data-protection obligations.",
+      "Learn how CounselO collects, protects, and handles legal consultation data in Saudi Arabia under applicable professional, privacy and data-protection obligations.",
   },
   "/sa/ar/privacy-policy": {
     title: "سياسة الخصوصية | كاونسلو السعودية",
@@ -178,9 +178,9 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "تعرف على كيفية جمع كاونسلو لبيانات الاستشارة القانونية في السعودية وحمايتها والحفاظ على سرية معلومات العملاء التامة.",
   },
   "/syr/privacy-policy": {
-    title: "Privacy Policy | Counselo Syria",
+    title: "Privacy Policy | CounselO Syria",
     description:
-      "Learn how Counselo collects, protects, and handles legal consultation data in Syria under applicable professional, privacy and data-protection obligations.",
+      "Learn how CounselO collects, protects, and handles legal consultation data in Syria under applicable professional, privacy and data-protection obligations.",
   },
   "/syr/ar/privacy-policy": {
     title: "سياسة الخصوصية | كاونسلو سوريا",
@@ -191,7 +191,7 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── SA ENGLISH SERVICE PAGES ────────────────────────────────────────────
 
   "/sa/services/family-law": {
-    title: "Family, Divorce & Custody Lawyer in Saudi Arabia | Counselo",
+    title: "Family, Divorce & Custody Lawyer in Saudi Arabia | CounselO",
     description:
       "Book an online legal consultation with an experienced family law lawyer in Saudi Arabia. Get professional guidance on divorce, custody, alimony, and personal status matters.",
   },
@@ -201,12 +201,12 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "Book an online legal consultation with an employment lawyer in Saudi Arabia for employment contracts, termination, wages, workplace disputes, and labor rights.",
   },
   "/sa/services/business-law": {
-    title: "Commercial Law Lawyer in Saudi Arabia | Counselo",
+    title: "Commercial Law Lawyer in Saudi Arabia | CounselO",
     description:
       "Book an online legal consultation with a commercial lawyer in Saudi Arabia for business disputes, contracts, trading practices, and commercial liability claims.",
   },
   "/sa/services/real-estate": {
-    title: "Real Estate Lawyer in Saudi Arabia | Counselo",
+    title: "Real Estate Lawyer in Saudi Arabia | CounselO",
     description:
       "Book an online legal consultation with a real estate lawyer in Saudi Arabia for property ownership, sale contracts, leases, registration, and construction disputes.",
   },
@@ -216,62 +216,62 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
       "Consult a Saudi foreign investment lawyer online about investment licensing, foreign-owned company formation, regulatory compliance, contracts, and investor disputes.",
   },
   "/sa/services/administrative-law": {
-    title: "Administrative Law Lawyer in Saudi Arabia | Counselo",
+    title: "Administrative Law Lawyer in Saudi Arabia | CounselO",
     description:
       "Book an online legal consultation with an administrative lawyer in Saudi Arabia on government decisions, administrative objections, and public authority disputes.",
   },
   "/sa/services/arbitration": {
-    title: "Arbitration Lawyer in Saudi Arabia | Counselo",
+    title: "Arbitration Lawyer in Saudi Arabia | CounselO",
     description:
       "Book an online legal consultation with an arbitration lawyer in Saudi Arabia for commercial disputes, mediation procedures, award enforcement, and settlements.",
   },
   "/sa/services/enforcement": {
-    title: "Debt Recovery Lawyer in Saudi Arabia | Counselo",
+    title: "Debt Recovery Lawyer in Saudi Arabia | CounselO",
     description:
       "Book an online legal consultation with a debt recovery lawyer in Saudi Arabia for judgment execution, debt collection, payment claims, and enforcement procedures.",
   },
   "/sa/services/companies-law": {
-    title: "Corporate Law Lawyer in Saudi Arabia | Counselo",
+    title: "Corporate Law Lawyer in Saudi Arabia | CounselO",
     description:
       "Book an online legal consultation with a corporate lawyer in Saudi Arabia for company formation, commercial contracts, governance, compliance, and business disputes.",
   },
   "/sa/services/contracts": {
-    title: "Contract Lawyer in Saudi Arabia | Counselo",
+    title: "Contract Lawyer in Saudi Arabia | CounselO",
     description:
       "Book an online legal consultation with a contract lawyer in Saudi Arabia for contract drafting, review, breach of contract, termination, and negotiation.",
   },
   "/sa/services/criminal-law": {
-    title: "Criminal Defense Lawyer in Saudi Arabia | Counselo",
+    title: "Criminal Defense Lawyer in Saudi Arabia | CounselO",
     description:
       "Book a confidential online legal consultation with a criminal lawyer in Saudi Arabia for criminal complaints, investigations, defense options, and court procedures.",
   },
   "/sa/services/banking-finance": {
-    title: "Banking & Finance Lawyer in Saudi Arabia | Counselo",
+    title: "Banking & Finance Lawyer in Saudi Arabia | CounselO",
     description:
       "Book an online legal consultation with a banking lawyer in Saudi Arabia for bank disputes, finance contracts, regulatory compliance, and Islamic finance matters.",
   },
   "/sa/services/intellectual-property": {
-    title: "Intellectual Property Lawyer in Saudi Arabia | Counselo",
+    title: "Intellectual Property Lawyer in Saudi Arabia | CounselO",
     description:
       "Book an online legal consultation with an intellectual property lawyer in Saudi Arabia for trademarks, copyrights, patents, and IP protection matters.",
   },
   "/sa/services/tax-zakat": {
-    title: "Tax & Zakat Lawyer in Saudi Arabia | Counselo",
+    title: "Tax & Zakat Lawyer in Saudi Arabia | CounselO",
     description:
       "Book an online legal consultation with a tax lawyer in Saudi Arabia for VAT compliance, zakat obligations, customs duties, tax assessments, and objections.",
   },
   "/sa/services/cyber-law": {
-    title: "Cybercrime Lawyer in Saudi Arabia | Counselo",
+    title: "Cybercrime Lawyer in Saudi Arabia | CounselO",
     description:
       "Book a confidential online legal consultation with a cybercrime lawyer in Saudi Arabia for cybercrime, online defamation, data protection, and digital evidence.",
   },
   "/sa/services/medical-malpractice": {
-    title: "Medical Malpractice Lawyer in Saudi Arabia | Counselo",
+    title: "Medical Malpractice Lawyer in Saudi Arabia | CounselO",
     description:
       "Book an online legal consultation with a medical malpractice lawyer in Saudi Arabia for negligence claims, misdiagnosis, surgical errors, and compensation.",
   },
   "/sa/services/insurance-law": {
-    title: "Insurance Lawyer in Saudi Arabia | Counselo",
+    title: "Insurance Lawyer in Saudi Arabia | CounselO",
     description:
       "Book an online legal consultation with an insurance lawyer in Saudi Arabia for claim denial, policy disputes, insurer liability, and settlement matters.",
   },
@@ -367,102 +367,102 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── SYRIA ENGLISH SERVICE PAGES ─────────────────────────────────────────
 
   "/syr/services/family-law": {
-    title: "Family, Divorce & Child Custody Lawyer in Syria | Counselo",
+    title: "Family, Divorce & Child Custody Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with a family law lawyer in Syria. Get professional guidance on divorce, custody, alimony, and personal status matters.",
   },
   "/syr/services/employment-law": {
-    title: "Employment & Wrongful Termination Lawyer in Syria | Counselo",
+    title: "Employment & Wrongful Termination Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with an employment lawyer in Syria for employment contracts, wrongful termination, unpaid wages, and workplace disputes.",
   },
   "/syr/services/business-law": {
-    title: "Commercial Law Lawyer in Syria | Counselo",
+    title: "Commercial Law Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with a commercial lawyer in Syria for business disputes, contracts, trading practices, and commercial liability matters.",
   },
   "/syr/services/real-estate": {
-    title: "Real Estate Lawyer in Syria | Counselo",
+    title: "Real Estate Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with a real estate lawyer in Syria for property ownership, sales, leases, inheritance, registration, and property disputes.",
   },
   "/syr/services/foreign-investment": {
-    title: "Foreign Investment Lawyer in Syria | Counselo",
+    title: "Foreign Investment Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with a foreign investment lawyer in Syria for company registration, business licensing, compliance, and entry procedures.",
   },
   "/syr/services/administrative-law": {
-    title: "Administrative Law Lawyer in Syria | Counselo",
+    title: "Administrative Law Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with an administrative lawyer in Syria on government decisions, public authority disputes, and objection procedures.",
   },
   "/syr/services/arbitration": {
-    title: "Arbitration Lawyer in Syria | Counselo",
+    title: "Arbitration Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with an arbitration lawyer in Syria for commercial disputes, mediation procedures, award enforcement, and settlements.",
   },
   "/syr/services/enforcement": {
-    title: "Debt Recovery Lawyer in Syria | Counselo",
+    title: "Debt Recovery Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with a debt recovery lawyer in Syria for judgment execution, debt collection, payment claims, and enforcement procedures.",
   },
   "/syr/services/companies-law": {
-    title: "Corporate Law Lawyer in Syria | Counselo",
+    title: "Corporate Law Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with a corporate lawyer in Syria for company formation, shareholder disputes, governance, compliance, and dissolution.",
   },
   "/syr/services/contracts": {
-    title: "Contract Lawyer in Syria | Counselo",
+    title: "Contract Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with a contract lawyer in Syria for contract drafting, review, breach of contract, termination, and negotiation.",
   },
   "/syr/services/criminal-law": {
-    title: "Criminal Defense Lawyer in Syria | Counselo",
+    title: "Criminal Defense Lawyer in Syria | CounselO",
     description:
       "Book a confidential online legal consultation with a criminal lawyer in Syria for criminal complaints, investigations, defense options, and court procedures.",
   },
   "/syr/services/banking-finance": {
-    title: "Banking & Finance Lawyer in Syria | Counselo",
+    title: "Banking & Finance Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with a banking lawyer in Syria for bank disputes, finance contracts, regulatory compliance, and credit matters.",
   },
   "/syr/services/intellectual-property": {
-    title: "Intellectual Property Lawyer in Syria | Counselo",
+    title: "Intellectual Property Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with an intellectual property lawyer in Syria for trademarks, copyrights, patents, trade secrets, and infringement claims.",
   },
   "/syr/services/tax-zakat": {
-    title: "Tax Lawyer in Syria | Counselo",
+    title: "Tax Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with a tax lawyer in Syria for income tax compliance, customs duties, tax assessments, objection procedures, and fiscal disputes.",
   },
   "/syr/services/cyber-law": {
-    title: "Cybercrime Lawyer in Syria | Counselo",
+    title: "Cybercrime Lawyer in Syria | CounselO",
     description:
       "Book a confidential online legal consultation with a cybercrime lawyer in Syria for cybercrime, online defamation, data protection, and digital evidence.",
   },
   "/syr/services/medical-malpractice": {
-    title: "Medical Malpractice Lawyer in Syria | Counselo",
+    title: "Medical Malpractice Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with a medical malpractice lawyer in Syria for negligence claims, misdiagnosis, surgical errors, and compensation matters.",
   },
   "/syr/services/insurance-law": {
-    title: "Insurance Lawyer in Syria | Counselo",
+    title: "Insurance Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with an insurance lawyer in Syria for claim denial, policy disputes, insurer liability, and settlement negotiations.",
   },
   "/syr/services/civil-law": {
-    title: "Civil Law Lawyer in Syria | Counselo",
+    title: "Civil Law Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with a civil law lawyer in Syria for civil claims, contractual obligations, compensation, and private legal disputes.",
   },
   "/syr/services/civil-procedure": {
-    title: "Civil Procedure Lawyer in Syria | Counselo",
+    title: "Civil Procedure Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with a civil procedure lawyer in Syria for litigation steps, filing requirements, evidence rules, appeals, and court deadlines.",
   },
   "/syr/services/criminal-procedure": {
-    title: "Criminal Procedure Lawyer in Syria | Counselo",
+    title: "Criminal Procedure Lawyer in Syria | CounselO",
     description:
       "Book an online legal consultation with a criminal procedure lawyer in Syria on investigation rights, detention, evidence rules, and appeals.",
   },
@@ -573,32 +573,32 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── SA ENGLISH BLOG POSTS ────────────────────────────────────────────────
 
   "/sa/blog/divorce-in-saudi-arabia": {
-    title: "Divorce in Saudi Arabia | Rights & Legal Process | Counselo",
+    title: "Divorce in Saudi Arabia | Rights & Legal Process | CounselO",
     description:
       "Learn about divorce, khula, annulment, custody, alimony, and documentation under Saudi family law before booking an online legal consultation.",
   },
   "/sa/blog/wrongful-termination-saudi-labor-law": {
-    title: "Wrongful Termination in Saudi Arabia | Legal Guide | Counselo",
+    title: "Wrongful Termination in Saudi Arabia | Legal Guide | CounselO",
     description:
       "Learn the main rules for terminating employment contracts in Saudi Arabia, including notice periods, employee rights, compensation, and legal procedures.",
   },
   "/sa/blog/foreign-company-registration-saudi-arabia": {
-    title: "Foreign Company Registration in Saudi Arabia | Counselo",
+    title: "Foreign Company Registration in Saudi Arabia | CounselO",
     description:
       "A legal guide to foreign company registration in Saudi Arabia covering investment licensing, commercial registration, company forms, and key procedures.",
   },
   "/sa/blog/board-of-grievances-saudi-arabia": {
-    title: "Board of Grievances in Saudi Arabia | Legal Guide | Counselo",
+    title: "Board of Grievances in Saudi Arabia | Legal Guide | CounselO",
     description:
       "Learn when and how to challenge government decisions before Saudi Arabia's Board of Grievances, including standing, deadlines, evidence, and legal strategy.",
   },
   "/sa/blog/real-estate-disputes-saudi-arabia": {
-    title: "Real Estate Disputes in Saudi Arabia | Legal Guide | Counselo",
+    title: "Real Estate Disputes in Saudi Arabia | Legal Guide | CounselO",
     description:
       "Understand your legal options for property disputes in Saudi Arabia, including ownership claims, lease conflicts, construction defects, and compensation.",
   },
   "/sa/blog/child-custody-saudi-arabia": {
-    title: "Child Custody in Saudi Arabia | Rights & Process | Counselo",
+    title: "Child Custody in Saudi Arabia | Rights & Process | CounselO",
     description:
       "Understand child custody, guardianship, visitation rights, and best-interest standards in Saudi family law before booking a legal consultation.",
   },
@@ -639,32 +639,32 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── SYRIA ENGLISH BLOG POSTS — CANONICAL ────────────────────────────────
 
   "/syr/blog/administrative-court-disputes-syria": {
-    title: "Administrative Court Disputes in Syria | Legal Guide | Counselo",
+    title: "Administrative Court Disputes in Syria | Legal Guide | CounselO",
     description:
       "Learn how administrative disputes are handled before Syrian courts, including challenges to public authority decisions, deadlines, evidence, and legal strategy.",
   },
   "/syr/blog/child-custody-syria": {
-    title: "Child Custody in Syria | Rights & Process | Counselo",
+    title: "Child Custody in Syria | Rights & Process | CounselO",
     description:
       "Understand child custody, guardianship, visitation rights, and family-law standards in Syria before booking an online legal consultation.",
   },
   "/syr/blog/divorce-in-syria": {
-    title: "Divorce in Syria | Rights & Legal Process | Counselo",
+    title: "Divorce in Syria | Rights & Legal Process | CounselO",
     description:
       "Learn about divorce, separation, custody, alimony, and documentation procedures under Syrian family law before getting professional legal advice.",
   },
   "/syr/blog/foreign-company-registration-syria": {
-    title: "Foreign Company Registration in Syria | Legal Guide | Counselo",
+    title: "Foreign Company Registration in Syria | Legal Guide | CounselO",
     description:
       "A legal guide to foreign company registration in Syria covering business licensing, commercial registration, available company forms, and key procedures.",
   },
   "/syr/blog/real-estate-disputes-syria": {
-    title: "Real Estate Disputes in Syria | Legal Guide | Counselo",
+    title: "Real Estate Disputes in Syria | Legal Guide | CounselO",
     description:
       "Understand your legal options for property disputes in Syria, including ownership claims, lease conflicts, construction defects, and compensation.",
   },
   "/syr/blog/wrongful-termination-syrian-labor-law": {
-    title: "Wrongful Termination in Syria | Legal Guide | Counselo",
+    title: "Wrongful Termination in Syria | Legal Guide | CounselO",
     description:
       "Understand wrongful termination under Syrian labor law, including employee rights, notice periods, compensation, evidence requirements, and legal options.",
   },
@@ -705,37 +705,37 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── REDIRECT SOURCES (canonicalOverride — do not change these) ──────────
 
   "/syr/blog/board-of-grievances-saudi-arabia": {
-    title: "Administrative Court Disputes in Syria | Legal Guide | Counselo",
+    title: "Administrative Court Disputes in Syria | Legal Guide | CounselO",
     description:
       "Learn how administrative disputes are handled before Syrian courts, including challenges to public authority decisions, deadlines, evidence, and legal strategy.",
     canonicalOverride: "https://counselo-legal.com/syr/blog/administrative-court-disputes-syria",
   },
   "/syr/blog/child-custody-saudi-arabia": {
-    title: "Child Custody in Syria | Rights & Process | Counselo",
+    title: "Child Custody in Syria | Rights & Process | CounselO",
     description:
       "Understand child custody, guardianship, visitation rights, and family-law standards in Syria before booking an online legal consultation.",
     canonicalOverride: "https://counselo-legal.com/syr/blog/child-custody-syria",
   },
   "/syr/blog/divorce-in-saudi-arabia": {
-    title: "Divorce in Syria | Rights & Legal Process | Counselo",
+    title: "Divorce in Syria | Rights & Legal Process | CounselO",
     description:
       "Learn about divorce, separation, custody, alimony, and documentation procedures under Syrian family law before getting professional legal advice.",
     canonicalOverride: "https://counselo-legal.com/syr/blog/divorce-in-syria",
   },
   "/syr/blog/foreign-company-registration-saudi-arabia": {
-    title: "Foreign Company Registration in Syria | Legal Guide | Counselo",
+    title: "Foreign Company Registration in Syria | Legal Guide | CounselO",
     description:
       "A legal guide to foreign company registration in Syria covering business licensing, commercial registration, available company forms, and key procedures.",
     canonicalOverride: "https://counselo-legal.com/syr/blog/foreign-company-registration-syria",
   },
   "/syr/blog/real-estate-disputes-saudi-arabia": {
-    title: "Real Estate Disputes in Syria | Legal Guide | Counselo",
+    title: "Real Estate Disputes in Syria | Legal Guide | CounselO",
     description:
       "Understand your legal options for property disputes in Syria, including ownership claims, lease conflicts, construction defects, and compensation.",
     canonicalOverride: "https://counselo-legal.com/syr/blog/real-estate-disputes-syria",
   },
   "/syr/blog/wrongful-termination-saudi-labor-law": {
-    title: "Wrongful Termination in Syria | Legal Guide | Counselo",
+    title: "Wrongful Termination in Syria | Legal Guide | CounselO",
     description:
       "Understand wrongful termination under Syrian labor law, including employee rights, notice periods, compensation, evidence requirements, and legal options.",
     canonicalOverride: "https://counselo-legal.com/syr/blog/wrongful-termination-syrian-labor-law",

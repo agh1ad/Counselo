@@ -197,7 +197,11 @@ export default function ServiceDetail() {
       "description": seoDesc,
       "url": canonicalUrlFull,
       "areaServed": { "@type": "Country", "name": isSyr ? "Syria" : isUae ? "United Arab Emirates" : "Saudi Arabia" },
-      "availableLanguage": ["Arabic", "English"],
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": canonicalUrlFull,
+        "availableLanguage": ["Arabic", "English"],
+      },
       "serviceType": data.title,
       "provider": { "@id": COUNSELO_ENTITY_IDS.organization },
     },

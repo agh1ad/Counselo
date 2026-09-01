@@ -44,23 +44,19 @@ const organizationSchema = {
     "jobTitle": "Lawyer and Legal Counsel",
     "description": `Lawyer Omar Al-Baghdadi has ${COUNSELO_LEGAL_PRACTICE_CLAIM.en} and has handled ${COUNSELO_LEGAL_MATTERS_CLAIM.en} across the region.`,
     "knowsAbout": ["Family Law", "Employment Law", "Real Estate Law", "Business Law", "Criminal Law", "Foreign Investment", "Administrative Law", "Saudi Law", "Syrian Law", "UAE Law"],
-    "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
   },
   "areaServed": [
     { "@type": "Country", "name": "Saudi Arabia" },
     { "@type": "Country", "name": "Syria" },
     { "@type": "Country", "name": "United Arab Emirates" },
   ],
-  "availableLanguage": ["Arabic", "English"],
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+966594850247",
     "contactType": "customer service",
-    "contactOption": "TollFree",
     "areaServed": ["SA", "SY", "AE"],
     "availableLanguage": ["Arabic", "English"],
   },
-  "sameAs": ["https://www.linkedin.com/in/lawyeromarbaghdadi/"],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Legal Services — Saudi Arabia, Syria & UAE",

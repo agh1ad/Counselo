@@ -109,7 +109,11 @@ function LegalServiceSchema({ service, lang }: { service: UaeLegalService; lang:
           url: `https://counselo-legal.com${regionPrefix}/services/${service.slug}`,
           areaServed: { "@type": "Country", name: "United Arab Emirates" },
           provider: { "@id": COUNSELO_ENTITY_IDS.organization },
-          availableLanguage: ["Arabic", "English"],
+          availableChannel: {
+            "@type": "ServiceChannel",
+            serviceUrl: `https://counselo-legal.com${regionPrefix}/services/${service.slug}`,
+            availableLanguage: ["Arabic", "English"],
+          },
         },
         {
           "@context": "https://schema.org",
@@ -162,7 +166,11 @@ export function UaeHome() {
             name: "CounselO UAE",
             url: "https://counselo-legal.com/uae",
             areaServed: { "@type": "Country", name: "United Arab Emirates" },
-            availableLanguage: ["Arabic", "English"],
+            availableChannel: {
+              "@type": "ServiceChannel",
+              serviceUrl: "https://counselo-legal.com/uae",
+              availableLanguage: ["Arabic", "English"],
+            },
             hasOfferCatalog: {
               "@type": "OfferCatalog",
               name: "UAE Legal Services",

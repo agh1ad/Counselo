@@ -116,7 +116,6 @@ export default function Home() {
           "logo": { "@type": "ImageObject", "url": "https://counselo-legal.com/logo.png", "width": 512, "height": 512 },
           "founder": OMAR_AL_BAGHDADI,
           "areaServed": { "@type": "Country", "name": "United Arab Emirates" },
-          "availableLanguage": ["Arabic", "English"],
           "serviceType": t.services.items.map((service) => service.title),
           "hasOfferCatalog": { "@type": "OfferCatalog", "name": "UAE Legal Consultation Services", "numberOfItems": servicesAreaCount },
           "contactPoint": { "@type": "ContactPoint", "telephone": "+966594850247", "contactType": "legal consultation", "availableLanguage": ["Arabic", "English"] },
@@ -150,7 +149,6 @@ export default function Home() {
             "@type": "Country",
             "name": "Syria",
           },
-          "availableLanguage": ["Arabic", "English"],
           "serviceType": ["Family Law", "Commercial Law", "Civil Law", "Employment Law", "Real Estate Law", "Foreign Investment Law", "Administrative Law", "Criminal Law", "Banking & Finance Law", "Tax Law", "Cyber Law", "Medical Malpractice", "Insurance Law", "Intellectual Property", "Arbitration", "Enforcement Law", "Companies Law", "Contracts Law", "Civil Procedure", "Criminal Procedure"],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -194,7 +192,6 @@ export default function Home() {
             "@type": "Country",
             "name": "Saudi Arabia",
           },
-          "availableLanguage": ["Arabic", "English"],
           "serviceType": ["Family Law", "Commercial Law", "Employment Law", "Real Estate Law", "Foreign Investment Law", "Administrative Law", "Criminal Law", "Banking & Finance Law", "Tax & Zakat Law", "Cyber Law", "Medical Malpractice", "Insurance Law", "Intellectual Property", "Arbitration", "Enforcement Law", "Companies Law", "Contracts Law"],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
