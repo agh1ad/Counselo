@@ -26,6 +26,7 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { RenderResult } from "./entry-server.js";
 import { compactWorkSamplesForDiscovery, type WorkSamplePublic } from "./lib/work-samples.js";
+import { canonicalHostRedirect } from "./lib/canonical-host.js";
 import { resolveBlogRoute } from "./lib/blog-route-policy.js";
 import {
   buildDiscoveryFeed,
@@ -546,6 +547,15 @@ async function ssrRender(
 const app = express();
 
 app.disable("x-powered-by");
+app.use((req, res, next) => {
+  const destination = canonicalHostRedirect(
+    req.get("host"),
+    req.get("x-forwarded-host"),
+    req.originalUrl,
+  );
+  if (destination) return res.redirect(308, destination);
+  next();
+});
 app.use(compression());
 app.use((_req, res, next) => {
   res.setHeader("X-Content-Type-Options", "nosniff");
