@@ -241,6 +241,7 @@ export const enUae = {
       ...en.contact.firmDetails,
       heading: "UAE Service Details",
       address: "United Arab Emirates\nOnline consultations across all seven Emirates",
+      phoneTitle: "Regional intake phone & WhatsApp (Saudi number)",
       hours: "Online enquiries accepted at any time",
     },
     form: {

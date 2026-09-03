@@ -13,6 +13,16 @@ export const COUNSELO_LEGAL_MATTERS_STAT = {
   ar: "+20,000",
 } as const;
 
+/**
+ * Public methodology note for the stated experience-volume figure. The note
+ * deliberately avoids turning an internal archive count into an audited
+ * jurisdiction-specific result or a promise about any future matter.
+ */
+export const COUNSELO_EXPERIENCE_SCOPE_NOTE = {
+  en: "CounselO states this career-wide figure includes legal matters, consultations, document reviews and related legal engagements handled or supervised across the region. It is an experience measure, not an independently audited outcome or a guarantee of results.",
+  ar: "تذكر كاونسلو أن هذا الرقم المهني التراكمي يشمل المسائل والاستشارات ومراجعات المستندات والأعمال القانونية المرتبطة التي عولجت أو جرى الإشراف عليها في المنطقة. وهو مقياس للخبرة وليس نتيجة مدققة بصورة مستقلة أو ضماناً لأي نتيجة.",
+} as const;
+
 /** Approved professional-start year used for the public experience claim. */
 export const COUNSELO_PROFESSIONAL_START_YEAR = 1996;
 

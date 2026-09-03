@@ -53,7 +53,7 @@ export const enSyr: typeof en = {
     },
     about: {
       ...en.home.about,
-      p1: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi — one of the region's most established senior advocates, with 30+ years of legal practice and 20,000+ legal matters and consultations handled across Syria and the region. His career spans every major area of law — from commercial litigation and arbitration to family law, real estate, employment, foreign investment and administrative proceedings.",
+      p1: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice and a stated career-wide record of 20,000+ legal matters and consultations across the region. Syrian matters are reviewed against the applicable Syrian framework, with any reserved local work separately scoped through an appropriately licensed professional or cooperating office.",
       founderTeamLine: "Leading a professional legal team across Syria & the region",
     },
     consultMethods: {
