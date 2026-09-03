@@ -7,6 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
+import { ExperienceMethodologyNote } from "@/components/legal/ExperienceMethodologyNote";
 import type { Translations } from "@/contexts/LanguageContext";
 import type { Region } from "@/contexts/RegionContext";
 import { COUNSELO_ENTITY_IDS, CONSULTATION_OPERATING_POLICY, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
@@ -292,6 +293,10 @@ export default function Home() {
               </m.div>
             ))}
           </div>
+          <ExperienceMethodologyNote
+            isArabic={isRTL}
+            className="mx-auto mt-7 max-w-4xl border-t border-white/15 pt-5 text-center text-xs leading-5 text-white/65"
+          />
         </div>
       </section>
 

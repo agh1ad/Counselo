@@ -66,6 +66,9 @@ export function Footer() {
   const blogIndexPath = isArabic ? "/blog/ar" : "/blog";
   const regionPickerPath = isArabic ? "/ar" : "/";
   const brandName = isArabic ? "كاونسلو" : "CounselO";
+  const methodologyPath = isSharedPath
+    ? `${isArabic ? "/sa/ar/about" : "/sa/about"}#experience-methodology`
+    : `${regionPrefix}/about#experience-methodology`;
 
   return (
     <footer className={`uae-reference-footer regional-reference-footer region-reference-footer--${region}`}>
@@ -95,6 +98,9 @@ export function Footer() {
               ? "كاونسلو منصة إلكترونية للاستشارات القانونية. لا ينشئ التصفح أو الاستشارة وحدهما تفويضاً بالتمثيل؛ ويُحدد أي عمل محلي أو تمثيل مع مهني مرخص ضمن نطاق مستقل."
               : "CounselO is an online legal consultation platform. Browsing or consultation alone does not create a representation mandate; local or reserved work is separately scoped with an appropriately licensed professional."}
           </p>
+          <Link href={methodologyPath} className="mt-3 inline-flex text-xs font-semibold text-primary underline-offset-4 hover:underline">
+            {isArabic ? "منهجية أرقام الخبرة وحدودها" : "Experience-figure methodology and limitations"}
+          </Link>
         </div>
         <nav className="regional-reference-footer__practice" aria-label={isArabic ? "مجالات الممارسة" : "Practice areas"}>
           <h3>{isSharedPath ? (isArabic ? "اختر الاختصاص" : "Choose a jurisdiction") : f.practiceAreasHeading}</h3>
@@ -119,7 +125,7 @@ export function Footer() {
         <div className="uae-reference-footer__contact">
           <h3>{isSharedPath ? (isArabic ? "كاونسلو العالمية" : "CounselO Global") : f.contactHeading}</h3>
           <span><Landmark aria-hidden="true" /><span className="whitespace-pre-line">{isSharedPath ? (isArabic ? "اختر الدولة للوصول إلى الخدمات ومعلومات التواصل الخاصة بالاختصاص." : "Choose a country for jurisdiction-specific services and contact details.") : f.address}</span></span>
-          {!isSharedPath && <a href={`tel:${f.phone.replace(/[^+\d]/g, "")}`}><MessageCircle aria-hidden="true" /><span dir="ltr">{f.phone}</span></a>}
+          {!isSharedPath && <a href={`tel:${f.phone.replace(/[^+\d]/g, "")}`}><MessageCircle aria-hidden="true" /><span>{region === "uae" ? (isArabic ? "استقبال إقليمي · " : "Regional intake · ") : ""}<span dir="ltr">{f.phone}</span></span></a>}
           <a href={`mailto:${f.email}`}><Mail aria-hidden="true" />{f.email}</a>
         </div>
       </div>

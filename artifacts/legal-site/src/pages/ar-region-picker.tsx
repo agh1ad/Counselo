@@ -4,6 +4,7 @@ import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, getConsul
 import { Helmet } from "react-helmet-async";
 import { Globe, Clock, Lock, ArrowLeft, MessageCircle, CheckCircle2, Award } from "lucide-react";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
+import { ExperienceMethodologyNote } from "@/components/legal/ExperienceMethodologyNote";
 import { useEffect } from "react";
 import { COUNSELO_LEGAL_MATTERS_CLAIM, COUNSELO_LEGAL_MATTERS_STAT, COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
 
@@ -102,7 +103,7 @@ const faqSchema = {
 // ── Data ──────────────────────────────────────────────────────────────────────
 
 const FAQS = [
-  { q: "ما هو كاونسلو؟", a: "كاونسلو منصة استشارات قانونية إلكترونية يقودها المحامي عمر البغدادي بخبرة 30+ عاماً من الممارسة القانونية وأكثر من 20,000 مسألة واستشارة قانونية واستشارة. نقدم إرشاداً قانونياً محدد الاختصاص في السعودية وسوريا والإمارات." },
+  { q: "ما هو كاونسلو؟", a: "كاونسلو منصة استشارات قانونية إلكترونية يقودها المحامي عمر البغدادي بخبرة 30+ عاماً من الممارسة القانونية وأكثر من 20,000 مسألة واستشارة قانونية. نقدم إرشاداً قانونياً محدد الاختصاص في السعودية وسوريا والإمارات." },
   { q: "ما الدول التي يخدمها كاونسلو؟", a: "نقدم خدمات قانونية خاصة بالمملكة العربية السعودية وسوريا والإمارات العربية المتحدة، مع مراعاة القانون والجهات والإجراءات المنطبقة في كل دولة." },
   { q: "كم يستغرق الرد؟", a: "تستهدف كاونسلو تقديم رد مهني خلال 24 ساعة، بحسب نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوفر الخدمة." },
   { q: "هل الاستشارات سرية؟", a: "تُعامل المعلومات بسرية وفق الالتزامات المهنية والتعاقدية وواجبات الخصوصية وحماية البيانات المنطبقة، مع مراعاة الإفصاحات التي يوجبها القانون أو يسمح بها." },
@@ -344,6 +345,7 @@ export default function ArRegionPicker() {
               </m.div>
             ))}
           </div>
+          <ExperienceMethodologyNote isArabic className="mx-auto mt-7 max-w-4xl border-t border-white/15 pt-5 text-center text-xs leading-5 text-white/65" />
         </div>
       </section>
 
@@ -362,8 +364,8 @@ export default function ArRegionPicker() {
               <p className="text-muted-foreground leading-relaxed mb-5">
                 <strong className="text-foreground">كاونسلو</strong> منصة قانونية إلكترونية سريعة ومهنية وموثوقة أسسها وقادها{" "}
                 <strong className="text-foreground">المحامي والمستشار القانوني عمر البغدادي</strong>، صاحب خبرة تمتد لأكثر من{" "}
-                <strong className="text-foreground">30+ عاماً من الممارسة القانونية</strong> وأكثر من{" "}
-                <strong className="text-foreground">أكثر من 20,000 مسألة واستشارة قانونية واستشارة</strong> في المنطقة.
+                <strong className="text-foreground">30+ عاماً من الممارسة القانونية</strong> و{" "}
+                <strong className="text-foreground">أكثر من 20,000 مسألة واستشارة قانونية</strong> في المنطقة.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
                 نجعل الاستشارة القانونية المتخصصة في متناول الجميع — أفراداً وأسراً وشركات — دون الحاجة لزيارة المكتب. الاستشارات عبر الواتساب أو البريد الإلكتروني{" "}

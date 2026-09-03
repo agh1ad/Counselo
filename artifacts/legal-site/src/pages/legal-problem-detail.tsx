@@ -6,6 +6,7 @@ import { SEOHead } from "@/components/seo/SEOHead";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { TrustSignals } from "@/components/seo/TrustSignals";
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
+import { ExperienceMethodologyNote } from "@/components/legal/ExperienceMethodologyNote";
 import { getLegalProblemLanguageAlternates, getLegalProblemPage, getRelatedLegalProblemPages, legalProblemPath } from "@/lib/legal-problem-pages";
 import { getRegionalLegalSources, type LegalSource } from "@/lib/regional-legal-sources";
 import { buildArabicProblemDescription, buildArabicProblemTitle, buildEnglishProblemDescription, buildEnglishProblemTitle } from "@/lib/problem-snippet";
@@ -65,13 +66,12 @@ export default function LegalProblemDetail() {
       });
   const keywords = [
     page.titleEn,
-    `${page.titleEn} lawyer ${countryName}`,
-    `${page.titleEn} legal consultation`,
+    `${page.serviceTitleEn} consultation in ${countryName.replace(/^the /, "")}`,
+    `${page.titleEn} legal review`,
     parentTitle,
     "online legal consultation",
-    isRTL ? page.titleAr : `${page.titleEn} lawyer`,
     ...(isRTL ? page.searchVariantsAr : page.searchVariantsEn),
-  ].join(", ");
+  ].filter((value, index, list) => list.indexOf(value) === index).join(", ");
   const sources: LegalSource[] = getRegionalLegalSources(region, id);
   const relatedProblems = getRelatedLegalProblemPages(page);
   const consultationPackage = getConsultationProduct("comprehensive-consultation");
@@ -190,6 +190,7 @@ export default function LegalProblemDetail() {
         <p className="premium-content-shell border-t border-[#0d4a31]/10 py-4 text-sm leading-6 text-muted-foreground">
           {isRTL ? "يقود كاونسلو المحامي والمستشار القانوني عمر البغدادي. تُراجع كل مسألة وفق وقائعها واختصاصها، لا بإجابة عامة واحدة." : "CounselO is led by Lawyer and Legal Counsel Omar Al-Baghdadi. Each matter is reviewed against its facts and jurisdiction, not a one-size-fits-all answer."}
         </p>
+        <ExperienceMethodologyNote isArabic={isRTL} className="premium-content-shell pb-4 text-xs leading-5 text-muted-foreground" />
       </section>
 
       <nav aria-label={isRTL ? "أقسام صفحة المشكلة" : "Problem page sections"} className="service-anchor-rail sticky top-[4.5rem] z-30 border-b border-[#0d4a31]/12 bg-white/95 backdrop-blur">
@@ -199,7 +200,7 @@ export default function LegalProblemDetail() {
             <a href="#legal-accuracy" className="service-anchor-link">{isRTL ? "ما نتحقق منه" : "Legal checks"}</a>
             <a href="#problem-deliverables" className="service-anchor-link">{isRTL ? "ما تستلمه" : "Deliverable"}</a>
             <a href="#problem-documents" className="service-anchor-link">{isRTL ? "المستندات" : "Documents"}</a>
-            <a href="#problem-contact" className="service-anchor-link">{isRTL ? "تواصل معنا" : "Contact"}</a>
+            <a href="#problem-sources" className="service-anchor-link">{isRTL ? "المصادر" : "Sources"}</a>
           </div>
         </div>
       </nav>

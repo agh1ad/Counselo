@@ -54,6 +54,28 @@ test("the experience-volume claim uses the neutral centralized wording", () => {
   assert.doesNotMatch(copy, /(?:أكثر من\s+)?20,000\s+(?:قضية|قضايا|مسألة)\b(?! واستشارة قانونية)/);
 });
 
+test("experience methodology is visible on every claim-bearing page family and linked site-wide", () => {
+  const directSurfaces = [
+    "src/pages/region-picker.tsx",
+    "src/pages/ar-region-picker.tsx",
+    "src/pages/home.tsx",
+    "src/pages/about.tsx",
+    "src/pages/legal-problem-detail.tsx",
+    "src/components/seo/TrustSignals.tsx",
+  ];
+  for (const file of directSurfaces) {
+    assert.match(readFileSync(resolve(process.cwd(), file), "utf8"), /ExperienceMethodologyNote/, file);
+  }
+
+  const footer = readFileSync(resolve(process.cwd(), "src/components/layout/footer.tsx"), "utf8");
+  assert.match(footer, /#experience-methodology/);
+  assert.match(footer, /Experience-figure methodology and limitations/);
+
+  const app = readFileSync(resolve(process.cwd(), "src/App.tsx"), "utf8");
+  assert.match(app, /<Footer \/>/);
+  assert.match(app, /isAdmin/);
+});
+
 test("the professional-experience claim is derived from the approved start year", () => {
   assert.equal(COUNSELO_PROFESSIONAL_START_YEAR, 1996);
   assert.deepEqual(getCounseloLegalPracticeClaim(2026), {

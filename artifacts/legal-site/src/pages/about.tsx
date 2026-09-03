@@ -14,6 +14,7 @@ import {
   OMAR_OFFICIAL_PROFILE_URL,
 } from "@workspace/api-zod/browser";
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
+import { ExperienceMethodologyNote } from "@/components/legal/ExperienceMethodologyNote";
 import { COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
 
 const founderPhoto = "/images/optimized/omar-founder-bio.png";
@@ -138,6 +139,11 @@ export default function About() {
               </m.div>
             ))}
           </div>
+          <ExperienceMethodologyNote
+            id="experience-methodology"
+            isArabic={isRTL}
+            className="mx-auto mt-8 max-w-4xl scroll-mt-32 border-t border-white/15 pt-5 text-center text-xs leading-5 text-white/65"
+          />
         </div>
       </section>
 

@@ -4,6 +4,7 @@ import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, getConsul
 import { Helmet } from "react-helmet-async";
 import { Globe, Clock, Lock, ArrowRight, MessageCircle, CheckCircle2, Award, Mail, Phone } from "lucide-react";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
+import { ExperienceMethodologyNote } from "@/components/legal/ExperienceMethodologyNote";
 import { useEffect } from "react";
 import { COUNSELO_LEGAL_MATTERS_CLAIM, COUNSELO_LEGAL_MATTERS_STAT, COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
 
@@ -390,6 +391,7 @@ export default function RegionPicker() {
               </m.div>
             ))}
           </div>
+          <ExperienceMethodologyNote isArabic={false} className="mx-auto mt-7 max-w-4xl border-t border-white/15 pt-5 text-center text-xs leading-5 text-white/65" />
         </div>
       </section>
 

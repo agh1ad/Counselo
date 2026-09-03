@@ -1,6 +1,7 @@
 import { Award, BriefcaseBusiness, Languages, LockKeyhole, Scale, ShieldCheck } from "lucide-react";
 import { Link } from "wouter";
 import { COUNSELO_LEGAL_MATTERS_CLAIM, COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
+import { ExperienceMethodologyNote } from "@/components/legal/ExperienceMethodologyNote";
 
 type TrustSignalsProps = {
   isArabic: boolean;
@@ -23,7 +24,7 @@ export function TrustSignals({ isArabic, regionPrefix, compact = false }: TrustS
   const items = isArabic
     ? [
         { icon: Award, title: "قيادة قانونية خبيرة", text: `تأسست كاونسلو بقيادة المحامي والمستشار القانوني عمر البغدادي، مع ${COUNSELO_LEGAL_PRACTICE_CLAIM.ar}.` },
-        { icon: BriefcaseBusiness, title: "خبرة عملية واسعة", text: `تذكر كاونسلو أن فريقها تعامل مع ${COUNSELO_LEGAL_MATTERS_CLAIM.ar} في مجالات قانونية متعددة.` },
+        { icon: BriefcaseBusiness, title: "خبرة عملية واسعة", text: `تذكر كاونسلو سجلاً مهنياً تراكمياً يشمل ${COUNSELO_LEGAL_MATTERS_CLAIM.ar} عولجت أو جرى الإشراف عليها في المنطقة.` },
         { icon: Scale, title: "نموذج تمثيل واضح", text: representationText },
         { icon: Languages, title: "العربية والإنجليزية", text: "تتوفر الاستشارات ومراجعة المستندات باللغتين العربية والإنجليزية." },
         { icon: LockKeyhole, title: "سرية مهنية", text: "تُعامل معلومات العملاء ومستنداتهم باعتبارها معلومات قانونية سرية، ويُطلب فقط ما يلزم لتقييم المسألة." },
@@ -31,7 +32,7 @@ export function TrustSignals({ isArabic, regionPrefix, compact = false }: TrustS
       ]
     : [
         { icon: Award, title: "Experienced legal leadership", text: `CounselO was founded and is led by Lawyer and Legal Counsel Omar Al-Baghdadi, with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en}.` },
-        { icon: BriefcaseBusiness, title: "Extensive practical experience", text: `CounselO states that its team has handled ${COUNSELO_LEGAL_MATTERS_CLAIM.en} across multiple practice areas.` },
+        { icon: BriefcaseBusiness, title: "Extensive practical experience", text: `CounselO states a career-wide record including ${COUNSELO_LEGAL_MATTERS_CLAIM.en} handled or supervised across the region.` },
         { icon: Scale, title: "Clear representation model", text: representationText },
         { icon: Languages, title: "Arabic and English", text: "Legal consultations and document review are available in both Arabic and English." },
         { icon: LockKeyhole, title: "Professional confidentiality", text: "Client information and legal documents are treated as confidential, and only information needed to assess the matter is requested." },
@@ -61,6 +62,10 @@ export function TrustSignals({ isArabic, regionPrefix, compact = false }: TrustS
             </div>
           ))}
         </div>
+        <ExperienceMethodologyNote
+          isArabic={isArabic}
+          className="mt-6 max-w-4xl border-s-2 border-primary/35 ps-4 text-xs leading-5 text-muted-foreground"
+        />
         <nav aria-label={isArabic ? "روابط الثقة والسياسات" : "Trust and policy links"} className="flex flex-wrap gap-x-6 gap-y-3 mt-8 text-sm font-semibold">
           <Link href={`${regionPrefix}/about`} className="text-primary hover:underline">
             {isArabic ? "عن المؤسس والفريق" : "Founder and team"}

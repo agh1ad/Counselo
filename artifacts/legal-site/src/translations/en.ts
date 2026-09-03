@@ -98,7 +98,7 @@ export const en = {
     about: {
       eyebrow: "About the Platform",
       heading: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi",
-      p1: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi — one of the region's most established senior advocates, with 30+ years of legal practice and 20,000+ legal matters and consultations handled across Saudi Arabia. His career spans every major area of Saudi law, from commercial litigation and arbitration to family law, real estate, employment, foreign investment and administrative proceedings.",
+      p1: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice and a stated career-wide record of 20,000+ legal matters and consultations across the region. Saudi matters are reviewed against the applicable Saudi framework, with any reserved local work separately scoped through an appropriately licensed professional or cooperating office.",
       p2: "Under his leadership, CounselO brings together a professional legal team of experienced attorneys across multiple practice areas — all supervised and directed by Lawyer and Legal Counsel Al-Baghdadi, ensuring consistent quality and senior oversight on every consultation.",
       p3: "Whether you are an individual, a business, or a foreign investor — CounselO gives you direct access to a coordinated legal team led by a senior founder, delivered online, fast and without friction.",
       bullets: [
@@ -1719,7 +1719,7 @@ export const en = {
       emailTitle: "Email",
       email: "info@counselo-legal.com",
       hoursTitle: "Availability",
-      hours: "Available 24/7 — All Days",
+      hours: "Online enquiries accepted at any time",
     },
     form: {
       heading: "Request a Consultation",

@@ -21,13 +21,20 @@ const DANGLING_ARABIC_WORDS = new Set([
   "من",
 ]);
 const DANGLING_ENGLISH_WORDS = new Set([
+  "a",
+  "about",
   "against",
+  "an",
   "and",
+  "at",
   "before",
+  "by",
   "for",
   "from",
   "in",
+  "into",
   "of",
+  "on",
   "or",
   "to",
   "under",
@@ -93,8 +100,8 @@ export function buildArabicProblemDescription({
   countryNameAr,
 }: ArabicProblemSnippetInput): string {
   const topic = withoutRepeatedCountry(titleAr, countryNameAr);
-  const prefix = "هل تواجه ";
-  const suffix = ` في ${countryNameAr}؟ استشارة قانونية أونلاين بالعربية مع كاونسلو، التي أسسها المحامي والمستشار القانوني عمر البغدادي.`;
+  const prefix = "راجع ";
+  const suffix = ` في ${countryNameAr}. تحدد كاونسلو الإطار القانوني والجهة والمستندات والخطوات العملية التالية أونلاين.`;
   const available = ARABIC_DESCRIPTION_LIMIT - [...prefix].length - [...suffix].length;
   const focusedTopic = truncateAtWord(topic, available);
   return `${prefix}${focusedTopic}${suffix}`;
@@ -120,8 +127,8 @@ export function buildEnglishProblemTitle({
 }
 
 /**
- * Makes Omar's founder relationship explicit without implying a guaranteed
- * outcome or unrestricted local representation rights.
+ * Prioritizes the user's matter in the limited description budget, followed
+ * by the jurisdiction, review scope, and a practical online next step.
  */
 export function buildEnglishProblemDescription({
   titleEn,
@@ -132,8 +139,8 @@ export function buildEnglishProblemDescription({
   countryNameEn: string;
 }): string {
   const topic = withoutRepeatedEnglishCountry(titleEn, countryNameEn);
-  const prefix = "Facing ";
-  const suffix = ` in ${countryNameEn}? Online legal advice from CounselO founder, Lawyer and Legal Counsel Omar Al-Baghdadi.`;
+  const prefix = "Review ";
+  const suffix = ` in ${countryNameEn}. CounselO checks the legal framework, authority, documents and next steps online.`;
   const available = ENGLISH_DESCRIPTION_LIMIT - prefix.length - suffix.length;
   return `${prefix}${truncateAtWord(topic, available)}${suffix}`;
 }
