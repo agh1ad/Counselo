@@ -29,6 +29,9 @@ export default function About() {
   const { region, regionPrefix } = useRegion();
   const a = t.aboutPage;
   const heroFlag = region === "uae" ? uaeFlag : region === "syr" ? syrianFlag : saudiFlag;
+  const heroFlagSources = region === "uae" ? undefined : region === "syr"
+    ? "/images/optimized/syria-hero-480.webp 480w, /images/optimized/syria-hero-645.webp 645w"
+    : "/images/optimized/saudi-arabia-hero-640.webp 640w, /images/optimized/saudi-arabia-hero-960.webp 960w, /images/optimized/saudi-arabia-hero-1600.webp 1600w";
   const regionPath = `/${region}${isRTL ? "/ar" : ""}`;
   const country = region === "uae" ? "United Arab Emirates" : region === "syr" ? "Syria" : "Saudi Arabia";
   const countryCode = region === "uae" ? "AE" : region === "syr" ? "SY" : "SA";
@@ -115,7 +118,10 @@ export default function About() {
       {/* ── Hero ── */}
       <section className="premium-page-hero relative overflow-hidden py-28">
         {/* The jurisdiction flag remains authentic context, integrated as a quiet editorial layer. */}
-        <img src={heroFlag} alt="" aria-hidden="true" width={region === "syr" ? 645 : 1600} height={region === "syr" ? 360 : 900} fetchPriority="high" decoding="async" className="absolute inset-y-0 end-0 h-full w-[62%] object-cover object-center opacity-[0.08] mix-blend-multiply" />
+        <picture>
+          {heroFlagSources && <source type="image/webp" srcSet={heroFlagSources} sizes="(max-width: 767px) 640px, 62vw" />}
+          <img src={heroFlag} alt="" aria-hidden="true" width={region === "syr" ? 645 : 1600} height={region === "syr" ? 360 : 900} fetchPriority="high" decoding="async" className="absolute inset-y-0 end-0 h-full w-[62%] object-cover object-center opacity-[0.08] mix-blend-multiply" />
+        </picture>
         <div className="absolute inset-0 bg-[#073d2b]/82" />
         <div className="premium-content-shell relative z-10">
           <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">

@@ -79,7 +79,7 @@ export function Footer() {
           <p>{regional.description[lang]}</p>
         </div>
         <div className="uae-reference-footer__map">
-          <img src={regional.map} alt="" width="620" height="440" loading="lazy" decoding="async" />
+          <img src={regional.map} srcSet={isSharedPath ? "/images/optimized/counselo-platform-line-art-v1-640.webp 640w, /images/optimized/counselo-platform-line-art-v1-960.webp 960w, /images/optimized/counselo-platform-line-art-v1.webp 1719w" : undefined} sizes={isSharedPath ? "(max-width: 767px) 100vw, 620px" : undefined} alt="" width="620" height="440" loading="lazy" decoding="async" />
         </div>
         <ul className="uae-reference-footer__jurisdictions">
           {regional.jurisdictions[lang].map(([Icon, label]) => <li key={label}><Icon aria-hidden="true" /><span>{label}</span></li>)}
@@ -136,15 +136,15 @@ export function Footer() {
         </div>
         <nav className="legal-network-footer__list" aria-label={isArabic ? "مواقع شبكة عمر البغدادي القانونية" : "Omar Al-Baghdadi Legal Network websites"}>
           <a href={isArabic ? "https://omarbaghdadi.com/ar" : "https://omarbaghdadi.com"} target="_blank" rel="noopener noreferrer" className="legal-network-footer__item">
-            <span className="legal-network-footer__icon legal-network-footer__icon--omar" aria-hidden="true" />
+            <img src="https://omarbaghdadi.com/favicon-ob.png" alt="" width="34" height="34" loading="lazy" decoding="async" className="legal-network-footer__icon" />
             <span><strong>{isArabic ? "عمر البغدادي" : "Omar Al-Baghdadi"}</strong><small>{isArabic ? "الموقع المهني الرسمي" : "Official professional profile"}</small></span>
           </a>
           <div className="legal-network-footer__item is-current" aria-current="page">
-            <span className="legal-network-footer__icon legal-network-footer__icon--counselo" aria-hidden="true" />
+            <img src="/images/optimized/counselo-network-icon.webp" alt="" width="34" height="34" loading="lazy" decoding="async" className="legal-network-footer__icon" />
             <span><strong>CounselO</strong><small>{isArabic ? "منصة الاستشارات القانونية الرقمية · الموقع الحالي" : "Online legal consultation platform · Current site"}</small></span>
           </div>
           <a href={isArabic ? "https://www.baghdadilaw.co/ar/who-we-are" : "https://www.baghdadilaw.co/who-we-are"} target="_blank" rel="noopener noreferrer" className="legal-network-footer__item">
-            <span className="legal-network-footer__icon legal-network-footer__icon--baghdadi" aria-hidden="true" />
+            <img src="https://www.baghdadilaw.co/favicon-48x48.png" alt="" width="34" height="34" loading="lazy" decoding="async" className="legal-network-footer__icon" />
             <span><strong>{isArabic ? "البغدادي للمحاماة" : "BaghdadiLaw"}</strong><small>{isArabic ? "مكتب محاماة تأسس عام 1957" : "Law firm established in 1957"}</small></span>
           </a>
         </nav>

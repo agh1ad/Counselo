@@ -139,6 +139,7 @@ export default function TermsOfService() {
   return (
     <div className="counselo-editorial-page legal-document-page w-full bg-background min-h-screen">
       <SEOHead
+        heroArtwork="platform"
         title={content.seoTitle}
         description={content.seoDesc}
         canonical="/terms-of-service"

@@ -1,0 +1,348 @@
+{
+  "generatedAt": "2026-09-06T21:21:13.439Z",
+  "environment": "local production initial HTML",
+  "summary": {
+    "pages": 56,
+    "answerPages": 40,
+    "administrativePages": 26,
+    "failed": 0
+  },
+  "pages": [
+    {
+      "route": "/sa/services/insurance-law/denied-insurance-claim",
+      "id": "saudi-insurance-complaint-channel",
+      "htmlSha256": "33338ef160b40db6de6ede7fa54303e4ec7af7e425a3885ec8810e977237d8ff",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/insurance-law/denied-insurance-claim",
+      "id": "saudi-insurance-complaint-channel",
+      "htmlSha256": "2a54a799d91490eece62d729fa865893927fba7439256239dd8600eafa89f7ff",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/insurance-law/delayed-insurance-settlement",
+      "id": "saudi-insurance-complaint-channel",
+      "htmlSha256": "adf9e354db488e901d7282af8734927873377ed4bfc0e8f3ae0e2e9e3a57bdf5",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/insurance-law/delayed-insurance-settlement",
+      "id": "saudi-insurance-complaint-channel",
+      "htmlSha256": "53628de34992c9a936e3562710356a8e1574695a6d62f89182cce958f52ea8c6",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/insurance-law/policy-coverage-dispute",
+      "id": "saudi-insurance-complaint-channel",
+      "htmlSha256": "b115bf8b4231b3de1332e34a6ec2dc0e4675113a5b630e52c34946364ede44ef",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/insurance-law/policy-coverage-dispute",
+      "id": "saudi-insurance-complaint-channel",
+      "htmlSha256": "61f5807ba7260c69cf679796f592f9ada5e666e35cd26f085a6d6dbf48f25364",
+      "issues": []
+    },
+    {
+      "route": "/uae/services/insurance/denied-insurance-claim",
+      "id": "sanadak-insurance-complaint-eligibility",
+      "htmlSha256": "de309c2432658bced8eba500d867bd4e010c5bf8df481e31152481fb2e8f6250",
+      "issues": []
+    },
+    {
+      "route": "/uae/ar/services/insurance/denied-insurance-claim",
+      "id": "sanadak-insurance-complaint-eligibility",
+      "htmlSha256": "339ee86094e6c458b5f3d433077089236fa0fc17f5c806daac5d14eaf2e54d72",
+      "issues": []
+    },
+    {
+      "route": "/uae/services/insurance/delayed-insurance-settlement",
+      "id": "sanadak-insurance-complaint-eligibility",
+      "htmlSha256": "d91425160f3667940cddca4b2183c487541e7d719dd5ef70abd721e9bff6f2cb",
+      "issues": []
+    },
+    {
+      "route": "/uae/ar/services/insurance/delayed-insurance-settlement",
+      "id": "sanadak-insurance-complaint-eligibility",
+      "htmlSha256": "10011c28b2268bee6deb50070b05497fb925838e531e98d462d668b43ff0ace3",
+      "issues": []
+    },
+    {
+      "route": "/uae/services/insurance/policy-coverage-dispute",
+      "id": "sanadak-insurance-complaint-eligibility",
+      "htmlSha256": "ad277661f364bb2fc3bfe2e85a90cb1f925814b38daf066e43ba337af168a66f",
+      "issues": []
+    },
+    {
+      "route": "/uae/ar/services/insurance/policy-coverage-dispute",
+      "id": "sanadak-insurance-complaint-eligibility",
+      "htmlSha256": "d73609fe5b4145b8e35825e386698b241e5714afa1fbc122f29a00cd34471549",
+      "issues": []
+    },
+    {
+      "route": "/uae/services/tax-vat/tax-audit-and-assessment-objection",
+      "id": "fta-review-and-reconsideration",
+      "htmlSha256": "76fb8863c9851de124ec1c3e386bc2278a152212cf2f4446e784df04e8e8e12d",
+      "issues": []
+    },
+    {
+      "route": "/uae/ar/services/tax-vat/tax-audit-and-assessment-objection",
+      "id": "fta-review-and-reconsideration",
+      "htmlSha256": "9a89d0619a54a7cc7b1eb0245de8dd6f4f0b36b6ea8d73365bb9a5a1766e44b6",
+      "issues": []
+    },
+    {
+      "route": "/uae/services/commercial-contracts/legal-notice-and-demand-letter-drafting",
+      "id": "dubai-notice-drafting-and-attestation",
+      "htmlSha256": "4e8ff644bbd2116a8cdb4991966db5370a6edb99466bdea976d3fbc3499b2452",
+      "issues": []
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts/legal-notice-and-demand-letter-drafting",
+      "id": "dubai-notice-drafting-and-attestation",
+      "htmlSha256": "65daa4b181df0d226e9c0d324b39633ef841c803ba3cdee7a075312e68d11326",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/foreign-investment/foreign-owned-company-formation",
+      "id": "investor-registration-and-activity-permissions",
+      "htmlSha256": "dedc7f0520e2b0abb6305ce0dfa3ebf86c24d1e6722933e2dbc9278f26248b68",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/foreign-owned-company-formation",
+      "id": "investor-registration-and-activity-permissions",
+      "htmlSha256": "390c35a2419088d8df9acb0d837e641829122f1a295af4a3b5cdc35c6500c349",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/foreign-investment/investment-and-business-licensing",
+      "id": "investor-registration-and-activity-permissions",
+      "htmlSha256": "347f950813fb49c574bfc86d38866b5c4de35bd5db8f39e1bfed732879edcca9",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/investment-and-business-licensing",
+      "id": "investor-registration-and-activity-permissions",
+      "htmlSha256": "e5871f11713247940c30b2745451aff0bdb8150288c466210c28bc6c4e9fc787",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/foreign-investment/market-entry-legal-structure",
+      "id": "investor-registration-and-activity-permissions",
+      "htmlSha256": "caacdb1b4f109a597bd4e17fc8baaf451a809d6bd8135f568bcdb6a7f9213509",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/market-entry-legal-structure",
+      "id": "investor-registration-and-activity-permissions",
+      "htmlSha256": "ce066859d1b2b9321e23efcd1658fc381d19802c141bdcc8be4a75ec867b14d8",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/foreign-investment/regulatory-compliance",
+      "id": "investor-registration-and-activity-permissions",
+      "htmlSha256": "6f5f40d85685fb53bfd8e3ecec9167b3efdee54d1b6e16b93d0bbc0e89b110f0",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/regulatory-compliance",
+      "id": "investor-registration-and-activity-permissions",
+      "htmlSha256": "fc783a69d6d30c99472fc01040070d9b965c9ff4cde0589e1276f9b66facd9e3",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/foreign-investment/investment-licence-refusal-or-cancellation",
+      "id": "investor-registration-and-activity-permissions",
+      "htmlSha256": "b8d61965496b5438fb2a06d5c1f557bbb2fec5a9bda5e3421c4b877ce402fe89",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/investment-licence-refusal-or-cancellation",
+      "id": "investor-registration-and-activity-permissions",
+      "htmlSha256": "2336213112e95f1231194c4bb30a8b6d1e860c33fc46fd181fcc4b51351a4ba4",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/foreign-investment/foreign-investor-due-diligence-and-market-entry-review",
+      "id": "investor-registration-and-activity-permissions",
+      "htmlSha256": "2b1994c48e71178c3e5ff159021aaf44bb8b71540319cd75e8b81e0d2dc36d6f",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/foreign-investor-due-diligence-and-market-entry-review",
+      "id": "investor-registration-and-activity-permissions",
+      "htmlSha256": "c9d1139530263b3781ab9e5f67fb918649e081e484a692122355b6e3fb958f17",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/administrative-law/municipal-licence-refusal-and-business-activity-suspension",
+      "id": "municipal-suspension-service",
+      "htmlSha256": "05e51a71f5582058c6cf048138771700d625d171ce9e79eb2e0f39d8bb4ce2e2",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/municipal-licence-refusal-and-business-activity-suspension",
+      "id": "municipal-suspension-service",
+      "htmlSha256": "1969c06da484b93ad1226fc2ed7f6c8b1562ee9b756b1e3f9f93926ba6cec3e7",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/administrative-law/public-procurement-dispute",
+      "id": "award-notification-and-standstill",
+      "htmlSha256": "5d407a17e9935f03e02f2208f76d73e9d78df5e2e6d652ce24247d88f2706825",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/public-procurement-dispute",
+      "id": "award-notification-and-standstill",
+      "htmlSha256": "9556dfe5fede33426c98fc4ff9daee3e4f77d323b4599de0168995e093065f5b",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/administrative-law/public-procurement-disputes",
+      "id": "award-notification-and-standstill",
+      "htmlSha256": "0327f120e0daafd010a9f873e99b0a13f5ae0065a3a579e8915760595301282e",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/public-procurement-disputes",
+      "id": "award-notification-and-standstill",
+      "htmlSha256": "e8b2d670d093d03867399401abcb749f3959fd7712030de477603ab11ac8c818",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/administrative-law/administrative-objections-and-appeals",
+      "id": "administrative-court-online-services",
+      "htmlSha256": "4e7a3e1d3aabffa6f31200ea1927394ca3b413ec3d37898e510b858f2855c12b",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/administrative-objections-and-appeals",
+      "id": "administrative-court-online-services",
+      "htmlSha256": "0e737f13e9939d3908ceeb8dd98b788f9d26b78fef9a6bd5e7c99001ade44b1b",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/administrative-law/board-of-grievances-appeal-against-an-administrative-judgment",
+      "id": "administrative-court-online-services",
+      "htmlSha256": "d081c9b40b95638a1947fe6bfea4ed096f15d2916b4356be334f253b5f77fc98",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/board-of-grievances-appeal-against-an-administrative-judgment",
+      "id": "administrative-court-online-services",
+      "htmlSha256": "9b5c73a48c2874863a67446f3641363c559fbf701f7542ee4daf1c003d670991",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/arbitration/commercial-arbitration",
+      "id": "arbitration-cost-components",
+      "htmlSha256": "f11bda6d77c7bfac814646a70327d5f95771ed3c9438e65cc1ab87913d507e4e",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/arbitration/commercial-arbitration",
+      "id": "arbitration-cost-components",
+      "htmlSha256": "297b7686d0c1ac961230f19f24409d1fb4e4f53c0746805e0ebebc394a0c8433",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/challenges-to-government-decisions",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "5a5afc5dd26069e611935817db744931a2c159e8b7a83f170b6dcf84127ea8aa",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/government-compensation-claim-for-an-administrative-decision",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "82a7272bd5eab223d029fcedef0a7c864b1f30d72f74cea6accde48d157ec025",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/government-contract-disputes",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "c0eba185e91e3679e108963deb5afaa944cc617e9e530ebd547e4616bbc83da0",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/government-penalty-challenge",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "6d554ce8d8e39b7fe0d9e0c37778a388dad8dc4b44df95ec3403a54891ba88d7",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/licence-refusal-or-cancellation",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "bd031e491a5087bd260b91d1597e116616430155c2223978b73d7ead0f78fa45",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/licensing-refusals-and-penalties",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "291f423af8aa65c44e62ede84336b6691c703c6a79f673b743c376d312434ff4",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/public-sector-employment-and-disciplinary-dispute",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "8f472fdfacee313f3ec0987705600bb2f15ceb21b9335188f0e050836d18d1ce",
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/administrative-law",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "ae900140e11efbbaa660e3c13cbd2035f4e35624c5b8726a324d4c75eb88436a",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/administrative-law/challenges-to-government-decisions",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "795aa3f68de6db106cc5b0f1ff7a615959357b587830139ea654d21c16139014",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/administrative-law/government-compensation-claim-for-an-administrative-decision",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "31e4460e933e64cad86eb84875ab56832b8325ff92b9042e5138cab168853066",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/administrative-law/government-contract-disputes",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "50a68b0a099a8b7d7131a748149f7ebe0ac7cf43b9284c5c8c121e6810c0a833",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/administrative-law/government-penalty-challenge",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "a7dd2d0e686f43abeb1953a6ac8cf22571271cdae464411108b47f0ef2fafcc4",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/administrative-law/licence-refusal-or-cancellation",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "e4feecaad87808a1eac4b8ea69e4d3bb633c833ea7a72dc25a3493ab83b648c2",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/administrative-law/licensing-refusals-and-penalties",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "4435b01bd71cbb02b589dbe35fdc317da83ee68c37c6fe12e96868d50191d91d",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/administrative-law/public-sector-employment-and-disciplinary-dispute",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "38cd2cd07f0c0ecbf5b3a7c0308d899fa6918bc5139aea0699a669a0c884a85e",
+      "issues": []
+    },
+    {
+      "route": "/sa/services/administrative-law",
+      "id": "saudi-administrative-primary-source",
+      "htmlSha256": "0d9b4dcbf4b600c79cdbc72a2f41e9d3de72018db3623bb9a0c61571bf77a828",
+      "issues": []
+    }
+  ]
+}

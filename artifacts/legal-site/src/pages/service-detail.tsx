@@ -260,7 +260,7 @@ export default function ServiceDetail() {
 
   return (
     <div className="counselo-editorial-page service-brief-page w-full bg-background min-h-screen">
-      <SEOHead
+      <SEOHead heroArtwork="gold"
         title={seoTitle}
         description={seoDesc}
         canonical={canonicalPath}

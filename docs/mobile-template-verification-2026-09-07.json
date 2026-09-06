@@ -1,0 +1,721 @@
+{
+  "generatedAt": "2026-09-06T21:30:10.563001+00:00",
+  "status": "pass",
+  "scope": "Shared templates with relevant region and language variants, per user request. Not every URL measured.",
+  "profile": {
+    "viewport": "390x844",
+    "cpuSlowdown": 4,
+    "latencyMs": 150,
+    "downloadBytesPerSecond": 200000,
+    "cacheMode": "cold",
+    "origin": "local read-only production build; not Replit TTFB or field CWV"
+  },
+  "buildTemplateSha256": "e1703f2d4219af64e1b6d0c39256fd946bdea457c89a137c56465af9bb6e9f77",
+  "templateCoverageRoutes": [
+    "/",
+    "/ar",
+    "/ar/legal-library",
+    "/ar/our-work",
+    "/ar/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
+    "/blog",
+    "/blog/ar",
+    "/blog/ar/Penalty-clause-in-saudi",
+    "/blog/en/Penalty-clause-in-saudi",
+    "/legal-library",
+    "/our-work",
+    "/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
+    "/sa",
+    "/sa/about",
+    "/sa/ar",
+    "/sa/ar/about",
+    "/sa/ar/contact",
+    "/sa/ar/privacy-policy",
+    "/sa/ar/services",
+    "/sa/ar/services/administrative-law",
+    "/sa/ar/services/administrative-law/administrative-objections-and-appeals",
+    "/sa/ar/terms-of-service",
+    "/sa/ar/vision",
+    "/sa/contact",
+    "/sa/privacy-policy",
+    "/sa/services",
+    "/sa/services/administrative-law",
+    "/sa/services/administrative-law/administrative-objections-and-appeals",
+    "/sa/terms-of-service",
+    "/sa/vision",
+    "/syr",
+    "/syr/about",
+    "/syr/ar",
+    "/syr/ar/about",
+    "/syr/ar/services/administrative-law",
+    "/syr/ar/services/administrative-law/administrative-compensation-claim",
+    "/syr/services/administrative-law",
+    "/syr/services/administrative-law/administrative-compensation-claim",
+    "/uae",
+    "/uae/about",
+    "/uae/ar",
+    "/uae/ar/about",
+    "/uae/ar/contact",
+    "/uae/ar/services/administrative-regulatory",
+    "/uae/ar/services/administrative-regulatory/government-penalty-challenge",
+    "/uae/contact",
+    "/uae/services/administrative-regulatory",
+    "/uae/services/administrative-regulatory/government-penalty-challenge"
+  ],
+  "summary": {
+    "representativeMeasuredRoutes": 48,
+    "finalRepeatedRoutes": 8,
+    "finalColdRuns": 24,
+    "finalIssues": 0,
+    "interactionCases": 12,
+    "attemptedApiWrites": 0
+  },
+  "finalMeasurements": [
+    {
+      "route": "/blog",
+      "validRuns": 3,
+      "lcpMedianMs": 2476,
+      "lcpRangeMs": [
+        1640,
+        5172
+      ],
+      "ttfbMedianMs": 1018.5,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 192
+    },
+    {
+      "route": "/blog/ar",
+      "validRuns": 3,
+      "lcpMedianMs": 1616,
+      "lcpRangeMs": [
+        1496,
+        1632
+      ],
+      "ttfbMedianMs": 298,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 64
+    },
+    {
+      "route": "/sa/ar/contact",
+      "validRuns": 3,
+      "lcpMedianMs": 1508,
+      "lcpRangeMs": [
+        1468,
+        1592
+      ],
+      "ttfbMedianMs": 40.700000047683716,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 112
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/administrative-objections-and-appeals",
+      "validRuns": 3,
+      "lcpMedianMs": 1352,
+      "lcpRangeMs": [
+        1328,
+        1832
+      ],
+      "ttfbMedianMs": 30.59999990463257,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 152
+    },
+    {
+      "route": "/sa/contact",
+      "validRuns": 3,
+      "lcpMedianMs": 1372,
+      "lcpRangeMs": [
+        1296,
+        1564
+      ],
+      "ttfbMedianMs": 37,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 136
+    },
+    {
+      "route": "/sa/services/administrative-law/administrative-objections-and-appeals",
+      "validRuns": 3,
+      "lcpMedianMs": 1448,
+      "lcpRangeMs": [
+        1352,
+        1532
+      ],
+      "ttfbMedianMs": 29.90000009536743,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 128
+    },
+    {
+      "route": "/uae/ar/contact",
+      "validRuns": 3,
+      "lcpMedianMs": 1588,
+      "lcpRangeMs": [
+        1456,
+        1728
+      ],
+      "ttfbMedianMs": 24.59999990463257,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 120
+    },
+    {
+      "route": "/uae/contact",
+      "validRuns": 3,
+      "lcpMedianMs": 1392,
+      "lcpRangeMs": [
+        1392,
+        1524
+      ],
+      "ttfbMedianMs": 24.59999990463257,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 112
+    }
+  ],
+  "earlierBeforeMeasurements": [
+    {
+      "route": "/ar/legal-library",
+      "validRuns": 3,
+      "lcpMedianMs": 6324,
+      "lcpRangeMs": [
+        6144,
+        6936
+      ],
+      "ttfbMedianMs": 275,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 184
+    },
+    {
+      "route": "/ar/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
+      "validRuns": 3,
+      "lcpMedianMs": 5660,
+      "lcpRangeMs": [
+        5188,
+        5736
+      ],
+      "ttfbMedianMs": 483.2999999523163,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 88
+    },
+    {
+      "route": "/blog/ar/Penalty-clause-in-saudi",
+      "validRuns": 3,
+      "lcpMedianMs": 5792,
+      "lcpRangeMs": [
+        5172,
+        5856
+      ],
+      "ttfbMedianMs": 337,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 152
+    },
+    {
+      "route": "/blog/en/Penalty-clause-in-saudi",
+      "validRuns": 3,
+      "lcpMedianMs": 5500,
+      "lcpRangeMs": [
+        5288,
+        5696
+      ],
+      "ttfbMedianMs": 289,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 72
+    },
+    {
+      "route": "/sa",
+      "validRuns": 3,
+      "lcpMedianMs": 1524,
+      "lcpRangeMs": [
+        1412,
+        1808
+      ],
+      "ttfbMedianMs": 358.60000014305115,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 112
+    },
+    {
+      "route": "/sa/ar",
+      "validRuns": 3,
+      "lcpMedianMs": 1772,
+      "lcpRangeMs": [
+        1720,
+        2120
+      ],
+      "ttfbMedianMs": 424.7999999523163,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 240
+    },
+    {
+      "route": "/sa/ar/services/administrative-law",
+      "validRuns": 3,
+      "lcpMedianMs": 2996,
+      "lcpRangeMs": [
+        2408,
+        3096
+      ],
+      "ttfbMedianMs": 330.7999999523163,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 120
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/administrative-objections-and-appeals",
+      "validRuns": 3,
+      "lcpMedianMs": 2740,
+      "lcpRangeMs": [
+        2528,
+        2796
+      ],
+      "ttfbMedianMs": 28.600000143051147,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 104
+    },
+    {
+      "route": "/sa/services/administrative-law",
+      "validRuns": 3,
+      "lcpMedianMs": 3300,
+      "lcpRangeMs": [
+        3248,
+        3568
+      ],
+      "ttfbMedianMs": 370.09999990463257,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 104
+    },
+    {
+      "route": "/sa/services/administrative-law/administrative-objections-and-appeals",
+      "validRuns": 3,
+      "lcpMedianMs": 3124,
+      "lcpRangeMs": [
+        2588,
+        3452
+      ],
+      "ttfbMedianMs": 20.5,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 136
+    }
+  ],
+  "earlierAfterMeasurements": [
+    {
+      "route": "/ar/legal-library",
+      "validRuns": 3,
+      "lcpMedianMs": 1916,
+      "lcpRangeMs": [
+        1180,
+        4444
+      ],
+      "ttfbMedianMs": 472,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 160
+    },
+    {
+      "route": "/ar/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
+      "validRuns": 3,
+      "lcpMedianMs": 1428,
+      "lcpRangeMs": [
+        1392,
+        1580
+      ],
+      "ttfbMedianMs": 248.89999985694885,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 192
+    },
+    {
+      "route": "/blog/ar/Penalty-clause-in-saudi",
+      "validRuns": 3,
+      "lcpMedianMs": 1476,
+      "lcpRangeMs": [
+        1456,
+        2228
+      ],
+      "ttfbMedianMs": 228.89999985694885,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 104
+    },
+    {
+      "route": "/blog/en/Penalty-clause-in-saudi",
+      "validRuns": 3,
+      "lcpMedianMs": 1632,
+      "lcpRangeMs": [
+        1416,
+        1796
+      ],
+      "ttfbMedianMs": 306,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 72
+    },
+    {
+      "route": "/sa",
+      "validRuns": 3,
+      "lcpMedianMs": 1744,
+      "lcpRangeMs": [
+        1480,
+        2156
+      ],
+      "ttfbMedianMs": 404.2999999523163,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 248
+    },
+    {
+      "route": "/sa/ar",
+      "validRuns": 3,
+      "lcpMedianMs": 1980,
+      "lcpRangeMs": [
+        1572,
+        2496
+      ],
+      "ttfbMedianMs": 335.59999990463257,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 336
+    },
+    {
+      "route": "/sa/ar/services/administrative-law",
+      "validRuns": 3,
+      "lcpMedianMs": 1796,
+      "lcpRangeMs": [
+        1768,
+        2224
+      ],
+      "ttfbMedianMs": 344.69999980926514,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 200
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/administrative-objections-and-appeals",
+      "validRuns": 3,
+      "lcpMedianMs": 1604,
+      "lcpRangeMs": [
+        1384,
+        1712
+      ],
+      "ttfbMedianMs": 28.799999952316284,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 232
+    },
+    {
+      "route": "/sa/services/administrative-law",
+      "validRuns": 3,
+      "lcpMedianMs": 1696,
+      "lcpRangeMs": [
+        1616,
+        2144
+      ],
+      "ttfbMedianMs": 367.7000000476837,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 320
+    },
+    {
+      "route": "/sa/services/administrative-law/administrative-objections-and-appeals",
+      "validRuns": 3,
+      "lcpMedianMs": 1576,
+      "lcpRangeMs": [
+        1336,
+        2376
+      ],
+      "ttfbMedianMs": 32.80000019073486,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 168
+    }
+  ],
+  "aboutOptimizationMeasurements": [
+    {
+      "route": "/sa/about",
+      "validRuns": 3,
+      "lcpMedianMs": 1256,
+      "lcpRangeMs": [
+        1192,
+        1692
+      ],
+      "ttfbMedianMs": 39.299999952316284,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 112
+    },
+    {
+      "route": "/sa/ar/about",
+      "validRuns": 3,
+      "lcpMedianMs": 1236,
+      "lcpRangeMs": [
+        1232,
+        1336
+      ],
+      "ttfbMedianMs": 48.69999980926514,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 128
+    },
+    {
+      "route": "/syr/about",
+      "validRuns": 3,
+      "lcpMedianMs": 1388,
+      "lcpRangeMs": [
+        1244,
+        2256
+      ],
+      "ttfbMedianMs": 44.80000019073486,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 216
+    },
+    {
+      "route": "/syr/ar/about",
+      "validRuns": 3,
+      "lcpMedianMs": 1388,
+      "lcpRangeMs": [
+        1200,
+        1652
+      ],
+      "ttfbMedianMs": 37.700000047683716,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 128
+    },
+    {
+      "route": "/uae/about",
+      "validRuns": 2,
+      "lcpMedianMs": 2280.0,
+      "lcpRangeMs": [
+        2244,
+        2316
+      ],
+      "ttfbMedianMs": 33.74999988079071,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 128
+    },
+    {
+      "route": "/uae/ar/about",
+      "validRuns": 3,
+      "lcpMedianMs": 2076,
+      "lcpRangeMs": [
+        2040,
+        2216
+      ],
+      "ttfbMedianMs": 28.5,
+      "maximumObservedCLS": 0,
+      "maximumObservedInteractionMs": 96
+    }
+  ],
+  "initializationGuard": {
+    "status": 200,
+    "formBusy": "true",
+    "fieldsetDisabled": true,
+    "submitDisabled": true,
+    "nameDisabled": true,
+    "contactAlternatives": 2,
+    "url": "http://127.0.0.1:24441/sa/contact",
+    "pass": true
+  },
+  "interactiveChecks": {
+    "rows": [
+      {
+        "route": "/sa/contact",
+        "status": 200,
+        "invalidFieldsAfterEmptySubmit": 5,
+        "selection": "Enforcement & Debt Collection",
+        "state": {
+          "overflow": false,
+          "invalid": 4,
+          "selection": "Enforcement & Debt Collection"
+        },
+        "pass": true
+      },
+      {
+        "route": "/sa/ar/contact",
+        "status": 200,
+        "invalidFieldsAfterEmptySubmit": 5,
+        "selection": "القانون المصرفي والتمويل",
+        "state": {
+          "overflow": false,
+          "invalid": 4,
+          "selection": "القانون المصرفي والتمويل"
+        },
+        "pass": true
+      },
+      {
+        "route": "/syr/contact",
+        "status": 200,
+        "invalidFieldsAfterEmptySubmit": 5,
+        "selection": "Enforcement & Debt Collection",
+        "state": {
+          "overflow": false,
+          "invalid": 4,
+          "selection": "Enforcement & Debt Collection"
+        },
+        "pass": true
+      },
+      {
+        "route": "/syr/ar/contact",
+        "status": 200,
+        "invalidFieldsAfterEmptySubmit": 5,
+        "selection": "القانون المصرفي والتمويل",
+        "state": {
+          "overflow": false,
+          "invalid": 4,
+          "selection": "القانون المصرفي والتمويل"
+        },
+        "pass": true
+      },
+      {
+        "route": "/uae/contact",
+        "status": 200,
+        "invalidFieldsAfterEmptySubmit": 5,
+        "selection": "Company Formation & Commercial Companies Law",
+        "state": {
+          "overflow": false,
+          "invalid": 4,
+          "selection": "Company Formation & Commercial Companies Law"
+        },
+        "pass": true
+      },
+      {
+        "route": "/uae/ar/contact",
+        "status": 200,
+        "invalidFieldsAfterEmptySubmit": 5,
+        "selection": "ضريبة الشركات وضريبة القيمة المضافة والمنازعات الضريبية",
+        "state": {
+          "overflow": false,
+          "invalid": 4,
+          "selection": "ضريبة الشركات وضريبة القيمة المضافة والمنازعات الضريبية"
+        },
+        "pass": true
+      },
+      {
+        "flow": "Arabic locale switch",
+        "pass": true
+      },
+      {
+        "flow": "mobile region switch",
+        "pass": true
+      },
+      {
+        "flow": "collection-to-detail",
+        "route": "/blog",
+        "target": "/blog/en/mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh",
+        "pass": true
+      },
+      {
+        "flow": "collection-to-detail",
+        "route": "/blog/ar",
+        "target": "/blog/ar/mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh",
+        "pass": true
+      },
+      {
+        "flow": "collection-to-detail",
+        "route": "/our-work",
+        "target": "/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
+        "pass": true
+      },
+      {
+        "flow": "collection-to-detail",
+        "route": "/ar/our-work",
+        "target": "/ar/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
+        "pass": true
+      }
+    ],
+    "attemptedWrites": [],
+    "pass": true
+  },
+  "visualChecks": [
+    {
+      "route": "/sa/ar/about",
+      "width": 390,
+      "path": "/Users/aghiadalbarzi/Documents/Counselo/output/playwright/seo-final-390-_sa_ar_about.png",
+      "overflow": false,
+      "images": [
+        {
+          "src": "http://127.0.0.1:24441/images/optimized/saudi-arabia-hero-640.webp",
+          "naturalWidth": 640,
+          "renderWidth": 232.5
+        }
+      ]
+    },
+    {
+      "route": "/ar/legal-library",
+      "width": 390,
+      "path": "/Users/aghiadalbarzi/Documents/Counselo/output/playwright/seo-final-390-_ar_legal-library.png",
+      "overflow": false,
+      "images": [
+        {
+          "src": "http://127.0.0.1:24441/images/optimized/legal-library-480.webp",
+          "naturalWidth": 389,
+          "renderWidth": 375
+        }
+      ]
+    },
+    {
+      "route": "/sa/contact",
+      "width": 390,
+      "path": "/Users/aghiadalbarzi/Documents/Counselo/output/playwright/seo-final-390-_sa_contact.png",
+      "overflow": false,
+      "images": []
+    },
+    {
+      "route": "/sa/ar/about",
+      "width": 1440,
+      "path": "/Users/aghiadalbarzi/Documents/Counselo/output/playwright/seo-final-1440-_sa_ar_about.png",
+      "overflow": false,
+      "images": [
+        {
+          "src": "http://127.0.0.1:24441/images/optimized/saudi-arabia-hero-960.webp",
+          "naturalWidth": 892,
+          "renderWidth": 883.5
+        }
+      ]
+    },
+    {
+      "route": "/ar/legal-library",
+      "width": 1440,
+      "path": "/Users/aghiadalbarzi/Documents/Counselo/output/playwright/seo-final-1440-_ar_legal-library.png",
+      "overflow": false,
+      "images": [
+        {
+          "src": "http://127.0.0.1:24441/images/optimized/legal-library-768.webp",
+          "naturalWidth": 706,
+          "renderWidth": 698.25
+        }
+      ]
+    },
+    {
+      "route": "/sa/contact",
+      "width": 1440,
+      "path": "/Users/aghiadalbarzi/Documents/Counselo/output/playwright/seo-final-1440-_sa_contact.png",
+      "overflow": false,
+      "images": []
+    },
+    {
+      "route": "footer",
+      "path": "/Users/aghiadalbarzi/Documents/Counselo/output/playwright/seo-final-footer.png",
+      "icons": [
+        {
+          "src": "https://omarbaghdadi.com/favicon-ob.png",
+          "naturalWidth": 512
+        },
+        {
+          "src": "http://127.0.0.1:24441/images/optimized/counselo-network-icon.webp",
+          "naturalWidth": 64
+        },
+        {
+          "src": "https://www.baghdadilaw.co/favicon-48x48.png",
+          "naturalWidth": 48
+        }
+      ]
+    }
+  ],
+  "footerVisibility": {
+    "top": 523.875,
+    "bottom": 755.875,
+    "icons": [
+      {
+        "src": "https://omarbaghdadi.com/favicon-ob.png",
+        "loaded": true
+      },
+      {
+        "src": "http://127.0.0.1:24441/images/optimized/counselo-network-icon.webp",
+        "loaded": true
+      },
+      {
+        "src": "https://www.baghdadilaw.co/favicon-48x48.png",
+        "loaded": true
+      }
+    ]
+  },
+  "issues": [],
+  "limitations": [
+    "Local production build with a read-only public-content snapshot API and compressed responses. Not a public hosting or field Core Web Vitals result.",
+    "Desktop Chrome UA, mobile viewport and simulated network/CPU; not a physical mobile device. Event durations are not field INP.",
+    "Initial duplicate-observer exploratory baseline excluded. Earlier clean before/after runs contain observer storage-access errors in third-party frames; their top-frame timings are retained with that harness limitation. Final measurements use a fresh browser session and top-frame-only initialization.",
+    "Two earlier CLI timeouts were retained and followed by successful retries. Early contact overflow and long-selection overflow were fixed and independently retested in all six regional/language contact variants.",
+    "The Saudi About pre-optimization measurements were single observations per language, not three-run medians. After-optimization About numbers are repeated measurements.",
+    "No build ran concurrently with the final timings. Local server cold startup can affect TTFB, which is recorded separately; use medians and ranges without inferring production TTFB."
+  ]
+}

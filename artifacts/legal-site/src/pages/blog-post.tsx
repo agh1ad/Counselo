@@ -355,7 +355,7 @@ export default function BlogPost() {
 
   return (
     <div className="counselo-editorial-page legal-article-page w-full bg-background min-h-screen" dir={isRTL ? "rtl" : "ltr"}>
-      <SEOHead
+      <SEOHead heroArtwork="platform"
         title={seoTitle}
         description={seoDesc}
         canonical={canonicalArticlePath}

@@ -86,6 +86,8 @@ function limitTitle(value: string, max = 68): string {
 }
 
 interface SEOHeadProps {
+  /** Measured above-the-fold CSS artwork; mobile candidates match index.css. */
+  heroArtwork?: "gold" | "platform";
   title: string;
   description: string;
   canonical?: string;
@@ -160,6 +162,7 @@ const GEO = {
 } as const;
 
 export function SEOHead({
+  heroArtwork,
   title,
   description,
   canonical,
@@ -380,6 +383,7 @@ export function SEOHead({
 
   return (
     <Helmet>
+      {heroArtwork && <link rel="preload" as="image" type="image/webp" media="(max-width: 767px)" href={`/images/optimized/counselo-${heroArtwork === "gold" ? "gold-legal" : "platform"}-line-art-v1-640.webp`} imageSrcSet={heroArtwork === "gold" ? "/images/optimized/counselo-gold-legal-line-art-v1-640.webp 1x, /images/optimized/counselo-gold-legal-line-art-v1.webp 2x" : "/images/optimized/counselo-platform-line-art-v1-640.webp 1x, /images/optimized/counselo-platform-line-art-v1-960.webp 2x"} />}
       <html lang={effectiveLanguage} dir={isArabic ? "rtl" : "ltr"} />
       <title>{fullTitle}</title>
       <meta name="description" content={finalDescription} />

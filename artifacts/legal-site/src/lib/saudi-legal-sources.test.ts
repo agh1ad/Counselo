@@ -15,7 +15,7 @@ const expectedPrimarySourceBySlug = {
   "real-estate": SAUDI_SOURCES.realEstate,
   "employment-law": SAUDI_SOURCES.labor,
   "foreign-investment": SAUDI_SOURCES.investment,
-  "administrative-law": SAUDI_SOURCES.justice,
+  "administrative-law": SAUDI_SOURCES.administrative,
   arbitration: SAUDI_SOURCES.arbitration,
   enforcement: SAUDI_SOURCES.justice,
   "companies-law": SAUDI_SOURCES.business,

@@ -13,6 +13,7 @@ import { buildArabicProblemDescription, buildArabicProblemTitle, buildEnglishPro
 import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 import { COUNSELO_LEGAL_MATTERS_CLAIM } from "@/lib/public-claims";
 import { editorialFaqs } from "@/lib/search-intent-editorial";
+import { matterSourceGuidance } from "@/lib/matter-source-guidance";
 
 export default function LegalProblemDetail() {
   const { id = "", problem = "" } = useParams<{ id: string; problem: string }>();
@@ -44,7 +45,8 @@ export default function LegalProblemDetail() {
   const documents = isRTL ? page.documentsAr : page.documentsEn;
   const countryName = region === "uae" ? (isRTL ? "الإمارات" : "the UAE") : region === "syr" ? (isRTL ? "سوريا" : "Syria") : (isRTL ? "السعودية" : "Saudi Arabia");
   const canonical = `/services/${id}/${problem}`;
-  const faqs = [...editorialFaqs(`${regionPrefix}${canonical}`, region, isRTL), ...(isRTL ? page.faqs.ar : page.faqs.en)];
+  const sourceGuidance = matterSourceGuidance(region, id, problem);
+  const faqs = [...sourceGuidance.map(item => item[isRTL ? "ar" : "en"]), ...editorialFaqs(`${regionPrefix}${canonical}`, region, isRTL), ...(isRTL ? page.faqs.ar : page.faqs.en)];
   const title = isRTL
     ? buildArabicProblemTitle({
         titleAr: page.titleAr,
@@ -73,14 +75,14 @@ export default function LegalProblemDetail() {
     parentTitle,
     isRTL ? "استشارة قانونية أونلاين" : "online legal consultation",
   ].filter((value, index, list) => list.indexOf(value) === index).join(", ");
-  const sources: LegalSource[] = getRegionalLegalSources(region, id);
+  const sources: LegalSource[] = [...new Map([...getRegionalLegalSources(region, id), ...sourceGuidance.flatMap(item => item.sources)].map(source => [source.href, source])).values()];
   const relatedProblems = getRelatedLegalProblemPages(page);
   const consultationPackage = getConsultationProduct("comprehensive-consultation");
   const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو، أحتاج إلى مراجعة بخصوص: ${page.titleAr}.` : `Hello CounselO, I need a review regarding: ${page.titleEn}.`)}`;
 
   return (
     <div className="counselo-editorial-page service-brief-page w-full bg-background min-h-screen" id="main-content">
-      <SEOHead
+      <SEOHead heroArtwork="gold"
         title={title}
         description={description}
         canonical={canonical}
