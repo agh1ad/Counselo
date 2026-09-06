@@ -1,6 +1,6 @@
 # CounselO: every-page SEO opportunity implementation
 
-This round accounts for all **1,468 retained Arabic and English URLs**, with a recorded change or a reason to retain each page's existing purpose. Publication and public verification are pending until the release evidence below is filled. The overall visibility goal remains open: this report does not claim maximum ranking or that every conceivable search intent belongs on every page.
+This round accounts for all **1,468 retained Arabic and English URLs**, with a recorded change or a reason to retain each page's existing purpose. The user will publish this release. Publication and post-release public verification remain pending. The overall visibility goal remains open: this report does not claim maximum ranking or that every conceivable search intent belongs on every page.
 
 ## Implemented opportunities
 
@@ -39,3 +39,9 @@ Every page records these evidence limits individually:
 These are recorded remaining opportunities, not omitted pages. No completion label is applied to the broader ranking goal.
 
 Google's [helpful-content guidance](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) and [crawlable-link guidance](https://developers.google.com/search/docs/crawling-indexing/links-crawlable) inform page differentiation and discovery. The preference change follows React's [non-blocking transition guidance](https://react.dev/reference/react/startTransition).
+
+## Publication handoff
+
+Verified application commit: `a3eca985597b9ce0d4858d300deae75085449929`. [GitHub PR #63](https://github.com/agh1ad/Counselo/pull/63) contains this round. Replit was aligned to this exact commit with a clean tree and zero divergence before handoff. Its prior state is preserved in `codex/pre-opportunity-release-20260906`; the generated feed is preserved in the named `codex-preserve-feed-before-opportunity-release-20260906` stash. Subsequent documentation and merge commits do not change the verified application code.
+
+The user explicitly retained publication on September 6. No Republish action, fresh sitemap resubmission or IndexNow submission was performed for this round. The existing public verification report belongs to the preceding release and must not be presented as verification of these additions. After publication, run the full 1,468-page and 326-redirect public sweep, the 20-page opportunity-delivery check, exact sitemap comparison and stored-region browser regression. Only then run `scripts/build-seo-opportunity-ledger.py --public-verified`.
