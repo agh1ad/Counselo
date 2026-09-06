@@ -11,7 +11,7 @@ async (page) => {
   for(const route of routes){
    await page.goto(origin+route,{waitUntil:'load'});await page.waitForTimeout(1200);
    const expectedRegion=route.includes('/contract-interpretation-syrian-courts')?'syr':route.includes('/ray-qanwny-fy-tlb-aflas')?'sa':preference;
-   rows.push({route,preference,expectedRegion,...await page.evaluate(pref=>({language:document.documentElement.lang,overflow:document.documentElement.scrollWidth>innerWidth,cls:window.__opportunityCls,visibility:document.visibilityState,correctRegionContact:[...document.querySelectorAll('a[href]')].some(a=>a.getAttribute('href')===`/${pref}${document.documentElement.lang==='ar'?'/ar':''}/contact`),readingLinks:document.querySelectorAll('#reading-by-question a').length,hydratingShell:document.querySelector('#root')?.getAttribute('data-ssr')==='true'}),expectedRegion)});
+   rows.push({route,preference,expectedRegion,...await page.evaluate(pref=>({language:document.documentElement.lang,overflow:document.documentElement.scrollWidth>document.documentElement.clientWidth+1,cls:window.__opportunityCls,visibility:document.visibilityState,correctRegionContact:[...document.querySelectorAll('a[href]')].some(a=>a.getAttribute('href')===`/${pref}${document.documentElement.lang==='ar'?'/ar':''}/contact`),readingLinks:document.querySelectorAll('#reading-by-question a').length,hydratingShell:document.querySelector('#root')?.getAttribute('data-ssr')==='true'}),expectedRegion)});
   }
  }
  page.off('pageerror',onError);return {rows,errors};

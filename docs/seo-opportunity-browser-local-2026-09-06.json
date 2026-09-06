@@ -1,5 +1,5 @@
 {
-  "environment": "Compiled local SSR with repaired public snapshot API, foreground Chromium, 390x844, load plus 1.2 seconds. Shared collection pages restore the stored region; jurisdiction-specific detail renderers retain their source region. Regression observations, not field performance.",
+  "environment": "Compiled local SSR with repaired public snapshot API, foreground Chromium, 390x844, load plus 1.2 seconds. Overflow compares scrollWidth against clientWidth with a one-pixel rounding tolerance. Shared collection pages restore the stored region; jurisdiction-specific detail pages retain their source region. Regression observations, not field performance.",
   "summary": {
     "checks": 30,
     "errors": 0,
@@ -370,5 +370,21 @@
       "hydratingShell": true
     }
   ],
-  "errors": []
+  "errors": [],
+  "visualChecks": {
+    "arabicMobile": {
+      "width": 390,
+      "topicExpanded": true,
+      "articleLinks": 45,
+      "overflow": false,
+      "screenshotReviewed": true
+    },
+    "englishDesktop": {
+      "width": 1440,
+      "topicExpanded": true,
+      "articleLinks": 45,
+      "overflow": false,
+      "screenshotReviewed": true
+    }
+  }
 }

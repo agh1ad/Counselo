@@ -234,7 +234,7 @@ export default function LegalLibrary() {
             <div className="mx-auto max-w-[1260px]">
               <h2 id="reading-by-question-heading" className="font-serif text-3xl text-[#073d2a]">{ar ? "اختر القراءة بحسب سؤالك" : "Choose your reading by question"}</h2>
               <p className="mt-4 mb-7 leading-7 text-[#52605a]">{ar ? "ابحث عن الموضوع الذي تحتاج إلى فهمه، ثم تحقق من الدولة والنطاق داخل المقال قبل تطبيقه على مسألتك." : "Find the subject you need to understand, then check the jurisdiction and scope within the article before applying it to your matter."}</p>
-              <div className="grid gap-5 md:grid-cols-2">
+              <div className="grid items-start gap-5 md:grid-cols-2">
                 {libraryReadingPaths(visiblePosts, ar).map(group => (
                   <details key={group.id} className="border border-[#d8c7a2] bg-white p-5">
                     <summary className="cursor-pointer font-semibold leading-7 text-[#073d2a]">{group.title}</summary>
@@ -252,7 +252,7 @@ export default function LegalLibrary() {
           <section id="latest-analysis" className="scroll-mt-28 bg-white px-5 py-20 sm:px-8 lg:py-24 lg:pl-12 lg:pr-40 xl:px-12">
             <div className="mx-auto max-w-[1260px]">
               <div className="mb-12 flex items-center gap-7">
-                <h2 className="shrink-0 font-serif text-4xl font-medium tracking-[-.03em] text-[#10251e] md:text-5xl">{ui.latestArticles}</h2>
+                <h2 className="min-w-0 font-serif text-4xl font-medium tracking-[-.03em] text-[#10251e] md:text-5xl">{ui.latestArticles}</h2>
                 <span className="hidden h-px flex-1 bg-[#c7a45d] sm:block" />
                 <Link href={blogIndexPath} className="group hidden shrink-0 items-center gap-4 border-b border-[#073d2a] pb-1 font-medium text-[#073d2a] sm:inline-flex">{ui.viewAllArticles}<Arrow rtl={ar} /></Link>
               </div>
@@ -285,7 +285,7 @@ export default function LegalLibrary() {
           <section id="selected-work" className="scroll-mt-28 border-y border-[#d8c7a2] bg-[#eef4f0] px-5 py-20 sm:px-8 lg:py-24 lg:pl-12 lg:pr-40 xl:px-12">
             <div className="mx-auto max-w-[1260px]">
               <div className="mb-8 flex items-center gap-7">
-                <h2 className="shrink-0 font-serif text-4xl font-medium tracking-[-.03em] text-[#10251e] md:text-5xl">{ui.selectedWork}</h2>
+                <h2 className="min-w-0 font-serif text-4xl font-medium tracking-[-.03em] text-[#10251e] md:text-5xl">{ui.selectedWork}</h2>
                 <span className="hidden h-px flex-1 bg-[#c7a45d] sm:block" />
                 <Link href={workIndexPath} className="group hidden shrink-0 items-center gap-4 border-b border-[#073d2a] pb-1 font-medium text-[#073d2a] sm:inline-flex">{ui.viewAllWork}<Arrow rtl={ar} /></Link>
               </div>

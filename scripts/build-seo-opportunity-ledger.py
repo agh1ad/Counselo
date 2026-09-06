@@ -2,6 +2,7 @@
 import collections
 import datetime
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -12,6 +13,16 @@ baseline = read('docs/page-seo-ledger-2026-09-06.json')['pages']
 graph = {p['route']: p for p in read('docs/seo-opportunity-graph-2026-09-06.json')['pages']}
 research = {p['route']: p for p in read('docs/seo-service-search-research-2026-09-06.json')['pages']}
 assert set(graph) == {p['route'] for p in baseline}
+state = 'local-verified; publication pending'
+if '--public-verified' in sys.argv:
+    public = read('docs/public-content-delivery-verification-2026-09-06.json')
+    additions = read('docs/seo-opportunity-delivery-public-2026-09-06.json')
+    graph_time = read('docs/seo-opportunity-graph-2026-09-06.json')['generatedAt']
+    assert public['origin'] == 'https://counselo-legal.com' and public['summary']['passed'] == 1468
+    assert public['summary']['failed'] == public['summary']['redirectsFailed'] == 0
+    assert additions['summary']['failed'] == 0 and additions['summary']['pages'] == 20
+    assert public['generatedAt'] > graph_time and additions['generatedAt'] > graph_time
+    state = 'published-and-public-verified; search outcomes remain open'
 rows = []
 for page in baseline:
     route, family = page['route'], page['family']
@@ -53,7 +64,7 @@ for page in baseline:
         'authorityDecision': 'Preserve truthful author/entity/source relationships. Additional original case facts and earned independent citations require verifiable contributions; no acquired external link is claimed.',
         'performance': 'Shared rendering and responsive checks apply; representative lab runs are not field measurements for this URL.',
         'outcome': 'Indexing, rankings, CTR, AI citations and qualified inquiries remain dependent on new search/account evidence.',
-        'implementationState': 'local-verified; publication pending',
+        'implementationState': state,
     })
 assert len(rows) == len({p['route'] for p in rows}) == 1468
 result = {'generatedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'scope': 'Every retained URL has a decision; excluded and redirected historical paths are tracked separately. No claim of every conceivable query being appropriate to every page.', 'summary': {'retained':len(rows),'assessed':len(rows),'omitted':0,'families':dict(collections.Counter(p['family'] for p in rows)),'independentSearchOutcomeCompletion':False}, 'pages':rows}
