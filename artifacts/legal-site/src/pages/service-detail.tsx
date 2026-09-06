@@ -25,6 +25,7 @@ import { LatestContentCarousels } from "@/components/content/latest-content-caro
 import { TrustSignals } from "@/components/seo/TrustSignals";
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
 import { getRegionalLegalSources, type LegalSource } from "@/lib/regional-legal-sources";
+import { sourceBackedSearchGuidance } from "@/lib/source-backed-search-guidance";
 import { getLegalProblemPages, legalProblemPath } from "@/lib/legal-problem-pages";
 import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI, CONSULTATION_OPERATING_POLICY, getConsultationProduct } from "@workspace/api-zod/browser";
 
@@ -166,7 +167,10 @@ export default function ServiceDetail() {
   const canonicalUrlFull = `https://counselo-legal.com${regionSeg}${langSeg}${canonicalPath}`;
   const regionBase = `https://counselo-legal.com${regionSeg}${langSeg}`;
   const inLanguage = isRTL ? (isSyr ? "ar-SY" : isUae ? "ar-AE" : "ar-SA") : (isSyr ? "en-SY" : isUae ? "en-AE" : "en-SA");
-  const legalSources = getRegionalLegalSources(region, id);
+  const legalSources = [...new Map([
+    ...getRegionalLegalSources(region, id),
+    ...sourceBackedSearchGuidance(region, id).flatMap(item => item.sources),
+  ].map(source => [source.href, source])).values()];
   const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو، أحتاج إلى مراجعة بخصوص خدمة ${data.title} في ${countryName}.` : `Hello CounselO, I need a review concerning ${data.title} in ${countryName}.`)}`;
   const serviceSummary = intake ? `${isRTL ? `استشارة ${data.title} في ${countryName}.` : `${data.title} consultation in ${countryName}.`} ${intake.summary[isRTL ? "ar" : "en"]}` : isRTL
     ? `تقييم قانوني مركز لمسائل ${data.title} في ${countryName}: نحدد الإطار النظامي والجهة المختصة والمستندات والمواعيد والخيارات قبل تأكيد نطاق العمل.`

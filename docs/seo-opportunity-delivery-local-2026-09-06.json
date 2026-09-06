@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2026-09-06T14:01:19.388Z",
+  "origin": "local-initial-html",
+  "scope": "All routes affected by the new source-backed answers, article reading paths, contact policy links and about-to-vision links. Shared hydration and full-inventory checks are separate.",
+  "summary": {
+    "pages": 20,
+    "failed": 0,
+    "visibleAnswers": 8,
+    "topicArticleLinks": 90
+  },
+  "pages": [
+    {
+      "route": "/sa/services/employment-law",
+      "answers": 1,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/employment-law",
+      "answers": 1,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/sa/services/contracts",
+      "answers": 2,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/services/contracts",
+      "answers": 2,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/uae/services/employment-labour",
+      "answers": 1,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/uae/ar/services/employment-labour",
+      "answers": 1,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/ar/legal-library",
+      "answers": 0,
+      "topicLinks": 45,
+      "issues": []
+    },
+    {
+      "route": "/legal-library",
+      "answers": 0,
+      "topicLinks": 45,
+      "issues": []
+    },
+    {
+      "route": "/sa/about",
+      "answers": 0,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/about",
+      "answers": 0,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/sa/ar/contact",
+      "answers": 0,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/sa/contact",
+      "answers": 0,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/syr/about",
+      "answers": 0,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/syr/ar/about",
+      "answers": 0,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/syr/ar/contact",
+      "answers": 0,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/syr/contact",
+      "answers": 0,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/uae/about",
+      "answers": 0,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/uae/ar/about",
+      "answers": 0,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/uae/ar/contact",
+      "answers": 0,
+      "topicLinks": 0,
+      "issues": []
+    },
+    {
+      "route": "/uae/contact",
+      "answers": 0,
+      "topicLinks": 0,
+      "issues": []
+    }
+  ]
+}

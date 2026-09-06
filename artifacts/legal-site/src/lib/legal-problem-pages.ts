@@ -1270,7 +1270,9 @@ export function getRelatedLegalProblemPages(page: LegalProblemPage, limit = 6): 
     if (selected.length >= limit) break;
     add(candidate);
   }
-  return selected.slice(0, limit);
+  // Preserve distributed discovery, but present closer subject matches first.
+  // Registry position alone should not determine what a reader sees first.
+  return selected.slice(0, limit).sort((left, right) => relatedProblemScore(page, right) - relatedProblemScore(page, left));
 }
 
 export type LegalProblemLanguageAlternate = {

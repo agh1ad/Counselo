@@ -11,7 +11,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import { RegionProvider, useRegion } from "@/contexts/RegionContext";
+import { RegionProvider, RegionPreferenceSync, useRegion } from "@/contexts/RegionContext";
 import { lazy, Suspense, useEffect } from "react";
 import { LazyMotion, domAnimation } from "framer-motion";
 import { ErrorBoundary } from "@/components/error-boundary";
@@ -355,6 +355,7 @@ function Router() {
 
         <Route component={NotFound} />
       </Switch>
+      <RegionPreferenceSync />
       </Suspense>
     </ErrorBoundary>
   );

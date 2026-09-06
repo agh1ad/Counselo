@@ -498,6 +498,11 @@ export default function About() {
             <h2 className="text-4xl font-serif font-bold text-foreground mb-6">{a.cta.heading}</h2>
             <div className="w-20 h-1 bg-primary/30 mx-auto mb-8" />
             <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-2xl mx-auto">{a.cta.desc}</p>
+            <p className="mb-8 leading-7 text-muted-foreground">
+              <Link href={`${regionPrefix}/vision`} className="text-primary underline underline-offset-4">
+                {isRTL ? "تعرّف على رؤيتنا لتقديم الاستشارة القانونية وحدود نطاق الخدمة" : "Read our approach to legal consultation and the scope of our service"}
+              </Link>
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="rounded-none bg-primary text-white hover:bg-primary/90 px-10 py-6 text-base font-semibold">
                 <Link href={`${regionPrefix}/contact`}>

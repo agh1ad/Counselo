@@ -1,4 +1,5 @@
 import * as m from "framer-motion/m";
+import { Link } from "wouter";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -540,6 +541,12 @@ export default function Contact() {
                     </div>
 
                     {/* Paid service notice */}
+                    <p className="text-sm leading-7 text-muted-foreground">
+                      {isRTL ? "قبل إرسال معلوماتك، اقرأ " : "Before sharing your information, read our "}
+                      <Link href={`${regionPrefix}/privacy-policy`} className="text-primary underline underline-offset-4">{isRTL ? "سياسة الخصوصية" : "privacy policy"}</Link>
+                      {isRTL ? " و" : " and "}
+                      <Link href={`${regionPrefix}/terms-of-service`} className="text-primary underline underline-offset-4">{isRTL ? "شروط الخدمة" : "terms of service"}</Link>.
+                    </p>
                     <div className="flex items-start gap-3 bg-primary/8 border border-primary/25 p-4">
                       <CreditCard className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                       <p className="text-sm text-foreground/80 leading-relaxed">{f.paymentNotice}</p>

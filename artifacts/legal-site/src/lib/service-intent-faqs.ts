@@ -1,5 +1,6 @@
 import type { Region } from "@workspace/api-zod/browser";
 import { serviceTopicFaq } from "./service-topic-faqs.js";
+import { sourceBackedSearchGuidance } from "./source-backed-search-guidance";
 
 type Faq = { q: string; a: string };
 type Intent = { ar: Faq; en: Faq };
@@ -54,6 +55,7 @@ export function getServiceIntentFaqs(region: Region, slug: string, ar: boolean, 
   if (region === "sa" && slug === "enforcement" && ar) faqs[0].q = "ماذا أجهز لاستشارة محامي سند لأمر بشأن الاعتراض على تنفيذ سند لأمر؟";
   if (region === "sa" && slug === "tax-zakat" && ar) faqs[0].q = "ما المستندات المطلوبة لمراجعة الاعتراض على الزكاة أو الربط الضريبي؟";
   faqs.push(serviceTopicFaq(slug, ar));
+  faqs.push(...sourceBackedSearchGuidance(region, slug).map(item => item[ar ? "ar" : "en"]));
   if (documents.length) faqs.push({
     q: ar ? `ما مستندات استشارة ${title} في ${country}؟` : `What documents support the ${title.toLowerCase()} consultation in ${country}?`,
     a: ar ? `تتضمن المستندات المفيدة: ${documents.join("؛ ")}. أضف ملخصاً مؤرخاً ووضح النتيجة التي تطلبها، واحجب البيانات غير المرتبطة بالمسألة.` : `Useful records include: ${documents.join("; ")}. Add a dated summary and explain the outcome you seek. Redact information unrelated to the matter.`,
