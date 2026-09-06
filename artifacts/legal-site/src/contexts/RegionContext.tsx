@@ -1,5 +1,5 @@
 // @refresh reset
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useCallback, startTransition } from "react";
 import type { ReactNode } from "react";
 import { useLocation } from "wouter";
 
@@ -41,6 +41,7 @@ interface RegionContextType {
   isSharedPath: boolean;
   /** Updates the blog-page language preference (localStorage-backed). */
   setBlogLang: (lang: Lang) => void;
+  syncPreferences: () => void;
 }
 
 const RegionContext = createContext<RegionContextType | null>(null);
@@ -92,10 +93,15 @@ export function RegionProvider({ children }: { children: ReactNode }) {
 
   // When navigating to a regional page, persist that page's language so the
   // blog shows the same language when the user visits it next.
-  useEffect(() => {
+  const syncPreferences = useCallback(() => {
     if (isSharedPath) {
-      setBlogLangState(loadStoredLang());
-      setSharedRegion(loadStoredRegion());
+      // Run from inside the page's Suspense boundary after it has hydrated.
+      // Changing the region also loads translations, so keep the current
+      // content visible while that non-urgent update becomes ready.
+      startTransition(() => {
+        setBlogLangState(loadStoredLang());
+        setSharedRegion(loadStoredRegion());
+      });
     } else {
       const urlRegion = detectRegion(location);
       const urlLang = detectLang(location, urlRegion);
@@ -117,7 +123,7 @@ export function RegionProvider({ children }: { children: ReactNode }) {
   const regionPrefix = `/${region}${lang === "ar" ? "/ar" : ""}`;
 
   return (
-    <RegionContext.Provider value={{ region, lang, regionPrefix, isSharedPath, setBlogLang }}>
+    <RegionContext.Provider value={{ region, lang, regionPrefix, isSharedPath, setBlogLang, syncPreferences }}>
       {children}
     </RegionContext.Provider>
   );
@@ -127,4 +133,11 @@ export function useRegion() {
   const ctx = useContext(RegionContext);
   if (!ctx) throw new Error("useRegion must be used within RegionProvider");
   return ctx;
+}
+
+/** Must remain inside the route Suspense boundary, alongside the page. */
+export function RegionPreferenceSync() {
+  const { syncPreferences } = useRegion();
+  useEffect(syncPreferences, [syncPreferences]);
+  return null;
 }

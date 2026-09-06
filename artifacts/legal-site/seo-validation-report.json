@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06 06:38:23 UTC",
+  "generatedAt": "2026-09-06 14:15:58 UTC",
   "summary": {
     "pages": 1468,
     "redirects": 326,
@@ -57,7 +57,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 80
+      "internalLinkCount": 125
     },
     {
       "file": "__pages/ar-our-work.html",
@@ -1412,7 +1412,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 80
+      "internalLinkCount": 125
     },
     {
       "file": "__pages/our-work.html",
@@ -1448,7 +1448,7 @@
         "LegalService"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 3
+      "internalLinkCount": 4
     },
     {
       "file": "__pages/sa-ar-about.html",
@@ -1469,7 +1469,7 @@
         "LegalService"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 3
+      "internalLinkCount": 4
     },
     {
       "file": "__pages/sa-ar-ar-services-criminal-law-arrest-and-detention-concerns.html",
@@ -1604,7 +1604,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 1
+      "internalLinkCount": 3
     },
     {
       "file": "__pages/sa-ar-privacy-policy.html",
@@ -5815,7 +5815,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 1
+      "internalLinkCount": 3
     },
     {
       "file": "__pages/sa-privacy-policy.html",
@@ -9948,7 +9948,7 @@
         "LegalService"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 3
+      "internalLinkCount": 4
     },
     {
       "file": "__pages/syr-ar-about.html",
@@ -9969,7 +9969,7 @@
         "LegalService"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 3
+      "internalLinkCount": 4
     },
     {
       "file": "__pages/syr-ar-ar-services-civil-procedure-evidence-and-procedural-objections.html",
@@ -10164,7 +10164,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 1
+      "internalLinkCount": 3
     },
     {
       "file": "__pages/syr-ar-privacy-policy.html",
@@ -14707,7 +14707,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 5,
-      "internalLinkCount": 1
+      "internalLinkCount": 3
     },
     {
       "file": "__pages/syr-privacy-policy.html",
@@ -19136,7 +19136,7 @@
         "LegalService"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 3
+      "internalLinkCount": 4
     },
     {
       "file": "__pages/uae-ar-about.html",
@@ -19157,7 +19157,7 @@
         "LegalService"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 3
+      "internalLinkCount": 4
     },
     {
       "file": "__pages/uae-ar-ar-services-arbitration-mediation-missing-or-inconsistent-records-concerning-arbitration-clauses-and-jurisdiction.html",
@@ -19196,7 +19196,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 1
+      "internalLinkCount": 3
     },
     {
       "file": "__pages/uae-ar-privacy-policy.html",
@@ -23069,7 +23069,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 1
+      "internalLinkCount": 3
     },
     {
       "file": "__pages/uae-privacy-policy.html",

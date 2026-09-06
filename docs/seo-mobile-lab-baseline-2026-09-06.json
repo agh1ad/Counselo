@@ -1,0 +1,231 @@
+{
+  "observedAt": "2026-09-06",
+  "environment": "Foreground headed Chromium 152, 390x844 viewport, unthrottled desktop CPU/network, persistent cache, one navigation per route and load plus 2 seconds. Diagnostic lab observations, not CrUX, Lighthouse, INP or representative mobile-user performance.",
+  "summary": {
+    "routes": 16,
+    "runs": 16,
+    "browserErrors": 2,
+    "overflowRuns": 0
+  },
+  "runs": [
+    {
+      "route": "/",
+      "run": 1,
+      "lcp": 2436,
+      "cls": 0,
+      "longTasks": 117,
+      "ttfb": 2067.899999856949,
+      "domContentLoaded": 2409.199999809265,
+      "load": 5019,
+      "transfer": 51142,
+      "visibility": "visible",
+      "overflow": false
+    },
+    {
+      "route": "/ar",
+      "run": 1,
+      "lcp": 832,
+      "cls": 0,
+      "longTasks": 117,
+      "ttfb": 453.5,
+      "domContentLoaded": 809,
+      "load": 2959,
+      "transfer": 51992,
+      "visibility": "visible",
+      "overflow": false
+    },
+    {
+      "route": "/sa/services/medical-malpractice",
+      "run": 1,
+      "lcp": 1460,
+      "cls": 0,
+      "longTasks": 126,
+      "ttfb": 470.10000014305115,
+      "domContentLoaded": 1110,
+      "load": 1554.1000001430511,
+      "transfer": 113727,
+      "visibility": "visible",
+      "overflow": false
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice",
+      "run": 1,
+      "lcp": 692,
+      "cls": 0.0006047532344286966,
+      "longTasks": 368,
+      "ttfb": 452.7999999523163,
+      "domContentLoaded": 1149.2999999523163,
+      "load": 1153.5,
+      "transfer": 124434,
+      "visibility": "visible",
+      "overflow": false
+    },
+    {
+      "route": "/syr/services/contracts",
+      "run": 1,
+      "lcp": 1172,
+      "cls": 0,
+      "longTasks": 54,
+      "ttfb": 453.2000000476837,
+      "domContentLoaded": 1305.5,
+      "load": 1308.0999999046326,
+      "transfer": 199121,
+      "visibility": "visible",
+      "overflow": false
+    },
+    {
+      "route": "/syr/ar/services/contracts",
+      "run": 1,
+      "lcp": 1136,
+      "cls": 0,
+      "longTasks": 61,
+      "ttfb": 523.6000001430511,
+      "domContentLoaded": 1319.4000000953674,
+      "load": 1322.7000000476837,
+      "transfer": 210375,
+      "visibility": "visible",
+      "overflow": false
+    },
+    {
+      "route": "/uae/services/employment-labour",
+      "run": 1,
+      "lcp": 716,
+      "cls": 0,
+      "longTasks": 198,
+      "ttfb": 471.59999990463257,
+      "domContentLoaded": 534.7999999523163,
+      "load": 569.5999999046326,
+      "transfer": 18171,
+      "visibility": "visible",
+      "overflow": false
+    },
+    {
+      "route": "/uae/ar/services/employment-labour",
+      "run": 1,
+      "lcp": 616,
+      "cls": 0,
+      "longTasks": 30,
+      "ttfb": 454.40000009536743,
+      "domContentLoaded": 537.8000001907349,
+      "load": 576.2000000476837,
+      "transfer": 20051,
+      "visibility": "visible",
+      "overflow": false
+    },
+    {
+      "route": "/legal-library",
+      "run": 1,
+      "lcp": 1128,
+      "cls": 0.3009478672985782,
+      "longTasks": 183,
+      "ttfb": 654.0999999046326,
+      "domContentLoaded": 1027.6999998092651,
+      "load": 2337.5999999046326,
+      "transfer": 48779,
+      "visibility": "visible",
+      "overflow": false
+    },
+    {
+      "route": "/ar/legal-library",
+      "run": 1,
+      "lcp": 1844,
+      "cls": 0.28753035786087655,
+      "longTasks": 157,
+      "ttfb": 1642.1999998092651,
+      "domContentLoaded": 1977.1999998092651,
+      "load": 1981.1999998092651,
+      "transfer": 49468,
+      "visibility": "visible",
+      "overflow": false
+    },
+    {
+      "route": "/sa/services/employment-law/wrongful-termination",
+      "run": 1,
+      "lcp": 828,
+      "cls": 0,
+      "longTasks": 477,
+      "ttfb": 467.40000009536743,
+      "domContentLoaded": 1175.5999999046326,
+      "load": 1185.2000000476837,
+      "transfer": 122923,
+      "visibility": "visible",
+      "overflow": false
+    },
+    {
+      "route": "/sa/ar/services/employment-law/wrongful-termination",
+      "run": 1,
+      "lcp": 836,
+      "cls": 0,
+      "longTasks": 65,
+      "ttfb": 459.90000009536743,
+      "domContentLoaded": 1171.9000000953674,
+      "load": 1178.7000000476837,
+      "transfer": 133085,
+      "visibility": "visible",
+      "overflow": false
+    },
+    {
+      "route": "/blog/en/contract-interpretation-syrian-courts",
+      "run": 1,
+      "lcp": 972,
+      "cls": 0,
+      "longTasks": 11,
+      "ttfb": 755.5,
+      "domContentLoaded": 1095.5999999046326,
+      "load": 1111.7999999523163,
+      "transfer": 54631,
+      "visibility": "visible",
+      "overflow": false
+    },
+    {
+      "route": "/blog/ar/contract-interpretation-syrian-courts",
+      "run": 1,
+      "lcp": 1268,
+      "cls": 0,
+      "longTasks": 116,
+      "ttfb": 773.3999998569489,
+      "domContentLoaded": 1113.5999999046326,
+      "load": 1145.5999999046326,
+      "transfer": 55951,
+      "visibility": "visible",
+      "overflow": false
+    },
+    {
+      "route": "/our-work/ray-qanwny-fy-tlb-aflas",
+      "run": 1,
+      "lcp": 1148,
+      "cls": 0,
+      "longTasks": 30,
+      "ttfb": 830.0999999046326,
+      "domContentLoaded": 995.5,
+      "load": 2087.399999856949,
+      "transfer": 46175,
+      "visibility": "visible",
+      "overflow": false
+    },
+    {
+      "route": "/ar/our-work/ray-qanwny-fy-tlb-aflas",
+      "run": 1,
+      "lcp": 996,
+      "cls": 0,
+      "longTasks": 25,
+      "ttfb": 578.2000000476837,
+      "domContentLoaded": 945.7999999523163,
+      "load": 1430.9000000953674,
+      "transfer": 46494,
+      "visibility": "visible",
+      "overflow": false
+    }
+  ],
+  "errors": [
+    {
+      "route": "https://counselo-legal.com/legal-library",
+      "error": "Error: Minified React error #418; visit https://react.dev/errors/418?args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
+    },
+    {
+      "route": "https://counselo-legal.com/ar/legal-library",
+      "error": "Error: Minified React error #418; visit https://react.dev/errors/418?args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
+    }
+  ],
+  "finding": "Stored UAE preference reproduced hydration errors and layout shifts on both library routes; source repair and post-release verification are separate."
+}
