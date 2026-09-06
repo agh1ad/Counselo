@@ -1,0 +1,34 @@
+{
+  "checkedAt": "2026-09-06T05:57:34.587449+00:00",
+  "scope": "Read-only public deployment baseline before releasing local edits. These four URLs are not a complete live-site crawl.",
+  "pages": [
+    {
+      "route": "/our-work/kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal",
+      "status": 301,
+      "h1": null,
+      "newEmploymentIntakePresent": false,
+      "newCopyrightSourcePresent": false
+    },
+    {
+      "route": "/our-work/adrah-almkhatr-fy-aqd-tamyny",
+      "status": 301,
+      "h1": null,
+      "newEmploymentIntakePresent": false,
+      "newCopyrightSourcePresent": false
+    },
+    {
+      "route": "/sa/ar/services/employment-law",
+      "status": 200,
+      "h1": "نظام العمل في المملكة العربية السعودية",
+      "newEmploymentIntakePresent": false,
+      "newCopyrightSourcePresent": false
+    },
+    {
+      "route": "/syr/ar/services/intellectual-property",
+      "status": 200,
+      "h1": "الملكية الفكرية في سوريا",
+      "newEmploymentIntakePresent": false,
+      "newCopyrightSourcePresent": false
+    }
+  ]
+}

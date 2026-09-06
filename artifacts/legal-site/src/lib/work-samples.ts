@@ -66,6 +66,12 @@ export function localized(valueEn: string, valueAr: string, lang: "en" | "ar"): 
   return lang === "ar" ? (valueAr || valueEn) : (valueEn || valueAr);
 }
 
+/** Link to an actually published language, not a URL that immediately redirects. */
+export function workSamplePath(sample: Pick<WorkSamplePublic, "slug" | "titleEn" | "titleAr">, ar: boolean): string {
+  const useArabic = ar ? Boolean(sample.titleAr) : !sample.titleEn && Boolean(sample.titleAr);
+  return `${useArabic ? "/ar" : ""}/our-work/${sample.slug}`;
+}
+
 export function formatWorkDate(date: string, lang: "en" | "ar"): string {
   const parsed = new Date(`${date}T00:00:00`);
   if (Number.isNaN(parsed.getTime())) return date;

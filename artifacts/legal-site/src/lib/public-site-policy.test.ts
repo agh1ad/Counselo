@@ -10,6 +10,8 @@ import {
   buildHreflangLinks,
   getPublicRouteInventory,
   hasQualityBilingualBlogContent,
+  containsPublishingPlaceholder,
+  safeSeoTitle,
   PUBLIC_CACHE_POLICY,
   routeToFlatFilename,
 } from "@workspace/api-zod";
@@ -52,8 +54,9 @@ test("the shared route inventory contains every region and language", () => {
 
 test("shared canonical, hreflang, cache, and prerender policies are deterministic", () => {
   assert.equal(routeToFlatFilename("/uae/ar/services/corporate-commercial"), "uae-ar-services-corporate-commercial.html");
-  assert.ok(buildHreflangLinks("/").some((link) => link.startsWith("en-AE|")));
-  assert.ok(buildHreflangLinks("/").some((link) => link.startsWith("ar-AE|")));
+  assert.deepEqual(buildHreflangLinks("/"), buildHreflangLinks("/ar"));
+  assert.ok(buildHreflangLinks("/").includes("ar|https://counselo-legal.com/ar"));
+  assert.ok(buildHreflangLinks("/").includes("en|https://counselo-legal.com/"));
   assert.ok(buildHreflangLinks("/uae/services/corporate-commercial").some((link) => link.startsWith("en-AE|")));
   assert.ok(buildHreflangLinks("/sa/services/real-estate").some((link) => link.startsWith("ar-SA|")));
   assert.equal(PUBLIC_CACHE_POLICY.redirect, "public, max-age=86400");
@@ -108,6 +111,9 @@ test("blog language URLs require complete independent translations", () => {
   assert.equal(hasQualityBilingualBlogContent({ ...complete, bodyAr: "" }), false);
   assert.equal(hasQualityBilingualBlogContent({ ...complete, seoTitleAr: complete.seoTitleEn }), false);
   assert.equal(hasQualityBilingualBlogContent({ ...complete, bodyAr: complete.bodyEn }), false);
+  assert.equal(hasQualityBilingualBlogContent({ ...complete, bodyEn: "English legal text. English legal text." }), false);
+  assert.equal(containsPublishingPlaceholder("<p>Lorem ipsum</p>"), true);
+  assert.equal(safeSeoTitle("/blog/broken-title", "Readable article title"), "Readable article title");
   assert.equal(blogPath("contract-guide"), "/blog/en/contract-guide");
   assert.equal(blogPath("contract-guide", "en"), "/blog/en/contract-guide");
   assert.equal(blogPath("contract-guide", "ar"), "/blog/ar/contract-guide");

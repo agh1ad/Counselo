@@ -1,5 +1,6 @@
 import type { BlogPost, BlogSection, InsertBlogPost } from "@workspace/db";
 import sanitizeHtml from "sanitize-html";
+import { containsPublishingPlaceholder, isRouteLikeSeoTitle } from "@workspace/api-zod";
 
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
@@ -232,6 +233,9 @@ export function parseBlogPostInput(
       ["English", seoTitleEn, seoDescriptionEn],
       ["Arabic", seoTitleAr, seoDescriptionAr],
     ] as const) {
+      if (isRouteLikeSeoTitle(title)) {
+        throw new BlogInputError(`${locale} SEO title must be a descriptive title, not a URL or route`);
+      }
       if (!title) continue;
       if (title.length < 20 || title.length > 70) {
         throw new BlogInputError(
@@ -243,6 +247,9 @@ export function parseBlogPostInput(
           `${locale} SEO description must be 80–170 characters before publishing`,
         );
       }
+    }
+    if (containsPublishingPlaceholder(articleText(bodyEn, contentEn)) || containsPublishingPlaceholder(articleText(bodyAr, contentAr))) {
+      throw new BlogInputError("Published blog posts cannot contain placeholder text");
     }
 
     for (const [label, english, arabic] of [

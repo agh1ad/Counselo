@@ -8,6 +8,7 @@ import { useRegion } from "@/contexts/RegionContext";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
 import { ExperienceMethodologyNote } from "@/components/legal/ExperienceMethodologyNote";
+import { SearchIntentGuidance } from "@/components/content/search-intent-guidance";
 import type { Translations } from "@/contexts/LanguageContext";
 import type { Region } from "@/contexts/RegionContext";
 import { COUNSELO_ENTITY_IDS, CONSULTATION_OPERATING_POLICY, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
@@ -584,6 +585,7 @@ export default function Home() {
           </m.div>
         </div>
       </section>
+      <SearchIntentGuidance page="home" />
 
     </div>
   );

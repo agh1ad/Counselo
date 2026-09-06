@@ -1,0 +1,2187 @@
+{
+  "records": 45,
+  "retainedRoutesBefore": 88,
+  "routesAfterLanguageRepairs": 90,
+  "assessments": [
+    {
+      "slug": "kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Judicial settlement returning capital; distinguish settlement from a money judgment.",
+      "contentRevisionImplemented": false,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
+          "renderedContentFingerprint": "badf899173c96f093b072c3e46f5a9e698c05e23eb78d788b92da82cd16a03bc",
+          "passagesChecked": 21
+        },
+        {
+          "route": "/ar/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
+          "renderedContentFingerprint": "e67a0266ceb610a2542e4733892e357bb5c84e985aee22fb1ff4358063e89904",
+          "passagesChecked": 21
+        }
+      ],
+      "revisedPublicFields": [
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": null,
+        "relatedServiceSlugs": [],
+        "relatedBlogSlugs": [
+          "mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh",
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh"
+        ],
+        "relatedWorkSlugs": [
+          "msandh-kawnslw-fy-qdyh-aabrh-llhdwd",
+          "ray-qanwny-fy-tswyh-aabrh-llhdwd"
+        ],
+        "titleEn": "How CounselO Recovered SAR 300,000 Through a Judicial Settlement in a Commercial Dispute",
+        "titleAr": "كيف ساعدت كاونسلو في استرداد 300,000 ريال عبر صلح قضائي في نزاع تجاري؟",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Commission undertaking: conditional advance and actual receipts, not medical services.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal",
+          "renderedContentFingerprint": "a53a898004eebf5588abeb036d94d754e6362ddf6202ac5ac1d050faea9e0ad9",
+          "passagesChecked": 5
+        },
+        {
+          "route": "/ar/our-work/kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal",
+          "renderedContentFingerprint": "f865261e639de4c7267d4c72a1a06cd0484d6012f34593a3bbd892020ed7615f",
+          "passagesChecked": 12
+        }
+      ],
+      "revisedPublicFields": [
+        "titleEn",
+        "summaryEn",
+        "workTypeEn",
+        "jurisdictionEn",
+        "clientTypeEn",
+        "challengeEn",
+        "approachEn",
+        "outcomeEn",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "business-law",
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "mta-ysthq-alwsyt-altjary-kaml-amwlth",
+          "lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa",
+          "athbat-alaqwd-amam-alqda-alsawdy"
+        ],
+        "relatedWorkSlugs": [
+          "kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227",
+          "mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh"
+        ],
+        "titleEn": "Reducing a Commercial Commission Claim from SAR 3.48 Million to SAR 584,131",
+        "titleAr": "كاونسلو و تخفيض مطالبة عمولة تجارية من 3.48 مليون ريال إلى 584 ألف ريال",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Claim calculation and proof; retain SAR 500,000 to SAR 227,000 units.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227",
+          "renderedContentFingerprint": "fe8d881f0a8059bfe9bf43de936abca40f5666d02a2f1137cc5583baf429a925",
+          "passagesChecked": 19
+        },
+        {
+          "route": "/ar/our-work/kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227",
+          "renderedContentFingerprint": "ce8edafa3066475cb7390b84cde0d0e1f9a17b5ba818c9cc7ed73e6958583681",
+          "passagesChecked": 19
+        }
+      ],
+      "revisedPublicFields": [
+        "titleAr",
+        "seoTitleAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "business-law",
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa",
+          "almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+          "athbat-alaqwd-amam-alqda-alsawdy"
+        ],
+        "relatedWorkSlugs": [
+          "kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal",
+          "thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd"
+        ],
+        "titleEn": "How CounselO Reduced a SAR 500,000 Claim to SAR 227,000",
+        "titleAr": "تخفيض مطالبة تجارية من 500 ألف ريال إلى 227 ألف ريال",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "ray-fy-mshrwa-qanwn-alwsath-alswry-maaljh-10-thghrat",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Baghdadi Lawyers opinion on a mediation bill, not an enacted-law certification.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/ray-fy-mshrwa-qanwn-alwsath-alswry-maaljh-10-thghrat",
+          "renderedContentFingerprint": "3690560a511659d45e873aead460723f7b67cc4980e46fee6279356710dd0dad",
+          "passagesChecked": 5
+        },
+        {
+          "route": "/ar/our-work/ray-fy-mshrwa-qanwn-alwsath-alswry-maaljh-10-thghrat",
+          "renderedContentFingerprint": "e7d1a47a4e1fe8c22135488654b6948a3aad7cf4cc3beb0d3e6720bc15ca5a48",
+          "passagesChecked": 33
+        }
+      ],
+      "revisedPublicFields": [
+        "summaryEn",
+        "summaryAr",
+        "workTypeEn",
+        "jurisdictionEn",
+        "clientTypeEn",
+        "challengeEn",
+        "approachEn",
+        "outcomeEn",
+        "outcomeAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "syr",
+        "relatedServiceSlugs": [
+          "arbitration",
+          "civil-procedure"
+        ],
+        "relatedBlogSlugs": [
+          "alaqd-fy-alqanwn-alswry",
+          "alahlyh-fy-altaaqd-fy-alqanwn-alswry"
+        ],
+        "relatedWorkSlugs": [
+          "drash-qdyh-aqaryh-maqdh-fy-swrya"
+        ],
+        "titleEn": "Opinion on Syria’s Mediation Law Bill: 10 Gaps",
+        "titleAr": "رأي في مشروع قانون الوساطة السوري/ معالجة 10 ثغرات",
+        "editorialUpdatedAt": "2026-09-06",
+        "creator": "baghdadi-law"
+      }
+    },
+    {
+      "slug": "kyf-qadt-astratyjyh-kawnslw-ila-rfd-dawa-fskh-aqd-bya-wtawydat-bmlayyn-alryalat",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Sale-rescission defence based on possession, knowledge and performance; appeal affirmed.",
+      "contentRevisionImplemented": false,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/kyf-qadt-astratyjyh-kawnslw-ila-rfd-dawa-fskh-aqd-bya-wtawydat-bmlayyn-alryalat",
+          "renderedContentFingerprint": "f5539a20a5809e8338a24e3450302f889a1db34d1b233632b56302131621cdd0",
+          "passagesChecked": 20
+        },
+        {
+          "route": "/ar/our-work/kyf-qadt-astratyjyh-kawnslw-ila-rfd-dawa-fskh-aqd-bya-wtawydat-bmlayyn-alryalat",
+          "renderedContentFingerprint": "5d977d7c16a80f0c95bae99db42ef604406372e96e2ba295590fda407218cafa",
+          "passagesChecked": 20
+        }
+      ],
+      "revisedPublicFields": [
+        "outcomeEn",
+        "outcomeAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny",
+          "alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+          "fskh-alaqd-altjary-fy-alnzam-alsawdy"
+        ],
+        "relatedWorkSlugs": [
+          "rfd-dawa-fskh-aqd-amtyaz-tjary-wtawyd",
+          "fskh-aqd-snaay-wastrdad-aldfah-almqdmh"
+        ],
+        "titleEn": "How CounselO Defeated a Sale Contract Rescission Claim",
+        "titleAr": "كيف قادت استراتيجية كاونسلو إلى رفض دعوى فسخ عقد بيع وتعويضات بملايين الريالات؟",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "msandh-kawnslw-fy-qdyh-aabrh-llhdwd",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Bahraini proceedings for a Saudi company; local representation and award not proof of collection.",
+      "contentRevisionImplemented": false,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/msandh-kawnslw-fy-qdyh-aabrh-llhdwd",
+          "renderedContentFingerprint": "5df0f12adbe28fbee33e1db75f3db2832be98ec7f278e2b4d43c13d1ac19b03b",
+          "passagesChecked": 11
+        },
+        {
+          "route": "/ar/our-work/msandh-kawnslw-fy-qdyh-aabrh-llhdwd",
+          "renderedContentFingerprint": "6ac34481f9f0405d42361349734d9338f19a48a9ce3fcf591277d7c765ccb1e5",
+          "passagesChecked": 11
+        }
+      ],
+      "revisedPublicFields": [
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": null,
+        "relatedServiceSlugs": [],
+        "relatedBlogSlugs": [
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh",
+          "mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh"
+        ],
+        "relatedWorkSlugs": [
+          "kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
+          "thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd"
+        ],
+        "titleEn": "CounselO’s Support in a Cross-Border Dispute",
+        "titleAr": "مسانده كاونسلو في قضية عابرة للحدود",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Sixteen security notes; distinguish face value from debt established and recovery of originals.",
+      "contentRevisionImplemented": false,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal",
+          "renderedContentFingerprint": "cd2b4e970ba307167d5267b34df20d4645e7738015987a8517541af1a8f76897",
+          "passagesChecked": 34
+        },
+        {
+          "route": "/ar/our-work/astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal",
+          "renderedContentFingerprint": "c4e26bdcec28dd9802b764efed54dc6e45be76bda3452725b1903f4e84e85435",
+          "passagesChecked": 34
+        }
+      ],
+      "revisedPublicFields": [
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "enforcement",
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy",
+          "athbat-alaqwd-amam-alqda-alsawdy"
+        ],
+        "relatedWorkSlugs": [
+          "mnazah-tnfydh",
+          "hdwd-mswwlyh-alkfyl-fy-alsnd-lamr"
+        ],
+        "titleEn": "CounselO’s Strategy to Recover SAR 17 Million in Promissory Notes",
+        "titleAr": "استراتيجية كاونسلو لاسترداد سندات لأمر بقيمة 17 مليون ريال",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "kawnslw-wtswyh-alarsdh-almalyh-qanwna",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Settlement mechanics and accounting reconciliation; separate from internal authorisation case.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/kawnslw-wtswyh-alarsdh-almalyh-qanwna",
+          "renderedContentFingerprint": "f2b6382216605d67d95a87a3493c66ba5bc29cb33646cceeb4f1ad1a29743f44",
+          "passagesChecked": 5
+        },
+        {
+          "route": "/ar/our-work/kawnslw-wtswyh-alarsdh-almalyh-qanwna",
+          "renderedContentFingerprint": "637b8ed49a71d6fc4eef012e2f078ebb82f7b1f2f5092231b117e7a4b2900cd5",
+          "passagesChecked": 27
+        }
+      ],
+      "revisedPublicFields": [
+        "workTypeAr",
+        "jurisdictionEn",
+        "clientTypeEn",
+        "challengeEn",
+        "approachEn",
+        "outcomeEn",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "companies-law",
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+          "altwsyat-alamlyh-lsyaghh-aqd-qwy"
+        ],
+        "relatedWorkSlugs": [
+          "almttlbat-alqanwnyh-walhwkmh-aldakhlyh",
+          "andma-la-ykwn-alnzaa-hwl-alwaya-anma-altkyyf"
+        ],
+        "titleEn": "CounselO and Legal Settlement of Financial Balances",
+        "titleAr": "كاونسلو وتسوية الارصدة المالية قانونا",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Cross-border contract review: commissions, non-circumvention, limits and signing version.",
+      "contentRevisionImplemented": false,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh",
+          "renderedContentFingerprint": "9b4ef5a233008c3b440c6329043706ef849a98793b17308b42d3a2be3b57c771",
+          "passagesChecked": 12
+        },
+        {
+          "route": "/ar/our-work/mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh",
+          "renderedContentFingerprint": "9bacd229c0446491bbdfd98d4ad0147ad412470c041a731f614351796e66a42d",
+          "passagesChecked": 12
+        }
+      ],
+      "revisedPublicFields": [
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": null,
+        "relatedServiceSlugs": [],
+        "relatedBlogSlugs": [
+          "hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+          "syghh-mdhkrh-tfahm-qablh-lltadyl",
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh"
+        ],
+        "relatedWorkSlugs": [
+          "altfawd-alqanwny-aldhky",
+          "atfaqyh-atar-ltqdym-alkhdmat-altqnyh-whlwl-aldhka-alastnaay"
+        ],
+        "titleEn": "CounselO’s Approach to Commercial Contract Review",
+        "titleAr": "منهج كاونسلو في مراجعة العقود التجارية",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "kyf-adart-kawnslw-mrajah-mhasbyh-hsash",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Audit-response reservations clarify scope but do not prevent evidential use.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/kyf-adart-kawnslw-mrajah-mhasbyh-hsash",
+          "renderedContentFingerprint": "400975c62cf330e5ce1a8709369d497e2c21ccff467c0e4c801c9a5e10a8ac06",
+          "passagesChecked": 28
+        },
+        {
+          "route": "/ar/our-work/kyf-adart-kawnslw-mrajah-mhasbyh-hsash",
+          "renderedContentFingerprint": "8917ef67e7cb9953e5b150422257790e8866603148e69efe84f567d8a5159fe8",
+          "passagesChecked": 28
+        }
+      ],
+      "revisedPublicFields": [
+        "approachEn",
+        "approachAr",
+        "outcomeEn",
+        "outcomeAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "employment-law"
+        ],
+        "relatedBlogSlugs": [
+          "mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+          "anha-aqd-alaml-bdwn-sbb-mshrwa"
+        ],
+        "relatedWorkSlugs": [
+          "qdyh-mna-sfr-dd-aaml",
+          "mn-atham-maly-maqd-ila-brah-qtayh"
+        ],
+        "titleEn": "How CounselO Managed a Sensitive Accounting Review",
+        "titleAr": "كيف أدارت كاونسلو مراجعة محاسبية حساسة.",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "algha-mkhalfat-aldfaa-almdny-bhkm-qdayy",
+      "bothLanguageBodiesRead": true,
+      "assessment": "SAR 60,000 Civil Defense fine annulled on committee-composition defect in this case.",
+      "contentRevisionImplemented": false,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/algha-mkhalfat-aldfaa-almdny-bhkm-qdayy",
+          "renderedContentFingerprint": "33986d3fbad2624fb9513e2a183b13dc92fb0f68460ab918740c5bd9ac227eef",
+          "passagesChecked": 20
+        },
+        {
+          "route": "/ar/our-work/algha-mkhalfat-aldfaa-almdny-bhkm-qdayy",
+          "renderedContentFingerprint": "77f4ca878169d255e63133f7a2ca46e856d2898047e8c44cd8a1e730b16779f9",
+          "passagesChecked": 20
+        }
+      ],
+      "revisedPublicFields": [
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "administrative-law"
+        ],
+        "relatedBlogSlugs": [
+          "mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm"
+        ],
+        "relatedWorkSlugs": [
+          "alaatrad-ala-almkhalfat-albyyyh",
+          "drash-tan-amam-almhkmh-aladaryh-alalya"
+        ],
+        "titleEn": "Civil Defense Violations Annulled by Court",
+        "titleAr": "الغاء مخالفات الدفاع المدني بحكم قضائي",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "rfd-dawa-fskh-aqd-amtyaz-tjary-wtawyd",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Franchise claim dismissed; procedural non-acceptance of appeal is distinct from merits affirmation.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/rfd-dawa-fskh-aqd-amtyaz-tjary-wtawyd",
+          "renderedContentFingerprint": "0234795b8d198e519828dc5d50e0b3b94fa9bb6f7c13b82cf8c9cc11141322e4",
+          "passagesChecked": 20
+        },
+        {
+          "route": "/ar/our-work/rfd-dawa-fskh-aqd-amtyaz-tjary-wtawyd",
+          "renderedContentFingerprint": "37d09a5b68d7b6cc80be95b4a585eb27a89a711df96e10c673c97ffaee5d5e21",
+          "passagesChecked": 20
+        }
+      ],
+      "revisedPublicFields": [
+        "challengeAr",
+        "outcomeEn",
+        "outcomeAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "contracts",
+          "business-law"
+        ],
+        "relatedBlogSlugs": [
+          "aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh"
+        ],
+        "relatedWorkSlugs": [
+          "kyf-qadt-astratyjyh-kawnslw-ila-rfd-dawa-fskh-aqd-bya-wtawydat-bmlayyn-alryalat",
+          "fskh-aqd-snaay-wastrdad-aldfah-almqdmh"
+        ],
+        "titleEn": "Dismissal of Franchise Agreement Termination and Compensation Claim",
+        "titleAr": "رفض دعوى فسخ عقد امتياز تجاري وتعويض",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "mn-alkhta-ala-altawyd-kyf-hddt-kawnslw-almswwl-almbashran-hadth",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Traffic-accident award for direct driver liability; no universal exclusion of insurer liability.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/mn-alkhta-ala-altawyd-kyf-hddt-kawnslw-almswwl-almbashran-hadth",
+          "renderedContentFingerprint": "b4d71aff7ee6e36b6b841b30dad397b2ad290b951201a6a1c1ac58439b34a903",
+          "passagesChecked": 19
+        },
+        {
+          "route": "/ar/our-work/mn-alkhta-ala-altawyd-kyf-hddt-kawnslw-almswwl-almbashran-hadth",
+          "renderedContentFingerprint": "5fe0f6d469f0d6f8e3e01cf332f08227c13be9b55c3db6d8726420a593213f74",
+          "passagesChecked": 19
+        }
+      ],
+      "revisedPublicFields": [
+        "summaryEn",
+        "summaryAr",
+        "challengeEn",
+        "challengeAr",
+        "approachEn",
+        "approachAr",
+        "outcomeEn",
+        "outcomeAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "insurance-law"
+        ],
+        "relatedBlogSlugs": [
+          "almswwlyh-an-fal-alghyr"
+        ],
+        "relatedWorkSlugs": [
+          "maaljh-halh-khta-tby"
+        ],
+        "titleEn": "From Error to Compensation: How CounselO Identified the Directly Responsible Party in an Accident",
+        "titleAr": "من الخطأ الى التعويض: كيف حددت كاونسلو المسؤول المباشرعن حادث",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Non-delivery and proper parties; distinguish principal from legal-fee award.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd",
+          "renderedContentFingerprint": "2cf872e98154834157f5a3e105dc087e426c3453ebdde48f7064833a27003bb0",
+          "passagesChecked": 24
+        },
+        {
+          "route": "/ar/our-work/thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd",
+          "renderedContentFingerprint": "89245ce5d5c3b5d69f94d1ecddf176be67494bd5897489690e77ed29d932cbe2",
+          "passagesChecked": 24
+        }
+      ],
+      "revisedPublicFields": [
+        "titleEn",
+        "titleAr",
+        "summaryEn",
+        "summaryAr",
+        "challengeEn",
+        "challengeAr",
+        "approachEn",
+        "approachAr",
+        "outcomeEn",
+        "outcomeAr",
+        "seoTitleEn",
+        "seoTitleAr",
+        "seoDescriptionAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "business-law",
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "athbat-alaqwd-amam-alqda-alsawdy",
+          "almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh"
+        ],
+        "relatedWorkSlugs": [
+          "kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat",
+          "darsh-qdyh-qbl-alnzaa"
+        ],
+        "titleEn": "Equipment Non-Delivery: SAR 248,600 Award After Appeal",
+        "titleAr": "عدم تسليم معدات: حكم بـ248,600 ريال بعد الاستئناف",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "tfkyk-mstndat-altmas-aaadh-alnzr-bnjah",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Reconsideration accepted in form but rejected on merits; stay lifted and expert fees awarded.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/tfkyk-mstndat-altmas-aaadh-alnzr-bnjah",
+          "renderedContentFingerprint": "c7fa41f692e27f745e9a7c41a3ae9dec5e74277cb772a2bd646bd10c876fe99b",
+          "passagesChecked": 11
+        },
+        {
+          "route": "/ar/our-work/tfkyk-mstndat-altmas-aaadh-alnzr-bnjah",
+          "renderedContentFingerprint": "c55fac3fe15955c7ef2f94d6c12f34c6bd4956e03ff93bfab9bd839b15d2ba00",
+          "passagesChecked": 11
+        }
+      ],
+      "revisedPublicFields": [
+        "challengeEn",
+        "challengeAr",
+        "approachEn",
+        "outcomeEn",
+        "outcomeAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "enforcement",
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+          "aqwd-almqawlat-fy-alnzam-alsawdy"
+        ],
+        "relatedWorkSlugs": [
+          "kyf-sahmt-kawnslw-fy-anjah-mlf-thkymy-kaml",
+          "mswwlyh-almqawlyn"
+        ],
+        "titleEn": "Successful Defense of a Reconsideration Petition",
+        "titleAr": "تفكيك مستندات التماس اعاده النظر بنجاح",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "alaatrad-ala-almkhalfat-albyyyh",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Environmental fine annulment: authority, attribution and process in this case.",
+      "contentRevisionImplemented": false,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/alaatrad-ala-almkhalfat-albyyyh",
+          "renderedContentFingerprint": "280e3c9ce323ea56cf916ae4dc0eaa5571ab4093598d46894c9a13fc1f9493e5",
+          "passagesChecked": 29
+        },
+        {
+          "route": "/ar/our-work/alaatrad-ala-almkhalfat-albyyyh",
+          "renderedContentFingerprint": "bf40940e61ca907281cb4b371c069b65c9f30ec497f36197cb026fa34bba3ca5",
+          "passagesChecked": 29
+        }
+      ],
+      "revisedPublicFields": [
+        "summaryEn",
+        "summaryAr",
+        "challengeEn",
+        "challengeAr",
+        "approachEn",
+        "approachAr",
+        "outcomeEn",
+        "outcomeAr",
+        "seoDescriptionAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "administrative-law"
+        ],
+        "relatedBlogSlugs": [
+          "mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm"
+        ],
+        "relatedWorkSlugs": [
+          "algha-mkhalfat-aldfaa-almdny-bhkm-qdayy",
+          "drash-tan-amam-almhkmh-aladaryh-alalya"
+        ],
+        "titleEn": "Environmental Violations Objection",
+        "titleAr": "الاعتراض على المخالفات البيئية",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "thlyl-mkhatr-nql-alaswl-walmsthqat-byn-alshrkat-almrtbth-athna-altsfyh",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Liquidation-related transfer review; creditor letter is not proof of misconduct.",
+      "contentRevisionImplemented": false,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/thlyl-mkhatr-nql-alaswl-walmsthqat-byn-alshrkat-almrtbth-athna-altsfyh",
+          "renderedContentFingerprint": "e733b4568078765c615eb91a5b8cb5ce69ccc44493de65567fe9cf5f3ca45887",
+          "passagesChecked": 25
+        },
+        {
+          "route": "/ar/our-work/thlyl-mkhatr-nql-alaswl-walmsthqat-byn-alshrkat-almrtbth-athna-altsfyh",
+          "renderedContentFingerprint": "ca225bc7783b8ec275f7dc57c533961d5e7485861e65b48f8c35ce7a7e44d0ae",
+          "passagesChecked": 25
+        }
+      ],
+      "revisedPublicFields": [
+        "challengeEn",
+        "challengeAr",
+        "approachEn",
+        "approachAr",
+        "outcomeEn",
+        "outcomeAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "companies-law",
+          "business-law"
+        ],
+        "relatedBlogSlugs": [
+          "hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh"
+        ],
+        "relatedWorkSlugs": [
+          "ray-qanwny-fy-tlb-aflas",
+          "andma-la-ykwn-alnzaa-hwl-alwaya-anma-altkyyf"
+        ],
+        "titleEn": "Analyzing the Risks of Transferring Assets and Receivables Between Related Companies During Liquidation",
+        "titleAr": "تحليل مخاطر نقل الأصول والمستحقات بين الشركات المرتبطة أثناء التصفية",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "adrah-almkhatr-fy-aqd-tamyny",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Construction insurance review: additional insured, subrogation waiver and policy dates.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/adrah-almkhatr-fy-aqd-tamyny",
+          "renderedContentFingerprint": "0ccb90b676ab78bdd0a64c4f8209edcfd7fdff2c9f9ad2d016e9ccba532f837b",
+          "passagesChecked": 22
+        },
+        {
+          "route": "/ar/our-work/adrah-almkhatr-fy-aqd-tamyny",
+          "renderedContentFingerprint": "8730f69ebb069751cec2f3c1a5396fb1e4ea375ec5fe1d380c40dfe1394c636c",
+          "passagesChecked": 22
+        }
+      ],
+      "revisedPublicFields": [
+        "titleEn",
+        "titleAr",
+        "summaryEn",
+        "seoTitleEn",
+        "seoDescriptionEn",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "insurance-law",
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "aqwd-almqawlat-fy-alnzam-alsawdy",
+          "adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy"
+        ],
+        "relatedWorkSlugs": [
+          "mswwlyh-almqawlyn",
+          "mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh"
+        ],
+        "titleEn": "Insurance Requirements in a Saudi Construction Contract",
+        "titleAr": "ادراة المخاطر في عقد تأميني",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "kyf-athbtt-kawnslw-alshrakh",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Five-party partnership established on appeal; no general waiver of registration requirements.",
+      "contentRevisionImplemented": false,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/kyf-athbtt-kawnslw-alshrakh",
+          "renderedContentFingerprint": "22b9a2a0151ec867023a7174affba548c5f04883104e58238dc9402a84bd650b",
+          "passagesChecked": 13
+        },
+        {
+          "route": "/ar/our-work/kyf-athbtt-kawnslw-alshrakh",
+          "renderedContentFingerprint": "746131a1dcbb0bb4520428c184a22b915b96874e12fc24cdbdb49f95d53a77aa",
+          "passagesChecked": 18
+        }
+      ],
+      "revisedPublicFields": [
+        "challengeAr",
+        "approachAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "companies-law"
+        ],
+        "relatedBlogSlugs": [
+          "hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+          "athbat-alaqwd-amam-alqda-alsawdy"
+        ],
+        "relatedWorkSlugs": [
+          "andma-la-ykwn-alnzaa-hwl-alwaya-anma-altkyyf",
+          "almttlbat-alqanwnyh-walhwkmh-aldakhlyh"
+        ],
+        "titleEn": "How CounselO Proved the Partnership",
+        "titleAr": "كيف اثبتت كاونسلو الشراكه",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "kyf-sahmt-kawnslw-fy-anjah-mlf-thkymy-kaml",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Construction arbitration evidence and award categories; preserve representative role.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/kyf-sahmt-kawnslw-fy-anjah-mlf-thkymy-kaml",
+          "renderedContentFingerprint": "f07adaa64c0ba4e3cc531c67b32bd4fee9745c44694f931d4d2d07988f3fdc7a",
+          "passagesChecked": 5
+        },
+        {
+          "route": "/ar/our-work/kyf-sahmt-kawnslw-fy-anjah-mlf-thkymy-kaml",
+          "renderedContentFingerprint": "fc53c6f2ccb3c3df5727618d7ea697a36a4ceeb5c60624e7e5eab881f956c033",
+          "passagesChecked": 5
+        }
+      ],
+      "revisedPublicFields": [
+        "titleEn",
+        "titleAr",
+        "summaryEn",
+        "outcomeEn",
+        "outcomeAr",
+        "seoTitleEn",
+        "seoTitleAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "arbitration",
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa",
+          "aqwd-almqawlat-fy-alnzam-alsawdy",
+          "athbat-alaqwd-amam-alqda-alsawdy"
+        ],
+        "relatedWorkSlugs": [
+          "mswwlyh-almqawlyn",
+          "kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat"
+        ],
+        "titleEn": "Construction Arbitration: Organising Claims and Expert Evidence",
+        "titleAr": "تحكيم مقاولات: تنظيم المطالبات وأدلة الخبرة",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Approved-invoice construction award; distinguish judgment from completed collection.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat",
+          "renderedContentFingerprint": "36ce21ee7e35f1a74c000ba928c4a747ad639901c19e3f4ed51ed5f63965d766",
+          "passagesChecked": 6
+        },
+        {
+          "route": "/ar/our-work/kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat",
+          "renderedContentFingerprint": "b9b46b22ac6428e445e52c5d9cb5a19cbc44e785a277b4346e940071c1cb81c9",
+          "passagesChecked": 9
+        }
+      ],
+      "revisedPublicFields": [
+        "titleEn",
+        "titleAr",
+        "summaryEn",
+        "summaryAr",
+        "challengeAr",
+        "approachAr",
+        "seoTitleEn",
+        "seoTitleAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "contracts",
+          "business-law"
+        ],
+        "relatedBlogSlugs": [
+          "aqwd-almqawlat-fy-alnzam-alsawdy",
+          "athbat-alaqwd-amam-alqda-alsawdy"
+        ],
+        "relatedWorkSlugs": [
+          "mn-drash-almstndat-ila-alhkm-bjmya-altlbat",
+          "darsh-qdyh-qbl-alnzaa"
+        ],
+        "titleEn": "Construction Payment Claim: Judgment for SAR 448,958",
+        "titleAr": "مطالبة بمستحقات مقاولات: حكم بـ448,958 ريالاً",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "mn-drash-almstndat-ila-alhkm-bjmya-altlbat",
+      "bothLanguageBodiesRead": true,
+      "assessment": "SAR 2,049,094 claim judgment; identify principal and compensation in case account.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/mn-drash-almstndat-ila-alhkm-bjmya-altlbat",
+          "renderedContentFingerprint": "c27a6f91b7b157aed2f92e0b64821c8d22665ff4b7ff8289b68dad58e9a2905d",
+          "passagesChecked": 15
+        },
+        {
+          "route": "/ar/our-work/mn-drash-almstndat-ila-alhkm-bjmya-altlbat",
+          "renderedContentFingerprint": "d495ecbc5ed5d30352858869d24771ce535722239024a3f176c6b7932a044b2a",
+          "passagesChecked": 15
+        }
+      ],
+      "revisedPublicFields": [
+        "titleEn",
+        "titleAr",
+        "challengeAr",
+        "seoTitleEn",
+        "seoTitleAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "contracts",
+          "business-law"
+        ],
+        "relatedBlogSlugs": [
+          "aqwd-almqawlat-fy-alnzam-alsawdy",
+          "almswwlyh-alaqdyh-fy-almaamlat-altjaryh"
+        ],
+        "relatedWorkSlugs": [
+          "kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat",
+          "darsh-qdyh-qbl-alnzaa"
+        ],
+        "titleEn": "Construction Receivables: Judgment on SAR 2,049,094 in Claims",
+        "titleAr": "مستحقات مقاولات: حكم في مطالبات بإجمالي 2,049,094 ريالاً",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "tshyh-altkyyf-alqanwny-lanha-aqd-alaml",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Employment termination recharacterised on appeal; case-specific SAR 280,000 award.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/tshyh-altkyyf-alqanwny-lanha-aqd-alaml",
+          "renderedContentFingerprint": "05d2edf92b63b7d83b209cd59e351a127db98ec6d6df5da369d7af9e0d8e6e22",
+          "passagesChecked": 5
+        },
+        {
+          "route": "/ar/our-work/tshyh-altkyyf-alqanwny-lanha-aqd-alaml",
+          "renderedContentFingerprint": "850d8f1bab033e90b3bd9f83b612545dd8eb3099e29909f9899baaf0d289f63e",
+          "passagesChecked": 16
+        }
+      ],
+      "revisedPublicFields": [
+        "summaryAr",
+        "challengeAr",
+        "approachEn",
+        "approachAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "employment-law"
+        ],
+        "relatedBlogSlugs": [
+          "anha-aqd-alaml-bdwn-sbb-mshrwa",
+          "altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha"
+        ],
+        "relatedWorkSlugs": [
+          "hyn-la-tnthy-alqdyh-balhkm-alawl-kyf-qlbt-kawnslw-msar-nzaa-amaly",
+          "qdyh-mna-sfr-dd-aaml"
+        ],
+        "titleEn": "Correcting the Legal Characterisation of Employment Contract Termination",
+        "titleAr": "تصحيح التكييف القانوني لانهاء عقد العمل",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "fskh-aqd-iyjar-tjary-bsbb-khta-byanat-mnsh-iyjar",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Saudi Ejar data and eight units; termination by judicial settlement with financial claims reserved.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/fskh-aqd-iyjar-tjary-bsbb-khta-byanat-mnsh-iyjar",
+          "renderedContentFingerprint": "902fda56caeb7738ff6e2a456518fd8692e75d20eb73c90d52091f9360803607",
+          "passagesChecked": 11
+        },
+        {
+          "route": "/ar/our-work/fskh-aqd-iyjar-tjary-bsbb-khta-byanat-mnsh-iyjar",
+          "renderedContentFingerprint": "876af4108fb75bea6c06724ceb422410beca43cb3716475071cb91a60d729ef0",
+          "passagesChecked": 14
+        }
+      ],
+      "revisedPublicFields": [
+        "titleEn",
+        "summaryEn",
+        "challengeEn",
+        "challengeAr",
+        "approachEn",
+        "approachAr",
+        "outcomeEn",
+        "outcomeAr",
+        "seoTitleEn",
+        "seoDescriptionEn",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "real-estate",
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "e-contracts-legal-validity-saudi-arabia"
+        ],
+        "relatedWorkSlugs": [
+          "alajrh-mqabl-almnfah-fy-aliyjar-altjary"
+        ],
+        "titleEn": "Termination of Commercial Lease Due to Ejar Data Error",
+        "titleAr": "فسخ عقد إيجار تجاري بسبب خطأ بيانات منصة إيجار",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "fskh-aqd-snaay-wastrdad-aldfah-almqdmh",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Industrial non-performance; judgment returning SAR 470,000 advance.",
+      "contentRevisionImplemented": false,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/fskh-aqd-snaay-wastrdad-aldfah-almqdmh",
+          "renderedContentFingerprint": "149dcac2e5c4b032412cd7a4afa937ab4de3f19df3b6167ee63db97f218ce00b",
+          "passagesChecked": 7
+        },
+        {
+          "route": "/ar/our-work/fskh-aqd-snaay-wastrdad-aldfah-almqdmh",
+          "renderedContentFingerprint": "badab8dc135e9845d2286d839005ee83d19885b5df7f5ebc9a8ecda0c08ec486",
+          "passagesChecked": 12
+        }
+      ],
+      "revisedPublicFields": [
+        "summaryAr",
+        "challengeAr",
+        "approachAr",
+        "outcomeAr",
+        "seoDescriptionAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "aqwd-almqawlat-fy-alnzam-alsawdy"
+        ],
+        "relatedWorkSlugs": [
+          "mswwlyh-almqawlyn",
+          "kyf-qadt-astratyjyh-kawnslw-ila-rfd-dawa-fskh-aqd-bya-wtawydat-bmlayyn-alryalat"
+        ],
+        "titleEn": "Termination of Industrial Contract and Recovery of Advance Payment",
+        "titleAr": "فسخ عقد صناعي واسترداد الدفعة المقدمة",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "andma-la-ykwn-alnzaa-hwl-alwaya-anma-altkyyf",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Partner payments: source of corporate debt and proposed appeal, not an appeal win.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/andma-la-ykwn-alnzaa-hwl-alwaya-anma-altkyyf",
+          "renderedContentFingerprint": "2a9eea3c9343d52a1688018a05b77fd10a00d3a8e9defeb77e8a157421e476fe",
+          "passagesChecked": 22
+        },
+        {
+          "route": "/ar/our-work/andma-la-ykwn-alnzaa-hwl-alwaya-anma-altkyyf",
+          "renderedContentFingerprint": "9909c38e0759e8c5012849938ed13a3814563ef168245ec45a54dd17bb307cab",
+          "passagesChecked": 22
+        }
+      ],
+      "revisedPublicFields": [
+        "titleEn",
+        "titleAr",
+        "challengeAr",
+        "approachAr",
+        "outcomeAr",
+        "seoTitleEn",
+        "seoTitleAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "companies-law"
+        ],
+        "relatedBlogSlugs": [
+          "hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+          "athbat-alaqwd-amam-alqda-alsawdy"
+        ],
+        "relatedWorkSlugs": [
+          "kyf-athbtt-kawnslw-alshrakh",
+          "almttlbat-alqanwnyh-walhwkmh-aldakhlyh"
+        ],
+        "titleEn": "Partner Payments or Company Debt? Assessing Grounds for Appeal",
+        "titleAr": "مدفوعات شريك أم دين على الشركة؟ دراسة أسباب الاستئناف",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "mnazah-tnfydh",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Allocate transfers to the correct debt; separate judgment balance and electronic note.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/mnazah-tnfydh",
+          "renderedContentFingerprint": "b73a9a07f4af3f207b477c9e9f98a9b4d39bede5622af1416f439aa12c957d9b",
+          "passagesChecked": 22
+        },
+        {
+          "route": "/ar/our-work/mnazah-tnfydh",
+          "renderedContentFingerprint": "04248359f5ca6eb4a4a3407da37ce90acec40db144d98597b851484821f38c90",
+          "passagesChecked": 22
+        }
+      ],
+      "revisedPublicFields": [
+        "titleEn",
+        "titleAr",
+        "seoTitleEn",
+        "seoTitleAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "enforcement"
+        ],
+        "relatedBlogSlugs": [
+          "alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy",
+          "athbat-alaqwd-amam-alqda-alsawdy",
+          "e-contracts-legal-validity-saudi-arabia"
+        ],
+        "relatedWorkSlugs": [
+          "hdwd-mswwlyh-alkfyl-fy-alsnd-lamr",
+          "astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal"
+        ],
+        "titleEn": "Bank Transfer Allocation in an Enforcement Dispute",
+        "titleAr": "تحديد سبب الحوالة المالية في منازعة تنفيذ",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Cross-border arbitration institution and constitution objection; no inferred Saudi governing law.",
+      "contentRevisionImplemented": false,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym",
+          "renderedContentFingerprint": "0daf11e9551dd2d7e88a4123b84b8a473867afbce82a2df854a14c71b24f2ddb",
+          "passagesChecked": 6
+        },
+        {
+          "route": "/ar/our-work/mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym",
+          "renderedContentFingerprint": "358fae5897a61552828a48ec724248bd12a5fce0e981ad368d8285fd326391f5",
+          "passagesChecked": 9
+        }
+      ],
+      "revisedPublicFields": [
+        "summaryAr",
+        "challengeAr",
+        "approachAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": null,
+        "relatedServiceSlugs": [],
+        "relatedBlogSlugs": [
+          "hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh"
+        ],
+        "relatedWorkSlugs": [
+          "altfawd-alqanwny-aldhky",
+          "kyf-sahmt-kawnslw-fy-anjah-mlf-thkymy-kaml"
+        ],
+        "titleEn": "When Is an Arbitral Tribunal Incompetent? Effect of Breaching the Arbitration Clause",
+        "titleAr": "متى تكون هيئة التحكيم غير مختصة؟ أثر مخالفة شرط التحكيم",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "alajrh-mqabl-almnfah-fy-aliyjar-altjary",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Rent appeal assessment: impediment to agreed use, not voluntary non-use.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary",
+          "renderedContentFingerprint": "13af82cb0bf63dba60bc816a2b66acedc1b635f93482557499ab5ef1a971a3ad",
+          "passagesChecked": 9
+        },
+        {
+          "route": "/ar/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary",
+          "renderedContentFingerprint": "2b06bfb3ead1ec6efa89e349c7734f4f086d9aa99c98c8afd360683585b6ce5f",
+          "passagesChecked": 9
+        }
+      ],
+      "revisedPublicFields": [
+        "summaryEn",
+        "summaryAr",
+        "challengeEn",
+        "challengeAr",
+        "approachEn",
+        "approachAr",
+        "outcomeEn",
+        "outcomeAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "real-estate",
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "athbat-alaqwd-amam-alqda-alsawdy"
+        ],
+        "relatedWorkSlugs": [
+          "fskh-aqd-iyjar-tjary-bsbb-khta-byanat-mnsh-iyjar"
+        ],
+        "titleEn": "Rent vs. Enjoyment in Commercial Leasing",
+        "titleAr": "الأجرة مقابل المنفعة في الإيجار التجاري",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "hdwd-mswwlyh-alkfyl-fy-alsnd-lamr",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Guarantor exposure and unpaid balance; appeal recommendation rather than court relief.",
+      "contentRevisionImplemented": false,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/hdwd-mswwlyh-alkfyl-fy-alsnd-lamr",
+          "renderedContentFingerprint": "db5e9a5f847d2e4527f63b9f091a72eea14a50b95b268857da44cf078c670886",
+          "passagesChecked": 5
+        },
+        {
+          "route": "/ar/our-work/hdwd-mswwlyh-alkfyl-fy-alsnd-lamr",
+          "renderedContentFingerprint": "6474b640a7f38e16dfe160cfb9dd654a52e1fb9bed1ad23da3a851394793d2a3",
+          "passagesChecked": 9
+        }
+      ],
+      "revisedPublicFields": [
+        "summaryAr",
+        "challengeAr",
+        "approachAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "enforcement"
+        ],
+        "relatedBlogSlugs": [
+          "alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy",
+          "athbat-alaqwd-amam-alqda-alsawdy"
+        ],
+        "relatedWorkSlugs": [
+          "mnazah-tnfydh",
+          "astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal"
+        ],
+        "titleEn": "Limits of the Guarantor's Liability in a Promissory Note",
+        "titleAr": "حدود مسؤولية الكفيل في السند لأمر",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "almttlbat-alqanwnyh-walhwkmh-aldakhlyh",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Internal resolutions, authority and document package; differentiated from settlement mechanics.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/almttlbat-alqanwnyh-walhwkmh-aldakhlyh",
+          "renderedContentFingerprint": "35af9842e3c594ab39756608be0dccf61c27fa997194ed63b53fca6e8a96a181",
+          "passagesChecked": 6
+        },
+        {
+          "route": "/ar/our-work/almttlbat-alqanwnyh-walhwkmh-aldakhlyh",
+          "renderedContentFingerprint": "1d6c6fab6dffb6ced7460cf5a1efc8ca497d810c41788791f217f4c1bb687031",
+          "passagesChecked": 11
+        }
+      ],
+      "revisedPublicFields": [
+        "titleEn",
+        "titleAr",
+        "summaryEn",
+        "summaryAr",
+        "challengeAr",
+        "approachAr",
+        "outcomeEn",
+        "outcomeAr",
+        "seoTitleEn",
+        "seoTitleAr",
+        "seoDescriptionAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "companies-law",
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+          "altwsyat-alamlyh-lsyaghh-aqd-qwy"
+        ],
+        "relatedWorkSlugs": [
+          "kawnslw-wtswyh-alarsdh-almalyh-qanwna",
+          "andma-la-ykwn-alnzaa-hwl-alwaya-anma-altkyyf"
+        ],
+        "titleEn": "Intercompany Settlement: Corporate Approvals and Signing Authority",
+        "titleAr": "تسوية بين شركات مرتبطة: الموافقات وصلاحية التوقيع",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "hl-ymkn-tjawz-altqadm-brfa-dawa-alithra-bla-sbb",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Declined relabelled unjust-enrichment route after limitation; no guaranteed revival.",
+      "contentRevisionImplemented": false,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/hl-ymkn-tjawz-altqadm-brfa-dawa-alithra-bla-sbb",
+          "renderedContentFingerprint": "9196143ac68c825005bd6937c3efab37acf6b4cd8ffc23c25f71637e6d9433fa",
+          "passagesChecked": 5
+        },
+        {
+          "route": "/ar/our-work/hl-ymkn-tjawz-altqadm-brfa-dawa-alithra-bla-sbb",
+          "renderedContentFingerprint": "e3437a80d2ec98d1773e5a21af3c768c6517b0b329dbe38c58ce93685a31183e",
+          "passagesChecked": 8
+        }
+      ],
+      "revisedPublicFields": [
+        "summaryAr",
+        "challengeAr",
+        "approachAr",
+        "seoDescriptionAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "contracts",
+          "business-law"
+        ],
+        "relatedBlogSlugs": [
+          "aqwd-almqawlat-fy-alnzam-alsawdy",
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh"
+        ],
+        "relatedWorkSlugs": [
+          "darsh-qdyh-qbl-alnzaa",
+          "mswwlyh-almqawlyn"
+        ],
+        "titleEn": "Can Limitation Be Circumvented by Filing an Unjust Enrichment Claim?",
+        "titleAr": "هل يمكن تجاوز التقادم برفع دعوى الإثراء بلا سبب؟",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "mswwlyh-almqawlyn",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Replacement and back charges: causation, contractual requirements and advice-only outcome.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/mswwlyh-almqawlyn",
+          "renderedContentFingerprint": "2da3c7977a8302e681b247a84fb9529bf3b19f0fa7640859d04be7dcb04a5cca",
+          "passagesChecked": 9
+        },
+        {
+          "route": "/ar/our-work/mswwlyh-almqawlyn",
+          "renderedContentFingerprint": "05559fefe36fe68c0f385c98587fa095f59319a70e2ff3565cc5f212f41d5fdf",
+          "passagesChecked": 10
+        }
+      ],
+      "revisedPublicFields": [
+        "titleEn",
+        "titleAr",
+        "summaryEn",
+        "summaryAr",
+        "challengeAr",
+        "approachAr",
+        "outcomeEn",
+        "outcomeAr",
+        "seoTitleEn",
+        "seoTitleAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "aqwd-almqawlat-fy-alnzam-alsawdy",
+          "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "Penalty-clause-in-saudi"
+        ],
+        "relatedWorkSlugs": [
+          "adrah-almkhatr-fy-aqd-tamyny",
+          "fskh-aqd-snaay-wastrdad-aldfah-almqdmh"
+        ],
+        "titleEn": "Subcontractor Replacement and Back Charges: Liability Review",
+        "titleAr": "استبدال مقاول الباطن وتحميله التكاليف: دراسة المسؤولية",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "astsharh-fy-ahtyal-maly",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Disputed electronic attribution: technical evidence and requested relief, not universal burden rule.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/astsharh-fy-ahtyal-maly",
+          "renderedContentFingerprint": "f3db3364041022b22c834acded585d72e8f49ddf9032647c9006f2ae70b98321",
+          "passagesChecked": 5
+        },
+        {
+          "route": "/ar/our-work/astsharh-fy-ahtyal-maly",
+          "renderedContentFingerprint": "a8250ba7e5c00ebdae7890cdc494cf947c5ee4fcf5f427305b106ffde73b082f",
+          "passagesChecked": 5
+        }
+      ],
+      "revisedPublicFields": [
+        "challengeEn",
+        "challengeAr",
+        "approachEn",
+        "approachAr",
+        "outcomeEn",
+        "outcomeAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "banking-finance",
+          "cyber-law"
+        ],
+        "relatedBlogSlugs": [
+          "e-contracts-legal-validity-saudi-arabia",
+          "athbat-alaqwd-amam-alqda-alsawdy"
+        ],
+        "relatedWorkSlugs": [
+          "mn-atham-maly-maqd-ila-brah-qtayh",
+          "mnazah-tnfydh"
+        ],
+        "titleEn": "Consultation on Financial Fraud",
+        "titleAr": "استشاره في احتيال مالي",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "drash-qdyh-aqaryh-maqdh-fy-swrya",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Estate-related transfer dispute; valuation stage without a reported final award.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/drash-qdyh-aqaryh-maqdh-fy-swrya",
+          "renderedContentFingerprint": "c07e34597ca45e7742fa092d60702e48fb2d496be939e28bd92072ef9b1982b5",
+          "passagesChecked": 13
+        },
+        {
+          "route": "/ar/our-work/drash-qdyh-aqaryh-maqdh-fy-swrya",
+          "renderedContentFingerprint": "8e5e6ba2485796cbb9e75923b91bfc5dcb4db5c945d8ddde682de8045ef7e45e",
+          "passagesChecked": 13
+        }
+      ],
+      "revisedPublicFields": [
+        "summaryEn",
+        "summaryAr",
+        "challengeEn",
+        "challengeAr",
+        "approachEn",
+        "approachAr",
+        "outcomeEn",
+        "outcomeAr",
+        "relatedServiceSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "syr",
+        "relatedServiceSlugs": [
+          "real-estate",
+          "civil-law"
+        ],
+        "relatedBlogSlugs": [
+          "consensual-formal-real-contracts-syrian-law",
+          "defects-of-will-syrian-law",
+          "contract-interpretation-syrian-courts"
+        ],
+        "relatedWorkSlugs": [
+          "ray-fy-mshrwa-qanwn-alwsath-alswry-maaljh-10-thghrat"
+        ],
+        "titleEn": "Analysis of a Complex Real Estate Case in Syria",
+        "titleAr": "دراسه قضيه عقاريه معقده في سوريا",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "darsh-qdyh-qbl-alnzaa",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Manpower-services evidence assessment followed by partial-fee award; remove 100% claim.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/darsh-qdyh-qbl-alnzaa",
+          "renderedContentFingerprint": "3b8fb713dbc6dd0353242e9aa37a2a1e9161c1ce110e6258210fb99559e0effd",
+          "passagesChecked": 14
+        },
+        {
+          "route": "/ar/our-work/darsh-qdyh-qbl-alnzaa",
+          "renderedContentFingerprint": "1e2396b1e0bc5cdc34fdd0c73b32cc3c6c612d5124b3d3c20d7f2798a232f713",
+          "passagesChecked": 14
+        }
+      ],
+      "revisedPublicFields": [
+        "titleEn",
+        "titleAr",
+        "summaryAr",
+        "approachEn",
+        "approachAr",
+        "outcomeEn",
+        "outcomeAr",
+        "seoTitleEn",
+        "seoTitleAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "business-law",
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "athbat-alaqwd-amam-alqda-alsawdy",
+          "almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh"
+        ],
+        "relatedWorkSlugs": [
+          "kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat",
+          "thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd"
+        ],
+        "titleEn": "Pre-Litigation Assessment of a Manpower Services Payment Claim",
+        "titleAr": "دراسة مطالبة بمستحقات توريد عمالة قبل رفع الدعوى",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "maaljh-halh-khta-tby",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Medical appellate assessment: expert conflict, causation and compensation, outcome unreported.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/maaljh-halh-khta-tby",
+          "renderedContentFingerprint": "27dd2b19a00486300c0d0ecd0258e1cd950ff41bbf080d98ca4354da8a366f15",
+          "passagesChecked": 8
+        },
+        {
+          "route": "/ar/our-work/maaljh-halh-khta-tby",
+          "renderedContentFingerprint": "e3d9980649779a7271c5769270cf49e2456eef112178a651d611f8f13c3a5860",
+          "passagesChecked": 8
+        }
+      ],
+      "revisedPublicFields": [
+        "outcomeEn",
+        "outcomeAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "medical-malpractice"
+        ],
+        "relatedBlogSlugs": [
+          "almswwlyh-an-fal-alghyr"
+        ],
+        "relatedWorkSlugs": [
+          "mn-alkhta-ala-altawyd-kyf-hddt-kawnslw-almswwl-almbashran-hadth"
+        ],
+        "titleEn": "Handling a Medical Malpractice Case",
+        "titleAr": "معالجة حالة خطأ طبي",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "ray-qanwny-fy-tswyh-aabrh-llhdwd",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Saudi joint venture with international party: exit and share-transfer settlement review.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd",
+          "renderedContentFingerprint": "56568df58276d4dc734da8397f1e1667d4ef1eb4459dc7ff6445d5307f3c5c08",
+          "passagesChecked": 9
+        },
+        {
+          "route": "/ar/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd",
+          "renderedContentFingerprint": "bdc4e06427c18f5e2c0dbea550e5256703ccb30677f44077a8e417ec8c8b6138",
+          "passagesChecked": 9
+        }
+      ],
+      "revisedPublicFields": [
+        "challengeEn",
+        "challengeAr",
+        "approachEn",
+        "approachAr",
+        "outcomeEn",
+        "outcomeAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "companies-law",
+          "contracts"
+        ],
+        "relatedBlogSlugs": [
+          "hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+          "adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy"
+        ],
+        "relatedWorkSlugs": [
+          "almttlbat-alqanwnyh-walhwkmh-aldakhlyh",
+          "mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh"
+        ],
+        "titleEn": "Legal Opinion on a Cross-Border Settlement",
+        "titleAr": "رأي قانوني في تسوية عابرة للحدود",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "altfawd-alqanwny-aldhky",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Technology NDA negotiation: most amendments accepted, arbitration clause unresolved.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/altfawd-alqanwny-aldhky",
+          "renderedContentFingerprint": "89307f0e2bc18874a5dec76d9a18d200f4ca642fe930fbdecc1887903f3b0b52",
+          "passagesChecked": 9
+        },
+        {
+          "route": "/ar/our-work/altfawd-alqanwny-aldhky",
+          "renderedContentFingerprint": "aac5d25f42979a7831c4feca6a7fb126c852fabc6c2404390b9981c97da692c7",
+          "passagesChecked": 9
+        }
+      ],
+      "revisedPublicFields": [
+        "titleEn",
+        "titleAr",
+        "outcomeEn",
+        "outcomeAr",
+        "seoTitleEn",
+        "seoTitleAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": null,
+        "relatedServiceSlugs": [],
+        "relatedBlogSlugs": [
+          "hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+          "syghh-mdhkrh-tfahm-qablh-lltadyl"
+        ],
+        "relatedWorkSlugs": [
+          "mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh",
+          "atfaqyh-atar-ltqdym-alkhdmat-altqnyh-whlwl-aldhka-alastnaay"
+        ],
+        "titleEn": "Negotiating an International Technology NDA and Non-Circumvention Terms",
+        "titleAr": "التفاوض على سرية مشروع تقني دولي وشروط عدم الالتفاف",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "qdyh-mna-sfr-dd-aaml",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Urgent travel-ban application dismissed; financial allegations not decided by that result.",
+      "contentRevisionImplemented": false,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/qdyh-mna-sfr-dd-aaml",
+          "renderedContentFingerprint": "6d0b5409c4cdbb5e818c6f7bd0d8f309e3dc72aec58fac2d762bf872a68aaded",
+          "passagesChecked": 12
+        },
+        {
+          "route": "/ar/our-work/qdyh-mna-sfr-dd-aaml",
+          "renderedContentFingerprint": "8b882e71de7114b4b535750ce3500ea67fb6f629490795423565af378814825b",
+          "passagesChecked": 12
+        }
+      ],
+      "revisedPublicFields": [
+        "challengeEn",
+        "challengeAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "employment-law"
+        ],
+        "relatedBlogSlugs": [
+          "mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+          "anha-aqd-alaml-bdwn-sbb-mshrwa"
+        ],
+        "relatedWorkSlugs": [
+          "kyf-adart-kawnslw-mrajah-mhasbyh-hsash",
+          "hyn-la-tnthy-alqdyh-balhkm-alawl-kyf-qlbt-kawnslw-msar-nzaa-amaly"
+        ],
+        "titleEn": "Travel Ban Case Against an Employee",
+        "titleAr": "قضية منع سفر ضد عامل",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "mn-atham-maly-maqd-ila-brah-qtayh",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Financial accusation and final acquittal; fix corrupted English without adding case facts.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/mn-atham-maly-maqd-ila-brah-qtayh",
+          "renderedContentFingerprint": "dfb0f143284055b985e92d909eb47b6e40dae9585998bd9fd4a71d17bdcfb5c5",
+          "passagesChecked": 9
+        },
+        {
+          "route": "/ar/our-work/mn-atham-maly-maqd-ila-brah-qtayh",
+          "renderedContentFingerprint": "21e2e5e686768f39e7e03616b706da0feb65911bb1908a992ee06822ad3b8ebb",
+          "passagesChecked": 9
+        }
+      ],
+      "revisedPublicFields": [
+        "summaryEn",
+        "summaryAr",
+        "challengeEn",
+        "challengeAr",
+        "outcomeEn",
+        "outcomeAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "criminal-law"
+        ],
+        "relatedBlogSlugs": [
+          "mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh"
+        ],
+        "relatedWorkSlugs": [
+          "astsharh-fy-ahtyal-maly",
+          "kyf-adart-kawnslw-mrajah-mhasbyh-hsash"
+        ],
+        "titleEn": "From a Complex Financial Accusation to a Final Acquittal",
+        "titleAr": "من اتهام مالي معقد إلى براءة قطعية",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "hyn-la-tnthy-alqdyh-balhkm-alawl-kyf-qlbt-kawnslw-msar-nzaa-amaly",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Employment continuity through ownership/legal-form changes and successful appeal.",
+      "contentRevisionImplemented": false,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/hyn-la-tnthy-alqdyh-balhkm-alawl-kyf-qlbt-kawnslw-msar-nzaa-amaly",
+          "renderedContentFingerprint": "d3300bccc1fdb77950c975101085893286d05ca20cb2edb687ff0a7184f6797b",
+          "passagesChecked": 8
+        },
+        {
+          "route": "/ar/our-work/hyn-la-tnthy-alqdyh-balhkm-alawl-kyf-qlbt-kawnslw-msar-nzaa-amaly",
+          "renderedContentFingerprint": "62b34e99bdfa47c7903860cb3c7fcef6b6e88f3c8124d6223bd94c8610b24f28",
+          "passagesChecked": 8
+        }
+      ],
+      "revisedPublicFields": [
+        "summaryEn",
+        "summaryAr",
+        "challengeEn",
+        "challengeAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "employment-law"
+        ],
+        "relatedBlogSlugs": [
+          "anha-aqd-alaml-bdwn-sbb-mshrwa",
+          "altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha"
+        ],
+        "relatedWorkSlugs": [
+          "tshyh-altkyyf-alqanwny-lanha-aqd-alaml",
+          "qdyh-mna-sfr-dd-aaml"
+        ],
+        "titleEn": "When the First Judgment Is Not the End: How CounselO Reversed an Employment Dispute",
+        "titleAr": "حين لا تنتهي القضية بالحكم الأول: كيف قلبت كاونسلو مسار نزاع عمالي؟",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "drash-tan-amam-almhkmh-aladaryh-alalya",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Supreme Administrative Court remand; reopening is not compensation awarded.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/drash-tan-amam-almhkmh-aladaryh-alalya",
+          "renderedContentFingerprint": "bc97c2160ab6a467313de662c04a2987c694b5790d0d082ad1a7290863a7af72",
+          "passagesChecked": 5
+        },
+        {
+          "route": "/ar/our-work/drash-tan-amam-almhkmh-aladaryh-alalya",
+          "renderedContentFingerprint": "40a32a57aea0406b327ab17ce8cc0a2ff1594094f0239aa72bfd965c1fcceca4",
+          "passagesChecked": 5
+        }
+      ],
+      "revisedPublicFields": [
+        "clientTypeEn",
+        "clientTypeAr",
+        "outcomeEn",
+        "outcomeAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "administrative-law"
+        ],
+        "relatedBlogSlugs": [
+          "mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm"
+        ],
+        "relatedWorkSlugs": [
+          "alaatrad-ala-almkhalfat-albyyyh",
+          "algha-mkhalfat-aldfaa-almdny-bhkm-qdayy"
+        ],
+        "titleEn": "Study of an Appeal Before the Supreme Administrative Court",
+        "titleAr": "دراسة طعن امام المحكمة الادارية العليا",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "atfaqyh-atar-ltqdym-alkhdmat-altqnyh-whlwl-aldhka-alastnaay",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Saudi/Syrian technology framework: work orders, IP, data and liability; drafting only.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": null,
+      "renderVerification": [
+        {
+          "route": "/our-work/atfaqyh-atar-ltqdym-alkhdmat-altqnyh-whlwl-aldhka-alastnaay",
+          "renderedContentFingerprint": "597b5d276f897b2e8b6a027fc9dfe9d7979fc8e2dae823b5187027f9e1586cb6",
+          "passagesChecked": 5
+        },
+        {
+          "route": "/ar/our-work/atfaqyh-atar-ltqdym-alkhdmat-altqnyh-whlwl-aldhka-alastnaay",
+          "renderedContentFingerprint": "49ccbf239fe33b312c7d92bc4facbd1903b5314caacfe5ca8336fb182392b8c1",
+          "passagesChecked": 5
+        }
+      ],
+      "revisedPublicFields": [
+        "summaryEn",
+        "summaryAr",
+        "approachEn",
+        "approachAr",
+        "outcomeEn",
+        "outcomeAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": null,
+        "relatedServiceSlugs": [],
+        "relatedBlogSlugs": [
+          "hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+          "syghh-mdhkrh-tfahm-qablh-lltadyl"
+        ],
+        "relatedWorkSlugs": [
+          "altfawd-alqanwny-aldhky"
+        ],
+        "titleEn": "Framework Agreement for Technology Services and AI Solutions",
+        "titleAr": "اتفاقية اطار لتقديم الخدمات التقنية وحلول الذكاء الاصطناعي",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    },
+    {
+      "slug": "ray-qanwny-fy-tlb-aflas",
+      "bothLanguageBodiesRead": true,
+      "assessment": "Bankruptcy route opinion: source account omits selected procedure and court outcome; content-depth limit remains.",
+      "contentRevisionImplemented": true,
+      "relationshipsReviewed": true,
+      "status": "implementation-assessed-and-render-verified",
+      "remainingSourceLimitation": "Published account does not describe the selected procedure or reasons; do not invent a richer case history.",
+      "renderVerification": [
+        {
+          "route": "/our-work/ray-qanwny-fy-tlb-aflas",
+          "renderedContentFingerprint": "329bb2785a05f1e88e27a2aca5937a719bdc795335e4b3e7cd06f5b5c27eeec9",
+          "passagesChecked": 5
+        },
+        {
+          "route": "/ar/our-work/ray-qanwny-fy-tlb-aflas",
+          "renderedContentFingerprint": "f7b55f0afe9400cc0c31e001c7c3d02cad2277bc1bb6e4e2e52c6d32b844e9cb",
+          "passagesChecked": 5
+        }
+      ],
+      "revisedPublicFields": [
+        "outcomeEn",
+        "outcomeAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "relatedServiceSlugs": [
+          "business-law",
+          "companies-law"
+        ],
+        "relatedBlogSlugs": [
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh",
+          "hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh"
+        ],
+        "relatedWorkSlugs": [
+          "thlyl-mkhatr-nql-alaswl-walmsthqat-byn-alshrkat-almrtbth-athna-altsfyh"
+        ],
+        "titleEn": "Legal Opinion on a Bankruptcy Application",
+        "titleAr": "رأي قانوني في طلب افلاس",
+        "editorialUpdatedAt": "2026-09-06"
+      }
+    }
+  ],
+  "generatedAt": "2026-09-06T06:06:34.402Z",
+  "buildValidationAt": "2026-09-06 06:05:45 UTC",
+  "scope": "All work pages assessed in both languages using the recorded reading and shared-component review, with final rendered evidence. This is implementation evidence, not independent professional certification or search-engine performance.",
+  "completionState": "Recorded editorial implementation findings resolved and rendered verification passed. Publication and search-engine outcomes remain unverified.",
+  "summary": {
+    "records": 45,
+    "routes": 90,
+    "openImplementationFindings": 0
+  }
+}

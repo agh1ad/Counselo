@@ -62,6 +62,21 @@ const futurePost = {
 
 const shell = "<!doctype html><html><head><!--app-head--></head><body><div id=\"root\"></div></body></html>";
 
+test("an editorial correction reports modification without inventing professional approval", () => {
+  const html = buildDynamicBlogHtml({ ...futurePost, slug: "alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy", date: "2026-08-20", updatedAt: new Date("2026-08-20"), lastSubstantiveReviewAt: "2026-08-20" }, "en", shell);
+  assert.match(html, /Content updated: 2026-09-06/);
+  assert.match(html, /Legal leadership/);
+  assert.doesNotMatch(html, /name="reviewed-by"|"reviewedBy"|legal article reviewed by/);
+});
+
+test("a later CMS edit is not backdated by a historical correction", () => {
+  const html = buildDynamicBlogHtml({ ...futurePost, slug: "alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy" }, "en", shell);
+  assert.match(html, /Content updated: 2035-01-15/);
+  assert.match(html, /"dateModified":"2035-01-15/);
+  assert.match(html, /<nav aria-label="Related reading">/);
+  assert.match(html, /href="\/blog\/en\/almswwlyh-alaqdyh-fy-almaamlat-altjaryh"/);
+});
+
 for (const language of ["en", "ar"] as const) {
   test(`future ${language} posts receive reviewer and social preview metadata dynamically`, () => {
     const html = buildDynamicBlogHtml(futurePost, language, shell);
@@ -76,5 +91,13 @@ for (const language of ["en", "ar"] as const) {
     assert.match(html, /<meta name="twitter:card" content="summary_large_image">/);
     assert.ok(html.includes(`<meta name="reviewed-by" content="${reviewer}">`));
     assert.ok(html.includes(`>${reviewer}</a>`));
+    const visibleBody = html.split("<body>")[1].replace(/<script\b[\s\S]*?<\/script>/gi, "");
+    assert.ok(visibleBody.includes(language === "ar" ? futurePost.bodyAr : futurePost.bodyEn));
   });
 }
+
+test("route-like legacy SEO titles fall back to the descriptive article title", () => {
+  const html = buildDynamicBlogHtml({ ...futurePost, seoTitleEn: `/blog/${FUTURE_SLUG}` }, "en", shell);
+  assert.match(html, /<title>A Future Contract Article Published Without a Rebuild \| CounselO<\/title>/);
+  assert.doesNotMatch(html, new RegExp(`<title>/blog/${FUTURE_SLUG}`));
+});

@@ -198,6 +198,17 @@ export default function Vision() {
   const { isRTL } = useLanguage();
   const { region, regionPrefix } = useRegion();
   const c = isRTL ? copy.ar : copy.en;
+  const regionName = region === "uae"
+    ? (isRTL ? "الإمارات" : "the UAE")
+    : region === "syr"
+      ? (isRTL ? "سوريا" : "Syria")
+      : (isRTL ? "السعودية" : "Saudi Arabia");
+  const seoTitle = isRTL
+    ? `رؤية كاونسلو للخدمات القانونية في ${regionName} | كاونسلو`
+    : `Vision for Legal Services in ${regionName} | CounselO`;
+  const seoDescription = isRTL
+    ? `تعرّف على رؤية كاونسلو ورسالتها وقيمها للخدمات القانونية الرقمية في ${regionName}، مع الخبرة والتقنية والسرية المهنية.`
+    : `Discover CounselO's vision, mission and values for digital legal services in ${regionName}, grounded in experience, technology and confidentiality.`;
   const languageCode = isRTL
     ? region === "uae"
       ? "ar-AE"
@@ -218,9 +229,9 @@ export default function Vision() {
       "@id": `${pageUrl}#webpage`,
       url: pageUrl,
       name: c.pageName,
-      description: c.seoDescription,
+      description: seoDescription,
       inLanguage: languageCode,
-      dateModified: "2026-08-18",
+      dateModified: "2026-09-05",
       isPartOf: {
         "@type": "WebSite",
         "@id": COUNSELO_ENTITY_IDS.website,
@@ -277,8 +288,8 @@ export default function Vision() {
   return (
     <div className="counselo-editorial-page vision-manifesto-page min-h-screen overflow-hidden bg-background">
       <SEOHead
-        title={c.seoTitle}
-        description={c.seoDescription}
+        title={seoTitle}
+        description={seoDescription}
         canonical="/vision"
         keywords={c.seoKeywords}
         schema={schema}

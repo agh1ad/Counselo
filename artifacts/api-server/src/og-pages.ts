@@ -5,12 +5,24 @@ import * as fs from "fs";
 import * as path from "path";
 import * as http from "http";
 import { logger } from "./lib/logger.js";
+import { repairPublicBlogPost } from "./lib/public-blog-repairs.js";
+import { repairPublicWorkSample } from "./lib/public-work-repairs.js";
+import { prerenderedRedirect } from "./lib/prerendered-redirect.js";
+import { renderPublicBlogBody } from "./lib/public-blog-body.js";
 import {
+  LEGACY_BLOG_REDIRECTS,
   buildDiscoveryFeed,
   buildDynamicSitemap,
   buildBlogHtmlMetadata,
   buildWorkHtmlMetadata,
   articleJurisdictionLabel,
+  articleContextRegion,
+  ARTICLE_LINK_LABELS,
+  articleModifiedAt,
+  ARTICLE_CONTEXT,
+  WORK_CONTEXT,
+  workModifiedAt,
+  getServiceDefinition,
   assignArticleProvenance,
   blogLanguageAlternates,
   blogPath,
@@ -24,6 +36,7 @@ import {
   BLOG_SOCIAL_IMAGE,
   BLOG_REVIEWER_ATTRIBUTION,
   buildBlogSocialMetaTags,
+  safeSeoTitle,
 } from "@workspace/api-zod";
 
 const BASE_URL = "https://counselo-legal.com";
@@ -150,8 +163,8 @@ export function buildDynamicBlogHtml(
 ): string {
   const isArabicPost = requestedLanguage === "ar";
   const title = isArabicPost
-    ? post.seoTitleAr || post.titleAr || post.seoTitleEn || post.titleEn || SITE_NAME
-    : post.seoTitleEn || post.titleEn || post.seoTitleAr || post.titleAr || SITE_NAME;
+    ? safeSeoTitle(post.seoTitleAr, post.titleAr) || safeSeoTitle(post.seoTitleEn, post.titleEn) || SITE_NAME
+    : safeSeoTitle(post.seoTitleEn, post.titleEn) || safeSeoTitle(post.seoTitleAr, post.titleAr) || SITE_NAME;
   const brandedTitle = /(?:CounselO|كاونسلو)$/i.test(title)
     ? title
     : `${title} | ${isArabicPost ? "كاونسلو" : "CounselO"}`;
@@ -172,12 +185,9 @@ export function buildDynamicBlogHtml(
   const provenance = assignArticleProvenance(post);
   const reviewerAttribution = isArabicPost ? BLOG_REVIEWER_ATTRIBUTION.ar : BLOG_REVIEWER_ATTRIBUTION.en;
   const contentType = post.contentType ?? "professional-commentary";
-  const articleText = [post.titleEn, post.titleAr, post.excerptEn, post.excerptAr, post.bodyEn, post.bodyAr].filter(Boolean).join(" ");
-  const articleRegion = /United Arab Emirates|\bUAE\b|Dubai|Abu Dhabi|الإمارات|دبي|أبو ظبي/i.test(articleText)
-    ? "uae"
-    : /Syria|Syrian|Damascus|سوريا|السوري|دمشق/i.test(articleText)
-      ? "syr"
-      : "sa";
+  const articleRegion = articleContextRegion(post);
+  const correctionDate = ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt;
+  const editorialUpdatedAt = correctionDate ? articleModifiedAt(correctionDate, post.updatedAt, post.date) : undefined;
   const authorUrl = localizeArticleProvenanceUrl(post.primaryAuthorUrl || provenance.primaryAuthorUrl, articleRegion, requestedLanguage, "profile");
   const reviewerUrl = localizeArticleProvenanceUrl(post.legalReviewerUrl || provenance.legalReviewerUrl, articleRegion, requestedLanguage, "profile");
   const correctionUrl = localizeArticleProvenanceUrl(post.correctionUrl || provenance.correctionUrl, articleRegion, requestedLanguage, "correction");
@@ -195,7 +205,7 @@ export function buildDynamicBlogHtml(
     description,
     inLanguage: isArabicPost ? "ar" : "en",
     datePublished: post.date,
-    dateModified: provenance.lastSubstantiveReviewAt,
+    dateModified: editorialUpdatedAt ?? provenance.lastSubstantiveReviewAt,
     mainEntityOfPage: canonical,
     author: {
       "@type": "Organization",
@@ -217,18 +227,18 @@ export function buildDynamicBlogHtml(
       width: BLOG_SOCIAL_IMAGE.width,
       height: BLOG_SOCIAL_IMAGE.height,
     },
-    reviewedBy: {
+    ...(!editorialUpdatedAt ? { reviewedBy: {
       "@type": "Person",
       "@id": COUNSELO_ENTITY_IDS.omar,
       name: isArabicPost ? provenance.legalReviewerNameAr : provenance.legalReviewerName,
       jobTitle: isArabicPost ? "محامٍ ومستشار قانوني" : "Lawyer and Legal Counsel",
       url: `${BASE_URL}${reviewerUrl}`,
-    },
-    ...(contentType === "legal-guidance" ? {
+    } } : {}),
+    ...(contentType === "legal-guidance" && articleRegion ? {
       citation: provenance.sources.map((source) => source.href),
       about: {
         "@type": "LegalService",
-        areaServed: provenance.jurisdiction === "uae" ? "United Arab Emirates" : provenance.jurisdiction === "syr" ? "Syria" : "Saudi Arabia",
+        areaServed: articleRegion === "uae" ? "United Arab Emirates" : articleRegion === "syr" ? "Syria" : "Saudi Arabia",
       },
     } : {}),
   });
@@ -241,22 +251,36 @@ export function buildDynamicBlogHtml(
       description: description.slice(0, 170),
       canonical,
       language: isArabicPost ? "ar" : "en",
-      reviewerName: reviewerAttribution,
+      reviewerName: editorialUpdatedAt ? undefined : reviewerAttribution,
     })}
     <script type="application/ld+json">${articleSchema}</script>
     <script>window.__SSR_POST__=${safeJson(post)};</script>`;
-  const reviewerLabel = isArabicPost ? "تمت المراجعة بواسطة" : "Reviewed by";
+  const reviewerLabel = editorialUpdatedAt ? isArabicPost ? "القيادة القانونية" : "Legal leadership" : isArabicPost ? "تمت المراجعة بواسطة" : "Reviewed by";
   const legalFields = contentType === "legal-guidance" && provenance.jurisdiction
     ? `<p>${isArabicPost ? "الاختصاص" : "Jurisdiction"}: ${esc(articleJurisdictionLabel(provenance.jurisdiction, isArabicPost))}</p><p>${isArabicPost ? "القانون المنطبق" : "Applicable law"}: ${esc(isArabicPost ? provenance.applicableLawAr : provenance.applicableLaw)}</p><p>${isArabicPost ? "المصادر والاقتباسات" : "Sources and citations"}: ${provenance.sources.map((source) => `<a href="${esc(source.href)}">${esc(isArabicPost ? source.titleAr : source.titleEn)}</a>`).join(" · ")}</p>`
     : "";
-  const body = `<article><h1>${esc(title)}</h1><p>${esc(description)}</p><section aria-labelledby="article-provenance-heading"><h2 id="article-provenance-heading">${contentType === "legal-guidance" ? (isArabicPost ? "بيانات المراجعة والمصادر" : "Review and source information") : (isArabicPost ? "بيانات المقال التحريري" : "Editorial information")}</h2><p>${isArabicPost ? "كتب بواسطة" : "Written by"}: <a href="${esc(authorUrl)}">${esc(isArabicPost ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName)}</a></p><p>${reviewerLabel}: <a href="${esc(reviewerUrl)}">${esc(reviewerAttribution)}</a></p>${legalFields}<p>${isArabicPost ? "تاريخ النشر" : "Publication date"}: ${esc(post.date)}</p><p>${isArabicPost ? (contentType === "legal-guidance" ? "آخر مراجعة جوهرية" : "آخر مراجعة تحريرية") : (contentType === "legal-guidance" ? "Last substantive review" : "Last editorial review")}: ${esc(provenance.lastSubstantiveReviewAt)}</p><p>${esc(isArabicPost ? provenance.keyLegalUpdateNoteAr : provenance.keyLegalUpdateNote)}</p><p>${esc(isArabicPost ? provenance.contentMethodologyAr : provenance.contentMethodology)}</p><p>${isArabicPost ? "هذا المقال لأغراض توعوية ولا يشكل مشورة قانونية." : "This article is informational only and is not legal advice."} <a href="${esc(correctionUrl)}">${isArabicPost ? "الإبلاغ عن تصحيح" : "Report a correction"}</a></p></section></article>`;
+  const body = `<article><h1>${esc(title)}</h1><p>${esc(description)}</p><section aria-labelledby="article-provenance-heading"><h2 id="article-provenance-heading">${contentType === "legal-guidance" ? (isArabicPost ? "بيانات المراجعة والمصادر" : "Review and source information") : (isArabicPost ? "بيانات المقال التحريري" : "Editorial information")}</h2><p>${isArabicPost ? "كتب بواسطة" : "Written by"}: <a href="${esc(authorUrl)}">${esc(isArabicPost ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName)}</a></p><p>${reviewerLabel}: <a href="${esc(reviewerUrl)}">${esc(reviewerAttribution)}</a></p>${legalFields}<p>${isArabicPost ? "تاريخ النشر" : "Publication date"}: ${esc(post.date)}</p><p>${editorialUpdatedAt ? isArabicPost ? "تحديث المحتوى" : "Content updated" : isArabicPost ? (contentType === "legal-guidance" ? "آخر مراجعة جوهرية" : "آخر مراجعة تحريرية") : (contentType === "legal-guidance" ? "Last substantive review" : "Last editorial review")}: ${esc(editorialUpdatedAt ?? provenance.lastSubstantiveReviewAt)}</p><p>${esc(isArabicPost ? provenance.keyLegalUpdateNoteAr : provenance.keyLegalUpdateNote)}</p><p>${esc(isArabicPost ? provenance.contentMethodologyAr : provenance.contentMethodology)}</p><p>${isArabicPost ? "هذا المقال لأغراض توعوية ولا يشكل مشورة قانونية." : "This article is informational only and is not legal advice."} <a href="${esc(correctionUrl)}">${isArabicPost ? "الإبلاغ عن تصحيح" : "Report a correction"}</a></p></section></article>`;
+  const relatedArticles = (ARTICLE_CONTEXT[post.slug]?.relatedBlogSlugs ?? []).flatMap(slug => {
+    const label = ARTICLE_LINK_LABELS[slug];
+    return label ? [`<li><a href="${esc(blogPath(slug, requestedLanguage))}">${esc(label[requestedLanguage])}</a></li>`] : [];
+  });
+  const articleContext = ARTICLE_CONTEXT[post.slug];
+  const relatedCases = (articleContext?.relatedWorkSlugs ?? []).flatMap(slug => {
+    const context = WORK_CONTEXT[slug];
+    return context ? [`<li><a href="${isArabicPost ? "/ar" : ""}/our-work/${esc(slug)}">${esc(isArabicPost ? context.titleAr : context.titleEn)}</a></li>`] : [];
+  });
+  const service = articleContext?.region ? getServiceDefinition(articleContext.serviceSlug, articleContext.region) : undefined;
+  const serviceLink = service && articleContext?.region ? `<li><a href="/${articleContext.region}${isArabicPost ? "/ar" : ""}/services/${esc(service.slug)}">${esc(isArabicPost ? service.titleAr : service.titleEn)}</a></li>` : "";
+  relatedArticles.push(...relatedCases, ...(serviceLink ? [serviceLink] : []));
+  const relatedSection = relatedArticles.length ? `<nav aria-label="${isArabicPost ? "قراءات مرتبطة" : "Related reading"}"><h2>${isArabicPost ? "قراءات مرتبطة" : "Related reading"}</h2><ul>${relatedArticles.join("")}</ul></nav>` : "";
+  const bodyWithArticle = body.replace("</article>", `<div id="article-content">${renderPublicBlogBody(post, requestedLanguage)}</div>${relatedSection}</article>`);
   if (!shell) {
-    return `<!doctype html><html lang="${isArabicPost ? "ar" : "en"}" dir="${isArabicPost ? "rtl" : "ltr"}"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
+    return `<!doctype html><html lang="${isArabicPost ? "ar" : "en"}" dir="${isArabicPost ? "rtl" : "ltr"}"><head>${head}</head><body><div id="root">${bodyWithArticle}</div></body></html>`;
   }
   return shell
     .replace(/<html\b[^>]*>/i, `<html lang="${isArabicPost ? "ar" : "en"}" dir="${isArabicPost ? "rtl" : "ltr"}">`)
     .replace("<!--app-head-->", head)
-    .replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
+    .replace(/<div id="root"><\/div>/, `<div id="root">${bodyWithArticle}</div>`);
 }
 
 function buildDynamicBlogIndex(
@@ -339,7 +363,8 @@ function buildDynamicBlogIndex(
 type PublicWorkSample = Omit<typeof workSamplesTable.$inferSelect, "fileData" | "confidentialityConfirmed">;
 const { fileData: _workFileData, confidentialityConfirmed: _workConfidentiality, ...publicWorkColumns } = getTableColumns(workSamplesTable);
 
-function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | "ar"): string {
+export function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | "ar"): string {
+  sample = repairPublicWorkSample(sample);
   const isArabic = language === "ar";
   const title = (isArabic ? sample.seoTitleAr || sample.titleAr : sample.seoTitleEn || sample.titleEn) || sample.titleAr || sample.titleEn;
   const description = normalizeDescription(
@@ -360,12 +385,14 @@ function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | "ar"): 
     description,
     url: canonical,
     dateCreated: sample.date,
-    dateModified: sample.updatedAt?.toISOString?.() ?? sample.date,
+    dateModified: workModifiedAt(sample.slug, sample.updatedAt, sample.date),
     inLanguage: language,
     genre: sample.workTypeEn || sample.workTypeAr,
     contentLocation: sample.jurisdictionEn || sample.jurisdictionAr,
-    creator: { "@type": "Organization", "@id": COUNSELO_ENTITY_IDS.organization, name: "CounselO", alternateName: "كاونسلو", url: BASE_URL },
-    encoding: { "@type": "MediaObject", contentUrl: fileUrl, encodingFormat: sample.fileMimeType },
+    creator: WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law"
+      ? { "@type": "LegalService", "@id": COUNSELO_ENTITY_IDS.alBaghdadiOffice, name: "Baghdadi Law", alternateName: "البغدادي للمحاماة", url: "https://www.baghdadilaw.co" }
+      : { "@type": "Organization", "@id": COUNSELO_ENTITY_IDS.organization, name: "CounselO", alternateName: "كاونسلو", url: BASE_URL },
+    encoding: sample.fileSize > 0 ? { "@type": "MediaObject", contentUrl: fileUrl, encodingFormat: sample.fileMimeType } : undefined,
   });
   const breadcrumbs = safeJson({
     "@context": "https://schema.org",
@@ -382,12 +409,38 @@ function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | "ar"): 
     <meta property="og:description" content="${esc(description.slice(0, 170))}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${DEFAULT_OG_IMAGE}">
     <script type="application/ld+json">${schema}</script><script type="application/ld+json">${breadcrumbs}</script>
     <script>window.__SSR_WORK__=${safeJson(sample)};</script>`;
-  const body = `<main><article><h1>${esc(title)}</h1><p>${esc(description)}</p><p>${esc(sample.workTypeEn || sample.workTypeAr)} · ${esc(sample.jurisdictionEn || sample.jurisdictionAr)}</p><a href="${fileUrl}">View redacted document</a></article></main>`;
+  const localized = (en: string, ar: string) => isArabic ? ar || en : en || ar;
+  const sections = [
+    [isArabic ? "المسألة" : "The matter", localized(sample.challengeEn, sample.challengeAr)],
+    [isArabic ? "العمل الذي قمنا به" : "Work performed", localized(sample.approachEn, sample.approachAr)],
+    [isArabic ? "النتيجة أو القيمة المقدمة" : "Outcome or value delivered", localized(sample.outcomeEn, sample.outcomeAr)],
+  ].filter(([, value]) => value.trim()).map(([heading, value]) => `<section><h2>${esc(heading)}</h2><p style="white-space:pre-line">${esc(value)}</p></section>`).join("");
+  const disclaimer = isArabic ? "هذا النموذج لأغراض توضيح الخبرة المهنية فقط. عُدّلت بعض التفاصيل أو حُجبت لحماية السرية، ولا تمثل النتائج السابقة ضماناً لنتيجة أي مسألة أخرى." : "This sample demonstrates professional experience only. Details may be modified or withheld to protect confidentiality, and past work or outcomes do not guarantee the result of another matter.";
+  const context = WORK_CONTEXT[sample.slug];
+  const serviceLinks = context?.region ? context.relatedServiceSlugs.flatMap(slug => {
+    const service = getServiceDefinition(slug, context.region!);
+    return service ? [`<li><a href="/${context.region}${isArabic ? "/ar" : ""}/services/${esc(slug)}">${esc(localized(service.titleEn, service.titleAr))}</a></li>`] : [];
+  }) : [];
+  const articleLinks = (context?.relatedBlogSlugs ?? []).flatMap(slug => {
+    const label = ARTICLE_LINK_LABELS[slug];
+    return label ? [`<li><a href="${esc(blogPath(slug, language))}">${esc(label[language])}</a></li>`] : [];
+  });
+  const workLinks = (context?.relatedWorkSlugs ?? []).flatMap(slug => {
+    const related = WORK_CONTEXT[slug];
+    return related ? [`<li><a href="${isArabic ? "/ar" : ""}/our-work/${esc(slug)}">${esc(localized(related.titleEn, related.titleAr))}</a></li>`] : [];
+  });
+  const links = [...serviceLinks, ...articleLinks, ...workLinks];
+  const related = links.length ? `<nav aria-label="${isArabic ? "محتوى ذو صلة" : "Related content"}"><h2>${isArabic ? "خدمات ومحتوى ذو صلة" : "Related services and content"}</h2><ul>${links.join("")}</ul></nav>` : "";
+  const contactPath = context?.region ? `/${context.region}${isArabic ? "/ar" : ""}/contact` : `${isArabic ? "/ar" : "/"}#jurisdictions-heading${isArabic ? "-ar" : ""}`;
+  const attribution = context?.creator === "baghdadi-law" ? `<p>${isArabic ? "الجهة صاحبة الدراسة" : "Study by"}: <a href="https://www.baghdadilaw.co">${isArabic ? "البغدادي للمحاماة" : "Baghdadi Law"}</a></p>` : "";
+  const updated = context ? `<p>${isArabic ? "تحديث المحتوى" : "Content updated"}: ${esc(workModifiedAt(sample.slug, sample.updatedAt, sample.date)?.slice(0, 10) ?? sample.date)}</p>` : "";
+  const body = `<main><article><h1>${esc(localized(sample.titleEn, sample.titleAr))}</h1>${attribution}${updated}<p>${esc(localized(sample.summaryEn, sample.summaryAr))}</p><p>${esc(localized(sample.workTypeEn, sample.workTypeAr))} · ${esc(localized(sample.jurisdictionEn, sample.jurisdictionAr))}</p>${sections}<p>${esc(disclaimer)}</p>${related}<p><a href="${contactPath}">${isArabic ? "ناقش متطلباتك القانونية" : "Discuss your legal requirements"}</a></p>${sample.fileSize > 0 ? `<a href="${fileUrl}">${isArabic ? "عرض المستند المنقح" : "View redacted document"}</a>` : ""}</article></main>`;
   if (!shell) return `<!doctype html><html lang="${isArabic ? "ar" : "en"}" dir="${isArabic ? "rtl" : "ltr"}"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
   return shell.replace(/<html\b[^>]*>/i, `<html lang="${isArabic ? "ar" : "en"}" dir="${isArabic ? "rtl" : "ltr"}">`).replace("<!--app-head-->", head).replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
 }
 
 function buildDynamicWorkIndex(samples: PublicWorkSample[], language: "en" | "ar"): string {
+  samples = samples.map(repairPublicWorkSample);
   const isArabic = language === "ar";
   const visibleSamples = samples.filter((sample) => isArabic ? Boolean(sample.titleAr) : Boolean(sample.titleEn));
   const shell = getShellHtml() ?? getIndexHtml();
@@ -450,6 +503,22 @@ function proxyToVite(req: Request, res: Response): void {
 }
 
 export function registerOgPageRoutes(app: Express): void {
+  for (const [source, destination] of Object.entries(LEGACY_BLOG_REDIRECTS)) app.get(source, (_req, res) => {
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
+    return res.redirect(301, destination);
+  });
+  // Replit's production server must emit HTTP redirects, not serve a 200 meta refresh.
+  const consolidationTargets = new Map<string, string | undefined>();
+  app.get(/^\/uae(?:\/ar)?\/services\/[^/]+\/[^/]+$/, (req, res, next) => {
+    if (!consolidationTargets.has(req.path)) {
+      const file = findPrerenderedFile(req.path);
+      consolidationTargets.set(req.path, file ? prerenderedRedirect(fs.readFileSync(file, "utf8"), req.path) : undefined);
+    }
+    const destination = consolidationTargets.get(req.path);
+    if (!destination) return next();
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
+    res.redirect(301, destination);
+  });
   // The index and regional/core child sitemaps are build artifacts. Blog and
   // work child sitemaps stay database-backed so newly published records appear
   // immediately while drafts/unpublished records never leak into discovery.
@@ -482,8 +551,8 @@ export function registerOgPageRoutes(app: Express): void {
       res.send(
         buildDynamicSitemap(
           baseXml,
-          filename === "sitemap-blog.xml" ? posts : [],
-          filename === "sitemap-work.xml" ? samples : [],
+          filename === "sitemap-blog.xml" ? posts.map(repairPublicBlogPost) : [],
+          filename === "sitemap-work.xml" ? samples.map(repairPublicWorkSample) : [],
         ),
       );
     } catch (err) {
@@ -507,7 +576,7 @@ export function registerOgPageRoutes(app: Express): void {
         .where(eq(workSamplesTable.published, true));
       res.type("application/rss+xml");
       res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
-      res.send(buildDiscoveryFeed(posts, samples));
+      res.send(buildDiscoveryFeed(posts.map(repairPublicBlogPost), samples.map(repairPublicWorkSample)));
     } catch (err) {
       logger.error({ err }, "Failed to generate discovery feed");
       res.status(503).type("text/plain").send("Feed temporarily unavailable");
@@ -602,10 +671,11 @@ export function registerOgPageRoutes(app: Express): void {
   });
 
   app.get("/ar/our-work/:slug", async (req, res) => {
-    const [sample] = await db
+    const [rawSample] = await db
       .select(publicWorkColumns)
       .from(workSamplesTable)
       .where(and(eq(workSamplesTable.slug, String(req.params["slug"] ?? "")), eq(workSamplesTable.published, true)));
+    const sample = rawSample ? repairPublicWorkSample(rawSample) : undefined;
     if (!sample) {
       sendNotFound(res);
       return;
@@ -630,10 +700,11 @@ export function registerOgPageRoutes(app: Express): void {
   });
 
   app.get("/our-work/:slug", async (req, res) => {
-    const [sample] = await db
+    const [rawSample] = await db
       .select(publicWorkColumns)
       .from(workSamplesTable)
       .where(and(eq(workSamplesTable.slug, String(req.params["slug"] ?? "")), eq(workSamplesTable.published, true)));
+    const sample = rawSample ? repairPublicWorkSample(rawSample) : undefined;
     if (!sample) {
       sendNotFound(res);
       return;
@@ -664,7 +735,7 @@ export function registerOgPageRoutes(app: Express): void {
       .where(eq(blogPostsTable.published, true));
     res.type("html");
     res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
-    res.send(buildDynamicBlogIndex(posts, "ar"));
+    res.send(buildDynamicBlogIndex(posts.map(repairPublicBlogPost), "ar"));
   });
 
   app.get(["/blog/en/:slug", "/blog/ar/:slug"], async (req, res) => {
@@ -679,18 +750,19 @@ export function registerOgPageRoutes(app: Express): void {
           eq(blogPostsTable.published, true),
         ),
       );
-    if (!post) {
+    const repairedPost = post ? repairPublicBlogPost(post) : undefined;
+    if (!repairedPost) {
       sendNotFound(res);
       return;
     }
-    if (!hasQualityBilingualBlogContent(post)) {
+    if (!hasQualityBilingualBlogContent(repairedPost)) {
       sendNotFound(res);
       return;
     }
     res.type("html");
     res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
     res.setHeader("X-CounselO-Page-Source", "live-blog-database");
-    res.send(buildDynamicBlogHtml(post, language));
+    res.send(buildDynamicBlogHtml(repairedPost, language));
   });
 
   app.get("/blog/:slug", async (req, res) => {
@@ -704,16 +776,17 @@ export function registerOgPageRoutes(app: Express): void {
           eq(blogPostsTable.published, true),
         ),
       );
-    if (!post) {
+    const repairedPost = post ? repairPublicBlogPost(post) : undefined;
+    if (!repairedPost) {
       sendNotFound(res);
       return;
     }
-    if (!hasQualityBilingualBlogContent(post)) {
+    if (!hasQualityBilingualBlogContent(repairedPost)) {
       sendNotFound(res);
       return;
     }
     res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
-    res.redirect(301, blogPath(post.slug, "en"));
+    res.redirect(301, blogPath(repairedPost.slug, "en"));
   });
 
   app.get("/blog", async (_req, res) => {
@@ -723,7 +796,7 @@ export function registerOgPageRoutes(app: Express): void {
       .where(eq(blogPostsTable.published, true));
     res.type("html");
     res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
-    res.send(buildDynamicBlogIndex(posts, "en"));
+    res.send(buildDynamicBlogIndex(posts.map(repairPublicBlogPost), "en"));
   });
 
   /**

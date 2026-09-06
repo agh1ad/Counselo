@@ -5,7 +5,7 @@ import { ArrowRight, BadgeCheck, BriefcaseBusiness, FileCheck2, FileText, Langua
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized } from "@/lib/work-samples";
+import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized, workSamplePath } from "@/lib/work-samples";
 import { fetchPublicJson } from "@/lib/public-api";
 import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod/browser";
 
@@ -83,7 +83,7 @@ export default function OurWork() {
         "@type": "ListItem",
         position: index + 1,
         name: localized(sample.titleEn, sample.titleAr, lang),
-        url: `https://counselo-legal.com${workBasePath}/${sample.slug}`,
+        url: `https://counselo-legal.com${workSamplePath(sample, ar)}`,
       })),
     },
     {
@@ -162,7 +162,7 @@ export default function OurWork() {
                       <div className="flex items-center gap-2"><Scale className="h-3.5 w-3.5" />{ui.completed}: {formatWorkDate(sample.date, lang)}</div>
                       <div className="flex items-center gap-2"><Languages className="h-3.5 w-3.5" />{ui.docLanguage}: {documentLanguageLabel(sample.documentLanguage, lang)}</div>
                     </div>
-                    <Link href={`${workBasePath}/${sample.slug}`} className="mt-5 inline-flex items-center justify-between font-semibold text-primary hover:underline">{ui.view}<ArrowRight className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} /></Link>
+                    <Link href={workSamplePath(sample, ar)} className="mt-5 inline-flex items-center justify-between font-semibold text-primary hover:underline">{ui.view}<ArrowRight className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} /></Link>
                   </div>
                 </m.article>
               );

@@ -4,8 +4,13 @@ export * from "./region-services";
 export * from "./regional-seo";
 export * from "./public-site-policy";
 export * from "./article-provenance";
+export * from "./article-context";
+export * from "./article-link-labels";
+export * from "./work-context";
 export * from "./blog-social-metadata";
 export * from "./testimonial-governance";
 export * from "./entity-architecture";
 export * from "./consultation-products";
 export * from "./platform-positioning";
+
+export { LEGACY_BLOG_REDIRECTS } from "./legacy-blog-redirects";

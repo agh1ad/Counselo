@@ -11,9 +11,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { type WorkSamplePublic, localized } from "@/lib/work-samples";
+import { type WorkSamplePublic, localized, workSamplePath } from "@/lib/work-samples";
 import { fetchPublicJson } from "@/lib/public-api";
 import { blogPath } from "@workspace/api-zod/browser";
+import { workJurisdictionRegion } from "@/lib/work-jurisdiction";
 
 type LatestContentCarouselsProps = {
   isArabic: boolean;
@@ -142,28 +143,18 @@ export function LatestContentCarousels({
     const assignedPosts = serviceSlug
       ? regionalPosts.filter((post) => post.relatedServiceSlugs?.includes(serviceSlug))
       : regionalPosts;
-    // AI-assigned relationships are preferred. The regional fallback keeps
-    // older records discoverable until their metadata is backfilled.
-    return newestFirst(assignedPosts.length > 0 ? assignedPosts : regionalPosts).slice(0, 10);
+    // Service pages show assigned context only; the libraries retain all records.
+    return newestFirst(assignedPosts).slice(0, serviceSlug ? 3 : 10);
   }, [posts, region, serviceSlug]);
   const latestWork = useMemo(
     () => {
       const regionalWork = workSamples
         .filter((sample) => sample.published !== false)
-        .filter((sample) => matchesRegion(
-          `${sample.jurisdictionEn} ${sample.jurisdictionAr} ${sample.titleEn} ${sample.titleAr} ${sample.summaryEn} ${sample.summaryAr} ${sample.challengeEn} ${sample.challengeAr} ${sample.approachEn} ${sample.approachAr} ${sample.outcomeEn} ${sample.outcomeAr}`,
-          region,
-        ));
+        .filter((sample) => !region || workJurisdictionRegion(sample.jurisdictionEn, sample.jurisdictionAr) === region);
       const assigned = serviceSlug
         ? regionalWork.filter((sample) => sample.relatedServiceSlugs?.includes(serviceSlug))
         : regionalWork;
-      const jurisdictionMatches = (assigned.length > 0 ? assigned : regionalWork).filter((sample) =>
-        matchesRegion(
-          `${sample.jurisdictionEn} ${sample.jurisdictionAr} ${sample.titleEn} ${sample.titleAr} ${sample.summaryEn} ${sample.summaryAr} ${sample.challengeEn} ${sample.challengeAr} ${sample.approachEn} ${sample.approachAr} ${sample.outcomeEn} ${sample.outcomeAr}`,
-          region,
-        ),
-      );
-      return newestFirst(jurisdictionMatches).slice(0, 10);
+      return newestFirst(assigned).slice(0, serviceSlug ? 3 : 10);
     },
     [region, serviceSlug, workSamples],
   );
@@ -246,11 +237,11 @@ export function LatestContentCarousels({
           <p className="text-lg leading-relaxed text-muted-foreground">
             {isService
               ? isArabic
-                ? "محتوى إضافي عيّنه النظام تلقائياً لهذه الخدمة."
-                : "Additional content automatically assigned to this service."
+                ? "مقالات وأعمال قانونية مرتبطة بهذه الخدمة."
+                : "Legal articles and work related to this service."
               : isArabic
-                ? "محتوى حقيقي يُحدَّث تلقائياً عند نشر مقال أو نموذج عمل جديد."
-                : "Real content that updates automatically whenever a new article or work sample is published."}
+                ? "اطّلع على أحدث التحليلات القانونية ودراسات العمل المنشورة."
+                : "Explore recent legal analysis and published case studies."}
           </p>
           </div>
           <Link href={isArabic ? "/ar/legal-library" : "/legal-library"} className="group inline-flex w-fit shrink-0 items-center gap-3 border-b border-primary pb-1 font-semibold text-primary">
@@ -375,7 +366,7 @@ export function LatestContentCarousels({
                           </span>
                         </div>
                       )}
-                      <CardLink href={`${isArabic ? "/ar" : ""}/our-work/${sample.slug}`} isArabic={isArabic}>
+                      <CardLink href={workSamplePath(sample, isArabic)} isArabic={isArabic}>
                         {isArabic ? "عرض نموذج العمل" : "View work sample"}
                       </CardLink>
                     </article>

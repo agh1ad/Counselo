@@ -1,0 +1,2366 @@
+{
+  "scope": "All article pages assessed in both languages using the recorded reading and shared-component review, with final rendered evidence. This is implementation evidence, not independent professional certification or search-engine performance.",
+  "snapshot": "output/seo/articles-public-snapshot.json",
+  "pages": [
+    {
+      "slug": "mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh",
+      "routes": [
+        "/blog/en/mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh",
+        "/blog/ar/mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh"
+      ],
+      "bodyFingerprint": "d1bbf7f412c2bc3a3ad9d20c4f832ee706958d22991a771a67aa321698a9400f",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Settlement versus litigation decision is substantive and bilingual. Published related-work assignments were unrelated, including Syrian mediation. Replace with the capital-recovery case explicitly cited in the body. Its work record says cross-border, so do not assign Saudi jurisdiction merely from riyal amounts. Preserve case-specific outcomes without extending them to future clients.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh",
+          "renderedContentFingerprint": "7bd99a0c940068b7d2f78488e211699726e316e53b1b334415bd01103e1fdc79",
+          "passagesChecked": 56
+        },
+        {
+          "route": "/blog/ar/mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh",
+          "renderedContentFingerprint": "12f4ee1c96cd0222915342e3315622724088e0838443ed6496fe759bd1fb611b",
+          "passagesChecked": 56
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": null,
+        "serviceSlug": "business-law",
+        "relatedWorkSlugs": [
+          "kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary"
+        ],
+        "relatedBlogSlugs": [
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh",
+          "hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Compare settlement and litigation through evidence, recovery prospects, cost, timing and enforceability before choosing how to resolve a commercial dispute.",
+        "ar": "قارن بين الصلح والتقاضي من حيث الأدلة وفرص التحصيل والتكلفة والوقت وقابلية التنفيذ قبل اختيار مسار تسوية النزاع التجاري."
+      }
+    },
+    {
+      "slug": "mta-ysthq-alwsyt-altjary-kaml-amwlth",
+      "routes": [
+        "/blog/en/mta-ysthq-alwsyt-altjary-kaml-amwlth",
+        "/blog/ar/mta-ysthq-alwsyt-altjary-kaml-amwlth"
+      ],
+      "bodyFingerprint": "52d541b683aae5cb32749a1518433347350fa6655b66dbafde9cfbfed9500814",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Distinguishes commission existence, calculation base and payment milestones. Arithmetic 3480000 to 584131 supports approximately 83.2 percent reduction. Replace unrelated mediation/employment links with the actual commission case after its narrative is checked. Country assignment still needs that corroboration.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/mta-ysthq-alwsyt-altjary-kaml-amwlth",
+          "renderedContentFingerprint": "b1b0e29898739785b21658f332fc77d9558c965f03baa36da4f0791639a28555",
+          "passagesChecked": 58
+        },
+        {
+          "route": "/blog/ar/mta-ysthq-alwsyt-altjary-kaml-amwlth",
+          "renderedContentFingerprint": "0052b242071bd93ba07546fac6b30d062eefa903d15abbeb15a544e8933e48d1",
+          "passagesChecked": 58
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "business-law",
+        "relatedWorkSlugs": [
+          "kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal"
+        ],
+        "relatedBlogSlugs": [
+          "lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa",
+          "athbat-alaqwd-amam-alqda-alsawdy",
+          "hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Assess a broker’s commission claim by separating the agreed rate, payment trigger, completed work and proof of the underlying transaction.",
+        "ar": "قيّم المطالبة بعمولة الوساطة من خلال نسبة العمولة وشرط استحقاقها والعمل المنجز والأدلة على الصفقة الأصلية."
+      }
+    },
+    {
+      "slug": "hyn-ykwn-alaqrar-aqwa-mn-alankar",
+      "routes": [
+        "/blog/en/hyn-ykwn-alaqrar-aqwa-mn-alankar",
+        "/blog/ar/hyn-ykwn-alaqrar-aqwa-mn-alankar"
+      ],
+      "bodyFingerprint": "3386083a8036bd6bccf6bf1178699fd3e70e77da0ae2df60c37375d185b72f7d",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Real estate transfer and attachment scope, not employment. Correct category and service. MOJ source link is present but carries chatgpt tracking. General statements that attachment does not affect entitlement need conditional wording based on chronology and priority; subdivision requirement needs current source check.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/hyn-ykwn-alaqrar-aqwa-mn-alankar",
+          "renderedContentFingerprint": "c8fb20242ea37d6911168adc1f55d1dd5b1301d55ea73d64960627f23cfab1d6",
+          "passagesChecked": 85
+        },
+        {
+          "route": "/blog/ar/hyn-ykwn-alaqrar-aqwa-mn-alankar",
+          "renderedContentFingerprint": "39455726a7245d37591a12cdb7c040b40ef02aae89908982a849dfcb774b5767",
+          "passagesChecked": 85
+        }
+      ],
+      "revisedPublicFields": [
+        "categoryEn",
+        "categoryAr",
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "real-estate",
+        "relatedWorkSlugs": [],
+        "categoryEn": "Real Estate",
+        "categoryAr": "العقارات",
+        "relatedBlogSlugs": [
+          "mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+          "athbat-alaqwd-amam-alqda-alsawdy",
+          "alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "How admissions, sale documents and restrictions on title transfer affect the handling of a Saudi property dispute and the relief requested.",
+        "ar": "كيف يؤثر الإقرار ومستندات البيع وقيود الإفراغ في إدارة النزاع العقاري السعودي وتحديد الطلب المناسب أمام المحكمة."
+      }
+    },
+    {
+      "slug": "lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa",
+      "routes": [
+        "/blog/en/lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa",
+        "/blog/ar/lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa"
+      ],
+      "bodyFingerprint": "1b6dca6ce94787c434022d5152b87c7417d5c0d718013eb9b8a3f8345094b68e",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi commercial defense separates principal, damages and proof. Official Evidence Law Article 2 supports burden/relevance proposition. Arithmetic 500000 minus 227000 equals 273000 or 54.6 percent. Link exact matching case rather than unrelated Syrian and criminal work. Add precise source references for general statutory propositions.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa",
+          "renderedContentFingerprint": "956e82d9a7f097750b5bfcf8719a13065072dd16d421013b525285574c5bba19",
+          "passagesChecked": 52
+        },
+        {
+          "route": "/blog/ar/lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa",
+          "renderedContentFingerprint": "e56a60796cb548de70470e59e541efcb110f952f53203af0f5d388ac3630daa2",
+          "passagesChecked": 52
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "business-law",
+        "relatedWorkSlugs": [
+          "kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227"
+        ],
+        "relatedBlogSlugs": [
+          "almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+          "athbat-alaqwd-amam-alqda-alsawdy",
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Break a Saudi commercial claim into its contractual basis, calculations, evidence and alleged loss before assessing liability and preparing a defence.",
+        "ar": "فكك المطالبة التجارية السعودية إلى أساسها التعاقدي وحساباتها وأدلتها والضرر المدعى به قبل تقييم المسؤولية وإعداد الدفاع."
+      }
+    },
+    {
+      "slug": "mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy",
+      "routes": [
+        "/blog/en/mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy",
+        "/blog/ar/mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy"
+      ],
+      "bodyFingerprint": "3bbec430b1c9db1348d335cc10b7041fdbf1c4b6a05fc49035e5e6a8b98d53d4",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi abuse-of-rights intent is explicit; appropriate exceptions and conditional remedies present. Articles 28 and 29 require verification against official full text and a precise source link. No Saudi civil-law service exists, so contracts is a valid relevant service.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy",
+          "renderedContentFingerprint": "81467c3649174f8672513a1b7d0e49835adb2d6e291795db96fbb031cae54ec3",
+          "passagesChecked": 31
+        },
+        {
+          "route": "/blog/ar/mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy",
+          "renderedContentFingerprint": "77a74601c374acce11e2bb119b09e3cca729e911223bd1b673374f3a05ac9ab3",
+          "passagesChecked": 31
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+          "altwsyat-alamlyh-lsyaghh-aqd-qwy",
+          "Penalty-clause-in-saudi"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Understand the Saudi Civil Transactions Law’s limits on exercising rights and the facts that may distinguish legitimate use from abuse.",
+        "ar": "تعرّف إلى حدود استعمال الحق في نظام المعاملات المدنية السعودي والوقائع التي قد تميز الاستعمال المشروع عن التعسف."
+      }
+    },
+    {
+      "slug": "mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "routes": [
+        "/blog/en/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+        "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh"
+      ],
+      "bodyFingerprint": "6866942ab8f034c6ebc742341d190a18eabc3fcc0acb93d4fd446a8285f9f17c",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Reconsideration versus appeal is useful, but introduction says three rulings while first and third discuss the same case. Verify cited Supreme Court reference and Article 200. Correct framing to three analytical points unless three distinct rulings can be established; remove unrelated criminal-service assignment. Link actual reconsideration work. Official MOJ search identifies Supreme Court decision 431405 and confirms objection 421831124. Corrected three-rulings wording to three analytical points and linked identified decision/statute; unreferenced examples are clearly distinguished.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+          "renderedContentFingerprint": "ce52b9dfa9eb7d7ce2db48c99136768ce5dd7fef429a302324b6777c8d66b9a5",
+          "passagesChecked": 45
+        },
+        {
+          "route": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+          "renderedContentFingerprint": "01c6a6dd859a995a69ce55ed52faa565a6c86171390bc4b7200023c242ae6046",
+          "passagesChecked": 45
+        }
+      ],
+      "revisedPublicFields": [
+        "titleEn",
+        "titleAr",
+        "excerptEn",
+        "excerptAr",
+        "seoTitleAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "serviceSlug": "enforcement",
+        "relatedWorkSlugs": [
+          "tfkyk-mstndat-altmas-aaadh-alnzr-bnjah"
+        ],
+        "editorialUpdatedAt": "2026-09-06",
+        "relatedBlogSlugs": [
+          "athbat-alaqwd-amam-alqda-alsawdy",
+          "mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "A review of the cited Saudi rulings on reconsideration, decisive documents and the limits of presenting new evidence after judgment.",
+        "ar": "قراءة في الأحكام السعودية المشار إليها بشأن التماس إعادة النظر والأوراق القاطعة وحدود تقديم أدلة جديدة بعد الحكم."
+      }
+    },
+    {
+      "slug": "alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy",
+      "routes": [
+        "/blog/en/alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy",
+        "/blog/ar/alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy"
+      ],
+      "bodyFingerprint": "73317d74d064d8096bf5330e3729d640c70c255c65edc127ce344ecc81e18a93",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Distinguishes note face value, underlying debt, replacement and settlement. Official Umm Al-Qura new Enforcement Law published 2026-05-01 provides 180-day deferred commencement in Article 65. Added targeted bilingual commencement corrections. Existing official URLs were incorrectly labelled King Abdulaziz University; correction labels Umm Al-Qura. Needs render/API regression and attribution/date assessment for substantive correction.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy",
+          "renderedContentFingerprint": "a8d5040c91f482ddd56dd1880c858ab54a537a73d4329e090705062724e6ba2f",
+          "passagesChecked": 76
+        },
+        {
+          "route": "/blog/ar/alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy",
+          "renderedContentFingerprint": "19908f27cab63f18bc2b36030757eccba74e363446afc2d8813caac13ee75896",
+          "passagesChecked": 76
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "serviceSlug": "enforcement",
+        "relatedWorkSlugs": [
+          "astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal",
+          "hdwd-mswwlyh-alkfyl-fy-alsnd-lamr"
+        ],
+        "editorialUpdatedAt": "2026-09-06",
+        "relatedBlogSlugs": [
+          "almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+          "alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+          "Penalty-clause-in-saudi"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Review a Saudi promissory note’s purpose, amount and relationship to the underlying debt before assessing enforcement exposure and available objections.",
+        "ar": "راجع غرض السند لأمر ومبلغه وصلته بالدين الأصلي قبل تقييم مخاطر التنفيذ والاعتراضات الممكنة في السعودية."
+      }
+    },
+    {
+      "slug": "alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny",
+      "routes": [
+        "/blog/en/alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny",
+        "/blog/ar/alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny"
+      ],
+      "bodyFingerprint": "03ff20a8da229d5b172281cb22f3effd501a1010a740b898c78b8c31c7251f98",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. General defects article misnames Saudi statute and overgeneralizes repair, replacement, compensation and effects of known defects. Needs conditional sale-law analysis and separation of physical defects from title/encumbrance disputes. Original body credits BaghdadiLaw; preserve true attribution or explicitly distinguish new editorial additions. Source check under way.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny",
+          "renderedContentFingerprint": "5b2052c3f7d37a7b592083fe65ca50e9cfdfcfa3296595d425b328b456f642fd",
+          "passagesChecked": 38
+        },
+        {
+          "route": "/blog/ar/alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny",
+          "renderedContentFingerprint": "4ab006eefc96702a4a38104ba902049327c45b3a8ac28095934514778f906f40",
+          "passagesChecked": 38
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "commercial-supply-contracts-in-saudi",
+          "aqwd-almqawlat-fy-alnzam-alsawdy",
+          "alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Assess hidden defects in a Saudi sale through disclosure, buyer knowledge, notice, evidence and the statutory limits on warranty claims.",
+        "ar": "قيّم العيب الخفي في البيع السعودي من خلال الإفصاح وعلم المشتري والإخطار والأدلة والقيود النظامية على دعوى الضمان."
+      }
+    },
+    {
+      "slug": "hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+      "routes": [
+        "/blog/en/hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+        "/blog/ar/hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya"
+      ],
+      "bodyFingerprint": "364bf994b4d4c7a61308e8ce56199d3d800777806f13f5eed835b01fe3766cef",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Practical pre-signing review covers commercial role, control of risk, commissions, survival, forum and final document checks. No single jurisdiction established. Replace inherited Saudi default with jurisdiction choice and curate actual related work after narrative review.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+          "renderedContentFingerprint": "1bb59ea97b241fc0ae3f2cddb026357aade0f97703031c3e36927a45d3e49c2f",
+          "passagesChecked": 51
+        },
+        {
+          "route": "/blog/ar/hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+          "renderedContentFingerprint": "4f9ce84e51a0c329b1b8b9d59faf092f9d003621c6551c6a90d393cb5e00d251",
+          "passagesChecked": 51
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": null,
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [
+          "mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh",
+          "altfawd-alqanwny-aldhky"
+        ],
+        "relatedBlogSlugs": [
+          "syghh-mdhkrh-tfahm-qablh-lltadyl",
+          "mnhjyh-5why-fy-alaml-alqanwny",
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "A practical contract review approach covering obligations, payment, acceptance, liability and dispute terms before a draft becomes a signed commitment.",
+        "ar": "منهج عملي لمراجعة الالتزامات والسداد والقبول والمسؤولية وشروط النزاع قبل تحول مسودة العقد إلى التزام موقع."
+      }
+    },
+    {
+      "slug": "mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+      "routes": [
+        "/blog/en/mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+        "/blog/ar/mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh"
+      ],
+      "bodyFingerprint": "6645a707b10fd8675ab572fb4da223bd9d0c9d2f72dc888b9436435b412ad386",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi employee audit-record signature and admission, not corporate-commercial. Correct service to employment. Add official Evidence Law source for judicial/nonjudicial admissions. Fix Arabic heading typo المحضرك and closing spelling; retain contextual assessment rather than treating a reservation as immunity.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+          "renderedContentFingerprint": "a03aa898fe81e162f99562823ed8effd19c295ac84d8d4a79bdd6eb540d0d22d",
+          "passagesChecked": 44
+        },
+        {
+          "route": "/blog/ar/mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+          "renderedContentFingerprint": "6921890aeef129f189d156a7fd692d32a7193b92c5b3db4e1c6c76cab95f7dc9",
+          "passagesChecked": 44
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "employment-law",
+        "relatedWorkSlugs": [
+          "kyf-adart-kawnslw-mrajah-mhasbyh-hsash"
+        ],
+        "relatedBlogSlugs": [
+          "anha-aqd-alaml-bdwn-sbb-mshrwa",
+          "altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+          "athbat-alaqwd-amam-alqda-alsawdy"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Distinguish an employee’s signed internal audit record from a judicial admission and examine its wording, supporting evidence and circumstances.",
+        "ar": "ميّز بين توقيع العامل على محضر مراجعة داخلي والإقرار القضائي، وافحص صياغة المحضر والأدلة المؤيدة وظروف التوقيع."
+      }
+    },
+    {
+      "slug": "alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+      "routes": [
+        "/blog/en/alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+        "/blog/ar/alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh"
+      ],
+      "bodyFingerprint": "7dcf327170e3603f84569ded953cd506e52a55ead8ddcc3721af151db82a604b",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi rescission versus damages, conditional and useful. Correct discovery to contracts. Need precise Civil Transactions Law source; retain original named supervisor attribution in body without inventing new approval.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+          "renderedContentFingerprint": "e6d56f4c14df80af0c5aadce57fda04215de84b4ee8fbd2018aa617361b36d56",
+          "passagesChecked": 44
+        },
+        {
+          "route": "/blog/ar/alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+          "renderedContentFingerprint": "470569a46ff37043d96898702d65008a480edaf29c5935bb1b88406eb955aecc",
+          "passagesChecked": 44
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [
+          "kyf-qadt-astratyjyh-kawnslw-ila-rfd-dawa-fskh-aqd-bya-wtawydat-bmlayyn-alryalat",
+          "fskh-aqd-snaay-wastrdad-aldfah-almqdmh"
+        ],
+        "relatedBlogSlugs": [
+          "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+          "Penalty-clause-in-saudi"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Compare rescission and damages under Saudi contract law, including breach, notice, loss and when the two remedies may be sought together.",
+        "ar": "قارن بين الفسخ والتعويض في العقود السعودية من حيث الإخلال والإعذار والضرر والحالات التي يمكن فيها الجمع بين الطلبين."
+      }
+    },
+    {
+      "slug": "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh",
+      "routes": [
+        "/blog/en/bna-astratyjyh-aldfaa-qbl-bd-alkhswmh",
+        "/blog/ar/bna-astratyjyh-aldfaa-qbl-bd-alkhswmh"
+      ],
+      "bodyFingerprint": "7fffbec0d729792c1bf8952f178b77744b6878a31a2361e12c9e04de045161f2",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. General pre-litigation document/defense method, no single country established. Use jurisdiction choice and relevant discovery. Retain substantive chronology, anticipated case, evidence and settlement discussion.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/bna-astratyjyh-aldfaa-qbl-bd-alkhswmh",
+          "renderedContentFingerprint": "11e9f5ccd6ee2fd187e01749a49849ee72c0f1315a746f1a5f0fe411b352f251",
+          "passagesChecked": 58
+        },
+        {
+          "route": "/blog/ar/bna-astratyjyh-aldfaa-qbl-bd-alkhswmh",
+          "renderedContentFingerprint": "072f8a3f01e78098b62af264e7d51a376ee0a2db4ef10d2bf3b59406e83f87a3",
+          "passagesChecked": 58
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": null,
+        "serviceSlug": "business-law",
+        "relatedWorkSlugs": [
+          "darsh-qdyh-qbl-alnzaa",
+          "thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd"
+        ],
+        "relatedBlogSlugs": [
+          "mnhjyh-5why-fy-alaml-alqanwny",
+          "mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh",
+          "hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Prepare for a threatened commercial claim by preserving records, mapping events, testing the claimed amounts and identifying the correct dispute route.",
+        "ar": "استعد للمطالبة التجارية المحتملة بحفظ المستندات وترتيب الوقائع وفحص المبالغ المطلوبة وتحديد مسار النزاع المناسب."
+      }
+    },
+    {
+      "slug": "mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa",
+      "routes": [
+        "/blog/en/mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa",
+        "/blog/ar/mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa"
+      ],
+      "bodyFingerprint": "58ac3358cbda92e5fe9ce786dec671eb6f8f6f0563bea89aec9f0568a46a15c7",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi arbitration scope/validity versus activation; wording is conditional. Existing source is official UQN issue 4413 October 2022, described vaguely as recent. Need identify exact amendment and avoid relative recency language.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa",
+          "renderedContentFingerprint": "fb933e3b8771c0d53b468b69df3a292068dba6f37b0928f32098d54eb15f9518",
+          "passagesChecked": 30
+        },
+        {
+          "route": "/blog/ar/mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa",
+          "renderedContentFingerprint": "404939159ada58de09d3adfae49d41cd8647b221f9cf8fd23a547094b83b5e85",
+          "passagesChecked": 30
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "arbitration",
+        "relatedWorkSlugs": [
+          "kyf-sahmt-kawnslw-fy-anjah-mlf-thkymy-kaml"
+        ],
+        "relatedBlogSlugs": [
+          "altwsyat-alamlyh-lsyaghh-aqd-qwy",
+          "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Check a Saudi arbitration clause’s scope, validity and procedural use, including when an objection must be raised before the court.",
+        "ar": "افحص نطاق شرط التحكيم السعودي وصحته واستخدامه الإجرائي، بما في ذلك توقيت إبداء الدفع أمام المحكمة."
+      }
+    },
+    {
+      "slug": "altwqya-ala-byad",
+      "routes": [
+        "/blog/en/altwqya-ala-byad",
+        "/blog/ar/altwqya-ala-byad"
+      ],
+      "bodyFingerprint": "071c2a9f03d08655655f8177c5d22f5cf1a03155b2ce1e28cada3bba14de129a",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Historical Al-Sanhuri quotation includes Penal Code 340 and sweeping evidentiary statements. Added explicit historical scope and practical record-preparation introduction; removed Saudi default. Preserve original citation and authorship, do not represent historical quote as current local law.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/altwqya-ala-byad",
+          "renderedContentFingerprint": "cc8215e7a52ce31cd39d7a47f6b8c2ecf9970de573f8e5249adbfc829feeabbd",
+          "passagesChecked": 14
+        },
+        {
+          "route": "/blog/ar/altwqya-ala-byad",
+          "renderedContentFingerprint": "cc571dce08226d98a035d2511fdfaf11dce6545639d03b8bb14144162409da87",
+          "passagesChecked": 14
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": null,
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "editorialUpdatedAt": "2026-09-06",
+        "relatedBlogSlugs": [
+          "hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+          "syghh-mdhkrh-tfahm-qablh-lltadyl"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "A historical discussion of Al-Sanhuri’s analysis of signing in blank, entrusted completion and proof of misuse, subject to the applicable local law.",
+        "ar": "عرض فقهي تاريخي لتحليل السنهوري للتوقيع على بياض والكتابة المؤتمن عليها وإثبات إساءة الاستعمال، مع مراعاة القانون المحلي المنطبق."
+      }
+    },
+    {
+      "slug": "mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm",
+      "routes": [
+        "/blog/en/mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm",
+        "/blog/ar/mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm"
+      ],
+      "bodyFingerprint": "63424964a722c00f775f75556db57f04ef3c5ff54022a986b8a2417484f807ec",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi administrative annulment covers material grounds, finality, jurisdiction and non-automatic suspension. Correct invalid UAE-style service slug to administrative-law. Need direct Board of Grievances law/procedure sources.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm",
+          "renderedContentFingerprint": "ca9792b1f4bc5142c4a8990d703184508e56dc5d10c85a89c87bbbfd8515135c",
+          "passagesChecked": 23
+        },
+        {
+          "route": "/blog/ar/mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm",
+          "renderedContentFingerprint": "9752996b976eed056b35d6b4aa2b088868846c689a7615d32985b6724ae9d9a6",
+          "passagesChecked": 23
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "administrative-law",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy",
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Review the grounds for challenging a Saudi administrative decision before the Board of Grievances, alongside standing and procedural requirements.",
+        "ar": "راجع أسباب الطعن في القرار الإداري السعودي أمام ديوان المظالم، مع مراعاة الصفة والمتطلبات الإجرائية للدعوى."
+      }
+    },
+    {
+      "slug": "almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+      "routes": [
+        "/blog/en/almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+        "/blog/ar/almswwlyh-alaqdyh-fy-almaamlat-altjaryh"
+      ],
+      "bodyFingerprint": "c6e149b6424fc790be6b6008da1f4e9986eef2a65cf6d45e6834455f18c5de35",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Near-duplicate of older contractual-liability-in-commercial-transactions in both languages. Also omits causation from three conditions and oversimplifies penalty clauses to two conditions. Repurpose this newer route toward proof of breach and loss, preserving both URLs; correct the older overview separately.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+          "renderedContentFingerprint": "e3f728578961ef47e5b09e7d025ac01cd722162e933c4796f9fd22b15a112b39",
+          "passagesChecked": 19
+        },
+        {
+          "route": "/blog/ar/almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+          "renderedContentFingerprint": "f1919d642356496bad81ca72394e391e993221422a0ddf3e24f200abc71d05cb",
+          "passagesChecked": 19
+        }
+      ],
+      "revisedPublicFields": [
+        "titleEn",
+        "titleAr",
+        "excerptEn",
+        "excerptAr",
+        "seoTitleEn",
+        "seoTitleAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "contractual-liability-in-commercial-transactions",
+          "athbat-alaqwd-amam-alqda-alsawdy",
+          "lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Build a claim or defence around the obligation, performance record, cause of loss and calculation of each amount requested.",
+        "ar": "بناء المطالبة أو الدفاع انطلاقاً من الالتزام وسجل التنفيذ وسبب الضرر وحساب كل مبلغ مطلوب."
+      }
+    },
+    {
+      "slug": "syghh-mdhkrh-tfahm-qablh-lltadyl",
+      "routes": [
+        "/blog/en/syghh-mdhkrh-tfahm-qablh-lltadyl",
+        "/blog/ar/syghh-mdhkrh-tfahm-qablh-lltadyl"
+      ],
+      "bodyFingerprint": "2f62cf5b31cc2c969ae64be90e5ce5569e64164486ddd259ded8272a0e419f2e",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Useful bilingual MOU template but nonbinding clause conflicts with confidentiality and other stated undertakings. Replaced clause to distinguish binding information/notices provisions from proposed project cooperation; added completion/governing-law/forum checklist and explained 30 days is a template choice.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/syghh-mdhkrh-tfahm-qablh-lltadyl",
+          "renderedContentFingerprint": "85b552f281fd54a0d53a8fa9379fbce7a1e3bf510c11b25f9a0e1784b16c6cb1",
+          "passagesChecked": 43
+        },
+        {
+          "route": "/blog/ar/syghh-mdhkrh-tfahm-qablh-lltadyl",
+          "renderedContentFingerprint": "d0a35cefb1db74b16b38d88fdc70da7e519afa1b09cc04d4145695894799ba5c",
+          "passagesChecked": 43
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": null,
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "editorialUpdatedAt": "2026-09-06",
+        "relatedBlogSlugs": [
+          "hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+          "altwqya-ala-byad",
+          "mnhjyh-5why-fy-alaml-alqanwny"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Adapt an MOU’s purpose, cooperation terms, confidentiality and termination provisions while making clear which obligations are intended to bind the parties.",
+        "ar": "كيّف غرض مذكرة التفاهم ونطاق التعاون والسرية والإنهاء، مع توضيح الالتزامات المقصود إلزام الطرفين بها."
+      }
+    },
+    {
+      "slug": "hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+      "routes": [
+        "/blog/en/hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+        "/blog/ar/hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh"
+      ],
+      "bodyFingerprint": "9b7564b5af4d94e4e1cb96c0263797d1977bb1941d62b23b9e7cbd8292dd5b1e",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Governance article overstates cumulative voting as guaranteed representation, labels shareholder rights constitutional, treats independent-director rules and remedial mechanisms as universal and outcomes automatic. Needs scoped Saudi listed/unlisted and company-form distinctions, primary Companies Law/CMA sources, qualified outcomes.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+          "renderedContentFingerprint": "7279a088dc63bbeb19d78fd1124a797f7c636a586f5813995d089a0cea20f47d",
+          "passagesChecked": 23
+        },
+        {
+          "route": "/blog/ar/hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+          "renderedContentFingerprint": "96e490a69359b30bc2f689e35944fe962e56e71a50d1f1b2a09b1ba122cf7835",
+          "passagesChecked": 23
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "companies-law",
+        "relatedWorkSlugs": [
+          "kyf-athbtt-kawnslw-alshrakh",
+          "almttlbat-alqanwnyh-walhwkmh-aldakhlyh"
+        ],
+        "relatedBlogSlugs": [
+          "aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+          "aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "altwsyat-alamlyh-lsyaghh-aqd-qwy"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Explore Saudi minority shareholder protections through disclosure, governance controls and the conditions for judicial inspection under the Companies Law.",
+        "ar": "تعرّف إلى حماية مساهمي الأقلية في السعودية عبر الإفصاح وضوابط الحوكمة وشروط طلب التفتيش القضائي في نظام الشركات."
+      }
+    },
+    {
+      "slug": "almswwlyh-an-fal-alghyr",
+      "routes": [
+        "/blog/en/almswwlyh-an-fal-alghyr",
+        "/blog/ar/almswwlyh-an-fal-alghyr"
+      ],
+      "bodyFingerprint": "da56e54d52bd607e30afe539b50872d087c43f45e212d9de8740975dcc118dac",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both complete bodies read. General comparative commentary, not Saudi by default. Parent liability and surgeon responsibility are asserted automatically without the governing regime or defences; qualify actual supervision, law and professional independence. Replace philosophical father-benefit analogy. Country remains unspecified.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/almswwlyh-an-fal-alghyr",
+          "renderedContentFingerprint": "1b0e19aec2a91d8167d1debb91bcda4eff151e962d86313b638e98db8e695d4f",
+          "passagesChecked": 35
+        },
+        {
+          "route": "/blog/ar/almswwlyh-an-fal-alghyr",
+          "renderedContentFingerprint": "d64fadd9580f59e91f2413eb27cdb27d07f4e1a2620c202948fa27d8b3b9c144",
+          "passagesChecked": 35
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": null,
+        "serviceSlug": "civil-law",
+        "relatedWorkSlugs": [
+          "mn-alkhta-ala-altawyd-kyf-hddt-kawnslw-almswwl-almbashran-hadth",
+          "maaljh-halh-khta-tby"
+        ],
+        "relatedBlogSlugs": [
+          "almswwlyh-alaqdyh-fy-alqanwn-alswry",
+          "contractual-liability-in-commercial-transactions"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "An introductory account of liability for another person’s acts, focusing on supervision, actual authority and the connection between the act and assigned work.",
+        "ar": "مدخل إلى المسؤولية عن فعل الغير يركز على الرقابة والسلطة الفعلية وصلة الفعل بالعمل المكلف به، وفق القانون المنطبق."
+      }
+    },
+    {
+      "slug": "hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+      "routes": [
+        "/blog/en/hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+        "/blog/ar/hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry"
+      ],
+      "bodyFingerprint": "a93618cf8e2d4cf0f863bf05ea97f3b8228f4b9e7599a9898a1928daf851c377",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both full bodies read in four chunks. Long Syrian conclusive-oath case analysis distinguishes official statement force from mere existence of a document and acknowledges lack of an official digital judgment. Preserve historical/source qualification and author credit. Verify indexed primary statutory text and link the stated references; source update statement must retain an actual version date rather than imply current official certification.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+          "renderedContentFingerprint": "2d4763329d340f5f96950a9d7befae775013b13631ff99ce07d95357cfdad5be",
+          "passagesChecked": 67
+        },
+        {
+          "route": "/blog/ar/hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+          "renderedContentFingerprint": "02348a78bcd60bd40c25dcb40c9406c1937e97c985654b06780fbace4a77ae48",
+          "passagesChecked": 252
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "syr",
+        "serviceSlug": "civil-law",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "contract-interpretation-syrian-courts",
+          "alrda-fy-alqanwn-alswry",
+          "almswwlyh-alaqdyh-fy-alqanwn-alswry"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Examine the Syrian conclusive oath’s limits through statutory requirements, mandatory rules and a discussion of the cited historical court ruling.",
+        "ar": "افحص حدود اليمين الحاسمة السورية في ضوء شروطها القانونية والقواعد الآمرة ومناقشة الاجتهاد القضائي التاريخي المشار إليه."
+      }
+    },
+    {
+      "slug": "mnhjyh-5why-fy-alaml-alqanwny",
+      "routes": [
+        "/blog/en/mnhjyh-5why-fy-alaml-alqanwny",
+        "/blog/ar/mnhjyh-5why-fy-alaml-alqanwny"
+      ],
+      "bodyFingerprint": "2af7735c0e15741938f99b1ff4ebc6cebc21d804c8d4549704a0eec488d4501a",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. General 5Why methodology with evidence and multiple-cause caveats. Practical example is illustrative but not labelled expressly; replace categorical prevention/true-cause claims with conditional analysis. No country established.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/mnhjyh-5why-fy-alaml-alqanwny",
+          "renderedContentFingerprint": "853d38e75be890af51ac3244a7320e563d2466654c377ed6911a39d59fb89c10",
+          "passagesChecked": 54
+        },
+        {
+          "route": "/blog/ar/mnhjyh-5why-fy-alaml-alqanwny",
+          "renderedContentFingerprint": "ba44eed17408419ca951efaf1e9f9a78142b1f3479a567be65ccf13f5dcda6af",
+          "passagesChecked": 54
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": null,
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "bna-astratyjyh-aldfaa-qbl-bd-alkhswmh",
+          "hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+          "mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Use successive “why” questions to examine the underlying causes of a dispute, then test each explanation against documents and the factual record.",
+        "ar": "استخدم أسئلة «لماذا» المتتابعة لفحص أسباب النزاع، ثم اختبر كل تفسير بالمستندات والوقائع بدلاً من الاكتفاء بافتراضات أولية."
+      }
+    },
+    {
+      "slug": "mhl-alaqd-fy-alqanwn-alswry",
+      "routes": [
+        "/blog/en/mhl-alaqd-fy-alqanwn-alswry",
+        "/blog/ar/mhl-alaqd-fy-alqanwn-alswry"
+      ],
+      "bodyFingerprint": "d0484eba240792c1eb13e917be8725df56b80576aa09b6222ef2ebf77413131d",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Detailed Syrian subject-matter guide, Articles 132-136. Both final notices were cut off; corrected. Verify exact statutory primary text and provide link. No transplantation to Saudi jurisdiction.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/mhl-alaqd-fy-alqanwn-alswry",
+          "renderedContentFingerprint": "acd55364f8cb1b24778dfc0abe799a1d68b1b652af0e91d42c549c1d583d3f1f",
+          "passagesChecked": 55
+        },
+        {
+          "route": "/blog/ar/mhl-alaqd-fy-alqanwn-alswry",
+          "renderedContentFingerprint": "1dcdbf1c20094a3e9bc965cbda7fba42f0fbcb567b9b94fdb59d100150faa85d",
+          "passagesChecked": 55
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "syr",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "editorialUpdatedAt": "2026-09-06",
+        "relatedBlogSlugs": [
+          "alaqd-fy-alqanwn-alswry",
+          "alrda-fy-alqanwn-alswry",
+          "alahlyh-fy-altaaqd-fy-alqanwn-alswry"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Understand the requirements for a contractual obligation’s subject matter under Syrian law, including possibility, determination and legality.",
+        "ar": "تعرّف إلى شروط محل الالتزام العقدي في القانون السوري، بما فيها الإمكان والتعيين أو قابلية التعيين والمشروعية."
+      }
+    },
+    {
+      "slug": "anha-aqd-alaml-bdwn-sbb-mshrwa",
+      "routes": [
+        "/blog/en/anha-aqd-alaml-bdwn-sbb-mshrwa",
+        "/blog/ar/anha-aqd-alaml-bdwn-sbb-mshrwa"
+      ],
+      "bodyFingerprint": "58832fb1040f55122488d888eeecd0371bd4be43e2a1e52a436ad4edd9b49768",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi employment termination. Corrected Qiwa prerequisite to evidence retention plus ministry amicable-settlement route; corrected immediate final pay to Article 88 deadlines; qualified blanket leave claim. Official ministry route and current employment-law page support corrections. Further review of transfer entitlement, compensation distinctions and full citations remains.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/anha-aqd-alaml-bdwn-sbb-mshrwa",
+          "renderedContentFingerprint": "f1cfdbf78ef1db59b1872af9755585164f272418ef880fb96e80b7ded81bcb90",
+          "passagesChecked": 79
+        },
+        {
+          "route": "/blog/ar/anha-aqd-alaml-bdwn-sbb-mshrwa",
+          "renderedContentFingerprint": "a6397650411750645b711660e1f3af1557ba31674e78c87aad95531a38f8b535",
+          "passagesChecked": 79
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "serviceSlug": "employment-law",
+        "relatedWorkSlugs": [
+          "tshyh-altkyyf-alqanwny-lanha-aqd-alaml",
+          "hyn-la-tnthy-alqdyh-balhkm-alawl-kyf-qlbt-kawnslw-msar-nzaa-amaly"
+        ],
+        "editorialUpdatedAt": "2026-09-06",
+        "relatedBlogSlugs": [
+          "altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+          "mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Assess Saudi employment termination through the contract, stated reason, notice, compensation and procedural steps; mobility eligibility requires a separate check.",
+        "ar": "قيّم إنهاء العمل في السعودية من خلال العقد والسبب والإشعار والتعويض والخطوات الإجرائية، مع فحص أهلية الانتقال الوظيفي بصورة مستقلة."
+      }
+    },
+    {
+      "slug": "altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+      "routes": [
+        "/blog/en/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+        "/blog/ar/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha"
+      ],
+      "bodyFingerprint": "ba10ab8042cbd3e2deda3bb9323acdfbf4dd419ca235f2f4a124f74012548655",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi wage claim. Corrected Qiwa prerequisite, repeated-delay threshold, easy-proof claim and online-followup-preserves-limit claim. Kept conditional transfer language. Official ministry settlement link supplied. Compensation versus statutory sanction and current executable wage instruments need precise distinction.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+          "renderedContentFingerprint": "5ef02d3e8e6dbfe91f405eb825e10523f6d4e1ccea146699845746089b44fea9",
+          "passagesChecked": 48
+        },
+        {
+          "route": "/blog/ar/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+          "renderedContentFingerprint": "41bb6e1fc3f39e915cb1c336d26d9def0e9091c9df5e9d652260b39e7d12a8b5",
+          "passagesChecked": 48
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "serviceSlug": "employment-law",
+        "relatedWorkSlugs": [
+          "tshyh-altkyyf-alqanwny-lanha-aqd-alaml"
+        ],
+        "editorialUpdatedAt": "2026-09-06",
+        "relatedBlogSlugs": [
+          "anha-aqd-alaml-bdwn-sbb-mshrwa",
+          "mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Prepare a Saudi unpaid-wage claim using the contract, payroll and bank records, with attention to the employment dispute process and recoverable sums.",
+        "ar": "جهّز مطالبة الأجور المتأخرة في السعودية بالعقد ومسيرات الرواتب والسجلات البنكية، مع تحديد مسار النزاع والمبالغ المطالب بها."
+      }
+    },
+    {
+      "slug": "alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+      "routes": [
+        "/blog/en/alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+        "/blog/ar/alahlyh-fy-altaaqd-fy-alqanwn-alswry"
+      ],
+      "bodyFingerprint": "00ca18ee59e87d4a8502ddea6fcfb803290ef544c3b08ea609b4bb7b1bad5f90",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Syrian capacity coverage is cautious but avoids the actual majority age. Add verified statutory ages and distinctions where needed for this intent, current primary links and targeted associated articles. Distinguishes capacity from representative authority correctly.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+          "renderedContentFingerprint": "4e261ace4970c01db1919ce59d8a065c54307e1cc4761d87e9e6ed0e5dced736",
+          "passagesChecked": 91
+        },
+        {
+          "route": "/blog/ar/alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+          "renderedContentFingerprint": "03b2095d1df288c20585361649d8aaf970657410c23ee0d9953ec2e6374752a2",
+          "passagesChecked": 91
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "syr",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "alrda-fy-alqanwn-alswry",
+          "defects-of-will-syrian-law",
+          "mhl-alaqd-fy-alqanwn-alswry"
+        ],
+        "editorialUpdatedAt": "2026-09-06"
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Review contractual capacity under Syrian law, including age, discernment and the different effects of acts made by persons with limited capacity.",
+        "ar": "راجع أهلية التعاقد في القانون السوري من حيث السن والتمييز واختلاف أثر التصرفات الصادرة عن ناقص الأهلية."
+      }
+    },
+    {
+      "slug": "adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+      "routes": [
+        "/blog/en/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+        "/blog/ar/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy"
+      ],
+      "bodyFingerprint": "b5fc5d89ddd367b8b4e2237164e6305c6c74a3fa707a999718a27d62581221c8",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi contract risk management. Useful lifecycle structure. Penalty clause needs monetary-obligation exclusion and judicial adjustment crosslink; avoid guarantees of protection and unreferenced judicial trend. Clarify bank-guarantee terms and insurance coverage rather than strongest-tool claim.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+          "renderedContentFingerprint": "897b8c8adb3f47c60d0c2dd4cd9cc81f2cf771da66d0dab0cdcefeb7582dce30",
+          "passagesChecked": 110
+        },
+        {
+          "route": "/blog/ar/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+          "renderedContentFingerprint": "dffafbd0e9108cbb2be437745b5ec0ac684e6774aef82b03804f4a2ff97946cc",
+          "passagesChecked": 110
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [
+          "adrah-almkhatr-fy-aqd-tamyny",
+          "mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh"
+        ],
+        "relatedBlogSlugs": [
+          "altwsyat-alamlyh-lsyaghh-aqd-qwy",
+          "commercial-supply-contracts-in-saudi",
+          "Penalty-clause-in-saudi"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Allocate Saudi commercial contract risks through clear obligations, payment controls, liability provisions and a dispute process suited to the transaction.",
+        "ar": "وزع مخاطر العقد التجاري السعودي عبر التزامات واضحة وضوابط للسداد وأحكام للمسؤولية ومسار نزاع مناسب للمعاملة."
+      }
+    },
+    {
+      "slug": "altwsyat-alamlyh-lsyaghh-aqd-qwy",
+      "routes": [
+        "/blog/en/altwsyat-alamlyh-lsyaghh-aqd-qwy",
+        "/blog/ar/altwsyat-alamlyh-lsyaghh-aqd-qwy"
+      ],
+      "bodyFingerprint": "358a1437844f82b367d947c2217773dc1f260a811622a052f98d12effa4caf0b",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi contract drafting checklist. Overclaims that drafting prevents delays, ensures enforceability and conclusively resolves jurisdiction; replace with accurate scope. Writing threshold omits indefinite-value transactions and exceptions; add Evidence Law reference. Penalty clause requires limits. Distinct drafting intent from risk-management page.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/altwsyat-alamlyh-lsyaghh-aqd-qwy",
+          "renderedContentFingerprint": "68b8beee5e24c7d047681e5fcb2621285ea66a1eb95c9ec596e1ec3daa42d46a",
+          "passagesChecked": 87
+        },
+        {
+          "route": "/blog/ar/altwsyat-alamlyh-lsyaghh-aqd-qwy",
+          "renderedContentFingerprint": "2d501a8bd374a0d2b1ac6fce06991db0787c39cb4b9af17cb97bc834bd082af0",
+          "passagesChecked": 87
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [
+          "atfaqyh-atar-ltqdym-alkhdmat-altqnyh-whlwl-aldhka-alastnaay",
+          "mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh"
+        ],
+        "relatedBlogSlugs": [
+          "formation-of-commercial-contracts-saudi-law",
+          "adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+          "athbat-alaqwd-amam-alqda-alsawdy"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "A Saudi contract drafting checklist covering parties, scope, payment, performance evidence, remedies and dispute terms that need transaction-specific wording.",
+        "ar": "قائمة لصياغة العقد السعودي تشمل الأطراف والنطاق والسداد وأدلة التنفيذ والجزاءات وشروط النزاع التي تستلزم صياغة تناسب المعاملة."
+      }
+    },
+    {
+      "slug": "alrda-fy-alqanwn-alswry",
+      "routes": [
+        "/blog/en/alrda-fy-alqanwn-alswry",
+        "/blog/ar/alrda-fy-alqanwn-alswry"
+      ],
+      "bodyFingerprint": "2a966698b40d8e3b5be93d2bcf472b276bfa15b469af90fccf0b4fccd3bdb91e",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Syrian offer and acceptance. Removed published editorial instruction in both languages and replaced future capacity-article teaser with a real locale-matching link. Verify applicable receipt/knowledge rule and avoid simplistic final-price example where objective pricing mechanism may suffice.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/alrda-fy-alqanwn-alswry",
+          "renderedContentFingerprint": "096fe02c20bb0e006d43a02e5ec0f7c4b0044bf36e9402beaba7e1009a3530f7",
+          "passagesChecked": 71
+        },
+        {
+          "route": "/blog/ar/alrda-fy-alqanwn-alswry",
+          "renderedContentFingerprint": "4713c6c37a696c819e79cd30d68d6fd70e298ac23af3e2c765103e601e9a25a5",
+          "passagesChecked": 71
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "syr",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "editorialUpdatedAt": "2026-09-06",
+        "relatedBlogSlugs": [
+          "alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+          "mhl-alaqd-fy-alqanwn-alswry",
+          "defects-of-will-syrian-law"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Follow offer and acceptance under Syrian law, including how communications, essential terms and required formalities affect contract formation.",
+        "ar": "تتبّع الإيجاب والقبول في القانون السوري وأثر المراسلات والعناصر الجوهرية والشكلية المطلوبة في انعقاد العقد."
+      }
+    },
+    {
+      "slug": "athbat-alaqwd-amam-alqda-alsawdy",
+      "routes": [
+        "/blog/en/athbat-alaqwd-amam-alqda-alsawdy",
+        "/blog/ar/athbat-alaqwd-amam-alqda-alsawdy"
+      ],
+      "bodyFingerprint": "ecae8e1c7a80e2ab2e7b387af6bf7b06506bf14b5f22657671db530d1f0eaf57",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi contract proof. Overbroad official-document force and digital-evidence requirements; revise to distinguish official statements/party statements, legal categories, authenticity challenges and assessment. Writing threshold needs indefinite value and exceptions. Primary Evidence Law and procedural guide links required.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/athbat-alaqwd-amam-alqda-alsawdy",
+          "renderedContentFingerprint": "20a13fb54786f97feb3b52ceca0b7427a93eccdc8feb574878760dabe6888eca",
+          "passagesChecked": 56
+        },
+        {
+          "route": "/blog/ar/athbat-alaqwd-amam-alqda-alsawdy",
+          "renderedContentFingerprint": "98d46d28b30488fa1c05b8b120bc43fb0159dd55bee8d5357b09d92b02fcd39a",
+          "passagesChecked": 56
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [
+          "thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd",
+          "kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat"
+        ],
+        "relatedBlogSlugs": [
+          "e-contracts-legal-validity-saudi-arabia",
+          "mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+          "almswwlyh-alaqdyh-fy-almaamlat-altjaryh"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Compare written, official and digital evidence in Saudi contract disputes, including the writing requirement and its statutory exceptions.",
+        "ar": "قارن بين الأدلة الكتابية والرسمية والرقمية في منازعات العقود السعودية، مع بيان اشتراط الكتابة واستثناءاته النظامية."
+      }
+    },
+    {
+      "slug": "alaqd-fy-alqanwn-alswry",
+      "routes": [
+        "/blog/en/alaqd-fy-alqanwn-alswry",
+        "/blog/ar/alaqd-fy-alqanwn-alswry"
+      ],
+      "bodyFingerprint": "dbc853affefd011e01bce2c6945a2036c46a52edb33b057792cf1c49a9385246",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both complete bodies read. Syrian contract-series overview is distinct from elements/performance articles. Broad and narrow contract definitions conflict; explain doctrinal distinction rather than contradictory definitions. Link existing series instead of future promise. Car oral-sale example qualified but choose ordinary movable goods to avoid registration ambiguity.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/alaqd-fy-alqanwn-alswry",
+          "renderedContentFingerprint": "b4fa6f98ebac20bfc4740457e6986b396e4d259a1409b0bec34b18bb4b6aeace",
+          "passagesChecked": 93
+        },
+        {
+          "route": "/blog/ar/alaqd-fy-alqanwn-alswry",
+          "renderedContentFingerprint": "fbc2dfb076bb62bf4f432d1fa1d27350652442dfc6eb602c03b4160fe9fa682e",
+          "passagesChecked": 93
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "syr",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "alrda-fy-alqanwn-alswry",
+          "alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+          "mhl-alaqd-fy-alqanwn-alswry"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "An introduction to contracts in Syrian law: the agreement, its essential elements and the distinction between general rules and specific contract types.",
+        "ar": "مدخل إلى العقد في القانون السوري يشمل الاتفاق وأركانه الأساسية والتمييز بين القواعد العامة والأحكام الخاصة بأنواع العقود."
+      }
+    },
+    {
+      "slug": "altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+      "routes": [
+        "/blog/en/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+        "/blog/ar/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry"
+      ],
+      "bodyFingerprint": "2efe259fcff12acf6194dcafe2a5a511e16fb33bf2e90286927a62c8ce601f7d",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both complete bodies read in chunks. Detailed Syrian damages guide; good causation, foreseeability, mitigation and proof. Verify exact interest rules and commencement judicial demand; unconfirmed future Syrian penalty article should not be promised. Preserve distinction from general liability page 33.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+          "renderedContentFingerprint": "4c83f1b08b66ac4d07436f7deebcee7aed24172ce307e792e4e1c01ac5d658f0",
+          "passagesChecked": 199
+        },
+        {
+          "route": "/blog/ar/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+          "renderedContentFingerprint": "a86496c0f18d195b1fbdc2aa4fde2074ecb263bc4f0b2464f4003ec084407b9b",
+          "passagesChecked": 199
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "syr",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "almswwlyh-alaqdyh-fy-alqanwn-alswry",
+          "performance-of-contracts-in-good-faith-under-syrian-law",
+          "contract-interpretation-syrian-courts"
+        ],
+        "editorialUpdatedAt": "2026-09-06"
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Assess compensation for contractual breach in Syria through loss, causation, notice and the rules governing monetary obligations and judicial assessment.",
+        "ar": "قيّم التعويض عن الإخلال بالعقد في سوريا من خلال الضرر والسببية والإعذار وأحكام الالتزامات النقدية وتقدير المحكمة."
+      }
+    },
+    {
+      "slug": "aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+      "routes": [
+        "/blog/en/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+        "/blog/ar/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy"
+      ],
+      "bodyFingerprint": "56afc80991f1c826e6d0aaaf1ec4bb8fb2326076cb1c0ac847b6fd72024b3e7d",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi franchise 14-day disclosure and 90-day registration need precise primary references and earlier-of trigger. Qualify exclusive territory as contractual; pricing rules subject to competition law; no universal penalty or automatic court result. Official ministry regulation PDF identified.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "renderedContentFingerprint": "b99347f2270e4aa7a9fa7fbdeea04593f094569f5e07fcee5818d70c8ebe020f",
+          "passagesChecked": 92
+        },
+        {
+          "route": "/blog/ar/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "renderedContentFingerprint": "6b4f4ed8a94bce0b855df9fee4c019091e8a89dff7896d8a759ad397669f4a7c",
+          "passagesChecked": 92
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "business-law",
+        "relatedWorkSlugs": [
+          "rfd-dawa-fskh-aqd-amtyaz-tjary-wtawyd"
+        ],
+        "relatedBlogSlugs": [
+          "aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+          "hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+          "altwsyat-alamlyh-lsyaghh-aqd-qwy"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Review Saudi franchise disclosure, registration, operating obligations and termination risks before signing or making a franchise payment.",
+        "ar": "راجع إفصاح الامتياز التجاري السعودي وتسجيله والتزامات التشغيل ومخاطر الإنهاء قبل التوقيع أو دفع مقابل الامتياز."
+      }
+    },
+    {
+      "slug": "aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+      "routes": [
+        "/blog/en/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+        "/blog/ar/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd"
+      ],
+      "bodyFingerprint": "f7d020c752f2c127799445706ed8c6dd9b3978b8194f417e8f7cb367cbd5257b",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi agency. Official Ministry registration service confirms eligibility and contract requirements. Article omits eligibility, treats exclusivity and price control as general rights, and incorrectly equates exclusivity with noncompete. Distinguish registration from formation/proof; qualify contractual and competition limits.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+          "renderedContentFingerprint": "dc712fb37d6533ccc41b99d94d92851fc902e7542c3563ab689f5a81900b174b",
+          "passagesChecked": 88
+        },
+        {
+          "route": "/blog/ar/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+          "renderedContentFingerprint": "a79f32597bc64b5e62554007168fc343c25e8e44d9b17adcacb37f81dac05ef6",
+          "passagesChecked": 88
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "business-law",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+          "altwsyat-alamlyh-lsyaghh-aqd-qwy"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Understand Saudi commercial agency eligibility and registration alongside the agreement’s territory, payment, performance and termination provisions.",
+        "ar": "تعرّف إلى أهلية الوكالة التجارية السعودية وتسجيلها، إلى جانب نطاق الاتفاق والسداد والتنفيذ وأحكام الإنهاء."
+      }
+    },
+    {
+      "slug": "almswwlyh-alaqdyh-fy-alqanwn-alswry",
+      "routes": [
+        "/blog/en/almswwlyh-alaqdyh-fy-alqanwn-alswry",
+        "/blog/ar/almswwlyh-alaqdyh-fy-alqanwn-alswry"
+      ],
+      "bodyFingerprint": "83dfe96b25c7969e6a41104deb69db85ebaac80ad60083f1dfeeac423c07593a",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read including previously truncated section. Syrian liability has valid contract, breach, harm, causation and obligation/result distinctions. Add precise source anchors and differentiate damages guide through links. Source URLs present as prose; ensure clickable. No major unsupported numerical claims.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/almswwlyh-alaqdyh-fy-alqanwn-alswry",
+          "renderedContentFingerprint": "2b3786bf969b25c4a29298fc7d56bf5cf59bed79ed136c196976284867d2a71c",
+          "passagesChecked": 101
+        },
+        {
+          "route": "/blog/ar/almswwlyh-alaqdyh-fy-alqanwn-alswry",
+          "renderedContentFingerprint": "7f3fe9ffb7dac8fcfd723c6bca110642987deb838790331db055b1792282a51a",
+          "passagesChecked": 101
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "syr",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+          "performance-of-contracts-in-good-faith-under-syrian-law",
+          "contract-interpretation-syrian-courts"
+        ],
+        "editorialUpdatedAt": "2026-09-06"
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Identify the obligation, breach, loss and causal link in a Syrian contractual liability claim, including when notice and available remedies matter.",
+        "ar": "حدد الالتزام والإخلال والضرر والسببية في دعوى المسؤولية العقدية السورية، مع مراعاة الإعذار ووسائل المعالجة المتاحة."
+      }
+    },
+    {
+      "slug": "aqwd-almqawlat-fy-alnzam-alsawdy",
+      "routes": [
+        "/blog/en/aqwd-almqawlat-fy-alnzam-alsawdy",
+        "/blog/ar/aqwd-almqawlat-fy-alnzam-alsawdy"
+      ],
+      "bodyFingerprint": "7114a17b78f9a4433ccd018a4acff353ba9199edd99aaa17ec6b6ad1b0507987",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi construction overview. English penalty paragraph reverses no-harm proof burden, Arabic correct. Unreferenced common-court trend and strongest-evidence language; blanket penalty inclusion. Clarify commercial versus general/administrative jurisdiction for different parties; variations and final settlement evidence are useful.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/aqwd-almqawlat-fy-alnzam-alsawdy",
+          "renderedContentFingerprint": "6abbab6f4ca82204dd2dd2bec1cb6aca25c81d0c68d6d6c3ecaf94bc2eab75fb",
+          "passagesChecked": 121
+        },
+        {
+          "route": "/blog/ar/aqwd-almqawlat-fy-alnzam-alsawdy",
+          "renderedContentFingerprint": "22b800ec4c14fb407e821d433cbcf97665d93b238ec6f9e7bc82518bed735543",
+          "passagesChecked": 121
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [
+          "mswwlyh-almqawlyn",
+          "kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat"
+        ],
+        "relatedBlogSlugs": [
+          "commercial-supply-contracts-in-saudi",
+          "Penalty-clause-in-saudi",
+          "adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Examine Saudi construction disputes through scope, variations, payment, delay and performance evidence, with attention to the competent dispute forum.",
+        "ar": "افحص منازعات المقاولات السعودية من خلال النطاق والتغييرات والمستحقات والتأخير وأدلة التنفيذ، مع تحديد جهة الفصل المختصة."
+      }
+    },
+    {
+      "slug": "performance-of-contracts-in-good-faith-under-syrian-law",
+      "routes": [
+        "/blog/en/performance-of-contracts-in-good-faith-under-syrian-law",
+        "/blog/ar/performance-of-contracts-in-good-faith-under-syrian-law"
+      ],
+      "bodyFingerprint": "e2294ab2f5b5d91576cf79a5aafda87665af040fa5182121d3f547651ab35cb7",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Syrian good faith. Good principle versus waiver distinction and contextual examples. Verify Article 149 and interpretation 151-152; avoid rebalancing clear bargain under general good-faith language. Sources currently bare URLs.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/performance-of-contracts-in-good-faith-under-syrian-law",
+          "renderedContentFingerprint": "67c139bf6a8bf78d1a0e13e1f1b685327fa82482f6c22d9a32e77928844a044f",
+          "passagesChecked": 78
+        },
+        {
+          "route": "/blog/ar/performance-of-contracts-in-good-faith-under-syrian-law",
+          "renderedContentFingerprint": "932ebcb02b1d1939fc32c8abd8a7d388f0493ec4d2d8f121d6f1958a24a78e3c",
+          "passagesChecked": 78
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "syr",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "contract-interpretation-syrian-courts",
+          "almswwlyh-alaqdyh-fy-alqanwn-alswry",
+          "altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Explore good-faith contract performance in Syria, including cooperation, established usage and interpretation within the limits of the agreed obligations.",
+        "ar": "تعرّف إلى تنفيذ العقد بحسن نية في سوريا، بما يشمل التعاون والعرف والتفسير ضمن حدود الالتزامات المتفق عليها."
+      }
+    },
+    {
+      "slug": "commercial-supply-contracts-in-saudi",
+      "routes": [
+        "/blog/en/commercial-supply-contracts-in-saudi",
+        "/blog/ar/commercial-supply-contracts-in-saudi"
+      ],
+      "bodyFingerprint": "1b8de215dd1be92e40b57ecd24b96012708a26f3d61709f5b326eb678f2b49dd",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi supply. Broad force-majeure examples imply automatic exemption; penalty clause incorrectly essential. FAQs flattened into one paragraph; split into accessible headings/answers. Delivery record called official without official authentication; use signed delivery record. Source and competition/jurisdiction claims need precision.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/commercial-supply-contracts-in-saudi",
+          "renderedContentFingerprint": "b9a31119e5ef6d40f377571d2753109195c73149666e9646f313094762dbcba1",
+          "passagesChecked": 99
+        },
+        {
+          "route": "/blog/ar/commercial-supply-contracts-in-saudi",
+          "renderedContentFingerprint": "41e30f9bff8b48c39eea5189af9416526586de9e6278a27433bb32c22fa2dbda",
+          "passagesChecked": 99
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny",
+          "aqwd-almqawlat-fy-alnzam-alsawdy",
+          "Penalty-clause-in-saudi"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Review Saudi supply terms for specifications, delivery, acceptance, payment and disruption, and preserve the records needed to assess breach.",
+        "ar": "راجع شروط التوريد السعودية للمواصفات والتسليم والقبول والسداد والتعطل، واحفظ المستندات اللازمة لتقييم الإخلال."
+      }
+    },
+    {
+      "slug": "contract-interpretation-syrian-courts",
+      "routes": [
+        "/blog/en/contract-interpretation-syrian-courts",
+        "/blog/ar/contract-interpretation-syrian-courts"
+      ],
+      "bodyFingerprint": "65feb20d3ef03ef4576cb21bef8f4e4343589d142607a9848de5dfe13d011249",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Arabic body fully read; live English snapshot contains repeated English legal text placeholder. Existing read-boundary English replacement is substantive and was read earlier. Remove Arabic keyword-only paragraph, make statutory references clickable and preserve scenario usefulness. Corrections need actual release proof, not current live claim.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/contract-interpretation-syrian-courts",
+          "renderedContentFingerprint": "fe355b297f146f77bfbd6f9f8dc74d7eaaae803f18c51910adc2e9aba430d52c",
+          "passagesChecked": 41
+        },
+        {
+          "route": "/blog/ar/contract-interpretation-syrian-courts",
+          "renderedContentFingerprint": "0b0d49462a52e0e64966612244b0667beb4334d8cf94640a601bb832ab6e5c5e",
+          "passagesChecked": 91
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoTitleEn",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "syr",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "performance-of-contracts-in-good-faith-under-syrian-law",
+          "alrda-fy-alqanwn-alswry",
+          "alaqd-fy-alqanwn-alswry"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "How Syrian contract interpretation considers clear wording, common intention, the agreement as a whole, custom and unresolved doubt.",
+        "ar": "كيف يراعي تفسير العقد السوري وضوح العبارة والإرادة المشتركة والعقد ككل والعرف والشك الذي يبقى بعد تطبيق قواعد التفسير."
+      }
+    },
+    {
+      "slug": "e-contracts-legal-validity-saudi-arabia",
+      "routes": [
+        "/blog/en/e-contracts-legal-validity-saudi-arabia",
+        "/blog/ar/e-contracts-legal-validity-saudi-arabia"
+      ],
+      "bodyFingerprint": "1422132d2c0803a6e94008c5835c699d1648f0120e9596ce9063b0291d042d0b",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi electronic contracts. Incorrect blanket DGA approval/certificate requirement and tamper-proof/no-denial conditions; Evidence Law omitted while cybercrime law treated as contract validity source. Clarify category-based evidence, attribution/integrity, exceptions, and platform liability basis rather than any technical defect. Need current primary Electronic Transactions Law and Evidence Law sources.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/e-contracts-legal-validity-saudi-arabia",
+          "renderedContentFingerprint": "93058c6bab84261ecac8c4209a2c859374135278fb38e4bcef0c75539f99296c",
+          "passagesChecked": 98
+        },
+        {
+          "route": "/blog/ar/e-contracts-legal-validity-saudi-arabia",
+          "renderedContentFingerprint": "e307b7a59b0239440527bfb4ecb620bb7ae7d5ac396aa8b256e67dbaceee525a",
+          "passagesChecked": 98
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedServiceSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [
+          "astsharh-fy-ahtyal-maly",
+          "mnazah-tnfydh"
+        ],
+        "relatedBlogSlugs": [
+          "athbat-alaqwd-amam-alqda-alsawdy",
+          "formation-of-commercial-contracts-saudi-law",
+          "altwsyat-alamlyh-lsyaghh-aqd-qwy"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Check electronic contract formation and proof in Saudi Arabia through consent, attribution, record integrity and preservation of digital evidence.",
+        "ar": "افحص انعقاد العقد الإلكتروني وإثباته في السعودية من خلال الرضا ونسبة التصرف وسلامة السجلات وحفظ الدليل الرقمي."
+      }
+    },
+    {
+      "slug": "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+      "routes": [
+        "/blog/en/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+        "/blog/ar/fskh-alaqd-altjary-fy-alnzam-alsawdy"
+      ],
+      "bodyFingerprint": "a99b9a81f9ad93e19bda6f99d4cd5e9e444d150589704632bb759003fc8c9e1c",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi rescission. Contradiction: damage required for rescission and all obligations extinguished. Clarify damages separate, surviving rights/dispute clauses, continuing contracts and notice exceptions. Remove universal penalty after rescission and unsupported judicial trends. Preserve route and distinguish article 10 comparison.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "renderedContentFingerprint": "984492c2007156356acfe2cac10af00c095b9102cc3d33f7443d19ded3b65889",
+          "passagesChecked": 78
+        },
+        {
+          "route": "/blog/ar/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "renderedContentFingerprint": "688e087a6f3eec7b05ddda4301108453529259847e7ca1adc2f0d0a305c7b114",
+          "passagesChecked": 78
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [
+          "fskh-aqd-snaay-wastrdad-aldfah-almqdmh",
+          "fskh-aqd-iyjar-tjary-bsbb-khta-byanat-mnsh-iyjar"
+        ],
+        "relatedBlogSlugs": [
+          "alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+          "almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+          "Penalty-clause-in-saudi"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Assess Saudi commercial contract termination through breach, notice, cure, evidence and the effects on accrued rights and continuing obligations.",
+        "ar": "قيّم فسخ العقد التجاري السعودي من خلال الإخلال والإعذار والمعالجة والأدلة وأثر الفسخ في الحقوق السابقة والالتزامات المستمرة."
+      }
+    },
+    {
+      "slug": "defects-of-will-syrian-law",
+      "routes": [
+        "/blog/en/defects-of-will-syrian-law",
+        "/blog/ar/defects-of-will-syrian-law"
+      ],
+      "bodyFingerprint": "753047b9cd2da2e0c5ccf34589d16aa4f60a80be729218a2716de2215958d940",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Syrian consent defects. English repeatedly says rescission for annulment; fix terminology. Exploitation grounds too broad (mere need/weakness); duress objective reasonable person ignores individual circumstances. Mistake other-party requirements omitted. Verify Civil Code provisions and qualify examples.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/defects-of-will-syrian-law",
+          "renderedContentFingerprint": "8fa1130e7d20b274a3f82681243a12166c67f7cf3485f65a6130a97cab8788d7",
+          "passagesChecked": 74
+        },
+        {
+          "route": "/blog/ar/defects-of-will-syrian-law",
+          "renderedContentFingerprint": "d9bd8488988ddd785f480f79eb263b7ace21c0d6b49653232e838280deaf449f",
+          "passagesChecked": 74
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "syr",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+          "alrda-fy-alqanwn-alswry",
+          "alaqd-fy-alqanwn-alswry"
+        ],
+        "editorialUpdatedAt": "2026-09-06"
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Compare mistake, fraud, duress and exploitation under Syrian contract law, including the conditions and evidence for seeking annulment or other relief.",
+        "ar": "قارن بين الغلط والتدليس والإكراه والاستغلال في القانون السوري، مع فحص شروط وأدلة طلب الإبطال أو المعالجة القانونية الأخرى."
+      }
+    },
+    {
+      "slug": "consensual-formal-real-contracts-syrian-law",
+      "routes": [
+        "/blog/en/consensual-formal-real-contracts-syrian-law",
+        "/blog/ar/consensual-formal-real-contracts-syrian-law"
+      ],
+      "bodyFingerprint": "51b995cbadf604a9085343ff2d757e00392e8c6cb24ee154be06dedd836f5b13",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Syrian formation classification conflates form for validity with registration effects despite later caveats. Classical loan/deposit examples can mislead on current Syrian consensual definitions; replace with direct statutory explanation. Initial English I / Arabic ت مثل typo. Verify contract-specific text before assigning actual real-contract example.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/consensual-formal-real-contracts-syrian-law",
+          "renderedContentFingerprint": "3810ae8a34c9152cc8e2328c94421f1fee96ec6d1fe217a447e1b67a2381979c",
+          "passagesChecked": 82
+        },
+        {
+          "route": "/blog/ar/consensual-formal-real-contracts-syrian-law",
+          "renderedContentFingerprint": "3b2a1a5dc5ebe8c8ad483fbefe1d62e4e6e59de94a71efbd8b5a8f4b9d1e14e6",
+          "passagesChecked": 82
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "syr",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [
+          "drash-qdyh-aqaryh-maqdh-fy-swrya"
+        ],
+        "relatedBlogSlugs": [
+          "alaqd-fy-alqanwn-alswry",
+          "alrda-fy-alqanwn-alswry",
+          "mhl-alaqd-fy-alqanwn-alswry"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Distinguish consensual, formal and real contracts in Syria by checking whether agreement, a required form or delivery completes the specific transaction.",
+        "ar": "ميّز بين العقود الرضائية والشكلية والعينية في سوريا بفحص دور الاتفاق والشكل المطلوب والتسليم في إتمام التصرف المحدد."
+      }
+    },
+    {
+      "slug": "contractual-liability-in-commercial-transactions",
+      "routes": [
+        "/blog/en/contractual-liability-in-commercial-transactions",
+        "/blog/ar/contractual-liability-in-commercial-transactions"
+      ],
+      "bodyFingerprint": "39c97347b25321d13a9aa0a8cad42fc5e54cd130241631944ef94efcf7d19f56",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Substantially duplicates newer almswwlyh-alaqdyh-fy-almaamlat-altjaryh. Keep this older overview route and give newer one distinct evidence-preparation purpose. Correct causation, moral-damage generalization and contractual penalty conditions against Civil Transactions Law.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/contractual-liability-in-commercial-transactions",
+          "renderedContentFingerprint": "b1a343b7c39831378525b9eeb8811cd39cac69c739b0e1ebd9c33f94fd3b77ee",
+          "passagesChecked": 35
+        },
+        {
+          "route": "/blog/ar/contractual-liability-in-commercial-transactions",
+          "renderedContentFingerprint": "8296f048ac24a732f4c137c6faaa4b7718a45f84898d4361bcb1673bc7d1dce4",
+          "passagesChecked": 35
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoTitleAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+          "alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+          "Penalty-clause-in-saudi"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Understand Saudi contractual liability through breach, compensation, agreed damages and the distinction between claiming the price and claiming loss.",
+        "ar": "تعرّف إلى المسؤولية العقدية السعودية من خلال الإخلال والتعويض والتعويض الاتفاقي والتمييز بين المطالبة بالثمن والمطالبة بالضرر."
+      }
+    },
+    {
+      "slug": "formation-of-commercial-contracts-saudi-law",
+      "routes": [
+        "/blog/en/formation-of-commercial-contracts-saudi-law",
+        "/blog/ar/formation-of-commercial-contracts-saudi-law"
+      ],
+      "bodyFingerprint": "a1f69071611c8289b7b688e651f068b558e6c0b1aeeef7b6bac1b24a6dfc3c05",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi formation. Incorrect incapacity equals unenforceability, negotiation list conflated with actual consent, writing most-commercial broad. Add correct formation/validity/authority distinctions and primary source; fix Arabic brand typo. Preserve commercial introductory intent distinct from drafting checklist.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/formation-of-commercial-contracts-saudi-law",
+          "renderedContentFingerprint": "8cf352c45e5f7663c3770c11b0485101d210fcf6516d381d9ce8bb9638b29990",
+          "passagesChecked": 45
+        },
+        {
+          "route": "/blog/ar/formation-of-commercial-contracts-saudi-law",
+          "renderedContentFingerprint": "bd9294ea1a2b3062109adac227076f3223236a233c000f0cda26e72e3cd97e19",
+          "passagesChecked": 45
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "editorialUpdatedAt": "2026-09-06",
+        "region": "sa",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [],
+        "relatedBlogSlugs": [
+          "altwsyat-alamlyh-lsyaghh-aqd-qwy",
+          "e-contracts-legal-validity-saudi-arabia",
+          "athbat-alaqwd-amam-alqda-alsawdy"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Check the formation of a Saudi commercial contract through offer, acceptance, capacity and essential terms, while separating validity from evidentiary requirements.",
+        "ar": "افحص تكوين العقد التجاري السعودي من خلال الإيجاب والقبول والأهلية والعناصر الجوهرية، مع التمييز بين الصحة ومتطلبات الإثبات."
+      }
+    },
+    {
+      "slug": "Penalty-clause-in-saudi",
+      "routes": [
+        "/blog/en/Penalty-clause-in-saudi",
+        "/blog/ar/Penalty-clause-in-saudi"
+      ],
+      "bodyFingerprint": "81e77ed31e8a3403c602b5ca9b4fb89e56c7d6d3a5b06e3ec6b8495f8d85f452",
+      "bothBodiesRead": true,
+      "status": "implementation-assessed-and-render-verified",
+      "notes": "Both bodies read. Saudi penalty clauses. Missing monetary-obligation exclusion and exact Article 179 proof/reduction/increase limits. False automatic full amount for foreseeable damage and exceptional circumstances cancelling penalty; remove unsupported court-trend claims. Clause cannot forbid consensual settlement or statutory judicial powers. Needs primary Civil Transactions Law 178-179 links.",
+      "implementedBodyRevision": true,
+      "revisionEvidence": "Public-read corrections in article-body-corrections.ts or article-claim-evidence.ts; final rendered and metadata review pending.",
+      "renderVerification": [
+        {
+          "route": "/blog/en/Penalty-clause-in-saudi",
+          "renderedContentFingerprint": "c4fe11821c810a5cc226cb53a5d9852463c2b8df279bb3767da8b90bffb53ac5",
+          "passagesChecked": 63
+        },
+        {
+          "route": "/blog/ar/Penalty-clause-in-saudi",
+          "renderedContentFingerprint": "93608aeb5324bc75414b21026a299bf67a882567f205445ca8308c07fecc8b5e",
+          "passagesChecked": 63
+        }
+      ],
+      "revisedPublicFields": [
+        "excerptEn",
+        "excerptAr",
+        "seoDescriptionEn",
+        "seoDescriptionAr",
+        "bodyEn",
+        "bodyAr",
+        "relatedBlogSlugs",
+        "relatedWorkSlugs"
+      ],
+      "contextualRelationships": {
+        "region": "sa",
+        "serviceSlug": "contracts",
+        "relatedWorkSlugs": [
+          "mswwlyh-almqawlyn"
+        ],
+        "editorialUpdatedAt": "2026-09-06",
+        "relatedBlogSlugs": [
+          "adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+          "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "commercial-supply-contracts-in-saudi"
+        ]
+      },
+      "resolution": "Complete bilingual bodies assessed; identified legacy claims corrected, complete summaries and metadata authored, and relevant regional/service/article/work relationships assigned. The rendered comparison verifies delivery of the corrected bodies.",
+      "publishedSummaries": {
+        "en": "Review Saudi penalty clauses under the Civil Transactions Law, including judicial adjustment and the exclusion of advance compensation for monetary obligations.",
+        "ar": "راجع الشرط الجزائي في نظام المعاملات المدنية السعودي، بما يشمل التعديل القضائي واستثناء الالتزام النقدي من التعويض المحدد مقدماً."
+      }
+    }
+  ],
+  "revisionCount": 41,
+  "completionState": "Recorded editorial implementation findings resolved and rendered verification passed. Publication and search-engine outcomes remain unverified.",
+  "generatedAt": "2026-09-06T06:06:34.284Z",
+  "buildValidationAt": "2026-09-06 06:05:45 UTC",
+  "summary": {
+    "records": 45,
+    "routes": 90,
+    "openImplementationFindings": 0
+  }
+}

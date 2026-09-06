@@ -1,4 +1,6 @@
 import { getServicesForRegion, type Region } from "./region-services";
+import { ARTICLE_CONTEXT, articleModifiedAt } from "./article-context";
+import { workModifiedAt } from "./work-context";
 import { REGIONAL_SEO_REGISTRY } from "./regional-seo";
 
 export const PUBLIC_BASE_URL = "https://counselo-legal.com";
@@ -110,6 +112,32 @@ function normalizedArticleText(
   ].join(" "));
 }
 
+const CONTENT_PLACEHOLDER_PATTERNS = [
+  /\benglish legal text\b/i,
+  /\barabic legal text\b/i,
+  /\blorem ipsum\b/i,
+  /\b(?:todo|tbd)\b/i,
+  /النص القانوني (?:العربي|الإنجليزي)/,
+];
+
+export function containsPublishingPlaceholder(value: string | null | undefined): boolean {
+  const normalized = normalizedComparableText(value);
+  return CONTENT_PLACEHOLDER_PATTERNS.some((pattern) => pattern.test(normalized));
+}
+
+export function isRouteLikeSeoTitle(value: string | null | undefined): boolean {
+  const title = (value ?? "").trim();
+  return /^\/?(?:blog|ar\/blog|our-work)\//i.test(title)
+    || /^https?:\/\//i.test(title)
+    || (/^\//.test(title) && !/\s/.test(title));
+}
+
+export function safeSeoTitle(primary: string | null | undefined, fallback: string | null | undefined): string {
+  const preferred = (primary ?? "").trim();
+  if (preferred && !isRouteLikeSeoTitle(preferred) && !containsPublishingPlaceholder(preferred)) return preferred;
+  return (fallback ?? "").trim();
+}
+
 /**
  * Only complete, independently readable translations receive language URLs.
  * This deliberately excludes partial or automatically translated records.
@@ -153,6 +181,8 @@ export function hasQualityBilingualBlogContent(post: BilingualBlogContent): bool
   ].join(" "));
   return distinctMetadata
     && englishArticle !== arabicArticle
+    && !containsPublishingPlaceholder(englishArticle)
+    && !containsPublishingPlaceholder(arabicArticle)
     && /[a-z]/i.test(`${englishMetadata} ${englishArticle}`)
     && /[\u0600-\u06ff]/u.test(`${arabicMetadata} ${arabicArticle}`);
 }
@@ -188,13 +218,11 @@ function latestDate(values: Array<string | Date | null | undefined>): string | u
 }
 
 export function buildHreflangLinks(path: string): string[] {
-  if (path === "/") {
+  if (path === "/" || path === "/ar") {
     return [
       ["x-default", "/"],
-      ...REGIONAL_SEO_REGISTRY.flatMap((entry) => [
-        [entry.hreflang.en, entry.pathPrefix],
-        [entry.hreflang.ar, `${entry.pathPrefix}/ar`],
-      ]),
+      ["en", "/"],
+      ["ar", "/ar"],
     ].map(([language, target]) => `${language}|${canonicalPublicUrl(target)}`);
   }
   const regionMatch = path.match(new RegExp(`^/(${REGION_PREFIX_PATTERN})(/ar)?(?=/|$)`));
@@ -305,7 +333,7 @@ export function buildDynamicSitemap(
     post.bilingual === true || hasQualityBilingualBlogContent(post),
   );
   const entries = bilingualPosts.flatMap((post) => {
-    const modified = dateOnly(post.updatedAt) ?? post.date;
+    const modified = dateOnly(articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date)) ?? post.date;
     const links = blogLanguageAlternates(post.slug);
     return [
       sitemapEntry(canonicalPublicUrl(blogPath(post.slug, "en")), modified, links),
@@ -313,7 +341,7 @@ export function buildDynamicSitemap(
     ];
   });
   const workEntries = samples.flatMap((sample) => {
-    const modified = dateOnly(sample.updatedAt) ?? sample.date;
+    const modified = dateOnly(workModifiedAt(sample.slug, sample.updatedAt, sample.date)) ?? sample.date;
     const enPath = `/our-work/${sample.slug}`;
     const arPath = `/ar/our-work/${sample.slug}`;
     if (!sample.titleEn) return [sitemapEntry(canonicalPublicUrl(arPath), modified, [["x-default", canonicalPublicUrl(arPath)] as [string, string]])];
@@ -324,13 +352,13 @@ export function buildDynamicSitemap(
   const addIndexLastmod = (url: string, date: string | undefined) => {
     if (date) xml = xml.replace(`<loc>${url}</loc>`, `<loc>${url}</loc>\n    <lastmod>${date}</lastmod>`);
   };
-  const latestBlog = latestDate(bilingualPosts.map((post) => post.updatedAt ?? post.date));
+  const latestBlog = latestDate(bilingualPosts.map((post) => articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date) ?? post.date));
   addIndexLastmod(canonicalPublicUrl("/blog"), latestBlog);
   addIndexLastmod(canonicalPublicUrl("/blog/ar"), latestBlog);
-  const latestWork = latestDate(samples.map((sample) => sample.updatedAt ?? sample.date));
+  const latestWork = latestDate(samples.map((sample) => workModifiedAt(sample.slug, sample.updatedAt, sample.date) ?? sample.date));
   const latestLibrary = latestDate([
-    ...bilingualPosts.map((post) => post.updatedAt ?? post.date),
-    ...samples.map((sample) => sample.updatedAt ?? sample.date),
+    ...bilingualPosts.map((post) => articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date) ?? post.date),
+    ...samples.map((sample) => workModifiedAt(sample.slug, sample.updatedAt, sample.date) ?? sample.date),
   ]);
   addIndexLastmod(canonicalPublicUrl("/legal-library"), latestLibrary);
   addIndexLastmod(canonicalPublicUrl("/ar/legal-library"), latestLibrary);
@@ -346,12 +374,12 @@ export function buildDiscoveryFeed(
 ): string {
   const items = [
     ...posts.filter((post) => post.bilingual === true || hasQualityBilingualBlogContent(post)).flatMap((post) => [
-      { title: post.titleEn, description: post.excerptEn, url: canonicalPublicUrl(blogPath(post.slug, "en")), modified: post.updatedAt ?? post.date },
-      { title: post.titleAr, description: post.excerptAr, url: canonicalPublicUrl(blogPath(post.slug, "ar")), modified: post.updatedAt ?? post.date },
+      { title: post.titleEn, description: post.excerptEn, url: canonicalPublicUrl(blogPath(post.slug, "en")), modified: articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date) ?? post.date },
+      { title: post.titleAr, description: post.excerptAr, url: canonicalPublicUrl(blogPath(post.slug, "ar")), modified: articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date) ?? post.date },
     ]),
     ...samples.flatMap((sample) => [
-      ...(sample.titleEn ? [{ title: sample.titleEn, description: sample.summaryEn, url: canonicalPublicUrl(`/our-work/${sample.slug}`), modified: sample.updatedAt ?? sample.date }] : []),
-      ...(sample.titleAr ? [{ title: sample.titleAr, description: sample.summaryAr, url: canonicalPublicUrl(`/ar/our-work/${sample.slug}`), modified: sample.updatedAt ?? sample.date }] : []),
+      ...(sample.titleEn ? [{ title: sample.titleEn, description: sample.summaryEn, url: canonicalPublicUrl(`/our-work/${sample.slug}`), modified: workModifiedAt(sample.slug, sample.updatedAt, sample.date) ?? sample.date }] : []),
+      ...(sample.titleAr ? [{ title: sample.titleAr, description: sample.summaryAr, url: canonicalPublicUrl(`/ar/our-work/${sample.slug}`), modified: workModifiedAt(sample.slug, sample.updatedAt, sample.date) ?? sample.date }] : []),
     ]),
   ].sort((a, b) => Date.parse(String(b.modified)) - Date.parse(String(a.modified))).slice(0, 50);
   const lastBuildDate = items[0]?.modified ? new Date(items[0].modified).toUTCString() : new Date(0).toUTCString();

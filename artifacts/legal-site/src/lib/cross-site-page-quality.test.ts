@@ -20,7 +20,7 @@ test("vision copy is aspirational without unsupported superlatives", () => {
   assert.doesNotMatch(template, /most trusted|highest standards/i);
   assert.match(template, /A trusted digital legal reference for the Arab world/);
   assert.match(template, /applicable professional-confidentiality, privacy and data-protection obligations/);
-  assert.match(template, /dateModified: "2026-08-18"/);
+  assert.match(template, /dateModified: "2026-09-05"/);
 });
 
 test("global entry pages keep qualified positioning and accessible heading spacing", () => {
@@ -44,9 +44,10 @@ test("evidence and publishing surfaces retain their trust boundaries", () => {
   assert.match(work, /past work or outcomes do not guarantee the result of another matter/);
   assert.match(work, /Client names, personal and commercially sensitive data/);
   assert.match(work, /articlePublishedTime=\{sample\.date\}/);
-  assert.match(work, /articleModifiedTime=\{sample\.updatedAt \|\| sample\.date\}/);
-  assert.match(work, /reviewedBy: \{ "@id": OMAR_AL_BAGHDADI\["@id"\] \}/);
-  assert.match(blog, /articleModifiedTime=\{post\.updatedAt \|\| post\.date\}/);
+  assert.match(work, /articleModifiedTime=\{modifiedAt\}/);
+  assert.match(work, /workModifiedAt\(sample\.slug, sample\.updatedAt, sample\.date\)/);
+  assert.match(work, /reviewedBy: context \? undefined : \{ "@id": OMAR_AL_BAGHDADI\["@id"\] \}/);
+  assert.match(blog, /articleModifiedTime=\{editorialUpdatedAt \?\? post\.updatedAt \?\? post\.date\}/);
   assert.match(seoHead, /articleModifiedTime \|\| articlePublishedTime/);
   assert.doesNotMatch(library, /<main[\s>]/);
 });

@@ -39,7 +39,7 @@ test("practice mappings do not cross-link unrelated authorities", () => {
     ["uae", "employment-labour", "https://uaelegislation.gov.ae/en/legislations/1541"],
     ["uae", "corporate-commercial", "https://uaelegislation.gov.ae/en/legislations/1542"],
     ["uae", "real-estate-construction", "https://u.ae/en/information-and-services/housing"],
-    ["syr", "intellectual-property", "https://www.parliament.gov.sy/"],
+    ["syr", "intellectual-property", "https://www.wipo.int/wipolex/en/legislation/details/17231"],
     ["syr", "employment-law", "https://www.parliament.gov.sy/"],
     ["syr", "companies-law", "https://www.parliament.gov.sy/"],
     ["syr", "real-estate", "https://www.parliament.gov.sy/"],

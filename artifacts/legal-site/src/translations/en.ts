@@ -80,7 +80,7 @@ export const en = {
     },
     stats: [
       { stat: "20,000+", label: "Legal Matters & Consultations" },
-      { stat: "< 24h", label: "Professional Response" },
+      { stat: "24h", label: "Response Target" },
       { stat: "30+ years of legal practice", label: "Professional Experience" },
       { stat: "100% Online", label: "No Office Visit Needed" },
     ],
@@ -151,14 +151,14 @@ export const en = {
     practiceAreas: {
       eyebrow: "Our Legal Expertise",
       heading: "Core Practice Areas — Saudi Arabia",
-      subheading: "30+ years of legal practice across Saudi Arabia — comprehensive legal representation across all major practice areas.",
+      subheading: "Explore Saudi legal services and the issues each covers. Consultation and any required local representation are scoped separately.",
       areas: [
         { title: "Commercial Law & Litigation", desc: "Contract disputes, shareholder conflicts, corporate governance, banking and commercial agency disputes before Saudi courts and arbitration tribunals.", path: "/services/business-law" },
         { title: "Arbitration & Dispute Resolution", desc: "Domestic and international commercial arbitration, enforcement of arbitral awards, SCCA proceedings and investment dispute resolution.", path: "/services/arbitration" },
         { title: "Real Estate & Property Law", desc: "Property ownership disputes, contractor conflicts, construction delay claims, landlord-tenant disputes and real estate enforcement in Saudi Arabia.", path: "/services/real-estate" },
         { title: "Enforcement & Debt Collection", desc: "Court judgment enforcement, foreign judgment recognition, asset attachment, travel bans, commercial debt recovery and garnishment.", path: "/services/enforcement" },
         { title: "Administrative & Government Disputes", desc: "Board of Grievances cases, appeals against administrative decisions, public procurement disputes and government contract litigation.", path: "/services/administrative-law" },
-        { title: "Foreign Investment & Business Law", desc: "Legal support for foreign investors — MISA licensing, company formation, cross-border compliance and investor dispute resolution.", path: "/services/foreign-investment" },
+        { title: "Foreign Investment & Business Law", desc: "Legal support for foreign investors — MISA investor registration, company formation, cross-border compliance and investor dispute resolution.", path: "/services/foreign-investment" },
       ],
       viewAllBtn: "View All Practice Areas",
     },
@@ -183,7 +183,7 @@ export const en = {
     },
     cta: {
       eyebrow: "Online Legal Consultation Platform — Saudi Arabia",
-      heading: "Professional Legal Response Within 24 Hours.",
+      heading: "Discuss Your Matter with CounselO.",
       desc: "Online legal consultations for individuals, businesses and investors across Saudi Arabia — via WhatsApp, email or the consultation form. The initial review can usually begin remotely; any required filing, attendance or representation is scoped separately. 17 practice areas.",
       subDesc: "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi · Jubail, Saudi Arabia · WhatsApp or email · Arabic & English",
       ctaBtn: "Book Your Consultation Now",
@@ -291,7 +291,7 @@ export const en = {
         title: "Foreign Investment & Business Law",
         subtitle: "Guiding foreign investors through Saudi Arabia's regulatory landscape under Vision 2030.",
         overview: "Saudi Arabia's Vision 2030 transformation has opened unprecedented opportunities for foreign investors — alongside a complex regulatory environment governed by the Foreign Investment Law, MISA licensing requirements, and sector-specific regulations. CounselO has advised foreign investors entering the Saudi market for 30+ years of legal practice, covering every stage from initial MISA licensing and company formation through investment disputes, license challenges, and investor compensation claims.",
-        covers: ["MISA Investment Licensing", "Foreign Company Formation", "Investment Disputes & Appeals", "License Renewal & Amendment", "Investor Compensation Claims", "Company Share Transfer & Ownership Change"],
+        covers: ["MISA Investor Registration & Activity Approvals", "Foreign Company Formation", "Investment Disputes & Appeals", "Investor Registration Updates & Permit Changes", "Investor Compensation Claims", "Company Share Transfer & Ownership Change"],
         process: [
           { title: "Investment Structure Assessment", desc: "Advising on the optimal legal structure for your Saudi market entry — branch, subsidiary, joint venture, or special economic zone entity." },
           { title: "MISA Licensing & Registration", desc: "Managing the complete MISA foreign investment license application and Commercial Registration process." },
@@ -435,7 +435,7 @@ export const en = {
         title: "Insurance Law",
         subtitle: "Specialist insurance dispute lawyers in Saudi Arabia — challenging wrongful claim rejections and recovering insurance proceeds across all lines of insurance.",
         overview: "Saudi Arabia's insurance sector is regulated by the Saudi Central Bank (SAMA) under the Insurance Law (Royal Decree M/32) and its Implementing Regulations. When insurers wrongfully reject or underpay valid claims — whether for health, property, motor, life, or commercial insurance — policyholders have the right to challenge those decisions through SAMA's complaint mechanisms and before Saudi courts. At CounselO, we represent policyholders, beneficiaries, and insured parties in all categories of insurance dispute across all lines of insurance. Online consultation via WhatsApp or email, 24/7.",
-        covers: ["Health Insurance Claim Disputes", "Property & Home Insurance Claims", "Motor Insurance Disputes", "Life Insurance & Beneficiary Claims", "Commercial & Business Insurance Disputes", "Bad Faith Insurance Practices", "SAMA Regulatory Complaints", "Insurance Policy Interpretation & Coverage Disputes"],
+        covers: ["Health Insurance Claim Disputes", "Property & Home Insurance Claims", "Motor Insurance Disputes", "Life Insurance & Beneficiary Claims", "Commercial & Business Insurance Disputes", "Bad Faith Insurance Practices", "Insurance Authority Regulatory Complaints", "Insurance Policy Interpretation & Coverage Disputes"],
         process: [
           { title: "Policy Review", desc: "We review your insurance policy, the insurer's rejection letter, and all relevant documentation to assess the validity of the rejection and the strength of your claim." },
           { title: "SAMA Complaint", desc: "We file a formal SAMA complaint against the insurer — a mandatory first step in insurance disputes that often produces a resolution without litigation." },
@@ -1708,7 +1708,7 @@ export const en = {
   contact: {
     hero: {
       heading: "Start Your Consultation",
-      subheading: "Tell us what happened and what you need help with through WhatsApp or email. We review your request and target a professional response within 24 hours, subject to the matter and information provided.",
+      subheading: "Tell us what happened and what you need help with through WhatsApp or email. We review your request and aim to respond within a target 24-hour response window, subject to scope, urgency, intake completeness and availability.",
     },
     firmDetails: {
       heading: "Firm Details",
@@ -1757,7 +1757,7 @@ export const en = {
       uploadBtn: "Click to select files",
       uploadRemove: "Remove",
       submitBtn: "Submit Consultation Request",
-      disclaimer: "Your information is handled confidentially. CounselO targets a professional response within 24 hours, subject to the matter and information provided.",
+      disclaimer: "Your information is handled confidentially. CounselO aims to respond within a target 24-hour response window, subject to scope, urgency, intake completeness and availability.",
       paymentNotice: "After reviewing your request, we explain the service, timing and fee. The fee depends on the matter and is agreed before paid work begins. The written legal answer is provided after payment is confirmed.",
     },
   },
@@ -4887,10 +4887,10 @@ export const en = {
       eyebrow: "Our Founder",
       heading: "Lawyer & Legal Counsel Omar Al-Baghdadi",
       subheading: "Senior Advocate · Regional Legal Authority · Mentor to 40+ Lawyers",
-      bio1: "Lawyer and Legal Counsel Omar Al-Baghdadi is one of the most distinguished senior advocates in the region — with 30+ years of legal practice of active legal practice spanning litigation, commercial disputes, arbitration, and dispute resolution across Saudi Arabia, Syria and the UAE. He is widely regarded as a prominent legal authority at the regional level.",
-      bio2: "Omar Al-Baghdadi graduated from the Faculty of Law at Damascus University in 1996 and began his professional career under the guidance of his father, the esteemed Lawyer Riyad Al-Baghdadi — founder of Al-Baghdadi Law Firm, established in 1957. Raised in a distinguished legal family of this calibre, he acquired early mastery of litigation strategy, case management, and the nuances of civil, commercial, and administrative law.",
-      bio3: "Throughout his career, Omar Al-Baghdadi has managed and personally represented 20,000+ legal matters and consultations — for major corporations, investors, institutions, and individuals across the Saudi Arabian, Syrian and UAE courts. His track record spans commercial litigation, contract disputes, arbitration proceedings, administrative matters, cross-border enforcement, and investor dispute resolution.",
-      bio4: "Beyond his courtroom practice, Omar Al-Baghdadi is recognised as a regional legal mentor and educator — having trained and supervised more than 40 lawyers across Saudi Arabia, Syria and the UAE. This rare combination of senior advocacy, cross-jurisdictional expertise, and leadership of a professional legal team makes CounselO uniquely positioned to deliver premium legal services to clients across the Kingdom.",
+      bio1: "Lawyer and Legal Counsel Omar Al-Baghdadi founded CounselO and directs its legal work. His professional practice began in 1996 and includes commercial disputes, contracts, arbitration and cross-border legal analysis.",
+      bio2: "Omar graduated from the Faculty of Law at Damascus University in 1996. His family’s legal practice includes Al-Baghdadi Law Firm, founded by his father, Lawyer Riyad Al-Baghdadi, in 1957. CounselO is a distinct online consultation platform.",
+      bio3: "CounselO reports a career-wide total of 20,000+ legal matters and consultations handled or supervised, including advice, document reviews and related engagements. This figure is not a count of court victories or personal appearances in every jurisdiction. Local representation is confirmed separately with the appropriately authorised professional.",
+      bio4: "Omar has trained or supervised more than 40 lawyers. At CounselO, his role includes professional direction, review of legal analysis and coordination of matters requiring jurisdiction-specific support.",
       credentials: [
         "Graduate, Faculty of Law — Damascus University (1996)",
         "Regional legal leadership; local representation separately scoped",
@@ -4902,7 +4902,7 @@ export const en = {
         "Expert in cross-border disputes, foreign judgment enforcement and multi-jurisdictional matters",
       ],
       stats: [
-        { stat: "1996", label: "Licensed to Practice" },
+        { stat: "1996", label: "Professional Practice Began" },
         { stat: "20,000+", label: "Legal Matters & Consultations" },
         { stat: "40+", label: "Lawyers Trained" },
         { stat: "3", label: "Jurisdictions" },

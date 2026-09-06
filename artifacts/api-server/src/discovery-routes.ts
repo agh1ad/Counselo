@@ -9,6 +9,8 @@ import {
   PUBLIC_CACHE_POLICY,
 } from "@workspace/api-zod";
 import { logger } from "./lib/logger.js";
+import { repairPublicBlogPost } from "./lib/public-blog-repairs.js";
+import { repairPublicWorkSample } from "./lib/public-work-repairs.js";
 
 function findLegalDist(): string {
   const fromRoot = path.join(process.cwd(), "artifacts/legal-site/dist/public");
@@ -56,17 +58,19 @@ const workDiscoveryColumns = {
 };
 
 async function publishedBlogs() {
-  return db
+  const posts = await db
     .select(blogDiscoveryColumns)
     .from(blogPostsTable)
     .where(eq(blogPostsTable.published, true));
+  return posts.map(repairPublicBlogPost);
 }
 
 async function publishedWork() {
-  return db
+  const samples = await db
     .select(workDiscoveryColumns)
     .from(workSamplesTable)
     .where(eq(workSamplesTable.published, true));
+  return samples.map(repairPublicWorkSample);
 }
 
 /**

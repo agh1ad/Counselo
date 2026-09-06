@@ -1,4 +1,3 @@
-import { useState } from "react";
 import * as m from "framer-motion/m";
 import { useParams, Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -17,6 +16,11 @@ import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { SYR_SEO_DATA } from "@/lib/seo-data-syr";
 import { RELATED_SERVICES, SERVICE_SEARCH_CONTENT } from "@/lib/service-search-content";
+import { SERVICE_INTAKE_CONTENT, UAE_RELATED_SERVICES, BILINGUAL_SERVICE_COVERAGE } from "@/lib/service-intake-content";
+import { getServiceIntentFaqs } from "@/lib/service-intent-faqs";
+import { editorialFaqs } from "@/lib/search-intent-editorial";
+import { UAE_SERVICES } from "@/data/uae-legal-services";
+import { buildUaeServicePageContent } from "@/data/uae-service-page-content";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { TrustSignals } from "@/components/seo/TrustSignals";
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
@@ -39,7 +43,6 @@ export default function ServiceDetail() {
   const { region, regionPrefix } = useRegion();
   const sd = t.serviceDetail;
   const data = sd.services[id as keyof typeof sd.services];
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const comprehensiveConsultation = getConsultationProduct("comprehensive-consultation");
 
   if (!data) {
@@ -103,13 +106,13 @@ export default function ServiceDetail() {
     if (isSyr) return !/(Saudi|KSA|SAMA|CMA|ZATCA|MISA|SAIP|CITC|Vision 2030|UAE|Emirates|DIFC|ADGM|السعود|ساما|هيئة الزكاة|الإمارات|مركز دبي المالي|أبوظبي العالمي)/i.test(value);
     return true;
   };
-  const displayCovers = data.covers.filter((item) => isJurisdictionSafe(item));
+  const displayCovers = (!isUae && BILINGUAL_SERVICE_COVERAGE[id] ? BILINGUAL_SERVICE_COVERAGE[id][isRTL ? "ar" : "en"] : data.covers).filter((item) => isJurisdictionSafe(item));
   const uaeDocuments = Array.isArray(d.documents)
     ? (d.documents as string[]).filter(isJurisdictionSafe)
     : [];
   const searchContent = isUae ? undefined : SERVICE_SEARCH_CONTENT[id];
   const configuredRelatedServiceIds = isUae
-    ? t.services.items.filter((service) => service.id !== id).slice(0, 3).map((service) => service.id)
+    ? (UAE_RELATED_SERVICES[id] ?? [])
     : (RELATED_SERVICES[id] ?? []).filter((serviceId) =>
         t.services.items.some((service) => service.id === serviceId),
       );
@@ -117,7 +120,8 @@ export default function ServiceDetail() {
     .filter((serviceId) => serviceId !== id)
     .slice(0, 4);
   const problemPages = getLegalProblemPages(region, id);
-  const documents = isUae
+  const intake = SERVICE_INTAKE_CONTENT[id];
+  const documents = intake ? intake.documents[isRTL ? "ar" : "en"] : isUae
     ? uaeDocuments
     : searchContent
       ? (isRTL ? searchContent.documentsAr : searchContent.documentsEn)
@@ -153,7 +157,9 @@ export default function ServiceDetail() {
         { q: "Can CounselO review a contract, decision, or case file before proceedings begin?", a: "Yes. An initial review can identify legal and practical risks, strengths, missing information, and the most appropriate route before negotiation or a formal filing." },
         { q: "Is my consultation information confidential?", a: "CounselO handles legal information and documents under applicable professional-confidentiality, privacy and data-protection obligations, subject to legally required or permitted disclosures." },
       ];
-  const displayFaqs = universalFaqs;
+  const uaeService = isUae ? UAE_SERVICES.find(service => service.slug === id) : undefined;
+  const regionalFaqs = uaeService ? buildUaeServicePageContent(uaeService).faqs[isRTL ? "ar" : "en"] : universalFaqs;
+  const displayFaqs = [...getServiceIntentFaqs(region, id, isRTL, data.title, documents, displayCovers), ...editorialFaqs(`${regionPrefix}/services/${id}`, region, isRTL), ...regionalFaqs];
   const canonicalPath = `/services/${id}`;
   const langSeg = isRTL ? "/ar" : "";
   const regionSeg = `/${region}`;
@@ -162,7 +168,7 @@ export default function ServiceDetail() {
   const inLanguage = isRTL ? (isSyr ? "ar-SY" : isUae ? "ar-AE" : "ar-SA") : (isSyr ? "en-SY" : isUae ? "en-AE" : "en-SA");
   const legalSources = getRegionalLegalSources(region, id);
   const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو، أحتاج إلى مراجعة بخصوص خدمة ${data.title} في ${countryName}.` : `Hello CounselO, I need a review concerning ${data.title} in ${countryName}.`)}`;
-  const serviceSummary = isRTL
+  const serviceSummary = intake ? `${isRTL ? `استشارة ${data.title} في ${countryName}.` : `${data.title} consultation in ${countryName}.`} ${intake.summary[isRTL ? "ar" : "en"]}` : isRTL
     ? `تقييم قانوني مركز لمسائل ${data.title} في ${countryName}: نحدد الإطار النظامي والجهة المختصة والمستندات والمواعيد والخيارات قبل تأكيد نطاق العمل.`
     : `A focused legal assessment for ${data.title.toLowerCase()} matters in ${countryName}: we identify the applicable framework, competent authority, documents, timing and options before confirming scope.`;
   const atAGlance = isRTL
@@ -222,7 +228,7 @@ export default function ServiceDetail() {
       "name": seoTitle,
       "description": seoDesc,
       "inLanguage": inLanguage,
-      "dateModified": "2026-08-18",
+      "dateModified": "2026-09-06",
       "citation": legalSources.map((source) => source.href),
       "publisher": {
         "@type": "LegalService",
@@ -455,23 +461,17 @@ export default function ServiceDetail() {
                   </h2>
                   <div className="border-t border-[#0d4a31]/18">
                     {displayFaqs.map((faq, i) => (
-                      <div key={i} className="border-b border-[#0d4a31]/18">
-                        <button
-                          className="group flex w-full items-center justify-between py-6 text-start transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b4924a]"
-                          onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                          aria-expanded={openFaq === i}
-                        >
+                      <details key={i} className="group border-b border-[#0d4a31]/18">
+                        <summary className="flex w-full cursor-pointer list-none items-center justify-between py-6 text-start transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b4924a] marker:content-none">
                           <span className="font-semibold text-foreground leading-snug pe-4">{faq.q}</span>
                           <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-[#0d4a31]/14 bg-[#eef4f0]">
-                            <ChevronDown className={`h-4 w-4 text-primary transition-transform duration-200 ${openFaq === i ? "rotate-180" : ""}`} />
+                            <ChevronDown className="h-4 w-4 text-primary transition-transform duration-200 group-open:rotate-180" />
                           </span>
-                        </button>
-                        {openFaq === i && (
+                        </summary>
                           <div className="max-w-3xl pb-6">
                             <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
                           </div>
-                        )}
-                      </div>
+                      </details>
                     ))}
                   </div>
                 </div>

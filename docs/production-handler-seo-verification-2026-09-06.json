@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-09-06T06:05:44.447Z",
+  "scope": "Isolated production API route handler and renderer; public work and article records; no deployment or indexing assertion",
+  "redirectsChecked": 307,
+  "targetsChecked": 44,
+  "workPagesChecked": 90,
+  "articlePagesChecked": 90,
+  "issues": []
+}

@@ -3,14 +3,23 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import {
+  ARTICLE_CONTEXT,
+  articleModifiedAt,
+  workModifiedAt,
   buildHreflangLinks,
   getServicesForRegion,
   hasQualityBilingualBlogContent,
 } from "@workspace/api-zod";
+import { repairPublicBlogPost } from "../../../api-server/src/lib/public-blog-repairs.js";
+import { repairPublicWorkSample } from "../../../api-server/src/lib/public-work-repairs.js";
 import { getLegalProblemPages, legalProblemPath } from "../lib/legal-problem-pages.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, "../..");
+// Stable editorial dates, changed only when the corresponding checked-in
+// content family receives a substantive update. Never substitute build time.
+const STATIC_CONTENT_LASTMOD = "2026-09-04";
+const PROBLEM_CONTENT_LASTMOD = "2026-09-06";
 
 const BlogSectionSchema = z.object({
   heading: z.string().optional(),
@@ -210,28 +219,26 @@ for (const page of CORE_PAGES) {
   if (page.path === "/syr") {
     entries.push("\n  <!-- ===== SYR CORE PAGES ===== -->");
   }
-  // Static pages omit lastmod unless a trustworthy content revision date is
-  // available. A deployment timestamp is not a meaningful modification date.
-  entries.push(urlEntry(page.path, page.changefreq, page.priority));
+  entries.push(urlEntry(page.path, page.changefreq, page.priority, /(?:privacy-policy|vision|contact|services)$/.test(page.path) || /^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?)$/.test(page.path) ? "2026-09-06" : STATIC_CONTENT_LASTMOD));
 }
 
 entries.push("\n  <!-- ===== SA SERVICE PAGES ===== -->");
 for (const slug of SA_SERVICE_SLUGS) {
-  entries.push(urlEntry(`/sa/services/${slug}`, "monthly", "0.9"));
-  entries.push(urlEntry(`/sa/ar/services/${slug}`, "monthly", "0.9"));
+  entries.push(urlEntry(`/sa/services/${slug}`, "monthly", "0.9", "2026-09-06"));
+  entries.push(urlEntry(`/sa/ar/services/${slug}`, "monthly", "0.9", "2026-09-06"));
 }
 
 entries.push("\n  <!-- ===== SYR SERVICE PAGES ===== -->");
 for (const slug of SYR_SERVICE_SLUGS) {
   const fn = SYRIA_ONLY_SERVICE_SLUGS.has(slug) ? urlEntrySyrOnly : urlEntry;
-  entries.push(fn(`/syr/services/${slug}`, "monthly", "0.9"));
-  entries.push(fn(`/syr/ar/services/${slug}`, "monthly", "0.9"));
+  entries.push(fn(`/syr/services/${slug}`, "monthly", "0.9", "2026-09-06"));
+  entries.push(fn(`/syr/ar/services/${slug}`, "monthly", "0.9", "2026-09-06"));
 }
 
 entries.push("\n  <!-- ===== UAE SERVICE PAGES ===== -->");
 for (const slug of UAE_SERVICE_SLUGS) {
-  entries.push(urlEntry(`/uae/services/${slug}`, "monthly", "0.9"));
-  entries.push(urlEntry(`/uae/ar/services/${slug}`, "monthly", "0.9"));
+  entries.push(urlEntry(`/uae/services/${slug}`, "monthly", "0.9", "2026-09-06"));
+  entries.push(urlEntry(`/uae/ar/services/${slug}`, "monthly", "0.9", "2026-09-06"));
 }
 
 entries.push("\n  <!-- ===== LEGAL PROBLEM PAGES ===== -->");
@@ -239,8 +246,8 @@ for (const region of ["sa", "syr", "uae"] as const) {
   for (const page of getLegalProblemPages(region)) {
     const enPath = legalProblemPath(region, "en", page.parentServiceSlug, page.slug);
     const arPath = legalProblemPath(region, "ar", page.parentServiceSlug, page.slug);
-    entries.push(urlEntryLanguageVariant(`${BASE_URL}${enPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8"));
-    entries.push(urlEntryLanguageVariant(`${BASE_URL}${arPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8"));
+    entries.push(urlEntryLanguageVariant(`${BASE_URL}${enPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8", PROBLEM_CONTENT_LASTMOD));
+    entries.push(urlEntryLanguageVariant(`${BASE_URL}${arPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8", PROBLEM_CONTENT_LASTMOD));
   }
 }
 
@@ -248,20 +255,20 @@ for (const region of ["sa", "syr", "uae"] as const) {
 entries.push("\n  <!-- ===== BLOG ===== -->");
 const blogIndexEn = `${BASE_URL}${BLOG_BASE_PATH}`;
 const blogIndexAr = `${BASE_URL}${BLOG_BASE_PATH}/ar`;
-entries.push(urlEntryLanguageVariant(blogIndexEn, blogIndexEn, blogIndexAr, "weekly", "0.8"));
-entries.push(urlEntryLanguageVariant(blogIndexAr, blogIndexEn, blogIndexAr, "weekly", "0.8"));
+entries.push(urlEntryLanguageVariant(blogIndexEn, blogIndexEn, blogIndexAr, "weekly", "0.8", "2026-09-06"));
+entries.push(urlEntryLanguageVariant(blogIndexAr, blogIndexEn, blogIndexAr, "weekly", "0.8", "2026-09-06"));
 
 entries.push("\n  <!-- ===== LEGAL LIBRARY ===== -->");
 const libraryIndexEn = `${BASE_URL}${LEGAL_LIBRARY_BASE_PATH}`;
 const libraryIndexAr = `${BASE_URL}/ar${LEGAL_LIBRARY_BASE_PATH}`;
-entries.push(urlEntryLanguageVariant(libraryIndexEn, libraryIndexEn, libraryIndexAr, "weekly", "0.9"));
-entries.push(urlEntryLanguageVariant(libraryIndexAr, libraryIndexEn, libraryIndexAr, "weekly", "0.9"));
+entries.push(urlEntryLanguageVariant(libraryIndexEn, libraryIndexEn, libraryIndexAr, "weekly", "0.9", "2026-09-06"));
+entries.push(urlEntryLanguageVariant(libraryIndexAr, libraryIndexEn, libraryIndexAr, "weekly", "0.9", "2026-09-06"));
 
 entries.push("\n  <!-- ===== OUR WORK ===== -->");
 const workIndexEn = `${BASE_URL}${WORK_BASE_PATH}`;
 const workIndexAr = `${BASE_URL}/ar${WORK_BASE_PATH}`;
-entries.push(urlEntryLanguageVariant(workIndexEn, workIndexEn, workIndexAr, "weekly", "0.85"));
-entries.push(urlEntryLanguageVariant(workIndexAr, workIndexEn, workIndexAr, "weekly", "0.85"));
+entries.push(urlEntryLanguageVariant(workIndexEn, workIndexEn, workIndexAr, "weekly", "0.85", "2026-09-06"));
+entries.push(urlEntryLanguageVariant(workIndexAr, workIndexEn, workIndexAr, "weekly", "0.85", "2026-09-06"));
 
 // Blog posts — fetch the published records from the live API by default.
 // BLOG_API_URL can point builds at a preview/local API without changing config.
@@ -300,24 +307,24 @@ try {
     const posts = raw
       .map((p) => BlogPostRowSchema.safeParse(p))
       .filter((r) => r.success)
-      .map((r) => r.data)
+      .map((r) => repairPublicBlogPost(r.data))
       .filter((post) => post.bilingual === true || hasQualityBilingualBlogContent(post));
     for (const post of posts) {
-      const modified = post.updatedAt?.slice(0, 10) || post.date;
+      const modified = articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date)?.slice(0, 10) || post.date;
       const enUrl = `${BASE_URL}/blog/en/${post.slug}`;
       const arUrl = `${BASE_URL}/blog/ar/${post.slug}`;
       entries.push(urlEntryLanguageVariant(enUrl, enUrl, arUrl, "monthly", "0.7", modified));
       entries.push(urlEntryLanguageVariant(arUrl, enUrl, arUrl, "monthly", "0.7", modified));
       feedPosts.push({
         slug: post.slug,
-        date: post.updatedAt?.slice(0, 10) || post.date,
+        date: articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date)?.slice(0, 10) || post.date,
         title: post.titleEn?.trim() || post.slug,
         excerpt: post.excerptEn?.trim() || "CounselO legal insight",
         url: enUrl,
       });
       feedPosts.push({
         slug: post.slug,
-        date: post.updatedAt?.slice(0, 10) || post.date,
+        date: articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date)?.slice(0, 10) || post.date,
         title: post.titleAr?.trim() || post.slug,
         excerpt: post.excerptAr?.trim() || "رؤية قانونية من كاونسلو",
         url: arUrl,
@@ -330,16 +337,16 @@ try {
 }
 
 try {
-  const WorkRowSchema = z.object({ slug: z.string(), date: z.string(), updatedAt: z.string().optional(), titleEn: z.string().optional(), titleAr: z.string().optional() });
+  const WorkRowSchema = z.object({ slug: z.string(), date: z.string(), updatedAt: z.string().optional(), titleEn: z.string().optional(), titleAr: z.string().optional() }).passthrough();
   const workApiUrl = process.env["WORK_API_URL"]?.trim() || "https://counselo-legal.com/api/work";
   const res = await fetchRequiredDiscovery([workApiUrl], "Work sample");
   if (res.ok) {
     const raw = (await res.json()) as unknown[];
-    const samples = raw.map((item) => WorkRowSchema.safeParse(item)).filter((item) => item.success).map((item) => item.data);
+    const samples = raw.map((item) => WorkRowSchema.safeParse(item)).filter((item) => item.success).map((item) => repairPublicWorkSample(item.data));
     for (const sample of samples) {
       const enUrl = `${BASE_URL}${WORK_BASE_PATH}/${sample.slug}`;
       const arUrl = `${BASE_URL}/ar${WORK_BASE_PATH}/${sample.slug}`;
-      const modified = sample.updatedAt?.slice(0, 10) || sample.date;
+      const modified = workModifiedAt(sample.slug, sample.updatedAt, sample.date)?.slice(0, 10) || sample.date;
       if (sample.titleEn && sample.titleAr) {
         entries.push(urlEntryLanguageVariant(enUrl, enUrl, arUrl, "monthly", "0.75", modified));
         entries.push(urlEntryLanguageVariant(arUrl, enUrl, arUrl, "monthly", "0.75", modified));

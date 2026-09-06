@@ -17,6 +17,7 @@ import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosur
 import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { trackEvent } from "@/lib/analytics";
+import { SearchIntentGuidance } from "@/components/content/search-intent-guidance";
 import { getServicesForRegion } from "@workspace/api-zod/browser";
 
 const MAX_FILES = 10;
@@ -570,6 +571,7 @@ export default function Contact() {
       </section>}
 
       <JurisdictionDisclosure jurisdiction={region} />
+      <SearchIntentGuidance page="contact" />
       <Toaster />
     </div>
   );

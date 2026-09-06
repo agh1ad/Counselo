@@ -1,0 +1,15 @@
+{
+  "recordedAt": "2026-09-06T06:09:27.245101+00:00",
+  "websiteOrigin": "http://127.0.0.1:24438",
+  "browserOrigin": "http://127.0.0.1:24441",
+  "websiteProcess": "PORT=24438 API_ORIGIN=http://127.0.0.1:24441 node artifacts/legal-site/dist/ssr-server.mjs",
+  "apiDependency": "Read-only integration harness, repaired snapshots of the published public article/work corpus; no private database connection or mutation",
+  "apiScript": "artifacts/legal-site/src/scripts/serve-seo-preview.ts",
+  "snapshotFiles": [
+    "output/seo/articles-public-snapshot.json",
+    "output/seo/work-public-snapshot.json"
+  ],
+  "separateLiveCorpusEvidence": "docs/production-handler-seo-verification-2026-09-06.json",
+  "publicationVerified": false,
+  "searchAccountEvidenceAvailable": false
+}

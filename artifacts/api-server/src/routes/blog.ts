@@ -22,6 +22,7 @@ import {
   translateBlogForPublishing,
 } from "../lib/content-translation.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
+import { repairPublicBlogPost } from "../lib/public-blog-repairs.js";
 
 const router = Router();
 
@@ -33,6 +34,7 @@ router.get("/blog/posts", async (_req, res) => {
     .orderBy(desc(blogPostsTable.date));
   res.json(
     posts
+      .map(repairPublicBlogPost)
       .filter(hasQualityBilingualBlogContent)
       .map(sanitizeBlogPost),
   );
@@ -71,6 +73,7 @@ router.get("/blog/posts/discovery", async (_req, res) => {
     .orderBy(desc(blogPostsTable.date));
   res.json(
     posts
+      .map(repairPublicBlogPost)
       .filter(hasQualityBilingualBlogContent)
       .map((post) => ({
         id: post.id,
@@ -103,11 +106,12 @@ router.get("/blog/posts/:slug", async (req, res) => {
     .select()
     .from(blogPostsTable)
     .where(eq(blogPostsTable.slug, slug));
-  if (!post || !post.published || !hasQualityBilingualBlogContent(post)) {
+  const repairedPost = post ? repairPublicBlogPost(post) : undefined;
+  if (!repairedPost || !repairedPost.published || !hasQualityBilingualBlogContent(repairedPost)) {
     res.status(404).json({ error: "Not found" });
     return;
   }
-  res.json(sanitizeBlogPost(post));
+  res.json(sanitizeBlogPost(repairedPost));
 });
 
 router.post("/admin/auth", (req, res) => {

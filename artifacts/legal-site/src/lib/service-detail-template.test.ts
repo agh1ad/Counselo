@@ -29,6 +29,8 @@ test("legacy outcome-oriented service narratives are not rendered by the shared 
   for (const legacyField of ["displayOverview", "displayOverview1", "displayOverview2", "displayExperienceNote", "data.process"]) {
     assert.doesNotMatch(template, new RegExp(`\\b${legacyField.replace(".", "\\.")}\\b`));
   }
-  assert.match(template, /const displayFaqs = universalFaqs/);
+  assert.match(template, /const displayFaqs = \[\.\.\.getServiceIntentFaqs/);
+  assert.match(template, /\.\.\.regionalFaqs\]/);
+  assert.match(template, /buildUaeServicePageContent\(uaeService\)\.faqs/);
   assert.match(template, /Source-routing verification: 18 August 2026/);
 });

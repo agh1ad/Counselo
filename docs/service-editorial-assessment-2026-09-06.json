@@ -1,0 +1,2285 @@
+{
+  "scope": "All service pages assessed in both languages using the recorded reading and shared-component review, with final rendered evidence. This is implementation evidence, not independent professional certification or search-engine performance.",
+  "sources": [
+    {
+      "url": "https://misa.gov.sa/activities/laws-regulations-copy/",
+      "finding": "Investor registration replaces the former foreign-investment licensing model; activity approvals remain distinct."
+    },
+    {
+      "url": "https://www.ia.gov.sa/en/faqs",
+      "finding": "Insurance complaints transferred from SAMA to Insurance Authority."
+    },
+    {
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/17231",
+      "finding": "Syrian copyright source is Decree 62/2013, not the replaced 2001 reference."
+    },
+    {
+      "url": "https://sana.sy/economy/2330179/",
+      "finding": "Investment instructions concern Law 18/2021 as amended in 2023 and 2025."
+    },
+    {
+      "url": "https://archive.thawra.sy/?p=357711",
+      "finding": "Official archive of Syrian cybercrime Law 20/2022; applicability still requires amendment and event-date checking."
+    },
+    {
+      "url": "https://rdc.gov.ae/en/about-rdc/about-rental-disputes-center/",
+      "finding": "Dubai rental adjudication belongs to RDC within its jurisdiction; distinguish RERA regulatory functions."
+    },
+    {
+      "url": "https://www.sca.gov.ae/en/regulations/regulations-listing.aspx?id=59",
+      "finding": "Current official regulator branding is UAE Capital Market Authority."
+    }
+  ],
+  "pages": [
+    {
+      "route": "/sa/ar/services/administrative-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/administrative-law",
+          "renderedContentFingerprint": "71e25547fed9616fb3051828efd2a59671acfd66d4864ffadae59b85b847aeff",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/arbitration",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/arbitration",
+          "renderedContentFingerprint": "57a310581e8896dfe7bd562130dda66b040e193d58ac942cce3e0d5ea1774323",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/banking-finance",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/banking-finance",
+          "renderedContentFingerprint": "b3bb550b7d4b7cd0339f1cab80f3c0663c315fa0b72bbcc58193411e140d9462",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/business-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/business-law",
+          "renderedContentFingerprint": "2e3e371dd6fbeb6f5a9773e6087fd18da5e3cb1f4a3ffdbbcf6d0992d18253fa",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/companies-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/companies-law",
+          "renderedContentFingerprint": "d32f78faca8697ffd93b5abb0f5208f34d96bdc1f08c78de427758c17787eb2d",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/contracts",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/contracts",
+          "renderedContentFingerprint": "b6dead7fb13a35b5131c381ccf1621785c909e0a4de8005d0111dce3bf854d36",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/criminal-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/criminal-law",
+          "renderedContentFingerprint": "839213ecd8548ce2e59e960ade35caf8c1ea5a366ec7d812c740b16070aaedfb",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/cyber-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/cyber-law",
+          "renderedContentFingerprint": "f9ea9fa68e90d545995c62967c2edf7e600b0cb47a978f73f86e5f1f4c3ffbcf",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/employment-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/employment-law",
+          "renderedContentFingerprint": "a5dcac427daa9af328efb7b79be6885485b215114be57bde76f0bca57b770a70",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/enforcement",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/enforcement",
+          "renderedContentFingerprint": "831bf529c7bb29928758604116bc303c6d79850cc639fdc6fe593073b83209b0",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/family-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/family-law",
+          "renderedContentFingerprint": "fded2e824b6c49ae13a6f4cc7f748a32c6253006dc812f6b4790a258fca3619b",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/foreign-investment",
+          "renderedContentFingerprint": "da306e87de797b4bda37a3775b37a79692a6a05c03d635b29e701a2a873841ff",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/insurance-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/insurance-law",
+          "renderedContentFingerprint": "9cb8b30347eb5ede8fb65ebde1d2896315772e27ebd6f902562079dec52e900a",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/intellectual-property",
+          "renderedContentFingerprint": "780cde42cb551045b4c8c4efdbeda98704c4a7188d3489257d3c2dffaf0597a6",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/medical-malpractice",
+          "renderedContentFingerprint": "95205877ecfdbf949acf11d05e2afd52c5f11222b56ff4ba469c4fa1630b0e96",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/real-estate",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/real-estate",
+          "renderedContentFingerprint": "d4536f03b1b294ac4f4fd4b4ff5edc398daaa8423ae3499941669d47e38a195b",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services/tax-zakat",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services/tax-zakat",
+          "renderedContentFingerprint": "951c560886841af3b910cedcaa7ea7e435a1b65804c7a4a601d51a18ac4296c0",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/administrative-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/administrative-law",
+          "renderedContentFingerprint": "e8ded3272e234d654e67ba5f3072fe5102c6d80a147271330e2aa15b9c7b715d",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/arbitration",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/arbitration",
+          "renderedContentFingerprint": "3ad3f9a0856d46fd22578f4789cc6f25b4639ca313dacf9ebf7f7b2d6a09eeaf",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/banking-finance",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/banking-finance",
+          "renderedContentFingerprint": "a61985277392f4024f517380ca20e2f7955664ce80bfb0643a92045b527ff8f7",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/business-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/business-law",
+          "renderedContentFingerprint": "5c2bd5dd53c46ccf9521df3856150073662363675c27aa56a48fe6a19b28b0fe",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/companies-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/companies-law",
+          "renderedContentFingerprint": "8d155ee1fd862baa42af237e5acd4dce99112af11c5a1f6e443527eadff6d419",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/contracts",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/contracts",
+          "renderedContentFingerprint": "3838a1ecb1281a121415a32ac520cb4029dfaa451e8e8d9e68622f0603bd095c",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/criminal-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/criminal-law",
+          "renderedContentFingerprint": "8073bf4c14998b487c64e96972b1b91b243e1d68736eef2a5b7fe5ca96338a94",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/cyber-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/cyber-law",
+          "renderedContentFingerprint": "174972b5383258d38fa0d9027e2bb07e40d08e385c57984cfa9082e1b6abe49e",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/employment-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/employment-law",
+          "renderedContentFingerprint": "06a5fd3397621fa4d09321db1b41dcf9f70f8f7071ea87d89e33e50236cd144f",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/enforcement",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/enforcement",
+          "renderedContentFingerprint": "3696426300ac6172b0834e90be4a4d953ffe3de577c93d4a91c9297d7a66ec96",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/family-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/family-law",
+          "renderedContentFingerprint": "7729910a061388ae4270980f3995c696ef929d4b342cfbebef8a5f040ea9e40d",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/foreign-investment",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/foreign-investment",
+          "renderedContentFingerprint": "8ee55098b3c1ae106a17520d379632225864aedbd5888a495b89502696331977",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/insurance-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/insurance-law",
+          "renderedContentFingerprint": "d20c0ef4d0b61b2e35c9865373b2716dd412212aea23ddb9df04c80be12f0acb",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/intellectual-property",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/intellectual-property",
+          "renderedContentFingerprint": "acbea405ec72e8fe8834bf1ba98c44c26f2ae1782bdcf7895dc481509fe472c6",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/medical-malpractice",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/medical-malpractice",
+          "renderedContentFingerprint": "4040cd846d4095d7f1a0c2fce8eee6c5fe8895662bbaa3bf20e00534ba7fbb69",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/real-estate",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/real-estate",
+          "renderedContentFingerprint": "36897d141c70d18c72a5e7921ae19e15f5d4ec6e83cfc23f343c6ea8874f47ca",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/sa/services/tax-zakat",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services/tax-zakat",
+          "renderedContentFingerprint": "0ab52c36e57a6ea6f34dbb1a0d3e0cb2b3784c8307b3ee2d3f1b1d6709c464ff",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/administrative-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/administrative-law",
+          "renderedContentFingerprint": "61a2f6ec3764c5cdcbd8022bff1bb4061d78437c75ceb1f469205cd7f9a80dae",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/arbitration",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/arbitration",
+          "renderedContentFingerprint": "5ef9939a7131f89a1f8b94119ac2883535b1fcca927220179cf6b7f666642511",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/banking-finance",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/banking-finance",
+          "renderedContentFingerprint": "b8a62eda8f9fa7ad6bdd3d55834dfbeda026a39e8985429dd311c8cd120d4e65",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/business-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/business-law",
+          "renderedContentFingerprint": "c6123f9aefc4acdc67b4b03ca2f1eb30e6fed4ef1514bffd66ef8bed1e86d514",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/civil-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/civil-law",
+          "renderedContentFingerprint": "891fac75e8b110bfee571b995c1f5522caab9ff90db9a450bfac59855c25f63d",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/civil-procedure",
+          "renderedContentFingerprint": "cfe67188a61dc12484c0d272df7f447ca0a8c6359d15d34fc2dbfdcc95359c22",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/companies-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/companies-law",
+          "renderedContentFingerprint": "2209c73cfdb3dfea9c4e6d2f28ec840c002328b052f8c1f662495cd8a0a64115",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/contracts",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/contracts",
+          "renderedContentFingerprint": "aa7f910c761f674f3b732fa48287d006dad9781d94aee1e8c57027a597ebdcef",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/criminal-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/criminal-law",
+          "renderedContentFingerprint": "6e89f01cc38275f0b8471c5e417da28c9718307e6e2b971cfa0c5d62b68a7eb1",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/criminal-procedure",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/criminal-procedure",
+          "renderedContentFingerprint": "63212e1c23cb9c96491d9abd3d109510e5ef3a87827eb33a24d352c01e24edd3",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/cyber-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/cyber-law",
+          "renderedContentFingerprint": "64d624f590a01b737d1c9cc82a9463dc7fe4cc6c2ee2f50d737dfda845ac7360",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/employment-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/employment-law",
+          "renderedContentFingerprint": "30fa5ca04fde8415323d2d7c6e46ae46dce27b0446c0dc971ae8b047c8681d57",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/enforcement",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/enforcement",
+          "renderedContentFingerprint": "11eeee172cfe21b72116f85d60aea20d450c51a77793a69a85af9c99c477cdc8",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/family-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/family-law",
+          "renderedContentFingerprint": "bf6082dd4138406be0a39e7372824418ed81508d0e5fe9c6e9f5484cdb3fb5fb",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/foreign-investment",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/foreign-investment",
+          "renderedContentFingerprint": "2d77876c90e05228332bb381ad5a7a66569d1c57f98afb8a303ec464767293d2",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/insurance-law",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/insurance-law",
+          "renderedContentFingerprint": "ebf853f8748923322d46b84dcdb04277973080c21cfe42f0a4f85697fe662ca4",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/intellectual-property",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/intellectual-property",
+          "renderedContentFingerprint": "81a75e2f6e1fdee4f87580d2bf176d188a8cd3a62ec1e8554ef9f4d746498502",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/medical-malpractice",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/medical-malpractice",
+          "renderedContentFingerprint": "3a5a4c1ee416c31d38e1c4cfd5aaf60d4add707fb999ae26bf38057d717d1bc6",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/real-estate",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/real-estate",
+          "renderedContentFingerprint": "cb423820a3a3d03d296880dd4a62c4f5f05242a4f768a4c1a9ce86b595662883",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services/tax-zakat",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services/tax-zakat",
+          "renderedContentFingerprint": "10d7e4cd33012be83c3b3557dbb796cee81cc29d0e1b09a3ac26bbe310468897",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/administrative-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/administrative-law",
+          "renderedContentFingerprint": "d69f3891653ceea9ce977448ab5301ab567f5806363855bef0a892dd5e7ee354",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/arbitration",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/arbitration",
+          "renderedContentFingerprint": "861cc0fd0d090a3ddc3942fc180fc22ba7f41196a158a2bbe667a683129bebe6",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/banking-finance",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/banking-finance",
+          "renderedContentFingerprint": "3b6d4963575daabb8b070124f315113d6aaf0ecb627bf69189d5f1667d2e26c0",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/business-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/business-law",
+          "renderedContentFingerprint": "419dc82da1c113dcf21d4de62b00e9738399275808ab8c7f6267c2a81fdb8039",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/civil-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/civil-law",
+          "renderedContentFingerprint": "ea9d712dcf7830941d7008c67851bfe1bc963d546760bb24a368cd001dcd7278",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/civil-procedure",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/civil-procedure",
+          "renderedContentFingerprint": "7972d4bc858ee17591268a87c5c820f3a7b0b0968bd3b5d8ce9aef96c12d11eb",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/companies-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/companies-law",
+          "renderedContentFingerprint": "787809bc4f5f51e31b9d66ce92901fe5054e2fb049fcbddfd5b78b2e8eb88057",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/contracts",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/contracts",
+          "renderedContentFingerprint": "32579e8f8e473ae5f71226891212e12d9fecd3f7db3a8a498ae763431c6e2e6e",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/criminal-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/criminal-law",
+          "renderedContentFingerprint": "30704c86dbb3e063c3136a4ad21ade012c2702dbbce4a912b17d777bd2ac8a68",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/criminal-procedure",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/criminal-procedure",
+          "renderedContentFingerprint": "5cd83cd80f88cabdecc3e08fb8aadb03428c2ee232ed1cca70962876ad7d229c",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/cyber-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/cyber-law",
+          "renderedContentFingerprint": "cb5932d08f2d709ac33db00509ca312f203c0fe615317bd25855e10ee372fdf0",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/employment-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/employment-law",
+          "renderedContentFingerprint": "1d5a9a071b0271c7a31dba7894c1ca0210a0b0de2252341a5652fe63d23aa0f8",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/enforcement",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/enforcement",
+          "renderedContentFingerprint": "512c5cb78c28f2cb44790d1bcebb1c267969c352bb807d4ac540182616f75a19",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/family-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/family-law",
+          "renderedContentFingerprint": "1af5211df49ff973fd8c2dceebcf3f6451b12962f03755b2292b1a7f6769eba4",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/foreign-investment",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/foreign-investment",
+          "renderedContentFingerprint": "bb9812e8cd1470dc319f67fb5cead40d90402937fc2e844e0c1780a7c85e35ea",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/insurance-law",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/insurance-law",
+          "renderedContentFingerprint": "43582fe6cf1eb21f9ed4e159e78353cfec27efc57dd9770dc3bbed66259874e1",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/intellectual-property",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/intellectual-property",
+          "renderedContentFingerprint": "af45f2ccfe5b40727100c252bccf331456ceb26d58908695676bec376a709fa2",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/medical-malpractice",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/medical-malpractice",
+          "renderedContentFingerprint": "a1aa666700e6d40168c9a76e501b3ceb7cd28b482e60938cf11539eca9e68e98",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/real-estate",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/real-estate",
+          "renderedContentFingerprint": "7370d6995a01f009a1bf7a6bcc03d35f83d09ac3f4034ed6cebd74aa8b1fe0fe",
+          "passagesChecked": 10
+        }
+      ]
+    },
+    {
+      "route": "/syr/services/tax-zakat",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services/tax-zakat",
+          "renderedContentFingerprint": "2bb17354550adc95c5e7a727a7d64e99ed7f672a11aa5ca1e725cbf52c745f7e",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/administrative-regulatory",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/administrative-regulatory",
+          "renderedContentFingerprint": "b521b8162b448007fe3a31fc84a2f04faa145c618ed369e8b2c6986e1bb78806",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/arbitration-mediation",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/arbitration-mediation",
+          "renderedContentFingerprint": "014c31c528b2d220f64a769e117a2a75c442865c8fa7942d2568b8552e028d18",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/banking-finance",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/banking-finance",
+          "renderedContentFingerprint": "68d0b3a9b234fd85aabb9a55d9c467f3ff8d192fa362b864621b431040fa35dc",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/commercial-contracts",
+          "renderedContentFingerprint": "cae99ca2cc04e8b7b51aeb16435444bd46c3f6151c4648e24909b6f31945bfcc",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/consumer-ecommerce",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/consumer-ecommerce",
+          "renderedContentFingerprint": "4d8bff9561023feaa05b75defec4edbec9624da761abbc70496e0224562b89c1",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/corporate-commercial",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/corporate-commercial",
+          "renderedContentFingerprint": "9ac15d4e8c543ef7004a661c5e9f37de64b133acdb5475bbd08be35fb4f44f5f",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/criminal-investigations",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/criminal-investigations",
+          "renderedContentFingerprint": "a3e4d29ae2e324953c4046787a32baaad8952a149baf5966b5475dbfb37b2953",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/employment-labour",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/employment-labour",
+          "renderedContentFingerprint": "02476ffec5f4d41e39b67d11786cbd32a9d38b8fc58559b5bfd7b3b1b4599ffa",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/enforcement-debt-recovery",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/enforcement-debt-recovery",
+          "renderedContentFingerprint": "9ae5f9295a1d0896831eb9df3eb761fcd05a791085ccc8d25c638c5dad173add",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/family-personal-status",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/family-personal-status",
+          "renderedContentFingerprint": "a1a62120022e01a9326eeeb574125298a1c213b8ae4fb30ceab87b96f002df99",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/foreign-investment-market-entry",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/foreign-investment-market-entry",
+          "renderedContentFingerprint": "2514db35c72c1c36c205f96f44e2088cb0a3eeca139afae4302fdf0845354630",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/healthcare-medical-liability",
+          "renderedContentFingerprint": "99dd11077ae5410137db170c42a30af44cef7facabfe5c81ec990165c41712ca",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/immigration-residency",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/immigration-residency",
+          "renderedContentFingerprint": "d0c1c87b9eb25b0204f529a2a85ef04b36ef0804cd9f5c3de2eac3eec4e90c4a",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/insolvency-restructuring",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/insolvency-restructuring",
+          "renderedContentFingerprint": "ae4fbebb6616d6b31a6ea5d0ab3b7d6f8beb77da62fa75f93b2025b2b1418789",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/insurance",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/insurance",
+          "renderedContentFingerprint": "b08afb16662b8bad1edc3df1e731e3afaaa403f68f9996694183604fac92e894",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/intellectual-property",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/intellectual-property",
+          "renderedContentFingerprint": "4424182db70fcdb3760aa94b89d6fee963d95603e8fa541963fcb69f9186e6de",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/litigation-court-disputes",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/litigation-court-disputes",
+          "renderedContentFingerprint": "4d4d21af7b408a1f5623c1e9265c8aefe5d14903cc91e0c7b06e90f03edef348",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/maritime-aviation-transport",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/maritime-aviation-transport",
+          "renderedContentFingerprint": "275f080baa939dfab0555733ca3e4495c122b9405bc0acac5ec8f1c029448493",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/real-estate-construction",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/real-estate-construction",
+          "renderedContentFingerprint": "96f2095010492aabc0a36f20f6bcc4dffaedd23ef11f48264de0d13df069401a",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/tax-vat",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/tax-vat",
+          "renderedContentFingerprint": "5e4007b5f742a31494efb43c8b9c946a1783fb28e812493530bd597f5320ae63",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/technology-data-protection",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/technology-data-protection",
+          "renderedContentFingerprint": "3fc7a8e4978204f61759e254032ed42d54cc8d59476f7eaa2f84034153cfd8bf",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services/wills-estates",
+      "language": "ar",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services/wills-estates",
+          "renderedContentFingerprint": "037a44c0e6cab3fbd7a1a1824838e84288d439cbad835743d36ef80df252537e",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/administrative-regulatory",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/administrative-regulatory",
+          "renderedContentFingerprint": "522c21609a5990ffe3f2add96e69027cc2e8c66edeb4bdc63b34cacfd8d3d3c1",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/arbitration-mediation",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/arbitration-mediation",
+          "renderedContentFingerprint": "2c00117d84996f03516747f8f9ee76d8fb484295433290f77fbb0b60f71a8016",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/banking-finance",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/banking-finance",
+          "renderedContentFingerprint": "a0ec08551ddc2f654de318749154fa45e7d3919eb95610ecae0d659a45a41581",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/commercial-contracts",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/commercial-contracts",
+          "renderedContentFingerprint": "0bc15d374307f0a9f6b16681d581035171e5bebae78db9ef7d94ec66f9bcba5f",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/consumer-ecommerce",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/consumer-ecommerce",
+          "renderedContentFingerprint": "cf2e04853a20b8afea889f029eaebb0bdb70eb81da6a4d86bf5c4d2a02eda189",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/corporate-commercial",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/corporate-commercial",
+          "renderedContentFingerprint": "ac20336a0e8bfb33a70edcf2196a42923a70b7f44d6b5fb2153789bb86cbedd5",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/criminal-investigations",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/criminal-investigations",
+          "renderedContentFingerprint": "15d3c429648e0a3080971ee0a047afc0accedfafb9bf47ab67d848cd11a4eeee",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/employment-labour",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/employment-labour",
+          "renderedContentFingerprint": "142a372ce272b82489ab64c998b0b15023c614fbfa1b206e12fc65b90e531606",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/enforcement-debt-recovery",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/enforcement-debt-recovery",
+          "renderedContentFingerprint": "079dd31c3d894ac401433f48f12602b5b870020261e2709fc717dd2981040a63",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/family-personal-status",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/family-personal-status",
+          "renderedContentFingerprint": "6aee7d3337c8b0013dd959e57685ce44df783f162aca699d94dcb586936fc0b9",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/foreign-investment-market-entry",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/foreign-investment-market-entry",
+          "renderedContentFingerprint": "7225e1111900d3dc5741e6465e8fe012d8afe77760378ffe7c804851e5aa7767",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/healthcare-medical-liability",
+          "renderedContentFingerprint": "c51b62502a200204e46faaaae35e282cbd4da987d02f49b50febaf1e1e745f5c",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/immigration-residency",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/immigration-residency",
+          "renderedContentFingerprint": "4b5dc86c0f01dadff1dc51fd2f0dcd917d6de8a6c1b183d75414e5b2bdc34c63",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/insolvency-restructuring",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/insolvency-restructuring",
+          "renderedContentFingerprint": "9264ab8641cc5930b12f19bc4d740e2d8e669a7fb57ddc83929d3fb2ec1bd222",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/insurance",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/insurance",
+          "renderedContentFingerprint": "f8261921b7f767ce47a25759b95e497f2cf6de6eb20204f3f373c994b4ddd9a8",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/intellectual-property",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/intellectual-property",
+          "renderedContentFingerprint": "e42c4326c08a93c93bca3d4d7e65e1379fec7da74aa8a2cc907f8b46baa32f2a",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/litigation-court-disputes",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/litigation-court-disputes",
+          "renderedContentFingerprint": "484e544178d541dfcd496dbbedb911d77e23fa657af02a6392efb9f370a1de38",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/maritime-aviation-transport",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/maritime-aviation-transport",
+          "renderedContentFingerprint": "6af98c653eb43a82993adc59b5d692427e50909d01e85824b971bc16bbabc0e2",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/real-estate-construction",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/real-estate-construction",
+          "renderedContentFingerprint": "1fba87feac42914d298ab5720a6bfbac50f8c43147f0d1d9e43562c5c5ba6cfe",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/tax-vat",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/tax-vat",
+          "renderedContentFingerprint": "3053541a6b1b443a73d70e0bc9a9d1a4d9b37147b3fb487af439f80e11096f42",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/technology-data-protection",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/technology-data-protection",
+          "renderedContentFingerprint": "ce719d028cf38a6ec5147ae6d98f64e076f34d1bd64772c8b6823fc804e7b82e",
+          "passagesChecked": 5
+        }
+      ]
+    },
+    {
+      "route": "/uae/services/wills-estates",
+      "language": "en",
+      "regionalContentRead": true,
+      "sharedTemplateReviewed": true,
+      "implemented": [
+        "Service-specific introduction and evidence checklist",
+        "Relevant parent/child service discovery",
+        "Bilingual scope and appropriate jurisdiction wording"
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services/wills-estates",
+          "renderedContentFingerprint": "df7fc10b4d8be91cfc6c7620e6ee05e6f1f19082dbca110c825fbf4dae890a76",
+          "passagesChecked": 5
+        }
+      ]
+    }
+  ],
+  "generatedAt": "2026-09-06T06:06:34.069Z",
+  "buildValidationAt": "2026-09-06 06:05:45 UTC",
+  "completionState": "Recorded editorial implementation findings resolved and rendered verification passed. Publication and search-engine outcomes remain unverified.",
+  "summary": {
+    "records": 118,
+    "routes": 118,
+    "openImplementationFindings": 0
+  }
+}

@@ -27,6 +27,8 @@ import { COUNSELO_ENTITY_IDS, COUNSELO_PLATFORM_POSITIONING, OMAR_AL_BAGHDADI } 
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 
+import { SERVICE_INTAKE_CONTENT } from "@/lib/service-intake-content";
+
 const serviceIcons: Record<string, LucideIcon> = {
   "family-law": Users,
   "business-law": BriefcaseBusiness,
@@ -65,7 +67,7 @@ export default function Services() {
   const seoTitle = region === "uae"
     ? (isRTL ? `${areaCount} خدمة قانونية أونلاين في الإمارات | كاونسلو` : `${areaCount} UAE Online Legal Services | CounselO`)
     : isRTL
-      ? `${areaCount} مجالاً قانونياً في ${country} | منصة استشارات قانونية أونلاين | قانوني`
+      ? `${areaCount} مجالاً قانونياً في ${country} | منصة استشارات قانونية أونلاين | كاونسلو`
       : `${areaCount} Legal Practice Areas ${country} | CounselO — Online Legal Consultation Platform`;
   const seoDesc = isRTL
     ? `كاونسلو — منصة استشارات قانونية أونلاين لمسائل ${country}. ${areaCount} مجالاً قانونياً: ${s.items.map((item) => item.title).join("، ")}. يبدأ التقييم بتحديد الوقائع والاختصاص والنطاق المناسب.`
@@ -86,7 +88,7 @@ export default function Services() {
       "name": region === "uae"
         ? (isRTL ? `${areaCount} مجالاً للممارسة القانونية — كاونسلو الإمارات` : `${areaCount} Legal Practice Areas — CounselO UAE`)
         : region === "syr"
-        ? (isRTL ? `${areaCount} مجالاً للممارسة القانونية — قانوني سوريا` : `${areaCount} Legal Practice Areas — CounselO Syria`)
+        ? (isRTL ? `${areaCount} مجالاً للممارسة القانونية — كاونسلو سوريا` : `${areaCount} Legal Practice Areas — CounselO Syria`)
         : (isRTL ? `${areaCount} مجالاً للممارسة القانونية — كاونسلو السعودية` : `${areaCount} Legal Practice Areas — CounselO Saudi Arabia`),
       "url": `${baseUrl}/services`,
       "numberOfItems": areaCount,
@@ -225,9 +227,9 @@ export default function Services() {
                             {service.title}
                           </span>
                           <span className="line-clamp-3 block text-sm leading-6 text-[#52675e]">
-                            {isRTL
+                            {SERVICE_INTAKE_CONTENT[service.id]?.summary[isRTL ? "ar" : "en"] ?? (isRTL
                               ? `استكشف مسائل ${service.title} في ${country}، والمستندات المفيدة، وما يجب التحقق منه قانونياً، وخيارات الاستشارة محددة النطاق.`
-                              : `Explore ${service.title.toLowerCase()} matters in ${country}, useful documents, legal checks and scoped consultation options.`}
+                              : `Explore ${service.title.toLowerCase()} matters in ${country}, useful documents, legal checks and scoped consultation options.`)}
                           </span>
                         </span>
                         <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />

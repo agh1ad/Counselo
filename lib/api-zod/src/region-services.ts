@@ -86,7 +86,11 @@ export const SERVICE_REGISTRY: readonly ServiceDefinition[] = [
 ];
 
 export function getServicesForRegion(region: Region): ServiceDefinition[] {
-  return SERVICE_REGISTRY.filter((service) => service.regions.includes(region));
+  return SERVICE_REGISTRY.filter((service) => service.regions.includes(region)).map(service =>
+    region === "syr" && service.slug === "tax-zakat"
+      ? { ...service, titleEn: "Tax & Customs", titleAr: "الضرائب والجمارك" }
+      : service,
+  );
 }
 
 export function getServiceDefinition(
