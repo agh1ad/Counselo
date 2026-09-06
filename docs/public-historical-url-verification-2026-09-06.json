@@ -1,0 +1,256 @@
+{
+  "checkedAt": "2026-09-06T06:52:37.335318+00:00",
+  "scope": "Fresh public checks of historical Google exclusions; legitimate 404s, PDF noindex and parameter canonicals are not required to become indexed pages.",
+  "checked": 31,
+  "passed": 31,
+  "checks": [
+    {
+      "route": "/sa/services/enforcement/execution-of-a-syrian-court-judgment",
+      "status": 301,
+      "location": "https://counselo-legal.com/sa/services/enforcement/foreign-judgment-enforcement",
+      "expectedStatus": 301,
+      "expectedTarget": "/sa/services/enforcement/foreign-judgment-enforcement",
+      "passed": true
+    },
+    {
+      "route": "/sa/services/criminal-procedure/evidence-challenge-in-criminal-case",
+      "status": 301,
+      "location": "https://counselo-legal.com/sa/services/criminal-law/digital-and-documentary-evidence",
+      "expectedStatus": 301,
+      "expectedTarget": "/sa/services/criminal-law/digital-and-documentary-evidence",
+      "passed": true
+    },
+    {
+      "route": "/sa/services/civil-law/property-and-possession-disputes",
+      "status": 301,
+      "location": "https://counselo-legal.com/sa/services/real-estate/property-ownership-disputes",
+      "expectedStatus": 301,
+      "expectedTarget": "/sa/services/real-estate/property-ownership-disputes",
+      "passed": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-procedure/trial-procedure",
+      "status": 301,
+      "location": "https://counselo-legal.com/sa/ar/services/criminal-law/trial-and-appeal-preparation",
+      "expectedStatus": 301,
+      "expectedTarget": "/sa/ar/services/criminal-law/trial-and-appeal-preparation",
+      "passed": true
+    },
+    {
+      "route": "/sa/ar/services/companies-law/company-registration-and-amendment-dispute",
+      "status": 301,
+      "location": "https://counselo-legal.com/sa/ar/services/companies-law/company-formation-and-restructuring",
+      "expectedStatus": 301,
+      "expectedTarget": "/sa/ar/services/companies-law/company-formation-and-restructuring",
+      "passed": true
+    },
+    {
+      "route": "/syr/services/employment-law/sick-leave-and-annual-leave-entitlement-dispute",
+      "status": 301,
+      "location": "https://counselo-legal.com/syr/services/employment-law",
+      "expectedStatus": 301,
+      "expectedTarget": "/syr/services/employment-law",
+      "passed": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice/medical-record-access-and-expert-evidence-dispute",
+      "status": 301,
+      "location": "https://counselo-legal.com/sa/services/medical-malpractice/medical-record-access-dispute",
+      "expectedStatus": 301,
+      "expectedTarget": "/sa/services/medical-malpractice/medical-record-access-dispute",
+      "passed": true
+    },
+    {
+      "route": "/sa/ar/services/enforcement/execution-of-a-syrian-court-judgment",
+      "status": 301,
+      "location": "https://counselo-legal.com/sa/ar/services/enforcement/foreign-judgment-enforcement",
+      "expectedStatus": 301,
+      "expectedTarget": "/sa/ar/services/enforcement/foreign-judgment-enforcement",
+      "passed": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/medical-record-access-and-expert-evidence-dispute",
+      "status": 301,
+      "location": "https://counselo-legal.com/sa/ar/services/medical-malpractice/medical-record-access-dispute",
+      "expectedStatus": 301,
+      "expectedTarget": "/sa/ar/services/medical-malpractice/medical-record-access-dispute",
+      "passed": true
+    },
+    {
+      "route": "/sa/services/foreign-investment/foreign-investor-licensing-and-registration-problem",
+      "status": 301,
+      "location": "https://counselo-legal.com/sa/services/foreign-investment/investment-and-business-licensing",
+      "expectedStatus": 301,
+      "expectedTarget": "/sa/services/foreign-investment/investment-and-business-licensing",
+      "passed": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/family-status-document-or-civil-record-correction",
+      "status": 301,
+      "location": "https://counselo-legal.com/sa/ar/services/family-law/marital-status-document-and-record-correction",
+      "expectedStatus": 301,
+      "expectedTarget": "/sa/ar/services/family-law/marital-status-document-and-record-correction",
+      "passed": true
+    },
+    {
+      "route": "/syr/services/criminal-law/forgery-and-false-document-accusation",
+      "status": 301,
+      "location": "https://counselo-legal.com/syr/services/criminal-law/criminal-complaints-and-defence",
+      "expectedStatus": 301,
+      "expectedTarget": "/syr/services/criminal-law/criminal-complaints-and-defence",
+      "passed": true
+    },
+    {
+      "route": "/syr/services/criminal-law/public-prosecution-investigation-and-questioning",
+      "status": 301,
+      "location": "https://counselo-legal.com/syr/services/criminal-law/investigation-and-questioning",
+      "expectedStatus": 301,
+      "expectedTarget": "/syr/services/criminal-law/investigation-and-questioning",
+      "passed": true
+    },
+    {
+      "route": "/sa/ar/ar/services/real-estate/eviction-notice-and-eviction-dispute",
+      "status": 301,
+      "location": "https://counselo-legal.com/sa/ar/services/real-estate/eviction-notice-and-eviction-dispute",
+      "expectedStatus": 301,
+      "expectedTarget": "/sa/ar/services/real-estate/eviction-notice-and-eviction-dispute",
+      "passed": true
+    },
+    {
+      "route": "/sa/ar/ar/services/criminal-law/arrest-and-detention-concerns",
+      "status": 301,
+      "location": "https://counselo-legal.com/sa/ar/services/criminal-law/arrest-and-detention-concerns",
+      "expectedStatus": 301,
+      "expectedTarget": "/sa/ar/services/criminal-law/arrest-and-detention-concerns",
+      "passed": true
+    },
+    {
+      "route": "/syr/ar/ar/services/civil-procedure/evidence-and-procedural-objections",
+      "status": 301,
+      "location": "https://counselo-legal.com/syr/ar/services/civil-procedure/evidence-and-procedural-objections",
+      "expectedStatus": 301,
+      "expectedTarget": "/syr/ar/services/civil-procedure/evidence-and-procedural-objections",
+      "passed": true
+    },
+    {
+      "route": "/uae/ar/ar/services/arbitration-mediation/missing-or-inconsistent-records-concerning-arbitration-clauses-and-jurisdiction",
+      "status": 301,
+      "location": "https://counselo-legal.com/uae/ar/services/arbitration-mediation",
+      "expectedStatus": 301,
+      "expectedTarget": "/uae/ar/services/arbitration-mediation",
+      "passed": true
+    },
+    {
+      "route": "/syr/ar/ar/services/medical-malpractice/misdiagnosis-and-delayed-diagnosis",
+      "status": 301,
+      "location": "https://counselo-legal.com/syr/ar/services/medical-malpractice/misdiagnosis-and-delayed-diagnosis",
+      "expectedStatus": 301,
+      "expectedTarget": "/syr/ar/services/medical-malpractice/misdiagnosis-and-delayed-diagnosis",
+      "passed": true
+    },
+    {
+      "route": "/sa/ar/ar/services/tax-zakat/tax-audit-and-assessment-objection",
+      "status": 301,
+      "location": "https://counselo-legal.com/sa/ar/services/tax-zakat/tax-audit-and-assessment-objection",
+      "expectedStatus": 301,
+      "expectedTarget": "/sa/ar/services/tax-zakat/tax-audit-and-assessment-objection",
+      "passed": true
+    },
+    {
+      "route": "/sa/services/civil-procedure/evidence-and-procedural-objections",
+      "status": 404,
+      "location": null,
+      "expectedStatus": 404,
+      "expectedTarget": null,
+      "passed": true
+    },
+    {
+      "route": "/blog/en/altwsyat-alamlyh-lsyaghh-aqd-qwy",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "expectedTarget": null,
+      "passed": true
+    },
+    {
+      "route": "/blog/en/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "expectedTarget": null,
+      "passed": true
+    },
+    {
+      "route": "/blog/en/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "expectedTarget": null,
+      "passed": true
+    },
+    {
+      "route": "/blog/en/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "expectedTarget": null,
+      "passed": true
+    },
+    {
+      "route": "/blog/en/performance-of-contracts-in-good-faith-under-syrian-law",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "expectedTarget": null,
+      "passed": true
+    },
+    {
+      "route": "/syr/ar/vision",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "expectedTarget": null,
+      "passed": true
+    },
+    {
+      "route": "/blog/en/almswwlyh-alaqdyh-fy-alqanwn-alswry",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "expectedTarget": null,
+      "passed": true
+    },
+    {
+      "route": "/syr/contact",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "expectedTarget": null,
+      "passed": true
+    },
+    {
+      "route": "/syr/services/cyber-law",
+      "status": 200,
+      "location": null,
+      "expectedStatus": 200,
+      "expectedTarget": null,
+      "passed": true
+    },
+    {
+      "route": "/ar/blog",
+      "status": 301,
+      "location": "https://counselo-legal.com/blog/ar",
+      "expectedStatus": 301,
+      "expectedTarget": "/blog/ar",
+      "passed": true
+    },
+    {
+      "route": "/blog/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+      "status": 301,
+      "location": "https://counselo-legal.com/blog/en/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+      "expectedStatus": 301,
+      "expectedTarget": "/blog/en/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+      "passed": true
+    }
+  ]
+}

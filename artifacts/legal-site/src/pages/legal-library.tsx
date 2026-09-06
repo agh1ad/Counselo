@@ -4,11 +4,11 @@ import * as m from "framer-motion/m";
 import { Link } from "wouter";
 import { ArrowRight, BookOpen, BriefcaseBusiness, FileCheck2, Scale } from "lucide-react";
 import { SEOHead } from "@/components/seo/SEOHead";
+import { SearchIntentGuidance } from "@/components/content/search-intent-guidance";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useRegion } from "@/contexts/RegionContext";
 import { fetchPublicJson } from "@/lib/public-api";
-import { type WorkSamplePublic, localized } from "@/lib/work-samples";
-import { blogPath, COUNSELO_ENTITY_IDS } from "@workspace/api-zod/browser";
+import { type WorkSamplePublic, localized, workSamplePath } from "@/lib/work-samples";
+import { blogPath, COUNSELO_ENTITY_IDS, getServicesForRegion } from "@workspace/api-zod/browser";
 
 type LibraryPost = NonNullable<Window["__SSR_POSTS__"]>[number];
 
@@ -24,7 +24,6 @@ const Arrow = ({ rtl = false }: { rtl?: boolean }) => (
 
 export default function LegalLibrary() {
   const { lang, isRTL } = useLanguage();
-  const { regionPrefix } = useRegion();
   const ar = lang === "ar";
   const libraryPath = ar ? "/ar/legal-library" : "/legal-library";
   const blogIndexPath = ar ? "/blog/ar" : "/blog";
@@ -62,7 +61,7 @@ export default function LegalLibrary() {
 
   const ui = ar ? {
     title: "معرفة قانونية منظّمة لقرارات عملية.",
-    intro: "استكشف تحليلات قانونية مستقلة بالعربية والإنجليزية، ومراجع خضعت للمراجعة، وأعمالاً منقحة من كاونسلو تغطي السعودية وسوريا والإمارات.",
+    intro: "استكشف المقالات والإرشادات العملية ونماذج الأعمال المنشورة من كاونسلو بالعربية والإنجليزية. اختر السعودية أو سوريا أو الإمارات للوصول إلى الخدمات والمسائل ذات الصلة باختصاصك.",
     browseArticles: "تصفح التحليلات القانونية",
     examineWork: "استعرض أعمالنا",
     articles: "المقالات والتحليلات القانونية",
@@ -77,14 +76,14 @@ export default function LegalLibrary() {
     viewAllArticles: "جميع المقالات",
     viewAllWork: "جميع الأعمال",
     methodology: "معيار نشر مبني على الثقة",
-    methodologyText: "يحدد كل مورد لغته واختصاصه أو سياقه المهني ومؤلفه ومراجعه. ولا تُنشر أعمال العملاء إلا بعد تنقيحها وحماية الهوية.",
+    methodologyText: "توضح الموارد لغتها واختصاصها أو سياقها المهني، مع التمييز بين التأليف والتحديث التحريري والمراجعة المهنية المعلنة. ولا تُنشر أعمال العملاء إلا بعد تنقيحها وحماية الهوية.",
     principles: ["محتوى عربي وإنجليزي مستقل", "تحديد المؤلف والمراجعة القانونية", "أعمال منقحة مع حماية السرية"],
     ctaTitle: "هل تحتاج إلى تطبيق القانون على مسألتك؟",
     ctaText: "استخدم المكتبة لفهم الموضوع، ثم تحدث مع كاونسلو حول الوقائع والنطاق والخطوة التالية.",
     cta: "ابدأ استشارة",
   } : {
     title: "Legal knowledge, organised for practical decisions.",
-    intro: "Explore independently written Arabic and English legal analysis, reviewed guidance, and redacted work from CounselO across Saudi Arabia, Syria and the UAE.",
+    intro: "Explore CounselO's published articles, practical guidance and work examples in Arabic and English. Choose Saudi Arabia, Syria or the UAE to find services and legal questions relevant to your jurisdiction.",
     browseArticles: "Browse legal analysis",
     examineWork: "Examine our work",
     articles: "Legal Articles & Analysis",
@@ -99,7 +98,7 @@ export default function LegalLibrary() {
     viewAllArticles: "View all articles",
     viewAllWork: "View all work",
     methodology: "A publishing standard built for trust",
-    methodologyText: "Each resource identifies its language, jurisdiction or professional context, author and reviewer. Client work is published only after redaction and identity protection.",
+    methodologyText: "Resources identify their language and jurisdiction or professional context. Authorship, editorial updates and any stated professional review are shown separately. Client work is published only after redaction and identity protection.",
     principles: ["Independent Arabic and English content", "Named authorship and legal review", "Redacted work, confidentiality protected"],
     ctaTitle: "Need help applying the law to your matter?",
     ctaText: "Use the library to understand the issue, then speak with CounselO about the facts, scope, and next step.",
@@ -113,7 +112,7 @@ export default function LegalLibrary() {
     })),
     ...recentSamples.map((sample) => ({
       name: localized(sample.titleEn, sample.titleAr, lang),
-      url: `https://counselo-legal.com${ar ? "/ar" : ""}/our-work/${sample.slug}`,
+      url: `https://counselo-legal.com${workSamplePath(sample, ar)}`,
     })),
   ];
   const schemas = [
@@ -210,6 +209,25 @@ export default function LegalLibrary() {
           </div>
         </section>
 
+        <section id="service-directory" aria-labelledby="service-directory-heading" className="bg-white px-5 py-12 sm:px-8 lg:px-12">
+          <div className="mx-auto max-w-[1260px]">
+            <h2 id="service-directory-heading" className="font-serif text-3xl text-[#073d2a]">{ar ? "ابحث عن الخدمة والمسألة القانونية حسب الدولة" : "Find services and legal questions by country"}</h2>
+            <p className="mt-4 mb-7 leading-7 text-[#52605a]">{ar ? "ابدأ بمجال المسألة ثم افتح السؤال المحدد داخل صفحة الخدمة. تظل قواعد كل دولة ومساراتها منفصلة؛ ولا يعني تشابه اسم الخدمة تطابق الإجراءات." : "Start with the subject, then open the specific matter on its service page. Each country's legal framework and routes remain separate; a similar service name does not imply identical procedures."}</p>
+            <div className="grid gap-5 md:grid-cols-3">
+              {JURISDICTIONS.map(item => (
+                <details key={item.key} className="border border-[#d8c7a2] p-5">
+                  <summary className="cursor-pointer font-semibold text-[#073d2a]">{ar ? item.ar : item.en}</summary>
+                  <ul className="mt-5 space-y-3">
+                    {getServicesForRegion(item.key).map(service => (
+                      <li key={service.slug}><Link href={`${item.path}${ar ? "/ar" : ""}/services/${service.slug}`} className="text-primary underline-offset-4 hover:underline">{ar ? service.titleAr : service.titleEn}</Link></li>
+                    ))}
+                  </ul>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {recentPosts.length > 0 ? (
           <section id="latest-analysis" className="scroll-mt-28 bg-white px-5 py-20 sm:px-8 lg:py-24 lg:pl-12 lg:pr-40 xl:px-12">
             <div className="mx-auto max-w-[1260px]">
@@ -260,7 +278,7 @@ export default function LegalLibrary() {
                       <h3 className="mt-3 font-serif text-2xl font-medium leading-tight text-[#10251e]">{localized(sample.titleEn, sample.titleAr, lang)}</h3>
                     </div>
                     <p className="line-clamp-3 leading-7 text-[#52605a]">{localized(sample.summaryEn, sample.summaryAr, lang)}</p>
-                    <Link href={`${ar ? "/ar" : ""}/our-work/${sample.slug}`} className="group inline-flex w-fit items-center gap-4 border-b border-[#073d2a] pb-1 font-medium text-[#073d2a]">{ui.viewWork}<Arrow rtl={ar} /></Link>
+                    <Link href={workSamplePath(sample, ar)} className="group inline-flex w-fit items-center gap-4 border-b border-[#073d2a] pb-1 font-medium text-[#073d2a]">{ui.viewWork}<Arrow rtl={ar} /></Link>
                   </m.article>
                 ))}
               </div>
@@ -269,6 +287,7 @@ export default function LegalLibrary() {
           </section>
         ) : null}
 
+        <SearchIntentGuidance page="library" />
         <section id="publishing-standard" className="scroll-mt-28 bg-white px-5 py-20 sm:px-8 lg:py-24 lg:pl-12 lg:pr-40 xl:px-12">
           <div className="mx-auto grid max-w-[1260px] gap-12 lg:grid-cols-[.85fr_1.15fr] lg:gap-20">
             <div>
@@ -293,7 +312,9 @@ export default function LegalLibrary() {
             <h2 className="max-w-2xl font-serif text-4xl font-medium leading-tight md:text-5xl">{ui.ctaTitle}</h2>
             <div className="border-s border-[#c69a40] ps-7 lg:ps-12">
               <p className="max-w-xl text-lg leading-8 text-white/78">{ui.ctaText}</p>
-              <Link href={`${regionPrefix}/contact`} className="group mt-7 inline-flex min-h-14 items-center gap-5 border border-[#d2aa5a] px-7 font-semibold text-white hover:bg-white/10">{ui.cta}<Arrow rtl={ar} /></Link>
+              <div className="mt-7 flex flex-wrap gap-3" aria-label={ar ? "اختر دولة الاستشارة" : "Choose the consultation jurisdiction"}>
+                {JURISDICTIONS.map(item => <Link key={item.key} href={`${item.path}${ar ? "/ar" : ""}/contact`} className="group inline-flex min-h-14 items-center gap-3 border border-[#d2aa5a] px-5 font-semibold text-white hover:bg-white/10">{ar ? item.ar : item.en}<Arrow rtl={ar} /></Link>)}
+              </div>
             </div>
           </div>
         </section>

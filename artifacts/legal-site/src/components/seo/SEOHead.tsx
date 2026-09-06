@@ -14,6 +14,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { COUNSELO_OPTIMIZED_META } from "@/lib/optimized-meta";
 import { BLOG_SOCIAL_IMAGE } from "@workspace/api-zod/browser";
+import { limitSeoTitle } from "@/lib/seo-title";
 
 const SYR_TEXT_MAP: [RegExp, string][] = [
   [/Saudi Arabia/gi, "Syria"],
@@ -81,10 +82,7 @@ function schemaJson(obj: object): string {
 }
 
 function limitTitle(value: string, max = 68): string {
-  if (value.length <= max) return value;
-  const shortened = value.slice(0, max - 1);
-  const boundary = shortened.lastIndexOf(" ");
-  return shortened.slice(0, boundary > 24 ? boundary : shortened.length).replace(/[|،,:;]$/, "").trimEnd();
+  return limitSeoTitle(value, max);
 }
 
 interface SEOHeadProps {

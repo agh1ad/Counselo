@@ -24,13 +24,13 @@ export function buildBlogSocialMetaTags(input: {
   description: string;
   canonical: string;
   language: "en" | "ar";
-  reviewerName: string;
+  reviewerName?: string;
 }): string {
   const title = escapeMeta(input.title);
   const description = escapeMeta(input.description);
   const canonical = escapeMeta(input.canonical);
-  const reviewerName = escapeMeta(input.reviewerName);
-  const imageAlt = escapeMeta(input.language === "ar"
+  const reviewerName = input.reviewerName ? escapeMeta(input.reviewerName) : undefined;
+  const imageAlt = escapeMeta(!input.reviewerName ? input.title : input.language === "ar"
     ? `مقال قانوني من كاونسلو، راجعه ${input.reviewerName}`
     : `CounselO legal article reviewed by ${input.reviewerName}`);
 
@@ -48,7 +48,7 @@ export function buildBlogSocialMetaTags(input: {
     `<meta property="og:image:height" content="${BLOG_SOCIAL_IMAGE.height}">`,
     `<meta property="og:image:alt" content="${imageAlt}">`,
     `<meta property="article:author" content="https://counselo-legal.com/about">`,
-    `<meta name="reviewed-by" content="${reviewerName}">`,
+    ...(reviewerName ? [`<meta name="reviewed-by" content="${reviewerName}">`] : []),
     `<meta name="twitter:card" content="summary_large_image">`,
     `<meta name="twitter:title" content="${title}">`,
     `<meta name="twitter:description" content="${description}">`,

@@ -10,7 +10,11 @@ type TrustSignalsProps = {
 };
 
 export function TrustSignals({ isArabic, regionPrefix, compact = false }: TrustSignalsProps) {
-  const representationText = isArabic
+  const regional = /^\/(?:sa|syr|uae)(?:\/|$)/.test(regionPrefix);
+  const sharedHome = isArabic ? "/ar" : "/";
+  const representationText = !regional
+    ? isArabic ? "يُحدد الاختصاص ونطاق الاستشارة أولاً. ويُرتب أي تمثيل أو قيد أو حضور مطلوب بصورة مستقلة وفق القواعد المحلية." : "The jurisdiction and consultation scope are established first. Any required representation, filing or attendance is arranged separately under the local rules."
+    : isArabic
     ? regionPrefix.startsWith("/uae")
       ? "إذا تطلبت المسألة تمثيلاً أمام المحاكم أو إيداعاً أو حضوراً في الإمارات، يمكن ترتيب تكليف مستقل مع مهني شريك أو مكتب متعاون مرخص في الإمارات."
       : regionPrefix.startsWith("/syr")
@@ -67,17 +71,17 @@ export function TrustSignals({ isArabic, regionPrefix, compact = false }: TrustS
           className="mt-6 max-w-4xl border-s-2 border-primary/35 ps-4 text-xs leading-5 text-muted-foreground"
         />
         <nav aria-label={isArabic ? "روابط الثقة والسياسات" : "Trust and policy links"} className="flex flex-wrap gap-x-6 gap-y-3 mt-8 text-sm font-semibold">
-          <Link href={`${regionPrefix}/about`} className="text-primary hover:underline">
+          <Link href={regional ? `${regionPrefix}/about` : `${sharedHome}#about-heading${isArabic ? "-ar" : ""}`} className="text-primary hover:underline">
             {isArabic ? "عن المؤسس والفريق" : "Founder and team"}
           </Link>
-          <Link href={`${regionPrefix}/privacy-policy`} className="text-primary hover:underline">
+          {regional && <><Link href={`${regionPrefix}/privacy-policy`} className="text-primary hover:underline">
             {isArabic ? "الخصوصية والسرية" : "Privacy and confidentiality"}
           </Link>
           <Link href={`${regionPrefix}/terms-of-service`} className="text-primary hover:underline">
             {isArabic ? "شروط ونطاق الخدمة" : "Terms and service scope"}
-          </Link>
-          <Link href={`${regionPrefix}/contact`} className="text-primary hover:underline">
-            {isArabic ? "تواصل مع كاونسلو" : "Contact CounselO"}
+          </Link></>}
+          <Link href={regional ? `${regionPrefix}/contact` : `${sharedHome}#jurisdictions-heading${isArabic ? "-ar" : ""}`} className="text-primary hover:underline">
+            {regional ? isArabic ? "تواصل مع كاونسلو" : "Contact CounselO" : isArabic ? "اختر الاختصاص ونطاق الخدمة" : "Choose your jurisdiction and service scope"}
           </Link>
         </nav>
       </div>

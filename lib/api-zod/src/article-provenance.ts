@@ -120,14 +120,14 @@ function inferRegion(text: string): Region {
 
 export function localizeArticleProvenanceUrl(
   url: string | null | undefined,
-  region: Region,
+  region: Region | undefined,
   language: "en" | "ar",
   kind: "profile" | "correction",
 ): string {
-  const prefix = `/${region}${language === "ar" ? "/ar" : ""}`;
+  const prefix = `${region ? `/${region}` : ""}${language === "ar" ? "/ar" : ""}`;
   const fallback = kind === "profile"
-    ? `${prefix}/about`
-    : `${prefix}/contact?subject=article-correction`;
+    ? region ? `${prefix}/about` : `${prefix || "/"}#about-heading${language === "ar" ? "-ar" : ""}`
+    : region ? `${prefix}/contact?subject=article-correction` : `${prefix || "/"}#jurisdictions-heading${language === "ar" ? "-ar" : ""}`;
   const value = url?.trim();
   if (!value) return fallback;
   const isLegacyProfile = /^\/(?:sa|syr|uae)(?:\/ar)?\/about\/?$/.test(value) || value === "/about";

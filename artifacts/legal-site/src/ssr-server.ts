@@ -26,12 +26,21 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { RenderResult } from "./entry-server.js";
 import { compactWorkSamplesForDiscovery, type WorkSamplePublic } from "./lib/work-samples.js";
+import { repairPublicBlogPost } from "../../api-server/src/lib/public-blog-repairs.js";
+import { repairPublicWorkSample } from "../../api-server/src/lib/public-work-repairs.js";
 import { canonicalHostRedirect } from "./lib/canonical-host.js";
+import { LEGAL_PROBLEM_REDIRECTS } from "./lib/legal-problem-pages.js";
 import { resolveBlogRoute } from "./lib/blog-route-policy.js";
 import {
+  ARTICLE_CONTEXT,
+  WORK_CONTEXT,
+  articleModifiedAt,
+  workModifiedAt,
   buildDiscoveryFeed,
   buildDynamicSitemap,
   LEGACY_REDIRECTS,
+  LEGACY_BLOG_REDIRECTS,
+  LEGACY_SEARCH_REDIRECTS,
   assignArticleProvenance,
   BLOG_SOCIAL_IMAGE,
   BLOG_REVIEWER_ATTRIBUTION,
@@ -134,8 +143,8 @@ async function fetchDiscoveryInventory(): Promise<{ posts: ApiPost[]; samples: W
   ]);
   if (!postsRes.ok || !workRes.ok) throw new Error("Discovery API unavailable");
   return {
-    posts: ((await postsRes.json()) as ApiPost[]).map(toDiscoveryPost),
-    samples: (await workRes.json()) as WorkSamplePublic[],
+    posts: ((await postsRes.json()) as ApiPost[]).map(repairPublicBlogPost).map(toDiscoveryPost),
+    samples: ((await workRes.json()) as WorkSamplePublic[]).map(repairPublicWorkSample),
   };
 }
 
@@ -195,7 +204,7 @@ async function fetchBlogPost(slug: string): Promise<FetchResult> {
     );
     if (res.status === 404) return { status: "notfound" };
     if (!res.ok) return { status: "error" };
-    const post = (await res.json()) as ApiPost;
+    const post = repairPublicBlogPost((await res.json()) as ApiPost);
     return { status: "found", post };
   } catch {
     return { status: "error" };
@@ -238,7 +247,7 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
     description: primaryDesc,
     inLanguage: isArabicPost ? "ar" : "en",
     datePublished: post.date,
-    dateModified: post.updatedAt ?? post.date,
+    dateModified: articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date),
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
     author: {
       "@type": "Organization",
@@ -328,7 +337,7 @@ async function fetchWorkSample(slug: string): Promise<FetchWorkResult> {
     const res = await fetch(`${apiOrigin}/api/work/${encodeURIComponent(slug)}`);
     if (res.status === 404) return { status: "notfound" };
     if (!res.ok) return { status: "error" };
-    const sample = (await res.json()) as ApiWorkSample;
+    const sample = repairPublicWorkSample((await res.json()) as ApiWorkSample);
     return { status: "found", sample };
   } catch {
     return { status: "error" };
@@ -375,6 +384,7 @@ export function buildWorkHtmlFromTemplate(
   sample: ApiWorkSample,
   language: "en" | "ar",
 ): string {
+  sample = repairPublicWorkSample(sample);
   const isArabic = language === "ar";
   const BASE = "https://counselo-legal.com";
 
@@ -416,14 +426,14 @@ export function buildWorkHtmlFromTemplate(
     description,
     url: canonical,
     dateCreated: sample.date,
-    dateModified: sample.updatedAt ?? sample.date,
+    dateModified: workModifiedAt(sample.slug, sample.updatedAt, sample.date),
     inLanguage: language,
     genre: sample.workTypeEn || sample.workTypeAr,
     contentLocation: sample.jurisdictionEn || sample.jurisdictionAr,
     creator: {
-      "@type": "LegalService",
-      "@id": `${BASE}/#organization`,
-      name: "CounselO",
+      "@type": WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "LegalService" : "Organization",
+      "@id": WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? COUNSELO_ENTITY_IDS.alBaghdadiOffice : COUNSELO_ENTITY_IDS.organization,
+      name: WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "Baghdadi Law" : "CounselO",
       url: BASE,
     },
     encoding: {
@@ -529,7 +539,12 @@ async function ssrRender(
   const template = readFileSync(shellHtml, "utf-8");
   const { head, body } = _render(url, posts, samples);
   const discoveryWorkSamples = compactWorkSamplesForDiscovery(samples);
-  const discoveryData = `<script>window.__SSR_POSTS__=${JSON.stringify(posts).replace(/</g, "\\u003c")};window.__SSR_WORK_SAMPLES__=${JSON.stringify(discoveryWorkSamples).replace(/</g, "\\u003c")};</script>`;
+  const blogSlug = url.match(/^\/blog\/(?:en|ar)\/([^/?]+)$/)?.[1];
+  const workSlug = url.match(/^\/(?:ar\/)?our-work\/([^/?]+)$/)?.[1];
+  const detailPost = blogSlug ? posts.find(post => post.slug === decodeURIComponent(blogSlug)) : undefined;
+  const detailWork = workSlug ? samples.find(sample => sample.slug === decodeURIComponent(workSlug)) : undefined;
+  const detailData = `${detailPost ? `window.__SSR_POST__=${JSON.stringify(detailPost).replace(/</g, "\\u003c")};` : ""}${detailWork ? `window.__SSR_WORK__=${JSON.stringify(detailWork).replace(/</g, "\\u003c")};` : ""}`;
+  const discoveryData = `<script>${detailData}window.__SSR_POSTS__=${JSON.stringify(posts).replace(/</g, "\\u003c")};window.__SSR_WORK_SAMPLES__=${JSON.stringify(discoveryWorkSamples).replace(/</g, "\\u003c")};</script>`;
 
   return template
     .replace('<html lang="en">', htmlTag(url))
@@ -557,6 +572,11 @@ app.use((req, res, next) => {
   next();
 });
 app.use(compression());
+app.use((req, res, next) => {
+  const destination = LEGAL_PROBLEM_REDIRECTS[req.path.replace(/\/+$/, "")];
+  if (destination) return res.redirect(301, destination);
+  next();
+});
 app.use((_req, res, next) => {
   res.setHeader("X-Content-Type-Options", "nosniff");
   res.setHeader("X-Frame-Options", "DENY");
@@ -608,7 +628,7 @@ app.use(
         res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
       } else if (
         filePath.endsWith("robots.txt") ||
-        filePath.endsWith("sitemap.xml")
+        /(?:sitemap[^/]*\.xml|feed\.xml|llms\.txt)$/i.test(filePath)
       ) {
         // Discovery files change independently of fingerprinted build assets.
         // Caching them for a year can leave crawlers with stale directives or
@@ -629,6 +649,17 @@ function spaShell(title: string, robots: string, fallbackBody = ""): string {
       `<title>${escapeHtml(title)}</title><meta name="robots" content="${robots}">`,
     )
     .replace('<div id="root"></div>', `<div id="root">${fallbackBody}</div>`);
+}
+
+// A missing API response is temporary unavailability, not successfully loaded content.
+function sendContentUnavailable(res: Response, arabic: boolean) {
+  const title = arabic ? "المحتوى غير متاح مؤقتاً" : "Content temporarily unavailable";
+  const message = arabic ? "تعذر تحميل المحتوى الآن. يرجى المحاولة مرة أخرى بعد قليل." : "The content could not be loaded. Please try again shortly.";
+  res.setHeader("Cache-Control", "no-store");
+  res.setHeader("Retry-After", "60");
+  return res.status(503).type("html").send(
+    `<!doctype html><html lang="${arabic ? "ar" : "en"}" dir="${arabic ? "rtl" : "ltr"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${title} | CounselO</title></head><body><main><h1>${title}</h1><p>${message}</p></main></body></html>`,
+  );
 }
 
 app.get("/counselo-admin", (_req: Request, res: Response) => {
@@ -663,7 +694,7 @@ app.get(
       const { posts, samples } = await fetchDiscoveryInventory();
       const html = await ssrRender(req.path, posts, samples);
       res.setHeader("Content-Type", "text/html; charset=utf-8");
-      res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
+      res.setHeader("Cache-Control", "no-store");
       return res.send(html);
     } catch (error) {
       console.error(`Fresh discovery SSR failed for ${req.path}:`, error);
@@ -671,6 +702,12 @@ app.get(
     }
   },
 );
+
+// Exact retired routes take precedence over generic regional slug redirects.
+for (const [source, destination] of Object.entries({ ...LEGACY_BLOG_REDIRECTS, ...LEGACY_SEARCH_REDIRECTS })) app.get(source, (_req, res) => {
+  res.setHeader("Cache-Control", "public, max-age=86400");
+  return res.redirect(301, destination);
+});
 
 // 2. Root "/" — serve the prerendered homepage
 app.get("/", (_req: Request, res: Response) => {
@@ -761,20 +798,7 @@ async function serveBlogPost(
   const route = requestedLanguage
     ? `/blog/${requestedLanguage}/${slug}`
     : `/blog/${slug}`;
-  const prerendered = resolve(
-    pagesDir,
-    requestedLanguage
-      ? `blog-${requestedLanguage}-${slug}.html`
-      : `blog-${slug}.html`,
-  );
-
-  if (existsSync(prerendered)) {
-    res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
-    return res.sendFile(prerendered);
-  }
-
-  // Fetch post data from the API server so we can build proper meta tags.
-  // This handles posts published after the last deployment with no redeployment.
+  // Read the current CMS record even when a build-time snapshot exists.
   const [result, discovery] = await Promise.all([
     fetchBlogPost(slug),
     fetchDiscoveryInventory().catch(() => null),
@@ -812,24 +836,14 @@ async function serveBlogPost(
         discovery?.samples ?? [],
       );
       res.setHeader("Content-Type", "text/html; charset=utf-8");
-      res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
+      res.setHeader("Cache-Control", "no-store");
       return res.send(html);
     } catch (err) {
       console.error(`Failed to build blog HTML for /blog/${slug}:`, err);
     }
   }
 
-  // Fallback when API is unreachable: React SSR (loading skeleton).
-  try {
-    const html = await ssrRender(route);
-    res.setHeader("Content-Type", "text/html; charset=utf-8");
-    res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
-    return res.send(html);
-  } catch (err) {
-    console.error(`SSR fallback failed for ${route}:`, err);
-    res.setHeader("Cache-Control", "no-store");
-    return res.sendFile(indexHtml);
-  }
+  return sendContentUnavailable(res, requestedLanguage === "ar");
 }
 
 app.get("/blog/en/:slug", (req, res) => serveBlogPost(req, res, "en"));
@@ -841,13 +855,6 @@ app.get("/blog/:slug", (req, res) => serveBlogPost(req, res));
 //     immediately live without redeployment.
 app.get("/ar/our-work/:slug", async (req: Request, res: Response) => {
   const slug = String(req.params["slug"] ?? "");
-
-  // Prerendered flat file takes priority (rare, only for build-time baked content)
-  const prerendered = resolve(pagesDir, `ar-our-work-${slug}.html`);
-  if (existsSync(prerendered)) {
-    res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
-    return res.sendFile(prerendered);
-  }
 
   const [result, discovery] = await Promise.all([
     fetchWorkSample(slug),
@@ -879,35 +886,19 @@ app.get("/ar/our-work/:slug", async (req: Request, res: Response) => {
         samples,
       );
       res.setHeader("Content-Type", "text/html; charset=utf-8");
-      res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
+      res.setHeader("Cache-Control", "no-store");
       return res.send(html);
     } catch (err) {
       console.error(`Failed to build Arabic work HTML for /ar/our-work/${slug}:`, err);
     }
   }
 
-  // Fallback: React SSR skeleton when API is unreachable
-  try {
-    const html = await ssrRender(`/ar/our-work/${slug}`);
-    res.setHeader("Content-Type", "text/html; charset=utf-8");
-    res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
-    return res.send(html);
-  } catch (err) {
-    console.error(`SSR fallback failed for /ar/our-work/${slug}:`, err);
-    res.setHeader("Cache-Control", "no-store");
-    return res.sendFile(indexHtml);
-  }
+  return sendContentUnavailable(res, true);
 });
 
 // 3c. "/our-work/:slug" — English (default-language) work sample detail page.
 app.get("/our-work/:slug", async (req: Request, res: Response) => {
   const slug = String(req.params["slug"] ?? "");
-
-  const prerendered = resolve(pagesDir, `our-work-${slug}.html`);
-  if (existsSync(prerendered)) {
-    res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
-    return res.sendFile(prerendered);
-  }
 
   const [result, discovery] = await Promise.all([
     fetchWorkSample(slug),
@@ -939,23 +930,14 @@ app.get("/our-work/:slug", async (req: Request, res: Response) => {
         samples,
       );
       res.setHeader("Content-Type", "text/html; charset=utf-8");
-      res.setHeader("Cache-Control", "public, max-age=60, must-revalidate");
+      res.setHeader("Cache-Control", "no-store");
       return res.send(html);
     } catch (err) {
       console.error(`Failed to build English work HTML for /our-work/${slug}:`, err);
     }
   }
 
-  try {
-    const html = await ssrRender(`/our-work/${slug}`);
-    res.setHeader("Content-Type", "text/html; charset=utf-8");
-    res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
-    return res.send(html);
-  } catch (err) {
-    console.error(`SSR fallback failed for /our-work/${slug}:`, err);
-    res.setHeader("Cache-Control", "no-store");
-    return res.sendFile(indexHtml);
-  }
+  return sendContentUnavailable(res, false);
 });
 
 // 4. All other paths — look for a flat prerendered file, fall back to SPA

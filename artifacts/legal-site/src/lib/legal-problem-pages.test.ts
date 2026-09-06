@@ -7,6 +7,7 @@ import {
   getLegalProblemPaths,
   getRelatedLegalProblemPages,
   legalProblemPath,
+  LEGAL_PROBLEM_REDIRECTS,
 } from "./legal-problem-pages.js";
 import { getServicesForRegion } from "@workspace/api-zod";
 
@@ -23,7 +24,7 @@ test("problem-page registry covers every served region and language", () => {
     assert.ok(pages.every((page) => page.deliverables.en.length >= 5 && page.process.en.length === 4 && page.process.ar.length === 4));
     assert.ok(pages.every((page) => page.experience.en.length > 120 && page.faqs.en.length >= 5 && page.faqs.ar.length >= 5));
     assert.ok(pages.every((page) => page.searchVariantsEn.length >= 12 && page.searchVariantsAr.length >= 12));
-    assert.ok(pages.every((page) => page.legalAccuracy.reviewedAt === "2026-08-18"));
+    assert.ok(pages.every((page) => page.legalAccuracy.reviewedAt === "2026-09-05"));
     assert.ok(pages.every((page) => page.legalAccuracy.status === "framework-verified-matter-review-required"));
     assert.ok(pages.every((page) => page.legalAccuracy.checks.en.length === 3 && page.legalAccuracy.checks.ar.length === 3));
     assert.ok(pages.every((page) => page.legalAccuracy.intakeChecklist.en.length === 4 && page.legalAccuracy.intakeChecklist.ar.length === 4));
@@ -155,7 +156,7 @@ test("problem inventories do not contain duplicate slugs or duplicate search tar
   for (const region of ["sa", "syr", "uae"] as const) {
     for (const service of getServicesForRegion(region)) {
       const pages = getLegalProblemPages(region, service.slug);
-      assert.ok(pages.length >= 7, `${region}/${service.slug} should expose at least seven focused problem targets`);
+      assert.ok(pages.length > 0, `${region}/${service.slug} should expose specific legal-matter guidance`);
       assert.equal(new Set(pages.map((page) => page.slug)).size, pages.length, `${region}/${service.slug} has duplicate slugs`);
       const normalizedTitles = pages.map((page) => page.titleEn.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim());
       assert.equal(new Set(normalizedTitles).size, normalizedTitles.length, `${region}/${service.slug} has duplicate English problem targets`);
@@ -163,6 +164,18 @@ test("problem inventories do not contain duplicate slugs or duplicate search tar
       assert.ok(pages.every((page) => page.searchVariantsEn.some((variant) => variant.includes("documents"))), `${region}/${service.slug} is missing document-intent variants`);
       assert.ok(pages.every((page) => page.searchVariantsEn.some((variant) => variant.includes("urgent"))), `${region}/${service.slug} is missing urgent-intent variants`);
     }
+  }
+});
+
+test("consolidated UAE procedural URLs preserve language and resolve directly to their service", () => {
+  const active = new Set(getLegalProblemPaths());
+  assert.equal(Object.keys(LEGAL_PROBLEM_REDIRECTS).length, 264);
+  for (const [from, to] of Object.entries(LEGAL_PROBLEM_REDIRECTS)) {
+    assert.ok(!active.has(from), `${from} remains an indexable duplicate`);
+    assert.equal(to, from.slice(0, from.lastIndexOf("/")));
+    assert.ok(!LEGAL_PROBLEM_REDIRECTS[to], `${from} has a redirect chain`);
+    assert.equal(from.includes("/ar/"), to.includes("/ar/"));
+    assert.ok(getServicesForRegion("uae").some(service => to.endsWith(`/services/${service.slug}`)));
   }
 });
 

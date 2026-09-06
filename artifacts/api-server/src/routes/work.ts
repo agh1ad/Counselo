@@ -12,6 +12,7 @@ import {
   translateWorkForPublishing,
 } from "../lib/content-translation.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
+import { repairPublicWorkSample } from "../lib/public-work-repairs.js";
 
 const router = Router();
 const { fileData: _fileData, confidentialityConfirmed: _confidentiality, ...publicColumns } = getTableColumns(workSamplesTable);
@@ -36,7 +37,7 @@ router.get("/work", async (_req, res) => {
     .from(workSamplesTable)
     .where(eq(workSamplesTable.published, true))
     .orderBy(desc(workSamplesTable.date));
-  res.json(samples.map((sample) => ({
+  res.json(samples.map(repairPublicWorkSample).map((sample) => ({
     ...sample,
     testimonials: publicTestimonials(sample),
     hasFile: sample.fileSize > 0,
@@ -79,7 +80,7 @@ router.get("/work/:slug", async (req, res) => {
     return;
   }
   res.json({
-    ...sample,
+    ...repairPublicWorkSample(sample),
     testimonials: publicTestimonials(sample),
     hasFile: sample.fileSize > 0,
   });

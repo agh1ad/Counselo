@@ -1,0 +1,193 @@
+{
+  "origin": "https://counselo-legal.com",
+  "scope": "Public Replit deployment. Representative template and responsive checks; all-route technical and content checks are separate. Contact preselection, FAQ and locale-switch interactions were separately verified locally; this matrix checks public page layout and initial content.",
+  "checks": [
+    {
+      "url": "https://counselo-legal.com/sa/ar/services/employment-law",
+      "width": 390,
+      "scrollWidth": 375,
+      "direction": "rtl",
+      "h1": "نظام العمل في المملكة العربية السعودية",
+      "mainWords": 1265,
+      "canonical": "https://counselo-legal.com/sa/ar/services/employment-law",
+      "requestedRoute": "/sa/ar/services/employment-law",
+      "passed": true
+    },
+    {
+      "url": "https://counselo-legal.com/sa/ar/contact?service=employment-law",
+      "width": 390,
+      "scrollWidth": 375,
+      "direction": "rtl",
+      "h1": "ابدأ استشارتك القانونية",
+      "mainWords": 486,
+      "canonical": "https://counselo-legal.com/sa/ar/contact",
+      "requestedRoute": "/sa/ar/contact?service=employment-law",
+      "passed": true
+    },
+    {
+      "url": "https://counselo-legal.com/ar/legal-library",
+      "width": 390,
+      "scrollWidth": 377,
+      "direction": "rtl",
+      "h1": "معرفة قانونية منظّمة لقرارات عملية.",
+      "mainWords": 602,
+      "canonical": "https://counselo-legal.com/ar/legal-library",
+      "requestedRoute": "/ar/legal-library",
+      "passed": true
+    },
+    {
+      "url": "https://counselo-legal.com/sa/ar/services/administrative-law/administrative-objections-and-appeals",
+      "width": 390,
+      "scrollWidth": 375,
+      "direction": "rtl",
+      "h1": "الاعتراضات والطعون الإدارية",
+      "mainWords": 1301,
+      "canonical": "https://counselo-legal.com/sa/ar/services/administrative-law/administrative-objections-and-appeals",
+      "requestedRoute": "/sa/ar/services/administrative-law/administrative-objections-and-appeals",
+      "passed": true
+    },
+    {
+      "url": "https://counselo-legal.com/syr/ar/services/administrative-law/administrative-compensation-claim",
+      "width": 390,
+      "scrollWidth": 375,
+      "direction": "rtl",
+      "h1": "مطالبة التعويض عن القرار الإداري",
+      "mainWords": 990,
+      "canonical": "https://counselo-legal.com/syr/ar/services/administrative-law/administrative-compensation-claim",
+      "requestedRoute": "/syr/ar/services/administrative-law/administrative-compensation-claim",
+      "passed": true
+    },
+    {
+      "url": "https://counselo-legal.com/uae/ar/services/administrative-regulatory/government-penalty-challenge",
+      "width": 390,
+      "scrollWidth": 375,
+      "direction": "rtl",
+      "h1": "الطعن في الغرامة الحكومية",
+      "mainWords": 1015,
+      "canonical": "https://counselo-legal.com/uae/ar/services/administrative-regulatory/government-penalty-challenge",
+      "requestedRoute": "/uae/ar/services/administrative-regulatory/government-penalty-challenge",
+      "passed": true
+    },
+    {
+      "url": "https://counselo-legal.com/blog/ar/contract-interpretation-syrian-courts",
+      "width": 390,
+      "scrollWidth": 375,
+      "direction": "rtl",
+      "h1": "تفسير العقود أمام القضاء السوري",
+      "mainWords": 1450,
+      "canonical": "https://counselo-legal.com/blog/ar/contract-interpretation-syrian-courts",
+      "requestedRoute": "/blog/ar/contract-interpretation-syrian-courts",
+      "passed": true
+    },
+    {
+      "url": "https://counselo-legal.com/our-work/ray-qanwny-fy-tlb-aflas",
+      "width": 390,
+      "scrollWidth": 375,
+      "direction": "ltr",
+      "h1": "Legal Opinion on a Bankruptcy Application",
+      "mainWords": 236,
+      "canonical": "https://counselo-legal.com/our-work/ray-qanwny-fy-tlb-aflas",
+      "requestedRoute": "/our-work/ray-qanwny-fy-tlb-aflas",
+      "passed": true
+    },
+    {
+      "url": "https://counselo-legal.com/sa/ar/services/employment-law",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "direction": "rtl",
+      "h1": "نظام العمل في المملكة العربية السعودية",
+      "mainWords": 1271,
+      "canonical": "https://counselo-legal.com/sa/ar/services/employment-law",
+      "requestedRoute": "/sa/ar/services/employment-law",
+      "passed": true
+    },
+    {
+      "url": "https://counselo-legal.com/sa/ar/contact?service=employment-law",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "direction": "rtl",
+      "h1": "ابدأ استشارتك القانونية",
+      "mainWords": 492,
+      "canonical": "https://counselo-legal.com/sa/ar/contact",
+      "requestedRoute": "/sa/ar/contact?service=employment-law",
+      "passed": true
+    },
+    {
+      "url": "https://counselo-legal.com/ar/legal-library",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "direction": "rtl",
+      "h1": "معرفة قانونية منظّمة لقرارات عملية.",
+      "mainWords": 602,
+      "canonical": "https://counselo-legal.com/ar/legal-library",
+      "requestedRoute": "/ar/legal-library",
+      "passed": true
+    },
+    {
+      "url": "https://counselo-legal.com/sa/ar/services/administrative-law/administrative-objections-and-appeals",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "direction": "rtl",
+      "h1": "الاعتراضات والطعون الإدارية",
+      "mainWords": 1307,
+      "canonical": "https://counselo-legal.com/sa/ar/services/administrative-law/administrative-objections-and-appeals",
+      "requestedRoute": "/sa/ar/services/administrative-law/administrative-objections-and-appeals",
+      "passed": true
+    },
+    {
+      "url": "https://counselo-legal.com/syr/ar/services/administrative-law/administrative-compensation-claim",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "direction": "rtl",
+      "h1": "مطالبة التعويض عن القرار الإداري",
+      "mainWords": 996,
+      "canonical": "https://counselo-legal.com/syr/ar/services/administrative-law/administrative-compensation-claim",
+      "requestedRoute": "/syr/ar/services/administrative-law/administrative-compensation-claim",
+      "passed": true
+    },
+    {
+      "url": "https://counselo-legal.com/uae/ar/services/administrative-regulatory/government-penalty-challenge",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "direction": "rtl",
+      "h1": "الطعن في الغرامة الحكومية",
+      "mainWords": 1021,
+      "canonical": "https://counselo-legal.com/uae/ar/services/administrative-regulatory/government-penalty-challenge",
+      "requestedRoute": "/uae/ar/services/administrative-regulatory/government-penalty-challenge",
+      "passed": true
+    },
+    {
+      "url": "https://counselo-legal.com/blog/ar/contract-interpretation-syrian-courts",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "direction": "rtl",
+      "h1": "تفسير العقود أمام القضاء السوري",
+      "mainWords": 1450,
+      "canonical": "https://counselo-legal.com/blog/ar/contract-interpretation-syrian-courts",
+      "requestedRoute": "/blog/ar/contract-interpretation-syrian-courts",
+      "passed": true
+    },
+    {
+      "url": "https://counselo-legal.com/our-work/ray-qanwny-fy-tlb-aflas",
+      "width": 1440,
+      "scrollWidth": 1425,
+      "direction": "ltr",
+      "h1": "Legal Opinion on a Bankruptcy Application",
+      "mainWords": 236,
+      "canonical": "https://counselo-legal.com/our-work/ray-qanwny-fy-tlb-aflas",
+      "requestedRoute": "/our-work/ray-qanwny-fy-tlb-aflas",
+      "passed": true
+    }
+  ],
+  "publicContactPreselection": {
+    "url": "https://counselo-legal.com/sa/ar/contact?service=employment-law",
+    "selected": [
+      {
+        "value": "employment-law",
+        "text": "قانون العمل"
+      }
+    ],
+    "overflow": false
+  },
+  "consoleReview": "No nonempty new console logs were reported by the 16 fresh page navigations."
+}

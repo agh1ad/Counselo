@@ -1,0 +1,863 @@
+{
+  "scope": "All core pages assessed in both languages using the recorded reading and shared-component review, with final rendered evidence. This is implementation evidence, not independent professional certification or search-engine performance.",
+  "pages": [
+    {
+      "route": "/",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed regional intake and professional claims; corrected response-target wording and current investment terminology where identified."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/",
+          "renderedContentFingerprint": "03a39c42b91a511f43bfc729dd4490cc7eccef71aa680f48f188febdc6b51f3b",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/ar/legal-library",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Article/work card narratives reviewed with all source records; public-read repairs propagate corrected titles and excerpts to discovery pages."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/ar/legal-library",
+          "renderedContentFingerprint": "ca229b999428f1c29365168a7b688b4150b463360ecffb924155941694dd64a9",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/ar/our-work",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Article/work card narratives reviewed with all source records; public-read repairs propagate corrected titles and excerpts to discovery pages."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/ar/our-work",
+          "renderedContentFingerprint": "16294df1e4b4f62b2a791bb0ef374668bd2d6ea9cd0bdc5455454e5b85eb61f8",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/ar",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed regional intake and professional claims; corrected response-target wording and current investment terminology where identified."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/ar",
+          "renderedContentFingerprint": "d77ff8a0d7a79fd16be8f51b292e321fe8f80457ab4d942c9c390db716073fe7",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/blog/ar",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Article/work card narratives reviewed with all source records; public-read repairs propagate corrected titles and excerpts to discovery pages."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/blog/ar",
+          "renderedContentFingerprint": "7cb34abc60611d244db8bf1011a1abfa6d9ce4e24f76ce0ac160d1c69430eb5b",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/blog",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Article/work card narratives reviewed with all source records; public-read repairs propagate corrected titles and excerpts to discovery pages."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/blog",
+          "renderedContentFingerprint": "015e331f2489b13bc0a6e29492a537294583f94f944d4c1c04077400a69796fa",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/legal-library",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Article/work card narratives reviewed with all source records; public-read repairs propagate corrected titles and excerpts to discovery pages."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/legal-library",
+          "renderedContentFingerprint": "9071d5449ea97f67b34dbdc6e1c40983d709991f1b7fcd49de79f1076dfd6b93",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/our-work",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Article/work card narratives reviewed with all source records; public-read repairs propagate corrected titles and excerpts to discovery pages."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/our-work",
+          "renderedContentFingerprint": "1d176674a9ed24f4dc4e396d95bbf081dc4c0629dae1c0b7eaa79db069e57cd6",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/sa/about",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Revised inherited biography to distinguish career-wide engagement counts from court appearances; confirmed separate entity/representation wording."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/about",
+          "renderedContentFingerprint": "59aad90d4256d9c2276108ebd363a6e9dc648df09a99cc5ae4e19955165ae5e8",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/about",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Revised inherited biography to distinguish career-wide engagement counts from court appearances; confirmed separate entity/representation wording."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/about",
+          "renderedContentFingerprint": "b21b00661122b4774d0b3e0a0c66c24097205df3db632f13c5ed10bcda0719e4",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/contact",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed consultation steps, document limits, fee agreement and contact paths; no live message sent."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/contact",
+          "renderedContentFingerprint": "083b43f0f770d34b3991dcd261eefb5a3e7d0af3584747d960b86122b295afd1",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/privacy-policy",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed policy text and jurisdiction distinctions. This SEO review does not independently certify operational retention, provider contracts or legal compliance."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/privacy-policy",
+          "renderedContentFingerprint": "a46d8b25e4361b6bc01a55b0bc20c508fac487b7c302863e5cd97572635c2706",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/services",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Replaced repeated catalogue descriptions with subject-specific intake summaries; retained every service destination."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/services",
+          "renderedContentFingerprint": "674c6ec4a1e4ee5282be13fde09227f17b65fb409423cb164ee6cb9ae250dfcc",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/terms-of-service",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed payment-before-answer, agreed scope, refund exception and separate representation terms."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/terms-of-service",
+          "renderedContentFingerprint": "0d6ab9b16a229355ba2ad568293a26cd879e332df2acefb243064619a55099fe",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar/vision",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Shared bilingual vision content retained; no jurisdiction-specific legal rule asserted."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar/vision",
+          "renderedContentFingerprint": "af1622f8d02eae8e23d9ba02d188c854fc8ac8303b6726f5b95189326239bae4",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/sa/ar",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed regional intake and professional claims; corrected response-target wording and current investment terminology where identified."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/ar",
+          "renderedContentFingerprint": "044466365fbab807dddae76645839e9a281890a64560d243868f61e50ed93f63",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/sa/contact",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed consultation steps, document limits, fee agreement and contact paths; no live message sent."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/contact",
+          "renderedContentFingerprint": "1ea249fced5659827a9993e7d04f2bbbeff795502b9e4d9ad7f911b2e63e9d8e",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/sa/privacy-policy",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed policy text and jurisdiction distinctions. This SEO review does not independently certify operational retention, provider contracts or legal compliance."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/privacy-policy",
+          "renderedContentFingerprint": "d5d72d99f1af3e12645d7e8c24ae58989443ad665e338d6f2a5658376e3138fb",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/sa/services",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Replaced repeated catalogue descriptions with subject-specific intake summaries; retained every service destination."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/services",
+          "renderedContentFingerprint": "9b026f20bdb54a3cc7976a9298e488ab02998cbd4ac1e2c64dc15c61b22cdf43",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/sa/terms-of-service",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed payment-before-answer, agreed scope, refund exception and separate representation terms."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/terms-of-service",
+          "renderedContentFingerprint": "6cb792159bc06dd67d138369e7d9d9441d0f216710fac93c6f4ed6bd29219a3c",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/sa/vision",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Shared bilingual vision content retained; no jurisdiction-specific legal rule asserted."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa/vision",
+          "renderedContentFingerprint": "e780ba97d66063d4a7119ec3c112081a7194c034675c6a52867baf8657a8f03c",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/sa",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed regional intake and professional claims; corrected response-target wording and current investment terminology where identified."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/sa",
+          "renderedContentFingerprint": "ff6107aff2b31a18a48b14893cb255d331c559f04e7f2a0e8f8fbb6bbc7724e7",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/syr/about",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Revised inherited biography to distinguish career-wide engagement counts from court appearances; confirmed separate entity/representation wording."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/about",
+          "renderedContentFingerprint": "09bd9bff578cb94de5035b22393ff7d7674ab685939085c3e7f435ba7286a979",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/about",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Revised inherited biography to distinguish career-wide engagement counts from court appearances; confirmed separate entity/representation wording."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/about",
+          "renderedContentFingerprint": "22b2b499cb9ba693a0f1424a0bd1cf71f4298d55484eca54f3cb47161a13b375",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/contact",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed consultation steps, document limits, fee agreement and contact paths; no live message sent."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/contact",
+          "renderedContentFingerprint": "099b00afa89ef31be3ec6224042583d447b9e77a6ae9199db1c41c2a5ae18c3c",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/privacy-policy",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed policy text and jurisdiction distinctions. This SEO review does not independently certify operational retention, provider contracts or legal compliance."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/privacy-policy",
+          "renderedContentFingerprint": "bd1819b0f32bed2942620bcc7882cd3eb63821dd0e0f780440f98e2766b0a97f",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/services",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Replaced repeated catalogue descriptions with subject-specific intake summaries; retained every service destination."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/services",
+          "renderedContentFingerprint": "98a8d413c13f71e253363cd69bfe73e5f4accff2355c418144b92f36f37943ba",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/terms-of-service",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed payment-before-answer, agreed scope, refund exception and separate representation terms."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/terms-of-service",
+          "renderedContentFingerprint": "f875f90aafdcf27ab0483da90b2a1ebc982cc4af1b4a5c168fd0e05c9ffd0515",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar/vision",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Shared bilingual vision content retained; no jurisdiction-specific legal rule asserted."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar/vision",
+          "renderedContentFingerprint": "0d1c019c57d33549a32c2222cbecb6ca66f3865e332c5c29d892a6d13471bb9d",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/syr/ar",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed regional intake and professional claims; corrected response-target wording and current investment terminology where identified."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/ar",
+          "renderedContentFingerprint": "c7c96aa4ad87419625adeee2d13167945b4dccb22cb8f1c9c295dafb8fef1ff2",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/syr/contact",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed consultation steps, document limits, fee agreement and contact paths; no live message sent."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/contact",
+          "renderedContentFingerprint": "f411b24201a85d9337dc0b973a82e6431c9b13d8dd73fcc65a3c41645c7a249b",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/syr/privacy-policy",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed policy text and jurisdiction distinctions. This SEO review does not independently certify operational retention, provider contracts or legal compliance."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/privacy-policy",
+          "renderedContentFingerprint": "22c6c8e8531ab6635730ceb9380503616760700e4f1a69057d9b6fefcee4755a",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/syr/services",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Replaced repeated catalogue descriptions with subject-specific intake summaries; retained every service destination."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/services",
+          "renderedContentFingerprint": "a815148f18d4d765148d4c439c358bcbabfc8fe1257d3fbd27c82a42b53ee8c9",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/syr/terms-of-service",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed payment-before-answer, agreed scope, refund exception and separate representation terms."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/terms-of-service",
+          "renderedContentFingerprint": "d10633af792c6f7d993015fbba1c9a0d098a786b96947fc54f1fec5dc2be85a6",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/syr/vision",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Shared bilingual vision content retained; no jurisdiction-specific legal rule asserted."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr/vision",
+          "renderedContentFingerprint": "e35767e20a138c786a0f51f985d93e3a8c927f5475e52ca9af33fb1498284c13",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/syr",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed regional intake and professional claims; corrected response-target wording and current investment terminology where identified."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/syr",
+          "renderedContentFingerprint": "6778ffeaab995e722597d001730fed750699699fcf89950bfa0ffc3d3dd0745e",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/uae/about",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Revised inherited biography to distinguish career-wide engagement counts from court appearances; confirmed separate entity/representation wording."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/about",
+          "renderedContentFingerprint": "41edebf8d638efdefb58585f60e032605be70a6335c9316ad2dce85277ce2ba1",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/about",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Revised inherited biography to distinguish career-wide engagement counts from court appearances; confirmed separate entity/representation wording."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/about",
+          "renderedContentFingerprint": "d03200ff1a35b911e4a9542ecd5f450c9ae528d649376cc18012c25ab91583a4",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/contact",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed consultation steps, document limits, fee agreement and contact paths; no live message sent."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/contact",
+          "renderedContentFingerprint": "8f9df7a2c88fc061ccac44b6347ccb9e1fc0499f52687c4d54687c498afa3687",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/privacy-policy",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed policy text and jurisdiction distinctions. This SEO review does not independently certify operational retention, provider contracts or legal compliance."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/privacy-policy",
+          "renderedContentFingerprint": "d2081550a490e85baa68f1af57e301b7d8aaf71c1b95359ccddc9033d8f8c6d1",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/services",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Replaced repeated catalogue descriptions with subject-specific intake summaries; retained every service destination."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/services",
+          "renderedContentFingerprint": "47e17745bf6cd2b8065c12239e4dc30e6a39f7ed93c26c4fd7d6ac71720aaba4",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/terms-of-service",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed payment-before-answer, agreed scope, refund exception and separate representation terms."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/terms-of-service",
+          "renderedContentFingerprint": "94f380b90df118effba34bfd150280a7c8924cc264b26cc0889d7eb4423ed05a",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar/vision",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Shared bilingual vision content retained; no jurisdiction-specific legal rule asserted."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar/vision",
+          "renderedContentFingerprint": "f43b7e97b343d246b4fe445b9e6d64109269caf3a46924916378e0b0d711bd49",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/uae/ar",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed regional intake and professional claims; corrected response-target wording and current investment terminology where identified."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/ar",
+          "renderedContentFingerprint": "6d7d1605b386096ff19ce9980b02eb0aca4e86e32a5e68011d2fb80e721608c2",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/uae/contact",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed consultation steps, document limits, fee agreement and contact paths; no live message sent."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/contact",
+          "renderedContentFingerprint": "ba3f4c50f174a91fdef8acf7810aa97de8a5bc2b412dbda50ff49ed61850935d",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/uae/privacy-policy",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed policy text and jurisdiction distinctions. This SEO review does not independently certify operational retention, provider contracts or legal compliance."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/privacy-policy",
+          "renderedContentFingerprint": "23ae96c98992b1e6f84458809ce5e1f76bd3c283dd98d94a056b73a940cb792b",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/uae/services",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Replaced repeated catalogue descriptions with subject-specific intake summaries; retained every service destination."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/services",
+          "renderedContentFingerprint": "139efa846d720f10fd9bd2642cfe909ee2f4930c4fd2e487a3b73ab03cc58301",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/uae/terms-of-service",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed payment-before-answer, agreed scope, refund exception and separate representation terms."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/terms-of-service",
+          "renderedContentFingerprint": "043de5b1b2e9b3c53eda92a27cf8e6d058c050a5aed55e5e5c3839f325e4bea8",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/uae/vision",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Shared bilingual vision content retained; no jurisdiction-specific legal rule asserted."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae/vision",
+          "renderedContentFingerprint": "eb95d1a2b83412f39e436d59179048f28723a5efb6168909a14a15356f945bff",
+          "passagesChecked": 0
+        }
+      ]
+    },
+    {
+      "route": "/uae",
+      "distinctContentRead": true,
+      "sharedTemplateReviewed": true,
+      "notes": [
+        "Reviewed distinct page copy, shared template, purpose and language counterpart.",
+        "Reviewed regional intake and professional claims; corrected response-target wording and current investment terminology where identified."
+      ],
+      "status": "implementation-assessed-and-render-verified",
+      "renderVerification": [
+        {
+          "route": "/uae",
+          "renderedContentFingerprint": "325ad6916a8b880ac90921862d32e7c7e0a0af0e22e29d542c62a9d3940ec54d",
+          "passagesChecked": 0
+        }
+      ]
+    }
+  ],
+  "generatedAt": "2026-09-06T06:06:34.050Z",
+  "buildValidationAt": "2026-09-06 06:05:45 UTC",
+  "completionState": "Recorded editorial implementation findings resolved and rendered verification passed. Publication and search-engine outcomes remain unverified.",
+  "summary": {
+    "records": 50,
+    "routes": 50,
+    "openImplementationFindings": 0
+  }
+}

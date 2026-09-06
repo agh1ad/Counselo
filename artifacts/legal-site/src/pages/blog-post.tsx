@@ -5,10 +5,13 @@ import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { TrustSignals } from "@/components/seo/TrustSignals";
-import { type WorkSamplePublic, localized } from "@/lib/work-samples";
+import { type WorkSamplePublic, localized, workSamplePath } from "@/lib/work-samples";
 import { fetchPublicJson } from "@/lib/public-api";
 import {
   articleJurisdictionLabel,
+  articleContextRegion,
+  articleModifiedAt,
+  ARTICLE_CONTEXT,
   assignArticleProvenance,
   BLOG_REVIEWER_ATTRIBUTION,
   blogPath,
@@ -17,6 +20,7 @@ import {
   COUNSELO_ENTITY_IDS,
   getServiceDefinition,
   getServicesForRegion,
+  safeSeoTitle,
 } from "@workspace/api-zod/browser";
 
 const BLOG_CATEGORY_TO_SERVICE: Record<string, { slug: string; nameEn: string; nameAr: string }> = {
@@ -221,19 +225,21 @@ export default function BlogPost() {
 
   const title = useAr ? post.titleAr : post.titleEn;
   const excerpt = useAr ? post.excerptAr : post.excerptEn;
-  const seoTitle = useAr ? (post.seoTitleAr || post.titleAr) : (post.seoTitleEn || post.titleEn);
+  const seoTitle = post.slug === "contractual-liability-in-commercial-transactions" && useAr
+    ? "المسؤولية العقدية في المعاملات التجارية: دليل عملي"
+    : useAr
+      ? safeSeoTitle(post.seoTitleAr, post.titleAr)
+      : safeSeoTitle(post.seoTitleEn, post.titleEn);
   const rawSeoDesc = useAr ? (post.seoDescriptionAr || post.excerptAr) : (post.seoDescriptionEn || post.excerptEn);
   const seoDesc = normalizeDescription(rawSeoDesc, excerpt);
   const category = useAr ? post.categoryAr : post.categoryEn;
   const body = useAr ? post.bodyAr : post.bodyEn;
   const content = (useAr ? post.contentAr : post.contentEn) ?? [];
-  const articleSearchText = `${post.titleEn} ${post.titleAr} ${post.excerptEn} ${post.excerptAr} ${post.categoryEn} ${post.categoryAr}`;
-  const articleRegion = /United Arab Emirates|\bUAE\b|الإمارات/i.test(articleSearchText)
-    ? "uae"
-    : /Syria|Syrian|سوريا|السوري/i.test(articleSearchText)
-      ? "syr"
-      : "sa";
-  const articleRegionPrefix = `/${articleRegion}${useAr ? "/ar" : ""}`;
+  const curatedContext = ARTICLE_CONTEXT[post.slug];
+  const editorialUpdatedAt = curatedContext?.editorialUpdatedAt ? articleModifiedAt(curatedContext.editorialUpdatedAt, post.updatedAt, post.date) : undefined;
+  const articleRegion = articleContextRegion(post);
+  const articleRegionPrefix = `${articleRegion ? `/${articleRegion}` : ""}${useAr ? "/ar" : ""}`;
+  const articleContactPath = articleRegion ? `${articleRegionPrefix}/contact` : `${useAr ? "/ar" : "/"}#jurisdictions-heading${useAr ? "-ar" : ""}`;
   const fallbackProvenance = assignArticleProvenance(post);
   const contentType = post.contentType ?? "professional-commentary";
   const provenance = {
@@ -261,20 +267,20 @@ export default function BlogPost() {
   provenance.legalReviewerUrl = localizeArticleProvenanceUrl(provenance.legalReviewerUrl, articleRegion, effectiveLanguage, "profile");
   provenance.correctionUrl = localizeArticleProvenanceUrl(provenance.correctionUrl, articleRegion, effectiveLanguage, "correction");
   const reviewerAttribution = useAr ? BLOG_REVIEWER_ATTRIBUTION.ar : BLOG_REVIEWER_ATTRIBUTION.en;
-  const validRegionServices = new Set(getServicesForRegion(articleRegion).map((service) => service.slug));
+  const validRegionServices = new Set(articleRegion ? getServicesForRegion(articleRegion).map((service) => service.slug) : []);
   const categoryService = BLOG_CATEGORY_TO_SERVICE[post.categoryEn] ?? BLOG_CATEGORY_TO_SERVICE[post.categoryAr];
-  const articleServiceSlug = (post.relatedServiceSlugs ?? []).find((slug) => validRegionServices.has(slug))
+  const articleServiceSlug = (curatedContext ? [curatedContext.serviceSlug] : post.relatedServiceSlugs ?? []).find((slug) => validRegionServices.has(slug))
     ?? (categoryService && validRegionServices.has(categoryService.slug) ? categoryService.slug : undefined);
-  const relatedPostsAssigned = (post.relatedBlogSlugs ?? [])
+  const relatedPostsAssigned = (curatedContext?.relatedBlogSlugs ?? post.relatedBlogSlugs ?? [])
     .map((relatedSlug) => allPosts.find((candidate) => candidate.slug === relatedSlug))
     .filter((candidate): candidate is ApiPost => candidate !== undefined && candidate.slug !== post.slug && candidate.published !== false);
   const relatedPosts = relatedPostsAssigned.length > 0
     ? relatedPostsAssigned.slice(0, 3)
     : allPosts
       .filter((candidate) => candidate.slug !== post.slug && candidate.published !== false)
-      .filter((candidate) => articleServiceSlug && candidate.relatedServiceSlugs?.includes(articleServiceSlug))
+      .filter((candidate) => articleServiceSlug && articleContextRegion(candidate) === articleRegion && candidate.relatedServiceSlugs?.includes(articleServiceSlug))
       .slice(0, 3);
-  const relatedWork = (post.relatedWorkSlugs ?? [])
+  const relatedWork = (curatedContext?.relatedWorkSlugs ?? [])
     .map((relatedSlug) => allWork.find((candidate) => candidate.slug === relatedSlug))
     .filter((candidate): candidate is WorkSamplePublic => Boolean(candidate));
 
@@ -289,7 +295,7 @@ export default function BlogPost() {
     "description": seoDesc,
     "inLanguage": useAr ? "ar" : "en",
     "datePublished": post.date,
-    "dateModified": provenance.lastSubstantiveReviewAt,
+    "dateModified": editorialUpdatedAt ?? provenance.lastSubstantiveReviewAt,
     "image": {
       "@type": "ImageObject",
       "url": "https://counselo-legal.com/og-image.png",
@@ -321,13 +327,13 @@ export default function BlogPost() {
       },
     },
     "isPartOf": { "@id": `https://counselo-legal.com${useAr ? "/blog/ar" : "/blog"}#collection` },
-    "reviewedBy": {
+    ...(!editorialUpdatedAt ? { "reviewedBy": {
       "@type": "Person",
       "@id": COUNSELO_ENTITY_IDS.omar,
       "name": useAr ? provenance.legalReviewerNameAr : provenance.legalReviewerName,
       "url": `https://counselo-legal.com${provenance.legalReviewerUrl}`,
-    },
-    ...(contentType === "legal-guidance" ? {
+    } } : {}),
+    ...(contentType === "legal-guidance" && articleRegion ? {
       "citation": provenance.sources.map((source) => source.href),
       "about": {
         "@type": "LegalService",
@@ -365,11 +371,11 @@ export default function BlogPost() {
           : `${category}, legal articles, free legal guides, CounselO blog, online legal advice, CounselO`}
         ogType="article"
         articlePublishedTime={post.date}
-        articleModifiedTime={post.updatedAt || post.date}
+        articleModifiedTime={editorialUpdatedAt ?? post.updatedAt ?? post.date}
         articleAuthor={useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}
         articleSection={category}
-        reviewedBy={reviewerAttribution}
-        ogImageAlt={useAr
+        reviewedBy={editorialUpdatedAt ? undefined : reviewerAttribution}
+        ogImageAlt={editorialUpdatedAt ? title : useAr
           ? `مقال قانوني من كاونسلو، راجعه ${reviewerAttribution}`
           : `CounselO legal article reviewed by ${reviewerAttribution}`}
         extraSchemas={[articleSchema, breadcrumbSchema]}
@@ -403,7 +409,7 @@ export default function BlogPost() {
               className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white transition-colors"
             >
               <BadgeCheck className="h-4 w-4 text-[#e0c078]" aria-hidden="true" />
-              {useAr ? "راجعه" : "Reviewed by"} {reviewerAttribution}
+              {editorialUpdatedAt ? useAr ? "القيادة القانونية:" : "Legal leadership:" : useAr ? "راجعه" : "Reviewed by"} {reviewerAttribution}
             </a>
           </m.div>
         </div>
@@ -425,10 +431,10 @@ export default function BlogPost() {
               </h2>
               <dl className="grid gap-3 text-sm sm:grid-cols-2">
                 <div><dt className="font-semibold text-foreground">{useAr ? "كتب بواسطة" : "Written by"}</dt><dd><a className="text-primary hover:underline" href={provenance.primaryAuthorUrl}>{useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}</a></dd></div>
-                <div><dt className="font-semibold text-foreground">{useAr ? "تمت المراجعة بواسطة" : "Reviewed by"}</dt><dd><a className="text-primary hover:underline" href={provenance.legalReviewerUrl}>{reviewerAttribution}</a></dd></div>
+                <div><dt className="font-semibold text-foreground">{editorialUpdatedAt ? useAr ? "القيادة القانونية" : "Legal leadership" : useAr ? "تمت المراجعة بواسطة" : "Reviewed by"}</dt><dd><a className="text-primary hover:underline" href={provenance.legalReviewerUrl}>{reviewerAttribution}</a></dd></div>
                 {contentType === "legal-guidance" && provenance.jurisdiction && <div><dt className="font-semibold text-foreground">{useAr ? "الاختصاص" : "Jurisdiction"}</dt><dd>{articleJurisdictionLabel(provenance.jurisdiction, useAr)}</dd></div>}
                 <div><dt className="font-semibold text-foreground">{useAr ? "تاريخ النشر" : "Publication date"}</dt><dd>{formatDate(post.date, useAr ? "ar" : "en")}</dd></div>
-                <div><dt className="font-semibold text-foreground">{useAr ? (contentType === "legal-guidance" ? "آخر مراجعة جوهرية" : "آخر مراجعة تحريرية") : (contentType === "legal-guidance" ? "Last substantive review" : "Last editorial review")}</dt><dd>{formatDate(provenance.lastSubstantiveReviewAt, useAr ? "ar" : "en")}</dd></div>
+                <div><dt className="font-semibold text-foreground">{editorialUpdatedAt ? useAr ? "تحديث المحتوى" : "Content updated" : useAr ? (contentType === "legal-guidance" ? "آخر مراجعة جوهرية" : "آخر مراجعة تحريرية") : (contentType === "legal-guidance" ? "Last substantive review" : "Last editorial review")}</dt><dd>{formatDate(editorialUpdatedAt ?? provenance.lastSubstantiveReviewAt, useAr ? "ar" : "en")}</dd></div>
                 {contentType === "legal-guidance" && <div><dt className="font-semibold text-foreground">{useAr ? "القانون المنطبق" : "Applicable law"}</dt><dd>{useAr ? provenance.applicableLawAr : provenance.applicableLaw}</dd></div>}
               </dl>
               <div className="mt-4 space-y-3 text-sm">
@@ -472,7 +478,7 @@ export default function BlogPost() {
                     );
                   })}
                   {relatedWork.map((related) => (
-                    <Link key={related.slug} href={`${useAr ? "/ar" : ""}/our-work/${related.slug}`} className="border border-border bg-card p-4 hover:border-primary transition-colors">
+                    <Link key={related.slug} href={workSamplePath(related, useAr)} className="border border-border bg-card p-4 hover:border-primary transition-colors">
                       <span className="text-xs uppercase tracking-wider text-primary font-semibold">{useAr ? "من أعمالنا" : "Our Work"}</span>
                       <span className="block font-semibold text-foreground mt-2">{localized(related.titleEn, related.titleAr, useAr ? "ar" : "en")}</span>
                     </Link>
@@ -526,7 +532,7 @@ export default function BlogPost() {
                     {ui.whatsapp}
                   </a>
                   <Link
-                    href={`${articleRegionPrefix}/contact`}
+                    href={articleContactPath}
                     data-cta="contact"
                     data-region={articleRegion}
                     data-lang={useAr ? "ar" : "en"}
@@ -549,7 +555,7 @@ export default function BlogPost() {
                     ? `Published ${formatDate(post.date, lang)}${post.updatedAt ? ` · Updated ${formatDate(post.updatedAt, lang)}` : ""}`
                     : `نُشر ${formatDate(post.date, lang)}${post.updatedAt ? ` · حُدّث ${formatDate(post.updatedAt, lang)}` : ""}`}
                 </p>
-                <Link href={`${articleRegionPrefix}/about`} className="inline-flex mt-3 text-sm font-semibold text-primary hover:underline">
+                <Link href={provenance.legalReviewerUrl} className="inline-flex mt-3 text-sm font-semibold text-primary hover:underline">
                   {lang === "en" ? "Legal leadership and experience" : "القيادة والخبرة القانونية"}
                 </Link>
               </div>
@@ -584,7 +590,7 @@ export default function BlogPost() {
                       {lang === "en" ? "← Back to Blog" : "المدونة ←"}
                     </Link>
                     <Link
-                      href={`${articleRegionPrefix}/contact`}
+                      href={articleContactPath}
                       className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
                       data-cta="contact"
                       data-region={articleRegion}

@@ -1,5 +1,7 @@
 import type { UaeLegalService } from "@/data/uae-legal-services";
 
+import { SERVICE_INTAKE_CONTENT } from "@/lib/service-intake-content";
+
 type LocalizedList = { en: string[]; ar: string[] };
 type LocalizedFaq = { en: { q: string; a: string }[]; ar: { q: string; a: string }[] };
 
@@ -170,7 +172,7 @@ const SEO_ISSUES_BY_SERVICE: Record<string, LocalizedList> = {
 };
 
 export function buildUaeServicePageContent(service: UaeLegalService) {
-  const documents = DOCUMENTS_BY_CATEGORY[service.category];
+  const documents = SERVICE_INTAKE_CONTENT[service.slug]?.documents ?? DOCUMENTS_BY_CATEGORY[service.category];
   const baseIssues: LocalizedList = {
     en: [
       `Uncertainty about the application of ${service.concepts.en[0]} to the facts`,
@@ -203,7 +205,7 @@ export function buildUaeServicePageContent(service: UaeLegalService) {
       },
       {
         q: `Which authority or court handles matters involving ${service.title.en}?`,
-        a: `${service.authority.en} is a relevant official starting point, but the competent regulator, committee, onshore court, DIFC or ADGM forum depends on the facts and any valid jurisdiction or arbitration agreement.`,
+        a: `${service.authority.en} provides relevant official information. Identify the authority named in the decision or case file and the applicable federal, Emirate or free-zone procedure. A practitioner checks subject-matter jurisdiction and any required complaint or review step; a private agreement does not itself change statutory authority.`,
       },
       {
         q: "What should I provide for the initial UAE legal review?",
@@ -217,6 +219,22 @@ export function buildUaeServicePageContent(service: UaeLegalService) {
         q: "When should I seek UAE legal advice?",
         a: "Seek advice before signing, responding to a regulator, terminating a relationship, transferring funds or assets, or allowing a notice, limitation, objection or appeal period to expire.",
       },
+      {
+        q: `What if records for ${service.title.en.toLowerCase()} are missing or inconsistent?`,
+        a: `List the missing records concerning ${service.covers.en[0]}, who holds them and any steps already taken to obtain copies. Keep original files and distinguish confirmed facts from recollection; do not alter a record to resolve a discrepancy. The review can then identify which gaps prevent a reliable assessment.`,
+      },
+      {
+        q: "What if contractual, regulatory or other obligations conflict?",
+        a: `Provide the complete agreements, amendments, notices and relevant decisions involving ${service.concepts.en[1]}. Identify the parties and dates for each obligation. A review must establish the applicable rules and priority of obligations before recommending compliance, negotiation or a challenge; one document should not be assumed to override another.`,
+      },
+      {
+        q: "What should I do if a notice, objection or appeal deadline is close or may have passed?",
+        a: "Send the complete notice or decision, proof of when and how it was received, and a chronology promptly. Do not assume that a consultation, negotiation or unanswered message suspends a deadline. The applicable period, filing route and any possible remedy for lateness require assessment of the actual procedure and forum; no extension or remedy is guaranteed.",
+      },
+      {
+        q: `How can I preserve evidence or request urgent protection in a ${service.title.en.toLowerCase()} matter?`,
+        a: "Preserve originals, dated communications and available transaction records without changing them, and describe the specific risk and when it may occur. Do not access another person's account or obtain material unlawfully. A practitioner must assess the competent forum, available interim measure, supporting evidence and filing requirements before urgent protection can be sought; relief is not automatic.",
+      },
     ],
     ar: [
       {
@@ -225,7 +243,7 @@ export function buildUaeServicePageContent(service: UaeLegalService) {
       },
       {
         q: `ما الجهة أو المحكمة المختصة بمسائل ${service.title.ar}؟`,
-        a: `تمثل ${service.authority.ar} نقطة رسمية ذات صلة، لكن تحديد الجهة التنظيمية أو اللجنة أو المحكمة المحلية أو محاكم مركز دبي المالي أو أبوظبي العالمي يعتمد على الوقائع وأي اتفاق صحيح على الاختصاص أو التحكيم.`,
+        a: `توفر ${service.authority.ar} معلومات رسمية ذات صلة. حدد الجهة المبينة في القرار أو ملف القضية والإجراء الاتحادي أو المحلي أو الخاص بالمنطقة الحرة المنطبق. يتحقق الممارس من الاختصاص النوعي وأي شكوى أو مراجعة سابقة لازمة؛ ولا يغير الاتفاق الخاص وحده اختصاصاً مقرراً قانوناً.`,
       },
       {
         q: "ما الذي ينبغي تقديمه للمراجعة القانونية الإماراتية الأولية؟",
@@ -239,11 +257,29 @@ export function buildUaeServicePageContent(service: UaeLegalService) {
         q: "متى ينبغي طلب المشورة القانونية في الإمارات؟",
         a: "اطلب المشورة قبل التوقيع أو الرد على جهة تنظيمية أو إنهاء علاقة أو نقل أموال أو أصول، وقبل انقضاء ميعاد إخطار أو تقادم أو اعتراض أو طعن.",
       },
+      {
+        q: `ماذا أفعل إذا كانت مستندات ${service.title.ar} ناقصة أو متعارضة؟`,
+        a: `حدّد السجلات الناقصة بشأن ${service.covers.ar[0]} ومن يحتفظ بها وخطوات طلب نسخها. احتفظ بالملفات الأصلية وميّز الوقائع المؤكدة عن المعلومات المستندة إلى الذاكرة، ولا تعدّل مستنداً لمعالجة التعارض. تساعد المراجعة على تحديد النواقص التي تمنع تقييماً موثوقاً.`,
+      },
+      {
+        q: "ماذا لو تعارضت التزامات تعاقدية أو تنظيمية أو غيرها؟",
+        a: `قدّم الاتفاقات كاملة وتعديلاتها والإخطارات والقرارات ذات الصلة بشأن ${service.concepts.ar[1]}، مع تحديد الأطراف والتواريخ لكل التزام. يلزم التحقق من القواعد المنطبقة وأولوية الالتزامات قبل اقتراح الامتثال أو التفاوض أو الاعتراض، ولا يُفترض أن مستنداً يتقدم على آخر تلقائياً.`,
+      },
+      {
+        q: "ماذا أفعل إذا اقترب ميعاد إخطار أو اعتراض أو طعن أو ربما انقضى؟",
+        a: "أرسل الإخطار أو القرار كاملاً وإثبات تاريخ وطريقة استلامه وتسلسلاً زمنياً دون تأخير. لا تفترض أن الاستشارة أو التفاوض أو رسالة لم يُرد عليها توقف الميعاد. يتطلب تحديد المدة وطريق القيد وإمكان معالجة التأخر مراجعة الإجراء والجهة المختصة، ولا يمكن ضمان التمديد أو قبول أي معالجة.",
+      },
+      {
+        q: `كيف أحفظ الأدلة أو أطلب حماية عاجلة في مسألة ${service.title.ar}؟`,
+        a: "احتفظ بالأصول والمراسلات المؤرخة وسجلات المعاملات المتاحة دون تعديل، وحدّد الخطر وموعد حدوثه المحتمل. لا تدخل إلى حساب شخص آخر ولا تحصل على مواد بطريقة غير مشروعة. يقيّم الممارس الجهة المختصة والتدبير الوقتي المتاح والأدلة ومتطلبات القيد قبل طلب الحماية العاجلة، ولا يكون منحها تلقائياً.",
+      },
     ],
   };
 
   return {
     issues,
+    proceduralIssues: baseIssues,
+    specificIssues: extraIssues,
     documents,
     faqs,
     experienceNote: {

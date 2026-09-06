@@ -1069,10 +1069,10 @@ export const SYR_SEO_DATA: Record<string, {
     kwAr: "محامي ملكية فكرية سوريا, محامي علامات تجارية سوريا, حق مؤلف سوريا, براءة اختراع سوريا, قانون الملكية الفكرية السوري, تسجيل علامة تجارية سوريا, نزاع ملكية فكرية دمشق",
   },
   "tax-zakat": {
-    desc: "Tax lawyer in Syria — General Tax Authority (GTA) disputes, income tax objections & customs tax claims under Syrian tax law. Online advice 24/7 — CounselO.",
-    descAr: "محامٍ ضريبي في سوريا — نزاعات الهيئة العامة للضرائب والاعتراض على ضريبة الدخل ومطالبات الجمارك وفق قانون الضرائب السوري. استشارة أونلاين — كاونسلو.",
-    kw: "tax lawyer Syria, General Tax Authority Syria, GTA dispute Syria, income tax objection Syria, Syrian tax law, customs duty Syria, tax appeal Damascus, tax dispute Aleppo, online tax advice Syria",
-    kwAr: "محامي ضرائب سوريا, الهيئة العامة للضرائب سوريا, نزاع ضريبي سوريا, اعتراض ضريبة دخل سوريا, قانون الضرائب السوري, رسوم جمركية سوريا, طعن ضريبي دمشق",
+    desc: "Syrian tax and customs consultation: review assessments, business records, penalties and cross-border tax questions. Arabic and English legal advice from CounselO.",
+    descAr: "استشارة ضرائب وجمارك سورية: مراجعة التكاليف وسجلات الأعمال والغرامات والمسائل الضريبية العابرة للحدود. مشورة قانونية بالعربية والإنجليزية من كاونسلو.",
+    kw: "tax consultation Syria, Syrian tax assessment review, customs valuation Syria, cross-border tax advice Syria",
+    kwAr: "استشارة ضرائب سوريا, مراجعة التكليف الضريبي السوري, التقييم الجمركي سوريا, ضرائب المعاملات العابرة للحدود",
   },
   "cyber-law": {
     desc: "Cyber & IT law lawyer in Syria — cybercrime defence, data protection & online fraud under Syrian law. Online advice 24 hours via WhatsApp — CounselO.",

@@ -90,7 +90,7 @@ export const enUae = {
         "Regional legal leadership; local representation separately scoped",
         "Holder of the title \"Ustaz\" (Senior Counsel), conferred by the Syrian Bar Association",
         "30+ years of legal practice",
-        "20,000+ regional cases and consultations",
+        "20,000+ regional legal matters and consultations",
         "Mentor and supervisor to 40+ lawyers",
         "Experience in commercial, civil, administrative, arbitration and cross-border matters",
         "Founder of CounselO's bilingual online consultation platform",

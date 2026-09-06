@@ -21,12 +21,16 @@ import { fileURLToPath } from "node:url";
 import type { RenderResult } from "../entry-server.js";
 import type { InitialBlogPost } from "../App.js";
 import { compactWorkSamplesForDiscovery, type WorkSamplePublic } from "../lib/work-samples.js";
-import { getLegalProblemPaths } from "../lib/legal-problem-pages.js";
+import { getLegalProblemPaths, LEGAL_PROBLEM_REDIRECTS } from "../lib/legal-problem-pages.js";
 import {
+  LEGACY_BLOG_REDIRECTS,
+  LEGACY_SEARCH_REDIRECTS,
   getPublicRouteInventory,
   hasQualityBilingualBlogContent,
   routeToFlatFilename,
 } from "@workspace/api-zod";
+import { repairPublicBlogPost } from "../../../api-server/src/lib/public-blog-repairs.js";
+import { repairPublicWorkSample } from "../../../api-server/src/lib/public-work-repairs.js";
 
 // ---------------------------------------------------------------------------
 // Fetch published blog post slugs from the running API at build time.
@@ -44,7 +48,17 @@ async function fetchBlogPosts(): Promise<InitialBlogPost[]> {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = (await res.json()) as unknown;
     if (!Array.isArray(data)) return [];
-    return data.filter(
+    const candidates = data.filter(
+      (post): post is InitialBlogPost => Boolean(post && typeof post === "object"),
+    );
+    const repaired = candidates.map((post) => repairPublicBlogPost(post));
+    const repairedSlug = "contract-interpretation-syrian-courts";
+    if (!repaired.some((post) => post.slug === repairedSlug)) {
+      const explicitUrl = new URL(`/api/blog/posts/${repairedSlug}`, blogApiUrl).toString();
+      const explicitResponse = await fetch(explicitUrl, { signal: AbortSignal.timeout(30_000) });
+      if (explicitResponse.ok) repaired.push(repairPublicBlogPost(await explicitResponse.json() as InitialBlogPost));
+    }
+    return repaired.filter(
       (post): post is InitialBlogPost =>
         !!post &&
         typeof post === "object" &&
@@ -78,7 +92,7 @@ async function fetchWorkSamples(): Promise<WorkSamplePublic[]> {
         typeof sample === "object" &&
         typeof (sample as { slug?: unknown }).slug === "string" &&
         (sample as { published?: unknown }).published !== false,
-    );
+    ).map(repairPublicWorkSample);
   } catch (err) {
     console.warn(
       `  ⚠ Could not fetch work samples from API: ${err instanceof Error ? err.message : String(err)}`,
@@ -181,8 +195,11 @@ function writeRoute(
   // Until UAE-specific articles and work samples exist, do not bootstrap
   // Saudi/Syrian discovery data into UAE pages. This keeps both the visible
   // page and its crawlable HTML strictly jurisdiction-specific.
-  const routeBlogPosts = isUaeRoute ? [] : blogPosts;
-  const routeWorkSamples = isUaeRoute ? [] : workSamples;
+  const serviceSlug = route.match(/^\/(?:sa|syr|uae)(?:\/ar)?\/services\/([^/]+)(?:\/[^/]+)?$/)?.[1];
+  const routeBlogPosts = isUaeRoute ? [] : serviceSlug
+    ? blogPosts.filter(post => post.relatedServiceSlugs?.includes(serviceSlug)) : blogPosts;
+  const routeWorkSamples = isUaeRoute ? [] : serviceSlug
+    ? workSamples.filter(sample => sample.relatedServiceSlugs?.includes(serviceSlug)) : workSamples;
   const { head, body } = render(route, routeBlogPosts, routeWorkSamples);
 
   // Discovery surfaces only need card metadata and link assignments. Avoid
@@ -213,7 +230,9 @@ function writeRoute(
         route === `/blog/en/${post.slug}` ||
         route === `/blog/ar/${post.slug}`
       ))};</script>`
-    : "";
+    : /^(?:\/ar)?\/our-work\/[^/]+$/.test(route)
+      ? `<script>window.__SSR_WORK__=${safeJson(workSamples.find(sample => route.endsWith(`/${sample.slug}`)))};</script>`
+      : "";
   const initialData = `${discoveryData}${detailData}`;
 
   const routeHtml = template
@@ -256,7 +275,11 @@ function writeRoute(
   const outputPath =
     route === "/"
       ? resolve(publicDir, "index.html")
-      : resolve(publicDir, "__pages", routeToFlatFilename(route));
+      // Work records stay dynamically fresh in production. Render a build-time
+      // audit snapshot outside the public directory, never a serving override.
+      : /^(?:\/ar)?\/our-work\/[^/]+$/.test(route)
+        ? resolve(distDir, "audit-pages", routeToFlatFilename(route))
+        : resolve(publicDir, "__pages", routeToFlatFilename(route));
 
   if (route !== "/") {
     mkdirSync(dirname(outputPath), { recursive: true });
@@ -282,63 +305,7 @@ function safeJson(value: unknown): string {
 // an explicit rewrite for each path pointing to its /__pages/*.html file.
 // ---------------------------------------------------------------------------
 
-const REDIRECT_ROUTES: Record<string, string> = {
-  // Old region-prefixed blog index pages → language-split blog index
-  "/sa/blog": "/blog",
-  "/syr/blog": "/blog",
-  "/uae/blog": "/blog",
-  "/sa/ar/blog": "/blog/ar",
-  "/syr/ar/blog": "/blog/ar",
-  "/uae/ar/blog": "/blog/ar",
-  "/ar/blog": "/blog/ar",
-
-  // Old SA-region blog post slugs (both EN and AR) → blog index
-  // (these posts are removed from the DB; redirect to /blog rather than 404)
-  "/sa/blog/divorce-in-saudi-arabia": "/blog",
-  "/sa/blog/wrongful-termination-saudi-labor-law": "/blog",
-  "/sa/blog/foreign-company-registration-saudi-arabia": "/blog",
-  "/sa/blog/board-of-grievances-saudi-arabia": "/blog",
-  "/sa/blog/real-estate-disputes-saudi-arabia": "/blog",
-  "/sa/blog/child-custody-saudi-arabia": "/blog",
-
-  "/sa/ar/blog/divorce-in-saudi-arabia": "/blog/ar",
-  "/sa/ar/blog/wrongful-termination-saudi-labor-law": "/blog/ar",
-  "/sa/ar/blog/foreign-company-registration-saudi-arabia": "/blog/ar",
-  "/sa/ar/blog/board-of-grievances-saudi-arabia": "/blog/ar",
-  "/sa/ar/blog/real-estate-disputes-saudi-arabia": "/blog/ar",
-  "/sa/ar/blog/child-custody-saudi-arabia": "/blog/ar",
-
-  // Old SYR-region SA-named slugs → blog index (collapsed from two hops)
-  "/syr/blog/divorce-in-saudi-arabia": "/blog",
-  "/syr/blog/wrongful-termination-saudi-labor-law": "/blog",
-  "/syr/blog/foreign-company-registration-saudi-arabia": "/blog",
-  "/syr/blog/board-of-grievances-saudi-arabia": "/blog",
-  "/syr/blog/real-estate-disputes-saudi-arabia": "/blog",
-  "/syr/blog/child-custody-saudi-arabia": "/blog",
-
-  "/syr/ar/blog/divorce-in-saudi-arabia": "/blog/ar",
-  "/syr/ar/blog/wrongful-termination-saudi-labor-law": "/blog/ar",
-  "/syr/ar/blog/foreign-company-registration-saudi-arabia": "/blog/ar",
-  "/syr/ar/blog/board-of-grievances-saudi-arabia": "/blog/ar",
-  "/syr/ar/blog/real-estate-disputes-saudi-arabia": "/blog/ar",
-  "/syr/ar/blog/child-custody-saudi-arabia": "/blog/ar",
-
-  // Old SYR-region Syria-named canonical slugs → blog index
-  // (these static posts are also removed from DB)
-  "/syr/blog/divorce-in-syria": "/blog",
-  "/syr/blog/wrongful-termination-syrian-labor-law": "/blog",
-  "/syr/blog/foreign-company-registration-syria": "/blog",
-  "/syr/blog/administrative-court-disputes-syria": "/blog",
-  "/syr/blog/real-estate-disputes-syria": "/blog",
-  "/syr/blog/child-custody-syria": "/blog",
-
-  "/syr/ar/blog/divorce-in-syria": "/blog/ar",
-  "/syr/ar/blog/wrongful-termination-syrian-labor-law": "/blog/ar",
-  "/syr/ar/blog/foreign-company-registration-syria": "/blog/ar",
-  "/syr/ar/blog/administrative-court-disputes-syria": "/blog/ar",
-  "/syr/ar/blog/real-estate-disputes-syria": "/blog/ar",
-  "/syr/ar/blog/child-custody-syria": "/blog/ar",
-};
+const REDIRECT_ROUTES: Record<string, string> = { ...LEGAL_PROBLEM_REDIRECTS, ...LEGACY_BLOG_REDIRECTS, ...LEGACY_SEARCH_REDIRECTS };
 
 function writeRedirectRoute(fromRoute: string, toRoute: string): void {
   const targetUrl = `https://counselo-legal.com${toRoute}`;
@@ -407,6 +374,10 @@ async function prerender(): Promise<void> {
     ROUTES.push(...blogPostRoutes);
   }
   console.log(`  Found ${workSamples.length} work sample(s).`);
+  ROUTES.push(...workSamples.flatMap(sample => [
+    ...(sample.titleEn ? [`/our-work/${sample.slug}`] : []),
+    ...(sample.titleAr ? [`/ar/our-work/${sample.slug}`] : []),
+  ]));
 
   const allRoutes = ROUTES;
   console.log(`\n🚀 Prerendering ${allRoutes.length} routes…\n`);
@@ -434,6 +405,7 @@ async function prerender(): Promise<void> {
     );
     process.exit(1);
   }
+  writeFileSync(resolve(distDir, "audit-route-inventory.json"), JSON.stringify({ generatedAt: new Date().toISOString(), routes: allRoutes, blogRecords: blogPosts.length, workRecords: workSamples.length }, null, 2));
 
   // Write redirect-only HTML files for old region-prefixed blog URLs.
   console.log(

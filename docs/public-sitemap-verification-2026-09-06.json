@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-09-06T06:40:18.673150+00:00",
+  "origin": "https://counselo-legal.com",
+  "children": [
+    {
+      "url": "https://counselo-legal.com/sitemap-core.xml",
+      "count": 46
+    },
+    {
+      "url": "https://counselo-legal.com/sitemap-uae-services.xml",
+      "count": 260
+    },
+    {
+      "url": "https://counselo-legal.com/sitemap-sa-services.xml",
+      "count": 470
+    },
+    {
+      "url": "https://counselo-legal.com/sitemap-syr-services.xml",
+      "count": 508
+    },
+    {
+      "url": "https://counselo-legal.com/sitemap-blog.xml",
+      "count": 92
+    },
+    {
+      "url": "https://counselo-legal.com/sitemap-work.xml",
+      "count": 92
+    }
+  ],
+  "uniqueUrls": 1468,
+  "missing": [],
+  "unexpected": []
+}

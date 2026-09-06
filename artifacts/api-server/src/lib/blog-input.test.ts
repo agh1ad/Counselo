@@ -103,6 +103,22 @@ test("publishes only distinct bilingual content and metadata", () => {
     }),
     /article bodies must contain distinct localized content/,
   );
+  assert.throws(
+    () => parseBlogPostInput({
+      ...publishableBilingualPost,
+      bodyEn: "<p>English legal text. English legal text.</p>",
+      published: true,
+    }),
+    /cannot contain placeholder text/,
+  );
+  assert.throws(
+    () => parseBlogPostInput({
+      ...publishableBilingualPost,
+      seoTitleEn: "/blog/not-a-title",
+      published: true,
+    }),
+    /must be a descriptive title, not a URL or route/,
+  );
 });
 
 test("accepts bilingual articles while clearing metadata for absent languages", () => {

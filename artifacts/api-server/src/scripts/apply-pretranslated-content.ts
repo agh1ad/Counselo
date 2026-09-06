@@ -4,6 +4,8 @@ import { eq } from "drizzle-orm";
 import { parseBlogPostInput } from "../lib/blog-input.js";
 import { parseWorkSampleInput } from "../lib/work-input.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
+import { containsPublishingPlaceholder, isRouteLikeSeoTitle } from "@workspace/api-zod";
+import { CONTRACT_INTERPRETATION_ENGLISH_BODY } from "../lib/public-blog-repairs.js";
 
 type BlogTranslation = {
   slug: string;
@@ -133,7 +135,10 @@ async function main() {
     if (!post.published) {
       throw new Error(`Refusing to update unpublished blog post: ${translation.slug}`);
     }
-    const patch = fillMissing(post, translation, [
+    const correctedTranslation = translation.slug === "contract-interpretation-syrian-courts"
+      ? { ...translation, bodyEn: CONTRACT_INTERPRETATION_ENGLISH_BODY, contentEn: [] }
+      : translation;
+    const patch = fillMissing(post, correctedTranslation, [
       "categoryEn",
       "titleEn",
       "excerptEn",
@@ -143,6 +148,16 @@ async function main() {
       "contentEn",
       "excerptAr",
     ]);
+    if (containsPublishingPlaceholder(post.bodyEn) && correctedTranslation.bodyEn) {
+      patch.bodyEn = correctedTranslation.bodyEn;
+      patch.contentEn = correctedTranslation.contentEn;
+      patch.seoTitleEn = "Contract Interpretation Before Syrian Courts";
+    }
+    if (isRouteLikeSeoTitle(post.seoTitleEn)) patch.seoTitleEn = post.titleEn;
+    if (isRouteLikeSeoTitle(post.seoTitleAr)) patch.seoTitleAr = post.titleAr;
+    if (post.slug === "contractual-liability-in-commercial-transactions") {
+      patch.seoTitleAr = "المسؤولية العقدية في المعاملات التجارية: دليل عملي";
+    }
     if (!Object.keys(patch).length) continue;
     // Validate and sanitize the prepared English article without re-running
     // publication gates against unrelated legacy Arabic SEO metadata.

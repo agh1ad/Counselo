@@ -12,6 +12,9 @@ export const SYRIA_PRIMARY_SOURCES: LegalSource[] = [
 const SYRIA_SOURCES = {
   justice: SYRIA_PRIMARY_SOURCES[0],
   legislation: SYRIA_PRIMARY_SOURCES[1],
+  copyright: { en: "WIPO Lex — Syrian copyright law, Decree 62/2013", ar: "ويبو لكس — قانون حق المؤلف السوري، المرسوم 62 لعام 2013", href: "https://www.wipo.int/wipolex/en/legislation/details/17231" },
+  investment: { en: "SANA — 2025 investment-law implementing instructions", ar: "سانا — تعليمات قانون الاستثمار وتعديلاته لعام 2025", href: "https://sana.sy/economy/2330179/" },
+  cybercrime: { en: "Al-Thawra official archive — Law 20/2022", ar: "أرشيف الثورة الرسمي — القانون 20 لعام 2022", href: "https://archive.thawra.sy/?p=357711" },
 } as const;
 
 export const SYRIA_SERVICE_SLUGS = [
@@ -49,7 +52,7 @@ export const SYRIA_SERVICE_SOURCES: Record<SyriaServiceSlug, LegalSource[]> = {
   "business-law": [SYRIA_SOURCES.legislation, SYRIA_SOURCES.justice],
   "real-estate": [SYRIA_SOURCES.legislation, SYRIA_SOURCES.justice],
   "employment-law": [SYRIA_SOURCES.legislation, SYRIA_SOURCES.justice],
-  "foreign-investment": [SYRIA_SOURCES.legislation, SYRIA_SOURCES.justice],
+  "foreign-investment": [SYRIA_SOURCES.investment, SYRIA_SOURCES.justice],
   "administrative-law": [SYRIA_SOURCES.justice, SYRIA_SOURCES.legislation],
   arbitration: [SYRIA_SOURCES.legislation, SYRIA_SOURCES.justice],
   enforcement: [SYRIA_SOURCES.justice, SYRIA_SOURCES.legislation],
@@ -57,9 +60,9 @@ export const SYRIA_SERVICE_SOURCES: Record<SyriaServiceSlug, LegalSource[]> = {
   contracts: [SYRIA_SOURCES.legislation, SYRIA_SOURCES.justice],
   "criminal-law": [SYRIA_SOURCES.justice, SYRIA_SOURCES.legislation],
   "banking-finance": [SYRIA_SOURCES.legislation, SYRIA_SOURCES.justice],
-  "intellectual-property": [SYRIA_SOURCES.legislation, SYRIA_SOURCES.justice],
+  "intellectual-property": [SYRIA_SOURCES.copyright, SYRIA_SOURCES.justice],
   "tax-zakat": [SYRIA_SOURCES.legislation, SYRIA_SOURCES.justice],
-  "cyber-law": [SYRIA_SOURCES.legislation, SYRIA_SOURCES.justice],
+  "cyber-law": [SYRIA_SOURCES.cybercrime, SYRIA_SOURCES.justice],
   "medical-malpractice": [SYRIA_SOURCES.justice, SYRIA_SOURCES.legislation],
   "insurance-law": [SYRIA_SOURCES.legislation, SYRIA_SOURCES.justice],
   "civil-law": [SYRIA_SOURCES.justice, SYRIA_SOURCES.legislation],

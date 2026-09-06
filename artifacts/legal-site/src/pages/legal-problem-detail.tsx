@@ -1,4 +1,4 @@
-import { Link, useParams } from "wouter";
+import { Link, Redirect, useParams } from "wouter";
 import { ArrowLeft, CheckCircle2, ChevronRight, FileText, Mail, MessageSquareText, Phone, ShieldCheck } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
@@ -7,11 +7,12 @@ import { LatestContentCarousels } from "@/components/content/latest-content-caro
 import { TrustSignals } from "@/components/seo/TrustSignals";
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
 import { ExperienceMethodologyNote } from "@/components/legal/ExperienceMethodologyNote";
-import { getLegalProblemLanguageAlternates, getLegalProblemPage, getRelatedLegalProblemPages, legalProblemPath } from "@/lib/legal-problem-pages";
+import { LEGAL_PROBLEM_REDIRECTS, getLegalProblemLanguageAlternates, getLegalProblemPage, getRelatedLegalProblemPages, legalProblemPath } from "@/lib/legal-problem-pages";
 import { getRegionalLegalSources, type LegalSource } from "@/lib/regional-legal-sources";
 import { buildArabicProblemDescription, buildArabicProblemTitle, buildEnglishProblemDescription, buildEnglishProblemTitle } from "@/lib/problem-snippet";
 import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 import { COUNSELO_LEGAL_MATTERS_CLAIM } from "@/lib/public-claims";
+import { editorialFaqs } from "@/lib/search-intent-editorial";
 
 export default function LegalProblemDetail() {
   const { id = "", problem = "" } = useParams<{ id: string; problem: string }>();
@@ -19,6 +20,8 @@ export default function LegalProblemDetail() {
   const { region, regionPrefix } = useRegion();
   const page = getLegalProblemPage(region, id, problem);
   const parent = t.serviceDetail.services[id as keyof typeof t.serviceDetail.services] as Record<string, unknown> | undefined;
+  const redirect = LEGAL_PROBLEM_REDIRECTS[`${regionPrefix}/services/${id}/${problem}`];
+  if (redirect) return <Redirect to={redirect} replace />;
 
   if (!page || !parent) {
     return (
@@ -34,14 +37,14 @@ export default function LegalProblemDetail() {
   }
 
   const parentTitle = isRTL ? page.serviceTitleAr : page.serviceTitleEn;
-  const parentOverview = typeof parent.overview === "string"
-    ? parent.overview
-    : isRTL
-      ? `تقدم كاونسلو المشورة في ${page.serviceTitleAr} وفق الوقائع والاختصاص والمستندات الخاصة بكل ملف.`
-      : `CounselO advises on ${page.serviceTitleEn.toLowerCase()} according to the facts, jurisdiction and documents of each matter.`;
+  // Do not reintroduce legacy service marketing or legal propositions into every matter page.
+  const parentOverview = isRTL
+    ? `ترتبط هذه المسألة بخدمة ${page.serviceTitleAr}. تعرض صفحة الخدمة نطاق المراجعة وطريقة بدء الاستشارة. ويُحدد المسار القانوني المناسب لهذه المسألة وفق الوقائع والمستندات والاختصاص، لا بمجرد تصنيفها ضمن مجال الخدمة.`
+    : `This matter falls within ${page.serviceTitleEn.toLowerCase()}. The service page explains the review scope and how to start a consultation. The appropriate legal route depends on the facts, documents and jurisdiction, not on the service category alone.`;
   const documents = isRTL ? page.documentsAr : page.documentsEn;
   const countryName = region === "uae" ? (isRTL ? "الإمارات" : "the UAE") : region === "syr" ? (isRTL ? "سوريا" : "Syria") : (isRTL ? "السعودية" : "Saudi Arabia");
   const canonical = `/services/${id}/${problem}`;
+  const faqs = [...editorialFaqs(`${regionPrefix}${canonical}`, region, isRTL), ...(isRTL ? page.faqs.ar : page.faqs.en)];
   const title = isRTL
     ? buildArabicProblemTitle({
         titleAr: page.titleAr,
@@ -65,12 +68,10 @@ export default function LegalProblemDetail() {
         countryNameEn: countryName,
       });
   const keywords = [
-    page.titleEn,
-    `${page.serviceTitleEn} consultation in ${countryName.replace(/^the /, "")}`,
-    `${page.titleEn} legal review`,
+    isRTL ? page.titleAr : page.titleEn,
+    isRTL ? `استشارة ${page.serviceTitleAr} في ${countryName}` : `${page.serviceTitleEn} consultation in ${countryName.replace(/^the /, "")}`,
     parentTitle,
-    "online legal consultation",
-    ...(isRTL ? page.searchVariantsAr : page.searchVariantsEn),
+    isRTL ? "استشارة قانونية أونلاين" : "online legal consultation",
   ].filter((value, index, list) => list.indexOf(value) === index).join(", ");
   const sources: LegalSource[] = getRegionalLegalSources(region, id);
   const relatedProblems = getRelatedLegalProblemPages(page);
@@ -89,13 +90,12 @@ export default function LegalProblemDetail() {
         schema={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "@id": `https://counselo-legal.com${regionPrefix}${isRTL ? "/ar" : ""}${canonical}#webpage`,
+          "@id": `https://counselo-legal.com${regionPrefix}${canonical}#webpage`,
           "headline": isRTL ? page.titleAr : page.titleEn,
           "description": description,
-          "url": `https://counselo-legal.com${regionPrefix}${isRTL ? "/ar" : ""}${canonical}`,
-          "dateModified": page.legalAccuracy.reviewedAt,
+          "url": `https://counselo-legal.com${regionPrefix}${canonical}`,
+          "dateModified": page.contentUpdatedAt ?? page.legalAccuracy.reviewedAt,
           "author": { "@id": COUNSELO_ENTITY_IDS.omar },
-          "reviewedBy": { "@id": COUNSELO_ENTITY_IDS.omar },
           "publisher": { "@id": "https://counselo-legal.com/#organization" },
           "about": {
             "@type": "LegalService",
@@ -116,7 +116,7 @@ export default function LegalProblemDetail() {
         }, {
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": (isRTL ? page.faqs.ar : page.faqs.en).map((faq) => ({
+          "mainEntity": faqs.map((faq) => ({
             "@type": "Question",
             "name": faq.q,
             "acceptedAnswer": { "@type": "Answer", "text": faq.a },
@@ -334,7 +334,7 @@ export default function LegalProblemDetail() {
             </div>
             <div>
               <dt className="font-semibold text-foreground">{isRTL ? "آخر تحقق من مسار المصادر" : "Source-routing verification"}</dt>
-              <dd className="mt-1 text-muted-foreground">{isRTL ? "18 أغسطس 2026 — يلزم التحقق من النص النافذ عند تقديم المشورة" : "18 August 2026 — operative text is rechecked for matter-specific advice"}</dd>
+              <dd className="mt-1 text-muted-foreground">{isRTL ? `${page.legalAccuracy.reviewedAt} — يلزم التحقق من النص النافذ عند تقديم المشورة` : `${page.legalAccuracy.reviewedAt} — operative text is rechecked for matter-specific advice`}</dd>
             </div>
           </dl>
           </div>
@@ -343,7 +343,7 @@ export default function LegalProblemDetail() {
         <section id="problem-faq" className="legal-problem-deferred-section scroll-mt-36">
           <h2 className="font-serif text-3xl lg:text-4xl mb-7">{isRTL ? "الأسئلة الشائعة" : "Frequently asked questions"}</h2>
           <div className="space-y-4">
-            {(isRTL ? page.faqs.ar : page.faqs.en).map((faq) => (
+            {faqs.map((faq) => (
               <details key={faq.q} className="border border-border bg-white p-5">
                 <summary className="cursor-pointer font-semibold leading-7">{faq.q}</summary>
                 <p className="mt-3 leading-7 text-muted-foreground">{faq.a}</p>

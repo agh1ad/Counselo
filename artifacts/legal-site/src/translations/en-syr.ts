@@ -130,8 +130,8 @@ export const enSyr: typeof en = {
       { id: "criminal-law", title: "Criminal Law", longDesc: "Expert criminal defense lawyers representing individuals and businesses in all criminal proceedings before Syrian courts — from investigation and detention through trial, appeal before the Court of Cassation, and post-judgment matters." },
       { id: "banking-finance", title: "Banking & Finance Law", longDesc: "Specialist banking lawyers in Syria — advising on finance contracts under Syrian law, banking disputes, Central Bank of Syria regulatory compliance, Islamic banking under Law No. 35/2005, and financial fraud defense." },
       { id: "intellectual-property", title: "Intellectual Property", longDesc: "Expert IP lawyers in Syria — trademark registration, patent protection, copyright disputes, brand protection, and IP enforcement under Syrian Industrial Property Protection Law No. 8/2007." },
-      { id: "tax-zakat", title: "Tax Law", longDesc: "Specialist tax lawyers in Syria — income tax, VAT, Syrian tax authority disputes, General Tax Authority (هيئة الضرائب والرسوم) objections and appeals, customs duties, and tax advisory for businesses and investors." },
-      { id: "cyber-law", title: "Cyber & IT Law", longDesc: "Expert cybercrime lawyers in Syria — defense under Syrian Cybercrime Law (Legislative Decree No. 17/2012), data protection, online fraud cases, hacking defense, and IT contract disputes." },
+      { id: "tax-zakat", title: "Tax Law", longDesc: "Syrian tax and customs consultations — assessment review, business tax records, penalty objections, customs valuation and distinct foreign-tax questions for cross-border transactions." },
+      { id: "cyber-law", title: "Cyber & IT Law", longDesc: "Expert cybercrime lawyers in Syria — defense under Syrian Cybercrime Law (Law No. 20/2022 and applicable amendments), data protection, online fraud cases, hacking defense, and IT contract disputes." },
       { id: "medical-malpractice", title: "Medical Malpractice & Healthcare Law", longDesc: "Expert medical malpractice lawyers in Syria — negligence claims, surgical errors, and misdiagnosis under Syrian civil liability law, with representation before Syrian civil courts." },
       { id: "insurance-law", title: "Insurance Law", longDesc: "Specialist insurance dispute lawyers in Syria — health, property, motor, life, and commercial insurance claim disputes, wrongful rejections, and insurance litigation before Syrian courts." },
       { id: "civil-law", title: "Civil Law", longDesc: "Expert legal advice on Syrian Civil Code No. 84/1949 — civil liability, real rights, obligations, inheritance, wills, neighbor disputes, and legal capacity." },
@@ -194,8 +194,8 @@ export const enSyr: typeof en = {
       "foreign-investment": {
         title: "Foreign Investment & Business Law",
         subtitle: "Guiding foreign investors through Syria's investment legal framework under Investment Law No. 18/2021.",
-        overview: "Syria's Investment Law No. 18 of 2021 replaced the earlier Investment Law No. 10 of 1991, establishing a new framework for foreign investment administered by the Syrian Investment Commission (هيئة الاستثمار السورية). Foreign investors in Syria must navigate sector restrictions, registration requirements, and an evolving regulatory environment. CounselO has advised investors entering the Syrian market for 30+ years of legal practice, covering every stage from initial licensing through investment disputes, partner conflicts, and regulatory challenges. Our online consultation means specialist advice is available via WhatsApp or email within 24 hours.",
-        covers: ["Syrian Investment Commission Licensing", "Foreign Company Formation (Syrian Companies Law No. 29/2011)", "Investment Disputes & Appeals", "Free Zone Entity Registration", "Joint Venture Agreements & Disputes"],
+        overview: "Investment planning in Syria requires checking Investment Law No. 18 of 2021 as amended, including Decree No. 114 of 2025 and the applicable implementing instructions. Foreign investors in Syria must navigate sector restrictions, registration requirements, and an evolving regulatory environment. CounselO has advised investors entering the Syrian market for 30+ years of legal practice, covering every stage from initial licensing through investment disputes, partner conflicts, and regulatory challenges. Our online consultation means specialist advice is available via WhatsApp or email within 24 hours.",
+        covers: ["Syrian Investment Authority Registration & Activity Approvals", "Foreign Company Formation (Syrian Companies Law No. 29/2011)", "Investment Disputes & Appeals", "Free Zone Entity Registration", "Joint Venture Agreements & Disputes"],
         process: [
           { title: "Investment Structure Assessment", desc: "Advising on the optimal legal structure for your Syria market entry — branch, subsidiary, or joint venture under Syrian law." },
           { title: "Investment Commission Registration", desc: "Managing the complete Syrian Investment Commission application and company registration process." },
@@ -247,7 +247,7 @@ export const enSyr: typeof en = {
         title: "Criminal Law",
         subtitle: "Expert criminal defense lawyers representing individuals and businesses before Syrian courts — from investigation through the Court of Cassation.",
         overview: "Syria's criminal justice system is governed by the Syrian Penal Code (Legislative Decree No. 148 of 1949) and the Code of Criminal Procedure (Legislative Decree No. 112 of 1950). Criminal proceedings in Syria move through the Public Prosecution (النيابة العامة) to trial courts — the Court of First Instance for felonies and misdemeanors, the Court of Appeal, and the Court of Cassation (محكمة النقض) for final appeals. At CounselO, our criminal defense practice covers the full spectrum: from investigation-stage representation and bail applications through criminal trials and Court of Cassation appeals. With 30+ years of legal practice, we provide decisive, urgent defense.",
-        covers: ["Criminal Defense in Syrian Courts", "Bail & Pre-trial Detention", "Criminal Appeals (Court of Appeal & Court of Cassation)", "Financial Crimes & Commercial Fraud Defense", "Cybercrime Defense (Legislative Decree No. 17/2012)", "Drug Offense Cases", "Criminal Investigation Representation"],
+        covers: ["Criminal Defense in Syrian Courts", "Bail & Pre-trial Detention", "Criminal Appeals (Court of Appeal & Court of Cassation)", "Financial Crimes & Commercial Fraud Defense", "Cybercrime Defense (Law No. 20/2022 and applicable amendments)", "Drug Offense Cases", "Criminal Investigation Representation"],
         process: en.serviceDetail.services["criminal-law"].process,
       },
       "banking-finance": {
@@ -261,21 +261,26 @@ export const enSyr: typeof en = {
         title: "Intellectual Property",
         subtitle: "Expert IP lawyers protecting your trademarks, patents, and copyrights under Syrian intellectual property law.",
         overview: "Syria's intellectual property framework is governed by the Industrial Property Protection Law No. 8 of 2007 (trademarks, patents, industrial designs) and the Copyright Law No. 12 of 2001. The Ministry of Economy and Foreign Trade administers IP registration. Syria is a member of WIPO and party to major international IP conventions. At CounselO, our IP practice covers the full spectrum: from trademark registration and patent protection through to copyright disputes, trade secret protection, and IP litigation before Syrian courts.",
-        covers: ["Trademark Registration & Protection", "Patent Filing & Protection", "Copyright Registration & Disputes (Law No. 12/2001)", "Trade Secret Protection", "IP Licensing Agreements", "Brand Protection & Anti-Counterfeiting"],
+        covers: ["Trademark Registration & Protection", "Patent Filing & Protection", "Copyright Ownership, Licensing & Infringement Disputes", "Trade Secret Protection", "IP Licensing Agreements", "Brand Protection & Anti-Counterfeiting"],
         process: en.serviceDetail.services["intellectual-property"].process,
       },
       "tax-zakat": {
-        title: "Tax Law",
-        subtitle: "Specialist tax lawyers advising on Syrian income tax, VAT, and General Tax Authority disputes.",
-        overview: "Syria's tax system is administered by the General Tax Authority (هيئة الضرائب والرسوم) and includes income tax on individuals and corporations, value added tax, stamp duties, and customs duties administered by the General Customs Directorate. Tax disputes in Syria are resolved through the Tax Authority's internal objection procedures and, on appeal, before Syrian administrative courts. At CounselO, our tax practice covers every aspect of Syrian tax law — compliance, objections, appeals, and advisory for businesses and investors.",
-        covers: ["Income Tax Compliance & Disputes", "VAT Issues & Disputes", "General Tax Authority Objections & Appeals", "Corporate Tax Advisory & Structuring", "Customs Duties & Tariff Disputes", "Tax Assessment Challenges"],
-        process: en.serviceDetail.services["tax-zakat"].process,
+        title: "Tax & Customs",
+        subtitle: "Legal review of Syrian tax assessments, business records, customs issues and cross-border tax questions.",
+        overview: "A Syrian tax matter starts with the taxpayer, relevant period, transaction and the actual assessment or decision. CounselO reviews the records, stated legal basis and available response under the framework in force for that period. Foreign VAT or zakat exposure is assessed only where a separate jurisdictional connection exists; rules from Saudi Arabia or the UAE are not assumed to apply to a Syrian domestic transaction.",
+        covers: ["Tax Assessment Review", "Business Tax Records & Compliance Questions", "Tax Penalty Objections", "Customs Valuation & Duty Disputes", "Tax Clauses in Commercial Contracts", "Foreign Tax Exposure on Cross-Border Transactions"],
+        process: [
+          { title: "Identify the tax question", desc: "Confirm the taxpayer, period, transaction, issuing authority and decision being reviewed." },
+          { title: "Reconcile the records", desc: "Compare the assessment with returns, accounts, invoices and payments, recording what is missing or disputed." },
+          { title: "Check the applicable framework", desc: "Verify the operative provisions, notification, forum and response timing for the actual Syrian or cross-border issue." },
+          { title: "Prepare the agreed response", desc: "Provide the agreed analysis or draft response; any filing or representation is scoped separately." },
+        ],
       },
       "cyber-law": {
         title: "Cyber & IT Law",
-        subtitle: "Expert cybercrime lawyers defending individuals and businesses under Syrian Cybercrime Law Legislative Decree No. 17/2012.",
-        overview: "Syria's cybercrime framework is primarily governed by Legislative Decree No. 17 of 2012 on Cybercrime, which establishes criminal offenses and penalties for unauthorized access, online fraud, data breaches, and digital defamation. At CounselO, our cyber and IT law practice covers the full spectrum: cybercrime defense under Legislative Decree No. 17/2012, online fraud cases, IT contract disputes, and digital evidence handling. Online consultations available via WhatsApp or email — essential when cybercrime investigations move fast.",
-        covers: ["Cybercrime Defense (Legislative Decree No. 17/2012)", "Online Fraud & Digital Theft Cases", "Hacking & Unauthorized Access Defense", "Online Defamation Cases", "E-Commerce Disputes", "IT & Technology Contract Disputes"],
+        subtitle: "Expert cybercrime lawyers defending individuals and businesses under Syrian Cybercrime Law Law No. 20/2022 and applicable amendments.",
+        overview: "A Syrian cybercrime assessment starts with the date and nature of the alleged conduct, the applicable version of Law No. 20 of 2022 and any relevant amendments, and the available digital evidence. At CounselO, our cyber and IT law practice covers the full spectrum: cybercrime defense under Law No. 20/2022 and applicable amendments, online fraud cases, IT contract disputes, and digital evidence handling. Online consultations available via WhatsApp or email — essential when cybercrime investigations move fast.",
+        covers: ["Cybercrime Defense (Law No. 20/2022 and applicable amendments)", "Online Fraud & Digital Theft Cases", "Hacking & Unauthorized Access Defense", "Online Defamation Cases", "E-Commerce Disputes", "IT & Technology Contract Disputes"],
         process: en.serviceDetail.services["cyber-law"].process,
       },
       "medical-malpractice": {
@@ -720,7 +725,7 @@ export const enSyr: typeof en = {
     experienceBadge: "30+ years of legal practice · 20,000+ legal matters and consultations · Online Consultations Available",
     sidebar: {
       heading: "Need a Cybercrime Lawyer?",
-      desc: "Get urgent cybercrime law advice in Syria — online via WhatsApp or email under the Syrian Cybercrime Law (Decree 17/2012). Confidential, rapid response for digital legal emergencies.",
+      desc: "Get urgent cybercrime law advice in Syria — online via WhatsApp or email under the Syrian Cybercrime Law (Law 20/2022 and applicable amendments). Confidential, rapid response for digital legal emergencies.",
       ctaBtn: "Start a Consultation",
       whatsapp: "WhatsApp",
       email: "Email",
@@ -731,13 +736,13 @@ export const enSyr: typeof en = {
       Object.entries(en.cyberLawDetail.services).map(([id, svc]) => [id, {
         ...svc,
         seoTitle: svc.seoTitle.replace(/Saudi Arabia/g, "Syria"),
-        subtitle: svc.subtitle.replace(/Saudi Arabia/g, "Syria").replace(/Saudi law/g, "Syrian law").replace(/Anti-Cybercrime Law \(M\/17\)/g, "Syrian Cybercrime Law (Decree 17/2012)").replace(/PDPL/g, "Syrian data protection law"),
+        subtitle: svc.subtitle.replace(/Saudi Arabia/g, "Syria").replace(/Saudi law/g, "Syrian law").replace(/Anti-Cybercrime Law \(M\/17\)/g, "Syrian Cybercrime Law (Law 20/2022 and applicable amendments)").replace(/PDPL/g, "Syrian data protection law"),
         covers: svc.covers.map((c: string) => c.replace(/Saudi Arabia/g, "Syria").replace(/Anti-Cybercrime Law/g, "Syrian Cybercrime Law").replace(/PDPL/g, "Syrian data protection law").replace(/CITC/g, "Syrian authorities")),
-        overview1: svc.overview1.replace(/Saudi Arabia/g, "Syria").replace(/Saudi law/g, "Syrian law").replace(/KSA/g, "Syria").replace(/Anti-Cybercrime Law \(Royal Decree M\/17\)/g, "Syrian Cybercrime Law (Legislative Decree No. 17/2012)").replace(/PDPL|Personal Data Protection Law/g, "Syrian data protection law").replace(/CITC/g, "Syrian cybercrime authorities"),
+        overview1: svc.overview1.replace(/Saudi Arabia/g, "Syria").replace(/Saudi law/g, "Syrian law").replace(/KSA/g, "Syria").replace(/Anti-Cybercrime Law \(Royal Decree M\/17\)/g, "Syrian Cybercrime Law (Law No. 20/2022 and applicable amendments)").replace(/PDPL|Personal Data Protection Law/g, "Syrian data protection law").replace(/CITC/g, "Syrian cybercrime authorities"),
         overview2: svc.overview2 ? svc.overview2.replace(/Saudi Arabia/g, "Syria").replace(/CITC/g, "Syrian authorities").replace(/KSA/g, "Syria") : svc.overview2,
         faqs: svc.faqs.map(faq => ({
           q: faq.q.replace(/Saudi Arabia/g, "Syria").replace(/Saudi law/g, "Syrian law").replace(/KSA/g, "Syria").replace(/Anti-Cybercrime Law/g, "Syrian Cybercrime Law"),
-          a: faq.a.replace(/Saudi Arabia/g, "Syria").replace(/Saudi law/g, "Syrian law").replace(/KSA/g, "Syria").replace(/Anti-Cybercrime Law/g, "Syrian Cybercrime Law (Legislative Decree No. 17/2012)").replace(/CITC/g, "Syrian cybercrime authorities"),
+          a: faq.a.replace(/Saudi Arabia/g, "Syria").replace(/Saudi law/g, "Syrian law").replace(/KSA/g, "Syria").replace(/Anti-Cybercrime Law/g, "Syrian Cybercrime Law (Law No. 20/2022 and applicable amendments)").replace(/CITC/g, "Syrian cybercrime authorities"),
         })),
       }])
     ) as typeof en.cyberLawDetail.services,
@@ -843,7 +848,7 @@ export const enSyr: typeof en = {
     founder: {
       ...en.aboutPage.founder,
       subheading: "Senior Advocate · Regional Legal Authority · Syria & the Region",
-      bio4: "Beyond his courtroom practice, Omar Al-Baghdadi is recognised as a regional legal mentor and educator — having trained and supervised more than 40 lawyers across Saudi Arabia, Syria and the UAE. This rare combination of senior advocacy, cross-jurisdictional expertise, and leadership of a professional legal team makes CounselO uniquely positioned to deliver premium legal services to clients across Syria.",
+      bio4: "Omar has trained or supervised more than 40 lawyers. At CounselO, his role includes professional direction, review of legal analysis and coordination of matters requiring jurisdiction-specific support.",
     },
     why: {
       eyebrow: "Why CounselO",

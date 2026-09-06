@@ -75,77 +75,6 @@ const organizationSchema = {
   },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is CounselO?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `CounselO is an online legal consultation platform founded by Lawyer and Legal Counsel Omar Al-Baghdadi with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en}. We provide confidential legal guidance for individuals, families and businesses in Saudi Arabia, Syria and the UAE, in Arabic and English.`,
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "Which countries does CounselO serve?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "CounselO provides jurisdiction-specific services for Saudi Arabia, Syria and the United Arab Emirates. Consultations are delivered online, subject to the applicable law, authority and professional scope in each country.",
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "How quickly will I receive a legal response?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "CounselO targets a professional legal response within 24 hours of receiving a consultation request via WhatsApp or email, subject to the matter's scope and urgency.",
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "Are legal consultations on CounselO confidential?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Information is handled confidentially under applicable professional, privacy and data-protection obligations, subject to legally required or permitted disclosures.",
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "What languages are available on CounselO?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "CounselO provides legal consultations in Arabic and English. Service pages support both languages, while each blog article is published in its selected language.",
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "What areas of law does CounselO cover?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "CounselO covers a wide range of practice areas including: Family Law & Divorce, Employment & Labour Law, Real Estate & Property Law, Business & Commercial Law, Foreign Investment, Criminal Law, Administrative Law, Contracts, Banking & Finance, Intellectual Property, Tax & Zakat, Cyber Law, Medical Malpractice, Insurance Law, Arbitration & Mediation, and Companies Law.",
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "How do I start a legal consultation with CounselO?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Starting is simple: (1) Choose Saudi Arabia, Syria or the UAE. (2) Browse the relevant service or contact us directly. (3) Send your legal question through the consultation form or WhatsApp. CounselO targets a response within 24 hours, subject to scope and urgency.",
-      },
-    },
-    {
-      "@type": "Question",
-      "name": "Is CounselO suitable for businesses as well as individuals?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. CounselO advises individuals and businesses through country-specific services for Saudi Arabia, Syria and the UAE, including contracts, company formation, investment, employment and disputes.",
-      },
-    },
-  ],
-};
-
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const FAQS = [
@@ -153,11 +82,17 @@ const FAQS = [
   { q: "Which jurisdictions does CounselO cover?", a: "We provide country-specific services for Saudi Arabia, Syria and the United Arab Emirates. Each regional platform uses the legal concepts, authorities and procedures relevant to that jurisdiction." },
   { q: "How quickly do I get a response?", a: "CounselO targets a professional response within 24 hours, subject to the matter's scope, urgency, intake completeness and service availability." },
   { q: "Are consultations confidential?", a: "Information is handled confidentially under applicable professional, privacy and data-protection obligations, subject to legally required or permitted disclosures." },
-  { q: "What languages does CounselO support?", a: "We provide legal consultations in both Arabic and English. All service pages and legal guides are fully bilingual." },
+  { q: "What languages does CounselO support?", a: "We provide legal consultations in both Arabic and English. Service pages are available in both languages; articles are published in their selected language or languages." },
   { q: "How do I start a consultation?", a: "Choose Saudi Arabia, Syria or the UAE, then send your legal question through the consultation form or WhatsApp. CounselO targets a response within 24 hours, subject to scope and urgency." },
   { q: "Does CounselO advise businesses too?", a: "Yes. We serve both individuals and businesses — from company formation, commercial contracts, and foreign investment licensing to employment disputes and debt collection." },
   { q: "What areas of law does CounselO cover?", a: "Family law, divorce, custody, employment, real estate, business law, foreign investment, criminal law, administrative law, contracts, banking, IP, tax, cyber law, medical malpractice, insurance, arbitration, and more." },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map(({ q, a }) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+};
 
 const fadeIn = {
   initial: false as const,
@@ -189,12 +124,6 @@ export default function RegionPicker() {
         <link rel="canonical" href="https://counselo-legal.com/" />
         <link rel="alternate" hrefLang="en" href="https://counselo-legal.com/" />
         <link rel="alternate" hrefLang="ar" href="https://counselo-legal.com/ar" />
-        <link rel="alternate" hrefLang="en-SA" href="https://counselo-legal.com/sa" />
-        <link rel="alternate" hrefLang="ar-SA" href="https://counselo-legal.com/sa/ar" />
-        <link rel="alternate" hrefLang="en-SY" href="https://counselo-legal.com/syr" />
-        <link rel="alternate" hrefLang="ar-SY" href="https://counselo-legal.com/syr/ar" />
-        <link rel="alternate" hrefLang="en-AE" href="https://counselo-legal.com/uae" />
-        <link rel="alternate" hrefLang="ar-AE" href="https://counselo-legal.com/uae/ar" />
         <link rel="alternate" hrefLang="x-default" href="https://counselo-legal.com/" />
         <meta property="og:title" content="CounselO | Online Legal Consultation — Saudi Arabia, Syria & UAE" />
         <meta property="og:description" content="Choose Saudi Arabia, Syria or the UAE for confidential, jurisdiction-specific legal guidance in Arabic or English." />

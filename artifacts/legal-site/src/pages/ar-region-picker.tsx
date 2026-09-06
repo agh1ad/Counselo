@@ -53,53 +53,6 @@ const organizationSchema = {
   },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "ما هو كاونسلو؟",
-      "acceptedAnswer": { "@type": "Answer", "text": `كاونسلو منصة استشارات قانونية إلكترونية يقودها المحامي والمستشار القانوني عمر البغدادي بـ${COUNSELO_LEGAL_PRACTICE_CLAIM.ar} و${COUNSELO_LEGAL_MATTERS_CLAIM.ar}. نقدم إرشاداً قانونياً محدد الاختصاص في السعودية وسوريا والإمارات بالعربية والإنجليزية.` },
-    },
-    {
-      "@type": "Question",
-      "name": "ما الدول التي يخدمها كاونسلو؟",
-      "acceptedAnswer": { "@type": "Answer", "text": "نقدم خدمات قانونية خاصة بالمملكة العربية السعودية وسوريا والإمارات العربية المتحدة، مع مراعاة القانون والجهات والإجراءات المنطبقة في كل دولة." },
-    },
-    {
-      "@type": "Question",
-      "name": "كم يستغرق الرد على استفساري القانوني؟",
-      "acceptedAnswer": { "@type": "Answer", "text": "تستهدف كاونسلو تقديم رد مهني خلال 24 ساعة، بحسب نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوفر الخدمة." },
-    },
-    {
-      "@type": "Question",
-      "name": "هل الاستشارات القانونية على كاونسلو سرية؟",
-      "acceptedAnswer": { "@type": "Answer", "text": "تُعامل المعلومات بسرية وفق الالتزامات المهنية والتعاقدية وواجبات الخصوصية وحماية البيانات المنطبقة، مع مراعاة الإفصاحات التي يوجبها القانون أو يسمح بها." },
-    },
-    {
-      "@type": "Question",
-      "name": "ما اللغات المتاحة في كاونسلو؟",
-      "acceptedAnswer": { "@type": "Answer", "text": "يقدم كاونسلو استشاراته بالعربية والإنجليزية. صفحات الخدمات متاحة باللغتين، ويُنشر كل مقال باللغة المختارة له." },
-    },
-    {
-      "@type": "Question",
-      "name": "ما مجالات القانون التي يغطيها كاونسلو؟",
-      "acceptedAnswer": { "@type": "Answer", "text": "يغطي كاونسلو: قانون الأسرة والطلاق، قانون العمل، القانون العقاري، القانون التجاري، الاستثمار الأجنبي، القانون الجنائي، القانون الإداري، العقود، البنوك والتمويل، الملكية الفكرية، الضرائب والزكاة، قانون الإنترنت والتقنية، الأخطاء الطبية، قانون التأمين، التحكيم والوساطة، وقانون الشركات." },
-    },
-    {
-      "@type": "Question",
-      "name": "كيف أبدأ استشارتي مع كاونسلو؟",
-      "acceptedAnswer": { "@type": "Answer", "text": "الأمر بسيط: (1) اختر السعودية أو سوريا أو الإمارات. (2) تصفح الخدمة المناسبة أو تواصل معنا مباشرة. (3) أرسل سؤالك عبر النموذج أو واتساب. نستهدف الرد خلال 24 ساعة بحسب نطاق المسألة ودرجة استعجالها." },
-    },
-    {
-      "@type": "Question",
-      "name": "هل يخدم كاونسلو الشركات أيضاً؟",
-      "acceptedAnswer": { "@type": "Answer", "text": "نعم. يقدم كاونسلو خدمات للأفراد والشركات ضمن منصات خاصة بالسعودية وسوريا والإمارات، تشمل العقود وتأسيس الشركات والاستثمار والعمل والنزاعات." },
-    },
-  ],
-};
-
 // ── Data ──────────────────────────────────────────────────────────────────────
 
 const FAQS = [
@@ -112,6 +65,12 @@ const FAQS = [
   { q: "هل يخدم كاونسلو الشركات؟", a: "نعم. نخدم الأفراد والشركات: تأسيس الشركات، العقود التجارية، تراخيص الاستثمار الأجنبي، نزاعات العمل، تحصيل الديون وغيرها." },
   { q: "ما مجالات القانون التي يغطيها كاونسلو؟", a: "قانون الأسرة والطلاق، قانون العمل، القانون العقاري، القانون التجاري، الاستثمار الأجنبي، الجنائي، الإداري، العقود، البنوك، الملكية الفكرية، الضرائب، قانون التقنية، الأخطاء الطبية، التأمين، التحكيم، وقانون الشركات." },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map(({ q, a }) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+};
 
 const fadeIn = {
   initial: false as const,
@@ -143,12 +102,6 @@ export default function ArRegionPicker() {
         <link rel="canonical" href="https://counselo-legal.com/ar" />
         <link rel="alternate" hrefLang="ar" href="https://counselo-legal.com/ar" />
         <link rel="alternate" hrefLang="en" href="https://counselo-legal.com/" />
-        <link rel="alternate" hrefLang="en-SA" href="https://counselo-legal.com/sa" />
-        <link rel="alternate" hrefLang="ar-SA" href="https://counselo-legal.com/sa/ar" />
-        <link rel="alternate" hrefLang="en-SY" href="https://counselo-legal.com/syr" />
-        <link rel="alternate" hrefLang="ar-SY" href="https://counselo-legal.com/syr/ar" />
-        <link rel="alternate" hrefLang="en-AE" href="https://counselo-legal.com/uae" />
-        <link rel="alternate" hrefLang="ar-AE" href="https://counselo-legal.com/uae/ar" />
         <link rel="alternate" hrefLang="x-default" href="https://counselo-legal.com/" />
         <meta property="og:title" content="كاونسلو | استشارة قانونية أونلاين — السعودية وسوريا والإمارات" />
         <meta property="og:description" content="اختر السعودية أو سوريا أو الإمارات للحصول على إرشاد قانوني سري ومحدد الاختصاص بالعربية أو الإنجليزية." />

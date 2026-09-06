@@ -43,7 +43,7 @@ export default function PrivacyPolicy() {
       heading: "Privacy Policy",
       subheading:
         "CounselO is committed to protecting your privacy and the confidentiality of your legal information. This policy explains what data we collect, how we use it, and the strict protections that apply to everything you share with us.",
-      lastUpdated: "Last updated: 2 August 2026",
+      lastUpdated: "Last updated: 6 September 2026",
       sections: [
         {
           icon: Shield,
@@ -104,9 +104,9 @@ export default function PrivacyPolicy() {
           icon: Globe,
           title: "6. Cookies & Website Analytics",
           content:
-            "Our website uses standard cookies and analytics tools to understand how visitors use our site. We use this data only to improve the website experience:",
+            "Our website uses browser storage and loads Google Tag Manager for configured analytics. These tools help us understand page use and interactions such as contact-link clicks:",
           list: [
-            "Session cookies: necessary for the website to function correctly and to maintain your language preference",
+            "Browser storage: the site stores local interaction counts and recent analytics events in your browser. The page URL identifies its language.",
             "Analytics cookies: we may use tools such as Google Analytics to understand aggregate traffic patterns — no personally identifiable information is shared",
             "We do not use advertising cookies or track your activity across third-party websites",
             "You can disable cookies in your browser settings — this will not affect your ability to contact us or receive a consultation",
@@ -201,7 +201,7 @@ export default function PrivacyPolicy() {
       heading: "سياسة الخصوصية",
       subheading:
         "تلتزم منصة كاونسلو بحماية خصوصيتك وسرية معلوماتك القانونية. توضّح هذه السياسة البيانات التي نجمعها وكيفية استخدامها والضمانات الصارمة التي تحكم كل ما تشاركنا إياه.",
-      lastUpdated: "آخر تحديث: 2 أغسطس 2026",
+      lastUpdated: "آخر تحديث: 6 سبتمبر 2026",
       sections: [
         {
           icon: Shield,
@@ -261,9 +261,9 @@ export default function PrivacyPolicy() {
           icon: Globe,
           title: "٦. ملفات تعريف الارتباط وتحليلات الموقع",
           content:
-            "يستخدم موقعنا ملفات تعريف الارتباط (الكوكيز) القياسية وأدوات التحليل لفهم طريقة تصفّح الزوار له. نستخدم هذه البيانات لتحسين تجربة الموقع فقط:",
+            "يستخدم الموقع تخزين المتصفح ويحمّل Google Tag Manager للتحليلات المهيأة. تساعد هذه الأدوات على فهم استخدام الصفحات والتفاعلات مثل النقر على روابط التواصل:",
           list: [
-            "ملفات الجلسة (Session cookies): ضرورية لعمل الموقع بشكل صحيح والحفاظ على تفضيل اللغة",
+            "تخزين المتصفح: يحفظ الموقع محلياً أعداد التفاعلات وأحداث التحليل الحديثة في متصفحك، ويحدد رابط الصفحة لغتها.",
             "ملفات التحليل: قد نستخدم أدوات مثل Google Analytics لفهم أنماط حركة الزوار الإجمالية — لا تُشارَك أي معلومات شخصية محددة",
             "لا نستخدم ملفات تعريف الارتباط الإعلانية ولا نتتبّع نشاطك عبر مواقع الطرف الثالث",
             "يمكنك تعطيل ملفات تعريف الارتباط من إعدادات متصفحك — ولن يؤثر ذلك في قدرتك على التواصل معنا أو الحصول على استشارة",
@@ -311,7 +311,7 @@ export default function PrivacyPolicy() {
         {
           icon: Trash2,
           title: "١٠. حقوقك",
-          content: `مع مراعاة الاستثناءات المنطبقة، قد يمنحك ${rightsFrameworkAr} الحقوق التالية فيما يخص بياناتك الشخصية:`,
+          content: `مع مراعاة الاستثناءات المنطبقة، قد تتاح لك الحقوق التالية بشأن بياناتك الشخصية بموجب ${rightsFrameworkAr}:`,
           list: [
             "حق الوصول: طلب نسخة من البيانات الشخصية التي نحتفظ بها عنك",
             "حق التصحيح: طلب تصحيح البيانات غير الدقيقة أو المنقوصة",

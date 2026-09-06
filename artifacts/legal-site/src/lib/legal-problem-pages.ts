@@ -3,6 +3,9 @@ import { ADDITIONAL_SEARCH_ISSUES, SERVICE_SEARCH_CONTENT } from "./service-sear
 import { UAE_SERVICES } from "../data/uae-legal-services.js";
 import { buildUaeServicePageContent } from "../data/uae-service-page-content.js";
 import { getServiceDefinition, getServicesForRegion } from "@workspace/api-zod/browser";
+import { getMatterEditorial } from "./matter-editorial.js";
+import { matterTopic, SPECIALIST_PROFILES } from "./matter-topic-routing.js";
+import { getMatterIntentBrief } from "./matter-intent-briefs/index.js";
 
 export type LocalizedText = { en: string; ar: string };
 export type LocalizedList = { en: string[]; ar: string[] };
@@ -19,6 +22,10 @@ export type LegalAccuracyBoundary = {
 };
 
 export type LegalProblemPage = {
+  contentTopic?: string;
+  editorialTopic?: string;
+  intentBriefTitle?: string;
+  contentUpdatedAt?: string;
   region: Region;
   parentServiceSlug: string;
   slug: string;
@@ -84,39 +91,264 @@ function countryName(region: Region): LocalizedText {
       : { en: "Saudi Arabia", ar: "السعودية" };
 }
 
+function uniqueVariants(values: string[]): string[] {
+  return [...new Map(values.map((value) => [value.toLocaleLowerCase(), value])).values()];
+}
+
+function intentSearchVariants(titleEn: string, titleAr: string, country: LocalizedText): LocalizedList {
+  const text = `${titleEn} ${titleAr}`.toLowerCase();
+  const variants: LocalizedList = { en: [], ar: [] };
+  const add = (pattern: RegExp, en: string[], ar: string[]) => {
+    if (pattern.test(text)) {
+      variants.en.push(...en);
+      variants.ar.push(...ar);
+    }
+  };
+
+  add(/deadline|notice|appeal|objection|limitation|filing|ميعاد|إخطار|اعتراض|طعن|تقادم|قيد/, [
+    `deadline for ${titleEn.toLowerCase()} in ${country.en}`,
+    `missed deadline for ${titleEn.toLowerCase()}`,
+    `time limit to file ${titleEn.toLowerCase()}`,
+    `urgent appeal or objection for ${titleEn.toLowerCase()}`,
+  ], [
+    `ميعاد ${titleAr} في ${country.ar}`,
+    `فوات ميعاد ${titleAr}`,
+    `مدة تقديم ${titleAr}`,
+    `طعن أو اعتراض عاجل في ${titleAr}`,
+  ]);
+  add(/evidence|record|document|proof|expert|witness|دليل|إثبات|سجل|مستند|خبرة|شاهد/, [
+    `how to prove ${titleEn.toLowerCase()}`,
+    `evidence required for ${titleEn.toLowerCase()}`,
+    `expert report for ${titleEn.toLowerCase()}`,
+    `preserve digital and documentary evidence for ${titleEn.toLowerCase()}`,
+  ], [
+    `كيفية إثبات ${titleAr}`,
+    `الأدلة المطلوبة في ${titleAr}`,
+    `تقرير خبير في ${titleAr}`,
+    `حفظ الأدلة الرقمية والمستندية في ${titleAr}`,
+  ]);
+  add(/payment|debt|invoice|wage|salary|compensation|refund|unpaid|سداد|دين|فاتورة|أجر|راتب|تعويض|استرداد/, [
+    `recover money for ${titleEn.toLowerCase()}`,
+    `calculate a claim for ${titleEn.toLowerCase()}`,
+    `payment demand for ${titleEn.toLowerCase()}`,
+    `compensation available for ${titleEn.toLowerCase()}`,
+  ], [
+    `تحصيل المبلغ في ${titleAr}`,
+    `حساب المطالبة في ${titleAr}`,
+    `إنذار سداد بشأن ${titleAr}`,
+    `التعويض المستحق في ${titleAr}`,
+  ]);
+  add(/termination|cancel|rescission|end of|dismissal|إنهاء|إلغاء|فسخ|فصل/, [
+    `challenge ${titleEn.toLowerCase()} in ${country.en}`,
+    `notice requirements for ${titleEn.toLowerCase()}`,
+    `compensation after ${titleEn.toLowerCase()}`,
+    `settlement options after ${titleEn.toLowerCase()}`,
+  ], [
+    `الطعن في ${titleAr} في ${country.ar}`,
+    `شروط الإخطار في ${titleAr}`,
+    `التعويض بعد ${titleAr}`,
+    `خيارات التسوية بعد ${titleAr}`,
+  ]);
+  add(/enforcement|execution|judgment|award|seizure|تنفيذ|حكم|قرار تحكيم|حجز/, [
+    `how to enforce ${titleEn.toLowerCase()} in ${country.en}`,
+    `execution procedure for ${titleEn.toLowerCase()}`,
+    `asset seizure for ${titleEn.toLowerCase()}`,
+    `objection to enforcement of ${titleEn.toLowerCase()}`,
+  ], [
+    `كيفية تنفيذ ${titleAr} في ${country.ar}`,
+    `إجراءات التنفيذ في ${titleAr}`,
+    `الحجز على الأموال في ${titleAr}`,
+    `الاعتراض على تنفيذ ${titleAr}`,
+  ]);
+  add(/jurisdiction|forum|court|authority|venue|اختصاص|محكمة|جهة/, [
+    `which court handles ${titleEn.toLowerCase()} in ${country.en}`,
+    `competent authority for ${titleEn.toLowerCase()}`,
+    `where to file ${titleEn.toLowerCase()}`,
+    `challenge jurisdiction in ${titleEn.toLowerCase()}`,
+  ], [
+    `المحكمة المختصة في ${titleAr} في ${country.ar}`,
+    `الجهة المختصة في ${titleAr}`,
+    `أين ترفع دعوى ${titleAr}`,
+    `الدفع بعدم الاختصاص في ${titleAr}`,
+  ]);
+  add(/register|registration|licen|permit|approval|تسجيل|ترخيص|تصريح|موافقة/, [
+    `requirements for ${titleEn.toLowerCase()} in ${country.en}`,
+    `documents needed for ${titleEn.toLowerCase()}`,
+    `rejected application for ${titleEn.toLowerCase()}`,
+    `appeal refusal of ${titleEn.toLowerCase()}`,
+  ], [
+    `شروط ${titleAr} في ${country.ar}`,
+    `المستندات المطلوبة في ${titleAr}`,
+    `رفض طلب ${titleAr}`,
+    `الطعن في رفض ${titleAr}`,
+  ]);
+  return variants;
+}
+
+/**
+ * Exact, relevant queries observed in Google Search Console for CounselO for
+ * 2026-07-01 through 2026-09-03. Each query is routed to one principal problem
+ * page to avoid making multiple canonicals compete for the same wording.
+ * Noisy fragments, unrelated brands and misleading free-service wording are
+ * deliberately excluded.
+ */
+export const OBSERVED_SEARCH_QUERY_ALIASES: Readonly<Record<string, LocalizedList>> = {
+  "sa:Medical negligence claims": {
+    en: ["medical malpractice lawyer", "medical liability attorneys", "medical malpractice lawyers near me", "medical law attorney", "medical injury lawyer", "medical legal consultant", "healthcare lawyer", "free medical negligence lawyers"],
+    ar: [],
+  },
+  "syr:Misdiagnosis and delayed diagnosis": { en: ["lawyer medical negligence"], ar: ["سوء تشخيص"] },
+  "sa:Commercial debt recovery": {
+    en: ["debt collection in saudi arabia", "debt recovery lawyer", "debt collection lawyer", "debt collection attorney", "debt collection agency saudi arabia", "debt recovery services", "debt collection saudi arabia", "debt recovery saudi arabia", "debt collection attorney in riyadh", "debt collection agency in saudi arabia", "collection attorneys"],
+    ar: [],
+  },
+  "syr:Commercial debt recovery": { en: ["debt collection in syria"], ar: [] },
+  "sa:Wrongful termination": { en: ["wrongful termination lawyer", "wrongful termination lawyer ksa", "unfair termination lawyers"], ar: ["فصل تعسفي"] },
+  "sa:Employment contract review": { en: ["employment lawyer", "employment law attorney", "employment attorney", "employment law firm", "employment lawyers", "employment dispute lawyer", "employment law specialist"], ar: [] },
+  "sa:Unpaid wages and benefits": { en: ["pay disputes", "salary delay in saudi arabia", "how to complaint salary delay in saudi arabia", "unpaid leave in saudi arabia", "payroll laws"], ar: [] },
+  "sa:Contract drafting and review": { en: ["contract lawyer", "legal contract lawyer", "contracts lawyer", "contracts law firm"], ar: [] },
+  "syr:Contract drafting and review": { en: [], ar: ["شرح قانون العقود السوري", "عقد سوري"] },
+  "sa:Breach of contract": { en: ["breach of contract in saudi arabia"], ar: [] },
+  "syr:Penalty and compensation clauses": { en: [], ar: ["الشرط الجزائي", "ما هو الشرط الجزائي", "صيغة الشرط الجزائي في العقود"] },
+  "syr:Sale and purchase contract disputes": { en: [], ar: ["أركان عقد البيع في القانون السوري", "شروط صحة عقد البيع في القانون السوري"] },
+  "sa:Commercial arbitration": { en: ["arbitration services", "arbitral tribunal"], ar: [] },
+  "sa:Challenge to arbitration jurisdiction": { en: ["jurisdiction of arbitral tribunal", "competence of arbitral tribunal", "competence of arbitral tribunal to rule on its jurisdiction"], ar: [] },
+  "sa:Bank and customer disputes": { en: ["banking litigation lawyer", "banking lawyer", "bank lawyer", "lawyer for banking issues", "lawyer for bank disputes", "bank dispute lawyer", "bank lawyer in saudi", "banking lawyer in saudi", "lawyers that deal with bank issues", "banking & finance lawyers"], ar: [] },
+  "sa:Loan default and restructuring": { en: ["loan default in saudi arabia", "personal loan lawyer", "default on funds lawyer"], ar: [] },
+  "sa:Coverage and policy interpretation": { en: ["insurance lawyer", "insurance disputes lawyer", "insurance coverage lawyer", "insurance regulatory lawyer", "health insurance lawyer"], ar: [] },
+  "sa:Traffic accident liability and compensation": { en: ["car insurance lawyer", "auto insurance lawyer near me"], ar: [] },
+  "sa:Tax and zakat assessments": { en: ["tax lawyer", "tax lawyer in saudi arabia", "tax attorney", "tax attorneys", "zakat tax consultancy", "zatca taxation advisory services in saudi arabia"], ar: [] },
+  "sa:VAT and customs issues": { en: ["vat dispute resolution", "vat"], ar: [] },
+  "sa:Trademark opposition and cancellation": { en: [], ar: [] },
+  "uae:Trademark opposition and cancellation": { en: ["trademark opposition uae"], ar: [] },
+  "syr:Cybercrime complaint and digital-evidence problem in Syria": {
+    en: ["cyber crime lawyer"],
+    ar: ["نموذج شكوى جرائم إلكترونية في سوريا", "طريقة رفع دعوى جرائم معلوماتية في سوريا"],
+  },
+  "syr:Claim for reputational harm caused by online publication in Syria": { en: [], ar: ["دعوى التشهير في القانون السوري", "التشهير في القانون السوري"] },
+  "syr:Foreign judgment enforcement": { en: ["foreign judgment enforcement"], ar: ["اصول التنفيذ المدني السوري"] },
+  "syr:Arrest, detention and release application in Syria": { en: [], ar: ["نموذج اخلاء سبيل في القانون السوري"] },
+  "syr:Challenges to government decisions": { en: [], ar: ["القانون الاداري السوري"] },
+  "syr:Civil claims and private disputes": { en: [], ar: ["القانون المدني السوري", "قانون المدني السوري"] },
+  "sa:Contract evidence and electronic messages": { en: ["electronic signature in saudi arabia", "electronic signature in ksa", "saudi electronic transactions law", "saudi evidence law private documents evidentiary value", "saudi evidence law private document evidentiary value signature"], ar: [] },
+  "sa:Company dissolution and liquidation dispute": { en: ["corporate dissolution lawyer", "company dissolution lawyer", "company liquidation saudi arabia"], ar: [] },
+  "sa:Foreign-owned company formation": { en: ["foreign investment law firms saudi arabia"], ar: [] },
+  "sa:Sale and purchase contract disputes": { en: ["property dispute", "real estate legal services", "land law lawyers"], ar: [] },
+  "uae:Travel-ban and detention concern": { en: [], ar: ["منع السفر الامارات", "منع السفر"] },
+  "sa:Construction and contractor claims": { en: ["construction lawyer"], ar: ["عقود المقاولين"] },
+};
+
 function searchVariants(region: Region, titleEn: string, titleAr: string, serviceTitleEn: string, serviceTitleAr: string): LocalizedList {
   const country = countryName(region);
   const title = titleEn.toLowerCase();
   const arabicTitle = titleAr;
+  const intent = intentSearchVariants(titleEn, titleAr, country);
+  const observed = OBSERVED_SEARCH_QUERY_ALIASES[`${region}:${titleEn}`] ?? { en: [], ar: [] };
   return {
-    en: [
+    en: uniqueVariants([
       `${titleEn} lawyer in ${country.en}`,
+      `${titleEn} attorney in ${country.en}`,
+      `law firm for ${title} in ${country.en}`,
+      `legal consultant for ${title} in ${country.en}`,
       `${titleEn} legal advice in ${country.en}`,
+      `${titleEn} legal consultation in ${country.en}`,
       `how to address ${title} in ${country.en}`,
+      `what to do about ${title}`,
       `urgent legal review for ${title}`,
       `documents and evidence for ${title}`,
+      `what documents are needed for ${title}`,
+      `how to prove ${title}`,
       `legal process for ${title}`,
+      `steps to handle ${title}`,
       `consultation about ${title}`,
       `online legal review for ${title}`,
+      `online lawyer for ${title}`,
       `${title} dispute advice`,
+      `${title} claim or defence`,
+      `${title} court case`,
+      `${title} settlement options`,
       `legal options for ${title}`,
       `${serviceTitleEn} review for ${title}`,
+      `${serviceTitleEn} lawyer for ${title}`,
       `${title} rights and next steps`,
-    ],
-    ar: [
+      `${title} consultation cost`,
+      `${title} lawyer fees`,
+      `${title} lawyer near me`,
+      `${title} help in ${country.en}`,
+      `legal help for ${title}`,
+      `initial case assessment for ${title}`,
+      `legal consequences of ${title}`,
+      `law and requirements for ${title} in ${country.en}`,
+      ...intent.en,
+      ...observed.en,
+    ]),
+    ar: uniqueVariants([
       `${arabicTitle} محامي في ${country.ar}`,
+      `محامي ${arabicTitle} في ${country.ar}`,
+      `مستشار قانوني في ${arabicTitle}`,
+      `مكتب محاماة لقضية ${arabicTitle}`,
       `استشارة قانونية بشأن ${arabicTitle} ${country.ar}`,
+      `استشارة محامي في ${arabicTitle}`,
       `كيفية حل ${arabicTitle}`,
+      `ماذا أفعل في ${arabicTitle}`,
       `مساعدة عاجلة في ${arabicTitle}`,
       `مستندات وأدلة ${arabicTitle}`,
+      `ما المستندات المطلوبة في ${arabicTitle}`,
+      `كيفية إثبات ${arabicTitle}`,
       `إجراءات ${arabicTitle}`,
+      `خطوات التعامل مع ${arabicTitle}`,
       `تكلفة الاستشارة في ${arabicTitle}`,
+      `أتعاب محامي ${arabicTitle}`,
       `استشارة أونلاين بشأن ${arabicTitle}`,
+      `محامي أونلاين في ${arabicTitle}`,
       `محامي نزاع ${arabicTitle}`,
+      `رفع دعوى ${arabicTitle}`,
+      `الدفاع في قضية ${arabicTitle}`,
+      `تسوية ${arabicTitle}`,
       `تجنب مشكلة ${arabicTitle}`,
       `محامي ${serviceTitleAr} في مسألة ${arabicTitle}`,
       `حقوق وخيارات ${arabicTitle}`,
-    ],
+      `محامي ${arabicTitle} قريب مني`,
+      `مساعدة قانونية في ${arabicTitle} ${country.ar}`,
+      `مساعدة قانونية بشأن ${arabicTitle}`,
+      `تقييم قانوني أولي لمسألة ${arabicTitle}`,
+      `الآثار القانونية لـ ${arabicTitle}`,
+      `النظام والإجراءات في ${arabicTitle} في ${country.ar}`,
+      ...intent.ar,
+      ...observed.ar,
+    ]),
+  };
+}
+
+type ProblemIntent = {
+  key: string;
+  actionEn: string;
+  actionAr: string;
+  riskEn: string;
+  riskAr: string;
+  decisionEn: string;
+  decisionAr: string;
+};
+
+function problemIntent(titleEn: string, titleAr: string): ProblemIntent {
+  const text = `${titleEn} ${titleAr}`.toLowerCase();
+  const intents: Array<[RegExp, ProblemIntent]> = [
+    [/(deadline|notice|appeal|objection|limitation|filing|ميعاد|إخطار|اعتراض|طعن|تقادم|قيد)/, { key: "deadline", actionEn: "calculate the controlling date and preserve the available procedural step", actionAr: "حساب التاريخ الحاكم وحفظ الإجراء المتاح", riskEn: "losing a right because a notice, objection, appeal or filing date is miscalculated", riskAr: "فوات حق بسبب خطأ في حساب ميعاد إخطار أو اعتراض أو طعن أو قيد", decisionEn: "the exact deadline, competent forum and protective filing", decisionAr: "الموعد الدقيق والجهة المختصة وإجراء الحماية" }],
+    [/(jurisdiction|forum|court|authority|venue|اختصاص|محكمة|جهة)/, { key: "forum", actionEn: "identify the competent court, authority and governing procedural route", actionAr: "تحديد المحكمة أو الجهة المختصة والمسار الإجرائي الحاكم", riskEn: "starting before the wrong forum or relying on a procedure that does not apply", riskAr: "البدء أمام جهة غير مختصة أو الاعتماد على إجراء غير منطبق", decisionEn: "where and how the matter should proceed", decisionAr: "أين وكيف يجب أن تسير المسألة" }],
+    [/(evidence|record|document|proof|expert|witness|دليل|إثبات|سجل|مستند|خبرة|شاهد)/, { key: "evidence", actionEn: "preserve, authenticate and organize the evidence around the disputed event", actionAr: "حفظ الأدلة والتحقق من حجيتها وتنظيمها حول الواقعة المتنازع عليها", riskEn: "a potentially valid position becoming difficult to prove", riskAr: "صعوبة إثبات مركز قانوني قد يكون صحيحاً", decisionEn: "which evidence is admissible, missing or needs expert support", decisionAr: "ما الدليل المقبول أو الناقص أو المحتاج إلى خبرة" }],
+    [/(payment|debt|invoice|wage|salary|compensation|refund|unpaid|سداد|دين|فاتورة|أجر|راتب|تعويض|استرداد)/, { key: "money", actionEn: "reconcile the amount, due date, supporting records and recovery route", actionAr: "مطابقة المبلغ وميعاد الاستحقاق والسجلات المؤيدة ومسار التحصيل", riskEn: "overstating, understating or delaying a financial claim", riskAr: "المبالغة في المطالبة المالية أو إنقاصها أو تأخيرها", decisionEn: "what is recoverable and the proportionate demand or filing", decisionAr: "ما يمكن تحصيله والمطالبة أو القيد المتناسب" }],
+    [/(termination|cancel|rescission|end of|dismissal|إنهاء|إلغاء|فسخ|فصل)/, { key: "termination", actionEn: "test the termination ground, notice, consequences and post-termination obligations", actionAr: "فحص سبب الإنهاء والإخطار وآثاره والالتزامات اللاحقة", riskEn: "ending the relationship without a valid ground, required notice or evidence", riskAr: "إنهاء العلاقة دون سبب صحيح أو إخطار واجب أو دليل", decisionEn: "whether to challenge, cure, negotiate or complete the termination", decisionAr: "هل يلزم الطعن أو التصحيح أو التفاوض أو استكمال الإنهاء" }],
+    [/(enforcement|execution|judgment|award|seizure|تنفيذ|حكم|قرار تحكيم|حجز)/, { key: "enforcement", actionEn: "confirm enforceability, debtor or asset information and the correct execution measure", actionAr: "تأكيد قابلية التنفيذ ومعلومات المدين أو الأموال وإجراء التنفيذ الصحيح", riskEn: "pursuing an unavailable measure or overlooking an enforceable asset or objection", riskAr: "طلب إجراء غير متاح أو إغفال مال قابل للتنفيذ أو اعتراض", decisionEn: "the next enforceable measure and any response to objections", decisionAr: "إجراء التنفيذ التالي والرد على أي اعتراض" }],
+    [/(register|registration|licen|permit|approval|تسجيل|ترخيص|تصريح|موافقة)/, { key: "registration", actionEn: "map the eligibility, filing documents, authority and correction or appeal route", actionAr: "تحديد شروط الأهلية ومستندات الطلب والجهة ومسار التصحيح أو الطعن", riskEn: "delay or refusal caused by the wrong application, record or authority", riskAr: "تأخير أو رفض بسبب طلب أو سجل أو جهة غير صحيحة", decisionEn: "what must be filed, corrected or challenged", decisionAr: "ما يجب تقديمه أو تصحيحه أو الطعن فيه" }],
+  ];
+  return intents.find(([pattern]) => pattern.test(text))?.[1] ?? {
+    key: "rights",
+    actionEn: "separate the relevant facts, legal duties, available options and practical sequence",
+    actionAr: "فصل الوقائع ذات الصلة والالتزامات القانونية والخيارات المتاحة والتسلسل العملي",
+    riskEn: "taking action before the governing facts, authority and remedy are verified",
+    riskAr: "اتخاذ إجراء قبل التحقق من الوقائع الحاكمة والجهة ووسيلة المعالجة",
+    decisionEn: "the legal position and the most proportionate next step",
+    decisionAr: "المركز القانوني والخطوة التالية الأكثر تناسباً",
   };
 }
 
@@ -473,9 +705,10 @@ const OVERLAPPING_SHARED_ISSUES: Record<string, Set<string>> = {
   "cyber-law": new Set(["Online defamation"]),
 };
 
-function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string): ProblemProfile {
-  const text = titleEn.toLowerCase();
-  if (/(termination|dismissal|disciplin|severance)/.test(text)) return {
+function problemProfile(titleEn: string, serviceSlug: string): ProblemProfile {
+  const topic = matterTopic(serviceSlug, titleEn);
+  if (SPECIALIST_PROFILES[topic]) return SPECIALIST_PROFILES[topic];
+  if (topic === "employment-termination") return {
     factsEn: "the reason and procedure for ending the employment relationship, including notice, warnings, investigation and the employer's stated reason",
     factsAr: "سبب وإجراءات إنهاء علاقة العمل، بما في ذلك الإخطار والإنذارات والتحقيق والسبب الذي ذكره صاحب العمل",
     evidenceEn: "the employment contract, termination letter, disciplinary record, HR messages, performance records and any grievance or complaint",
@@ -483,7 +716,7 @@ function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string
     outcomeEn: "challenge the termination, calculate entitlements, negotiate a settlement or prepare the appropriate labour claim",
     outcomeAr: "الطعن في الإنهاء أو حساب المستحقات أو التفاوض على تسوية أو إعداد المطالبة العمالية المناسبة",
   };
-  if (/(wage|salary|benefit|payment|invoice|debt|recovery|unpaid)/.test(text)) return {
+  if (topic === "money") return {
     factsEn: "what was promised, what was delivered, what remains unpaid and when the payment obligation became due",
     factsAr: "ما تم الاتفاق عليه وما تم تنفيذه وما بقي دون سداد ومتى حل ميعاد الاستحقاق",
     evidenceEn: "the agreement, invoices or payslips, account statements, delivery or performance records, payment demands and replies",
@@ -491,7 +724,7 @@ function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string
     outcomeEn: "verify the amount, preserve the payment claim, pursue negotiation or select the correct filing and enforcement route",
     outcomeAr: "التحقق من المبلغ وحفظ المطالبة المالية والتفاوض أو اختيار مسار القيد والتنفيذ الصحيح",
   };
-  if (/(contract|agreement|clause|draft|review|breach|termination and cancellation)/.test(text)) return {
+  if (topic === "contract") return {
     factsEn: "the parties' obligations, deadlines, conditions, approval rights, termination rights and the event that created the concern",
     factsAr: "التزامات الأطراف والمواعيد والشروط وحقوق الموافقة والإنهاء والواقعة التي أدت إلى القلق القانوني",
     evidenceEn: "the signed contract, amendments, schedules, specifications, negotiation history, notices and performance or payment records",
@@ -499,7 +732,7 @@ function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string
     outcomeEn: "identify exposure, correct the document, respond to the breach or pursue the remedy available under the agreement and law",
     outcomeAr: "تحديد المخاطر وتصحيح المستند أو الرد على الإخلال أو طلب وسيلة المعالجة المتاحة بموجب العقد والقانون",
   };
-  if (/(custody|visitation|alimony|maintenance|divorce|separation|marriage|inheritance|khul|annulment|domestic violence|marital-status|will)/.test(text)) return {
+  if (topic === "family") return {
     factsEn: "the family relationship, the current living and care arrangements, prior agreements or orders and the change that requires advice",
     factsAr: "العلاقة الأسرية وترتيبات السكن والرعاية الحالية والاتفاقيات أو الأحكام السابقة والتغيير الذي يستدعي المشورة",
     evidenceEn: "identity and family-status records, prior judgments or agreements, care and expense records, communications and evidence of the child's or family's circumstances",
@@ -507,7 +740,7 @@ function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string
     outcomeEn: "protect the relevant rights and interests, prepare a negotiated arrangement or identify the appropriate personal-status procedure",
     outcomeAr: "حماية الحقوق والمصالح ذات الصلة وإعداد ترتيب تفاوضي أو تحديد إجراء الأحوال الشخصية المناسب",
   };
-  if (/(property|real estate|lease|eviction|title|registration|construction|contractor|ejar|off-plan|mortgage|financing|foreign property|handover)/.test(text)) return {
+  if (topic === "property") return {
     factsEn: "the property or project, each party's legal interest, the transaction or possession history and the event that created the dispute",
     factsAr: "العقار أو المشروع والحق القانوني لكل طرف وتاريخ المعاملة أو الحيازة والواقعة التي نشأ عنها النزاع",
     evidenceEn: "title and registration records, sale or lease documents, plans, payment records, notices, photographs and expert or contractor reports",
@@ -515,7 +748,7 @@ function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string
     outcomeEn: "clarify title, possession, contractual responsibility, registration status or the remedy needed to protect the property position",
     outcomeAr: "توضيح الملكية أو الحيازة أو المسؤولية العقدية أو حالة التسجيل أو وسيلة المعالجة اللازمة لحماية الوضع العقاري",
   };
-  if (/(license|licensing|regulat|government|administrative|tax|zakat|customs|appeal|objection)/.test(text)) return {
+  if (topic === "regulatory") return {
     factsEn: "the authority's decision or requirement, the legal basis given, the response or deadline and the practical effect on the person or business",
     factsAr: "قرار الجهة أو متطلبها والأساس القانوني المذكور والرد أو الميعاد والأثر العملي على الشخص أو المنشأة",
     evidenceEn: "the licence or registration, application, decision, authority correspondence, submitted information, payment record and deadline notice",
@@ -523,7 +756,7 @@ function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string
     outcomeEn: "preserve the right to object or appeal, correct the record, seek approval or challenge the decision through the competent route",
     outcomeAr: "حفظ الحق في الاعتراض أو الطعن وتصحيح السجل أو طلب الموافقة أو الطعن في القرار عبر المسار المختص",
   };
-  if (/(arbitration|mediation|enforcement|judgment|award|execution)/.test(text)) return {
+  if (topic === "enforcement") return {
     factsEn: "the existing judgment, award, agreement or enforceable instrument, the other party's conduct and the procedural stage already reached",
     factsAr: "الحكم أو القرار التحكيمي أو الاتفاق أو السند التنفيذي القائم وتصرف الطرف الآخر والمرحلة الإجرائية التي وصل إليها الملف",
     evidenceEn: "the judgment or award, arbitration or jurisdiction clause, service records, payment history, asset information and prior applications or objections",
@@ -531,7 +764,7 @@ function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string
     outcomeEn: "protect the procedural position, select the recognition, settlement or enforcement step and move the matter toward recovery or resolution",
     outcomeAr: "حماية المركز الإجرائي واختيار خطوة الاعتراف أو التسوية أو التنفيذ ودفع الملف نحو التحصيل أو الحل",
   };
-  if (/(traffic|accident|vehicle|motor|حادث|مروري|مركبة)/.test(`${text} ${titleAr.toLowerCase()}`)) return {
+  if (topic === "traffic") return {
     factsEn: "how the traffic accident occurred, the police or traffic report, the parties involved, the injuries or vehicle damage and the insurance position",
     factsAr: "كيفية وقوع الحادث المروري وتقرير الشرطة أو المرور والأطراف المعنية والإصابات أو أضرار المركبة وموقف التأمين",
     evidenceEn: "the traffic report, photographs or video, medical records, repair estimates, insurance policy, witness details and correspondence with the insurer",
@@ -539,7 +772,7 @@ function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string
     outcomeEn: "challenge the fault assessment, recover vehicle or injury compensation, or respond to the insurer or opposing party",
     outcomeAr: "الطعن في نسبة الخطأ أو تحصيل تعويض المركبة أو الإصابة أو الرد على شركة التأمين أو الطرف الآخر",
   };
-  if (/(insurance|claim|coverage|تأمين|مطالبة|تغطية)/.test(`${text} ${titleAr.toLowerCase()}`)) return {
+  if (topic === "insurance") return {
     factsEn: "the policy promise, the event causing the loss, the claim submitted, the insurer's response and the amount or treatment being disputed",
     factsAr: "التغطية المتفق عليها والواقعة المسببة للضرر والمطالبة المقدمة ورد شركة التأمين والمبلغ أو العلاج محل النزاع",
     evidenceEn: "the policy and endorsements, claim form, rejection or settlement letter, loss records, expert or medical reports and payment evidence",
@@ -547,7 +780,7 @@ function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string
     outcomeEn: "interpret the coverage, challenge the rejection or underpayment and pursue the amount or remedy available under the policy",
     outcomeAr: "تفسير التغطية والطعن في الرفض أو نقص السداد والمطالبة بالمبلغ أو وسيلة المعالجة المتاحة بموجب الوثيقة",
   };
-  if (/(shareholder|partner|company formation|corporate|director|manager|dissolution|liquidation|commercial concealment|franchise|distribution|agency|due diligence|acquisition|merger|تأسيس الشركة|المساهم|الشريك|المدير|التصفية|التستر|الامتياز|التوزيع|الاستحواذ)/.test(`${text} ${titleAr.toLowerCase()}`)) return {
+  if (topic === "company") return {
     factsEn: "the company structure, ownership or management decision, the parties' authority and the corporate act or dispute that needs to be addressed",
     factsAr: "هيكل الشركة وملكية الحصص أو قرار الإدارة وصلاحيات الأطراف والتصرف أو النزاع الشركاتي محل المعالجة",
     evidenceEn: "the articles, commercial register, shareholder or partner agreement, resolutions, transfers, financial records and company correspondence",
@@ -555,7 +788,7 @@ function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string
     outcomeEn: "protect the ownership or management position, correct the corporate record, complete formation or pursue the available corporate remedy",
     outcomeAr: "حماية مركز الملكية أو الإدارة وتصحيح السجل الشركاتي أو إتمام التأسيس أو طلب وسيلة المعالجة الشركاتية المتاحة",
   };
-  if (/(medical|misdiagnosis|treatment|medical-record|healthcare|malpractice|طبي|تشخيص|علاج|السجل الطبي)/.test(`${text} ${titleAr.toLowerCase()}`)) return {
+  if (topic === "medical") return {
     factsEn: "the treatment received, the expected professional standard, the medical event or delay and the physical or financial harm claimed",
     factsAr: "العلاج الذي تم تلقيه والمعيار المهني المتوقع والواقعة الطبية أو التأخير والضرر الجسدي أو المالي المدعى به",
     evidenceEn: "complete medical records, consent forms, reports, prescriptions, test results, expert opinions, expenses and provider correspondence",
@@ -563,7 +796,7 @@ function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string
     outcomeEn: "assess whether the evidence supports professional liability and pursue the appropriate compensation or response",
     outcomeAr: "تقييم ما إذا كانت الأدلة تثبت المسؤولية المهنية وطلب التعويض أو الرد المناسب",
   };
-  if (/(trademark|copyright|counterfeit|brand|intellectual|علامة|مؤلف|تقليد|فكرية)/.test(`${text} ${titleAr.toLowerCase()}`)) return {
+  if (topic === "ip") return {
     factsEn: "the protected work, mark or brand, ownership or registration, the alleged use and the commercial harm or urgency involved",
     factsAr: "المصنف أو العلامة أو الاسم التجاري المحمي وملكيته أو تسجيله والاستخدام المدعى به والضرر التجاري أو الاستعجال",
     evidenceEn: "registration certificates, original files, ownership records, screenshots, product samples, sales evidence and platform or marketplace communications",
@@ -571,7 +804,7 @@ function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string
     outcomeEn: "preserve the right, seek removal or cessation, challenge the registration or pursue infringement compensation",
     outcomeAr: "حفظ الحق وطلب الإزالة أو وقف الاستخدام أو الطعن في التسجيل أو المطالبة بتعويض التعدي",
   };
-  if (/(cyber|online defamation|hacked|unauthorized access|data breach|إلكتروني|تشهير|اختراق|بيانات)/.test(`${text} ${titleAr.toLowerCase()}`)) return {
+  if (topic === "cyber") return {
     factsEn: "the digital conduct, account or data affected, the date and platform, the person or entity involved and any continuing risk",
     factsAr: "السلوك الرقمي أو الحساب أو البيانات المتأثرة والتاريخ والمنصة والشخص أو الجهة المعنية وأي خطر مستمر",
     evidenceEn: "screenshots, URLs, account logs, messages, device or platform records, incident reports and proof of identity or ownership",
@@ -579,7 +812,7 @@ function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string
     outcomeEn: "preserve digital evidence, seek removal or protection and identify the civil, criminal or regulatory response available",
     outcomeAr: "حفظ الدليل الرقمي وطلب الإزالة أو الحماية وتحديد المسار المدني أو الجزائي أو التنظيمي المتاح",
   };
-  if (/(criminal|crime|investigation|arrest|detention|cyber|defamation|fraud|forgery|breach.of.trust|public prosecution|الاحتيال|التزوير|خيانة الأمانة|النيابة)/.test(`${text} ${titleAr.toLowerCase()}`)) return {
+  if (topic === "criminal") return {
     factsEn: "what conduct is alleged, the investigation or complaint stage, the immediate restrictions and any evidence that could affect the defence",
     factsAr: "السلوك المدعى به ومرحلة التحقيق أو الشكوى والقيود العاجلة وأي دليل قد يؤثر في الدفاع",
     evidenceEn: "the complaint or summons, interview or investigation records, digital communications, devices or files, witnesses and previous decisions",
@@ -587,14 +820,7 @@ function problemProfile(titleEn: string, titleAr: string, serviceTitleEn: string
     outcomeEn: "protect procedural rights, preserve evidence, prepare the response and identify any urgent application or defence step",
     outcomeAr: "حماية الحقوق الإجرائية وحفظ الأدلة وإعداد الرد وتحديد أي طلب أو خطوة دفاع عاجلة",
   };
-  return {
-    factsEn: `the facts, documents and decision point specific to this ${serviceTitleEn.toLowerCase()} problem`,
-    factsAr: `الوقائع والمستندات ونقطة القرار الخاصة بمسألة ${titleAr}`,
-    evidenceEn: "the agreement or official record, relevant correspondence, proof of loss or performance and a dated chronology",
-    evidenceAr: "العقد أو السجل الرسمي والمراسلات ذات الصلة وإثبات الضرر أو التنفيذ وتسلسل زمني مؤرخ",
-    outcomeEn: "understand the legal position, compare the available options and choose the next step on an informed basis",
-    outcomeAr: "فهم المركز القانوني ومقارنة الخيارات المتاحة واختيار الخطوة التالية على أساس واضح",
-  };
+  throw new Error(`Missing evidence profile for ${serviceSlug}: ${topic}`);
 }
 
 function legalAccuracyBoundary(region: Region): LegalAccuracyBoundary {
@@ -638,7 +864,7 @@ function legalAccuracyBoundary(region: Region): LegalAccuracyBoundary {
         };
 
   return {
-    reviewedAt: "2026-08-18",
+    reviewedAt: "2026-09-05",
     status: "framework-verified-matter-review-required",
     checks: regionalChecks,
     urgentWarning: {
@@ -668,6 +894,7 @@ function legalAccuracyBoundary(region: Region): LegalAccuracyBoundary {
 
 function buildDetailedContent({
   region,
+  serviceSlug,
   serviceTitleEn,
   serviceTitleAr,
   titleEn,
@@ -676,6 +903,7 @@ function buildDetailedContent({
   conceptsAr = [],
 }: {
   region: Region;
+  serviceSlug: string;
   serviceTitleEn: string;
   serviceTitleAr: string;
   titleEn: string;
@@ -686,34 +914,42 @@ function buildDetailedContent({
   const country = countryName(region);
   const legalFocusEn = conceptsEn.slice(0, 2).join(" and ") || serviceTitleEn;
   const legalFocusAr = conceptsAr.slice(0, 2).join(" و") || serviceTitleAr;
-  const profile = problemProfile(titleEn, titleAr, serviceTitleEn);
+  const editorial = getMatterEditorial(titleEn);
+  const brief = getMatterIntentBrief(titleEn);
+  const baseProfile = editorial ?? problemProfile(titleEn, serviceSlug);
+  const profile = brief ? { ...baseProfile, evidenceEn: brief.documents.en, evidenceAr: brief.documents.ar } : baseProfile;
+  const intent = problemIntent(titleEn, titleAr);
 
   return {
+    contentTopic: matterTopic(serviceSlug, titleEn),
+    documentsEn: [profile.evidenceEn],
+    documentsAr: [profile.evidenceAr],
     heroSummary: {
-      en: `${titleEn} requires a focused check of the facts, evidence, jurisdiction and any urgent date before the legal position can be confirmed.`,
-      ar: `تتطلب مسألة ${titleAr} فحصاً مركزاً للوقائع والأدلة والاختصاص وأي ميعاد عاجل قبل تأكيد المركز القانوني.`,
+      en: brief?.answer.en ?? editorial?.summaryEn ?? `For ${titleEn.toLowerCase()}, the immediate task is to ${intent.actionEn}. CounselO checks the facts and the legal framework applicable in ${country.en} before confirming the legal position.`,
+      ar: brief?.answer.ar ?? editorial?.summaryAr ?? `في مسألة ${titleAr} تتمثل المهمة العاجلة في ${intent.actionAr}. وتتحقق كاونسلو من الوقائع والإطار النافذ في ${country.ar} قبل تأكيد المركز القانوني.`,
     },
     atAGlance: {
       en: [
-        `Issue: ${profile.factsEn}`,
+        `Issue: ${brief?.question.en ?? profile.factsEn}`,
         `Evidence: ${profile.evidenceEn}`,
-        "Output: a written issue map and prioritized next steps within the agreed scope",
+        `Decision: ${brief ? "identify the supported options and the next action for the issue above" : editorial?.outcomeEn ?? intent.decisionEn}`,
       ],
       ar: [
-        `المسألة: ${profile.factsAr}`,
+        `المسألة: ${brief?.question.ar ?? profile.factsAr}`,
         `الأدلة: ${profile.evidenceAr}`,
-        "المخرج: خريطة مكتوبة للمسائل وخطوات تالية مرتبة ضمن النطاق المتفق عليه",
+        `القرار المطلوب: ${brief ? "تحديد الخيارات المؤيدة والإجراء التالي للمسألة أعلاه" : editorial?.outcomeAr ?? intent.decisionAr}`,
       ],
     },
     overview: {
-      en: `${titleEn} concerns ${profile.factsEn}. In ${country.en}, the answer depends on the potentially applicable ${serviceTitleEn.toLowerCase()} framework, the competent authority or forum, the available evidence and any notice or deadline. CounselO uses this page to focus intake on the facts that may change the legal position and the outcome you need: ${profile.outcomeEn}.`,
-      ar: `تتعلق مسألة ${titleAr} بـ${profile.factsAr}. وفي ${country.ar} تعتمد الإجابة على إطار ${serviceTitleAr} المحتمل انطباقه والجهة أو المحكمة المختصة والأدلة المتاحة وأي إخطار أو ميعاد. تستخدم كاونسلو هذه الصفحة لتركيز الفحص الأولي على الوقائع التي قد تغير المركز القانوني والنتيجة المطلوبة، وهي: ${profile.outcomeAr}.`,
+      en: editorial ? `${editorial.summaryEn} The assessment for ${country.en} examines ${profile.factsEn}. Provide ${profile.evidenceEn}; the next step is to ${profile.outcomeEn}.` : `${titleEn} sits within ${serviceTitleEn.toLowerCase()} and concerns ${profile.factsEn}. The practical risk is ${intent.riskEn}. In ${country.en}, CounselO therefore checks the competent authority, evidence, operative rule and deadline before advising whether and how to ${profile.outcomeEn}.`,
+      ar: editorial ? `${editorial.summaryAr} يتناول التقييم في ${country.ar} ${profile.factsAr}. قدّم ${profile.evidenceAr}؛ ويستهدف التقييم ${profile.outcomeAr}.` : `تندرج مسألة ${titleAr} ضمن ${serviceTitleAr} وتتعلق بـ${profile.factsAr}. ويتمثل الخطر العملي في ${intent.riskAr}. لذلك تتحقق كاونسلو في ${country.ar} من الجهة المختصة والأدلة والنص النافذ والميعاد قبل تقديم المشورة بشأن ${profile.outcomeAr}.`,
     },
     keyQuestions: {
       en: [
         `What facts show how ${titleEn.toLowerCase()} arose, and what outcome is required?`,
         `Which documents prove the key event, obligation, decision or loss in this matter?`,
         `How does ${legalFocusEn} affect the authority, deadline, remedy or burden of proof?`,
+        `What would change the decision about ${intent.decisionEn}?`,
         `Is the evidence needed for ${titleEn.toLowerCase()} complete, reliable and preserved?`,
         `Should the next step be negotiation, a notice, an objection, a claim, an appeal or urgent protection?`,
       ],
@@ -721,6 +957,7 @@ function buildDetailedContent({
         `ما الوقائع التي أدت إلى ${titleAr} وما النتيجة المطلوبة؟`,
         `ما المستندات التي تثبت الواقعة أو الالتزام أو القرار أو الضرر الأساسي في الملف؟`,
         `كيف يؤثر ${legalFocusAr} في الجهة المختصة أو الميعاد أو وسيلة المعالجة أو عبء الإثبات؟`,
+        `ما الذي يمكن أن يغير القرار بشأن ${intent.decisionAr}؟`,
         `هل الأدلة اللازمة لمسألة ${titleAr} كاملة وموثوقة ومحفوظة؟`,
         "هل تكون الخطوة التالية تفاوضاً أو إخطاراً أو اعتراضاً أو مطالبة أو طعناً أو حماية عاجلة؟",
       ],
@@ -730,14 +967,14 @@ function buildDetailedContent({
         `A focused statement and chronology explaining how ${titleEn.toLowerCase()} arose`,
         `A problem-specific review of ${profile.evidenceEn}`,
         "An issue map identifying the potentially applicable framework and the exact current provisions, authority and deadlines that must be verified",
-        `A written analysis and prioritized next-step plan, within the agreed scope, directed to this objective: ${profile.outcomeEn}`,
+        brief ? `A written answer to “${brief.question.en}” and prioritized next steps within the agreed scope` : `A written analysis and prioritized next-step plan, within the agreed scope, directed to this objective: ${profile.outcomeEn}`,
         "A clear explanation of what the consultation covers and whether separate representation, filing or attendance is needed",
       ],
       ar: [
         `عرض مركز للمسألة وتسلسل زمني يوضح كيف نشأت ${titleAr}`,
         `مراجعة مخصصة لـ${profile.evidenceAr}`,
         "خريطة للمسائل تحدد الإطار المحتمل انطباقه والنصوص النافذة والجهة والمواعيد الواجب التحقق منها بدقة",
-        `تحليل مكتوب وخطة مرتبة للخطوة التالية ضمن النطاق المتفق عليه وموجهة إلى الهدف المطلوب: ${profile.outcomeAr}`,
+        brief ? `إجابة مكتوبة عن «${brief.question.ar}» وخطوات تالية مرتبة ضمن النطاق المتفق عليه` : `تحليل مكتوب وخطة مرتبة للخطوة التالية ضمن النطاق المتفق عليه وموجهة إلى الهدف المطلوب: ${profile.outcomeAr}`,
         "توضيح نطاق الاستشارة وما إذا كان يلزم تمثيل أو قيد أو حضور مستقل",
       ],
     },
@@ -746,18 +983,18 @@ function buildDetailedContent({
         { title: "1. Submit the matter", desc: `Send the facts, desired outcome, notice or deadline, and the key documents about ${titleEn.toLowerCase()} through the contact form, WhatsApp or email.` },
         { title: "2. CounselO studies and confirms", desc: `We study the information relevant to ${titleEn.toLowerCase()}, identify what is missing, and confirm the scope, fee, timing and written deliverable before work starts.` },
         { title: "3. Pay and we begin", desc: "After you approve the scope and pay for the agreed consultation, CounselO begins the focused legal review." },
-        { title: "4. Receive the legal response", desc: `You receive the agreed written analysis and next steps focused on whether and how to ${profile.outcomeEn}, through WhatsApp or email.` },
+        { title: "4. Receive the legal response", desc: brief ? "You receive the agreed written answer, its factual and legal basis, unresolved questions and next steps through WhatsApp or email." : `You receive the agreed written analysis and next steps focused on whether and how to ${profile.outcomeEn}, through WhatsApp or email.` },
       ],
       ar: [
         { title: "1. ترسل المسألة", desc: `أرسل الوقائع والنتيجة المطلوبة وأي إخطار أو ميعاد والمستندات الأساسية المتعلقة بـ${titleAr} عبر نموذج التواصل أو واتساب أو البريد الإلكتروني.` },
         { title: "2. تدرس كاونسلو وتؤكد النطاق", desc: `تدرس كاونسلو المعلومات المرتبطة بـ${titleAr} وتحدد الناقص وتؤكد نطاق العمل والرسوم والمدة والمخرج المكتوب قبل البدء.` },
         { title: "3. تدفع ونبدأ العمل", desc: "بعد موافقتك على النطاق وسداد قيمة الاستشارة المتفق عليها، تبدأ كاونسلو المراجعة القانونية المركزة." },
-        { title: "4. تتلقى الرد القانوني", desc: `تتلقى التحليل المكتوب والخطوات التالية المتفق عليها، مع التركيز على ${profile.outcomeAr}، عبر واتساب أو البريد الإلكتروني.` },
+        { title: "4. تتلقى الرد القانوني", desc: brief ? "تتلقى الإجابة المكتوبة المتفق عليها وأساسها الواقعي والقانوني والمسائل غير المحسومة والخطوات التالية عبر واتساب أو البريد الإلكتروني." : `تتلقى التحليل المكتوب والخطوات التالية المتفق عليها، مع التركيز على ${profile.outcomeAr}، عبر واتساب أو البريد الإلكتروني.` },
       ],
     },
     experience: {
       en: `CounselO is founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice and 20,000+ legal matters and consultations across civil, commercial, employment, family, property, administrative, arbitration and enforcement matters. For ${titleEn.toLowerCase()}, that experience means testing ${profile.factsEn} against ${profile.evidenceEn}, then matching the advice to the relevant forum and remedy—not applying a one-size-fits-all answer.`,
-      ar: `تأسست كاونسلو ويقودها المحامي والمستشار القانوني عمر البغدادي، مع خبرة قانونية إقليمية 30+ عاماً من الممارسة القانونية وأكثر من 20,000 مسألة واستشارة قانونية واستشارة في المسائل المدنية والتجارية والعمالية والأسرية والعقارية والإدارية والتحكيم والتنفيذ. وفي مسألة ${titleAr} تعني هذه الخبرة اختبار ${profile.factsAr} في ضوء ${profile.evidenceAr} ثم مواءمة المشورة مع الجهة ووسيلة المعالجة، لا تطبيق إجابة عامة واحدة للجميع.`,
+      ar: `تأسست كاونسلو ويقودها المحامي والمستشار القانوني عمر البغدادي، مع خبرة قانونية إقليمية 30+ عاماً من الممارسة القانونية وأكثر من 20,000 مسألة واستشارة قانونية في المسائل المدنية والتجارية والعمالية والأسرية والعقارية والإدارية والتحكيم والتنفيذ. وفي مسألة ${titleAr} تعني هذه الخبرة اختبار ${profile.factsAr} في ضوء ${profile.evidenceAr} ثم مواءمة المشورة مع الجهة ووسيلة المعالجة، لا تطبيق إجابة عامة واحدة للجميع.`,
     },
     faqs: {
       en: [
@@ -766,16 +1003,16 @@ function buildDetailedContent({
           a: `Preserve ${profile.evidenceEn}, prepare a dated chronology and identify any notice or deadline. Send those materials to CounselO for an initial assessment of the facts, forum and options in ${country.en}.`,
         },
         {
-          q: `What documents help with a ${titleEn.toLowerCase()} assessment?`,
+          q: `What documents help assess ${titleEn.toLowerCase()}?`,
           a: `For this problem, start with ${profile.evidenceEn}. Add a short dated summary and identify any notice or deadline. The final list depends on the facts.`,
         },
         {
-          q: `Can CounselO review a ${titleEn.toLowerCase()} matter online?`,
+          q: `Can CounselO review ${titleEn.toLowerCase()} online?`,
           a: `Yes. The initial assessment and document review can begin through WhatsApp, email or the consultation form in Arabic or English. Formal filing, attendance and reserved representation work are scoped separately where required in ${country.en}.`,
         },
         {
           q: `How does CounselO help with ${titleEn.toLowerCase()}?`,
-          a: `CounselO focuses the review on ${profile.factsEn}, checks ${profile.evidenceEn}, identifies the potentially applicable framework and authority, verifies the operative provisions within the agreed scope, and delivers advice directed to whether and how to ${profile.outcomeEn}.`,
+          a: brief ? `The review addresses this question: ${brief.question.en} CounselO examines ${profile.evidenceEn}, checks the applicable framework and authority, and explains the supported options and remaining uncertainties within the agreed scope.` : `CounselO focuses the review on ${profile.factsEn}, checks ${profile.evidenceEn}, identifies the potentially applicable framework and authority, verifies the operative provisions within the agreed scope, and delivers advice directed to whether and how to ${profile.outcomeEn}.`,
         },
         {
           q: "How quickly will I receive a response?",
@@ -797,7 +1034,7 @@ function buildDetailedContent({
         },
         {
           q: `كيف تساعد كاونسلو في ${titleAr}؟`,
-          a: `تركز كاونسلو على ${profile.factsAr} وتراجع ${profile.evidenceAr} وتحدد الإطار المحتمل والجهة المختصة وتتحقق من النصوص النافذة ضمن النطاق المتفق عليه وتقدم مشورة موجهة إلى ${profile.outcomeAr}.`,
+          a: brief ? `تتناول المراجعة السؤال: ${brief.question.ar} وتفحص كاونسلو ${profile.evidenceAr} وتتحقق من الإطار والجهة المختصة وتوضح الخيارات المؤيدة وما بقي غير محسوم ضمن النطاق المتفق عليه.` : `تركز كاونسلو على ${profile.factsAr} وتراجع ${profile.evidenceAr} وتحدد الإطار المحتمل والجهة المختصة وتتحقق من النصوص النافذة ضمن النطاق المتفق عليه وتقدم مشورة موجهة إلى ${profile.outcomeAr}.`,
         },
         {
           q: "متى يصل الرد المهني؟",
@@ -808,6 +1045,13 @@ function buildDetailedContent({
     legalAccuracy: legalAccuracyBoundary(region),
   };
 }
+
+const SYRIA_TAX_ISSUE_TITLES: Readonly<Record<string, LocalizedText>> = {
+  "Tax and zakat assessments": { en: "Tax jurisdiction and assessment review", ar: "مراجعة الاختصاص والتكليف الضريبي" },
+  "VAT and customs issues": { en: "Cross-border transaction taxes and customs", ar: "ضرائب المعاملات العابرة للحدود والجمارك" },
+  "VAT refund and registration dispute": { en: "Foreign VAT registration or refund affecting a Syrian business", ar: "تسجيل أو استرداد ضريبة قيمة مضافة أجنبية لنشاط سوري" },
+  "VAT invoice and tax-correction dispute": { en: "Foreign VAT invoice correction for a Syrian transaction", ar: "تصحيح فاتورة ضريبة قيمة مضافة أجنبية لمعاملة سورية" },
+};
 
 function sharedPages(region: "sa" | "syr"): LegalProblemPage[] {
   const allowedServices = new Set(getServicesForRegion(region).map((service) => service.slug));
@@ -834,10 +1078,13 @@ function sharedPages(region: "sa" | "syr"): LegalProblemPage[] {
       );
       const issuesEn = issueList.en;
       const issuesAr = issueList.ar;
-      return issuesEn.map((titleEn, index) => {
-        const titleAr = issuesAr[index] ?? titleEn;
+      return issuesEn.map((originalTitleEn, index) => {
+        const scopedTitle = region === "syr" && parentServiceSlug === "tax-zakat" ? SYRIA_TAX_ISSUE_TITLES[originalTitleEn] : undefined;
+        const titleEn = scopedTitle?.en ?? originalTitleEn;
+        const titleAr = scopedTitle?.ar ?? issuesAr[index] ?? titleEn;
         const details = buildDetailedContent({
           region,
+          serviceSlug: parentServiceSlug,
           serviceTitleEn: service?.titleEn ?? parentServiceSlug,
           serviceTitleAr: service?.titleAr ?? parentServiceSlug,
           titleEn,
@@ -847,13 +1094,11 @@ function sharedPages(region: "sa" | "syr"): LegalProblemPage[] {
         return {
           region,
           parentServiceSlug,
-          slug: canonicalProblemSlug(titleEn),
+          slug: canonicalProblemSlug(originalTitleEn),
           titleEn,
           titleAr,
           serviceTitleEn: service?.titleEn ?? parentServiceSlug,
           serviceTitleAr: service?.titleAr ?? parentServiceSlug,
-          documentsEn: content.documentsEn,
-          documentsAr: content.documentsAr,
           searchVariantsEn: variants.en,
           searchVariantsAr: variants.ar,
           ...details,
@@ -866,13 +1111,16 @@ function uaePages(): LegalProblemPage[] {
   return UAE_SERVICES.flatMap((service) => {
     const content = buildUaeServicePageContent(service);
     const issueList = appendUniqueIssues(
-      content.issues,
+      content.specificIssues,
       UAE_LEAD_ISSUES[service.slug] ?? { en: [], ar: [] },
     );
-    return issueList.en.map((titleEn, index) => {
-      const titleAr = issueList.ar[index] ?? titleEn;
+    return issueList.en.map((originalTitleEn, index) => {
+      const isDubaiRental = originalTitleEn === "Dubai tenancy and RERA rental dispute";
+      const titleEn = isDubaiRental ? "Dubai tenancy and Rental Disputes Center claim" : originalTitleEn;
+      const titleAr = isDubaiRental ? "منازعة إيجار دبي أمام مركز فض المنازعات الإيجارية" : issueList.ar[index] ?? titleEn;
       const details = buildDetailedContent({
         region: "uae",
+        serviceSlug: service.slug,
         serviceTitleEn: service.title.en,
         serviceTitleAr: service.title.ar,
         titleEn,
@@ -884,31 +1132,77 @@ function uaePages(): LegalProblemPage[] {
       return {
         region: "uae" as const,
         parentServiceSlug: service.slug,
-        slug: canonicalProblemSlug(titleEn),
+        slug: canonicalProblemSlug(originalTitleEn),
         titleEn,
         titleAr,
         serviceTitleEn: service.title.en,
         serviceTitleAr: service.title.ar,
-        documentsEn: content.documents.en,
-        documentsAr: content.documents.ar,
         searchVariantsEn: variants.en,
         searchVariantsAr: variants.ar,
         ...details,
-        experience: content.experienceNote,
-        faqs: {
-          en: [...details.faqs.en, ...content.faqs.en].slice(0, 8),
-          ar: [...details.faqs.ar, ...content.faqs.ar].slice(0, 8),
+        experience: {
+          en: `${details.experience.en} ${content.experienceNote.en}`,
+          ar: `${details.experience.ar} ${content.experienceNote.ar}`,
         },
       };
     });
   });
 }
 
+/** Retired procedural variants retain their original URLs and language through one-hop redirects. */
+export const LEGAL_PROBLEM_REDIRECTS: Readonly<Record<string, string>> = Object.fromEntries(
+  UAE_SERVICES.flatMap((service) =>
+    buildUaeServicePageContent(service).proceduralIssues.en.flatMap((title) =>
+      ["/uae", "/uae/ar"].map((prefix) => [
+        `${prefix}/services/${service.slug}/${canonicalProblemSlug(title)}`,
+        `${prefix}/services/${service.slug}`,
+      ]),
+    ),
+  ),
+);
+
 export const LEGAL_PROBLEM_PAGES: readonly LegalProblemPage[] = [
   ...sharedPages("sa"),
   ...sharedPages("syr"),
   ...uaePages(),
-];
+].map(page => {
+  const brief = getMatterIntentBrief(page.titleEn);
+  if (brief) return {
+    ...page,
+    editorialTopic: getMatterEditorial(page.titleEn)?.id,
+    intentBriefTitle: page.titleEn,
+    contentUpdatedAt: "2026-09-06",
+    overview: {
+      en: `${brief.answer.en} For ${countryName(page.region).en}, identify the issuing authority, any foreign element and any date stated in a notice so the assessment addresses the actual procedure.`,
+      ar: `${brief.answer.ar} وفي الملف المتعلق بـ${countryName(page.region).ar} حدّد الجهة المصدرة وأي عنصر أجنبي والموعد المذكور في الإخطار ليتناول التقييم الإجراء الفعلي.`,
+    },
+    keyQuestions: {
+      en: [brief.question.en, ...(getMatterEditorial(page.titleEn)?.questions.en ?? []), "What outcome do you need, and which facts are disputed?", "What is missing from the evidence listed below?", "Which countries, parties, assets or authorities connect to this matter?", "Has any notice, agreement or decision set a date for action?"],
+      ar: [brief.question.ar, ...(getMatterEditorial(page.titleEn)?.questions.ar ?? []), "ما النتيجة المطلوبة وما الوقائع المتنازع عليها؟", "ما الناقص من الأدلة المذكورة أدناه؟", "ما الدول والأطراف والأصول أو الجهات المرتبطة بالمسألة؟", "هل حدد إخطار أو اتفاق أو قرار موعداً لاتخاذ إجراء؟"],
+    },
+    faqs: {
+      en: [{ q: brief.question.en, a: brief.answer.en }, ...(getMatterEditorial(page.titleEn)?.faqs.en ?? []), ...page.faqs.en].slice(0, 8),
+      ar: [{ q: brief.question.ar, a: brief.answer.ar }, ...(getMatterEditorial(page.titleEn)?.faqs.ar ?? []), ...page.faqs.ar].slice(0, 8),
+    },
+  };
+  const editorial = getMatterEditorial(page.titleEn);
+  if (!editorial) return page;
+  return {
+    ...page,
+    editorialTopic: editorial.id,
+    contentUpdatedAt: "2026-09-06",
+    documentsEn: [editorial.evidenceEn],
+    documentsAr: [editorial.evidenceAr],
+    keyQuestions: {
+      en: [...editorial.questions.en, ...page.keyQuestions.en.slice(0, 3)],
+      ar: [...editorial.questions.ar, ...page.keyQuestions.ar.slice(0, 3)],
+    },
+    faqs: {
+      en: [...editorial.faqs.en, ...page.faqs.en].slice(0, 8),
+      ar: [...editorial.faqs.ar, ...page.faqs.ar].slice(0, 8),
+    },
+  };
+});
 
 export function getLegalProblemPages(region: Region, parentServiceSlug?: string): LegalProblemPage[] {
   return LEGAL_PROBLEM_PAGES.filter(

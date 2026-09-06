@@ -122,6 +122,14 @@ function internalLinksFromBody(html: string): string[] {
   return out;
 }
 
+function visibleText(html: string): string {
+  return decode(html
+    .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " "));
+}
+
 // ── rule engine ──────────────────────────────────────────────────────────────
 
 type Severity = "error" | "warn" | "info";
@@ -160,7 +168,7 @@ function validatePage(filepath: string): PageResult {
       meta(html, "name", "x-source-route") ||
       `/${path.basename(filepath, ".html").replace(/-/g, "/")}`;
     return {
-      file: path.basename(filepath),
+      file: path.relative(DIST, filepath),
       route: sourceRoute,
       isRedirect: true,
       redirectTo: redir,
@@ -179,7 +187,7 @@ function validatePage(filepath: string): PageResult {
   const route = ogUrl ? ogUrl.replace(BASE, "") || "/" : "/";
   const isSyr = route.startsWith("/syr");
   const isUae = route.startsWith("/uae");
-  const isSa = route.startsWith("/sa") || route === "/" || route === "/ar";
+  const isSa = route.startsWith("/sa");
   const isSharedWork =
     route === "/legal-library" ||
     route === "/ar/legal-library" ||
@@ -195,6 +203,8 @@ function validatePage(filepath: string): PageResult {
   const desc = meta(html, "name", "description");
   const robots = meta(html, "name", "robots");
   const canon = canonical(html);
+  if (canon && canon !== `${BASE}${route}`) issues.push({ severity: "error", rule: "canonical-route-mismatch", detail: `Canonical ${canon} differs from page URL ${BASE}${route}` });
+  if ([...html.matchAll(/<link\b[^>]*\brel="canonical"/gi)].length !== 1) issues.push({ severity: "error", rule: "canonical-count", detail: "An indexable page must have exactly one canonical link" });
   const ogTitle = meta(html, "property", "og:title");
   const ogDesc = meta(html, "property", "og:description");
 
@@ -250,6 +260,24 @@ function validatePage(filepath: string): PageResult {
       rule: "desc-too-long",
       detail: `${dLen} chars (max 170)`,
     });
+  if (/^\/?(?:blog|ar\/blog|our-work)\//i.test(t) || /^https?:\/\//i.test(t))
+    issues.push({
+      severity: "error",
+      rule: "title-route-like",
+      detail: "Title contains a URL or route instead of a descriptive page name",
+    });
+  if (/\b(?:a|an|and|at|by|for|from|in|of|on|or|the|to|under|with)$/i.test(t.replace(/\s*\|\s*(?:CounselO|كاونسلو)\s*$/i, "")))
+    issues.push({
+      severity: "error",
+      rule: "title-dangling-word",
+      detail: "Title ends with an incomplete connector word",
+    });
+  if (/\b(?:English legal text|Arabic legal text|lorem ipsum|TODO|TBD)\b/i.test(visibleText(html)))
+    issues.push({
+      severity: "error",
+      rule: "publishing-placeholder",
+      detail: "Visible page content contains placeholder text",
+    });
 
   // ── OG ──
   if (!ogTitle)
@@ -268,6 +296,9 @@ function validatePage(filepath: string): PageResult {
   // ── hreflang ──
   const hl = hreflangTags(html);
   const hlCount = Object.keys(hl).length;
+  if (route === "/" || route === "/ar") {
+    if (hl.en !== `${BASE}/` || hl.ar !== `${BASE}/ar`) issues.push({ severity: "error", rule: "global-home-language-pair", detail: "Global homepages must link to the reciprocal English and Arabic global URLs" });
+  }
   if (hlCount === 0)
     issues.push({
       severity: "error",
@@ -296,10 +327,22 @@ function validatePage(filepath: string): PageResult {
       detail: `${allH1.length} H1s found`,
     });
 
+  if (/id="common-searches"/.test(html))
+    issues.push({
+      severity: "error",
+      rule: "generated-keyword-list",
+      detail: "Replace generated search-phrase lists with substantive answers",
+    });
+
   // ── structured data ──
   const sc = schemas(html);
   const schemaTypes = sc.map((s: any) => s["@type"] ?? "unknown");
   const webPageSchemas = sc.filter((schema: any) => schema?.["@type"] === "WebPage");
+  for (const value of webPageSchemas) {
+    const schema = value as { url?: string; "@id"?: string };
+    if (schema.url && schema.url !== canon) issues.push({ severity: "error", rule: "webpage-schema-canonical-mismatch", detail: `WebPage URL ${schema.url} differs from canonical ${canon}` });
+    if (schema["@id"] && schema["@id"].split("#")[0] !== canon) issues.push({ severity: "error", rule: "webpage-id-canonical-mismatch", detail: `WebPage @id ${schema["@id"]} differs from canonical ${canon}` });
+  }
   if (webPageSchemas.some((schema: any) => schema["@context"] !== "https://schema.org"))
     issues.push({
       severity: "error",
@@ -430,7 +473,9 @@ function validatePage(filepath: string): PageResult {
       });
   }
 
-  if (isSharedWork) {
+  // A genuinely single-language work record has no invented translation.
+  const singleLanguageWork = /^(?:\/ar)?\/our-work\/[^/]+$/.test(route) && hlCount === 1 && hl["x-default"] === canon;
+  if (isSharedWork && !singleLanguageWork) {
     if (!hl["en"])
       issues.push({
         severity: "error",
@@ -556,7 +601,7 @@ function validatePage(filepath: string): PageResult {
   }
 
   return {
-    file: path.basename(filepath),
+    file: path.relative(DIST, filepath),
     route,
     isRedirect: false,
     title: t,
@@ -586,12 +631,17 @@ function main() {
       if (f.endsWith(".html")) files.push(path.join(PAGES, f));
     }
   }
+  const auditPages = path.resolve(DIST, "../audit-pages");
+  const inventoryFile = path.resolve(DIST, "../audit-route-inventory.json");
+  const inventory: { routes: string[] } | null = fs.existsSync(inventoryFile) ? JSON.parse(fs.readFileSync(inventoryFile, "utf8")) : null;
+  if (inventory) for (const route of inventory.routes.filter(route => /^(?:\/ar)?\/our-work\/[^/]+$/.test(route))) files.push(path.join(auditPages, `${route.slice(1).replace(/\//g, "-")}.html`));
 
   const results: PageResult[] = files.map(validatePage);
   const pages = results.filter((r) => !r.isRedirect);
   const redirects = results.filter((r) => r.isRedirect);
 
   const routeSet = new Set(pages.map((page) => page.route));
+  const pagesByRoute = new Map(pages.map(page => [page.route, page]));
   const normalizeInternalRoute = (href: string) => {
     const withoutOrigin = href.replace(/^https:\/\/counselo-legal\.com/, "");
     const clean = withoutOrigin.split(/[?#]/, 1)[0] || "/";
@@ -616,6 +666,8 @@ function main() {
           rule: "hreflang-target-missing",
           detail: `${hrefLang} points to a non-rendered route: ${target}`,
         });
+      } else if (!Object.values(pagesByRoute.get(target)!.hreflangs).some(url => normalizeInternalRoute(url) === page.route)) {
+        page.issues.push({ severity: "error", rule: "hreflang-not-reciprocal", detail: `${hrefLang} target ${target} does not link back to ${page.route}` });
       }
     }
     if (/^\/(?:sa|syr|uae)(?:\/ar)?\/services\/[^/]+\/[^/]+$/.test(page.route)) {
@@ -625,6 +677,29 @@ function main() {
           severity: "error",
           rule: "problem-contextual-inbound-links-weak",
           detail: `Problem page has ${inboundCount} contextual inbound page(s); minimum is 3`,
+        });
+      }
+    }
+  }
+
+
+  for (const [field, read] of [
+    ["title", (page: PageResult) => page.title],
+    ["description", (page: PageResult) => page.description],
+  ] as const) {
+    const groups = new Map<string, PageResult[]>();
+    for (const page of pages) {
+      const locale = page.route === "/ar" || page.route.startsWith("/ar/") || page.route.startsWith("/blog/ar/") || /\/(?:sa|syr|uae)\/ar(?:\/|$)/.test(page.route) ? "ar" : "en";
+      const key = `${locale}:${read(page).normalize("NFKC").replace(/\s+/g, " ").trim().toLocaleLowerCase(locale)}`;
+      groups.set(key, [...(groups.get(key) ?? []), page]);
+    }
+    for (const group of groups.values()) {
+      if (group.length < 2) continue;
+      for (const page of group) {
+        page.issues.push({
+          severity: "error",
+          rule: `duplicate-${field}`,
+          detail: `${field} is shared by ${group.length} indexable canonical pages`,
         });
       }
     }
@@ -654,9 +729,9 @@ function main() {
       !p.issues.some((i) => i.severity === "error" || i.severity === "warn"),
   );
 
-  const score = Math.round(
+  const score = Math.min(errorPages.length || warnPages.length ? 99 : 100, Math.round(
     ((okPages.length + warnPages.length * 0.5) / pages.length) * 100,
-  );
+  ));
 
   // ── rule frequency ──
   const ruleCount: Record<string, { errors: number; warns: number }> = {};
