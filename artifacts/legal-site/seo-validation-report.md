@@ -1,13 +1,13 @@
 # CounselO SEO Validation Report
 
-_Generated: 2026-09-06 06:05:45 UTC_
+_Generated: 2026-09-06 06:38:23 UTC_
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
 | Pages validated | 1468 |
-| Redirect pages  | 307 |
+| Redirect pages  | 326 |
 | ✅ Clean pages  | 1468 |
 | ⚠️  Warn-only pages | 0 |
 | ❌ Error pages  | 0 |
@@ -1488,9 +1488,12 @@ _Generated: 2026-09-06 06:05:45 UTC_
 - `/uae/terms-of-service` — schemas: WebPage, BreadcrumbList
 - `/uae/vision` — schemas: AboutPage, Organization, Person, BreadcrumbList
 
-## 🔀 Redirect Pages (307)
+## 🔀 Redirect Pages (326)
 
 - `/ar/blog` → `https://counselo-legal.com/blog/ar`
+- `/sa/ar/ar/services/criminal-law/arrest-and-detention-concerns` → `https://counselo-legal.com/sa/ar/services/criminal-law/arrest-and-detention-concerns`
+- `/sa/ar/ar/services/real-estate/eviction-notice-and-eviction-dispute` → `https://counselo-legal.com/sa/ar/services/real-estate/eviction-notice-and-eviction-dispute`
+- `/sa/ar/ar/services/tax-zakat/tax-audit-and-assessment-objection` → `https://counselo-legal.com/sa/ar/services/tax-zakat/tax-audit-and-assessment-objection`
 - `/sa/ar/blog/board-of-grievances-saudi-arabia` → `https://counselo-legal.com/blog/ar`
 - `/sa/ar/blog/child-custody-saudi-arabia` → `https://counselo-legal.com/blog/ar`
 - `/sa/ar/blog/divorce-in-saudi-arabia` → `https://counselo-legal.com/blog/ar`
@@ -1498,6 +1501,11 @@ _Generated: 2026-09-06 06:05:45 UTC_
 - `/sa/ar/blog/real-estate-disputes-saudi-arabia` → `https://counselo-legal.com/blog/ar`
 - `/sa/ar/blog/wrongful-termination-saudi-labor-law` → `https://counselo-legal.com/blog/ar`
 - `/sa/ar/blog` → `https://counselo-legal.com/blog/ar`
+- `/sa/ar/services/companies-law/company-registration-and-amendment-dispute` → `https://counselo-legal.com/sa/ar/services/companies-law/company-formation-and-restructuring`
+- `/sa/ar/services/criminal-procedure/trial-procedure` → `https://counselo-legal.com/sa/ar/services/criminal-law/trial-and-appeal-preparation`
+- `/sa/ar/services/enforcement/execution-of-a-syrian-court-judgment` → `https://counselo-legal.com/sa/ar/services/enforcement/foreign-judgment-enforcement`
+- `/sa/ar/services/family-law/family-status-document-or-civil-record-correction` → `https://counselo-legal.com/sa/ar/services/family-law/marital-status-document-and-record-correction`
+- `/sa/ar/services/medical-malpractice/medical-record-access-and-expert-evidence-dispute` → `https://counselo-legal.com/sa/ar/services/medical-malpractice/medical-record-access-dispute`
 - `/sa/blog/board-of-grievances-saudi-arabia` → `https://counselo-legal.com/blog`
 - `/sa/blog/child-custody-saudi-arabia` → `https://counselo-legal.com/blog`
 - `/sa/blog/divorce-in-saudi-arabia` → `https://counselo-legal.com/blog`
@@ -1505,6 +1513,13 @@ _Generated: 2026-09-06 06:05:45 UTC_
 - `/sa/blog/real-estate-disputes-saudi-arabia` → `https://counselo-legal.com/blog`
 - `/sa/blog/wrongful-termination-saudi-labor-law` → `https://counselo-legal.com/blog`
 - `/sa/blog` → `https://counselo-legal.com/blog`
+- `/sa/services/civil-law/property-and-possession-disputes` → `https://counselo-legal.com/sa/services/real-estate/property-ownership-disputes`
+- `/sa/services/criminal-procedure/evidence-challenge-in-criminal-case` → `https://counselo-legal.com/sa/services/criminal-law/digital-and-documentary-evidence`
+- `/sa/services/enforcement/execution-of-a-syrian-court-judgment` → `https://counselo-legal.com/sa/services/enforcement/foreign-judgment-enforcement`
+- `/sa/services/foreign-investment/foreign-investor-licensing-and-registration-problem` → `https://counselo-legal.com/sa/services/foreign-investment/investment-and-business-licensing`
+- `/sa/services/medical-malpractice/medical-record-access-and-expert-evidence-dispute` → `https://counselo-legal.com/sa/services/medical-malpractice/medical-record-access-dispute`
+- `/syr/ar/ar/services/civil-procedure/evidence-and-procedural-objections` → `https://counselo-legal.com/syr/ar/services/civil-procedure/evidence-and-procedural-objections`
+- `/syr/ar/ar/services/medical-malpractice/misdiagnosis-and-delayed-diagnosis` → `https://counselo-legal.com/syr/ar/services/medical-malpractice/misdiagnosis-and-delayed-diagnosis`
 - `/syr/ar/blog/administrative-court-disputes-syria` → `https://counselo-legal.com/blog/ar`
 - `/syr/ar/blog/board-of-grievances-saudi-arabia` → `https://counselo-legal.com/blog/ar`
 - `/syr/ar/blog/child-custody-saudi-arabia` → `https://counselo-legal.com/blog/ar`
@@ -1531,6 +1546,10 @@ _Generated: 2026-09-06 06:05:45 UTC_
 - `/syr/blog/wrongful-termination-saudi-labor-law` → `https://counselo-legal.com/blog`
 - `/syr/blog/wrongful-termination-syrian-labor-law` → `https://counselo-legal.com/blog`
 - `/syr/blog` → `https://counselo-legal.com/blog`
+- `/syr/services/criminal-law/forgery-and-false-document-accusation` → `https://counselo-legal.com/syr/services/criminal-law/criminal-complaints-and-defence`
+- `/syr/services/criminal-law/public-prosecution-investigation-and-questioning` → `https://counselo-legal.com/syr/services/criminal-law/investigation-and-questioning`
+- `/syr/services/employment-law/sick-leave-and-annual-leave-entitlement-dispute` → `https://counselo-legal.com/syr/services/employment-law`
+- `/uae/ar/ar/services/arbitration-mediation/missing-or-inconsistent-records-concerning-arbitration-clauses-and-jurisdiction` → `https://counselo-legal.com/uae/ar/services/arbitration-mediation`
 - `/uae/ar/blog` → `https://counselo-legal.com/blog/ar`
 - `/uae/ar/services/administrative-regulatory/a-missed-notice-filing-objection-or-appeal-deadline-affecting-administrative-regulatory-law` → `https://counselo-legal.com/uae/ar/services/administrative-regulatory`
 - `/uae/ar/services/administrative-regulatory/a-need-to-preserve-administrative-regulatory-law-evidence-or-obtain-urgent-protection` → `https://counselo-legal.com/uae/ar/services/administrative-regulatory`

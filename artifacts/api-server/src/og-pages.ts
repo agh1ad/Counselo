@@ -11,6 +11,7 @@ import { prerenderedRedirect } from "./lib/prerendered-redirect.js";
 import { renderPublicBlogBody } from "./lib/public-blog-body.js";
 import {
   LEGACY_BLOG_REDIRECTS,
+  LEGACY_SEARCH_REDIRECTS,
   buildDiscoveryFeed,
   buildDynamicSitemap,
   buildBlogHtmlMetadata,
@@ -503,7 +504,7 @@ function proxyToVite(req: Request, res: Response): void {
 }
 
 export function registerOgPageRoutes(app: Express): void {
-  for (const [source, destination] of Object.entries(LEGACY_BLOG_REDIRECTS)) app.get(source, (_req, res) => {
+  for (const [source, destination] of Object.entries({ ...LEGACY_BLOG_REDIRECTS, ...LEGACY_SEARCH_REDIRECTS })) app.get(source, (_req, res) => {
     res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
     return res.redirect(301, destination);
   });

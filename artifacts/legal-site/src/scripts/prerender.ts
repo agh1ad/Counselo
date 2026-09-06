@@ -24,6 +24,7 @@ import { compactWorkSamplesForDiscovery, type WorkSamplePublic } from "../lib/wo
 import { getLegalProblemPaths, LEGAL_PROBLEM_REDIRECTS } from "../lib/legal-problem-pages.js";
 import {
   LEGACY_BLOG_REDIRECTS,
+  LEGACY_SEARCH_REDIRECTS,
   getPublicRouteInventory,
   hasQualityBilingualBlogContent,
   routeToFlatFilename,
@@ -304,7 +305,7 @@ function safeJson(value: unknown): string {
 // an explicit rewrite for each path pointing to its /__pages/*.html file.
 // ---------------------------------------------------------------------------
 
-const REDIRECT_ROUTES: Record<string, string> = { ...LEGAL_PROBLEM_REDIRECTS, ...LEGACY_BLOG_REDIRECTS };
+const REDIRECT_ROUTES: Record<string, string> = { ...LEGAL_PROBLEM_REDIRECTS, ...LEGACY_BLOG_REDIRECTS, ...LEGACY_SEARCH_REDIRECTS };
 
 function writeRedirectRoute(fromRoute: string, toRoute: string): void {
   const targetUrl = `https://counselo-legal.com${toRoute}`;

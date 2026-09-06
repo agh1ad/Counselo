@@ -13,3 +13,5 @@ export * from "./consultation-products";
 export * from "./platform-positioning";
 
 export { LEGACY_BLOG_REDIRECTS } from "./legacy-blog-redirects";
+
+export { LEGACY_SEARCH_REDIRECTS } from "./legacy-search-redirects.js";

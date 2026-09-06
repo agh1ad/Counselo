@@ -40,6 +40,7 @@ import {
   buildDynamicSitemap,
   LEGACY_REDIRECTS,
   LEGACY_BLOG_REDIRECTS,
+  LEGACY_SEARCH_REDIRECTS,
   assignArticleProvenance,
   BLOG_SOCIAL_IMAGE,
   BLOG_REVIEWER_ATTRIBUTION,
@@ -703,7 +704,7 @@ app.get(
 );
 
 // Exact retired routes take precedence over generic regional slug redirects.
-for (const [source, destination] of Object.entries(LEGACY_BLOG_REDIRECTS)) app.get(source, (_req, res) => {
+for (const [source, destination] of Object.entries({ ...LEGACY_BLOG_REDIRECTS, ...LEGACY_SEARCH_REDIRECTS })) app.get(source, (_req, res) => {
   res.setHeader("Cache-Control", "public, max-age=86400");
   return res.redirect(301, destination);
 });

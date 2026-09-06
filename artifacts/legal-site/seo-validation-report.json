@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-06 06:05:45 UTC",
+  "generatedAt": "2026-09-06 06:38:23 UTC",
   "summary": {
     "pages": 1468,
-    "redirects": 307,
+    "redirects": 326,
     "ok": 1468,
     "warnOnly": 0,
     "errors": 0,
@@ -1472,6 +1472,42 @@
       "internalLinkCount": 3
     },
     {
+      "file": "__pages/sa-ar-ar-services-criminal-law-arrest-and-detention-concerns.html",
+      "route": "/sa/ar/ar/services/criminal-law/arrest-and-detention-concerns",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/sa/ar/services/criminal-law/arrest-and-detention-concerns",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
+    },
+    {
+      "file": "__pages/sa-ar-ar-services-real-estate-eviction-notice-and-eviction-dispute.html",
+      "route": "/sa/ar/ar/services/real-estate/eviction-notice-and-eviction-dispute",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/sa/ar/services/real-estate/eviction-notice-and-eviction-dispute",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
+    },
+    {
+      "file": "__pages/sa-ar-ar-services-tax-zakat-tax-audit-and-assessment-objection.html",
+      "route": "/sa/ar/ar/services/tax-zakat/tax-audit-and-assessment-objection",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/sa/ar/services/tax-zakat/tax-audit-and-assessment-objection",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
+    },
+    {
       "file": "__pages/sa-ar-blog-board-of-grievances-saudi-arabia.html",
       "route": "/sa/ar/blog/board-of-grievances-saudi-arabia",
       "isRedirect": true,
@@ -2499,6 +2535,18 @@
       "internalLinkCount": 19
     },
     {
+      "file": "__pages/sa-ar-services-companies-law-company-registration-and-amendment-dispute.html",
+      "route": "/sa/ar/services/companies-law/company-registration-and-amendment-dispute",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/sa/ar/services/companies-law/company-formation-and-restructuring",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
+    },
+    {
       "file": "__pages/sa-ar-services-companies-law-company-valuation-and-shareholder-buyout-dispute.html",
       "route": "/sa/ar/services/companies-law/company-valuation-and-shareholder-buyout-dispute",
       "isRedirect": false,
@@ -3210,6 +3258,18 @@
       "internalLinkCount": 27
     },
     {
+      "file": "__pages/sa-ar-services-criminal-procedure-trial-procedure.html",
+      "route": "/sa/ar/services/criminal-procedure/trial-procedure",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/sa/ar/services/criminal-law/trial-and-appeal-preparation",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
+    },
+    {
       "file": "__pages/sa-ar-services-cyber-law-cybercrime-allegations-and-defence.html",
       "route": "/sa/ar/services/cyber-law/cybercrime-allegations-and-defence",
       "isRedirect": false,
@@ -3871,6 +3931,18 @@
       "internalLinkCount": 20
     },
     {
+      "file": "__pages/sa-ar-services-enforcement-execution-of-a-syrian-court-judgment.html",
+      "route": "/sa/ar/services/enforcement/execution-of-a-syrian-court-judgment",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/sa/ar/services/enforcement/foreign-judgment-enforcement",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
+    },
+    {
       "file": "__pages/sa-ar-services-enforcement-foreign-judgment-enforcement.html",
       "route": "/sa/ar/services/enforcement/foreign-judgment-enforcement",
       "isRedirect": false,
@@ -4123,6 +4195,18 @@
       ],
       "hreflangCount": 3,
       "internalLinkCount": 15
+    },
+    {
+      "file": "__pages/sa-ar-services-family-law-family-status-document-or-civil-record-correction.html",
+      "route": "/sa/ar/services/family-law/family-status-document-or-civil-record-correction",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/sa/ar/services/family-law/marital-status-document-and-record-correction",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
     },
     {
       "file": "__pages/sa-ar-services-family-law-inheritance-and-family-settlements.html",
@@ -4867,6 +4951,18 @@
       ],
       "hreflangCount": 5,
       "internalLinkCount": 15
+    },
+    {
+      "file": "__pages/sa-ar-services-medical-malpractice-medical-record-access-and-expert-evidence-dispute.html",
+      "route": "/sa/ar/services/medical-malpractice/medical-record-access-and-expert-evidence-dispute",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/sa/ar/services/medical-malpractice/medical-record-access-dispute",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
     },
     {
       "file": "__pages/sa-ar-services-medical-malpractice-medical-record-access-dispute.html",
@@ -6616,6 +6712,18 @@
       "internalLinkCount": 37
     },
     {
+      "file": "__pages/sa-services-civil-law-property-and-possession-disputes.html",
+      "route": "/sa/services/civil-law/property-and-possession-disputes",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/sa/services/real-estate/property-ownership-disputes",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
+    },
+    {
       "file": "__pages/sa-services-companies-law-company-dissolution-and-liquidation-dispute.html",
       "route": "/sa/services/companies-law/company-dissolution-and-liquidation-dispute",
       "isRedirect": false,
@@ -7361,6 +7469,18 @@
       "internalLinkCount": 27
     },
     {
+      "file": "__pages/sa-services-criminal-procedure-evidence-challenge-in-criminal-case.html",
+      "route": "/sa/services/criminal-procedure/evidence-challenge-in-criminal-case",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/sa/services/criminal-law/digital-and-documentary-evidence",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
+    },
+    {
       "file": "__pages/sa-services-cyber-law-cybercrime-allegations-and-defence.html",
       "route": "/sa/services/cyber-law/cybercrime-allegations-and-defence",
       "isRedirect": false,
@@ -8022,6 +8142,18 @@
       "internalLinkCount": 20
     },
     {
+      "file": "__pages/sa-services-enforcement-execution-of-a-syrian-court-judgment.html",
+      "route": "/sa/services/enforcement/execution-of-a-syrian-court-judgment",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/sa/services/enforcement/foreign-judgment-enforcement",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
+    },
+    {
       "file": "__pages/sa-services-enforcement-foreign-judgment-enforcement.html",
       "route": "/sa/services/enforcement/foreign-judgment-enforcement",
       "isRedirect": false,
@@ -8511,6 +8643,18 @@
       ],
       "hreflangCount": 3,
       "internalLinkCount": 15
+    },
+    {
+      "file": "__pages/sa-services-foreign-investment-foreign-investor-licensing-and-registration-problem.html",
+      "route": "/sa/services/foreign-investment/foreign-investor-licensing-and-registration-problem",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/sa/services/foreign-investment/investment-and-business-licensing",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
     },
     {
       "file": "__pages/sa-services-foreign-investment-foreign-owned-company-formation.html",
@@ -9018,6 +9162,18 @@
       ],
       "hreflangCount": 5,
       "internalLinkCount": 15
+    },
+    {
+      "file": "__pages/sa-services-medical-malpractice-medical-record-access-and-expert-evidence-dispute.html",
+      "route": "/sa/services/medical-malpractice/medical-record-access-and-expert-evidence-dispute",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/sa/services/medical-malpractice/medical-record-access-dispute",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
     },
     {
       "file": "__pages/sa-services-medical-malpractice-medical-record-access-dispute.html",
@@ -9814,6 +9970,30 @@
       ],
       "hreflangCount": 5,
       "internalLinkCount": 3
+    },
+    {
+      "file": "__pages/syr-ar-ar-services-civil-procedure-evidence-and-procedural-objections.html",
+      "route": "/syr/ar/ar/services/civil-procedure/evidence-and-procedural-objections",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/syr/ar/services/civil-procedure/evidence-and-procedural-objections",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
+    },
+    {
+      "file": "__pages/syr-ar-ar-services-medical-malpractice-misdiagnosis-and-delayed-diagnosis.html",
+      "route": "/syr/ar/ar/services/medical-malpractice/misdiagnosis-and-delayed-diagnosis",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/syr/ar/services/medical-malpractice/misdiagnosis-and-delayed-diagnosis",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
     },
     {
       "file": "__pages/syr-ar-blog-administrative-court-disputes-syria.html",
@@ -16287,6 +16467,18 @@
       "internalLinkCount": 15
     },
     {
+      "file": "__pages/syr-services-criminal-law-forgery-and-false-document-accusation.html",
+      "route": "/syr/services/criminal-law/forgery-and-false-document-accusation",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/syr/services/criminal-law/criminal-complaints-and-defence",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
+    },
+    {
       "file": "__pages/syr-services-criminal-law-investigation-and-questioning.html",
       "route": "/syr/services/criminal-law/investigation-and-questioning",
       "isRedirect": false,
@@ -16336,6 +16528,18 @@
       ],
       "hreflangCount": 5,
       "internalLinkCount": 15
+    },
+    {
+      "file": "__pages/syr-services-criminal-law-public-prosecution-investigation-and-questioning.html",
+      "route": "/syr/services/criminal-law/public-prosecution-investigation-and-questioning",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/syr/services/criminal-law/investigation-and-questioning",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
     },
     {
       "file": "__pages/syr-services-criminal-law-travel-ban-and-detention-concern.html",
@@ -16911,6 +17115,18 @@
       ],
       "hreflangCount": 5,
       "internalLinkCount": 15
+    },
+    {
+      "file": "__pages/syr-services-employment-law-sick-leave-and-annual-leave-entitlement-dispute.html",
+      "route": "/syr/services/employment-law/sick-leave-and-annual-leave-entitlement-dispute",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/syr/services/employment-law",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
     },
     {
       "file": "__pages/syr-services-employment-law-sponsorship-transfer-dispute.html",
@@ -18942,6 +19158,18 @@
       ],
       "hreflangCount": 3,
       "internalLinkCount": 3
+    },
+    {
+      "file": "__pages/uae-ar-ar-services-arbitration-mediation-missing-or-inconsistent-records-concerning-arbitration-clauses-and-jurisdiction.html",
+      "route": "/uae/ar/ar/services/arbitration-mediation/missing-or-inconsistent-records-concerning-arbitration-clauses-and-jurisdiction",
+      "isRedirect": true,
+      "redirectTo": "https://counselo-legal.com/uae/ar/services/arbitration-mediation",
+      "title": "",
+      "description": "",
+      "issues": [],
+      "schemaTypes": [],
+      "hreflangCount": 0,
+      "internalLinkCount": 0
     },
     {
       "file": "__pages/uae-ar-blog.html",

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import express from "express";
-import { LEGACY_BLOG_REDIRECTS } from "@workspace/api-zod";
+import { LEGACY_BLOG_REDIRECTS, LEGACY_SEARCH_REDIRECTS } from "@workspace/api-zod";
 import { prerenderedRedirect } from "../lib/prerendered-redirect.js";
 import { repairPublicBlogPost } from "../lib/public-blog-repairs.js";
 import { repairPublicWorkSample } from "../lib/public-work-repairs.js";
@@ -18,7 +18,7 @@ const redirects = readdirSync(directory).filter(file => file.startsWith("uae-") 
   const html = readFileSync(resolve(directory, file), "utf8");
   const source = html.match(/name="x-source-route" content="([^"]+)"/)?.[1];
   const target = source ? prerenderedRedirect(html, source) : undefined;
-  return source && target ? [{ source, target }] : [];
+  return source && target && !LEGACY_SEARCH_REDIRECTS[source] ? [{ source, target }] : [];
 });
 assert.equal(redirects.length, 264, "Rebuild the site before verifying all consolidation redirects");
 const app = express();
@@ -32,7 +32,7 @@ const issues: string[] = [];
 let workPages = 0;
 let articlePages = 0;
 try {
-  for (const { source, target } of [...redirects, ...Object.entries(LEGACY_BLOG_REDIRECTS).map(([source, target]) => ({ source, target }))]) {
+  for (const { source, target } of [...redirects, ...Object.entries({ ...LEGACY_BLOG_REDIRECTS, ...LEGACY_SEARCH_REDIRECTS }).map(([source, target]) => ({ source, target }))]) {
     const response = await fetch(`${origin}${source}`, { redirect: "manual", signal: AbortSignal.timeout(15000) });
     if (response.status !== 301 || response.headers.get("location") !== target) issues.push(`Redirect failed: ${source}`);
     await response.body?.cancel();
@@ -72,7 +72,7 @@ try {
 } finally {
   await new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve()));
 }
-const report = { generatedAt: new Date().toISOString(), scope: "Isolated production API route handler and renderer; public work and article records; no deployment or indexing assertion", redirectsChecked: redirects.length + Object.keys(LEGACY_BLOG_REDIRECTS).length, targetsChecked: new Set(redirects.map(item => item.target)).size, workPagesChecked: workPages, articlePagesChecked: articlePages, issues };
+const report = { generatedAt: new Date().toISOString(), scope: "Isolated production API route handler and renderer; public work and article records; no deployment or indexing assertion", redirectsChecked: redirects.length + Object.keys(LEGACY_BLOG_REDIRECTS).length + Object.keys(LEGACY_SEARCH_REDIRECTS).length, targetsChecked: new Set(redirects.map(item => item.target)).size, workPagesChecked: workPages, articlePagesChecked: articlePages, issues };
 writeFileSync(resolve(root, "docs/production-handler-seo-verification-2026-09-06.json"), JSON.stringify(report, null, 2) + "\n");
 console.log(JSON.stringify(report));
 if (issues.length) process.exitCode = 1;
