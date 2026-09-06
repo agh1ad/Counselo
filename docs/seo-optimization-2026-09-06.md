@@ -1,9 +1,7 @@
-# CounselO search-intent implementation
+# CounselO — search implementation and delivery
 
-See [the complete page implementation report](sitewide-content-completion-2026-09-06.md) and [query mappings](search-query-targets-2026-09-06.json).
+The published release covers all 1,468 retained public pages. The page ledger has zero open recorded implementation findings; every retained page passes public status, metadata, H1 and content verification. All 326 permanent redirects and the complete live sitemap inventory pass.
 
-All 1,468 retained public language pages have a primary purpose and supporting intents. The 520 supplied distinct phrases resolve to 435 mapped phrases and 85 explicit exclusions, with zero unresolved. The exclusions describe unsupported or unsuitable query targets, not unassessed site pages.
+The supplied 520 Keyword Planner phrases have 435 mapped destinations and 85 reasoned exclusions. A separate authenticated Search Console review covered all 200 visible queries: 163 map to reviewed scope and 37 have reasoned exclusions. Mapping does not establish maximum rankings or complete satisfaction of every possible query.
 
-Selection and credential-verification searches receive useful bilingual guidance without claims of superiority or an unverified licence. The scope remains the actual services and jurisdictions, not every conceivable legal query. Keyword Planner exports do not establish observed rankings, country-specific organic demand or search-engine canonical decisions.
-
-Publication, public verification and Google/Bing account evidence remain separate from the local implementation. Earlier counts and the Omar handoff are historical; no new professional sign-off is required.
+Search submissions have been accepted, but new indexing and performance outcomes remain pending. [Complete published-release evidence](sitewide-content-completion-2026-09-06.md).
