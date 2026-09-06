@@ -83,6 +83,9 @@ export default function Contact() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
 
+  const [formReady, setFormReady] = useState(false);
+  useEffect(() => { setFormReady(true); }, []);
+
   const [wasSent, setWasSent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionError, setSubmissionError] = useState("");
@@ -202,6 +205,7 @@ export default function Contact() {
   return (
     <div className="counselo-editorial-page legal-intake-page w-full bg-background min-h-screen">
       <SEOHead
+        heroArtwork="platform"
         title={region === "uae"
           ? (isRTL ? "احجز استشارة قانونية في الإمارات | كاونسلو" : "Book a UAE Legal Consultation | CounselO")
           : region === "syr"
@@ -363,7 +367,7 @@ export default function Contact() {
 
       {!wasSent && <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Info */}
             <div className="lg:col-span-4 space-y-12">
               <m.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
@@ -423,7 +427,8 @@ export default function Contact() {
                     : "Describe the facts in date order, explain what you need to know or achieve, and attach only relevant documents. Do not send the only copy of an original or include information that is not needed to assess the matter."}
                 </div>
                 <Form {...form}>
-                  <form id="consultation-form" name="consultation" onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <form id="consultation-form" name="consultation" onSubmit={form.handleSubmit(onSubmit)} aria-busy={!formReady}>
+                    <fieldset disabled={!formReady} className="m-0 min-w-0 space-y-6 border-0 p-0">
                     <div className="sr-only" aria-hidden="true">
                       <label htmlFor="contact-website">Website</label>
                       <input
@@ -561,7 +566,7 @@ export default function Contact() {
                       type="submit"
                       size="lg"
                       disabled={isSubmitting}
-                      className="w-full py-6 text-lg rounded-none bg-primary text-white hover:bg-primary/90"
+                      className="w-full h-auto min-h-12 whitespace-normal py-6 text-lg rounded-none bg-primary text-white hover:bg-primary/90"
                     >
                       {isSubmitting && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
                       {isSubmitting
@@ -569,6 +574,7 @@ export default function Contact() {
                         : f.submitBtn}
                     </Button>
                     <p className="text-xs text-muted-foreground text-center">{f.disclaimer}</p>
+                    </fieldset>
                   </form>
                 </Form>
               </m.div>

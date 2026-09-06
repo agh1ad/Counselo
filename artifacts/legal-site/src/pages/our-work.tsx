@@ -100,6 +100,7 @@ export default function OurWork() {
   return (
     <div className="counselo-editorial-page legal-portfolio-page min-h-screen bg-background" dir={isRTL ? "rtl" : "ltr"}>
       <SEOHead
+        heroArtwork="gold"
         title={ar ? "نماذج من أعمالنا القانونية | خبرة وصياغة احترافية | كاونسلو" : "Our Legal Work | Redacted Documents & Experience | CounselO"}
         description={ar ? "اطلع على نماذج منقحة من العقود والمذكرات والأعمال القانونية التي أعدها فريق كاونسلو، مع حماية كاملة لسرية وخصوصية العملاء." : "View redacted contracts, legal documents, and selected professional work prepared by CounselO, with client confidentiality and identifying information protected."}
         canonical={workBasePath}

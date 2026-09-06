@@ -41,6 +41,7 @@ export const SAUDI_SOURCES = {
   health: { en: "Saudi Ministry of Health", ar: "وزارة الصحة السعودية", href: "https://www.moh.gov.sa/" },
   insurance: { en: "Insurance Authority", ar: "هيئة التأمين", href: "https://www.ia.gov.sa/" },
   arbitration: { en: "Saudi Center for Commercial Arbitration", ar: "المركز السعودي للتحكيم التجاري", href: "https://sadr.org/" },
+  administrative: { en: "Board of Grievances — administrative courts and judicial services", ar: "ديوان المظالم — المحاكم الإدارية والخدمات القضائية", href: "https://www.bog.gov.sa/" },
 } satisfies Record<string, LegalSource>;
 
 /**
@@ -55,7 +56,7 @@ export const SAUDI_SERVICE_SOURCES: Record<SaudiServiceSlug, LegalSource[]> = {
   "real-estate": [SAUDI_SOURCES.realEstate, BOE_SOURCE],
   "employment-law": [SAUDI_SOURCES.labor, BOE_SOURCE],
   "foreign-investment": [SAUDI_SOURCES.investment, BOE_SOURCE],
-  "administrative-law": [SAUDI_SOURCES.justice, BOE_SOURCE],
+  "administrative-law": [SAUDI_SOURCES.administrative, BOE_SOURCE],
   arbitration: [SAUDI_SOURCES.arbitration, BOE_SOURCE],
   enforcement: [SAUDI_SOURCES.justice, BOE_SOURCE],
   "companies-law": [SAUDI_SOURCES.business, BOE_SOURCE],

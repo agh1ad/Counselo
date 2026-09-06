@@ -177,7 +177,10 @@ export default function LegalLibrary() {
               </div>
             </div>
             <div className="relative min-h-[420px] overflow-hidden bg-[#0d4a31] lg:min-h-full">
-              <img src="/images/legal-library-index.jpg" alt="" className="absolute inset-0 h-full w-full object-cover object-center" width="1536" height="1024" fetchPriority="high" />
+              <picture>
+                <source type="image/webp" srcSet="/images/optimized/legal-library-480.webp 480w, /images/optimized/legal-library-768.webp 768w, /images/optimized/legal-library-1440.webp 1440w" sizes="(min-width: 1440px) 706px, (min-width: 1024px) 49vw, 100vw" />
+                <img src="/images/legal-library-index.jpg" alt="" className="absolute inset-0 h-full w-full object-cover object-center" width="1536" height="1024" fetchPriority="high" />
+              </picture>
             </div>
           </div>
         </section>

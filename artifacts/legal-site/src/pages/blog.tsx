@@ -101,6 +101,7 @@ export default function Blog() {
       dir={isRTL ? "rtl" : "ltr"}
     >
       <SEOHead
+        heroArtwork="platform"
         title={
           isRTL
             ? "رؤى كاونسلو القانونية العالمية | مقالات وأدلة"
@@ -272,7 +273,7 @@ export default function Blog() {
                     </div>
                   </div>
                   <div className="relative min-h-56 overflow-hidden border-t border-white/15 bg-white lg:border-s lg:border-t-0">
-                    <img src="/images/optimized/counselo-platform-line-art-v1.webp" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover opacity-40" />
+                    <img src="/images/optimized/counselo-platform-line-art-v1.webp" srcSet="/images/optimized/counselo-platform-line-art-v1-640.webp 640w, /images/optimized/counselo-platform-line-art-v1-960.webp 960w, /images/optimized/counselo-platform-line-art-v1.webp 1719w" sizes="(max-width: 767px) 100vw, 50vw" loading="lazy" decoding="async" width="1719" height="915" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover opacity-40" />
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent,rgba(248,246,240,0.3))]" />
                   </div>
                 </m.article>
