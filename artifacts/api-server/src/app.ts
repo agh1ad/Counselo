@@ -1,3 +1,6 @@
+import { db, workSamplesTable } from "@workspace/db";
+import { eq } from "drizzle-orm";
+import { createPublicDocumentsRouter } from "./lib/public-work-documents.js";
 import express, { type Express } from "express";
 import cors from "cors";
 import pinoHttp from "pino-http";
@@ -130,6 +133,19 @@ app.use("/api", (req, res, next) => {
 });
 app.use("/api", cachePublicResponses("api", isDatabaseBackedPublicApiPath));
 app.use("/api", router);
+
+app.use("/documents", createPublicDocumentsRouter(async (slug) => {
+  const [sample] = await db.select({
+    slug: workSamplesTable.slug,
+    published: workSamplesTable.published,
+    updatedAt: workSamplesTable.updatedAt,
+    fileSize: workSamplesTable.fileSize,
+    fileMimeType: workSamplesTable.fileMimeType,
+    fileData: workSamplesTable.fileData,
+    confidentialityConfirmed: workSamplesTable.confidentialityConfirmed,
+  }).from(workSamplesTable).where(eq(workSamplesTable.slug, slug));
+  return sample;
+}));
 
 app.use(cachePublicResponses("page", isCacheablePublicPagePath));
 
