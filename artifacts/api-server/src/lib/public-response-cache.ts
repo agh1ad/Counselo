@@ -46,7 +46,9 @@ function objectStorageEnabled(): boolean {
 
 function storageClient(): Client | null {
   if (!objectStorageEnabled() || Date.now() < storageDisabledUntil) return null;
-  return new Client();
+  // Explicit selection avoids a failing default-bucket sidecar lookup in production.
+  const bucketId = process.env["PUBLIC_RESPONSE_CACHE_BUCKET_ID"]?.trim();
+  return new Client(bucketId ? { bucketId } : undefined);
 }
 
 function noteStorageFailure(error: unknown): void {
