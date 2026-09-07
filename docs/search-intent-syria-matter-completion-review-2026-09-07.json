@@ -1,0 +1,385 @@
+{
+  "reviewedAt": "2026-09-07",
+  "status": "partial",
+  "scope": {
+    "answerEntries": 4,
+    "distinctBilingualQuestions": 3,
+    "routes": 10
+  },
+  "evidenceBoundary": "Read existing rendered bodies and prior per-route findings; new official announcements verified through 7 September 2026. Parent owns integration and production verification. No page or ranking completion claim.",
+  "sourceReview": [
+    {
+      "href": "https://sana.sy/locals/2505527/",
+      "boundary": "The Interior Ministry’s June 2026 announcement lists appointments, document barcode checks, viewing civil events and complaint tracking. These can help identify a record or follow a service problem. The announcement does not say the app itself registers every marriage or corrects disputed entries; those require the appropriate registration or correction procedure."
+    },
+    {
+      "href": "https://sana.sy/locals/2472496/",
+      "boundary": "The Consular Administration announced in May 2026 that these two document categories no longer require the holder’s attendance, a relative’s attendance or a legal power of attorney for attestation. This concerns submitting documents for attestation; it does not authorize another person to conclude a contract or register a disputed civil event. Confirm the receiving office’s document requirements."
+    },
+    {
+      "href": "https://sana.sy/locals/2472496/",
+      "boundary": "The Consular Administration announced in May 2026 that these two document categories no longer require the holder’s attendance, a relative’s attendance or a legal power of attorney for attestation. This concerns submitting documents for attestation; it does not authorize another person to conclude a contract or register a disputed civil event. Confirm the receiving office’s document requirements."
+    },
+    {
+      "href": "https://sana.sy/education/2542861/",
+      "boundary": "The August 2026 Education Ministry explanation lists the original certificate, marks or subject record and identity card or civil extract. It describes certification by the issuing education authority, that country’s foreign ministry and Syria’s foreign ministry; non-Arab-country certificates need sworn Arabic translation and certification. Applications go to provincial education examination offices. This is the secondary-school equivalency route, not a universal chain for contracts or powers of attorney."
+    }
+  ],
+  "credibleFullPagePurposeClosureCandidates": [],
+  "pages": [
+    {
+      "route": "/syr/ar/services/contracts/document-attestation-and-legalisation-problem",
+      "status": "partial",
+      "individualResearchReview": {
+        "primaryIntent": {
+          "nativeLabel": "مشكلة تصديق المستند وإضفاء الصفة القانونية",
+          "editorialPurpose": "Resolve certification needed for a document used in Syria or abroad"
+        },
+        "originalPublicGaps": [
+          "Current consular/notarial chain and receiving-authority rules unverified",
+          "no apostille assumption.",
+          "Remaining remedy, filing, evidence, fees, time and exception intents need current primary-source research."
+        ],
+        "bodyReadEvidence": {
+          "file": "__pages/syr-ar-services-contracts-document-attestation-and-legalisation-problem.html",
+          "sha256": "118b25cb17302c8158f3effd63510354f1f822298090042ef43f84881770303d"
+        },
+        "newAnswerIds": [
+          "syr-consular-attestation-attendance-contracts",
+          "syr-foreign-secondary-certificate-attestation"
+        ],
+        "originalGapsResolved": [
+          "Concrete current civil-document service options and their limits are now sourced.",
+          "Attestation attendance/authority requirements resolved only for educational and civil-status documents."
+        ],
+        "remainingAuthoritativeSourceGaps": [
+          "Complete registration or correction application requirements and current fees are not established by these announcements.",
+          "Foreign recognition and any destination-specific attestation chain remain document- and authority-specific."
+        ],
+        "caseSpecificNotPublicContentDebt": [
+          "Whether a particular document is genuine, a contested entry is correct or an individual applicant qualifies requires the file."
+        ],
+        "fullPagePurposeClosureCandidate": false,
+        "closureReason": "This cluster resolves precise public questions but does not establish the full current workflow underlying the wider page purpose."
+      }
+    },
+    {
+      "route": "/syr/ar/services/contracts/power-of-attorney-drafting-and-authority-problem",
+      "status": "partial",
+      "individualResearchReview": {
+        "primaryIntent": {
+          "nativeLabel": "إساءة استخدام الوكالة أو رفضها أو تجاوز نطاقها",
+          "editorialPurpose": "Resolve misuse, rejection or scope of a Syrian power of attorney"
+        },
+        "originalPublicGaps": [
+          "2026 commentary reports contested registry treatment of judicial powers",
+          "original circular and current position unverified. No blanket validity or expiry statement.",
+          "Remaining remedy, filing, evidence, fees, time and exception intents need current primary-source research."
+        ],
+        "bodyReadEvidence": {
+          "file": "__pages/syr-ar-services-contracts-power-of-attorney-drafting-and-authority-problem.html",
+          "sha256": "65803fd686a0a52db90d5da535a7c317b4c72e9d5bae8f7142688eb8ca8d7aa8"
+        },
+        "newAnswerIds": [
+          "syr-consular-attestation-attendance-contracts"
+        ],
+        "originalGapsResolved": [
+          "Concrete current civil-document service options and their limits are now sourced.",
+          "Attestation attendance/authority requirements resolved only for educational and civil-status documents."
+        ],
+        "remainingAuthoritativeSourceGaps": [
+          "Complete registration or correction application requirements and current fees are not established by these announcements.",
+          "Foreign recognition and any destination-specific attestation chain remain document- and authority-specific."
+        ],
+        "caseSpecificNotPublicContentDebt": [
+          "Whether a particular document is genuine, a contested entry is correct or an individual applicant qualifies requires the file."
+        ],
+        "fullPagePurposeClosureCandidate": false,
+        "closureReason": "This cluster resolves precise public questions but does not establish the full current workflow underlying the wider page purpose."
+      }
+    },
+    {
+      "route": "/syr/ar/services/family-law/family-status-document-or-civil-record-correction",
+      "status": "partial",
+      "individualResearchReview": {
+        "primaryIntent": {
+          "nativeLabel": "تصحيح وثيقة الحالة الأسرية أو السجل المدني",
+          "editorialPurpose": "Correct an inaccurate Syrian civil-status entry"
+        },
+        "originalPublicGaps": [
+          "Current application documents and effect on linked records need confirmation",
+          "February circular supports venue only.",
+          "All remaining detailed remedy and procedure intents need current primary-source review."
+        ],
+        "bodyReadEvidence": {
+          "file": "__pages/syr-ar-services-family-law-family-status-document-or-civil-record-correction.html",
+          "sha256": "16c17cce6d5b8c8ac823f2d3feba76f7d89c290bca51f809a880b6b89b2167eb"
+        },
+        "newAnswerIds": [
+          "syr-civil-affairs-app-functions"
+        ],
+        "originalGapsResolved": [
+          "Concrete current civil-document service options and their limits are now sourced.",
+          "The app announcement is distinguished from substantive registration and correction."
+        ],
+        "remainingAuthoritativeSourceGaps": [
+          "Complete registration or correction application requirements and current fees are not established by these announcements.",
+          "Foreign recognition and any destination-specific attestation chain remain document- and authority-specific."
+        ],
+        "caseSpecificNotPublicContentDebt": [
+          "Whether a particular document is genuine, a contested entry is correct or an individual applicant qualifies requires the file."
+        ],
+        "fullPagePurposeClosureCandidate": false,
+        "closureReason": "This cluster resolves precise public questions but does not establish the full current workflow underlying the wider page purpose."
+      }
+    },
+    {
+      "route": "/syr/ar/services/family-law/inheritance-document-and-civil-record-correction",
+      "status": "partial",
+      "individualResearchReview": {
+        "primaryIntent": {
+          "nativeLabel": "تصحيح مستندات الميراث والسجل المدني",
+          "editorialPurpose": "Correct civil data affecting Syrian heir identification"
+        },
+        "originalPublicGaps": [
+          "Civil-record venue is not jurisdiction over every inheritance dispute",
+          "current heirship correction route unresolved.",
+          "All remaining detailed remedy and procedure intents need current primary-source review."
+        ],
+        "bodyReadEvidence": {
+          "file": "__pages/syr-ar-services-family-law-inheritance-document-and-civil-record-correction.html",
+          "sha256": "ee800b0ebb6004b4bbaab354d268c50fb80af2221f08300e2fb265bef4c9aa8f"
+        },
+        "newAnswerIds": [
+          "syr-civil-affairs-app-functions"
+        ],
+        "originalGapsResolved": [
+          "Concrete current civil-document service options and their limits are now sourced.",
+          "The app announcement is distinguished from substantive registration and correction."
+        ],
+        "remainingAuthoritativeSourceGaps": [
+          "Complete registration or correction application requirements and current fees are not established by these announcements.",
+          "Foreign recognition and any destination-specific attestation chain remain document- and authority-specific."
+        ],
+        "caseSpecificNotPublicContentDebt": [
+          "Whether a particular document is genuine, a contested entry is correct or an individual applicant qualifies requires the file."
+        ],
+        "fullPagePurposeClosureCandidate": false,
+        "closureReason": "This cluster resolves precise public questions but does not establish the full current workflow underlying the wider page purpose."
+      }
+    },
+    {
+      "route": "/syr/ar/services/family-law/marriage-registration-and-family-status-certificate-problem",
+      "status": "partial",
+      "individualResearchReview": {
+        "primaryIntent": {
+          "nativeLabel": "مشكلة تسجيل الزواج وشهادة الحالة الأسرية",
+          "editorialPurpose": "Register Syrian marriage event or resolve refused certificate"
+        },
+        "originalPublicGaps": [
+          "Current consular and civil registration workflow not consolidated",
+          "historic UNHCR fees/documents not republished.",
+          "All remaining detailed remedy and procedure intents need current primary-source review."
+        ],
+        "bodyReadEvidence": {
+          "file": "__pages/syr-ar-services-family-law-marriage-registration-and-family-status-certificate-problem.html",
+          "sha256": "a240811570c154f1a4519e9dadfd0ee4f4a8ff11f89d5d03448d7e82d1b7a8b6"
+        },
+        "newAnswerIds": [
+          "syr-civil-affairs-app-functions",
+          "syr-consular-attestation-attendance-family-law"
+        ],
+        "originalGapsResolved": [
+          "Concrete current civil-document service options and their limits are now sourced.",
+          "Attestation attendance/authority requirements resolved only for educational and civil-status documents."
+        ],
+        "remainingAuthoritativeSourceGaps": [
+          "Complete registration or correction application requirements and current fees are not established by these announcements.",
+          "Foreign recognition and any destination-specific attestation chain remain document- and authority-specific."
+        ],
+        "caseSpecificNotPublicContentDebt": [
+          "Whether a particular document is genuine, a contested entry is correct or an individual applicant qualifies requires the file."
+        ],
+        "fullPagePurposeClosureCandidate": false,
+        "closureReason": "This cluster resolves precise public questions but does not establish the full current workflow underlying the wider page purpose."
+      }
+    },
+    {
+      "route": "/syr/services/contracts/document-attestation-and-legalisation-problem",
+      "status": "partial",
+      "individualResearchReview": {
+        "primaryIntent": {
+          "nativeLabel": "Document attestation and legalisation problem",
+          "editorialPurpose": "Resolve certification needed for a document used in Syria or abroad"
+        },
+        "originalPublicGaps": [
+          "Current consular/notarial chain and receiving-authority rules unverified",
+          "no apostille assumption.",
+          "Remaining remedy, filing, evidence, fees, time and exception intents need current primary-source research."
+        ],
+        "bodyReadEvidence": {
+          "file": "__pages/syr-services-contracts-document-attestation-and-legalisation-problem.html",
+          "sha256": "50788dbf90874bc49c75ce4c156eb89260e296a797f2cd8cb5357d96d5b52a1c"
+        },
+        "newAnswerIds": [
+          "syr-consular-attestation-attendance-contracts",
+          "syr-foreign-secondary-certificate-attestation"
+        ],
+        "originalGapsResolved": [
+          "Concrete current civil-document service options and their limits are now sourced.",
+          "Attestation attendance/authority requirements resolved only for educational and civil-status documents."
+        ],
+        "remainingAuthoritativeSourceGaps": [
+          "Complete registration or correction application requirements and current fees are not established by these announcements.",
+          "Foreign recognition and any destination-specific attestation chain remain document- and authority-specific."
+        ],
+        "caseSpecificNotPublicContentDebt": [
+          "Whether a particular document is genuine, a contested entry is correct or an individual applicant qualifies requires the file."
+        ],
+        "fullPagePurposeClosureCandidate": false,
+        "closureReason": "This cluster resolves precise public questions but does not establish the full current workflow underlying the wider page purpose."
+      }
+    },
+    {
+      "route": "/syr/services/contracts/power-of-attorney-drafting-and-authority-problem",
+      "status": "partial",
+      "individualResearchReview": {
+        "primaryIntent": {
+          "nativeLabel": "Power-of-attorney misuse, rejection or scope dispute",
+          "editorialPurpose": "Resolve misuse, rejection or scope of a Syrian power of attorney"
+        },
+        "originalPublicGaps": [
+          "2026 commentary reports contested registry treatment of judicial powers",
+          "original circular and current position unverified. No blanket validity or expiry statement.",
+          "Remaining remedy, filing, evidence, fees, time and exception intents need current primary-source research."
+        ],
+        "bodyReadEvidence": {
+          "file": "__pages/syr-services-contracts-power-of-attorney-drafting-and-authority-problem.html",
+          "sha256": "eeafbdf33aca3a7520d110a4b52a57bb096df7cd08c6688c0bb26c01681f73e4"
+        },
+        "newAnswerIds": [
+          "syr-consular-attestation-attendance-contracts"
+        ],
+        "originalGapsResolved": [
+          "Concrete current civil-document service options and their limits are now sourced.",
+          "Attestation attendance/authority requirements resolved only for educational and civil-status documents."
+        ],
+        "remainingAuthoritativeSourceGaps": [
+          "Complete registration or correction application requirements and current fees are not established by these announcements.",
+          "Foreign recognition and any destination-specific attestation chain remain document- and authority-specific."
+        ],
+        "caseSpecificNotPublicContentDebt": [
+          "Whether a particular document is genuine, a contested entry is correct or an individual applicant qualifies requires the file."
+        ],
+        "fullPagePurposeClosureCandidate": false,
+        "closureReason": "This cluster resolves precise public questions but does not establish the full current workflow underlying the wider page purpose."
+      }
+    },
+    {
+      "route": "/syr/services/family-law/family-status-document-or-civil-record-correction",
+      "status": "partial",
+      "individualResearchReview": {
+        "primaryIntent": {
+          "nativeLabel": "Family-status document or civil-record correction",
+          "editorialPurpose": "Correct an inaccurate Syrian civil-status entry"
+        },
+        "originalPublicGaps": [
+          "Current application documents and effect on linked records need confirmation",
+          "February circular supports venue only.",
+          "All remaining detailed remedy and procedure intents need current primary-source review."
+        ],
+        "bodyReadEvidence": {
+          "file": "__pages/syr-services-family-law-family-status-document-or-civil-record-correction.html",
+          "sha256": "7169fdb2cf78a29b1aa33c82bd41e90418b986b756f73392ef1d1ae931c3bbac"
+        },
+        "newAnswerIds": [
+          "syr-civil-affairs-app-functions"
+        ],
+        "originalGapsResolved": [
+          "Concrete current civil-document service options and their limits are now sourced.",
+          "The app announcement is distinguished from substantive registration and correction."
+        ],
+        "remainingAuthoritativeSourceGaps": [
+          "Complete registration or correction application requirements and current fees are not established by these announcements.",
+          "Foreign recognition and any destination-specific attestation chain remain document- and authority-specific."
+        ],
+        "caseSpecificNotPublicContentDebt": [
+          "Whether a particular document is genuine, a contested entry is correct or an individual applicant qualifies requires the file."
+        ],
+        "fullPagePurposeClosureCandidate": false,
+        "closureReason": "This cluster resolves precise public questions but does not establish the full current workflow underlying the wider page purpose."
+      }
+    },
+    {
+      "route": "/syr/services/family-law/inheritance-document-and-civil-record-correction",
+      "status": "partial",
+      "individualResearchReview": {
+        "primaryIntent": {
+          "nativeLabel": "Inheritance document and civil-record correction",
+          "editorialPurpose": "Correct civil data affecting Syrian heir identification"
+        },
+        "originalPublicGaps": [
+          "Civil-record venue is not jurisdiction over every inheritance dispute",
+          "current heirship correction route unresolved.",
+          "All remaining detailed remedy and procedure intents need current primary-source review."
+        ],
+        "bodyReadEvidence": {
+          "file": "__pages/syr-services-family-law-inheritance-document-and-civil-record-correction.html",
+          "sha256": "1afd0c9f6c5243eb8e2ccad55f9d495ff730848132f31bed40b07f6c19aacda9"
+        },
+        "newAnswerIds": [
+          "syr-civil-affairs-app-functions"
+        ],
+        "originalGapsResolved": [
+          "Concrete current civil-document service options and their limits are now sourced.",
+          "The app announcement is distinguished from substantive registration and correction."
+        ],
+        "remainingAuthoritativeSourceGaps": [
+          "Complete registration or correction application requirements and current fees are not established by these announcements.",
+          "Foreign recognition and any destination-specific attestation chain remain document- and authority-specific."
+        ],
+        "caseSpecificNotPublicContentDebt": [
+          "Whether a particular document is genuine, a contested entry is correct or an individual applicant qualifies requires the file."
+        ],
+        "fullPagePurposeClosureCandidate": false,
+        "closureReason": "This cluster resolves precise public questions but does not establish the full current workflow underlying the wider page purpose."
+      }
+    },
+    {
+      "route": "/syr/services/family-law/marriage-registration-and-family-status-certificate-problem",
+      "status": "partial",
+      "individualResearchReview": {
+        "primaryIntent": {
+          "nativeLabel": "Marriage registration and family-status certificate problem",
+          "editorialPurpose": "Register Syrian marriage event or resolve refused certificate"
+        },
+        "originalPublicGaps": [
+          "Current consular and civil registration workflow not consolidated",
+          "historic UNHCR fees/documents not republished.",
+          "All remaining detailed remedy and procedure intents need current primary-source review."
+        ],
+        "bodyReadEvidence": {
+          "file": "__pages/syr-services-family-law-marriage-registration-and-family-status-certificate-problem.html",
+          "sha256": "c8487da40ea58e5e499d2082b7e6a04bb93ed785b6f41c987b42d4ecbd2fedda"
+        },
+        "newAnswerIds": [
+          "syr-civil-affairs-app-functions",
+          "syr-consular-attestation-attendance-family-law"
+        ],
+        "originalGapsResolved": [
+          "Concrete current civil-document service options and their limits are now sourced.",
+          "Attestation attendance/authority requirements resolved only for educational and civil-status documents."
+        ],
+        "remainingAuthoritativeSourceGaps": [
+          "Complete registration or correction application requirements and current fees are not established by these announcements.",
+          "Foreign recognition and any destination-specific attestation chain remain document- and authority-specific."
+        ],
+        "caseSpecificNotPublicContentDebt": [
+          "Whether a particular document is genuine, a contested entry is correct or an individual applicant qualifies requires the file."
+        ],
+        "fullPagePurposeClosureCandidate": false,
+        "closureReason": "This cluster resolves precise public questions but does not establish the full current workflow underlying the wider page purpose."
+      }
+    }
+  ]
+}

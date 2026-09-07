@@ -256,10 +256,6 @@ export default function Vision() {
         : "Law—closer, clearer, and more trustworthy",
       founder: { "@id": COUNSELO_ENTITY_IDS.omar },
       knowsLanguage: ["ar", "en"],
-      areaServed: {
-        "@type": "Country",
-        name: region === "uae" ? "United Arab Emirates" : region === "syr" ? "Syria" : "Saudi Arabia",
-      },
       email: "info@counselo-legal.com",
       telephone: "+966594850247",
     },

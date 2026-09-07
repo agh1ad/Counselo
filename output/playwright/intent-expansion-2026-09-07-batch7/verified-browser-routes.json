@@ -1,0 +1,1538 @@
+{
+  "environment": "local production browser,390x844",
+  "rows": [
+    {
+      "route": "/sa/services/family-law/alimony-and-child-maintenance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can maintenance be requested while the main claim is still pending?",
+          "visible": true
+        },
+        {
+          "question": "Do spousal arrears and reimbursement of child expenses have the same look-back period?",
+          "visible": true
+        },
+        {
+          "question": "Does a child’s eighteenth birthday automatically end the father’s maintenance duty?",
+          "visible": true
+        },
+        {
+          "question": "What does Najiz require when a statement of claim is the appropriate route?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can maintenance be requested while the main claim is still pending?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/alimony-and-child-maintenance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن طلب نفقة أثناء نظر الدعوى الأصلية؟",
+          "visible": true
+        },
+        {
+          "question": "هل تتساوى مدة المطالبة بنفقة الزوجة الماضية والرجوع بمصروفات الأولاد؟",
+          "visible": true
+        },
+        {
+          "question": "هل تنتهي نفقة الأب تلقائياً بمجرد بلوغ الابن الثامنة عشرة؟",
+          "visible": true
+        },
+        {
+          "question": "ما المطلوب في ناجز عندما يكون المسار المناسب صحيفة دعوى؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن طلب نفقة أثناء نظر الدعوى الأصلية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/trial-and-appeal-preparation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does not collecting the written criminal judgment stop the appeal clock?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/trial-and-appeal-preparation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمنع عدم استلام صك الحكم الجزائي بدء ميعاد الاعتراض؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/criminal-complaints-and-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When does a criminal case depend on a victim’s complaint?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/police-complaint-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When does a criminal case depend on a victim’s complaint?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/criminal-compensation-and-restitution-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When does a criminal case depend on a victim’s complaint?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/criminal-complaints-and-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تتوقف الدعوى الجزائية على شكوى المجني عليه؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/police-complaint-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تتوقف الدعوى الجزائية على شكوى المجني عليه؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/criminal-compensation-and-restitution-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تتوقف الدعوى الجزائية على شكوى المجني عليه؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/intellectual-property/copyright-infringement-online",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where is a Saudi copyright infringement complaint submitted?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/intellectual-property/copyright-protection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where is a Saudi copyright infringement complaint submitted?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/intellectual-property",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where is a Saudi copyright infringement complaint submitted?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property/copyright-infringement-online",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أين تقدم شكوى انتهاك حق المؤلف في السعودية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property/copyright-protection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أين تقدم شكوى انتهاك حق المؤلف في السعودية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أين تقدم شكوى انتهاك حق المؤلف في السعودية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/intellectual-property/counterfeit-and-brand-infringement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is there a dedicated Saudi trademark-infringement complaint channel?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/intellectual-property/infringement-and-counterfeit-claims",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is there a dedicated Saudi trademark-infringement complaint channel?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property/counterfeit-and-brand-infringement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل توجد قناة سعودية مخصصة لشكاوى انتهاك العلامة التجارية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property/infringement-and-counterfeit-claims",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل توجد قناة سعودية مخصصة لشكاوى انتهاك العلامة التجارية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/power-of-attorney-drafting-and-authority-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What must be specified when issuing an individual power of attorney through Najiz?",
+          "visible": true
+        },
+        {
+          "question": "How is an existing electronic power of attorney revoked?",
+          "visible": true
+        },
+        {
+          "question": "Can every power of attorney be revoked without restrictions or compensation?",
+          "visible": true
+        },
+        {
+          "question": "What if the agent will not account for dealings or sold below the authorised price?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/power-of-attorney-drafting-and-authority-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What must be specified when issuing an individual power of attorney through Najiz?",
+          "visible": true
+        },
+        {
+          "question": "How is an existing electronic power of attorney revoked?",
+          "visible": true
+        },
+        {
+          "question": "Can every power of attorney be revoked without restrictions or compensation?",
+          "visible": true
+        },
+        {
+          "question": "What if the agent will not account for dealings or sold below the authorised price?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/power-of-attorney-drafting-and-authority-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا يحدد عند إصدار وكالة فردية عبر ناجز؟",
+          "visible": true
+        },
+        {
+          "question": "كيف تُفسخ وكالة إلكترونية قائمة؟",
+          "visible": true
+        },
+        {
+          "question": "هل يمكن عزل كل وكيل دون قيد أو تعويض؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا إذا لم يقدم الوكيل حساباً أو باع بأقل من الثمن المأذون؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/power-of-attorney-drafting-and-authority-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا يحدد عند إصدار وكالة فردية عبر ناجز؟",
+          "visible": true
+        },
+        {
+          "question": "كيف تُفسخ وكالة إلكترونية قائمة؟",
+          "visible": true
+        },
+        {
+          "question": "هل يمكن عزل كل وكيل دون قيد أو تعويض؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا إذا لم يقدم الوكيل حساباً أو باع بأقل من الثمن المأذون؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/divorce-and-separation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What does Najiz require when a statement of claim is the appropriate route?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/khul-and-marriage-annulment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What does Najiz require when a statement of claim is the appropriate route?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/divorce-and-separation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المطلوب في ناجز عندما يكون المسار المناسب صحيفة دعوى؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/khul-and-marriage-annulment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المطلوب في ناجز عندما يكون المسار المناسب صحيفة دعوى؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/breach-of-contract",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What does Najiz require when a statement of claim is the appropriate route?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/service-agreement-breach",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What does Najiz require when a statement of claim is the appropriate route?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/unpaid-professional-fees-and-service-invoice-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What does Najiz require when a statement of claim is the appropriate route?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/breach-of-contract",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المطلوب في ناجز عندما يكون المسار المناسب صحيفة دعوى؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/service-agreement-breach",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المطلوب في ناجز عندما يكون المسار المناسب صحيفة دعوى؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/unpaid-professional-fees-and-service-invoice-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المطلوب في ناجز عندما يكون المسار المناسب صحيفة دعوى؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/contracts/contract-authentication-and-evidence-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What if the notary’s original contract or power of attorney was lost?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/contracts/document-attestation-and-legalisation-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What if the notary’s original contract or power of attorney was lost?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/contracts/power-of-attorney-drafting-and-authority-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What if the notary’s original contract or power of attorney was lost?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/contracts",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What if the notary’s original contract or power of attorney was lost?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/contracts/contract-authentication-and-evidence-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا إذا فُقد أصل العقد أو الوكالة لدى الكاتب بالعدل؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/contracts/document-attestation-and-legalisation-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا إذا فُقد أصل العقد أو الوكالة لدى الكاتب بالعدل؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/contracts/power-of-attorney-drafting-and-authority-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا إذا فُقد أصل العقد أو الوكالة لدى الكاتب بالعدل؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/contracts",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا إذا فُقد أصل العقد أو الوكالة لدى الكاتب بالعدل؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-procedure/litigation-strategy-and-case-management",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where is a complaint about judicial work directed?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-procedure/appeals-and-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where is a complaint about judicial work directed?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure/litigation-strategy-and-case-management",
+      "status": 200,
+      "answers": [
+        {
+          "question": "إلى أين تقدم الشكوى المتعلقة بالعمل القضائي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure/appeals-and-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "إلى أين تقدم الشكوى المتعلقة بالعمل القضائي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/arbitration/mediation-and-negotiated-settlement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is there an official Syrian mediation platform?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/arbitration",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is there an official Syrian mediation platform?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/arbitration/mediation-and-negotiated-settlement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل توجد منصة سورية رسمية للوساطة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/arbitration",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل توجد منصة سورية رسمية للوساطة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/banking-finance/unauthorized-bank-transaction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When can an unresolved bank complaint go to Sanadak?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/banking-finance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When can an unresolved bank complaint go to Sanadak?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/banking-finance/unauthorized-bank-transaction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تُرفع الشكوى المصرفية غير المحلولة إلى سندك؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/banking-finance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تُرفع الشكوى المصرفية غير المحلولة إلى سندك؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/litigation-court-disputes/appeal-deadline-and-filing-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the federal appeal clock always start when judgment is delivered to me?",
+          "visible": true
+        },
+        {
+          "question": "Can every ruling made during a civil case be appealed immediately?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/litigation-court-disputes/court-service-and-notification-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the federal appeal clock always start when judgment is delivered to me?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/litigation-court-disputes/appeal-deadline-and-filing-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يبدأ ميعاد الطعن الاتحادي دائماً من تسلمي الحكم؟",
+          "visible": true
+        },
+        {
+          "question": "هل يمكن الطعن فوراً في كل حكم يصدر أثناء الدعوى المدنية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/litigation-court-disputes/court-service-and-notification-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يبدأ ميعاد الطعن الاتحادي دائماً من تسلمي الحكم؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/consumer-ecommerce/defective-product-and-consumer-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What remedies does the federal Consumer Protection Law provide for a defective product or service?",
+          "visible": true
+        },
+        {
+          "question": "What if the same substantial product defect keeps recurring?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/consumer-ecommerce/online-purchase-refund-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What remedies does the federal Consumer Protection Law provide for a defective product or service?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/consumer-ecommerce",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What remedies does the federal Consumer Protection Law provide for a defective product or service?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/consumer-ecommerce/defective-product-and-consumer-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما معالجات عيب السلعة أو الخدمة في قانون حماية المستهلك الاتحادي؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا إذا تكرر العيب الجوهري نفسه في السلعة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/consumer-ecommerce/online-purchase-refund-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما معالجات عيب السلعة أو الخدمة في قانون حماية المستهلك الاتحادي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/consumer-ecommerce",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما معالجات عيب السلعة أو الخدمة في قانون حماية المستهلك الاتحادي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour/delayed-or-unpaid-salary",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Which court reviews a MOHRE decision on an individual labour claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour/wrongful-termination-and-labour-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Which court reviews a MOHRE decision on an individual labour claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour/end-of-service-benefits-and-final-settlement-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Which court reviews a MOHRE decision on an individual labour claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour/commission-and-bonus-payment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Which court reviews a MOHRE decision on an individual labour claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Which court reviews a MOHRE decision on an individual labour claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour/delayed-or-unpaid-salary",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أي محكمة تنظر الاعتراض على قرار الوزارة في مطالبة عمالية فردية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour/wrongful-termination-and-labour-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أي محكمة تنظر الاعتراض على قرار الوزارة في مطالبة عمالية فردية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour/end-of-service-benefits-and-final-settlement-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أي محكمة تنظر الاعتراض على قرار الوزارة في مطالبة عمالية فردية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour/commission-and-bonus-payment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أي محكمة تنظر الاعتراض على قرار الوزارة في مطالبة عمالية فردية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أي محكمة تنظر الاعتراض على قرار الوزارة في مطالبة عمالية فردية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "pass": true
+}

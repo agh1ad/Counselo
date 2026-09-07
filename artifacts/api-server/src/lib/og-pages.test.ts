@@ -101,3 +101,20 @@ test("route-like legacy SEO titles fall back to the descriptive article title", 
   assert.match(html, /<title>A Future Contract Article Published Without a Rebuild \| CounselO<\/title>/);
   assert.doesNotMatch(html, new RegExp(`<title>/blog/${FUTURE_SLUG}`));
 });
+
+
+test("an attributed external original author keeps its own URL and entity while CounselO publishes", () => {
+  const post = { ...futurePost,
+    titleEn: "Hidden Defects in Contracts and Their Legal Effect",
+    bodyEn: "<p>Prepared by Al-Baghdadi Law Firm and published on baghdadilaw.co</p>",
+  };
+  for (const language of ["en", "ar"] as const) {
+    const html = buildDynamicBlogHtml(post, language, shell);
+    const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
+    const article = schemas.find(node => node["@type"] === "Article");
+    assert.ok(article.author.url.startsWith("https://www.baghdadilaw.co"));
+    assert.equal(article.author["@id"], "https://www.baghdadilaw.co/#legalservice");
+    assert.equal(article.publisher["@id"], "https://counselo-legal.com/#organization");
+    assert.doesNotMatch(html, /https:\/\/counselo-legal\.comhttps:/);
+  }
+});

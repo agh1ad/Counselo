@@ -1,0 +1,3293 @@
+{
+  "reviewedAt": "2026-09-07",
+  "scope": "All Saudi family-law and real-estate service/problem routes from the saved 1,468-page ledger; 74 routes, 37 bilingual page pairs.",
+  "skills": [
+    "legal-content-quality",
+    "seo-content-optimizer"
+  ],
+  "assessmentEvidence": [
+    "docs/page-seo-ledger-2026-09-06.json",
+    "artifacts/legal-site/src/lib/legal-problem-pages.ts",
+    "artifacts/legal-site/src/lib/matter-intent-briefs/family.ts",
+    "artifacts/legal-site/src/lib/matter-intent-briefs/property.ts",
+    "artifacts/legal-site/src/lib/matter-intent-briefs/refinements.ts"
+  ],
+  "summary": {
+    "routesAssessed": 74,
+    "answersImplemented": 29,
+    "routesReceivingAnswers": 74,
+    "fullyCoveredRoutes": 0,
+    "openRoutes": 74
+  },
+  "sourceConflictsAndLimits": [
+    {
+      "topic": "Ejar payment instructions",
+      "sources": [
+        "https://www.ejar.sa/ar/faqs/1000",
+        "https://www.ejar.sa/ar/faqs",
+        "https://rega.gov.sa/media-center/الأخبار-والإعلانات/حصر-دفع-الإيجار-للعقود-السكنية-من-خلال-القنوات-الرقمية-بدءا-من-15-يناير-بشكل-تدريجي/"
+      ],
+      "finding": "Resolved residential/commercial distinction using REGA digital-payment announcement effective 15 January 2024 for new residential leases; legacy FAQ not used for current payment-method advice."
+    },
+    {
+      "topic": "Foreign property ownership",
+      "sources": [
+        "https://rega.gov.sa/rega-services/platforms/non-saudi-real-estate-ownership-in-saudi-arabia/"
+      ],
+      "finding": "Current guidance links geographic maps; early 2026 announcement said maps would follow. Use current zone check rather than repeat future-publication wording."
+    },
+    {
+      "topic": "Personal Status Law full text",
+      "sources": [
+        "https://fac.gov.sa/legislations-posts/personal-status-system/",
+        "https://misa.gov.sa/app/uploads/2025/08/نظام-الأحوال-الشخصية.pdf",
+        "https://www.uqn.gov.sa/details?p=27013"
+      ],
+      "finding": "Resolved full-statute discovery through official BOE indexed provisions and MISA-hosted statute PDF; 2025 implementing regulations located in UQN p=27013. Added specific maintenance, travel, parentage, will and child-order rules; remaining topic-specific gaps are in route rows."
+    },
+    {
+      "topic": "Expropriation",
+      "sources": [
+        "https://www.uqn.gov.sa/details?p=27461",
+        "https://www.uqn.gov.sa/details?p=27460"
+      ],
+      "finding": "Resolved Article 39 120-day commencement and Cabinet Decision 177 old-law transition from official indexed gazette text. Implementing rules and case-specific applicable remedies remain open."
+    },
+    {
+      "topic": "Estate platform",
+      "sources": [
+        "https://merath.moj.gov.sa/landing/faq"
+      ],
+      "finding": "Search-indexed official text distinguishes heirs, estate and distribution; direct text extraction yielded empty body. Answer limited to that distinction."
+    },
+    {
+      "topic": "SAMA complaints",
+      "sources": [
+        "https://sama.gov.sa/ar-sa/Pages/ServiceDetails.aspx?serviceid=122",
+        "https://rulebook.sama.gov.sa/ar/entiresection/9432"
+      ],
+      "finding": "Current service found is for legal entities; old company complaint deadlines and current service response times concern different stages. No generic personal mortgage complaint SLA published."
+    },
+    {
+      "topic": "Registration amendment versus old FAQ",
+      "sources": [
+        "https://rega.gov.sa/rega-services/platforms/real-estate-registry/",
+        "https://rega.gov.sa/الأنظمة-والقرارات/الأنظمة-واللوائح-والأدلة/الأنظمة/نظام-التسجيل-العيني-للعقار/"
+      ],
+      "finding": "Current amended Article 11 uses a period not exceeding one year, fixed by area announcement. Rejected older FAQ universal after-one-year wording."
+    },
+    {
+      "topic": "Deposit agreement versus holding workflow",
+      "sources": [
+        "https://www.ejar.sa/ar/faqs/1000",
+        "https://www.ejar.sa/ar/page/265289",
+        "https://www.ejar.sa/ar/page/19420"
+      ],
+      "finding": "Replaced old optionality-focused answer with current handover/held-deposit workflow. Published 30-day residential-contract term labelled as that term, not a universal rule for every lease."
+    },
+    {
+      "topic": "Enforcement commencement",
+      "sources": [
+        "https://www.uqn.gov.sa/decisions-and-regulations/rules-and-regulations/4000869"
+      ],
+      "finding": "Root supplied prospective May 2026 law and 180-day commencement warning. No new execution deadline from prospective legislation used. Foreign-judgment answer remains on existing law; no independent certification of applicable treaty."
+    }
+  ],
+  "rows": [
+    {
+      "route": "/sa/ar/services/family-law/alimony-and-child-maintenance",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "النفقة الزوجية ونفقة الأطفال",
+      "supportingResearchedIntents": [
+        "maintenance entitlement and amount",
+        "income and expense evidence",
+        "interim maintenance and arrears",
+        "increase or decrease of an order"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-maintenance-amount-and-variation",
+        "sa-family-document-court-approval-and-objection"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.uqn.gov.sa/details?p=27013",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Amount factors, variation threshold and court-approved electronic document distinction answered. Remaining: initial entitlement by claimant, interim relief, retroactive periods, evidence examples and the current filing path.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-maintenance-amount-and-variation",
+          "question": "كيف تقدر النفقة وهل يمكن تعديل مبلغ حكم قائم؟",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-family-document-court-approval-and-objection",
+          "question": "هل يصبح طلب الحضانة أو الزيارة أو نفقة الأولاد الإلكتروني قابلاً للتنفيذ فور تقديمه؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law/child-custody-and-visitation",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "الحضانة والزيارة",
+      "supportingResearchedIntents": [
+        "uncontested custody certificate versus disputed custody",
+        "child welfare and care evidence",
+        "visitation schedule",
+        "changing an existing order"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-uncontested-custody-documentation",
+        "sa-custody-priority-child-interest"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.moj.gov.sa/ar/eServices/pages/e2560f40-ddf8-4e37-b212-394787344aef.aspx",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.uqn.gov.sa/details?p=19139",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Documentation eligibility and child-interest departure from priority answered. Remaining: full priority and eligibility exceptions, variation pleadings and age/disability continuation rules.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-uncontested-custody-documentation",
+          "question": "هل أستخدم خدمة توثيق حضانة عند وجود نزاع؟",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-custody-priority-child-interest",
+          "question": "هل يحسم ترتيب الحضانة النظامي كل حالة تلقائياً؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law/child-relocation-and-travel-disputes",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "منازعات انتقال الأطفال والسفر بهم",
+      "supportingResearchedIntents": [
+        "short travel versus permanent relocation",
+        "consent and court permission",
+        "effect on custody and visits",
+        "urgent travel restriction"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-custodian-overseas-travel-limits",
+        "sa-custody-priority-child-interest"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.uqn.gov.sa/details?p=19139",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Article 129 travel thresholds and relocation impact on custody answered. Remaining: exact consent signatory on death, passport/guardian interactions, permission and urgent restriction procedure.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-custodian-overseas-travel-limits",
+          "question": "هل تجيز الحضانة السفر بالمحضون خارج المملكة دون حدود؟",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-custody-priority-child-interest",
+          "question": "هل يحسم ترتيب الحضانة النظامي كل حالة تلقائياً؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law/contested-will-and-inheritance-distribution-dispute",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "منازعة الوصية وتوزيع التركة",
+      "supportingResearchedIntents": [
+        "will authenticity and capacity challenge",
+        "effect on distribution",
+        "interim protection of estate assets",
+        "competing heir claims"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-will-heir-consent-and-third"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://misa.gov.sa/app/uploads/2025/08/نظام-الأحوال-الشخصية.pdf",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Heir consent and one-third limits answered with exceptions. Remaining: authenticity/capacity/revocation proof, urgent estate preservation, debts and asset valuation scenarios.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-will-heir-consent-and-third",
+          "question": "هل تنفذ الوصية لوارث أو بأكثر من ثلث التركة؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law/divorce-and-separation",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "الطلاق والتفريق",
+      "supportingResearchedIntents": [
+        "documenting divorce versus contested dissolution",
+        "marriage and divorce records",
+        "support and custody after separation",
+        "reconciliation and judicial filing"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-divorce-record-service",
+        "sa-family-document-court-approval-and-objection"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://moj.gov.sa/ar/eServices/Pages/0205e7ab-9006-4cc5-9c42-cc279e08a831.aspx",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.uqn.gov.sa/details?p=27013",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Documentation data and related court-approved children orders answered. Remaining: operative divorce types and proof, waiting-period effects, financial entitlements and contested dissolution steps.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-divorce-record-service",
+          "question": "ما البيانات المطلوبة لتوثيق الطلاق في السعودية؟",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-family-document-court-approval-and-objection",
+          "question": "هل يصبح طلب الحضانة أو الزيارة أو نفقة الأولاد الإلكتروني قابلاً للتنفيذ فور تقديمه؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law/domestic-violence-protection-and-family-safety-application",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "طلب الحماية من العنف الأسري وحماية الأسرة",
+      "supportingResearchedIntents": [
+        "immediate reporting and protection",
+        "reporting without documents",
+        "protective case follow-up",
+        "parallel custody and housing concerns"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-family-violence-reporting"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.hrsd.gov.sa/ministry-services/services/الإبلاغ-عن-العنف-الأسري",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Expand protection process, available measures and safe confidentiality guidance; do not imply the reporting number itself grants a protective order.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-family-violence-reporting",
+          "question": "أين أبلغ عن العنف الأسري في السعودية؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law/inheritance-and-family-settlements",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "الميراث والتسويات العائلية",
+      "supportingResearchedIntents": [
+        "heir identification versus estate inventory",
+        "agreed distribution",
+        "debts and disputed assets",
+        "minors and representative authority"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-heir-record-and-estate-division"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://merath.moj.gov.sa/landing/faq",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Add debt and testamentary priority, legal shares in defined examples and safeguards for minors before presenting a settlement as sufficient.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-heir-record-and-estate-division",
+          "question": "هل يكتمل توزيع التركة بمجرد توثيق الورثة؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law/inheritance-document-and-civil-record-correction",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "تصحيح مستندات الميراث والسجل المدني",
+      "supportingResearchedIntents": [
+        "incorrect heir identity or relationship",
+        "omitted heir",
+        "civil record mismatch",
+        "effect on transfer of estate assets"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-heir-record-and-estate-division"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://merath.moj.gov.sa/landing/faq",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Verify correction versus contested heir determination channels and evidence; estate platform overview does not resolve every correction.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-heir-record-and-estate-division",
+          "question": "هل يكتمل توزيع التركة بمجرد توثيق الورثة؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law/khul-and-marriage-annulment-dispute",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "منازعة الخلع وفسخ الزواج",
+      "supportingResearchedIntents": [
+        "agreed khul documentation",
+        "lack of consent",
+        "judicial annulment grounds",
+        "financial consequences"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-agreed-khul-documentation",
+        "sa-khul-cannot-waive-child-rights"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.moj.gov.sa/Lists/MOJNews/DispForm.aspx?ID=1575",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.uqn.gov.sa/details?p=19139",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Agreed documentation and prohibition on bargaining away child rights answered. Remaining: separate judicial annulment grounds, proof, compensation and required filing documents.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-agreed-khul-documentation",
+          "question": "هل يمكن توثيق الخلع المتفق عليه دون حكم قضائي؟",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-khul-cannot-waive-child-rights",
+          "question": "هل يصلح إسقاط نفقة الأولاد أو حضانتهم عوضاً للخلع؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law/marital-status-document-and-record-correction",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "تصحيح وثيقة أو سجل الحالة الزوجية",
+      "supportingResearchedIntents": [
+        "documenting divorce event",
+        "wrong recorded marital status",
+        "rejected correction",
+        "foreign supporting records"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-divorce-record-service"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://moj.gov.sa/ar/eServices/Pages/0205e7ab-9006-4cc5-9c42-cc279e08a831.aspx",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Identify exact correction service and contested correction route; divorce-documentation service is not a universal registry correction.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-divorce-record-service",
+          "question": "ما البيانات المطلوبة لتوثيق الطلاق في السعودية؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law/marriage-and-personal-status-disputes",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "الزواج ومنازعات الأحوال الشخصية",
+      "supportingResearchedIntents": [
+        "existing marriage proof versus new contract",
+        "paper contract authentication",
+        "validity dispute",
+        "mixed nationality and foreign documents"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-paper-marriage-contract-digitisation"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.moj.gov.sa/Documents/Sharing/ElectronicJudicialServices2.pdf",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Verify marriage conditions, consent or guardian disputes and applicable mixed-nationality approvals; paper authentication is one branch only.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-paper-marriage-contract-digitisation",
+          "question": "هل تحويل عقد الزواج الورقي إلى إلكتروني هو إنشاء زواج جديد؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law/marriage-registration-and-family-status-certificate-problem",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "مشكلة تسجيل الزواج وشهادة الحالة الأسرية",
+      "supportingResearchedIntents": [
+        "paper marriage digitisation",
+        "new contract registration",
+        "certificate mismatch",
+        "foreign marriage document"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-paper-marriage-contract-digitisation"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.moj.gov.sa/Documents/Sharing/ElectronicJudicialServices2.pdf",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Add eligibility and documentary requirements of each specific registration channel; distinguish civil-status update from MOJ authentication.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-paper-marriage-contract-digitisation",
+          "question": "هل تحويل عقد الزواج الورقي إلى إلكتروني هو إنشاء زواج جديد؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law/paternity-dispute",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "منازعة إثبات النسب",
+      "supportingResearchedIntents": [
+        "establishment versus denial of parentage",
+        "existing record correction",
+        "medical evidence",
+        "effect on maintenance and inheritance"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-court-dna-parentage-conditions"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://misa.gov.sa/app/uploads/2025/08/نظام-الأحوال-الشخصية.pdf",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Court-ordered testing conditions answered. Remaining: marriage presumptions, acknowledgement requirements, denial/liaan distinction, existing-record correction and current procedure.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-court-dna-parentage-conditions",
+          "question": "هل تكفي نتيجة تحليل خاصة لإثبات النسب قانوناً؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law/recognition-of-foreign-family-judgments",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "الاعتراف بالأحكام الأسرية الأجنبية",
+      "supportingResearchedIntents": [
+        "foreign order enforcement conditions",
+        "finality and service",
+        "treaty and reciprocity",
+        "civil-status recognition versus money or custody enforcement"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-foreign-family-order-enforcement"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/c81ba2f1-1bf1-443b-9b1c-a9a700f27110/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Verify relevant country treaty and current authentication rules; add separate civil-record recognition channel and enforcement filing particulars.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-foreign-family-order-enforcement",
+          "question": "هل ينفذ الحكم الأسري الأجنبي تلقائياً في السعودية؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law/visitation-order-enforcement",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "تنفيذ أحكام الزيارة",
+      "supportingResearchedIntents": [
+        "implement existing visitation order",
+        "missed visit evidence",
+        "implementation through associations",
+        "change schedule versus enforce"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-visitation-enforcement-service",
+        "sa-family-document-court-approval-and-objection"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.moj.gov.sa/ar/eServices/Pages/d5e26711-4105-4ad9-8cd8-bc6d66242591.aspx",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.uqn.gov.sa/details?p=27013",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Association implementation and court-approved document objection/stay distinction answered. Remaining: exact current service prerequisites and proportionate remedies for repeated breach.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-visitation-enforcement-service",
+          "question": "كيف تساعد ناجز في تنفيذ حكم زيارة قائم؟",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-family-document-court-approval-and-objection",
+          "question": "هل يصبح طلب الحضانة أو الزيارة أو نفقة الأولاد الإلكتروني قابلاً للتنفيذ فور تقديمه؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law/will-validity-and-estate-distribution",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "صحة الوصية وتوزيع التركة",
+      "supportingResearchedIntents": [
+        "will formal validity",
+        "disposable estate and beneficiary restrictions",
+        "estate debt priority",
+        "distribution and asset transfer"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-will-heir-consent-and-third"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://misa.gov.sa/app/uploads/2025/08/نظام-الأحوال-الشخصية.pdf",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Heir consent, one-third threshold and Article 191 exceptions answered. Remaining: execution and revocation formalities, estate debt priority, beneficiary acceptance and asset-transfer requirements.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-will-heir-consent-and-third",
+          "question": "هل تنفذ الوصية لوارث أو بأكثر من ثلث التركة؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/family-law",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "service hub",
+      "primaryIntent": "نظام الأحوال الشخصية في المملكة العربية السعودية",
+      "supportingResearchedIntents": [
+        "choose documentation, litigation or enforcement",
+        "identify Saudi procedural route",
+        "navigate specific family matters"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-agreed-khul-documentation",
+        "sa-uncontested-custody-documentation"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.moj.gov.sa/Lists/MOJNews/DispForm.aspx?ID=1575",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.moj.gov.sa/ar/eServices/pages/e2560f40-ddf8-4e37-b212-394787344aef.aspx",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Finish substantive reviews of every linked family topic; service hub must summarise routes and avoid duplicating detailed problem-page answers.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-agreed-khul-documentation",
+          "question": "هل يمكن توثيق الخلع المتفق عليه دون حكم قضائي؟",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-uncontested-custody-documentation",
+          "question": "هل أستخدم خدمة توثيق حضانة عند وجود نزاع؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/construction-and-contractor-claims",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "مطالبات البناء والمقاولين",
+      "supportingResearchedIntents": [
+        "contractor payment and variations",
+        "performance evidence",
+        "termination or completion",
+        "court versus arbitration clause"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-contractor-correction-before-replacement"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Statutory correction notice and exceptional immediate-termination route answered. Remaining: payment triggers, variation valuation, acceptance, expert evidence and forum selection.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-contractor-correction-before-replacement",
+          "question": "هل يستبدل المالك المقاول فوراً عند مخالفة التنفيذ؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/construction-delay-and-defective-construction",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "تأخر البناء وعيوب الإنشاء",
+      "supportingResearchedIntents": [
+        "delay causation and extensions",
+        "defects and repair",
+        "expert evidence",
+        "damages and agreed compensation"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-contractor-correction-before-replacement"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Article 466 correction and delay thresholds answered. Remaining: delay causation, extensions, assessment of agreed damages, latent defects after acceptance and statutory time rules.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-contractor-correction-before-replacement",
+          "question": "هل يستبدل المالك المقاول فوراً عند مخالفة التنفيذ؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/ejar-rental-contract-and-registration-dispute",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "منازعة عقد الإيجار وتسجيله في إيجار",
+      "supportingResearchedIntents": [
+        "Ejar record accuracy",
+        "registration versus substantive claim",
+        "rent increase and locality",
+        "enforceability of contract form"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-riyadh-rent-freeze-scope",
+        "sa-residential-digital-rent-record"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/en/media-center/news-announcements/in-line-with-hrh-crown-prince-s-directive-to-take-several-measures-to-achieve-balance-in-the-real-estate-sector-in-riyadh-approval-has-been-issued-for-regulatory-provisions-aimed-at-regulating-the-relationship-between-landlords-and-tenants/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://rega.gov.sa/media-center/الأخبار-والإعلانات/حصر-دفع-الإيجار-للعقود-السكنية-من-خلال-القنوات-الرقمية-بدءا-من-15-يناير-بشكل-تدريجي/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Residential digital-payment scope and Riyadh increase distinction answered. Remaining: current record correction, commercial evidence rules, modified-contract enforceability and rejection/escalation steps.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-riyadh-rent-freeze-scope",
+          "question": "هل يشمل تجميد أجرة الرياض جميع مناطق السعودية؟",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-residential-digital-rent-record",
+          "question": "ما سجل السداد المعتمد لعقد إيجار سكني جديد؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/eviction-notice-and-eviction-dispute",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "إخطار الإخلاء ومنازعة الإخلاء",
+      "supportingResearchedIntents": [
+        "valid nonrenewal ground",
+        "Riyadh geographic restrictions",
+        "notice and timing",
+        "eviction enforcement"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-riyadh-nonrenewal-ground-check"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/en/rega-services/platforms/ejar/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Add full current notice rule, transitional exceptions and proof of permitted ground; do not treat expiry as an eviction order.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-riyadh-nonrenewal-ground-check",
+          "question": "هل يكفي انتهاء العقد لإلزام مستأجر الرياض بالمغادرة؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/expropriation-and-compensation-claim",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "نزع الملكية ومطالبة التعويض",
+      "supportingResearchedIntents": [
+        "applicable law and transition",
+        "valuation objection",
+        "compensation payment delay",
+        "challenge to taking versus valuation"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-expropriation-transition-start-decision"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.uqn.gov.sa/details?p=27460",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.uqn.gov.sa/details?p=27461",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Commencement and old-law transitional test resolved from official gazette. Remaining: implementing rules, valuation components, applicable objection procedure, interest-holder evidence and delayed compensation remedies by regime.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-expropriation-transition-start-decision",
+          "question": "هل يحكم نظام نزع الملكية لعام 2025 كل ملف تعويض؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/foreign-property-ownership-eligibility-problem",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "مشكلة أهلية تملك الأجنبي للعقار",
+      "supportingResearchedIntents": [
+        "current non-Saudi ownership rules",
+        "geographic zones and buyer category",
+        "type of property right",
+        "registration before commitment"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-foreign-ownership-current-zone-check"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/rega-services/platforms/non-saudi-real-estate-ownership-in-saudi-arabia/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Verify exact live zone document, buyer category, holy-city restrictions and transaction conditions; no blanket eligibility statement for a parcel.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-foreign-ownership-current-zone-check",
+          "question": "كيف أتحقق من أهلية غير السعودي لتملك عقار محدد؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/landlord-or-tenant-notice-and-settlement-problem",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "مشكلة إخطار المالك أو المستأجر والتسوية",
+      "supportingResearchedIntents": [
+        "nonrenewal notice",
+        "Riyadh restriction on landlord refusal",
+        "agreed termination",
+        "rent deposit and handover settlement"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-riyadh-nonrenewal-ground-check",
+        "sa-residential-deposit-return-term"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/en/rega-services/platforms/ejar/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.ejar.sa/ar/page/19420",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Riyadh grounds and residential deposit-return term answered. Remaining: full national notice rule and exceptions, settlement wording and formal termination/recording procedure.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-riyadh-nonrenewal-ground-check",
+          "question": "هل يكفي انتهاء العقد لإلزام مستأجر الرياض بالمغادرة؟",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-residential-deposit-return-term",
+          "question": "ما مدة رد الضمان الواردة في إرشادات عقد إيجار السكني؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/lease-and-eviction-matters",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "الإيجار والإخلاء",
+      "supportingResearchedIntents": [
+        "lease renewal and nonrenewal",
+        "Riyadh restrictions",
+        "rent arrears",
+        "notice versus enforceable eviction"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-riyadh-nonrenewal-ground-check"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/en/rega-services/platforms/ejar/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Add current nationwide notice requirements, enforcement procedure and distinction from Riyadh-specific measures.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-riyadh-nonrenewal-ground-check",
+          "question": "هل يكفي انتهاء العقد لإلزام مستأجر الرياض بالمغادرة؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/mortgage-financing-and-property-lien-dispute",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "منازعة الرهن والتمويل والحق العيني على العقار",
+      "supportingResearchedIntents": [
+        "finance debt versus registered mortgage",
+        "default and enforcement",
+        "release after repayment",
+        "lender complaint versus property claim"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-mortgage-release-and-debt-distinction"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/bf568515-eef9-4356-9d52-a9a700f2d8c3/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Partial repayment versus discharge answered using Articles 10 and 37. Remaining: release registration, disputed finance calculation, lender complaint versus judicial remedy, execution procedure and redemption.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-mortgage-release-and-debt-distinction",
+          "question": "هل يؤدي سداد جزء من التمويل إلى فك الرهن تلقائياً؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/off-plan-property-purchase-and-developer-delay-claim",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "شراء عقار على الخارطة ومطالبة تأخر المطور",
+      "supportingResearchedIntents": [
+        "delivery deadline and extensions",
+        "delay compensation",
+        "valuation of comparable rent",
+        "contractual court or arbitration route"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-offplan-delay-compensation-route"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/rega-services/platforms/wafi-off-plan-sales-and-lease/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Add cancellation eligibility, escrow safeguards and applicable contract version; no general guaranteed compensation amount from the FAQ.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-offplan-delay-compensation-route",
+          "question": "ماذا توضح هيئة العقار عن تعويض تأخر تسليم البيع على الخارطة؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/property-encroachment-and-boundary-dispute",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "التعدي على العقار ومنازعة الحدود",
+      "supportingResearchedIntents": [
+        "boundary survey and occupation",
+        "registry error versus removal claim",
+        "interim protection",
+        "neighbour evidence"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-real-estate-register-service-selection"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rer.sa/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Add substantive ownership/encroachment remedies and competent filing route; registry correction service does not determine the physical-removal claim.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-real-estate-register-service-selection",
+          "question": "أي خدمة في السجل العقاري تعالج القيد المختلف عليه؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/property-handover-and-defects-after-purchase",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "منازعة تسليم العقار وعيوبه بعد الشراء",
+      "supportingResearchedIntents": [
+        "handover reservations",
+        "hidden versus visible defects",
+        "seller notification",
+        "repair price reduction or cancellation"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-sale-defect-inspection-notice"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Inspection/notification rule answered. Remaining: remedy choice, seller exclusions, Article 344 claim-period exceptions, off-plan versus resale warranties.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-sale-defect-inspection-notice",
+          "question": "متى يبلغ المشتري البائع بالعيب المكتشف؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/property-ownership-disputes",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "منازعات ملكية العقارات",
+      "supportingResearchedIntents": [
+        "registered right and competing title",
+        "transfer history",
+        "registry grievance",
+        "judicial ownership determination"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-real-estate-register-service-selection",
+        "sa-first-registration-objection-window"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rer.sa/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://rega.gov.sa/الأنظمة-والقرارات/الأنظمة-واللوائح-والأدلة/الأنظمة/نظام-التسجيل-العيني-للعقار/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "First-registration challenge boundary answered. Remaining: competing title evidence, subsequent title disputes, registry annotation of proceedings and available remedies.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-real-estate-register-service-selection",
+          "question": "أي خدمة في السجل العقاري تعالج القيد المختلف عليه؟",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-first-registration-objection-window",
+          "question": "هل تتاح دائماً سنة كاملة للاعتراض على التسجيل العيني الأول؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/property-service-charge-and-maintenance-dispute",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "منازعة رسوم الخدمات وصيانة العقار",
+      "supportingResearchedIntents": [
+        "common-area contribution calculation",
+        "association records",
+        "unit versus common maintenance",
+        "challenge to charge"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-common-property-maintenance-allocation"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/الأنظمة-والقرارات/الأنظمة-واللوائح-والأدلة/الأنظمة/نظام-ملكية-الوحدات-العقارية-وفرزها-وإدارتها/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Verify applicable bylaws and collection/challenge procedure, tenant contractual allocation and mixed-use variation; avoid treating model bylaws as every building rules.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-common-property-maintenance-allocation",
+          "question": "كيف توزع صيانة الأجزاء المشتركة بين ملاك الوحدات؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/registration-and-title-problems",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "مشكلات التسجيل والسندات",
+      "supportingResearchedIntents": [
+        "first registration",
+        "deed versus registry record",
+        "correction and grievance",
+        "rights and restrictions"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-real-estate-register-service-selection",
+        "sa-first-registration-objection-window"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rer.sa/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://rega.gov.sa/الأنظمة-والقرارات/الأنظمة-واللوائح-والأدلة/الأنظمة/نظام-التسجيل-العيني-للعقار/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Amended first-registration window resolved. Remaining: area-specific current announcement, first-registration documents, administrative grievance steps and later transaction rules.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-real-estate-register-service-selection",
+          "question": "أي خدمة في السجل العقاري تعالج القيد المختلف عليه؟",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-first-registration-objection-window",
+          "question": "هل تتاح دائماً سنة كاملة للاعتراض على التسجيل العيني الأول؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/sale-and-purchase-contract-disputes",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "منازعات عقود البيع والشراء",
+      "supportingResearchedIntents": [
+        "price payment versus transfer",
+        "breach and termination",
+        "title due diligence",
+        "defect or short-area claim"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-sale-defect-inspection-notice"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Defect notice answered. Remaining: nonpayment and failed transfer, title warranty, rescission versus price reduction, court/registry completion and limitation exceptions.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-sale-defect-inspection-notice",
+          "question": "متى يبلغ المشتري البائع بالعيب المكتشف؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/security-deposit-recovery",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "استرداد مبلغ التأمين",
+      "supportingResearchedIntents": [
+        "optional deposit clause",
+        "damage deduction evidence",
+        "handover and refund balance",
+        "claim route"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-rental-deposit-damage-evidence",
+        "sa-residential-deposit-return-term"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.ejar.sa/ar/page/265289",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.ejar.sa/ar/page/19420",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Current deposit-holding/handover workflow and published 30-day residential-contract term answered. Remaining: disputed handover procedure, evidence-based damage allocation and escalation/enforcement of balance.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-rental-deposit-damage-evidence",
+          "question": "كيف يسوى مبلغ الضمان المحفوظ في إيجار بعد التسليم؟",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-residential-deposit-return-term",
+          "question": "ما مدة رد الضمان الواردة في إرشادات عقد إيجار السكني؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/title-deed-and-registration-dispute",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "منازعة سند الملكية والتسجيل",
+      "supportingResearchedIntents": [
+        "contested registered owner share or restriction",
+        "correction versus merits dispute",
+        "historic title evidence",
+        "grievance route"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-real-estate-register-service-selection",
+        "sa-first-registration-objection-window"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rer.sa/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://rega.gov.sa/الأنظمة-والقرارات/الأنظمة-واللوائح-والأدلة/الأنظمة/نظام-التسجيل-العيني-للعقار/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Amended first-registration objection boundary answered. Remaining: correction/forgery exceptions, subsequent entries, grievance procedure and harm/compensation requirements.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-real-estate-register-service-selection",
+          "question": "أي خدمة في السجل العقاري تعالج القيد المختلف عليه؟",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-first-registration-objection-window",
+          "question": "هل تتاح دائماً سنة كاملة للاعتراض على التسجيل العيني الأول؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate/unpaid-rent-and-rental-payment-claim",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "الإيجار غير المدفوع ومطالبة الأجرة",
+      "supportingResearchedIntents": [
+        "rent reconciliation",
+        "Riyadh rent increase restriction",
+        "proof of digital payment",
+        "enforcement of arrears"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-riyadh-rent-freeze-scope",
+        "sa-residential-digital-rent-record"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/en/media-center/news-announcements/in-line-with-hrh-crown-prince-s-directive-to-take-several-measures-to-achieve-balance-in-the-real-estate-sector-in-riyadh-approval-has-been-issued-for-regulatory-provisions-aimed-at-regulating-the-relationship-between-landlords-and-tenants/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://rega.gov.sa/media-center/الأخبار-والإعلانات/حصر-دفع-الإيجار-للعقود-السكنية-من-خلال-القنوات-الرقمية-بدءا-من-15-يناير-بشكل-تدريجي/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Digital residential record and Riyadh increase distinction answered. Remaining: exact executable arrears prerequisites, partial payment allocation, contested deductions and commercial claim route.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-riyadh-rent-freeze-scope",
+          "question": "هل يشمل تجميد أجرة الرياض جميع مناطق السعودية؟",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-residential-digital-rent-record",
+          "question": "ما سجل السداد المعتمد لعقد إيجار سكني جديد؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/ar/services/real-estate",
+      "language": "ar",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "service hub",
+      "primaryIntent": "المنازعات العقارية في المملكة العربية السعودية",
+      "supportingResearchedIntents": [
+        "classify title tenancy construction or ownership issue",
+        "identify locality-specific regime",
+        "navigate the correct property remedy"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-foreign-ownership-current-zone-check",
+        "sa-riyadh-nonrenewal-ground-check"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/rega-services/platforms/non-saudi-real-estate-ownership-in-saudi-arabia/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://rega.gov.sa/en/rega-services/platforms/ejar/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Finish substantive reviews of every linked property topic; include current geographic distinctions and direct links to detailed problem pages.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-foreign-ownership-current-zone-check",
+          "question": "كيف أتحقق من أهلية غير السعودي لتملك عقار محدد؟",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-riyadh-nonrenewal-ground-check",
+          "question": "هل يكفي انتهاء العقد لإلزام مستأجر الرياض بالمغادرة؟",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/alimony-and-child-maintenance",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Alimony and child maintenance",
+      "supportingResearchedIntents": [
+        "maintenance entitlement and amount",
+        "income and expense evidence",
+        "interim maintenance and arrears",
+        "increase or decrease of an order"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-maintenance-amount-and-variation",
+        "sa-family-document-court-approval-and-objection"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.uqn.gov.sa/details?p=27013",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Amount factors, variation threshold and court-approved electronic document distinction answered. Remaining: initial entitlement by claimant, interim relief, retroactive periods, evidence examples and the current filing path.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-maintenance-amount-and-variation",
+          "question": "How is maintenance assessed, and can an existing amount change?",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-family-document-court-approval-and-objection",
+          "question": "Does an electronic custody, visitation or child-support request immediately become enforceable?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/child-custody-and-visitation",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Child custody and visitation",
+      "supportingResearchedIntents": [
+        "uncontested custody certificate versus disputed custody",
+        "child welfare and care evidence",
+        "visitation schedule",
+        "changing an existing order"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-uncontested-custody-documentation",
+        "sa-custody-priority-child-interest"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.moj.gov.sa/ar/eServices/pages/e2560f40-ddf8-4e37-b212-394787344aef.aspx",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.uqn.gov.sa/details?p=19139",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Documentation eligibility and child-interest departure from priority answered. Remaining: full priority and eligibility exceptions, variation pleadings and age/disability continuation rules.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-uncontested-custody-documentation",
+          "question": "Can I use custody documentation when custody is disputed?",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-custody-priority-child-interest",
+          "question": "Does the statutory custody order decide every case automatically?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/child-relocation-and-travel-disputes",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Child relocation and travel disputes",
+      "supportingResearchedIntents": [
+        "short travel versus permanent relocation",
+        "consent and court permission",
+        "effect on custody and visits",
+        "urgent travel restriction"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-custodian-overseas-travel-limits",
+        "sa-custody-priority-child-interest"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.uqn.gov.sa/details?p=19139",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Article 129 travel thresholds and relocation impact on custody answered. Remaining: exact consent signatory on death, passport/guardian interactions, permission and urgent restriction procedure.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-custodian-overseas-travel-limits",
+          "question": "Does custody alone permit unlimited travel abroad with a child?",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-custody-priority-child-interest",
+          "question": "Does the statutory custody order decide every case automatically?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/contested-will-and-inheritance-distribution-dispute",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Contested will and inheritance distribution dispute",
+      "supportingResearchedIntents": [
+        "will authenticity and capacity challenge",
+        "effect on distribution",
+        "interim protection of estate assets",
+        "competing heir claims"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-will-heir-consent-and-third"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://misa.gov.sa/app/uploads/2025/08/نظام-الأحوال-الشخصية.pdf",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Heir consent and one-third limits answered with exceptions. Remaining: authenticity/capacity/revocation proof, urgent estate preservation, debts and asset valuation scenarios.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-will-heir-consent-and-third",
+          "question": "Can a will benefit an heir or exceed one third of the estate?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/divorce-and-separation",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Divorce and separation",
+      "supportingResearchedIntents": [
+        "documenting divorce versus contested dissolution",
+        "marriage and divorce records",
+        "support and custody after separation",
+        "reconciliation and judicial filing"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-divorce-record-service",
+        "sa-family-document-court-approval-and-objection"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://moj.gov.sa/ar/eServices/Pages/0205e7ab-9006-4cc5-9c42-cc279e08a831.aspx",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.uqn.gov.sa/details?p=27013",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Documentation data and related court-approved children orders answered. Remaining: operative divorce types and proof, waiting-period effects, financial entitlements and contested dissolution steps.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-divorce-record-service",
+          "question": "Which records are requested for Saudi divorce documentation?",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-family-document-court-approval-and-objection",
+          "question": "Does an electronic custody, visitation or child-support request immediately become enforceable?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/domestic-violence-protection-and-family-safety-application",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Domestic-violence protection and family-safety application",
+      "supportingResearchedIntents": [
+        "immediate reporting and protection",
+        "reporting without documents",
+        "protective case follow-up",
+        "parallel custody and housing concerns"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-family-violence-reporting"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.hrsd.gov.sa/ministry-services/services/الإبلاغ-عن-العنف-الأسري",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Expand protection process, available measures and safe confidentiality guidance; do not imply the reporting number itself grants a protective order.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-family-violence-reporting",
+          "question": "Where can domestic violence be reported in Saudi Arabia?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/inheritance-and-family-settlements",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Inheritance and family settlements",
+      "supportingResearchedIntents": [
+        "heir identification versus estate inventory",
+        "agreed distribution",
+        "debts and disputed assets",
+        "minors and representative authority"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-heir-record-and-estate-division"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://merath.moj.gov.sa/landing/faq",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Add debt and testamentary priority, legal shares in defined examples and safeguards for minors before presenting a settlement as sufficient.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-heir-record-and-estate-division",
+          "question": "Does documenting heirs complete distribution of the estate?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/inheritance-document-and-civil-record-correction",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Inheritance document and civil-record correction",
+      "supportingResearchedIntents": [
+        "incorrect heir identity or relationship",
+        "omitted heir",
+        "civil record mismatch",
+        "effect on transfer of estate assets"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-heir-record-and-estate-division"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://merath.moj.gov.sa/landing/faq",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Verify correction versus contested heir determination channels and evidence; estate platform overview does not resolve every correction.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-heir-record-and-estate-division",
+          "question": "Does documenting heirs complete distribution of the estate?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/khul-and-marriage-annulment-dispute",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Khulʿ and marriage-annulment dispute",
+      "supportingResearchedIntents": [
+        "agreed khul documentation",
+        "lack of consent",
+        "judicial annulment grounds",
+        "financial consequences"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-agreed-khul-documentation",
+        "sa-khul-cannot-waive-child-rights"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.moj.gov.sa/Lists/MOJNews/DispForm.aspx?ID=1575",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.uqn.gov.sa/details?p=19139",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Agreed documentation and prohibition on bargaining away child rights answered. Remaining: separate judicial annulment grounds, proof, compensation and required filing documents.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-agreed-khul-documentation",
+          "question": "Can agreed khulʿ be documented without a court judgment?",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-khul-cannot-waive-child-rights",
+          "question": "Can surrendering child support or custody be the price of khulʿ?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/marital-status-document-and-record-correction",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Marital-status document and record correction",
+      "supportingResearchedIntents": [
+        "documenting divorce event",
+        "wrong recorded marital status",
+        "rejected correction",
+        "foreign supporting records"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-divorce-record-service"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://moj.gov.sa/ar/eServices/Pages/0205e7ab-9006-4cc5-9c42-cc279e08a831.aspx",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Identify exact correction service and contested correction route; divorce-documentation service is not a universal registry correction.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-divorce-record-service",
+          "question": "Which records are requested for Saudi divorce documentation?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/marriage-and-personal-status-disputes",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Marriage and personal-status disputes",
+      "supportingResearchedIntents": [
+        "existing marriage proof versus new contract",
+        "paper contract authentication",
+        "validity dispute",
+        "mixed nationality and foreign documents"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-paper-marriage-contract-digitisation"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.moj.gov.sa/Documents/Sharing/ElectronicJudicialServices2.pdf",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Verify marriage conditions, consent or guardian disputes and applicable mixed-nationality approvals; paper authentication is one branch only.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-paper-marriage-contract-digitisation",
+          "question": "Is digitising a paper marriage contract the same as creating a marriage?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/marriage-registration-and-family-status-certificate-problem",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Marriage registration and family-status certificate problem",
+      "supportingResearchedIntents": [
+        "paper marriage digitisation",
+        "new contract registration",
+        "certificate mismatch",
+        "foreign marriage document"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-paper-marriage-contract-digitisation"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.moj.gov.sa/Documents/Sharing/ElectronicJudicialServices2.pdf",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Add eligibility and documentary requirements of each specific registration channel; distinguish civil-status update from MOJ authentication.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-paper-marriage-contract-digitisation",
+          "question": "Is digitising a paper marriage contract the same as creating a marriage?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/paternity-dispute",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Paternity dispute",
+      "supportingResearchedIntents": [
+        "establishment versus denial of parentage",
+        "existing record correction",
+        "medical evidence",
+        "effect on maintenance and inheritance"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-court-dna-parentage-conditions"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://misa.gov.sa/app/uploads/2025/08/نظام-الأحوال-الشخصية.pdf",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Court-ordered testing conditions answered. Remaining: marriage presumptions, acknowledgement requirements, denial/liaan distinction, existing-record correction and current procedure.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-court-dna-parentage-conditions",
+          "question": "Can a private DNA result alone establish legal parentage?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/recognition-of-foreign-family-judgments",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Recognition of foreign family judgments",
+      "supportingResearchedIntents": [
+        "foreign order enforcement conditions",
+        "finality and service",
+        "treaty and reciprocity",
+        "civil-status recognition versus money or custody enforcement"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-foreign-family-order-enforcement"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/c81ba2f1-1bf1-443b-9b1c-a9a700f27110/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Verify relevant country treaty and current authentication rules; add separate civil-record recognition channel and enforcement filing particulars.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-foreign-family-order-enforcement",
+          "question": "Is a foreign family judgment automatically enforceable in Saudi Arabia?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/visitation-order-enforcement",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Visitation order enforcement",
+      "supportingResearchedIntents": [
+        "implement existing visitation order",
+        "missed visit evidence",
+        "implementation through associations",
+        "change schedule versus enforce"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-visitation-enforcement-service",
+        "sa-family-document-court-approval-and-objection"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.moj.gov.sa/ar/eServices/Pages/d5e26711-4105-4ad9-8cd8-bc6d66242591.aspx",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.uqn.gov.sa/details?p=27013",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Association implementation and court-approved document objection/stay distinction answered. Remaining: exact current service prerequisites and proportionate remedies for repeated breach.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-visitation-enforcement-service",
+          "question": "How does Najiz help implement an existing visitation order?",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-family-document-court-approval-and-objection",
+          "question": "Does an electronic custody, visitation or child-support request immediately become enforceable?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law/will-validity-and-estate-distribution",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Will validity and estate distribution",
+      "supportingResearchedIntents": [
+        "will formal validity",
+        "disposable estate and beneficiary restrictions",
+        "estate debt priority",
+        "distribution and asset transfer"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-will-heir-consent-and-third"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://misa.gov.sa/app/uploads/2025/08/نظام-الأحوال-الشخصية.pdf",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Heir consent, one-third threshold and Article 191 exceptions answered. Remaining: execution and revocation formalities, estate debt priority, beneficiary acceptance and asset-transfer requirements.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-will-heir-consent-and-third",
+          "question": "Can a will benefit an heir or exceed one third of the estate?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/family-law",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "service hub",
+      "primaryIntent": "Family Law in Saudi Arabia",
+      "supportingResearchedIntents": [
+        "choose documentation, litigation or enforcement",
+        "identify Saudi procedural route",
+        "navigate specific family matters"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-agreed-khul-documentation",
+        "sa-uncontested-custody-documentation"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.moj.gov.sa/Lists/MOJNews/DispForm.aspx?ID=1575",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.moj.gov.sa/ar/eServices/pages/e2560f40-ddf8-4e37-b212-394787344aef.aspx",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Finish substantive reviews of every linked family topic; service hub must summarise routes and avoid duplicating detailed problem-page answers.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-agreed-khul-documentation",
+          "question": "Can agreed khulʿ be documented without a court judgment?",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-uncontested-custody-documentation",
+          "question": "Can I use custody documentation when custody is disputed?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/construction-and-contractor-claims",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Construction and contractor claims",
+      "supportingResearchedIntents": [
+        "contractor payment and variations",
+        "performance evidence",
+        "termination or completion",
+        "court versus arbitration clause"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-contractor-correction-before-replacement"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Statutory correction notice and exceptional immediate-termination route answered. Remaining: payment triggers, variation valuation, acceptance, expert evidence and forum selection.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-contractor-correction-before-replacement",
+          "question": "Can an owner immediately replace a contractor for defective work?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/construction-delay-and-defective-construction",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Construction delay and defective construction",
+      "supportingResearchedIntents": [
+        "delay causation and extensions",
+        "defects and repair",
+        "expert evidence",
+        "damages and agreed compensation"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-contractor-correction-before-replacement"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Article 466 correction and delay thresholds answered. Remaining: delay causation, extensions, assessment of agreed damages, latent defects after acceptance and statutory time rules.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-contractor-correction-before-replacement",
+          "question": "Can an owner immediately replace a contractor for defective work?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/ejar-rental-contract-and-registration-dispute",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Ejar rental contract and registration dispute",
+      "supportingResearchedIntents": [
+        "Ejar record accuracy",
+        "registration versus substantive claim",
+        "rent increase and locality",
+        "enforceability of contract form"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-riyadh-rent-freeze-scope",
+        "sa-residential-digital-rent-record"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/en/media-center/news-announcements/in-line-with-hrh-crown-prince-s-directive-to-take-several-measures-to-achieve-balance-in-the-real-estate-sector-in-riyadh-approval-has-been-issued-for-regulatory-provisions-aimed-at-regulating-the-relationship-between-landlords-and-tenants/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://rega.gov.sa/media-center/الأخبار-والإعلانات/حصر-دفع-الإيجار-للعقود-السكنية-من-خلال-القنوات-الرقمية-بدءا-من-15-يناير-بشكل-تدريجي/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Residential digital-payment scope and Riyadh increase distinction answered. Remaining: current record correction, commercial evidence rules, modified-contract enforceability and rejection/escalation steps.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-riyadh-rent-freeze-scope",
+          "question": "Does the Riyadh rent freeze apply throughout Saudi Arabia?",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-residential-digital-rent-record",
+          "question": "Which payment record should I use for a new residential Ejar lease?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/eviction-notice-and-eviction-dispute",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Eviction notice and eviction dispute",
+      "supportingResearchedIntents": [
+        "valid nonrenewal ground",
+        "Riyadh geographic restrictions",
+        "notice and timing",
+        "eviction enforcement"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-riyadh-nonrenewal-ground-check"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/en/rega-services/platforms/ejar/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Add full current notice rule, transitional exceptions and proof of permitted ground; do not treat expiry as an eviction order.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-riyadh-nonrenewal-ground-check",
+          "question": "Can a Riyadh landlord require departure merely because the lease expires?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/expropriation-and-compensation-claim",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Expropriation and compensation claim",
+      "supportingResearchedIntents": [
+        "applicable law and transition",
+        "valuation objection",
+        "compensation payment delay",
+        "challenge to taking versus valuation"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-expropriation-transition-start-decision"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.uqn.gov.sa/details?p=27460",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.uqn.gov.sa/details?p=27461",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Commencement and old-law transitional test resolved from official gazette. Remaining: implementing rules, valuation components, applicable objection procedure, interest-holder evidence and delayed compensation remedies by regime.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-expropriation-transition-start-decision",
+          "question": "Does the 2025 expropriation law govern every compensation file?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/foreign-property-ownership-eligibility-problem",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Foreign property ownership eligibility problem",
+      "supportingResearchedIntents": [
+        "current non-Saudi ownership rules",
+        "geographic zones and buyer category",
+        "type of property right",
+        "registration before commitment"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-foreign-ownership-current-zone-check"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/rega-services/platforms/non-saudi-real-estate-ownership-in-saudi-arabia/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Verify exact live zone document, buyer category, holy-city restrictions and transaction conditions; no blanket eligibility statement for a parcel.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-foreign-ownership-current-zone-check",
+          "question": "How do I check whether a non-Saudi buyer can acquire this property?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/landlord-or-tenant-notice-and-settlement-problem",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Landlord or tenant notice and settlement problem",
+      "supportingResearchedIntents": [
+        "nonrenewal notice",
+        "Riyadh restriction on landlord refusal",
+        "agreed termination",
+        "rent deposit and handover settlement"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-riyadh-nonrenewal-ground-check",
+        "sa-residential-deposit-return-term"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/en/rega-services/platforms/ejar/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.ejar.sa/ar/page/19420",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Riyadh grounds and residential deposit-return term answered. Remaining: full national notice rule and exceptions, settlement wording and formal termination/recording procedure.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-riyadh-nonrenewal-ground-check",
+          "question": "Can a Riyadh landlord require departure merely because the lease expires?",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-residential-deposit-return-term",
+          "question": "What return period does Ejar describe for a residential deposit?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/lease-and-eviction-matters",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Lease and eviction matters",
+      "supportingResearchedIntents": [
+        "lease renewal and nonrenewal",
+        "Riyadh restrictions",
+        "rent arrears",
+        "notice versus enforceable eviction"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-riyadh-nonrenewal-ground-check"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/en/rega-services/platforms/ejar/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Add current nationwide notice requirements, enforcement procedure and distinction from Riyadh-specific measures.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-riyadh-nonrenewal-ground-check",
+          "question": "Can a Riyadh landlord require departure merely because the lease expires?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/mortgage-financing-and-property-lien-dispute",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Mortgage, financing and property-lien dispute",
+      "supportingResearchedIntents": [
+        "finance debt versus registered mortgage",
+        "default and enforcement",
+        "release after repayment",
+        "lender complaint versus property claim"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-mortgage-release-and-debt-distinction"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/bf568515-eef9-4356-9d52-a9a700f2d8c3/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Partial repayment versus discharge answered using Articles 10 and 37. Remaining: release registration, disputed finance calculation, lender complaint versus judicial remedy, execution procedure and redemption.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-mortgage-release-and-debt-distinction",
+          "question": "Does repaying part of the financing automatically release the mortgage?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/off-plan-property-purchase-and-developer-delay-claim",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Off-plan property purchase and developer delay claim",
+      "supportingResearchedIntents": [
+        "delivery deadline and extensions",
+        "delay compensation",
+        "valuation of comparable rent",
+        "contractual court or arbitration route"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-offplan-delay-compensation-route"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/rega-services/platforms/wafi-off-plan-sales-and-lease/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Add cancellation eligibility, escrow safeguards and applicable contract version; no general guaranteed compensation amount from the FAQ.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-offplan-delay-compensation-route",
+          "question": "What does REGA say about compensation for delayed off-plan delivery?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/property-encroachment-and-boundary-dispute",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Property encroachment and boundary dispute",
+      "supportingResearchedIntents": [
+        "boundary survey and occupation",
+        "registry error versus removal claim",
+        "interim protection",
+        "neighbour evidence"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-real-estate-register-service-selection"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rer.sa/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Add substantive ownership/encroachment remedies and competent filing route; registry correction service does not determine the physical-removal claim.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-real-estate-register-service-selection",
+          "question": "Which Saudi registry service addresses a disputed entry?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/property-handover-and-defects-after-purchase",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Property handover and defects after purchase",
+      "supportingResearchedIntents": [
+        "handover reservations",
+        "hidden versus visible defects",
+        "seller notification",
+        "repair price reduction or cancellation"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-sale-defect-inspection-notice"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Inspection/notification rule answered. Remaining: remedy choice, seller exclusions, Article 344 claim-period exceptions, off-plan versus resale warranties.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-sale-defect-inspection-notice",
+          "question": "When should a buyer notify a seller about a discovered defect?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/property-ownership-disputes",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Property ownership disputes",
+      "supportingResearchedIntents": [
+        "registered right and competing title",
+        "transfer history",
+        "registry grievance",
+        "judicial ownership determination"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-real-estate-register-service-selection",
+        "sa-first-registration-objection-window"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rer.sa/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://rega.gov.sa/الأنظمة-والقرارات/الأنظمة-واللوائح-والأدلة/الأنظمة/نظام-التسجيل-العيني-للعقار/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "First-registration challenge boundary answered. Remaining: competing title evidence, subsequent title disputes, registry annotation of proceedings and available remedies.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-real-estate-register-service-selection",
+          "question": "Which Saudi registry service addresses a disputed entry?",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-first-registration-objection-window",
+          "question": "Is there always a full year to challenge first registration?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/property-service-charge-and-maintenance-dispute",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Property service-charge and maintenance dispute",
+      "supportingResearchedIntents": [
+        "common-area contribution calculation",
+        "association records",
+        "unit versus common maintenance",
+        "challenge to charge"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-common-property-maintenance-allocation"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/الأنظمة-والقرارات/الأنظمة-واللوائح-والأدلة/الأنظمة/نظام-ملكية-الوحدات-العقارية-وفرزها-وإدارتها/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Verify applicable bylaws and collection/challenge procedure, tenant contractual allocation and mixed-use variation; avoid treating model bylaws as every building rules.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-common-property-maintenance-allocation",
+          "question": "How are common-area maintenance costs allocated among Saudi unit owners?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/registration-and-title-problems",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Registration and title problems",
+      "supportingResearchedIntents": [
+        "first registration",
+        "deed versus registry record",
+        "correction and grievance",
+        "rights and restrictions"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-real-estate-register-service-selection",
+        "sa-first-registration-objection-window"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rer.sa/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://rega.gov.sa/الأنظمة-والقرارات/الأنظمة-واللوائح-والأدلة/الأنظمة/نظام-التسجيل-العيني-للعقار/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Amended first-registration window resolved. Remaining: area-specific current announcement, first-registration documents, administrative grievance steps and later transaction rules.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-real-estate-register-service-selection",
+          "question": "Which Saudi registry service addresses a disputed entry?",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-first-registration-objection-window",
+          "question": "Is there always a full year to challenge first registration?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/sale-and-purchase-contract-disputes",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Sale and purchase contract disputes",
+      "supportingResearchedIntents": [
+        "price payment versus transfer",
+        "breach and termination",
+        "title due diligence",
+        "defect or short-area claim"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-sale-defect-inspection-notice"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Defect notice answered. Remaining: nonpayment and failed transfer, title warranty, rescission versus price reduction, court/registry completion and limitation exceptions.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-sale-defect-inspection-notice",
+          "question": "When should a buyer notify a seller about a discovered defect?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/security-deposit-recovery",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Security deposit recovery",
+      "supportingResearchedIntents": [
+        "optional deposit clause",
+        "damage deduction evidence",
+        "handover and refund balance",
+        "claim route"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-rental-deposit-damage-evidence",
+        "sa-residential-deposit-return-term"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://www.ejar.sa/ar/page/265289",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://www.ejar.sa/ar/page/19420",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Current deposit-holding/handover workflow and published 30-day residential-contract term answered. Remaining: disputed handover procedure, evidence-based damage allocation and escalation/enforcement of balance.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-rental-deposit-damage-evidence",
+          "question": "How is an Ejar-held deposit reconciled after handover?",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-residential-deposit-return-term",
+          "question": "What return period does Ejar describe for a residential deposit?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/title-deed-and-registration-dispute",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Title deed and registration dispute",
+      "supportingResearchedIntents": [
+        "contested registered owner share or restriction",
+        "correction versus merits dispute",
+        "historic title evidence",
+        "grievance route"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-real-estate-register-service-selection",
+        "sa-first-registration-objection-window"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rer.sa/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://rega.gov.sa/الأنظمة-والقرارات/الأنظمة-واللوائح-والأدلة/الأنظمة/نظام-التسجيل-العيني-للعقار/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Amended first-registration objection boundary answered. Remaining: correction/forgery exceptions, subsequent entries, grievance procedure and harm/compensation requirements.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-real-estate-register-service-selection",
+          "question": "Which Saudi registry service addresses a disputed entry?",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-first-registration-objection-window",
+          "question": "Is there always a full year to challenge first registration?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate/unpaid-rent-and-rental-payment-claim",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "specific legal problem",
+      "primaryIntent": "Unpaid rent and rental payment claim",
+      "supportingResearchedIntents": [
+        "rent reconciliation",
+        "Riyadh rent increase restriction",
+        "proof of digital payment",
+        "enforcement of arrears"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-riyadh-rent-freeze-scope",
+        "sa-residential-digital-rent-record"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/en/media-center/news-announcements/in-line-with-hrh-crown-prince-s-directive-to-take-several-measures-to-achieve-balance-in-the-real-estate-sector-in-riyadh-approval-has-been-issued-for-regulatory-provisions-aimed-at-regulating-the-relationship-between-landlords-and-tenants/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://rega.gov.sa/media-center/الأخبار-والإعلانات/حصر-دفع-الإيجار-للعقود-السكنية-من-خلال-القنوات-الرقمية-بدءا-من-15-يناير-بشكل-تدريجي/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Digital residential record and Riyadh increase distinction answered. Remaining: exact executable arrears prerequisites, partial payment allocation, contested deductions and commercial claim route.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-riyadh-rent-freeze-scope",
+          "question": "Does the Riyadh rent freeze apply throughout Saudi Arabia?",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-residential-digital-rent-record",
+          "question": "Which payment record should I use for a new residential Ejar lease?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    },
+    {
+      "route": "/sa/services/real-estate",
+      "language": "en",
+      "jurisdiction": "Saudi Arabia",
+      "pageRole": "service hub",
+      "primaryIntent": "Property Law in Saudi Arabia",
+      "supportingResearchedIntents": [
+        "classify title tenancy construction or ownership issue",
+        "identify locality-specific regime",
+        "navigate the correct property remedy"
+      ],
+      "demandEvidence": "Editorial intent inference from current page purpose and official-source questions; no GSC/Bing volume or rank evidence.",
+      "currentContentAssessment": "Shared generator and topic brief inspected: practical evidence and decision framing exist; operative jurisdiction tests and procedures are incomplete.",
+      "implementedAnswerIds": [
+        "sa-foreign-ownership-current-zone-check",
+        "sa-riyadh-nonrenewal-ground-check"
+      ],
+      "primarySourceEvidence": [
+        {
+          "href": "https://rega.gov.sa/rega-services/platforms/non-saudi-real-estate-ownership-in-saudi-arabia/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        },
+        {
+          "href": "https://rega.gov.sa/en/rega-services/platforms/ejar/",
+          "scope": "Supports the linked answer only; not proof of all listed intents."
+        }
+      ],
+      "openGaps": [
+        "Finish substantive reviews of every linked property topic; include current geographic distinctions and direct links to detailed problem pages.",
+        "Rendered answer placement, bilingual browser QA and internal-link verification pending root integration.",
+        "First-party query discovery and live Google/Bing index/ranking evidence remain open."
+      ],
+      "stage": "source-backed-answer-added-open-gaps",
+      "fullyCovered": false,
+      "resolvedScopedQuestions": [
+        {
+          "id": "sa-foreign-ownership-current-zone-check",
+          "question": "How do I check whether a non-Saudi buyer can acquire this property?",
+          "scope": "This question answered; does not close the whole page review."
+        },
+        {
+          "id": "sa-riyadh-nonrenewal-ground-check",
+          "question": "Can a Riyadh landlord require departure merely because the lease expires?",
+          "scope": "This question answered; does not close the whole page review."
+        }
+      ],
+      "substantiveReviewPasses": 2
+    }
+  ],
+  "validation": {
+    "mapping": "29 unique IDs; every explicitly enumerated problem slug is in the saved Saudi route ledger in both languages.",
+    "rendering": "Pending root integration and browser/build verification.",
+    "completion": "74 routes received scoped additions; 0 declared fully covered."
+  }
+}

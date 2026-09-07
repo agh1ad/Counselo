@@ -1,0 +1,209 @@
+{
+  "pass": true,
+  "rows": [
+    {
+      "route": "/sa/services",
+      "width": 390,
+      "status": 200,
+      "missing": [],
+      "initial": {
+        "lang": "en",
+        "dir": "ltr",
+        "h1": 1,
+        "overflow": false
+      },
+      "serviceJourney": true,
+      "contactJourney": true,
+      "languageJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services",
+      "width": 390,
+      "status": 200,
+      "missing": [],
+      "initial": {
+        "lang": "ar",
+        "dir": "rtl",
+        "h1": 1,
+        "overflow": false
+      },
+      "serviceJourney": true,
+      "contactJourney": true,
+      "languageJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services",
+      "width": 390,
+      "status": 200,
+      "missing": [],
+      "initial": {
+        "lang": "en",
+        "dir": "ltr",
+        "h1": 1,
+        "overflow": false
+      },
+      "serviceJourney": true,
+      "contactJourney": true,
+      "languageJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services",
+      "width": 390,
+      "status": 200,
+      "missing": [],
+      "initial": {
+        "lang": "ar",
+        "dir": "rtl",
+        "h1": 1,
+        "overflow": false
+      },
+      "serviceJourney": true,
+      "contactJourney": true,
+      "languageJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services",
+      "width": 390,
+      "status": 200,
+      "missing": [],
+      "initial": {
+        "lang": "en",
+        "dir": "ltr",
+        "h1": 1,
+        "overflow": false
+      },
+      "serviceJourney": true,
+      "contactJourney": true,
+      "languageJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services",
+      "width": 390,
+      "status": 200,
+      "missing": [],
+      "initial": {
+        "lang": "ar",
+        "dir": "rtl",
+        "h1": 1,
+        "overflow": false
+      },
+      "serviceJourney": true,
+      "contactJourney": true,
+      "languageJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services",
+      "width": 1440,
+      "status": 200,
+      "missing": [],
+      "initial": {
+        "lang": "en",
+        "dir": "ltr",
+        "h1": 1,
+        "overflow": false
+      },
+      "serviceJourney": true,
+      "contactJourney": true,
+      "languageJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services",
+      "width": 1440,
+      "status": 200,
+      "missing": [],
+      "initial": {
+        "lang": "ar",
+        "dir": "rtl",
+        "h1": 1,
+        "overflow": false
+      },
+      "serviceJourney": true,
+      "contactJourney": true,
+      "languageJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services",
+      "width": 1440,
+      "status": 200,
+      "missing": [],
+      "initial": {
+        "lang": "en",
+        "dir": "ltr",
+        "h1": 1,
+        "overflow": false
+      },
+      "serviceJourney": true,
+      "contactJourney": true,
+      "languageJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services",
+      "width": 1440,
+      "status": 200,
+      "missing": [],
+      "initial": {
+        "lang": "ar",
+        "dir": "rtl",
+        "h1": 1,
+        "overflow": false
+      },
+      "serviceJourney": true,
+      "contactJourney": true,
+      "languageJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services",
+      "width": 1440,
+      "status": 200,
+      "missing": [],
+      "initial": {
+        "lang": "en",
+        "dir": "ltr",
+        "h1": 1,
+        "overflow": false
+      },
+      "serviceJourney": true,
+      "contactJourney": true,
+      "languageJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services",
+      "width": 1440,
+      "status": 200,
+      "missing": [],
+      "initial": {
+        "lang": "ar",
+        "dir": "rtl",
+        "h1": 1,
+        "overflow": false
+      },
+      "serviceJourney": true,
+      "contactJourney": true,
+      "languageJourney": true,
+      "errors": [],
+      "pass": true
+    }
+  ]
+}

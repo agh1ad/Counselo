@@ -1,18 +1,21 @@
 import type { Region } from "@workspace/api-zod/browser";
 import type { LegalSource } from "./regional-legal-sources";
+import { INTENT_EXPANSION_GUIDANCE } from "./intent-expansion-guidance.js";
 
-type MatterSourceGuidance = {
+export type MatterSourceGuidance = {
   region: Region;
   service: string;
   problems: string[];
   id: string;
   reviewedAt: string;
+  includeOnServicePage?: boolean;
   en: { q: string; a: string };
   ar: { q: string; a: string };
   sources: LegalSource[];
 };
 
 export const MATTER_SOURCE_GUIDANCE: MatterSourceGuidance[] = [
+  ...INTENT_EXPANSION_GUIDANCE,
   {
     region: "sa", service: "insurance-law", problems: ["denied-insurance-claim", "delayed-insurance-settlement", "policy-coverage-dispute"],
     id: "saudi-insurance-complaint-channel", reviewedAt: "2026-09-07",
@@ -83,4 +86,8 @@ export const MATTER_SOURCE_GUIDANCE: MatterSourceGuidance[] = [
 
 export function matterSourceGuidance(region: Region, service: string, problem: string) {
   return MATTER_SOURCE_GUIDANCE.filter(item => item.region === region && item.service === service && item.problems.includes(problem));
+}
+
+export function matterGuidanceUpdatedAt(region: Region, service: string, problem: string, fallback: string) {
+  return matterSourceGuidance(region, service, problem).reduce((latest, item) => item.reviewedAt > latest ? item.reviewedAt : latest, fallback);
 }

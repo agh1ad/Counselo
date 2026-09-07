@@ -1,6 +1,27 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { correctArticleBody } from "./article-body-corrections.js";
+import { sanitizeRichText } from "./blog-input.js";
+
+test("editorial source additions remain singular after public sanitization and repeated reads", () => {
+  const slugs = [
+    "mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+    "altwqya-ala-byad",
+    "hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+    "hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+    "alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+  ];
+  for (const slug of slugs) for (const lang of ["en", "ar"] as const) {
+    const original = lang === "en" ? "<p>Preserve this article body.</p>" : "<p>احفظ متن المقال الأصلي.</p>";
+    const first = sanitizeRichText(correctArticleBody(slug, lang, original)!);
+    const second = sanitizeRichText(correctArticleBody(slug, lang, first)!);
+    const third = sanitizeRichText(correctArticleBody(slug, lang, second)!);
+    assert.equal(second, first, `${slug}/${lang}: repair must survive sanitization`);
+    assert.equal(third, first, `${slug}/${lang}: repeated public read must be stable`);
+    assert.ok(first.includes(original));
+    assert.notEqual(first, original, `${slug}/${lang}: fixture must exercise an addition`);
+  }
+});
 
 test("new enforcement legislation is not presented as operative merely because it was published", () => {
   const slug = "alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy";
@@ -46,4 +67,46 @@ test("digital evidence correction removes absolute tamper-proof and certified-sy
   assert.doesNotMatch(en, /tamper-proof/);
   assert.match(ar, /ولا يُشترط صدور كل رسالة/);
   assert.doesNotMatch(ar, /غير قابل للتلاعب/);
+});
+
+test("remaining categorical claims are corrected without rewriting unrelated passages", () => {
+  const cases = [
+    ["Penalty-clause-in-saudi", "en", "The amount must be fixed or ascertainable; otherwise, the clause is considered ambiguous and unenforceable.", "requires interpretation"],
+    ["Penalty-clause-in-saudi", "ar", "يجب أن يكون المبلغ محددًا أو قابلًا للتحديد، وإلا اعتبر الشرط غامضًا وغير نافذ.", "يتطلب غموض العبارة تفسيرها"],
+    ["altwsyat-alamlyh-lsyaghh-aqd-qwy", "en", "This provision resolves any disagreement regarding jurisdiction.", "mandatory jurisdiction"],
+    ["altwsyat-alamlyh-lsyaghh-aqd-qwy", "ar", "هذا البند يحسم أي خلاف حول الاختصاص.", "قواعد الاختصاص الآمرة"],
+    ["commercial-supply-contracts-in-saudi", "en", "Include a liquidated damages clause", "where suitable"],
+    ["commercial-supply-contracts-in-saudi", "ar", "تضمين الشرط الجزائي", "حيث يناسب"],
+    ["performance-of-contracts-in-good-faith-under-syrian-law", "en", "Accordingly, observing good faith from the negotiation stage until performance is complete is an essential safeguard.", "separate legal basis"],
+    ["performance-of-contracts-in-good-faith-under-syrian-law", "ar", "ومن ثم، فإن مراعاة حسن النية منذ مرحلة التفاوض وحتى اكتمال التنفيذ تمثل ضمانة أساسية.", "سند قانوني مستقل"],
+  ] as const;
+  for (const [slug, lang, original, qualification] of cases) {
+    const input = `<p><span>${original}</span></p><p>Independent passage.</p>`;
+    const fixed = correctArticleBody(slug, lang, input)!;
+    assert.ok(fixed.includes(qualification), `${slug}/${lang}`);
+    assert.ok(!fixed.includes(original));
+    assert.ok(fixed.endsWith('<p>Independent passage.</p>'));
+    assert.equal(correctArticleBody(slug, lang, fixed), fixed);
+  }
+});
+
+test("arbitration citation removes a second query delimiter without losing the decision identifier", () => {
+  const input = '<p><a href="https://www.uqn.gov.sa/details?p=27309?utm_source=chatgpt.com">Decision</a></p>';
+  const fixed = correctArticleBody("mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa", "en", input)!;
+  assert.ok(fixed.includes('href="https://www.uqn.gov.sa/details?p=27309"'));
+  assert.ok(!fixed.includes('utm_source'));
+});
+
+test("reconsideration answers preserve filing and acceptance distinctions through public sanitization", () => {
+  const slug = "mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh";
+  for (const lang of ["en", "ar"] as const) {
+    const fixed = sanitizeRichText(correctArticleBody(slug, lang, '<p>Existing case commentary.</p>')!);
+    assert.equal((fixed.match(/<h3>/g) ?? []).length, 16);
+    assert.ok(fixed.includes(lang === "en" ? "Editable Saudi reconsideration petition outline" : "نموذج قابل للتعديل لصحيفة التماس إعادة النظر في السعودية"));
+    assert.ok(fixed.includes('Article 202') || fixed.includes('المادة 202'));
+    assert.ok(fixed.includes('Article 58') || fixed.includes('المادة 58'));
+    assert.ok(fixed.includes('p=23463'));
+    assert.ok(fixed.startsWith('<p>Existing case commentary.</p>'));
+    assert.equal(sanitizeRichText(correctArticleBody(slug, lang, fixed)!), fixed);
+  }
 });

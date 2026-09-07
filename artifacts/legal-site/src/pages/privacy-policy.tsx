@@ -42,8 +42,8 @@ export default function PrivacyPolicy() {
       eyebrow: "Data Protection & Privacy",
       heading: "Privacy Policy",
       subheading:
-        "CounselO is committed to protecting your privacy and the confidentiality of your legal information. This policy explains what data we collect, how we use it, and the strict protections that apply to everything you share with us.",
-      lastUpdated: "Last updated: 6 September 2026",
+        "CounselO is committed to protecting your privacy and the confidentiality of your legal information. This policy explains what data we collect, how we use it, and how information moves through our website and communication providers.",
+      lastUpdated: "Last updated: 7 September 2026",
       sections: [
         {
           icon: Shield,
@@ -83,7 +83,7 @@ export default function PrivacyPolicy() {
           content: `All information you share with CounselO is handled under applicable professional confidentiality and data-protection obligations for matters in ${countryEn}. This means:`,
           list: [
             "We do not share your legal matter details, documents, or personal information without your consent, except where disclosure is required or permitted by applicable law",
-            "Your information is accessible only to the members of the CounselO legal team directly responsible for your consultation",
+            "Website requests and attachments are sent through our email provider, Resend, to the configured consultation recipients; you also receive a confirmation email",
             "Confidentiality continues after the consultation to the extent required by applicable professional, contractual and legal obligations",
             "We do not sell, rent, or trade your personal information to any person, company, or data broker",
           ],
@@ -107,9 +107,9 @@ export default function PrivacyPolicy() {
             "Our website uses browser storage and loads Google Tag Manager for configured analytics. These tools help us understand page use and interactions such as contact-link clicks:",
           list: [
             "Browser storage: the site stores local interaction counts and recent analytics events in your browser. The page URL identifies its language.",
-            "Analytics cookies: we may use tools such as Google Analytics to understand aggregate traffic patterns — no personally identifiable information is shared",
-            "We do not use advertising cookies or track your activity across third-party websites",
-            "You can disable cookies in your browser settings — this will not affect your ability to contact us or receive a consultation",
+            "Analytics events include page addresses, titles and interaction details sent to Google Tag Manager for configured tags; page addresses can contain information entered in a URL",
+            "Avoid putting personal or confidential information in page addresses or query parameters",
+            "Browser settings can manage cookies and clear site storage. You can also contact us directly by email or WhatsApp",
           ],
         },
         {
@@ -131,7 +131,7 @@ export default function PrivacyPolicy() {
           list: [
             "With your explicit consent: only where you have specifically authorised us to share your information",
             "Legal obligation: where disclosure is required by a court order or applicable law",
-            "Service providers: third-party tools necessary to operate our website (e.g. hosting, analytics) — these providers are contractually prohibited from using your data for any other purpose",
+            "Service providers: website hosting and database services, Resend for form emails and attachments, Google Tag Manager for configured analytics, and the communication service you choose",
             isUae
               ? "Cross-border transfers are made only where permitted by the applicable UAE, DIFC, ADGM or sector-specific regime and with required safeguards"
               : `We do not transfer your personal data outside ${countryEn} without appropriate safeguards`,
@@ -148,7 +148,7 @@ export default function PrivacyPolicy() {
               ? "Meet applicable UAE legal, regulatory and professional record-keeping obligations for the relevant matter"
               : `Meet our legal and professional record-keeping obligations under ${adjectiveEn} law`,
             "Defend any legal claims that may arise from the consultation",
-            "After the applicable retention period, your data is securely deleted or anonymised",
+            "The website clears its encrypted submission payload after both notification emails are accepted by the email provider. Submission metadata and email copies are separate records; this does not mean every copy has been deleted",
           ],
         },
         {
@@ -170,10 +170,10 @@ export default function PrivacyPolicy() {
           content:
             "We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, loss, or disclosure:",
           list: [
-            "Access to consultation files is restricted to authorised CounselO legal team members only",
+            "The website encrypts the stored form payload while email delivery is pending; email processing and mailbox copies are separate from that storage",
             "Electronic communications are handled through encrypted channels where available",
             "Our website uses HTTPS encryption for all data transmitted between your browser and our server",
-            "We conduct regular reviews of our data security practices and update them as necessary",
+            "Send only information needed for the initial review, and contact us before sending especially sensitive material",
           ],
         },
         {
@@ -200,8 +200,8 @@ export default function PrivacyPolicy() {
       eyebrow: "حماية البيانات والخصوصية",
       heading: "سياسة الخصوصية",
       subheading:
-        "تلتزم منصة كاونسلو بحماية خصوصيتك وسرية معلوماتك القانونية. توضّح هذه السياسة البيانات التي نجمعها وكيفية استخدامها والضمانات الصارمة التي تحكم كل ما تشاركنا إياه.",
-      lastUpdated: "آخر تحديث: 6 سبتمبر 2026",
+        "تلتزم منصة كاونسلو بحماية خصوصيتك وسرية معلوماتك القانونية. توضّح هذه السياسة البيانات التي نجمعها وكيفية استخدامها وكيف تنتقل المعلومات عبر موقعنا ومزودي خدمات التواصل.",
+      lastUpdated: "آخر تحديث: 7 سبتمبر 2026",
       sections: [
         {
           icon: Shield,
@@ -240,7 +240,7 @@ export default function PrivacyPolicy() {
           content: `تُعامل جميع المعلومات التي تشاركها مع كاونسلو وفق التزامات السرية المهنية وحماية البيانات المنطبقة على المسائل في ${countryAr}. ويعني ذلك:`,
           list: [
             "لا نُفصح عن تفاصيل مسألتك القانونية أو مستنداتك أو معلوماتك الشخصية دون موافقتك، إلا إذا كان الإفصاح مطلوباً أو مسموحاً به بموجب القانون المنطبق",
-            "لا يطّلع على معلوماتك إلا أعضاء الفريق القانوني في كاونسلو المعنيّون مباشرةً بمعالجة استشارتك",
+            "تُرسل طلبات الموقع ومرفقاتها عبر مزود البريد Resend إلى مستلمي طلبات الاستشارة المعينين، ويُرسل إليك أيضاً بريد لتأكيد الاستلام",
             "تستمر السرية بعد انتهاء الاستشارة بالقدر الذي تفرضه الالتزامات المهنية والتعاقدية والقانونية المنطبقة",
             "لا نبيع معلوماتك الشخصية أو نؤجّرها أو نتاجر بها مع أي شخص أو شركة أو وسيط بيانات",
           ],
@@ -264,9 +264,9 @@ export default function PrivacyPolicy() {
             "يستخدم الموقع تخزين المتصفح ويحمّل Google Tag Manager للتحليلات المهيأة. تساعد هذه الأدوات على فهم استخدام الصفحات والتفاعلات مثل النقر على روابط التواصل:",
           list: [
             "تخزين المتصفح: يحفظ الموقع محلياً أعداد التفاعلات وأحداث التحليل الحديثة في متصفحك، ويحدد رابط الصفحة لغتها.",
-            "ملفات التحليل: قد نستخدم أدوات مثل Google Analytics لفهم أنماط حركة الزوار الإجمالية — لا تُشارَك أي معلومات شخصية محددة",
-            "لا نستخدم ملفات تعريف الارتباط الإعلانية ولا نتتبّع نشاطك عبر مواقع الطرف الثالث",
-            "يمكنك تعطيل ملفات تعريف الارتباط من إعدادات متصفحك — ولن يؤثر ذلك في قدرتك على التواصل معنا أو الحصول على استشارة",
+            "تتضمن أحداث التحليل عناوين الصفحات وأسماءها وتفاصيل التفاعل المرسلة إلى Google Tag Manager للوسوم المهيأة؛ وقد تتضمن عناوين الصفحات معلومات أُدرجت في الرابط",
+            "تجنب إدراج معلومات شخصية أو سرية في عناوين الصفحات أو معاملات الروابط",
+            "تتيح إعدادات المتصفح إدارة ملفات تعريف الارتباط ومسح تخزين الموقع. ويمكنك أيضاً التواصل مباشرة عبر البريد الإلكتروني أو واتساب",
           ],
         },
         {
@@ -288,7 +288,7 @@ export default function PrivacyPolicy() {
           list: [
             "بموافقتك الصريحة: فقط حين تأذن لنا تحديداً بمشاركة معلوماتك",
             "الالتزام القانوني: حين يُستلزم الإفصاح بموجب أمر قضائي أو نظام معمول به",
-            "مزودو الخدمة: أدوات الطرف الثالث اللازمة لتشغيل موقعنا (الاستضافة والتحليلات مثلاً) — ويحظر على هؤلاء المزودين تعاقدياً استخدام بياناتك لأي غرض آخر",
+            "مزودو الخدمة: خدمات استضافة الموقع وقاعدة البيانات، وResend لبريد النموذج ومرفقاته، وGoogle Tag Manager للتحليلات المهيأة، وخدمة التواصل التي تختارها",
             isUae
               ? "لا يتم نقل البيانات عبر الحدود إلا حيث يسمح النظام الإماراتي أو نظام مركز دبي المالي أو أبوظبي العالمي أو النظام القطاعي المنطبق، ومع توفير الضمانات المطلوبة"
               : `لا ننقل بياناتك الشخصية خارج ${countryAr} دون ضمانات مناسبة`,
@@ -305,7 +305,7 @@ export default function PrivacyPolicy() {
               ? "الوفاء بمتطلبات الاحتفاظ بالسجلات القانونية والتنظيمية والمهنية المنطبقة على المسألة في الإمارات"
               : `الوفاء بالتزامات الاحتفاظ القانوني والمهني بالسجلات وفق القواعد ${adjectiveAr} المنطبقة`,
             "الدفاع عن أي مطالبات قانونية قد تنشأ عن الاستشارة",
-            "بعد انتهاء مدة الاحتفاظ المعمول بها، تُحذف بياناتك بأمان أو تُجهَّل",
+            "يمسح الموقع محتوى الطلب المشفر بعد قبول مزود البريد رسالتي الإشعار. وتبقى بيانات متابعة الطلب ونسخ البريد سجلات منفصلة؛ ولا يعني ذلك حذف كل نسخة",
           ],
         },
         {
@@ -327,10 +327,10 @@ export default function PrivacyPolicy() {
           content:
             "نطبّق تدابير تقنية وتنظيمية مناسبة لحماية بياناتك الشخصية من الوصول غير المصرّح به أو الفقدان أو الإفصاح:",
           list: [
-            "يقتصر الوصول إلى ملفات الاستشارة على أعضاء الفريق القانوني المخوَّلين في كاونسلو حصراً",
+            "يشفر الموقع محتوى النموذج المخزن أثناء انتظار إرسال البريد؛ وتختلف معالجة البريد ونسخ صناديق البريد عن هذا التخزين",
             "تُعالَج الاتصالات الإلكترونية عبر قنوات مشفرة حيثما تتوفر",
             "يستخدم موقعنا تشفير HTTPS لجميع البيانات المنقولة بين متصفحك وخادمنا",
-            "نُجري مراجعات منتظمة لممارسات أمن البيانات لدينا ونحدّثها حسب الحاجة",
+            "أرسل المعلومات اللازمة للمراجعة الأولية فقط، وتواصل معنا قبل إرسال مواد شديدة الحساسية",
           ],
         },
         {
@@ -374,6 +374,7 @@ export default function PrivacyPolicy() {
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
+            "dateModified": "2026-09-07",
             "@id": `${pageUrl}#webpage`,
             "name": isRTL ? "سياسة الخصوصية — كاونسلو" : "Privacy Policy — CounselO",
             "description": content.seoDesc,

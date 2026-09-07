@@ -1,0 +1,2078 @@
+{
+  "build": "batch8",
+  "method": "Previous reviewed HTML compared with final build. Raw hashes refreshed only after unchanged visible text or expected changes plus fresh browser evidence; all technical and exact-answer checks passed.",
+  "rows": [
+    {
+      "route": "/ar/our-work/adrah-almkhatr-fy-aqd-tamyny",
+      "previousHtmlSha256": "5d788c2e5a01d45b10b41cf8766c783d174ccad88689f9770fe3a626f108f3b5",
+      "htmlSha256": "97ef3ca803444104f79f93e703de2568538e769b5d4eb68e52f97383760e059f",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/alaatrad-ala-almkhalfat-albyyyh",
+      "previousHtmlSha256": "2a5c9886863f56c064de4ad19fa1fcf815c643c7366620ab35772585a04db870",
+      "htmlSha256": "61c62db64f0051fa8702bb9208826339a53e2677a21728bc474c7d788e24afbb",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary",
+      "previousHtmlSha256": "2cea9565cd80e57647c1b6a12a651033934af2e3d9001081512c503a99c54b7b",
+      "htmlSha256": "2eb70d1910262b88fae4298708d646fce345ae3d76fc11d9340e62c4723d41f5",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/algha-mkhalfat-aldfaa-almdny-bhkm-qdayy",
+      "previousHtmlSha256": "a114b92fbfa85dd289c6f6be71fe51be58c50a150a385721ec7f849ea6fcb184",
+      "htmlSha256": "ef297a474599061d8984f8b5bcf6bdca7d62fc494702a102bde712926e91b8c6",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/almttlbat-alqanwnyh-walhwkmh-aldakhlyh",
+      "previousHtmlSha256": "74b72b42b74e3b197bb2895116a16ca44b497ce7d9bc82381ebae9264f6c7015",
+      "htmlSha256": "3e108bcfddbd910659931e60f7a4be7e93a5cd04d4a2e986d5191167433fe3cd",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/altfawd-alqanwny-aldhky",
+      "previousHtmlSha256": "db8a73fe4b60443f6ebfd5cc7723e4f26bdee0db3d07cabdff48ea17f19a42f6",
+      "htmlSha256": "e3b69bf90720175272cc37f55ecfcb36c7d987a0dd2ee279f67c30f6fead5945",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/andma-la-ykwn-alnzaa-hwl-alwaya-anma-altkyyf",
+      "previousHtmlSha256": "20457677ea685a78ea3c6441d744a961d79d45ad9caa782f332b735bde5ff1d6",
+      "htmlSha256": "cb53d4da2e6d945cd59353f868d6d8d8568a5d22cc850968a7864c49a292b164",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal",
+      "previousHtmlSha256": "41c8b8fe6794af4015150cfbd505e173764e293ec80e6b6a7935aa3866a70bd0",
+      "htmlSha256": "40d6b977680f62657808abec792490aba632e7c549efc3c2f5bb49f4aa2a3f58",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/astsharh-fy-ahtyal-maly",
+      "previousHtmlSha256": "e1a2c353f5844a6240d18f3b1b50f97d3bdebdcffa9b8498054e2862a6740938",
+      "htmlSha256": "735263d1080736d5a35b5a9c208584aa7617f505071d6ba38634620cdc91cf54",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/atfaqyh-atar-ltqdym-alkhdmat-altqnyh-whlwl-aldhka-alastnaay",
+      "previousHtmlSha256": "7d76a2885774521b742efe77129543b77fde923972d63441a2138d0ba58af55a",
+      "htmlSha256": "f8078ad809f754a985b97674167481a50cd01bc5109f446e45b28de97d7ebf39",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/darsh-qdyh-qbl-alnzaa",
+      "previousHtmlSha256": "4652131de8ec29a948beb5f72c65779eb52edef7e46e53fc9c2cb95304f96892",
+      "htmlSha256": "951006d88aa093e51058ebdcca2a1a03de574a807655ef23d9a5d64ae22b10eb",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/drash-qdyh-aqaryh-maqdh-fy-swrya",
+      "previousHtmlSha256": "10f19f8a7c4f0053bb360b406b37fdab96d50f1a84083d656537a08098c23fc8",
+      "htmlSha256": "04785c904b279c32bfbee682a45c9b007c47b482858041d6cc2fc11a0174492e",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/drash-tan-amam-almhkmh-aladaryh-alalya",
+      "previousHtmlSha256": "b2af840495ec51b5353e4a69f7188e88b9b7a80bec011bb30c2f5a85ffcae690",
+      "htmlSha256": "a50373d3c44d378b19c098046700135f09dc82c41c1a6f229f0cfa7145721dae",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/fskh-aqd-iyjar-tjary-bsbb-khta-byanat-mnsh-iyjar",
+      "previousHtmlSha256": "2837a7af585c07154b7c892ef5f97b9238b6619f968c8b2e6bea13e754d93279",
+      "htmlSha256": "fd5a92368ca99f7d999204ce69646f04e65655b604e12838cd462c8336720c5f",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/fskh-aqd-snaay-wastrdad-aldfah-almqdmh",
+      "previousHtmlSha256": "22489d9a3d90c3c00b04ff32dd60c70e936d2a01ca6c634a79f670c9defab38d",
+      "htmlSha256": "9562b7a98dab9322c4ee874a615b0c38c223cf70223be479527b70adc726f64b",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/hdwd-mswwlyh-alkfyl-fy-alsnd-lamr",
+      "previousHtmlSha256": "996517717c3767208d5d2334451d4b69ce787265e8996b3cfa18f0fa5ac837ab",
+      "htmlSha256": "8351db1b4f9762658b67508b74cb0893fc24f8f59d26835cf9a32250358c59be",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/hl-ymkn-tjawz-altqadm-brfa-dawa-alithra-bla-sbb",
+      "previousHtmlSha256": "08944695d4f8e205d4dc3c1dbad0cee54008e1fbe9ed3ea7b701c734755014b1",
+      "htmlSha256": "76742f47f2af5950d545773bd1da17a12dc3dfb78bf314406afc274783a0c0b2",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/hyn-la-tnthy-alqdyh-balhkm-alawl-kyf-qlbt-kawnslw-msar-nzaa-amaly",
+      "previousHtmlSha256": "44957afa0d7a27b3716b393ccdce6487b2bebc654480b250e1989bbc2ea975b3",
+      "htmlSha256": "cc3ad1f9d7fedc027fc7a9e5e8229928416b852eed734c351d81a1f985c6929e",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat",
+      "previousHtmlSha256": "0a3b50995d1c6bb820ce5b58109435be4945dfe8a2c77c1cd2510586601bd1a7",
+      "htmlSha256": "ab2b4d9d461ded99ea6003d8099802438633178338555966b9446b1d8ed88700",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal",
+      "previousHtmlSha256": "76d6a3ca9bd1a1a74f9c808adf224b6688906ce661627bda36625741fc9d08ef",
+      "htmlSha256": "7ed9b38affcbc6411ebbf66d2a471367b96d617d1f364b95e7da5634037ae9a2",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/kawnslw-wtswyh-alarsdh-almalyh-qanwna",
+      "previousHtmlSha256": "a5e22931a3a9364166bcf3a6f024a03be5721cbdf03a08be08fecf706875036c",
+      "htmlSha256": "b818b0517b47e6aa488f1417d0e77e855e2aabe025264b3b670a0b3c30791aae",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/kyf-adart-kawnslw-mrajah-mhasbyh-hsash",
+      "previousHtmlSha256": "ffeefcf788f299acb31a1b5617e55fad43275448a4fe247fe4fd386e3f678a3e",
+      "htmlSha256": "e4ff972026d34a920bf330d0457eb194c127981d8c46775005b6cc82452f2ae1",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/kyf-athbtt-kawnslw-alshrakh",
+      "previousHtmlSha256": "ee2da93f88b0434466edcef9c2c98c89de2a3f1dd4b89b35f428b82a2db9005e",
+      "htmlSha256": "2fab2f99a5bfaf881ae5874a12898695e6d437388046cb4ce0e9e4656c86dcb2",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/kyf-qadt-astratyjyh-kawnslw-ila-rfd-dawa-fskh-aqd-bya-wtawydat-bmlayyn-alryalat",
+      "previousHtmlSha256": "7c8043fda8ce5fdb4eb36515044345b235a35e39cddb6501d6f041cea48f737c",
+      "htmlSha256": "3c279918f0c6d79127ac4d6b39bee462987cd9830365780163536772cd7195cc",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
+      "previousHtmlSha256": "37b0448fa335b398c42c386b7fe7bb84d71936527d0c36673d4352c34356da8c",
+      "htmlSha256": "489bca83ed5f6b20a2abf8b4fded0791c60276e95a6aae82de3d3d7086828c6c",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/kyf-sahmt-kawnslw-fy-anjah-mlf-thkymy-kaml",
+      "previousHtmlSha256": "8fd33f9f0ad557d95f5ea63bc455678e0e9ec048eb4c45f9c7f5da53d0ec263c",
+      "htmlSha256": "cfbeffcb4769bba47581d78e6eb273ab423b44afd5f98ea7dabcfa09ba02e14e",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227",
+      "previousHtmlSha256": "5b727f63cc0b076c1319cf157d829bf1098e55c3bfaf0b217fca48063a59704a",
+      "htmlSha256": "897341ef8a4717b93e60f0aa77b63e942faa4c88b954474a7a3d09b16c271f49",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/maaljh-halh-khta-tby",
+      "previousHtmlSha256": "42f2a971bede16ada73833a091a7874f9ca0eee6e4c3aeab8b98601e833fc05f",
+      "htmlSha256": "188909262fb98c9577e64b1ae9f742e875bdff76342b8fd5bf0956b1ebf32f01",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/mn-alkhta-ala-altawyd-kyf-hddt-kawnslw-almswwl-almbashran-hadth",
+      "previousHtmlSha256": "f942ff9a5fc0df4883b9767c6dddd86b2d654d87713eb9334c6bc6587afa0423",
+      "htmlSha256": "f1a56d312a3250f1c6543b3aa13c3c9c0e4c197a6846adfad4ac2e68c8645557",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/mn-atham-maly-maqd-ila-brah-qtayh",
+      "previousHtmlSha256": "ad1e6a4de2ac65837656de0ea90b4566a72af79edf551d2881f07e1ab276b4b0",
+      "htmlSha256": "14908994b2b9e746b152d642e140676372e3ed60a0377086fefa4b79f9e88322",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/mn-drash-almstndat-ila-alhkm-bjmya-altlbat",
+      "previousHtmlSha256": "43361ef29db048b4b3f1644c6c469e929e9d2eea0b850ede002445b0b46498af",
+      "htmlSha256": "73987b6bf189b02f334523062e4f9ef23769122b25a032d2f958a2261ee64b2a",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/mnazah-tnfydh",
+      "previousHtmlSha256": "8cdeb7143dd83ab961a8ebf217a3202d6e59ef1479dde18a36d2a2c3e6990a1b",
+      "htmlSha256": "e37bf5b67fa5bb89a3fadb89d491e81be007ffe499659a140af3897cb5e33048",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh",
+      "previousHtmlSha256": "26def434a6abdb4106e497261d94d3214ac9ccacf884abccda07974114e31def",
+      "htmlSha256": "dc4871314c84c32216467e29ed26d6e262404083a62c886a4c9f9c39152536c9",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/msandh-kawnslw-fy-qdyh-aabrh-llhdwd",
+      "previousHtmlSha256": "e12fbfb5e9896a40ebcb6899f5d69208c2e727b46bc63593dfcc543623fe3827",
+      "htmlSha256": "c5e7d62e827509d7ea4719c73d923422b1aeed584ca4bf5bd057970ebfa6ee90",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/mswwlyh-almqawlyn",
+      "previousHtmlSha256": "fe4438f7c87a762cf17a82199ad1f140b992785a175383faad56eb58610f0055",
+      "htmlSha256": "5335a549933fede7d05632ebb9519a01c46d9451afefc988fa236eedfd5af2ad",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym",
+      "previousHtmlSha256": "5f0a26dbae11adf07e8d30992c6566b4081dc24404e3cbe7d18fa357f22a4a44",
+      "htmlSha256": "1c7ea565dd39cac3f5839ee7d6d88b7668462eb871d00745a98aefb4eb2ec1cf",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/qdyh-mna-sfr-dd-aaml",
+      "previousHtmlSha256": "1bc8e5a1fd4fe446f818b445c50d15cb06a0e3bef059f313694f8f162ea571a8",
+      "htmlSha256": "513adfea03323b0544dcf02833194e0980b15b13bc068c0a2683b0eaf625e88e",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/ray-fy-mshrwa-qanwn-alwsath-alswry-maaljh-10-thghrat",
+      "previousHtmlSha256": "1766dfb1966c500f497860dc29aaf73e792be6e872ffcee5af79ed503fa9a5a8",
+      "htmlSha256": "29cab0afed4a4fdd81b450fdb9f8f5792bd1c070550ec862238beb906527d241",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/ray-qanwny-fy-tlb-aflas",
+      "previousHtmlSha256": "02a2aa4d0f71db0c3522960398b87ddd1f28b036154ba234cdf27eca9979bf5b",
+      "htmlSha256": "60d7d314afc453893d38eea2880ca73ad5fd946aa55a29506d473534a96face2",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd",
+      "previousHtmlSha256": "d0bc11cd513cc81436f607bc1b874c120a33f05e8a91edf492b995e1a7c09b42",
+      "htmlSha256": "8192e4760caf1cb15468b05bcb8eaae6f3dc2f2eca66ee0d29c711f469ef6fdb",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/rfd-dawa-fskh-aqd-amtyaz-tjary-wtawyd",
+      "previousHtmlSha256": "711436b6b0caa27bfaf6cde6d77750946da00796d0add6ac369c4f647ec43b2f",
+      "htmlSha256": "0b7456224045d9223844130505fda81178b1d0a7a625e3a51eb764fd22d87ef0",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/tfkyk-mstndat-altmas-aaadh-alnzr-bnjah",
+      "previousHtmlSha256": "d2645078b22144b1759a747929385d276ec9c52964d8cabd02ec37b0220a3a4e",
+      "htmlSha256": "6f34b6a7e4567293797da72fe7ef57da0398022312c15720270241fa2d9203aa",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/thlyl-mkhatr-nql-alaswl-walmsthqat-byn-alshrkat-almrtbth-athna-altsfyh",
+      "previousHtmlSha256": "44d39804929b77989bd5f192ddaa1c1ab193570dc7a3382d23c1a1a4555ca18b",
+      "htmlSha256": "6dba37e249c93016f44151cee8c9cb596e94ee0140fbff4ba88d6e290ec7fab2",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd",
+      "previousHtmlSha256": "95ddad00d0607d78ab253ab8d446e264f3b0846f45cff460411c21f5c5e2187d",
+      "htmlSha256": "79877a92d2bd30b99cd8f0da8b90c400bc40de331e32e68af018a8eac6691158",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/ar/our-work/tshyh-altkyyf-alqanwny-lanha-aqd-alaml",
+      "previousHtmlSha256": "63f4c9eca94bbfdd86ef28104198a7dc8d75f6eda13a3959e486f4dd8621cfc8",
+      "htmlSha256": "67fff45b61420be8b29a66c64ffc0a9e03c7fed164d73834b02da8154c52e9ba",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/Penalty-clause-in-saudi",
+      "previousHtmlSha256": "ac7594fcc5c8e87ca4ed0d7223c208bf1f57eb98e2baf52e4a2eee6cf42ec1c9",
+      "htmlSha256": "d151bc77815287dc8fe5cb2d51d23696c2dae866b82e51d029e15c3124acea05",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+      "previousHtmlSha256": "2cc2d494e6613432bc5e12968c41e2201eecf7a2d8bff946ca25a0ef3662993c",
+      "htmlSha256": "1bd6fce1cd04d5641970e2c195aef58f916241de3378acc8116de4a26f5b9ff2",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+      "previousHtmlSha256": "417e16937a9e6f596cc95733b3bc6d39139c9f85a5c48a4c2ff25102f99e2c06",
+      "htmlSha256": "c75a5d78b87cce9d104074373408477e42803ac6447f2029ca8935086a011cbe",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/alaqd-fy-alqanwn-alswry",
+      "previousHtmlSha256": "289eeb4945f6589c2323bdb242b0e1f7782e047e2e4b122f710585d9641e1887",
+      "htmlSha256": "c7b90f6a9ade14bbdb2807309bf3f6a44185f289c4a5ca736bb93744f5a726ab",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+      "previousHtmlSha256": "56ccb283eae0dc20e76af1190161f48ca58a44382c0d3ee82409c2c3d6249273",
+      "htmlSha256": "095025f53e5ad599754a9f56e1b00fd0ccaa5885825c02569ee634c3d245481a",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+      "previousHtmlSha256": "6c319c03094a0d7f882f8ffb9262f483c1a8a82768456184c8f39262962337cf",
+      "htmlSha256": "1c45d896da50c5177bb47912f8a33a7900542f7f6853d72bba51a1ca2a506c30",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/almswwlyh-alaqdyh-fy-alqanwn-alswry",
+      "previousHtmlSha256": "9654efdd1e94d12d194aa3f4ebf4bb1d524839f808f6c5ebe12c3c981b0bafd9",
+      "htmlSha256": "793e173b512b5eee4fd77fc754a5459bdef9165b746f4e97f778e7116bfcdb80",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/alrda-fy-alqanwn-alswry",
+      "previousHtmlSha256": "9cdc4f93bbcb55df0e3246bda0ce0e53cc98a2581f7ad806d518419160480910",
+      "htmlSha256": "8938b9f24db7aaecd72b531ec2b6e711500b3686f40208b33e540e495bbf1cbf",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy",
+      "previousHtmlSha256": "818f26da2af69a003254a8b8c84caf25f953dd947ee886b274a7864b7c40f282",
+      "htmlSha256": "b895c1b8ed856a5dbff437c5f574a31f5105e989e8333e19b6a7ab69879ef8c9",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+      "previousHtmlSha256": "784b36d323d8ad5d91600de0a20b41b82eeb5925341c78ac9e247e925df49b79",
+      "htmlSha256": "f8bf792e2608900a8f03b4d29393e04a8eb7f0d08d48146828fb9de04add5166",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+      "previousHtmlSha256": "cfa7d55cab5c99d8eeae15301a82c8feb022d1615c1930ac58f118feecbd17e1",
+      "htmlSha256": "7f2fcabc7666ac4c7c61cc208229600e639f1888e6876adf03ea213a26d04b55",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/altwqya-ala-byad",
+      "previousHtmlSha256": "f03633b88c0b4d21e84ea65eb5ff178772a1dbdf83b7d77b8d02e35a5f19ea40",
+      "htmlSha256": "8fac4cbcdc45687f3e7cae4aa81cb2c2a6c141e3d2cce0c86be91ce92e03fe65",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/altwsyat-alamlyh-lsyaghh-aqd-qwy",
+      "previousHtmlSha256": "608cca0f286667216f16b22ca7d13ce6af2b213a4ba80739dace31dc3e7e731e",
+      "htmlSha256": "c27cc5bc38e2e237013fab04992ec7eae583d8a912bcdf6ca81d46b22f26ed1b",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/anha-aqd-alaml-bdwn-sbb-mshrwa",
+      "previousHtmlSha256": "c34061e8c8e1a6c213b17404e1ee7b3f2eb1c841bfec4eb8fd3b1be3a2a6a4c7",
+      "htmlSha256": "c6dcc68e9f2cc93f7364a46b71ebc603e6b8bd9e626e8988bbd6eba957f73424",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+      "previousHtmlSha256": "43546c36f83a7ba63b6f29210b5e63f21455303ddebce7d48fba88da83cd1344",
+      "htmlSha256": "89203a7fc2501a128866fcaf760c9deed5801273d0050cd7451c4c7604d5a39f",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/aqwd-almqawlat-fy-alnzam-alsawdy",
+      "previousHtmlSha256": "e6ac1f03d2fd6f8e26f87a044908d1f1dd81c6429221e8968afc561389c55be3",
+      "htmlSha256": "4f43f1afd0df6a7f2f383df69d62ce8abe89c1e096f783cea109a8299a218f40",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+      "previousHtmlSha256": "b556d6def3399f44848a6e2da0cad30883bac4459f7b9e7d16d72c2b42eb6d5f",
+      "htmlSha256": "03bdd1200739a711209cbb043c829e8158829bdb19c3d10870051245eb5f5bfd",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/athbat-alaqwd-amam-alqda-alsawdy",
+      "previousHtmlSha256": "d345bf42ca94db167584adff64ac90b76fde552a1582011763d7f9721868b011",
+      "htmlSha256": "d3a21902429f89cac535edc0b7178f6d3be39e5e2c7ee6dfeb4c7c07b578bd10",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/bna-astratyjyh-aldfaa-qbl-bd-alkhswmh",
+      "previousHtmlSha256": "55c51be4abf3362d6598a8a312c0e66e4e9056a10de4657a68afc43a6a13b58d",
+      "htmlSha256": "46078ab71f74b746c38e2306cd8789eea10f57a64a3034905bc56c8d4c299917",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/commercial-supply-contracts-in-saudi",
+      "previousHtmlSha256": "b3122f75904597adf0c0e4e5bf773987b95eac0ba3323c39011812cfaf5bd1ae",
+      "htmlSha256": "95cb08425ee0b3a63d9d996299db3a8218a3c5febfc502dd9754f335218c5a11",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/consensual-formal-real-contracts-syrian-law",
+      "previousHtmlSha256": "febd57b6a1a7010734480b1451ad8df2d646ea8d381ccfb3e244cd2448dca9db",
+      "htmlSha256": "47ef480b542b7a93e7b9814290fe74fb0dd012466a767c8baf22d4f8ae9b2639",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/contract-interpretation-syrian-courts",
+      "previousHtmlSha256": "831018cd311f4fcd824f3461e55577d116b989314e724a5aa74c9e0fbb3a5991",
+      "htmlSha256": "d5b28c934836d0ceafd6cc35f224652ff1860735637436b3290acfa5bb13503f",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/contractual-liability-in-commercial-transactions",
+      "previousHtmlSha256": "63fd865a5fec8a9c631f310fdb801b4948e33a74eb63c1d3a41bbe36d9fff2b6",
+      "htmlSha256": "c2df3090ef3710357c39b839e08dc625755f92d6d36107026c39f45cd2ef7cc4",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/defects-of-will-syrian-law",
+      "previousHtmlSha256": "0c4eafa8b147b91570de173e2e70182469280268967ab8d42764a0c1e1df4f64",
+      "htmlSha256": "81c4ac990027d332ad4cdb7bdd1e0a84395001043e3838bfcc1226a9d579f75f",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/e-contracts-legal-validity-saudi-arabia",
+      "previousHtmlSha256": "bdeb53eddb094850f2f17a2accf76df52f233511a162dae024a0148ab01e2e40",
+      "htmlSha256": "c79d89c8b990057687216a90459663ad21391df012b7473f9cc5fa2cbe812582",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/formation-of-commercial-contracts-saudi-law",
+      "previousHtmlSha256": "f25bc07329a1dc4fa21a6fa845af548c2a2ce6e71870fde23987aae17902d9ee",
+      "htmlSha256": "06d494a2f381890c86b95c805d66b94d8c88184f6852146f747ba74a60edb653",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+      "previousHtmlSha256": "e54cc51957cf28487c84ad21720d40437be7260c719522a0682506a708841879",
+      "htmlSha256": "0f578aae65293d40238083256b4eb554f5eb24be2e6f00b03b2155c46aa03fc0",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+      "previousHtmlSha256": "1b6c3b1e911ea790d0ac75ee1e69b199bf35378384d1c078d3a607a90ae36dfc",
+      "htmlSha256": "9051da264c707c08c47096b7543b7b948ec38c4c216bc76c5192ec56c12eac83",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+      "previousHtmlSha256": "bcdaf003720a53e0a78353506bf7f9d9c5f5a7240e155dd3ffdab594b452845f",
+      "htmlSha256": "766369b4bdbed43b20447c2fd6f1b3cf880a2f823bf399bcd63dd299877ce400",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+      "previousHtmlSha256": "ae296be34b8ffb96cc7176c3cc6717379d56580b426af6fb3c48e699b0dd3b63",
+      "htmlSha256": "486a6ef40bb66f7001f7a9992d09d94527f9ef70208ad698fed6dd14ea9d248f",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/hyn-ykwn-alaqrar-aqwa-mn-alankar",
+      "previousHtmlSha256": "3ac900d036993ca71a0e6b139866bc94b03be88da5e7b8a651c3fc7f4210d8ba",
+      "htmlSha256": "8efeaa4efb75f1e0cf5db06401a770a1e67fea83508b6dd0a043cecfded03ab8",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa",
+      "previousHtmlSha256": "ea1e111dc0ec531d9a08edd4c49e229f6fba6b0fb13c0613cbafc84a43d9dead",
+      "htmlSha256": "1457ccb06361060bc2f2c619a63170afc7eda6a9bbfb53ad238c4f994d68dcf3",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/mhl-alaqd-fy-alqanwn-alswry",
+      "previousHtmlSha256": "6e6a222540f41bfb1a0872e46a92ddcd078203bb40542cd71a07990159aa7ee9",
+      "htmlSha256": "bd3c4036288fbe702162fea6732fc5ba966bc7b3808ae9bca2a539066efce3c6",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/mnhjyh-5why-fy-alaml-alqanwny",
+      "previousHtmlSha256": "f5c9eb5db4a28b93b38f65b7a3767d7c2add7fa91e9b4c53eef9371cc9a2a0da",
+      "htmlSha256": "a12b06c57db5a34692c9f6118ace06778816f313ec353abaf765e68b92c0c69a",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa",
+      "previousHtmlSha256": "8791cb826d00d1b21b2ce60eec96690d8e0e6140e019d97b2345b9bbf70a44ef",
+      "htmlSha256": "3affb4947e5ba841419396cf46b77f27e158d3346d761d3e2337c0606560d340",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm",
+      "previousHtmlSha256": "aeb8c6510e0c686af7d5c62c4f1b96100a089b1385c6f7c747d6046df1bba5c0",
+      "htmlSha256": "a15dc03fc4d32852646e6cfa0d076f76cdb7a71fac674a1571f0711c03ab6d1c",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh",
+      "previousHtmlSha256": "63e19c4efc9e37c9e91f66b326efe79bcd418be8bf708481537b9947744a193f",
+      "htmlSha256": "48876296d5dc63199426608708cecbcfc2f477b61caecc1b1f05475ac978c09c",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "previousHtmlSha256": "d839e2869835602c110cf20ec31a284b82cc1363feb0191d83af40dfa6d21f2c",
+      "htmlSha256": "bc2d16be3a7509951ceb13e03fc9d99d04d5341cc9e4e9aaa2a4d8904a3deb12",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy",
+      "previousHtmlSha256": "78c4f89c5fea3ef0610b01b327f9b78d8f17acdb5610f245b30f282973ddef4f",
+      "htmlSha256": "48df704e6c5ec5e24d7291fce6512e3544a7c2758f516a40fe40faa2ae81a5d2",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/mta-ysthq-alwsyt-altjary-kaml-amwlth",
+      "previousHtmlSha256": "ecff8443026a2e5fab3d15db5e50bc63d230fa6f655e6511d21f736eecd5efab",
+      "htmlSha256": "0c85665c01f2ea564816a5c852d6acb244cfa27b7c42d21dc4c8cfc8f07d3862",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+      "previousHtmlSha256": "514fd848fae2b3b494176b6737ff43ad27dcd5355c19bb7db2e8cf91b4131439",
+      "htmlSha256": "b279d15f7cac51b02eebd1be2bc826e8c034a5ea82a9e65338b9e2493c33a62a",
+      "visibleTextUnchanged": false,
+      "basis": "Expected new answer or work link; fresh targeted browser check passed."
+    },
+    {
+      "route": "/blog/ar/performance-of-contracts-in-good-faith-under-syrian-law",
+      "previousHtmlSha256": "6bddc0a0af257006d2a85074bc71e0d661769ae4fc909918927f661f02732c05",
+      "htmlSha256": "99d8459151fb6c1c490952b15b24b375a93ce400c7baf3a5a29ec90d85b22e88",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/ar/syghh-mdhkrh-tfahm-qablh-lltadyl",
+      "previousHtmlSha256": "78bbfd953d3a6be481a6aa9b4383d4bad5d46bac04fe6cce5d7cebe2f6eef5fa",
+      "htmlSha256": "1e13d27c58f4fd36afde9dad6bf51aaf70ae1b5ec2615554288c6a929d098bd5",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/Penalty-clause-in-saudi",
+      "previousHtmlSha256": "311c2756980aab0e71cb6dfd8132b64a2e87547768dcc31471f50e6165a92000",
+      "htmlSha256": "0171284e550b2d91c28521c0b68019a6a7a0df7b8e4808633db5da4f2ece9d03",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+      "previousHtmlSha256": "59bd885da038b2e49f757aa92b656477a7945cc8ff7e5d154fec37f70fc403b5",
+      "htmlSha256": "b658e7c91c7dc8ae743b33fc9a0751e0c96ee9adab1ecb1667885e0692bc085c",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+      "previousHtmlSha256": "3933e5b5ac1ec39afa4c2ed068101b6a45aef872a8a1d02296934470ca452d11",
+      "htmlSha256": "0f359d450e52bed16b2ad8901eb9828ceade3903ba035c01db9359430062c32e",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/alaqd-fy-alqanwn-alswry",
+      "previousHtmlSha256": "7c2de75250665a72e32f95d6b907afa0c204adc849ce9c2d3beec8d432b84bde",
+      "htmlSha256": "d29fd13f1501d3b78ecdbdd23598c06a9f30c399bdb216062162eba1afcdf6ae",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+      "previousHtmlSha256": "2df92276de1f4e3c417f786b52cfacde4d4894727916a62792637aa49dd52799",
+      "htmlSha256": "622e9f794bcea29cc57ad1ddc8936d3a7f474e68aca5569e7aa76efaa26b0a52",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+      "previousHtmlSha256": "052cd595fc77f88cc7afb6e6cdea03033c7e0403576c26e629466fed6b2f091a",
+      "htmlSha256": "9b1811d66b5593f082cbde6277d826eac4e6f96174e717b6207bf6446832fef2",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/almswwlyh-alaqdyh-fy-alqanwn-alswry",
+      "previousHtmlSha256": "845883d40ca46f5d841798bcde3ec0a8e6fa3557ade3c80986fbf3f985714883",
+      "htmlSha256": "8d3fbe0b952c3a952fbd7da0de8ea52da1ac1ca333c6383a655832afca75630d",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/alrda-fy-alqanwn-alswry",
+      "previousHtmlSha256": "032c3d32791de15515ea6721dceef5fcbc68f035f43b09783a2a61ecea5ead08",
+      "htmlSha256": "73ca22f26dc1e58b5a0843b8660449b58aa38dbbb4b2b1aea015c27d93d90af6",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy",
+      "previousHtmlSha256": "0202013c06fdf9a53379c57d87796c51f5afea5adf847d19b9e64622b05575b7",
+      "htmlSha256": "2d3281e77e805cc39868b1db48324dce98f9655c3ca86d21235804635be2eab6",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+      "previousHtmlSha256": "7b3c5e3be6f3651f7cd3e9413e3e2063d09c722a495c9d173bf860cbf7911b59",
+      "htmlSha256": "5ddcc4a12235ce399193e9deb1975a1a6effff6c4121cc5bbab3747400208b98",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+      "previousHtmlSha256": "8d86f5a715a604262ef54f4c113141181398972bc6f908a8e891c6cbbf8f33cf",
+      "htmlSha256": "afc5908c83d9ab1b8dda4919d1bf4fb8a688efb32759319d2bc3429469fa4349",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/altwqya-ala-byad",
+      "previousHtmlSha256": "0131d49d877324836131dda2fa3b186dd4f653be30f999e8332864e7d3605ffe",
+      "htmlSha256": "8a23c300b43920e22bb18de886531002ca556a84edd79d22e7db2cc01b3780b0",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/altwsyat-alamlyh-lsyaghh-aqd-qwy",
+      "previousHtmlSha256": "84c327ee4aada0ce249150d67be2767907a4792b612d0ad47f0d38f593dfa6af",
+      "htmlSha256": "cd30f6fdac0e1e3166a6c9cb0ec42979d2db3da38424715b04fb9603f2e4461d",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/anha-aqd-alaml-bdwn-sbb-mshrwa",
+      "previousHtmlSha256": "be7af221bbf13b76f0a8407358d5fef5ebb2812c30a1250d5af3a9c5f6d4f773",
+      "htmlSha256": "99fbd32086d352897073b079798ba707af64669528b8e601a88c74481a96d39f",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+      "previousHtmlSha256": "eaac98b64928bca94d6c93840c3ea984f6394d6f46118c7d89167b584364a64f",
+      "htmlSha256": "c28521dce4f2d43d654de0a8e686a6184ca524a28ceb7eae698ae60a68e14f44",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/aqwd-almqawlat-fy-alnzam-alsawdy",
+      "previousHtmlSha256": "38d6e9c999c75411bfa786a8379c54fc219250a293dcd4eb91ebdaefc29ad032",
+      "htmlSha256": "0deb6830eaf08f6a57bcdf85a7604768986c120ff27c3c1e93eb81ac587f80e2",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+      "previousHtmlSha256": "277bd768920ecebb760456b202e04b546e3a64b2d12ead8318bca91037092e99",
+      "htmlSha256": "8f3d9f4530eecfc6fa62794d094563bb9c7cc717a2cde297cbc55afb407aeb06",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/athbat-alaqwd-amam-alqda-alsawdy",
+      "previousHtmlSha256": "b5e1a0ddf305e1d08da48d5a5ccbcf4d356018270e330a831c150706e2bf2311",
+      "htmlSha256": "917e210e4c08c15c5558d209abc3b1a7b23dae502cfbdca70f2bed6f13626c52",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/bna-astratyjyh-aldfaa-qbl-bd-alkhswmh",
+      "previousHtmlSha256": "c58fe20ec4ca36ea6608717591e0580dd046ad25acb1f6f067e9567e4c4e1630",
+      "htmlSha256": "cf5e18db536406472431cb71e6934e28dbe5431fead16faa28040f5a610f42f9",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/commercial-supply-contracts-in-saudi",
+      "previousHtmlSha256": "34ee47c360a3c92f5f41b8c87ffcefdbf6bc0c520246e300d8fd994db60efff6",
+      "htmlSha256": "fffb360653162141f7e1a616f6e0c9f1fb1c694ca2a200e5bbe9bb0ad38fe4cf",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/consensual-formal-real-contracts-syrian-law",
+      "previousHtmlSha256": "d5b7b239d273d00847b3ab0b1ee738c315e4f1d427d9b7b8d2b7b78cbd9d33b6",
+      "htmlSha256": "dce7fff518fbe60f005a9caa50d0516693b4ee4f66c93113a0f50e195dc90b53",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/contract-interpretation-syrian-courts",
+      "previousHtmlSha256": "48a95538e1c64265080b25ebc6078ab569f26997d920141429fcd17f9f270563",
+      "htmlSha256": "d1f7d01aad919d3df80fe2a32a956c937bce78b190153dceff1c1179c2202b79",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/contractual-liability-in-commercial-transactions",
+      "previousHtmlSha256": "5f2dba91f85c09e3b42d2dcb17c1c42a32328c864c8146ea413a8f73951ac66a",
+      "htmlSha256": "75be656a0479f3004fd2f3183f081e67036a87f9fed81291b040af0bd71d487a",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/defects-of-will-syrian-law",
+      "previousHtmlSha256": "4949e5ddaa44626ce60c20904912a8a06cb74a4274edafb267280f50de3c0491",
+      "htmlSha256": "09cfc90e7c9a8660e3e3551a29d97e01049fb54e3bd961d5012c72e425db5d10",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/e-contracts-legal-validity-saudi-arabia",
+      "previousHtmlSha256": "118a821b9664a8b8893e3de2bf130e765c6022b9989950c73bb47c4390bdc1a5",
+      "htmlSha256": "3592b1ebb42a71facf0d54e18afde682ed7a577a2474cca6924475fd31a03f2e",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/formation-of-commercial-contracts-saudi-law",
+      "previousHtmlSha256": "fa9ac2d803e04a2ca89cd7cfae482d3b31d0422ca1871f53f06cc3e62a0d6380",
+      "htmlSha256": "edfb81129982575330a2b933c525c0d47ab1bcf16a9eeb58377042b0606a735c",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+      "previousHtmlSha256": "3790aab880a91f0712717297ca968da9ece8f7831c8a7a4559326ab5c265afd9",
+      "htmlSha256": "728620a203c7baa97028e0f8631254a0dd43cdc10b784b5108cc407670a9dbe8",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+      "previousHtmlSha256": "c83194fb1f249b39a4185bae5ee13368b2d69dab8fec3fadd3c91f03d1f143c3",
+      "htmlSha256": "fa0bde1f63752d2d6d109a766d0c140ad40eee707d3dc3c4b42115f62f4ef520",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+      "previousHtmlSha256": "6a1a0f87fc8a464009ad0fd8475ac8e82e551e420282a091c654c65014133a84",
+      "htmlSha256": "e54b47aba088a0581945dc82f83f943eb6769eb2a910b17dfbe85732d9ee78d3",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+      "previousHtmlSha256": "9d01c78b49a4f79ad2f457d84093e7ed879c3659269a6df61d1d6bc384e71d8b",
+      "htmlSha256": "0914ce66cc045674be4cf99d1ac91678e961968108a541e21eb7897bbcdaebbb",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/hyn-ykwn-alaqrar-aqwa-mn-alankar",
+      "previousHtmlSha256": "ed497b741fdfad43ecbaa739f382fd898f62ec41a3fa329d1d28a3b19da46a80",
+      "htmlSha256": "1f070f32dde46dae0d18b83f8330322c9b6f5fbbd437866b32b826f576a8fb44",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa",
+      "previousHtmlSha256": "8b803f30b41829953ec0d42ce3e100ff999303d4baf21a37c6bccec28a835dae",
+      "htmlSha256": "441c134b973e4b43b3619466967558673ec2c1db0ace488b25bf9619244dac73",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/mhl-alaqd-fy-alqanwn-alswry",
+      "previousHtmlSha256": "e6f9872f0838fb1325929a8f38161a6329ccc066ccdfa61f5a44aa5cb43a9aec",
+      "htmlSha256": "845838fecca7a60e807939a83dd39a271efbcae5065171fa32b1f6c0ab1ea9c0",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/mnhjyh-5why-fy-alaml-alqanwny",
+      "previousHtmlSha256": "5cf687500029c637f2e517a61e302d112a9f99a3d9546ace3f80686e1f15cebd",
+      "htmlSha256": "d00d605127a7321e640edec9a25619820ddc5953e3b2fde1db339bfbd677d891",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa",
+      "previousHtmlSha256": "51539173da45a0046f8dee65e94f96c0bda19853a0e1ceb439ebea74d6172a55",
+      "htmlSha256": "4bab99b404557393f434025e97a6f87da0d3129b9be147c25fa58f9e23b48eb0",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm",
+      "previousHtmlSha256": "2d7d530d502235013a4538d6c5b89e8872c748cabffe786fb7afb3f19ba19389",
+      "htmlSha256": "f2cd9f39a089d9cd2ca010e5ebd335d3a40bd244ea0c498fa9efe1db1eae814d",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh",
+      "previousHtmlSha256": "e90e6b339f8c847267178dd9937b44924ae9767cd7b37e60a2267db2cdce2900",
+      "htmlSha256": "3f9089c89a0446a31b96155ff6d044f5fa0e19cb42244f6388c32a661daf84b7",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "previousHtmlSha256": "b4c9356ba504302351e034247c89435e6dca5fabd64948c24c6de4af48269510",
+      "htmlSha256": "7fd4bb16ed082c8bd00ef873528765324bfa59583a0ab992c0ef476a25fbc017",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy",
+      "previousHtmlSha256": "1e0ede3c3f6e3c545d47e996e3d31f821d245640fbe2e17ca687e2fc872d4748",
+      "htmlSha256": "9f7aad86111086bebe8fedb26fef903afc925aec9da2a3d9975db0ef3322f279",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/mta-ysthq-alwsyt-altjary-kaml-amwlth",
+      "previousHtmlSha256": "3e4b4e21c4ebf69a9e3185bfe1fc8d225060f77be5765ed14df3e25ff89a1f8f",
+      "htmlSha256": "c3e102fb71fed5573ee621257117a481009f64947c985b304ea072e30a28585e",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+      "previousHtmlSha256": "73cea65dc0533b09be0a3595406944a49b3642796229d6fca6413a3800689b8b",
+      "htmlSha256": "18687525ad555fb971e6cf0f21172b55146dd354f4f786499400e3293575844b",
+      "visibleTextUnchanged": false,
+      "basis": "Expected new answer or work link; fresh targeted browser check passed."
+    },
+    {
+      "route": "/blog/en/performance-of-contracts-in-good-faith-under-syrian-law",
+      "previousHtmlSha256": "aec74b68fd2bf7fc48cab0066c714c2b60525c89ec8524cd2416a87c2bb0cad4",
+      "htmlSha256": "164c887921bd4a46f5e773b2db0ee8cd485c1ba2220ea7f0ad97beebf2b85498",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/blog/en/syghh-mdhkrh-tfahm-qablh-lltadyl",
+      "previousHtmlSha256": "f75b0ca210cf64a3b4b829f3cc9725af748b4b8c872e9c1017cd467b32cdc77e",
+      "htmlSha256": "f5dc9c3671fd902c6b2386775a353d47d1bd201758a38ddd6f5c888bfb82fc56",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/adrah-almkhatr-fy-aqd-tamyny",
+      "previousHtmlSha256": "8e2ff0867568b0cd2bb6318ffa11ed7d28707a94bbf633765c77c4416236b317",
+      "htmlSha256": "a4f61cc8703b7e988aeeeccc7a37433e4d3131a6acb2cb7270481a893cbba307",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/alaatrad-ala-almkhalfat-albyyyh",
+      "previousHtmlSha256": "a5ab8aad809cfa8bf4bb880b1a8016cc552f6eb1095ad10691532a337142c69b",
+      "htmlSha256": "2b268d4a19682893d3fc86c26e2d149fa26f37519f804b7ebd581a015a1feccd",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary",
+      "previousHtmlSha256": "f089adb0466db3310bba56a82daf9cbcfd5782ca2382f5fefde0e26d61ea7a14",
+      "htmlSha256": "cdf88dc0ee0d7679120ccf6d3d6afaeea279cae10faf5733851a9af2f8b478eb",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/algha-mkhalfat-aldfaa-almdny-bhkm-qdayy",
+      "previousHtmlSha256": "207894b77fddede6bd23dd6a3b9739992c409ed0ed37df2f0f2da4d1d7a9575c",
+      "htmlSha256": "59c1f1653338f308bc89fb1dfda21319287562ef5c14e6caef8e67c83c5c21a6",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/almttlbat-alqanwnyh-walhwkmh-aldakhlyh",
+      "previousHtmlSha256": "7f7ee4c8309401a12d9bdbb7d24d2c009ec2d754de93cca382f54e6d379bfa71",
+      "htmlSha256": "652d909692c4097c5fb5f0175c891a67c8162da63cbf2911ab69db78f10ba55f",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/altfawd-alqanwny-aldhky",
+      "previousHtmlSha256": "912559823b894bd7877b66aaf6f20f2450ae2d40973a840b4ebe45e5656f55d2",
+      "htmlSha256": "79ef53b6219f1b0033018cce436944f6cead4e72b7e2e2e8ebf29e653e5bba4b",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/andma-la-ykwn-alnzaa-hwl-alwaya-anma-altkyyf",
+      "previousHtmlSha256": "c19466208d14c579d03b485b31901f7e9e725892681d3ed34f19c78e3630ef66",
+      "htmlSha256": "ab0fb73fcad7c1f96f99691c75076bd808b0b0327979dcc78962aba38970eeed",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal",
+      "previousHtmlSha256": "32644ea103603052732d3eb5a7ff1b7bcb5f40fd0d62d299cb6c3201f32d672f",
+      "htmlSha256": "6db25408026fe6d416dbf63bb9b7e66fc095210ad499f25efea4d2015ce2ec48",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/astsharh-fy-ahtyal-maly",
+      "previousHtmlSha256": "b7f5c36c769037e7c0601e3dcf8f7f72d27f310d90bc17a3452ceaf13fa66910",
+      "htmlSha256": "baf8f4a2671e93e80c625e4908695b7361b7ee83a3fc5f5da827bb14ec5b1780",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/atfaqyh-atar-ltqdym-alkhdmat-altqnyh-whlwl-aldhka-alastnaay",
+      "previousHtmlSha256": "9a6873fc0d3093020061b39f5b81c9dc434e7ecf4705f69ec0f38a23e73e5920",
+      "htmlSha256": "07679dc2928227e08de9d14c814683e6c6d22b5e829c8b7e4f1dd8f26bf5253f",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/darsh-qdyh-qbl-alnzaa",
+      "previousHtmlSha256": "316112c6e49e16a93ee2e97975057561e5aa0cd084810b505c8c21f61fc5e00f",
+      "htmlSha256": "1cb2dec8b602b648ed2c7c6c37959ab8a9f936160fe9cdfafb11f9f286035e5e",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/drash-qdyh-aqaryh-maqdh-fy-swrya",
+      "previousHtmlSha256": "de22080f910eb14d10bc553024fd73a955fee7be1179faa2c0dbc55d26df6d09",
+      "htmlSha256": "917b78e082da351d002d7c8c7cc6074741ba64da1544377b18dc1a0c51b6d1eb",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/drash-tan-amam-almhkmh-aladaryh-alalya",
+      "previousHtmlSha256": "fe090d12b99d5c1131d744b6c6b692ab4bae4b5bffa04be1275090e546c26b9f",
+      "htmlSha256": "9975f42414fd8e6e189479f47e4df2d0f8866fb85e63b27cf18b2bf07fab470e",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/fskh-aqd-iyjar-tjary-bsbb-khta-byanat-mnsh-iyjar",
+      "previousHtmlSha256": "964ee2e4fc825bbe160a062bd87c7ee7a5bc1b7ab843b5f7d2250748e3c65d05",
+      "htmlSha256": "7b53a5525d2a1f9f62aa72f7810a3f6c28fdc409a3219b98994b9e821796ec92",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/fskh-aqd-snaay-wastrdad-aldfah-almqdmh",
+      "previousHtmlSha256": "e6a06b14a3dae8cd5d0dc4ba4c345978e47a1abacec5ba0fbe432257a144a010",
+      "htmlSha256": "0cd840b194d3b41899090ac93bdf6ccc29065c7e0c540b21eb572a7fdc6eb29c",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/hdwd-mswwlyh-alkfyl-fy-alsnd-lamr",
+      "previousHtmlSha256": "e248423d05b8dceb1e1a879282a03ad7effc35b81dfbdf8a3ea273b296e269e2",
+      "htmlSha256": "512b87af2633cd8bd2fbe72c88237b6893c0291c0fb04f89c39fbf31570ed6eb",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/hl-ymkn-tjawz-altqadm-brfa-dawa-alithra-bla-sbb",
+      "previousHtmlSha256": "a2fd1334eb779ccb3c44632e7073f3790c14409eb6f54095308d6426944d1b22",
+      "htmlSha256": "2da15f27a69d9c3b6ab677482f5fa13eca460cfb943c6d9e4092364e9f6fdd55",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/hyn-la-tnthy-alqdyh-balhkm-alawl-kyf-qlbt-kawnslw-msar-nzaa-amaly",
+      "previousHtmlSha256": "62d04c87da02dbb0fefdd61f82b88434984e5566fa2c14a012680d703f18faa3",
+      "htmlSha256": "91d9c843c7f4cc720002de2373266d3c08e2736fff97a1dda71c236697de443b",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat",
+      "previousHtmlSha256": "c62a16299fe188c85b112df510d9a92a7264bb12f9f91902a5fc7d9d4c77d8c1",
+      "htmlSha256": "bb342ddbc0a7eb9a396a0797273fadf1f206b0ecd3e02d10a9de8aa53ba231b6",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal",
+      "previousHtmlSha256": "a4634fa2d7a3734f467005cbcbadd00bfcf1ae670f74fdf846207b1c7ed33d4f",
+      "htmlSha256": "275308f5a08a224e2c14d8528717b20bed8c24a2d405d866c223722207a416a1",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/kawnslw-wtswyh-alarsdh-almalyh-qanwna",
+      "previousHtmlSha256": "72b5d6964eb469e9e2943b625c1d990ea02f9225879592017ef9431fef04316e",
+      "htmlSha256": "f743012ce7718566872988a7b68db3d7f4f0b59b4baf7364d8a091fdc31ae3e4",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/kyf-adart-kawnslw-mrajah-mhasbyh-hsash",
+      "previousHtmlSha256": "8ffa30d7e683528fb02141954d24f03d803a9e031204988153213db1502955ee",
+      "htmlSha256": "e744680ce986e32e4d553120ae6c6ae2770ace09813683e71fe7c1ce4ac7682d",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/kyf-athbtt-kawnslw-alshrakh",
+      "previousHtmlSha256": "bbe2a07987fbeb589276cf3d38c65af48f374ae7ff943de7ce671311db9b9205",
+      "htmlSha256": "cf117777be02a99646bef5713842e96722399cebc098a235e07b1fc6f60c7cc3",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/kyf-qadt-astratyjyh-kawnslw-ila-rfd-dawa-fskh-aqd-bya-wtawydat-bmlayyn-alryalat",
+      "previousHtmlSha256": "46cbbf791f830b2d9a093aa484ddafd1f03a1bd9b7c7359cdb1839aac040bd3e",
+      "htmlSha256": "209ffa46a9b5e594457b6eac5cf33b86014787002d0e1cf181865742b11e7601",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
+      "previousHtmlSha256": "459ca985a42de9d16d6adebf0287069f568acec5274be75e8ce9a3560f536eea",
+      "htmlSha256": "e4425db0000fc11d86e6a98c36b88aa3be97d122e6b3ff270e9d6fd06132ebd2",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/kyf-sahmt-kawnslw-fy-anjah-mlf-thkymy-kaml",
+      "previousHtmlSha256": "683c05bc243468dd8dc390bbc0e71aa126f6ea782abcab44f64ec6f4f9a19d52",
+      "htmlSha256": "b32cf8fc983a4448d11563cdbefceeacf1c9d6e5c0e95661bd3bc4a4b209e736",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227",
+      "previousHtmlSha256": "c22cf3856a88039ce136dec386c39086633ea84e2444aea910b548c8ab221f92",
+      "htmlSha256": "916051e1e0afbccc7bdc4aac4174be0d21e85dbde13ef6c4566061b60b0780cf",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/maaljh-halh-khta-tby",
+      "previousHtmlSha256": "3aec4c4df4957f5ac3ce500153e96c268fb74946329d7ef3bfc3aedb9b601aa7",
+      "htmlSha256": "fd342093ab3a61c594f1d5cdfc56a865388ef418bb92f33369e7e7e7dae7a21b",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/mn-alkhta-ala-altawyd-kyf-hddt-kawnslw-almswwl-almbashran-hadth",
+      "previousHtmlSha256": "89b7363c0f41dee2ee58ac5d5ab4598b274941b98afea1929d2a6feb94524039",
+      "htmlSha256": "6b2495a2098d2f85cd46b2ae12396a0fc7a46c62e4ee8dfd886e0ef2eb2b9688",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/mn-atham-maly-maqd-ila-brah-qtayh",
+      "previousHtmlSha256": "3226d91587ed4a5377f4bf3366f659fc3a142920ec28e52ed56a530e2b91ad24",
+      "htmlSha256": "1f05367b6002373ffc20618868b26267c9aa3f3df69975f8adf3f60e5e30cb51",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/mn-drash-almstndat-ila-alhkm-bjmya-altlbat",
+      "previousHtmlSha256": "18a390f42f9e6984b29e45476ff5cc8f3687ef846830161e9b211afa70fa36a7",
+      "htmlSha256": "1e9858edf73c71e44b5870e25044891cfc885ba8a7e558170a04e7e4774ae37b",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/mnazah-tnfydh",
+      "previousHtmlSha256": "ecf1b2445f44abe9bbf4bbdce50e334aa09165e645f1107f6d11d13129f160b7",
+      "htmlSha256": "27f50c073ab7628e24019ae429814fa4a160f37c435bd08e783d0db4d7e787f0",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh",
+      "previousHtmlSha256": "a0bac081e1bbcfdc5f52ca22471461fbe1bc8207b68f3e377b82e45e7a372cab",
+      "htmlSha256": "3b44b849a9047300c9b2d590a579c5149f4fe2db27271fb0f2ef359e5d7c4c3d",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/msandh-kawnslw-fy-qdyh-aabrh-llhdwd",
+      "previousHtmlSha256": "584dbedf761dfcf12a1d028c604c2bda64e415543412853ba77bbc3b8778d85e",
+      "htmlSha256": "2424d3405f8976b9c846d74edf7b78452d4bb82073588a0a4dc3126107c0641d",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/mswwlyh-almqawlyn",
+      "previousHtmlSha256": "3bcdd429350b5bc5acc734ee4e33edd1c13a7bdb8a4f7f3bc94f311f95898d13",
+      "htmlSha256": "9163d3e294f917939f4035f5067fc224c8b8025b05d96e787043eb5e05a892d7",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym",
+      "previousHtmlSha256": "1835103e01457794d4d3c916e1cc58b3c78323278d440abc9cad70138ba783c9",
+      "htmlSha256": "7d5b74981ff134535351633b2cd39c7912fda277fc83e2e629db8857a89051a6",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/qdyh-mna-sfr-dd-aaml",
+      "previousHtmlSha256": "c6d78c6c82cca33fa979f72e45f4d4431430d1085d18fd960c178613186c4cbc",
+      "htmlSha256": "aaec95851c1bad2a8f59b13bccf90c7e157d542d1fc5a3fe572841d09bca2e78",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/ray-fy-mshrwa-qanwn-alwsath-alswry-maaljh-10-thghrat",
+      "previousHtmlSha256": "d4f0282c405a4baa47141a1fd291f2b2410be12886db02117c4e4f498517b1ea",
+      "htmlSha256": "14b1a04718e398a6821777909b580c08822861320ec92d94e3770dbcb702d3fb",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/ray-qanwny-fy-tlb-aflas",
+      "previousHtmlSha256": "2f7409e26a36fca21fbe4111cb4b437d266a2a4a00e8658e41834cb88175bb87",
+      "htmlSha256": "ee406d1dd7db56dea6b0b1e7c8a299b4a2402517e9b08df53fc948ff161a31ed",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd",
+      "previousHtmlSha256": "36ea2f7d1c2bfc3d9379d1a2e53aeb98dfd92f1b00e585961dc033762864d792",
+      "htmlSha256": "f472553177d907d0e1c0de9413e5c5cc2c3bfaad10e412a7f3e81753aac0840c",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/rfd-dawa-fskh-aqd-amtyaz-tjary-wtawyd",
+      "previousHtmlSha256": "85e73a99b249b86b895f8032a5695008d3551b79737999ed5e77df9d6d3f050b",
+      "htmlSha256": "36c487ba5ae8946c7a46b9c4ebb0395508152a51d1a406350584b4da4dd1561d",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/tfkyk-mstndat-altmas-aaadh-alnzr-bnjah",
+      "previousHtmlSha256": "4bb9d343c2a5cfaf9921739b0a7817a46ed42e81d6bdd2973b850acd25539bba",
+      "htmlSha256": "3e7e537b833a9ac3445e0d42caf83dbe12aad1c50ad486f1fd0226bb016661d3",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/thlyl-mkhatr-nql-alaswl-walmsthqat-byn-alshrkat-almrtbth-athna-altsfyh",
+      "previousHtmlSha256": "9cf9566ea320df10586f915eeb8f6e210cb92ea441aea46e8973eb2dc5b90672",
+      "htmlSha256": "c2341cdcf86083bb6c908f8d2ecd6bc3ed4f9c62e4136db67e3ed474682bcec6",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd",
+      "previousHtmlSha256": "787043393bf34b18a08dcb67c6040aaaaea2e8b5292bdf800661866c8cbe255f",
+      "htmlSha256": "6e796491ca7e4635df202093871b1f1f09e6642b52a549e92df3e40de4d51c31",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/our-work/tshyh-altkyyf-alqanwny-lanha-aqd-alaml",
+      "previousHtmlSha256": "0cf975052f202919f2f2bcc6d8376bf89800f73f94136286da93026818600835",
+      "htmlSha256": "3557d153afaff5eecd4ce869c1f4f452938e9817204a59715b80d8af090fb46f",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services",
+      "previousHtmlSha256": "b084957f1007ca7827b4248c4581ebc162883b0970f14e805fca44acfc67b19f",
+      "htmlSha256": "ea97c00e39f8808d69568e1bb32431fd220b598e74b0eb9b42d26103cf475b6b",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/administrative-law",
+      "previousHtmlSha256": "bdbd81de2f70c0ef7c2e00931bfa05b4eb877db2abb66c802ac9f9ef5518a868",
+      "htmlSha256": "d3fe3bfa482f8465fc0db1f89643dfebe88b2f92ebf1b2204aa5f3de4a41e6d1",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/arbitration",
+      "previousHtmlSha256": "799644016c673b5aaea8ca81b5c9f9851e317a273739cc66fda2398cca98a319",
+      "htmlSha256": "76ad0782a5b380eec9c8953266ca2d7e7b38bc59b995c8499ea60ce255e35b24",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/banking-finance",
+      "previousHtmlSha256": "5857388af3b0a23e637f63055441127f58534dbf6c49e3e829babd8bbfe65506",
+      "htmlSha256": "bf22fe9ddd80e5fd428f31ce94c114d5f7cc85c0c4f6d391a3342bb25be75346",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/business-law",
+      "previousHtmlSha256": "627b62f7355a471399240d7dfcf2f3759b114faaa133d699bd0a16e14d0edcea",
+      "htmlSha256": "a31b7d5e9dbe0b3838d8c31c89da2050ae2096e019d206a124a836f64466aca6",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/companies-law",
+      "previousHtmlSha256": "3cdab6fa334147dbfaf5644260e6f7368b16bda2397babc9559691bd5f6cea40",
+      "htmlSha256": "4e42be27a85ef732e3d8bb10e33d9fe9da3d1af5aad95cd2a61360dd60ab0921",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/contracts",
+      "previousHtmlSha256": "2a2512de9952008f8fb4aa0686926cbe22d605ec6cbcb926438a1b04d70e0ca3",
+      "htmlSha256": "c0ffaba121359bff36d723611593e87a9e31bcb54a9699b9a6fa3ce08d7b7a54",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/contracts/power-of-attorney-drafting-and-authority-dispute",
+      "previousHtmlSha256": "8069f15725cbb4030726105a3ce3dbed1a80525e01022e43923b5b773792da91",
+      "htmlSha256": "de45fe6c461d32b568980477f48091ab4de3ff8c149a79200f69a231ee9ded41",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/contracts/power-of-attorney-drafting-and-authority-problem",
+      "previousHtmlSha256": "5a4a7c4b9e878b2ff9d2682c47dd883f8a9b09df6ffa3b06e3f9270617c41b76",
+      "htmlSha256": "04bb24d8a46f0652df4625dce6cb1c3bc5d65768c43e639a2b80c2242a10addc",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/criminal-law",
+      "previousHtmlSha256": "222c2b091ad5e24aac95d9fcf5875d27986a92727be4858b5c0aeec3ff59cc60",
+      "htmlSha256": "b271e14f9b0b32ba5294fe86510b9c11491e810b8ca4f8fb9bfc88fa05e57e12",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/cyber-law",
+      "previousHtmlSha256": "05d5b0324c83a303f03aaf6d99de727d9173ae61166a173efb26ac86379b0e59",
+      "htmlSha256": "945b144556f07a0f4d8e644e7af2ee134280d33b316cfc4b6dd870ba92eff680",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/enforcement",
+      "previousHtmlSha256": "49abefdd9ffeb6cecbac730ce045de990535459d766cdec5c828aa1c11798f84",
+      "htmlSha256": "8fae0d306c17a3ea37d61fcb7c6667f3b47bc0043df1c3e228d2cf67d21ec71e",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/family-law",
+      "previousHtmlSha256": "e0bbe803eaf34770ec9e7906fb421d6bfe48428289a145eda64fca918c97b192",
+      "htmlSha256": "053410884a9b461821362a25c8e4353c8f178c313b1270e0ee4b17ad9fb6e837",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment",
+      "previousHtmlSha256": "78314bb2de8b009386c4d11cc58754b113f5367617698b1b4eb840f22eca0885",
+      "htmlSha256": "2bb645514036636aab2091b414c7a0cf31d07fc4825739d2c350d346f32b7a0b",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/insurance-law",
+      "previousHtmlSha256": "0f44350942f9ffa2947d5925fd5cc4ad50fbbe1ad07275f3aa1a499bda72011f",
+      "htmlSha256": "63a3f3542f23e5619301de2ba9f01b5ad40913f61a0fe7c6899383dddd52b058",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property",
+      "previousHtmlSha256": "4187945f5a7a2d0a097201cc9e5e1f1c207cd0f098bcfb1bfe5578909d68a3bd",
+      "htmlSha256": "650dfc103d7029a7b92f5a1a4e7bc3d9568397b811223c67fb9418151f0f2cfc",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice",
+      "previousHtmlSha256": "646449a439a368427b83c520ee63230a4e1d275cbabcc75e82dffcb818c14b43",
+      "htmlSha256": "e6c7cb14adf3d08c9ef9f12e012864a852eedc19e4101bb85e79ea644e5ada8a",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/real-estate",
+      "previousHtmlSha256": "167826767b4611c869c31511f319bf9683fddd04a0f28b4a0f6e67cb29aa1748",
+      "htmlSha256": "290db49e1afd2de25aece8e717877878efe244dd91eafa1167f7ce530456e9ac",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/ar/services/tax-zakat",
+      "previousHtmlSha256": "ec8a5291ea303e7ea84359c2138472bf5c1730e95a5cf0b84a7dfcdac02bec09",
+      "htmlSha256": "637801f1d5c1eb83e3e922fd4240e365141785ad9f7fb6bad883dd2b7a1da1d7",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services",
+      "previousHtmlSha256": "5411c0e3829d1b48b731bf5d2b3d67c989cef84af3af127a0c53da4f12b00eb7",
+      "htmlSha256": "c12dc621298a7fd97d44463af81fe6feab135aa0f7deedc4f994fa1398f65a7b",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/administrative-law",
+      "previousHtmlSha256": "02fe8c8ddc90ca98d714cc98b5ca4e267d2ce11fcab44571e7477a2d553d6059",
+      "htmlSha256": "0b0415dd094388c2cc172519bdde1985c0de31b2f426675ce1471bdec1e4b400",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/arbitration",
+      "previousHtmlSha256": "6e2d9832c58fb6573db45d5ff939b85908a69b8470db61f807c5098eed27be03",
+      "htmlSha256": "bcc46cc41d3e0d1611476e2101a863ed620c1acef4012e342770bb244cf7a851",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/banking-finance",
+      "previousHtmlSha256": "6ec81253b33327bf92e1bfba424712659cbd51c09981208da4c485544da72a79",
+      "htmlSha256": "1ba7e3213b99b42b8f857c8a8bd79dc0f9f553de8509a3cf4f2e1ae182cd3d4c",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/business-law",
+      "previousHtmlSha256": "004cd825af3f8e2df8660d24de9ae0d10615c9d2ef7de228f3fb52f986d96f55",
+      "htmlSha256": "f4dd9aaa5ea46ebfe9716b37e1a7f89d835744ba3e05d2fcc7d5f7e9d140be2f",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/companies-law",
+      "previousHtmlSha256": "5d589823dc339766af7fe203073bf0edd093c5df8ce82dff483ac712362e0ed1",
+      "htmlSha256": "82cb6f9c8058c5ac2f54681343d121d759050bbcec1cfde76b7e9cabda7741c5",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/contracts",
+      "previousHtmlSha256": "cb4c2217ed02e065cc4a9824f8fba088cc2515f2732fab7d21a3149a0817c19c",
+      "htmlSha256": "fabe8b7299aeac58e5de77648f8f2d11e21905ae41e140e04ff302642b5a83f3",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/contracts/power-of-attorney-drafting-and-authority-dispute",
+      "previousHtmlSha256": "181dd34167f7c4956a5cf6f9602565a9ad6611711b48e1bae18fae594a66bc80",
+      "htmlSha256": "79a2661f9984e5932f53c3eaef30fdbb48dda9bb48a1d7fdefd23a70ab7cf103",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/contracts/power-of-attorney-drafting-and-authority-problem",
+      "previousHtmlSha256": "1201893b64ad9e7c6085b133469e550932fcdd24ba50bd63530a2ee4bc986c9a",
+      "htmlSha256": "6f4143286d8b2b7af436bce17435a3230cbebf2fb24811318a63446ae0940531",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/criminal-law",
+      "previousHtmlSha256": "c157f07682c06f3843b104dffc1660089e66e2c9beb180816659f506506e86cb",
+      "htmlSha256": "a6a4ce4667a8acefed9d134ad9046133a555fadebc511a1789e22d609c65090b",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/cyber-law",
+      "previousHtmlSha256": "5308d7fb951ea23ec4858af5c11fa01136089ade26a63520dfba48c4c2e3d3d1",
+      "htmlSha256": "4342dbcddc6f613c12c5994cce9382ed9cfcae8999fba4e6015370ad5fefb71d",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/enforcement",
+      "previousHtmlSha256": "3b52a1b541575fa3ccd397fe448d0e635c0c43c97aeb99f6392a5dfe66575d82",
+      "htmlSha256": "d055dac0560fabe7304787415ca82d1941641562e0930c8a98c943c6107b6aa5",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/family-law",
+      "previousHtmlSha256": "4d5058d4e5b5562224b422d953aa542296142c9772ee36eb54e6b55d277dd4e6",
+      "htmlSha256": "07988708ea29e897666a351abeab3a0d2af93c05a15bc37eaeeaef23e35d9db2",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/foreign-investment",
+      "previousHtmlSha256": "4178188bb9f05e511070a983f0e75c4271d2ec4dc5e9dba70e96886d7ce8278e",
+      "htmlSha256": "39f5eeb87f52afcce98ae2864f0ba6dd5148a06fe07756b7a015816a3b38ae1b",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/insurance-law",
+      "previousHtmlSha256": "bebc0dca8c0fb58b6c3f4198965e644dc9a8f0bc6f6e93ccd3a5f066bbc35d85",
+      "htmlSha256": "e717d01ad599329637dae0f2a397a8b7ed49b5f12e47f90ca9bdd84b570b297c",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/intellectual-property",
+      "previousHtmlSha256": "e083e2661dd6788288eafb7b376bcec34e1cbe01c1ea5276613e219ab9fa1f36",
+      "htmlSha256": "27199097584bd1a67fc4561ab9435c37a2be35eb236b9d83e273ea0b2f041b38",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/medical-malpractice",
+      "previousHtmlSha256": "32f7256794385ae58d5a34ac4dc8f015f4dddc0c8194a8069dc003605c2c12bc",
+      "htmlSha256": "ccf0536348ef230280fae39682f47cbc411f2720d5edc7a6b3a9db9e091a6d09",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/real-estate",
+      "previousHtmlSha256": "cec15335adf6b9fcb20b665b1d129ee1bbd9327eba9f94413c3c23a21bc62fe8",
+      "htmlSha256": "186674592747952350cf2535a7f7422ee75e0c74780ebae14da63d297e7de978",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/sa/services/tax-zakat",
+      "previousHtmlSha256": "da3e69add1e0940784402c380826b2fbac438e48320ab7d8cdda32e5fb80c0a5",
+      "htmlSha256": "67cc17d2d06e6782f11f57c2f946bdf60b50a1e1c6c4812fff09376dc7589b96",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services",
+      "previousHtmlSha256": "fb4fb97a346cf3e9a19365eadd40ab0cc8cc94a2ac1a16c3abf1eb8c9ed19366",
+      "htmlSha256": "01a527c054b2c01835297b5b580bd008e70339d07d37803f47b422f9aeb665dc",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/administrative-law",
+      "previousHtmlSha256": "5cf1a081d97316c03ff70894092dcdb955a41eaa1903ce7b66d9e70c2a02c0a4",
+      "htmlSha256": "42b0e9c598090ec5733f6a8da9003879a289a842c252c14ac23623f8dba84846",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/arbitration",
+      "previousHtmlSha256": "1e0c0c9389b7e7881dbc56be624eb9dd665006d18218c0eb001d796e89bfcda8",
+      "htmlSha256": "a69886044e162dd409ff1b198c09c021e3c9f4dfdc910e0f0ed44a293216401a",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/banking-finance",
+      "previousHtmlSha256": "ff7c76452f3be9c2c84ce40c0cd40c2803dc59dc8041e8f98ed2b8ba94619f89",
+      "htmlSha256": "ac6cd1e59961c15640ffa33bfb3f3aace2d1643bc9485ca6bdfd58a4ce4f1be8",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/business-law",
+      "previousHtmlSha256": "ee6205f78cda9a3c1db9f0d37c9268014b7685b9f40b16f91dc8b1e8afe5d28e",
+      "htmlSha256": "0f1759618a68fb97173227dad6059a0280b9b81edcef88253f1809222e077d8e",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/civil-law",
+      "previousHtmlSha256": "45c9fa697fbae9b2e53660fb191215ec545a4d6ed3a86ef59683aa030c42c2da",
+      "htmlSha256": "6949e62796f528a578189552ef6f021f7ec31a8d38354cb82b0e8c08a18ffe0a",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure",
+      "previousHtmlSha256": "8f57f26cbfd9fa34ca8bd375e7d03096f4c9cd131f5f635f68246191be65fa39",
+      "htmlSha256": "ec3e21274f9370a8a6b53f3889eeb2ac41c5f0dac67479cb62ae07c36c6bf60e",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/companies-law",
+      "previousHtmlSha256": "cd0a24aeea9f209f036fc9104fa4df3fda24625b99b3133ba262b20b62283633",
+      "htmlSha256": "0665e8222b91203c393c20a60192f63d062f90535dd084cfe6f472ea3f9959bb",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/contracts",
+      "previousHtmlSha256": "8d961571c6c5bd1a959b8cf9b4f90b84310b3da7b69c146786afa281ebcc617f",
+      "htmlSha256": "09caa73b6339eaee46713c71adb48b9e8ebc6f5050b6b3aae0c12da903ada214",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/criminal-law",
+      "previousHtmlSha256": "81a82b9f002413ca987b77c8c4e3f40b39f08a72464643dc4edf963972196a05",
+      "htmlSha256": "fb6bfc153ef2f31b84bd78b7a17f4f8e5633d3cfed03b78ba0712485e7bcd89d",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/criminal-procedure",
+      "previousHtmlSha256": "ccb756b66fb263d5113d844ee1864aa1f4713909092b9ce7470c23252f360302",
+      "htmlSha256": "176392bac11b81e362d3c10034e04f59f0e08fa06ee43fd2b5f8a40bc6048c63",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/cyber-law",
+      "previousHtmlSha256": "539301983fe466513172f61a903ff09bc03fa7d04618914ee859f739981f18ec",
+      "htmlSha256": "25631b1e75e854e7fa56d23121bc4d094064c85e11f2c2fa9f8c7899eb01d984",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/enforcement",
+      "previousHtmlSha256": "dd834f3a4da6c6081788e33e49652d2a7a8020a8e5b7215b12db960c9581dd7b",
+      "htmlSha256": "4233da0692cd742098a6ae7740d8f0b454cf2cf5435bec4331d33888e3b5b2ef",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/foreign-investment",
+      "previousHtmlSha256": "73e4f72bd858d58e11d486fe7a580e1c835c3e253f1bd629570d53832edec80a",
+      "htmlSha256": "db2342a5b2dae8f96a2b23c8eff3c0650b0d75e6af887eec656be2fb4b3605a4",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/insurance-law",
+      "previousHtmlSha256": "458523a499d2691cf59c999056a82b5d55f057971b28cfc5d2f62f4bce089220",
+      "htmlSha256": "c68c9fa9a43cc9af59994803590979e292a0579c6f12bfcac6f2f655f96fdee1",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/intellectual-property",
+      "previousHtmlSha256": "e83644f97925b14a0e2ad537b304900f45875c0d18baf6d39666c0e7cb2f7277",
+      "htmlSha256": "e45156535effd1f2599f325b702a49c0fb9ad729d6c584681f54ec4d5a472221",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/real-estate",
+      "previousHtmlSha256": "695205e111f79dca9534d3ad168de1856ac509a1be4f0ec50a3dfcfc2c72fa37",
+      "htmlSha256": "350e0bc0749c82768b86a487328e71630380cdae567f27ea6f86a3cd3f74195c",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/ar/services/tax-zakat",
+      "previousHtmlSha256": "ff9d684b22e564d95bb8bd89651c753cd3d35202ef32ac84ff5b8b3356c2ff59",
+      "htmlSha256": "394f94dd170b0a4d2a8f9e157ddd3b8dbe185c67a339a107d921ae6e70d392ef",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services",
+      "previousHtmlSha256": "0c13eaaec8775d55f9d06a92ee744d57a714944887e194d083d3b30f2387c0ad",
+      "htmlSha256": "79e583c66b91cd11477848d984a7eed719b409578af0c335b74fbebc6db37e80",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/administrative-law",
+      "previousHtmlSha256": "57a93a1f83b2363eb9f6ab8327b4c43d5456282ee7c2e283743c00beb3fe2fdc",
+      "htmlSha256": "0c108280a2f889319baf66881acd6687ee2a61103379351947eb8470c5bd5d30",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/arbitration",
+      "previousHtmlSha256": "50c65a40c02734819c8aa478cd2a7eca06af32cf3034469fe1eef587d9e92380",
+      "htmlSha256": "1508ed279fd24170e817542095e663759d9ef6760521c45044fa94479964e9c9",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/banking-finance",
+      "previousHtmlSha256": "31945a69c0cbf7b0a13a725506114f456c77137c2aaa5b88a280902b88e1ed8d",
+      "htmlSha256": "19de794bbe6cfa24092b8197a7987777d4c6d673116b423498f049129452a8d5",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/business-law",
+      "previousHtmlSha256": "8b1c633ff80507e392313bef67430fefcc55fb21c37d8a9bc8127d4a85cc6b03",
+      "htmlSha256": "1baba4f483242773a87e1f297795d4c31b72f0fe696f3c6f1e4fe52d6a497cfc",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/civil-law",
+      "previousHtmlSha256": "434dc747524acf7a6a5d364e387653db2a28be085002c65b158746df1b1daab8",
+      "htmlSha256": "c4dcb322f721609d8f540e2a8b39673c094e2720852279fbb735277b44d701f6",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/civil-procedure",
+      "previousHtmlSha256": "5a8b74c3799dbd072e3c436f6362aac2f1f82b4f32d3690e3f4a0e3e21a79205",
+      "htmlSha256": "d187633068d9b0d0480cf244a533c545beafe94d77b48670fb5a82bbcac2b79d",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/companies-law",
+      "previousHtmlSha256": "5ec879ea02055492994b65e82cbbfc14d4e816bde97c43733a4dabb6162bf7ce",
+      "htmlSha256": "93fceba3a4d46a4ceb60581dfeeb8add0dd6c9fc724bdb24c37dee010df331ee",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/contracts",
+      "previousHtmlSha256": "b49f1ebf4d7e087c53a0765d3acdf85b2a1a669a3e648ee5778670a6e81fc087",
+      "htmlSha256": "7ecc58079a388b084a0925c74ae83d99d1be527c3b46fa9861dcb95aef9509f5",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/criminal-law",
+      "previousHtmlSha256": "f86bee754aa4d6de873e3eeb2c18213882290ac2ef6d584cc62363aa39db958d",
+      "htmlSha256": "3fcf33ce45bc8391aa477fd6ee915a7fcd73313b8dc014904179cda2d25ab840",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/criminal-procedure",
+      "previousHtmlSha256": "1029acddf187fd29b816745ad63ef487f72bda42bfce12c50e6851fbd3f4555a",
+      "htmlSha256": "aa50ae2e8fde5b513060234dc13a6f775c5f85906e9f90c2b84467163ab70820",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/cyber-law",
+      "previousHtmlSha256": "f78df43d79c44273befe2e5788cd05e660c2c9b6149d939352d8431d7b594ac8",
+      "htmlSha256": "b81e010e8e3f5429e82b8e272f03d06e032f71f67e445f1b806b4155784b0744",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/enforcement",
+      "previousHtmlSha256": "c88a0cf7c6cda1fcfa2dcf3edfc36e81b887deeac0a1fbd5d1610d6013195559",
+      "htmlSha256": "ce1594d4fd25628d08719103bc5e2b3d7fb91031d9958e8a4fe5be473ac076b5",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/foreign-investment",
+      "previousHtmlSha256": "31299e5c340650345da7fa5f1beb7cfe4956aba3b12292a5916e0f4166dc5864",
+      "htmlSha256": "da11c7ede58fc61e212a8498b8a60f3d0f2d6dc9ced994d8d9f2eb9fc9716975",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/insurance-law",
+      "previousHtmlSha256": "054be4d04f0a8c7846fd5fd88f895e0d55f464118207d5384902a003aae2f696",
+      "htmlSha256": "621e1ee757090aadc53e03197c58133860b3e5834a1bd137a726873685964cc9",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/intellectual-property",
+      "previousHtmlSha256": "83a1df92cb214da956e4f20170dd5ee782240f3116ddc5b13d595895b1de39fc",
+      "htmlSha256": "9d1b9a0314a11fa5dfe24cae3e130e122194b546d27c2e35eb427f834c3a0d7f",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/real-estate",
+      "previousHtmlSha256": "c17cb714e4fc05aaf10efdcfb114d02c72819ccd65768e7f7284885694acb6f9",
+      "htmlSha256": "bb8915ebb4a349bc764bcee98bc7250045471178522e706bbc805114542e8607",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/syr/services/tax-zakat",
+      "previousHtmlSha256": "933faeedd652d7ce8ec2db20428c96935b42c953a9dd4f3ccc5b5cca47d22913",
+      "htmlSha256": "b7a82ad011676e0e7db309cbdacc536604bffc42ae30268636c3b44ba2f45616",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services",
+      "previousHtmlSha256": "a496775d08d6b46ea2b6c2d6ed762ad2a01c4094de74630dd89b9d3119e66559",
+      "htmlSha256": "f4724e93d75372afdf72d6323f359af643510709897e629b589f653845960102",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/administrative-regulatory",
+      "previousHtmlSha256": "9afa05677c0f81d1e14503009682c8e8138dd8282b574cfb365e23a4c2dab863",
+      "htmlSha256": "37696035f87469ece2dc8e18a03f7d32721cb27ab5a83a74ef75f9efd26d1e8e",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/arbitration-mediation",
+      "previousHtmlSha256": "ce9046f70bc0802dd2959df558e39094c0062c82947d6115a4260507b905f927",
+      "htmlSha256": "091b190939bfe6077bdb2c1b80179384375e646eb3e3a89eb777c0bb7748a360",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/banking-finance",
+      "previousHtmlSha256": "d32c43959daedb651616bdba5886b5dac214c91f6387d16ca23ee0d5667da7cd",
+      "htmlSha256": "b8f6f8e629c35bbd329d2419b277d78781c54f226df623a7ef50850c2801a023",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts",
+      "previousHtmlSha256": "92728a0e39d18db6695ea04ac6fa309b5202e95fd6e6941a2276ce2baf7a7b67",
+      "htmlSha256": "df36efd777ecb4228f395255420aacb062c31c282ea7bc85fe626bf27d3bcf03",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/consumer-ecommerce",
+      "previousHtmlSha256": "ba7d940afb183308f1eba53e154ead1ad612b15ad8de8f8567a7a121226cbc73",
+      "htmlSha256": "ec45451fbf0dc218e66af87ab2a9a9c19e191a43fd8d22c7ffbb383b9682b083",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/corporate-commercial",
+      "previousHtmlSha256": "d38a21190a40f6d255377e7cbfbaf26e890bc9c31a52efb33a18613c6c8e6269",
+      "htmlSha256": "87c9bc7df168840530629120941d83ef5e6fc8b1ac10439dfcd50022bd293131",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/criminal-investigations",
+      "previousHtmlSha256": "1d61c0a42f1f46d4a14e47cc3297e46d355b7fbd5fdb3a048b928b10313717d6",
+      "htmlSha256": "575346e827895defe76195dbbdf1e7a09887f8ff8630e591f59a29cc1d413516",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/employment-labour",
+      "previousHtmlSha256": "e793d8fd019cd1632e7e911098838a6e72862e3b10b4f4009197b664e1351ee4",
+      "htmlSha256": "f817604303b636776012198070410d14353a92f450b40b1b2c17c3d9724e014d",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/enforcement-debt-recovery",
+      "previousHtmlSha256": "bed5efa3bdfa93d223740097f4ce185932377c330ab9fbe85776479b23c2e553",
+      "htmlSha256": "e5fa7d54e04d641b3dbacc7964a0d819aba4503c70a7fcd3fd07277e21d0f565",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/family-personal-status",
+      "previousHtmlSha256": "1afd4d8b6496cc60a659172506a49deb6b0b823e49590dbe8103b4b9414f39ee",
+      "htmlSha256": "d461c53f9ba0548c50c8858f942276f35e845b99022aac0b691614b61b695128",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/foreign-investment-market-entry",
+      "previousHtmlSha256": "79cc776c2321ac54217c70de06ad66a8581779d0c0a0026167b764f1d0205270",
+      "htmlSha256": "46924f7148978de53822e0fc987cf8fa11502daeba2ad771416e56c190fea038",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability",
+      "previousHtmlSha256": "603bf6ddd0a2513549542888b08a00682287f38b36c3315e0dd9e96d7b7af582",
+      "htmlSha256": "ff74a1b0156d2bc3a0ea7a226534e25b7072f71e4e7aa01caa2b2ba0bbc4a677",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/immigration-residency",
+      "previousHtmlSha256": "f151ee9365d07f0557b50ce4ac416e6abf11a13bd790c0f6844ee38782e22574",
+      "htmlSha256": "81a3a1726ef4c260c698f6eb11f680407f4689a2d70bb3ad866928373fb22016",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/insolvency-restructuring",
+      "previousHtmlSha256": "3782f4c04c9683586299cc2b2891289f64478f1a6c106bda4e41285cc6267661",
+      "htmlSha256": "9aea16a24c38ca27c72542c4ba9d25f061a93f7b13c95fc66e9aa175ceae2b6c",
+      "visibleTextUnchanged": false,
+      "basis": "Expected new answer or work link; fresh targeted browser check passed."
+    },
+    {
+      "route": "/uae/ar/services/insurance",
+      "previousHtmlSha256": "555e743f1c941e482242a63f67e6fb93972eb21ebaa80af9379370e3790fa004",
+      "htmlSha256": "a2b776f73508f3f7ff346f491956d400cd6d9899df1e00cfcdcfb08c1909be5d",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/intellectual-property",
+      "previousHtmlSha256": "6ac9b12adba7c079cb1bf32d88d68121d6a8bf1a61b12331a7119df9e531536c",
+      "htmlSha256": "e11d446ea583e9163999634aeb8e3add27435feb66c4281c37ae3b2274244fc1",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/litigation-court-disputes",
+      "previousHtmlSha256": "da1eb645cb0b8189808840f6aea6cdf621db167c5088e84cd3627c13e9f4b183",
+      "htmlSha256": "87f4dc510825453c3c0cd8639a0ee0f32162bb19147db3895e11ba3cb348695d",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/maritime-aviation-transport",
+      "previousHtmlSha256": "5c095b87df877267362c0a644f45bf44e8fc9a7ca591383f03b5e27b208aa311",
+      "htmlSha256": "c6d2cfbd5d721977ca98019ab1c05fa22befeeea0f67e9c40fd3bcad4c5edae0",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/real-estate-construction",
+      "previousHtmlSha256": "377ec4cdc6510071591d3e916ae5af934868a26ce1fc74b6232c83d1c8d58a13",
+      "htmlSha256": "312f917be17a609624958a981001877988b3340ffd2f3abf4178c8f54dbf90b0",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/tax-vat",
+      "previousHtmlSha256": "11602c50344f16717c79641d5852738f046a270a82c9b2bcaf96b268c3c3f799",
+      "htmlSha256": "b9d1ad81bea6da9f432e7184f866d1d2c6694ebd2f982ff537fd7d6209169c94",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/technology-data-protection",
+      "previousHtmlSha256": "7db7cd435b5128df4cc08c3ccfd8d1c5a4e4cf30ba25d624d07395a1e440b43d",
+      "htmlSha256": "5d8adbf03fab75a1a811c4051e63e9dae36b5be40ba9422638c8ee45ee6bb8c2",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/ar/services/wills-estates",
+      "previousHtmlSha256": "c513c71a20328f4166425422f240150783ff1c2c561f7c4bf6b13bfdd707bf92",
+      "htmlSha256": "5d1ca3df7b8f57f327bebd5600d0d25b4e7d6dd85f8c034e8923fffcc7afc544",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services",
+      "previousHtmlSha256": "c0d8c43573543adebeb68b0507a78aa6b31d9e308d2eff90e72c5b48533f39b3",
+      "htmlSha256": "dc20441eeed94a2cb26b016deeac84e2ca3d2c8cfab214595542a9ec83a060c5",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/administrative-regulatory",
+      "previousHtmlSha256": "82de32329c7d0bc645cc9eb92b7d9d35fb93933d6caf1bd94ccb17195432c0fd",
+      "htmlSha256": "598f276fb394ebc197d08f1aaed31e953633c47021100e1f46afe2098b2c35f4",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/arbitration-mediation",
+      "previousHtmlSha256": "901ae3edd7200f4693e21ea3e2741154ecf66c5d8e0cd812b71d9b74ee694e4f",
+      "htmlSha256": "5489ec8d65f566a73b82dd92a0aca45cf34e3ff54bbacb54c028d6f20fc213c9",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/banking-finance",
+      "previousHtmlSha256": "913f61398a888cbf6bcf7b135b678c786ab2b98b1bb354dfc9eaaf5f9c1f80f4",
+      "htmlSha256": "3b801307b2f888d8b79443690c7f9664e2f83e3f0798ad5614f34188ab77e540",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/commercial-contracts",
+      "previousHtmlSha256": "e05a10fddf3f1440addf0432d659267234faf82b8a2bb09b39767ca998e5c5ba",
+      "htmlSha256": "996155372188f10dfd9b93ca4dd20c7bd83c7505dc3a904db56301c7bd2a781d",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/consumer-ecommerce",
+      "previousHtmlSha256": "dcc255f3bad58131bd81f82ffc9a96b2e7dfb27b99dfaaf12ccae163a2e5ae1c",
+      "htmlSha256": "379413c9dd94352232368a9b6d406e1f19f06ef731fd1431cb5b277f5e65200a",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/corporate-commercial",
+      "previousHtmlSha256": "331b567297ab08a917372bc43aef4a5b34813135f418f0d4ef2b092d573d55ea",
+      "htmlSha256": "412753a92dc566fe1f3fabae5eaba27ef77b9b78f5c342a49564f5d0d5fd54d7",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/criminal-investigations",
+      "previousHtmlSha256": "22b459fb4112c3a6533b1dc5703a517a2b3d6628f0c09ea740e48f20070cdf08",
+      "htmlSha256": "ae3e5767143fd7731c98813b7bf041ad11a7a0fbfb3b59c72c3c470496d108b0",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/employment-labour",
+      "previousHtmlSha256": "98ad9c8480f5531e0f4abbd3d5789eacedcff350ce3382089f886b83a7595c14",
+      "htmlSha256": "43e38d0252bdaca9929fb67f4d41626cb8542e40b637291001f327cc35d5e157",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/enforcement-debt-recovery",
+      "previousHtmlSha256": "685acbffffab872c3c8c679d150b51892db1e2ac0b1c6c75904394693586aa13",
+      "htmlSha256": "8e921d2418bcae5ca634416204cddefbbdf198bf66de8f3b184cd367d3768efc",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/family-personal-status",
+      "previousHtmlSha256": "e102aa46d56726a9350cac92ba3dd9229065edb54278595b56cda76e918a96d7",
+      "htmlSha256": "2339574644abe48a353c99ccbb4b60911c85c5470854813dbd43ce514e7faf85",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/foreign-investment-market-entry",
+      "previousHtmlSha256": "c5492344dfec9375531d4569a4f686b7a97f692d641aefa3dddaf569f76f7bbf",
+      "htmlSha256": "0bf6846d49345283bfdece886d473669919c5243d28ff125659753b20ff613cf",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability",
+      "previousHtmlSha256": "d6b60655acdb5838c5d6ac1ad94e5dc246a6faa50b303f153d0d32a47b4b869d",
+      "htmlSha256": "010d636ab39708379d42d6e9ed33c3aa01e1c506b8ba767f9ef7e1497734c26b",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/immigration-residency",
+      "previousHtmlSha256": "33bd844b2a68eaf8ff207c013b9a62b456b48f31e8dd621e5ac2a17c40e8e74b",
+      "htmlSha256": "ee8029f7954feda8b7554e3c0095c84f18d1be3bf8329d1de40b593bc6ae1113",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/insolvency-restructuring",
+      "previousHtmlSha256": "4c55ef9410372c6be5875840ac510f3ef063a48d241175b9f8ba31dd27ad73cd",
+      "htmlSha256": "83e0cda876721bd11912e21c3ac0e6c029d31a8e2d2e631419019cdc5cf01112",
+      "visibleTextUnchanged": false,
+      "basis": "Expected new answer or work link; fresh targeted browser check passed."
+    },
+    {
+      "route": "/uae/services/insurance",
+      "previousHtmlSha256": "7424ccb32f278253b5a2041c71290f1436d8c54c5a7c668c815f3bd849f7671a",
+      "htmlSha256": "eccc987f8415fb421185956b34969f50cb4fa63f50833d658e65fd955346b223",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/intellectual-property",
+      "previousHtmlSha256": "4a2d8c2fd66e84a343e886e9af822c1d45fd341489f3eb607bac478368a998c8",
+      "htmlSha256": "0768b2fa78dfd178663e8d4bb4ecc129a4a1ed0169b32a74a2fe6d29e1911767",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/litigation-court-disputes",
+      "previousHtmlSha256": "c55c2b57abf19443be7876550aff1b26378227b700e1c8eea8d90af314c39570",
+      "htmlSha256": "e17a5077bd6124c4ba1af1c33c2f9028461f68ae913e11fba9f09e921509775d",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/maritime-aviation-transport",
+      "previousHtmlSha256": "f1569c68eb10c6e906815c923d4fa785c8962dad3d9e026367d4a4e94200fc2a",
+      "htmlSha256": "5659a9b21cebb787b08e97b3b73f4c9d9a5988357e984af9afdc262feb942baa",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/real-estate-construction",
+      "previousHtmlSha256": "00f93b076062cc8d4a313f584ab8bcf7a52cd2d88bbdbebdf198d28010ca9b0b",
+      "htmlSha256": "8975ec183dc9a229fa8ef505d5de78e17aee8fa52f550320d846b2a9cb1f4a65",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/tax-vat",
+      "previousHtmlSha256": "4c7affef4e5500ea37a6a9f6d9880ed5c87037b61c94367ad40eef38aea05878",
+      "htmlSha256": "c174ec6aff0dd18c363af1247618c9be03ee732d83b7e4e93aeeacd8d4c7dc6e",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/technology-data-protection",
+      "previousHtmlSha256": "75ca94919bf6b7da88e19a6b8020e0aeed8acffa4f111285f57b47f42c878c3f",
+      "htmlSha256": "a0c641427331c455f88efe894885fcb7e4720d68f2e16d5be52128662e868da4",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    },
+    {
+      "route": "/uae/services/wills-estates",
+      "previousHtmlSha256": "1e62c40203fc0c095cf18e2590d13b2b4f15de386c9246a48b54c23ebd00b1a5",
+      "htmlSha256": "ed7d3b1fbb4ee79a7f70fdcb18871418311132a7e00f7cde993fd7121b36af6f",
+      "visibleTextUnchanged": true,
+      "basis": "Fresh technical and exact answer checks; unchanged visible text retains prior browser evidence."
+    }
+  ]
+}

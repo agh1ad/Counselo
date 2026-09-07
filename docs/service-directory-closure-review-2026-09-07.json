@@ -1,0 +1,1464 @@
+{
+  "reviewedAt": "2026-09-07",
+  "scope": "Six regional service directories only",
+  "routesReviewed": 6,
+  "knownInScopeContentGapCount": 0,
+  "sourceMethod": "Read current built main content, service links and ItemList data, plus services.tsx and service-intake-content source. Intent is editorial inference from actual navigation and content, not measured keyword demand.",
+  "closurePrinciple": "A directory may finish its defined navigational content review while linked matter reviews and search-performance monitoring remain open. No claim of all possible future queries or ranking coverage.",
+  "pages": [
+    {
+      "route": "/sa/services",
+      "language": "en",
+      "region": "sa",
+      "pageRole": "Jurisdiction-specific navigational service directory",
+      "primaryIntent": "Find the relevant broad legal service in Saudi Arabia",
+      "reviewedRelevantIntents": [
+        {
+          "intent": "Identify the selected jurisdiction and change it if needed",
+          "visibleEvidence": "Country banner and Change jurisdiction link / تغيير الاختصاص",
+          "links": [
+            {
+              "href": "/",
+              "label": "Change jurisdiction"
+            }
+          ]
+        },
+        {
+          "intent": "See available practice areas and compare their scope",
+          "visibleEvidence": "17 Legal Practice Areas",
+          "answer": "Each linked card names a practice area and describes typical problems, records or review goals.",
+          "links": [
+            {
+              "href": "/sa/services/family-law",
+              "label": "01.Family LawReview separation, maintenance, custody, contact or family-status recognition with attention to the people affected and existing orders. Identify the applicable personal-status framework and urgent child or financial concerns before choosing a procedure."
+            },
+            {
+              "href": "/sa/services/business-law",
+              "label": "02.Commercial LawResolve commercial payment, supply, agency and partner disputes by identifying the transaction, obligation and evidence of performance. The initial review separates recoverable claims from corporate, regulatory or procedural issues requiring a different route."
+            },
+            {
+              "href": "/sa/services/real-estate",
+              "label": "03.Property LawReview title, possession, rent or construction obligations using the property records and the actual agreement. Separate registration and boundary issues from payment, defects or handover claims before giving notice or starting proceedings."
+            },
+            {
+              "href": "/sa/services/employment-law",
+              "label": "04.Employment LawAssess unpaid wages, termination, workplace discipline or end-of-service calculations against the employment relationship and payment history. Review the appropriate complaint route and the effect of signing a resignation or settlement before acting."
+            },
+            {
+              "href": "/sa/services/foreign-investment",
+              "label": "05.Foreign Investment & Business LawAssess market entry, an investment structure or a dispute before committing funds. Distinguish investor registration from company formation, sector approvals and operating permissions, and review partner rights and exit terms."
+            },
+            {
+              "href": "/sa/services/administrative-law",
+              "label": "06.Administrative LawReview a licence refusal, administrative penalty or tender decision before choosing an objection or court challenge. The review examines the decision, reasons, service date and available procedural route."
+            },
+            {
+              "href": "/sa/services/arbitration",
+              "label": "07.Arbitration & MediationAssess the arbitration agreement, seat and procedural stage before starting a claim or responding to one. Review can address tribunal jurisdiction, settlement, interim relief and the separate requirements for challenging or enforcing an award."
+            },
+            {
+              "href": "/sa/services/enforcement",
+              "label": "08.Enforcement & Debt CollectionDetermine whether a judgment, instrument or unpaid claim supports an enforcement application or needs a prior merits claim. Review service, objections, payment records and available asset information before recommending recovery steps."
+            },
+            {
+              "href": "/sa/services/companies-law",
+              "label": "09.Companies LawPlan company formation, governance changes, a shareholder exit or dissolution around the entity’s legal form and records. Review signing authority, approval requirements and ownership rights before committing the company or transferring an interest."
+            },
+            {
+              "href": "/sa/services/contracts",
+              "label": "10.ContractsReview a draft agreement or a disputed obligation before signing, giving notice or stopping performance. Identify scope, payment, acceptance, liability and termination risks, then prepare the agreed amendments or response."
+            },
+            {
+              "href": "/sa/services/criminal-law",
+              "label": "11.Criminal LawAssess a complaint, summons or criminal accusation from the alleged facts and current procedural stage. Preserve the available evidence and identify the competent investigating authority, response requirements and need for locally authorised representation."
+            },
+            {
+              "href": "/sa/services/banking-finance",
+              "label": "12.Banking & Finance LawReview disputed bank transactions, financing obligations and guarantees using the actual facility terms and account records. Separate a service complaint from a payment claim, regulatory question or enforcement defence."
+            },
+            {
+              "href": "/sa/services/intellectual-property",
+              "label": "13.Intellectual PropertyAssess ownership, registration, licensing or infringement of a mark, work or invention. Compare the claimed right with the disputed use and available evidence before choosing an objection, negotiated licence or enforcement response."
+            },
+            {
+              "href": "/sa/services/tax-zakat",
+              "label": "14.Tax & Zakat LawReview registration, reporting, assessment or penalty questions using the tax period, activity and authority record. Identify the applicable tax and objection route before disputing an amount or submitting a correction."
+            },
+            {
+              "href": "/sa/services/cyber-law",
+              "label": "15.Cyber & IT LawRespond to account compromise, online abuse, data incidents or technology-contract disputes without damaging the evidence. Review lawful preservation, platform or authority reporting and contractual responsibilities before selecting a response."
+            },
+            {
+              "href": "/sa/services/medical-malpractice",
+              "label": "16.Medical Malpractice & Healthcare LawAssess a treatment complaint using the medical chronology, records and specialist findings. Distinguish an adverse outcome from an evidenced breach, and review causation, loss and the appropriate medical complaint or compensation route."
+            },
+            {
+              "href": "/sa/services/insurance-law",
+              "label": "17.Insurance LawReview a rejected or delayed insurance claim against the policy, exclusions and claim history. Separate coverage, valuation and fault disputes, and identify whether the next step is an insurer response, regulatory complaint or formal dispute."
+            }
+          ]
+        },
+        {
+          "intent": "Reach the detailed service and specific legal problems",
+          "visibleEvidence": "Each card links to its jurisdiction/language service hub; matter-specific navigation belongs on those hubs.",
+          "links": [
+            {
+              "href": "/sa/services/family-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/business-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/real-estate",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/employment-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/foreign-investment",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/administrative-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/arbitration",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/enforcement",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/companies-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/contracts",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/criminal-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/banking-finance",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/intellectual-property",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/tax-zakat",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/cyber-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/medical-malpractice",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/services/insurance-law",
+              "localSnapshotExists": true
+            }
+          ]
+        },
+        {
+          "intent": "Get help when the practice area is uncertain",
+          "visibleEvidence": "Not sure which practice area fits your matter?",
+          "links": [
+            {
+              "href": "/sa/contact",
+              "label": "Book Consultation"
+            }
+          ]
+        },
+        {
+          "intent": "Understand online access and response expectation",
+          "visibleEvidence": "Saudi Arabia's online legal consultation platform — 17 specialist practice areas covering family, commercial, employment, real estate, foreign investment, criminal, banking, tax, cyber, medical malpractice, insurance, arbitration, enforcement, companies law, contracts, intellectual property, and administrative law. a professional response within a target 24-hour window, subject to scope, urgency, completeness and availability. No office visit needed.",
+          "answer": "The hero presents online consultation and qualifies the response target by scope, urgency, completeness and availability; this is an operational service statement, not a procedural deadline."
+        }
+      ],
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/sa-services.html",
+        "sha256": "f21705dcab9f6860f4ac80715f7a19819dea5c986cd14022f3c7fc3867d8c61d",
+        "h1": "17 Legal Practice Areas",
+        "mainTextCharacters": 5087,
+        "practiceAreaLinks": 17,
+        "schemaItemCount": 17,
+        "allPracticeLinksHaveLocalHtml": true,
+        "sourceFiles": [
+          "artifacts/legal-site/src/pages/services.tsx",
+          "artifacts/legal-site/src/lib/service-intake-content.ts"
+        ]
+      },
+      "knownInScopeContentGaps": [],
+      "actualContentDefects": [
+        {
+          "severity": "minor-copy",
+          "finding": "The hero starts a sentence with lowercase a professional response after a full stop.",
+          "proposedCorrection": "Capitalize the initial A; preserve the qualified response target.",
+          "blocksNavigationalContentClosure": false
+        }
+      ],
+      "closureRecommendation": "No known in-scope public-content gap remains for the directory’s navigational role, subject to root browser verification.",
+      "pageContentReviewStatus": "eligible-for-page-level-content-closure",
+      "excludedFromDirectoryContentGaps": [
+        {
+          "item": "Full rules, exceptions, procedures and deadlines for linked matters",
+          "reason": "These belong to the destination service/matter pages, whose separate unresolved reviews are preserved."
+        },
+        {
+          "item": "Actual Google/Bing snippet display, queries, rankings and click attribution",
+          "reason": "External search-performance monitoring; not missing directory prose or a prerequisite for closing its bounded content review."
+        },
+        {
+          "item": "Case-specific forum, representation, fee and document advice",
+          "reason": "Requires the facts and engagement assessment at the selected service or contact route; no universal answer is appropriate on the directory."
+        }
+      ],
+      "operationalLimits": [
+        "Local generated HTML and source review; not a fresh public crawl or deployment claim.",
+        "Root still verifies visible card readability, keyboard navigation, language/region controls and contact navigation in browser.",
+        "Response target and business identity are operational claims governed by the existing site factual review; no new claim is introduced here."
+      ],
+      "fullSearchIntentCoverageClaim": false,
+      "overallTaskComplete": false
+    },
+    {
+      "route": "/sa/ar/services",
+      "language": "ar",
+      "region": "sa",
+      "pageRole": "Jurisdiction-specific navigational service directory",
+      "primaryIntent": "Find the relevant broad legal service in Saudi Arabia",
+      "reviewedRelevantIntents": [
+        {
+          "intent": "Identify the selected jurisdiction and change it if needed",
+          "visibleEvidence": "Country banner and Change jurisdiction link / تغيير الاختصاص",
+          "links": []
+        },
+        {
+          "intent": "See available practice areas and compare their scope",
+          "visibleEvidence": "17 مجالاً قانونياً",
+          "answer": "Each linked card names a practice area and describes typical problems, records or review goals.",
+          "links": [
+            {
+              "href": "/sa/ar/services/family-law",
+              "label": "01.نظام الأحوال الشخصيةنراجع الانفصال والنفقة والحضانة والزيارة والاعتراف بالحالة الأسرية مع مراعاة الأطراف والأحكام القائمة، لتحديد إطار الأحوال الشخصية المنطبق والمسائل العاجلة المتعلقة بالأطفال أو المال قبل اختيار الإجراء."
+            },
+            {
+              "href": "/sa/ar/services/business-law",
+              "label": "02.النظام التجارينقيّم منازعات السداد والتوريد والوكالات والشركاء بتحديد المعاملة والالتزام وأدلة التنفيذ، مع فصل المطالبات المالية عن مسائل الشركات أو التنظيم أو الإجراءات التي تحتاج إلى مسار مختلف."
+            },
+            {
+              "href": "/sa/ar/services/real-estate",
+              "label": "03.المنازعات العقاريةنراجع الملكية والحيازة والإيجار والتزامات البناء وفق سجلات العقار والاتفاق الفعلي، مع فصل مسائل التسجيل والحدود عن مطالبات السداد والعيوب والتسليم قبل الإخطار أو بدء الإجراءات."
+            },
+            {
+              "href": "/sa/ar/services/employment-law",
+              "label": "04.نظام العملنقيّم الأجور غير المدفوعة والإنهاء والجزاءات الوظيفية وحساب مستحقات نهاية الخدمة وفق علاقة العمل وسجل السداد، مع مراجعة مسار الشكوى وأثر توقيع الاستقالة أو التسوية قبل اتخاذ القرار."
+            },
+            {
+              "href": "/sa/ar/services/foreign-investment",
+              "label": "05.نظام الاستثمارنقيّم دخول السوق وهيكل الاستثمار أو النزاع قبل تحويل الأموال، مع التمييز بين تسجيل المستثمر وتأسيس الشركة والموافقات القطاعية وتصاريح التشغيل ومراجعة حقوق الشركاء وشروط التخارج."
+            },
+            {
+              "href": "/sa/ar/services/administrative-law",
+              "label": "06.النظام الإدارينراجع رفض الترخيص أو الجزاء الإداري أو قرار المناقصة قبل اختيار التظلم أو الطعن القضائي، مع فحص القرار وأسبابه وتاريخ تبليغه والمسار الإجرائي المتاح."
+            },
+            {
+              "href": "/sa/ar/services/arbitration",
+              "label": "07.التحكيم والوساطةنقيّم اتفاق التحكيم ومقره ومرحلة الإجراءات قبل بدء المطالبة أو الرد عليها. وقد تشمل المراجعة اختصاص الهيئة والتسوية والتدابير المؤقتة والشروط المستقلة للطعن في الحكم أو تنفيذه."
+            },
+            {
+              "href": "/sa/ar/services/enforcement",
+              "label": "08.التنفيذ وتحصيل الديوننحدد ما إذا كان الحكم أو السند أو الدين غير المدفوع يصلح لطلب التنفيذ أو يحتاج إلى دعوى أصلية، مع مراجعة التبليغ والاعتراضات والسداد ومعلومات الأصول قبل اقتراح خطوات التحصيل."
+            },
+            {
+              "href": "/sa/ar/services/companies-law",
+              "label": "09.نظام الشركاتنراجع التأسيس وتغييرات الحوكمة وخروج الشريك أو حل الشركة وفق شكلها القانوني وسجلاتها، مع فحص صلاحيات التوقيع والموافقات وحقوق الملكية قبل إلزام الشركة أو نقل حصة."
+            },
+            {
+              "href": "/sa/ar/services/contracts",
+              "label": "10.العقودنراجع مشروع العقد أو الالتزام المتنازع عليه قبل التوقيع أو الإخطار أو وقف التنفيذ، لتحديد مخاطر النطاق والسداد والقبول والمسؤولية والإنهاء وإعداد التعديلات أو الرد المتفق عليه."
+            },
+            {
+              "href": "/sa/ar/services/criminal-law",
+              "label": "11.الجزائينقيّم الشكوى أو الاستدعاء أو الاتهام الجزائي انطلاقاً من الوقائع ومرحلة الإجراءات، مع حفظ الأدلة وتحديد جهة التحقيق ومتطلبات الرد والحاجة إلى تمثيل ممن يملك الصفة المهنية اللازمة."
+            },
+            {
+              "href": "/sa/ar/services/banking-finance",
+              "label": "12.بنوك وتمويلنراجع المعاملات المصرفية المتنازع عليها والتزامات التمويل والضمانات وفق شروط التسهيلات وسجلات الحساب، مع التمييز بين شكوى الخدمة والمطالبة المالية والمسألة التنظيمية والدفاع في التنفيذ."
+            },
+            {
+              "href": "/sa/ar/services/intellectual-property",
+              "label": "13.الملكية الفكريةنقيّم ملكية العلامة أو المصنف أو الاختراع وتسجيله وترخيصه أو التعدي عليه، بمقارنة الحق المدعى به بالاستخدام المتنازع عليه وأدلته قبل اختيار الاعتراض أو الترخيص التفاوضي أو إجراء الحماية."
+            },
+            {
+              "href": "/sa/ar/services/tax-zakat",
+              "label": "14.الزكاة والضريبةنراجع مسائل التسجيل والإقرار والربط والغرامة وفق الفترة الضريبية والنشاط وملف الجهة، لتحديد الضريبة المنطبقة ومسار الاعتراض قبل منازعة المبلغ أو تقديم التصحيح."
+            },
+            {
+              "href": "/sa/ar/services/cyber-law",
+              "label": "15.الجرائم المعلوماتيةنراجع اختراق الحساب أو الإساءة الإلكترونية أو حادث البيانات أو نزاع العقد التقني دون الإضرار بالأدلة، مع تقييم الحفظ المشروع والإبلاغ للمنصة أو الجهة والمسؤوليات التعاقدية قبل اختيار الرد."
+            },
+            {
+              "href": "/sa/ar/services/medical-malpractice",
+              "label": "16.الأخطاء الطبية والنظام الصحينقيّم الشكوى العلاجية وفق التسلسل الطبي والسجلات والنتائج الفنية، مع التمييز بين النتيجة غير المرغوبة والخطأ المثبت ومراجعة السببية والضرر ومسار الشكوى الطبية أو التعويض."
+            },
+            {
+              "href": "/sa/ar/services/insurance-law",
+              "label": "17.نظام التأميننراجع مطالبة التأمين المرفوضة أو المتأخرة وفق الوثيقة والاستثناءات وسجل المطالبة، مع التمييز بين منازعة التغطية والتقدير والخطأ وتحديد ما إذا كانت الخطوة التالية رداً للمؤمّن أو شكوى تنظيمية أو منازعة رسمية."
+            }
+          ]
+        },
+        {
+          "intent": "Reach the detailed service and specific legal problems",
+          "visibleEvidence": "Each card links to its jurisdiction/language service hub; matter-specific navigation belongs on those hubs.",
+          "links": [
+            {
+              "href": "/sa/ar/services/family-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/business-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/real-estate",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/employment-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/foreign-investment",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/administrative-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/arbitration",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/enforcement",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/companies-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/contracts",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/criminal-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/banking-finance",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/intellectual-property",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/tax-zakat",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/cyber-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/medical-malpractice",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/sa/ar/services/insurance-law",
+              "localSnapshotExists": true
+            }
+          ]
+        },
+        {
+          "intent": "Get help when the practice area is uncertain",
+          "visibleEvidence": "لست متأكداً من المجال القانوني المناسب؟",
+          "links": [
+            {
+              "href": "/sa/ar/contact",
+              "label": "احجز استشارة"
+            }
+          ]
+        },
+        {
+          "intent": "Understand online access and response expectation",
+          "visibleEvidence": "منصة استشارات قانونية أونلاين للمملكة العربية السعودية — 17 مجالاً متخصصاً يشمل: الأسرة، التجاري، العمل، العقاري، الاستثمار الأجنبي، الجنائي، البنوك والتمويل، الضرائب والزكاة، الجرائم الإلكترونية، الأخطاء الطبية، التأمين، التحكيم، التنفيذ، نظام الشركات، العقود، الملكية الفكرية، والإداري. استجابة احترافية ضمن وقت استجابة مستهدف خلال 24 ساعة، بحسب النطاق والاستعجال واكتمال المعلومات وتوفر الخدمة. لا حاجة لزيارة مكتب.",
+          "answer": "The hero presents online consultation and qualifies the response target by scope, urgency, completeness and availability; this is an operational service statement, not a procedural deadline."
+        }
+      ],
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/sa-ar-services.html",
+        "sha256": "2afd225f44ed9723bdc26a3b596aba4b1c1a74129fecb5fda8f5c64eada4944f",
+        "h1": "17 مجالاً قانونياً",
+        "mainTextCharacters": 3972,
+        "practiceAreaLinks": 17,
+        "schemaItemCount": 17,
+        "allPracticeLinksHaveLocalHtml": true,
+        "sourceFiles": [
+          "artifacts/legal-site/src/pages/services.tsx",
+          "artifacts/legal-site/src/lib/service-intake-content.ts"
+        ]
+      },
+      "knownInScopeContentGaps": [],
+      "actualContentDefects": [],
+      "closureRecommendation": "No known in-scope public-content gap remains for the directory’s navigational role, subject to root browser verification.",
+      "pageContentReviewStatus": "eligible-for-page-level-content-closure",
+      "excludedFromDirectoryContentGaps": [
+        {
+          "item": "Full rules, exceptions, procedures and deadlines for linked matters",
+          "reason": "These belong to the destination service/matter pages, whose separate unresolved reviews are preserved."
+        },
+        {
+          "item": "Actual Google/Bing snippet display, queries, rankings and click attribution",
+          "reason": "External search-performance monitoring; not missing directory prose or a prerequisite for closing its bounded content review."
+        },
+        {
+          "item": "Case-specific forum, representation, fee and document advice",
+          "reason": "Requires the facts and engagement assessment at the selected service or contact route; no universal answer is appropriate on the directory."
+        }
+      ],
+      "operationalLimits": [
+        "Local generated HTML and source review; not a fresh public crawl or deployment claim.",
+        "Root still verifies visible card readability, keyboard navigation, language/region controls and contact navigation in browser.",
+        "Response target and business identity are operational claims governed by the existing site factual review; no new claim is introduced here."
+      ],
+      "fullSearchIntentCoverageClaim": false,
+      "overallTaskComplete": false
+    },
+    {
+      "route": "/syr/services",
+      "language": "en",
+      "region": "syr",
+      "pageRole": "Jurisdiction-specific navigational service directory",
+      "primaryIntent": "Find the relevant broad legal service in Syria",
+      "reviewedRelevantIntents": [
+        {
+          "intent": "Identify the selected jurisdiction and change it if needed",
+          "visibleEvidence": "Country banner and Change jurisdiction link / تغيير الاختصاص",
+          "links": [
+            {
+              "href": "/",
+              "label": "Change jurisdiction"
+            }
+          ]
+        },
+        {
+          "intent": "See available practice areas and compare their scope",
+          "visibleEvidence": "20 Legal Practice Areas",
+          "answer": "Each linked card names a practice area and describes typical problems, records or review goals.",
+          "links": [
+            {
+              "href": "/syr/services/family-law",
+              "label": "01.Family LawReview separation, maintenance, custody, contact or family-status recognition with attention to the people affected and existing orders. Identify the applicable personal-status framework and urgent child or financial concerns before choosing a procedure."
+            },
+            {
+              "href": "/syr/services/business-law",
+              "label": "02.Commercial LawResolve commercial payment, supply, agency and partner disputes by identifying the transaction, obligation and evidence of performance. The initial review separates recoverable claims from corporate, regulatory or procedural issues requiring a different route."
+            },
+            {
+              "href": "/syr/services/real-estate",
+              "label": "03.Property LawReview title, possession, rent or construction obligations using the property records and the actual agreement. Separate registration and boundary issues from payment, defects or handover claims before giving notice or starting proceedings."
+            },
+            {
+              "href": "/syr/services/employment-law",
+              "label": "04.Employment LawAssess unpaid wages, termination, workplace discipline or end-of-service calculations against the employment relationship and payment history. Review the appropriate complaint route and the effect of signing a resignation or settlement before acting."
+            },
+            {
+              "href": "/syr/services/foreign-investment",
+              "label": "05.Foreign Investment & Business LawAssess market entry, an investment structure or a dispute before committing funds. Distinguish investor registration from company formation, sector approvals and operating permissions, and review partner rights and exit terms."
+            },
+            {
+              "href": "/syr/services/administrative-law",
+              "label": "06.Administrative LawReview a licence refusal, administrative penalty or tender decision before choosing an objection or court challenge. The review examines the decision, reasons, service date and available procedural route."
+            },
+            {
+              "href": "/syr/services/arbitration",
+              "label": "07.Arbitration & MediationAssess the arbitration agreement, seat and procedural stage before starting a claim or responding to one. Review can address tribunal jurisdiction, settlement, interim relief and the separate requirements for challenging or enforcing an award."
+            },
+            {
+              "href": "/syr/services/enforcement",
+              "label": "08.Enforcement & Debt CollectionDetermine whether a judgment, instrument or unpaid claim supports an enforcement application or needs a prior merits claim. Review service, objections, payment records and available asset information before recommending recovery steps."
+            },
+            {
+              "href": "/syr/services/companies-law",
+              "label": "09.Companies LawPlan company formation, governance changes, a shareholder exit or dissolution around the entity’s legal form and records. Review signing authority, approval requirements and ownership rights before committing the company or transferring an interest."
+            },
+            {
+              "href": "/syr/services/contracts",
+              "label": "10.ContractsReview a draft agreement or a disputed obligation before signing, giving notice or stopping performance. Identify scope, payment, acceptance, liability and termination risks, then prepare the agreed amendments or response."
+            },
+            {
+              "href": "/syr/services/criminal-law",
+              "label": "11.Criminal LawAssess a complaint, summons or criminal accusation from the alleged facts and current procedural stage. Preserve the available evidence and identify the competent investigating authority, response requirements and need for locally authorised representation."
+            },
+            {
+              "href": "/syr/services/banking-finance",
+              "label": "12.Banking & Finance LawReview disputed bank transactions, financing obligations and guarantees using the actual facility terms and account records. Separate a service complaint from a payment claim, regulatory question or enforcement defence."
+            },
+            {
+              "href": "/syr/services/intellectual-property",
+              "label": "13.Intellectual PropertyAssess ownership, registration, licensing or infringement of a mark, work or invention. Compare the claimed right with the disputed use and available evidence before choosing an objection, negotiated licence or enforcement response."
+            },
+            {
+              "href": "/syr/services/tax-zakat",
+              "label": "14.Tax LawReview registration, reporting, assessment or penalty questions using the tax period, activity and authority record. Identify the applicable tax and objection route before disputing an amount or submitting a correction."
+            },
+            {
+              "href": "/syr/services/cyber-law",
+              "label": "15.Cyber & IT LawRespond to account compromise, online abuse, data incidents or technology-contract disputes without damaging the evidence. Review lawful preservation, platform or authority reporting and contractual responsibilities before selecting a response."
+            },
+            {
+              "href": "/syr/services/medical-malpractice",
+              "label": "16.Medical Malpractice & Healthcare LawAssess a treatment complaint using the medical chronology, records and specialist findings. Distinguish an adverse outcome from an evidenced breach, and review causation, loss and the appropriate medical complaint or compensation route."
+            },
+            {
+              "href": "/syr/services/insurance-law",
+              "label": "17.Insurance LawReview a rejected or delayed insurance claim against the policy, exclusions and claim history. Separate coverage, valuation and fault disputes, and identify whether the next step is an insurer response, regulatory complaint or formal dispute."
+            },
+            {
+              "href": "/syr/services/civil-law",
+              "label": "18.Civil LawAssess contractual and non-contractual obligations, ownership or compensation from the facts and available proof. Distinguish validity, performance and damages questions so the requested remedy matches the legal basis of the claim."
+            },
+            {
+              "href": "/syr/services/civil-procedure",
+              "label": "19.Civil ProcedureReview the claim, service and case history to identify the correct court, procedural request or appeal route. Check evidence gaps and filing deadlines before submitting a pleading or relying on an existing judgment."
+            },
+            {
+              "href": "/syr/services/criminal-procedure",
+              "label": "20.Criminal ProcedureIdentify what can be challenged at the current criminal-procedure stage, including service, detention, investigation steps or a judgment. The review links each proposed request to the competent authority, supporting record and applicable deadline."
+            }
+          ]
+        },
+        {
+          "intent": "Reach the detailed service and specific legal problems",
+          "visibleEvidence": "Each card links to its jurisdiction/language service hub; matter-specific navigation belongs on those hubs.",
+          "links": [
+            {
+              "href": "/syr/services/family-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/business-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/real-estate",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/employment-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/foreign-investment",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/administrative-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/arbitration",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/enforcement",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/companies-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/contracts",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/criminal-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/banking-finance",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/intellectual-property",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/tax-zakat",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/cyber-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/medical-malpractice",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/insurance-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/civil-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/civil-procedure",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/services/criminal-procedure",
+              "localSnapshotExists": true
+            }
+          ]
+        },
+        {
+          "intent": "Get help when the practice area is uncertain",
+          "visibleEvidence": "Not sure which practice area fits your matter?",
+          "links": [
+            {
+              "href": "/syr/contact",
+              "label": "Book Consultation"
+            }
+          ]
+        },
+        {
+          "intent": "Understand online access and response expectation",
+          "visibleEvidence": "Syria's specialized online legal consultation platform — 20 specialist practice areas covering family law, commercial law, employment, real estate, foreign investment, criminal law, banking, tax, cyber law, medical malpractice, insurance, arbitration, enforcement, companies law, contracts, IP, administrative law, civil law, civil procedure, and criminal procedure. a professional response within a target 24-hour window, subject to scope, urgency, completeness and availability. No office visit needed.",
+          "answer": "The hero presents online consultation and qualifies the response target by scope, urgency, completeness and availability; this is an operational service statement, not a procedural deadline."
+        }
+      ],
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/syr-services.html",
+        "sha256": "a84a6602d808c9730d1b2e8542b9177a49c27328e4334d0085fc8d30a61d89b4",
+        "h1": "20 Legal Practice Areas",
+        "mainTextCharacters": 5878,
+        "practiceAreaLinks": 20,
+        "schemaItemCount": 20,
+        "allPracticeLinksHaveLocalHtml": true,
+        "sourceFiles": [
+          "artifacts/legal-site/src/pages/services.tsx",
+          "artifacts/legal-site/src/lib/service-intake-content.ts"
+        ]
+      },
+      "knownInScopeContentGaps": [],
+      "actualContentDefects": [
+        {
+          "severity": "minor-copy",
+          "finding": "The hero starts a sentence with lowercase a professional response after a full stop.",
+          "proposedCorrection": "Capitalize the initial A; preserve the qualified response target.",
+          "blocksNavigationalContentClosure": false
+        }
+      ],
+      "closureRecommendation": "No known in-scope public-content gap remains for the directory’s navigational role, subject to root browser verification.",
+      "pageContentReviewStatus": "eligible-for-page-level-content-closure",
+      "excludedFromDirectoryContentGaps": [
+        {
+          "item": "Full rules, exceptions, procedures and deadlines for linked matters",
+          "reason": "These belong to the destination service/matter pages, whose separate unresolved reviews are preserved."
+        },
+        {
+          "item": "Actual Google/Bing snippet display, queries, rankings and click attribution",
+          "reason": "External search-performance monitoring; not missing directory prose or a prerequisite for closing its bounded content review."
+        },
+        {
+          "item": "Case-specific forum, representation, fee and document advice",
+          "reason": "Requires the facts and engagement assessment at the selected service or contact route; no universal answer is appropriate on the directory."
+        }
+      ],
+      "operationalLimits": [
+        "Local generated HTML and source review; not a fresh public crawl or deployment claim.",
+        "Root still verifies visible card readability, keyboard navigation, language/region controls and contact navigation in browser.",
+        "Response target and business identity are operational claims governed by the existing site factual review; no new claim is introduced here."
+      ],
+      "fullSearchIntentCoverageClaim": false,
+      "overallTaskComplete": false
+    },
+    {
+      "route": "/syr/ar/services",
+      "language": "ar",
+      "region": "syr",
+      "pageRole": "Jurisdiction-specific navigational service directory",
+      "primaryIntent": "Find the relevant broad legal service in Syria",
+      "reviewedRelevantIntents": [
+        {
+          "intent": "Identify the selected jurisdiction and change it if needed",
+          "visibleEvidence": "Country banner and Change jurisdiction link / تغيير الاختصاص",
+          "links": []
+        },
+        {
+          "intent": "See available practice areas and compare their scope",
+          "visibleEvidence": "20 مجالاً قانونياً متخصصاً",
+          "answer": "Each linked card names a practice area and describes typical problems, records or review goals.",
+          "links": [
+            {
+              "href": "/syr/ar/services/family-law",
+              "label": "01.قانون الأسرةنراجع الانفصال والنفقة والحضانة والزيارة والاعتراف بالحالة الأسرية مع مراعاة الأطراف والأحكام القائمة، لتحديد إطار الأحوال الشخصية المنطبق والمسائل العاجلة المتعلقة بالأطفال أو المال قبل اختيار الإجراء."
+            },
+            {
+              "href": "/syr/ar/services/business-law",
+              "label": "02.القانون التجارينقيّم منازعات السداد والتوريد والوكالات والشركاء بتحديد المعاملة والالتزام وأدلة التنفيذ، مع فصل المطالبات المالية عن مسائل الشركات أو التنظيم أو الإجراءات التي تحتاج إلى مسار مختلف."
+            },
+            {
+              "href": "/syr/ar/services/real-estate",
+              "label": "03.قانون الملكيةنراجع الملكية والحيازة والإيجار والتزامات البناء وفق سجلات العقار والاتفاق الفعلي، مع فصل مسائل التسجيل والحدود عن مطالبات السداد والعيوب والتسليم قبل الإخطار أو بدء الإجراءات."
+            },
+            {
+              "href": "/syr/ar/services/employment-law",
+              "label": "04.قانون العملنقيّم الأجور غير المدفوعة والإنهاء والجزاءات الوظيفية وحساب مستحقات نهاية الخدمة وفق علاقة العمل وسجل السداد، مع مراجعة مسار الشكوى وأثر توقيع الاستقالة أو التسوية قبل اتخاذ القرار."
+            },
+            {
+              "href": "/syr/ar/services/foreign-investment",
+              "label": "05.الاستثمار الأجنبي وقانون الأعمالنقيّم دخول السوق وهيكل الاستثمار أو النزاع قبل تحويل الأموال، مع التمييز بين تسجيل المستثمر وتأسيس الشركة والموافقات القطاعية وتصاريح التشغيل ومراجعة حقوق الشركاء وشروط التخارج."
+            },
+            {
+              "href": "/syr/ar/services/administrative-law",
+              "label": "06.القانون الإدارينراجع رفض الترخيص أو الجزاء الإداري أو قرار المناقصة قبل اختيار التظلم أو الطعن القضائي، مع فحص القرار وأسبابه وتاريخ تبليغه والمسار الإجرائي المتاح."
+            },
+            {
+              "href": "/syr/ar/services/arbitration",
+              "label": "07.التحكيم والوساطةنقيّم اتفاق التحكيم ومقره ومرحلة الإجراءات قبل بدء المطالبة أو الرد عليها. وقد تشمل المراجعة اختصاص الهيئة والتسوية والتدابير المؤقتة والشروط المستقلة للطعن في الحكم أو تنفيذه."
+            },
+            {
+              "href": "/syr/ar/services/enforcement",
+              "label": "08.التنفيذ وتحصيل الديوننحدد ما إذا كان الحكم أو السند أو الدين غير المدفوع يصلح لطلب التنفيذ أو يحتاج إلى دعوى أصلية، مع مراجعة التبليغ والاعتراضات والسداد ومعلومات الأصول قبل اقتراح خطوات التحصيل."
+            },
+            {
+              "href": "/syr/ar/services/companies-law",
+              "label": "09.قانون الشركاتنراجع التأسيس وتغييرات الحوكمة وخروج الشريك أو حل الشركة وفق شكلها القانوني وسجلاتها، مع فحص صلاحيات التوقيع والموافقات وحقوق الملكية قبل إلزام الشركة أو نقل حصة."
+            },
+            {
+              "href": "/syr/ar/services/contracts",
+              "label": "10.العقودنراجع مشروع العقد أو الالتزام المتنازع عليه قبل التوقيع أو الإخطار أو وقف التنفيذ، لتحديد مخاطر النطاق والسداد والقبول والمسؤولية والإنهاء وإعداد التعديلات أو الرد المتفق عليه."
+            },
+            {
+              "href": "/syr/ar/services/criminal-law",
+              "label": "11.القانون الجنائينقيّم الشكوى أو الاستدعاء أو الاتهام الجزائي انطلاقاً من الوقائع ومرحلة الإجراءات، مع حفظ الأدلة وتحديد جهة التحقيق ومتطلبات الرد والحاجة إلى تمثيل ممن يملك الصفة المهنية اللازمة."
+            },
+            {
+              "href": "/syr/ar/services/banking-finance",
+              "label": "12.قانون المصارف والتمويلنراجع المعاملات المصرفية المتنازع عليها والتزامات التمويل والضمانات وفق شروط التسهيلات وسجلات الحساب، مع التمييز بين شكوى الخدمة والمطالبة المالية والمسألة التنظيمية والدفاع في التنفيذ."
+            },
+            {
+              "href": "/syr/ar/services/intellectual-property",
+              "label": "13.الملكية الفكريةنقيّم ملكية العلامة أو المصنف أو الاختراع وتسجيله وترخيصه أو التعدي عليه، بمقارنة الحق المدعى به بالاستخدام المتنازع عليه وأدلته قبل اختيار الاعتراض أو الترخيص التفاوضي أو إجراء الحماية."
+            },
+            {
+              "href": "/syr/ar/services/tax-zakat",
+              "label": "14.قانون الضرائبنراجع مسائل التسجيل والإقرار والربط والغرامة وفق الفترة الضريبية والنشاط وملف الجهة، لتحديد الضريبة المنطبقة ومسار الاعتراض قبل منازعة المبلغ أو تقديم التصحيح."
+            },
+            {
+              "href": "/syr/ar/services/cyber-law",
+              "label": "15.القانون الإلكتروني وتقنية المعلوماتنراجع اختراق الحساب أو الإساءة الإلكترونية أو حادث البيانات أو نزاع العقد التقني دون الإضرار بالأدلة، مع تقييم الحفظ المشروع والإبلاغ للمنصة أو الجهة والمسؤوليات التعاقدية قبل اختيار الرد."
+            },
+            {
+              "href": "/syr/ar/services/medical-malpractice",
+              "label": "16.المسؤولية الطبية والرعاية الصحيةنقيّم الشكوى العلاجية وفق التسلسل الطبي والسجلات والنتائج الفنية، مع التمييز بين النتيجة غير المرغوبة والخطأ المثبت ومراجعة السببية والضرر ومسار الشكوى الطبية أو التعويض."
+            },
+            {
+              "href": "/syr/ar/services/insurance-law",
+              "label": "17.قانون التأميننراجع مطالبة التأمين المرفوضة أو المتأخرة وفق الوثيقة والاستثناءات وسجل المطالبة، مع التمييز بين منازعة التغطية والتقدير والخطأ وتحديد ما إذا كانت الخطوة التالية رداً للمؤمّن أو شكوى تنظيمية أو منازعة رسمية."
+            },
+            {
+              "href": "/syr/ar/services/civil-law",
+              "label": "18.القانون المدنينقيّم الالتزامات العقدية وغير العقدية والملكية والتعويض انطلاقاً من الوقائع والأدلة، مع التمييز بين صحة التصرف وتنفيذه والضرر حتى يطابق الطلب الأساس القانوني للمطالبة."
+            },
+            {
+              "href": "/syr/ar/services/civil-procedure",
+              "label": "19.قانون أصول المحاكمات المدنيةنراجع الدعوى والتبليغ وسجل القضية لتحديد المحكمة والطلب الإجرائي أو طريق الطعن المناسب، مع فحص نقص الأدلة ومواعيد القيد قبل تقديم مذكرة أو الاستناد إلى حكم قائم."
+            },
+            {
+              "href": "/syr/ar/services/criminal-procedure",
+              "label": "20.قانون أصول المحاكمات الجزائيةنحدد ما يمكن الاعتراض عليه في المرحلة الجزائية الحالية، من تبليغ أو توقيف أو إجراءات تحقيق أو حكم، ونربط كل طلب بالجهة المختصة والمستند المؤيد والميعاد الواجب مراعاته."
+            }
+          ]
+        },
+        {
+          "intent": "Reach the detailed service and specific legal problems",
+          "visibleEvidence": "Each card links to its jurisdiction/language service hub; matter-specific navigation belongs on those hubs.",
+          "links": [
+            {
+              "href": "/syr/ar/services/family-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/business-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/real-estate",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/employment-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/foreign-investment",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/administrative-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/arbitration",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/enforcement",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/companies-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/contracts",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/criminal-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/banking-finance",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/intellectual-property",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/tax-zakat",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/cyber-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/medical-malpractice",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/insurance-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/civil-law",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/civil-procedure",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/syr/ar/services/criminal-procedure",
+              "localSnapshotExists": true
+            }
+          ]
+        },
+        {
+          "intent": "Get help when the practice area is uncertain",
+          "visibleEvidence": "لست متأكداً من المجال القانوني المناسب؟",
+          "links": [
+            {
+              "href": "/syr/ar/contact",
+              "label": "احجز استشارة"
+            }
+          ]
+        },
+        {
+          "intent": "Understand online access and response expectation",
+          "visibleEvidence": "منصة الاستشارات القانونية الإلكترونية المتخصصة في سوريا — 20 مجالاً قانونياً متخصصاً تشمل قانون الأسرة والقانون التجاري وقانون العمل والعقارات والاستثمار الأجنبي والقانون الجنائي والمصارف والضرائب والجرائم الإلكترونية والمسؤولية الطبية والتأمين والتحكيم والتنفيذ وقانون الشركات والعقود والملكية الفكرية والقانون الإداري والقانون المدني وأصول المحاكمات المدنية وأصول المحاكمات الجزائية. ردّ احترافي ضمن وقت استجابة مستهدف خلال 24 ساعة، بحسب النطاق والاستعجال واكتمال المعلومات وتوفر الخدمة. لا حاجة لزيارة مكتب.",
+          "answer": "The hero presents online consultation and qualifies the response target by scope, urgency, completeness and availability; this is an operational service statement, not a procedural deadline."
+        }
+      ],
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/syr-ar-services.html",
+        "sha256": "e5056bdc001546edb900aa0bb0e39ba2453e9f52fc32b71fb9ef7f7ded223ff7",
+        "h1": "20 مجالاً قانونياً متخصصاً",
+        "mainTextCharacters": 4687,
+        "practiceAreaLinks": 20,
+        "schemaItemCount": 20,
+        "allPracticeLinksHaveLocalHtml": true,
+        "sourceFiles": [
+          "artifacts/legal-site/src/pages/services.tsx",
+          "artifacts/legal-site/src/lib/service-intake-content.ts"
+        ]
+      },
+      "knownInScopeContentGaps": [],
+      "actualContentDefects": [],
+      "closureRecommendation": "No known in-scope public-content gap remains for the directory’s navigational role, subject to root browser verification.",
+      "pageContentReviewStatus": "eligible-for-page-level-content-closure",
+      "excludedFromDirectoryContentGaps": [
+        {
+          "item": "Full rules, exceptions, procedures and deadlines for linked matters",
+          "reason": "These belong to the destination service/matter pages, whose separate unresolved reviews are preserved."
+        },
+        {
+          "item": "Actual Google/Bing snippet display, queries, rankings and click attribution",
+          "reason": "External search-performance monitoring; not missing directory prose or a prerequisite for closing its bounded content review."
+        },
+        {
+          "item": "Case-specific forum, representation, fee and document advice",
+          "reason": "Requires the facts and engagement assessment at the selected service or contact route; no universal answer is appropriate on the directory."
+        }
+      ],
+      "operationalLimits": [
+        "Local generated HTML and source review; not a fresh public crawl or deployment claim.",
+        "Root still verifies visible card readability, keyboard navigation, language/region controls and contact navigation in browser.",
+        "Response target and business identity are operational claims governed by the existing site factual review; no new claim is introduced here."
+      ],
+      "fullSearchIntentCoverageClaim": false,
+      "overallTaskComplete": false
+    },
+    {
+      "route": "/uae/services",
+      "language": "en",
+      "region": "uae",
+      "pageRole": "Jurisdiction-specific navigational service directory",
+      "primaryIntent": "Find the relevant broad legal service in the UAE",
+      "reviewedRelevantIntents": [
+        {
+          "intent": "Identify the selected jurisdiction and change it if needed",
+          "visibleEvidence": "Country banner and Change jurisdiction link / تغيير الاختصاص",
+          "links": [
+            {
+              "href": "/",
+              "label": "Change jurisdiction"
+            }
+          ]
+        },
+        {
+          "intent": "See available practice areas and compare their scope",
+          "visibleEvidence": "22 UAE Legal Practice Areas",
+          "answer": "Each linked card names a practice area and describes typical problems, records or review goals.",
+          "links": [
+            {
+              "href": "/uae/services/corporate-commercial",
+              "label": "01.Company Formation & Commercial Companies LawPlan company formation, governance changes, a shareholder exit or dissolution around the entity’s legal form and records. Review signing authority, approval requirements and ownership rights before committing the company or transferring an interest."
+            },
+            {
+              "href": "/uae/services/foreign-investment-market-entry",
+              "label": "02.Foreign Investment & Market EntryAssess market entry, an investment structure or a dispute before committing funds. Distinguish investor registration from company formation, sector approvals and operating permissions, and review partner rights and exit terms."
+            },
+            {
+              "href": "/uae/services/commercial-contracts",
+              "label": "03.Commercial ContractsReview a draft agreement or a disputed obligation before signing, giving notice or stopping performance. Identify scope, payment, acceptance, liability and termination risks, then prepare the agreed amendments or response."
+            },
+            {
+              "href": "/uae/services/employment-labour",
+              "label": "04.Employment & Labour RelationsAssess unpaid wages, termination, workplace discipline or end-of-service calculations against the employment relationship and payment history. Review the appropriate complaint route and the effect of signing a resignation or settlement before acting."
+            },
+            {
+              "href": "/uae/services/real-estate-construction",
+              "label": "05.Real Estate & ConstructionReview title, possession, rent or construction obligations using the property records and the actual agreement. Separate registration and boundary issues from payment, defects or handover claims before giving notice or starting proceedings."
+            },
+            {
+              "href": "/uae/services/family-personal-status",
+              "label": "06.Family & Personal StatusReview separation, maintenance, custody, contact or family-status recognition with attention to the people affected and existing orders. Identify the applicable personal-status framework and urgent child or financial concerns before choosing a procedure."
+            },
+            {
+              "href": "/uae/services/wills-estates",
+              "label": "07.Wills, Estates & SuccessionPlan or review a will and estate administration around the deceased’s or testator’s status, asset location and family circumstances. Check the applicable succession and registration route before assuming a foreign will or informal instruction transfers an asset."
+            },
+            {
+              "href": "/uae/services/criminal-investigations",
+              "label": "08.Criminal Law, Investigations & ProcedureAssess a complaint, summons or criminal accusation from the alleged facts and current procedural stage. Preserve the available evidence and identify the competent investigating authority, response requirements and need for locally authorised representation."
+            },
+            {
+              "href": "/uae/services/arbitration-mediation",
+              "label": "09.Arbitration & MediationAssess the arbitration agreement, seat and procedural stage before starting a claim or responding to one. Review can address tribunal jurisdiction, settlement, interim relief and the separate requirements for challenging or enforcing an award."
+            },
+            {
+              "href": "/uae/services/litigation-court-disputes",
+              "label": "10.Civil & Commercial LitigationReview the claim, service and case history to identify the correct court, procedural request or appeal route. Check evidence gaps and filing deadlines before submitting a pleading or relying on an existing judgment."
+            },
+            {
+              "href": "/uae/services/enforcement-debt-recovery",
+              "label": "11.Enforcement & Debt RecoveryDetermine whether a judgment, instrument or unpaid claim supports an enforcement application or needs a prior merits claim. Review service, objections, payment records and available asset information before recommending recovery steps."
+            },
+            {
+              "href": "/uae/services/banking-finance",
+              "label": "12.Banking, Finance & Financial RegulationReview disputed bank transactions, financing obligations and guarantees using the actual facility terms and account records. Separate a service complaint from a payment claim, regulatory question or enforcement defence."
+            },
+            {
+              "href": "/uae/services/insolvency-restructuring",
+              "label": "13.Financial Restructuring & BankruptcyAssess cash-flow distress, creditor claims and restructuring options before transferring assets or choosing a filing route. The debtor’s legal form, jurisdiction and financial records determine which framework requires examination."
+            },
+            {
+              "href": "/uae/services/tax-vat",
+              "label": "14.Corporate Tax, VAT & Tax DisputesReview registration, reporting, assessment or penalty questions using the tax period, activity and authority record. Identify the applicable tax and objection route before disputing an amount or submitting a correction."
+            },
+            {
+              "href": "/uae/services/intellectual-property",
+              "label": "15.Intellectual Property & Brand ProtectionAssess ownership, registration, licensing or infringement of a mark, work or invention. Compare the claimed right with the disputed use and available evidence before choosing an objection, negotiated licence or enforcement response."
+            },
+            {
+              "href": "/uae/services/technology-data-protection",
+              "label": "16.Technology, Data Protection & CybercrimeRespond to account compromise, online abuse, data incidents or technology-contract disputes without damaging the evidence. Review lawful preservation, platform or authority reporting and contractual responsibilities before selecting a response."
+            },
+            {
+              "href": "/uae/services/insurance",
+              "label": "17.Insurance & Coverage DisputesReview a rejected or delayed insurance claim against the policy, exclusions and claim history. Separate coverage, valuation and fault disputes, and identify whether the next step is an insurer response, regulatory complaint or formal dispute."
+            },
+            {
+              "href": "/uae/services/healthcare-medical-liability",
+              "label": "18.Healthcare & Medical LiabilityAssess a treatment complaint using the medical chronology, records and specialist findings. Distinguish an adverse outcome from an evidenced breach, and review causation, loss and the appropriate medical complaint or compensation route."
+            },
+            {
+              "href": "/uae/services/immigration-residency",
+              "label": "19.Entry, Residency & ImmigrationReview a visa, residence, work-permit or entry-restriction issue from the issuing authority’s decision and current status. Distinguish immigration permissions from employment rights and identify time-sensitive steps before travel or cancellation."
+            },
+            {
+              "href": "/uae/services/maritime-aviation-transport",
+              "label": "20.Maritime, Aviation & TransportReview cargo loss, delay or passenger claims by identifying the transport mode, route and contractual carrier. Preserve delivery and damage evidence and check notice requirements before assuming the same liability rules apply to every leg of the journey."
+            },
+            {
+              "href": "/uae/services/administrative-regulatory",
+              "label": "21.Administrative & Regulatory LawReview a licence refusal, administrative penalty or tender decision before choosing an objection or court challenge. The review examines the decision, reasons, service date and available procedural route."
+            },
+            {
+              "href": "/uae/services/consumer-ecommerce",
+              "label": "22.Consumer, E-commerce & Digital BusinessReview an online purchase, refund refusal or platform-account dispute using the advertised terms and transaction record. Identify the roles of the seller, marketplace and payment provider before directing the complaint."
+            }
+          ]
+        },
+        {
+          "intent": "Reach the detailed service and specific legal problems",
+          "visibleEvidence": "Each card links to its jurisdiction/language service hub; matter-specific navigation belongs on those hubs.",
+          "links": [
+            {
+              "href": "/uae/services/corporate-commercial",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/foreign-investment-market-entry",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/commercial-contracts",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/employment-labour",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/real-estate-construction",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/family-personal-status",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/wills-estates",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/criminal-investigations",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/arbitration-mediation",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/litigation-court-disputes",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/enforcement-debt-recovery",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/banking-finance",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/insolvency-restructuring",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/tax-vat",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/intellectual-property",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/technology-data-protection",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/insurance",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/healthcare-medical-liability",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/immigration-residency",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/maritime-aviation-transport",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/administrative-regulatory",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/services/consumer-ecommerce",
+              "localSnapshotExists": true
+            }
+          ]
+        },
+        {
+          "intent": "Get help when the practice area is uncertain",
+          "visibleEvidence": "Not sure which practice area fits your matter?",
+          "links": [
+            {
+              "href": "/uae/contact",
+              "label": "Book Consultation"
+            }
+          ]
+        },
+        {
+          "intent": "Recognise the range of UAE frameworks covered",
+          "visibleEvidence": "A complete UAE-focused legal directory covering corporate, commercial, employment, property, family, disputes, tax, technology, immigration and regulated sectors across federal, local and free-zone frameworks.",
+          "answer": "The hero explicitly identifies federal, local and free-zone frameworks. Choice of the applicable framework is made on the destination service/matter page or during intake; the directory does not promise a universal procedural answer."
+        }
+      ],
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services.html",
+        "sha256": "516ac38834fa2bfa3a73de7548cc49399b8cbffab57b8560e3fd4a13648df198",
+        "h1": "22 UAE Legal Practice Areas",
+        "mainTextCharacters": 6448,
+        "practiceAreaLinks": 22,
+        "schemaItemCount": 22,
+        "allPracticeLinksHaveLocalHtml": true,
+        "sourceFiles": [
+          "artifacts/legal-site/src/pages/services.tsx",
+          "artifacts/legal-site/src/lib/service-intake-content.ts"
+        ]
+      },
+      "knownInScopeContentGaps": [],
+      "actualContentDefects": [],
+      "closureRecommendation": "No known in-scope public-content gap remains for the directory’s navigational role, subject to root browser verification.",
+      "pageContentReviewStatus": "eligible-for-page-level-content-closure",
+      "excludedFromDirectoryContentGaps": [
+        {
+          "item": "Full rules, exceptions, procedures and deadlines for linked matters",
+          "reason": "These belong to the destination service/matter pages, whose separate unresolved reviews are preserved."
+        },
+        {
+          "item": "Actual Google/Bing snippet display, queries, rankings and click attribution",
+          "reason": "External search-performance monitoring; not missing directory prose or a prerequisite for closing its bounded content review."
+        },
+        {
+          "item": "Case-specific forum, representation, fee and document advice",
+          "reason": "Requires the facts and engagement assessment at the selected service or contact route; no universal answer is appropriate on the directory."
+        }
+      ],
+      "operationalLimits": [
+        "Local generated HTML and source review; not a fresh public crawl or deployment claim.",
+        "Root still verifies visible card readability, keyboard navigation, language/region controls and contact navigation in browser.",
+        "Response target and business identity are operational claims governed by the existing site factual review; no new claim is introduced here."
+      ],
+      "fullSearchIntentCoverageClaim": false,
+      "overallTaskComplete": false
+    },
+    {
+      "route": "/uae/ar/services",
+      "language": "ar",
+      "region": "uae",
+      "pageRole": "Jurisdiction-specific navigational service directory",
+      "primaryIntent": "Find the relevant broad legal service in the UAE",
+      "reviewedRelevantIntents": [
+        {
+          "intent": "Identify the selected jurisdiction and change it if needed",
+          "visibleEvidence": "Country banner and Change jurisdiction link / تغيير الاختصاص",
+          "links": []
+        },
+        {
+          "intent": "See available practice areas and compare their scope",
+          "visibleEvidence": "22 مجالاً قانونياً في الإمارات",
+          "answer": "Each linked card names a practice area and describes typical problems, records or review goals.",
+          "links": [
+            {
+              "href": "/uae/ar/services/corporate-commercial",
+              "label": "01.تأسيس الشركات وقانون الشركات التجاريةنراجع التأسيس وتغييرات الحوكمة وخروج الشريك أو حل الشركة وفق شكلها القانوني وسجلاتها، مع فحص صلاحيات التوقيع والموافقات وحقوق الملكية قبل إلزام الشركة أو نقل حصة."
+            },
+            {
+              "href": "/uae/ar/services/foreign-investment-market-entry",
+              "label": "02.الاستثمار الأجنبي ودخول السوقنقيّم دخول السوق وهيكل الاستثمار أو النزاع قبل تحويل الأموال، مع التمييز بين تسجيل المستثمر وتأسيس الشركة والموافقات القطاعية وتصاريح التشغيل ومراجعة حقوق الشركاء وشروط التخارج."
+            },
+            {
+              "href": "/uae/ar/services/commercial-contracts",
+              "label": "03.العقود التجاريةنراجع مشروع العقد أو الالتزام المتنازع عليه قبل التوقيع أو الإخطار أو وقف التنفيذ، لتحديد مخاطر النطاق والسداد والقبول والمسؤولية والإنهاء وإعداد التعديلات أو الرد المتفق عليه."
+            },
+            {
+              "href": "/uae/ar/services/employment-labour",
+              "label": "04.علاقات العمل والتوظيفنقيّم الأجور غير المدفوعة والإنهاء والجزاءات الوظيفية وحساب مستحقات نهاية الخدمة وفق علاقة العمل وسجل السداد، مع مراجعة مسار الشكوى وأثر توقيع الاستقالة أو التسوية قبل اتخاذ القرار."
+            },
+            {
+              "href": "/uae/ar/services/real-estate-construction",
+              "label": "05.العقارات والإنشاءاتنراجع الملكية والحيازة والإيجار والتزامات البناء وفق سجلات العقار والاتفاق الفعلي، مع فصل مسائل التسجيل والحدود عن مطالبات السداد والعيوب والتسليم قبل الإخطار أو بدء الإجراءات."
+            },
+            {
+              "href": "/uae/ar/services/family-personal-status",
+              "label": "06.الأسرة والأحوال الشخصيةنراجع الانفصال والنفقة والحضانة والزيارة والاعتراف بالحالة الأسرية مع مراعاة الأطراف والأحكام القائمة، لتحديد إطار الأحوال الشخصية المنطبق والمسائل العاجلة المتعلقة بالأطفال أو المال قبل اختيار الإجراء."
+            },
+            {
+              "href": "/uae/ar/services/wills-estates",
+              "label": "07.الوصايا والتركات والميراثنراجع إعداد الوصية وإدارة التركة وفق صفة الموصي أو المتوفى ومكان الأصول وظروف الأسرة، مع التحقق من مسار الإرث والتسجيل قبل افتراض أن الوصية الأجنبية أو التعليمات غير الرسمية تنقل الأصل."
+            },
+            {
+              "href": "/uae/ar/services/criminal-investigations",
+              "label": "08.القانون الجزائي والتحقيقات والإجراءاتنقيّم الشكوى أو الاستدعاء أو الاتهام الجزائي انطلاقاً من الوقائع ومرحلة الإجراءات، مع حفظ الأدلة وتحديد جهة التحقيق ومتطلبات الرد والحاجة إلى تمثيل ممن يملك الصفة المهنية اللازمة."
+            },
+            {
+              "href": "/uae/ar/services/arbitration-mediation",
+              "label": "09.التحكيم والوساطةنقيّم اتفاق التحكيم ومقره ومرحلة الإجراءات قبل بدء المطالبة أو الرد عليها. وقد تشمل المراجعة اختصاص الهيئة والتسوية والتدابير المؤقتة والشروط المستقلة للطعن في الحكم أو تنفيذه."
+            },
+            {
+              "href": "/uae/ar/services/litigation-court-disputes",
+              "label": "10.التقاضي المدني والتجارينراجع الدعوى والتبليغ وسجل القضية لتحديد المحكمة والطلب الإجرائي أو طريق الطعن المناسب، مع فحص نقص الأدلة ومواعيد القيد قبل تقديم مذكرة أو الاستناد إلى حكم قائم."
+            },
+            {
+              "href": "/uae/ar/services/enforcement-debt-recovery",
+              "label": "11.التنفيذ وتحصيل الديوننحدد ما إذا كان الحكم أو السند أو الدين غير المدفوع يصلح لطلب التنفيذ أو يحتاج إلى دعوى أصلية، مع مراجعة التبليغ والاعتراضات والسداد ومعلومات الأصول قبل اقتراح خطوات التحصيل."
+            },
+            {
+              "href": "/uae/ar/services/banking-finance",
+              "label": "12.البنوك والتمويل والتنظيم المالينراجع المعاملات المصرفية المتنازع عليها والتزامات التمويل والضمانات وفق شروط التسهيلات وسجلات الحساب، مع التمييز بين شكوى الخدمة والمطالبة المالية والمسألة التنظيمية والدفاع في التنفيذ."
+            },
+            {
+              "href": "/uae/ar/services/insolvency-restructuring",
+              "label": "13.إعادة التنظيم المالي والإفلاسنقيّم التعثر والمطالبات وخيارات إعادة الهيكلة قبل نقل الأصول أو اختيار مسار القيد، إذ يحدد شكل المدين واختصاصه وسجله المالي الإطار الذي يلزم فحصه."
+            },
+            {
+              "href": "/uae/ar/services/tax-vat",
+              "label": "14.ضريبة الشركات وضريبة القيمة المضافة والمنازعات الضريبيةنراجع مسائل التسجيل والإقرار والربط والغرامة وفق الفترة الضريبية والنشاط وملف الجهة، لتحديد الضريبة المنطبقة ومسار الاعتراض قبل منازعة المبلغ أو تقديم التصحيح."
+            },
+            {
+              "href": "/uae/ar/services/intellectual-property",
+              "label": "15.الملكية الفكرية وحماية العلاماتنقيّم ملكية العلامة أو المصنف أو الاختراع وتسجيله وترخيصه أو التعدي عليه، بمقارنة الحق المدعى به بالاستخدام المتنازع عليه وأدلته قبل اختيار الاعتراض أو الترخيص التفاوضي أو إجراء الحماية."
+            },
+            {
+              "href": "/uae/ar/services/technology-data-protection",
+              "label": "16.التقنية وحماية البيانات والجرائم الإلكترونيةنراجع اختراق الحساب أو الإساءة الإلكترونية أو حادث البيانات أو نزاع العقد التقني دون الإضرار بالأدلة، مع تقييم الحفظ المشروع والإبلاغ للمنصة أو الجهة والمسؤوليات التعاقدية قبل اختيار الرد."
+            },
+            {
+              "href": "/uae/ar/services/insurance",
+              "label": "17.التأمين ومنازعات التغطيةنراجع مطالبة التأمين المرفوضة أو المتأخرة وفق الوثيقة والاستثناءات وسجل المطالبة، مع التمييز بين منازعة التغطية والتقدير والخطأ وتحديد ما إذا كانت الخطوة التالية رداً للمؤمّن أو شكوى تنظيمية أو منازعة رسمية."
+            },
+            {
+              "href": "/uae/ar/services/healthcare-medical-liability",
+              "label": "18.الرعاية الصحية والمسؤولية الطبيةنقيّم الشكوى العلاجية وفق التسلسل الطبي والسجلات والنتائج الفنية، مع التمييز بين النتيجة غير المرغوبة والخطأ المثبت ومراجعة السببية والضرر ومسار الشكوى الطبية أو التعويض."
+            },
+            {
+              "href": "/uae/ar/services/immigration-residency",
+              "label": "19.الدخول والإقامة والهجرةنراجع التأشيرة أو الإقامة أو تصريح العمل أو قيد الدخول وفق قرار الجهة المصدرة والوضع الحالي، مع التمييز بين تصاريح الإقامة والحقوق العمالية وتحديد الخطوات العاجلة قبل السفر أو الإلغاء."
+            },
+            {
+              "href": "/uae/ar/services/maritime-aviation-transport",
+              "label": "20.القانون البحري والجوي والنقلنراجع فقد البضائع وتأخرها ومطالبات المسافرين بتحديد وسيلة النقل والمسار والناقل المتعاقد، مع حفظ أدلة التسليم والضرر وفحص متطلبات الإخطار دون افتراض وحدة قواعد المسؤولية في جميع مراحل الرحلة."
+            },
+            {
+              "href": "/uae/ar/services/administrative-regulatory",
+              "label": "21.القانون الإداري والتنظيمينراجع رفض الترخيص أو الجزاء الإداري أو قرار المناقصة قبل اختيار التظلم أو الطعن القضائي، مع فحص القرار وأسبابه وتاريخ تبليغه والمسار الإجرائي المتاح."
+            },
+            {
+              "href": "/uae/ar/services/consumer-ecommerce",
+              "label": "22.حماية المستهلك والتجارة الإلكترونية والأعمال الرقميةنراجع الشراء الإلكتروني أو رفض الاسترداد أو نزاع حساب المنصة وفق الشروط المعلنة وسجل المعاملة، مع تحديد دور البائع والسوق الإلكتروني ومقدم الدفع قبل توجيه الشكوى."
+            }
+          ]
+        },
+        {
+          "intent": "Reach the detailed service and specific legal problems",
+          "visibleEvidence": "Each card links to its jurisdiction/language service hub; matter-specific navigation belongs on those hubs.",
+          "links": [
+            {
+              "href": "/uae/ar/services/corporate-commercial",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/foreign-investment-market-entry",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/commercial-contracts",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/employment-labour",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/real-estate-construction",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/family-personal-status",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/wills-estates",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/criminal-investigations",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/arbitration-mediation",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/litigation-court-disputes",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/enforcement-debt-recovery",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/banking-finance",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/insolvency-restructuring",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/tax-vat",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/intellectual-property",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/technology-data-protection",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/insurance",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/healthcare-medical-liability",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/immigration-residency",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/maritime-aviation-transport",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/administrative-regulatory",
+              "localSnapshotExists": true
+            },
+            {
+              "href": "/uae/ar/services/consumer-ecommerce",
+              "localSnapshotExists": true
+            }
+          ]
+        },
+        {
+          "intent": "Get help when the practice area is uncertain",
+          "visibleEvidence": "لست متأكداً من المجال القانوني المناسب؟",
+          "links": [
+            {
+              "href": "/uae/ar/contact",
+              "label": "احجز استشارة"
+            }
+          ]
+        },
+        {
+          "intent": "Recognise the range of UAE frameworks covered",
+          "visibleEvidence": "دليل قانوني إماراتي شامل يغطي الشركات والتجارة والعمل والعقار والأسرة والنزاعات والضرائب والتقنية والإقامة والقطاعات المنظمة ضمن الأطر الاتحادية والمحلية والمناطق الحرة.",
+          "answer": "The hero explicitly identifies federal, local and free-zone frameworks. Choice of the applicable framework is made on the destination service/matter page or during intake; the directory does not promise a universal procedural answer."
+        }
+      ],
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services.html",
+        "sha256": "bda5e223b534390260541571fd3d5442d02f8133480e79849ac0299006b8e563",
+        "h1": "22 مجالاً قانونياً في الإمارات",
+        "mainTextCharacters": 5005,
+        "practiceAreaLinks": 22,
+        "schemaItemCount": 22,
+        "allPracticeLinksHaveLocalHtml": true,
+        "sourceFiles": [
+          "artifacts/legal-site/src/pages/services.tsx",
+          "artifacts/legal-site/src/lib/service-intake-content.ts"
+        ]
+      },
+      "knownInScopeContentGaps": [],
+      "actualContentDefects": [],
+      "closureRecommendation": "No known in-scope public-content gap remains for the directory’s navigational role, subject to root browser verification.",
+      "pageContentReviewStatus": "eligible-for-page-level-content-closure",
+      "excludedFromDirectoryContentGaps": [
+        {
+          "item": "Full rules, exceptions, procedures and deadlines for linked matters",
+          "reason": "These belong to the destination service/matter pages, whose separate unresolved reviews are preserved."
+        },
+        {
+          "item": "Actual Google/Bing snippet display, queries, rankings and click attribution",
+          "reason": "External search-performance monitoring; not missing directory prose or a prerequisite for closing its bounded content review."
+        },
+        {
+          "item": "Case-specific forum, representation, fee and document advice",
+          "reason": "Requires the facts and engagement assessment at the selected service or contact route; no universal answer is appropriate on the directory."
+        }
+      ],
+      "operationalLimits": [
+        "Local generated HTML and source review; not a fresh public crawl or deployment claim.",
+        "Root still verifies visible card readability, keyboard navigation, language/region controls and contact navigation in browser.",
+        "Response target and business identity are operational claims governed by the existing site factual review; no new claim is introduced here."
+      ],
+      "fullSearchIntentCoverageClaim": false,
+      "overallTaskComplete": false
+    }
+  ],
+  "minorCopyDefectCount": 2
+}

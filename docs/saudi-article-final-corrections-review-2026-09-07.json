@@ -1,0 +1,1708 @@
+{
+  "reviewedAt": "2026-09-07",
+  "scope": "Saudi article claim/source-boundary correction batch; excludes root-owned case-study articles and reconsideration guidance",
+  "articleCount": 13,
+  "routeCount": 26,
+  "passageCorrections": 57,
+  "officialSources": [
+    {
+      "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1",
+      "verified": "Official indexed Evidence Law text and MOJ official explanation identify digital evidence treatment under Articles53–55 and general burden of proof; no invented evidential-weight hierarchy."
+    },
+    {
+      "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1",
+      "verified": "Official indexed Civil Transactions Law supports distinguishing statutory interpretation and compensation from an unsupported judicial-trend statement."
+    }
+  ],
+  "validationSummary": {
+    "focusedTestsPassed": 2,
+    "correctedRouteFixtures": 26,
+    "exactReplacementsObserved": 57,
+    "lostOriginalLinks": 0,
+    "directIdempotencyFailures": 0,
+    "existingWrapperPlusSanitizerIdempotencyFailures": 0,
+    "buildOrBrowserRun": false
+  },
+  "pages": [
+    {
+      "route": "/blog/ar/Penalty-clause-in-saudi",
+      "slug": "Penalty-clause-in-saudi",
+      "language": "ar",
+      "primaryIntent": "Assess a Saudi agreed-compensation clause",
+      "supportingIntents": [
+        "Monetary debt exclusion",
+        "No harm and judicial adjustment",
+        "Drafting the covered obligation"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "f09f97d3419aadb22eb2bb5cf1549131801023bd6832d31a69f035749bdc38c1"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/ar/Penalty-clause-in-saudi",
+          "slug": "Penalty-clause-in-saudi",
+          "language": "ar",
+          "originalText": "السوابق القضائية الصادرة عن المحاكم التجارية",
+          "replacementHtml": "يلزم التحقق من المحكمة ومرجع الحكم ووقائعه وأسبابه عند الاستناد إليه؛ ولا تُعامل هنا سابقة غير محددة بوصفها قاعدة ملزمة.",
+          "rationale": "Replaces an unidentified precedent claim with an explicit evidence boundary.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/ar/Penalty-clause-in-saudi",
+          "slug": "Penalty-clause-in-saudi",
+          "language": "ar",
+          "originalText": "رابعًا: الاتجاه القضائي السعودي في تطبيق الشرط الجزائي.",
+          "replacementHtml": "رابعًا: الضوابط النظامية لتطبيق الشرط الجزائي.",
+          "rationale": "Section is statutory/editorial issue analysis, not a documented study of identified judgments.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/ar/Penalty-clause-in-saudi",
+          "slug": "Penalty-clause-in-saudi",
+          "language": "ar",
+          "originalText": "التنظيم النظامي والاتجاه القضائي في السعودية.",
+          "replacementHtml": "التنظيم النظامي والتطبيق العملي في السعودية.",
+          "rationale": "Removes unsupported precedent-study framing.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/ar/Penalty-clause-in-saudi",
+          "slug": "Penalty-clause-in-saudi",
+          "language": "ar",
+          "originalText": "هذا المقال يقدّم قراءة نظامية دقيقة للشرط الجزائي، ويعرض الاتجاه القضائي السعودي في تفسيره وتطبيقه، مع توصيات عملية للتجار والمحامين.",
+          "replacementHtml": "يشرح المقال الضوابط النظامية السعودية المشار إليها للتعويض الاتفاقي ومسائل العقد والإثبات اللازمة لتطبيقها، ولا يثبت اتجاهاً قضائياً موحداً.",
+          "rationale": "Accurately describes the article’s actual source basis.",
+          "officialSource": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1"
+        },
+        {
+          "route": "/blog/ar/Penalty-clause-in-saudi",
+          "slug": "Penalty-clause-in-saudi",
+          "language": "ar",
+          "originalText": "ويُلاحظ أن القضاء السعودي يوازن بين حماية الطرف المتضرر ومنع التعسف في تقدير الشرط.",
+          "replacementHtml": "يربط التقييم استحقاق التعويض وضبط مقداره بالالتزام والضرر والشروط النظامية، بحسب الأدلة في الملف.",
+          "rationale": "Removes unsourced generalisation about judicial practice.",
+          "officialSource": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1"
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does the article demonstrate a documented judicial trend or cite identified judgments for this claim?",
+          "resolution": "Where no identified judgment was supplied, the text now explicitly describes statutory issues or editorial review questions and does not purport to prove a judicial trend."
+        }
+      ],
+      "remainingActualQuestions": [],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/ar/Penalty-clause-in-saudi",
+        "expectedChanges": 5,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/ar/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+      "slug": "adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+      "language": "ar",
+      "primaryIntent": "Allocate Saudi commercial-contract risk",
+      "supportingIntents": [
+        "Operational and financial risks",
+        "Guarantees and insurance",
+        "Monitoring performance"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "ab22aad57b46c54de176833381e42ee582afcf94c00c1659e94df2208fe853f7"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/ar/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+          "slug": "adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+          "language": "ar",
+          "originalText": "سادسًا: الاتجاه القضائي السعودي في قضايا المخاطر.",
+          "replacementHtml": "سادسًا: المسائل النظامية في منازعات المخاطر العقدية.",
+          "rationale": "Section is statutory/editorial issue analysis, not a documented study of identified judgments.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/ar/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+          "slug": "adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+          "language": "ar",
+          "originalText": "يتناول المقال إدارة المخاطر من خلال ستة محاور رئيسية: تعريف المفهوم، وتصنيف المخاطر، وأدوات الحد منها، ومنهجية ما قبل التوقيع، وإدارة المخاطر أثناء التنفيذ، ثم الاتجاه القضائي السعودي في التعامل مع النزاعات الناشئة عنها.",
+          "replacementHtml": "تتناول المحاور الستة تحديد المخاطر وتصنيفها وضوابطها العقدية والاستعداد قبل التوقيع وسجلات التنفيذ والمسائل النظامية عند النزاع.",
+          "rationale": "Removes unsupported judicial-trend premise.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does the article demonstrate a documented judicial trend or cite identified judgments for this claim?",
+          "resolution": "Where no identified judgment was supplied, the text now explicitly describes statutory issues or editorial review questions and does not purport to prove a judicial trend."
+        }
+      ],
+      "remainingActualQuestions": [
+        "Which bank-guarantee, insurance and regulatory-risk rules apply to the actual transaction?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/ar/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+        "expectedChanges": 2,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/ar/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+      "slug": "altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+      "language": "ar",
+      "primaryIntent": "Recover delayed Saudi wages",
+      "supportingIntents": [
+        "Employment and payroll evidence",
+        "Friendly settlement and court referral",
+        "Mobility and wage-protection consequences"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "d0e1a102bb4f8192b6aaf583f010edc31cc551d57068e71a77e0c9538c4450ca"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/ar/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+          "slug": "altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+          "language": "ar",
+          "originalText": "تأخر الرواتب ليس مجرد مخالفة إدارية، بل هو انتهاك مباشر لحق العامل في الأجر، وقد وضع النظام السعودي آليات واضحة وسريعة لمعالجة هذه المخالفة وضمان وصول العامل إلى حقه. ومع تطور الأنظمة الرقمية، أصبح بإمكان العامل متابعة شكواه بسهولة وفعالية، مما يعزز العدالة والاستقرار في سوق العمل.",
+          "replacementHtml": "احفظ سجلات الأجر وحدد الفترة والمبلغ غير المدفوعين ومسار المطالبة المناسب. يساعد التقديم الرقمي على توثيق الطلب ومتابعته، ويتوقف الاستيفاء على ثبوت الحق والإجراء المنطبق.",
+          "rationale": "Removes a service-speed/compensation assurance unsupported by the described complaint process.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does use of the procedure or checklist guarantee recovery, compensation or evidential acceptance?",
+          "resolution": "The corrected passage preserves the practical step while making entitlement or evidential assessment conditional."
+        }
+      ],
+      "remainingActualQuestions": [
+        "What current eligibility, filing period and escalation evidence apply to this worker category?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/ar/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+        "expectedChanges": 1,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/ar/anha-aqd-alaml-bdwn-sbb-mshrwa",
+      "slug": "anha-aqd-alaml-bdwn-sbb-mshrwa",
+      "language": "ar",
+      "primaryIntent": "Assess unlawful Saudi employment termination",
+      "supportingIntents": [
+        "Article 77 compensation framework",
+        "Final entitlements and documents",
+        "Settlement, referral and mobility"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "d10e653c026db6e6f5a3d4e65189d634a5d6567e11d6833a74fa82d2ab29da6c"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/ar/anha-aqd-alaml-bdwn-sbb-mshrwa",
+          "slug": "anha-aqd-alaml-bdwn-sbb-mshrwa",
+          "language": "ar",
+          "originalText": "الفصل التعسفي ليس مجرد إنهاء للعقد، بل هو مخالفة تمسّ استقرار العامل وحقوقه الأساسية. وقد وضع النظام السعودي آليات واضحة لحماية العامل وضمان حصوله على التعويض المناسب عند وقوع فصل غير مشروع. ومع تطور الأنظمة الرقمية، أصبح الوصول للحقوق أسهل وأكثر شفافية، مما يعزز العدالة في سوق العمل.",
+          "replacementHtml": "افصل وقائع الإنهاء وأساسه النظامي والمبالغ المطلوبة. تساعد الإجراءات الرقمية على تقديم المطالبة ومتابعتها، ويتوقف التعويض على ثبوت شروط استحقاقه لا على مجرد وصف الفصل بالتعسفي.",
+          "rationale": "Removes a service-speed/compensation assurance unsupported by the described complaint process.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does use of the procedure or checklist guarantee recovery, compensation or evidential acceptance?",
+          "resolution": "The corrected passage preserves the practical step while making entitlement or evidential assessment conditional."
+        }
+      ],
+      "remainingActualQuestions": [
+        "What worker category, agreed compensation, contract term and filing deadline apply?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/ar/anha-aqd-alaml-bdwn-sbb-mshrwa",
+        "expectedChanges": 1,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/ar/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+      "slug": "aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+      "language": "ar",
+      "primaryIntent": "Review Saudi franchise disclosure and registration",
+      "supportingIntents": [
+        "14-day precontract disclosure",
+        "90-day registration",
+        "Operating duties and lawful pricing"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "f8ac9d0f61ed89f86e9c641b1d521eefd43ef548fa1ebd17f8467eb928c38238"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/ar/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "slug": "aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "language": "ar",
+          "originalText": "السوابق القضائية للمحاكم التجارية",
+          "replacementHtml": "يلزم التحقق من المحكمة ومرجع الحكم ووقائعه وأسبابه عند الاستناد إليه؛ ولا تُعامل هنا سابقة غير محددة بوصفها قاعدة ملزمة.",
+          "rationale": "Replaces an unidentified precedent claim with an explicit evidence boundary.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/ar/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "slug": "aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "language": "ar",
+          "originalText": "ثامنًا: الاتجاه القضائي السعودي في نزاعات الامتياز.",
+          "replacementHtml": "ثامنًا: مسائل تُفحص في منازعات الامتياز.",
+          "rationale": "Section is statutory/editorial issue analysis, not a documented study of identified judgments.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/ar/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "slug": "aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "language": "ar",
+          "originalText": "لا يمكن الجزم باتجاه قضائي واحد في جميع نزاعات الامتياز، إذ تختلف النتائج بحسب نصوص العقد، ووضوح وثيقة الإفصاح، وحجم الإخلال، والأدلة المقدمة. ومع ذلك، تظهر في المنازعات التجارية مبادئ عملية متكررة، من أبرزها:",
+          "replacementHtml": "فيما يأتي مسائل لمراجعة العقد والإفصاح والإخلال المدعى به وأدلته، وليست نتائج مستخلصة من أحكام محددة أو توقعاً لنتيجة النزاع:",
+          "rationale": "Converts unsupported recurring-principles claim to useful review questions.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/ar/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "slug": "aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "language": "ar",
+          "originalText": "لضمان حماية قانونية قوية، يُنصح بـ:",
+          "replacementHtml": "خطوات عملية للاستعداد وحفظ الأدلة المتاحة:",
+          "rationale": "Replaces an outcome assurance in a checklist introduction; checklist facts remain unchanged.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does the article demonstrate a documented judicial trend or cite identified judgments for this claim?",
+          "resolution": "Where no identified judgment was supplied, the text now explicitly describes statutory issues or editorial review questions and does not purport to prove a judicial trend."
+        }
+      ],
+      "remainingActualQuestions": [
+        "Which exemptions, renewal, termination and disclosure-remedy provisions apply?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/ar/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+        "expectedChanges": 4,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/ar/aqwd-almqawlat-fy-alnzam-alsawdy",
+      "slug": "aqwd-almqawlat-fy-alnzam-alsawdy",
+      "language": "ar",
+      "primaryIntent": "Manage Saudi construction-contract performance disputes",
+      "supportingIntents": [
+        "Scope, schedule and certificates",
+        "Variations and delay",
+        "Private versus public contract forum"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "c3deab8a192e331113b984a28760ea276251ba600d6de5b6a16cfafc814e263b"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/ar/aqwd-almqawlat-fy-alnzam-alsawdy",
+          "slug": "aqwd-almqawlat-fy-alnzam-alsawdy",
+          "language": "ar",
+          "originalText": "سادسًا: الاتجاه القضائي السعودي في نزاعات المقاولات.",
+          "replacementHtml": "سادسًا: مسائل العقد والإثبات في منازعات المقاولات.",
+          "rationale": "Section is statutory/editorial issue analysis, not a documented study of identified judgments.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/ar/aqwd-almqawlat-fy-alnzam-alsawdy",
+          "slug": "aqwd-almqawlat-fy-alnzam-alsawdy",
+          "language": "ar",
+          "originalText": "لضمان حماية قانونية قوية، يُنصح بـ:",
+          "replacementHtml": "خطوات عملية للاستعداد وحفظ الأدلة المتاحة:",
+          "rationale": "Replaces an outcome assurance in a checklist introduction; checklist facts remain unchanged.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does use of the procedure or checklist guarantee recovery, compensation or evidential acceptance?",
+          "resolution": "The corrected passage preserves the practical step while making entitlement or evidential assessment conditional."
+        }
+      ],
+      "remainingActualQuestions": [
+        "What defect, variation, handover and limitation rules govern this contract and project?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/ar/aqwd-almqawlat-fy-alnzam-alsawdy",
+        "expectedChanges": 2,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/ar/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+      "slug": "aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+      "language": "ar",
+      "primaryIntent": "Assess Saudi commercial agency terms and termination",
+      "supportingIntents": [
+        "Eligibility and registration",
+        "Exclusivity and lawful pricing",
+        "Performance and termination evidence"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "7309f9c575c57488c7e67f60898ab2a88c58b879e00df7bbed89f7fefd97ff35"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/ar/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+          "slug": "aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+          "language": "ar",
+          "originalText": "السوابق القضائية للمحاكم التجارية",
+          "replacementHtml": "يلزم التحقق من المحكمة ومرجع الحكم ووقائعه وأسبابه عند الاستناد إليه؛ ولا تُعامل هنا سابقة غير محددة بوصفها قاعدة ملزمة.",
+          "rationale": "Replaces an unidentified precedent claim with an explicit evidence boundary.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/ar/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+          "slug": "aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+          "language": "ar",
+          "originalText": "تاسعًا: الاتجاه القضائي السعودي في نزاعات الوكالات.",
+          "replacementHtml": "تاسعًا: مسائل تُفحص في منازعات الوكالات التجارية.",
+          "rationale": "Section is statutory/editorial issue analysis, not a documented study of identified judgments.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does the article demonstrate a documented judicial trend or cite identified judgments for this claim?",
+          "resolution": "Where no identified judgment was supplied, the text now explicitly describes statutory issues or editorial review questions and does not purport to prove a judicial trend."
+        }
+      ],
+      "remainingActualQuestions": [
+        "Which agency category, eligibility and statutory termination protections apply?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/ar/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+        "expectedChanges": 2,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/ar/athbat-alaqwd-amam-alqda-alsawdy",
+      "slug": "athbat-alaqwd-amam-alqda-alsawdy",
+      "language": "ar",
+      "primaryIntent": "Prove a contract in Saudi proceedings",
+      "supportingIntents": [
+        "Official, ordinary and digital evidence",
+        "Writing threshold and exceptions",
+        "Burden and expert evidence"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "c94a37abb2b5d7eaeab0485f3fe2c693c5f581fb8995560d71057e36f930ba95"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/ar/athbat-alaqwd-amam-alqda-alsawdy",
+          "slug": "athbat-alaqwd-amam-alqda-alsawdy",
+          "language": "ar",
+          "originalText": "السوابق القضائية للمحاكم التجارية والمدنية",
+          "replacementHtml": "يلزم التحقق من المحكمة ومرجع الحكم ووقائعه وأسبابه عند الاستناد إليه؛ ولا تُعامل هنا سابقة غير محددة بوصفها قاعدة ملزمة.",
+          "rationale": "Replaces an unidentified precedent claim with an explicit evidence boundary.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/ar/athbat-alaqwd-amam-alqda-alsawdy",
+          "slug": "athbat-alaqwd-amam-alqda-alsawdy",
+          "language": "ar",
+          "originalText": "لضمان قوة موقفك القانوني، يُنصح بـ:",
+          "replacementHtml": "خطوات عملية للاستعداد وحفظ الأدلة المتاحة:",
+          "rationale": "Replaces an outcome assurance in a checklist introduction; checklist facts remain unchanged.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does the article demonstrate a documented judicial trend or cite identified judgments for this claim?",
+          "resolution": "Where no identified judgment was supplied, the text now explicitly describes statutory issues or editorial review questions and does not purport to prove a judicial trend."
+        }
+      ],
+      "remainingActualQuestions": [
+        "Which exceptions allow alternatives to writing and how must a digital item be authenticated or challenged?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/ar/athbat-alaqwd-amam-alqda-alsawdy",
+        "expectedChanges": 2,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/ar/commercial-supply-contracts-in-saudi",
+      "slug": "commercial-supply-contracts-in-saudi",
+      "language": "ar",
+      "primaryIntent": "Draft and manage a Saudi supply contract",
+      "supportingIntents": [
+        "Specifications and delivery",
+        "Acceptance and defects",
+        "Delay and agreed compensation"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "782c0a7d9f836b30f5738bf2f17884f166adc7be18e45ba65276b81c10753fb9"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/ar/commercial-supply-contracts-in-saudi",
+          "slug": "commercial-supply-contracts-in-saudi",
+          "language": "ar",
+          "originalText": "رابعًا: الاتجاه القضائي السعودي في نزاعات التوريد:",
+          "replacementHtml": "رابعًا: مسائل تُفحص في منازعات التوريد:",
+          "rationale": "Section is statutory/editorial issue analysis, not a documented study of identified judgments.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/ar/commercial-supply-contracts-in-saudi",
+          "slug": "commercial-supply-contracts-in-saudi",
+          "language": "ar",
+          "originalText": "لضمان حماية قانونية قوية، يُنصح بـ:",
+          "replacementHtml": "خطوات عملية للاستعداد وحفظ الأدلة المتاحة:",
+          "rationale": "Replaces an outcome assurance in a checklist introduction; checklist facts remain unchanged.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does use of the procedure or checklist guarantee recovery, compensation or evidential acceptance?",
+          "resolution": "The corrected passage preserves the practical step while making entitlement or evidential assessment conditional."
+        }
+      ],
+      "remainingActualQuestions": [
+        "Is this a single sale, phased supply or public procurement arrangement?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/ar/commercial-supply-contracts-in-saudi",
+        "expectedChanges": 2,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/ar/contractual-liability-in-commercial-transactions",
+      "slug": "contractual-liability-in-commercial-transactions",
+      "language": "ar",
+      "primaryIntent": "Assess the elements of Saudi contractual liability",
+      "supportingIntents": [
+        "Breach, harm and causation",
+        "Foreseeability and compensation",
+        "Agreed compensation controls"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "2ca13561d17919f31dfa87298a4c1824fd4d2d22021e99040a42bb51ccc08c89"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/ar/contractual-liability-in-commercial-transactions",
+          "slug": "contractual-liability-in-commercial-transactions",
+          "language": "ar",
+          "originalText": "السوابق القضائية الصادرة عن المحاكم التجارية",
+          "replacementHtml": "يلزم التحقق من المحكمة ومرجع الحكم ووقائعه وأسبابه عند الاستناد إليه؛ ولا تُعامل هنا سابقة غير محددة بوصفها قاعدة ملزمة.",
+          "rationale": "Replaces an unidentified precedent claim with an explicit evidence boundary.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does the article demonstrate a documented judicial trend or cite identified judgments for this claim?",
+          "resolution": "Where no identified judgment was supplied, the text now explicitly describes statutory issues or editorial review questions and does not purport to prove a judicial trend."
+        }
+      ],
+      "remainingActualQuestions": [
+        "Which special contractual duties, notices and liability exclusions alter the general framework?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/ar/contractual-liability-in-commercial-transactions",
+        "expectedChanges": 1,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/ar/e-contracts-legal-validity-saudi-arabia",
+      "slug": "e-contracts-legal-validity-saudi-arabia",
+      "language": "ar",
+      "primaryIntent": "Assess validity and proof of a Saudi electronic contract",
+      "supportingIntents": [
+        "Electronic consent and attribution",
+        "Signature and digital evidence classes",
+        "Special formalities and excluded transactions"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "8041d44c7b833cfc8162178d285c32fdddd560becc08deb651674aa322f0b5ec"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/ar/e-contracts-legal-validity-saudi-arabia",
+          "slug": "e-contracts-legal-validity-saudi-arabia",
+          "language": "ar",
+          "originalText": "تعتمد المحاكم السعودية على الأدلة الإلكترونية التالية:",
+          "replacementHtml": "من السجلات التي تُقيّم وفق قواعد الإثبات المنطبقة:",
+          "rationale": "Avoids claiming automatic acceptance or predetermined evidential weight.",
+          "officialSource": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1"
+        },
+        {
+          "route": "/blog/ar/e-contracts-legal-validity-saudi-arabia",
+          "slug": "e-contracts-legal-validity-saudi-arabia",
+          "language": "ar",
+          "originalText": "لضمان حماية قانونية قوية، يُنصح بـ:",
+          "replacementHtml": "خطوات عملية للاستعداد وحفظ الأدلة المتاحة:",
+          "rationale": "Replaces an outcome assurance in a checklist introduction; checklist facts remain unchanged.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does use of the procedure or checklist guarantee recovery, compensation or evidential acceptance?",
+          "resolution": "The corrected passage preserves the practical step while making entitlement or evidential assessment conditional."
+        }
+      ],
+      "remainingActualQuestions": [
+        "Which transaction and signing method determine the applicable requirements?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/ar/e-contracts-legal-validity-saudi-arabia",
+        "expectedChanges": 2,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/ar/formation-of-commercial-contracts-saudi-law",
+      "slug": "formation-of-commercial-contracts-saudi-law",
+      "language": "ar",
+      "primaryIntent": "Determine formation of a Saudi commercial contract",
+      "supportingIntents": [
+        "Negotiation versus binding consent",
+        "Object, cause and capacity",
+        "Writing as proof versus formality"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "a51426e824503d6587de8526b50dd55a278509149ffb2aad95298798b6888fa2"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/ar/formation-of-commercial-contracts-saudi-law",
+          "slug": "formation-of-commercial-contracts-saudi-law",
+          "language": "ar",
+          "originalText": "وتولي المحاكم السعودية أهمية كبيرة لحجية المراسلات التجارية، خصوصًا إذا تضمنت قبولًا واضحًا أو تنفيذًا فعليًا.",
+          "replacementHtml": "تعترف <a href=\"https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1\">المواد 53–55 من نظام الإثبات</a> بالدليل الرقمي وتعطيه حكم الإثبات بالكتابة. تُفحص نسبته واكتماله والواقعة المراد إثباتها؛ ولا تثبت رسالة واحدة العقد أو الإخلال كاملاً بصورة تلقائية.",
+          "rationale": "Replaces unsourced evidential-weight claim with a bounded statutory rule.",
+          "officialSource": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1"
+        },
+        {
+          "route": "/blog/ar/formation-of-commercial-contracts-saudi-law",
+          "slug": "formation-of-commercial-contracts-saudi-law",
+          "language": "ar",
+          "originalText": "وتُعدّ المراسلات الإلكترونية، والرسائل عبر المنصات التجارية، ذات حجية معتبرة أمام القضاء السعودي.",
+          "replacementHtml": "تُراجع المراسلات الإلكترونية والرسائل عبر المنصات ضمن قواعد الدليل الرقمي، مع التمييز بين ثبوت صدور الرسالة وتفسير أثرها العقدي.",
+          "rationale": "Separates message attribution from contractual effect.",
+          "officialSource": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1"
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does use of the procedure or checklist guarantee recovery, compensation or evidential acceptance?",
+          "resolution": "The corrected passage preserves the practical step while making entitlement or evidential assessment conditional."
+        }
+      ],
+      "remainingActualQuestions": [
+        "What exact formation point and special formality apply to the reader’s transaction?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/ar/formation-of-commercial-contracts-saudi-law",
+        "expectedChanges": 2,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/ar/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+      "slug": "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+      "language": "ar",
+      "primaryIntent": "Assess termination of a Saudi commercial contract",
+      "supportingIntents": [
+        "Contractual versus judicial route",
+        "Notice and construction cure",
+        "Restitution and surviving terms"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "395ab8367927a6c81d71eeb5bd94d121744356da8d67cba44bd6c1b0bd053d7c"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/ar/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "slug": "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "language": "ar",
+          "originalText": "· السوابق القضائية الصادرة عن المحاكم التجارية",
+          "replacementHtml": "يلزم التحقق من المحكمة ومرجع الحكم ووقائعه وأسبابه عند الاستناد إليه؛ ولا تُعامل هنا سابقة غير محددة بوصفها قاعدة ملزمة.",
+          "rationale": "Replaces an unidentified precedent claim with an explicit evidence boundary.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/ar/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "slug": "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "language": "ar",
+          "originalText": "لضمان حماية قانونية قوية عند الفسخ، يُنصح بما يلي:",
+          "replacementHtml": "خطوات عملية للاستعداد وحفظ الأدلة المتاحة:",
+          "rationale": "Replaces an outcome assurance in a checklist introduction; checklist facts remain unchanged.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does the article demonstrate a documented judicial trend or cite identified judgments for this claim?",
+          "resolution": "Where no identified judgment was supplied, the text now explicitly describes statutory issues or editorial review questions and does not purport to prove a judicial trend."
+        }
+      ],
+      "remainingActualQuestions": [
+        "What mandatory forum, notice exception and continuing-contract effect apply?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/ar/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+        "expectedChanges": 2,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/en/Penalty-clause-in-saudi",
+      "slug": "Penalty-clause-in-saudi",
+      "language": "en",
+      "primaryIntent": "Assess a Saudi agreed-compensation clause",
+      "supportingIntents": [
+        "Monetary debt exclusion",
+        "No harm and judicial adjustment",
+        "Drafting the covered obligation"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "c160537c4c84c9580e839f285468a0da2cb4366691748588ba361ec1096b11f5"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/en/Penalty-clause-in-saudi",
+          "slug": "Penalty-clause-in-saudi",
+          "language": "en",
+          "originalText": "Judicial precedents issued by the commercial courts",
+          "replacementHtml": "Any judgment relied upon needs its court, reference, facts and legal reasoning checked; no unidentified precedent is treated here as a binding rule.",
+          "rationale": "Replaces an unidentified precedent claim with an explicit evidence boundary.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/en/Penalty-clause-in-saudi",
+          "slug": "Penalty-clause-in-saudi",
+          "language": "en",
+          "originalText": "Fourth: The Saudi Judicial Approach to Applying Penalty Clauses.",
+          "replacementHtml": "Fourth: Statutory controls on applying penalty clauses.",
+          "rationale": "Section is statutory/editorial issue analysis, not a documented study of identified judgments.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/en/Penalty-clause-in-saudi",
+          "slug": "Penalty-clause-in-saudi",
+          "language": "en",
+          "originalText": "Saudi Legal Regulation and Judicial Approach.",
+          "replacementHtml": "Saudi statutory regulation and practical application.",
+          "rationale": "Removes unsupported precedent-study framing.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/en/Penalty-clause-in-saudi",
+          "slug": "Penalty-clause-in-saudi",
+          "language": "en",
+          "originalText": "This article provides a precise legal analysis of penalty clauses and examines the Saudi judicial approach to their interpretation and application, with practical recommendations for businesses and lawyers.",
+          "replacementHtml": "This article explains the cited Saudi statutory controls on agreed compensation and the contract and evidence questions involved in applying them. It does not establish a uniform judicial trend.",
+          "rationale": "Accurately describes the article’s actual source basis.",
+          "officialSource": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1"
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does the article demonstrate a documented judicial trend or cite identified judgments for this claim?",
+          "resolution": "Where no identified judgment was supplied, the text now explicitly describes statutory issues or editorial review questions and does not purport to prove a judicial trend."
+        }
+      ],
+      "remainingActualQuestions": [],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/en/Penalty-clause-in-saudi",
+        "expectedChanges": 4,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/en/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+      "slug": "adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+      "language": "en",
+      "primaryIntent": "Allocate Saudi commercial-contract risk",
+      "supportingIntents": [
+        "Operational and financial risks",
+        "Guarantees and insurance",
+        "Monitoring performance"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "d17cf4a0720f910d8474473e6e2ebbce7d13c7b37bbcba5edb49debc7273101f"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/en/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+          "slug": "adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+          "language": "en",
+          "originalText": "Sixth: The Saudi judicial approach in risk cases.",
+          "replacementHtml": "Sixth: Legal issues in disputes about contractual risk.",
+          "rationale": "Section is statutory/editorial issue analysis, not a documented study of identified judgments.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/en/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+          "slug": "adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+          "language": "en",
+          "originalText": "The article addresses risk management through six main areas: defining the concept, classifying risks, tools for mitigating them, the pre-signing methodology, risk management during performance, and the Saudi judicial approach to disputes arising from them.",
+          "replacementHtml": "The six sections cover risk identification, classification, contractual controls, preparation before signing, performance records and legal issues in a dispute.",
+          "rationale": "Removes unsupported judicial-trend premise.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does the article demonstrate a documented judicial trend or cite identified judgments for this claim?",
+          "resolution": "Where no identified judgment was supplied, the text now explicitly describes statutory issues or editorial review questions and does not purport to prove a judicial trend."
+        }
+      ],
+      "remainingActualQuestions": [
+        "Which bank-guarantee, insurance and regulatory-risk rules apply to the actual transaction?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/en/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+        "expectedChanges": 2,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/en/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+      "slug": "altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+      "language": "en",
+      "primaryIntent": "Recover delayed Saudi wages",
+      "supportingIntents": [
+        "Employment and payroll evidence",
+        "Friendly settlement and court referral",
+        "Mobility and wage-protection consequences"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "801ada54f9f2c2a78642b082e1eeb15e33b3f263c21a47295409bffcb560e229"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/en/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+          "slug": "altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+          "language": "en",
+          "originalText": "Delayed wages are not merely an administrative violation; they are a direct infringement of the worker's right to wages. Saudi law has established clear and swift mechanisms to address this violation and ensure that workers receive their rights. With the development of digital systems, workers can pursue their complaints easily and effectively, enhancing justice and stability in the labour market.",
+          "replacementHtml": "Preserve the wage records and identify the unpaid period, amount and appropriate claim route. Digital submission helps document and follow the request; recovery depends on the established entitlement and the applicable procedure.",
+          "rationale": "Removes a service-speed/compensation assurance unsupported by the described complaint process.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does use of the procedure or checklist guarantee recovery, compensation or evidential acceptance?",
+          "resolution": "The corrected passage preserves the practical step while making entitlement or evidential assessment conditional."
+        }
+      ],
+      "remainingActualQuestions": [
+        "What current eligibility, filing period and escalation evidence apply to this worker category?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/en/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+        "expectedChanges": 1,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/en/anha-aqd-alaml-bdwn-sbb-mshrwa",
+      "slug": "anha-aqd-alaml-bdwn-sbb-mshrwa",
+      "language": "en",
+      "primaryIntent": "Assess unlawful Saudi employment termination",
+      "supportingIntents": [
+        "Article 77 compensation framework",
+        "Final entitlements and documents",
+        "Settlement, referral and mobility"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "4e27b76f3595f470041f36df1114259e98cde49cd9805efabb8dc197ff0c9c2e"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/en/anha-aqd-alaml-bdwn-sbb-mshrwa",
+          "slug": "anha-aqd-alaml-bdwn-sbb-mshrwa",
+          "language": "en",
+          "originalText": "Unfair dismissal is not merely the termination of a contract; it is a violation affecting the worker’s stability and fundamental rights. Saudi law has established clear mechanisms to protect workers and ensure that they receive appropriate compensation when unlawful dismissal occurs. With the development of digital systems, access to rights has become easier and more transparent, promoting fairness in the labor market.",
+          "replacementHtml": "Separate the termination facts, legal basis and claimed amounts. Digital procedures help submit and follow a claim; compensation depends on proving entitlement under the applicable rules, not merely describing the dismissal as unfair.",
+          "rationale": "Removes a service-speed/compensation assurance unsupported by the described complaint process.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does use of the procedure or checklist guarantee recovery, compensation or evidential acceptance?",
+          "resolution": "The corrected passage preserves the practical step while making entitlement or evidential assessment conditional."
+        }
+      ],
+      "remainingActualQuestions": [
+        "What worker category, agreed compensation, contract term and filing deadline apply?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/en/anha-aqd-alaml-bdwn-sbb-mshrwa",
+        "expectedChanges": 1,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/en/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+      "slug": "aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+      "language": "en",
+      "primaryIntent": "Review Saudi franchise disclosure and registration",
+      "supportingIntents": [
+        "14-day precontract disclosure",
+        "90-day registration",
+        "Operating duties and lawful pricing"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "ece5859b70ffab5aa134bdabf1e0c6452e3c9607801babd68aeb5aeccecde07e"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/en/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "slug": "aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "language": "en",
+          "originalText": "judicial precedents of the commercial courts",
+          "replacementHtml": "Any judgment relied upon needs its court, reference, facts and legal reasoning checked; no unidentified precedent is treated here as a binding rule.",
+          "rationale": "Replaces an unidentified precedent claim with an explicit evidence boundary.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/en/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "slug": "aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "language": "en",
+          "originalText": "Eighth: Saudi judicial approach to franchise disputes.",
+          "replacementHtml": "Eighth: Issues to examine in franchise disputes.",
+          "rationale": "Section is statutory/editorial issue analysis, not a documented study of identified judgments.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/en/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "slug": "aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "language": "en",
+          "originalText": "It is not possible to assert a single judicial approach in all franchise disputes, as outcomes vary according to the terms of the agreement, the clarity of the disclosure document, the extent of the breach, and the evidence submitted. Nevertheless, recurring practical principles appear in commercial disputes, most notably:",
+          "replacementHtml": "The following are questions for reviewing the agreement, disclosure, alleged breach and evidence. They are not findings drawn from identified judgments or a prediction of the result:",
+          "rationale": "Converts unsupported recurring-principles claim to useful review questions.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/en/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "slug": "aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+          "language": "en",
+          "originalText": "To ensure robust legal protection, it is advisable to:",
+          "replacementHtml": "Practical steps to prepare and preserve the available evidence:",
+          "rationale": "Replaces an outcome assurance in a checklist introduction; checklist facts remain unchanged.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does the article demonstrate a documented judicial trend or cite identified judgments for this claim?",
+          "resolution": "Where no identified judgment was supplied, the text now explicitly describes statutory issues or editorial review questions and does not purport to prove a judicial trend."
+        }
+      ],
+      "remainingActualQuestions": [
+        "Which exemptions, renewal, termination and disclosure-remedy provisions apply?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/en/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+        "expectedChanges": 4,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/en/aqwd-almqawlat-fy-alnzam-alsawdy",
+      "slug": "aqwd-almqawlat-fy-alnzam-alsawdy",
+      "language": "en",
+      "primaryIntent": "Manage Saudi construction-contract performance disputes",
+      "supportingIntents": [
+        "Scope, schedule and certificates",
+        "Variations and delay",
+        "Private versus public contract forum"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "ce6e1a59d40c7404cb8dcb10787fd00dfaf39423d4da93230873ff7d2f35dedb"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/en/aqwd-almqawlat-fy-alnzam-alsawdy",
+          "slug": "aqwd-almqawlat-fy-alnzam-alsawdy",
+          "language": "en",
+          "originalText": "Sixth: Saudi Judicial Approach to Construction Disputes.",
+          "replacementHtml": "Sixth: Contract and evidence issues in construction disputes.",
+          "rationale": "Section is statutory/editorial issue analysis, not a documented study of identified judgments.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/en/aqwd-almqawlat-fy-alnzam-alsawdy",
+          "slug": "aqwd-almqawlat-fy-alnzam-alsawdy",
+          "language": "en",
+          "originalText": "In light of the general principles of the Civil Transactions Law and Evidence Law, construction disputes demonstrate a practical judicial approach that examines the contract, technical documents, correspondence, and expert reports rather than relying on mere allegations or abstract estimates, including:",
+          "replacementHtml": "Review the contract, technical documents, correspondence and expert material against the disputed obligation and burden of proof. The following are case-analysis questions, not an asserted pattern of judicial outcomes:",
+          "rationale": "Replaces an unsupported general judicial-practice finding.",
+          "officialSource": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1"
+        },
+        {
+          "route": "/blog/en/aqwd-almqawlat-fy-alnzam-alsawdy",
+          "slug": "aqwd-almqawlat-fy-alnzam-alsawdy",
+          "language": "en",
+          "originalText": "For strong legal protection, it is advisable to:",
+          "replacementHtml": "Practical steps to prepare and preserve the available evidence:",
+          "rationale": "Replaces an outcome assurance in a checklist introduction; checklist facts remain unchanged.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does the article demonstrate a documented judicial trend or cite identified judgments for this claim?",
+          "resolution": "Where no identified judgment was supplied, the text now explicitly describes statutory issues or editorial review questions and does not purport to prove a judicial trend."
+        }
+      ],
+      "remainingActualQuestions": [
+        "What defect, variation, handover and limitation rules govern this contract and project?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/en/aqwd-almqawlat-fy-alnzam-alsawdy",
+        "expectedChanges": 3,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/en/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+      "slug": "aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+      "language": "en",
+      "primaryIntent": "Assess Saudi commercial agency terms and termination",
+      "supportingIntents": [
+        "Eligibility and registration",
+        "Exclusivity and lawful pricing",
+        "Performance and termination evidence"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "124dc25b5803e949a6bf8cc722e91bee839e85d0c49abd8dac46a5f8b55dcbe1"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/en/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+          "slug": "aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+          "language": "en",
+          "originalText": "Judicial precedents of the commercial courts",
+          "replacementHtml": "Any judgment relied upon needs its court, reference, facts and legal reasoning checked; no unidentified precedent is treated here as a binding rule.",
+          "rationale": "Replaces an unidentified precedent claim with an explicit evidence boundary.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/en/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+          "slug": "aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+          "language": "en",
+          "originalText": "Ninth: Saudi Judicial Approach to Agency Disputes.",
+          "replacementHtml": "Ninth: Issues to examine in commercial agency disputes.",
+          "rationale": "Section is statutory/editorial issue analysis, not a documented study of identified judgments.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does the article demonstrate a documented judicial trend or cite identified judgments for this claim?",
+          "resolution": "Where no identified judgment was supplied, the text now explicitly describes statutory issues or editorial review questions and does not purport to prove a judicial trend."
+        }
+      ],
+      "remainingActualQuestions": [
+        "Which agency category, eligibility and statutory termination protections apply?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/en/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+        "expectedChanges": 2,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/en/athbat-alaqwd-amam-alqda-alsawdy",
+      "slug": "athbat-alaqwd-amam-alqda-alsawdy",
+      "language": "en",
+      "primaryIntent": "Prove a contract in Saudi proceedings",
+      "supportingIntents": [
+        "Official, ordinary and digital evidence",
+        "Writing threshold and exceptions",
+        "Burden and expert evidence"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "50e6afefedcfa65d7f7b9c620cba61a45fc9fe523426017b207f76219f917c9c"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/en/athbat-alaqwd-amam-alqda-alsawdy",
+          "slug": "athbat-alaqwd-amam-alqda-alsawdy",
+          "language": "en",
+          "originalText": "Judicial precedents of commercial and civil courts",
+          "replacementHtml": "Any judgment relied upon needs its court, reference, facts and legal reasoning checked; no unidentified precedent is treated here as a binding rule.",
+          "rationale": "Replaces an unidentified precedent claim with an explicit evidence boundary.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/en/athbat-alaqwd-amam-alqda-alsawdy",
+          "slug": "athbat-alaqwd-amam-alqda-alsawdy",
+          "language": "en",
+          "originalText": "To ensure the strength of your legal position, it is recommended to:",
+          "replacementHtml": "Practical steps to prepare and preserve the available evidence:",
+          "rationale": "Replaces an outcome assurance in a checklist introduction; checklist facts remain unchanged.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does the article demonstrate a documented judicial trend or cite identified judgments for this claim?",
+          "resolution": "Where no identified judgment was supplied, the text now explicitly describes statutory issues or editorial review questions and does not purport to prove a judicial trend."
+        }
+      ],
+      "remainingActualQuestions": [
+        "Which exceptions allow alternatives to writing and how must a digital item be authenticated or challenged?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/en/athbat-alaqwd-amam-alqda-alsawdy",
+        "expectedChanges": 2,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/en/commercial-supply-contracts-in-saudi",
+      "slug": "commercial-supply-contracts-in-saudi",
+      "language": "en",
+      "primaryIntent": "Draft and manage a Saudi supply contract",
+      "supportingIntents": [
+        "Specifications and delivery",
+        "Acceptance and defects",
+        "Delay and agreed compensation"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "db0e0d2b0d2e12534bf5c6b8d8d865de9c068f415b7483644b8e0f9ca5d94c6f"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/en/commercial-supply-contracts-in-saudi",
+          "slug": "commercial-supply-contracts-in-saudi",
+          "language": "en",
+          "originalText": "Fourth: Saudi Judicial Approach to Supply Disputes:",
+          "replacementHtml": "Fourth: Issues to examine in supply disputes:",
+          "rationale": "Section is statutory/editorial issue analysis, not a documented study of identified judgments.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/en/commercial-supply-contracts-in-saudi",
+          "slug": "commercial-supply-contracts-in-saudi",
+          "language": "en",
+          "originalText": "The courts rely on the following evidence:",
+          "replacementHtml": "Records to assess under the applicable evidence rules include:",
+          "rationale": "Avoids claiming automatic acceptance or predetermined evidential weight.",
+          "officialSource": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1"
+        },
+        {
+          "route": "/blog/en/commercial-supply-contracts-in-saudi",
+          "slug": "commercial-supply-contracts-in-saudi",
+          "language": "en",
+          "originalText": "To ensure strong legal protection, it is recommended to:",
+          "replacementHtml": "Practical steps to prepare and preserve the available evidence:",
+          "rationale": "Replaces an outcome assurance in a checklist introduction; checklist facts remain unchanged.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does use of the procedure or checklist guarantee recovery, compensation or evidential acceptance?",
+          "resolution": "The corrected passage preserves the practical step while making entitlement or evidential assessment conditional."
+        }
+      ],
+      "remainingActualQuestions": [
+        "Is this a single sale, phased supply or public procurement arrangement?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/en/commercial-supply-contracts-in-saudi",
+        "expectedChanges": 3,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/en/contractual-liability-in-commercial-transactions",
+      "slug": "contractual-liability-in-commercial-transactions",
+      "language": "en",
+      "primaryIntent": "Assess the elements of Saudi contractual liability",
+      "supportingIntents": [
+        "Breach, harm and causation",
+        "Foreseeability and compensation",
+        "Agreed compensation controls"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "f0e45b8a8ec0c06653cf914fbd9250bbf21beb4cdddc512df8887d5120d75f52"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/en/contractual-liability-in-commercial-transactions",
+          "slug": "contractual-liability-in-commercial-transactions",
+          "language": "en",
+          "originalText": "Judicial precedents issued by the commercial courts",
+          "replacementHtml": "Any judgment relied upon needs its court, reference, facts and legal reasoning checked; no unidentified precedent is treated here as a binding rule.",
+          "rationale": "Replaces an unidentified precedent claim with an explicit evidence boundary.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does the article demonstrate a documented judicial trend or cite identified judgments for this claim?",
+          "resolution": "Where no identified judgment was supplied, the text now explicitly describes statutory issues or editorial review questions and does not purport to prove a judicial trend."
+        }
+      ],
+      "remainingActualQuestions": [
+        "Which special contractual duties, notices and liability exclusions alter the general framework?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/en/contractual-liability-in-commercial-transactions",
+        "expectedChanges": 1,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/en/e-contracts-legal-validity-saudi-arabia",
+      "slug": "e-contracts-legal-validity-saudi-arabia",
+      "language": "en",
+      "primaryIntent": "Assess validity and proof of a Saudi electronic contract",
+      "supportingIntents": [
+        "Electronic consent and attribution",
+        "Signature and digital evidence classes",
+        "Special formalities and excluded transactions"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "646f439bdfe8a12ba8d0b5cc52c08d2af6081437937deb26621ee8fdae11f66c"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/en/e-contracts-legal-validity-saudi-arabia",
+          "slug": "e-contracts-legal-validity-saudi-arabia",
+          "language": "en",
+          "originalText": "Saudi courts rely on the following electronic evidence:",
+          "replacementHtml": "Records to assess under the applicable evidence rules include:",
+          "rationale": "Avoids claiming automatic acceptance or predetermined evidential weight.",
+          "officialSource": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1"
+        },
+        {
+          "route": "/blog/en/e-contracts-legal-validity-saudi-arabia",
+          "slug": "e-contracts-legal-validity-saudi-arabia",
+          "language": "en",
+          "originalText": "To ensure strong legal protection, the following are recommended:",
+          "replacementHtml": "Practical steps to prepare and preserve the available evidence:",
+          "rationale": "Replaces an outcome assurance in a checklist introduction; checklist facts remain unchanged.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does use of the procedure or checklist guarantee recovery, compensation or evidential acceptance?",
+          "resolution": "The corrected passage preserves the practical step while making entitlement or evidential assessment conditional."
+        }
+      ],
+      "remainingActualQuestions": [
+        "Which transaction and signing method determine the applicable requirements?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/en/e-contracts-legal-validity-saudi-arabia",
+        "expectedChanges": 2,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/en/formation-of-commercial-contracts-saudi-law",
+      "slug": "formation-of-commercial-contracts-saudi-law",
+      "language": "en",
+      "primaryIntent": "Determine formation of a Saudi commercial contract",
+      "supportingIntents": [
+        "Negotiation versus binding consent",
+        "Object, cause and capacity",
+        "Writing as proof versus formality"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "e572cd1cb5734ea4e04eec78581c671dec2f60c688e4a5367450dd3afab503f2"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/en/formation-of-commercial-contracts-saudi-law",
+          "slug": "formation-of-commercial-contracts-saudi-law",
+          "language": "en",
+          "originalText": "Saudi courts attach significant evidentiary value to commercial correspondence, particularly where it includes clear acceptance or actual performance.",
+          "replacementHtml": "<a href=\"https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1\">Evidence Law Articles 53–55</a> recognise digital evidence and give it the treatment of written evidence. Identify attribution, completeness and the disputed fact; a message does not automatically prove an entire contract or breach.",
+          "rationale": "Replaces unsourced evidential-weight claim with a bounded statutory rule.",
+          "officialSource": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1"
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does use of the procedure or checklist guarantee recovery, compensation or evidential acceptance?",
+          "resolution": "The corrected passage preserves the practical step while making entitlement or evidential assessment conditional."
+        }
+      ],
+      "remainingActualQuestions": [
+        "What exact formation point and special formality apply to the reader’s transaction?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/en/formation-of-commercial-contracts-saudi-law",
+        "expectedChanges": 1,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    },
+    {
+      "route": "/blog/en/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+      "slug": "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+      "language": "en",
+      "primaryIntent": "Assess termination of a Saudi commercial contract",
+      "supportingIntents": [
+        "Contractual versus judicial route",
+        "Notice and construction cure",
+        "Restitution and surviving terms"
+      ],
+      "bodyEvidence": {
+        "source": "Current local article HTML passed through the existing article-body-corrections wrapper before matching",
+        "sha256": "7f43a59cadf034f8fe91be698f89bcc7c9e4ef5db9a3fa21fc89d61dee25bd1a"
+      },
+      "passageCorrections": [
+        {
+          "route": "/blog/en/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "slug": "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "language": "en",
+          "originalText": "· Judicial precedents issued by the commercial courts",
+          "replacementHtml": "Any judgment relied upon needs its court, reference, facts and legal reasoning checked; no unidentified precedent is treated here as a binding rule.",
+          "rationale": "Replaces an unidentified precedent claim with an explicit evidence boundary.",
+          "officialSource": null
+        },
+        {
+          "route": "/blog/en/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "slug": "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "language": "en",
+          "originalText": "Courts attach considerable importance to electronic correspondence as admissible evidence in commercial transactions.",
+          "replacementHtml": "<a href=\"https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1\">Evidence Law Articles 53–55</a> recognise digital evidence and give it the treatment of written evidence. Identify attribution, completeness and the disputed fact; a message does not automatically prove an entire contract or breach.",
+          "rationale": "Replaces unsourced evidential-weight claim with a bounded statutory rule.",
+          "officialSource": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1"
+        },
+        {
+          "route": "/blog/en/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "slug": "fskh-alaqd-altjary-fy-alnzam-alsawdy",
+          "language": "en",
+          "originalText": "To ensure strong legal protection when terminating a contract, the following measures are recommended:",
+          "replacementHtml": "Practical steps to prepare and preserve the available evidence:",
+          "rationale": "Replaces an outcome assurance in a checklist introduction; checklist facts remain unchanged.",
+          "officialSource": null
+        }
+      ],
+      "resolvedQuestions": [
+        {
+          "question": "Does the article demonstrate a documented judicial trend or cite identified judgments for this claim?",
+          "resolution": "Where no identified judgment was supplied, the text now explicitly describes statutory issues or editorial review questions and does not purport to prove a judicial trend."
+        }
+      ],
+      "remainingActualQuestions": [
+        "What mandatory forum, notice exception and continuing-contract effect apply?"
+      ],
+      "notClaimedByThisPass": [
+        "Exhaustive review of every substantive proposition or exceptional factual situation",
+        "Independent lawyer certification or historical judgment authentication",
+        "Production publication or search-ranking outcomes"
+      ],
+      "integration": {
+        "function": "correctSaudiArticleFinal(slug, lang, html)",
+        "order": "After existing article-body-corrections and semantic heading promotion; tested for repeated wrapper/sanitizer processing.",
+        "recommendedDateModified": "2026-09-07 only when the corrected article body is actually rendered/published"
+      },
+      "validation": {
+        "route": "/blog/en/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+        "expectedChanges": 3,
+        "missingReplacements": [],
+        "directIdempotent": true,
+        "pipelineIdempotent": true,
+        "lostLinks": []
+      },
+      "status": "bounded-material-claims-corrected-awaiting-root-integration"
+    }
+  ],
+  "overallTaskComplete": false
+}

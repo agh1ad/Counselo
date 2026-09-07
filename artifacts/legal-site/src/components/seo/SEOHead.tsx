@@ -1,3 +1,4 @@
+import { localizeLegacySyriaSchema } from "../../lib/regional-schema.js";
 /**
  * SEOHead — renders all per-route head tags via react-helmet-async.
  *
@@ -57,21 +58,6 @@ function syriafyText(text: string): string {
   return out;
 }
 
-function syriafyObj(val: unknown): unknown {
-  if (typeof val === "string") return syriafyText(val);
-  if (Array.isArray(val)) return val.map(syriafyObj);
-  if (val !== null && typeof val === "object") {
-    const out: Record<string, unknown> = {};
-    for (const [k, v] of Object.entries(val as Record<string, unknown>)) {
-      if (k === "addressCountry" && v === "SA") out[k] = "SY";
-      else if (k === "addressLocality" && v === "Jubail") out[k] = "Damascus";
-      else if (k === "addressRegion" && v === "Eastern Province") out[k] = "Damascus Governorate";
-      else out[k] = syriafyObj(v);
-    }
-    return out;
-  }
-  return val;
-}
 
 /**
  * Serialize a schema object to a JSON string safe for inline <script> tags.
@@ -352,7 +338,7 @@ export function SEOHead({
       : `${untrimmedDescription.slice(0, 167).replace(/\s+\S*$/, "").trimEnd()}…`;
   const finalKeywords = isSyr ? syriafyText(rawKeywords) : rawKeywords;
 
-  // Apply syriafyObj for Syria pages, then patch any WebPage schema's name +
+  // Localize legacy page fields while preserving entity facts and FAQ text; patch name +
   // description with the overridden values so structured data stays in sync.
   const applyWebPagePatch = (s: object): object => {
     const typed = s as Record<string, unknown>;
@@ -363,7 +349,7 @@ export function SEOHead({
   };
 
   const processSchema = (s: object): object => {
-    const syrified = isSyr ? (syriafyObj(s) as object) : s;
+    const syrified = isSyr ? (localizeLegacySyriaSchema(s, syriafyText) as object) : s;
     return metaOverride ? applyWebPagePatch(syrified) : syrified;
   };
 

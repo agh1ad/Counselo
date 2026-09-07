@@ -1,0 +1,1553 @@
+{
+  "reviewedAt": "2026-09-07",
+  "taskStatus": "in-progress",
+  "scope": {
+    "articleRoutesScreened": 90,
+    "articleSlugs": 45,
+    "documentedQueries": 35,
+    "generalQueriesMapped": 14,
+    "newBilingualAnswers": 6,
+    "existingDestinationPages": 2,
+    "newPages": 0,
+    "formsCreated": 0,
+    "fullyCoveredQueries": 0
+  },
+  "method": "Screened all 90 current article titles and rendered bodies for appeal/refusal fit; reviewed matching procedural passages and candidate article context. This is destination-fit review, not complete legal review of every article body. No Saudi civil-procedure service exists in retained catalogue, confirmed with root. Current primary substantive indexed sources used where direct opens failed.",
+  "materialFindings": [
+    "Existing reconsideration article addresses an exceptional remedy and remains root-owned.",
+    "Administrative annulment, criminal trial preparation and commercial case outcomes are not interchangeable general appeal destinations.",
+    "Article 188 provides a useful memorandum content checklist without fabricating a universal form.",
+    "Article 189 review at issuing court precedes ordinary referral; automatic new hearing not promised.",
+    "Evidence Article 86 prevents treating same-claim refiling as a general cure after final merits adjudication.",
+    "Ordinary cassation targets recognized legal defects, not unrestricted new weighing of evidence.",
+    "No universal clock published; small-claims, case-type and actual start-date branches remain explicit gaps."
+  ],
+  "proposedSection": {
+    "en": "Saudi Arabia: objections to judgments under the Law of Sharia Procedure",
+    "ar": "السعودية: الاعتراض على الأحكام وفق نظام المرافعات الشرعية"
+  },
+  "placement": "Existing legal-library Saudi section below global jurisdiction selection; do not display as a global all-country FAQ pool.",
+  "destinations": {
+    "en": "/legal-library#saudi-judgment-objections",
+    "ar": "/ar/legal-library#saudi-judgment-objections"
+  },
+  "sourceEvidence": [
+    {
+      "url": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/f0eaae46-9f84-40ee-815e-a9a700f268b3/1",
+      "retrievedAt": "2026-09-07",
+      "retrieval": "Official substantive indexed primary text verified. BOE direct page timed out; UQN regulation direct open failed 500; official MOJ and BOG texts corroborate scoped rules."
+    },
+    {
+      "url": "https://www.bog.gov.sa/knowledge-center/JudicialSystems/Pages/JudicalSystemsContent.aspx?System=Evidence&SystemTitle=نظام+الإثبات",
+      "retrievedAt": "2026-09-07",
+      "retrieval": "Official substantive indexed primary text verified. BOE direct page timed out; UQN regulation direct open failed 500; official MOJ and BOG texts corroborate scoped rules."
+    },
+    {
+      "url": "https://www.moj.gov.sa/ar/Ministry/Courts/Pages/HighCourt.aspx",
+      "retrievedAt": "2026-09-07",
+      "retrieval": "Official substantive indexed primary text verified. BOE direct page timed out; UQN regulation direct open failed 500; official MOJ and BOG texts corroborate scoped rules."
+    },
+    {
+      "url": "https://www.moj.gov.sa/ar/eServices/Pages/cba332a0-28b8-4ce0-ab00-ef4ddeb9ab64.aspx",
+      "retrievedAt": "2026-09-07",
+      "retrieval": "Official substantive indexed primary text verified. BOE direct page timed out; UQN regulation direct open failed 500; official MOJ and BOG texts corroborate scoped rules."
+    }
+  ],
+  "validation": {
+    "relatedLinksAllExist": true,
+    "scopedImportPending": false,
+    "renderedAnchorsPending": true,
+    "scopedImport": "6 answers, 6 unique IDs, 3 bilingual links; module import passes."
+  },
+  "queries": [
+    {
+      "query": "التماس اعادة النظر في النظام السعودي",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "التماس اعادة النظر",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "اعادة النظر",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "التماس اعادة النظر في الحكم",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "اعادة التماس النظر",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "اعادة النظر في الحكم",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "الاعتراض على الحكم",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "newAnswerIds": [
+        "sa-library-appeal-eligibility",
+        "sa-library-appeal-memorandum",
+        "sa-library-appeal-filing"
+      ],
+      "destinationRationale": "Existing global library with prominent Saudi Sharia-procedure section; no matching general appeal article exists.",
+      "unresolvedGaps": [
+        "Confirm actual court, case type, standing, appealability, deadline trigger and applicable special rules; general query remains broader than this scoped answer.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "partial-library-answer-proposed",
+      "fullyCovered": false
+    },
+    {
+      "query": "بعد الاعتراض على الحكم",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "newAnswerIds": [
+        "sa-library-appeal-after-filing"
+      ],
+      "destinationRationale": "Existing global library with prominent Saudi Sharia-procedure section; no matching general appeal article exists.",
+      "unresolvedGaps": [
+        "Confirm actual court, case type, standing, appealability, deadline trigger and applicable special rules; general query remains broader than this scoped answer.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "partial-library-answer-proposed",
+      "fullyCovered": false
+    },
+    {
+      "query": "خطوات الاعتراض على الحكم",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "newAnswerIds": [
+        "sa-library-appeal-filing",
+        "sa-library-appeal-memorandum"
+      ],
+      "destinationRationale": "Existing global library with prominent Saudi Sharia-procedure section; no matching general appeal article exists.",
+      "unresolvedGaps": [
+        "Confirm actual court, case type, standing, appealability, deadline trigger and applicable special rules; general query remains broader than this scoped answer.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "partial-library-answer-proposed",
+      "fullyCovered": false
+    },
+    {
+      "query": "شروط الاعتراض على الحكم",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "newAnswerIds": [
+        "sa-library-appeal-eligibility",
+        "sa-library-appeal-memorandum"
+      ],
+      "destinationRationale": "Existing global library with prominent Saudi Sharia-procedure section; no matching general appeal article exists.",
+      "unresolvedGaps": [
+        "Confirm actual court, case type, standing, appealability, deadline trigger and applicable special rules; general query remains broader than this scoped answer.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "partial-library-answer-proposed",
+      "fullyCovered": false
+    },
+    {
+      "query": "شروط التماس اعادة النظر",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "طرق الاعتراض على الحكم",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "newAnswerIds": [
+        "sa-library-appeal-eligibility",
+        "sa-library-appeal-cassation"
+      ],
+      "destinationRationale": "Existing global library with prominent Saudi Sharia-procedure section; no matching general appeal article exists.",
+      "unresolvedGaps": [
+        "Confirm actual court, case type, standing, appealability, deadline trigger and applicable special rules; general query remains broader than this scoped answer.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "partial-library-answer-proposed",
+      "fullyCovered": false
+    },
+    {
+      "query": "طريقة التماس إعادة النظر",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "طريقة تقديم التماس إعادة النظر",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "طلب إعادة النظر في حكم المحكمة",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "طلب الاعتراض على الحكم",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "newAnswerIds": [
+        "sa-library-appeal-filing",
+        "sa-library-appeal-memorandum"
+      ],
+      "destinationRationale": "Existing global library with prominent Saudi Sharia-procedure section; no matching general appeal article exists.",
+      "unresolvedGaps": [
+        "Confirm actual court, case type, standing, appealability, deadline trigger and applicable special rules; general query remains broader than this scoped answer.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "partial-library-answer-proposed",
+      "fullyCovered": false
+    },
+    {
+      "query": "طلب التماس إعادة النظر",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "قبول التماس اعادة النظر",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "مدة التماس إعادة النظر",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "مدة تقديم التماس إعادة النظر",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "ميعاد التماس إعادة النظر",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "نموذج التماس إعادة النظر في السعودية",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Explicitly unfilled form demand: no downloadable/fillable official or generic reconsideration form produced. Existing article supplies statutory guidance only; root owns it.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": false,
+      "status": "unfilled-form-demand",
+      "fullyCovered": false
+    },
+    {
+      "query": "رفض الاعتراض على الحكم",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "newAnswerIds": [
+        "sa-library-appeal-cassation"
+      ],
+      "destinationRationale": "Existing global library with prominent Saudi Sharia-procedure section; no matching general appeal article exists.",
+      "unresolvedGaps": [
+        "Actual rejection reasons, procedural versus substantive decision, finality, available next remedy and its deadline must be reviewed individually; no automatic refiling or successful cassation claim.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "partial-library-answer-proposed",
+      "fullyCovered": false
+    },
+    {
+      "query": "طريقة الاعتراض على الحكم",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "newAnswerIds": [
+        "sa-library-appeal-filing",
+        "sa-library-appeal-memorandum"
+      ],
+      "destinationRationale": "Existing global library with prominent Saudi Sharia-procedure section; no matching general appeal article exists.",
+      "unresolvedGaps": [
+        "Confirm actual court, case type, standing, appealability, deadline trigger and applicable special rules; general query remains broader than this scoped answer.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "partial-library-answer-proposed",
+      "fullyCovered": false
+    },
+    {
+      "query": "رفض الدعوى",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "newAnswerIds": [
+        "sa-library-appeal-rejection"
+      ],
+      "destinationRationale": "Existing global library with prominent Saudi Sharia-procedure section; no matching general appeal article exists.",
+      "unresolvedGaps": [
+        "Actual rejection reasons, procedural versus substantive decision, finality, available next remedy and its deadline must be reviewed individually; no automatic refiling or successful cassation claim.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "partial-library-answer-proposed",
+      "fullyCovered": false
+    },
+    {
+      "query": "رفض الدعوى في النظام السعودي",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "newAnswerIds": [
+        "sa-library-appeal-rejection"
+      ],
+      "destinationRationale": "Existing global library with prominent Saudi Sharia-procedure section; no matching general appeal article exists.",
+      "unresolvedGaps": [
+        "Actual rejection reasons, procedural versus substantive decision, finality, available next remedy and its deadline must be reviewed individually; no automatic refiling or successful cassation claim.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "partial-library-answer-proposed",
+      "fullyCovered": false
+    },
+    {
+      "query": "في حال الاعتراض على الحكم",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "newAnswerIds": [
+        "sa-library-appeal-after-filing"
+      ],
+      "destinationRationale": "Existing global library with prominent Saudi Sharia-procedure section; no matching general appeal article exists.",
+      "unresolvedGaps": [
+        "Confirm actual court, case type, standing, appealability, deadline trigger and applicable special rules; general query remains broader than this scoped answer.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "partial-library-answer-proposed",
+      "fullyCovered": false
+    },
+    {
+      "query": "عدم قبول التماس إعادة النظر",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "اعادة النظر في حكم المحكمة",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "الاعتراض على الحكم القضائي",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "newAnswerIds": [
+        "sa-library-appeal-eligibility",
+        "sa-library-appeal-memorandum",
+        "sa-library-appeal-filing"
+      ],
+      "destinationRationale": "Existing global library with prominent Saudi Sharia-procedure section; no matching general appeal article exists.",
+      "unresolvedGaps": [
+        "Confirm actual court, case type, standing, appealability, deadline trigger and applicable special rules; general query remains broader than this scoped answer.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "partial-library-answer-proposed",
+      "fullyCovered": false
+    },
+    {
+      "query": "التماس إعادة النظر أمام محكمة الاستئناف",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "التماس اعادة النظر في حكم الاستئناف",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "دعوى التماس اعادة النظر",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "newAnswerIds": [],
+      "destinationRationale": "Exact existing reconsideration article; root-owned expansion.",
+      "unresolvedGaps": [
+        "Reconsideration intent delegated to root’s existing article answers; this subagent neither duplicates nor certifies that separate mapping.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "root-owned-reconsideration-review",
+      "fullyCovered": false
+    },
+    {
+      "query": "طريقة كتابة الاعتراض على الحكم",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "newAnswerIds": [
+        "sa-library-appeal-memorandum"
+      ],
+      "destinationRationale": "Existing global library with prominent Saudi Sharia-procedure section; no matching general appeal article exists.",
+      "unresolvedGaps": [
+        "Memorandum content checklist supplied; no generic form, case-specific grounds or representation-complete filing created.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": false,
+      "status": "partial-library-answer-proposed",
+      "fullyCovered": false
+    },
+    {
+      "query": "رفض الدعوى في الاستئناف",
+      "previousAssignedRoute": "/ar/legal-library",
+      "exactProposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "newAnswerIds": [
+        "sa-library-appeal-cassation",
+        "sa-library-appeal-rejection"
+      ],
+      "destinationRationale": "Existing global library with prominent Saudi Sharia-procedure section; no matching general appeal article exists.",
+      "unresolvedGaps": [
+        "Actual rejection reasons, procedural versus substantive decision, finality, available next remedy and its deadline must be reviewed individually; no automatic refiling or successful cassation claim.",
+        "Root integration, rendered anchor and query overlay validation pending."
+      ],
+      "formDemandFilled": null,
+      "status": "partial-library-answer-proposed",
+      "fullyCovered": false
+    }
+  ],
+  "articleDestinationReview": [
+    {
+      "route": "/blog/ar/Penalty-clause-in-saudi",
+      "title": "الشرط الجزائي في العقود التجارية",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-Penalty-clause-in-saudi.html",
+      "sha256": "f6f8025055fee8dcb68aa85f84035d562ca90cc9832bca978f498e6605ba8ab0",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 4704,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+      "title": "إدارة المخاطر في العقود وفق النظام السعودي",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy.html",
+      "sha256": "584e7fc2cc857bf1d972fd3c27b44c58ed7399a390102f7b3b99b531aef17820",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 4864,
+      "proceduralPassages": [
+        " الفحص والقبول: يحدّ من مخاطر الجودة عبر: تحديد مدة الفحص آلية الاعتراض مسؤولية العيوب 7) بند السرية وحماية البيانات: يحمي: المعلومات التجارية البيانات الحساسة الأنظمة التقنية 8) بند تسوية المنازعات: يجب أن يحدد العقد آلية واضحة لتسوية الخلافات، مثل ا"
+      ],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+      "title": "الأهلية في التعاقد في القانون السوري",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-alahlyh-fy-altaaqd-fy-alqanwn-alswry.html",
+      "sha256": "80593f24253bf2780bc1716a15e5dbb3e1e01de24b7adbacd62c320d6ede8f49",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 7373,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/alaqd-fy-alqanwn-alswry",
+      "title": "العقد في القانون السوري",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-alaqd-fy-alqanwn-alswry.html",
+      "sha256": "df0ba689956475e369594a1d55d833b95428a928b84c5362f54b773cf619b5a4",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 7753,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny",
+      "title": "العيوب الخفية في العقود وأثرها القانوني",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny.html",
+      "sha256": "85dc05df39c1c08be090fa51a80661661699500c6c503ab3244af37da365d76e",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5005,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+      "title": "الفرق بين الفسخ والتعويض في العقود التجارية",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh.html",
+      "sha256": "f3da00b5bacc9df016a288362d839ead3069f33b66b2eef3820404890eb68ee4",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 3713,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+      "title": "إثبات الإخلال بالعقد التجاري والضرر في السعودية",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-almswwlyh-alaqdyh-fy-almaamlat-altjaryh.html",
+      "sha256": "a0b9870ec8d9e9a105c30f1218a75c089cb9e4f9c580affb92bb81a8497e6aa9",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 4180,
+      "proceduralPassages": [
+        " بريد أو فاتورة أو مطالبة تستوفي كل المتطلبات. دوّن الإقرار أو الاعتراض أو عرض المعالجة أو تمديد الأجل مع إبقاء المراسلات المحيطة به. 4. فصل الضرر والسبب والحساب سجل لكل مبلغ أساسه وطريقة حسابه ومستنده وصلته بالإخلال المدعى به. قد تدعم فاتورة المورد ا",
+        "وغير المؤيدة له. وقد يقر الرد المحدد بدفعة غير متنازع عليها مع الاعتراض على حساب ضرر غير مثبت. قبل الخطوة التالية جهز حزمة العقد والتسلسل الزمني والإعذارات وكشف الدفعات والحساب المفصل. افحص شرط النزاع والجهة المختصة ومتطلبات رفع الدعوى في الوقت المناس"
+      ],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/almswwlyh-alaqdyh-fy-alqanwn-alswry",
+      "title": "المسؤولية العقدية في القانون السوري",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-almswwlyh-alaqdyh-fy-alqanwn-alswry.html",
+      "sha256": "80e02d5f3258bb1585646d94456da109a79bb96237a481be4795a10d8706cc2e",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 7146,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/almswwlyh-an-fal-alghyr",
+      "title": "المسؤوليه عن فعل الغير",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-almswwlyh-an-fal-alghyr.html",
+      "sha256": "4880bd0cacd075b3ec424cf805563f8a5ec8aa84cce6328f78d24362ddbd8901",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 4090,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/alrda-fy-alqanwn-alswry",
+      "title": "الرضا في القانون السوري",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-alrda-fy-alqanwn-alswry.html",
+      "sha256": "0c892c5692aa2352f9d62db0aa7ae2d24630c6560333a9b0cf6a9da01ae5fe13",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5955,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy",
+      "title": "السند لأمر كأداة ضمان: متى يتحول الى خطر تنفيذي.",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy.html",
+      "sha256": "be340c1c13a93f028d54c6598aef80bd50fde30f3f69e9548485b3e753086678",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 6726,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+      "title": "التأخر في الرواتب أو الامتناع عن دفعها",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha.html",
+      "sha256": "2aa4bf626d11365ce16f46afcd09c2399e5fc17ded1f2fb17e9b7fff3167e9b4",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 4125,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+      "title": "التعويض عن الإخلال بالعقد في القانون السوري",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry.html",
+      "sha256": "41bef2b7bb3edffa878a64ba951923657c42405a16a0db4f29d3ce95cca2121c",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 12935,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/altwqya-ala-byad",
+      "title": "التوقيع على بياض.",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-altwqya-ala-byad.html",
+      "sha256": "9c60ae3284abe1907a4e241e98ab8f196d1d962c6a63619be2f044972483f49e",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 3697,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/altwsyat-alamlyh-lsyaghh-aqd-qwy",
+      "title": "التوصيات العملية لصياغة عقد قوي",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-altwsyat-alamlyh-lsyaghh-aqd-qwy.html",
+      "sha256": "fb3245c306ec84405f69a7bf5b71beabc63899a525f3521c97824baf294d62de",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 3743,
+      "proceduralPassages": [
+        "فيها سادسًا: آلية الفحص والقبول. يجب النص على: مدة الفحص طريقة الاعتراض مسؤولية العيوب الظاهرة والخفية آلية إعادة العمل أو الاستبدال هذه البنود مهمة جدًا في عقود التوريد والمقاولات والخدمات. سابعًا: القوة القاهرة والظروف الطارئة. يجب تحديد: الحالات ال"
+      ],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/anha-aqd-alaml-bdwn-sbb-mshrwa",
+      "title": "إنهاء عقد العمل بدون سبب مشروع",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-anha-aqd-alaml-bdwn-sbb-mshrwa.html",
+      "sha256": "0a1b6a80862805c5c8e957fd560f59e3a229b42f19d723f251df7bc11b85a6a6",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 7738,
+      "proceduralPassages": [
+        " واحفظ ما يثبت تقديم المطالبة أو إحالتها. 7) هل يجب على العامل الاعتراض خلال مدة معينة؟ ينبغي للعامل المبادرة دون تأخير إلى توثيق تاريخ الإنهاء وتاريخ العلم به وحفظ المستندات ذات الصلة، لأن بعض المطالبات العمالية قد ترتبط بمدد نظامية أو مواعيد إجرائية"
+      ],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+      "title": "عقود الامتياز التجاري (الفرنشايز) في النظام السعودي",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy.html",
+      "sha256": "1abb03900548f16e48121726e05cf0fe29f04676d73c102c99cc0196e4086038",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 6102,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/aqwd-almqawlat-fy-alnzam-alsawdy",
+      "title": "عقود المقاولات في النظام السعودي",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-aqwd-almqawlat-fy-alnzam-alsawdy.html",
+      "sha256": "6092ac779c3e8e73e4353f98a5fda400ba119b499b5ad8a827d833712d2dde0e",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 7336,
+      "proceduralPassages": [
+        " وتبقى للمحكمة سلطة تقدير تقرير الخبير في ضوء منهجه، ومستنداته، واعتراضات الأطراف عليه. ثامنًا: توصيات عملية لصياغة عقد مقاولة قوي. لضمان حماية قانونية قوية، يُنصح بـ: تحديد نطاق العمل بدقة وضع جدول زمني واضح استخدام تعويض اتفاقي مناسب حيث يجيزه النظا"
+      ],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+      "title": "عقود الوكالات التجارية في النظام السعودي",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-aqwd-alwkalat-altjaryh-fy-alnzam-alsawd.html",
+      "sha256": "1eff005875be05b4eadad8b8b01e4f6180732c333dfc9d9f4b6e85b09fde8210",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 7603,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/athbat-alaqwd-amam-alqda-alsawdy",
+      "title": "اثبات العقود أمام القضاء السعودي.",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-athbat-alaqwd-amam-alqda-alsawdy.html",
+      "sha256": "c3887ba0b0f4fde1125e3e8273e3ff903fa64fae70ed2eacaf842491ed66c2cc",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 4810,
+      "proceduralPassages": [
+        "، ويكون الثاني حجة على قائله ما لم يثبت غيره. فيُحدد القول محل الاعتراض وطريقه المناسب. 4.2 حجية المحررات العادية: تُقبل إذا كانت: صادرة من الطرف موقّعة أو مختومة غير منكرة أو تم إثبات صحتها عبر الخبرة الفنية 4.3 حجية الدليل الرقمي: تميّز المواد 53–64"
+      ],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/bna-astratyjyh-aldfaa-qbl-bd-alkhswmh",
+      "title": "بناء استراتيجية الدفاع قبل بدء الخصومة.",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-bna-astratyjyh-aldfaa-qbl-bd-alkhswmh.html",
+      "sha256": "55508cc310d7bc3a0f534e1f00f54d6d261f4fb53790e5eca4ed198849f9f405",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 4459,
+      "proceduralPassages": [],
+      "destinationConclusion": "Pre-litigation defence preparation, not a post-judgment appeal/remedy article."
+    },
+    {
+      "route": "/blog/ar/commercial-supply-contracts-in-saudi",
+      "title": "عقود التوريد التجارية في السعودية",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-commercial-supply-contracts-in-saudi.html",
+      "sha256": "b6ab8eb5e34bc020cec332f91676816c50f244aa76585b3e5df20ea37ddc5010",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5693,
+      "proceduralPassages": [
+        "عن التسليم 5) فحص المواد وقبولها: يجب النص على: مدة الفحص آلية الاعتراض مسؤولية العيوب الظاهرة والخفية 6) القوة القاهرة: يُحدد الحدث الخارجي وأثره السببي وتوزيع التبعة والإبلاغ والحد من الضرر. ولا تُعفي الأمثلة التالية تلقائياً؛ فللاستحالة والإرهاق شر"
+      ],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/consensual-formal-real-contracts-syrian-law",
+      "title": "العقود الرضائية والشكلية والعينية في القانون السوري.",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-consensual-formal-real-contracts-syrian-law.html",
+      "sha256": "e71eb5d57417bae1523dd74da181a1f2c36b0a154fb1182a026a7870a9516859",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 8140,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/contract-interpretation-syrian-courts",
+      "title": "تفسير العقود أمام القضاء السوري",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-contract-interpretation-syrian-courts.html",
+      "sha256": "a9e2a08d267518ea42c7a5654924b81a6e7676a09729bc9042313e7285144e51",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 6856,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/contractual-liability-in-commercial-transactions",
+      "title": "المسؤولية العقدية في المعاملات التجارية.",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-contractual-liability-in-commercial-transactions.html",
+      "sha256": "0bf2f67eaf19f5064c420efb2632ffe7723d73a054e44fd836364bd9ad7280fa",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 3642,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/defects-of-will-syrian-law",
+      "title": "عيوب الإرادة في القانون السوري: الغلط والإكراه والتدليس والاستغلال",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-defects-of-will-syrian-law.html",
+      "sha256": "6187ae0753802ee63089a40ce16953bf0965f532d0565c3dbfa4448b25071c9e",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5509,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/e-contracts-legal-validity-saudi-arabia",
+      "title": "العقود الإلكترونية في النظام السعودي",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-e-contracts-legal-validity-saudi-arabia.html",
+      "sha256": "c06b934f4380e96837f520c25b1e822e487ab11d4113e13966f063de390e4bb1",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5330,
+      "proceduralPassages": [
+        "تطلب لشهادة التصديق ينطبق عليها كيفية نسبة التوقيع لصاحبه وفحص الاعتراض عليه غير قابل للتعديل دون أثر واضح شروط خدمة الثقة أو التصديق المنظمة التي تنطبق على الطريقة المختارة؛ ولا يُفترض لزوم اعتماد فردي من هيئة الحكومة الرقمية لكل اتفاق إلكتروني وتكون",
+        "ات التقنية تميّز المواد 56–59 من نظام الإثبات بين فئات الحجية والاعتراض عليها. وقد تكون للدليل الرقمي الآخر حجية المحرر العادي؛ فلا يحسم غياب منصة معتمدة قبوله وحده. ويُفحص: واضحة قابلة للإسناد السلامة وأدلة التعديل المصدر وحفظ أصل السجل سادسًا: أبرز "
+      ],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/formation-of-commercial-contracts-saudi-law",
+      "title": "تكوين العقد التجاري في النظام السعودي",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-formation-of-commercial-contracts-saudi-law.html",
+      "sha256": "ef4c1f2982d13e89e8e4442d463f662ea4af3025dc6d1f57d62c6d017d768ca5",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 4197,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+      "title": "فسخ العقد التجاري في النظام السعودي",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-fskh-alaqd-altjary-fy-alnzam-alsawdy.html",
+      "sha256": "a69c307067e3deef33708b5bfeb105f716036386643be8e917b5037d11fef3c5",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5556,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+      "title": "حدود اليمين الحاسمه في الاثبات المدني - سوري",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry.html",
+      "sha256": "14171e49b05e5f3ebd8b8ffcc49620d32993da0d2f2a2441db8be108c89832db",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 28536,
+      "proceduralPassages": [
+        " الصلح الجزائية إلى الحكم عليه بالحبس مدة ستة أشهر، ثم أيد الحكم استئنافًا، فطعن المحكوم عليه أمام محكمة النقض. وهنا تغير مركز القضية بالكامل. فالجدل لم يعد متعلقًا باستحقاق المحامي لأتعابه، بل أصبح السؤال هو: هل يؤدي حلف يمين تناقض مستندات رسمية إلى ق",
+        "ث الشكل وبين صلاحية الواقعة لأن تكون محلًا لها . كما ينبغي عند الاعتراض على اليمين ألا يقتصر دفاع الخصم على القول بأن لديه أدلة أقوى، وإنما أن يؤسس اعتراضه -بحسب الحال- على أحد أربعة أوجه مستقلة: عدم جواز الواقعة محلًا للإثبات باليمين؛ أو عدم إنتاجيته",
+        "ألا يقتصر دفاع الخصم على القول بأن لديه أدلة أقوى، وإنما أن يؤسس اعتراضه -بحسب الحال- على أحد أربعة أوجه مستقلة: عدم جواز الواقعة محلًا للإثبات باليمين؛ أو عدم إنتاجيتها؛ أو اصطدامها بشكل قانوني لازم؛ أو مساسها بحجية لا يجوز هدمها بهذا الطريق. ويستحسن"
+      ],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+      "title": "حماية العميل من مسودة العقد الى التوقيع.",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya.html",
+      "sha256": "cc7e3f55c27a7dfe043c6e883f02f59a9264d80014dc9b7d9dce8b7e3ba50b1b",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5516,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+      "title": "حوكمة الشركات كضمانة موضوعية لحماية حقوق مساهمي الأقلية",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh.html",
+      "sha256": "0e1c225fc859f5eb62cea0a57bdf719efe1c16370b294cc6f0448514d352f41a",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 4180,
+      "proceduralPassages": [
+        " ودعوات الاجتماعات ومحاضرها وطلبات الاطلاع وسجلات المعاملة محل الاعتراض. يُحدد الحكم المخالف والطلب؛ فلا يترتب تلقائياً على كل ملاحظة حوكمة بطلان القرار أو مسؤولية جميع الأعضاء بالتضامن. هذا مقال رأي ولا يعتبر استشارة قانونية متخصصة اذ ان لكل حالة خصو"
+      ],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/hyn-ykwn-alaqrar-aqwa-mn-alankar",
+      "title": "حين يكون الإقرار أقوى من الإنكار",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-hyn-ykwn-alaqrar-aqwa-mn-alankar.html",
+      "sha256": "feac47ea90d96ecbcf66634193ff02342189a27ce4f755ee7b37c8396f8a6af9",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 7507,
+      "proceduralPassages": [
+        "ي. وقد يضع يده عليها، ويستعملها، ويستثمرها، بل ويؤجرها للغير دون اعتراض من البائع. في هذه الصورة، يصعب القول إن هناك نزاعًا حقيقيًا حول التسليم الفعلي . فالمدعي قد يكون بالفعل هو من: يحوز الأرض؛ ينتفع بها؛ يستثمرها؛ ويتعامل مع الغير بشأن منافعها. لكن "
+      ],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa",
+      "title": "ليس كل مبلغ يُطالب به يُحكم به: كيف تُفكك المطالبات التجارية قبل بناء الدفاع؟",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa.html",
+      "sha256": "3bb7ac80a59ed56204dafa1eb94ae705a16ab3ff18bf205ca3390949fdb5fffc",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 4791,
+      "proceduralPassages": [
+        "الأصلية بمقدار 273,000 ريال، بنسبة تقارب 54.6% . ثم أيدت محكمة الاستئناف النتيجة التي انتهى إليها الحكم الابتدائي. القيمة القانونية في هذه القضية ليست في الأرقام وحدها. بل في أن النزاع تحول من السؤال: هل تستحق المدعية 500 ألف ريال؟ إلى السؤال الأكثر دق",
+        "لتعرض المالي للعميل في القضايا المالية، لا يكون النجاح دائمًا في رفض الدعوى بالكامل. قد تكون بعض الالتزامات ثابتة، ويصبح الهدف المهني هو منع توسع المسؤولية إلى مبالغ لا يساندها الإثبات . وهنا تظهر فكرة مهمة في إدارة النزاعات: المسؤولية القضائية تُبنى على "
+      ],
+      "destinationConclusion": "Commercial-claim merits and case outcome; passing appeal references do not supply a general rejection remedy."
+    },
+    {
+      "route": "/blog/ar/mhl-alaqd-fy-alqanwn-alswry",
+      "title": "محل العقد في القانون السوري",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-mhl-alaqd-fy-alqanwn-alswry.html",
+      "sha256": "b499dc610af2dec56ea1b3b8b9342f29521ddeb9165bfa00c71486a59ee1fb4c",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 9391,
+      "proceduralPassages": [
+        " • المواعيد والمراحل ومكان التنفيذ. • إجراءات الفحص والاستلام والاعتراض. • البدائل المقبولة عند تعذر جزء من التنفيذ. • المستندات والملاحق الفنية التي تعد جزءاً من العقد. • الترخيص أو الموافقة النظامية اللازمة لمشروعية التنفيذ. عاشراً: أسئلة شائعة هل ي"
+      ],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/mnhjyh-5why-fy-alaml-alqanwny",
+      "title": "منهجية \"5Why\" في العمل القانوني",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-mnhjyh-5why-fy-alaml-alqanwny.html",
+      "sha256": "5ef98ac4a589d7b2dec02e5febcdd070bdb47a22ac07c5ba193e86aa055c470f",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 3963,
+      "proceduralPassages": [
+        "الجة الأعراض ومعالجة السبب الشركات كثيرًا ما تعالج النتائج، مثل: استئناف الحكم. تعيين محامٍ جديد. جمع مستندات إضافية. البحث عن شهود. وهذه إجراءات مهمة، لكنها تعالج الأثر . أما منهجية 5Why فتركز على معالجة السبب ، مثل: تطوير نماذج العقود. إنشاء سياسات و"
+      ],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa",
+      "title": "متى يفقد شرط التحكيم أثره العملي في النزاع؟",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa.html",
+      "sha256": "4432bb845dd458bae93b9195123192200a4f2601ca675ff45abfb9cd0562e25a",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 2941,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm",
+      "title": "متى يكون القرار الإداري قابلًا للإلغاء أمام ديوان المظالم؟",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm.html",
+      "sha256": "f07139482b45f7690682e8b93ab394f2dd419527096ddbbe51749032e24630b1",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 2563,
+      "proceduralPassages": [
+        "و الشكل أو السبب أو تطبيق النظام أو استعمال السلطة . ولهذا فإن الاعتراض الناجح لا يبدأ بعبارة: «القرار غير عادل» بل يبدأ بالسؤال: «أين يقع العيب النظامي في القرار، وهل يمكن إثباته؟» كاونسلو نحلل القرار قبل أن نحدد مسار الاعتراض. باشراف المحامي والمستش",
+        "القرار، وهل يمكن إثباته؟» كاونسلو نحلل القرار قبل أن نحدد مسار الاعتراض. باشراف المحامي والمستشار القانوني عمر رياض بغدادي"
+      ],
+      "destinationConclusion": "Administrative-decision annulment; different regime from ordinary Saudi judgment appeal."
+    },
+    {
+      "route": "/blog/ar/mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh",
+      "title": "متى يكون الصلح أفضل من الاستمرار في الخصومة؟",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh.html",
+      "sha256": "3d5c07041d52d78e0793e6ef979246e9994a5c8211ac5286a92fd6b2a2210a2f",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 6087,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "title": "متى يقبل التماس إعادة النظر في السعودية؟",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh.html",
+      "sha256": "1c1e9d9691a6aaf95a50fe731ab940e34406d5df373fda650fcb38ae897f3c6e",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 8283,
+      "proceduralPassages": [
+        "ة مؤثرة في الحكم. التماس إعادة النظر ليس مرحلة إضافية من مراحل الاستئناف، وإنما طريق استثنائي للطعن في الأحكام النهائية، لا يُفتح إلا في حالات محددة نظاماً وفقاً لأحكام الماده ٢٠٠ من نظام المرافعات الشرعية . ولهذا فإن القيمة العملية للأحكام القضائية ال",
+        " تناولت التماساً استند صاحبه إلى حكم نهائي صدر لاحقاً من محكمة الاستئناف. كان الملتمس قد سبق أن استند إلى حكم ابتدائي، ثم صدر بعد ذلك حكم استئنافي نهائي يؤيده، فتقدم بالتماس جديد باعتبار الحكم الاستئنافي ورقة قاطعة جديدة. دائرة الاستئناف اعتبرت أن المس",
+        " كان الملتمس قد سبق أن استند إلى حكم ابتدائي، ثم صدر بعد ذلك حكم استئنافي نهائي يؤيده، فتقدم بالتماس جديد باعتبار الحكم الاستئنافي ورقة قاطعة جديدة. دائرة الاستئناف اعتبرت أن المستند واحد، وبالتالي لم تقبل الالتماس. إلا أن المحكمة العليا قررت أن الحكم ",
+        "ذلك حكم استئنافي نهائي يؤيده، فتقدم بالتماس جديد باعتبار الحكم الاستئنافي ورقة قاطعة جديدة. دائرة الاستئناف اعتبرت أن المستند واحد، وبالتالي لم تقبل الالتماس. إلا أن المحكمة العليا قررت أن الحكم الاستئنافي النهائي ليس هو ذات الحكم الابتدائي من الناحية "
+      ],
+      "destinationConclusion": "Exact exceptional reconsideration destination; root module owns expansion. Not substituted for ordinary appeal."
+    },
+    {
+      "route": "/blog/ar/mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy",
+      "title": "متى يصبح استعمال الحق تعسفًا في النظام السعودي؟",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy.html",
+      "sha256": "439aceff0eb02eeb4334143f6ef2c170960201e0423af943290068e6d6efb18f",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 3653,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/mta-ysthq-alwsyt-altjary-kaml-amwlth",
+      "title": "متى يستحق الوسيط التجاري كامل عمولته؟",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-mta-ysthq-alwsyt-altjary-kaml-amwlth.html",
+      "sha256": "8284dfdebb5c5bb7d07218814515273fd1658f426141749adbfcc06ab1daa6d8",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 4624,
+      "proceduralPassages": [
+        " ريالًا فقط ، بما يعني تخفيض المطالبة بنحو 83.2% ، ثم تأيد الحكم استئنافيًا. الدرس القانوني: هذه النتيجة تكشف مبدأ عمليًا مهمًا: العمولة لا تُقرأ كنسبة مجردة، بل كمعادلة مرتبطة بشروط الاستحقاق ومراحل التنفيذ والتحصيل. ولهذا فإن نجاح الدفاع لا يتطلب دائ",
+        "تحققة فعليًا إلى حكم بمبلغ 584,131 ريالًا فقط ، مع تأييد النتيجة استئنافيًا. للاطلاع على دراسة الحالة: كيف ساهمت كاونسلو في تخفيض مطالبة عمولة تجارية بنسبة تجاوزت 83%؟"
+      ],
+      "destinationConclusion": "Commercial-claim merits and case outcome; passing appeal references do not supply a general rejection remedy."
+    },
+    {
+      "route": "/blog/ar/mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+      "title": "متى يتحول توقيع العامل على محضر المراجعة إلى إقرار بالمسؤولية؟",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh.html",
+      "sha256": "03b8cca3522ee02853bc700bef46c73dee895501f33013f1f47ac95f6c216322",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 4231,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/performance-of-contracts-in-good-faith-under-syrian-law",
+      "title": "تنفيذ العقد بحسن النية في القانون السوري",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-performance-of-contracts-in-good-faith-under-syrian-law.html",
+      "sha256": "ffa60577bc8a11f4700928c2f5e6ccebaf5eaabc8292bfdfc80c9907f76d73dc",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 6938,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/ar/syghh-mdhkrh-tfahm-qablh-lltadyl",
+      "title": "صيغة مذكرة تفاهم قابله للتعديل",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-ar-syghh-mdhkrh-tfahm-qablh-lltadyl.html",
+      "sha256": "d24e36e83e2b8ef0ef1e37f6108ed2bc9cbf6cb3dfba1a2edd20e1dbfdd064fb",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5352,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/Penalty-clause-in-saudi",
+      "title": "Penalty Clauses in Commercial Contracts",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-Penalty-clause-in-saudi.html",
+      "sha256": "381b52938321b107753b2f94dc1c20e1314e8c9818e4aff9892f4518124a75d8",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 6533,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+      "title": "Risk Management in Contracts Under Saudi Law",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy.html",
+      "sha256": "42057f9bc75b93726cd3cfdb7b7c464722bef12ba4968bfa9e0e26e8e1fe8ea3",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 6527,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+      "title": "Contractual Capacity under Syrian Law",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-alahlyh-fy-altaaqd-fy-alqanwn-alswry.html",
+      "sha256": "41d83c6c2e9a519f124f3ae3b4cec041974a0a6bd1d2345085c48e301ea79601",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 10208,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/alaqd-fy-alqanwn-alswry",
+      "title": "Contracts in Syrian Law",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-alaqd-fy-alqanwn-alswry.html",
+      "sha256": "7ba9848a34ff77d07f83c324eeafb1891b6e2269bd84af69dac3671d3c55d659",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 10919,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny",
+      "title": "Hidden Defects in Contracts and Their Legal Effect",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny.html",
+      "sha256": "19f7408773babb59dd24bb4cdabb76084fea97654673bb16698ce06cbdb81689",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 6874,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+      "title": "The Difference Between Rescission and Damages in Commercial Contracts",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh.html",
+      "sha256": "ba6b2fa373cc162e1b5f109e796a0c3ffae1edaa78da05d52e21e5229b328c2e",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5318,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+      "title": "Proving Commercial Contract Breach and Loss in Saudi Arabia",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-almswwlyh-alaqdyh-fy-almaamlat-altjaryh.html",
+      "sha256": "e9e084c06f615a352af8dc85066f90bbf9ac64bc6a5ae54fc9a4e714f06e6151",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5744,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/almswwlyh-alaqdyh-fy-alqanwn-alswry",
+      "title": "Contractual Liability under Syrian Law",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-almswwlyh-alaqdyh-fy-alqanwn-alswry.html",
+      "sha256": "4311d5109a3ce3cc9053c569747e1523a64582d7593d176939ccee9a1e073b7a",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 9805,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/almswwlyh-an-fal-alghyr",
+      "title": "Liability for the Acts of Others",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-almswwlyh-an-fal-alghyr.html",
+      "sha256": "b5febb03b702529ca99ade40f08bd8319d1ab3c1a25ed473f4f62d0461e4d54c",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5857,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/alrda-fy-alqanwn-alswry",
+      "title": "Consent in Syrian Law",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-alrda-fy-alqanwn-alswry.html",
+      "sha256": "e6d51686390e82a39ddc4d1382ab3d22025ae1e2e792e7ce99618068bea8a205",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 8098,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy",
+      "title": "Promissory Notes as Security: When Do They Become an Enforcement Risk?",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy.html",
+      "sha256": "c9d442f3e70ce20c64f8e223961b9a6c2b92c00e03cf2d333e72abab3dc43dda",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 9633,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+      "title": "Delayed Wages or Non-Payment",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha.html",
+      "sha256": "06190cd54679b5e3e98206fae4765530194ee50ba272f01874c61c56013deb63",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5529,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+      "title": "Compensation for Breach of Contract under Syrian Law",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry.html",
+      "sha256": "6011c3d11396057405306f19448f0cb5110f9ea99acc999954e45c46c1d8c00c",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 18228,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/altwqya-ala-byad",
+      "title": "Signing in Blank",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-altwqya-ala-byad.html",
+      "sha256": "298ffa1536316b4e6a4bbdbdbbb55a7ba95be62c72a1b70fd9d8c040a85491f4",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5518,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/altwsyat-alamlyh-lsyaghh-aqd-qwy",
+      "title": "Practical Recommendations for Drafting a Strong Contract",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-altwsyat-alamlyh-lsyaghh-aqd-qwy.html",
+      "sha256": "cdfac065332fe879330edca47613848378a45ddd78f3d1154255d0cb18dea70e",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5251,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/anha-aqd-alaml-bdwn-sbb-mshrwa",
+      "title": "Terminating an Employment Contract Without Lawful Cause",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-anha-aqd-alaml-bdwn-sbb-mshrwa.html",
+      "sha256": "b536cbba290b5db9bf0e5a7a9b03681b3b7077c6e6ad7e94f0828370d4e236ea",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 10665,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+      "title": "Commercial Franchise Agreements in the Saudi Legal System",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy.html",
+      "sha256": "d46312446b025ed11366791499a99a2782da013e417909e139c8507a9bbd5366",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 8269,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/aqwd-almqawlat-fy-alnzam-alsawdy",
+      "title": "Construction Contracts under Saudi Law",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-aqwd-almqawlat-fy-alnzam-alsawdy.html",
+      "sha256": "8f77b86aa0b4deae4316f608dce79bed206818ad0e3989f15e35a06b168c095f",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 9411,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+      "title": "Commercial Agency Contracts in the Saudi Legal System",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-aqwd-alwkalat-altjaryh-fy-alnzam-alsawd.html",
+      "sha256": "abac27ef3f3e3b336ab49b6daffc41f4953e230d1b91d2dea5244cb4c85ceaa9",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 10731,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/athbat-alaqwd-amam-alqda-alsawdy",
+      "title": "Proving Contracts Before the Saudi Courts",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-athbat-alaqwd-amam-alqda-alsawdy.html",
+      "sha256": "734bfbaef391ea0e8e679c84a3c5397a24da9d6e423da8ca33eb76f312649c3c",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 6783,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/bna-astratyjyh-aldfaa-qbl-bd-alkhswmh",
+      "title": "Building a Defense Strategy Before Litigation Begins",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-bna-astratyjyh-aldfaa-qbl-bd-alkhswmh.html",
+      "sha256": "460b9f7be061d2ddf0757731a9969342853a4496aa7e03cd3086ee617e4e0349",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 6208,
+      "proceduralPassages": [],
+      "destinationConclusion": "Pre-litigation defence preparation, not a post-judgment appeal/remedy article."
+    },
+    {
+      "route": "/blog/en/commercial-supply-contracts-in-saudi",
+      "title": "Commercial Supply Contracts in Saudi Arabia",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-commercial-supply-contracts-in-saudi.html",
+      "sha256": "9a29afcbe242dd03434db70186cefce393f82e9abd49d80cb117c9e76c4dc4b3",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 8150,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/consensual-formal-real-contracts-syrian-law",
+      "title": "Consensual, Formal, and Real Contracts in Syrian Law",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-consensual-formal-real-contracts-syrian-law.html",
+      "sha256": "9d83825dc1e69c4a870a694b9830e0c9ba0f9603b26ff967c1982d97af59026c",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 11732,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/contract-interpretation-syrian-courts",
+      "title": "Contract Interpretation Before Syrian Courts",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-contract-interpretation-syrian-courts.html",
+      "sha256": "79096a9fd057ba82bd4841feb14c37c3128aa5e3c28f31935e9e6eabca77e201",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 7028,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/contractual-liability-in-commercial-transactions",
+      "title": "Contractual Liability in Commercial Transactions",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-contractual-liability-in-commercial-transactions.html",
+      "sha256": "8066c585a5cb7f3d32089564a789f6c98606e129094b596d70ed716b483f6b91",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 4994,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/defects-of-will-syrian-law",
+      "title": "Defects of Consent in Syrian Law: Mistake, Duress, Fraud, and Exploitation",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-defects-of-will-syrian-law.html",
+      "sha256": "aecd4362a98423604d868ec1ee2bebf9d535d30aecb1b6e93a5c0f087dcb1251",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 7417,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/e-contracts-legal-validity-saudi-arabia",
+      "title": "Electronic Contracts in the Saudi Legal System",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-e-contracts-legal-validity-saudi-arabia.html",
+      "sha256": "d130dedc6507be1c613ef434d3b9e2f287968a97ee5ca5631c82854cafb1007d",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 7377,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/formation-of-commercial-contracts-saudi-law",
+      "title": "Formation of Commercial Contracts Under Saudi Law",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-formation-of-commercial-contracts-saudi-law.html",
+      "sha256": "a53f27a4d44ba594bbe6c4547818c6a48886924d00053dfacc00885d84162f29",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 6026,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+      "title": "Termination of Commercial Contracts under Saudi Law",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-fskh-alaqd-altjary-fy-alnzam-alsawdy.html",
+      "sha256": "ad8bd44dffe27d10947ffb937357db0ea6338e3058a89a765046da619ad4c379",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 7946,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+      "title": "Limits of the Conclusive Oath in Syrian Civil Evidence",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry.html",
+      "sha256": "09115adb6b966ea3d3d13e3d5383360c6e72822a373b45ceb21698d3f847cc0a",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 20400,
+      "proceduralPassages": [
+        "the oath to six months’ imprisonment; the judgment was upheld on appeal, and the convicted person appealed to the Court of Cassation. The issue became whether swearing an oath that contradicted official documents constituted perjury when the oath itse",
+        "ent; the judgment was upheld on appeal, and the convicted person appealed to the Court of Cassation. The issue became whether swearing an oath that contradicted official documents constituted perjury when the oath itself was legally inadmissible or un"
+      ],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+      "title": "Protecting the Client from Draft to Signature",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya.html",
+      "sha256": "9823d014c24c7755d5b881005619ae40c14296dc7b90bca8eb0212ab760b9e5c",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 7448,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+      "title": "Corporate Governance as a Safeguard for Minority Shareholders",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh.html",
+      "sha256": "60284ac45c7888be18f7aa18b36c7d36cd1d6afe6fef3f02a71b50e5074e1c50",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5650,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/hyn-ykwn-alaqrar-aqwa-mn-alankar",
+      "title": "When Admission Is Stronger Than Denial",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-hyn-ykwn-alaqrar-aqwa-mn-alankar.html",
+      "sha256": "3629629e7e381505b93bf4c9205f639bf9c8c62bdbe537c5f55dec1eba48e27b",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 11071,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa",
+      "title": "Not Every Claimed Amount Is Awarded: How to Break Down Commercial Claims Before Building a Defense",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa.html",
+      "sha256": "590b4017d27029db0fd85533968c609e208def64d74f4bffd4778d8ab0707c84",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 6545,
+      "proceduralPassages": [
+        " original claim, representing approximately 54.6% . The Court of Appeal subsequently upheld the outcome reached by the court of first instance. The legal value of this case lies not only in the figures. Rather, the dispute was transformed from the que"
+      ],
+      "destinationConclusion": "Commercial-claim merits and case outcome; passing appeal references do not supply a general rejection remedy."
+    },
+    {
+      "route": "/blog/en/mhl-alaqd-fy-alqanwn-alswry",
+      "title": "Subject Matter of a Contract under Syrian Law",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-mhl-alaqd-fy-alqanwn-alswry.html",
+      "sha256": "c883233d62f853c5c38950e6dbe4363388a0eed7fcba8757e53d03098c42382f",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 13799,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/mnhjyh-5why-fy-alaml-alqanwny",
+      "title": "The 5Why Methodology in Legal Practice",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-mnhjyh-5why-fy-alaml-alqanwny.html",
+      "sha256": "9702b75a30044fb4dce7198adcc4f64d8e54c210ac6c124d63aee79808b7b333",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5179,
+      "proceduralPassages": [
+        "us treating the cause Companies often address outcomes, such as: Appealing the judgment. Engaging a new lawyer. Gathering additional documents. Seeking witnesses. These steps are important but they address the effect . The 5Why methodology focuses on "
+      ],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa",
+      "title": "When Does an Arbitration Clause Lose Its Practical Effect?",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa.html",
+      "sha256": "4ae66f443c0cbaabdf602193d79a9936db8f40d7c5c16e98a1ca0b96d557f3d4",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 4434,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm",
+      "title": "When Can an Administrative Decision Be Annulled?",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm.html",
+      "sha256": "ae32497a8fa54ba233c42e336a7724d147a503b4751e16727962599c45d9fb1d",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 3657,
+      "proceduralPassages": [],
+      "destinationConclusion": "Administrative-decision annulment; different regime from ordinary Saudi judgment appeal."
+    },
+    {
+      "route": "/blog/en/mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh",
+      "title": "When Is Settlement Better Than Continuing Litigation?",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh.html",
+      "sha256": "006daf6524f38b6c1e40ea6c8e9e3ff827eaea375b10e0bd0b0fe73505587be9",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 8301,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "title": "When Is a Saudi Petition for Reconsideration Accepted?",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh.html",
+      "sha256": "7469d1c9e4d847522505906b559c7a841fde61a2668f1699ac78f5b2866573ed",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 11340,
+      "proceduralPassages": [
+        "ge. A petition for reconsideration is not an additional stage of appeal. Rather, it is an exceptional avenue for challenging final judgments and is available only in the cases specified by law, pursuant to Article 200 of the Sharia Procedure Law . Acc",
+        "on based on a final judgment subsequently issued by the Court of Appeal. The petitioner had previously relied on a first-instance judgment. An appellate judgment was then issued upholding it and becoming final. The petitioner subsequently filed a new ",
+        "eration of the case . Judicial details: Case before the Court of Appeal: No. 1277 Date of the quashed judgment: 30/08/1442 AH Date of the judgment treated as the decisive paper: 12/08/1442 AH Objection number before the Supreme Court: 421831124 Date o",
+        "in a new form does not transform a petition into a new avenue of appeal. Therefore, the most important step before filing a petition for reconsideration is not drafting the pleading, but determining whether the new fact actually falls within one of th"
+      ],
+      "destinationConclusion": "Exact exceptional reconsideration destination; root module owns expansion. Not substituted for ordinary appeal."
+    },
+    {
+      "route": "/blog/en/mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy",
+      "title": "When Does Exercising a Right Become Abusive Under Saudi Law?",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy.html",
+      "sha256": "5bc4b31b33ce2a33bb50d7df2584d77d114967350f7474e5861422b60b4ae09d",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 5267,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/mta-ysthq-alwsyt-altjary-kaml-amwlth",
+      "title": "When Is a Commercial Broker Entitled to Full Commission?",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-mta-ysthq-alwsyt-altjary-kaml-amwlth.html",
+      "sha256": "cca1bb145582b9442abb946a9fbf99ee12b87f9f73813faa57b5e4070e3ee187",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 6525,
+      "proceduralPassages": [
+        "by approximately 83.2% . The judgment was subsequently upheld on appeal. The Legal Lesson: This outcome reveals an important practical principle: A commission should not be read as a mere percentage; it is a formula linked to entitlement conditions, s",
+        "with a judgment for only SAR 584,131 , with the result upheld on appeal. Read the case study: How Did CounselO Help Reduce a Commercial Commission Claim by More Than 83%?"
+      ],
+      "destinationConclusion": "Commercial-claim merits and case outcome; passing appeal references do not supply a general rejection remedy."
+    },
+    {
+      "route": "/blog/en/mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+      "title": "When Does an Employee’s Signature on an Audit Record Become an Admission of Liability?",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh.html",
+      "sha256": "ab87a2267386eaacec4d011f880bbbd93f56c06c3b4efbacc9b99504e016a81e",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 6127,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/performance-of-contracts-in-good-faith-under-syrian-law",
+      "title": "Performance of Contracts in Good Faith under Syrian Law",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-performance-of-contracts-in-good-faith-under-syrian-law.html",
+      "sha256": "fb7f6db2bebe19261df33402de48299038d8b3e498240c3b134ebbd4272c2926",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 9671,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    },
+    {
+      "route": "/blog/en/syghh-mdhkrh-tfahm-qablh-lltadyl",
+      "title": "Amendable Memorandum of Understanding Template",
+      "file": "artifacts/legal-site/dist/public/__pages/blog-en-syghh-mdhkrh-tfahm-qablh-lltadyl.html",
+      "sha256": "ecb2fcc91ca2a0501d3865e1cb5a2af606be2b1d429afa756bc3f587c25478da",
+      "reviewType": "Title and rendered article-body procedural-fit screening; matched passages reviewed, not full legal certification of every paragraph.",
+      "bodyCharacters": 6899,
+      "proceduralPassages": [],
+      "destinationConclusion": "No genuine general Saudi appeal/refusal destination: article topic and body concern another substantive issue."
+    }
+  ]
+}

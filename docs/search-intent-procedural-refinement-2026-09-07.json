@@ -1,0 +1,563 @@
+{
+  "reviewedAt": "2026-09-07",
+  "status": "in-progress",
+  "method": "Manual intent grouping against nine reconsideration article answers and six explicitly Saudi library answers. Historical keyword mapping remains unchanged. Rendered delivery is checked separately; no page-query attribution or ranking result is inferred.",
+  "rows": [
+    {
+      "query": "التماس اعادة النظر في النظام السعودي",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "overview",
+      "requiredVisibleHeadings": [
+        "ما أسباب التماس إعادة النظر؟",
+        "أين يقدم الالتماس؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "التماس اعادة النظر",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "overview",
+      "requiredVisibleHeadings": [
+        "ما أسباب التماس إعادة النظر؟",
+        "أين يقدم الالتماس؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "اعادة النظر",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "overview",
+      "requiredVisibleHeadings": [
+        "ما أسباب التماس إعادة النظر؟",
+        "أين يقدم الالتماس؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "التماس اعادة النظر في الحكم",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "overview",
+      "requiredVisibleHeadings": [
+        "ما أسباب التماس إعادة النظر؟",
+        "أين يقدم الالتماس؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "اعادة التماس النظر",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "overview",
+      "requiredVisibleHeadings": [
+        "ما أسباب التماس إعادة النظر؟",
+        "أين يقدم الالتماس؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "اعادة النظر في الحكم",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "overview",
+      "requiredVisibleHeadings": [
+        "ما أسباب التماس إعادة النظر؟",
+        "أين يقدم الالتماس؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "شروط التماس اعادة النظر",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "grounds-and-acceptance",
+      "requiredVisibleHeadings": [
+        "ما أسباب التماس إعادة النظر؟",
+        "ماذا يتغير بعد القبول؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "طريقة التماس إعادة النظر",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "filing",
+      "requiredVisibleHeadings": [
+        "أين يقدم الالتماس؟",
+        "كيف يقدم الطلب عبر ناجز؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "طريقة تقديم التماس إعادة النظر",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "filing",
+      "requiredVisibleHeadings": [
+        "أين يقدم الالتماس؟",
+        "كيف يقدم الطلب عبر ناجز؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "طلب إعادة النظر في حكم المحكمة",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "overview",
+      "requiredVisibleHeadings": [
+        "ما أسباب التماس إعادة النظر؟",
+        "أين يقدم الالتماس؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "طلب التماس إعادة النظر",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "overview",
+      "requiredVisibleHeadings": [
+        "ما أسباب التماس إعادة النظر؟",
+        "أين يقدم الالتماس؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "قبول التماس اعادة النظر",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "grounds-and-acceptance",
+      "requiredVisibleHeadings": [
+        "ما أسباب التماس إعادة النظر؟",
+        "ماذا يتغير بعد القبول؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "مدة التماس إعادة النظر",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "deadline",
+      "requiredVisibleHeadings": [
+        "متى تبدأ مهلة الثلاثين يوماً؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "مدة تقديم التماس إعادة النظر",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "deadline",
+      "requiredVisibleHeadings": [
+        "متى تبدأ مهلة الثلاثين يوماً؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "ميعاد التماس إعادة النظر",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "deadline",
+      "requiredVisibleHeadings": [
+        "متى تبدأ مهلة الثلاثين يوماً؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "نموذج التماس إعادة النظر في السعودية",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "template",
+      "requiredVisibleHeadings": [
+        "نموذج قابل للتعديل لصحيفة التماس إعادة النظر في السعودية",
+        "الصفة والميعاد",
+        "سبب الالتماس وأثره",
+        "الطلبات",
+        "المرفقات والتوقيع"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-editorial-template-verified-in-local-initial-html",
+      "remainingGap": "Case-specific legal grounds, dates and relief require the actual file; the editable public outline is implemented and rendered.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "عدم قبول التماس إعادة النظر",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "nonacceptance",
+      "requiredVisibleHeadings": [
+        "هل يجوز تكرار الالتماس؟",
+        "هل تستأنف جميع الأحكام اللاحقة؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "اعادة النظر في حكم المحكمة",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "overview",
+      "requiredVisibleHeadings": [
+        "ما أسباب التماس إعادة النظر؟",
+        "أين يقدم الالتماس؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "التماس إعادة النظر أمام محكمة الاستئناف",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "court-route",
+      "requiredVisibleHeadings": [
+        "أين يقدم الالتماس؟",
+        "ماذا تبين مذكرة الالتماس؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "التماس اعادة النظر في حكم الاستئناف",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "court-route",
+      "requiredVisibleHeadings": [
+        "أين يقدم الالتماس؟",
+        "ماذا تبين مذكرة الالتماس؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "دعوى التماس اعادة النظر",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "intent": "overview",
+      "requiredVisibleHeadings": [
+        "ما أسباب التماس إعادة النظر؟",
+        "أين يقدم الالتماس؟"
+      ],
+      "scope": "Saudi judgments governed by the Law of Sharia Procedure and objection regulations; unqualified wording does not prove Saudi intent or proceeding type.",
+      "assessment": "scoped-source-backed-answer-implemented",
+      "remainingGap": "Identify jurisdiction, case type, actual ground and file-specific requirements before applying this scoped answer.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "الاعتراض على الحكم",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "intent": "ordinary-objection-guidance",
+      "requiredVisibleHeadings": [
+        "من يحق له الاعتراض وفق نظام المرافعات الشرعية السعودي؟",
+        "ماذا تتضمن مذكرة الاعتراض بطلب الاستئناف؟",
+        "كيف يقدم الاعتراض على الحكم عبر ناجز؟"
+      ],
+      "scope": "For judgments governed by Saudi Arabia’s Law of Sharia Procedure. Identify the court, decision and case type first. Criminal, administrative and special commercial procedures are separate; designated minor claims may not be appealable.",
+      "assessment": "scoped-source-backed-library-answer-implemented",
+      "remainingGap": "This is a scoped explanation; identify the actual judgment, proceeding and admissible challenge. A memorandum checklist is not a ready-to-file form.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "بعد الاعتراض على الحكم",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "intent": "ordinary-objection-guidance",
+      "requiredVisibleHeadings": [
+        "ماذا يحدث بعد تقديم الاعتراض؟"
+      ],
+      "scope": "For judgments governed by Saudi Arabia’s Law of Sharia Procedure. Identify the court, decision and case type first. Criminal, administrative and special commercial procedures are separate; designated minor claims may not be appealable.",
+      "assessment": "scoped-source-backed-library-answer-implemented",
+      "remainingGap": "This is a scoped explanation; identify the actual judgment, proceeding and admissible challenge. A memorandum checklist is not a ready-to-file form.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "خطوات الاعتراض على الحكم",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "intent": "ordinary-objection-guidance",
+      "requiredVisibleHeadings": [
+        "كيف يقدم الاعتراض على الحكم عبر ناجز؟",
+        "ماذا تتضمن مذكرة الاعتراض بطلب الاستئناف؟"
+      ],
+      "scope": "For judgments governed by Saudi Arabia’s Law of Sharia Procedure. Identify the court, decision and case type first. Criminal, administrative and special commercial procedures are separate; designated minor claims may not be appealable.",
+      "assessment": "scoped-source-backed-library-answer-implemented",
+      "remainingGap": "This is a scoped explanation; identify the actual judgment, proceeding and admissible challenge. A memorandum checklist is not a ready-to-file form.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "شروط الاعتراض على الحكم",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "intent": "ordinary-objection-guidance",
+      "requiredVisibleHeadings": [
+        "من يحق له الاعتراض وفق نظام المرافعات الشرعية السعودي؟",
+        "ماذا تتضمن مذكرة الاعتراض بطلب الاستئناف؟"
+      ],
+      "scope": "For judgments governed by Saudi Arabia’s Law of Sharia Procedure. Identify the court, decision and case type first. Criminal, administrative and special commercial procedures are separate; designated minor claims may not be appealable.",
+      "assessment": "scoped-source-backed-library-answer-implemented",
+      "remainingGap": "This is a scoped explanation; identify the actual judgment, proceeding and admissible challenge. A memorandum checklist is not a ready-to-file form.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "طرق الاعتراض على الحكم",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "intent": "ordinary-objection-guidance",
+      "requiredVisibleHeadings": [
+        "من يحق له الاعتراض وفق نظام المرافعات الشرعية السعودي؟",
+        "إذا لم ينجح الاستئناف، هل تعيد المحكمة العليا وزن الوقائع؟"
+      ],
+      "scope": "For judgments governed by Saudi Arabia’s Law of Sharia Procedure. Identify the court, decision and case type first. Criminal, administrative and special commercial procedures are separate; designated minor claims may not be appealable.",
+      "assessment": "scoped-source-backed-library-answer-implemented",
+      "remainingGap": "This is a scoped explanation; identify the actual judgment, proceeding and admissible challenge. A memorandum checklist is not a ready-to-file form.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "طلب الاعتراض على الحكم",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "intent": "ordinary-objection-guidance",
+      "requiredVisibleHeadings": [
+        "كيف يقدم الاعتراض على الحكم عبر ناجز؟",
+        "ماذا تتضمن مذكرة الاعتراض بطلب الاستئناف؟"
+      ],
+      "scope": "For judgments governed by Saudi Arabia’s Law of Sharia Procedure. Identify the court, decision and case type first. Criminal, administrative and special commercial procedures are separate; designated minor claims may not be appealable.",
+      "assessment": "scoped-source-backed-library-answer-implemented",
+      "remainingGap": "This is a scoped explanation; identify the actual judgment, proceeding and admissible challenge. A memorandum checklist is not a ready-to-file form.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "رفض الاعتراض على الحكم",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "intent": "ordinary-objection-guidance",
+      "requiredVisibleHeadings": [
+        "إذا لم ينجح الاستئناف، هل تعيد المحكمة العليا وزن الوقائع؟"
+      ],
+      "scope": "For judgments governed by Saudi Arabia’s Law of Sharia Procedure. Identify the court, decision and case type first. Criminal, administrative and special commercial procedures are separate; designated minor claims may not be appealable.",
+      "assessment": "scoped-source-backed-library-answer-implemented",
+      "remainingGap": "This is a scoped explanation; identify the actual judgment, proceeding and admissible challenge. A memorandum checklist is not a ready-to-file form.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "طريقة الاعتراض على الحكم",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "intent": "ordinary-objection-guidance",
+      "requiredVisibleHeadings": [
+        "كيف يقدم الاعتراض على الحكم عبر ناجز؟",
+        "ماذا تتضمن مذكرة الاعتراض بطلب الاستئناف؟"
+      ],
+      "scope": "For judgments governed by Saudi Arabia’s Law of Sharia Procedure. Identify the court, decision and case type first. Criminal, administrative and special commercial procedures are separate; designated minor claims may not be appealable.",
+      "assessment": "scoped-source-backed-library-answer-implemented",
+      "remainingGap": "This is a scoped explanation; identify the actual judgment, proceeding and admissible challenge. A memorandum checklist is not a ready-to-file form.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "رفض الدعوى",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "intent": "ordinary-objection-guidance",
+      "requiredVisibleHeadings": [
+        "هل أعيد رفع الدعوى نفسها بعد رفضها؟"
+      ],
+      "scope": "For judgments governed by Saudi Arabia’s Law of Sharia Procedure. Identify the court, decision and case type first. Criminal, administrative and special commercial procedures are separate; designated minor claims may not be appealable.",
+      "assessment": "scoped-source-backed-library-answer-implemented",
+      "remainingGap": "This is a scoped explanation; identify the actual judgment, proceeding and admissible challenge. A memorandum checklist is not a ready-to-file form.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "رفض الدعوى في النظام السعودي",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "intent": "ordinary-objection-guidance",
+      "requiredVisibleHeadings": [
+        "هل أعيد رفع الدعوى نفسها بعد رفضها؟"
+      ],
+      "scope": "For judgments governed by Saudi Arabia’s Law of Sharia Procedure. Identify the court, decision and case type first. Criminal, administrative and special commercial procedures are separate; designated minor claims may not be appealable.",
+      "assessment": "scoped-source-backed-library-answer-implemented",
+      "remainingGap": "This is a scoped explanation; identify the actual judgment, proceeding and admissible challenge. A memorandum checklist is not a ready-to-file form.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "في حال الاعتراض على الحكم",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "intent": "ordinary-objection-guidance",
+      "requiredVisibleHeadings": [
+        "ماذا يحدث بعد تقديم الاعتراض؟"
+      ],
+      "scope": "For judgments governed by Saudi Arabia’s Law of Sharia Procedure. Identify the court, decision and case type first. Criminal, administrative and special commercial procedures are separate; designated minor claims may not be appealable.",
+      "assessment": "scoped-source-backed-library-answer-implemented",
+      "remainingGap": "This is a scoped explanation; identify the actual judgment, proceeding and admissible challenge. A memorandum checklist is not a ready-to-file form.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "الاعتراض على الحكم القضائي",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "intent": "ordinary-objection-guidance",
+      "requiredVisibleHeadings": [
+        "من يحق له الاعتراض وفق نظام المرافعات الشرعية السعودي؟",
+        "ماذا تتضمن مذكرة الاعتراض بطلب الاستئناف؟",
+        "كيف يقدم الاعتراض على الحكم عبر ناجز؟"
+      ],
+      "scope": "For judgments governed by Saudi Arabia’s Law of Sharia Procedure. Identify the court, decision and case type first. Criminal, administrative and special commercial procedures are separate; designated minor claims may not be appealable.",
+      "assessment": "scoped-source-backed-library-answer-implemented",
+      "remainingGap": "This is a scoped explanation; identify the actual judgment, proceeding and admissible challenge. A memorandum checklist is not a ready-to-file form.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "طريقة كتابة الاعتراض على الحكم",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "intent": "ordinary-objection-guidance",
+      "requiredVisibleHeadings": [
+        "ماذا تتضمن مذكرة الاعتراض بطلب الاستئناف؟"
+      ],
+      "scope": "For judgments governed by Saudi Arabia’s Law of Sharia Procedure. Identify the court, decision and case type first. Criminal, administrative and special commercial procedures are separate; designated minor claims may not be appealable.",
+      "assessment": "scoped-source-backed-library-answer-implemented",
+      "remainingGap": "This is a scoped explanation; identify the actual judgment, proceeding and admissible challenge. A memorandum checklist is not a ready-to-file form.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    },
+    {
+      "query": "رفض الدعوى في الاستئناف",
+      "source": "saved-keyword-export; original library assignment preserved",
+      "originalDestination": "/ar/legal-library",
+      "proposedDestination": "/ar/legal-library#saudi-judgment-objections",
+      "intent": "ordinary-objection-guidance",
+      "requiredVisibleHeadings": [
+        "إذا لم ينجح الاستئناف، هل تعيد المحكمة العليا وزن الوقائع؟",
+        "هل أعيد رفع الدعوى نفسها بعد رفضها؟"
+      ],
+      "scope": "For judgments governed by Saudi Arabia’s Law of Sharia Procedure. Identify the court, decision and case type first. Criminal, administrative and special commercial procedures are separate; designated minor claims may not be appealable.",
+      "assessment": "scoped-source-backed-library-answer-implemented",
+      "remainingGap": "This is a scoped explanation; identify the actual judgment, proceeding and admissible challenge. A memorandum checklist is not a ready-to-file form.",
+      "pageFullyCovered": false,
+      "measuredLandingPage": false
+    }
+  ]
+}

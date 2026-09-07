@@ -193,6 +193,22 @@ test("UAE problem titles stay tied to the service instead of using bare generic 
   }
 });
 
+test("Syria titles describe the actual issue while preserving published URLs", () => {
+  for (const [service, slug, title] of [
+    ["employment-law", "sponsorship-transfer-dispute", "Changing employer and employment-record dispute"],
+    ["employment-law", "visa-exit-and-re-entry-restriction-affecting-employment", "Travel and entry restrictions affecting employment"],
+    ["enforcement", "service-suspension-and-asset-freezing-request", "Asset attachment and protective-measure request"],
+    ["real-estate", "property-service-charge-and-maintenance-dispute", "Shared-building expenses and maintenance dispute"],
+    ["business-law", "commercial-concealment-dispute", "Disputed business ownership and control"],
+  ]) {
+    const page = getLegalProblemPages("syr", service).find(page => page.slug === slug);
+    assert.equal(page?.titleEn, title);
+    assert.equal(page?.intentBriefTitle, title);
+    assert.equal(page?.contentUpdatedAt, "2026-09-07");
+  }
+  assert.equal(getLegalProblemPages("sa", "employment-law").find(page => page.slug === "sponsorship-transfer-dispute")?.titleEn, "Sponsorship transfer dispute");
+});
+
 test("every region carries the cross-region lead-gap coverage set", () => {
   const requiredByRegion: Record<"sa" | "syr" | "uae", RegExp[]> = {
     sa: [

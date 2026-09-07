@@ -246,7 +246,7 @@ export default function BlogPost() {
     ...assignArticleProvenance({ ...post, contentType }),
     primaryAuthorName: fallbackProvenance.primaryAuthorName,
     primaryAuthorNameAr: fallbackProvenance.primaryAuthorNameAr,
-    primaryAuthorUrl: post.primaryAuthorUrl || fallbackProvenance.primaryAuthorUrl,
+    primaryAuthorUrl: fallbackProvenance.primaryAuthorEntityId ? fallbackProvenance.primaryAuthorUrl : post.primaryAuthorUrl || fallbackProvenance.primaryAuthorUrl,
     // Every public article carries the same verified legal reviewer attribution,
     // including legacy records that may contain an older reviewer label.
     legalReviewerName: fallbackProvenance.legalReviewerName,
@@ -304,15 +304,9 @@ export default function BlogPost() {
     },
     "author": {
       "@type": "Organization",
-      "@id": COUNSELO_ENTITY_IDS.organization,
+      "@id": provenance.primaryAuthorEntityId ?? COUNSELO_ENTITY_IDS.organization,
       "name": useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName,
-      "url": `https://counselo-legal.com${provenance.primaryAuthorUrl}`,
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://counselo-legal.com/logo.png",
-        "width": 512,
-        "height": 512,
-      },
+      "url": new URL(provenance.primaryAuthorUrl, "https://counselo-legal.com").href,
     },
     "publisher": {
       "@type": "Organization",
@@ -423,7 +417,7 @@ export default function BlogPost() {
             initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="lg:col-span-2"
+            className="min-w-0 lg:col-span-2"
           >
             <section className="mb-10 border border-border bg-muted/25 p-5" aria-labelledby="article-provenance-heading">
               <h2 id="article-provenance-heading" className="text-lg font-serif font-bold text-foreground mb-4">
@@ -552,8 +546,8 @@ export default function BlogPost() {
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   {lang === "en"
-                    ? `Published ${formatDate(post.date, lang)}${post.updatedAt ? ` · Updated ${formatDate(post.updatedAt, lang)}` : ""}`
-                    : `نُشر ${formatDate(post.date, lang)}${post.updatedAt ? ` · حُدّث ${formatDate(post.updatedAt, lang)}` : ""}`}
+                    ? `Published ${formatDate(post.date, lang)}${editorialUpdatedAt || post.updatedAt ? ` · Updated ${formatDate(editorialUpdatedAt || post.updatedAt!, lang)}` : ""}`
+                    : `نُشر ${formatDate(post.date, lang)}${editorialUpdatedAt || post.updatedAt ? ` · حُدّث ${formatDate(editorialUpdatedAt || post.updatedAt!, lang)}` : ""}`}
                 </p>
                 <Link href={provenance.legalReviewerUrl} className="inline-flex mt-3 text-sm font-semibold text-primary hover:underline">
                   {lang === "en" ? "Legal leadership and experience" : "القيادة والخبرة القانونية"}

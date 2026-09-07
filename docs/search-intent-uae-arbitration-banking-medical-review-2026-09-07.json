@@ -1,0 +1,4321 @@
+{
+  "reviewedAt": "2026-09-07",
+  "taskStatus": "in-progress",
+  "scope": {
+    "routes": 24,
+    "matterRoutes": 18,
+    "serviceRoutes": 6,
+    "newGuidanceRecords": 11,
+    "fullyCoveredPages": 0
+  },
+  "method": "Read the first two actual primary answers and all question inventories for each English/Arabic route from rendered coverage evidence, confirmed question delivery in current HTML, recorded current and prior hashes. Reviewed existing source mappings. No claim that all existing answers or all possible intents were comprehensively verified.",
+  "materialFindings": [
+    "Exact services are arbitration-mediation, banking-finance and healthcare-medical-liability.",
+    "Federal arbitration procedural deadlines do not automatically apply to DIFC/ADGM; institutional emergency eligibility distinct from tribunal power.",
+    "DIAC2022 official AppendixII verifies pre-constitution application and tightly conditional without-notice request.",
+    "CBUAE consumer reimbursement has fraud/gross-negligence exception; restructuring rejection requires written reasons, not automatic acceptance.",
+    "Medical Liability Article18 requires committee presentation before compensation action acceptance.",
+    "DHA2026 access right and DOHSeptember2026 complaint/appeal processes are local regulator-specific.",
+    "Personal guarantee main-remedy gap remains; no invented newlaw guarantee rule or universal financial-free-zone consumer remedy."
+  ],
+  "sourceEvidence": [
+    {
+      "url": "https://mohap.gov.ae/documents/20117/454960/126c23cb-1b92-4820-9662-ca60c0241462.pdf/89fb7ca9-d0ea-630b-88ca-fb8040ba77a8?t=1737675580211",
+      "retrievedAt": "2026-09-07",
+      "retrieval": "Official indexed substantive primary text; some direct UAE opens failed. No live source uptime guarantee."
+    },
+    {
+      "url": "https://rulebook.centralbank.ae/en/rulebook/article-5-business-conduct",
+      "retrievedAt": "2026-09-07",
+      "retrieval": "Official indexed substantive primary text; some direct UAE opens failed. No live source uptime guarantee."
+    },
+    {
+      "url": "https://uaelegislation.gov.ae/ar/legislations/1191?keyword=%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86",
+      "retrievedAt": "2026-09-07",
+      "retrieval": "Official indexed substantive primary text; some direct UAE opens failed. No live source uptime guarantee."
+    },
+    {
+      "url": "https://uaelegislation.gov.ae/en/legislations/1069/download",
+      "retrievedAt": "2026-09-07",
+      "retrieval": "Official indexed substantive primary text; some direct UAE opens failed. No live source uptime guarantee."
+    },
+    {
+      "url": "https://uncitral.un.org/sites/uncitral.un.org/files/media-documents/uncitral/en/new-york-convention-e.pdf",
+      "retrievedAt": "2026-09-07",
+      "retrieval": "Official indexed substantive primary text; some direct UAE opens failed. No live source uptime guarantee."
+    },
+    {
+      "url": "https://www.centralbank.ae/media/5crd24gm/cp-standards-pdf.pdf",
+      "retrievedAt": "2026-09-07",
+      "retrieval": "Official indexed substantive primary text; some direct UAE opens failed. No live source uptime guarantee."
+    },
+    {
+      "url": "https://www.dha.gov.ae/uploads/012026/Standards%20for%20Code%20of%20Ethics%20and%20Professional%20Conduct%20for%20Health%20Professionals%20V1%20202613351.pdf",
+      "retrievedAt": "2026-09-07",
+      "retrieval": "Official indexed substantive primary text; some direct UAE opens failed. No live source uptime guarantee."
+    },
+    {
+      "url": "https://www.diac.com/wp-content/uploads/2023/05/DIAC-2022-Rules-EN.pdf",
+      "retrievedAt": "2026-09-07",
+      "retrieval": "Official indexed substantive primary text; some direct UAE opens failed. No live source uptime guarantee."
+    },
+    {
+      "url": "https://www.doh.gov.ae/en/Appeal-request-for-medical-error-complaint",
+      "retrievedAt": "2026-09-07",
+      "retrieval": "Official indexed substantive primary text; some direct UAE opens failed. No live source uptime guarantee."
+    },
+    {
+      "url": "https://www.doh.gov.ae/en/Investigation-Request-for-Medical-Error",
+      "retrievedAt": "2026-09-07",
+      "retrieval": "Official indexed substantive primary text; some direct UAE opens failed. No live source uptime guarantee."
+    },
+    {
+      "url": "https://www.moet.gov.ae/documents/20121/0/%D9%82%D8%A7%D9%86%D9%88%D9%86%2B%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%8A%D9%85%2B%281%29.pdf/307aaa2e-b43c-0978-e612-b8f698203235",
+      "retrievedAt": "2026-09-07",
+      "retrieval": "Official indexed substantive primary text; some direct UAE opens failed. No live source uptime guarantee."
+    }
+  ],
+  "validation": "Scoped tsx import and catalogue IDs checked; root full build and browser excluded from subagent scope.",
+  "pages": [
+    {
+      "route": "/uae/ar/services/arbitration-mediation",
+      "language": "ar",
+      "primaryIntent": "التحكيم والوساطة في الإمارات العربية المتحدة",
+      "supportingResearchIntents": [
+        "الاتفاق والمقر",
+        "الدفع بالاختصاص",
+        "الحماية العاجلة",
+        "تنفيذ الحكم"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-arbitration-mediation.html",
+        "sha256": "09fb14ed873bf0a821ea0608ae678f3dc227c769b5b7db0ac11542eb788c94c5",
+        "priorCoverageSha256": "09fb14ed873bf0a821ea0608ae678f3dc227c769b5b7db0ac11542eb788c94c5",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "ما الذي أفحصه قبل الاعتماد على شرط التحكيم؟",
+          "ما مستندات استشارة التحكيم والوساطة في الإمارات؟",
+          "هل تشمل استشارة التحكيم والوساطة المسألة التي أواجهها في الإمارات؟",
+          "ما الإطار الإماراتي المنطبق على مسألة التحكيم والوساطة؟",
+          "ما الجهة أو المحكمة المختصة بمسائل التحكيم والوساطة؟",
+          "ما الذي ينبغي تقديمه للمراجعة القانونية الإماراتية الأولية؟",
+          "هل يمكن بدء استشارة التحكيم والوساطة أونلاين؟",
+          "متى ينبغي طلب المشورة القانونية في الإمارات؟",
+          "ماذا أفعل إذا كانت مستندات التحكيم والوساطة ناقصة أو متعارضة؟",
+          "ماذا لو تعارضت التزامات تعاقدية أو تنظيمية أو غيرها؟",
+          "ماذا أفعل إذا اقترب ميعاد إخطار أو اعتراض أو طعن أو ربما انقضى؟",
+          "كيف أحفظ الأدلة أو أطلب حماية عاجلة في مسألة التحكيم والوساطة؟"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "التحكيم والوساطة في الإمارات العربية المتحدة"
+          },
+          {
+            "level": "h2",
+            "text": "الخدمة في لمحة"
+          },
+          {
+            "level": "h2",
+            "text": "ما الذي يجب التحقق منه قانونياً؟"
+          },
+          {
+            "level": "h2",
+            "text": "ما نغطيه"
+          },
+          {
+            "level": "h2",
+            "text": "المشكلات القانونية الشائعة"
+          },
+          {
+            "level": "h2",
+            "text": "مستندات تساعد في التقييم الأولي"
+          },
+          {
+            "level": "h2",
+            "text": "ماذا يحدث بعد التقييم الأولي؟"
+          },
+          {
+            "level": "h3",
+            "text": "فهم المسألة"
+          },
+          {
+            "level": "h3",
+            "text": "التحقق القانوني"
+          },
+          {
+            "level": "h3",
+            "text": "تأكيد النطاق"
+          },
+          {
+            "level": "h3",
+            "text": "تسليم المخرج"
+          },
+          {
+            "level": "h2",
+            "text": "الأسئلة الشائعة"
+          },
+          {
+            "level": "h2",
+            "text": "مصادر قانونية رسمية"
+          },
+          {
+            "level": "h2",
+            "text": "ابدأ مراجعة مسألتك"
+          },
+          {
+            "level": "h2",
+            "text": "خدمات قانونية مرتبطة"
+          },
+          {
+            "level": "h3",
+            "text": "بحاجة إلى مشورة فورية؟"
+          },
+          {
+            "level": "h2",
+            "text": "لماذا يختار العملاء كاونسلو؟"
+          },
+          {
+            "level": "h3",
+            "text": "قيادة قانونية خبيرة"
+          },
+          {
+            "level": "h3",
+            "text": "خبرة عملية واسعة"
+          },
+          {
+            "level": "h3",
+            "text": "نموذج تمثيل واضح"
+          },
+          {
+            "level": "h3",
+            "text": "العربية والإنجليزية"
+          },
+          {
+            "level": "h3",
+            "text": "سرية مهنية"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق خدمة شفاف"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث المقالات والأعمال القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل دولة الإمارات. تفكير دقيق في الاختصاص."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-federal-arbitration-jurisdiction-defence-stage",
+        "uae-federal-tribunal-preservation-measures",
+        "uae-foreign-award-convention-documents",
+        "diac-2022-emergency-application-stage"
+      ],
+      "sourceUrls": [
+        "https://uaelegislation.gov.ae/en/legislations/1069/download",
+        "https://uncitral.un.org/sites/uncitral.un.org/files/media-documents/uncitral/en/new-york-convention-e.pdf",
+        "https://www.diac.com/wp-content/uploads/2023/05/DIAC-2022-Rules-EN.pdf",
+        "https://www.moet.gov.ae/documents/20121/0/%D9%82%D8%A7%D9%86%D9%88%D9%86%2B%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%8A%D9%85%2B%281%29.pdf/307aaa2e-b43c-0978-e612-b8f698203235"
+      ],
+      "individualReviewConclusion": "Federal and DIAC procedural branches added. Mediation, institution selection, costs, DIFC/ADGM seat rules and local execution procedures need further review.",
+      "unresolvedGaps": [
+        "Federal and DIAC procedural branches added. Mediation, institution selection, costs, DIFC/ADGM seat rules and local execution procedures need further review.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/ar/services/arbitration-mediation/challenge-to-arbitration-jurisdiction",
+      "language": "ar",
+      "primaryIntent": "الطعن في اختصاص هيئة التحكيم",
+      "supportingResearchIntents": [
+        "الدفع بمرحلة الدفاع",
+        "الصلاحية والنطاق",
+        "الدفع المتأخر",
+        "المراجعة القضائية حسب المقر"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-arbitration-mediation-challenge-to-arbitration-jurisdiction.html",
+        "sha256": "2c4de16fd03897d8c88670c83f79ac1cdb2b06d10e44e2137e956d9861228c97",
+        "priorCoverageSha256": "2c4de16fd03897d8c88670c83f79ac1cdb2b06d10e44e2137e956d9861228c97",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "ما الاعتراض المحدد على اختصاص هيئة التحكيم؟",
+          "ما أول خطوة في مسألة الطعن في اختصاص هيئة التحكيم؟",
+          "ما المستندات المفيدة لتقييم الطعن في اختصاص هيئة التحكيم؟",
+          "هل يمكن أن تراجع كاونسلو مسألة الطعن في اختصاص هيئة التحكيم أونلاين؟",
+          "كيف تساعد كاونسلو في الطعن في اختصاص هيئة التحكيم؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "الطعن في اختصاص هيئة التحكيم"
+          },
+          {
+            "level": "h2",
+            "text": "المسألة في لمحة"
+          },
+          {
+            "level": "h2",
+            "text": "ما الذي يجب التحقق منه قانونياً في ملفك؟"
+          },
+          {
+            "level": "h2",
+            "text": "ماذا تقدم كاونسلو في مسألة الطعن في اختصاص هيئة التحكيم؟"
+          },
+          {
+            "level": "h3",
+            "text": "1. ترسل المسألة"
+          },
+          {
+            "level": "h3",
+            "text": "2. تدرس كاونسلو وتؤكد النطاق"
+          },
+          {
+            "level": "h3",
+            "text": "3. تدفع ونبدأ العمل"
+          },
+          {
+            "level": "h3",
+            "text": "4. تتلقى الرد القانوني"
+          },
+          {
+            "level": "h2",
+            "text": "المستندات التي تساعدنا على البدء"
+          },
+          {
+            "level": "h2",
+            "text": "الأسئلة الشائعة"
+          },
+          {
+            "level": "h2",
+            "text": "ابدأ مراجعة مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "للحصول على رد أولي أكثر فائدة، أرسل:"
+          },
+          {
+            "level": "h2",
+            "text": "مسائل مرتبطة"
+          },
+          {
+            "level": "h2",
+            "text": "استشارة الطعن في اختصاص هيئة التحكيم"
+          },
+          {
+            "level": "h2",
+            "text": "لماذا يختار العملاء كاونسلو؟"
+          },
+          {
+            "level": "h3",
+            "text": "قيادة قانونية خبيرة"
+          },
+          {
+            "level": "h3",
+            "text": "خبرة عملية واسعة"
+          },
+          {
+            "level": "h3",
+            "text": "نموذج تمثيل واضح"
+          },
+          {
+            "level": "h3",
+            "text": "العربية والإنجليزية"
+          },
+          {
+            "level": "h3",
+            "text": "سرية مهنية"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق خدمة شفاف"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث المقالات والأعمال القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل دولة الإمارات. تفكير دقيق في الاختصاص."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-federal-arbitration-jurisdiction-defence-stage"
+      ],
+      "sourceUrls": [
+        "https://www.moet.gov.ae/documents/20121/0/%D9%82%D8%A7%D9%86%D9%88%D9%86%2B%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%8A%D9%85%2B%281%29.pdf/307aaa2e-b43c-0978-e612-b8f698203235"
+      ],
+      "individualReviewConclusion": "Federal Article20 deadline directly answered. Article19 preliminary jurisdiction decision court challenge, validity/capacity merits, waiver and DIFC/ADGM variants remain open.",
+      "unresolvedGaps": [
+        "Federal Article20 deadline directly answered. Article19 preliminary jurisdiction decision court challenge, validity/capacity merits, waiver and DIFC/ADGM variants remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/ar/services/arbitration-mediation/emergency-arbitration-and-interim-measures",
+      "language": "ar",
+      "primaryIntent": "التحكيم الطارئ والتدابير المؤقتة",
+      "supportingResearchIntents": [
+        "طلب المركز قبل تشكيل الهيئة",
+        "دليل الاستعجال",
+        "استثناء الإخطار",
+        "سلطة الهيئة في الحفظ"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-arbitration-mediation-emergency-arbitration-and-interim-measures.html",
+        "sha256": "2038d67422d8512e8cdc0e181b19baf7d8c1259e0ae335c8fe750d943e175fa8",
+        "priorCoverageSha256": "2038d67422d8512e8cdc0e181b19baf7d8c1259e0ae335c8fe750d943e175fa8",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "هل تتضمن القواعد المتفق عليها إجراء محكم طوارئ؟",
+          "ما أول خطوة في مسألة التحكيم الطارئ والتدابير المؤقتة؟",
+          "ما المستندات المفيدة لتقييم التحكيم الطارئ والتدابير المؤقتة؟",
+          "هل يمكن أن تراجع كاونسلو مسألة التحكيم الطارئ والتدابير المؤقتة أونلاين؟",
+          "كيف تساعد كاونسلو في التحكيم الطارئ والتدابير المؤقتة؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "التحكيم الطارئ والتدابير المؤقتة"
+          },
+          {
+            "level": "h2",
+            "text": "المسألة في لمحة"
+          },
+          {
+            "level": "h2",
+            "text": "ما الذي يجب التحقق منه قانونياً في ملفك؟"
+          },
+          {
+            "level": "h2",
+            "text": "ماذا تقدم كاونسلو في مسألة التحكيم الطارئ والتدابير المؤقتة؟"
+          },
+          {
+            "level": "h3",
+            "text": "1. ترسل المسألة"
+          },
+          {
+            "level": "h3",
+            "text": "2. تدرس كاونسلو وتؤكد النطاق"
+          },
+          {
+            "level": "h3",
+            "text": "3. تدفع ونبدأ العمل"
+          },
+          {
+            "level": "h3",
+            "text": "4. تتلقى الرد القانوني"
+          },
+          {
+            "level": "h2",
+            "text": "المستندات التي تساعدنا على البدء"
+          },
+          {
+            "level": "h2",
+            "text": "الأسئلة الشائعة"
+          },
+          {
+            "level": "h2",
+            "text": "ابدأ مراجعة مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "للحصول على رد أولي أكثر فائدة، أرسل:"
+          },
+          {
+            "level": "h2",
+            "text": "مسائل مرتبطة"
+          },
+          {
+            "level": "h2",
+            "text": "استشارة التحكيم الطارئ والتدابير المؤقتة"
+          },
+          {
+            "level": "h2",
+            "text": "لماذا يختار العملاء كاونسلو؟"
+          },
+          {
+            "level": "h3",
+            "text": "قيادة قانونية خبيرة"
+          },
+          {
+            "level": "h3",
+            "text": "خبرة عملية واسعة"
+          },
+          {
+            "level": "h3",
+            "text": "نموذج تمثيل واضح"
+          },
+          {
+            "level": "h3",
+            "text": "العربية والإنجليزية"
+          },
+          {
+            "level": "h3",
+            "text": "سرية مهنية"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق خدمة شفاف"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث المقالات والأعمال القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل دولة الإمارات. تفكير دقيق في الاختصاص."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-federal-tribunal-preservation-measures",
+        "diac-2022-emergency-application-stage"
+      ],
+      "sourceUrls": [
+        "https://uaelegislation.gov.ae/en/legislations/1069/download",
+        "https://www.diac.com/wp-content/uploads/2023/05/DIAC-2022-Rules-EN.pdf"
+      ],
+      "individualReviewConclusion": "DIAC2022 application and federal tribunal measures now substantive. Rule applicability/opt-out, court enforcement, security, other institutions and DIFC/ADGM relief remain open.",
+      "unresolvedGaps": [
+        "DIAC2022 application and federal tribunal measures now substantive. Rule applicability/opt-out, court enforcement, security, other institutions and DIFC/ADGM relief remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/ar/services/arbitration-mediation/foreign-arbitral-award-enforcement",
+      "language": "ar",
+      "primaryIntent": "تنفيذ حكم التحكيم الأجنبي",
+      "supportingResearchIntents": [
+        "توثيق الحكم والاتفاق",
+        "الترجمة",
+        "أسباب رفض الاتفاقية",
+        "موقع الأموال والمحكمة"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-arbitration-mediation-foreign-arbitral-award-enforcement.html",
+        "sha256": "bb965eecfa46da1f0ede33c416af213637a0ec09969d372957e9599da3659394",
+        "priorCoverageSha256": "bb965eecfa46da1f0ede33c416af213637a0ec09969d372957e9599da3659394",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "ما صلة الحكم التحكيمي الأجنبي بدولة التنفيذ المقصودة؟",
+          "ما أول خطوة في مسألة تنفيذ حكم التحكيم الأجنبي؟",
+          "ما المستندات المفيدة لتقييم تنفيذ حكم التحكيم الأجنبي؟",
+          "هل يمكن أن تراجع كاونسلو مسألة تنفيذ حكم التحكيم الأجنبي أونلاين؟",
+          "كيف تساعد كاونسلو في تنفيذ حكم التحكيم الأجنبي؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "تنفيذ حكم التحكيم الأجنبي"
+          },
+          {
+            "level": "h2",
+            "text": "المسألة في لمحة"
+          },
+          {
+            "level": "h2",
+            "text": "ما الذي يجب التحقق منه قانونياً في ملفك؟"
+          },
+          {
+            "level": "h2",
+            "text": "ماذا تقدم كاونسلو في مسألة تنفيذ حكم التحكيم الأجنبي؟"
+          },
+          {
+            "level": "h3",
+            "text": "1. ترسل المسألة"
+          },
+          {
+            "level": "h3",
+            "text": "2. تدرس كاونسلو وتؤكد النطاق"
+          },
+          {
+            "level": "h3",
+            "text": "3. تدفع ونبدأ العمل"
+          },
+          {
+            "level": "h3",
+            "text": "4. تتلقى الرد القانوني"
+          },
+          {
+            "level": "h2",
+            "text": "المستندات التي تساعدنا على البدء"
+          },
+          {
+            "level": "h2",
+            "text": "الأسئلة الشائعة"
+          },
+          {
+            "level": "h2",
+            "text": "ابدأ مراجعة مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "للحصول على رد أولي أكثر فائدة، أرسل:"
+          },
+          {
+            "level": "h2",
+            "text": "مسائل مرتبطة"
+          },
+          {
+            "level": "h2",
+            "text": "استشارة تنفيذ حكم التحكيم الأجنبي"
+          },
+          {
+            "level": "h2",
+            "text": "لماذا يختار العملاء كاونسلو؟"
+          },
+          {
+            "level": "h3",
+            "text": "قيادة قانونية خبيرة"
+          },
+          {
+            "level": "h3",
+            "text": "خبرة عملية واسعة"
+          },
+          {
+            "level": "h3",
+            "text": "نموذج تمثيل واضح"
+          },
+          {
+            "level": "h3",
+            "text": "العربية والإنجليزية"
+          },
+          {
+            "level": "h3",
+            "text": "سرية مهنية"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق خدمة شفاف"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث المقالات والأعمال القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل دولة الإمارات. تفكير دقيق في الاختصاص."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-foreign-award-convention-documents"
+      ],
+      "sourceUrls": [
+        "https://uncitral.un.org/sites/uncitral.un.org/files/media-documents/uncitral/en/new-york-convention-e.pdf"
+      ],
+      "individualReviewConclusion": "Convention documents answered. UAE competent court filing, execution-stage objections, treaty application and DIFC/ADGM enforcement branches require substantive expansion.",
+      "unresolvedGaps": [
+        "Convention documents answered. UAE competent court filing, execution-stage objections, treaty application and DIFC/ADGM enforcement branches require substantive expansion.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/ar/services/banking-finance",
+      "language": "ar",
+      "primaryIntent": "البنوك والتمويل والتنظيم المالي في الإمارات العربية المتحدة",
+      "supportingResearchIntents": [
+        "الدفعات غير المأذونة",
+        "مقترح متأخرات المستهلك",
+        "تصعيد الشكوى",
+        "المطالبة بالكفالة"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-banking-finance.html",
+        "sha256": "2c031200ae7b56f23a39722c5f6bff1a278937a0727287f63ffaadf5bd9998ad",
+        "priorCoverageSha256": "2c031200ae7b56f23a39722c5f6bff1a278937a0727287f63ffaadf5bd9998ad",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "ما الذي أوضحه في شكوى مصرفية أو تمويلية؟",
+          "ما مستندات استشارة البنوك والتمويل والتنظيم المالي في الإمارات؟",
+          "هل تشمل استشارة البنوك والتمويل والتنظيم المالي المسألة التي أواجهها في الإمارات؟",
+          "متى أراجع محامي بنوك بشأن مطالبة مالية أو عملية مصرفية؟",
+          "ما الإطار الإماراتي المنطبق على مسألة البنوك والتمويل والتنظيم المالي؟",
+          "ما الجهة أو المحكمة المختصة بمسائل البنوك والتمويل والتنظيم المالي؟",
+          "ما الذي ينبغي تقديمه للمراجعة القانونية الإماراتية الأولية؟",
+          "هل يمكن بدء استشارة البنوك والتمويل والتنظيم المالي أونلاين؟",
+          "متى ينبغي طلب المشورة القانونية في الإمارات؟",
+          "ماذا أفعل إذا كانت مستندات البنوك والتمويل والتنظيم المالي ناقصة أو متعارضة؟",
+          "ماذا لو تعارضت التزامات تعاقدية أو تنظيمية أو غيرها؟",
+          "ماذا أفعل إذا اقترب ميعاد إخطار أو اعتراض أو طعن أو ربما انقضى؟",
+          "كيف أحفظ الأدلة أو أطلب حماية عاجلة في مسألة البنوك والتمويل والتنظيم المالي؟"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "البنوك والتمويل والتنظيم المالي في الإمارات العربية المتحدة"
+          },
+          {
+            "level": "h2",
+            "text": "الخدمة في لمحة"
+          },
+          {
+            "level": "h2",
+            "text": "ما الذي يجب التحقق منه قانونياً؟"
+          },
+          {
+            "level": "h2",
+            "text": "ما نغطيه"
+          },
+          {
+            "level": "h2",
+            "text": "المشكلات القانونية الشائعة"
+          },
+          {
+            "level": "h2",
+            "text": "مستندات تساعد في التقييم الأولي"
+          },
+          {
+            "level": "h2",
+            "text": "ماذا يحدث بعد التقييم الأولي؟"
+          },
+          {
+            "level": "h3",
+            "text": "فهم المسألة"
+          },
+          {
+            "level": "h3",
+            "text": "التحقق القانوني"
+          },
+          {
+            "level": "h3",
+            "text": "تأكيد النطاق"
+          },
+          {
+            "level": "h3",
+            "text": "تسليم المخرج"
+          },
+          {
+            "level": "h2",
+            "text": "الأسئلة الشائعة"
+          },
+          {
+            "level": "h2",
+            "text": "مصادر قانونية رسمية"
+          },
+          {
+            "level": "h2",
+            "text": "ابدأ مراجعة مسألتك"
+          },
+          {
+            "level": "h2",
+            "text": "خدمات قانونية مرتبطة"
+          },
+          {
+            "level": "h3",
+            "text": "بحاجة إلى مشورة فورية؟"
+          },
+          {
+            "level": "h2",
+            "text": "لماذا يختار العملاء كاونسلو؟"
+          },
+          {
+            "level": "h3",
+            "text": "قيادة قانونية خبيرة"
+          },
+          {
+            "level": "h3",
+            "text": "خبرة عملية واسعة"
+          },
+          {
+            "level": "h3",
+            "text": "نموذج تمثيل واضح"
+          },
+          {
+            "level": "h3",
+            "text": "العربية والإنجليزية"
+          },
+          {
+            "level": "h3",
+            "text": "سرية مهنية"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق خدمة شفاف"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث المقالات والأعمال القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل دولة الإمارات. تفكير دقيق في الاختصاص."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-bank-unauthorized-payment-reimbursement-standard",
+        "uae-consumer-arrears-restructuring-reasons"
+      ],
+      "sourceUrls": [
+        "https://rulebook.centralbank.ae/en/rulebook/article-5-business-conduct",
+        "https://www.centralbank.ae/media/5crd24gm/cp-standards-pdf.pdf"
+      ],
+      "individualReviewConclusion": "CBUAE consumer protection does not cover all financing relationships automatically. Sanadak eligibility, regulated entity status, corporate remedies and financial-free-zone routes remain open.",
+      "unresolvedGaps": [
+        "CBUAE consumer protection does not cover all financing relationships automatically. Sanadak eligibility, regulated entity status, corporate remedies and financial-free-zone routes remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/ar/services/banking-finance/loan-default-and-restructuring",
+      "language": "ar",
+      "primaryIntent": "التعثر في سداد القرض وإعادة الهيكلة",
+      "supportingResearchIntents": [
+        "أسباب الرفض المكتوبة",
+        "عرض سداد ممكن",
+        "مطابقة الرصيد",
+        "التحصيل وخيارات الإعسار"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-banking-finance-loan-default-and-restructuring.html",
+        "sha256": "b08f60bfc184d5551f8c748ea98cd95f461132d1e5e5725a61d8505ee6955867",
+        "priorCoverageSha256": "b08f60bfc184d5551f8c748ea98cd95f461132d1e5e5725a61d8505ee6955867",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "هل الخلاف على الرصيد أم صعوبة الوفاء بجدول السداد؟",
+          "ما أول خطوة في مسألة التعثر في سداد القرض وإعادة الهيكلة؟",
+          "ما المستندات المفيدة لتقييم التعثر في سداد القرض وإعادة الهيكلة؟",
+          "هل يمكن أن تراجع كاونسلو مسألة التعثر في سداد القرض وإعادة الهيكلة أونلاين؟",
+          "كيف تساعد كاونسلو في التعثر في سداد القرض وإعادة الهيكلة؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "التعثر في سداد القرض وإعادة الهيكلة"
+          },
+          {
+            "level": "h2",
+            "text": "المسألة في لمحة"
+          },
+          {
+            "level": "h2",
+            "text": "ما الذي يجب التحقق منه قانونياً في ملفك؟"
+          },
+          {
+            "level": "h2",
+            "text": "ماذا تقدم كاونسلو في مسألة التعثر في سداد القرض وإعادة الهيكلة؟"
+          },
+          {
+            "level": "h3",
+            "text": "1. ترسل المسألة"
+          },
+          {
+            "level": "h3",
+            "text": "2. تدرس كاونسلو وتؤكد النطاق"
+          },
+          {
+            "level": "h3",
+            "text": "3. تدفع ونبدأ العمل"
+          },
+          {
+            "level": "h3",
+            "text": "4. تتلقى الرد القانوني"
+          },
+          {
+            "level": "h2",
+            "text": "المستندات التي تساعدنا على البدء"
+          },
+          {
+            "level": "h2",
+            "text": "الأسئلة الشائعة"
+          },
+          {
+            "level": "h2",
+            "text": "ابدأ مراجعة مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "للحصول على رد أولي أكثر فائدة، أرسل:"
+          },
+          {
+            "level": "h2",
+            "text": "مسائل مرتبطة"
+          },
+          {
+            "level": "h2",
+            "text": "استشارة التعثر في سداد القرض وإعادة الهيكلة"
+          },
+          {
+            "level": "h2",
+            "text": "لماذا يختار العملاء كاونسلو؟"
+          },
+          {
+            "level": "h3",
+            "text": "قيادة قانونية خبيرة"
+          },
+          {
+            "level": "h3",
+            "text": "خبرة عملية واسعة"
+          },
+          {
+            "level": "h3",
+            "text": "نموذج تمثيل واضح"
+          },
+          {
+            "level": "h3",
+            "text": "العربية والإنجليزية"
+          },
+          {
+            "level": "h3",
+            "text": "سرية مهنية"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق خدمة شفاف"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث المقالات والأعمال القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل دولة الإمارات. تفكير دقيق في الاختصاص."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-consumer-arrears-restructuring-reasons"
+      ],
+      "sourceUrls": [
+        "https://rulebook.centralbank.ae/en/rulebook/article-5-business-conduct"
+      ],
+      "individualReviewConclusion": "Consumer rejection-response obligation directly answered. Full restructuring agreement, collection challenge, insolvency eligibility and corporate guarantees still need current merits sources.",
+      "unresolvedGaps": [
+        "Consumer rejection-response obligation directly answered. Full restructuring agreement, collection challenge, insolvency eligibility and corporate guarantees still need current merits sources.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/ar/services/banking-finance/personal-guarantee-enforcement",
+      "language": "ar",
+      "primaryIntent": "تنفيذ الكفالة الشخصية",
+      "supportingResearchIntents": [
+        "نطاق الكفالة وحدها",
+        "شروط المطالبة",
+        "الإبراء والوفاء",
+        "القانون والتنفيذ"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-banking-finance-personal-guarantee-enforcement.html",
+        "sha256": "e1778e1a7021ba0e2622330205120e50666bbe0eedbfefc0ef26f73d4d989806",
+        "priorCoverageSha256": "e1778e1a7021ba0e2622330205120e50666bbe0eedbfefc0ef26f73d4d989806",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "ما الذي وافق الكفيل الشخصي فعلاً على ضمانه؟",
+          "ما أول خطوة في مسألة تنفيذ الكفالة الشخصية؟",
+          "ما المستندات المفيدة لتقييم تنفيذ الكفالة الشخصية؟",
+          "هل يمكن أن تراجع كاونسلو مسألة تنفيذ الكفالة الشخصية أونلاين؟",
+          "كيف تساعد كاونسلو في تنفيذ الكفالة الشخصية؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "تنفيذ الكفالة الشخصية"
+          },
+          {
+            "level": "h2",
+            "text": "المسألة في لمحة"
+          },
+          {
+            "level": "h2",
+            "text": "ما الذي يجب التحقق منه قانونياً في ملفك؟"
+          },
+          {
+            "level": "h2",
+            "text": "ماذا تقدم كاونسلو في مسألة تنفيذ الكفالة الشخصية؟"
+          },
+          {
+            "level": "h3",
+            "text": "1. ترسل المسألة"
+          },
+          {
+            "level": "h3",
+            "text": "2. تدرس كاونسلو وتؤكد النطاق"
+          },
+          {
+            "level": "h3",
+            "text": "3. تدفع ونبدأ العمل"
+          },
+          {
+            "level": "h3",
+            "text": "4. تتلقى الرد القانوني"
+          },
+          {
+            "level": "h2",
+            "text": "المستندات التي تساعدنا على البدء"
+          },
+          {
+            "level": "h2",
+            "text": "الأسئلة الشائعة"
+          },
+          {
+            "level": "h2",
+            "text": "ابدأ مراجعة مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "للحصول على رد أولي أكثر فائدة، أرسل:"
+          },
+          {
+            "level": "h2",
+            "text": "مسائل مرتبطة"
+          },
+          {
+            "level": "h2",
+            "text": "استشارة تنفيذ الكفالة الشخصية"
+          },
+          {
+            "level": "h2",
+            "text": "لماذا يختار العملاء كاونسلو؟"
+          },
+          {
+            "level": "h3",
+            "text": "قيادة قانونية خبيرة"
+          },
+          {
+            "level": "h3",
+            "text": "خبرة عملية واسعة"
+          },
+          {
+            "level": "h3",
+            "text": "نموذج تمثيل واضح"
+          },
+          {
+            "level": "h3",
+            "text": "العربية والإنجليزية"
+          },
+          {
+            "level": "h3",
+            "text": "سرية مهنية"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق خدمة شفاف"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث المقالات والأعمال القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل دولة الإمارات. تفكير دقيق في الاختصاص."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [],
+      "sourceUrls": [],
+      "individualReviewConclusion": "Existing document-focused answer retained. No new adjacent consumer FAQ falsely presented as guarantee defence. Current25/2025 CivilTransactions guarantee provisions, transitional applicability and financial-free-zone defences remain unresolved main intent.",
+      "unresolvedGaps": [
+        "Existing document-focused answer retained. No new adjacent consumer FAQ falsely presented as guarantee defence. Current25/2025 CivilTransactions guarantee provisions, transitional applicability and financial-free-zone defences remain unresolved main intent.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-existing-content-reviewed-main-remedy-gap-open",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/ar/services/banking-finance/unauthorized-bank-transaction",
+      "language": "ar",
+      "primaryIntent": "المعاملة المصرفية غير المصرح بها",
+      "supportingResearchIntents": [
+        "الإبلاغ السريع",
+        "توقيت الرد",
+        "استثناء الاحتيال أو الإهمال الجسيم",
+        "دليل الإذن"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-banking-finance-unauthorized-bank-transaction.html",
+        "sha256": "6e7fa2d2caf13cf102aebab562235b88d4efdc690fd0cbae7ff8e2f8ef291f9c",
+        "priorCoverageSha256": "6e7fa2d2caf13cf102aebab562235b88d4efdc690fd0cbae7ff8e2f8ef291f9c",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "ما المعاملة غير المأذونة ومتى أُبلغ عنها؟",
+          "ما أول خطوة في مسألة المعاملة المصرفية غير المصرح بها؟",
+          "ما المستندات المفيدة لتقييم المعاملة المصرفية غير المصرح بها؟",
+          "هل يمكن أن تراجع كاونسلو مسألة المعاملة المصرفية غير المصرح بها أونلاين؟",
+          "كيف تساعد كاونسلو في المعاملة المصرفية غير المصرح بها؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "المعاملة المصرفية غير المصرح بها"
+          },
+          {
+            "level": "h2",
+            "text": "المسألة في لمحة"
+          },
+          {
+            "level": "h2",
+            "text": "ما الذي يجب التحقق منه قانونياً في ملفك؟"
+          },
+          {
+            "level": "h2",
+            "text": "ماذا تقدم كاونسلو في مسألة المعاملة المصرفية غير المصرح بها؟"
+          },
+          {
+            "level": "h3",
+            "text": "1. ترسل المسألة"
+          },
+          {
+            "level": "h3",
+            "text": "2. تدرس كاونسلو وتؤكد النطاق"
+          },
+          {
+            "level": "h3",
+            "text": "3. تدفع ونبدأ العمل"
+          },
+          {
+            "level": "h3",
+            "text": "4. تتلقى الرد القانوني"
+          },
+          {
+            "level": "h2",
+            "text": "المستندات التي تساعدنا على البدء"
+          },
+          {
+            "level": "h2",
+            "text": "الأسئلة الشائعة"
+          },
+          {
+            "level": "h2",
+            "text": "ابدأ مراجعة مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "للحصول على رد أولي أكثر فائدة، أرسل:"
+          },
+          {
+            "level": "h2",
+            "text": "مسائل مرتبطة"
+          },
+          {
+            "level": "h2",
+            "text": "استشارة المعاملة المصرفية غير المصرح بها"
+          },
+          {
+            "level": "h2",
+            "text": "لماذا يختار العملاء كاونسلو؟"
+          },
+          {
+            "level": "h3",
+            "text": "قيادة قانونية خبيرة"
+          },
+          {
+            "level": "h3",
+            "text": "خبرة عملية واسعة"
+          },
+          {
+            "level": "h3",
+            "text": "نموذج تمثيل واضح"
+          },
+          {
+            "level": "h3",
+            "text": "العربية والإنجليزية"
+          },
+          {
+            "level": "h3",
+            "text": "سرية مهنية"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق خدمة شفاف"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث المقالات والأعمال القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل دولة الإمارات. تفكير دقيق في الاختصاص."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-bank-unauthorized-payment-reimbursement-standard"
+      ],
+      "sourceUrls": [
+        "https://www.centralbank.ae/media/5crd24gm/cp-standards-pdf.pdf"
+      ],
+      "individualReviewConclusion": "CBUAE consumer standard reimbursement timing directly answered. Distinct payment-service/token regimes, disputed negligence, chargeback and Sanadak/court redress remain open.",
+      "unresolvedGaps": [
+        "CBUAE consumer standard reimbursement timing directly answered. Distinct payment-service/token regimes, disputed negligence, chargeback and Sanadak/court redress remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability",
+      "language": "ar",
+      "primaryIntent": "الرعاية الصحية والمسؤولية الطبية في الإمارات العربية المتحدة",
+      "supportingResearchIntents": [
+        "الجهة الصحية المختصة",
+        "اللجنة قبل التعويض",
+        "السببية الطبية",
+        "الاطلاع على السجل"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-healthcare-medical-liability.html",
+        "sha256": "5ca103c27eaf31c0db30c4d732f03e7bbee5267e8b3b4506bcf7860eacec1028",
+        "priorCoverageSha256": "5ca103c27eaf31c0db30c4d732f03e7bbee5267e8b3b4506bcf7860eacec1028",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "ماذا أرسل إلى محامي أخطاء طبية لتقييم التعويض عن الخطأ الطبي؟",
+          "ما الفرق بين نتيجة علاجية غير موفقة ومسألة مسؤولية طبية مؤيدة؟",
+          "ما مستندات استشارة الرعاية الصحية والمسؤولية الطبية في الإمارات؟",
+          "هل تشمل استشارة الرعاية الصحية والمسؤولية الطبية المسألة التي أواجهها في الإمارات؟",
+          "كيف تُراجع قضايا الأخطاء الطبية والمسؤولية الطبية؟",
+          "ما الإطار الإماراتي المنطبق على مسألة الرعاية الصحية والمسؤولية الطبية؟",
+          "ما الجهة أو المحكمة المختصة بمسائل الرعاية الصحية والمسؤولية الطبية؟",
+          "ما الذي ينبغي تقديمه للمراجعة القانونية الإماراتية الأولية؟",
+          "هل يمكن بدء استشارة الرعاية الصحية والمسؤولية الطبية أونلاين؟",
+          "متى ينبغي طلب المشورة القانونية في الإمارات؟",
+          "ماذا أفعل إذا كانت مستندات الرعاية الصحية والمسؤولية الطبية ناقصة أو متعارضة؟",
+          "ماذا لو تعارضت التزامات تعاقدية أو تنظيمية أو غيرها؟",
+          "ماذا أفعل إذا اقترب ميعاد إخطار أو اعتراض أو طعن أو ربما انقضى؟",
+          "كيف أحفظ الأدلة أو أطلب حماية عاجلة في مسألة الرعاية الصحية والمسؤولية الطبية؟"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "الرعاية الصحية والمسؤولية الطبية في الإمارات العربية المتحدة"
+          },
+          {
+            "level": "h2",
+            "text": "الخدمة في لمحة"
+          },
+          {
+            "level": "h2",
+            "text": "ما الذي يجب التحقق منه قانونياً؟"
+          },
+          {
+            "level": "h2",
+            "text": "ما نغطيه"
+          },
+          {
+            "level": "h2",
+            "text": "المشكلات القانونية الشائعة"
+          },
+          {
+            "level": "h2",
+            "text": "مستندات تساعد في التقييم الأولي"
+          },
+          {
+            "level": "h2",
+            "text": "ماذا يحدث بعد التقييم الأولي؟"
+          },
+          {
+            "level": "h3",
+            "text": "فهم المسألة"
+          },
+          {
+            "level": "h3",
+            "text": "التحقق القانوني"
+          },
+          {
+            "level": "h3",
+            "text": "تأكيد النطاق"
+          },
+          {
+            "level": "h3",
+            "text": "تسليم المخرج"
+          },
+          {
+            "level": "h2",
+            "text": "الأسئلة الشائعة"
+          },
+          {
+            "level": "h2",
+            "text": "مصادر قانونية رسمية"
+          },
+          {
+            "level": "h2",
+            "text": "ابدأ مراجعة مسألتك"
+          },
+          {
+            "level": "h2",
+            "text": "خدمات قانونية مرتبطة"
+          },
+          {
+            "level": "h3",
+            "text": "بحاجة إلى مشورة فورية؟"
+          },
+          {
+            "level": "h2",
+            "text": "لماذا يختار العملاء كاونسلو؟"
+          },
+          {
+            "level": "h3",
+            "text": "قيادة قانونية خبيرة"
+          },
+          {
+            "level": "h3",
+            "text": "خبرة عملية واسعة"
+          },
+          {
+            "level": "h3",
+            "text": "نموذج تمثيل واضح"
+          },
+          {
+            "level": "h3",
+            "text": "العربية والإنجليزية"
+          },
+          {
+            "level": "h3",
+            "text": "سرية مهنية"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق خدمة شفاف"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث المقالات والأعمال القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل دولة الإمارات. تفكير دقيق في الاختصاص."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-medical-committee-before-compensation",
+        "abu-dhabi-medical-error-complaint-documents",
+        "dubai-dha-patient-medical-record-access"
+      ],
+      "sourceUrls": [
+        "https://mohap.gov.ae/documents/20117/454960/126c23cb-1b92-4820-9662-ca60c0241462.pdf/89fb7ca9-d0ea-630b-88ca-fb8040ba77a8?t=1737675580211",
+        "https://www.dha.gov.ae/uploads/012026/Standards%20for%20Code%20of%20Ethics%20and%20Professional%20Conduct%20for%20Health%20Professionals%20V1%20202613351.pdf",
+        "https://www.doh.gov.ae/en/Investigation-Request-for-Medical-Error"
+      ],
+      "individualReviewConclusion": "Committee and DOH/DHA branches added. Complete DHA/MOHAP/EHS submission routes, healthcare free-zone regulator distinctions and court valuation remain open.",
+      "unresolvedGaps": [
+        "Committee and DOH/DHA branches added. Complete DHA/MOHAP/EHS submission routes, healthcare free-zone regulator distinctions and court valuation remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability/medical-record-access-dispute",
+      "language": "ar",
+      "primaryIntent": "منازعة الحصول على السجل الطبي",
+      "supportingResearchIntents": [
+        "حق الاطلاع لدى الهيئة",
+        "تحديد السجلات الناقصة",
+        "صفة الممثل",
+        "قيود الإفصاح"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-healthcare-medical-liability-medical-record-access-dispute.html",
+        "sha256": "d7a7357fd3a7903276d22e4dec0357ee5a5639abc2edecf18025a7bb1d9b47b9",
+        "priorCoverageSha256": "d7a7357fd3a7903276d22e4dec0357ee5a5639abc2edecf18025a7bb1d9b47b9",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "ماذا لو استلمت ملخص الخروج فقط؟",
+          "هل يثبت الملف الناقص وقوع خطأ طبي؟",
+          "ما أول خطوة في مسألة منازعة الحصول على السجل الطبي؟",
+          "ما المستندات المفيدة لتقييم منازعة الحصول على السجل الطبي؟",
+          "هل يمكن أن تراجع كاونسلو مسألة منازعة الحصول على السجل الطبي أونلاين؟",
+          "كيف تساعد كاونسلو في منازعة الحصول على السجل الطبي؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "منازعة الحصول على السجل الطبي"
+          },
+          {
+            "level": "h2",
+            "text": "المسألة في لمحة"
+          },
+          {
+            "level": "h2",
+            "text": "ما الذي يجب التحقق منه قانونياً في ملفك؟"
+          },
+          {
+            "level": "h2",
+            "text": "ماذا تقدم كاونسلو في مسألة منازعة الحصول على السجل الطبي؟"
+          },
+          {
+            "level": "h3",
+            "text": "1. ترسل المسألة"
+          },
+          {
+            "level": "h3",
+            "text": "2. تدرس كاونسلو وتؤكد النطاق"
+          },
+          {
+            "level": "h3",
+            "text": "3. تدفع ونبدأ العمل"
+          },
+          {
+            "level": "h3",
+            "text": "4. تتلقى الرد القانوني"
+          },
+          {
+            "level": "h2",
+            "text": "المستندات التي تساعدنا على البدء"
+          },
+          {
+            "level": "h2",
+            "text": "الأسئلة الشائعة"
+          },
+          {
+            "level": "h2",
+            "text": "ابدأ مراجعة مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "للحصول على رد أولي أكثر فائدة، أرسل:"
+          },
+          {
+            "level": "h2",
+            "text": "مسائل مرتبطة"
+          },
+          {
+            "level": "h2",
+            "text": "استشارة منازعة الحصول على السجل الطبي"
+          },
+          {
+            "level": "h2",
+            "text": "لماذا يختار العملاء كاونسلو؟"
+          },
+          {
+            "level": "h3",
+            "text": "قيادة قانونية خبيرة"
+          },
+          {
+            "level": "h3",
+            "text": "خبرة عملية واسعة"
+          },
+          {
+            "level": "h3",
+            "text": "نموذج تمثيل واضح"
+          },
+          {
+            "level": "h3",
+            "text": "العربية والإنجليزية"
+          },
+          {
+            "level": "h3",
+            "text": "سرية مهنية"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق خدمة شفاف"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث المقالات والأعمال القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل دولة الإمارات. تفكير دقيق في الاختصاص."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "dubai-dha-patient-medical-record-access"
+      ],
+      "sourceUrls": [
+        "https://www.dha.gov.ae/uploads/012026/Standards%20for%20Code%20of%20Ethics%20and%20Professional%20Conduct%20for%20Health%20Professionals%20V1%20202613351.pdf"
+      ],
+      "individualReviewConclusion": "DHA2026 standard supplies substantive access right. Exact refusal escalation, copies/fees/time limits, DOH/MOHAP and deceased/minor records remain open.",
+      "unresolvedGaps": [
+        "DHA2026 standard supplies substantive access right. Exact refusal escalation, copies/fees/time limits, DOH/MOHAP and deceased/minor records remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability/misdiagnosis-and-delayed-diagnosis",
+      "language": "ar",
+      "primaryIntent": "سوء التشخيص وتأخره",
+      "supportingResearchIntents": [
+        "التسلسل الطبي والسببية",
+        "تحقيق اللجنة",
+        "مستندات الشكوى العربية",
+        "التظلم من التقرير"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-healthcare-medical-liability-misdiagnosis-and-delayed-diagnosis.html",
+        "sha256": "5dca63d5f28dd2b85722f2ced692511e1412bf76bb02b54010d3ae9366fbe170",
+        "priorCoverageSha256": "5dca63d5f28dd2b85722f2ced692511e1412bf76bb02b54010d3ae9366fbe170",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "ما المعلومات المتاحة في كل مرحلة من التشخيص؟",
+          "ما أول خطوة في مسألة سوء التشخيص وتأخره؟",
+          "ما المستندات المفيدة لتقييم سوء التشخيص وتأخره؟",
+          "هل يمكن أن تراجع كاونسلو مسألة سوء التشخيص وتأخره أونلاين؟",
+          "كيف تساعد كاونسلو في سوء التشخيص وتأخره؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "سوء التشخيص وتأخره"
+          },
+          {
+            "level": "h2",
+            "text": "المسألة في لمحة"
+          },
+          {
+            "level": "h2",
+            "text": "ما الذي يجب التحقق منه قانونياً في ملفك؟"
+          },
+          {
+            "level": "h2",
+            "text": "ماذا تقدم كاونسلو في مسألة سوء التشخيص وتأخره؟"
+          },
+          {
+            "level": "h3",
+            "text": "1. ترسل المسألة"
+          },
+          {
+            "level": "h3",
+            "text": "2. تدرس كاونسلو وتؤكد النطاق"
+          },
+          {
+            "level": "h3",
+            "text": "3. تدفع ونبدأ العمل"
+          },
+          {
+            "level": "h3",
+            "text": "4. تتلقى الرد القانوني"
+          },
+          {
+            "level": "h2",
+            "text": "المستندات التي تساعدنا على البدء"
+          },
+          {
+            "level": "h2",
+            "text": "الأسئلة الشائعة"
+          },
+          {
+            "level": "h2",
+            "text": "ابدأ مراجعة مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "للحصول على رد أولي أكثر فائدة، أرسل:"
+          },
+          {
+            "level": "h2",
+            "text": "مسائل مرتبطة"
+          },
+          {
+            "level": "h2",
+            "text": "استشارة سوء التشخيص وتأخره"
+          },
+          {
+            "level": "h2",
+            "text": "لماذا يختار العملاء كاونسلو؟"
+          },
+          {
+            "level": "h3",
+            "text": "قيادة قانونية خبيرة"
+          },
+          {
+            "level": "h3",
+            "text": "خبرة عملية واسعة"
+          },
+          {
+            "level": "h3",
+            "text": "نموذج تمثيل واضح"
+          },
+          {
+            "level": "h3",
+            "text": "العربية والإنجليزية"
+          },
+          {
+            "level": "h3",
+            "text": "سرية مهنية"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق خدمة شفاف"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث المقالات والأعمال القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل دولة الإمارات. تفكير دقيق في الاختصاص."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-medical-committee-before-compensation",
+        "abu-dhabi-medical-error-complaint-documents",
+        "abu-dhabi-medical-committee-appeal",
+        "uae-medical-complaint-arabic-specificity"
+      ],
+      "sourceUrls": [
+        "https://mohap.gov.ae/documents/20117/454960/126c23cb-1b92-4820-9662-ca60c0241462.pdf/89fb7ca9-d0ea-630b-88ca-fb8040ba77a8?t=1737675580211",
+        "https://uaelegislation.gov.ae/ar/legislations/1191?keyword=%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86",
+        "https://www.doh.gov.ae/en/Appeal-request-for-medical-error-complaint",
+        "https://www.doh.gov.ae/en/Investigation-Request-for-Medical-Error"
+      ],
+      "individualReviewConclusion": "Federal committee prerequisite, complaint content and AbuDhabi complaint/appeal answered. Condition-specific standard of care, causation/loss-of-chance and other regulator workflows remain open.",
+      "unresolvedGaps": [
+        "Federal committee prerequisite, complaint content and AbuDhabi complaint/appeal answered. Condition-specific standard of care, causation/loss-of-chance and other regulator workflows remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability/treatment-injury-and-compensation-claim",
+      "language": "ar",
+      "primaryIntent": "إصابة العلاج ومطالبة التعويض",
+      "supportingResearchIntents": [
+        "شرط اللجنة",
+        "إثبات الإصابة والخسائر",
+        "التقرير التنظيمي",
+        "التعويض القضائي"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-healthcare-medical-liability-treatment-injury-and-compensation-claim.html",
+        "sha256": "220a7ed5097474cb7c587bf73c82f37a7e4565373c4c48ff5f8753bae1938866",
+        "priorCoverageSha256": "220a7ed5097474cb7c587bf73c82f37a7e4565373c4c48ff5f8753bae1938866",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "ما الإصابة المنسوبة للعلاج وما الدليل على الصلة؟",
+          "ما أول خطوة في مسألة إصابة العلاج ومطالبة التعويض؟",
+          "ما المستندات المفيدة لتقييم إصابة العلاج ومطالبة التعويض؟",
+          "هل يمكن أن تراجع كاونسلو مسألة إصابة العلاج ومطالبة التعويض أونلاين؟",
+          "كيف تساعد كاونسلو في إصابة العلاج ومطالبة التعويض؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "إصابة العلاج ومطالبة التعويض"
+          },
+          {
+            "level": "h2",
+            "text": "المسألة في لمحة"
+          },
+          {
+            "level": "h2",
+            "text": "ما الذي يجب التحقق منه قانونياً في ملفك؟"
+          },
+          {
+            "level": "h2",
+            "text": "ماذا تقدم كاونسلو في مسألة إصابة العلاج ومطالبة التعويض؟"
+          },
+          {
+            "level": "h3",
+            "text": "1. ترسل المسألة"
+          },
+          {
+            "level": "h3",
+            "text": "2. تدرس كاونسلو وتؤكد النطاق"
+          },
+          {
+            "level": "h3",
+            "text": "3. تدفع ونبدأ العمل"
+          },
+          {
+            "level": "h3",
+            "text": "4. تتلقى الرد القانوني"
+          },
+          {
+            "level": "h2",
+            "text": "المستندات التي تساعدنا على البدء"
+          },
+          {
+            "level": "h2",
+            "text": "الأسئلة الشائعة"
+          },
+          {
+            "level": "h2",
+            "text": "ابدأ مراجعة مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "للحصول على رد أولي أكثر فائدة، أرسل:"
+          },
+          {
+            "level": "h2",
+            "text": "مسائل مرتبطة"
+          },
+          {
+            "level": "h2",
+            "text": "استشارة إصابة العلاج ومطالبة التعويض"
+          },
+          {
+            "level": "h2",
+            "text": "لماذا يختار العملاء كاونسلو؟"
+          },
+          {
+            "level": "h3",
+            "text": "قيادة قانونية خبيرة"
+          },
+          {
+            "level": "h3",
+            "text": "خبرة عملية واسعة"
+          },
+          {
+            "level": "h3",
+            "text": "نموذج تمثيل واضح"
+          },
+          {
+            "level": "h3",
+            "text": "العربية والإنجليزية"
+          },
+          {
+            "level": "h3",
+            "text": "سرية مهنية"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق خدمة شفاف"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث المقالات والأعمال القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل دولة الإمارات. تفكير دقيق في الاختصاص."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-medical-committee-before-compensation",
+        "abu-dhabi-medical-error-complaint-documents",
+        "abu-dhabi-medical-committee-appeal",
+        "uae-medical-complaint-arabic-specificity"
+      ],
+      "sourceUrls": [
+        "https://mohap.gov.ae/documents/20117/454960/126c23cb-1b92-4820-9662-ca60c0241462.pdf/89fb7ca9-d0ea-630b-88ca-fb8040ba77a8?t=1737675580211",
+        "https://uaelegislation.gov.ae/ar/legislations/1191?keyword=%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86",
+        "https://www.doh.gov.ae/en/Appeal-request-for-medical-error-complaint",
+        "https://www.doh.gov.ae/en/Investigation-Request-for-Medical-Error"
+      ],
+      "individualReviewConclusion": "Direct committee-before-compensation answer added with AbuDhabi process and report challenge. Court filing/limitation, damages assessment, practitioner/insurer allocation and other regulator processes remain open.",
+      "unresolvedGaps": [
+        "Direct committee-before-compensation answer added with AbuDhabi process and report challenge. Court filing/limitation, damages assessment, practitioner/insurer allocation and other regulator processes remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/services/arbitration-mediation",
+      "language": "en",
+      "primaryIntent": "Arbitration & Mediation in the United Arab Emirates",
+      "supportingResearchIntents": [
+        "agreement and seat",
+        "jurisdiction objection",
+        "urgent relief",
+        "award enforcement"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-arbitration-mediation.html",
+        "sha256": "2d5791c00ef2931ce4607b5c1bcf82107b4e942492a62f24388b08c668a4dbf8",
+        "priorCoverageSha256": "2d5791c00ef2931ce4607b5c1bcf82107b4e942492a62f24388b08c668a4dbf8",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "What should I check before relying on an arbitration clause?",
+          "What documents support the arbitration & mediation consultation in the UAE?",
+          "Does the arbitration & mediation consultation cover my issue in the UAE?",
+          "Which UAE framework applies to a matter involving Arbitration & Mediation?",
+          "Which authority or court handles matters involving Arbitration & Mediation?",
+          "What should I provide for the initial UAE legal review?",
+          "Can a consultation about Arbitration & Mediation begin online?",
+          "When should I seek UAE legal advice?",
+          "What if records for arbitration & mediation are missing or inconsistent?",
+          "What if contractual, regulatory or other obligations conflict?",
+          "What should I do if a notice, objection or appeal deadline is close or may have passed?",
+          "How can I preserve evidence or request urgent protection in a arbitration & mediation matter?"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Arbitration & Mediation in the United Arab Emirates"
+          },
+          {
+            "level": "h2",
+            "text": "The service at a glance"
+          },
+          {
+            "level": "h2",
+            "text": "What must be legally verified?"
+          },
+          {
+            "level": "h2",
+            "text": "What We Cover"
+          },
+          {
+            "level": "h2",
+            "text": "Common legal problems we can assess"
+          },
+          {
+            "level": "h2",
+            "text": "Documents that help the initial assessment"
+          },
+          {
+            "level": "h2",
+            "text": "What happens after the initial assessment?"
+          },
+          {
+            "level": "h3",
+            "text": "Understand the matter"
+          },
+          {
+            "level": "h3",
+            "text": "Verify the legal route"
+          },
+          {
+            "level": "h3",
+            "text": "Confirm the scope"
+          },
+          {
+            "level": "h3",
+            "text": "Deliver the output"
+          },
+          {
+            "level": "h2",
+            "text": "Frequently Asked Questions"
+          },
+          {
+            "level": "h2",
+            "text": "Official legal sources"
+          },
+          {
+            "level": "h2",
+            "text": "Start a review of your matter"
+          },
+          {
+            "level": "h2",
+            "text": "Related legal services"
+          },
+          {
+            "level": "h3",
+            "text": "Need immediate counsel?"
+          },
+          {
+            "level": "h2",
+            "text": "Why clients choose CounselO"
+          },
+          {
+            "level": "h3",
+            "text": "Experienced legal leadership"
+          },
+          {
+            "level": "h3",
+            "text": "Extensive practical experience"
+          },
+          {
+            "level": "h3",
+            "text": "Clear representation model"
+          },
+          {
+            "level": "h3",
+            "text": "Arabic and English"
+          },
+          {
+            "level": "h3",
+            "text": "Professional confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Transparent service scope"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h2",
+            "text": "UAE-wide perspective. Precise jurisdictional thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-federal-arbitration-jurisdiction-defence-stage",
+        "uae-federal-tribunal-preservation-measures",
+        "uae-foreign-award-convention-documents",
+        "diac-2022-emergency-application-stage"
+      ],
+      "sourceUrls": [
+        "https://uaelegislation.gov.ae/en/legislations/1069/download",
+        "https://uncitral.un.org/sites/uncitral.un.org/files/media-documents/uncitral/en/new-york-convention-e.pdf",
+        "https://www.diac.com/wp-content/uploads/2023/05/DIAC-2022-Rules-EN.pdf",
+        "https://www.moet.gov.ae/documents/20121/0/%D9%82%D8%A7%D9%86%D9%88%D9%86%2B%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%8A%D9%85%2B%281%29.pdf/307aaa2e-b43c-0978-e612-b8f698203235"
+      ],
+      "individualReviewConclusion": "Federal and DIAC procedural branches added. Mediation, institution selection, costs, DIFC/ADGM seat rules and local execution procedures need further review.",
+      "unresolvedGaps": [
+        "Federal and DIAC procedural branches added. Mediation, institution selection, costs, DIFC/ADGM seat rules and local execution procedures need further review.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/services/arbitration-mediation/challenge-to-arbitration-jurisdiction",
+      "language": "en",
+      "primaryIntent": "Challenge to arbitration jurisdiction",
+      "supportingResearchIntents": [
+        "defence-stage objection",
+        "authority and scope",
+        "late objection",
+        "seat-specific court review"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-arbitration-mediation-challenge-to-arbitration-jurisdiction.html",
+        "sha256": "ba27cb00a4dfbb43f7a3739bba5b4385023901105e31a5acb715506d26de8aba",
+        "priorCoverageSha256": "ba27cb00a4dfbb43f7a3739bba5b4385023901105e31a5acb715506d26de8aba",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "What is the specific objection to the tribunal's authority?",
+          "What should I do first about challenge to arbitration jurisdiction?",
+          "What documents help assess challenge to arbitration jurisdiction?",
+          "Can CounselO review challenge to arbitration jurisdiction online?",
+          "How does CounselO help with challenge to arbitration jurisdiction?",
+          "How quickly will I receive a response?"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Challenge to arbitration jurisdiction"
+          },
+          {
+            "level": "h2",
+            "text": "Your matter at a glance"
+          },
+          {
+            "level": "h2",
+            "text": "What must be legally verified for your matter?"
+          },
+          {
+            "level": "h2",
+            "text": "What CounselO delivers for challenge to arbitration jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "1. Submit the matter"
+          },
+          {
+            "level": "h3",
+            "text": "2. CounselO studies and confirms"
+          },
+          {
+            "level": "h3",
+            "text": "3. Pay and we begin"
+          },
+          {
+            "level": "h3",
+            "text": "4. Receive the legal response"
+          },
+          {
+            "level": "h2",
+            "text": "Documents that help us start"
+          },
+          {
+            "level": "h2",
+            "text": "Frequently asked questions"
+          },
+          {
+            "level": "h2",
+            "text": "Start a review of your matter"
+          },
+          {
+            "level": "h3",
+            "text": "For a more useful first response, send:"
+          },
+          {
+            "level": "h2",
+            "text": "Related legal problems"
+          },
+          {
+            "level": "h2",
+            "text": "Challenge to arbitration jurisdiction consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Why clients choose CounselO"
+          },
+          {
+            "level": "h3",
+            "text": "Experienced legal leadership"
+          },
+          {
+            "level": "h3",
+            "text": "Extensive practical experience"
+          },
+          {
+            "level": "h3",
+            "text": "Clear representation model"
+          },
+          {
+            "level": "h3",
+            "text": "Arabic and English"
+          },
+          {
+            "level": "h3",
+            "text": "Professional confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Transparent service scope"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h2",
+            "text": "UAE-wide perspective. Precise jurisdictional thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-federal-arbitration-jurisdiction-defence-stage"
+      ],
+      "sourceUrls": [
+        "https://www.moet.gov.ae/documents/20121/0/%D9%82%D8%A7%D9%86%D9%88%D9%86%2B%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%8A%D9%85%2B%281%29.pdf/307aaa2e-b43c-0978-e612-b8f698203235"
+      ],
+      "individualReviewConclusion": "Federal Article20 deadline directly answered. Article19 preliminary jurisdiction decision court challenge, validity/capacity merits, waiver and DIFC/ADGM variants remain open.",
+      "unresolvedGaps": [
+        "Federal Article20 deadline directly answered. Article19 preliminary jurisdiction decision court challenge, validity/capacity merits, waiver and DIFC/ADGM variants remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/services/arbitration-mediation/emergency-arbitration-and-interim-measures",
+      "language": "en",
+      "primaryIntent": "Emergency arbitration and interim measures",
+      "supportingResearchIntents": [
+        "DIAC pre-constitution application",
+        "urgency evidence",
+        "notice exception",
+        "tribunal preservation power"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-arbitration-mediation-emergency-arbitration-and-interim-measures.html",
+        "sha256": "0935ae9a40f08f0ff0cece8d4f17de0c54377467d20172f3f5d6edab6b50e13c",
+        "priorCoverageSha256": "0935ae9a40f08f0ff0cece8d4f17de0c54377467d20172f3f5d6edab6b50e13c",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "Do the agreed rules provide an emergency-arbitrator procedure?",
+          "What should I do first about emergency arbitration and interim measures?",
+          "What documents help assess emergency arbitration and interim measures?",
+          "Can CounselO review emergency arbitration and interim measures online?",
+          "How does CounselO help with emergency arbitration and interim measures?",
+          "How quickly will I receive a response?"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Emergency arbitration and interim measures"
+          },
+          {
+            "level": "h2",
+            "text": "Your matter at a glance"
+          },
+          {
+            "level": "h2",
+            "text": "What must be legally verified for your matter?"
+          },
+          {
+            "level": "h2",
+            "text": "What CounselO delivers for emergency arbitration and interim measures"
+          },
+          {
+            "level": "h3",
+            "text": "1. Submit the matter"
+          },
+          {
+            "level": "h3",
+            "text": "2. CounselO studies and confirms"
+          },
+          {
+            "level": "h3",
+            "text": "3. Pay and we begin"
+          },
+          {
+            "level": "h3",
+            "text": "4. Receive the legal response"
+          },
+          {
+            "level": "h2",
+            "text": "Documents that help us start"
+          },
+          {
+            "level": "h2",
+            "text": "Frequently asked questions"
+          },
+          {
+            "level": "h2",
+            "text": "Start a review of your matter"
+          },
+          {
+            "level": "h3",
+            "text": "For a more useful first response, send:"
+          },
+          {
+            "level": "h2",
+            "text": "Related legal problems"
+          },
+          {
+            "level": "h2",
+            "text": "Emergency arbitration and interim measures consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Why clients choose CounselO"
+          },
+          {
+            "level": "h3",
+            "text": "Experienced legal leadership"
+          },
+          {
+            "level": "h3",
+            "text": "Extensive practical experience"
+          },
+          {
+            "level": "h3",
+            "text": "Clear representation model"
+          },
+          {
+            "level": "h3",
+            "text": "Arabic and English"
+          },
+          {
+            "level": "h3",
+            "text": "Professional confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Transparent service scope"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h2",
+            "text": "UAE-wide perspective. Precise jurisdictional thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-federal-tribunal-preservation-measures",
+        "diac-2022-emergency-application-stage"
+      ],
+      "sourceUrls": [
+        "https://uaelegislation.gov.ae/en/legislations/1069/download",
+        "https://www.diac.com/wp-content/uploads/2023/05/DIAC-2022-Rules-EN.pdf"
+      ],
+      "individualReviewConclusion": "DIAC2022 application and federal tribunal measures now substantive. Rule applicability/opt-out, court enforcement, security, other institutions and DIFC/ADGM relief remain open.",
+      "unresolvedGaps": [
+        "DIAC2022 application and federal tribunal measures now substantive. Rule applicability/opt-out, court enforcement, security, other institutions and DIFC/ADGM relief remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/services/arbitration-mediation/foreign-arbitral-award-enforcement",
+      "language": "en",
+      "primaryIntent": "Foreign arbitral award enforcement",
+      "supportingResearchIntents": [
+        "authenticated award and agreement",
+        "translation",
+        "Convention refusal grounds",
+        "asset and forum location"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-arbitration-mediation-foreign-arbitral-award-enforcement.html",
+        "sha256": "567336f9b4f62b724544a0684355393ad11870b8f4a140f5ce0ac2160e5669be",
+        "priorCoverageSha256": "567336f9b4f62b724544a0684355393ad11870b8f4a140f5ce0ac2160e5669be",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "What connects the foreign award to the intended enforcement country?",
+          "What should I do first about foreign arbitral award enforcement?",
+          "What documents help assess foreign arbitral award enforcement?",
+          "Can CounselO review foreign arbitral award enforcement online?",
+          "How does CounselO help with foreign arbitral award enforcement?",
+          "How quickly will I receive a response?"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Foreign arbitral award enforcement"
+          },
+          {
+            "level": "h2",
+            "text": "Your matter at a glance"
+          },
+          {
+            "level": "h2",
+            "text": "What must be legally verified for your matter?"
+          },
+          {
+            "level": "h2",
+            "text": "What CounselO delivers for foreign arbitral award enforcement"
+          },
+          {
+            "level": "h3",
+            "text": "1. Submit the matter"
+          },
+          {
+            "level": "h3",
+            "text": "2. CounselO studies and confirms"
+          },
+          {
+            "level": "h3",
+            "text": "3. Pay and we begin"
+          },
+          {
+            "level": "h3",
+            "text": "4. Receive the legal response"
+          },
+          {
+            "level": "h2",
+            "text": "Documents that help us start"
+          },
+          {
+            "level": "h2",
+            "text": "Frequently asked questions"
+          },
+          {
+            "level": "h2",
+            "text": "Start a review of your matter"
+          },
+          {
+            "level": "h3",
+            "text": "For a more useful first response, send:"
+          },
+          {
+            "level": "h2",
+            "text": "Related legal problems"
+          },
+          {
+            "level": "h2",
+            "text": "Foreign arbitral award enforcement consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Why clients choose CounselO"
+          },
+          {
+            "level": "h3",
+            "text": "Experienced legal leadership"
+          },
+          {
+            "level": "h3",
+            "text": "Extensive practical experience"
+          },
+          {
+            "level": "h3",
+            "text": "Clear representation model"
+          },
+          {
+            "level": "h3",
+            "text": "Arabic and English"
+          },
+          {
+            "level": "h3",
+            "text": "Professional confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Transparent service scope"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h2",
+            "text": "UAE-wide perspective. Precise jurisdictional thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-foreign-award-convention-documents"
+      ],
+      "sourceUrls": [
+        "https://uncitral.un.org/sites/uncitral.un.org/files/media-documents/uncitral/en/new-york-convention-e.pdf"
+      ],
+      "individualReviewConclusion": "Convention documents answered. UAE competent court filing, execution-stage objections, treaty application and DIFC/ADGM enforcement branches require substantive expansion.",
+      "unresolvedGaps": [
+        "Convention documents answered. UAE competent court filing, execution-stage objections, treaty application and DIFC/ADGM enforcement branches require substantive expansion.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/services/banking-finance",
+      "language": "en",
+      "primaryIntent": "Banking, Finance & Financial Regulation in the United Arab Emirates",
+      "supportingResearchIntents": [
+        "unauthorized payments",
+        "consumer arrears proposal",
+        "complaint escalation",
+        "guarantee demand"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-banking-finance.html",
+        "sha256": "f708743daf17d2a22f812b394cc0f450d87ba7485bf113c8318ca9cf4a48a37a",
+        "priorCoverageSha256": "f708743daf17d2a22f812b394cc0f450d87ba7485bf113c8318ca9cf4a48a37a",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "What should I clarify in a bank or financing complaint?",
+          "What documents support the banking, finance & financial regulation consultation in the UAE?",
+          "Does the banking, finance & financial regulation consultation cover my issue in the UAE?",
+          "What does a banking dispute review cover?",
+          "Which UAE framework applies to a matter involving Banking, Finance & Financial Regulation?",
+          "Which authority or court handles matters involving Banking, Finance & Financial Regulation?",
+          "What should I provide for the initial UAE legal review?",
+          "Can a consultation about Banking, Finance & Financial Regulation begin online?",
+          "When should I seek UAE legal advice?",
+          "What if records for banking, finance & financial regulation are missing or inconsistent?",
+          "What if contractual, regulatory or other obligations conflict?",
+          "What should I do if a notice, objection or appeal deadline is close or may have passed?",
+          "How can I preserve evidence or request urgent protection in a banking, finance & financial regulation matter?"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Banking, Finance & Financial Regulation in the United Arab Emirates"
+          },
+          {
+            "level": "h2",
+            "text": "The service at a glance"
+          },
+          {
+            "level": "h2",
+            "text": "What must be legally verified?"
+          },
+          {
+            "level": "h2",
+            "text": "What We Cover"
+          },
+          {
+            "level": "h2",
+            "text": "Common legal problems we can assess"
+          },
+          {
+            "level": "h2",
+            "text": "Documents that help the initial assessment"
+          },
+          {
+            "level": "h2",
+            "text": "What happens after the initial assessment?"
+          },
+          {
+            "level": "h3",
+            "text": "Understand the matter"
+          },
+          {
+            "level": "h3",
+            "text": "Verify the legal route"
+          },
+          {
+            "level": "h3",
+            "text": "Confirm the scope"
+          },
+          {
+            "level": "h3",
+            "text": "Deliver the output"
+          },
+          {
+            "level": "h2",
+            "text": "Frequently Asked Questions"
+          },
+          {
+            "level": "h2",
+            "text": "Official legal sources"
+          },
+          {
+            "level": "h2",
+            "text": "Start a review of your matter"
+          },
+          {
+            "level": "h2",
+            "text": "Related legal services"
+          },
+          {
+            "level": "h3",
+            "text": "Need immediate counsel?"
+          },
+          {
+            "level": "h2",
+            "text": "Why clients choose CounselO"
+          },
+          {
+            "level": "h3",
+            "text": "Experienced legal leadership"
+          },
+          {
+            "level": "h3",
+            "text": "Extensive practical experience"
+          },
+          {
+            "level": "h3",
+            "text": "Clear representation model"
+          },
+          {
+            "level": "h3",
+            "text": "Arabic and English"
+          },
+          {
+            "level": "h3",
+            "text": "Professional confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Transparent service scope"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h2",
+            "text": "UAE-wide perspective. Precise jurisdictional thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-bank-unauthorized-payment-reimbursement-standard",
+        "uae-consumer-arrears-restructuring-reasons"
+      ],
+      "sourceUrls": [
+        "https://rulebook.centralbank.ae/en/rulebook/article-5-business-conduct",
+        "https://www.centralbank.ae/media/5crd24gm/cp-standards-pdf.pdf"
+      ],
+      "individualReviewConclusion": "CBUAE consumer protection does not cover all financing relationships automatically. Sanadak eligibility, regulated entity status, corporate remedies and financial-free-zone routes remain open.",
+      "unresolvedGaps": [
+        "CBUAE consumer protection does not cover all financing relationships automatically. Sanadak eligibility, regulated entity status, corporate remedies and financial-free-zone routes remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/services/banking-finance/loan-default-and-restructuring",
+      "language": "en",
+      "primaryIntent": "Loan default and restructuring",
+      "supportingResearchIntents": [
+        "written rejection reasons",
+        "affordable repayment offer",
+        "balance reconciliation",
+        "collection and insolvency options"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-banking-finance-loan-default-and-restructuring.html",
+        "sha256": "74b3aa452e37e80798cb0627a9dd243940e0c3e7d08cd07f6c8377f523b7e210",
+        "priorCoverageSha256": "74b3aa452e37e80798cb0627a9dd243940e0c3e7d08cd07f6c8377f523b7e210",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "Is the balance disputed or is the difficulty meeting an agreed payment schedule?",
+          "What should I do first about loan default and restructuring?",
+          "What documents help assess loan default and restructuring?",
+          "Can CounselO review loan default and restructuring online?",
+          "How does CounselO help with loan default and restructuring?",
+          "How quickly will I receive a response?"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Loan default and restructuring"
+          },
+          {
+            "level": "h2",
+            "text": "Your matter at a glance"
+          },
+          {
+            "level": "h2",
+            "text": "What must be legally verified for your matter?"
+          },
+          {
+            "level": "h2",
+            "text": "What CounselO delivers for loan default and restructuring"
+          },
+          {
+            "level": "h3",
+            "text": "1. Submit the matter"
+          },
+          {
+            "level": "h3",
+            "text": "2. CounselO studies and confirms"
+          },
+          {
+            "level": "h3",
+            "text": "3. Pay and we begin"
+          },
+          {
+            "level": "h3",
+            "text": "4. Receive the legal response"
+          },
+          {
+            "level": "h2",
+            "text": "Documents that help us start"
+          },
+          {
+            "level": "h2",
+            "text": "Frequently asked questions"
+          },
+          {
+            "level": "h2",
+            "text": "Start a review of your matter"
+          },
+          {
+            "level": "h3",
+            "text": "For a more useful first response, send:"
+          },
+          {
+            "level": "h2",
+            "text": "Related legal problems"
+          },
+          {
+            "level": "h2",
+            "text": "Loan default and restructuring consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Why clients choose CounselO"
+          },
+          {
+            "level": "h3",
+            "text": "Experienced legal leadership"
+          },
+          {
+            "level": "h3",
+            "text": "Extensive practical experience"
+          },
+          {
+            "level": "h3",
+            "text": "Clear representation model"
+          },
+          {
+            "level": "h3",
+            "text": "Arabic and English"
+          },
+          {
+            "level": "h3",
+            "text": "Professional confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Transparent service scope"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h2",
+            "text": "UAE-wide perspective. Precise jurisdictional thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-consumer-arrears-restructuring-reasons"
+      ],
+      "sourceUrls": [
+        "https://rulebook.centralbank.ae/en/rulebook/article-5-business-conduct"
+      ],
+      "individualReviewConclusion": "Consumer rejection-response obligation directly answered. Full restructuring agreement, collection challenge, insolvency eligibility and corporate guarantees still need current merits sources.",
+      "unresolvedGaps": [
+        "Consumer rejection-response obligation directly answered. Full restructuring agreement, collection challenge, insolvency eligibility and corporate guarantees still need current merits sources.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/services/banking-finance/personal-guarantee-enforcement",
+      "language": "en",
+      "primaryIntent": "Personal guarantee enforcement",
+      "supportingResearchIntents": [
+        "guarantee scope and cap",
+        "demand conditions",
+        "release and debt satisfaction",
+        "governing law and enforcement"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-banking-finance-personal-guarantee-enforcement.html",
+        "sha256": "8510d1b2fe0cb51699365b7a1be8517dcaefc363f82518127cf29345112794de",
+        "priorCoverageSha256": "8510d1b2fe0cb51699365b7a1be8517dcaefc363f82518127cf29345112794de",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "What did the individual guarantor actually agree to cover?",
+          "What should I do first about personal guarantee enforcement?",
+          "What documents help assess personal guarantee enforcement?",
+          "Can CounselO review personal guarantee enforcement online?",
+          "How does CounselO help with personal guarantee enforcement?",
+          "How quickly will I receive a response?"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Personal guarantee enforcement"
+          },
+          {
+            "level": "h2",
+            "text": "Your matter at a glance"
+          },
+          {
+            "level": "h2",
+            "text": "What must be legally verified for your matter?"
+          },
+          {
+            "level": "h2",
+            "text": "What CounselO delivers for personal guarantee enforcement"
+          },
+          {
+            "level": "h3",
+            "text": "1. Submit the matter"
+          },
+          {
+            "level": "h3",
+            "text": "2. CounselO studies and confirms"
+          },
+          {
+            "level": "h3",
+            "text": "3. Pay and we begin"
+          },
+          {
+            "level": "h3",
+            "text": "4. Receive the legal response"
+          },
+          {
+            "level": "h2",
+            "text": "Documents that help us start"
+          },
+          {
+            "level": "h2",
+            "text": "Frequently asked questions"
+          },
+          {
+            "level": "h2",
+            "text": "Start a review of your matter"
+          },
+          {
+            "level": "h3",
+            "text": "For a more useful first response, send:"
+          },
+          {
+            "level": "h2",
+            "text": "Related legal problems"
+          },
+          {
+            "level": "h2",
+            "text": "Personal guarantee enforcement consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Why clients choose CounselO"
+          },
+          {
+            "level": "h3",
+            "text": "Experienced legal leadership"
+          },
+          {
+            "level": "h3",
+            "text": "Extensive practical experience"
+          },
+          {
+            "level": "h3",
+            "text": "Clear representation model"
+          },
+          {
+            "level": "h3",
+            "text": "Arabic and English"
+          },
+          {
+            "level": "h3",
+            "text": "Professional confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Transparent service scope"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h2",
+            "text": "UAE-wide perspective. Precise jurisdictional thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [],
+      "sourceUrls": [],
+      "individualReviewConclusion": "Existing document-focused answer retained. No new adjacent consumer FAQ falsely presented as guarantee defence. Current25/2025 CivilTransactions guarantee provisions, transitional applicability and financial-free-zone defences remain unresolved main intent.",
+      "unresolvedGaps": [
+        "Existing document-focused answer retained. No new adjacent consumer FAQ falsely presented as guarantee defence. Current25/2025 CivilTransactions guarantee provisions, transitional applicability and financial-free-zone defences remain unresolved main intent.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-existing-content-reviewed-main-remedy-gap-open",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/services/banking-finance/unauthorized-bank-transaction",
+      "language": "en",
+      "primaryIntent": "Unauthorized bank transaction",
+      "supportingResearchIntents": [
+        "prompt reporting",
+        "reimbursement timing",
+        "fraud or gross negligence exception",
+        "authorization evidence"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-banking-finance-unauthorized-bank-transaction.html",
+        "sha256": "4783ef5356cf325b99aa52600796aef987df673ae3e48c1b2ef09141640bf8a7",
+        "priorCoverageSha256": "4783ef5356cf325b99aa52600796aef987df673ae3e48c1b2ef09141640bf8a7",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "Which transaction was not authorised and when was it reported?",
+          "What should I do first about unauthorized bank transaction?",
+          "What documents help assess unauthorized bank transaction?",
+          "Can CounselO review unauthorized bank transaction online?",
+          "How does CounselO help with unauthorized bank transaction?",
+          "How quickly will I receive a response?"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Unauthorized bank transaction"
+          },
+          {
+            "level": "h2",
+            "text": "Your matter at a glance"
+          },
+          {
+            "level": "h2",
+            "text": "What must be legally verified for your matter?"
+          },
+          {
+            "level": "h2",
+            "text": "What CounselO delivers for unauthorized bank transaction"
+          },
+          {
+            "level": "h3",
+            "text": "1. Submit the matter"
+          },
+          {
+            "level": "h3",
+            "text": "2. CounselO studies and confirms"
+          },
+          {
+            "level": "h3",
+            "text": "3. Pay and we begin"
+          },
+          {
+            "level": "h3",
+            "text": "4. Receive the legal response"
+          },
+          {
+            "level": "h2",
+            "text": "Documents that help us start"
+          },
+          {
+            "level": "h2",
+            "text": "Frequently asked questions"
+          },
+          {
+            "level": "h2",
+            "text": "Start a review of your matter"
+          },
+          {
+            "level": "h3",
+            "text": "For a more useful first response, send:"
+          },
+          {
+            "level": "h2",
+            "text": "Related legal problems"
+          },
+          {
+            "level": "h2",
+            "text": "Unauthorized bank transaction consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Why clients choose CounselO"
+          },
+          {
+            "level": "h3",
+            "text": "Experienced legal leadership"
+          },
+          {
+            "level": "h3",
+            "text": "Extensive practical experience"
+          },
+          {
+            "level": "h3",
+            "text": "Clear representation model"
+          },
+          {
+            "level": "h3",
+            "text": "Arabic and English"
+          },
+          {
+            "level": "h3",
+            "text": "Professional confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Transparent service scope"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h2",
+            "text": "UAE-wide perspective. Precise jurisdictional thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-bank-unauthorized-payment-reimbursement-standard"
+      ],
+      "sourceUrls": [
+        "https://www.centralbank.ae/media/5crd24gm/cp-standards-pdf.pdf"
+      ],
+      "individualReviewConclusion": "CBUAE consumer standard reimbursement timing directly answered. Distinct payment-service/token regimes, disputed negligence, chargeback and Sanadak/court redress remain open.",
+      "unresolvedGaps": [
+        "CBUAE consumer standard reimbursement timing directly answered. Distinct payment-service/token regimes, disputed negligence, chargeback and Sanadak/court redress remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability",
+      "language": "en",
+      "primaryIntent": "Healthcare & Medical Liability in the United Arab Emirates",
+      "supportingResearchIntents": [
+        "competent health regulator",
+        "medical committee before compensation",
+        "clinical causation",
+        "records access"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-healthcare-medical-liability.html",
+        "sha256": "f21ac798d92473df785ada050226bc7a4b3d89f48d92530d422f532ede0814f4",
+        "priorCoverageSha256": "f21ac798d92473df785ada050226bc7a4b3d89f48d92530d422f532ede0814f4",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "What does a medical malpractice lawyer need to assess a potential claim?",
+          "What is the difference between a poor treatment outcome and a supported medical-liability concern?",
+          "What documents support the healthcare & medical liability consultation in the UAE?",
+          "Does the healthcare & medical liability consultation cover my issue in the UAE?",
+          "How are medical negligence and medical liability matters reviewed?",
+          "Which UAE framework applies to a matter involving Healthcare & Medical Liability?",
+          "Which authority or court handles matters involving Healthcare & Medical Liability?",
+          "What should I provide for the initial UAE legal review?",
+          "Can a consultation about Healthcare & Medical Liability begin online?",
+          "When should I seek UAE legal advice?",
+          "What if records for healthcare & medical liability are missing or inconsistent?",
+          "What if contractual, regulatory or other obligations conflict?",
+          "What should I do if a notice, objection or appeal deadline is close or may have passed?",
+          "How can I preserve evidence or request urgent protection in a healthcare & medical liability matter?"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Healthcare & Medical Liability in the United Arab Emirates"
+          },
+          {
+            "level": "h2",
+            "text": "The service at a glance"
+          },
+          {
+            "level": "h2",
+            "text": "What must be legally verified?"
+          },
+          {
+            "level": "h2",
+            "text": "What We Cover"
+          },
+          {
+            "level": "h2",
+            "text": "Common legal problems we can assess"
+          },
+          {
+            "level": "h2",
+            "text": "Documents that help the initial assessment"
+          },
+          {
+            "level": "h2",
+            "text": "What happens after the initial assessment?"
+          },
+          {
+            "level": "h3",
+            "text": "Understand the matter"
+          },
+          {
+            "level": "h3",
+            "text": "Verify the legal route"
+          },
+          {
+            "level": "h3",
+            "text": "Confirm the scope"
+          },
+          {
+            "level": "h3",
+            "text": "Deliver the output"
+          },
+          {
+            "level": "h2",
+            "text": "Frequently Asked Questions"
+          },
+          {
+            "level": "h2",
+            "text": "Official legal sources"
+          },
+          {
+            "level": "h2",
+            "text": "Start a review of your matter"
+          },
+          {
+            "level": "h2",
+            "text": "Related legal services"
+          },
+          {
+            "level": "h3",
+            "text": "Need immediate counsel?"
+          },
+          {
+            "level": "h2",
+            "text": "Why clients choose CounselO"
+          },
+          {
+            "level": "h3",
+            "text": "Experienced legal leadership"
+          },
+          {
+            "level": "h3",
+            "text": "Extensive practical experience"
+          },
+          {
+            "level": "h3",
+            "text": "Clear representation model"
+          },
+          {
+            "level": "h3",
+            "text": "Arabic and English"
+          },
+          {
+            "level": "h3",
+            "text": "Professional confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Transparent service scope"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h2",
+            "text": "UAE-wide perspective. Precise jurisdictional thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-medical-committee-before-compensation",
+        "abu-dhabi-medical-error-complaint-documents",
+        "dubai-dha-patient-medical-record-access"
+      ],
+      "sourceUrls": [
+        "https://mohap.gov.ae/documents/20117/454960/126c23cb-1b92-4820-9662-ca60c0241462.pdf/89fb7ca9-d0ea-630b-88ca-fb8040ba77a8?t=1737675580211",
+        "https://www.dha.gov.ae/uploads/012026/Standards%20for%20Code%20of%20Ethics%20and%20Professional%20Conduct%20for%20Health%20Professionals%20V1%20202613351.pdf",
+        "https://www.doh.gov.ae/en/Investigation-Request-for-Medical-Error"
+      ],
+      "individualReviewConclusion": "Committee and DOH/DHA branches added. Complete DHA/MOHAP/EHS submission routes, healthcare free-zone regulator distinctions and court valuation remain open.",
+      "unresolvedGaps": [
+        "Committee and DOH/DHA branches added. Complete DHA/MOHAP/EHS submission routes, healthcare free-zone regulator distinctions and court valuation remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability/medical-record-access-dispute",
+      "language": "en",
+      "primaryIntent": "Medical-record access dispute",
+      "supportingResearchIntents": [
+        "DHA access right",
+        "missing records identification",
+        "representative authority",
+        "disclosure restrictions"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-healthcare-medical-liability-medical-record-access-dispute.html",
+        "sha256": "04c949343a1e1472b8407a50e3694c6c0ab1ba56ba84fa1b90b93f7e993be855",
+        "priorCoverageSha256": "04c949343a1e1472b8407a50e3694c6c0ab1ba56ba84fa1b90b93f7e993be855",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "What if I received only a discharge summary?",
+          "Does an incomplete file prove medical negligence?",
+          "What should I do first about medical-record access dispute?",
+          "What documents help assess medical-record access dispute?",
+          "Can CounselO review medical-record access dispute online?",
+          "How does CounselO help with medical-record access dispute?",
+          "How quickly will I receive a response?"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Medical-record access dispute"
+          },
+          {
+            "level": "h2",
+            "text": "Your matter at a glance"
+          },
+          {
+            "level": "h2",
+            "text": "What must be legally verified for your matter?"
+          },
+          {
+            "level": "h2",
+            "text": "What CounselO delivers for medical-record access dispute"
+          },
+          {
+            "level": "h3",
+            "text": "1. Submit the matter"
+          },
+          {
+            "level": "h3",
+            "text": "2. CounselO studies and confirms"
+          },
+          {
+            "level": "h3",
+            "text": "3. Pay and we begin"
+          },
+          {
+            "level": "h3",
+            "text": "4. Receive the legal response"
+          },
+          {
+            "level": "h2",
+            "text": "Documents that help us start"
+          },
+          {
+            "level": "h2",
+            "text": "Frequently asked questions"
+          },
+          {
+            "level": "h2",
+            "text": "Start a review of your matter"
+          },
+          {
+            "level": "h3",
+            "text": "For a more useful first response, send:"
+          },
+          {
+            "level": "h2",
+            "text": "Related legal problems"
+          },
+          {
+            "level": "h2",
+            "text": "Medical-record access dispute consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Why clients choose CounselO"
+          },
+          {
+            "level": "h3",
+            "text": "Experienced legal leadership"
+          },
+          {
+            "level": "h3",
+            "text": "Extensive practical experience"
+          },
+          {
+            "level": "h3",
+            "text": "Clear representation model"
+          },
+          {
+            "level": "h3",
+            "text": "Arabic and English"
+          },
+          {
+            "level": "h3",
+            "text": "Professional confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Transparent service scope"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h2",
+            "text": "UAE-wide perspective. Precise jurisdictional thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "dubai-dha-patient-medical-record-access"
+      ],
+      "sourceUrls": [
+        "https://www.dha.gov.ae/uploads/012026/Standards%20for%20Code%20of%20Ethics%20and%20Professional%20Conduct%20for%20Health%20Professionals%20V1%20202613351.pdf"
+      ],
+      "individualReviewConclusion": "DHA2026 standard supplies substantive access right. Exact refusal escalation, copies/fees/time limits, DOH/MOHAP and deceased/minor records remain open.",
+      "unresolvedGaps": [
+        "DHA2026 standard supplies substantive access right. Exact refusal escalation, copies/fees/time limits, DOH/MOHAP and deceased/minor records remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability/misdiagnosis-and-delayed-diagnosis",
+      "language": "en",
+      "primaryIntent": "Misdiagnosis and delayed diagnosis",
+      "supportingResearchIntents": [
+        "clinical timeline and causation",
+        "committee investigation",
+        "Arabic complaint documents",
+        "report challenge"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-healthcare-medical-liability-misdiagnosis-and-delayed-diagnosis.html",
+        "sha256": "bf37a347cb1c16d18b78d17c158ed8a88219d179dc38b707ce9c8096d9c96f1c",
+        "priorCoverageSha256": "bf37a347cb1c16d18b78d17c158ed8a88219d179dc38b707ce9c8096d9c96f1c",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "What information was available at each diagnostic stage?",
+          "What should I do first about misdiagnosis and delayed diagnosis?",
+          "What documents help assess misdiagnosis and delayed diagnosis?",
+          "Can CounselO review misdiagnosis and delayed diagnosis online?",
+          "How does CounselO help with misdiagnosis and delayed diagnosis?",
+          "How quickly will I receive a response?"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Misdiagnosis and delayed diagnosis"
+          },
+          {
+            "level": "h2",
+            "text": "Your matter at a glance"
+          },
+          {
+            "level": "h2",
+            "text": "What must be legally verified for your matter?"
+          },
+          {
+            "level": "h2",
+            "text": "What CounselO delivers for misdiagnosis and delayed diagnosis"
+          },
+          {
+            "level": "h3",
+            "text": "1. Submit the matter"
+          },
+          {
+            "level": "h3",
+            "text": "2. CounselO studies and confirms"
+          },
+          {
+            "level": "h3",
+            "text": "3. Pay and we begin"
+          },
+          {
+            "level": "h3",
+            "text": "4. Receive the legal response"
+          },
+          {
+            "level": "h2",
+            "text": "Documents that help us start"
+          },
+          {
+            "level": "h2",
+            "text": "Frequently asked questions"
+          },
+          {
+            "level": "h2",
+            "text": "Start a review of your matter"
+          },
+          {
+            "level": "h3",
+            "text": "For a more useful first response, send:"
+          },
+          {
+            "level": "h2",
+            "text": "Related legal problems"
+          },
+          {
+            "level": "h2",
+            "text": "Misdiagnosis and delayed diagnosis consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Why clients choose CounselO"
+          },
+          {
+            "level": "h3",
+            "text": "Experienced legal leadership"
+          },
+          {
+            "level": "h3",
+            "text": "Extensive practical experience"
+          },
+          {
+            "level": "h3",
+            "text": "Clear representation model"
+          },
+          {
+            "level": "h3",
+            "text": "Arabic and English"
+          },
+          {
+            "level": "h3",
+            "text": "Professional confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Transparent service scope"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h2",
+            "text": "UAE-wide perspective. Precise jurisdictional thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-medical-committee-before-compensation",
+        "abu-dhabi-medical-error-complaint-documents",
+        "abu-dhabi-medical-committee-appeal",
+        "uae-medical-complaint-arabic-specificity"
+      ],
+      "sourceUrls": [
+        "https://mohap.gov.ae/documents/20117/454960/126c23cb-1b92-4820-9662-ca60c0241462.pdf/89fb7ca9-d0ea-630b-88ca-fb8040ba77a8?t=1737675580211",
+        "https://uaelegislation.gov.ae/ar/legislations/1191?keyword=%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86",
+        "https://www.doh.gov.ae/en/Appeal-request-for-medical-error-complaint",
+        "https://www.doh.gov.ae/en/Investigation-Request-for-Medical-Error"
+      ],
+      "individualReviewConclusion": "Federal committee prerequisite, complaint content and AbuDhabi complaint/appeal answered. Condition-specific standard of care, causation/loss-of-chance and other regulator workflows remain open.",
+      "unresolvedGaps": [
+        "Federal committee prerequisite, complaint content and AbuDhabi complaint/appeal answered. Condition-specific standard of care, causation/loss-of-chance and other regulator workflows remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability/treatment-injury-and-compensation-claim",
+      "language": "en",
+      "primaryIntent": "Treatment injury and compensation claim",
+      "supportingResearchIntents": [
+        "committee prerequisite",
+        "documented injury and losses",
+        "regulatory report",
+        "court compensation"
+      ],
+      "intentEvidence": "Editorial candidate intent from route content and official sources; no measured demand or ranking claim",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-healthcare-medical-liability-treatment-injury-and-compensation-claim.html",
+        "sha256": "8566cc66eb525f4462db1bf5bde639e82069ebbebb9b0e41e75d4cbed63aaf01",
+        "priorCoverageSha256": "8566cc66eb525f4462db1bf5bde639e82069ebbebb9b0e41e75d4cbed63aaf01",
+        "existingQuestionsConfirmedInCurrentHtml": true,
+        "questions": [
+          "Which injury is attributed to treatment and what evidence supports that link?",
+          "What should I do first about treatment injury and compensation claim?",
+          "What documents help assess treatment injury and compensation claim?",
+          "Can CounselO review treatment injury and compensation claim online?",
+          "How does CounselO help with treatment injury and compensation claim?",
+          "How quickly will I receive a response?"
+        ],
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Treatment injury and compensation claim"
+          },
+          {
+            "level": "h2",
+            "text": "Your matter at a glance"
+          },
+          {
+            "level": "h2",
+            "text": "What must be legally verified for your matter?"
+          },
+          {
+            "level": "h2",
+            "text": "What CounselO delivers for treatment injury and compensation claim"
+          },
+          {
+            "level": "h3",
+            "text": "1. Submit the matter"
+          },
+          {
+            "level": "h3",
+            "text": "2. CounselO studies and confirms"
+          },
+          {
+            "level": "h3",
+            "text": "3. Pay and we begin"
+          },
+          {
+            "level": "h3",
+            "text": "4. Receive the legal response"
+          },
+          {
+            "level": "h2",
+            "text": "Documents that help us start"
+          },
+          {
+            "level": "h2",
+            "text": "Frequently asked questions"
+          },
+          {
+            "level": "h2",
+            "text": "Start a review of your matter"
+          },
+          {
+            "level": "h3",
+            "text": "For a more useful first response, send:"
+          },
+          {
+            "level": "h2",
+            "text": "Related legal problems"
+          },
+          {
+            "level": "h2",
+            "text": "Treatment injury and compensation claim consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Why clients choose CounselO"
+          },
+          {
+            "level": "h3",
+            "text": "Experienced legal leadership"
+          },
+          {
+            "level": "h3",
+            "text": "Extensive practical experience"
+          },
+          {
+            "level": "h3",
+            "text": "Clear representation model"
+          },
+          {
+            "level": "h3",
+            "text": "Arabic and English"
+          },
+          {
+            "level": "h3",
+            "text": "Professional confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Transparent service scope"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h2",
+            "text": "UAE-wide perspective. Precise jurisdictional thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ]
+      },
+      "existingSourceAnswerIds": [],
+      "newAnswerIds": [
+        "uae-medical-committee-before-compensation",
+        "abu-dhabi-medical-error-complaint-documents",
+        "abu-dhabi-medical-committee-appeal",
+        "uae-medical-complaint-arabic-specificity"
+      ],
+      "sourceUrls": [
+        "https://mohap.gov.ae/documents/20117/454960/126c23cb-1b92-4820-9662-ca60c0241462.pdf/89fb7ca9-d0ea-630b-88ca-fb8040ba77a8?t=1737675580211",
+        "https://uaelegislation.gov.ae/ar/legislations/1191?keyword=%D8%A7%D9%84%D9%82%D8%A7%D9%86%D9%88%D9%86",
+        "https://www.doh.gov.ae/en/Appeal-request-for-medical-error-complaint",
+        "https://www.doh.gov.ae/en/Investigation-Request-for-Medical-Error"
+      ],
+      "individualReviewConclusion": "Direct committee-before-compensation answer added with AbuDhabi process and report challenge. Court filing/limitation, damages assessment, practitioner/insurer allocation and other regulator processes remain open.",
+      "unresolvedGaps": [
+        "Direct committee-before-compensation answer added with AbuDhabi process and report challenge. Court filing/limitation, damages assessment, practitioner/insurer allocation and other regulator processes remain open.",
+        "Remaining related query intents and measured demand require further review.",
+        "Root integration and rendered/schema/browser validation pending for this module."
+      ],
+      "status": "partial-source-expansion-awaiting-integration",
+      "fullyCovered": false
+    }
+  ]
+}

@@ -10,11 +10,16 @@ export type WorkContext = {
   titleAr: string;
   editorialUpdatedAt: string;
   creator?: "baghdadi-law";
+  evidenceNote?: { en: string; ar: string };
 };
 
 /** Relationships selected from each published case account, not automatic topic guesses. */
 export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
   "kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary": {
+    "evidenceNote": {
+      "en": "The attached CounselO case study describes a judicial settlement providing for the return of SAR 300,000, together with the claimant giving up an interest in another company. It explains the reported settlement terms; the attachment does not include a payment receipt or the court-issued settlement record.",
+      "ar": "تصف دراسة كاونسلو المرفقة صلحاً قضائياً يتضمن رد 300,000 ريال، مع تنازل المدعي عن حصة في شركة أخرى. وهي تشرح شروط الصلح الواردة في عرض القضية؛ ولا تتضمن المرفقات إيصال سداد أو محضر الصلح الصادر عن المحكمة."
+    },
     "region": null,
     "relatedServiceSlugs": [],
     "relatedBlogSlugs": [
@@ -27,9 +32,13 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "How CounselO Recovered SAR 300,000 Through a Judicial Settlement in a Commercial Dispute",
     "titleAr": "كيف ساعدت كاونسلو في استرداد 300,000 ريال عبر صلح قضائي في نزاع تجاري؟",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal": {
+    "evidenceNote": {
+      "en": "The attached CounselO case study reports a SAR 3,480,000 claim and a SAR 584,131 award. Its statement that the judgment was affirmed on appeal is expressly based on what the client reported. The reduction describes the amount claimed compared with the reported award, rather than money collected.",
+      "ar": "تعرض دراسة كاونسلو المرفقة مطالبة بمبلغ 3,480,000 ريال وحكماً بمبلغ 584,131 ريال. وتوضح الدراسة صراحة أن تأييد الحكم استئنافياً ورد بحسب إفادة العميل. ويعبر التخفيض عن الفرق بين المطالبة والمبلغ المحكوم به وفق العرض المنشور، وليس عن أموال جرى تحصيلها."
+    },
     "region": "sa",
     "relatedServiceSlugs": [
       "business-law",
@@ -46,9 +55,13 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Reducing a Commercial Commission Claim from SAR 3.48 Million to SAR 584,131",
     "titleAr": "كاونسلو و تخفيض مطالبة عمولة تجارية من 3.48 مليون ريال إلى 584 ألف ريال",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227": {
+    "evidenceNote": {
+      "en": "The attached CounselO case study describes a SAR 500,000 claim reduced to a reported final award of SAR 227,000. The published attachment is the professional case account explaining the defence and outcome; it is not a copy of the court judgment or evidence of payment.",
+      "ar": "تصف دراسة كاونسلو المرفقة تخفيض مطالبة بمبلغ 500,000 ريال إلى حكم نهائي بمبلغ 227,000 ريال وفق عرض القضية. والمرفق المنشور دراسة مهنية تشرح الدفاع والنتيجة، وليس نسخة من الحكم القضائي أو دليلاً على السداد."
+    },
     "region": "sa",
     "relatedServiceSlugs": [
       "business-law",
@@ -65,7 +78,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "How CounselO Reduced a SAR 500,000 Claim to SAR 227,000",
     "titleAr": "تخفيض مطالبة تجارية من 500 ألف ريال إلى 227 ألف ريال",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "ray-fy-mshrwa-qanwn-alwsath-alswry-maaljh-10-thghrat": {
     "region": "syr",
@@ -82,7 +95,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Opinion on Syria’s Mediation Law Bill: 10 Gaps",
     "titleAr": "رأي في مشروع قانون الوساطة السوري/ معالجة 10 ثغرات",
-    "editorialUpdatedAt": "2026-09-06",
+    "editorialUpdatedAt": "2026-09-07",
     "creator": "baghdadi-law"
   },
   "kyf-qadt-astratyjyh-kawnslw-ila-rfd-dawa-fskh-aqd-bya-wtawydat-bmlayyn-alryalat": {
@@ -101,7 +114,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "How CounselO Defeated a Sale Contract Rescission Claim",
     "titleAr": "كيف قادت استراتيجية كاونسلو إلى رفض دعوى فسخ عقد بيع وتعويضات بملايين الريالات؟",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "msandh-kawnslw-fy-qdyh-aabrh-llhdwd": {
     "region": null,
@@ -116,9 +129,13 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "CounselO’s Support in a Cross-Border Dispute",
     "titleAr": "مسانده كاونسلو في قضية عابرة للحدود",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal": {
+    "evidenceNote": {
+      "en": "The attached CounselO case study describes an order to hand over 16 original promissory notes. The value above SAR 17 million is their face value. The study does not include a record establishing that the originals were subsequently delivered or that this amount was paid.",
+      "ar": "تصف دراسة كاونسلو المرفقة حكماً بتسليم أصول 16 سنداً لأمر. والمبلغ الذي يتجاوز 17 مليون ريال هو قيمتها الاسمية. ولا تتضمن الدراسة محضراً يثبت تسليم الأصول لاحقاً أو سداد هذا المبلغ."
+    },
     "region": "sa",
     "relatedServiceSlugs": [
       "enforcement",
@@ -132,9 +149,9 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
       "mnazah-tnfydh",
       "hdwd-mswwlyh-alkfyl-fy-alsnd-lamr"
     ],
-    "titleEn": "CounselO’s Strategy to Recover SAR 17 Million in Promissory Notes",
-    "titleAr": "استراتيجية كاونسلو لاسترداد سندات لأمر بقيمة 17 مليون ريال",
-    "editorialUpdatedAt": "2026-09-06"
+    "titleEn": "Order to Return 16 Promissory Notes with a Face Value over SAR 17 Million",
+    "titleAr": "حكم بتسليم 16 سنداً لأمر تتجاوز قيمتها الاسمية 17 مليون ريال",
+    "editorialUpdatedAt": "2026-09-07"
   },
   "kawnslw-wtswyh-alarsdh-almalyh-qanwna": {
     "region": "sa",
@@ -152,7 +169,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "CounselO and Legal Settlement of Financial Balances",
     "titleAr": "كاونسلو وتسوية الارصدة المالية قانونا",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh": {
     "region": null,
@@ -168,7 +185,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "CounselO’s Approach to Commercial Contract Review",
     "titleAr": "منهج كاونسلو في مراجعة العقود التجارية",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "kyf-adart-kawnslw-mrajah-mhasbyh-hsash": {
     "region": "sa",
@@ -185,7 +202,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "How CounselO Managed a Sensitive Accounting Review",
     "titleAr": "كيف أدارت كاونسلو مراجعة محاسبية حساسة.",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "algha-mkhalfat-aldfaa-almdny-bhkm-qdayy": {
     "region": "sa",
@@ -201,7 +218,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Civil Defense Violations Annulled by Court",
     "titleAr": "الغاء مخالفات الدفاع المدني بحكم قضائي",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "rfd-dawa-fskh-aqd-amtyaz-tjary-wtawyd": {
     "region": "sa",
@@ -220,7 +237,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Dismissal of Franchise Agreement Termination and Compensation Claim",
     "titleAr": "رفض دعوى فسخ عقد امتياز تجاري وتعويض",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "mn-alkhta-ala-altawyd-kyf-hddt-kawnslw-almswwl-almbashran-hadth": {
     "region": "sa",
@@ -235,7 +252,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "From Error to Compensation: How CounselO Identified the Directly Responsible Party in an Accident",
     "titleAr": "من الخطأ الى التعويض: كيف حددت كاونسلو المسؤول المباشرعن حادث",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd": {
     "region": "sa",
@@ -254,9 +271,13 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Equipment Non-Delivery: SAR 248,600 Award After Appeal",
     "titleAr": "عدم تسليم معدات: حكم بـ248,600 ريال بعد الاستئناف",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "tfkyk-mstndat-altmas-aaadh-alnzr-bnjah": {
+    "evidenceNote": {
+      "en": "The attached CounselO case study describes procedural admission of the reconsideration petition, rejection on its merits, lifting the enforcement stay and a SAR 23,000 fee award. These are the stages reported in the case account; the attachment is not the court-issued decision.",
+      "ar": "تصف دراسة كاونسلو المرفقة قبول التماس إعادة النظر شكلاً ثم رفضه موضوعاً، ورفع وقف التنفيذ، والحكم بأتعاب قدرها 23,000 ريال. وهذه هي المراحل الواردة في عرض القضية؛ والمرفق دراسة للحالة وليس القرار الصادر عن المحكمة."
+    },
     "region": "sa",
     "relatedServiceSlugs": [
       "enforcement",
@@ -272,7 +293,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Successful Defense of a Reconsideration Petition",
     "titleAr": "تفكيك مستندات التماس اعاده النظر بنجاح",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "alaatrad-ala-almkhalfat-albyyyh": {
     "region": "sa",
@@ -288,7 +309,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Environmental Violations Objection",
     "titleAr": "الاعتراض على المخالفات البيئية",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "thlyl-mkhatr-nql-alaswl-walmsthqat-byn-alshrkat-almrtbth-athna-altsfyh": {
     "region": "sa",
@@ -306,7 +327,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Analyzing the Risks of Transferring Assets and Receivables Between Related Companies During Liquidation",
     "titleAr": "تحليل مخاطر نقل الأصول والمستحقات بين الشركات المرتبطة أثناء التصفية",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "adrah-almkhatr-fy-aqd-tamyny": {
     "region": "sa",
@@ -324,7 +345,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Insurance Requirements in a Saudi Construction Contract",
     "titleAr": "ادراة المخاطر في عقد تأميني",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "kyf-athbtt-kawnslw-alshrakh": {
     "region": "sa",
@@ -341,7 +362,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "How CounselO Proved the Partnership",
     "titleAr": "كيف اثبتت كاونسلو الشراكه",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "kyf-sahmt-kawnslw-fy-anjah-mlf-thkymy-kaml": {
     "region": "sa",
@@ -360,7 +381,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Construction Arbitration: Organising Claims and Expert Evidence",
     "titleAr": "تحكيم مقاولات: تنظيم المطالبات وأدلة الخبرة",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat": {
     "region": "sa",
@@ -378,7 +399,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Construction Payment Claim: Judgment for SAR 448,958",
     "titleAr": "مطالبة بمستحقات مقاولات: حكم بـ448,958 ريالاً",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "mn-drash-almstndat-ila-alhkm-bjmya-altlbat": {
     "region": "sa",
@@ -396,7 +417,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Construction Receivables: Judgment on SAR 2,049,094 in Claims",
     "titleAr": "مستحقات مقاولات: حكم في مطالبات بإجمالي 2,049,094 ريالاً",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "tshyh-altkyyf-alqanwny-lanha-aqd-alaml": {
     "region": "sa",
@@ -413,7 +434,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Correcting the Legal Characterisation of Employment Contract Termination",
     "titleAr": "تصحيح التكييف القانوني لانهاء عقد العمل",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "fskh-aqd-iyjar-tjary-bsbb-khta-byanat-mnsh-iyjar": {
     "region": "sa",
@@ -430,7 +451,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Termination of Commercial Lease Due to Ejar Data Error",
     "titleAr": "فسخ عقد إيجار تجاري بسبب خطأ بيانات منصة إيجار",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "fskh-aqd-snaay-wastrdad-aldfah-almqdmh": {
     "region": "sa",
@@ -447,7 +468,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Termination of Industrial Contract and Recovery of Advance Payment",
     "titleAr": "فسخ عقد صناعي واسترداد الدفعة المقدمة",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "andma-la-ykwn-alnzaa-hwl-alwaya-anma-altkyyf": {
     "region": "sa",
@@ -464,7 +485,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Partner Payments or Company Debt? Assessing Grounds for Appeal",
     "titleAr": "مدفوعات شريك أم دين على الشركة؟ دراسة أسباب الاستئناف",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "mnazah-tnfydh": {
     "region": "sa",
@@ -482,7 +503,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Bank Transfer Allocation in an Enforcement Dispute",
     "titleAr": "تحديد سبب الحوالة المالية في منازعة تنفيذ",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym": {
     "region": null,
@@ -497,7 +518,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "When Is an Arbitral Tribunal Incompetent? Effect of Breaching the Arbitration Clause",
     "titleAr": "متى تكون هيئة التحكيم غير مختصة؟ أثر مخالفة شرط التحكيم",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "alajrh-mqabl-almnfah-fy-aliyjar-altjary": {
     "region": "sa",
@@ -514,7 +535,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Rent vs. Enjoyment in Commercial Leasing",
     "titleAr": "الأجرة مقابل المنفعة في الإيجار التجاري",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "hdwd-mswwlyh-alkfyl-fy-alsnd-lamr": {
     "region": "sa",
@@ -531,7 +552,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Limits of the Guarantor's Liability in a Promissory Note",
     "titleAr": "حدود مسؤولية الكفيل في السند لأمر",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "almttlbat-alqanwnyh-walhwkmh-aldakhlyh": {
     "region": "sa",
@@ -549,7 +570,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Intercompany Settlement: Corporate Approvals and Signing Authority",
     "titleAr": "تسوية بين شركات مرتبطة: الموافقات وصلاحية التوقيع",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "hl-ymkn-tjawz-altqadm-brfa-dawa-alithra-bla-sbb": {
     "region": "sa",
@@ -567,7 +588,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Can Limitation Be Circumvented by Filing an Unjust Enrichment Claim?",
     "titleAr": "هل يمكن تجاوز التقادم برفع دعوى الإثراء بلا سبب؟",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "mswwlyh-almqawlyn": {
     "region": "sa",
@@ -585,7 +606,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Subcontractor Replacement and Back Charges: Liability Review",
     "titleAr": "استبدال مقاول الباطن وتحميله التكاليف: دراسة المسؤولية",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "astsharh-fy-ahtyal-maly": {
     "region": "sa",
@@ -603,7 +624,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Consultation on Financial Fraud",
     "titleAr": "استشاره في احتيال مالي",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "drash-qdyh-aqaryh-maqdh-fy-swrya": {
     "region": "syr",
@@ -621,7 +642,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Analysis of a Complex Real Estate Case in Syria",
     "titleAr": "دراسه قضيه عقاريه معقده في سوريا",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "darsh-qdyh-qbl-alnzaa": {
     "region": "sa",
@@ -640,7 +661,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Pre-Litigation Assessment of a Manpower Services Payment Claim",
     "titleAr": "دراسة مطالبة بمستحقات توريد عمالة قبل رفع الدعوى",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "maaljh-halh-khta-tby": {
     "region": "sa",
@@ -655,7 +676,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Handling a Medical Malpractice Case",
     "titleAr": "معالجة حالة خطأ طبي",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "ray-qanwny-fy-tswyh-aabrh-llhdwd": {
     "region": "sa",
@@ -673,7 +694,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Legal Opinion on a Cross-Border Settlement",
     "titleAr": "رأي قانوني في تسوية عابرة للحدود",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "altfawd-alqanwny-aldhky": {
     "region": null,
@@ -688,7 +709,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Negotiating an International Technology NDA and Non-Circumvention Terms",
     "titleAr": "التفاوض على سرية مشروع تقني دولي وشروط عدم الالتفاف",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "qdyh-mna-sfr-dd-aaml": {
     "region": "sa",
@@ -705,7 +726,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Travel Ban Case Against an Employee",
     "titleAr": "قضية منع سفر ضد عامل",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "mn-atham-maly-maqd-ila-brah-qtayh": {
     "region": "sa",
@@ -722,7 +743,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "From a Complex Financial Accusation to a Final Acquittal",
     "titleAr": "من اتهام مالي معقد إلى براءة قطعية",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "hyn-la-tnthy-alqdyh-balhkm-alawl-kyf-qlbt-kawnslw-msar-nzaa-amaly": {
     "region": "sa",
@@ -739,7 +760,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "When the First Judgment Is Not the End: How CounselO Reversed an Employment Dispute",
     "titleAr": "حين لا تنتهي القضية بالحكم الأول: كيف قلبت كاونسلو مسار نزاع عمالي؟",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "drash-tan-amam-almhkmh-aladaryh-alalya": {
     "region": "sa",
@@ -755,7 +776,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Study of an Appeal Before the Supreme Administrative Court",
     "titleAr": "دراسة طعن امام المحكمة الادارية العليا",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "atfaqyh-atar-ltqdym-alkhdmat-altqnyh-whlwl-aldhka-alastnaay": {
     "region": null,
@@ -769,7 +790,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Framework Agreement for Technology Services and AI Solutions",
     "titleAr": "اتفاقية اطار لتقديم الخدمات التقنية وحلول الذكاء الاصطناعي",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   },
   "ray-qanwny-fy-tlb-aflas": {
     "region": "sa",
@@ -786,7 +807,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Legal Opinion on a Bankruptcy Application",
     "titleAr": "رأي قانوني في طلب افلاس",
-    "editorialUpdatedAt": "2026-09-06"
+    "editorialUpdatedAt": "2026-09-07"
   }
 };
 

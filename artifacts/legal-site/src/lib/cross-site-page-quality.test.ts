@@ -46,7 +46,7 @@ test("evidence and publishing surfaces retain their trust boundaries", () => {
   assert.match(work, /articlePublishedTime=\{sample\.date\}/);
   assert.match(work, /articleModifiedTime=\{modifiedAt\}/);
   assert.match(work, /workModifiedAt\(sample\.slug, sample\.updatedAt, sample\.date\)/);
-  assert.match(work, /reviewedBy: context \? undefined : \{ "@id": OMAR_AL_BAGHDADI\["@id"\] \}/);
+  assert.doesNotMatch(work, /reviewedBy:|author:|citation: legalSources/);
   assert.match(blog, /articleModifiedTime=\{editorialUpdatedAt \?\? post\.updatedAt \?\? post\.date\}/);
   assert.match(seoHead, /articleModifiedTime \|\| articlePublishedTime/);
   assert.doesNotMatch(library, /<main[\s>]/);

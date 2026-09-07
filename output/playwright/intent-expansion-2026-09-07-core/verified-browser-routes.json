@@ -1,0 +1,1606 @@
+{
+  "environment": "local production browser,390x844",
+  "rows": [
+    {
+      "route": "/",
+      "role": "global-home",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 22958
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/ar",
+      "role": "global-home",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 17732
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/ar/legal-library",
+      "role": "legal-library",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 13937
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/ar/our-work",
+      "role": "our-work",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 32047
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/blog",
+      "role": "blog",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 28472
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/",
+      "role": "global-home",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 22958
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/ar",
+      "role": "global-home",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 17732
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/ar/legal-library",
+      "role": "legal-library",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 13937
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/ar/our-work",
+      "role": "our-work",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 32047
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/blog",
+      "role": "blog",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 28472
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/blog/ar",
+      "role": "blog",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 25515
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/legal-library",
+      "role": "legal-library",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 16468
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/our-work",
+      "role": "our-work",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 40951
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa",
+      "role": "regional-home",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 21759
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/about",
+      "role": "about",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 10687
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/blog/ar",
+      "role": "blog",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 25515
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/legal-library",
+      "role": "legal-library",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 16468
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/our-work",
+      "role": "our-work",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 40951
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa",
+      "role": "regional-home",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 21759
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/about",
+      "role": "about",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 10687
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar",
+      "role": "regional-home",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 17766
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/about",
+      "role": "about",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 9847
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/contact",
+      "role": "contact",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 5506
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/privacy-policy",
+      "role": "privacy-policy",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 7601
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services",
+      "role": "services",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 7963
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar",
+      "role": "regional-home",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 17766
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/about",
+      "role": "about",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 9847
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/contact",
+      "role": "contact",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 5506
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/privacy-policy",
+      "role": "privacy-policy",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 7601
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services",
+      "role": "services",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 7963
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/terms-of-service",
+      "role": "terms-of-service",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 3130
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/vision",
+      "role": "vision",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 6169
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/contact",
+      "role": "contact",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 6451
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/privacy-policy",
+      "role": "privacy-policy",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 8943
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services",
+      "role": "services",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 9100
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/terms-of-service",
+      "role": "terms-of-service",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 3130
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/vision",
+      "role": "vision",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 6169
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/contact",
+      "role": "contact",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 6451
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/privacy-policy",
+      "role": "privacy-policy",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 8943
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services",
+      "role": "services",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 9100
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/terms-of-service",
+      "role": "terms-of-service",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 3776
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/vision",
+      "role": "vision",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 7414
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr",
+      "role": "regional-home",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 16910
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/about",
+      "role": "about",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 11016
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar",
+      "role": "regional-home",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 14215
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/terms-of-service",
+      "role": "terms-of-service",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 3776
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/vision",
+      "role": "vision",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 7414
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr",
+      "role": "regional-home",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 16910
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/about",
+      "role": "about",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 11016
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar",
+      "role": "regional-home",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 14215
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/about",
+      "role": "about",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 9808
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/contact",
+      "role": "contact",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 5361
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/privacy-policy",
+      "role": "privacy-policy",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 7490
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services",
+      "role": "services",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 9181
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/terms-of-service",
+      "role": "terms-of-service",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 3109
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/about",
+      "role": "about",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 9808
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/contact",
+      "role": "contact",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 5361
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/privacy-policy",
+      "role": "privacy-policy",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 7490
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services",
+      "role": "services",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 9181
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/terms-of-service",
+      "role": "terms-of-service",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 3109
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/vision",
+      "role": "vision",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 6153
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/contact",
+      "role": "contact",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 6333
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/privacy-policy",
+      "role": "privacy-policy",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 8917
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services",
+      "role": "services",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 10286
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/terms-of-service",
+      "role": "terms-of-service",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 3759
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/vision",
+      "role": "vision",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 6153
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/contact",
+      "role": "contact",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 6333
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/privacy-policy",
+      "role": "privacy-policy",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 8917
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services",
+      "role": "services",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 10286
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/terms-of-service",
+      "role": "terms-of-service",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 3759
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/vision",
+      "role": "vision",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 7406
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae",
+      "role": "regional-home",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 11869
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/about",
+      "role": "about",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 10506
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar",
+      "role": "regional-home",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 10166
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/about",
+      "role": "about",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 9297
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/vision",
+      "role": "vision",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 7406
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae",
+      "role": "regional-home",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 11869
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/about",
+      "role": "about",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 10506
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar",
+      "role": "regional-home",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 11859
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/about",
+      "role": "about",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 9297
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/contact",
+      "role": "contact",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 5460
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/privacy-policy",
+      "role": "privacy-policy",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 7862
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services",
+      "role": "services",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 10092
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/terms-of-service",
+      "role": "terms-of-service",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 3223
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/vision",
+      "role": "vision",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 6175
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/contact",
+      "role": "contact",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 5460
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/privacy-policy",
+      "role": "privacy-policy",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 7862
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services",
+      "role": "services",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 10092
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/terms-of-service",
+      "role": "terms-of-service",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 3223
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/vision",
+      "role": "vision",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false,
+        "mainLength": 6175
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/contact",
+      "role": "contact",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 6476
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/privacy-policy",
+      "role": "privacy-policy",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 9183
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services",
+      "role": "services",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 11523
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/terms-of-service",
+      "role": "terms-of-service",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 3868
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/vision",
+      "role": "vision",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 7423
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/contact",
+      "role": "contact",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 7175
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/privacy-policy",
+      "role": "privacy-policy",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 9183
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services",
+      "role": "services",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 11523
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/terms-of-service",
+      "role": "terms-of-service",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 3868
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/vision",
+      "role": "vision",
+      "width": 1440,
+      "status": 200,
+      "state": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false,
+        "mainLength": 7423
+      },
+      "navigation": true,
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "pass": true
+}

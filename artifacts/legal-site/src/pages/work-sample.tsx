@@ -5,10 +5,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { workJurisdictionRegion } from "@/lib/work-jurisdiction";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized, workSamplePath } from "@/lib/work-samples";
-import { getRegionalLegalSources } from "@/lib/regional-legal-sources";
 import type { InitialBlogPost } from "@/App";
 import { fetchPublicJson, publicApiUrl } from "@/lib/public-api";
-import { blogPath, WORK_CONTEXT, workModifiedAt, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
+import { blogPath, WORK_CONTEXT, WORK_READER_GUIDANCE, workModifiedAt, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion } from "@workspace/api-zod/browser";
 
 declare global {
   interface Window {
@@ -63,9 +62,9 @@ export default function WorkSample() {
   const ar = lang === "ar";
   const workBasePath = ar ? "/ar/our-work" : "/our-work";
   const ui = ar ? {
-    back: "العودة إلى أعمالنا", notFound: "نموذج العمل غير موجود", completed: "تاريخ الإنجاز", jurisdiction: "النطاق القانوني", clientType: "نوع العميل", documentLanguage: "لغة المستند", challenge: "المسألة", approach: "العمل الذي قمنا به", outcome: "النتيجة أو القيمة المقدمة", document: "المستند المنقح", open: "فتح المستند في نافذة جديدة", download: "تنزيل نسخة", privacy: "حماية السرية", privacyText: "تم حذف أو حجب أسماء العملاء والبيانات الشخصية والتجارية السرية والتفاصيل التي تسمح بالتعرف على أصحابها قبل نشر هذا النموذج.", disclaimer: "هذا النموذج لأغراض توضيح الخبرة المهنية فقط. عُدّلت بعض التفاصيل أو حُجبت لحماية السرية، ولا تمثل النتائج السابقة ضماناً لنتيجة أي مسألة أخرى.", ctaTitle: "هل تحتاج إلى مستند أو حل قانوني مماثل؟", cta: "ناقش متطلباتك معنا",
+    back: "العودة إلى أعمالنا", notFound: "نموذج العمل غير موجود", completed: "تاريخ نموذج العمل", jurisdiction: "النطاق القانوني", clientType: "نوع العميل", documentLanguage: "لغة المستند", challenge: "المسألة", approach: "العمل الذي قمنا به", outcome: "النتيجة أو القيمة المقدمة", document: "المستند المنقح", open: "فتح المستند في نافذة جديدة", download: "تنزيل نسخة", privacy: "حماية السرية", privacyText: "تم حذف أو حجب أسماء العملاء والبيانات الشخصية والتجارية السرية والتفاصيل التي تسمح بالتعرف على أصحابها قبل نشر هذا النموذج.", disclaimer: "هذا النموذج لأغراض توضيح الخبرة المهنية فقط. عُدّلت بعض التفاصيل أو حُجبت لحماية السرية، ولا تمثل النتائج السابقة ضماناً لنتيجة أي مسألة أخرى.", ctaTitle: "هل تحتاج إلى مستند أو حل قانوني مماثل؟", cta: "ناقش متطلباتك معنا",
   } : {
-    back: "Back to Our Work", notFound: "Work sample not found", completed: "Completed", jurisdiction: "Jurisdiction", clientType: "Client type", documentLanguage: "Document language", challenge: "The matter", approach: "Work performed", outcome: "Outcome or value delivered", document: "Redacted document", open: "Open document in a new tab", download: "Download a copy", privacy: "Confidentiality protected", privacyText: "Client names, personal and commercially sensitive data, and identifying matter details were removed or obscured before this sample was published.", disclaimer: "This sample demonstrates professional experience only. Details may be modified or withheld to protect confidentiality, and past work or outcomes do not guarantee the result of another matter.", ctaTitle: "Need a similar legal document or solution?", cta: "Discuss Your Requirements",
+    back: "Back to Our Work", notFound: "Work sample not found", completed: "Work sample date", jurisdiction: "Jurisdiction", clientType: "Client type", documentLanguage: "Document language", challenge: "The matter", approach: "Work performed", outcome: "Outcome or value delivered", document: "Redacted document", open: "Open document in a new tab", download: "Download a copy", privacy: "Confidentiality protected", privacyText: "Client names, personal and commercially sensitive data, and identifying matter details were removed or obscured before this sample was published.", disclaimer: "This sample demonstrates professional experience only. Details may be modified or withheld to protect confidentiality, and past work or outcomes do not guarantee the result of another matter.", ctaTitle: "Need a similar legal document or solution?", cta: "Discuss Your Requirements",
   };
 
   if (isLoading) return <div className="min-h-[60vh] flex items-center justify-center text-muted-foreground">{ar ? "جارٍ التحميل…" : "Loading…"}</div>;
@@ -114,7 +113,6 @@ export default function WorkSample() {
   const relatedService = region && relatedServiceSlugs[0]
     ? getServiceDefinition(relatedServiceSlugs[0], region)
     : undefined;
-  const legalSources = region && relatedService ? getRegionalLegalSources(region, relatedService.slug) : [];
   const schema = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
@@ -126,7 +124,6 @@ export default function WorkSample() {
     url: canonical,
     dateCreated: sample.date,
     dateModified: modifiedAt,
-    reviewedBy: context ? undefined : { "@id": OMAR_AL_BAGHDADI["@id"] },
     inLanguage: lang,
     genre: ["Legal case study", workType].filter(Boolean),
     contentLocation: jurisdiction,
@@ -134,9 +131,7 @@ export default function WorkSample() {
       ? { "@type": "Service", name: localized(relatedService.titleEn, relatedService.titleAr, lang), url: `https://counselo-legal.com${regionPrefix}/services/${relatedService.slug}` }
       : { "@type": "Thing", name: jurisdiction },
     keywords: [workType, jurisdiction, relatedService && localized(relatedService.titleEn, relatedService.titleAr, lang), "legal case study"].filter(Boolean),
-    citation: legalSources.map((source) => source.href),
     creator,
-    author: context?.creator === "baghdadi-law" ? creator : { ...OMAR_AL_BAGHDADI, "@type": "Person" },
     publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
     isPartOf: { "@id": `https://counselo-legal.com${workBasePath}#webpage` },
     encoding: sample.hasFile ? { "@type": "MediaObject", contentUrl: new URL(fileUrl, "https://counselo-legal.com").href, encodingFormat: sample.fileMimeType } : undefined,
@@ -154,7 +149,7 @@ export default function WorkSample() {
 
   return (
     <div className="counselo-editorial-page case-file-page min-h-screen bg-background" dir={isRTL ? "rtl" : "ltr"}>
-      <SEOHead heroArtwork="platform" title={seoTitle} description={seoDescription} canonical={canonicalPath} noRegionPrefix contentLanguage={lang} sharedLanguageAlternates={sample.titleEn && sample.titleAr ? { en: `/our-work/${sample.slug}`, ar: `/ar/our-work/${sample.slug}` } : undefined} keywords={`${workType}, ${jurisdiction}, ${ar ? "نموذج عمل قانوني, صياغة قانونية, كاونسلو" : "legal work sample, legal drafting, CounselO"}`} schema={schema} extraSchemas={[breadcrumbSchema]} ogType="article" articlePublishedTime={sample.date} articleModifiedTime={modifiedAt} articleAuthor={context?.creator === "baghdadi-law" ? "https://www.baghdadilaw.co" : OMAR_AL_BAGHDADI.url} reviewedBy={context ? undefined : (ar ? "المحامي والمستشار القانوني عمر البغدادي" : "Lawyer and Legal Counsel Omar Al-Baghdadi")} />
+      <SEOHead heroArtwork="platform" title={seoTitle} description={seoDescription} canonical={canonicalPath} noRegionPrefix contentLanguage={lang} sharedLanguageAlternates={sample.titleEn && sample.titleAr ? { en: `/our-work/${sample.slug}`, ar: `/ar/our-work/${sample.slug}` } : undefined} keywords={`${workType}, ${jurisdiction}, ${ar ? "نموذج عمل قانوني, صياغة قانونية, كاونسلو" : "legal work sample, legal drafting, CounselO"}`} schema={schema} extraSchemas={[breadcrumbSchema]} ogType="article" articlePublishedTime={sample.date} articleModifiedTime={modifiedAt} />
       <section className="premium-page-hero text-white px-4 py-14">
         <div className="max-w-6xl mx-auto"><Link href={workBasePath} className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 text-sm"><ArrowLeft className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} />{ui.back}</Link><div className="max-w-4xl"><div className="flex flex-wrap gap-2 mb-5">{workType && <span className="border border-white/25 bg-white/10 px-3 py-1 text-sm">{workType}</span>}{sample.featured && <span className="bg-white text-primary px-3 py-1 text-sm font-semibold">{ar ? "عمل مميز" : "Featured work"}</span>}</div><h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-5">{title}</h1><div className="premium-hero-rule mb-6" /><p className="text-lg text-white/75 leading-relaxed">{summary}</p></div></div>
       </section>
@@ -177,12 +172,14 @@ export default function WorkSample() {
             </div>
             {clientType && <div className="border-s-4 border-primary bg-muted/40 p-5"><p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{ui.clientType}</p><p className="font-semibold">{clientType}</p></div>}
             {[[ui.challenge, challenge], [ui.approach, approach], [ui.outcome, outcome]].filter(([, value]) => value).map(([heading, value]) => <article key={heading}><h2 className="text-2xl font-serif font-bold mb-4">{heading}</h2><p className="text-muted-foreground leading-8 whitespace-pre-line">{value}</p></article>)}
+            {context?.evidenceNote && <section aria-labelledby="work-evidence-heading" className="border-s-4 border-primary bg-muted/40 p-5"><h2 id="work-evidence-heading" className="text-xl font-serif font-bold mb-3">{ar ? "ما الذي يوضحه المستند المنشور؟" : "What does the published document establish?"}</h2><p className="text-muted-foreground leading-8">{context.evidenceNote[lang]}</p></section>}
+            {WORK_READER_GUIDANCE[sample.slug]?.[lang].map(answer => <section key={answer.q}><h2 className="text-2xl font-serif font-bold mb-4">{answer.q}</h2><p className="text-muted-foreground leading-8">{answer.a}</p></section>)}
             <div className="border border-amber-200 bg-amber-50 text-amber-950 p-5 flex gap-3"><ShieldCheck className="h-5 w-5 shrink-0 mt-0.5" /><p className="text-sm leading-relaxed">{ui.disclaimer}</p></div>
           </div>
 
           {sample.hasFile && <aside className="space-y-6">
             <div className="border border-border bg-card p-5 sticky top-28">
-              <h2 className="text-xl font-serif font-bold mb-4">{ui.document}</h2>
+              <h2 className="text-xl font-serif font-bold mb-4">{context?.evidenceNote ? (ar ? "دراسة كاونسلو للحالة" : "CounselO case study") : ui.document}</h2>
               <div className="aspect-[3/4] bg-muted border border-border overflow-hidden mb-4 flex items-center justify-center">
                 {sample.fileMimeType.startsWith("image/") ? <img src={fileUrl} alt={title} className="w-full h-full object-contain" /> : <iframe src={fileUrl} title={ui.document} className="w-full h-full" sandbox="allow-same-origin" loading="lazy" />}
               </div>

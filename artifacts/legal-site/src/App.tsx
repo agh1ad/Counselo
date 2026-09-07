@@ -362,6 +362,8 @@ function Router() {
 }
 
 function AppShell() {
+  const { lang } = useRegion();
+  const isRTL = lang === "ar";
   const [location] = useLocation();
   const isAdmin = location.startsWith("/counselo-admin");
   const isRegionPicker = location === "/" || location === "/ar";
@@ -392,7 +394,7 @@ function AppShell() {
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-background focus:text-foreground focus:px-4 focus:py-2 focus:border focus:border-border"
       >
-        Skip to main content
+        {isRTL ? "تجاوز إلى المحتوى الرئيسي" : "Skip to main content"}
       </a>
       <Navbar />
       <main className="flex-grow pt-21" id="main-content">

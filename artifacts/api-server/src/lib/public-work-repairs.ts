@@ -1,3 +1,4 @@
+import { correctWorkIntentFields } from "./work-intent-corrections.js";
 import { createHash } from "node:crypto";
 import { correctPublicWorkFields } from "./work-editorial-corrections.js";
 import { WORK_CONTEXT } from "@workspace/api-zod";
@@ -55,5 +56,5 @@ function cleanWorkText<T extends PublicWorkRecord>(sample: T): T {
 }
 
 export function repairPublicWorkSample<T extends PublicWorkRecord>(sample: T): T {
-  return cleanWorkText(applyWorkRepairs(sample));
+  return correctWorkIntentFields(cleanWorkText(applyWorkRepairs(sample)));
 }

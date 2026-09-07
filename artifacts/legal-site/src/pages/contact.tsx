@@ -210,21 +210,21 @@ export default function Contact() {
           ? (isRTL ? "احجز استشارة قانونية في الإمارات | كاونسلو" : "Book a UAE Legal Consultation | CounselO")
           : region === "syr"
           ? (isRTL
-            ? "احجز استشارة قانونية أونلاين في سوريا | استجابة خلال 24 ساعة | كاونسلو"
-            : "Book Online Legal Consultation Syria | Response Within 24 Hours | CounselO")
+            ? "احجز استشارة قانونية أونلاين في سوريا | رد مستهدف خلال 24 ساعة | كاونسلو"
+            : "Book Online Legal Consultation Syria | Target Reply Within 24 Hours | CounselO")
           : (isRTL
-            ? "احجز استشارة قانونية أونلاين في السعودية | استجابة خلال 24 ساعة | كاونسلو"
-            : "Book Online Legal Consultation Saudi Arabia | Response Within 24 Hours | CounselO")}
+            ? "احجز استشارة قانونية أونلاين في السعودية | رد مستهدف خلال 24 ساعة | كاونسلو"
+            : "Book Online Legal Consultation Saudi Arabia | Target Reply Within 24 Hours | CounselO")}
         description={isUae
           ? (isRTL
             ? "تواصل مع كاونسلو الإمارات لطلب استشارة قانونية أونلاين في المسائل الاتحادية والمحلية ومسائل البرّ الرئيسي والمناطق الحرة، بالعربية أو الإنجليزية."
             : "Contact CounselO, the UAE online legal platform, for confidential consultation on federal, emirate-level, mainland and free-zone matters in Arabic or English.")
           : isSyr
           ? (isRTL
-            ? "تواصل مع كاونسلو — منصة الاستشارات القانونية الأونلاين في سوريا. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
+            ? "تواصل مع كاونسلو — منصة الاستشارات القانونية الأونلاين في سوريا. نستهدف رداً مهنياً خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
             : "Contact CounselO — Syria's online legal platform for fast, professional legal consultation. Target response within 24 hours via WhatsApp (+966 59 485 0247) or email, in Arabic or English.")
           : (isRTL
-            ? "تواصل مع كاونسلو — منصة متخصصة للاستشارات القانونية أونلاين في المملكة. استجابة احترافية خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
+            ? "تواصل مع كاونسلو — منصة متخصصة للاستشارات القانونية أونلاين في المملكة. نستهدف رداً مهنياً خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
             : "Contact CounselO — Saudi Arabia's online legal platform for fast, professional legal consultation. Target response within 24 hours via WhatsApp (+966 59 485 0247) or email, in Arabic or English.")}
         canonical="/contact"
         keywords={isUae
@@ -242,6 +242,7 @@ export default function Contact() {
           {
             "@context": "https://schema.org",
             "@type": "ContactPage",
+            "dateModified": "2026-09-07",
             "name": isRTL ? "تواصل مع كاونسلو" : "Contact CounselO",
             "description": isUae
               ? (isRTL
@@ -249,11 +250,11 @@ export default function Contact() {
                 : "Book an online legal consultation for UAE matters in Arabic or English")
               : isSyr
               ? (isRTL
-                ? "احجز استشارة قانونية أونلاين في سوريا — استجابة احترافية خلال 24 ساعة"
-                : "Book an online legal consultation in Syria — professional response within 24 hours")
+                ? "احجز استشارة قانونية أونلاين في سوريا — رد مهني مستهدف خلال 24 ساعة"
+                : "Book an online legal consultation in Syria — target professional response within 24 hours")
               : (isRTL
-                ? "احجز استشارة قانونية أونلاين في المملكة العربية السعودية — استجابة خلال 24 ساعة"
-                : "Book an online legal consultation in Saudi Arabia — professional response within 24 hours"),
+                ? "احجز استشارة قانونية أونلاين في المملكة العربية السعودية — رد مستهدف خلال 24 ساعة"
+                : "Book an online legal consultation in Saudi Arabia — target professional response within 24 hours"),
             "url": pageUrl,
           },
           {
@@ -570,7 +571,7 @@ export default function Contact() {
                     >
                       {isSubmitting && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
                       {isSubmitting
-                        ? (isRTL ? "جارٍ إرسال الطلب..." : "Submitting securely…")
+                        ? (isRTL ? "جارٍ إرسال الطلب..." : "Submitting…")
                         : f.submitBtn}
                     </Button>
                     <p className="text-xs text-muted-foreground text-center">{f.disclaimer}</p>

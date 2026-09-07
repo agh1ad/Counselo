@@ -1,0 +1,757 @@
+{
+  "reviewedAt": "2026-09-07",
+  "scope": {
+    "articleCount": 11,
+    "bilingualRouteCount": 22,
+    "changedRouteCount": 11,
+    "changedSlugCount": 6
+  },
+  "export": {
+    "file": "artifacts/api-server/src/lib/syria-article-final-corrections.ts",
+    "function": "correctSyriaArticleFinal(slug, lang, html)",
+    "integration": "Apply to article body after existing passage corrections; the function is literal and sanitizer-cycle idempotent. No changes to shared correction file."
+  },
+  "substantivelyAffectedSlugs": [
+    "alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+    "alaqd-fy-alqanwn-alswry",
+    "alrda-fy-alqanwn-alswry",
+    "contract-interpretation-syrian-courts",
+    "hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+    "mhl-alaqd-fy-alqanwn-alswry"
+  ],
+  "sourceResearch": [
+    {
+      "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+      "result": "Official WIPO-hosted record of Syrian Civil Code84/1949 retrieved. Added only as published-text reference; no new substantive statutory rules or current consolidation claim."
+    },
+    {
+      "search": "Official Syrian MOJ and SANA searches for4886/1963",
+      "result": "No original official judgment retrieved. Search results included secondary republications, which were not used to authenticate a court holding."
+    }
+  ],
+  "validation": "All22 actual retained article bodies passed direct idempotence and correction→exact current sanitizeRichText configuration→correction→sanitization equality. No build or shared edits.",
+  "pages": [
+    {
+      "route": "/blog/ar/alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+      "slug": "alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+      "language": "ar",
+      "status": "targeted-editorial-fix-authored",
+      "changedByThisModule": true,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-ar-alahlyh-fy-altaaqd-fy-alqanwn-alswry.html",
+        "sha256": "9c20e6572a7492132c3f7f0b663833e5ffbfc6669259af407c7a3e54058ba82d",
+        "bodyCharacters": 6851,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "المواد 46–49 من القانون المدني المنشور"
+          }
+        ]
+      },
+      "primaryIntent": "Determine Syrian contractual capacity",
+      "specificDecision": "Replace unidentified Cassation bibliography item with an explicit editorial/statutory basis; retain existing linked capacity correction.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 13469,
+        "afterHtmlLength": 13494
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/ar/alaqd-fy-alqanwn-alswry",
+      "slug": "alaqd-fy-alqanwn-alswry",
+      "language": "ar",
+      "status": "targeted-editorial-fix-authored",
+      "changedByThisModule": true,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-ar-alaqd-fy-alqanwn-alswry.html",
+        "sha256": "6b201db2b30f78ebdaad532b09d8223a3ef05af4a130c85f5a79ec7142b1540f",
+        "bodyCharacters": 7233,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "المادتان 148 و149 من القانون المدني"
+          }
+        ]
+      },
+      "primaryIntent": "Understand formation and force of a Syrian contract",
+      "specificDecision": "Remove unsupported settled-Cassation framing from introductory and reference passages; preserve the discussion of contractual concepts.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 13786,
+        "afterHtmlLength": 13793
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/ar/almswwlyh-alaqdyh-fy-alqanwn-alswry",
+      "slug": "almswwlyh-alaqdyh-fy-alqanwn-alswry",
+      "language": "ar",
+      "status": "existing-corrections-retained",
+      "changedByThisModule": false,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-ar-almswwlyh-alaqdyh-fy-alqanwn-alswry.html",
+        "sha256": "ae8460a4a510b6e46fffa88a5bc86b1cc2a6e3874353f51af08eed1d542201c1",
+        "bodyCharacters": 6622,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "المواد 219–221 من القانون المدني"
+          },
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "https://www.wipo.int/wipolex/ar/legislation/details/10917"
+          },
+          {
+            "href": "https://arab-ency.com.sy/law",
+            "label": "https://arab-ency.com.sy/law"
+          }
+        ]
+      },
+      "primaryIntent": "Assess Syrian contractual liability",
+      "specificDecision": "No additional passage change justified in this batch: existing parent corrections and source links address the identified narrow wording defect; avoid rewriting the authored article.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 14314,
+        "afterHtmlLength": 14314
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/ar/alrda-fy-alqanwn-alswry",
+      "slug": "alrda-fy-alqanwn-alswry",
+      "language": "ar",
+      "status": "targeted-editorial-fix-authored",
+      "changedByThisModule": true,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-ar-alrda-fy-alqanwn-alswry.html",
+        "sha256": "6c44a6c5d08bf31215992cb0a9116551ceda726479129e16c49f8ed9c67f39d1",
+        "bodyCharacters": 5432,
+        "existingExternalSources": []
+      },
+      "primaryIntent": "Establish Syrian contractual consent",
+      "specificDecision": "Replace unspecific settled-case-law attribution for silence and the reference list; link the previously unlinked published Civil Code with a non-consolidation limitation.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 9696,
+        "afterHtmlLength": 9860
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/ar/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+      "slug": "altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+      "language": "ar",
+      "status": "existing-corrections-retained",
+      "changedByThisModule": false,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-ar-altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry.html",
+        "sha256": "9ed3e5426d44cd6792d5171d6960423a34c302abf131354e230ce3841c46a77e",
+        "bodyCharacters": 12412,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "المادة 227 من القانون المدني المنشور"
+          }
+        ]
+      },
+      "primaryIntent": "Calculate Syrian contract-breach compensation",
+      "specificDecision": "No additional passage change justified in this batch: existing parent corrections and source links address the identified narrow wording defect; avoid rewriting the authored article.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 26249,
+        "afterHtmlLength": 26249
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/ar/consensual-formal-real-contracts-syrian-law",
+      "slug": "consensual-formal-real-contracts-syrian-law",
+      "language": "ar",
+      "status": "existing-corrections-retained",
+      "changedByThisModule": false,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-ar-consensual-formal-real-contracts-syrian-law.html",
+        "sha256": "a05739b3a565472227f2b38b404f918e18c389fba7250f6fa76032f534705498",
+        "bodyCharacters": 7615,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "القانون المدني السوري المنشور"
+          },
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "https://www.wipo.int/wipolex/ar/legislation/details/10917"
+          },
+          {
+            "href": "https://arab-ency.com.sy/law",
+            "label": "https://arab-ency.com.sy/law"
+          }
+        ]
+      },
+      "primaryIntent": "Distinguish consensual, formal and delivery-based Syrian contracts",
+      "specificDecision": "No additional passage change justified in this batch: existing parent corrections and source links address the identified narrow wording defect; avoid rewriting the authored article.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 13560,
+        "afterHtmlLength": 13560
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/ar/contract-interpretation-syrian-courts",
+      "slug": "contract-interpretation-syrian-courts",
+      "language": "ar",
+      "status": "targeted-editorial-fix-authored",
+      "changedByThisModule": true,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-ar-contract-interpretation-syrian-courts.html",
+        "sha256": "be0ddbdecf247718484c0e595d1927b878a96aa817d047d20ebf4b0ba5aacf1f",
+        "bodyCharacters": 6329,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "القانون المدني السوري، المرسوم التشريعي 84 لعام 1949"
+          },
+          {
+            "href": "https://arab-ency.com.sy/law",
+            "label": "https://arab-ency.com.sy/law"
+          }
+        ]
+      },
+      "primaryIntent": "Interpret an ambiguous Syrian contract",
+      "specificDecision": "Arabic only: replace an unsupported settled-court attribution concerning good faith with the actual statutory/editorial basis. English current body already has restrained framing.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 13070,
+        "afterHtmlLength": 13097
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/ar/defects-of-will-syrian-law",
+      "slug": "defects-of-will-syrian-law",
+      "language": "ar",
+      "status": "existing-corrections-retained",
+      "changedByThisModule": false,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-ar-defects-of-will-syrian-law.html",
+        "sha256": "1a84b34590fddb64b116ba8d92426b9e50c54202b238e8103160693058fc08bb",
+        "bodyCharacters": 5147,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "المواد 121–125 من القانون المدني السوري المنشور"
+          },
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "https://www.wipo.int/wipolex/ar/legislation/details/10917"
+          },
+          {
+            "href": "https://mail.arab-ency.com.sy/law/details/165317",
+            "label": "https://mail.arab-ency.com.sy/law/details/165317"
+          }
+        ]
+      },
+      "primaryIntent": "Assess Syrian mistake, duress, fraud and exploitation",
+      "specificDecision": "No additional passage change justified in this batch: existing parent corrections and source links address the identified narrow wording defect; avoid rewriting the authored article.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 9318,
+        "afterHtmlLength": 9318
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/ar/hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+      "slug": "hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+      "language": "ar",
+      "status": "targeted-editorial-fix-authored",
+      "changedByThisModule": true,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-ar-hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry.html",
+        "sha256": "92f29ad69ca7e0850ff81270b7a2143025c6082713ea97e0b444256ac55398a9",
+        "bodyCharacters": 28040,
+        "existingExternalSources": [
+          {
+            "href": "https://houmsilaw.com/img/uploads1/law_227.pdf",
+            "label": "نسخة من قانون البينات السوري، المواد 112–120"
+          },
+          {
+            "href": "https://arab-ency.com.sy/law/details/164460",
+            "label": "محمد سامر القطان، «اليمين»، الموسوعة القانونية السورية"
+          }
+        ]
+      },
+      "primaryIntent": "Analyse limits of the Syrian conclusive oath",
+      "specificDecision": "Scope the entire historical account as reported secondary attributions, and remove the misleading inference that multiple secondary references authenticate the judgments. Preserve detailed authored historical analysis and identified decision numbers.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 44747,
+        "afterHtmlLength": 45095
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established.",
+        "Original official decisions4886/1963,2342/1982 and2979/2008 remain unverified; the amended body explicitly presents secondary historical accounts."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/ar/mhl-alaqd-fy-alqanwn-alswry",
+      "slug": "mhl-alaqd-fy-alqanwn-alswry",
+      "language": "ar",
+      "status": "targeted-editorial-fix-authored",
+      "changedByThisModule": true,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-ar-mhl-alaqd-fy-alqanwn-alswry.html",
+        "sha256": "4b7518b2fe15b97a254ab34593e4f1922bb4396027463f7a7d0551ca4abfffe6",
+        "bodyCharacters": 8868,
+        "existingExternalSources": []
+      },
+      "primaryIntent": "Assess the subject matter of a Syrian contract",
+      "specificDecision": "Replace vague judicial-principles reference and add a direct published Code link with version limitation.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 13556,
+        "afterHtmlLength": 13810
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/ar/performance-of-contracts-in-good-faith-under-syrian-law",
+      "slug": "performance-of-contracts-in-good-faith-under-syrian-law",
+      "language": "ar",
+      "status": "existing-corrections-retained",
+      "changedByThisModule": false,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-ar-performance-of-contracts-in-good-faith-under-syrian-law.html",
+        "sha256": "da8649209dc07c26c0417abfed74913e756430c26deb6ba6860675315bd1dc63",
+        "bodyCharacters": 6414,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "المادة 149 من القانون المدني"
+          },
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "https://www.wipo.int/wipolex/ar/legislation/details/10917"
+          },
+          {
+            "href": "https://arab-ency.com.sy/law",
+            "label": "https://arab-ency.com.sy/law"
+          }
+        ]
+      },
+      "primaryIntent": "Perform and interpret a Syrian contract in good faith",
+      "specificDecision": "No additional passage change justified in this batch: existing parent corrections and source links address the identified narrow wording defect; avoid rewriting the authored article.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 10119,
+        "afterHtmlLength": 10119
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/en/alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+      "slug": "alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+      "language": "en",
+      "status": "targeted-editorial-fix-authored",
+      "changedByThisModule": true,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-en-alahlyh-fy-altaaqd-fy-alqanwn-alswry.html",
+        "sha256": "f848392bdf210eaf8915f48b5ef67861cc7ac956bdf48f5c965b00c4a8f134e5",
+        "bodyCharacters": 9545,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "Civil Code, Articles 46–49"
+          }
+        ]
+      },
+      "primaryIntent": "Determine Syrian contractual capacity",
+      "specificDecision": "Replace unidentified Cassation bibliography item with an explicit editorial/statutory basis; retain existing linked capacity correction.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 16163,
+        "afterHtmlLength": 16211
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/en/alaqd-fy-alqanwn-alswry",
+      "slug": "alaqd-fy-alqanwn-alswry",
+      "language": "en",
+      "status": "targeted-editorial-fix-authored",
+      "changedByThisModule": true,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-en-alaqd-fy-alqanwn-alswry.html",
+        "sha256": "eac03e4380b9cf5f98e4a998e344b50ebdbec1aeba8bf56bcb3173de026b894a",
+        "bodyCharacters": 10258,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "Civil Code Articles 148–149"
+          }
+        ]
+      },
+      "primaryIntent": "Understand formation and force of a Syrian contract",
+      "specificDecision": "Remove unsupported settled-Cassation framing from introductory and reference passages; preserve the discussion of contractual concepts.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 16812,
+        "afterHtmlLength": 16765
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/en/almswwlyh-alaqdyh-fy-alqanwn-alswry",
+      "slug": "almswwlyh-alaqdyh-fy-alqanwn-alswry",
+      "language": "en",
+      "status": "existing-corrections-retained",
+      "changedByThisModule": false,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-en-almswwlyh-alaqdyh-fy-alqanwn-alswry.html",
+        "sha256": "281d6b602059a15eece8f930df68524e029f224f4fb8202b7ece80efe8317b8e",
+        "bodyCharacters": 9141,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "Civil Code Articles 219–221"
+          },
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "https://www.wipo.int/wipolex/ar/legislation/details/10917"
+          },
+          {
+            "href": "https://arab-ency.com.sy/law",
+            "label": "https://arab-ency.com.sy/law"
+          }
+        ]
+      },
+      "primaryIntent": "Assess Syrian contractual liability",
+      "specificDecision": "No additional passage change justified in this batch: existing parent corrections and source links address the identified narrow wording defect; avoid rewriting the authored article.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 16833,
+        "afterHtmlLength": 16833
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/en/alrda-fy-alqanwn-alswry",
+      "slug": "alrda-fy-alqanwn-alswry",
+      "language": "en",
+      "status": "targeted-editorial-fix-authored",
+      "changedByThisModule": true,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-en-alrda-fy-alqanwn-alswry.html",
+        "sha256": "e1f0c7a4a9f98071ffa859ee9089173d730f66960daff356bd436b679f475a4c",
+        "bodyCharacters": 7435,
+        "existingExternalSources": []
+      },
+      "primaryIntent": "Establish Syrian contractual consent",
+      "specificDecision": "Replace unspecific settled-case-law attribution for silence and the reference list; link the previously unlinked published Civil Code with a non-consolidation limitation.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 11699,
+        "afterHtmlLength": 11900
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/en/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+      "slug": "altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+      "language": "en",
+      "status": "existing-corrections-retained",
+      "changedByThisModule": false,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-en-altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry.html",
+        "sha256": "581800c71ae7b10f6444e4ef4282557b34a17cc76412b5f226644918a5164151",
+        "bodyCharacters": 17563,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "Article 227 of the published Civil Code"
+          }
+        ]
+      },
+      "primaryIntent": "Calculate Syrian contract-breach compensation",
+      "specificDecision": "No additional passage change justified in this batch: existing parent corrections and source links address the identified narrow wording defect; avoid rewriting the authored article.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 31401,
+        "afterHtmlLength": 31401
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/en/consensual-formal-real-contracts-syrian-law",
+      "slug": "consensual-formal-real-contracts-syrian-law",
+      "language": "en",
+      "status": "existing-corrections-retained",
+      "changedByThisModule": false,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-en-consensual-formal-real-contracts-syrian-law.html",
+        "sha256": "698465500ceffdf2329ad294fa506a168751326bff60b9220d346e9dc0e91f74",
+        "bodyCharacters": 11067,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "Syrian Civil Code"
+          },
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "https://www.wipo.int/wipolex/ar/legislation/details/10917"
+          },
+          {
+            "href": "https://arab-ency.com.sy/law",
+            "label": "https://arab-ency.com.sy/law"
+          }
+        ]
+      },
+      "primaryIntent": "Distinguish consensual, formal and delivery-based Syrian contracts",
+      "specificDecision": "No additional passage change justified in this batch: existing parent corrections and source links address the identified narrow wording defect; avoid rewriting the authored article.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 17012,
+        "afterHtmlLength": 17012
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/en/contract-interpretation-syrian-courts",
+      "slug": "contract-interpretation-syrian-courts",
+      "language": "en",
+      "status": "existing-corrections-retained",
+      "changedByThisModule": false,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-en-contract-interpretation-syrian-courts.html",
+        "sha256": "5c33fd9086ee323cc70d755aac53a2d69b79cf2880c5f019f32721b36b798697",
+        "bodyCharacters": 6523,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "Syrian Civil Code, Legislative Decree No. 84 of 1949"
+          },
+          {
+            "href": "https://arab-ency.com.sy/law",
+            "label": "Syrian Legal Encyclopedia"
+          }
+        ]
+      },
+      "primaryIntent": "Interpret an ambiguous Syrian contract",
+      "specificDecision": "Arabic only: replace an unsupported settled-court attribution concerning good faith with the actual statutory/editorial basis. English current body already has restrained framing.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 7186,
+        "afterHtmlLength": 7186
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/en/defects-of-will-syrian-law",
+      "slug": "defects-of-will-syrian-law",
+      "language": "en",
+      "status": "existing-corrections-retained",
+      "changedByThisModule": false,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-en-defects-of-will-syrian-law.html",
+        "sha256": "991927a47c2388bf0034ea309f82b9c249490767dc5e38184919d9c80e295881",
+        "bodyCharacters": 6915,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "Articles 121–125 of the published Syrian Civil Code"
+          },
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "https://www.wipo.int/wipolex/ar/legislation/details/10917"
+          },
+          {
+            "href": "https://mail.arab-ency.com.sy/law/details/165317",
+            "label": "https://mail.arab-ency.com.sy/law/details/165317"
+          }
+        ]
+      },
+      "primaryIntent": "Assess Syrian mistake, duress, fraud and exploitation",
+      "specificDecision": "No additional passage change justified in this batch: existing parent corrections and source links address the identified narrow wording defect; avoid rewriting the authored article.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 11080,
+        "afterHtmlLength": 11080
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/en/hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+      "slug": "hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+      "language": "en",
+      "status": "targeted-editorial-fix-authored",
+      "changedByThisModule": true,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-en-hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry.html",
+        "sha256": "3388b28ced2ceb78f3e46467be3e402186f345010d1914be5a69fa201642f49e",
+        "bodyCharacters": 19741,
+        "existingExternalSources": [
+          {
+            "href": "https://houmsilaw.com/img/uploads1/law_227.pdf",
+            "label": "reproduction of the Syrian Evidence Law, Articles 112–120"
+          },
+          {
+            "href": "https://arab-ency.com.sy/law/details/164460",
+            "label": "Muhammad Samer Al-Qattan, “Oath,” Syrian Legal Encyclopedia"
+          }
+        ]
+      },
+      "primaryIntent": "Analyse limits of the Syrian conclusive oath",
+      "specificDecision": "Scope the entire historical account as reported secondary attributions, and remove the misleading inference that multiple secondary references authenticate the judgments. Preserve detailed authored historical analysis and identified decision numbers.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 20943,
+        "afterHtmlLength": 21358
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established.",
+        "Original official decisions4886/1963,2342/1982 and2979/2008 remain unverified; the amended body explicitly presents secondary historical accounts."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/en/mhl-alaqd-fy-alqanwn-alswry",
+      "slug": "mhl-alaqd-fy-alqanwn-alswry",
+      "language": "en",
+      "status": "targeted-editorial-fix-authored",
+      "changedByThisModule": true,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-en-mhl-alaqd-fy-alqanwn-alswry.html",
+        "sha256": "442de37b964e2c5456d33e81ebed61d38dfa4a955a496f8b8c8b29aba1f9e4af",
+        "bodyCharacters": 13135,
+        "existingExternalSources": []
+      },
+      "primaryIntent": "Assess the subject matter of a Syrian contract",
+      "specificDecision": "Replace vague judicial-principles reference and add a direct published Code link with version limitation.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 18047,
+        "afterHtmlLength": 18330
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    },
+    {
+      "route": "/blog/en/performance-of-contracts-in-good-faith-under-syrian-law",
+      "slug": "performance-of-contracts-in-good-faith-under-syrian-law",
+      "language": "en",
+      "status": "existing-corrections-retained",
+      "changedByThisModule": false,
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/blog-en-performance-of-contracts-in-good-faith-under-syrian-law.html",
+        "sha256": "4bb02523462a255a85873830902a665b273a47584a2740bd2915149dc1226194",
+        "bodyCharacters": 9006,
+        "existingExternalSources": [
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "Civil Code Article 149"
+          },
+          {
+            "href": "https://www.wipo.int/wipolex/ar/legislation/details/10917",
+            "label": "https://www.wipo.int/wipolex/ar/legislation/details/10917"
+          },
+          {
+            "href": "https://arab-ency.com.sy/law",
+            "label": "https://arab-ency.com.sy/law"
+          }
+        ]
+      },
+      "primaryIntent": "Perform and interpret a Syrian contract in good faith",
+      "specificDecision": "No additional passage change justified in this batch: existing parent corrections and source links address the identified narrow wording defect; avoid rewriting the authored article.",
+      "verification": {
+        "idempotent": true,
+        "sanitizerCycleIdempotent": true,
+        "beforeHtmlLength": 12712,
+        "afterHtmlLength": 12712
+      },
+      "remainingQuestions": [
+        "Current statutory consolidation and any relevant special-law exception have not been independently established."
+      ],
+      "releaseEvidence": "Parent integration, dates and fresh render/browser/publication verification remain separate."
+    }
+  ]
+}

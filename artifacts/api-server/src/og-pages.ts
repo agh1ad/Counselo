@@ -22,6 +22,7 @@ import {
   articleModifiedAt,
   ARTICLE_CONTEXT,
   WORK_CONTEXT,
+  WORK_READER_GUIDANCE,
   workModifiedAt,
   getServiceDefinition,
   assignArticleProvenance,
@@ -189,7 +190,7 @@ export function buildDynamicBlogHtml(
   const articleRegion = articleContextRegion(post);
   const correctionDate = ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt;
   const editorialUpdatedAt = correctionDate ? articleModifiedAt(correctionDate, post.updatedAt, post.date) : undefined;
-  const authorUrl = localizeArticleProvenanceUrl(post.primaryAuthorUrl || provenance.primaryAuthorUrl, articleRegion, requestedLanguage, "profile");
+  const authorUrl = localizeArticleProvenanceUrl(provenance.primaryAuthorEntityId ? provenance.primaryAuthorUrl : post.primaryAuthorUrl || provenance.primaryAuthorUrl, articleRegion, requestedLanguage, "profile");
   const reviewerUrl = localizeArticleProvenanceUrl(post.legalReviewerUrl || provenance.legalReviewerUrl, articleRegion, requestedLanguage, "profile");
   const correctionUrl = localizeArticleProvenanceUrl(post.correctionUrl || provenance.correctionUrl, articleRegion, requestedLanguage, "correction");
   // Tests pass a minimal shell so the future-post contract is validated
@@ -210,10 +211,10 @@ export function buildDynamicBlogHtml(
     mainEntityOfPage: canonical,
     author: {
       "@type": "Organization",
-      "@id": COUNSELO_ENTITY_IDS.organization,
+      "@id": provenance.primaryAuthorEntityId ?? COUNSELO_ENTITY_IDS.organization,
       name: isArabicPost ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName,
       alternateName: isArabicPost ? provenance.primaryAuthorName : provenance.primaryAuthorNameAr,
-      url: `${BASE_URL}${authorUrl}`,
+      url: new URL(authorUrl, BASE_URL).href,
     },
     publisher: {
       "@type": "Organization",
@@ -418,6 +419,8 @@ export function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | 
   ].filter(([, value]) => value.trim()).map(([heading, value]) => `<section><h2>${esc(heading)}</h2><p style="white-space:pre-line">${esc(value)}</p></section>`).join("");
   const disclaimer = isArabic ? "هذا النموذج لأغراض توضيح الخبرة المهنية فقط. عُدّلت بعض التفاصيل أو حُجبت لحماية السرية، ولا تمثل النتائج السابقة ضماناً لنتيجة أي مسألة أخرى." : "This sample demonstrates professional experience only. Details may be modified or withheld to protect confidentiality, and past work or outcomes do not guarantee the result of another matter.";
   const context = WORK_CONTEXT[sample.slug];
+  const evidenceNote = context?.evidenceNote ? `<section><h2>${isArabic ? "ما الذي يوضحه المستند المنشور؟" : "What does the published document establish?"}</h2><p>${esc(context.evidenceNote[language])}</p></section>` : "";
+  const readerGuidance = (WORK_READER_GUIDANCE[sample.slug]?.[language] ?? []).map(answer => `<section><h2>${esc(answer.q)}</h2><p>${esc(answer.a)}</p></section>`).join("");
   const serviceLinks = context?.region ? context.relatedServiceSlugs.flatMap(slug => {
     const service = getServiceDefinition(slug, context.region!);
     return service ? [`<li><a href="/${context.region}${isArabic ? "/ar" : ""}/services/${esc(slug)}">${esc(localized(service.titleEn, service.titleAr))}</a></li>`] : [];
@@ -435,7 +438,7 @@ export function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | 
   const contactPath = context?.region ? `/${context.region}${isArabic ? "/ar" : ""}/contact` : `${isArabic ? "/ar" : "/"}#jurisdictions-heading${isArabic ? "-ar" : ""}`;
   const attribution = context?.creator === "baghdadi-law" ? `<p>${isArabic ? "الجهة صاحبة الدراسة" : "Study by"}: <a href="https://www.baghdadilaw.co">${isArabic ? "البغدادي للمحاماة" : "Baghdadi Law"}</a></p>` : "";
   const updated = context ? `<p>${isArabic ? "تحديث المحتوى" : "Content updated"}: ${esc(workModifiedAt(sample.slug, sample.updatedAt, sample.date)?.slice(0, 10) ?? sample.date)}</p>` : "";
-  const body = `<main><article><h1>${esc(localized(sample.titleEn, sample.titleAr))}</h1>${attribution}${updated}<p>${esc(localized(sample.summaryEn, sample.summaryAr))}</p><p>${esc(localized(sample.workTypeEn, sample.workTypeAr))} · ${esc(localized(sample.jurisdictionEn, sample.jurisdictionAr))}</p>${sections}<p>${esc(disclaimer)}</p>${related}<p><a href="${contactPath}">${isArabic ? "ناقش متطلباتك القانونية" : "Discuss your legal requirements"}</a></p>${sample.fileSize > 0 ? `<a href="${fileUrl}">${isArabic ? "عرض المستند المنقح" : "View redacted document"}</a>` : ""}</article></main>`;
+  const body = `<main><article><h1>${esc(localized(sample.titleEn, sample.titleAr))}</h1>${attribution}${updated}<p>${esc(localized(sample.summaryEn, sample.summaryAr))}</p><p>${esc(localized(sample.workTypeEn, sample.workTypeAr))} · ${esc(localized(sample.jurisdictionEn, sample.jurisdictionAr))}</p>${sections}${evidenceNote}${readerGuidance}<p>${esc(disclaimer)}</p>${related}<p><a href="${contactPath}">${isArabic ? "ناقش متطلباتك القانونية" : "Discuss your legal requirements"}</a></p>${sample.fileSize > 0 ? `<a href="${fileUrl}">${isArabic ? "عرض المستند المنقح" : "View redacted document"}</a>` : ""}</article></main>`;
   if (!shell) return `<!doctype html><html lang="${isArabic ? "ar" : "en"}" dir="${isArabic ? "rtl" : "ltr"}"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
   return shell.replace(/<html\b[^>]*>/i, `<html lang="${isArabic ? "ar" : "en"}" dir="${isArabic ? "rtl" : "ltr"}">`).replace("<!--app-head-->", head).replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
 }

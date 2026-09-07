@@ -1,0 +1,897 @@
+{
+  "reviewedAt": "2026-09-07",
+  "taskStatus": "bounded-cluster-frozen-awaiting-root-integration-and-render-review",
+  "scope": {
+    "routes": 8,
+    "serviceRoutes": 2,
+    "matterRoutes": 6,
+    "newBilingualRecords": 22,
+    "closureRecommendations": 8,
+    "remainingMatterRoutesInCluster": 0,
+    "acceptedClosures": 0
+  },
+  "method": "Reviewed the actual8retained bilingual insolvency routes, earlier individual gaps and existing source guidance. Verified targeted current official indexed legislative text,2024executive thresholds,2019personal-insolvency scope and current financial-free-zone source boundaries. No complete downloaded51/2023PDF is claimed: direct official fetch403. Every addition states the applicable procedure; unsupported application or legal-outcome assurances are excluded.",
+  "materialFindings": [
+    "Article 1 defines day as official working day; Article 247 small-debtor periods can be halved. No universal calendar-day count published.",
+    "Article 87 viability and repeat-application restrictions now answered, including the majority-approved-plan exception. Article 62 financing rules also govern restructuring through Article 94; prior secured consent is needed for equal/senior new security.",
+    "Articles 101 and 106 now distinguish debt-list grievance, trustee late admission, court escalation after refusal or ten working days without response, and distributions only after acceptance.",
+    "Articles 122–123 separately explain the liquidation final-claim invitation and finally rejected claims. Secured execution permission and objections are distinct from proof of debt and priority.",
+    "Article 179 priority is explained by collateral, privileged classes and ordinary debt; qualifying employee entitlement priority has a three-month salary cap. No recovery guaranteed.",
+    "Article 246(2) Arabic text and official MOEC English version both literally refer to not declaring the company bankrupt when reasonable loss-reducing precautions are proved. We do not silently rewrite that outcome into automatic personal immunity. Public answer accurately states the proof requirement; paragraph 4 express written-reservation exemption remains distinct. Judicial application to a specific liability case is a file issue, not an unanswered generic statutory question.",
+    "Closure recommendations concern defined public consultation/navigation purposes and known public questions, not every possible query, a practitioner procedural treatise, search ranking, or independent completion of excluded personal/DIFC/ADGM regimes."
+  ],
+  "sourceEvidence": [
+    {
+      "url": "https://uaelegislation.gov.ae/ar/legislations/2190/download",
+      "sections": [
+        "1",
+        "22–23",
+        "62",
+        "87",
+        "94",
+        "98–106",
+        "107",
+        "114",
+        "122–123",
+        "179",
+        "213–216",
+        "246",
+        "247"
+      ],
+      "findings": "Targeted official indexed primary Arabic text reviewed, including printed pages 17, 34, 50, 83 and 106–107; official MOEC English director text cross-checked. No full downloaded PDF or all-article review claimed."
+    },
+    {
+      "url": "https://www.uaelegislation.gov.ae/en/legislations/2582/download",
+      "sections": [
+        "5",
+        "6",
+        "18"
+      ],
+      "findings": "Debt opening thresholds, secured-shortfall distinction and small-debtor asset thresholds verified."
+    },
+    {
+      "url": "https://uaelegislation.gov.ae/en/legislations/1032/download",
+      "sections": [
+        "1–3"
+      ],
+      "findings": "Personal natural-person framework and application-record categories; historic2016cross-reference not presented as currentbusinesslaw."
+    },
+    {
+      "url": "https://u.ae/en/information-and-services/business/bankruptcy-and-insolvency/uae-law-on-bankruptcy",
+      "findings": "CurrentMay2026government overview identifying51/2023and94/2024scope/exclusions."
+    },
+    {
+      "url": "https://www.adgm.com/operating-in-adgm/insolvency-practitioners/relevant-legislation",
+      "findings": "Current official list identifies InsolvencyRegulations2022; no substantiveADGMclock asserted."
+    },
+    {
+      "url": "https://www.difc.com/business/laws-and-regulations/legal-database/difc-laws/insolvency-law-difc-law-no-1-2019",
+      "findings": "Originalpage labelledInactive with2025amendment link; not used as currentconsolidatedproceduralproof."
+    }
+  ],
+  "validation": {
+    "records": 22,
+    "uniqueIds": 22,
+    "registryCollisions": 0,
+    "invalidMatterSlugs": 0,
+    "renderedQuestionMismatches": 0,
+    "newAnswerRendering": "Rootintegrationpending",
+    "fullBuildOrBrowser": "Not run by subagent"
+  },
+  "pages": [
+    {
+      "route": "/uae/ar/services/insolvency-restructuring",
+      "language": "ar",
+      "primaryIntent": "إعادة التنظيم المالي والإفلاس في الإمارات العربية المتحدة",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-insolvency-restructuring.html",
+        "sha256": "3782f4c04c9683586299cc2b2891289f64478f1a6c106bda4e41285cc6267661",
+        "questions": [
+          "كيف تختلف إعادة تنظيم الأعمال عن نزاع دين غير مسدد؟",
+          "هل يوقف مجرد اقتراح الهيكلة مطالبات الدائنين؟",
+          "أين يقدم الدائن دينه في إعادة الهيكلة الاتحادية؟",
+          "ما مستندات استشارة إعادة التنظيم المالي والإفلاس في الإمارات؟",
+          "هل تشمل استشارة إعادة التنظيم المالي والإفلاس المسألة التي أواجهها في الإمارات؟",
+          "ما الإطار الإماراتي المنطبق على مسألة إعادة التنظيم المالي والإفلاس؟",
+          "ما الجهة أو المحكمة المختصة بمسائل إعادة التنظيم المالي والإفلاس؟",
+          "ما الذي ينبغي تقديمه للمراجعة القانونية الإماراتية الأولية؟",
+          "هل يمكن بدء استشارة إعادة التنظيم المالي والإفلاس أونلاين؟",
+          "متى ينبغي طلب المشورة القانونية في الإمارات؟",
+          "ماذا أفعل إذا كانت مستندات إعادة التنظيم المالي والإفلاس ناقصة أو متعارضة؟",
+          "ماذا لو تعارضت التزامات تعاقدية أو تنظيمية أو غيرها؟",
+          "ماذا أفعل إذا اقترب ميعاد إخطار أو اعتراض أو طعن أو ربما انقضى؟",
+          "كيف أحفظ الأدلة أو أطلب حماية عاجلة في مسألة إعادة التنظيم المالي والإفلاس؟"
+        ],
+        "missingQuestionText": []
+      },
+      "existingSourceAnswerIds": [
+        "uae-formal-restructuring-stay-trigger",
+        "uae-restructuring-creditor-publication-submission"
+      ],
+      "newAnswerIds": [
+        "uae-insolvency-regime-selection",
+        "uae-insolvency-procedure-selection",
+        "uae-insolvency-personal-route-boundary"
+      ],
+      "resolvedPublicQuestions": [
+        "هل يشمل قانون الإفلاس التجاري الاتحادي كل مدين في الإمارات؟",
+        "ما الفرق بين التسوية الوقائية وإعادة الهيكلة والإفلاس؟",
+        "ماذا إن كانت الديون شخصية وليست ديون تاجر؟"
+      ],
+      "sourceUrls": [
+        "https://u.ae/en/information-and-services/business/bankruptcy-and-insolvency/uae-law-on-bankruptcy",
+        "https://uaelegislation.gov.ae/ar/legislations/2190/download",
+        "https://uaelegislation.gov.ae/en/legislations/1032/download",
+        "https://uaelegislation.gov.ae/en/legislations/2190/download"
+      ],
+      "previousKnownGaps": [
+        "Federal51/2023 restructuring stages added. Preventive settlement, bankruptcy liquidation, thresholds,2024/2025 implementation and DIFC/ADGM procedures need fuller treatment."
+      ],
+      "remainingPublicGaps": [],
+      "caseSpecificApplication": "Actual debtor status, liability amount, security valuation, filing trigger dates, deliberate harmful purpose and evidence of written reservations require the file. Those facts are not invented as public conclusions.",
+      "closureRecommendation": {
+        "recommend": true,
+        "reason": "The recorded core public questions are answered by existing copy and the mapped source guidance within this stated page purpose. Remaining fact application and excluded regimes are explicit boundaries, not silently answered or used to justify indefinite partial status. Root must verify integration and bilingual rendering before acceptance."
+      },
+      "completionAccepted": false,
+      "status": "defined-public-purpose-closure-candidate-awaiting-root-verification",
+      "definedPagePurpose": "Navigate the three retained business-insolvency consultation routes and identify federal, personal and excluded special regimes.",
+      "knownPublicIntentMapping": [
+        {
+          "intent": "procedure and regime selection",
+          "answerIds": [
+            "uae-insolvency-regime-selection",
+            "uae-insolvency-procedure-selection",
+            "uae-insolvency-personal-route-boundary"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "restructuring stay and creditor submission",
+          "answerIds": [
+            "uae-formal-restructuring-stay-trigger",
+            "uae-restructuring-creditor-publication-submission"
+          ],
+          "status": "existing-visible-answer-reused"
+        },
+        {
+          "intent": "deeper procedural questions",
+          "destinationRoutes": [
+            "/uae/ar/services/insolvency-restructuring/business-debt-restructuring",
+            "/uae/ar/services/insolvency-restructuring/creditor-claim-in-insolvency",
+            "/uae/ar/services/insolvency-restructuring/director-liability-in-insolvency"
+          ],
+          "status": "existing-linked-matter-destinations"
+        }
+      ],
+      "scopeBoundary": "Navigation hub does not need to repeat every linked matter answer or teach the complete DIFC/ADGM/personal regimes."
+    },
+    {
+      "route": "/uae/ar/services/insolvency-restructuring/business-debt-restructuring",
+      "language": "ar",
+      "primaryIntent": "إعادة هيكلة ديون المنشأة",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-insolvency-restructuring-business-debt-restructuring.html",
+        "sha256": "248dae12d232d0c5c9b8128f2a809229c003941b5e2e5ebf3c6544a9f65384ad",
+        "questions": [
+          "هل يوقف مجرد اقتراح الهيكلة مطالبات الدائنين؟",
+          "هل يستطيع النشاط دعم مقترح واقعي لإعادة هيكلة الديون؟",
+          "ما أول خطوة في مسألة إعادة هيكلة ديون المنشأة؟",
+          "ما المستندات المفيدة لتقييم إعادة هيكلة ديون المنشأة؟",
+          "هل يمكن أن تراجع كاونسلو مسألة إعادة هيكلة ديون المنشأة أونلاين؟",
+          "كيف تساعد كاونسلو في إعادة هيكلة ديون المنشأة؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "missingQuestionText": []
+      },
+      "existingSourceAnswerIds": [
+        "uae-formal-restructuring-stay-trigger"
+      ],
+      "newAnswerIds": [
+        "uae-insolvency-regime-selection",
+        "uae-insolvency-procedure-selection",
+        "uae-insolvency-debtor-threshold",
+        "uae-insolvency-application-records",
+        "uae-insolvency-working-day-definition",
+        "uae-insolvency-plan-preparation",
+        "uae-insolvency-personal-route-boundary",
+        "uae-insolvency-voting-majority",
+        "uae-insolvency-rejected-plan",
+        "uae-insolvency-secured-execution",
+        "uae-insolvency-small-debtor",
+        "uae-insolvency-preventive-financing",
+        "uae-insolvency-eligibility-repeat-application"
+      ],
+      "resolvedPublicQuestions": [
+        "هل يشمل قانون الإفلاس التجاري الاتحادي كل مدين في الإمارات؟",
+        "ما الفرق بين التسوية الوقائية وإعادة الهيكلة والإفلاس؟",
+        "ما حد الدين في الطلب الاتحادي المقدم من المدين؟",
+        "ما السجلات المطلوبة غير قائمة الفواتير المتأخرة؟",
+        "هل المدد المذكورة بالأيام في قانون الإفلاس أيام تقويمية؟",
+        "من يعد خطة الهيكلة ومتى تودع؟",
+        "ماذا إن كانت الديون شخصية وليست ديون تاجر؟",
+        "هل تكفي أغلبية عدد الدائنين لاعتماد خطة الهيكلة؟",
+        "هل ينهي رفض الدائنين مقترح الهيكلة بالضرورة؟",
+        "هل ينفذ الدائن المضمون على الضمان أثناء الإجراء الجماعي؟",
+        "متى تغير إجراءات صغار المدينين المدد والتصويت المعتادين؟",
+        "هل يجوز تمويل المدين أثناء التسوية أو الهيكلة؟",
+        "هل تعيد المنشأة القابلة للاستمرار الطلب بعد فشل الهيكلة؟"
+      ],
+      "sourceUrls": [
+        "https://u.ae/en/information-and-services/business/bankruptcy-and-insolvency/uae-law-on-bankruptcy",
+        "https://uaelegislation.gov.ae/ar/legislations/2190/download",
+        "https://uaelegislation.gov.ae/en/legislations/1032/download",
+        "https://www.uaelegislation.gov.ae/en/legislations/2582/download"
+      ],
+      "previousKnownGaps": [
+        "Articles92/93 trigger and end directly answered. Eligibility, documents, security exceptions, financing and voting/ratification remain open."
+      ],
+      "remainingPublicGaps": [],
+      "caseSpecificApplication": "Actual debtor status, liability amount, security valuation, filing trigger dates, deliberate harmful purpose and evidence of written reservations require the file. Those facts are not invented as public conclusions.",
+      "closureRecommendation": {
+        "recommend": true,
+        "reason": "The recorded core public questions are answered by existing copy and the mapped source guidance within this stated page purpose. Remaining fact application and excluded regimes are explicit boundaries, not silently answered or used to justify indefinite partial status. Root must verify integration and bilingual rendering before acceptance."
+      },
+      "completionAccepted": false,
+      "status": "defined-public-purpose-closure-candidate-awaiting-root-verification",
+      "definedPagePurpose": "Assess federal business restructuring, prepare evidence and understand opening, protection, funding and plan approval.",
+      "knownPublicIntentMapping": [
+        {
+          "intent": "procedure and regime selection",
+          "answerIds": [
+            "uae-insolvency-regime-selection",
+            "uae-insolvency-procedure-selection",
+            "uae-insolvency-personal-route-boundary"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "eligibility and renewed applications",
+          "answerIds": [
+            "uae-insolvency-debtor-threshold",
+            "uae-insolvency-eligibility-repeat-application"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "application preparation",
+          "answerIds": [
+            "uae-insolvency-application-records"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "protection and secured exceptions",
+          "answerIds": [
+            "uae-insolvency-working-day-definition",
+            "uae-insolvency-secured-execution"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "plan preparation, approval and rejection",
+          "answerIds": [
+            "uae-insolvency-plan-preparation",
+            "uae-insolvency-voting-majority",
+            "uae-insolvency-rejected-plan",
+            "uae-insolvency-small-debtor"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "new finance",
+          "answerIds": [
+            "uae-insolvency-preventive-financing"
+          ],
+          "status": "answered-in-scoped-guidance"
+        }
+      ],
+      "scopeBoundary": "Personal insolvency and financial-free-zone schemes are identified as separate regimes; these are not represented as fully explained federal business procedures."
+    },
+    {
+      "route": "/uae/ar/services/insolvency-restructuring/creditor-claim-in-insolvency",
+      "language": "ar",
+      "primaryIntent": "مطالبة الدائن في الإعسار",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-insolvency-restructuring-creditor-claim-in-insolvency.html",
+        "sha256": "75027579182d5e4bf89294eab8faaaa88d8e7be93b4645028699547f9c2a444b",
+        "questions": [
+          "أين يقدم الدائن دينه في إعادة الهيكلة الاتحادية؟",
+          "كيف يوثق دينك ويصنف في إجراءات الإعسار؟",
+          "ما أول خطوة في مسألة مطالبة الدائن في الإعسار؟",
+          "ما المستندات المفيدة لتقييم مطالبة الدائن في الإعسار؟",
+          "هل يمكن أن تراجع كاونسلو مسألة مطالبة الدائن في الإعسار أونلاين؟",
+          "كيف تساعد كاونسلو في مطالبة الدائن في الإعسار؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "missingQuestionText": []
+      },
+      "existingSourceAnswerIds": [
+        "uae-restructuring-creditor-publication-submission"
+      ],
+      "newAnswerIds": [
+        "uae-insolvency-regime-selection",
+        "uae-insolvency-creditor-threshold",
+        "uae-insolvency-working-day-definition",
+        "uae-insolvency-secured-proof",
+        "uae-insolvency-late-proof",
+        "uae-insolvency-voting-majority",
+        "uae-insolvency-claim-objection",
+        "uae-insolvency-secured-execution",
+        "uae-insolvency-distribution-priority",
+        "uae-insolvency-small-debtor",
+        "uae-insolvency-liquidation-proof"
+      ],
+      "resolvedPublicQuestions": [
+        "هل يشمل قانون الإفلاس التجاري الاتحادي كل مدين في الإمارات؟",
+        "هل إثبات الدين في قضية مفتوحة كطلب افتتاح الإفلاس؟",
+        "هل المدد المذكورة بالأيام في قانون الإفلاس أيام تقويمية؟",
+        "هل يقدم صاحب الضمان أو الدين غير المحكوم به نهائياً إثباته؟",
+        "هل يفقد الدائن مطالبته تلقائياً إذا فات موعد إثباتها في الهيكلة؟",
+        "هل تكفي أغلبية عدد الدائنين لاعتماد خطة الهيكلة؟",
+        "كيف أعترض على قائمة ديون الهيكلة؟",
+        "هل ينفذ الدائن المضمون على الضمان أثناء الإجراء الجماعي؟",
+        "من يستوفي حصيلة التصفية أولاً؟",
+        "متى تغير إجراءات صغار المدينين المدد والتصويت المعتادين؟",
+        "هل يحدث الدائن مطالبته عند انتقال الهيكلة إلى التصفية؟"
+      ],
+      "sourceUrls": [
+        "https://u.ae/en/information-and-services/business/bankruptcy-and-insolvency/uae-law-on-bankruptcy",
+        "https://uaelegislation.gov.ae/ar/legislations/2190/download",
+        "https://uaelegislation.gov.ae/en/legislations/2190/download",
+        "https://www.uaelegislation.gov.ae/en/legislations/2582/download"
+      ],
+      "previousKnownGaps": [
+        "Article95 restructuring submission directly added. Admission objections, late claims106, priority and other procedure types remain incomplete."
+      ],
+      "remainingPublicGaps": [],
+      "caseSpecificApplication": "Actual debtor status, liability amount, security valuation, filing trigger dates, deliberate harmful purpose and evidence of written reservations require the file. Those facts are not invented as public conclusions.",
+      "closureRecommendation": {
+        "recommend": true,
+        "reason": "The recorded core public questions are answered by existing copy and the mapped source guidance within this stated page purpose. Remaining fact application and excluded regimes are explicit boundaries, not silently answered or used to justify indefinite partial status. Root must verify integration and bilingual rendering before acceptance."
+      },
+      "completionAccepted": false,
+      "status": "defined-public-purpose-closure-candidate-awaiting-root-verification",
+      "definedPagePurpose": "Prove, classify and protect a creditor claim in the identified federal collective proceedings.",
+      "knownPublicIntentMapping": [
+        {
+          "intent": "scope and opening versus proof",
+          "answerIds": [
+            "uae-insolvency-regime-selection",
+            "uae-insolvency-creditor-threshold"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "proof and guarantor receipts",
+          "answerIds": [
+            "uae-insolvency-secured-proof"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "objection and late admission",
+          "answerIds": [
+            "uae-insolvency-claim-objection",
+            "uae-insolvency-late-proof"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "voting and small-debtor exception",
+          "answerIds": [
+            "uae-insolvency-voting-majority",
+            "uae-insolvency-small-debtor"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "collateral enforcement and distribution",
+          "answerIds": [
+            "uae-insolvency-secured-execution",
+            "uae-insolvency-distribution-priority"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "liquidation transition",
+          "answerIds": [
+            "uae-insolvency-liquidation-proof"
+          ],
+          "status": "answered-in-scoped-guidance"
+        }
+      ],
+      "scopeBoundary": "The precise invitation and applicable proceeding control. Separate personal or special-free-zone proof procedures remain outside the stated federal answers."
+    },
+    {
+      "route": "/uae/ar/services/insolvency-restructuring/director-liability-in-insolvency",
+      "language": "ar",
+      "primaryIntent": "مسؤولية المدير في الإعسار",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-insolvency-restructuring-director-liability-in-insolvency.html",
+        "sha256": "fbc47d0a98aab9765827361cc7125c13be2e8916c19116fef9e6f9e419b255bf",
+        "questions": [
+          "هل يحمل إفلاس الشركة المديرين كل ديونها تلقائياً؟",
+          "ما القرارات أو المعاملات المدعى بأنها تنشئ مسؤولية شخصية؟",
+          "ما أول خطوة في مسألة مسؤولية المدير في الإعسار؟",
+          "ما المستندات المفيدة لتقييم مسؤولية المدير في الإعسار؟",
+          "هل يمكن أن تراجع كاونسلو مسألة مسؤولية المدير في الإعسار أونلاين؟",
+          "كيف تساعد كاونسلو في مسؤولية المدير في الإعسار؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "missingQuestionText": []
+      },
+      "existingSourceAnswerIds": [
+        "uae-bankruptcy-director-fault-not-automatic-debt"
+      ],
+      "newAnswerIds": [
+        "uae-insolvency-regime-selection",
+        "uae-insolvency-director-acts",
+        "uae-insolvency-director-application-defence",
+        "uae-insolvency-precautions-evidence"
+      ],
+      "resolvedPublicQuestions": [
+        "هل يشمل قانون الإفلاس التجاري الاتحادي كل مدين في الإمارات؟",
+        "ما الأفعال التي قد تقيم مسؤولية المدير بالمادة 246؟",
+        "من يقيم دعوى مسؤولية المدير وما الميعاد والدفاع المهم؟",
+        "ما الدليل المهم عندما يقول المدير إنه حاول تقليل الخسائر؟"
+      ],
+      "sourceUrls": [
+        "https://u.ae/en/information-and-services/business/bankruptcy-and-insolvency/uae-law-on-bankruptcy",
+        "https://uaelegislation.gov.ae/ar/legislations/2190/download",
+        "https://uaelegislation.gov.ae/ar/legislations/2190?keyword=%D9%85%D8%AD%D9%83%D9%85%D8%A9+%D8%A7%D9%84%D8%A5%D9%81%D9%84%D8%A7%D8%B3"
+      ],
+      "previousKnownGaps": [
+        "Article246 no-automatic-all-debt distinction added. Full enumerated acts, statutory lookback, defences and application procedure require deeper source review."
+      ],
+      "remainingPublicGaps": [],
+      "caseSpecificApplication": "Actual debtor status, liability amount, security valuation, filing trigger dates, deliberate harmful purpose and evidence of written reservations require the file. Those facts are not invented as public conclusions.",
+      "closureRecommendation": {
+        "recommend": true,
+        "reason": "The recorded core public questions are answered by existing copy and the mapped source guidance within this stated page purpose. Remaining fact application and excluded regimes are explicit boundaries, not silently answered or used to justify indefinite partial status. Root must verify integration and bilingual rendering before acceptance."
+      },
+      "completionAccepted": false,
+      "status": "defined-public-purpose-closure-candidate-awaiting-root-verification",
+      "definedPagePurpose": "Understand whether federal company-bankruptcy fault allegations may create personal responsibility and prepare the defence record.",
+      "knownPublicIntentMapping": [
+        {
+          "intent": "scope and statutory actors",
+          "answerIds": [
+            "uae-insolvency-regime-selection",
+            "uae-insolvency-director-application-defence"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "alleged conduct and lookback",
+          "answerIds": [
+            "uae-insolvency-director-acts"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "court, applicant, filing period and written reservation",
+          "answerIds": [
+            "uae-insolvency-director-application-defence"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "precautions and evidence",
+          "answerIds": [
+            "uae-insolvency-precautions-evidence"
+          ],
+          "status": "answered-in-scoped-guidance"
+        }
+      ],
+      "scopeBoundary": "No guarantee, company-law or free-zone cause of action is conflated with Article 246. The effect of its literal paragraph 2 wording in a specific case remains for judicial application; public wording does not promise personal immunity."
+    },
+    {
+      "route": "/uae/services/insolvency-restructuring",
+      "language": "en",
+      "primaryIntent": "Financial Restructuring & Bankruptcy in the United Arab Emirates",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-insolvency-restructuring.html",
+        "sha256": "4c55ef9410372c6be5875840ac510f3ef063a48d241175b9f8ba31dd27ad73cd",
+        "questions": [
+          "How does business restructuring differ from an ordinary unpaid-debt dispute?",
+          "Does merely proposing restructuring stop creditor claims?",
+          "Where does a creditor submit its claim in federal restructuring?",
+          "What documents support the financial restructuring & bankruptcy consultation in the UAE?",
+          "Does the financial restructuring & bankruptcy consultation cover my issue in the UAE?",
+          "Which UAE framework applies to a matter involving Financial Restructuring & Bankruptcy?",
+          "Which authority or court handles matters involving Financial Restructuring & Bankruptcy?",
+          "What should I provide for the initial UAE legal review?",
+          "Can a consultation about Financial Restructuring & Bankruptcy begin online?",
+          "When should I seek UAE legal advice?",
+          "What if records for financial restructuring & bankruptcy are missing or inconsistent?",
+          "What if contractual, regulatory or other obligations conflict?",
+          "What should I do if a notice, objection or appeal deadline is close or may have passed?",
+          "How can I preserve evidence or request urgent protection in a financial restructuring & bankruptcy matter?"
+        ],
+        "missingQuestionText": []
+      },
+      "existingSourceAnswerIds": [
+        "uae-formal-restructuring-stay-trigger",
+        "uae-restructuring-creditor-publication-submission"
+      ],
+      "newAnswerIds": [
+        "uae-insolvency-regime-selection",
+        "uae-insolvency-procedure-selection",
+        "uae-insolvency-personal-route-boundary"
+      ],
+      "resolvedPublicQuestions": [
+        "Does the federal business-bankruptcy law cover every UAE debtor?",
+        "How do preventive settlement, restructuring and bankruptcy differ?",
+        "What if the debts are personal rather than those of a business trader?"
+      ],
+      "sourceUrls": [
+        "https://u.ae/en/information-and-services/business/bankruptcy-and-insolvency/uae-law-on-bankruptcy",
+        "https://uaelegislation.gov.ae/ar/legislations/2190/download",
+        "https://uaelegislation.gov.ae/en/legislations/1032/download",
+        "https://uaelegislation.gov.ae/en/legislations/2190/download"
+      ],
+      "previousKnownGaps": [
+        "Federal51/2023 restructuring stages added. Preventive settlement, bankruptcy liquidation, thresholds,2024/2025 implementation and DIFC/ADGM procedures need fuller treatment."
+      ],
+      "remainingPublicGaps": [],
+      "caseSpecificApplication": "Actual debtor status, liability amount, security valuation, filing trigger dates, deliberate harmful purpose and evidence of written reservations require the file. Those facts are not invented as public conclusions.",
+      "closureRecommendation": {
+        "recommend": true,
+        "reason": "The recorded core public questions are answered by existing copy and the mapped source guidance within this stated page purpose. Remaining fact application and excluded regimes are explicit boundaries, not silently answered or used to justify indefinite partial status. Root must verify integration and bilingual rendering before acceptance."
+      },
+      "completionAccepted": false,
+      "status": "defined-public-purpose-closure-candidate-awaiting-root-verification",
+      "definedPagePurpose": "Navigate the three retained business-insolvency consultation routes and identify federal, personal and excluded special regimes.",
+      "knownPublicIntentMapping": [
+        {
+          "intent": "procedure and regime selection",
+          "answerIds": [
+            "uae-insolvency-regime-selection",
+            "uae-insolvency-procedure-selection",
+            "uae-insolvency-personal-route-boundary"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "restructuring stay and creditor submission",
+          "answerIds": [
+            "uae-formal-restructuring-stay-trigger",
+            "uae-restructuring-creditor-publication-submission"
+          ],
+          "status": "existing-visible-answer-reused"
+        },
+        {
+          "intent": "deeper procedural questions",
+          "destinationRoutes": [
+            "/uae/services/insolvency-restructuring/business-debt-restructuring",
+            "/uae/services/insolvency-restructuring/creditor-claim-in-insolvency",
+            "/uae/services/insolvency-restructuring/director-liability-in-insolvency"
+          ],
+          "status": "existing-linked-matter-destinations"
+        }
+      ],
+      "scopeBoundary": "Navigation hub does not need to repeat every linked matter answer or teach the complete DIFC/ADGM/personal regimes."
+    },
+    {
+      "route": "/uae/services/insolvency-restructuring/business-debt-restructuring",
+      "language": "en",
+      "primaryIntent": "Business debt restructuring",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-insolvency-restructuring-business-debt-restructuring.html",
+        "sha256": "cb8de99766d61e6a601af3950b826ff87dd612ce48769623baec9c1bdffa4320",
+        "questions": [
+          "Does merely proposing restructuring stop creditor claims?",
+          "Can the business support a realistic restructuring proposal?",
+          "What should I do first about business debt restructuring?",
+          "What documents help assess business debt restructuring?",
+          "Can CounselO review business debt restructuring online?",
+          "How does CounselO help with business debt restructuring?",
+          "How quickly will I receive a response?"
+        ],
+        "missingQuestionText": []
+      },
+      "existingSourceAnswerIds": [
+        "uae-formal-restructuring-stay-trigger"
+      ],
+      "newAnswerIds": [
+        "uae-insolvency-regime-selection",
+        "uae-insolvency-procedure-selection",
+        "uae-insolvency-debtor-threshold",
+        "uae-insolvency-application-records",
+        "uae-insolvency-working-day-definition",
+        "uae-insolvency-plan-preparation",
+        "uae-insolvency-personal-route-boundary",
+        "uae-insolvency-voting-majority",
+        "uae-insolvency-rejected-plan",
+        "uae-insolvency-secured-execution",
+        "uae-insolvency-small-debtor",
+        "uae-insolvency-preventive-financing",
+        "uae-insolvency-eligibility-repeat-application"
+      ],
+      "resolvedPublicQuestions": [
+        "Does the federal business-bankruptcy law cover every UAE debtor?",
+        "How do preventive settlement, restructuring and bankruptcy differ?",
+        "What debt threshold applies to a debtor’s federal application?",
+        "What financial records are required beyond an unpaid-invoice list?",
+        "Are the periods stated in days calendar days under this bankruptcy law?",
+        "Who prepares the restructuring plan and when is it filed?",
+        "What if the debts are personal rather than those of a business trader?",
+        "Does a majority of creditor headcount approve a restructuring plan?",
+        "Does creditor rejection necessarily end a restructuring proposal?",
+        "Can a secured creditor enforce collateral during the collective procedure?",
+        "When can the small-debtor procedure change the ordinary timetable and vote?",
+        "Can the debtor obtain finance during settlement or restructuring?",
+        "Can a viable business apply again after a failed restructuring?"
+      ],
+      "sourceUrls": [
+        "https://u.ae/en/information-and-services/business/bankruptcy-and-insolvency/uae-law-on-bankruptcy",
+        "https://uaelegislation.gov.ae/ar/legislations/2190/download",
+        "https://uaelegislation.gov.ae/en/legislations/1032/download",
+        "https://www.uaelegislation.gov.ae/en/legislations/2582/download"
+      ],
+      "previousKnownGaps": [
+        "Articles92/93 trigger and end directly answered. Eligibility, documents, security exceptions, financing and voting/ratification remain open."
+      ],
+      "remainingPublicGaps": [],
+      "caseSpecificApplication": "Actual debtor status, liability amount, security valuation, filing trigger dates, deliberate harmful purpose and evidence of written reservations require the file. Those facts are not invented as public conclusions.",
+      "closureRecommendation": {
+        "recommend": true,
+        "reason": "The recorded core public questions are answered by existing copy and the mapped source guidance within this stated page purpose. Remaining fact application and excluded regimes are explicit boundaries, not silently answered or used to justify indefinite partial status. Root must verify integration and bilingual rendering before acceptance."
+      },
+      "completionAccepted": false,
+      "status": "defined-public-purpose-closure-candidate-awaiting-root-verification",
+      "definedPagePurpose": "Assess federal business restructuring, prepare evidence and understand opening, protection, funding and plan approval.",
+      "knownPublicIntentMapping": [
+        {
+          "intent": "procedure and regime selection",
+          "answerIds": [
+            "uae-insolvency-regime-selection",
+            "uae-insolvency-procedure-selection",
+            "uae-insolvency-personal-route-boundary"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "eligibility and renewed applications",
+          "answerIds": [
+            "uae-insolvency-debtor-threshold",
+            "uae-insolvency-eligibility-repeat-application"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "application preparation",
+          "answerIds": [
+            "uae-insolvency-application-records"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "protection and secured exceptions",
+          "answerIds": [
+            "uae-insolvency-working-day-definition",
+            "uae-insolvency-secured-execution"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "plan preparation, approval and rejection",
+          "answerIds": [
+            "uae-insolvency-plan-preparation",
+            "uae-insolvency-voting-majority",
+            "uae-insolvency-rejected-plan",
+            "uae-insolvency-small-debtor"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "new finance",
+          "answerIds": [
+            "uae-insolvency-preventive-financing"
+          ],
+          "status": "answered-in-scoped-guidance"
+        }
+      ],
+      "scopeBoundary": "Personal insolvency and financial-free-zone schemes are identified as separate regimes; these are not represented as fully explained federal business procedures."
+    },
+    {
+      "route": "/uae/services/insolvency-restructuring/creditor-claim-in-insolvency",
+      "language": "en",
+      "primaryIntent": "Creditor claim in insolvency",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-insolvency-restructuring-creditor-claim-in-insolvency.html",
+        "sha256": "2ec26744bef5577180ad235e7a21a12f459b9960e5d2cf3e8400bd05719ff0ce",
+        "questions": [
+          "Where does a creditor submit its claim in federal restructuring?",
+          "How is your debt documented and classified in the insolvency process?",
+          "What should I do first about creditor claim in insolvency?",
+          "What documents help assess creditor claim in insolvency?",
+          "Can CounselO review creditor claim in insolvency online?",
+          "How does CounselO help with creditor claim in insolvency?",
+          "How quickly will I receive a response?"
+        ],
+        "missingQuestionText": []
+      },
+      "existingSourceAnswerIds": [
+        "uae-restructuring-creditor-publication-submission"
+      ],
+      "newAnswerIds": [
+        "uae-insolvency-regime-selection",
+        "uae-insolvency-creditor-threshold",
+        "uae-insolvency-working-day-definition",
+        "uae-insolvency-secured-proof",
+        "uae-insolvency-late-proof",
+        "uae-insolvency-voting-majority",
+        "uae-insolvency-claim-objection",
+        "uae-insolvency-secured-execution",
+        "uae-insolvency-distribution-priority",
+        "uae-insolvency-small-debtor",
+        "uae-insolvency-liquidation-proof"
+      ],
+      "resolvedPublicQuestions": [
+        "Does the federal business-bankruptcy law cover every UAE debtor?",
+        "Is filing a claim in an open case the same as petitioning to open bankruptcy?",
+        "Are the periods stated in days calendar days under this bankruptcy law?",
+        "Must a secured creditor or a creditor without final judgment submit proof?",
+        "Is a missed restructuring proof deadline automatically the end of the claim?",
+        "Does a majority of creditor headcount approve a restructuring plan?",
+        "How do I object to the restructuring debt list?",
+        "Can a secured creditor enforce collateral during the collective procedure?",
+        "Who receives liquidation proceeds first?",
+        "When can the small-debtor procedure change the ordinary timetable and vote?",
+        "Must a creditor update its claim when restructuring turns into liquidation?"
+      ],
+      "sourceUrls": [
+        "https://u.ae/en/information-and-services/business/bankruptcy-and-insolvency/uae-law-on-bankruptcy",
+        "https://uaelegislation.gov.ae/ar/legislations/2190/download",
+        "https://uaelegislation.gov.ae/en/legislations/2190/download",
+        "https://www.uaelegislation.gov.ae/en/legislations/2582/download"
+      ],
+      "previousKnownGaps": [
+        "Article95 restructuring submission directly added. Admission objections, late claims106, priority and other procedure types remain incomplete."
+      ],
+      "remainingPublicGaps": [],
+      "caseSpecificApplication": "Actual debtor status, liability amount, security valuation, filing trigger dates, deliberate harmful purpose and evidence of written reservations require the file. Those facts are not invented as public conclusions.",
+      "closureRecommendation": {
+        "recommend": true,
+        "reason": "The recorded core public questions are answered by existing copy and the mapped source guidance within this stated page purpose. Remaining fact application and excluded regimes are explicit boundaries, not silently answered or used to justify indefinite partial status. Root must verify integration and bilingual rendering before acceptance."
+      },
+      "completionAccepted": false,
+      "status": "defined-public-purpose-closure-candidate-awaiting-root-verification",
+      "definedPagePurpose": "Prove, classify and protect a creditor claim in the identified federal collective proceedings.",
+      "knownPublicIntentMapping": [
+        {
+          "intent": "scope and opening versus proof",
+          "answerIds": [
+            "uae-insolvency-regime-selection",
+            "uae-insolvency-creditor-threshold"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "proof and guarantor receipts",
+          "answerIds": [
+            "uae-insolvency-secured-proof"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "objection and late admission",
+          "answerIds": [
+            "uae-insolvency-claim-objection",
+            "uae-insolvency-late-proof"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "voting and small-debtor exception",
+          "answerIds": [
+            "uae-insolvency-voting-majority",
+            "uae-insolvency-small-debtor"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "collateral enforcement and distribution",
+          "answerIds": [
+            "uae-insolvency-secured-execution",
+            "uae-insolvency-distribution-priority"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "liquidation transition",
+          "answerIds": [
+            "uae-insolvency-liquidation-proof"
+          ],
+          "status": "answered-in-scoped-guidance"
+        }
+      ],
+      "scopeBoundary": "The precise invitation and applicable proceeding control. Separate personal or special-free-zone proof procedures remain outside the stated federal answers."
+    },
+    {
+      "route": "/uae/services/insolvency-restructuring/director-liability-in-insolvency",
+      "language": "en",
+      "primaryIntent": "Director liability in insolvency",
+      "existingContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-insolvency-restructuring-director-liability-in-insolvency.html",
+        "sha256": "b930ac38458987ab1bb813e10a2723d65a01dfc34239a602713bfa14455f2215",
+        "questions": [
+          "Does company bankruptcy automatically make directors pay every debt?",
+          "Which decisions or transactions are alleged to create personal responsibility?",
+          "What should I do first about director liability in insolvency?",
+          "What documents help assess director liability in insolvency?",
+          "Can CounselO review director liability in insolvency online?",
+          "How does CounselO help with director liability in insolvency?",
+          "How quickly will I receive a response?"
+        ],
+        "missingQuestionText": []
+      },
+      "existingSourceAnswerIds": [
+        "uae-bankruptcy-director-fault-not-automatic-debt"
+      ],
+      "newAnswerIds": [
+        "uae-insolvency-regime-selection",
+        "uae-insolvency-director-acts",
+        "uae-insolvency-director-application-defence",
+        "uae-insolvency-precautions-evidence"
+      ],
+      "resolvedPublicQuestions": [
+        "Does the federal business-bankruptcy law cover every UAE debtor?",
+        "Which conduct can trigger Article 246 director liability?",
+        "Who brings the director-liability claim and what timing and defence matter?",
+        "What evidence matters when a director says they tried to reduce losses?"
+      ],
+      "sourceUrls": [
+        "https://u.ae/en/information-and-services/business/bankruptcy-and-insolvency/uae-law-on-bankruptcy",
+        "https://uaelegislation.gov.ae/ar/legislations/2190/download",
+        "https://uaelegislation.gov.ae/ar/legislations/2190?keyword=%D9%85%D8%AD%D9%83%D9%85%D8%A9+%D8%A7%D9%84%D8%A5%D9%81%D9%84%D8%A7%D8%B3"
+      ],
+      "previousKnownGaps": [
+        "Article246 no-automatic-all-debt distinction added. Full enumerated acts, statutory lookback, defences and application procedure require deeper source review."
+      ],
+      "remainingPublicGaps": [],
+      "caseSpecificApplication": "Actual debtor status, liability amount, security valuation, filing trigger dates, deliberate harmful purpose and evidence of written reservations require the file. Those facts are not invented as public conclusions.",
+      "closureRecommendation": {
+        "recommend": true,
+        "reason": "The recorded core public questions are answered by existing copy and the mapped source guidance within this stated page purpose. Remaining fact application and excluded regimes are explicit boundaries, not silently answered or used to justify indefinite partial status. Root must verify integration and bilingual rendering before acceptance."
+      },
+      "completionAccepted": false,
+      "status": "defined-public-purpose-closure-candidate-awaiting-root-verification",
+      "definedPagePurpose": "Understand whether federal company-bankruptcy fault allegations may create personal responsibility and prepare the defence record.",
+      "knownPublicIntentMapping": [
+        {
+          "intent": "scope and statutory actors",
+          "answerIds": [
+            "uae-insolvency-regime-selection",
+            "uae-insolvency-director-application-defence"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "alleged conduct and lookback",
+          "answerIds": [
+            "uae-insolvency-director-acts"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "court, applicant, filing period and written reservation",
+          "answerIds": [
+            "uae-insolvency-director-application-defence"
+          ],
+          "status": "answered-in-scoped-guidance"
+        },
+        {
+          "intent": "precautions and evidence",
+          "answerIds": [
+            "uae-insolvency-precautions-evidence"
+          ],
+          "status": "answered-in-scoped-guidance"
+        }
+      ],
+      "scopeBoundary": "No guarantee, company-law or free-zone cause of action is conflated with Article 246. The effect of its literal paragraph 2 wording in a specific case remains for judicial application; public wording does not promise personal immunity."
+    }
+  ]
+}

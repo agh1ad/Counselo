@@ -1,6 +1,18 @@
 import { brief } from "./types.js";
 
 export const EMPLOYMENT_BRIEFS = [
+  brief(["Changing employer and employment-record dispute"],
+    "What needs resolving when changing employer in a Syria-related file?", "ما الذي يلزم حسمه عند تغيير صاحب العمل في ملف متعلق بسوريا؟",
+    "Separate ending the old contract, starting the new job and correcting work records. Identify the employer, workplace and responsible authority. Gulf sponsorship-transfer procedures do not automatically govern Syrian employment; assess foreign permits under their issuing country's rules.",
+    "افصل إنهاء العقد السابق عن بدء العلاقة الجديدة وتصحيح سجل العمل أو الترخيص. حدّد صاحب العمل ومكانه وصفة العامل والجهة المسؤولة عن السجل الفعلي. لا يُفترض أن إجراء نقل الكفالة في دولة خليجية يحكم علاقة عمل سورية؛ وتُراجع التصاريح الأجنبية وفق قواعد دولة إصدارها.",
+    "old and proposed contracts, termination correspondence, employment or permit record, authority notice and work location",
+    "العقد السابق والمقترح ومراسلات الإنهاء وسجل العمل أو الترخيص وإخطار الجهة ومكان العمل"),
+  brief(["Travel and entry restrictions affecting employment"],
+    "Which travel or entry decision is preventing work?", "ما قرار السفر أو الدخول الذي يمنع العمل؟",
+    "Identify the restriction's issuing country, authority, reason and duration. Distinguish judicial travel bans, immigration decisions and employer demands. Establish the competent state and employment law; a Syria-related file does not itself imply an exit-and-re-entry visa procedure.",
+    "احصل على القيد الفعلي وحدّد دولة إصداره وجهته وسببه ومدته. ميّز منع السفر القضائي عن قرار الهجرة وطلب صاحب العمل التعاقدي. حدّد الدولة المختصة بالدخول أو المغادرة والقانون الذي يحكم العمل قبل اختيار مسار المراجعة. لا يعني ارتباط الملف بسوريا وجود إجراء لتأشيرة خروج وعودة.",
+    "restriction or refusal, passport and status records, employment contract, notification and required travel dates",
+    "قرار القيد أو الرفض وجواز السفر وسجلات الوضع القانوني وعقد العمل والتبليغ ومواعيد السفر المطلوبة"),
   brief(["Wrongful termination", "Wrongful termination and labour complaint"],
     "What makes the reason and date of termination important?", "لماذا يهم سبب إنهاء العمل وتاريخه؟",
     "Compare the employer's stated reason with the contract, warnings and sequence of events. Record notice, the last working day and payments offered. A dismissal dispute needs separate assessment of the termination decision and each unpaid entitlement.",

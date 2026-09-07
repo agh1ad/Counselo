@@ -1,3 +1,11 @@
+import { correctArticleEditorialClosure } from "./article-editorial-closure-corrections.js";
+import { appendReconsiderationGuidance } from "./saudi-reconsideration-article-guidance.js";
+import { correctArticleHeadings } from "./article-heading-corrections.js";
+import { connectArticleWorkEvidence } from "./article-work-evidence.js";
+import { appendReconsiderationTemplate } from "./saudi-reconsideration-template.js";
+import { correctSyriaArticleFinal } from "./syria-article-final-corrections.js";
+import { correctSaudiArticleFinal } from "./saudi-article-final-corrections.js";
+
 const ENFORCEMENT_SOURCE = "https://www.uqn.gov.sa/decisions-and-regulations/rules-and-regulations/4000869";
 const PROCEDURE_SOURCE = "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/f0eaae46-9f84-40ee-815e-a9a700f268b3/1";
 const RECONSIDERATION_DECISION = "https://laws.moj.gov.sa/ar/JudicialDecisionsList/3/gh81SUL8pRZQU8PiH96OE6Xnxpg1rUebrLxjTAKi5mF21MgB6AN2TeI_aVa7r-Yx";
@@ -18,6 +26,31 @@ function replaceParagraphs(html: string, changes: Array<[RegExp, string]>): stri
 
 /** Corrections are tied to specific published passages; other prose is preserved. */
 export function correctArticleBody(slug: string, lang: "en" | "ar", html: string | null | undefined): string | null | undefined {
+  const corrected = correctArticlePassages(slug, lang, html);
+  if (!corrected) return corrected;
+  // Public sanitization removes section IDs/data attributes. Deduplicate the
+  // actual editorial blocks, so reading an already repaired record is stable.
+  let result = corrected.replace(/<section\s+id="(?:reconsideration-sources|historical-commentary-scope)"[^>]*>([\s\S]*?)<\/section>/g, "$1");
+  const sections = new Set<string>();
+  result = result.replace(/<h2>(?:Statute and identified decision|النظام والقرار المحدد|Scope of this historical commentary|نطاق هذا التعليق الفقهي التاريخي)<\/h2>\s*(?:<p\b[^>]*>[\s\S]*?<\/p>\s*){1,2}/g, block => {
+    const key = block.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+    if (sections.has(key)) return "";
+    sections.add(key);
+    return block;
+  });
+  const sources = new Set<string>();
+  result = result.replace(/<p\b[^>]*>[\s\S]*?<\/p>/gi, paragraph => {
+    const text = paragraph.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+    if (!/^(?:Sources:|Source for the new law|Text for comparison:|Text comparison:|Statutory reference:|Source:|المصادر:|مصدر النظام|لمقارنة النص:|مرجع نظامي:|المصدر:)/.test(text)) return paragraph;
+    if (sources.has(text)) return "";
+    sources.add(text);
+    return paragraph;
+  });
+  const withHeadings = correctArticleHeadings(slug, lang, appendReconsiderationGuidance(slug, lang, result)) ?? result;
+  return correctArticleEditorialClosure(slug, lang, correctSaudiArticleFinal(slug, lang, correctSyriaArticleFinal(slug, lang, appendReconsiderationTemplate(slug, lang, connectArticleWorkEvidence(slug, lang, withHeadings)))));
+}
+
+function correctArticlePassages(slug: string, lang: "en" | "ar", html: string | null | undefined): string | null | undefined {
   if (!html) return html;
   if (slug === "commercial-supply-contracts-in-saudi") html = html
     .replace(/Document every delivery instalment in an official record/g, "Keep a dated delivery record for each instalment, with acknowledgement where available")
@@ -59,9 +92,11 @@ export function correctArticleBody(slug: string, lang: "en" | "ar", html: string
   }
   if (slug === "performance-of-contracts-in-good-faith-under-syrian-law") {
     return replaceParagraphs(html, lang === "en" ? [
+      [/Accordingly, observing good faith from the negotiation stage/, '<p>This article concerns good-faith performance of an existing contract under Article 149. Any claim about conduct during negotiations requires a separate legal basis and assessment of the facts.</p>'],
       [/The Syrian Civil Code enshrines this principle in a clear provision stating:/, `<p><a href="${SYRIAN_CIVIL}">Civil Code Article 149</a> provides:</p>`],
       [/If a provision permits more than one interpretation/, '<p>Articles 151–152 distinguish clear wording, the search for common intention where interpretation is needed, and residual doubt. Good faith should not be presented as a free-standing power to replace a clear bargain with whatever appears more balanced.</p>'],
     ] : [
+      [/ومن ثم، فإن مراعاة حسن النية منذ مرحلة التفاوض/, '<p>يتناول هذا المقال تنفيذ عقد قائم بحسن النية وفق المادة 149. أما أي مطالبة عن سلوك أثناء التفاوض فتحتاج إلى سند قانوني مستقل وتقييم وقائعها.</p>'],
       [/كرّس القانون المدني السوري هذا المبدأ بنص واضح يقرر أن:/, `<p>تنص <a href="${SYRIAN_CIVIL}">المادة 149 من القانون المدني</a> على أن:</p>`],
       [/فإذا احتمل النص أكثر من تفسير/, '<p>تميّز المادتان 151 و152 بين وضوح العبارة والبحث عن النية المشتركة عند لزوم التفسير والشك المتبقي. ولا يُعرض حسن النية كسلطة مستقلة لاستبدال اتفاق واضح بما يبدو أكثر توازناً.</p>'],
     ]);
@@ -74,7 +109,7 @@ export function correctArticleBody(slug: string, lang: "en" | "ar", html: string
     ]);
   }
   if (slug === "mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa") {
-    const linked = html.replace(/https?:\/\/(?:www\.)?uqn\.gov\.sa\/wp-content\/uploads\/2022\/10\/UM-ALQRA-4413\.pdf/g, 'https://www.uqn.gov.sa/details?p=27309');
+    const linked = html.replace(/https?:\/\/(?:www\.)?uqn\.gov\.sa\/wp-content\/uploads\/2022\/10\/UM-ALQRA-4413\.pdf/g, 'https://www.uqn.gov.sa/details?p=27309').replace(/(details\?p=27309)\?utm_source=chatgpt\.com/g, '$1');
     return replaceParagraphs(linked, lang === "en" ? [
       [/The recent amendment to the Arbitration Law/, '<p>The <a href="https://www.uqn.gov.sa/details?p=27309">2025 amendment under Royal Decree M/21</a> restates Article 10(1)’s capacity requirement for natural and legal persons. Identify both the party’s capacity and the signatory’s authority; a company name on the agreement does not answer both questions.</p>'],
     ] : [
@@ -174,6 +209,7 @@ export function correctArticleBody(slug: string, lang: "en" | "ar", html: string
   }
   if (slug === "altwsyat-alamlyh-lsyaghh-aqd-qwy") {
     return replaceParagraphs(html, lang === "en" ? [
+      [/This provision resolves any disagreement regarding jurisdiction/, '<p>The clause records the parties’ chosen forum, subject to mandatory jurisdiction and validity rules. It does not settle every jurisdiction objection.</p>'],
       [/This article provides a comprehensive practical guide/, '<p>This guide helps organise a Saudi contract review around authority, scope, price, performance evidence and remedies.</p>'],
       [/A clear timetable prevents delays/, '<p>A clear timetable helps identify delay, dependencies and any agreed consequence; it does not prevent every delay.</p>'],
       [/A liquidated damages clause is one of the strongest tools/, `<p>Consider agreed compensation only where appropriate. <a href="${CIVIL_TRANSACTIONS}">Articles 178–179</a> exclude an obligation whose subject is a monetary sum and impose no-harm and adjustment controls. Define the covered breach, for example:</p>`],
@@ -181,6 +217,7 @@ export function correctArticleBody(slug: string, lang: "en" | "ar", html: string
       [/Writing is required to prove contracts exceeding 100,000/, `<p><a href="${EVIDENCE_SOURCE}">Evidence Law Article 66</a> addresses writing for transactions exceeding SAR 100,000 or of unspecified value, subject to applicable exceptions. Distinguish proof from any special formation formality.</p>`],
       [/^\s*Ensuring enforceability before the courts\s*$/, '<p>Checking enforceability against the transaction and applicable rules.</p>'],
     ] : [
+      [/هذا البند يحسم أي خلاف حول الاختصاص/, '<p>يسجل البند جهة الفصل التي اختارها الطرفان، مع مراعاة قواعد الاختصاص الآمرة وشروط الصحة. ولا يحسم كل دفع بعدم الاختصاص.</p>'],
       [/هذا المقال يقدّم دليلًا عمليًا شاملًا/, '<p>يساعد هذا الدليل على تنظيم مراجعة العقد السعودي حول الصفة والنطاق والثمن وأدلة التنفيذ والطلبات.</p>'],
       [/الجدول الزمني الواضح يمنع التأخير/, '<p>يساعد الجدول الواضح على تحديد التأخير ومتطلبات التنفيذ وآثاره المتفق عليها، ولا يمنع كل تأخير.</p>'],
       [/الشرط الجزائي هو أقوى أدوات حماية/, `<p>يُبحث التعويض الاتفاقي حيث يناسب المعاملة. تستثني <a href="${CIVIL_TRANSACTIONS}">المادتان 178 و179</a> الالتزام الذي محله مبلغ نقدي وتقرران ضوابط انتفاء الضرر والتعديل. ويُحدد الإخلال المشمول، مثل:</p>`],
@@ -191,11 +228,13 @@ export function correctArticleBody(slug: string, lang: "en" | "ar", html: string
   }
   if (slug === "commercial-supply-contracts-in-saudi") {
     return replaceParagraphs(html, lang === "en" ? [
+      [/^\s*Include a liquidated damages clause\s*$/, '<p>Consider agreed compensation where suitable for an eligible obligation, subject to the monetary-debt exclusion and statutory adjustment rules.</p>'],
       [/This is an essential clause in supply contracts/, `<p>An agreed-compensation clause may address an eligible delivery obligation, subject to <a href="${CIVIL_TRANSACTIONS}">Articles 178–179</a>. It is not mandatory in every supply contract and must be distinguished from a charge for late payment of a monetary debt. Possible covered events include:</p>`],
       [/To define the circumstances in which the supplier is relieved/, '<p>Define the external event, its causal effect, contractual risk allocation, notice and mitigation. The following events are not automatic exemptions; impossibility and hardship have different requirements:</p>'],
       [/These are among the most common types of cases/, '<p>These are examples of issues to identify in the contract and performance record.</p>'],
       [/Holding the supplier liable for liquidated damages/, '<p>Examining the scope of agreed compensation and the statutory no-harm and adjustment rules.</p>'],
     ] : [
+      [/^\s*تضمين الشرط الجزائي\s*$/, '<p>بحث التعويض الاتفاقي حيث يناسب التزاماً مؤهلاً له، مع استثناء الدين النقدي ومراعاة أحكام التعديل النظامية.</p>'],
       [/يُعدّ بندًا جوهريًا في عقود التوريد، ويُطبّق/, `<p>قد ينظم التعويض الاتفاقي التزام تسليم مؤهلاً له وفق <a href="${CIVIL_TRANSACTIONS}">المادتين 178 و179</a>. وليس لازماً في كل عقد توريد، ويختلف عن فرض مبلغ لتأخر سداد دين نقدي. ومن الوقائع التي قد يشملها:</p>`],
       [/لتحديد الحالات التي يُعفى فيها المورد من المسؤولية/, '<p>يُحدد الحدث الخارجي وأثره السببي وتوزيع التبعة والإبلاغ والحد من الضرر. ولا تُعفي الأمثلة التالية تلقائياً؛ فللاستحالة والإرهاق شروط مختلفة:</p>'],
       [/وتُعدّ هذه الصور من أكثر القضايا/, '<p>هذه أمثلة لمسائل تُحدد في العقد وسجل التنفيذ.</p>'],
@@ -471,6 +510,7 @@ export function correctArticleBody(slug: string, lang: "en" | "ar", html: string
   }
   if (slug === "Penalty-clause-in-saudi") {
     return replaceParagraphs(html, lang === "en" ? [
+      [/The amount must be fixed or ascertainable; otherwise/, '<p>Identify the agreed amount or the method for determining it. Uncertain wording requires interpretation in context before assessing the clause’s effect; Articles 178–179 still govern eligibility and adjustment.</p>'],
       [/Commercial courts have confirmed that a penalty clause is a valid obligation/, `<p><a href="${CIVIL_TRANSACTIONS}">Civil Transactions Law Articles 178–179</a> govern agreed compensation. Article 178 excludes an obligation whose subject is a monetary sum. A delivery-delay clause must therefore be distinguished from a charge for paying a debt late. Relevant matters include:</p>`],
       [/Commercial courts tend to apply penalty clauses subject/, '<p>The statutory assessment distinguishes the obligation and breach from requests to disapply, reduce or increase the agreed amount:</p>'],
       [/Reducing the penalty amount if it exceeds the actual harm/, '<p>On the debtor’s request, the court may reduce compensation where the debtor proves that it is excessive or that the principal obligation was partly performed.</p>'],
@@ -482,6 +522,7 @@ export function correctArticleBody(slug: string, lang: "en" | "ar", html: string
       [/Cancel it if the breach is not established or the clause is unclear/, '<p>Examine whether the obligation and breach are established, and disapply agreed compensation where the debtor proves no harm. Ambiguous drafting requires interpretation; it is not automatically resolved by one label.</p>'],
       [/This authority is intended to achieve justice and prevent abuse/, `<p>Article 179 invalidates an agreement contrary to its rules. Check the <a href="${CIVIL_TRANSACTIONS}">statutory text</a> against the particular obligation and evidence.</p>`],
     ] : [
+      [/يجب أن يكون المبلغ محددًا أو قابلًا للتحديد، وإلا/, '<p>يُحدد المبلغ المتفق عليه أو طريقة تحديده. ويتطلب غموض العبارة تفسيرها في سياقها قبل تقييم أثر الشرط، مع بقاء أحكام المادتين 178 و179 بشأن الاستحقاق والتعديل.</p>'],
       [/وقد أكدت المحاكم التجارية أن الشرط الجزائي التزام صحيح/, `<p>تنظم <a href="${CIVIL_TRANSACTIONS}">المادتان 178 و179 من نظام المعاملات المدنية</a> التعويض الاتفاقي. وتستثني المادة 178 الالتزام الذي محله مبلغ نقدي، فيجب التمييز بين شرط تأخر التسليم وفرض مبلغ لتأخر سداد دين. ومن المسائل ذات الصلة:</p>`],
       [/تتجه المحاكم التجارية إلى تطبيق الشرط الجزائي وفق ضوابط/, '<p>يميّز الفحص النظامي بين الالتزام والإخلال وبين طلب عدم استحقاق التعويض أو إنقاصه أو زيادته:</p>'],
       [/تخفيض الشرط الجزائي إذا كان المبلغ أكبر من الضرر الحقيقي/, '<p>للمحكمة بطلب المدين إنقاص التعويض إذا أثبت المبالغة فيه أو تنفيذ جزء من الالتزام الأصلي.</p>'],

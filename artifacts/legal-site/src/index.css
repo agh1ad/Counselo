@@ -1477,6 +1477,7 @@
   color: #151515;
   font-size: 1.0625rem;
   line-height: 1.9;
+  overflow-wrap: anywhere;
 }
 
 .legal-article-page .legal-article-body :is(h2, h3) {
