@@ -71,7 +71,7 @@ export default function Blog() {
   const ui = {
     en: {
       eyebrow: "Legal Insights",
-      heading: "Articles & Guides",
+      heading: "Legal articles and practical guides",
       subheading: "A shared legal publication covering Saudi, Syrian and UAE law, with jurisdiction clearly identified in every country-specific article — published by CounselO with authorship and editorial methodology identified in each article.",
       readMore: "Read Article",
       minRead: "min read",
@@ -83,7 +83,7 @@ export default function Blog() {
     },
     ar: {
       eyebrow: "رؤى قانونية",
-      heading: "مقالات وأدلة",
+      heading: "مقالات قانونية وأدلة عملية",
       subheading: "منصة قانونية مشتركة تغطي قوانين السعودية وسوريا والإمارات، مع بيان الاختصاص بوضوح في كل مقال خاص بدولة — تنشرها كاونسلو مع بيان نسبة التأليف والمنهجية التحريرية داخل كل مقال.",
       readMore: "اقرأ المقال",
       minRead: "د قراءة",
@@ -104,12 +104,12 @@ export default function Blog() {
         heroArtwork="platform"
         title={
           isRTL
-            ? "رؤى كاونسلو القانونية العالمية | مقالات وأدلة"
-            : "Global Legal Insights | Articles & Guides | CounselO"
+            ? "مقالات قانونية وأدلة عملية | كاونسلو"
+            : "Legal articles and practical guides | CounselO"
         }
         description={
           isRTL
-            ? "منصة كاونسلو القانونية المشتركة لمقالات وأدلة حول قوانين السعودية وسوريا والإمارات، مع تحديد الاختصاص القانوني لكل مقال بوضوح."
+            ? "منصة كاونسلو القانونية المشتركة لمقالات قانونية وأدلة عملية حول قوانين السعودية وسوريا والإمارات، مع تحديد الاختصاص القانوني لكل مقال بوضوح."
             : "CounselO's shared publication for legal articles and guides covering Saudi, Syrian and UAE law, with each article's jurisdiction clearly identified."
         }
         canonical={isRTL ? "/blog/ar" : "/blog"}
@@ -127,7 +127,7 @@ export default function Blog() {
             "@id": `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}#collection`,
             name: isRTL ? "رؤى كاونسلو القانونية العالمية" : "CounselO Global Legal Insights",
             description: isRTL
-              ? "مقالات وأدلة قانونية مشتركة تغطي قوانين السعودية وسوريا والإمارات"
+              ? "مقالات قانونية وأدلة عملية تغطي قوانين السعودية وسوريا والإمارات"
               : "A shared legal publication covering Saudi, Syrian and UAE law",
             url: `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}`,
             isPartOf: { "@id": `https://counselo-legal.com${isRTL ? "/ar/legal-library" : "/legal-library"}#webpage` },

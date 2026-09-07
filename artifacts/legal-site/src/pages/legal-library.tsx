@@ -1,3 +1,4 @@
+import { serviceSearchCopy } from "@/lib/search-intent-copy";
 import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import * as m from "framer-motion/m";
@@ -62,7 +63,7 @@ export default function LegalLibrary() {
   const recentSamples = visibleSamples.slice(0, 4);
 
   const ui = ar ? {
-    title: "معرفة قانونية منظّمة لقرارات عملية.",
+    title: "المكتبة القانونية: مقالات وأدلة ونماذج أعمال",
     intro: "استكشف المقالات والإرشادات العملية ونماذج الأعمال المنشورة من كاونسلو بالعربية والإنجليزية. اختر السعودية أو سوريا أو الإمارات للوصول إلى الخدمات والمسائل ذات الصلة باختصاصك.",
     browseArticles: "تصفح التحليلات القانونية",
     examineWork: "استعرض أعمالنا",
@@ -84,7 +85,7 @@ export default function LegalLibrary() {
     ctaText: "استخدم المكتبة لفهم الموضوع، ثم تحدث مع كاونسلو حول الوقائع والنطاق والخطوة التالية.",
     cta: "ابدأ استشارة",
   } : {
-    title: "Legal knowledge, organised for practical decisions.",
+    title: "Legal library: articles, guides and work samples",
     intro: "Explore CounselO's published articles, practical guidance and work examples in Arabic and English. Choose Saudi Arabia, Syria or the UAE to find services and legal questions relevant to your jurisdiction.",
     browseArticles: "Browse legal analysis",
     examineWork: "Examine our work",
@@ -225,7 +226,7 @@ export default function LegalLibrary() {
                   <summary className="cursor-pointer font-semibold text-[#073d2a]">{ar ? item.ar : item.en}</summary>
                   <ul className="mt-5 space-y-3">
                     {getServicesForRegion(item.key).map(service => (
-                      <li key={service.slug}><Link href={`${item.path}${ar ? "/ar" : ""}/services/${service.slug}`} className="text-primary underline-offset-4 hover:underline">{ar ? service.titleAr : service.titleEn}</Link></li>
+                      <li key={service.slug}><Link href={`${item.path}${ar ? "/ar" : ""}/services/${service.slug}`} className="text-primary underline-offset-4 hover:underline">{serviceSearchCopy(service.slug, item.key, lang)?.label ?? (ar ? service.titleAr : service.titleEn)}</Link></li>
                     ))}
                   </ul>
                 </details>

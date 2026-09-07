@@ -177,7 +177,7 @@ export default function RegionPicker() {
           <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
             <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
               <p className="mb-6 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">
-                Jurisdiction-Scoped Legal Guidance · Saudi Arabia · Syria · UAE
+                Legal advice · Saudi Arabia · Syria · UAE
               </p>
               <h1 className="font-serif text-[clamp(2.75rem,5.5vw,5.6rem)] font-semibold leading-[0.96] tracking-[-0.035em] text-white">
                 Online Legal{" "}
@@ -189,7 +189,7 @@ export default function RegionPicker() {
                 <span className="h-2 w-2 rotate-45 border border-[#b58b32]" />
               </div>
               <p className="max-w-xl text-lg font-light leading-8 text-white/72 sm:text-xl">
-                Jurisdiction-scoped online legal guidance in Arabic &amp; English —{" "}
+                Choose Saudi Arabia, Syria or the UAE to find legal advice for your issue in Arabic or English —{" "}
                 <strong className="font-semibold text-white">target response within 24 hours.</strong>
               </p>
 

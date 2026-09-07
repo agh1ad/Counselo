@@ -15,6 +15,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { COUNSELO_OPTIMIZED_META } from "@/lib/optimized-meta";
 import { BLOG_SOCIAL_IMAGE } from "@workspace/api-zod/browser";
+import { searchIntentMeta } from "@/lib/search-intent-copy";
 import { limitSeoTitle } from "@/lib/seo-title";
 
 const SYR_TEXT_MAP: [RegExp, string][] = [
@@ -189,7 +190,11 @@ export function SEOHead({
   // noRegionPrefix pages have no prefixed key in the map, so skip the lookup.
   const metaOverride = noRegionPrefix
     ? undefined
-    : COUNSELO_OPTIMIZED_META[prefixedPath as keyof typeof COUNSELO_OPTIMIZED_META];
+    : (() => {
+        const existing = COUNSELO_OPTIMIZED_META[prefixedPath];
+        const intent = searchIntentMeta(prefixedPath);
+        return intent ? { ...existing, ...intent } : existing;
+      })();
 
   // For noRegionPrefix pages the canonical is exactly the given path.
   // For region-prefixed pages, honour any canonicalOverride in the meta map.
@@ -332,10 +337,7 @@ export function SEOHead({
   const untrimmedDescription = metaOverride
     ? metaOverride.description
     : (isSyr ? syriafyText(description) : description);
-  const finalDescription =
-    untrimmedDescription.length <= 170
-      ? untrimmedDescription
-      : `${untrimmedDescription.slice(0, 167).replace(/\s+\S*$/, "").trimEnd()}…`;
+  const finalDescription = untrimmedDescription.replace(/\s+/g, " ").trim();
   const finalKeywords = isSyr ? syriafyText(rawKeywords) : rawKeywords;
 
   // Localize legacy page fields while preserving entity facts and FAQ text; patch name +

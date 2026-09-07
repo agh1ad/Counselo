@@ -5,6 +5,7 @@ import { useLocation } from "wouter";
 import { useRegion } from "@/contexts/RegionContext";
 import { LanguageContext } from "@/contexts/LanguageContextCore";
 import { qualifyProfessionalRoleCopy } from "@/lib/professional-role-scope";
+import { alignSearchIntentCopy } from "@/lib/search-intent-copy";
 import { qualifyEeatCopy } from "@/lib/eeat-scope";
 
 export type { Lang, Translations, LanguageContextType } from "@/contexts/LanguageContextCore";
@@ -92,8 +93,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const source = use(loadTranslation(region, lang));
   const t = useMemo(() => {
-    return qualifyEeatCopy(qualifyProfessionalRoleCopy(source));
-  }, [source]);
+    return qualifyEeatCopy(qualifyProfessionalRoleCopy(alignSearchIntentCopy(source, region, lang)));
+  }, [source, region, lang]);
 
   useEffect(() => {
     document.documentElement.dir = isRTL ? "rtl" : "ltr";

@@ -35,7 +35,7 @@ export default function OurWork() {
   const visibleSamples = samples.filter((sample) => ar ? Boolean(sample.titleAr) : Boolean(sample.titleEn));
   const ui = ar ? {
     eyebrow: "مكتبة كاونسلو القانونية · نماذج الأعمال",
-    title: "خبرة قانونية يمكن الاطلاع عليها",
+    title: "نماذج الأعمال والمذكرات القانونية",
     intro: "نماذج مختارة ومنقحة من مستندات وأعمال قانونية أعدها فريق كاونسلو. نحذف بيانات العملاء والمعلومات السرية قبل النشر.",
     trustTitle: "كيف نحمي خصوصية العملاء",
     trustText: "لا ننشر أسماء العملاء أو بياناتهم أو تفاصيل تسمح بالتعرف عليهم. تُعرض هذه النماذج لإيضاح منهجية العمل وجودة الصياغة فقط.",
@@ -49,7 +49,7 @@ export default function OurWork() {
     cta: "ابدأ استشارتك",
   } : {
     eyebrow: "CounselO Legal Library · Selected Work",
-    title: "Legal experience you can examine",
+    title: "Legal work samples and memoranda",
     intro: "A selection of redacted legal documents and professional work prepared by CounselO. Client identities and confidential information are removed before publication.",
     trustTitle: "How client privacy is protected",
     trustText: "We do not publish client names, personal data, or identifying matter details. These samples demonstrate our working method and drafting quality only.",

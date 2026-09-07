@@ -1,3 +1,4 @@
+import { SEARCH_COPY_UPDATED_AT, serviceSearchCopy } from "@/lib/search-intent-copy";
 import { Link, Redirect, useParams } from "wouter";
 import { ArrowLeft, CheckCircle2, ChevronRight, FileText, Mail, MessageSquareText, Phone, ShieldCheck } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -37,7 +38,7 @@ export default function LegalProblemDetail() {
     );
   }
 
-  const parentTitle = isRTL ? page.serviceTitleAr : page.serviceTitleEn;
+  const parentTitle = serviceSearchCopy(id, region, isRTL ? "ar" : "en")?.label ?? (isRTL ? page.serviceTitleAr : page.serviceTitleEn);
   // Do not reintroduce legacy service marketing or legal propositions into every matter page.
   const parentOverview = isRTL
     ? `ترتبط هذه المسألة بخدمة ${page.serviceTitleAr}. تعرض صفحة الخدمة نطاق المراجعة وطريقة بدء الاستشارة. ويُحدد المسار القانوني المناسب لهذه المسألة وفق الوقائع والمستندات والاختصاص، لا بمجرد تصنيفها ضمن مجال الخدمة.`
@@ -96,7 +97,7 @@ export default function LegalProblemDetail() {
           "headline": isRTL ? page.titleAr : page.titleEn,
           "description": description,
           "url": `https://counselo-legal.com${regionPrefix}${canonical}`,
-          "dateModified": matterGuidanceUpdatedAt(region, id, problem, page.contentUpdatedAt ?? page.legalAccuracy.reviewedAt),
+          "dateModified": matterGuidanceUpdatedAt(region, id, problem, [SEARCH_COPY_UPDATED_AT, page.contentUpdatedAt ?? page.legalAccuracy.reviewedAt].sort().at(-1)!),
           "author": { "@id": COUNSELO_ENTITY_IDS.omar },
           "publisher": { "@id": "https://counselo-legal.com/#organization" },
           "about": {
@@ -152,8 +153,9 @@ export default function LegalProblemDetail() {
               {isRTL ? "العودة إلى الخدمة الرئيسية" : "Back to the main service"}
             </Link>
             <p className="mb-5 text-sm uppercase tracking-[0.18em] text-[#d5ae5d]">{parentTitle}</p>
-            <h1 className="mb-6 max-w-5xl font-serif text-5xl font-medium leading-[1.02] tracking-[-0.035em] text-white lg:text-7xl">{isRTL ? page.titleAr : page.titleEn}</h1>
+            <h1 className="mb-6 max-w-5xl font-serif text-5xl font-medium leading-[1.02] tracking-[-0.035em] text-white lg:text-7xl">{`${isRTL ? page.titleAr : page.titleEn}${(isRTL ? page.titleAr : page.titleEn).endsWith(countryName) ? "" : ` ${isRTL ? "في" : "in"} ${countryName}`}`}</h1>
             <div className="mb-6 h-px w-20 bg-[#d5ae5d]" />
+            <p className="mb-7 max-w-3xl font-serif text-xl italic leading-relaxed text-white/72 lg:text-2xl">{isRTL ? page.heroSummary.ar : page.heroSummary.en}</p>
             <div className="flex flex-wrap gap-4">
               <Link href={`${regionPrefix}/contact?service=${id}`} data-cta="contact" data-conversion-position="problem-hero" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex items-center gap-2 bg-[#d5ae5d] px-5 py-3 font-bold text-[#0d3e2a] transition-colors hover:bg-[#e0bd73]">
                 <MessageSquareText size={18} /> {isRTL ? "أرسل المسألة للمراجعة" : "Send your matter for review"}
@@ -163,7 +165,6 @@ export default function LegalProblemDetail() {
               </a>
             </div>
             <p className="mt-4 max-w-3xl text-xs leading-5 text-white/58">{isRTL ? "اذكر الدولة وأي ميعاد قريب والنتيجة المطلوبة. نؤكد النطاق والرسوم قبل بدء العمل المدفوع." : "State the jurisdiction, any urgent date and the outcome you need. Scope and fee are confirmed before paid work begins."}</p>
-            <p className="mt-7 max-w-3xl font-serif text-xl italic leading-relaxed text-white/72 lg:text-2xl">{isRTL ? page.heroSummary.ar : page.heroSummary.en}</p>
           </div>
         </div>
       </section>
