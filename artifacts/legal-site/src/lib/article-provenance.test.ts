@@ -2,6 +2,19 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { articleJurisdictionLabel, assignArticleProvenance, localizeArticleProvenanceUrl } from "@workspace/api-zod";
 
+test("supplied blank-signature commentary retains supervision and quotation credit without inventing an author", () => {
+  const credited = assignArticleProvenance({
+    titleAr: "التوقيع على بياض",
+    bodyAr: "<p>اقتباس تاريخي للسنهوري</p><p>باشراف المحامون بغدادي</p><p>Baghdadilaw.co</p>",
+  });
+  assert.equal(credited.primaryAuthorName, "CounselO Legal Team");
+  assert.match(credited.contentMethodology, /supervision credit.*Baghdadi/);
+  assert.match(credited.contentMethodologyAr, /السنهوري/);
+  assert.match(credited.contentMethodology, /does not establish.*current legal review/);
+  const uncredited = assignArticleProvenance({ titleAr: "التوقيع على بياض", bodyAr: "<p>شرح مختصر دون نسبة إشراف</p>" });
+  assert.doesNotMatch(uncredited.contentMethodology, /supervision credit/);
+});
+
 test("articles default to safe professional commentary", () => {
   const provenance = assignArticleProvenance({
     titleEn: "Real estate dispute in Saudi Arabia",

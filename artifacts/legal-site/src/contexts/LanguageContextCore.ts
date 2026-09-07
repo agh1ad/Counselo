@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { en } from "@/translations/en";
+import type { en } from "@/translations/en";
 
 export type Lang = "en" | "ar";
 export type Translations = typeof en;

@@ -77,6 +77,8 @@ interface SEOHeadProps {
   heroArtwork?: "gold" | "platform";
   title: string;
   description: string;
+  /** Topic-authored metadata takes priority over older centralized copy. */
+  preferPageMetadata?: boolean;
   canonical?: string;
   keywords?: string;
   schema?: object | object[];
@@ -152,6 +154,7 @@ export function SEOHead({
   heroArtwork,
   title,
   description,
+  preferPageMetadata = false,
   canonical,
   keywords,
   schema,
@@ -236,14 +239,14 @@ export function SEOHead({
     "/blog/contract-interpretation-syrian-courts": "Contract Interpretation Before Syrian Courts",
     "/blog/e-contracts-legal-validity-saudi-arabia": "Electronic Contracts in Saudi Arabia: Validity & Proof",
   };
-  const rawTitle = metaOverride
+  const rawTitle = preferPageMetadata ? title : metaOverride
     ? metaOverride.title
     : (noRegionPrefix && sharedTitleOverrides[basePath])
       ? sharedTitleOverrides[basePath]
       : (isSyr ? syriafyText(title) : title);
   // Optimized meta titles are already final — never append a suffix to them.
   // For fallback (non-map) titles, append "| CounselO" only if not already present.
-  const fullTitle = limitTitle(metaOverride
+  const fullTitle = limitTitle(metaOverride && !preferPageMetadata
     ? rawTitle
     : (rawTitle.endsWith("| CounselO") ||
         rawTitle.endsWith("| كاونسلو") ||
@@ -334,7 +337,7 @@ export function SEOHead({
 
   const rawKeywords = keywords ?? (isArabic ? defaultKeywordsAr : defaultKeywordsEn);
 
-  const untrimmedDescription = metaOverride
+  const untrimmedDescription = preferPageMetadata ? description : metaOverride
     ? metaOverride.description
     : (isSyr ? syriafyText(description) : description);
   const finalDescription = untrimmedDescription.replace(/\s+/g, " ").trim();

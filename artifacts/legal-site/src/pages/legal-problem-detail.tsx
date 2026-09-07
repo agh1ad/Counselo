@@ -15,6 +15,7 @@ import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, getConsultationProduct, OMA
 import { COUNSELO_LEGAL_MATTERS_CLAIM } from "@/lib/public-claims";
 import { editorialFaqs } from "@/lib/search-intent-editorial";
 import { matterGuidanceUpdatedAt, matterSourceGuidance } from "@/lib/matter-source-guidance";
+import { getMatterAnswer } from "@/lib/matter-answer";
 
 export default function LegalProblemDetail() {
   const { id = "", problem = "" } = useParams<{ id: string; problem: string }>();
@@ -47,7 +48,11 @@ export default function LegalProblemDetail() {
   const countryName = region === "uae" ? (isRTL ? "الإمارات" : "the UAE") : region === "syr" ? (isRTL ? "سوريا" : "Syria") : (isRTL ? "السعودية" : "Saudi Arabia");
   const canonical = `/services/${id}/${problem}`;
   const sourceGuidance = matterSourceGuidance(region, id, problem);
-  const faqs = [...sourceGuidance.map(item => item[isRTL ? "ar" : "en"]), ...editorialFaqs(`${regionPrefix}${canonical}`, region, isRTL), ...(isRTL ? page.faqs.ar : page.faqs.en)];
+  const directAnswer = getMatterAnswer(region, id, problem);
+  const faqs = [
+    ...(directAnswer ? [{ q: directAnswer.question[isRTL ? "ar" : "en"], a: directAnswer.answer[isRTL ? "ar" : "en"] }] : []),
+    ...sourceGuidance.map(item => item[isRTL ? "ar" : "en"]), ...editorialFaqs(`${regionPrefix}${canonical}`, region, isRTL), ...(isRTL ? page.faqs.ar : page.faqs.en),
+  ].filter((faq, index, list) => list.findIndex(item => item.q === faq.q) === index);
   const title = isRTL
     ? buildArabicProblemTitle({
         titleAr: page.titleAr,
@@ -59,7 +64,7 @@ export default function LegalProblemDetail() {
         serviceTitleEn: page.serviceTitleEn,
         countryNameEn: countryName,
       });
-  const description = isRTL
+  const description = directAnswer?.description[isRTL ? "ar" : "en"] ?? (isRTL
     ? buildArabicProblemDescription({
         titleAr: page.titleAr,
         serviceTitleAr: page.serviceTitleAr,
@@ -69,14 +74,14 @@ export default function LegalProblemDetail() {
         titleEn: page.titleEn,
         serviceTitleEn: page.serviceTitleEn,
         countryNameEn: countryName,
-      });
+      }));
   const keywords = [
     isRTL ? page.titleAr : page.titleEn,
     isRTL ? `استشارة ${page.serviceTitleAr} في ${countryName}` : `${page.serviceTitleEn} consultation in ${countryName.replace(/^the /, "")}`,
     parentTitle,
     isRTL ? "استشارة قانونية أونلاين" : "online legal consultation",
   ].filter((value, index, list) => list.indexOf(value) === index).join(", ");
-  const sources: LegalSource[] = [...new Map([...getRegionalLegalSources(region, id), ...sourceGuidance.flatMap(item => item.sources)].map(source => [source.href, source])).values()];
+  const sources: LegalSource[] = [...new Map([...(directAnswer?.sources ?? []), ...getRegionalLegalSources(region, id), ...sourceGuidance.flatMap(item => item.sources)].map(source => [source.href, source])).values()];
   const relatedProblems = getRelatedLegalProblemPages(page);
   const consultationPackage = getConsultationProduct("comprehensive-consultation");
   const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو، أحتاج إلى مراجعة بخصوص: ${page.titleAr}.` : `Hello CounselO, I need a review regarding: ${page.titleEn}.`)}`;
@@ -86,6 +91,7 @@ export default function LegalProblemDetail() {
       <SEOHead heroArtwork="gold"
         title={title}
         description={description}
+        preferPageMetadata
         canonical={canonical}
         keywords={keywords}
         contentLanguage={isRTL ? "ar" : "en"}
@@ -97,11 +103,11 @@ export default function LegalProblemDetail() {
           "headline": isRTL ? page.titleAr : page.titleEn,
           "description": description,
           "url": `https://counselo-legal.com${regionPrefix}${canonical}`,
-          "dateModified": matterGuidanceUpdatedAt(region, id, problem, [SEARCH_COPY_UPDATED_AT, page.contentUpdatedAt ?? page.legalAccuracy.reviewedAt].sort().at(-1)!),
+          "dateModified": matterGuidanceUpdatedAt(region, id, problem, [SEARCH_COPY_UPDATED_AT, directAnswer?.updatedAt ?? "", page.contentUpdatedAt ?? page.legalAccuracy.reviewedAt].sort().at(-1)!),
           "author": { "@id": COUNSELO_ENTITY_IDS.omar },
           "publisher": { "@id": "https://counselo-legal.com/#organization" },
           "about": {
-            "@type": "LegalService",
+            "@type": "Service",
             "@id": `https://counselo-legal.com/#${region}-service-${id}`,
             "name": parentTitle,
             "provider": { "@id": COUNSELO_ENTITY_IDS.organization },
@@ -169,6 +175,20 @@ export default function LegalProblemDetail() {
         </div>
       </section>
 
+      {directAnswer && (
+        <section id="matter-direct-answer" className="border-b border-[#0d4a31]/12 bg-[#eef4f0]" aria-labelledby="matter-direct-answer-heading">
+          <div className="premium-content-shell py-9 lg:py-12">
+            <div className="max-w-5xl border-s-4 border-[#b4924a] ps-6 lg:ps-8">
+              <h2 id="matter-direct-answer-heading" className="mb-4 font-serif text-3xl leading-snug lg:text-4xl">{directAnswer.question[isRTL ? "ar" : "en"]}</h2>
+              <p className="text-lg leading-8">{directAnswer.answer[isRTL ? "ar" : "en"]}</p>
+              <ul className="mt-5 space-y-2 text-sm leading-6" aria-label={isRTL ? "مصادر هذا الشرح" : "Sources for this explanation"}>
+                {directAnswer.sources.map(source => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">{source[isRTL ? "ar" : "en"]}</a></li>)}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="border-b border-[#0d4a31]/12 bg-white" aria-label={isRTL ? "مؤشرات الثقة" : "Trust highlights"}>
         <div className="premium-content-shell grid gap-5 py-6 sm:grid-cols-2 lg:grid-cols-4">
           <div className="border-s-2 border-[#d5ae5d] ps-4">
@@ -199,7 +219,7 @@ export default function LegalProblemDetail() {
       <nav aria-label={isRTL ? "أقسام صفحة المشكلة" : "Problem page sections"} className="service-anchor-rail sticky top-[4.5rem] z-30 border-b border-[#0d4a31]/12 bg-white/95 backdrop-blur">
         <div className="premium-content-shell overflow-x-auto">
           <div className="flex min-w-max items-center gap-7 py-4 text-sm font-semibold text-[#355447]">
-            <a href="#service-context" className="service-anchor-link">{isRTL ? "نظرة عامة" : "Overview"}</a>
+            <a href={directAnswer ? "#matter-direct-answer" : "#service-context"} className="service-anchor-link">{directAnswer ? (isRTL ? "الإجابة المختصرة" : "The short answer") : (isRTL ? "نظرة عامة" : "Overview")}</a>
             <a href="#legal-accuracy" className="service-anchor-link">{isRTL ? "ما نتحقق منه" : "Legal checks"}</a>
             <a href="#problem-deliverables" className="service-anchor-link">{isRTL ? "ما تستلمه" : "Deliverable"}</a>
             <a href="#problem-documents" className="service-anchor-link">{isRTL ? "المستندات" : "Documents"}</a>

@@ -93,19 +93,49 @@ export const COOPERATING_OFFICES = {
 
 const REGION_NAMES = { uae: "United Arab Emirates", sa: "Saudi Arabia", syr: "Syria" } as const;
 
-export function regionalServiceEntity(region: keyof typeof REGION_NAMES, slug: string, name: string, description: string) {
+export function regionalServiceEntity(region: keyof typeof REGION_NAMES, slug: string, name: string, description: string, lang: "en" | "ar" = "en") {
   return {
     "@type": "Service",
     "@id": `${ENTITY_BASE_URL}/#${region}-service-${slug}`,
-    name: `${name} — CounselO`,
+    name: `${name} — ${lang === "ar" ? "كاونسلو" : "CounselO"}`,
     description,
-    url: `${ENTITY_BASE_URL}/${region}/services/${slug}`,
+    url: `${ENTITY_BASE_URL}/${region}${lang === "ar" ? "/ar" : ""}/services/${slug}`,
     areaServed: { "@type": "Country", name: REGION_NAMES[region] },
     provider: { "@id": COUNSELO_ENTITY_IDS.organization },
     availableChannel: {
       "@type": "ServiceChannel",
-      serviceUrl: `${ENTITY_BASE_URL}/${region}/services/${slug}`,
+      serviceUrl: `${ENTITY_BASE_URL}/${region}${lang === "ar" ? "/ar" : ""}/services/${slug}`,
       availableLanguage: ["Arabic", "English"],
+    },
+  };
+}
+
+/** Regional online offerings are services, not additional physical law offices. */
+export function regionalServiceDirectoryEntity(
+  region: keyof typeof REGION_NAMES,
+  lang: "en" | "ar",
+  name: string,
+  description: string,
+  services: ReadonlyArray<{ id: string; title: string }>,
+) {
+  const url = `${ENTITY_BASE_URL}/${region}${lang === "ar" ? "/ar" : ""}/services`;
+  return {
+    "@type": "Service",
+    "@id": `${ENTITY_BASE_URL}/#${region}-service-directory`,
+    name,
+    description,
+    url,
+    areaServed: { "@type": "Country", name: REGION_NAMES[region] },
+    provider: { "@id": COUNSELO_ENTITY_IDS.organization },
+    availableChannel: { "@type": "ServiceChannel", serviceUrl: url, availableLanguage: ["Arabic", "English"] },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name,
+      numberOfItems: services.length,
+      itemListElement: services.map(service => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", "@id": `${ENTITY_BASE_URL}/#${region}-service-${service.id}`, name: service.title, url: `${url}/${service.id}`, provider: { "@id": COUNSELO_ENTITY_IDS.organization } },
+      })),
     },
   };
 }

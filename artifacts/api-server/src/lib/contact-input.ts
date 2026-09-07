@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { getConsultationProduct, isServiceValidForRegion } from "@workspace/api-zod";
+import { getConsultationProduct, isServiceValidForRegion, sanitizeAcquisitionContext } from "@workspace/api-zod";
 
 export const MAX_CONTACT_FILES = 10;
 export const MAX_CONTACT_FILE_BYTES = 5 * 1024 * 1024;
@@ -29,6 +29,8 @@ const contactInputSchema = z.object({
   region: z.enum(["uae", "sa", "syr"]),
   language: z.enum(["en", "ar"]),
   website: z.string().max(200).optional().default(""),
+  // Invalid/unsupported tracking context must never reject a valid enquiry.
+  acquisition: z.unknown().optional().transform(sanitizeAcquisitionContext),
   attachments: z
     .array(attachmentSchema)
     .max(MAX_CONTACT_FILES)

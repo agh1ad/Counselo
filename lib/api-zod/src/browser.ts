@@ -12,6 +12,7 @@ export * from "./blog-social-metadata";
 export * from "./entity-architecture";
 export * from "./consultation-products";
 export * from "./platform-positioning";
+export * from "./acquisition-context";
 
 export { LEGACY_BLOG_REDIRECTS } from "./legacy-blog-redirects";
 

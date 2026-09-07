@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { resolveBlogRoute } from "./blog-route-policy";
+import { resolveBlogRoute, resolveUnqualifiedBlogPath } from "./blog-route-policy";
 
 const bilingualPost = {
   slug: "contract-guide",
@@ -15,6 +15,11 @@ const bilingualPost = {
   bodyEn: "English body",
   bodyAr: "محتوى عربي",
 };
+
+test("client navigation retains the verified historical English article destination", () => {
+  assert.equal(resolveUnqualifiedBlogPath("Termination-of-Commercial-Contracts-under-Saudi-Law"), "/blog/en/fskh-alaqd-altjary-fy-alnzam-alsawdy");
+  assert.equal(resolveUnqualifiedBlogPath("contract-guide"), "/blog/en/contract-guide", "unmapped article slugs retain their existing canonical path");
+});
 
 test("serves bilingual blog language URLs used by metadata and sitemaps", () => {
   assert.deepEqual(resolveBlogRoute(bilingualPost, "en"), {

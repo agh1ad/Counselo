@@ -1,3 +1,5 @@
+import { regionalServiceDirectoryEntity, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE } from "@workspace/api-zod/browser";
+import { searchIntentMeta } from "@/lib/search-intent-copy";
 import * as m from "framer-motion/m";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -106,108 +108,11 @@ export default function Home() {
           : (isRTL
             ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة, مشورة قانونية خلال 24 ساعة, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل, القانون العقاري, استثمار أجنبي, القانون الإداري, استشارة قانونية واتساب, قانون جنائي سعودي, قانون ضريبي زكاة, مشورة قانونية الجبيل, عمر البغدادي, رؤية 2030, قانوني"
             : "online legal consultation Saudi Arabia, Saudi Arabia online legal platform, lawyer online Saudi Arabia, legal advice within 24 hours KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law KSA, foreign investment lawyer Saudi Arabia, administrative law KSA, criminal law Saudi Arabia, banking finance law, tax zakat lawyer, medical malpractice KSA, WhatsApp legal consultation, Omar Al-Baghdadi, Jubail lawyer, Vision 2030 legal, CounselO")}
-        schema={region === "uae" ? {
-          "@context": "https://schema.org",
-          "@type": "LegalService",
-          "@id": "https://counselo-legal.com/#uae-service-directory",
-          "name": "CounselO UAE",
-          "alternateName": "CounselO Online Legal Consultations — United Arab Emirates",
-          "description": isRTL ? "منصة قانونية إلكترونية للاستشارات ومراجعة المستندات والإرشاد المنظم لمسائل الإمارات بالعربية والإنجليزية" : "Online legal platform for UAE consultation, document review and structured guidance in Arabic and English",
-          "url": "https://counselo-legal.com/uae",
-          "provider": { "@id": COUNSELO_ENTITY_IDS.organization },
-          "logo": { "@type": "ImageObject", "url": "https://counselo-legal.com/logo.png", "width": 512, "height": 512 },
-          "founder": OMAR_AL_BAGHDADI,
-          "areaServed": { "@type": "Country", "name": "United Arab Emirates" },
-          "serviceType": t.services.items.map((service) => service.title),
-          "hasOfferCatalog": { "@type": "OfferCatalog", "name": "UAE Legal Consultation Services", "numberOfItems": servicesAreaCount },
-          "contactPoint": { "@type": "ContactPoint", "telephone": "+966594850247", "contactType": "legal consultation", "availableLanguage": ["Arabic", "English"] },
-        } : region === "syr" ? {
-          "@context": "https://schema.org",
-          "@type": "LegalService",
-          "@id": "https://counselo-legal.com/#syr-service-directory",
-          "name": "CounselO",
-          "alternateName": "CounselO Online Legal Consultations",
-          "description": isRTL
-            ? `منصة سوريا للاستشارات القانونية الأونلاين — ${servicesAreaCount} مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي — خبرة 30+ عاماً من الممارسة القانونية في القانون السوري`
-            : `Syria's online legal platform — ${servicesAreaCount} practice areas for consultation, document review and structured guidance, with a target professional response within 24 hours subject to scope and urgency`,
-          "url": "https://counselo-legal.com/syr",
-          "provider": { "@id": COUNSELO_ENTITY_IDS.organization },
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://counselo-legal.com/logo.png",
-            "width": 512,
-            "height": 512,
-          },
-          "founder": {
-            ...OMAR_AL_BAGHDADI,
-          },
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Damascus",
-            "addressRegion": "Damascus Governorate",
-            "addressCountry": "SY",
-          },
-          "areaServed": {
-            "@type": "Country",
-            "name": "Syria",
-          },
-          "serviceType": ["Family Law", "Commercial Law", "Civil Law", "Employment Law", "Real Estate Law", "Foreign Investment Law", "Administrative Law", "Criminal Law", "Banking & Finance Law", "Tax Law", "Cyber Law", "Medical Malpractice", "Insurance Law", "Intellectual Property", "Arbitration", "Enforcement Law", "Companies Law", "Contracts Law", "Civil Procedure", "Criminal Procedure"],
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Legal Consultation Services Syria",
-            "numberOfItems": 20,
-          },
-          "sameAs": ["https://counselo-legal.com"],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+966594850247",
-            "contactType": "legal consultation",
-            "availableLanguage": ["Arabic", "English"],
-          },
-        } : {
-          "@context": "https://schema.org",
-          "@type": "LegalService",
-          "@id": "https://counselo-legal.com/#sa-service-directory",
-          "name": "CounselO",
-          "alternateName": "CounselO Online Legal Consultations",
-          "description": isRTL
-            ? `منصة المملكة العربية السعودية للاستشارات القانونية الأونلاين — ${servicesAreaCount} مجالاً قانونياً، استجابة خلال 24 ساعة، بإشراف المحامي عمر البغدادي`
-            : `Saudi Arabia's online legal platform — ${servicesAreaCount} practice areas for consultation, document review and structured guidance, with a target professional response within 24 hours subject to scope and urgency`,
-          "url": "https://counselo-legal.com/sa",
-          "provider": { "@id": COUNSELO_ENTITY_IDS.organization },
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://counselo-legal.com/logo.png",
-            "width": 512,
-            "height": 512,
-          },
-          "founder": {
-            ...OMAR_AL_BAGHDADI,
-          },
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Jubail",
-            "addressRegion": "Eastern Province",
-            "addressCountry": "SA",
-          },
-          "areaServed": {
-            "@type": "Country",
-            "name": "Saudi Arabia",
-          },
-          "serviceType": ["Family Law", "Commercial Law", "Employment Law", "Real Estate Law", "Foreign Investment Law", "Administrative Law", "Criminal Law", "Banking & Finance Law", "Tax & Zakat Law", "Cyber Law", "Medical Malpractice", "Insurance Law", "Intellectual Property", "Arbitration", "Enforcement Law", "Companies Law", "Contracts Law"],
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Legal Consultation Services Saudi Arabia",
-            "numberOfItems": 17,
-          },
-          "sameAs": ["https://counselo-legal.com"],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+966594850247",
-            "contactType": "legal consultation",
-            "availableLanguage": ["Arabic", "English"],
-          },
-        }}
+        schema={[
+          { "@context": "https://schema.org", ...COUNSELO_ORGANIZATION },
+          { "@context": "https://schema.org", ...COUNSELO_WEBSITE },
+          { "@context": "https://schema.org", ...regionalServiceDirectoryEntity(region, isRTL ? "ar" : "en", isRTL ? "خدمات كاونسلو القانونية" : "CounselO legal consultation services", searchIntentMeta(regionPrefix)?.description ?? h.hero.desc, t.services.items) },
+        ]}
         extraSchemas={[{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

@@ -162,7 +162,9 @@ export function UaeHome() {
         schema={[
           {
             "@context": "https://schema.org",
-            "@type": "LegalService",
+            "@type": "Service",
+            "@id": "https://counselo-legal.com/#uae-service-directory",
+            provider: { "@id": COUNSELO_ENTITY_IDS.organization },
             name: "CounselO UAE",
             url: "https://counselo-legal.com/uae",
             areaServed: { "@type": "Country", name: "United Arab Emirates" },

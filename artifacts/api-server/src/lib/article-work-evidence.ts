@@ -33,6 +33,12 @@ export function connectArticleWorkEvidence(slug: string, lang: "en" | "ar", html
         .replace("ثم تأيد الحكم استئنافيًا.", "ثم تأيد الحكم استئنافيًا بحسب إفادة العميل الواردة في الدراسة المرفقة.")
         .replace("مع تأييد النتيجة استئنافيًا.", "مع تأييد النتيجة استئنافيًا بحسب إفادة العميل الواردة في الدراسة المرفقة.");
   }
+  if (slug === "lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa" && lang === "ar") {
+    // This is a drafting note in the supplied article, not additional case evidence.
+    html = html.replace(/<p\b[^>]*>[\s\S]*?<\/p>/gi, paragraph =>
+      paragraph.replace(/<[^>]+>/g, "").trim().startsWith("للمراجعه يوجد على أعمالنا") ? "" : paragraph,
+    );
+  }
   const href = `${lang === "ar" ? "/ar" : ""}/our-work/${evidence.slug}`;
   if (html.includes(`href="${href}"`)) return html;
   return `${html}<h2>${lang === "ar" ? "دراسة الحالة المرتبطة بهذا المقال" : "Case study discussed in this article"}</h2><p><a href="${href}">${evidence[lang]}</a></p>`;

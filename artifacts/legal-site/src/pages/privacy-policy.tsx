@@ -381,7 +381,7 @@ export default function PrivacyPolicy() {
             "url": pageUrl,
             "isPartOf": { "@type": "WebSite", "name": "CounselO", "url": "https://counselo-legal.com" },
             "inLanguage": languageCode,
-            "about": { "@type": "LegalService", "name": "CounselO", "url": "https://counselo-legal.com" },
+            "about": { "@id": "https://counselo-legal.com/#organization" },
           },
           {
             "@context": "https://schema.org",
