@@ -32,13 +32,14 @@ test("Arabic problem snippets preserve intent, jurisdiction, and safe positionin
     const title = buildArabicProblemTitle(input);
     const description = buildArabicProblemDescription(input);
 
-    assert.ok([...title].length <= 68, title);
-    assert.ok([...description].length <= 158, description);
+    assert.ok(title.includes(input.titleAr), title);
+    assert.doesNotMatch(title, /…/);
+    assert.ok(description.includes(input.titleAr), description);
     assert.match(title, new RegExp(input.countryNameAr));
     assert.match(title, /كاونسلو/);
-    assert.match(title, /استشارة:/);
-    assert.match(description, /^راجع /);
-    assert.match(description, /الجهة والمستندات والخطوة التالية/);
+    assert.match(title, /في /);
+    assert.match(description, /المستندات المطلوبة/);
+    assert.match(description, /بشأن حالتك/);
     assert.match(description, /أونلاين/);
     assert.match(description, /كاونسلو/);
     assert.match(description, /[.؟]$/);
@@ -56,13 +57,14 @@ test("English problem snippets preserve topic, jurisdiction, action, and brand",
   for (const input of examples) {
     const title = buildEnglishProblemTitle(input);
     const description = buildEnglishProblemDescription(input);
-    assert.ok(title.length <= 68, title);
-    assert.ok(description.length <= 158, description);
+    assert.ok(title.startsWith(input.titleEn.replace(/ in Syria$/, "")), title);
+    assert.doesNotMatch(title, /…/);
+    assert.ok(description.startsWith(input.titleEn.replace(/ in Syria$/, "")), description);
     assert.match(title, /CounselO$/);
     assert.match(title, new RegExp(input.countryNameEn));
-    assert.match(description, /^Review /);
-    assert.match(description, /CounselO checks the authority/);
-    assert.match(description, /next step online\.$/);
+    assert.match(description, /documents to prepare/);
+    assert.match(description, /CounselO/);
+    assert.match(description, /about your case\.$/);
     assert.doesNotMatch(title, /\s(?:a|about|against|an|and|at|before|by|for|from|in|into|of|on|or|to|under|with)\s*\|/i);
     assert.doesNotMatch(`${title} ${description}`, /guaranteed|licensed in every|court representation/i);
   }
@@ -124,7 +126,7 @@ test("Arabic snippets remove repeated countries and never truncate into fragment
 
   assert.equal((description.match(/في سوريا/g) ?? []).length, 1);
   assert.doesNotMatch(title, /\s(?:من|في|إلى|على|أو|غير)\s*\|/);
-  assert.match(description, /أونلاين\.$/);
+  assert.match(description, /بشأن حالتك\.$/);
 });
 
 test("prerendered public HTML has a short shared-cache window", () => {

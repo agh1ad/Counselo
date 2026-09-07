@@ -160,7 +160,7 @@ export default function ArRegionPicker() {
           <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
             <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
               <p className="mb-6 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">
-                إرشاد قانوني محدد الاختصاص · السعودية · سوريا · الإمارات
+                استشارات قانونية · السعودية · سوريا · الإمارات
               </p>
               <h1 className="font-serif text-[clamp(2.75rem,5.5vw,5.6rem)] font-semibold leading-[1.05] tracking-[-0.025em] text-white">
                 استشارة قانونية{" "}
@@ -172,7 +172,7 @@ export default function ArRegionPicker() {
                 <span className="h-2 w-2 rotate-45 border border-[#b58b32]" />
               </div>
               <p className="max-w-xl text-lg font-light leading-8 text-white/72 sm:text-xl">
-                استشارات قانونية احترافية وسرية بالعربية والإنجليزية —{" "}
+                اختر السعودية أو سوريا أو الإمارات للوصول إلى الاستشارة والمعلومات المناسبة لمسألتك بالعربية أو الإنجليزية —{" "}
                 <strong className="font-semibold text-white">وقت استجابة مستهدف خلال 24 ساعة.</strong>
               </p>
 
@@ -247,7 +247,7 @@ export default function ArRegionPicker() {
               <h2 id="platform-heading-ar" className="font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl">بوابة إلكترونية واحدة للمساعدة القانونية</h2>
             </div>
             <div className="space-y-5 text-base leading-8 text-muted-foreground sm:text-lg">
-              <p><strong className="text-foreground">كاونسلو منصة قانونية إلكترونية ثنائية اللغة للأفراد والأسر والشركات الباحثين عن استشارة قانونية مهنية ومراجعة المستندات وإرشاد قانوني منظم.</strong> اختر نطاقك القضائي أولاً، ثم صف المسألة بالعربية أو الإنجليزية لتحصل على خطوة تالية محددة وفق القانون والجهة المختصة.</p>
+              <p><strong className="text-foreground">كاونسلو منصة قانونية إلكترونية ثنائية اللغة للأفراد والأسر والشركات الباحثين عن استشارة قانونية مهنية ومراجعة المستندات وإرشاد قانوني منظم.</strong> اختر الدولة المتعلقة بمسألتك أولاً، ثم صف المسألة بالعربية أو الإنجليزية لتحصل على خطوة تالية محددة وفق القانون والجهة المختصة.</p>
               <p>تتوفر الخدمات أونلاين في السعودية وسوريا والإمارات العربية المتحدة. تستهدف كاونسلو تقديم رد مهني خلال 24 ساعة، بحسب نطاق المسألة والاستعجال واكتمال المعلومات وتوفر الخدمة.</p>
               <dl className="grid gap-3 pt-3 sm:grid-cols-2" aria-label="نطاق المنصة">
                 {[
@@ -428,7 +428,7 @@ export default function ArRegionPicker() {
 
           <div className="relative mb-12 grid md:grid-cols-2 lg:grid-cols-4">
             {[
-              { step: "01", title: "اختر نطاقك القضائي",   body: "اختر السعودية أو سوريا أو الإمارات. لكل دولة خدمات ومحتوى مخصص وفق القانون والجهات المنطبقة فيها." },
+              { step: "01", title: "اختر الدولة المتعلقة بمسألتك",   body: "اختر السعودية أو سوريا أو الإمارات. لكل دولة خدمات ومحتوى مخصص وفق القانون والجهات المنطبقة فيها." },
               { step: "02", title: "صف قضيتك القانونية",   body: "أرسل سؤالك القانوني عبر الواتساب أو نموذج التواصل — بالعربية أو الإنجليزية. أرفق المستندات إن لزم." },
               { step: "03", title: "أكد النطاق والرسوم",   body: "بعد الدراسة الأولية، تؤكد كاونسلو منتج الاستشارة والنطاق والرسوم والخطوة التالية. لا يحدد سعر ثابت قبل فهم المسألة." },
               { step: "04", title: "استلم إرشاداً منظماً",  body: "يراجع مهني مؤهل من كاونسلو المسألة ويرد عبر القناة المتفق عليها، مع وقت استجابة مستهدف خلال 24 ساعة بحسب النطاق والاستعجال." },
@@ -486,7 +486,7 @@ export default function ArRegionPicker() {
             <h2 className="mb-5 font-serif text-5xl font-semibold leading-tight text-white sm:text-6xl">هل أنت مستعد للحصول على استشارة قانونية متخصصة؟</h2>
             <div className="mx-auto mb-8 flex w-fit items-center gap-3"><span className="h-px w-20 bg-[#d4b66c]" /><span className="h-2 w-2 rotate-45 border border-[#d4b66c]" /></div>
             <p className="text-white/70 text-lg leading-relaxed mb-10">
-              اختر نطاقك القضائي للوصول إلى الخدمات القانونية المتخصصة والأدلة المجانية وحجز الاستشارات.
+              اختر الدولة المتعلقة بمسألتك للوصول إلى الخدمات القانونية المتخصصة والأدلة المجانية وحجز الاستشارات.
             </p>
             <div className="flex justify-center gap-4 flex-wrap">
               <Link href="/sa/ar" className="inline-flex items-center gap-2 bg-white text-primary font-bold px-10 py-3.5 text-sm hover:bg-white/90 transition-colors">

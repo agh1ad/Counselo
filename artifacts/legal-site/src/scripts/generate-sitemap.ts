@@ -1,3 +1,4 @@
+import { SEARCH_COPY_UPDATED_AT } from "../lib/search-intent-copy.js";
 import { writeFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -20,8 +21,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, "../..");
 // Stable editorial dates, changed only when the corresponding checked-in
 // content family receives a substantive update. Never substitute build time.
-const STATIC_CONTENT_LASTMOD = "2026-09-04";
-const PROBLEM_CONTENT_LASTMOD = "2026-09-06";
+const STATIC_CONTENT_LASTMOD = SEARCH_COPY_UPDATED_AT;
+const PROBLEM_CONTENT_LASTMOD = SEARCH_COPY_UPDATED_AT;
 
 const BlogSectionSchema = z.object({
   heading: z.string().optional(),
@@ -221,12 +222,12 @@ for (const page of CORE_PAGES) {
   if (page.path === "/syr") {
     entries.push("\n  <!-- ===== SYR CORE PAGES ===== -->");
   }
-  entries.push(urlEntry(page.path, page.changefreq, page.priority, /(?:privacy-policy|terms-of-service|contact)$/.test(page.path) ? "2026-09-07" : /(?:vision|services)$/.test(page.path) || /^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?)$/.test(page.path) ? "2026-09-06" : STATIC_CONTENT_LASTMOD));
+  entries.push(urlEntry(page.path, page.changefreq, page.priority, /(?:privacy-policy|terms-of-service|contact)$/.test(page.path) ? "2026-09-07" : /(?:vision|services)$/.test(page.path) || /^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?)$/.test(page.path) ? SEARCH_COPY_UPDATED_AT : STATIC_CONTENT_LASTMOD));
 }
 
 entries.push("\n  <!-- ===== SA SERVICE PAGES ===== -->");
 for (const slug of SA_SERVICE_SLUGS) {
-  const modified = serviceGuidanceUpdatedAt("sa", slug, "2026-09-06");
+  const modified = serviceGuidanceUpdatedAt("sa", slug, SEARCH_COPY_UPDATED_AT);
   entries.push(urlEntry(`/sa/services/${slug}`, "monthly", "0.9", modified));
   entries.push(urlEntry(`/sa/ar/services/${slug}`, "monthly", "0.9", modified));
 }
@@ -234,14 +235,14 @@ for (const slug of SA_SERVICE_SLUGS) {
 entries.push("\n  <!-- ===== SYR SERVICE PAGES ===== -->");
 for (const slug of SYR_SERVICE_SLUGS) {
   const fn = SYRIA_ONLY_SERVICE_SLUGS.has(slug) ? urlEntrySyrOnly : urlEntry;
-  const modified = serviceGuidanceUpdatedAt("syr", slug, "2026-09-06");
+  const modified = serviceGuidanceUpdatedAt("syr", slug, SEARCH_COPY_UPDATED_AT);
   entries.push(fn(`/syr/services/${slug}`, "monthly", "0.9", modified));
   entries.push(fn(`/syr/ar/services/${slug}`, "monthly", "0.9", modified));
 }
 
 entries.push("\n  <!-- ===== UAE SERVICE PAGES ===== -->");
 for (const slug of UAE_SERVICE_SLUGS) {
-  const modified = serviceGuidanceUpdatedAt("uae", slug, "2026-09-06");
+  const modified = serviceGuidanceUpdatedAt("uae", slug, SEARCH_COPY_UPDATED_AT);
   entries.push(urlEntry(`/uae/services/${slug}`, "monthly", "0.9", modified));
   entries.push(urlEntry(`/uae/ar/services/${slug}`, "monthly", "0.9", modified));
 }
@@ -251,7 +252,7 @@ for (const region of ["sa", "syr", "uae"] as const) {
   for (const page of getLegalProblemPages(region)) {
     const enPath = legalProblemPath(region, "en", page.parentServiceSlug, page.slug);
     const arPath = legalProblemPath(region, "ar", page.parentServiceSlug, page.slug);
-    const modified = matterGuidanceUpdatedAt(region, page.parentServiceSlug, page.slug, page.contentUpdatedAt ?? PROBLEM_CONTENT_LASTMOD);
+    const modified = matterGuidanceUpdatedAt(region, page.parentServiceSlug, page.slug, [page.contentUpdatedAt ?? "", PROBLEM_CONTENT_LASTMOD].sort().at(-1)!);
     entries.push(urlEntryLanguageVariant(`${BASE_URL}${enPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8", modified));
     entries.push(urlEntryLanguageVariant(`${BASE_URL}${arPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8", modified));
   }
@@ -261,8 +262,8 @@ for (const region of ["sa", "syr", "uae"] as const) {
 entries.push("\n  <!-- ===== BLOG ===== -->");
 const blogIndexEn = `${BASE_URL}${BLOG_BASE_PATH}`;
 const blogIndexAr = `${BASE_URL}${BLOG_BASE_PATH}/ar`;
-entries.push(urlEntryLanguageVariant(blogIndexEn, blogIndexEn, blogIndexAr, "weekly", "0.8", "2026-09-06"));
-entries.push(urlEntryLanguageVariant(blogIndexAr, blogIndexEn, blogIndexAr, "weekly", "0.8", "2026-09-06"));
+entries.push(urlEntryLanguageVariant(blogIndexEn, blogIndexEn, blogIndexAr, "weekly", "0.8", SEARCH_COPY_UPDATED_AT));
+entries.push(urlEntryLanguageVariant(blogIndexAr, blogIndexEn, blogIndexAr, "weekly", "0.8", SEARCH_COPY_UPDATED_AT));
 
 entries.push("\n  <!-- ===== LEGAL LIBRARY ===== -->");
 const libraryIndexEn = `${BASE_URL}${LEGAL_LIBRARY_BASE_PATH}`;
@@ -273,8 +274,8 @@ entries.push(urlEntryLanguageVariant(libraryIndexAr, libraryIndexEn, libraryInde
 entries.push("\n  <!-- ===== OUR WORK ===== -->");
 const workIndexEn = `${BASE_URL}${WORK_BASE_PATH}`;
 const workIndexAr = `${BASE_URL}/ar${WORK_BASE_PATH}`;
-entries.push(urlEntryLanguageVariant(workIndexEn, workIndexEn, workIndexAr, "weekly", "0.85", "2026-09-06"));
-entries.push(urlEntryLanguageVariant(workIndexAr, workIndexEn, workIndexAr, "weekly", "0.85", "2026-09-06"));
+entries.push(urlEntryLanguageVariant(workIndexEn, workIndexEn, workIndexAr, "weekly", "0.85", SEARCH_COPY_UPDATED_AT));
+entries.push(urlEntryLanguageVariant(workIndexAr, workIndexEn, workIndexAr, "weekly", "0.85", SEARCH_COPY_UPDATED_AT));
 
 // Blog posts — fetch the published records from the live API by default.
 // BLOG_API_URL can point builds at a preview/local API without changing config.

@@ -1,3 +1,4 @@
+import { SEARCH_COPY_UPDATED_AT, serviceSearchCopy } from "@/lib/search-intent-copy";
 import * as m from "framer-motion/m";
 import { useParams, Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -232,7 +233,7 @@ export default function ServiceDetail() {
       "name": seoTitle,
       "description": seoDesc,
       "inLanguage": inLanguage,
-      "dateModified": serviceGuidanceUpdatedAt(region, id, "2026-09-06"),
+      "dateModified": serviceGuidanceUpdatedAt(region, id, SEARCH_COPY_UPDATED_AT),
       "citation": legalSources.map((source) => source.href),
       "publisher": {
         "@type": "LegalService",
@@ -284,9 +285,10 @@ export default function ServiceDetail() {
               <ArrowLeft className={`me-2 h-4 w-4 ${isRTL ? "rotate-180" : ""}`} /> {sd.backLink}
             </Link>
             <h1 className="mb-6 max-w-4xl font-serif text-5xl font-medium leading-[1.02] tracking-[-0.035em] text-white lg:text-7xl">
-              {`${data.title} ${isRTL ? "في" : "in"} ${isRTL ? (isSyr ? "سوريا" : isUae ? "الإمارات العربية المتحدة" : "المملكة العربية السعودية") : (isSyr ? "Syria" : isUae ? "the United Arab Emirates" : "Saudi Arabia")}`}
+              {serviceSearchCopy(id, region, isRTL ? "ar" : "en")?.heading ?? data.title}
             </h1>
             <div className="mb-6 h-px w-20 bg-[#d5ae5d]" />
+            <p className="mb-7 max-w-3xl font-serif text-xl italic leading-relaxed text-white/72 lg:text-2xl">{serviceSummary}</p>
             <div className="flex flex-wrap gap-4">
               <Link href={`${regionPrefix}/contact?service=${id}`} data-cta="contact" data-conversion-position="service-hero" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex items-center gap-2 bg-[#d5ae5d] px-5 py-3 font-bold text-[#0d3e2a] transition-colors hover:bg-[#e0bd73]">
                 <MessageSquareText size={18} /> {isRTL ? "أرسل المسألة للمراجعة" : "Send your matter for review"}
@@ -296,7 +298,6 @@ export default function ServiceDetail() {
               </a>
             </div>
             <p className="mt-4 max-w-3xl text-xs leading-5 text-white/58">{isRTL ? "اذكر الدولة وأي ميعاد قريب والنتيجة المطلوبة. نؤكد النطاق والرسوم قبل بدء العمل المدفوع." : "State the jurisdiction, any urgent date and the outcome you need. Scope and fee are confirmed before paid work begins."}</p>
-            <p className="mt-7 max-w-3xl font-serif text-xl italic leading-relaxed text-white/72 lg:text-2xl">{serviceSummary}</p>
           </m.div>
           </div>
       </section>

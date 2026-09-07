@@ -31,11 +31,11 @@ const copy = {
     seoKeywords:
       "رؤية كاونسلو, منصة قانونية رقمية, مرجع قانوني عربي, خدمات قانونية إلكترونية, استشارات قانونية موثوقة, عمر رياض بغدادي",
     eyebrow: "رؤيتنا",
-    title: "القانون… أقرب، أوضح، وأكثر موثوقية",
+    title: "رؤية كاونسلو ومنهج الاستشارات القانونية",
     lead:
-      "لم تعد الخدمات القانونية اليوم تقتصر على المكاتب التقليدية أو الحدود الجغرافية. فمع تطور التقنية وتزايد احتياجات الأفراد والشركات، أصبح الوصول إلى المعرفة القانونية الدقيقة والخدمة الاحترافية ضرورة، وليس مجرد خيار.",
+      "توضح هذه الصفحة كيف تقدم كاونسلو الاستشارات القانونية أونلاين: تحديد الدولة ونوع المسألة، مراجعة الوقائع والمستندات، ثم بيان الخيارات ونطاق العمل قبل البدء.",
     intro:
-      "من هذا المنطلق جاءت كاونسلو؛ لتكون منصة قانونية رقمية تجمع بين الخبرة المهنية والتقنية الحديثة، وتقدم خدمات قانونية بمعايير عالية من الجودة والسرية والاحترافية.",
+      "تجمع المنصة الاستشارات والمقالات القانونية ونماذج الأعمال في مكان واحد، مع بيان صاحب المحتوى وسياقه والتمييز بين المعلومات العامة والمشورة بشأن حالة محددة.",
     trust: [
       { stat: "+30", label: "عاماً من الخبرة القانونية" },
       { stat: "رقمي", label: "وصول يتجاوز الحدود" },
@@ -115,11 +115,11 @@ const copy = {
     seoKeywords:
       "CounselO vision, digital legal platform, Arab legal reference, online legal services, trusted legal consultation, Omar Al-Baghdadi",
     eyebrow: "Our Vision",
-    title: "Law—closer, clearer, and more trustworthy",
+    title: "CounselO’s vision and approach to legal advice",
     lead:
-      "Today, legal services are no longer confined to traditional offices or geographic borders. As technology advances and the needs of individuals and businesses grow, access to accurate legal knowledge and professional service has become a necessity, not merely an option.",
+      "This page explains how CounselO provides online legal consultations: identify the country and issue, review the facts and documents, then explain the options and agree the scope of work.",
     intro:
-      "This is why CounselO was created: to be a digital legal platform that combines professional expertise with modern technology and provides legal services according to high standards of quality, confidentiality, and professionalism.",
+      "The platform brings together legal consultations, articles and work samples. Each resource identifies its author and context, and distinguishes general information from advice on an individual case.",
     trust: [
       { stat: "30+", label: "Years of legal experience" },
       { stat: "Digital", label: "Access beyond borders" },
