@@ -1,3 +1,4 @@
+import { RegionQuickLinks } from "@/components/legal/RegionQuickLinks";
 import * as m from "framer-motion/m";
 import { Link } from "wouter";
 import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
@@ -176,7 +177,7 @@ export default function RegionPicker() {
 
           <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
             <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
-              <p className="mb-6 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">
+              <p className="mb-6 text-xs font-bold uppercase tracking-[0.24em] text-[#d4b66c]">
                 Legal advice · Saudi Arabia · Syria · UAE
               </p>
               <h1 className="font-serif text-[clamp(2.75rem,5.5vw,5.6rem)] font-semibold leading-[0.96] tracking-[-0.035em] text-white">
@@ -184,6 +185,7 @@ export default function RegionPicker() {
                 <br />
                 <span className="font-normal italic text-[#d5ae5d]">Consultation.</span>
               </h1>
+              <RegionQuickLinks isArabic={false} />
               <div className="my-8 flex items-center gap-3" aria-hidden="true">
                 <span className="h-px w-20 bg-[#b58b32]" />
                 <span className="h-2 w-2 rotate-45 border border-[#b58b32]" />
@@ -205,7 +207,7 @@ export default function RegionPicker() {
             <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="lg:pt-14">
               <div className="mb-6 flex items-end justify-between gap-5">
                 <div>
-                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">Choose your jurisdiction</p>
+                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-[#d4b66c]">Choose your jurisdiction</p>
                   <h2 className="font-serif text-3xl text-white sm:text-4xl">Where do you need counsel?</h2>
                 </div>
                 <span className="hidden text-xs uppercase tracking-[0.16em] text-white/50 sm:block">Select to enter</span>
@@ -228,7 +230,7 @@ export default function RegionPicker() {
                   >
                     <div className="absolute inset-x-0 top-0 h-1 bg-[#b58b32] transition-all duration-300 group-hover:h-2" />
                     <div className="flex items-start justify-between">
-                      <span className={`font-serif text-5xl italic ${dark ? "text-white/15" : "text-[#0d4a31]/12"}`}>{number}</span>
+                      <span aria-hidden="true" className={`font-serif text-5xl italic ${dark ? "text-white/55" : "text-[#0d4a31]/70"}`}>{number}</span>
                       <img src={flag} alt={alt} width="72" height="48" decoding="async" className="h-11 w-[66px] border border-white/25 object-cover shadow-md" />
                     </div>
                     <div className="absolute inset-x-7 bottom-7 sm:inset-x-8 sm:bottom-8">
@@ -244,11 +246,11 @@ export default function RegionPicker() {
               </div>
 
               <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs text-white/58">
-                <Link href="/sa/ar" className="transition-colors hover:text-[#aa7e28]">عربي — السعودية</Link>
+                <Link href="/sa/ar" className="transition-colors hover:text-[#d4b66c]">عربي — السعودية</Link>
                 <span aria-hidden="true">·</span>
-                <Link href="/syr/ar" className="transition-colors hover:text-[#aa7e28]">عربي — سوريا</Link>
+                <Link href="/syr/ar" className="transition-colors hover:text-[#d4b66c]">عربي — سوريا</Link>
                 <span aria-hidden="true">·</span>
-                <Link href="/uae/ar" className="transition-colors hover:text-[#aa7e28]">عربي — الإمارات</Link>
+                <Link href="/uae/ar" className="transition-colors hover:text-[#d4b66c]">عربي — الإمارات</Link>
               </div>
             </m.div>
           </div>
@@ -260,7 +262,7 @@ export default function RegionPicker() {
         <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <div>
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">The CounselO platform</p>
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#80601f]">The CounselO platform</p>
               <h2 id="platform-heading" className="font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl">One online starting point for legal help</h2>
             </div>
             <div className="space-y-5 text-base leading-8 text-muted-foreground sm:text-lg">
@@ -272,7 +274,7 @@ export default function RegionPicker() {
                   ["Where", "Saudi Arabia · Syria · UAE"],
                   ["Languages", "Arabic and English"],
                   ["Court representation", "If requested or necessary, arranged separately through licensed partner professionals or cooperating offices in the relevant jurisdiction"],
-                ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b58b32] bg-[#eef4f0] px-4 py-3"><dt className="text-xs font-bold uppercase tracking-[0.14em] text-[#0d4a31]/65">{label}</dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
+                ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b58b32] bg-[#eef4f0] px-4 py-3"><dt className="text-xs font-bold uppercase tracking-[0.14em] text-[#0d4a31]/85">{label}</dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
               </dl>
             </div>
           </div>
@@ -284,7 +286,7 @@ export default function RegionPicker() {
           <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
             <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
               <div>
-                <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">Consultation package</p>
+                <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#80601f]">Consultation package</p>
                 <h2 id="consultation-package-heading" className="font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl">Comprehensive online legal consultation</h2>
                 <p className="mt-5 text-base leading-8 text-muted-foreground sm:text-lg">{comprehensiveConsultation.summaryEn}</p>
               </div>
@@ -338,7 +340,7 @@ export default function RegionPicker() {
                       href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-white/55 hover:text-white text-xs transition-colors border border-white/25 hover:border-white/50 px-2 py-1"
+                      className="inline-flex items-center gap-1.5 text-white/75 hover:text-white text-xs transition-colors border border-white/25 hover:border-white/50 px-2 py-1"
                     >
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                       LinkedIn
@@ -370,7 +372,7 @@ export default function RegionPicker() {
 
             {/* About text */}
             <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-3">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">About CounselO</p>
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#80601f]">About CounselO</p>
               <h2 id="about-heading" className="mb-6 font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl lg:text-6xl">
                 Professional Legal Counsel,<br />Delivered Online
               </h2>
@@ -393,7 +395,7 @@ export default function RegionPicker() {
                   { Icon: Globe,       title: "Online — No Office",  body: "Consult from anywhere via WhatsApp or email. No travel, no waiting room." },
                 ].map(({ Icon, title, body }) => (
                   <div key={title} className="border-b border-[#0d4a31]/20 p-5 last:border-b-0 sm:border-b-0 sm:border-e sm:last:border-e-0">
-                    <Icon className="mb-4 h-6 w-6 text-[#aa7e28]" strokeWidth={1.5} />
+                    <Icon className="mb-4 h-6 w-6 text-[#80601f]" strokeWidth={1.5} />
                     <div className="mb-2 font-serif text-base font-semibold text-[#0d4a31]">{title}</div>
                     <p className="text-xs text-muted-foreground leading-relaxed">{body}</p>
                   </div>
@@ -408,7 +410,7 @@ export default function RegionPicker() {
       <section className="border-y border-[#0d4a31]/10 bg-white py-24 lg:py-32" aria-labelledby="jurisdictions-heading">
         <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">
           <m.div {...fadeIn} className="mb-16 max-w-3xl">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">Choose your jurisdiction</p>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#80601f]">Choose your jurisdiction</p>
             <h2 id="jurisdictions-heading" className="mb-4 font-serif text-5xl font-semibold text-[#0d4a31] sm:text-6xl">Three legal environments, one starting point</h2>
             <div className="mb-6 flex items-center gap-3"><span className="h-px w-20 bg-[#b58b32]" /><span className="h-2 w-2 rotate-45 border border-[#b58b32]" /></div>
             <p className="text-muted-foreground">Start with the country whose law and authorities apply. Each regional hub contains its own service catalogue, legal sources, consultation route and bilingual content.</p>
@@ -421,7 +423,7 @@ export default function RegionPicker() {
               { href: "/uae", name: "United Arab Emirates", native: "الإمارات العربية المتحدة", icon: "🇦🇪", body: "UAE federal, emirate-level, mainland and free-zone legal guidance through the relevant regional framework." },
             ].map(({ href, name, native, icon, body }) => (
               <Link key={href} href={href} className="group flex min-h-64 flex-col border border-[#0d4a31]/15 bg-[#f8faf8] p-7 transition-all hover:-translate-y-1 hover:border-[#b58b32] hover:bg-[#eef4f0] hover:shadow-[0_18px_45px_rgba(0,61,34,0.09)]">
-                <div className="mb-7 flex items-start justify-between"><span className="text-4xl" aria-hidden="true">{icon}</span><Globe className="h-6 w-6 text-[#aa7e28]" strokeWidth={1.4} /></div>
+                <div className="mb-7 flex items-start justify-between"><span className="text-4xl" aria-hidden="true">{icon}</span><Globe className="h-6 w-6 text-[#80601f]" strokeWidth={1.4} /></div>
                 <h3 className="font-serif text-2xl font-semibold text-[#0d4a31] group-hover:text-primary">{name}</h3>
                 <p className="mt-1 text-sm font-medium text-[#9b7426]">{native}</p>
                 <p className="mt-5 text-sm leading-7 text-muted-foreground">{body}</p>
@@ -489,7 +491,7 @@ export default function RegionPicker() {
       <section className="bg-[#eef4f0] py-24 lg:py-32" aria-labelledby="faq-heading">
         <div className="mx-auto grid max-w-[1380px] gap-14 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24 lg:px-8">
           <m.div {...fadeIn} className="lg:sticky lg:top-24 lg:self-start">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#aa7e28]">Support</p>
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#80601f]">Support</p>
             <h2 id="faq-heading" className="mb-6 font-serif text-5xl font-semibold leading-tight text-[#0d4a31]">Frequently Asked Questions</h2>
             <div className="flex items-center gap-3"><span className="h-px w-20 bg-[#b58b32]" /><span className="h-2 w-2 rotate-45 border border-[#b58b32]" /></div>
           </m.div>
@@ -531,7 +533,7 @@ export default function RegionPicker() {
       </section>
 
       {/* ── FOOTER NAV ── */}
-      <section className="border-t border-white/10 bg-[#062d20] py-16 text-white [&_.text-foreground]:text-white [&_.text-muted-foreground]:text-white/55 [&_a:hover]:text-[#d4b66c]">
+      <section className="border-t border-white/10 bg-[#062d20] py-16 text-white [&_.text-foreground]:text-white [&_.text-muted-foreground]:text-white/75 [&_a:hover]:text-[#d4b66c]">
         <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">
           <nav aria-label="Site-wide navigation links">
             <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-sm text-muted-foreground mb-12">

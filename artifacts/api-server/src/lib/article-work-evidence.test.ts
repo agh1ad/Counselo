@@ -21,3 +21,13 @@ test("case-study links preserve locale and survive repeated sanitized public rea
   }
   assert.equal(correctArticleBody("unrelated-article", "en", "<p>Unchanged.</p>"), "<p>Unchanged.</p>");
 });
+
+test("the supplied Arabic drafting note is removed even when nested formatting surrounds it", () => {
+  const slug = "lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa";
+  const source = '<p>محتوى مستقل عن المطالبة.</p><p><span style="color:rgb(0, 108, 53)"><strong>للمراجعه يوجد على أعمالنا (كيف ساهمت كاونسلو في تخفيض المطالبة من 500 الف رايال الى 227 الف ريال)</strong></span></p>';
+  const first = sanitizeRichText(correctArticleBody(slug, "ar", source)!);
+  assert.doesNotMatch(first, /للمراجعه|رايال/);
+  assert.match(first, /محتوى مستقل عن المطالبة/);
+  assert.match(first, /500,000 ريال.*227,000 ريال/);
+  assert.equal(sanitizeRichText(correctArticleBody(slug, "ar", first)!), first);
+});

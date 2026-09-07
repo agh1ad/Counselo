@@ -19,6 +19,7 @@ import { Helmet } from "react-helmet-async";
 import { trackEvent, trackPageview, injectGTM } from "@/lib/analytics";
 import type { WorkSamplePublic } from "@/lib/work-samples";
 import { blogPath } from "@workspace/api-zod/browser";
+import { resolveUnqualifiedBlogPath } from "@/lib/blog-route-policy";
 
 import {
   About,
@@ -88,7 +89,7 @@ function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
-    trackPageview(location);
+    return trackPageview(location);
   }, [location]);
   return null;
 }
@@ -105,18 +106,12 @@ function InteractionTracking() {
     const onClick = (event: MouseEvent) => {
       const rawTarget = event.target;
       if (!(rawTarget instanceof Element)) return;
-      const element = (rawTarget.closest<HTMLElement>("a,button,input,select,textarea,[role='button']") ?? rawTarget) as HTMLElement;
+      const element = rawTarget.closest<HTMLElement>("a,button,input,select,textarea,[role='button']");
+      if (!element) return;
       const anchor = element.closest<HTMLAnchorElement>("a[href]");
       const href = anchor?.getAttribute("href") ?? "";
-      const input = element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement || element instanceof HTMLSelectElement;
-      const label = input
-        ? (element.getAttribute("aria-label") || element.getAttribute("name") || element.tagName).slice(0, 100)
-        : (element.getAttribute("aria-label") || element.textContent || element.tagName).replace(/\s+/g, " ").trim().slice(0, 100);
       const details = {
         element_tag: element.tagName.toLowerCase(),
-        element_id: element.id.slice(0, 80),
-        element_name: element.getAttribute("name")?.slice(0, 80),
-        click_text: label,
         link_url: href.slice(0, 300),
         outbound: Boolean(anchor?.origin && anchor.origin !== window.location.origin),
         cta: element.dataset.cta,
@@ -323,7 +318,7 @@ function Router() {
         <Route path="/blog/en/:slug" component={BlogPost} />
         <Route path="/blog/ar/:slug" component={BlogPost} />
         <Route path="/blog/:slug">
-          {(params: { slug: string }) => <Redirect to={blogPath(params.slug, "en")} replace />}
+          {(params: { slug: string }) => <Redirect to={resolveUnqualifiedBlogPath(params.slug)} replace />}
         </Route>
         <Route path="/ar/our-work/:slug" component={WorkSample} />
         <Route path="/ar/our-work" component={OurWork} />

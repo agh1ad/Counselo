@@ -27,6 +27,29 @@ const examples = [
   },
 ];
 
+test("foreign VAT titles for Syrian transactions do not imply a domestic VAT procedure", () => {
+  assert.equal(buildEnglishProblemTitle({ titleEn: "Foreign VAT invoice correction for a Syrian transaction", serviceTitleEn: "Tax and Zakat", countryNameEn: "Syria" }), "Foreign VAT invoice correction for a Syrian transaction | CounselO");
+  assert.equal(buildArabicProblemTitle({ titleAr: "تصحيح فاتورة ضريبة قيمة مضافة أجنبية لمعاملة سورية", serviceTitleAr: "الضرائب والزكاة", countryNameAr: "سوريا" }), "تصحيح فاتورة ضريبة قيمة مضافة أجنبية لمعاملة سورية | كاونسلو");
+});
+
+test("an explicit corporate-tax matter does not repeat the full tax-service title", () => {
+  const title = buildArabicProblemTitle({
+    titleAr: "مشكلة التسجيل والإقرار بضريبة الشركات",
+    serviceTitleAr: "ضريبة الشركات وضريبة القيمة المضافة والمنازعات الضريبية",
+    countryNameAr: "الإمارات",
+  });
+  assert.equal(title, "مشكلة التسجيل والإقرار بضريبة الشركات في الإمارات | كاونسلو");
+  assert.equal((title.match(/ضريبة الشركات/g) ?? []).length, 1);
+});
+
+test("ambiguous appeal and travel matters retain concise service context", () => {
+  const appeal = buildArabicProblemTitle({ titleAr: "مشكلة ميعاد الطعن والقيد", serviceTitleAr: "أصول المحاكمات المدنية", countryNameAr: "سوريا" });
+  assert.equal(appeal, "مشكلة ميعاد الطعن والقيد | الدعاوى المدنية في سوريا | كاونسلو");
+  const criminal = buildArabicProblemTitle({ titleAr: "مشكلة منع السفر أو التوقيف", serviceTitleAr: "القانون الجزائي والتحقيقات والإجراءات", countryNameAr: "الإمارات" });
+  assert.equal(criminal, "مشكلة منع السفر أو التوقيف | القضايا الجزائية في الإمارات | كاونسلو");
+  assert.doesNotMatch(criminal, /التحقيقات والإجراءات/);
+});
+
 test("Arabic problem snippets preserve intent, jurisdiction, and safe positioning", () => {
   for (const input of examples) {
     const title = buildArabicProblemTitle(input);

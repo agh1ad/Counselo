@@ -1,5 +1,8 @@
 // Exact retained redirect contracts for removed legacy blog routes.
 export const LEGACY_BLOG_REDIRECTS: Readonly<Record<string, string>> = {
+  // Historical English title slug; the current article has the identical H1.
+  "/blog/Termination-of-Commercial-Contracts-under-Saudi-Law": "/blog/en/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+
   // Old region-prefixed blog index pages → language-split blog index
   "/sa/blog": "/blog",
   "/syr/blog": "/blog",

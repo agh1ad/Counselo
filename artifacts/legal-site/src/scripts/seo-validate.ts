@@ -11,6 +11,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { schemaNodes, validateSchemaSemantics } from "../lib/schema-semantics";
+import { saudiTermsOutsideJurisdictionBoundaries } from "../lib/jurisdiction-copy-check";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, "../../dist/public");
@@ -336,7 +338,8 @@ function validatePage(filepath: string): PageResult {
 
   // ── structured data ──
   const sc = schemas(html);
-  const schemaTypes = sc.map((s: any) => s["@type"] ?? "unknown");
+  const schemaTypes = [...new Set(schemaNodes(sc).flatMap(node => typeof node["@type"] === "string" ? [node["@type"]] : Array.isArray(node["@type"]) ? node["@type"] as string[] : []))];
+  issues.push(...validateSchemaSemantics(sc, route).map(issue => ({ severity: "error" as const, ...issue })));
   const webPageSchemas = sc.filter((schema: any) => schema?.["@type"] === "WebPage");
   for (const value of webPageSchemas) {
     const schema = value as { url?: string; "@id"?: string };
@@ -414,9 +417,7 @@ function validatePage(filepath: string): PageResult {
         .replace(/<[^>]+>/g, " ")
         .replace(/\s+/g, " "),
     );
-    const contamination = visibleText.match(
-      /Saudi(?: Arabia)?|\bKSA\b|\bSAMA\b|\bCMA\b|\bZATCA\b|\bMISA\b|\bSAIP\b|\bCITC\b|Vision 2030|السعود(?:ية|ي)?|ساما|هيئة الزكاة/gi,
-    );
+    const contamination = saudiTermsOutsideJurisdictionBoundaries(visibleText);
     // The About page deliberately documents the founder's cross-border work.
     // That authority evidence is not an offer of Saudi-only services on Syria URLs.
     const isAboutPage = /^\/syr(?:\/ar)?\/about$/.test(route);
@@ -569,17 +570,8 @@ function validatePage(filepath: string): PageResult {
       });
   }
 
-  // ── service pages — should have LegalService or Service schema ──
+  // Service semantics, including nested matter-page entities, are validated above.
   if (/\/services\/[^/]+$/.test(route)) {
-    const hasServiceSchema = schemaTypes.some((t) =>
-      /legal|service|organization/i.test(t),
-    );
-    if (!hasServiceSchema)
-      issues.push({
-        severity: "warn",
-        rule: "service-no-schema",
-        detail: "Service page missing LegalService/Service schema",
-      });
     if (!/id="trust-signals-heading"/.test(html))
       issues.push({
         severity: "error",

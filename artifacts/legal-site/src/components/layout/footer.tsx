@@ -98,7 +98,7 @@ export function Footer() {
               ? "كاونسلو منصة إلكترونية للاستشارات القانونية. لا ينشئ التصفح أو الاستشارة وحدهما تفويضاً بالتمثيل؛ ويُحدد أي عمل محلي أو تمثيل مع مهني مرخص ضمن نطاق مستقل."
               : "CounselO is an online legal consultation platform. Browsing or consultation alone does not create a representation mandate; local or reserved work is separately scoped with an appropriately licensed professional."}
           </p>
-          <Link href={methodologyPath} className="mt-3 inline-flex text-xs font-semibold text-primary underline-offset-4 hover:underline">
+          <Link href={methodologyPath} className="mt-3 inline-flex text-xs font-semibold text-[#e5c77e] underline underline-offset-4 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
             {isArabic ? "منهجية أرقام الخبرة وحدودها" : "Experience-figure methodology and limitations"}
           </Link>
         </div>

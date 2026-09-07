@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Languages, ArrowRight, Globe2 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence } from "framer-motion";
 import * as m from "framer-motion/m";
@@ -13,8 +13,37 @@ export function Navbar() {
   const [location] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const servicesButtonRef = useRef<HTMLButtonElement>(null);
   const { t, lang, toggleLang } = useLanguage();
   const { region, regionPrefix, isSharedPath } = useRegion();
+
+  useEffect(() => {
+    setIsOpen(false);
+    setServicesOpen(false);
+  }, [location]);
+
+  useEffect(() => {
+    if (isOpen) mobileMenuRef.current?.querySelector<HTMLAnchorElement>("a[href]")?.focus();
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen && !servicesOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      if (isOpen) {
+        setIsOpen(false);
+        menuButtonRef.current?.focus();
+      } else {
+        setServicesOpen(false);
+        servicesButtonRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [isOpen, servicesOpen]);
 
   const regionTitle = isSharedPath ? (lang === "ar" ? "رؤى عالمية" : "GLOBAL INSIGHTS") : {
     sa: lang === "ar" ? "السعودية" : "SAUDI ARABIA",
@@ -66,13 +95,23 @@ export function Navbar() {
             </> : <>
             <Link href={regionPrefix} className={`relative py-2 text-[0.82rem] font-medium transition-colors hover:text-primary ${isActive("") ? "text-primary after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:bg-[#b4924a]" : "text-muted-foreground"}`}>{t.nav.home}</Link>
 
-            <div className="relative group" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-              <Link href={p("/services")} className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${isActive("/services") ? "text-primary" : "text-muted-foreground"}`}>
-                {t.nav.services} <ChevronDown className="w-4 h-4" />
-              </Link>
+            <div className="relative group" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={(event) => {
+              if (!event.currentTarget.contains(document.activeElement)) setServicesOpen(false);
+            }} onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setServicesOpen(false);
+            }}>
+              <div className="flex items-center gap-1">
+                <Link href={p("/services")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/services") ? "text-primary" : "text-muted-foreground"}`}>
+                  {t.nav.services}
+                </Link>
+                <button ref={servicesButtonRef} type="button" onClick={() => setServicesOpen((open) => !open)} aria-label={lang === "ar" ? "موضوعات الاستشارة القانونية" : "Legal consultation topics"} aria-expanded={servicesOpen} aria-controls={servicesOpen ? "desktop-service-links" : undefined} className="inline-flex min-h-8 min-w-8 items-center justify-center text-muted-foreground hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+                  <ChevronDown className="h-4 w-4" aria-hidden="true" />
+                </button>
+              </div>
               <AnimatePresence>
                 {servicesOpen && (
                   <m.div
+                    id="desktop-service-links"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
@@ -126,7 +165,7 @@ export function Navbar() {
             <button onClick={toggleLang} aria-label={lang === "en" ? "ع — Switch to Arabic" : "EN — Switch to English"} className="text-muted-foreground hover:text-primary text-sm font-medium border border-border px-2 py-1">
               {lang === "en" ? "ع" : "EN"}
             </button>
-            <button onClick={() => setIsOpen(!isOpen)} aria-label={isOpen ? "Close menu" : "Open menu"} aria-expanded={isOpen} className="text-muted-foreground hover:text-primary">
+            <button ref={menuButtonRef} type="button" onClick={() => setIsOpen((open) => !open)} aria-label={lang === "ar" ? (isOpen ? "إغلاق القائمة" : "فتح القائمة") : (isOpen ? "Close menu" : "Open menu")} aria-expanded={isOpen} aria-controls={isOpen ? "mobile-navigation-links" : undefined} className="inline-flex min-h-11 min-w-11 items-center justify-center text-muted-foreground hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
@@ -136,6 +175,8 @@ export function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <m.div
+            ref={mobileMenuRef}
+            id="mobile-navigation-links"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}

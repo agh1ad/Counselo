@@ -1,3 +1,4 @@
+import { RegionQuickLinks } from "@/components/legal/RegionQuickLinks";
 import * as m from "framer-motion/m";
 import { Link } from "wouter";
 import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
@@ -159,7 +160,7 @@ export default function ArRegionPicker() {
 
           <div className="grid items-center gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
             <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
-              <p className="mb-6 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">
+              <p className="mb-6 text-xs font-bold tracking-[0.12em] text-[#d4b66c]">
                 استشارات قانونية · السعودية · سوريا · الإمارات
               </p>
               <h1 className="font-serif text-[clamp(2.75rem,5.5vw,5.6rem)] font-semibold leading-[1.05] tracking-[-0.025em] text-white">
@@ -167,6 +168,7 @@ export default function ArRegionPicker() {
                 <br />
                 <span className="font-normal text-[#d5ae5d]">عبر الإنترنت.</span>
               </h1>
+              <RegionQuickLinks isArabic={true} />
               <div className="my-8 flex items-center gap-3" aria-hidden="true">
                 <span className="h-px w-20 bg-[#b58b32]" />
                 <span className="h-2 w-2 rotate-45 border border-[#b58b32]" />
@@ -188,7 +190,7 @@ export default function ArRegionPicker() {
             <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="lg:pt-14">
               <div className="mb-6 flex items-end justify-between gap-5">
                 <div>
-                  <p className="mb-2 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">اختر نطاق قضائك</p>
+                  <p className="mb-2 text-xs font-bold tracking-[0.12em] text-[#d4b66c]">اختر نطاق قضائك</p>
                   <h2 className="font-serif text-3xl text-white sm:text-4xl">أين تحتاج إلى الاستشارة؟</h2>
                 </div>
                 <span className="hidden text-xs tracking-[0.08em] text-white/50 sm:block">اختر للدخول</span>
@@ -211,7 +213,7 @@ export default function ArRegionPicker() {
                   >
                     <div className="absolute inset-x-0 top-0 h-1 bg-[#b58b32] transition-all duration-300 group-hover:h-2" />
                     <div className="flex items-start justify-between">
-                      <span className={`font-serif text-5xl ${dark ? "text-white/15" : "text-[#0d4a31]/12"}`}>{number}</span>
+                      <span aria-hidden="true" className={`font-serif text-5xl ${dark ? "text-white/55" : "text-[#0d4a31]/70"}`}>{number}</span>
                       <img src={flag} alt={alt} width="72" height="48" decoding="async" className="h-11 w-[66px] border border-white/25 object-cover shadow-md" />
                     </div>
                     <div className="absolute inset-x-7 bottom-7 sm:inset-x-8 sm:bottom-8">
@@ -227,11 +229,11 @@ export default function ArRegionPicker() {
               </div>
 
               <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs text-white/58" dir="ltr">
-                <Link href="/sa" className="transition-colors hover:text-[#aa7e28]">Saudi Arabia — English</Link>
+                <Link href="/sa" className="transition-colors hover:text-[#d4b66c]">Saudi Arabia — English</Link>
                 <span aria-hidden="true">·</span>
-                <Link href="/syr" className="transition-colors hover:text-[#aa7e28]">Syria — English</Link>
+                <Link href="/syr" className="transition-colors hover:text-[#d4b66c]">Syria — English</Link>
                 <span aria-hidden="true">·</span>
-                <Link href="/uae" className="transition-colors hover:text-[#aa7e28]">UAE — English</Link>
+                <Link href="/uae" className="transition-colors hover:text-[#d4b66c]">UAE — English</Link>
               </div>
             </m.div>
           </div>
@@ -243,7 +245,7 @@ export default function ArRegionPicker() {
         <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <div>
-              <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">منصة كاونسلو</p>
+              <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#80601f]">منصة كاونسلو</p>
               <h2 id="platform-heading-ar" className="font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl">بوابة إلكترونية واحدة للمساعدة القانونية</h2>
             </div>
             <div className="space-y-5 text-base leading-8 text-muted-foreground sm:text-lg">
@@ -255,7 +257,7 @@ export default function ArRegionPicker() {
                   ["أين", "السعودية · سوريا · الإمارات"],
                   ["اللغات", "العربية والإنجليزية"],
                   ["التمثيل أمام المحاكم", "إذا طُلب أو أصبح ضرورياً، يرتب بشكل مستقل عبر مهنيين شركاء أو مكاتب متعاونة مرخصة في الدولة المعنية"],
-                ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b58b32] bg-[#eef4f0] px-4 py-3"><dt className="text-xs font-bold tracking-[0.1em] text-[#0d4a31]/65">{label}</dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
+                ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b58b32] bg-[#eef4f0] px-4 py-3"><dt className="text-xs font-bold tracking-[0.1em] text-[#0d4a31]/85">{label}</dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
               </dl>
             </div>
           </div>
@@ -267,7 +269,7 @@ export default function ArRegionPicker() {
           <div className="mx-auto max-w-[1180px] px-4 sm:px-6 lg:px-8">
             <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
               <div>
-                <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">حزمة الاستشارة</p>
+                <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#80601f]">حزمة الاستشارة</p>
                 <h2 id="consultation-package-heading-ar" className="font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl">الاستشارة القانونية الإلكترونية المتكاملة</h2>
                 <p className="mt-5 text-base leading-8 text-muted-foreground sm:text-lg">{comprehensiveConsultation.summaryAr}</p>
               </div>
@@ -309,7 +311,7 @@ export default function ArRegionPicker() {
 
             {/* About text — comes first in RTL so shows on right */}
             <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-3">
-              <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">عن كاونسلو</p>
+              <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#80601f]">عن كاونسلو</p>
               <h2 id="about-heading-ar" className="mb-6 font-serif text-4xl font-semibold leading-tight text-[#0d4a31] sm:text-5xl lg:text-6xl">
                 استشارة قانونية احترافية<br />عبر الإنترنت
               </h2>
@@ -332,7 +334,7 @@ export default function ArRegionPicker() {
                   { Icon: Globe, title: "أونلاين — دون مكتب", body: "استشِر من أي مكان عبر الواتساب أو البريد الإلكتروني. لا تنقل، لا انتظار، لا مواعيد." },
                 ].map(({ Icon, title, body }) => (
                   <div key={title} className="border-b border-[#0d4a31]/20 p-5 last:border-b-0 sm:border-b-0 sm:border-s sm:last:border-s-0">
-                    <Icon className="mb-4 h-6 w-6 text-[#aa7e28]" strokeWidth={1.5} />
+                    <Icon className="mb-4 h-6 w-6 text-[#80601f]" strokeWidth={1.5} />
                     <div className="mb-2 font-serif text-base font-semibold text-[#0d4a31]">{title}</div>
                     <p className="text-xs text-muted-foreground leading-relaxed">{body}</p>
                   </div>
@@ -354,7 +356,7 @@ export default function ArRegionPicker() {
                       href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-white/55 hover:text-white text-xs transition-colors border border-white/25 hover:border-white/50 px-2 py-1"
+                      className="inline-flex items-center gap-1.5 text-white/75 hover:text-white text-xs transition-colors border border-white/25 hover:border-white/50 px-2 py-1"
                       dir="ltr"
                     >
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -392,7 +394,7 @@ export default function ArRegionPicker() {
       <section className="border-y border-[#0d4a31]/10 bg-white py-24 lg:py-32" aria-labelledby="jurisdictions-heading-ar">
         <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">
           <m.div {...fadeIn} className="mb-16 max-w-3xl">
-            <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">اختر الاختصاص القضائي</p>
+            <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#80601f]">اختر الاختصاص القضائي</p>
             <h2 id="jurisdictions-heading-ar" className="mb-4 font-serif text-5xl font-semibold text-[#0d4a31] sm:text-6xl">ثلاث بيئات قانونية ونقطة بداية واحدة</h2>
             <div className="mb-6 flex items-center gap-3"><span className="h-px w-20 bg-[#b58b32]" /><span className="h-2 w-2 rotate-45 border border-[#b58b32]" /></div>
             <p className="text-muted-foreground">ابدأ بالدولة التي ينطبق قانونها وجهاتها المختصة. يحتوي كل مركز إقليمي على دليل خدماته ومصادره ومسار الاستشارة ومحتواه الثنائي اللغة.</p>
@@ -405,7 +407,7 @@ export default function ArRegionPicker() {
               { href: "/uae/ar", name: "الإمارات العربية المتحدة", body: "إرشاد قانوني وفق الأطر الاتحادية والمحلية والبر الرئيسي والمناطق الحرة في الإمارات.", icon: "🇦🇪" },
             ].map(({ href, name, body, icon }) => (
               <Link key={href} href={href} className="group flex min-h-64 flex-col border border-[#0d4a31]/15 bg-[#f8faf8] p-7 transition-all hover:-translate-y-1 hover:border-[#b58b32] hover:bg-[#eef4f0] hover:shadow-[0_18px_45px_rgba(0,61,34,0.09)]">
-                <div className="mb-7 flex items-start justify-between"><span className="text-4xl" aria-hidden="true">{icon}</span><Globe className="h-6 w-6 text-[#aa7e28]" strokeWidth={1.4} /></div>
+                <div className="mb-7 flex items-start justify-between"><span className="text-4xl" aria-hidden="true">{icon}</span><Globe className="h-6 w-6 text-[#80601f]" strokeWidth={1.4} /></div>
                 <h3 className="font-serif text-2xl font-semibold text-[#0d4a31] group-hover:text-primary">{name}</h3>
                 <p className="mt-5 text-sm leading-7 text-muted-foreground">{body}</p>
                 <span className="mt-auto flex items-center gap-2 pt-7 text-sm font-semibold text-primary">افتح المركز الإقليمي <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" /></span>
@@ -462,7 +464,7 @@ export default function ArRegionPicker() {
       <section className="bg-[#eef4f0] py-24 lg:py-32" aria-labelledby="faq-heading-ar">
         <div className="mx-auto grid max-w-[1380px] gap-14 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24 lg:px-8">
           <m.div {...fadeIn} className="lg:sticky lg:top-24 lg:self-start">
-            <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#aa7e28]">الدعم والمساعدة</p>
+            <p className="mb-4 text-xs font-bold tracking-[0.12em] text-[#80601f]">الدعم والمساعدة</p>
             <h2 id="faq-heading-ar" className="mb-6 font-serif text-5xl font-semibold leading-tight text-[#0d4a31]">الأسئلة الشائعة</h2>
             <div className="flex items-center gap-3"><span className="h-px w-20 bg-[#b58b32]" /><span className="h-2 w-2 rotate-45 border border-[#b58b32]" /></div>
           </m.div>
@@ -504,7 +506,7 @@ export default function ArRegionPicker() {
       </section>
 
       {/* ── FOOTER NAV ── */}
-      <section className="border-t border-white/10 bg-[#062d20] py-16 text-white [&_.text-foreground]:text-white [&_.text-muted-foreground]:text-white/55 [&_a:hover]:text-[#d4b66c]">
+      <section className="border-t border-white/10 bg-[#062d20] py-16 text-white [&_.text-foreground]:text-white [&_.text-muted-foreground]:text-white/75 [&_a:hover]:text-[#d4b66c]">
         <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-8">
           <nav aria-label="روابط التنقل في الموقع">
             <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-sm text-muted-foreground mb-12">
