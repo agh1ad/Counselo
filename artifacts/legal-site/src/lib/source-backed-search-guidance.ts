@@ -1,4 +1,5 @@
 import type { Region } from "@workspace/api-zod/browser";
+import { INTENT_EXPANSION_GUIDANCE } from "./intent-expansion-guidance.js";
 
 type Source = { en: string; ar: string; href: string };
 type Guidance = {
@@ -14,6 +15,7 @@ type Guidance = {
 // Narrow answers to observed information needs. Sources support these answers,
 // not an assertion that every proposition on the parent page is certified.
 export const SOURCE_BACKED_SEARCH_GUIDANCE: Guidance[] = [
+  ...INTENT_EXPANSION_GUIDANCE.filter(item => item.includeOnServicePage),
   {
     region: "sa", service: "employment-law", id: "unpaid-leave", reviewedAt: "2026-09-06",
     en: { q: "Can I take unpaid leave in Saudi Arabia?", a: "For employment governed by the Saudi Labor Law, Article 116 allows unpaid leave with the employer's agreement for an agreed duration. The contract is treated as suspended for the portion exceeding 20 days unless both parties agree otherwise. Record the approved dates, return date and any agreement about suspension in writing. Unpaid leave differs from annual or sick leave; check the applicable employment regime before applying this rule." },
@@ -48,4 +50,8 @@ export const SOURCE_BACKED_SEARCH_GUIDANCE: Guidance[] = [
 
 export function sourceBackedSearchGuidance(region: Region, service: string) {
   return SOURCE_BACKED_SEARCH_GUIDANCE.filter(item => item.region === region && item.service === service);
+}
+
+export function serviceGuidanceUpdatedAt(region: Region, service: string, fallback: string) {
+  return sourceBackedSearchGuidance(region, service).reduce((latest, item) => item.reviewedAt > latest ? item.reviewedAt : latest, fallback);
 }

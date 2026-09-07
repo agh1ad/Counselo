@@ -1,0 +1,547 @@
+{
+  "reviewedAt": "2026-09-07",
+  "scope": "Coherent Saudi contract-evidence and ordinary sale-defect cluster, four bilingual retained routes",
+  "summary": {
+    "reviewedRoutes": 4,
+    "newBilingualAnswers": 7,
+    "conditionalPagePurposeAcceptanceRecommendations": 4,
+    "currentlyCompletedRoutes": 0
+  },
+  "module": "artifacts/legal-site/src/lib/saudi-matter-completion-search-guidance.ts",
+  "sourceVerification": {
+    "method": "Current web search of primary Bureau of Experts statute pages returned article text; direct unparameterized page opens timed out. Statute details and indexed status were checked.",
+    "sources": [
+      {
+        "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1",
+        "articles": "51, 55, 58–63, 66–68",
+        "evidence": "Indexed primary text displayed full proof threshold, testimony exceptions and digital-verification provisions."
+      },
+      {
+        "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1",
+        "articles": "338–344",
+        "evidence": "Indexed primary text displayed remedies, exclusions, effect of acceptance and the 180-day warranty-action period with longer-guarantee/fraud exceptions."
+      }
+    ],
+    "limitations": [
+      "No independent professional certification or live publication asserted.",
+      "Direct fetch failure recorded; no claim to have downloaded a newly consolidated PDF.",
+      "No filing deadline from the prospective 2026 Execution Law is used."
+    ]
+  },
+  "pages": [
+    {
+      "route": "/sa/ar/services/contracts/contract-evidence-and-electronic-messages",
+      "currentHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-ar-services-contracts-contract-evidence-and-electronic-messages.html",
+      "currentHtmlSha256": "8091b3a467cfd88b5bcfcf920fa8958d57073e8cf9212a800a43e28832f0f42d",
+      "reviewedPrimaryIntent": "Understand admissibility and practical verification of electronic contract evidence",
+      "supportingIntents": [
+        "Writing threshold and exceptions",
+        "Preservation, authenticity challenges and court verification",
+        "Evidence-law scope versus transaction validity"
+      ],
+      "existingVisibleAnswers": [
+        {
+          "q": "هل تثبت الرسائل والبريد الإلكتروني الاتفاق أو الأتعاب؟",
+          "a": "يعترف نظام الإثبات في المواد 53 إلى 60 بالسجلات والمراسلات الرقمية، وتتحدد حجيتها بمصدرها وفئتها، ومنها الوسيلة المتفق عليها في العقد. احتفظ بالأصل الرقمي والمحادثة الكاملة بالتواريخ والمرفقات؛ فقد تطلب المحكمة التحقق. وقد تترك الصورة المقتطعة هوية المرسل أو السياق أو الاكتمال محل نزاع.",
+          "visibleMatched": true
+        },
+        {
+          "q": "كيف أحفظ الرسائل الإلكترونية كدليل عقدي؟",
+          "a": "احفظ المحادثة كاملة وتواريخها وبيانات المرسل والملفات الأصلية المتاحة. حدّد الإيجاب والقبول والتعديلات والتنفيذ المشار إليه. قد تفقد لقطات الشاشة السياق؛ فاحفظ السجلات الأصلية ووضّح صلة المشاركين بالأطراف المتعاقدة.",
+          "visibleMatched": true
+        },
+        {
+          "q": "ما أول خطوة في مسألة إثبات العقد والرسائل الإلكترونية؟",
+          "a": "احفظ تصدير الرسائل كاملاً والمرفقات والنسخ الموقعة وبيانات الهوية أو الصلاحية وسجلات التنفيذ المرتبطة وأعد تسلسلاً زمنياً مؤرخاً وحدد أي إخطار أو ميعاد. أرسل هذه المواد إلى كاونسلو لتقييم أولي للوقائع والاختصاص والخيارات في السعودية.",
+          "visibleMatched": true
+        },
+        {
+          "q": "ما المستندات المفيدة لتقييم إثبات العقد والرسائل الإلكترونية؟",
+          "a": "ابدأ بـتصدير الرسائل كاملاً والمرفقات والنسخ الموقعة وبيانات الهوية أو الصلاحية وسجلات التنفيذ المرتبطة، وأضف ملخصاً زمنياً مختصراً وحدد أي إخطار أو ميعاد. وتختلف القائمة النهائية بحسب الوقائع.",
+          "visibleMatched": true
+        },
+        {
+          "q": "هل يمكن أن تراجع كاونسلو مسألة إثبات العقد والرسائل الإلكترونية أونلاين؟",
+          "a": "نعم. يمكن بدء التقييم ومراجعة المستندات عبر واتساب أو البريد الإلكتروني أو نموذج التواصل بالعربية أو الإنجليزية. ويُحدد القيد الرسمي أو الحضور أو التمثيل المنظم بصورة منفصلة حيث يلزم في السعودية.",
+          "visibleMatched": true
+        },
+        {
+          "q": "كيف تساعد كاونسلو في إثبات العقد والرسائل الإلكترونية؟",
+          "a": "تتناول المراجعة السؤال: كيف أحفظ الرسائل الإلكترونية كدليل عقدي؟ وتفحص كاونسلو تصدير الرسائل كاملاً والمرفقات والنسخ الموقعة وبيانات الهوية أو الصلاحية وسجلات التنفيذ المرتبطة وتتحقق من الإطار والجهة المختصة وتوضح الخيارات المؤيدة وما بقي غير محسوم ضمن النطاق المتفق عليه.",
+          "visibleMatched": true
+        },
+        {
+          "q": "متى يصل الرد المهني؟",
+          "a": "تستهدف كاونسلو رداً مهنياً خلال 24 ساعة بحسب نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوفر الخدمة. ولا يمثل ذلك ضماناً لنتيجة قانونية أو لموعد قيد محدد.",
+          "visibleMatched": true
+        }
+      ],
+      "originalReview": "docs/search-intent-saudi-final-review-2026-09-07.json",
+      "originalGaps": [
+        "Writing threshold, testimony exceptions and proof challenges",
+        "Electronic signature authenticity and source-verification workflow"
+      ],
+      "gapResolutions": [
+        {
+          "originalGap": "Writing threshold, testimony exceptions and proof challenges",
+          "answerIds": [
+            "sa-matter-writing-threshold",
+            "sa-matter-writing-exceptions"
+          ],
+          "resolution": "Substantive statutory answer authored; acceptance depends on integration and rendered verification."
+        },
+        {
+          "originalGap": "Electronic signature authenticity and source-verification workflow",
+          "answerIds": [
+            "sa-matter-digital-verification"
+          ],
+          "resolution": "Substantive statutory answer authored; acceptance depends on integration and rendered verification."
+        }
+      ],
+      "implementedAnswerIds": [
+        "sa-matter-writing-threshold",
+        "sa-matter-writing-exceptions",
+        "sa-matter-digital-verification"
+      ],
+      "proposedAnswers": [
+        {
+          "q": "هل تحل شهادة الشهود محل الكتابة في عقد مرتفع القيمة؟",
+          "a": "تتطلب المادة 66 من نظام الإثبات الكتابة أصلاً للتصرف الذي تزيد قيمته على 100 ألف ريال أو يكون غير محدد القيمة، مع مراعاة الاتفاق أو النص المخالف. وتقيد المادة 67 الشهادة أيضاً فيما يلزم فيه الكتابة أو في باقي حق لا يثبت إلا بها أو فيما يخالف الدليل الكتابي. وللدليل الرقمي حكم الكتابة وفق المادة 55. افحص قيمة التصرف الأصلية والسجل الرقمي الفعلي بدلاً من اعتبار كل مراسلة غير موقعة غير مقبولة."
+        },
+        {
+          "q": "ماذا لو تعذرت الكتابة أو فُقد دليل العقد الكتابي؟",
+          "a": "تجيز المادة 68 الشهادة في حالات محددة مما يلزم إثباته بالكتابة: وجود مبدأ ثبوت بالكتابة، أو مانع مادي أو أدبي يحول دون الحصول عليها، أو ثبوت فقد المدعي دليله لسبب لا يد له فيه. وتوضح المادة 51 أن مبدأ الثبوت كتابة صادرة من الخصم تجعل التصرف قريب الاحتمال، تعزز بطريق إثبات آخر. حدد الاستثناء وأدلته؛ فمجرد غياب عقد موقع لا يثبت توافره."
+        },
+        {
+          "q": "كيف يفحص القضاء رسالة أو توقيعاً إلكترونياً متنازعاً عليه؟",
+          "a": "حدد النزاع في هوية المرسل أو التوقيع أو التعديل أو السياق الناقص، واحتفظ بالسجل الأصلي وبيانات التحقق ذات الصلة. تميز المواد 58–63 بين عبء إثبات عدم صحة فئات محددة من الأدلة الرقمية وتقديمها بهيئتها الأصلية أو بوسيلة رقمية أخرى ومطابقة المستخرجات لسجلها. وقد يؤدي الامتناع بلا عذر مقبول عن تقديم ما تطلبه المحكمة للتحقق إلى سقوط التمسك بالدليل أو اعتباره حجة على الممتنع. وإذا تعذر التحقق لسبب لا يعود للخصوم، قدرت المحكمة الحجية من ظروف الدعوى."
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "en": "Evidence Law — Articles 55, 66–67",
+          "ar": "نظام الإثبات — المواد 55, 66–67",
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1"
+        },
+        {
+          "en": "Evidence Law — Articles 51, 68",
+          "ar": "نظام الإثبات — المواد 51, 68",
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1"
+        },
+        {
+          "en": "Evidence Law — Articles 58–63",
+          "ar": "نظام الإثبات — المواد 58–63",
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1"
+        }
+      ],
+      "dimensionAssessment": {
+        "problem-and-jurisdiction": "Exact Saudi contract matter; Evidence Law for civil/commercial proof.",
+        "eligibility-and-exclusions": "Articles 66–68 proof thresholds and exceptions; Articles 58–63 category-specific burdens.",
+        "process-and-documents": "Existing preservation and chronology answers supplemented by source verification procedure.",
+        "remedies-and-consequences": "Court verification, matching extracts and consequences of non-cooperation explained without guaranteeing authenticity.",
+        "timing": "No invented evidence-specific filing period; deadline belongs to the underlying dispute, identified in the page intake.",
+        "provider-fee-next-step": "Current page offers scoped initial assessment with separate representation and conditional response target.",
+        "adjacent-intents": "Authenticating a foreign instrument or POA authority are linked distinct problems."
+      },
+      "remainingKnownPublicContentGaps": [],
+      "caseSpecificLimits": [
+        "Authenticity of a particular message or signature, transaction formalities and evidential weight require the actual records."
+      ],
+      "recommendation": "accept-after-rendered-verification",
+      "completionAccepted": false,
+      "reason": "Every specific public gap in the prior row is answered by the combined existing and new content. This is a bounded page-purpose recommendation, not closure of linked matter pages or every possible contract dispute.",
+      "stage": "substantive-content-authored-integration-pending"
+    },
+    {
+      "route": "/sa/ar/services/contracts/defective-goods-and-non-conforming-delivery",
+      "currentHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-ar-services-contracts-defective-goods-and-non-conforming-delivery.html",
+      "currentHtmlSha256": "a8d36c37e2f864002fc73e840830d97ea1ce361347d5e93ef55ae089128ab8b1",
+      "reviewedPrimaryIntent": "Understand ordinary sale-defect remedies, exclusions and claim preservation",
+      "supportingIntents": [
+        "Rescission, price difference and substitute delivery",
+        "Seller exclusions, acceptance and divisible batches",
+        "Notice versus warranty-action period and fraud exception"
+      ],
+      "existingVisibleAnswers": [
+        {
+          "q": "هل أنتظر قبل إبلاغ البائع بالعيب؟",
+          "a": "توجب المادة 340 من نظام المعاملات المدنية الفحص عند التمكن وإبلاغ البائع بالعيب المشمول بالضمان خلال مدة معقولة. والعيب الخفي الذي لا يكشفه الفحص المعتاد يجب الإبلاغ عنه بمجرد ظهوره. احفظ التسليم والفحص والإبلاغ؛ فقد يؤثر قبول المبيع بعد العلم بالعيب في الجزاء وفق المادة 341.",
+          "visibleMatched": true
+        },
+        {
+          "q": "كيف تختلف البضاعة المسلمة عن المواصفة المتفق عليها؟",
+          "a": "وثّق العيب أو الاختلاف بحسب الصنف والكمية وتاريخ التسليم. قارن سجلات الفحص والقبول بالمواصفة وشروط الإخطار. احفظ العينات أو الصور عند ملاءمتها وميّز طلب الإصلاح والاستبدال والرفض وتعديل الثمن.",
+          "visibleMatched": true
+        },
+        {
+          "q": "ما أول خطوة في مسألة عيوب البضائع وعدم مطابقة التسليم؟",
+          "a": "احفظ المواصفات وسجلات التسليم ونتائج الفحص والصور أو العينات المحفوظة وإخطارات العيوب وأعد تسلسلاً زمنياً مؤرخاً وحدد أي إخطار أو ميعاد. أرسل هذه المواد إلى كاونسلو لتقييم أولي للوقائع والاختصاص والخيارات في السعودية.",
+          "visibleMatched": true
+        },
+        {
+          "q": "ما المستندات المفيدة لتقييم عيوب البضائع وعدم مطابقة التسليم؟",
+          "a": "ابدأ بـالمواصفات وسجلات التسليم ونتائج الفحص والصور أو العينات المحفوظة وإخطارات العيوب، وأضف ملخصاً زمنياً مختصراً وحدد أي إخطار أو ميعاد. وتختلف القائمة النهائية بحسب الوقائع.",
+          "visibleMatched": true
+        },
+        {
+          "q": "هل يمكن أن تراجع كاونسلو مسألة عيوب البضائع وعدم مطابقة التسليم أونلاين؟",
+          "a": "نعم. يمكن بدء التقييم ومراجعة المستندات عبر واتساب أو البريد الإلكتروني أو نموذج التواصل بالعربية أو الإنجليزية. ويُحدد القيد الرسمي أو الحضور أو التمثيل المنظم بصورة منفصلة حيث يلزم في السعودية.",
+          "visibleMatched": true
+        },
+        {
+          "q": "كيف تساعد كاونسلو في عيوب البضائع وعدم مطابقة التسليم؟",
+          "a": "تتناول المراجعة السؤال: كيف تختلف البضاعة المسلمة عن المواصفة المتفق عليها؟ وتفحص كاونسلو المواصفات وسجلات التسليم ونتائج الفحص والصور أو العينات المحفوظة وإخطارات العيوب وتتحقق من الإطار والجهة المختصة وتوضح الخيارات المؤيدة وما بقي غير محسوم ضمن النطاق المتفق عليه.",
+          "visibleMatched": true
+        },
+        {
+          "q": "متى يصل الرد المهني؟",
+          "a": "تستهدف كاونسلو رداً مهنياً خلال 24 ساعة بحسب نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوفر الخدمة. ولا يمثل ذلك ضماناً لنتيجة قانونية أو لموعد قيد محدد.",
+          "visibleMatched": true
+        }
+      ],
+      "originalReview": "docs/search-intent-saudi-final-review-2026-09-07.json",
+      "originalGaps": [
+        "Defect warranty remedies and exclusions",
+        "Delivery-based warranty limitation exceptions"
+      ],
+      "gapResolutions": [
+        {
+          "originalGap": "Defect warranty remedies and exclusions",
+          "answerIds": [
+            "sa-matter-sale-defect-remedies",
+            "sa-matter-sale-defect-exclusions",
+            "sa-matter-sale-defect-acceptance"
+          ],
+          "resolution": "Substantive statutory answer authored; acceptance depends on integration and rendered verification."
+        },
+        {
+          "originalGap": "Delivery-based warranty limitation exceptions",
+          "answerIds": [
+            "sa-matter-sale-defect-time"
+          ],
+          "resolution": "Substantive statutory answer authored; acceptance depends on integration and rendered verification."
+        }
+      ],
+      "implementedAnswerIds": [
+        "sa-matter-sale-defect-remedies",
+        "sa-matter-sale-defect-exclusions",
+        "sa-matter-sale-defect-acceptance",
+        "sa-matter-sale-defect-time"
+      ],
+      "proposedAnswers": [
+        {
+          "q": "هل يحق للمشتري فسخ بيع المعيب أو الاحتفاظ به مع فرق الثمن؟",
+          "a": "تشمل المادة 338 العيب عند التسليم الذي ينقص قيمة المبيع أو نفعه المقصود ولو لم يعلم به البائع. وللمشتري طلب الفسخ أو إمساك المبيع مع فرق الثمن وفق التقدير النظامي، وللبائع توقي ذلك ببديل مماثل غير معيب. ويحتاج التعويض الإضافي إلى مقتضاه وأدلته. حدد العيب وغرض العقد والطلب؛ ولا يستبدل إطار ضمان عيب البيع بقاعدة خاصة بالمنتج أو بحماية المستهلك."
+        },
+        {
+          "q": "متى قد لا يضمن البائع العيب وفق القواعد العامة؟",
+          "a": "تستثني المادة 339 العيب المعلوم للمشتري أو القابل للكشف بالفحص المعتاد، مع مراعاة ضمان السلامة من عيب معين أو تعمد إخفائه؛ والعيب المتسامح فيه عرفاً؛ وما يحدث بعد التسليم دون سبب سابق؛ والبيع بالمزاد القضائي أو الإداري. وتجيز المادة 343 تعديل الضمان دون تعمد إخفاء العيب. احتفظ بشروط البيع وسجل الفحص. وهذه حدود القواعد العامة لنظام المعاملات المدنية وليست إذناً بتجاهل التزام خاص آمر لحماية المستهلك."
+        },
+        {
+          "q": "هل يؤثر قبول المبيع المعيب أو التصرف فيه في الطلب المتاح؟",
+          "a": "تميز المادة 341 بين الرضا بالعيب وسقوط الفسخ وحده. فالرضا الصريح أو الضمني بالعيب يسقط الفسخ وفرق الثمن، بينما قد تُبقي بعض التصرفات اللاحقة أو حقوق الغير أو هلاك المبيع أو تعيبه المطالبة بفرق الثمن مع سقوط الفسخ. وتعالج المادة 342 الصفقة القابلة للتجزئة؛ فلا يبرر عيب بعض الأشياء دائماً فسخ البيع كله. وثّق ما جرى بعد اكتشاف العيب قبل اختيار الطلب."
+        },
+        {
+          "q": "هل يكفي الإبلاغ السريع عن العيب لحفظ الدعوى دون حد زمني؟",
+          "a": "لا؛ فالإبلاغ ومدة دعوى الضمان أمران مختلفان. تقضي المادة 344 أصلاً بعدم سماع دعوى ضمان العيب بعد 180 يوماً من تسليم المبيع، ما لم يلتزم البائع بضمان أطول، ولا يتمسك بهذه المدة بائع ثبت إخفاؤه العيب غشاً. احتفظ بتواريخ التسليم والكشف والإبلاغ ومدة الضمان. تحقّق من أي قاعدة خاصة وأثرها الإجرائي قبل الرفع؛ فالشكوى إلى البائع ليست بذاتها دعوى قضائية."
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "en": "Civil Transactions Law — Article 338",
+          "ar": "نظام المعاملات المدنية — المادة 338",
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1"
+        },
+        {
+          "en": "Civil Transactions Law — Articles 339, 343",
+          "ar": "نظام المعاملات المدنية — المواد 339, 343",
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1"
+        },
+        {
+          "en": "Civil Transactions Law — Articles 341–342",
+          "ar": "نظام المعاملات المدنية — المواد 341–342",
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1"
+        },
+        {
+          "en": "Civil Transactions Law — Article 344",
+          "ar": "نظام المعاملات المدنية — المادة 344",
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1"
+        }
+      ],
+      "dimensionAssessment": {
+        "problem-and-jurisdiction": "Saudi ordinary sale-defect warranty expressly distinguished from special consumer/product obligations.",
+        "eligibility-and-exclusions": "Articles 339 and 343 exclusions and agreement limits, including concealment qualification.",
+        "process-and-documents": "Existing delivery inspection/notice instructions supplemented by election of remedy and subsequent acceptance analysis.",
+        "remedies-and-consequences": "Statutory remedy choices, seller replacement and effect of acceptance/disposal explained.",
+        "timing": "Existing Article 340 notice plus new Article 344 delivery-based time bar and exceptions.",
+        "provider-fee-next-step": "Current page offers scoped initial assessment with separate representation and conditional response target.",
+        "adjacent-intents": "Product-specific harm/recall routes belong to the linked defective-product-and-consumer-compensation-claim page; special warranty applicability remains a document classification question."
+      },
+      "remainingKnownPublicContentGaps": [],
+      "caseSpecificLimits": [
+        "Whether the actual goods meet the warranty test, what amount is due, special product rules and the competent forum require the contract and product identity."
+      ],
+      "recommendation": "accept-after-rendered-verification",
+      "completionAccepted": false,
+      "reason": "Every specific public gap in the prior row is answered by the combined existing and new content. This is a bounded page-purpose recommendation, not closure of linked matter pages or every possible contract dispute.",
+      "stage": "substantive-content-authored-integration-pending"
+    },
+    {
+      "route": "/sa/services/contracts/contract-evidence-and-electronic-messages",
+      "currentHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-services-contracts-contract-evidence-and-electronic-messages.html",
+      "currentHtmlSha256": "59e48b06c520e99c4d0ed3210fd6d0fedc8646aace17af1f80ecfd3d18d653eb",
+      "reviewedPrimaryIntent": "Understand admissibility and practical verification of electronic contract evidence",
+      "supportingIntents": [
+        "Writing threshold and exceptions",
+        "Preservation, authenticity challenges and court verification",
+        "Evidence-law scope versus transaction validity"
+      ],
+      "existingVisibleAnswers": [
+        {
+          "q": "Can emails or messages prove an agreement or unpaid fee?",
+          "a": "Articles 53–60 of the Evidence Law recognise digital records and correspondence. Their weight depends on origin and the applicable evidence category, including an agreed communication channel. Preserve the original digital material and full exchange with dates and attachments; the court may require verification. A cropped screenshot alone may leave identity, context or completeness disputed.",
+          "visibleMatched": true
+        },
+        {
+          "q": "How should electronic messages be preserved as contract evidence?",
+          "a": "Keep the full conversation, dates, sender details and original files where available. Identify the offer, acceptance, changes and performance referred to. Screenshots can lose context; preserve the underlying records and explain how the participants relate to the contracting parties.",
+          "visibleMatched": true
+        },
+        {
+          "q": "What should I do first about contract evidence and electronic messages?",
+          "a": "Preserve complete message exports, attachments, signed versions, identity or authority context and related performance records, prepare a dated chronology and identify any notice or deadline. Send those materials to CounselO for an initial assessment of the facts, forum and options in Saudi Arabia.",
+          "visibleMatched": true
+        },
+        {
+          "q": "What documents help assess contract evidence and electronic messages?",
+          "a": "For this problem, start with complete message exports, attachments, signed versions, identity or authority context and related performance records. Add a short dated summary and identify any notice or deadline. The final list depends on the facts.",
+          "visibleMatched": true
+        },
+        {
+          "q": "Can CounselO review contract evidence and electronic messages online?",
+          "a": "Yes. The initial assessment and document review can begin through WhatsApp, email or the consultation form in Arabic or English. Formal filing, attendance and reserved representation work are scoped separately where required in Saudi Arabia.",
+          "visibleMatched": true
+        },
+        {
+          "q": "How does CounselO help with contract evidence and electronic messages?",
+          "a": "The review addresses this question: How should electronic messages be preserved as contract evidence? CounselO examines complete message exports, attachments, signed versions, identity or authority context and related performance records, checks the applicable framework and authority, and explains the supported options and remaining uncertainties within the agreed scope.",
+          "visibleMatched": true
+        },
+        {
+          "q": "How quickly will I receive a response?",
+          "a": "CounselO targets a professional response within 24 hours, subject to the matter’s scope, urgency, intake completeness and service availability. The target is not a guaranteed legal outcome or filing deadline.",
+          "visibleMatched": true
+        }
+      ],
+      "originalReview": "docs/search-intent-saudi-final-review-2026-09-07.json",
+      "originalGaps": [
+        "Writing threshold, testimony exceptions and proof challenges",
+        "Electronic signature authenticity and source-verification workflow"
+      ],
+      "gapResolutions": [
+        {
+          "originalGap": "Writing threshold, testimony exceptions and proof challenges",
+          "answerIds": [
+            "sa-matter-writing-threshold",
+            "sa-matter-writing-exceptions"
+          ],
+          "resolution": "Substantive statutory answer authored; acceptance depends on integration and rendered verification."
+        },
+        {
+          "originalGap": "Electronic signature authenticity and source-verification workflow",
+          "answerIds": [
+            "sa-matter-digital-verification"
+          ],
+          "resolution": "Substantive statutory answer authored; acceptance depends on integration and rendered verification."
+        }
+      ],
+      "implementedAnswerIds": [
+        "sa-matter-writing-threshold",
+        "sa-matter-writing-exceptions",
+        "sa-matter-digital-verification"
+      ],
+      "proposedAnswers": [
+        {
+          "q": "Can witnesses replace written evidence for a large contract?",
+          "a": "Under Evidence Law Article 66, a transaction exceeding SAR 100,000 or of undetermined value generally requires writing, subject to a different agreement or legal rule. Article 67 also restricts testimony for transactions requiring writing, a remaining part of a written-proof right, or matters contradicting written evidence. Digital evidence has the status of writing under Article 55. Assess the original transaction value and the actual digital record, rather than treating every unsigned exchange as inadmissible."
+        },
+        {
+          "q": "What if written contract evidence was unavailable or lost?",
+          "a": "Article 68 permits testimony in specified writing-required cases: an initial written indication, a material or moral obstacle to obtaining writing, or loss of the written evidence for a reason outside the claimant’s control. Article 51 explains the initial indication as writing from the opponent making the transaction plausible, supported by another proof method. Identify the particular exception and supporting facts; merely lacking a signed contract does not establish it."
+        },
+        {
+          "q": "How is a disputed electronic message or signature checked in court?",
+          "a": "Identify the challenged author, signature, alteration or missing context and retain the original record and related verification data. Articles 58–63 distinguish the proof burden for specified digital-evidence categories, submission in its original or another digital form, and matching extracts to their source record. Unjustified refusal to provide verification material requested by the court can defeat reliance on the evidence or count against the refusing party. If verification fails for reasons outside the parties’ control, the court assesses its weight from the case circumstances."
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "en": "Evidence Law — Articles 55, 66–67",
+          "ar": "نظام الإثبات — المواد 55, 66–67",
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1"
+        },
+        {
+          "en": "Evidence Law — Articles 51, 68",
+          "ar": "نظام الإثبات — المواد 51, 68",
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1"
+        },
+        {
+          "en": "Evidence Law — Articles 58–63",
+          "ar": "نظام الإثبات — المواد 58–63",
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/2716057c-c097-4bad-8e1e-ae1400c678d5/1"
+        }
+      ],
+      "dimensionAssessment": {
+        "problem-and-jurisdiction": "Exact Saudi contract matter; Evidence Law for civil/commercial proof.",
+        "eligibility-and-exclusions": "Articles 66–68 proof thresholds and exceptions; Articles 58–63 category-specific burdens.",
+        "process-and-documents": "Existing preservation and chronology answers supplemented by source verification procedure.",
+        "remedies-and-consequences": "Court verification, matching extracts and consequences of non-cooperation explained without guaranteeing authenticity.",
+        "timing": "No invented evidence-specific filing period; deadline belongs to the underlying dispute, identified in the page intake.",
+        "provider-fee-next-step": "Current page offers scoped initial assessment with separate representation and conditional response target.",
+        "adjacent-intents": "Authenticating a foreign instrument or POA authority are linked distinct problems."
+      },
+      "remainingKnownPublicContentGaps": [],
+      "caseSpecificLimits": [
+        "Authenticity of a particular message or signature, transaction formalities and evidential weight require the actual records."
+      ],
+      "recommendation": "accept-after-rendered-verification",
+      "completionAccepted": false,
+      "reason": "Every specific public gap in the prior row is answered by the combined existing and new content. This is a bounded page-purpose recommendation, not closure of linked matter pages or every possible contract dispute.",
+      "stage": "substantive-content-authored-integration-pending"
+    },
+    {
+      "route": "/sa/services/contracts/defective-goods-and-non-conforming-delivery",
+      "currentHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-services-contracts-defective-goods-and-non-conforming-delivery.html",
+      "currentHtmlSha256": "76e4f684fb8c3cb0c42a1e4b9407c911d2308ba026a8ab2118ff7052b43df0c7",
+      "reviewedPrimaryIntent": "Understand ordinary sale-defect remedies, exclusions and claim preservation",
+      "supportingIntents": [
+        "Rescission, price difference and substitute delivery",
+        "Seller exclusions, acceptance and divisible batches",
+        "Notice versus warranty-action period and fraud exception"
+      ],
+      "existingVisibleAnswers": [
+        {
+          "q": "Should I wait before notifying the seller about a defect?",
+          "a": "Article 340 of the Civil Transactions Law requires inspection when possible and notice of a covered defect within a reasonable period. A hidden defect not discoverable by ordinary inspection must be notified immediately when it appears. Keep delivery, inspection and notification evidence; using or accepting goods after learning of a defect can affect remedies under Article 341.",
+          "visibleMatched": true
+        },
+        {
+          "q": "How do the delivered goods differ from the agreed specification?",
+          "a": "Record the defect or discrepancy by item, quantity and delivery date. Compare inspection and acceptance records with the agreed specification and notice requirements. Preserve samples or photographs where appropriate and distinguish repair, replacement, rejection and price adjustment requests.",
+          "visibleMatched": true
+        },
+        {
+          "q": "What should I do first about defective goods and non-conforming delivery?",
+          "a": "Preserve specifications, delivery records, inspection results, photographs or retained samples and defect notifications, prepare a dated chronology and identify any notice or deadline. Send those materials to CounselO for an initial assessment of the facts, forum and options in Saudi Arabia.",
+          "visibleMatched": true
+        },
+        {
+          "q": "What documents help assess defective goods and non-conforming delivery?",
+          "a": "For this problem, start with specifications, delivery records, inspection results, photographs or retained samples and defect notifications. Add a short dated summary and identify any notice or deadline. The final list depends on the facts.",
+          "visibleMatched": true
+        },
+        {
+          "q": "Can CounselO review defective goods and non-conforming delivery online?",
+          "a": "Yes. The initial assessment and document review can begin through WhatsApp, email or the consultation form in Arabic or English. Formal filing, attendance and reserved representation work are scoped separately where required in Saudi Arabia.",
+          "visibleMatched": true
+        },
+        {
+          "q": "How does CounselO help with defective goods and non-conforming delivery?",
+          "a": "The review addresses this question: How do the delivered goods differ from the agreed specification? CounselO examines specifications, delivery records, inspection results, photographs or retained samples and defect notifications, checks the applicable framework and authority, and explains the supported options and remaining uncertainties within the agreed scope.",
+          "visibleMatched": true
+        },
+        {
+          "q": "How quickly will I receive a response?",
+          "a": "CounselO targets a professional response within 24 hours, subject to the matter’s scope, urgency, intake completeness and service availability. The target is not a guaranteed legal outcome or filing deadline.",
+          "visibleMatched": true
+        }
+      ],
+      "originalReview": "docs/search-intent-saudi-final-review-2026-09-07.json",
+      "originalGaps": [
+        "Defect warranty remedies and exclusions",
+        "Delivery-based warranty limitation exceptions"
+      ],
+      "gapResolutions": [
+        {
+          "originalGap": "Defect warranty remedies and exclusions",
+          "answerIds": [
+            "sa-matter-sale-defect-remedies",
+            "sa-matter-sale-defect-exclusions",
+            "sa-matter-sale-defect-acceptance"
+          ],
+          "resolution": "Substantive statutory answer authored; acceptance depends on integration and rendered verification."
+        },
+        {
+          "originalGap": "Delivery-based warranty limitation exceptions",
+          "answerIds": [
+            "sa-matter-sale-defect-time"
+          ],
+          "resolution": "Substantive statutory answer authored; acceptance depends on integration and rendered verification."
+        }
+      ],
+      "implementedAnswerIds": [
+        "sa-matter-sale-defect-remedies",
+        "sa-matter-sale-defect-exclusions",
+        "sa-matter-sale-defect-acceptance",
+        "sa-matter-sale-defect-time"
+      ],
+      "proposedAnswers": [
+        {
+          "q": "Can a buyer cancel a defective sale or keep the goods with a price adjustment?",
+          "a": "Article 338 covers a delivery defect reducing the item’s value or intended usefulness, even if the seller did not know of it. The buyer may seek rescission or keep the goods and claim the statutory price difference; the seller may avert this by supplying an equivalent defect-free replacement. Additional damages require their own basis and evidence. Identify the defect, contract purpose and requested remedy; this sale-warranty framework should not be substituted for a special product or consumer rule."
+        },
+        {
+          "q": "When might the seller not be responsible under the ordinary defect warranty?",
+          "a": "Article 339 excludes defects known to the buyer or discoverable by ordinary inspection, subject to an express defect guarantee or deliberate concealment; customary tolerable defects; defects arising after delivery without an earlier cause; and judicial or administrative auction sales. Article 343 allows warranty changes but not deliberate concealment. Preserve the sale terms and inspection history. These are the ordinary Civil Transactions Law limits, not permission to disregard a separate mandatory consumer obligation."
+        },
+        {
+          "q": "Does accepting or disposing of defective goods affect the available remedy?",
+          "a": "Article 341 distinguishes accepting the defect from losing only the rescission remedy. Express or implied acceptance of the defect removes rescission and the price-difference claim. Certain later dealings, third-party rights or loss or damage to the item can instead leave a price-difference claim while preventing rescission. Article 342 separately addresses divisible batches: a defect in one item does not always justify cancelling the whole sale. Record what happened after discovery before choosing a remedy."
+        },
+        {
+          "q": "Is prompt defect notice enough to preserve a warranty claim indefinitely?",
+          "a": "No. Notification and the time for a warranty action are different. Article 344 generally prevents hearing a defect-warranty action after 180 days from delivery unless the seller undertook a longer warranty; a seller who fraudulently concealed the defect cannot rely on that period. Preserve delivery, discovery, notice and warranty dates. Check any special governing rule and procedural effect before filing; a complaint to the seller is not itself a court action."
+        }
+      ],
+      "sourceEvidence": [
+        {
+          "en": "Civil Transactions Law — Article 338",
+          "ar": "نظام المعاملات المدنية — المادة 338",
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1"
+        },
+        {
+          "en": "Civil Transactions Law — Articles 339, 343",
+          "ar": "نظام المعاملات المدنية — المواد 339, 343",
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1"
+        },
+        {
+          "en": "Civil Transactions Law — Articles 341–342",
+          "ar": "نظام المعاملات المدنية — المواد 341–342",
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1"
+        },
+        {
+          "en": "Civil Transactions Law — Article 344",
+          "ar": "نظام المعاملات المدنية — المادة 344",
+          "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/655fdb42-8c96-422b-b8c4-b04f0095c94c/1"
+        }
+      ],
+      "dimensionAssessment": {
+        "problem-and-jurisdiction": "Saudi ordinary sale-defect warranty expressly distinguished from special consumer/product obligations.",
+        "eligibility-and-exclusions": "Articles 339 and 343 exclusions and agreement limits, including concealment qualification.",
+        "process-and-documents": "Existing delivery inspection/notice instructions supplemented by election of remedy and subsequent acceptance analysis.",
+        "remedies-and-consequences": "Statutory remedy choices, seller replacement and effect of acceptance/disposal explained.",
+        "timing": "Existing Article 340 notice plus new Article 344 delivery-based time bar and exceptions.",
+        "provider-fee-next-step": "Current page offers scoped initial assessment with separate representation and conditional response target.",
+        "adjacent-intents": "Product-specific harm/recall routes belong to the linked defective-product-and-consumer-compensation-claim page; special warranty applicability remains a document classification question."
+      },
+      "remainingKnownPublicContentGaps": [],
+      "caseSpecificLimits": [
+        "Whether the actual goods meet the warranty test, what amount is due, special product rules and the competent forum require the contract and product identity."
+      ],
+      "recommendation": "accept-after-rendered-verification",
+      "completionAccepted": false,
+      "reason": "Every specific public gap in the prior row is answered by the combined existing and new content. This is a bounded page-purpose recommendation, not closure of linked matter pages or every possible contract dispute.",
+      "stage": "substantive-content-authored-integration-pending"
+    }
+  ]
+}

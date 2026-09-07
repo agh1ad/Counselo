@@ -7,6 +7,7 @@ export * from "./article-provenance";
 export * from "./article-context";
 export * from "./article-link-labels";
 export * from "./work-context";
+export * from "./work-reader-guidance";
 export * from "./blog-social-metadata";
 export * from "./testimonial-governance";
 export * from "./entity-architecture";

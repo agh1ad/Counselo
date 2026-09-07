@@ -1,0 +1,1434 @@
+{
+  "reviewedAt": "2026-09-07",
+  "status": "partial-not-exhaustive",
+  "scope": {
+    "retainedRouteCount": 24,
+    "logicalPageCount": 12,
+    "routeCountsByRegion": {
+      "sa": 16,
+      "uae": 8
+    },
+    "excludedRedirectCount": 14,
+    "newAnswerCount": 6,
+    "routesWithNewAnswers": 22
+  },
+  "sourceVerification": [
+    {
+      "href": "https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2",
+      "verification": "Live official full text read, Articles3 and7; existing access and complaint clocks deliberately not repeated."
+    },
+    {
+      "href": "https://www.moj.gov.sa/Documents/Sharing/ExplanationOfTheProofSystem.pdf",
+      "verification": "Official MOJ2024 explanatory publication quoting Evidence Law120–121; current BOE indexed text cross-check. Direct BOE open timed out. Judicial civil evidence scope explicit."
+    },
+    {
+      "href": "https://services.dha.gov.ae/sheryan/wps/portal/home/faq",
+      "verification": "Live official FAQ links mc.dha.gov.ae; that address redirects to complaints.dha.gov.ae. No complaint submitted or patient data entered."
+    },
+    {
+      "href": "https://mohap.gov.ae/en/w/mohap-urges-customers-to-make-the-most-of-the-electronic-customer-complaint-system",
+      "verification": "Official published statement limits medical-complaint scope and excludes financial/insurance handling; current official service infographic independently corroborates MOHAP-registered private facility scope."
+    },
+    {
+      "href": "https://www.uaelegislation.gov.ae/en/legislations/1192/download",
+      "verification": "Current official indexed primary full-text excerpts of Articles19–20 retrieved; direct opens failed. MOJ official legal repository indexed text corroborates. No judicial lawsuit limitation inferred."
+    }
+  ],
+  "unresolvedSourceQuestions": [
+    "No universal Saudi or UAE compensation claim deadline published. The applicable cause, dates, transition rules and exceptions require verified primary law before a public answer.",
+    "UAE record-copy refusal escalation, charges and time depend on regulator; DHA access right is already covered but not every regulator procedure.",
+    "Court expert discussion is separate from health-authority committee grievance and privacy complaint."
+  ],
+  "duplicateQuestionsDeliberatelyAvoided": [
+    "Saudi access30days plus conditional extension; PDPL complaint90days",
+    "Saudi poor outcome, consent, medical referral and compulsory liability insurance",
+    "UAE committee-before-compensation; Abu Dhabi investigation and30-dayreport grievance",
+    "DHA records access right and federal Arabic complaint requirements"
+  ],
+  "pages": [
+    {
+      "route": "/sa/ar/services/medical-malpractice/compensation-and-professional-liability-disputes",
+      "language": "ar",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": "compensation-and-professional-liability-disputes",
+      "title": "استشارة: التعويض ومنازعات المسؤولية المهنية | السعودية | كاونسلو",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "كيف يرتبط الخطأ المهني المدعى به بالخسارة وموقف التأمين؟",
+        "supportingIntents": [
+          "Judicial expert findings versus final liability",
+          "disputed policy response",
+          "separately proven loss"
+        ],
+        "existingAuthoredBrief": "افصل الادعاء الطبي ودليل السببية والخسارة المحسوبة ورد تأمين المسؤولية المهنية. سجّل ما قُبض من تعويض أو مساعدة. لا يثبت اشتراك مقدم الرعاية أو وجود وثيقة تأمين وحده المسؤولية أو المبلغ القابل للاسترداد.المحامي عمر البغدادي",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-ar-services-medical-malpractice-compensation-and-professional-liability-disputes.html",
+        "renderedHtmlSha256": "4f46a3307e4d376de681dcfade32819a30e3fc59744a90778c34e055758dc249",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-care-test",
+          "sa-ccim-medical-route",
+          "sa-ccim-medical-insurance"
+        ],
+        "newAnswerIds": [
+          "sa-medical-judicial-expert-objection"
+        ],
+        "researchedSources": [
+          {
+            "en": "MOJ: Evidence Law explanation, Articles 120–121",
+            "ar": "وزارة العدل: شرح نظام الإثبات، المادتان 120–121",
+            "href": "https://www.moj.gov.sa/Documents/Sharing/ExplanationOfTheProofSystem.pdf"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Applicable claim limitation and transition rules",
+            "allocation and insurer dispute forum"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Amount recoverable for this patient",
+            "which clinician caused which harm",
+            "effect of this settlement release"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Applicable claim limitation and transition rules",
+        "allocation and insurer dispute forum"
+      ]
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/medical-negligence-claims",
+      "language": "ar",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": "medical-negligence-claims",
+      "title": "استشارة: مطالبات الإهمال الطبي | السعودية | كاونسلو",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "ما قرار العلاج محل التساؤل وما الضرر الذي تلاه؟",
+        "supportingIntents": [
+          "Care test and causation",
+          "complaint referral",
+          "expert report challenge"
+        ],
+        "existingAuthoredBrief": "أعد تسلسلاً للعلاج من السجلات وحدّد الفعل أو الامتناع محل التساؤل. افصل النتيجة الضارة عن دليل الخطأ المهني وصلته بالضرر. تحتاج المسائل السريرية إلى تقييم طبي مؤهل مع مراجعة طريق الشكوى أو المطالبة المنطبق.المحامي عمر البغدادي",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-ar-services-medical-malpractice-medical-negligence-claims.html",
+        "renderedHtmlSha256": "09245b1a7b6db7627ef8f76c47e2f6c15b99e18849161d6c3018177b2a8b694d",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-care-test",
+          "sa-ccim-medical-consent",
+          "sa-ccim-medical-route"
+        ],
+        "newAnswerIds": [
+          "sa-medical-judicial-expert-objection"
+        ],
+        "researchedSources": [
+          {
+            "en": "MOJ: Evidence Law explanation, Articles 120–121",
+            "ar": "وزارة العدل: شرح نظام الإثبات، المادتان 120–121",
+            "href": "https://www.moj.gov.sa/Documents/Sharing/ExplanationOfTheProofSystem.pdf"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Compensation limitation and trigger exceptions",
+            "current court filing particulars"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Whether this treatment departed from specialty standards",
+            "disputed clinical causation"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Compensation limitation and trigger exceptions",
+        "current court filing particulars"
+      ]
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/medical-record-access-dispute",
+      "language": "ar",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": "medical-record-access-dispute",
+      "title": "استشارة: منازعة الحصول على السجل الطبي | السعودية | كاونسلو",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "منازعة الحصول على السجل الطبي",
+        "supportingIntents": [
+          "Access and copy",
+          "guardian authority",
+          "data correction versus clinical opinion"
+        ],
+        "existingAuthoredBrief": "ابدأ بحصر السجلات الطبية المطلوبة ومقارنتها برد مقدم الرعاية. نقص السجلات والخلاف حول التشخيص والشكوى عن الخطأ الطبي مسائل مختلفة؛ وينبغي أن يحدد طلب الاطلاع بدقة المواد المطلوبة.المحامي عمر البغدادي",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-ar-services-medical-malpractice-medical-record-access-dispute.html",
+        "renderedHtmlSha256": "b0e7b34c1d92d6841365669b9b4fa7ff1e0e56377b39ef0aec37cbc5b931a9ea",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-access",
+          "sa-ccim-medical-access-escalation"
+        ],
+        "newAnswerIds": [
+          "sa-medical-guardian-data-rights",
+          "sa-medical-data-correction"
+        ],
+        "researchedSources": [
+          {
+            "en": "SDAIA: PDPL regulations, Article 7",
+            "ar": "سدايا: لائحة حماية البيانات، المادة 7",
+            "href": "https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Record-retention duties and lawful access restrictions; representative proof and correction refusal procedure"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Whether a particular requester proves legal representation",
+            "whether a specific withheld entry contains protected third-party data"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Record-retention duties and lawful access restrictions; representative proof and correction refusal procedure"
+      ]
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/medical-record-review",
+      "language": "ar",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": "medical-record-review",
+      "title": "استشارة: مراجعة السجلات الطبية | السعودية | كاونسلو",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "ما السؤال الذي ينبغي أن تساعد السجلات الطبية المتاحة في الإجابة عنه؟",
+        "supportingIntents": [
+          "Chronology and missing entries",
+          "correction right",
+          "court expert disagreement"
+        ],
+        "existingAuthoredBrief": "نظّم سجل العلاج بالتاريخ وحدّد الصفحات الناقصة والقيود غير الواضحة وغرض المراجعة. يختلف طلب السجلات عن فهم تسلسل العلاج وادعاء الإهمال. تنظم المراجعة القانونية المسائل ولا تحل محل التقييم الطبي المؤهل.المحامي عمر البغدادي",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-ar-services-medical-malpractice-medical-record-review.html",
+        "renderedHtmlSha256": "719938efe05a9fbd0ecc4b11b572cc118bdc258702c063cde27be196d4ac2a0d",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-access",
+          "sa-ccim-medical-expert-review"
+        ],
+        "newAnswerIds": [
+          "sa-medical-data-correction",
+          "sa-medical-judicial-expert-objection"
+        ],
+        "researchedSources": [
+          {
+            "en": "SDAIA: PDPL regulations, Article 7",
+            "ar": "سدايا: لائحة حماية البيانات، المادة 7",
+            "href": "https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2"
+          },
+          {
+            "en": "MOJ: Evidence Law explanation, Articles 120–121",
+            "ar": "وزارة العدل: شرح نظام الإثبات، المادتان 120–121",
+            "href": "https://www.moj.gov.sa/Documents/Sharing/ExplanationOfTheProofSystem.pdf"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Current retention and preservation duties",
+            "procedural expert objection filing requirements"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Complete record checklist tailored to the allegation",
+            "which specialty expert the actual issue requires"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Current retention and preservation duties",
+        "procedural expert objection filing requirements"
+      ]
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/misdiagnosis-and-delayed-diagnosis",
+      "language": "ar",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": "misdiagnosis-and-delayed-diagnosis",
+      "title": "استشارة: سوء التشخيص وتأخره | السعودية | كاونسلو",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "ما المعلومات المتاحة في كل مرحلة من التشخيص؟",
+        "supportingIntents": [
+          "Information available at each stage",
+          "avoidable additional harm",
+          "expert or committee review"
+        ],
+        "existingAuthoredBrief": "تتبع الأعراض المبلغ عنها والفحص والتحاليل والإحالات والتشخيص اللاحق بالتاريخ. حدّد الفرصة المدعى بفواتها والضرر المنسوب للتأخير. لا يثبت التشخيص اللاحق وحده خطأ سابقاً؛ بل تُراجع المعلومات المتاحة والتقييم السريري.المحامي عمر البغدادي",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-ar-services-medical-malpractice-misdiagnosis-and-delayed-diagnosis.html",
+        "renderedHtmlSha256": "c8d3a6de6af679dcc3b405eb7606feb073ee75f65c420afa65b3758713c564a9",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-care-test",
+          "sa-ccim-medical-expert-review"
+        ],
+        "newAnswerIds": [
+          "sa-medical-judicial-expert-objection"
+        ],
+        "researchedSources": [
+          {
+            "en": "MOJ: Evidence Law explanation, Articles 120–121",
+            "ar": "وزارة العدل: شرح نظام الإثبات، المادتان 120–121",
+            "href": "https://www.moj.gov.sa/Documents/Sharing/ExplanationOfTheProofSystem.pdf"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Compensation limitation and trigger exceptions",
+            "Current court filing and expert challenge procedure"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Specialty-specific referral threshold",
+            "whether earlier diagnosis would probably change this patient outcome"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Compensation limitation and trigger exceptions",
+        "Current court filing and expert challenge procedure"
+      ]
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/surgical-and-treatment-errors",
+      "language": "ar",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": "surgical-and-treatment-errors",
+      "title": "استشارة: الأخطاء الجراحية والعلاجية | السعودية | كاونسلو",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "أي جزء من الإجراء أو الرعاية اللاحقة محل التساؤل؟",
+        "supportingIntents": [
+          "Consent and operative stage",
+          "aftercare",
+          "judicial expert findings"
+        ],
+        "existingAuthoredBrief": "حدّد الإجراء المخطط ومناقشة الموافقة وأحداث العملية والرعاية اللاحقة. احفظ سجلات المضاعفات والعلاج التالي. ميّز الخطر المعروف عن الاشتباه بخلل في الرعاية؛ وتُقيّم السببية والمعايير من الملف الطبي الفعلي.المحامي عمر البغدادي",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-ar-services-medical-malpractice-surgical-and-treatment-errors.html",
+        "renderedHtmlSha256": "917bf375e0bc87b15a6e624be2a618f57070f673abaf74232cb17eb77a5b1831",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-care-test",
+          "sa-ccim-medical-consent"
+        ],
+        "newAnswerIds": [
+          "sa-medical-judicial-expert-objection"
+        ],
+        "researchedSources": [
+          {
+            "en": "MOJ: Evidence Law explanation, Articles 120–121",
+            "ar": "وزارة العدل: شرح نظام الإثبات، المادتان 120–121",
+            "href": "https://www.moj.gov.sa/Documents/Sharing/ExplanationOfTheProofSystem.pdf"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Current claim period and applicable court process",
+            "special consent rules if relevant"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Responsibility among the actual surgical team",
+            "emergency evidence",
+            "operation-specific record checklist"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Current claim period and applicable court process",
+        "special consent rules if relevant"
+      ]
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/treatment-injury-and-compensation-claim",
+      "language": "ar",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": "treatment-injury-and-compensation-claim",
+      "title": "استشارة: إصابة العلاج ومطالبة التعويض | السعودية | كاونسلو",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "ما الإصابة المنسوبة للعلاج وما الدليل على الصلة؟",
+        "supportingIntents": [
+          "Prior condition",
+          "treatment-caused injury",
+          "expert findings",
+          "losses and payments"
+        ],
+        "existingAuthoredBrief": "وثّق الحالة قبل العلاج والإصابة المدعاة والتطور اللاحق. أيّد كلفة العلاج وأثر الدخل والخسائر الأخرى كلّاً بدليله. تتطلب المطالبة تقييم السببية والمسؤولية المهنية؛ ولا تثبتهما بصورة حاسمة إصابة تلت العلاج.المحامي عمر البغدادي",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-ar-services-medical-malpractice-treatment-injury-and-compensation-claim.html",
+        "renderedHtmlSha256": "0f22c86892bd81763d83e9566f16d7770551bd60dda00556590a435db5f274ea",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-care-test",
+          "sa-ccim-medical-route",
+          "sa-ccim-medical-insurance"
+        ],
+        "newAnswerIds": [
+          "sa-medical-judicial-expert-objection"
+        ],
+        "researchedSources": [
+          {
+            "en": "MOJ: Evidence Law explanation, Articles 120–121",
+            "ar": "وزارة العدل: شرح نظام الإثبات، المادتان 120–121",
+            "href": "https://www.moj.gov.sa/Documents/Sharing/ExplanationOfTheProofSystem.pdf"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Compensation limitation and exceptions",
+            "insurer and practitioner allocation rules",
+            "court filing procedure"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Individual disability and future care valuation",
+            "causation relative to prior condition",
+            "effect of actual settlement"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Compensation limitation and exceptions",
+        "insurer and practitioner allocation rules",
+        "court filing procedure"
+      ]
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice",
+      "language": "ar",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": null,
+      "title": "محامي أخطاء طبية في السعودية | كاونسلو",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "الأخطاء الطبية والنظام الصحي في المملكة العربية السعودية",
+        "supportingIntents": [
+          "Record access",
+          "supported medical fault",
+          "competent regulator",
+          "compensation process"
+        ],
+        "existingAuthoredBrief": "كاونسلو المملكة العربية السعودية محتوى وخدمات وفق قانون هذه الدولة تغيير الاختصاص الرئيسية الخدمات الأخطاء الطبية والنظام الصحي   العودة إلى جميع الخدمات الأخطاء الطبية والنظام الصحي في المملكة العربية السعودية   أرسل المسألة للمراجعة  WhatsApp اذكر الدولة وأي ميعاد قريب والنتيجة المطلوبة. نؤكد النطاق والرسوم قبل بدء العمل المدفوع. استشارة الأخطاء الطبية والنظام الصحي في السعودية. نقيّم الشكوى العلاجية وفق التسلسل الطبي والسجلات والنتائج الفنية، مع التمييز بين النتيجة غير المرغوبة والخطأ المثبت ",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-ar-services-medical-malpractice.html",
+        "renderedHtmlSha256": "631b9f0e27309fedea7a7293d97a6d174551890b257746b8ffb4c5f8f1822af9",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-care-test",
+          "sa-ccim-medical-route"
+        ],
+        "newAnswerIds": [
+          "sa-medical-judicial-expert-objection"
+        ],
+        "researchedSources": [
+          {
+            "en": "MOJ: Evidence Law explanation, Articles 120–121",
+            "ar": "وزارة العدل: شرح نظام الإثبات، المادتان 120–121",
+            "href": "https://www.moj.gov.sa/Documents/Sharing/ExplanationOfTheProofSystem.pdf"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Remaining regulator-specific records/complaint paths",
+            "compensation limitation",
+            "current court-stage requirements"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Engagement fee and professional scope for a particular case",
+            "individual prospects and loss valuation"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Remaining regulator-specific records/complaint paths",
+        "compensation limitation",
+        "current court-stage requirements"
+      ]
+    },
+    {
+      "route": "/sa/services/medical-malpractice/compensation-and-professional-liability-disputes",
+      "language": "en",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": "compensation-and-professional-liability-disputes",
+      "title": "Compensation … disputes | Saudi Arabia | CounselO",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "How do the alleged professional failure, loss and insurance position relate?",
+        "supportingIntents": [
+          "Judicial expert findings versus final liability",
+          "disputed policy response",
+          "separately proven loss"
+        ],
+        "existingAuthoredBrief": "Separate the clinical allegation, evidence of causation, quantified loss and any professional-liability policy response. Record compensation or assistance already received. A provider's involvement or insurance policy does not by itself establish liability or the recoverable amount.Lawyer Omar Al-Baghdadi",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-services-medical-malpractice-compensation-and-professional-liability-disputes.html",
+        "renderedHtmlSha256": "84bdbd95cecf732a98a0cf701f328d6a7effe13b891955a126aa03f08e5f53ce",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-care-test",
+          "sa-ccim-medical-route",
+          "sa-ccim-medical-insurance"
+        ],
+        "newAnswerIds": [
+          "sa-medical-judicial-expert-objection"
+        ],
+        "researchedSources": [
+          {
+            "en": "MOJ: Evidence Law explanation, Articles 120–121",
+            "ar": "وزارة العدل: شرح نظام الإثبات، المادتان 120–121",
+            "href": "https://www.moj.gov.sa/Documents/Sharing/ExplanationOfTheProofSystem.pdf"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Applicable claim limitation and transition rules",
+            "allocation and insurer dispute forum"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Amount recoverable for this patient",
+            "which clinician caused which harm",
+            "effect of this settlement release"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Applicable claim limitation and transition rules",
+        "allocation and insurer dispute forum"
+      ]
+    },
+    {
+      "route": "/sa/services/medical-malpractice/medical-negligence-claims",
+      "language": "en",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": "medical-negligence-claims",
+      "title": "Medical negligence claims | Saudi Arabia | CounselO",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "What treatment decision is questioned and what harm followed?",
+        "supportingIntents": [
+          "Care test and causation",
+          "complaint referral",
+          "expert report challenge"
+        ],
+        "existingAuthoredBrief": "Build a treatment timeline from the records and identify the specific act or omission questioned. Separate an adverse outcome from evidence of a professional failure and its connection to harm. Clinical issues require qualified medical assessment alongside review of the applicable complaint or claim route.Lawyer Omar Al-Baghdadi",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-services-medical-malpractice-medical-negligence-claims.html",
+        "renderedHtmlSha256": "b6bae621d2097ed5792361799ac9249fc1730e6d7ae213f811424d757199c4bc",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-care-test",
+          "sa-ccim-medical-consent",
+          "sa-ccim-medical-route"
+        ],
+        "newAnswerIds": [
+          "sa-medical-judicial-expert-objection"
+        ],
+        "researchedSources": [
+          {
+            "en": "MOJ: Evidence Law explanation, Articles 120–121",
+            "ar": "وزارة العدل: شرح نظام الإثبات، المادتان 120–121",
+            "href": "https://www.moj.gov.sa/Documents/Sharing/ExplanationOfTheProofSystem.pdf"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Compensation limitation and trigger exceptions",
+            "current court filing particulars"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Whether this treatment departed from specialty standards",
+            "disputed clinical causation"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Compensation limitation and trigger exceptions",
+        "current court filing particulars"
+      ]
+    },
+    {
+      "route": "/sa/services/medical-malpractice/medical-record-access-dispute",
+      "language": "en",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": "medical-record-access-dispute",
+      "title": "Medical-record access dispute | Saudi Arabia | CounselO",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "Medical-record access dispute",
+        "supportingIntents": [
+          "Access and copy",
+          "guardian authority",
+          "data correction versus clinical opinion"
+        ],
+        "existingAuthoredBrief": "Start by listing the medical records requested and comparing them with the provider's response. Missing records, disagreement with a diagnosis and a negligence complaint are different issues; the access request should identify exactly what is needed.Lawyer Omar Al-Baghdadi",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-services-medical-malpractice-medical-record-access-dispute.html",
+        "renderedHtmlSha256": "1036769312a9d395d601b5b1f24814d08c07765c825360e629006fdd3dfbacb2",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-access",
+          "sa-ccim-medical-access-escalation"
+        ],
+        "newAnswerIds": [
+          "sa-medical-guardian-data-rights",
+          "sa-medical-data-correction"
+        ],
+        "researchedSources": [
+          {
+            "en": "SDAIA: PDPL regulations, Article 7",
+            "ar": "سدايا: لائحة حماية البيانات، المادة 7",
+            "href": "https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Record-retention duties and lawful access restrictions; representative proof and correction refusal procedure"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Whether a particular requester proves legal representation",
+            "whether a specific withheld entry contains protected third-party data"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Record-retention duties and lawful access restrictions; representative proof and correction refusal procedure"
+      ]
+    },
+    {
+      "route": "/sa/services/medical-malpractice/medical-record-review",
+      "language": "en",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": "medical-record-review",
+      "title": "Medical-record review | Saudi Arabia | CounselO",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "What question should the available medical records help answer?",
+        "supportingIntents": [
+          "Chronology and missing entries",
+          "correction right",
+          "court expert disagreement"
+        ],
+        "existingAuthoredBrief": "Organise the treatment record by date and identify missing pages, unexplained entries and the purpose of review. Access to records, understanding a treatment chronology and alleging negligence are different tasks. Legal review can organise the issues but does not replace qualified clinical assessment.Lawyer Omar Al-Baghdadi",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-services-medical-malpractice-medical-record-review.html",
+        "renderedHtmlSha256": "0cdf36199383bdece9ec135a905fb86f2b30683cfa3fe811de624c1405358c37",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-access",
+          "sa-ccim-medical-expert-review"
+        ],
+        "newAnswerIds": [
+          "sa-medical-data-correction",
+          "sa-medical-judicial-expert-objection"
+        ],
+        "researchedSources": [
+          {
+            "en": "SDAIA: PDPL regulations, Article 7",
+            "ar": "سدايا: لائحة حماية البيانات، المادة 7",
+            "href": "https://dgp.sdaia.gov.sa/wps/portal/pdp/knowledgecenter/details/PDPL2"
+          },
+          {
+            "en": "MOJ: Evidence Law explanation, Articles 120–121",
+            "ar": "وزارة العدل: شرح نظام الإثبات، المادتان 120–121",
+            "href": "https://www.moj.gov.sa/Documents/Sharing/ExplanationOfTheProofSystem.pdf"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Current retention and preservation duties",
+            "procedural expert objection filing requirements"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Complete record checklist tailored to the allegation",
+            "which specialty expert the actual issue requires"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Current retention and preservation duties",
+        "procedural expert objection filing requirements"
+      ]
+    },
+    {
+      "route": "/sa/services/medical-malpractice/misdiagnosis-and-delayed-diagnosis",
+      "language": "en",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": "misdiagnosis-and-delayed-diagnosis",
+      "title": "Misdiagnosis and delayed diagnosis | Saudi Arabia | CounselO",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "What information was available at each diagnostic stage?",
+        "supportingIntents": [
+          "Information available at each stage",
+          "avoidable additional harm",
+          "expert or committee review"
+        ],
+        "existingAuthoredBrief": "Trace symptoms reported, examinations, tests, referrals and the eventual diagnosis by date. Identify the alleged missed opportunity and the harm attributed to delay. A later diagnosis does not alone establish an earlier error; the available information and clinical assessment matter.Lawyer Omar Al-Baghdadi",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-services-medical-malpractice-misdiagnosis-and-delayed-diagnosis.html",
+        "renderedHtmlSha256": "bbe4b95d23aa1d5105e4cc88d4b6dfe4098c4d7d14c6f0e5c9b4b23300530577",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-care-test",
+          "sa-ccim-medical-expert-review"
+        ],
+        "newAnswerIds": [
+          "sa-medical-judicial-expert-objection"
+        ],
+        "researchedSources": [
+          {
+            "en": "MOJ: Evidence Law explanation, Articles 120–121",
+            "ar": "وزارة العدل: شرح نظام الإثبات، المادتان 120–121",
+            "href": "https://www.moj.gov.sa/Documents/Sharing/ExplanationOfTheProofSystem.pdf"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Compensation limitation and trigger exceptions",
+            "Current court filing and expert challenge procedure"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Specialty-specific referral threshold",
+            "whether earlier diagnosis would probably change this patient outcome"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Compensation limitation and trigger exceptions",
+        "Current court filing and expert challenge procedure"
+      ]
+    },
+    {
+      "route": "/sa/services/medical-malpractice/surgical-and-treatment-errors",
+      "language": "en",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": "surgical-and-treatment-errors",
+      "title": "Surgical and treatment errors | Saudi Arabia | CounselO",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "Which part of the procedure or aftercare is questioned?",
+        "supportingIntents": [
+          "Consent and operative stage",
+          "aftercare",
+          "judicial expert findings"
+        ],
+        "existingAuthoredBrief": "Identify the planned procedure, consent discussion, operative events and aftercare. Preserve records of complications and subsequent treatment. Distinguish a recognised risk from a suspected departure in care; causation and clinical standards require assessment from the actual medical record.Lawyer Omar Al-Baghdadi",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-services-medical-malpractice-surgical-and-treatment-errors.html",
+        "renderedHtmlSha256": "477c604f9e68d1fba5c79871d30ddcc54c3194166c85d2361de71199edb2088a",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-care-test",
+          "sa-ccim-medical-consent"
+        ],
+        "newAnswerIds": [
+          "sa-medical-judicial-expert-objection"
+        ],
+        "researchedSources": [
+          {
+            "en": "MOJ: Evidence Law explanation, Articles 120–121",
+            "ar": "وزارة العدل: شرح نظام الإثبات، المادتان 120–121",
+            "href": "https://www.moj.gov.sa/Documents/Sharing/ExplanationOfTheProofSystem.pdf"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Current claim period and applicable court process",
+            "special consent rules if relevant"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Responsibility among the actual surgical team",
+            "emergency evidence",
+            "operation-specific record checklist"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Current claim period and applicable court process",
+        "special consent rules if relevant"
+      ]
+    },
+    {
+      "route": "/sa/services/medical-malpractice/treatment-injury-and-compensation-claim",
+      "language": "en",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": "treatment-injury-and-compensation-claim",
+      "title": "Treatment injury and compensation claim | Saudi Arabia | CounselO",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "Which injury is attributed to treatment and what evidence supports that link?",
+        "supportingIntents": [
+          "Prior condition",
+          "treatment-caused injury",
+          "expert findings",
+          "losses and payments"
+        ],
+        "existingAuthoredBrief": "Document the condition before treatment, the alleged injury and subsequent course. Keep treatment costs, income effects and other claimed losses separately supported. The claim requires assessment of causation and professional responsibility; an injury after treatment is not conclusive proof of either.Lawyer Omar Al-Baghdadi",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-services-medical-malpractice-treatment-injury-and-compensation-claim.html",
+        "renderedHtmlSha256": "1284e5f06efd47642a6704b97dd038954a22a0552ce4a079e49439ec2c79093d",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-care-test",
+          "sa-ccim-medical-route",
+          "sa-ccim-medical-insurance"
+        ],
+        "newAnswerIds": [
+          "sa-medical-judicial-expert-objection"
+        ],
+        "researchedSources": [
+          {
+            "en": "MOJ: Evidence Law explanation, Articles 120–121",
+            "ar": "وزارة العدل: شرح نظام الإثبات، المادتان 120–121",
+            "href": "https://www.moj.gov.sa/Documents/Sharing/ExplanationOfTheProofSystem.pdf"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Compensation limitation and exceptions",
+            "insurer and practitioner allocation rules",
+            "court filing procedure"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Individual disability and future care valuation",
+            "causation relative to prior condition",
+            "effect of actual settlement"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Compensation limitation and exceptions",
+        "insurer and practitioner allocation rules",
+        "court filing procedure"
+      ]
+    },
+    {
+      "route": "/sa/services/medical-malpractice",
+      "language": "en",
+      "region": "sa",
+      "service": "medical-malpractice",
+      "problem": null,
+      "title": "Medical Malpractice Lawyer in Saudi Arabia | CounselO",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "Medical Malpractice & Healthcare Law in Saudi Arabia",
+        "supportingIntents": [
+          "Record access",
+          "supported medical fault",
+          "competent regulator",
+          "compensation process"
+        ],
+        "existingAuthoredBrief": "CounselO Saudi Arabia Country-specific legal content and services Change jurisdiction Home Services Medical Malpractice & Healthcare Law   Back to all services Medical Malpractice & Healthcare Law in Saudi Arabia   Send your matter for review  WhatsApp State the jurisdiction, any urgent date and the outcome you need. Scope and fee are confirmed before paid work begins. Medical Malpractice & Healthcare Law consultation in Saudi Arabia. Assess a treatment complaint using the medical chronology, re",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-services-medical-malpractice.html",
+        "renderedHtmlSha256": "bf7ff1cc6d4702a85b15f5c2b86806c08039860931efee7b6631cfa5787ed0f6",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "sa-ccim-medical-care-test",
+          "sa-ccim-medical-route"
+        ],
+        "newAnswerIds": [
+          "sa-medical-judicial-expert-objection"
+        ],
+        "researchedSources": [
+          {
+            "en": "MOJ: Evidence Law explanation, Articles 120–121",
+            "ar": "وزارة العدل: شرح نظام الإثبات، المادتان 120–121",
+            "href": "https://www.moj.gov.sa/Documents/Sharing/ExplanationOfTheProofSystem.pdf"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Remaining regulator-specific records/complaint paths",
+            "compensation limitation",
+            "current court-stage requirements"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Engagement fee and professional scope for a particular case",
+            "individual prospects and loss valuation"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Remaining regulator-specific records/complaint paths",
+        "compensation limitation",
+        "current court-stage requirements"
+      ]
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability/medical-record-access-dispute",
+      "language": "ar",
+      "region": "uae",
+      "service": "healthcare-medical-liability",
+      "problem": "medical-record-access-dispute",
+      "title": "استشارة: منازعة الحصول على السجل الطبي | الإمارات | كاونسلو",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "منازعة الحصول على السجل الطبي",
+        "supportingIntents": [
+          "Access and copy",
+          "guardian authority",
+          "data correction versus clinical opinion"
+        ],
+        "existingAuthoredBrief": "ابدأ بحصر السجلات الطبية المطلوبة ومقارنتها برد مقدم الرعاية. نقص السجلات والخلاف حول التشخيص والشكوى عن الخطأ الطبي مسائل مختلفة؛ وينبغي أن يحدد طلب الاطلاع بدقة المواد المطلوبة.المحامي عمر البغدادي",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/uae-ar-services-healthcare-medical-liability-medical-record-access-dispute.html",
+        "renderedHtmlSha256": "8705c69ab3b5c7ea5963c08355e8ee0197cc51cd89db1ac145ad48a05f650a53",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "dubai-dha-patient-medical-record-access"
+        ],
+        "newAnswerIds": [],
+        "researchedSources": [],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Regulator-specific record release fees and time; refusal review for DHA, DOH and MOHAP; deceased and minor records"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Whether a particular requester proves legal representation",
+            "whether a specific withheld entry contains protected third-party data"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Regulator-specific record release fees and time; refusal review for DHA, DOH and MOHAP; deceased and minor records"
+      ]
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability/misdiagnosis-and-delayed-diagnosis",
+      "language": "ar",
+      "region": "uae",
+      "service": "healthcare-medical-liability",
+      "problem": "misdiagnosis-and-delayed-diagnosis",
+      "title": "استشارة: سوء التشخيص وتأخره | الإمارات | كاونسلو",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "سوء التشخيص وتأخره",
+        "supportingIntents": [
+          "Information available at each stage",
+          "avoidable additional harm",
+          "expert or committee review"
+        ],
+        "existingAuthoredBrief": "تتبع الأعراض المبلغ عنها والفحص والتحاليل والإحالات والتشخيص اللاحق بالتاريخ. حدّد الفرصة المدعى بفواتها والضرر المنسوب للتأخير. لا يثبت التشخيص اللاحق وحده خطأ سابقاً؛ بل تُراجع المعلومات المتاحة والتقييم السريري.المحامي عمر البغدادي",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/uae-ar-services-healthcare-medical-liability-misdiagnosis-and-delayed-diagnosis.html",
+        "renderedHtmlSha256": "0d9700d6e2128a6a002ed93c026f1c8c9e334f3e6901d7eca6e9c197a556e6a6",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "uae-medical-committee-before-compensation",
+          "abu-dhabi-medical-error-complaint-documents",
+          "abu-dhabi-medical-committee-appeal",
+          "uae-medical-complaint-arabic-specificity"
+        ],
+        "newAnswerIds": [
+          "dubai-medical-complaint-official-channel",
+          "mohap-medical-versus-financial-complaint",
+          "uae-medical-report-period-not-claim-deadline"
+        ],
+        "researchedSources": [
+          {
+            "en": "DHA Sheryan: official medical-complaint link",
+            "ar": "هيئة الصحة بدبي، شريان: رابط الشكوى الطبية الرسمي",
+            "href": "https://services.dha.gov.ae/sheryan/wps/portal/home/faq"
+          },
+          {
+            "en": "MOHAP: scope of electronic medical complaints",
+            "ar": "وزارة الصحة ووقاية المجتمع: نطاق الشكاوى الطبية الإلكترونية",
+            "href": "https://mohap.gov.ae/en/w/mohap-urges-customers-to-make-the-most-of-the-electronic-customer-complaint-system"
+          },
+          {
+            "en": "UAE legislation: Medical Liability Decree-Law, Articles 19–20",
+            "ar": "تشريعات الإمارات: مرسوم المسؤولية الطبية، المادتان 19–20",
+            "href": "https://www.uaelegislation.gov.ae/en/legislations/1192/download"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Compensation limitation and trigger exceptions",
+            "Regulator-specific process where not yet verified"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Specialty-specific referral threshold",
+            "whether earlier diagnosis would probably change this patient outcome"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Compensation limitation and trigger exceptions",
+        "Regulator-specific process where not yet verified"
+      ]
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability/treatment-injury-and-compensation-claim",
+      "language": "ar",
+      "region": "uae",
+      "service": "healthcare-medical-liability",
+      "problem": "treatment-injury-and-compensation-claim",
+      "title": "استشارة: إصابة العلاج ومطالبة التعويض | الإمارات | كاونسلو",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "إصابة العلاج ومطالبة التعويض",
+        "supportingIntents": [
+          "Prior condition",
+          "treatment-caused injury",
+          "expert findings",
+          "losses and payments"
+        ],
+        "existingAuthoredBrief": "وثّق الحالة قبل العلاج والإصابة المدعاة والتطور اللاحق. أيّد كلفة العلاج وأثر الدخل والخسائر الأخرى كلّاً بدليله. تتطلب المطالبة تقييم السببية والمسؤولية المهنية؛ ولا تثبتهما بصورة حاسمة إصابة تلت العلاج.المحامي عمر البغدادي",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/uae-ar-services-healthcare-medical-liability-treatment-injury-and-compensation-claim.html",
+        "renderedHtmlSha256": "7afcd7fd692f0aa1bd54de265c421d249e55fce277be2f53db1c85e978eeaeee",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "uae-medical-committee-before-compensation",
+          "abu-dhabi-medical-error-complaint-documents",
+          "abu-dhabi-medical-committee-appeal",
+          "uae-medical-complaint-arabic-specificity"
+        ],
+        "newAnswerIds": [
+          "dubai-medical-complaint-official-channel",
+          "mohap-medical-versus-financial-complaint",
+          "uae-medical-report-period-not-claim-deadline"
+        ],
+        "researchedSources": [
+          {
+            "en": "DHA Sheryan: official medical-complaint link",
+            "ar": "هيئة الصحة بدبي، شريان: رابط الشكوى الطبية الرسمي",
+            "href": "https://services.dha.gov.ae/sheryan/wps/portal/home/faq"
+          },
+          {
+            "en": "MOHAP: scope of electronic medical complaints",
+            "ar": "وزارة الصحة ووقاية المجتمع: نطاق الشكاوى الطبية الإلكترونية",
+            "href": "https://mohap.gov.ae/en/w/mohap-urges-customers-to-make-the-most-of-the-electronic-customer-complaint-system"
+          },
+          {
+            "en": "UAE legislation: Medical Liability Decree-Law, Articles 19–20",
+            "ar": "تشريعات الإمارات: مرسوم المسؤولية الطبية، المادتان 19–20",
+            "href": "https://www.uaelegislation.gov.ae/en/legislations/1192/download"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Compensation limitation and exceptions",
+            "insurer and practitioner allocation rules",
+            "court filing procedure"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Individual disability and future care valuation",
+            "causation relative to prior condition",
+            "effect of actual settlement"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Compensation limitation and exceptions",
+        "insurer and practitioner allocation rules",
+        "court filing procedure"
+      ]
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability",
+      "language": "ar",
+      "region": "uae",
+      "service": "healthcare-medical-liability",
+      "problem": null,
+      "title": "الرعاية الصحية والمسؤولية الطبية | الإمارات | كاونسلو",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "الرعاية الصحية والمسؤولية الطبية في الإمارات العربية المتحدة",
+        "supportingIntents": [
+          "Record access",
+          "supported medical fault",
+          "competent regulator",
+          "compensation process"
+        ],
+        "existingAuthoredBrief": "كاونسلو الإمارات العربية المتحدة محتوى وخدمات وفق قانون هذه الدولة تغيير الاختصاص الرئيسية الخدمات الرعاية الصحية والمسؤولية الطبية   العودة إلى جميع الخدمات الرعاية الصحية والمسؤولية الطبية في الإمارات العربية المتحدة   أرسل المسألة للمراجعة  WhatsApp اذكر الدولة وأي ميعاد قريب والنتيجة المطلوبة. نؤكد النطاق والرسوم قبل بدء العمل المدفوع. استشارة الرعاية الصحية والمسؤولية الطبية في الإمارات. نقيّم الشكوى العلاجية وفق التسلسل الطبي والسجلات والنتائج الفنية، مع التمييز بين النتيجة غير المرغوبة وا",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/uae-ar-services-healthcare-medical-liability.html",
+        "renderedHtmlSha256": "24d4a3bd0be064bd36fd67ffaab0484e0a61d2547e3b9fdfa16f8c9ee75084b8",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "uae-medical-committee-before-compensation",
+          "abu-dhabi-medical-error-complaint-documents",
+          "dubai-dha-patient-medical-record-access"
+        ],
+        "newAnswerIds": [
+          "dubai-medical-complaint-official-channel",
+          "mohap-medical-versus-financial-complaint"
+        ],
+        "researchedSources": [
+          {
+            "en": "DHA Sheryan: official medical-complaint link",
+            "ar": "هيئة الصحة بدبي، شريان: رابط الشكوى الطبية الرسمي",
+            "href": "https://services.dha.gov.ae/sheryan/wps/portal/home/faq"
+          },
+          {
+            "en": "MOHAP: scope of electronic medical complaints",
+            "ar": "وزارة الصحة ووقاية المجتمع: نطاق الشكاوى الطبية الإلكترونية",
+            "href": "https://mohap.gov.ae/en/w/mohap-urges-customers-to-make-the-most-of-the-electronic-customer-complaint-system"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Remaining regulator-specific records/complaint paths",
+            "compensation limitation",
+            "current court-stage requirements"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Engagement fee and professional scope for a particular case",
+            "individual prospects and loss valuation"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Remaining regulator-specific records/complaint paths",
+        "compensation limitation",
+        "current court-stage requirements"
+      ]
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability/medical-record-access-dispute",
+      "language": "en",
+      "region": "uae",
+      "service": "healthcare-medical-liability",
+      "problem": "medical-record-access-dispute",
+      "title": "Medical-record access dispute | the UAE | CounselO",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "Medical-record access dispute",
+        "supportingIntents": [
+          "Access and copy",
+          "guardian authority",
+          "data correction versus clinical opinion"
+        ],
+        "existingAuthoredBrief": "Start by listing the medical records requested and comparing them with the provider's response. Missing records, disagreement with a diagnosis and a negligence complaint are different issues; the access request should identify exactly what is needed.Lawyer Omar Al-Baghdadi",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/uae-services-healthcare-medical-liability-medical-record-access-dispute.html",
+        "renderedHtmlSha256": "427e807be8d40e2be02ff523ed0099c8caba10fb3a721f6088c4de3fda482c76",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "dubai-dha-patient-medical-record-access"
+        ],
+        "newAnswerIds": [],
+        "researchedSources": [],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Regulator-specific record release fees and time; refusal review for DHA, DOH and MOHAP; deceased and minor records"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Whether a particular requester proves legal representation",
+            "whether a specific withheld entry contains protected third-party data"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Regulator-specific record release fees and time; refusal review for DHA, DOH and MOHAP; deceased and minor records"
+      ]
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability/misdiagnosis-and-delayed-diagnosis",
+      "language": "en",
+      "region": "uae",
+      "service": "healthcare-medical-liability",
+      "problem": "misdiagnosis-and-delayed-diagnosis",
+      "title": "Misdiagnosis and delayed diagnosis | the UAE | CounselO",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "Misdiagnosis and delayed diagnosis",
+        "supportingIntents": [
+          "Information available at each stage",
+          "avoidable additional harm",
+          "expert or committee review"
+        ],
+        "existingAuthoredBrief": "Trace symptoms reported, examinations, tests, referrals and the eventual diagnosis by date. Identify the alleged missed opportunity and the harm attributed to delay. A later diagnosis does not alone establish an earlier error; the available information and clinical assessment matter.Lawyer Omar Al-Baghdadi",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/uae-services-healthcare-medical-liability-misdiagnosis-and-delayed-diagnosis.html",
+        "renderedHtmlSha256": "6ba099a5215da2275cdaa7b120a3d4182b8b6dd5d3a538419ecd92276441a9a3",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "uae-medical-committee-before-compensation",
+          "abu-dhabi-medical-error-complaint-documents",
+          "abu-dhabi-medical-committee-appeal",
+          "uae-medical-complaint-arabic-specificity"
+        ],
+        "newAnswerIds": [
+          "dubai-medical-complaint-official-channel",
+          "mohap-medical-versus-financial-complaint",
+          "uae-medical-report-period-not-claim-deadline"
+        ],
+        "researchedSources": [
+          {
+            "en": "DHA Sheryan: official medical-complaint link",
+            "ar": "هيئة الصحة بدبي، شريان: رابط الشكوى الطبية الرسمي",
+            "href": "https://services.dha.gov.ae/sheryan/wps/portal/home/faq"
+          },
+          {
+            "en": "MOHAP: scope of electronic medical complaints",
+            "ar": "وزارة الصحة ووقاية المجتمع: نطاق الشكاوى الطبية الإلكترونية",
+            "href": "https://mohap.gov.ae/en/w/mohap-urges-customers-to-make-the-most-of-the-electronic-customer-complaint-system"
+          },
+          {
+            "en": "UAE legislation: Medical Liability Decree-Law, Articles 19–20",
+            "ar": "تشريعات الإمارات: مرسوم المسؤولية الطبية، المادتان 19–20",
+            "href": "https://www.uaelegislation.gov.ae/en/legislations/1192/download"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Compensation limitation and trigger exceptions",
+            "Regulator-specific process where not yet verified"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Specialty-specific referral threshold",
+            "whether earlier diagnosis would probably change this patient outcome"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Compensation limitation and trigger exceptions",
+        "Regulator-specific process where not yet verified"
+      ]
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability/treatment-injury-and-compensation-claim",
+      "language": "en",
+      "region": "uae",
+      "service": "healthcare-medical-liability",
+      "problem": "treatment-injury-and-compensation-claim",
+      "title": "Treatment injury and compensation claim | the UAE | CounselO",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "Treatment injury and compensation claim",
+        "supportingIntents": [
+          "Prior condition",
+          "treatment-caused injury",
+          "expert findings",
+          "losses and payments"
+        ],
+        "existingAuthoredBrief": "Document the condition before treatment, the alleged injury and subsequent course. Keep treatment costs, income effects and other claimed losses separately supported. The claim requires assessment of causation and professional responsibility; an injury after treatment is not conclusive proof of either.Lawyer Omar Al-Baghdadi",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/uae-services-healthcare-medical-liability-treatment-injury-and-compensation-claim.html",
+        "renderedHtmlSha256": "3df4e70a3b73feb9e00be3ac763d89d65b28486c2b93c11c44b6cc502f5db3c8",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "uae-medical-committee-before-compensation",
+          "abu-dhabi-medical-error-complaint-documents",
+          "abu-dhabi-medical-committee-appeal",
+          "uae-medical-complaint-arabic-specificity"
+        ],
+        "newAnswerIds": [
+          "dubai-medical-complaint-official-channel",
+          "mohap-medical-versus-financial-complaint",
+          "uae-medical-report-period-not-claim-deadline"
+        ],
+        "researchedSources": [
+          {
+            "en": "DHA Sheryan: official medical-complaint link",
+            "ar": "هيئة الصحة بدبي، شريان: رابط الشكوى الطبية الرسمي",
+            "href": "https://services.dha.gov.ae/sheryan/wps/portal/home/faq"
+          },
+          {
+            "en": "MOHAP: scope of electronic medical complaints",
+            "ar": "وزارة الصحة ووقاية المجتمع: نطاق الشكاوى الطبية الإلكترونية",
+            "href": "https://mohap.gov.ae/en/w/mohap-urges-customers-to-make-the-most-of-the-electronic-customer-complaint-system"
+          },
+          {
+            "en": "UAE legislation: Medical Liability Decree-Law, Articles 19–20",
+            "ar": "تشريعات الإمارات: مرسوم المسؤولية الطبية، المادتان 19–20",
+            "href": "https://www.uaelegislation.gov.ae/en/legislations/1192/download"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Compensation limitation and exceptions",
+            "insurer and practitioner allocation rules",
+            "court filing procedure"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Individual disability and future care valuation",
+            "causation relative to prior condition",
+            "effect of actual settlement"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Compensation limitation and exceptions",
+        "insurer and practitioner allocation rules",
+        "court filing procedure"
+      ]
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability",
+      "language": "en",
+      "region": "uae",
+      "service": "healthcare-medical-liability",
+      "problem": null,
+      "title": "Healthcare & Medical Liability | UAE | CounselO",
+      "status": "partial",
+      "fullyCovered": false,
+      "individualResearchReview": {
+        "reviewedAt": "2026-09-07",
+        "primaryIntent": "Healthcare & Medical Liability in the United Arab Emirates",
+        "supportingIntents": [
+          "Record access",
+          "supported medical fault",
+          "competent regulator",
+          "compensation process"
+        ],
+        "existingAuthoredBrief": "CounselO United Arab Emirates Country-specific legal content and services Change jurisdiction Home Services Healthcare & Medical Liability   Back to all services Healthcare & Medical Liability in the United Arab Emirates   Send your matter for review  WhatsApp State the jurisdiction, any urgent date and the outcome you need. Scope and fee are confirmed before paid work begins. Healthcare & Medical Liability consultation in the United Arab Emirates. Assess a treatment complaint using the medical ",
+        "renderedHtmlFile": "artifacts/legal-site/dist/public/__pages/uae-services-healthcare-medical-liability.html",
+        "renderedHtmlSha256": "a9b25ab058d8c8c2a6bd0b6db63eebc312e416e7a3628950fe9c10dd9131fb38",
+        "reviewScope": "Read every retained bilingual authored lead; parsed full main HTML; reviewed existing matching source-answer modules and previous per-route gaps. Redirects excluded from retained content scope.",
+        "existingSourceAnswerIdsReviewed": [
+          "uae-medical-committee-before-compensation",
+          "abu-dhabi-medical-error-complaint-documents",
+          "dubai-dha-patient-medical-record-access"
+        ],
+        "newAnswerIds": [
+          "dubai-medical-complaint-official-channel",
+          "mohap-medical-versus-financial-complaint"
+        ],
+        "researchedSources": [
+          {
+            "en": "DHA Sheryan: official medical-complaint link",
+            "ar": "هيئة الصحة بدبي، شريان: رابط الشكوى الطبية الرسمي",
+            "href": "https://services.dha.gov.ae/sheryan/wps/portal/home/faq"
+          },
+          {
+            "en": "MOHAP: scope of electronic medical complaints",
+            "ar": "وزارة الصحة ووقاية المجتمع: نطاق الشكاوى الطبية الإلكترونية",
+            "href": "https://mohap.gov.ae/en/w/mohap-urges-customers-to-make-the-most-of-the-electronic-customer-complaint-system"
+          }
+        ],
+        "gapClassification": {
+          "materialPublicPageQuestions": [
+            "Remaining regulator-specific records/complaint paths",
+            "compensation limitation",
+            "current court-stage requirements"
+          ],
+          "caseSpecificAssessmentNotGenericContentDebt": [
+            "Engagement fee and professional scope for a particular case",
+            "individual prospects and loss valuation"
+          ]
+        },
+        "contentDecision": "Add only independently useful legal rights/procedures; do not repeat existing care, consent, access timetable or Abu Dhabi appeal answers.",
+        "implementationStatus": "Parent integration and fresh rendered/schema validation pending."
+      },
+      "gaps": [
+        "Remaining regulator-specific records/complaint paths",
+        "compensation limitation",
+        "current court-stage requirements"
+      ]
+    }
+  ],
+  "excludedRedirectRoutes": [
+    "/sa/ar/services/medical-malpractice/medical-record-access-and-expert-evidence-dispute",
+    "/sa/services/medical-malpractice/medical-record-access-and-expert-evidence-dispute",
+    "/uae/ar/services/healthcare-medical-liability/a-missed-notice-filing-objection-or-appeal-deadline-affecting-healthcare-medical-liability",
+    "/uae/ar/services/healthcare-medical-liability/a-need-to-preserve-healthcare-medical-liability-evidence-or-obtain-urgent-protection",
+    "/uae/ar/services/healthcare-medical-liability/missing-or-inconsistent-records-concerning-medical-negligence-and-compensation",
+    "/uae/ar/services/healthcare-medical-liability/potentially-conflicting-obligations-involving-dha-doh-and-mohap-competence",
+    "/uae/ar/services/healthcare-medical-liability/uncertainty-about-the-application-of-federal-medical-liability-framework-to-the-facts",
+    "/uae/ar/services/healthcare-medical-liability/unclear-authority-court-or-forum-for-a-healthcare-medical-liability-matter-in-the-uae",
+    "/uae/services/healthcare-medical-liability/a-missed-notice-filing-objection-or-appeal-deadline-affecting-healthcare-medical-liability",
+    "/uae/services/healthcare-medical-liability/a-need-to-preserve-healthcare-medical-liability-evidence-or-obtain-urgent-protection",
+    "/uae/services/healthcare-medical-liability/missing-or-inconsistent-records-concerning-medical-negligence-and-compensation",
+    "/uae/services/healthcare-medical-liability/potentially-conflicting-obligations-involving-dha-doh-and-mohap-competence",
+    "/uae/services/healthcare-medical-liability/uncertainty-about-the-application-of-federal-medical-liability-framework-to-the-facts",
+    "/uae/services/healthcare-medical-liability/unclear-authority-court-or-forum-for-a-healthcare-medical-liability-matter-in-the-uae"
+  ]
+}

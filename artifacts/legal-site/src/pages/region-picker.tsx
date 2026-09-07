@@ -24,11 +24,6 @@ const websiteSchema = {
   "alternateName": "كاونسلو",
   "url": "https://counselo-legal.com/",
   "description": "CounselO is a bilingual online legal platform for Saudi, Syrian and UAE matters, providing jurisdiction-scoped consultation, document review and structured guidance with a target response subject to scope, urgency and availability.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": { "@type": "EntryPoint", "urlTemplate": "https://counselo-legal.com/blog?q={search_term_string}" },
-    "query-input": "required name=search_term_string",
-  },
   "publisher": { "@id": COUNSELO_ENTITY_IDS.organization },
 };
 

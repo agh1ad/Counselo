@@ -1,0 +1,765 @@
+{
+  "reviewedAt": "2026-09-07",
+  "taskStatus": "in-progress",
+  "scope": {
+    "workExamples": 5,
+    "bilingualRoutes": 10,
+    "publicAttachmentsRetrieved": 5,
+    "pdfPagesTextExtracted": 23,
+    "pdfPagesVisuallyInspected": 10,
+    "authenticatedCourtRecords": 0
+  },
+  "method": "Read public API snapshot and current local rendered bilingual pages. Retrieved the five existing public file endpoints over normal TLS with curl; web opener failed and system Python lacked local CA chain. Extracted all 23 PDF pages with pypdf, inspected ten cover/result pages visually using pdftoppm. Inspected PDF annotation links and embedded-file names for underlying records; none found. No remote images downloaded, no shared code or case facts edited.",
+  "evidenceBoundary": "Public delivery and content of attached CounselO studies confirmed. Those studies are attributable secondary case narratives, not independent authentication of judgments, settlement execution, payment, return of instruments or professional representation. No Court/Najiz authentication access used. Local rendered page evidence is not a fresh public HTML/deployment claim.",
+  "materialFindings": [
+    "All five attachments are CounselO-branded case studies; none reproduces an authenticated court record or has a linked/embedded primary judgment.",
+    "Covers support study/preparation by CounselO and supervision by Omar Riyad Baghdadi, not automatically sole authorship or courtroom representation.",
+    "Commission source explicitly qualifies appellate affirmation as client-reported.",
+    "Inspected commission amounts are 3.48m and 584131; no actual 34.8m numerical mismatch identified.",
+    "Orders/settlement terms and actual payment or physical return must remain distinct.",
+    "No source independently verifies successful collection."
+  ],
+  "documents": [
+    {
+      "workId": 45,
+      "slug": "kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
+      "sourceUrl": "https://counselo-legal.com/api/work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary/file",
+      "sourceKind": "Publicly attached CounselO-authored case study; not authenticated primary judicial record",
+      "fileName": "دراسة_كاونسلو_الصلح_في_نزاع_استرداد_راس_المال_RTL_Mac.pdf",
+      "bytes": 184400,
+      "matchesSnapshotByteCount": true,
+      "sha256": "aa85683194020d75aaea65ec857353c56c2a20f24d03edb54f6fa7f042188dfa",
+      "pdfPages": 5,
+      "textExtractedPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "visuallyInspectedPages": [
+        1,
+        4
+      ],
+      "linkedPrimaryJudgmentsFound": false,
+      "embeddedFilesPresent": false,
+      "pdfLinks": [],
+      "authorshipEvidence": "Visible cover attribution: CounselO study/preparation with supervision by Omar Riyad Baghdadi. Metadata Author is generic software/user data and is not identity verification.",
+      "inspectedPageFindings": [
+        {
+          "page": 1,
+          "finding": "Cover identifies a CounselO legal case study under Omar Riyad Baghdadi supervision, not a court-issued settlement instrument."
+        },
+        {
+          "page": 2,
+          "finding": "Narrative describes SAR 300,000 transferred for an investment contribution and later settlement and finality."
+        },
+        {
+          "page": 4,
+          "finding": "Settlement terms described: SAR 300,000 return, claimant gives up an interest in another company without consideration, respondent refrains from later claims, financial dispute closed; narrative says court recorded the settlement and it became final."
+        },
+        {
+          "page": 5,
+          "finding": "Summary uses recovery language but contains no bank transfer confirmation, receipt, dated performance record or court certification."
+        }
+      ],
+      "factualDistinctions": [
+        "Settlement providing repayment is distinct from confirmed receipt of repayment.",
+        "The documented narrative includes mutual concessions, so full nominal capital does not establish absence of other economic consideration.",
+        "Court recording and finality are reported by CounselO narrative, not independently authenticated by this attachment.",
+        "A cross-border label cannot be established from currency, investment description or related-work links."
+      ],
+      "remainingVerificationNeeds": [
+        "Signed/recorded settlement terms and court finality/status evidence.",
+        "Receipt or bank evidence for payment of SAR 300,000.",
+        "Valuation and implementation of the other-company share relinquishment if economic benefit is described.",
+        "Actual forum and any foreign connection if cross-border categorization retained."
+      ]
+    },
+    {
+      "workId": 44,
+      "slug": "kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal",
+      "sourceUrl": "https://counselo-legal.com/api/work/kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal/file",
+      "sourceKind": "Publicly attached CounselO-authored case study; not authenticated primary judicial record",
+      "fileName": "دراسة_كاونسلو_تخفيض_مطالبة_عمولة_تجارية_RTL_Mac.pdf",
+      "bytes": 201100,
+      "matchesSnapshotByteCount": true,
+      "sha256": "5a1bc29d1c2946f1ddd01d88e651679a9a34e71a15bf53c2a1b44ad0a0b68bd7",
+      "pdfPages": 5,
+      "textExtractedPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "visuallyInspectedPages": [
+        1,
+        2
+      ],
+      "linkedPrimaryJudgmentsFound": false,
+      "embeddedFilesPresent": false,
+      "pdfLinks": [],
+      "authorshipEvidence": "Visible cover attribution: CounselO study/preparation with supervision by Omar Riyad Baghdadi. Metadata Author is generic software/user data and is not identity verification.",
+      "inspectedPageFindings": [
+        {
+          "page": 1,
+          "finding": "Cover expressly says SAR 3.48m to SAR 584k, under CounselO preparation and Omar Riyad Baghdadi supervision."
+        },
+        {
+          "page": 2,
+          "finding": "Table reports original claim SAR 3,480,000, award SAR 584,131, reduction SAR 2,895,869 and approximately 83.2%. Appellate affirmation is expressly qualified as client-reported.",
+          "shortQuote": "وبحسب ما أفاد به العميل، تم تأييد الحكم استئنافياً"
+        },
+        {
+          "page": 4,
+          "finding": "Narrative describes 1% exclusion for unmet advance-payment condition and 2% on amounts actually received; repeats client-reported appellate affirmation."
+        }
+      ],
+      "factualDistinctions": [
+        "Original claim is SAR 3.48m, not SAR 34.8m; inspected current bilingual title/body and PDF agree on 3.48m. No numerical typo inferred from the 348 URL slug.",
+        "Reduction of claimed exposure is not cash recovery or a complete defence win; SAR 584,131 remains the narrated award.",
+        "Affirmation is client-reported in the source and must retain that evidentiary qualification."
+      ],
+      "remainingVerificationNeeds": [
+        "Original first-instance and appellate decisions with precise relief and finality.",
+        "Underlying undertaking and account schedule to independently verify conditional calculation.",
+        "Evidence of payment or satisfaction if later claimed."
+      ]
+    },
+    {
+      "workId": 43,
+      "slug": "kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227",
+      "sourceUrl": "https://counselo-legal.com/api/work/kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227/file",
+      "sourceKind": "Publicly attached CounselO-authored case study; not authenticated primary judicial record",
+      "fileName": "دراسة_كاونسلو_تخفيض_المطالبة_التجارية.pdf",
+      "bytes": 171027,
+      "matchesSnapshotByteCount": true,
+      "sha256": "f9a9bb79c8a795af98c565bc33d166ab4a4f5fe380ff7fb5189de011b558f0ec",
+      "pdfPages": 4,
+      "textExtractedPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "visuallyInspectedPages": [
+        1,
+        4
+      ],
+      "linkedPrimaryJudgmentsFound": false,
+      "embeddedFilesPresent": false,
+      "pdfLinks": [],
+      "authorshipEvidence": "Visible cover attribution: CounselO study/preparation with supervision by Omar Riyad Baghdadi. Metadata Author is generic software/user data and is not identity verification.",
+      "inspectedPageFindings": [
+        {
+          "page": 1,
+          "finding": "Cover identifies preparation/study by CounselO under Omar Riyad Baghdadi supervision; not a court-issued document."
+        },
+        {
+          "page": 2,
+          "finding": "Narrative presents the claim as multiple elements of differing evidential strength, not automatic liability for the demanded total."
+        },
+        {
+          "page": 4,
+          "finding": "Outcome table states SAR 500,000 original demand, SAR 227,000 final judgment and SAR 273,000 reduction, approximately 54.6%. Text narrates appellate affirmation; no court decision is attached."
+        }
+      ],
+      "factualDistinctions": [
+        "SAR 273,000 is reduction from claimed amount, not cash received.",
+        "The award is SAR 227,000 as narrated, not complete rejection of liability.",
+        "Finality and affirmation are assertions in the case study until underlying judicial record is checked."
+      ],
+      "remainingVerificationNeeds": [
+        "Underlying pleadings and first-instance/appellate judgments establishing original demand and actual operative award.",
+        "Finality/status evidence and any satisfaction/collection evidence if claimed.",
+        "Evidence of CounselO advisory contribution versus authorized representative role."
+      ]
+    },
+    {
+      "workId": 40,
+      "slug": "astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal",
+      "sourceUrl": "https://counselo-legal.com/api/work/astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal/file",
+      "sourceKind": "Publicly attached CounselO-authored case study; not authenticated primary judicial record",
+      "fileName": "دراسة_كاونسلو_استرداد_16_سند_لامر_على_مرحلتين.pdf",
+      "bytes": 299813,
+      "matchesSnapshotByteCount": true,
+      "sha256": "cfc649b7ea58455871e6943294d91174363e86ad61a19c2fd867050f82905512",
+      "pdfPages": 4,
+      "textExtractedPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "visuallyInspectedPages": [
+        1,
+        4
+      ],
+      "linkedPrimaryJudgmentsFound": false,
+      "embeddedFilesPresent": false,
+      "pdfLinks": [],
+      "authorshipEvidence": "Visible cover attribution: CounselO study/preparation with supervision by Omar Riyad Baghdadi. Metadata Author is generic software/user data and is not identity verification.",
+      "inspectedPageFindings": [
+        {
+          "page": 1,
+          "finding": "Cover identifies a CounselO professional case study under supervision of lawyer/legal consultant Omar Riyad Baghdadi; displayed Omar signature is not authenticated here."
+        },
+        {
+          "page": 3,
+          "finding": "Narrative says the entitlement on the instrument in enforcement was determined at SAR 334,143, with no entitlement above it."
+        },
+        {
+          "page": 4,
+          "finding": "Result bullets describe an order requiring delivery of the originals of 16 notes. A following summary describes aggregate face value exceeding SAR 17m and uses recovery language. No receipt or delivery protocol appears on this page."
+        }
+      ],
+      "factualDistinctions": [
+        "Aggregate note face value exceeding SAR 17m is not money collected or a monetary damages award.",
+        "SAR 334,143 concerns the instrument being enforced, not a verified aggregate balance of every relationship.",
+        "An order to hand over originals and verified physical handover are different events."
+      ],
+      "remainingVerificationNeeds": [
+        "Underlying order/judgment with court, case number, date and finality evidence.",
+        "Signed delivery protocol or other proof that all 16 originals were physically returned/cancelled.",
+        "Case-specific role and licensed courtroom representative evidence."
+      ]
+    },
+    {
+      "workId": 31,
+      "slug": "tfkyk-mstndat-altmas-aaadh-alnzr-bnjah",
+      "sourceUrl": "https://counselo-legal.com/api/work/tfkyk-mstndat-altmas-aaadh-alnzr-bnjah/file",
+      "sourceKind": "Publicly attached CounselO-authored case study; not authenticated primary judicial record",
+      "fileName": "دراسة_كاونسلو_التماس_اعادة_النظر.pdf",
+      "bytes": 296470,
+      "matchesSnapshotByteCount": true,
+      "sha256": "ac69fb3f8108e33ae64ebfdcbf87b78a64cc1c84a72b7e9620825657b38776ca",
+      "pdfPages": 5,
+      "textExtractedPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "visuallyInspectedPages": [
+        1,
+        4
+      ],
+      "linkedPrimaryJudgmentsFound": false,
+      "embeddedFilesPresent": false,
+      "pdfLinks": [],
+      "authorshipEvidence": "Visible cover attribution: CounselO study/preparation with supervision by Omar Riyad Baghdadi. Metadata Author is generic software/user data and is not identity verification.",
+      "inspectedPageFindings": [
+        {
+          "page": 1,
+          "finding": "Cover says preparation/study by CounselO and supervision by Omar Riyad Baghdadi. Some additional cover text renders as missing-glyph squares; no hidden meaning inferred."
+        },
+        {
+          "page": 2,
+          "finding": "Narrative describes an earlier commercial judgment exceeding SAR 771,000 and the opposing reconsideration petition; no certified judgment is reproduced."
+        },
+        {
+          "page": 4,
+          "finding": "Results explicitly distinguish formal acceptance from rejection on the merits, lifting the stay of the earlier judgment and an order for SAR 23,000 expert fees."
+        },
+        {
+          "page": 5,
+          "finding": "Describes cooperation with the authorized representative; preserves result after petition proceedings rather than proving the case was never reopened."
+        }
+      ],
+      "factualDistinctions": [
+        "Formal admissibility was accepted; the petition failed on merits after expert consideration.",
+        "Lifting a stay restores enforceability as narrated, not proof of execution or collection.",
+        "Expert-fee order does not prove fees were recovered."
+      ],
+      "remainingVerificationNeeds": [
+        "Underlying original and reconsideration judgments, finality/status and stay-lifting order.",
+        "Expert-fee payment/recovery evidence if receipt is claimed.",
+        "Actual representation mandate; supervisory attribution alone does not establish courtroom authorship."
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "route": "/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
+      "language": "en",
+      "workId": 45,
+      "sourceUrl": "https://counselo-legal.com/api/work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary/file",
+      "sourceDocumentSha256": "aa85683194020d75aaea65ec857353c56c2a20f24d03edb54f6fa7f042188dfa",
+      "currentLocalHtml": {
+        "file": "artifacts/legal-site/dist/public/../audit-pages/our-work-kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary.html",
+        "sha256": "91c344bae0a49676202f9e50b77e429dbecce598724cec9e17b486d76eaf4d63",
+        "h1": "How CounselO Recovered SAR 300,000 Through a Judicial Settlement in a Commercial Dispute"
+      },
+      "publishedSnapshot": {
+        "file": "output/seo/work-public-snapshot.json",
+        "title": "How CounselO Recovered SAR 300,000 Through a Judicial Settlement in a Commercial Dispute",
+        "outcome": "Outcome:\nThe dispute ended in a judicial settlement that returned the claimant’s full amount of SAR 300,000, regulated the parties’ concessions and mutual positions, and concluded the financial rights relating to the dispute. The settlement was then judicially recorded, and the judgment acquired final status.\n\nValue delivered:\nCounselO provided strategic value by transforming the dispute from litigation that could have become protracted and increasingly risky into a practical resolution that achieved the client’s primary objective: recovering the full capital. It also reduced jurisdictional and evidentiary risks and closed the dispute in a final and binding manner."
+      },
+      "inspectedSourcePages": [
+        {
+          "page": 1,
+          "finding": "Cover identifies a CounselO legal case study under Omar Riyad Baghdadi supervision, not a court-issued settlement instrument."
+        },
+        {
+          "page": 2,
+          "finding": "Narrative describes SAR 300,000 transferred for an investment contribution and later settlement and finality."
+        },
+        {
+          "page": 4,
+          "finding": "Settlement terms described: SAR 300,000 return, claimant gives up an interest in another company without consideration, respondent refrains from later claims, financial dispute closed; narrative says court recorded the settlement and it became final."
+        },
+        {
+          "page": 5,
+          "finding": "Summary uses recovery language but contains no bank transfer confirmation, receipt, dated performance record or court certification."
+        }
+      ],
+      "languageSpecificFindings": [
+        "Recovery title/summary requires payment evidence; attachment establishes only an authored narrative of settlement and finality."
+      ],
+      "factualDistinctions": [
+        "Settlement providing repayment is distinct from confirmed receipt of repayment.",
+        "The documented narrative includes mutual concessions, so full nominal capital does not establish absence of other economic consideration.",
+        "Court recording and finality are reported by CounselO narrative, not independently authenticated by this attachment.",
+        "A cross-border label cannot be established from currency, investment description or related-work links."
+      ],
+      "remainingVerificationNeeds": [
+        "Signed/recorded settlement terms and court finality/status evidence.",
+        "Receipt or bank evidence for payment of SAR 300,000.",
+        "Valuation and implementation of the other-company share relinquishment if economic benefit is described.",
+        "Actual forum and any foreign connection if cross-border categorization retained."
+      ],
+      "status": "source-case-study-reviewed-primary-outcome-authentication-open",
+      "fullyVerified": false
+    },
+    {
+      "route": "/ar/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
+      "language": "ar",
+      "workId": 45,
+      "sourceUrl": "https://counselo-legal.com/api/work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary/file",
+      "sourceDocumentSha256": "aa85683194020d75aaea65ec857353c56c2a20f24d03edb54f6fa7f042188dfa",
+      "currentLocalHtml": {
+        "file": "artifacts/legal-site/dist/public/../audit-pages/ar-our-work-kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary.html",
+        "sha256": "312f11505bf794b089b27966ce64935c4d2d2de60a2a9c8bdaf3232b7c89e8c0",
+        "h1": "كيف ساعدت كاونسلو في استرداد 300,000 ريال عبر صلح قضائي في نزاع تجاري؟"
+      },
+      "publishedSnapshot": {
+        "file": "output/seo/work-public-snapshot.json",
+        "title": "كيف ساعدت كاونسلو في استرداد 300,000 ريال عبر صلح قضائي في نزاع تجاري؟",
+        "outcome": "النتيجة:\nانتهى النزاع إلى صلح قضائي أعاد للمدعي كامل مبلغ 300,000 ريال، مع تنظيم التنازلات والمراكز المتبادلة بين الطرفين، وإنهاء الحقوق المالية المتعلقة بالنزاع، ثم إثبات الصلح قضائيًا واكتساب الحكم الصفة النهائية.\nالقيمة المقدمة:\nقدمت كاونسلو قيمة استراتيجية من خلال تحويل مسار النزاع من خصومة قد تطول وتزداد مخاطرها إلى حل عملي يحقق هدف العميل الأساسي، وهو استرداد كامل رأس المال، مع تقليل مخاطر الاختصاص والإثبات، وإغلاق النزاع بصورة نهائية وملزمة."
+      },
+      "inspectedSourcePages": [
+        {
+          "page": 1,
+          "finding": "Cover identifies a CounselO legal case study under Omar Riyad Baghdadi supervision, not a court-issued settlement instrument."
+        },
+        {
+          "page": 2,
+          "finding": "Narrative describes SAR 300,000 transferred for an investment contribution and later settlement and finality."
+        },
+        {
+          "page": 4,
+          "finding": "Settlement terms described: SAR 300,000 return, claimant gives up an interest in another company without consideration, respondent refrains from later claims, financial dispute closed; narrative says court recorded the settlement and it became final."
+        },
+        {
+          "page": 5,
+          "finding": "Summary uses recovery language but contains no bank transfer confirmation, receipt, dated performance record or court certification."
+        }
+      ],
+      "languageSpecificFindings": [
+        "Recovery title/summary requires payment evidence; attachment establishes only an authored narrative of settlement and finality."
+      ],
+      "factualDistinctions": [
+        "Settlement providing repayment is distinct from confirmed receipt of repayment.",
+        "The documented narrative includes mutual concessions, so full nominal capital does not establish absence of other economic consideration.",
+        "Court recording and finality are reported by CounselO narrative, not independently authenticated by this attachment.",
+        "A cross-border label cannot be established from currency, investment description or related-work links."
+      ],
+      "remainingVerificationNeeds": [
+        "Signed/recorded settlement terms and court finality/status evidence.",
+        "Receipt or bank evidence for payment of SAR 300,000.",
+        "Valuation and implementation of the other-company share relinquishment if economic benefit is described.",
+        "Actual forum and any foreign connection if cross-border categorization retained."
+      ],
+      "status": "source-case-study-reviewed-primary-outcome-authentication-open",
+      "fullyVerified": false
+    },
+    {
+      "route": "/our-work/kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal",
+      "language": "en",
+      "workId": 44,
+      "sourceUrl": "https://counselo-legal.com/api/work/kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal/file",
+      "sourceDocumentSha256": "5a1bc29d1c2946f1ddd01d88e651679a9a34e71a15bf53c2a1b44ad0a0b68bd7",
+      "currentLocalHtml": {
+        "file": "artifacts/legal-site/dist/public/../audit-pages/our-work-kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal.html",
+        "sha256": "9eedad6cac5f5729f3c889cf71c5bb06855f2a1bca791b97958962e7f539966a",
+        "h1": "Reducing a Commercial Commission Claim from SAR 3.48 Million to SAR 584,131"
+      },
+      "publishedSnapshot": {
+        "file": "output/seo/work-public-snapshot.json",
+        "title": "",
+        "outcome": ""
+      },
+      "inspectedSourcePages": [
+        {
+          "page": 1,
+          "finding": "Cover expressly says SAR 3.48m to SAR 584k, under CounselO preparation and Omar Riyad Baghdadi supervision."
+        },
+        {
+          "page": 2,
+          "finding": "Table reports original claim SAR 3,480,000, award SAR 584,131, reduction SAR 2,895,869 and approximately 83.2%. Appellate affirmation is expressly qualified as client-reported.",
+          "shortQuote": "وبحسب ما أفاد به العميل، تم تأييد الحكم استئنافياً"
+        },
+        {
+          "page": 4,
+          "finding": "Narrative describes 1% exclusion for unmet advance-payment condition and 2% on amounts actually received; repeats client-reported appellate affirmation."
+        }
+      ],
+      "languageSpecificFindings": [
+        "Current local rendered copy uses 3.48m and agrees with source amount; rounded Arabic 584k versus precise 584131 is a precision distinction, not a 34.8m mismatch.",
+        "Rendered appeal affirmation should preserve client-reported qualification appearing in PDF pages 2 and 4."
+      ],
+      "factualDistinctions": [
+        "Original claim is SAR 3.48m, not SAR 34.8m; inspected current bilingual title/body and PDF agree on 3.48m. No numerical typo inferred from the 348 URL slug.",
+        "Reduction of claimed exposure is not cash recovery or a complete defence win; SAR 584,131 remains the narrated award.",
+        "Affirmation is client-reported in the source and must retain that evidentiary qualification."
+      ],
+      "remainingVerificationNeeds": [
+        "Original first-instance and appellate decisions with precise relief and finality.",
+        "Underlying undertaking and account schedule to independently verify conditional calculation.",
+        "Evidence of payment or satisfaction if later claimed."
+      ],
+      "status": "source-case-study-reviewed-primary-outcome-authentication-open",
+      "fullyVerified": false
+    },
+    {
+      "route": "/ar/our-work/kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal",
+      "language": "ar",
+      "workId": 44,
+      "sourceUrl": "https://counselo-legal.com/api/work/kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal/file",
+      "sourceDocumentSha256": "5a1bc29d1c2946f1ddd01d88e651679a9a34e71a15bf53c2a1b44ad0a0b68bd7",
+      "currentLocalHtml": {
+        "file": "artifacts/legal-site/dist/public/../audit-pages/ar-our-work-kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal.html",
+        "sha256": "ec84bfc2cb6b3852179768bdb794ca4e5977b6bcd2d44418a4654e4f847bbc7e",
+        "h1": "كاونسلو و تخفيض مطالبة عمولة تجارية من 3.48 مليون ريال إلى 584 ألف ريال"
+      },
+      "publishedSnapshot": {
+        "file": "output/seo/work-public-snapshot.json",
+        "title": "كاونسلو و تخفيض مطالبة عمولة تجارية من 3.48 مليون ريال إلى 584 ألف ريال",
+        "outcome": "النتيجة والقيمة المقدمة:\nانتهت القضية إلى خفض المطالبة من 3,480,000 ريال إلى 584,131 ريالًا فقط، أي بتخفيض قدره 2,895,869 ريالًا وبنسبة تقارب 83.2% من قيمة المطالبة الأصلية.\nوتتمثل القيمة التي قدمتها كاونسلو في إعادة بناء النزاع من مطالبة مباشرة بـ 3% من كامل قيمة المشروع إلى احتساب قانوني أدق قائم على شروط الاستحقاق الفعلية؛ حيث تم استبعاد نسبة 1% لعدم تحقق الدفعة المقدمة، وحصر نسبة 2% في المبالغ المستلمة فعليًا فقط، مما قلّص نطاق المسؤولية المالية بشكل جوهري.\nوكان لكاونسلو العديد من القضايا المنشورة في اعمالنا ساهمت فيها بتخفيض او الغاء بعض المطالبات باحترافيه عاليه من خلال تفكيك جذور القضيه للوصول الى نتائج مرضيه للعميل أولا ولكاونسلو ثانياً."
+      },
+      "inspectedSourcePages": [
+        {
+          "page": 1,
+          "finding": "Cover expressly says SAR 3.48m to SAR 584k, under CounselO preparation and Omar Riyad Baghdadi supervision."
+        },
+        {
+          "page": 2,
+          "finding": "Table reports original claim SAR 3,480,000, award SAR 584,131, reduction SAR 2,895,869 and approximately 83.2%. Appellate affirmation is expressly qualified as client-reported.",
+          "shortQuote": "وبحسب ما أفاد به العميل، تم تأييد الحكم استئنافياً"
+        },
+        {
+          "page": 4,
+          "finding": "Narrative describes 1% exclusion for unmet advance-payment condition and 2% on amounts actually received; repeats client-reported appellate affirmation."
+        }
+      ],
+      "languageSpecificFindings": [
+        "Current local rendered copy uses 3.48m and agrees with source amount; rounded Arabic 584k versus precise 584131 is a precision distinction, not a 34.8m mismatch.",
+        "Rendered appeal affirmation should preserve client-reported qualification appearing in PDF pages 2 and 4."
+      ],
+      "factualDistinctions": [
+        "Original claim is SAR 3.48m, not SAR 34.8m; inspected current bilingual title/body and PDF agree on 3.48m. No numerical typo inferred from the 348 URL slug.",
+        "Reduction of claimed exposure is not cash recovery or a complete defence win; SAR 584,131 remains the narrated award.",
+        "Affirmation is client-reported in the source and must retain that evidentiary qualification."
+      ],
+      "remainingVerificationNeeds": [
+        "Original first-instance and appellate decisions with precise relief and finality.",
+        "Underlying undertaking and account schedule to independently verify conditional calculation.",
+        "Evidence of payment or satisfaction if later claimed."
+      ],
+      "status": "source-case-study-reviewed-primary-outcome-authentication-open",
+      "fullyVerified": false
+    },
+    {
+      "route": "/our-work/kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227",
+      "language": "en",
+      "workId": 43,
+      "sourceUrl": "https://counselo-legal.com/api/work/kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227/file",
+      "sourceDocumentSha256": "f9a9bb79c8a795af98c565bc33d166ab4a4f5fe380ff7fb5189de011b558f0ec",
+      "currentLocalHtml": {
+        "file": "artifacts/legal-site/dist/public/../audit-pages/our-work-kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227.html",
+        "sha256": "4059d91ec18ed668af59bb7a69a5a095d7a2b74eaa2e36a282444a3fa6a2ea01",
+        "h1": "How CounselO Reduced a SAR 500,000 Claim to SAR 227,000"
+      },
+      "publishedSnapshot": {
+        "file": "output/seo/work-public-snapshot.json",
+        "title": "How CounselO Reduced a SAR 500,000 Claim to SAR 227,000",
+        "outcome": "Result\nThe work reduced the claim from SAR 500,000 to only SAR 227,000—a reduction of SAR 273,000, or approximately 54.6%. The judgment was then upheld on appeal, preserving the result achieved for the defendant.\n\nValue delivered\nCounselO’s value lay in not addressing the claim as one figure, but in breaking it down into separate elements and assessing each for proof and entitlement, while distinguishing the principal amount from the alleged compensation and damages.\n\nIn cooperation with the legal representative, this approach helped limit liability to the amount that could actually be established, reduce the client’s financial exposure, and uphold the result before the Court of Appeal.\nIn brief:\nThe value was not limited to reducing the amount; it lay in redefining the scope of liability based on what the case file established, rather than what the opposing party claimed."
+      },
+      "inspectedSourcePages": [
+        {
+          "page": 1,
+          "finding": "Cover identifies preparation/study by CounselO under Omar Riyad Baghdadi supervision; not a court-issued document."
+        },
+        {
+          "page": 2,
+          "finding": "Narrative presents the claim as multiple elements of differing evidential strength, not automatic liability for the demanded total."
+        },
+        {
+          "page": 4,
+          "finding": "Outcome table states SAR 500,000 original demand, SAR 227,000 final judgment and SAR 273,000 reduction, approximately 54.6%. Text narrates appellate affirmation; no court decision is attached."
+        }
+      ],
+      "languageSpecificFindings": [],
+      "factualDistinctions": [
+        "SAR 273,000 is reduction from claimed amount, not cash received.",
+        "The award is SAR 227,000 as narrated, not complete rejection of liability.",
+        "Finality and affirmation are assertions in the case study until underlying judicial record is checked."
+      ],
+      "remainingVerificationNeeds": [
+        "Underlying pleadings and first-instance/appellate judgments establishing original demand and actual operative award.",
+        "Finality/status evidence and any satisfaction/collection evidence if claimed.",
+        "Evidence of CounselO advisory contribution versus authorized representative role."
+      ],
+      "status": "source-case-study-reviewed-primary-outcome-authentication-open",
+      "fullyVerified": false
+    },
+    {
+      "route": "/ar/our-work/kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227",
+      "language": "ar",
+      "workId": 43,
+      "sourceUrl": "https://counselo-legal.com/api/work/kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227/file",
+      "sourceDocumentSha256": "f9a9bb79c8a795af98c565bc33d166ab4a4f5fe380ff7fb5189de011b558f0ec",
+      "currentLocalHtml": {
+        "file": "artifacts/legal-site/dist/public/../audit-pages/ar-our-work-kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227.html",
+        "sha256": "eabd54ee3f13705c856546d199144094c34844a4f050c3fc78c93af5915a1688",
+        "h1": "تخفيض مطالبة تجارية من 500 ألف ريال إلى 227 ألف ريال"
+      },
+      "publishedSnapshot": {
+        "file": "output/seo/work-public-snapshot.json",
+        "title": "كيف ساهمت كاونسلو في تخفيض مطالبة  من 500 ألف ريال إلى 227 ؟",
+        "outcome": "النتيجة\nانتهى العمل إلى خفض المطالبة من 500,000 ريال إلى 227,000 ريال فقط، أي تقليصها بمقدار 273,000 ريال وبنسبة تقارب 54.6%، ثم تم تأييد الحكم استئنافيًا والمحافظة على النتيجة التي تحققت لصالح المدعى عليها.\n\nالقيمة المقدمة\nتمثلت القيمة التي قدمتها كاونسلو في عدم الاكتفاء بمواجهة المطالبة كرقم واحد، بل تفكيكها إلى عناصر مستقلة، واختبار كل عنصر من حيث الإثبات والاستحقاق، وفصل أصل المبلغ عن التعويضات والأضرار المدعاة.\n\nوبالتعاون مع الممثل النظامي، ساعد هذا النهج على حصر المسؤولية في المبلغ الذي أمكن إثباته فعليًا، وتقليل التعرض المالي للعميل، ثم تثبيت النتيجة أمام محكمة الاستئناف.\nباختصار:\nالقيمة لم تكن فقط في تخفيض المبلغ، بل في إعادة تعريف حجم المسؤولية على أساس ما يثبته الملف لا ما تطالب به الخصومة."
+      },
+      "inspectedSourcePages": [
+        {
+          "page": 1,
+          "finding": "Cover identifies preparation/study by CounselO under Omar Riyad Baghdadi supervision; not a court-issued document."
+        },
+        {
+          "page": 2,
+          "finding": "Narrative presents the claim as multiple elements of differing evidential strength, not automatic liability for the demanded total."
+        },
+        {
+          "page": 4,
+          "finding": "Outcome table states SAR 500,000 original demand, SAR 227,000 final judgment and SAR 273,000 reduction, approximately 54.6%. Text narrates appellate affirmation; no court decision is attached."
+        }
+      ],
+      "languageSpecificFindings": [],
+      "factualDistinctions": [
+        "SAR 273,000 is reduction from claimed amount, not cash received.",
+        "The award is SAR 227,000 as narrated, not complete rejection of liability.",
+        "Finality and affirmation are assertions in the case study until underlying judicial record is checked."
+      ],
+      "remainingVerificationNeeds": [
+        "Underlying pleadings and first-instance/appellate judgments establishing original demand and actual operative award.",
+        "Finality/status evidence and any satisfaction/collection evidence if claimed.",
+        "Evidence of CounselO advisory contribution versus authorized representative role."
+      ],
+      "status": "source-case-study-reviewed-primary-outcome-authentication-open",
+      "fullyVerified": false
+    },
+    {
+      "route": "/our-work/astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal",
+      "language": "en",
+      "workId": 40,
+      "sourceUrl": "https://counselo-legal.com/api/work/astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal/file",
+      "sourceDocumentSha256": "cfc649b7ea58455871e6943294d91174363e86ad61a19c2fd867050f82905512",
+      "currentLocalHtml": {
+        "file": "artifacts/legal-site/dist/public/../audit-pages/our-work-astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal.html",
+        "sha256": "a53c154fd6dfd4a913d232069011e5cfd087f85c41049d96a4c646b96abf8e12",
+        "h1": "Order to Return 16 Promissory Notes with a Face Value over SAR 17 Million"
+      },
+      "publishedSnapshot": {
+        "file": "output/seo/work-public-snapshot.json",
+        "title": "CounselO’s Strategy to Recover SAR 17 Million in Promissory Notes",
+        "outcome": "The Outcome\nThe matter concluded with a significant result for the client. The court did not treat the notes as an open-ended enforcement threat for their full face value; instead, the dispute was narrowed to its true scope and connected to the underlying contractual relationship.\n\nThis resulted in:\n\n- The actual entitlement under the note subject to enforcement being determined as only SAR 334,143, rather than leaving the client exposed to a higher enforcement claim.\n- The other party being found not entitled to any amount exceeding this figure under the note subject to enforcement.\n- The other party being ordered to deliver the originals of all 16 promissory notes, eliminating the risk that they could later be used as independent enforcement instruments.\n- A matter with a face value exceeding SAR 17 million being converted into a dispute limited to its true scope, followed by a judicial result that eliminated the file’s greatest risk.\n\nThe Value Delivered by CounselO\nIn this matter, CounselO delivered strategic value beyond the limits of conventional legal advice. It moved the case from a mere reaction to dangerous enforcement notes to an integrated legal plan that redefined the dispute at its source.\n\nThe value delivered included:\n\n- Dissecting the real risk: the risk was not merely the financial claim, but the continued existence of 16 promissory notes capable of enforcement for a value exceeding SAR 17 million.\n- Rebuilding the client’s position: from a debtor threatened by substantial commercial paper to a party disputing the actual amount of the obligation based on the contract and documents.\n- Reconnecting the notes to their contractual basis: ensuring that they were not treated as independent debts, but as security connected to a contractual relationship whose effects had to be determined first.\n- Directing the pleadings to the decisive point: determining the actual debt, which removed the justification for retaining all the notes.\n- Using accounting expertise in support of the strategy: separating the actual account from the notes’ face value and the disputed amounts.\n- Converting the financial result into a practical judicial request: recovery of the note originals after the justification for retaining them had ceased.\n\nConclusion:\nCounselO did not merely manage a legal defence; it re-engineered the matter in full—from substantial enforcement risk to a dispute of defined scope, and from notes threatening the client to a judgment requiring their recovery."
+      },
+      "inspectedSourcePages": [
+        {
+          "page": 1,
+          "finding": "Cover identifies a CounselO professional case study under supervision of lawyer/legal consultant Omar Riyad Baghdadi; displayed Omar signature is not authenticated here."
+        },
+        {
+          "page": 3,
+          "finding": "Narrative says the entitlement on the instrument in enforcement was determined at SAR 334,143, with no entitlement above it."
+        },
+        {
+          "page": 4,
+          "finding": "Result bullets describe an order requiring delivery of the originals of 16 notes. A following summary describes aggregate face value exceeding SAR 17m and uses recovery language. No receipt or delivery protocol appears on this page."
+        }
+      ],
+      "languageSpecificFindings": [
+        "Current local English summary already distinguishes face value from money recovered; preserve the same distinction in all title, summary, body and Arabic fields."
+      ],
+      "factualDistinctions": [
+        "Aggregate note face value exceeding SAR 17m is not money collected or a monetary damages award.",
+        "SAR 334,143 concerns the instrument being enforced, not a verified aggregate balance of every relationship.",
+        "An order to hand over originals and verified physical handover are different events."
+      ],
+      "remainingVerificationNeeds": [
+        "Underlying order/judgment with court, case number, date and finality evidence.",
+        "Signed delivery protocol or other proof that all 16 originals were physically returned/cancelled.",
+        "Case-specific role and licensed courtroom representative evidence."
+      ],
+      "status": "source-case-study-reviewed-primary-outcome-authentication-open",
+      "fullyVerified": false
+    },
+    {
+      "route": "/ar/our-work/astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal",
+      "language": "ar",
+      "workId": 40,
+      "sourceUrl": "https://counselo-legal.com/api/work/astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal/file",
+      "sourceDocumentSha256": "cfc649b7ea58455871e6943294d91174363e86ad61a19c2fd867050f82905512",
+      "currentLocalHtml": {
+        "file": "artifacts/legal-site/dist/public/../audit-pages/ar-our-work-astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal.html",
+        "sha256": "73b74412972e50fbd2202c836e84ee0bb00c13932d3879089f0d005657ff00b4",
+        "h1": "حكم بتسليم 16 سنداً لأمر تتجاوز قيمتها الاسمية 17 مليون ريال"
+      },
+      "publishedSnapshot": {
+        "file": "output/seo/work-public-snapshot.json",
+        "title": "استراتيجية كاونسلو لاسترداد سندات لأمر بقيمة 17 مليون ريال",
+        "outcome": "النتيجة\nانتهى الملف إلى نتيجة جوهرية لصالح العميل؛ إذ لم تتعامل المحكمة مع السندات باعتبارها تهديدًا تنفيذيًا مفتوحًا بكامل قيمتها الاسمية، بل تم تضييق النزاع إلى نطاقه الحقيقي وربطه بأصل العلاقة التعاقدية.\nوقد ترتب على ذلك:\n\nتحديد الاستحقاق الفعلي في السند محل التنفيذ بمبلغ 334,143 ريالًا فقط، بدلًا من بقاء العميل تحت ضغط مطالبة تنفيذية أعلى.\nعدم استحقاق الطرف الآخر لما زاد على هذا المبلغ في السند محل التنفيذ.\nالحكم بإلزام الطرف الآخر بتسليم أصول السندات لأمر الستة عشر، بما أنهى خطر استخدامها مستقبلًا كأدوات تنفيذية مستقلة.\nتحويل ملف كانت قيمته الاسمية تتجاوز 17 مليون ريال إلى نزاع محدد في نطاقه الحقيقي، ثم إلى نتيجة قضائية أنهت الخطر الأكبر في الملف.\n\nالقيمة التي قدمتها كاونسلو\nقدّمت كاونسلو في هذا الملف قيمة استراتيجية تتجاوز حدود الرأي القانوني التقليدي؛ فقد نقلت التعامل مع القضية من مجرد رد فعل على سندات تنفيذية خطرة إلى خطة قانونية متكاملة لإعادة تعريف النزاع من جذوره.\nتمثلت القيمة المقدمة في:\n\nتفكيك الخطر الحقيقي: لم يكن الخطر في المطالبة المالية وحدها، بل في بقاء 16 سندًا لأمر قابلة للاستخدام التنفيذي بقيمة تتجاوز 17 مليون ريال.\nإعادة بناء مركز العميل: من مدين مهدد بأوراق تجارية ضخمة إلى طرف ينازع في مقدار الالتزام الحقيقي استنادًا إلى العقد والمستندات.\nربط السندات بسببها التعاقدي: بحيث لا تُعامل كديون مستقلة، بل كضمانات مرتبطة بعلاقة تعاقدية يجب تحديد آثارها أولًا.\nتوجيه المرافعة إلى نقطة الحسم: وهي أن تحديد الدين الحقيقي يسقط مبرر الاحتفاظ بكامل السندات.\nتوظيف الخبرة المحاسبية لصالح الاستراتيجية: عبر فصل الحساب الفعلي عن القيمة الاسمية للسندات والمبالغ المتنازع عليها.\nتحويل النتيجة المالية إلى طلب قضائي عملي: وهو استرداد أصول السندات بعد انتفاء مبرر الاحتفاظ بها.\nالخلاصة:\nكاونسلو لم تكتفِ بإدارة دفاع قانوني، بل أعادت هندسة الملف بالكامل: من خطر تنفيذي ضخم إلى نزاع محدد، ومن سندات تهدد العميل إلى حكم باستردادها."
+      },
+      "inspectedSourcePages": [
+        {
+          "page": 1,
+          "finding": "Cover identifies a CounselO professional case study under supervision of lawyer/legal consultant Omar Riyad Baghdadi; displayed Omar signature is not authenticated here."
+        },
+        {
+          "page": 3,
+          "finding": "Narrative says the entitlement on the instrument in enforcement was determined at SAR 334,143, with no entitlement above it."
+        },
+        {
+          "page": 4,
+          "finding": "Result bullets describe an order requiring delivery of the originals of 16 notes. A following summary describes aggregate face value exceeding SAR 17m and uses recovery language. No receipt or delivery protocol appears on this page."
+        }
+      ],
+      "languageSpecificFindings": [
+        "Current local English summary already distinguishes face value from money recovered; preserve the same distinction in all title, summary, body and Arabic fields."
+      ],
+      "factualDistinctions": [
+        "Aggregate note face value exceeding SAR 17m is not money collected or a monetary damages award.",
+        "SAR 334,143 concerns the instrument being enforced, not a verified aggregate balance of every relationship.",
+        "An order to hand over originals and verified physical handover are different events."
+      ],
+      "remainingVerificationNeeds": [
+        "Underlying order/judgment with court, case number, date and finality evidence.",
+        "Signed delivery protocol or other proof that all 16 originals were physically returned/cancelled.",
+        "Case-specific role and licensed courtroom representative evidence."
+      ],
+      "status": "source-case-study-reviewed-primary-outcome-authentication-open",
+      "fullyVerified": false
+    },
+    {
+      "route": "/our-work/tfkyk-mstndat-altmas-aaadh-alnzr-bnjah",
+      "language": "en",
+      "workId": 31,
+      "sourceUrl": "https://counselo-legal.com/api/work/tfkyk-mstndat-altmas-aaadh-alnzr-bnjah/file",
+      "sourceDocumentSha256": "ac69fb3f8108e33ae64ebfdcbf87b78a64cc1c84a72b7e9620825657b38776ca",
+      "currentLocalHtml": {
+        "file": "artifacts/legal-site/dist/public/../audit-pages/our-work-tfkyk-mstndat-altmas-aaadh-alnzr-bnjah.html",
+        "sha256": "01c6ceee9bc411ff0e835add4838af77d4827f09ac051788802091b552a983c2",
+        "h1": "Successful Defense of a Reconsideration Petition"
+      },
+      "publishedSnapshot": {
+        "file": "output/seo/work-public-snapshot.json",
+        "title": "Successful Defense of a Reconsideration Petition",
+        "outcome": "**Outcome:**  \nThe court accepted the petition for reconsideration in form but rejected it on the merits, lifted the stay of enforcement of the prior judgment, and thereby restored the original judgment’s enforceable effect in favor of the client. The court also ordered the petitioner to pay **SAR 23,000** in expert fees incurred by the claimant.\n\n**Value:**  \nCounselO provided practical value by protecting the final judgment from being reopened without a material legal basis, dismantling the documents relied upon by the petitioner, and connecting the legal issues with the technical expertise while highlighting the distinction between execution liability and supervisory liability. This helped uphold the judicial outcome and preserve the client’s rights under the judgment issued in its favor."
+      },
+      "inspectedSourcePages": [
+        {
+          "page": 1,
+          "finding": "Cover says preparation/study by CounselO and supervision by Omar Riyad Baghdadi. Some additional cover text renders as missing-glyph squares; no hidden meaning inferred."
+        },
+        {
+          "page": 2,
+          "finding": "Narrative describes an earlier commercial judgment exceeding SAR 771,000 and the opposing reconsideration petition; no certified judgment is reproduced."
+        },
+        {
+          "page": 4,
+          "finding": "Results explicitly distinguish formal acceptance from rejection on the merits, lifting the stay of the earlier judgment and an order for SAR 23,000 expert fees."
+        },
+        {
+          "page": 5,
+          "finding": "Describes cooperation with the authorized representative; preserves result after petition proceedings rather than proving the case was never reopened."
+        }
+      ],
+      "languageSpecificFindings": [
+        "Current local outcome wording already distinguishes formal acceptance and merits rejection; retain that distinction rather than saying the petition was never opened."
+      ],
+      "factualDistinctions": [
+        "Formal admissibility was accepted; the petition failed on merits after expert consideration.",
+        "Lifting a stay restores enforceability as narrated, not proof of execution or collection.",
+        "Expert-fee order does not prove fees were recovered."
+      ],
+      "remainingVerificationNeeds": [
+        "Underlying original and reconsideration judgments, finality/status and stay-lifting order.",
+        "Expert-fee payment/recovery evidence if receipt is claimed.",
+        "Actual representation mandate; supervisory attribution alone does not establish courtroom authorship."
+      ],
+      "status": "source-case-study-reviewed-primary-outcome-authentication-open",
+      "fullyVerified": false
+    },
+    {
+      "route": "/ar/our-work/tfkyk-mstndat-altmas-aaadh-alnzr-bnjah",
+      "language": "ar",
+      "workId": 31,
+      "sourceUrl": "https://counselo-legal.com/api/work/tfkyk-mstndat-altmas-aaadh-alnzr-bnjah/file",
+      "sourceDocumentSha256": "ac69fb3f8108e33ae64ebfdcbf87b78a64cc1c84a72b7e9620825657b38776ca",
+      "currentLocalHtml": {
+        "file": "artifacts/legal-site/dist/public/../audit-pages/ar-our-work-tfkyk-mstndat-altmas-aaadh-alnzr-bnjah.html",
+        "sha256": "f7087a4ec0dd75cf6c75745cad1bf75495b3854f262481594b20d300baa54994",
+        "h1": "تفكيك مستندات التماس اعاده النظر بنجاح"
+      },
+      "publishedSnapshot": {
+        "file": "output/seo/work-public-snapshot.json",
+        "title": "تفكيك مستندات التماس اعاده النظر بنجاح",
+        "outcome": "**النتيجة:**  \nانتهت المحكمة إلى قبول التماس إعادة النظر شكلاً ورفضه موضوعاً، مع رفع وقف تنفيذ الحكم السابق، بما أعاد للحكم الأصلي أثره التنفيذي لصالح العميل. كما ألزمت المحكمة الطرف الملتمس بدفع مبلغ **23,000 ريال** قيمة أتعاب الخبرة التي تحملتها المدعية.\n\n**القيمة:**  \nقدمت كاونسلو قيمة عملية تمثلت في حماية الحكم النهائي من إعادة فتح النزاع دون سبب نظامي مؤثر، وتفكيك المستندات التي استند إليها الملتمس، وربط الجوانب القانونية بالخبرة الفنية، مع إبراز الفرق بين مسؤولية التنفيذ ومسؤولية الإشراف. وساعد ذلك في تثبيت النتيجة القضائية والمحافظة على حق العميل في الحكم الصادر لصالحه."
+      },
+      "inspectedSourcePages": [
+        {
+          "page": 1,
+          "finding": "Cover says preparation/study by CounselO and supervision by Omar Riyad Baghdadi. Some additional cover text renders as missing-glyph squares; no hidden meaning inferred."
+        },
+        {
+          "page": 2,
+          "finding": "Narrative describes an earlier commercial judgment exceeding SAR 771,000 and the opposing reconsideration petition; no certified judgment is reproduced."
+        },
+        {
+          "page": 4,
+          "finding": "Results explicitly distinguish formal acceptance from rejection on the merits, lifting the stay of the earlier judgment and an order for SAR 23,000 expert fees."
+        },
+        {
+          "page": 5,
+          "finding": "Describes cooperation with the authorized representative; preserves result after petition proceedings rather than proving the case was never reopened."
+        }
+      ],
+      "languageSpecificFindings": [
+        "Current local outcome wording already distinguishes formal acceptance and merits rejection; retain that distinction rather than saying the petition was never opened."
+      ],
+      "factualDistinctions": [
+        "Formal admissibility was accepted; the petition failed on merits after expert consideration.",
+        "Lifting a stay restores enforceability as narrated, not proof of execution or collection.",
+        "Expert-fee order does not prove fees were recovered."
+      ],
+      "remainingVerificationNeeds": [
+        "Underlying original and reconsideration judgments, finality/status and stay-lifting order.",
+        "Expert-fee payment/recovery evidence if receipt is claimed.",
+        "Actual representation mandate; supervisory attribution alone does not establish courtroom authorship."
+      ],
+      "status": "source-case-study-reviewed-primary-outcome-authentication-open",
+      "fullyVerified": false
+    }
+  ]
+}

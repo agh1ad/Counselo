@@ -1,0 +1,4824 @@
+{
+  "reviewedAt": "2026-09-07",
+  "scope": "Semantic heading structure of all90 retained bilingual article snapshots",
+  "routesReviewed": 90,
+  "routesChanged": 39,
+  "paragraphsPromoted": 368,
+  "scopeBoundary": "Promotes exact authored section labels and preserves text, inline links and case facts. No substantive legal content, titles or ranking claims added. Existing legal and intent gaps remain in the main article review.",
+  "integration": "Call correctArticleHeadings(slug, lang, html) in the article correction pipeline. Validate against final corrected fixtures because changed section-label wording safely fails closed. Sanitization must preserve h2/h3 as existing configuration does.",
+  "pages": [
+    {
+      "route": "/blog/ar/Penalty-clause-in-saudi",
+      "snapshotFile": "__pages/blog-ar-Penalty-clause-in-saudi.html",
+      "snapshotSha256": "ef118df9d82a2757008c298940c2fadcf186a5d54cf9db2d4e869ee876f377ae",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولًا: ماهية الشرط الجزائي وأهميته في العقود التجارية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثانيًا: الأساس النظامي للشرط الجزائي في السعودية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثالثًا: شروط صحة الشرط الجزائي.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "رابعًا: الاتجاه القضائي السعودي في تطبيق الشرط الجزائي.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "خامسًا: صور تطبيق الشرط الجزائي في العقود التجارية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سادسًا: كيفية صياغة شرط جزائي قوي ونافذ.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سابعًا: هل يمكن للمحكمة تعديل الشرط الجزائي؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+      "snapshotFile": "__pages/blog-ar-adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy.html",
+      "snapshotSha256": "8b4852cceb54963a0d35dbc5e99ea1d331d61a9e2e47c4f809fd81476a60dd56",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولًا: مفهوم إدارة المخاطر في العقود.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثانيًا: أنواع المخاطر في العقود التجارية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثالثًا: أدوات إدارة المخاطر في العقود التجارية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "رابعًا: منهجية عملية لإدارة المخاطر قبل توقيع العقد.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "خامسًا: إدارة المخاطر أثناء تنفيذ العقد.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سادسًا: الاتجاه القضائي السعودي في قضايا المخاطر.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+      "snapshotFile": "__pages/blog-ar-alahlyh-fy-altaaqd-fy-alqanwn-alswry.html",
+      "snapshotSha256": "3d25c180e5617c2625b5fb33d844d468960e44f3cc4c23c2bbdee9b9436529a6",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولاً: ما المقصود بالأهلية؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثانياً: أهلية الوجوب.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثالثاً: أهلية الأداء.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "رابعاً: متى يكون الشخص كامل الأهلية؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "خامساً: ناقص الأهلية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سادساً: عديم الأهلية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سابعاً: أثر نقص الأهلية على العقد.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثامناً: من يملك التمسك بعدم الأهلية؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "تاسعاً: إثبات الأهلية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "عاشراً: تطبيقات عملية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/alaqd-fy-alqanwn-alswry",
+      "snapshotFile": "__pages/blog-ar-alaqd-fy-alqanwn-alswry.html",
+      "snapshotSha256": "af03e98ca662c14c4ac153704052959eb4d94a450b26de8d1f0e7646e2d0b43c",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولاً: ما هو العقد؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثانياً: لماذا تُعد العقود أساس الحياة القانونية؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثالثاً: خصائص العقد في القانون السوري.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "رابعاً: أركان العقد بصورة إجمالية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "خامساً: مبدأ سلطان الإرادة.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سادساً: الفرق بين العقد والاتفاق.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سابعاً: متى يصبح العقد ملزماً؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثامناً: أمثلة عملية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "تاسعاً: أخطاء شائعة عند إبرام العقود.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "عاشراً: أسئلة شائعة.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny",
+      "snapshotFile": "__pages/blog-ar-alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny.html",
+      "snapshotSha256": "177ee6b501b1d4c9c6c13f8820164de628cf43317b50bd66ea3fda02abf719b8",
+      "beforeSemanticHeadingCount": 20,
+      "existingHeadings": [
+        {
+          "tag": "h3",
+          "text": "العيوب الخفية في العقود وأثرها القانوني"
+        },
+        {
+          "tag": "h2",
+          "text": "أولًا: مفهوم العيوب الخفية في العقود."
+        },
+        {
+          "tag": "h3",
+          "text": "أهم الشروط لاعتبار العيب خفيًا:"
+        },
+        {
+          "tag": "h2",
+          "text": "ثانيًا: أنواع العيوب الخفية في العقود."
+        },
+        {
+          "tag": "h3",
+          "text": "1. العيوب المادية:"
+        },
+        {
+          "tag": "h3",
+          "text": "2. العيوب القانونية:"
+        },
+        {
+          "tag": "h2",
+          "text": "ثالثًا: الأثر القانوني للعيوب الخفية في العقود."
+        },
+        {
+          "tag": "h3",
+          "text": "1. حق المطالبة بفسخ العقد:"
+        },
+        {
+          "tag": "h3",
+          "text": "2. حق المطالبة بالتعويض:"
+        },
+        {
+          "tag": "h3",
+          "text": "3. ضمان العيوب الخفية في العقود التجارية:"
+        },
+        {
+          "tag": "h3",
+          "text": "4. الالتزام بالإبلاغ الفوري عن العيب:"
+        },
+        {
+          "tag": "h2",
+          "text": "رابعًا: كيفية التعامل مع العيوب الخفية قانونيًا."
+        },
+        {
+          "tag": "h3",
+          "text": "1. فحص محل العقد قبل التوقيع:"
+        },
+        {
+          "tag": "h3",
+          "text": "2. توضيح الضمانات في العقد:"
+        },
+        {
+          "tag": "h3",
+          "text": "3. اللجوء إلى القضاء أو التحكيم:"
+        },
+        {
+          "tag": "h3",
+          "text": "4. إثبات العيب بالوسائل القانونية:"
+        },
+        {
+          "tag": "h2",
+          "text": "خامسًا: حماية الأطراف من العيوب الخفية."
+        },
+        {
+          "tag": "h3",
+          "text": "1. بالنسبة للبائع أو المورد:"
+        },
+        {
+          "tag": "h3",
+          "text": "2. بالنسبة للمشتري أو المستهلك:"
+        },
+        {
+          "tag": "h2",
+          "text": "الخاتمة:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+      "snapshotFile": "__pages/blog-ar-alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh.html",
+      "snapshotSha256": "0bc1937e76195ba09b664c38fc56939777a471d48543d8fd84d98f69e91140a0",
+      "beforeSemanticHeadingCount": 6,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "الفسخ: إنهاء الرابطة العقدية."
+        },
+        {
+          "tag": "h2",
+          "text": "التعويض: معالجة الضرر"
+        },
+        {
+          "tag": "h2",
+          "text": "هل يمكن الجمع بين الفسخ والتعويض؟"
+        },
+        {
+          "tag": "h2",
+          "text": "كيف تختار بين الفسخ والتعويض؟"
+        },
+        {
+          "tag": "h2",
+          "text": "الخطأ الشائع:"
+        },
+        {
+          "tag": "h2",
+          "text": "الخلاصة:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+      "snapshotFile": "__pages/blog-ar-almswwlyh-alaqdyh-fy-almaamlat-altjaryh.html",
+      "snapshotSha256": "7f9ffef0017534df92fbea391d78ecb1ae13e17669d6132bcc911f26c7181e15",
+      "beforeSemanticHeadingCount": 9,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "ما الذي يجب أن يوضحه الملف؟\n"
+        },
+        {
+          "tag": "h2",
+          "text": "1. إثبات الالتزام وصفة أطرافه\n"
+        },
+        {
+          "tag": "h2",
+          "text": "2. إعداد سجل زمني للتنفيذ\n"
+        },
+        {
+          "tag": "h2",
+          "text": "3. حفظ الإعذار والرد عليه\n"
+        },
+        {
+          "tag": "h2",
+          "text": "4. فصل الضرر والسبب والحساب\n"
+        },
+        {
+          "tag": "h2",
+          "text": "5. فحص التعويض الاتفاقي بصورة مستقلة\n"
+        },
+        {
+          "tag": "h2",
+          "text": "مثال إرشادي لجدول المطالبة\n"
+        },
+        {
+          "tag": "h2",
+          "text": "كيف يفيد الملف نفسه المدعى عليه؟\n"
+        },
+        {
+          "tag": "h2",
+          "text": "قبل الخطوة التالية\n"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/almswwlyh-alaqdyh-fy-alqanwn-alswry",
+      "snapshotFile": "__pages/blog-ar-almswwlyh-alaqdyh-fy-alqanwn-alswry.html",
+      "snapshotSha256": "04bfe7317dbadd2edad4faf06699473bc51215509ba40364d07cec406e7e0c8f",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولاً: وجود عقد صحيح.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "ثانياً: إخلال أحد المتعاقدين بالتزامه.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "ثالثاً: وقوع ضرر.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "رابعاً: وجود علاقة سببية.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "ما المقصود بالمسؤولية العقدية؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "متى تقوم المسؤولية العقدية؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "صور الإخلال بالعقد:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "هل يكفي الإخلال للمطالبة بالتعويض؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "الإعذار وأثره في المسؤولية العقدية:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "وسائل حماية الدائن:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "أمثلة عملية:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "متى تنتفي المسؤولية العقدية؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "كيف تتجنب المسؤولية العقدية؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "المراجع:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/almswwlyh-an-fal-alghyr",
+      "snapshotFile": "__pages/blog-ar-almswwlyh-an-fal-alghyr.html",
+      "snapshotSha256": "c888c82aa371237e8e23686cae79bf7a83067d5b60430b97d1184044a33c62b9",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولاً: المفهوم والأساس الفلسفي.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثانياً: صور المسؤولية عن فعل الغير.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثالثاً: شروط التطبيق (في التشريعات المقارنة).",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "رابعاً: أهمية فهم هذه المسؤولية للمجتمع.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/alrda-fy-alqanwn-alswry",
+      "snapshotFile": "__pages/blog-ar-alrda-fy-alqanwn-alswry.html",
+      "snapshotSha256": "6d67a8756705e0c6b600ad73e229616ef3fab2f1ecd44c130716eb0c5f70812e",
+      "beforeSemanticHeadingCount": 7,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "المثال الأول:"
+        },
+        {
+          "tag": "h3",
+          "text": "المثال الثاني:"
+        },
+        {
+          "tag": "h3",
+          "text": "المثال الثالث:"
+        },
+        {
+          "tag": "h2",
+          "text": "هل يشترط توقيع العقد حتى ينعقد؟"
+        },
+        {
+          "tag": "h2",
+          "text": "هل البريد الإلكتروني يصلح لإبرام عقد؟"
+        },
+        {
+          "tag": "h2",
+          "text": "هل يمكن إثبات الرضا بوسائل إلكترونية؟"
+        },
+        {
+          "tag": "h2",
+          "text": "المراجع:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy",
+      "snapshotFile": "__pages/blog-ar-alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy.html",
+      "snapshotSha256": "91507d4bc1a4c833ffe3931aa77977558e6131ac3ea884a003c63fd742711d02",
+      "beforeSemanticHeadingCount": 10,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "السند لأمر ليس مجرد ورقة ضمان عادية:"
+        },
+        {
+          "tag": "h2",
+          "text": "أين تظهر المشكلة في سندات الضمان؟"
+        },
+        {
+          "tag": "h2",
+          "text": "القيمة الاسمية ليست دائمًا صورة كاملة عن النزاع"
+        },
+        {
+          "tag": "h2",
+          "text": "لماذا يجب تحديد الدين الحقيقي؟"
+        },
+        {
+          "tag": "h2",
+          "text": "خطر تكرار الضمان"
+        },
+        {
+          "tag": "h2",
+          "text": "انتهاء العقد لا يعني تجاهل السندات"
+        },
+        {
+          "tag": "h2",
+          "text": "التنفيذ قد يسبق حسم النزاع التعاقدي"
+        },
+        {
+          "tag": "h2",
+          "text": "كيف تُدار مخاطر السندات لأمر تعاقديًا؟"
+        },
+        {
+          "tag": "h2",
+          "text": "منهج كاونسلو في تحليل سندات الضمان"
+        },
+        {
+          "tag": "h2",
+          "text": "الخلاصة"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+      "snapshotFile": "__pages/blog-ar-altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha.html",
+      "snapshotSha256": "a837ae6311698092e4628a689f5d40ded80440a84e6442ba47ddcbd0aa18fe4d",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولًا: مفهوم التأخر في دفع الأجر.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثانيًا: حقوق العامل عند تأخر الرواتب.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثالثًا: مسؤوليات صاحب العمل.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "رابعًا: وسائل الإثبات في قضايا الرواتب.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "خامسًا: نصائح عملية للعامل.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+      "snapshotFile": "__pages/blog-ar-altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry.html",
+      "snapshotSha256": "7af72dead7547d577d160b800b0f37c26aa9145fd667ed4099a3714e6113abf3",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولاً: وجود عقد صحيح",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "ثانياً: وقوع إخلال عقدي",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "ثالثاً: تحقق الضرر",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "رابعاً: العلاقة السببية",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "أولاً: الخسارة اللاحقة",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "ثانياً: الكسب الفائت",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "ما المقصود بالتعويض عن الإخلال بالعقد؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "الأصل هو التنفيذ العيني",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "متى يستحق الدائن التعويض؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ما أنواع الضرر القابل للتعويض؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "الضرر المباشر والضرر غير المباشر",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "الضرر المتوقع وقت التعاقد",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "التعويض عن الضرر الأدبي",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "هل يشترط إعذار المدين؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "كيف يقدّر القاضي التعويض؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "دور الخبرة في تقدير التعويض",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "التعويض المتفق عليه مسبقاً",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "التعويض عن التأخر في دفع المبالغ النقدية",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "مساهمة الدائن في وقوع الضرر",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "السبب الأجنبي والقوة القاهرة",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "أمثلة عملية",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ما المستندات اللازمة لإثبات التعويض؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "كيف تُصاغ المطالبة بالتعويض؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "نصائح قانونية للأفراد والشركات",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "الخاتمة",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "المراجع القانونية",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/altwqya-ala-byad",
+      "snapshotFile": "__pages/blog-ar-altwqya-ala-byad.html",
+      "snapshotSha256": "44334faf010c9fb00814fa9863dd5d306ebc5debead778b6d1bfd529d386716a",
+      "beforeSemanticHeadingCount": 3,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "نطاق هذا التعليق الفقهي التاريخي"
+        },
+        {
+          "tag": "h2",
+          "text": "نطاق هذا التعليق الفقهي التاريخي"
+        },
+        {
+          "tag": "h3",
+          "text": "رأي السنهوري في موضوع التوقيع على بياض"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/altwsyat-alamlyh-lsyaghh-aqd-qwy",
+      "snapshotFile": "__pages/blog-ar-altwsyat-alamlyh-lsyaghh-aqd-qwy.html",
+      "snapshotSha256": "93d5bbc5792c638a90f703809c47dae24af77c8898e369b2ddedfca1fa627096",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولًا: تحديد هوية الأطراف بدقة.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثانيًا: تحديد نطاق العقد بوضوح.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثالثًا: تحديد المدة والجدول الزمني.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "رابعًا: تحديد المقابل المالي وآلية الدفع.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "خامسًا: تضمين الشرط الجزائي.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سادسًا: آلية الفحص والقبول.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سابعًا: القوة القاهرة والظروف الطارئة.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثامنًا: آلية إنهاء العقد وفسخه.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "تاسعًا: حل النزاعات.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "عاشرًا: التوقيع والكتابة.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/anha-aqd-alaml-bdwn-sbb-mshrwa",
+      "snapshotFile": "__pages/blog-ar-anha-aqd-alaml-bdwn-sbb-mshrwa.html",
+      "snapshotSha256": "ff72a2bd5f98a3758e3e00d1f7a2aac2878fd7a7044de778625256169ed96248",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولًا: مفهوم الفصل التعسفي.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثانيًا: الحالات الأكثر شيوعًا للفصل غير المشروع.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثالثًا: حقوق العامل عند الفصل التعسفي.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "رابعًا: إجراءات العامل عند التعرض للفصل التعسفي.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "خامسًا: مسؤوليات صاحب العمل عند إنهاء العقد.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سادسًا: الأسئلة الشائعة حول الفصل التعسفي.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+      "snapshotFile": "__pages/blog-ar-aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy.html",
+      "snapshotSha256": "a50f6cb4288b32ba93f45b78407bc0b06bfdae453da384a06a1c276fede18ab8",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولًا: ماهية عقد الامتياز التجاري.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثانيًا: الإطار النظامي للامتياز التجاري في السعودية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثالثًا: التزامات مانح الامتياز.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "رابعًا: التزامات صاحب الامتياز.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "خامسًا: وثيقة الإفصاح وأهميتها القانونية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سادسًا: أبرز المخاطر العملية في عقود الامتياز.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سابعًا: النزاعات الشائعة في عقود الامتياز التجاري.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثامنًا: الاتجاه القضائي السعودي في نزاعات الامتياز.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "تاسعًا: توصيات عملية لصياغة عقد امتياز قوي.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/aqwd-almqawlat-fy-alnzam-alsawdy",
+      "snapshotFile": "__pages/blog-ar-aqwd-almqawlat-fy-alnzam-alsawdy.html",
+      "snapshotSha256": "f802c3aabaa170a2db95a19498e813663b0c50be1c236f68fa1bc19fd59a8487",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولًا: ماهية عقد المقاولة.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثانيًا: الالتزامات المتبادلة بين المقاول وصاحب العمل.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثالثًا: البنود الجوهرية في عقود المقاولات.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "رابعًا: المسؤولية في عقود المقاولات.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "خامسًا: أبرز النزاعات في عقود المقاولات.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سادسًا: الاتجاه القضائي السعودي في نزاعات المقاولات.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سابعًا: طرق إثبات النزاعات في عقود المقاولات.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثامنًا: توصيات عملية لصياغة عقد مقاولة قوي.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+      "snapshotFile": "__pages/blog-ar-aqwd-alwkalat-altjaryh-fy-alnzam-alsawd.html",
+      "snapshotSha256": "7da2cecbd11591c37c9b80df55c9da3cce150c54f22f89fbeda1b9067831f97d",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولًا: ماهية عقد الوكالة التجارية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثانيًا: الإطار النظامي للوكالات التجارية في السعودية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثالثًا: حقوق الموكل في عقد الوكالة التجارية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "رابعًا: حقوق الوكيل التجاري.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "خامسًا: التزامات الموكل.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سادسًا: التزامات الوكيل.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سابعًا: أبرز النزاعات في عقود الوكالات التجارية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثامنًا: الإنهاء والتعويض في عقود الوكالات التجارية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "تاسعًا: الاتجاه القضائي السعودي في نزاعات الوكالات.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "عاشرًا: البنود الجوهرية في عقد الوكالة التجارية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/athbat-alaqwd-amam-alqda-alsawdy",
+      "snapshotFile": "__pages/blog-ar-athbat-alaqwd-amam-alqda-alsawdy.html",
+      "snapshotSha256": "7679237568af15f0ae7a2bc9b72c6526524fe95ae67856e60b78ffd5c7bd0b1a",
+      "beforeSemanticHeadingCount": 17,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "1. الأساس النظامي لإثبات العقود في السعودية:"
+        },
+        {
+          "tag": "h2",
+          "text": "2. القاعدة الأساسية في الإثبات:"
+        },
+        {
+          "tag": "h2",
+          "text": "3. أنواع الأدلة في إثبات العقود:"
+        },
+        {
+          "tag": "h3",
+          "text": "3.1 الإقرار:"
+        },
+        {
+          "tag": "h3",
+          "text": "3.2 الكتابة - المحررات:"
+        },
+        {
+          "tag": "h3",
+          "text": "3.3 الدليل الرقمي:"
+        },
+        {
+          "tag": "h3",
+          "text": "3.4 الشهادة:"
+        },
+        {
+          "tag": "h3",
+          "text": "3.5 القرائن:"
+        },
+        {
+          "tag": "h3",
+          "text": "3.6 اليمين:"
+        },
+        {
+          "tag": "h3",
+          "text": "3.7 الخبرة والمعاينة:"
+        },
+        {
+          "tag": "h2",
+          "text": "4. حجية المستندات في إثبات العقود:"
+        },
+        {
+          "tag": "h3",
+          "text": "4.1 حجية المحررات الرسمية:"
+        },
+        {
+          "tag": "h3",
+          "text": "4.2 حجية المحررات العادية:"
+        },
+        {
+          "tag": "h3",
+          "text": "4.3 حجية الدليل الرقمي:"
+        },
+        {
+          "tag": "h2",
+          "text": "5. عبء الإثبات وتعارض الأدلة:"
+        },
+        {
+          "tag": "h2",
+          "text": "6. متى تُشترط الكتابة لإثبات العقد؟"
+        },
+        {
+          "tag": "h2",
+          "text": "7. توصيات عملية لإثبات العقود أمام القضاء:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/bna-astratyjyh-aldfaa-qbl-bd-alkhswmh",
+      "snapshotFile": "__pages/blog-ar-bna-astratyjyh-aldfaa-qbl-bd-alkhswmh.html",
+      "snapshotSha256": "1fa5ccedd58e44e95e89181e3685176b5a349200522139669e9dd67f8a8f8756",
+      "beforeSemanticHeadingCount": 9,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "تبدأ الاستراتيجية من إعادة بناء النزاع."
+        },
+        {
+          "tag": "h2",
+          "text": "نبني دعوى الخصم قبل أن يبنيها هو."
+        },
+        {
+          "tag": "h2",
+          "text": "نحدد نقطة الحسم في الملف."
+        },
+        {
+          "tag": "h2",
+          "text": "نحدد مركز العميل قبل أن نكتب الرد."
+        },
+        {
+          "tag": "h2",
+          "text": "نُدير المراسلات قبل الخصومة."
+        },
+        {
+          "tag": "h2",
+          "text": "نحدد أكثر من سيناريو."
+        },
+        {
+          "tag": "h2",
+          "text": "التعاون مع الممثل النظامي"
+        },
+        {
+          "tag": "h2",
+          "text": "منهج كاونسلو في بناء الدفاع."
+        },
+        {
+          "tag": "h2",
+          "text": "الخلاصة:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/commercial-supply-contracts-in-saudi",
+      "snapshotFile": "__pages/blog-ar-commercial-supply-contracts-in-saudi.html",
+      "snapshotSha256": "c5809bab7efce6a3fbbcf37ff378231f6e3d95e222cbefb4fc05863d4b92c0df",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولًا: ماهية عقد التوريد التجاري:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثانيًا: البنود الجوهرية في عقود التوريد:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثالثًا: أبرز صور الإخلال في عقود التوريد:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "رابعًا: الاتجاه القضائي السعودي في نزاعات التوريد:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "خامسًا: طرق إثبات الإخلال في عقود التوريد:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سادسًا: مخاطر الإخلال في عقود التوريد:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سابعًا: توصيات عملية لصياغة عقد توريد قوي:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/consensual-formal-real-contracts-syrian-law",
+      "snapshotFile": "__pages/blog-ar-consensual-formal-real-contracts-syrian-law.html",
+      "snapshotSha256": "fbf78e65e7ff67010b66a046566f220286564bd219553d770451cf5213435764",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولاً: العقود الرضائية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثانياً: العقود الشكلية:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثالثاً: العقود العينية:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/contract-interpretation-syrian-courts",
+      "snapshotFile": "__pages/blog-ar-contract-interpretation-syrian-courts.html",
+      "snapshotSha256": "31959abab6b0954593378623c516dc6eaad01db03ac66ce67a7a2a66284516f6",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولاً: البحث عن الإرادة المشتركة للمتعاقدين:",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "ثانياً: تفسير العقد كوحدة واحدة:",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "ثالثاً: الأخذ بطبيعة التعامل:",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "رابعاً: الاستعانة بالعرف:",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "ما المقصود بتفسير العقد؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "الأصل: العقد شريعة المتعاقدين.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "متى يتدخل القاضي لتفسير العقد؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "كيف يفسر القاضي العقد؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "تفسير الشك لمصلحة المدين.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "دور حسن النية في تفسير العقود.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "أمثلة عملية:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "أخطاء شائعة تؤدي إلى النزاعات:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "كيف تتجنب الخلاف حول تفسير العقد؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "الخلاصة:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "المراجع",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/contractual-liability-in-commercial-transactions",
+      "snapshotFile": "__pages/blog-ar-contractual-liability-in-commercial-transactions.html",
+      "snapshotSha256": "fab6fb130bf8c74821aae66d5f3b2549ee12fa188f5e93bef1e924076439daf2",
+      "beforeSemanticHeadingCount": 7,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "قراءة قانونية في ضوء الأنظمة السعودية"
+        },
+        {
+          "tag": "h2",
+          "text": "أولًا: ماهية المسؤولية العقدية في النظام السعودي."
+        },
+        {
+          "tag": "h2",
+          "text": "ثانيًا: شروط تحقق المسؤولية العقدية."
+        },
+        {
+          "tag": "h2",
+          "text": "ثالثًا: صور الإخلال بالعقد في المعاملات التجارية."
+        },
+        {
+          "tag": "h2",
+          "text": "رابعًا: التعويض في المسؤولية العقدية."
+        },
+        {
+          "tag": "h2",
+          "text": "خامسًا: دور الشرط الجزائي في تعزيز الالتزام."
+        },
+        {
+          "tag": "h2",
+          "text": "سادسًا: وسائل حماية التاجر من المسؤولية العقدية."
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/defects-of-will-syrian-law",
+      "snapshotFile": "__pages/blog-ar-defects-of-will-syrian-law.html",
+      "snapshotSha256": "741565b7c3c6ab5a32e511d1c0337455f2140da01a9507b1b3e260699f969086",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "تمهيد: ماهية عيوب الإرادة وأثرها في صحة العقد",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "المبحث الأول: عيوب الإرادة المؤثرة في الرضا",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "المطلب الأول: الغلط",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "المطلب الثاني: الإكراه",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "المطلب الثالث: التدليس",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "المطلب الرابع: الاستغلال",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "المبحث الثاني: المقارنة بين عيوب الإرادة",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "المبحث الثالث: الآثار القانونية المترتبة على عيوب الإرادة",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "المبحث الرابع: إثبات عيوب الإرادة أمام القضاء",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "المبحث الخامس: أهمية الفحص القانوني السابق للتعاقد",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "الخاتمة",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "قائمة المراجع",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/e-contracts-legal-validity-saudi-arabia",
+      "snapshotFile": "__pages/blog-ar-e-contracts-legal-validity-saudi-arabia.html",
+      "snapshotSha256": "f9c207f8a03a37a5fac9a7cca5b1b0dadf53a455b0b3d20f1e895abb2b3b29fa",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولًا: ماهية العقد الإلكتروني.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثانيًا: الأساس النظامي للعقود الإلكترونية في السعودية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثالثًا: أركان العقد الإلكتروني.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "رابعًا: حجية التوقيع الإلكتروني.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "خامسًا: وسائل إثبات العقود الإلكترونية أمام القضاء.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سادسًا: أبرز النزاعات المتعلقة بالعقود الإلكترونية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سابعًا: مسؤولية المنصات الإلكترونية.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثامنًا: توصيات عملية للتجار والمتعاملين إلكترونيًا.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/formation-of-commercial-contracts-saudi-law",
+      "snapshotFile": "__pages/blog-ar-formation-of-commercial-contracts-saudi-law.html",
+      "snapshotSha256": "210ffe546e23d12db5e635dbdf1079bdd2f49e5288c8b4c418b0dc8d802b0145",
+      "beforeSemanticHeadingCount": 11,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": " تكوين العقد التجاري في النظام السعودي"
+        },
+        {
+          "tag": "h2",
+          "text": "الأركان والشروط وآثار التخلف عنها"
+        },
+        {
+          "tag": "h2",
+          "text": "أولًا: ماهية العقد التجاري وأهميته."
+        },
+        {
+          "tag": "h2",
+          "text": "ثانيًا: أركان تكوين العقد التجاري في النظام السعودي."
+        },
+        {
+          "tag": "h3",
+          "text": "1) التراضي (الإيجاب والقبول):"
+        },
+        {
+          "tag": "h3",
+          "text": "2) المحل (موضوع العقد):"
+        },
+        {
+          "tag": "h3",
+          "text": "3) السبب (الغرض النظامي للعقد):"
+        },
+        {
+          "tag": "h2",
+          "text": "ثالثًا: الشروط اللازمة لصحة العقد التجاري."
+        },
+        {
+          "tag": "h2",
+          "text": "رابعًا: مراحل تكوين العقد التجاري."
+        },
+        {
+          "tag": "h2",
+          "text": "خامسًا: آثار تخلف أحد أركان أو شروط العقد."
+        },
+        {
+          "tag": "h2",
+          "text": "سادسًا: توصيات عملية للتجار عند صياغة العقود."
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+      "snapshotFile": "__pages/blog-ar-fskh-alaqd-altjary-fy-alnzam-alsawdy.html",
+      "snapshotSha256": "ca6052d785b1cd2fa372ec25d5cc132315ff095b7757f1d6988c256949140ee2",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولًا: ماهية فسخ العقد التجاري",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثانيًا: الأساس النظامي للفسخ في السعودية",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثالثًا: أنواع فسخ العقد التجاري",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "رابعًا: شروط فسخ العقد التجاري",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "خامسًا: آثار فسخ العقد التجاري",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سادساً: مسائل تُفحص في طلب الفسخ",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "سابعًا: طرق إثبات الفسخ أمام القضاء",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ثامنًا: توصيات عملية للتجار والمحامين",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+      "snapshotFile": "__pages/blog-ar-hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry.html",
+      "snapshotSha256": "31abbd2639df4656c17fe9b8ad59e04f62bc269f680e6eaea70add34e4eaddc6",
+      "beforeSemanticHeadingCount": 44,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "دراسة تحليلية في ضوء اجتهاد محكمة النقض السورية رقم 4886 لعام 1963"
+        },
+        {
+          "tag": "h3",
+          "text": "الملخص"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الأول: مفهوم اليمين الحاسمة وطبيعتها القانونية"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الثاني: الشروط المتعلقة بموضوع اليمين الحاسمة"
+        },
+        {
+          "tag": "h3",
+          "text": "1. أن تكون الواقعة متعلقة بشخص من وجهت إليه اليمين"
+        },
+        {
+          "tag": "h3",
+          "text": "2. أن تكون الواقعة محددة"
+        },
+        {
+          "tag": "h3",
+          "text": "3. أن تكون الواقعة جائزة قانونًا"
+        },
+        {
+          "tag": "h3",
+          "text": "4. أن تكون الواقعة منتجة"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الأول: التمييز بين الشكل اللازم للإثبات والشكل اللازم للانعقاد أو الصحة"
+        },
+        {
+          "tag": "h3",
+          "text": "أولًا: الكتابة كوسيلة إثبات"
+        },
+        {
+          "tag": "h3",
+          "text": "ثانيًا: الكتابة أو الرسمية كركن في التصرف"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الثاني: عدم جواز اليمين لمعارضة الحجية الرسمية"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الثالث: النظام العام كحد موضوعي لليمين"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الأول: الدعوى المدنية الأصلية"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الثاني: ظهور المستندات الرسمية وتحريك الدعوى الجزائية"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الأول: المحكمة أعادت فحص مشروعية اليمين قبل فحص كذبها"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الثاني: الرسمية القانونية للوكالة وأثرها"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الثالث: علاقة اليمين باختصاص الجهة المختصة بأتعاب المحاماة"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الأول: الإنتاجية شرط مستقل عن الصلة بالدعوى"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الثاني: اختبار النكول معيارًا لاكتشاف عدم الإنتاجية"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الأول: نطاق الحجية"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الثاني: لماذا لا يجوز إحلال اليمين محل الطعن بالتزوير؟"
+        },
+        {
+          "tag": "h3",
+          "text": "أولًا: اليمين غير الجائزة"
+        },
+        {
+          "tag": "h3",
+          "text": "ثانيًا: اليمين غير المنتجة"
+        },
+        {
+          "tag": "h3",
+          "text": "ثالثًا: اليمين الكيدية أو التعسفية"
+        },
+        {
+          "tag": "h2",
+          "text": "أولًا: الشكلية"
+        },
+        {
+          "tag": "h2",
+          "text": "ثانيًا: حجية الرسمية"
+        },
+        {
+          "tag": "h2",
+          "text": "ثالثًا: رقابة المحكمة"
+        },
+        {
+          "tag": "h2",
+          "text": "رابعًا: شخصية اليمين"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الأول: مواطن القوة"
+        },
+        {
+          "tag": "h3",
+          "text": "1. تقديم مشروعية الدليل على مضمونه"
+        },
+        {
+          "tag": "h3",
+          "text": "2. حماية القواعد الآمرة"
+        },
+        {
+          "tag": "h3",
+          "text": "3. الربط بين الإنتاجية والنتيجة القانونية"
+        },
+        {
+          "tag": "h3",
+          "text": "4. الحماية من تحويل اليمين إلى أداة اتهام"
+        },
+        {
+          "tag": "h2",
+          "text": "المطلب الثاني: مواطن تحتاج إلى قراءة دقيقة"
+        },
+        {
+          "tag": "h3",
+          "text": "المرحلة الأولى: تحديد الواقعة"
+        },
+        {
+          "tag": "h3",
+          "text": "المرحلة الثانية: فحص الجواز القانوني"
+        },
+        {
+          "tag": "h3",
+          "text": "المرحلة الثالثة: فحص الشكلية"
+        },
+        {
+          "tag": "h3",
+          "text": "المرحلة الرابعة: فحص الحجية"
+        },
+        {
+          "tag": "h3",
+          "text": "المرحلة الخامسة: اختبار الإنتاجية"
+        },
+        {
+          "tag": "h2",
+          "text": "أولًا: التشريعات"
+        },
+        {
+          "tag": "h2",
+          "text": "ثانيًا: الاجتهاد القضائي"
+        },
+        {
+          "tag": "h2",
+          "text": "ثالثًا: المراجع القانونية"
+        },
+        {
+          "tag": "h2",
+          "text": "ملاحظة توثيقية"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+      "snapshotFile": "__pages/blog-ar-hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya.html",
+      "snapshotSha256": "057f090053622f6d9d960f8cca753eedb21dac4b6e6f818aad9cfd712f2cb0e9",
+      "beforeSemanticHeadingCount": 9,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "فهم الصفقة يسبق مراجعة النص:"
+        },
+        {
+          "tag": "h2",
+          "text": "اكتشاف المخاطر قبل أن تتحول إلى نزاع:"
+        },
+        {
+          "tag": "h2",
+          "text": "من يجب أن يتحمل الخطر؟"
+        },
+        {
+          "tag": "h2",
+          "text": "حماية العائد التجاري لا تقل أهمية عن تحديد المسؤولية:"
+        },
+        {
+          "tag": "h2",
+          "text": "لا تقرأ بند الإنهاء وحده:"
+        },
+        {
+          "tag": "h2",
+          "text": "قوة الحق لا تكفي إذا تعذر إنفاذه:"
+        },
+        {
+          "tag": "h2",
+          "text": "المراجعة الأخيرة قد تمنع مشكلة كبيرة"
+        },
+        {
+          "tag": "h2",
+          "text": "منهج كاونسلو في مراجعة العقود:"
+        },
+        {
+          "tag": "h2",
+          "text": "الخلاصة"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+      "snapshotFile": "__pages/blog-ar-hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh.html",
+      "snapshotSha256": "26109d2fd6039698ac801e57992bf6bfca9894306866ef05815ab7444a80af91",
+      "beforeSemanticHeadingCount": 6,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "مقدمة:"
+        },
+        {
+          "tag": "h2",
+          "text": "أولاً: مظاهر تغول الأغلبية والمخاطر المحدقة بالأقلية."
+        },
+        {
+          "tag": "h2",
+          "text": "ثانياً: الآليات الحمائية في ضوء مبادئ الحوكمة الحديثة."
+        },
+        {
+          "tag": "h3",
+          "text": "1. الآليات الوقائية (قبل وقوع الضرر):"
+        },
+        {
+          "tag": "h3",
+          "text": "2. الآليات العلاجية والرقابية (بعد وقوع الضرر):"
+        },
+        {
+          "tag": "h2",
+          "text": "ثالثاً: الأثر الاقتصادي لحماية الأقلية:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/hyn-ykwn-alaqrar-aqwa-mn-alankar",
+      "snapshotFile": "__pages/blog-ar-hyn-ykwn-alaqrar-aqwa-mn-alankar.html",
+      "snapshotSha256": "0915386b177ab886fdf523ad9230d4d97991a56510c872f51da36ab45e1b9138",
+      "beforeSemanticHeadingCount": 11,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "التمييز بين أصل الحق وإمكان تنفيذه."
+        },
+        {
+          "tag": "h2",
+          "text": "عدم إنكار البيع قد يكون موقفًا دفاعيًا أقوى."
+        },
+        {
+          "tag": "h2",
+          "text": "الحيازة الفعلية ليست هي الإفراغ الرسمي."
+        },
+        {
+          "tag": "h2",
+          "text": "إذا كان الجزء المبيع داخل عقار أم."
+        },
+        {
+          "tag": "h2",
+          "text": "الحجز التنفيذي لا يعني بالضرورة بطلان البيع."
+        },
+        {
+          "tag": "h2",
+          "text": "أهمية بيان أن الحجز غير مخصص للعقار محل النزاع"
+        },
+        {
+          "tag": "h2",
+          "text": "إذا كان أصل الدين على شركة والمدعى عليه مجرد كفيل."
+        },
+        {
+          "tag": "h2",
+          "text": "الإقرار القضائي المنضبط:"
+        },
+        {
+          "tag": "h2",
+          "text": "إدخال الطرف المتنازل قد يكون ضروريًا لاستقرار الحق;"
+        },
+        {
+          "tag": "h2",
+          "text": "متى تكون هذه الاستراتيجية مناسبة؟"
+        },
+        {
+          "tag": "h2",
+          "text": "وهنا:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa",
+      "snapshotFile": "__pages/blog-ar-lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa.html",
+      "snapshotSha256": "e547d09f1dac6a66baa310b624bf9f174568f84183f5ef9325181a45974b69e2",
+      "beforeSemanticHeadingCount": 7,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "المطالبة المالية ليست رقمًا واحدًا:"
+        },
+        {
+          "tag": "h2",
+          "text": "إثبات الإخلال لا يعني تلقائيًا استحقاق كامل التعويض:"
+        },
+        {
+          "tag": "h2",
+          "text": "كيف تُبنى استراتيجية الدفاع؟"
+        },
+        {
+          "tag": "h2",
+          "text": "تطبيق عملي: مطالبة بـ500 ألف انتهت إلى 227 ألف ريال"
+        },
+        {
+          "tag": "h2",
+          "text": "إدارة التعرض المالي للعميل"
+        },
+        {
+          "tag": "h2",
+          "text": "منهج كاونسلو"
+        },
+        {
+          "tag": "h2",
+          "text": "وبالتالي:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/mhl-alaqd-fy-alqanwn-alswry",
+      "snapshotFile": "__pages/blog-ar-mhl-alaqd-fy-alqanwn-alswry.html",
+      "snapshotSha256": "25e13bf47ebcdc686a538a807fb06fbadf5761518b025a97a6b563108dbe5158",
+      "beforeSemanticHeadingCount": 11,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "1. أن يكون المحل ممكناً"
+        },
+        {
+          "tag": "h2",
+          "text": "2. أن يكون المحل معيناً أو قابلاً للتعيين"
+        },
+        {
+          "tag": "h2",
+          "text": "3. أن يكون المحل مشروعاً"
+        },
+        {
+          "tag": "h2",
+          "text": "المثال الأول: محل مستحيل"
+        },
+        {
+          "tag": "h2",
+          "text": "المثال الثاني: محل قابل للتعيين"
+        },
+        {
+          "tag": "h2",
+          "text": "المثال الثالث: محل غير مشروع"
+        },
+        {
+          "tag": "h2",
+          "text": "المثال الرابع: غموض المواصفات"
+        },
+        {
+          "tag": "h2",
+          "text": "هل يجوز التعاقد على شيء غير موجود وقت العقد؟"
+        },
+        {
+          "tag": "h2",
+          "text": "هل يؤدي عدم ذكر الجودة إلى بطلان العقد؟"
+        },
+        {
+          "tag": "h2",
+          "text": "هل كل صعوبة في التنفيذ تعني استحالة المحل؟"
+        },
+        {
+          "tag": "h2",
+          "text": "هل يجوز ترك تحديد المحل لاتفاق لاحق؟"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/mnhjyh-5why-fy-alaml-alqanwny",
+      "snapshotFile": "__pages/blog-ar-mnhjyh-5why-fy-alaml-alqanwny.html",
+      "snapshotSha256": "1c70e5fef1fa11a87a4761c19c63dbf7daa9310577e16f3b10a46080489170eb",
+      "beforeSemanticHeadingCount": 13,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "ما هي منهجية 5Why؟"
+        },
+        {
+          "tag": "h2",
+          "text": "لماذا تحتاج المكاتب القانونية إلى هذه المنهجية؟"
+        },
+        {
+          "tag": "h2",
+          "text": "تحليل قانوني إرشادي"
+        },
+        {
+          "tag": "h3",
+          "text": "المشكلة"
+        },
+        {
+          "tag": "h3",
+          "text": "لماذا (1)؟"
+        },
+        {
+          "tag": "h3",
+          "text": "لماذا (2)؟"
+        },
+        {
+          "tag": "h3",
+          "text": "لماذا (3)؟"
+        },
+        {
+          "tag": "h3",
+          "text": "لماذا (4)؟"
+        },
+        {
+          "tag": "h3",
+          "text": "لماذا (5)؟"
+        },
+        {
+          "tag": "h2",
+          "text": "النتيجة"
+        },
+        {
+          "tag": "h2",
+          "text": "الفرق بين معالجة الأعراض ومعالجة السبب"
+        },
+        {
+          "tag": "h2",
+          "text": "متى تكون هذه المنهجية فعالة؟"
+        },
+        {
+          "tag": "h2",
+          "text": "كيف تطبق CounselO هذه الفلسفة؟"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa",
+      "snapshotFile": "__pages/blog-ar-mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa.html",
+      "snapshotSha256": "a01255992f243a5f958ea0507f9bf040b61a4ca430caf533b0561264b34cd982",
+      "beforeSemanticHeadingCount": 4,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "شرط التحكيم شيء وتفعيله شيء آخر:"
+        },
+        {
+          "tag": "h2",
+          "text": "متى تظهر المشكلة عمليًا؟"
+        },
+        {
+          "tag": "h2",
+          "text": "ماذا يحدث عند تعذر التحكيم؟"
+        },
+        {
+          "tag": "h2",
+          "text": "الخلاصة:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm",
+      "snapshotFile": "__pages/blog-ar-mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm.html",
+      "snapshotSha256": "ec9421bfe11a859d1455fac0475d4fd9611909a4fad43270c9d59fd1aadf65f6",
+      "beforeSemanticHeadingCount": 5,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "متى يمكن الطعن على القرار؟"
+        },
+        {
+          "tag": "h2",
+          "text": "ليس كل تصرف إداري محلًا لدعوى الإلغاء:"
+        },
+        {
+          "tag": "h2",
+          "text": "المواعيد والإجراءات مهمة:"
+        },
+        {
+          "tag": "h2",
+          "text": "كيف تُبنى دراسة القرار؟"
+        },
+        {
+          "tag": "h2",
+          "text": "الخلاصة:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh",
+      "snapshotFile": "__pages/blog-ar-mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh.html",
+      "snapshotSha256": "6a64c9abf2889631f5b8c6012073a6e84ed1f946b720814b6eb302a9e995e337",
+      "beforeSemanticHeadingCount": 10,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "الصلح ليس تنازلًا عن الحق:"
+        },
+        {
+          "tag": "h2",
+          "text": "متى تبدأ دراسة خيار الصلح؟"
+        },
+        {
+          "tag": "h2",
+          "text": "الفرق بين قيمة الدعوى وقيمة النتيجة:"
+        },
+        {
+          "tag": "h2",
+          "text": "الصلح الجيد يجب أن يغلق النزاع لا أن يؤجله:"
+        },
+        {
+          "tag": "h2",
+          "text": "لماذا قد يكون إثبات الصلح قضائيًا مهمًا؟"
+        },
+        {
+          "tag": "h2",
+          "text": "من الخصومة إلى التسوية: القرار الاستراتيجي."
+        },
+        {
+          "tag": "h2",
+          "text": "تطبيق عملي: استرداد كامل رأس المال عن طريق الصلح."
+        },
+        {
+          "tag": "h2",
+          "text": "الدرس القانوني من دراسة الحالة:"
+        },
+        {
+          "tag": "h2",
+          "text": "وبالتالي:"
+        },
+        {
+          "tag": "h3",
+          "text": "دراسة حالة مرتبطة"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "snapshotFile": "__pages/blog-ar-mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh.html",
+      "snapshotSha256": "2d3458fd811b3d10a08c3dbd904b3d65b6dd79f08884ff2b4a5a1260c7d37778",
+      "beforeSemanticHeadingCount": 8,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "أولاً: الحكم النهائي اللاحق قد يُعد ورقة قاطعة جديدة."
+        },
+        {
+          "tag": "h3",
+          "text": "المبدأ المستفاد"
+        },
+        {
+          "tag": "h2",
+          "text": "ثانياً: ظهور ورقة رسمية قاطعة قد يفتح الحكم النهائي من جديد."
+        },
+        {
+          "tag": "h3",
+          "text": "المبدأ المستفاد"
+        },
+        {
+          "tag": "h2",
+          "text": "ثالثاً: الخطأ في توصيف الدليل الجديد قد يكون سبباً لنقض قرار عدم قبول الالتماس."
+        },
+        {
+          "tag": "h3",
+          "text": "المبدأ المستفاد"
+        },
+        {
+          "tag": "h2",
+          "text": "النظام والقرار المحدد"
+        },
+        {
+          "tag": "h2",
+          "text": "النظام والقرار المحدد"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy",
+      "snapshotFile": "__pages/blog-ar-mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy.html",
+      "snapshotSha256": "b387d5837dd7415fc28a516421a0389776b5908f6479f05c990aab0a64e0bf60",
+      "beforeSemanticHeadingCount": 7,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "الأصل: الاستعمال المشروع للحق لا يرتب المسؤولية."
+        },
+        {
+          "tag": "h2",
+          "text": "متى يكون استعمال الحق تعسفيًا؟"
+        },
+        {
+          "tag": "h2",
+          "text": "الأساس الشرعي للمبدأ:"
+        },
+        {
+          "tag": "h2",
+          "text": "كيف يثبت التعسف أمام القضاء؟"
+        },
+        {
+          "tag": "h2",
+          "text": "ما أثر ثبوت التعسف؟"
+        },
+        {
+          "tag": "h2",
+          "text": "كيف يظهر التعسف في العقود والمعاملات التجارية؟"
+        },
+        {
+          "tag": "h2",
+          "text": "وبالتالي:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/mta-ysthq-alwsyt-altjary-kaml-amwlth",
+      "snapshotFile": "__pages/blog-ar-mta-ysthq-alwsyt-altjary-kaml-amwlth.html",
+      "snapshotSha256": "d6a66140d3d5682181865788d9a9c9c29ef030c52bc8780dac2b5d327be30c98",
+      "beforeSemanticHeadingCount": 9,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "الاتفاق على العمولة لا يعني دائمًا استحقاقها كاملة:"
+        },
+        {
+          "tag": "h2",
+          "text": "أصل الاستحقاق شيء ومقداره شيء آخر:"
+        },
+        {
+          "tag": "h2",
+          "text": "عبء الإثبات لا يقف عند وجود العقد"
+        },
+        {
+          "tag": "h2",
+          "text": "لماذا تُرفض المطالبة الجزافية؟"
+        },
+        {
+          "tag": "h2",
+          "text": "دور الدفاع في هذه القضايا:"
+        },
+        {
+          "tag": "h2",
+          "text": "تطبيق عملي:"
+        },
+        {
+          "tag": "h2",
+          "text": "الدرس القانوني:"
+        },
+        {
+          "tag": "h2",
+          "text": "وهنا:"
+        },
+        {
+          "tag": "h3",
+          "text": "دراسة حالة مرتبطة"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+      "snapshotFile": "__pages/blog-ar-mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh.html",
+      "snapshotSha256": "fd9386c2dad6f8a3d66d198735a3abb994e622eac119131d97d18255b815cdeb",
+      "beforeSemanticHeadingCount": 7,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "التوقيع لا يُقرأ منفصلًا عن المحضر:"
+        },
+        {
+          "tag": "h2",
+          "text": "متى يصبح التوقيع أكثر خطورة؟"
+        },
+        {
+          "tag": "h2",
+          "text": "كيف يمكن حماية معنى التوقيع؟"
+        },
+        {
+          "tag": "h2",
+          "text": "الذاكرة ليست بديلًا عن السجلات المحاسبية:"
+        },
+        {
+          "tag": "h2",
+          "text": "لا توقع قبل قراءة النتيجة التي يصنعها المحضر"
+        },
+        {
+          "tag": "h2",
+          "text": "منهج كاونسلو:"
+        },
+        {
+          "tag": "h2",
+          "text": "الخلاصة"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/performance-of-contracts-in-good-faith-under-syrian-law",
+      "snapshotFile": "__pages/blog-ar-performance-of-contracts-in-good-faith-under-syrian-law.html",
+      "snapshotSha256": "d500a9eb2aba3e58932e1aa913fbfdfb41df3ad3852837c30735c49126f1a933",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "أولاً: عقود المقاولات.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "ثانياً: عقود التوريد.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "ثالثاً: عقود الإيجار.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "رابعاً: عقود الشركات.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "ما المقصود بتنفيذ العقد بحسن النية؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "الأساس القانوني:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "ماذا يفرض مبدأ حسن النية على المتعاقدين؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "حسن النية لا يعني التنازل عن الحقوق:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "تطبيقات عملية لمبدأ حسن النية:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "متى يُعد أحد الأطراف سيئ النية؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "أثر حسن النية في تفسير العقد:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "العلاقة بين حسن النية والتعسف في استعمال الحق:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "عبء الإثبات:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "كيف تتجنب النزاعات المتعلقة بتنفيذ العقد؟",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "المراجع",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/ar/syghh-mdhkrh-tfahm-qablh-lltadyl",
+      "snapshotFile": "__pages/blog-ar-syghh-mdhkrh-tfahm-qablh-lltadyl.html",
+      "snapshotSha256": "6685825777ed7e14cbe469423e1139e49d4551e6aa264ccabd275eab141d1b1c",
+      "beforeSemanticHeadingCount": 1,
+      "existingHeadings": [
+        {
+          "tag": "h3",
+          "text": "للمساعدة في اعداد مذكرة تفاهم"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/Penalty-clause-in-saudi",
+      "snapshotFile": "__pages/blog-en-Penalty-clause-in-saudi.html",
+      "snapshotSha256": "c36418146374f33a4bb96eddf118702e2968c5dece1c2c876997c514964b478b",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: The Nature and Importance of Penalty Clauses in Commercial Contracts.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Second: The Legal Basis for Penalty Clauses in Saudi Arabia.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Third: Conditions for the Validity of a Penalty Clause.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fourth: The Saudi Judicial Approach to Applying Penalty Clauses.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fifth: Applications of Penalty Clauses in Commercial Contracts.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Sixth: How to Draft a Strong and Enforceable Penalty Clause.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Seventh: Can the Court Modify a Penalty Clause?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy",
+      "snapshotFile": "__pages/blog-en-adarh-almkhatr-fy-alaqwd-wfq-alnzam-alsawdy.html",
+      "snapshotSha256": "4c7adf08019a78ceb65e690989d8de900f2b7abb1b3f69e11848e94a5baf58ba",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: The concept of risk management in contracts.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Second: Types of risks in commercial contracts.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Third: Risk management tools in commercial contracts.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fourth: A practical methodology for risk management before signing the contract.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fifth: Risk management during contract performance.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Sixth: The Saudi judicial approach in risk cases.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/alahlyh-fy-altaaqd-fy-alqanwn-alswry",
+      "snapshotFile": "__pages/blog-en-alahlyh-fy-altaaqd-fy-alqanwn-alswry.html",
+      "snapshotSha256": "06c05493046d49b122a8c326c7f220503289b41da76b50b461bd0a8e7cb22584",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: What is meant by capacity?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Second: Capacity for enjoyment.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Third: Capacity to act.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fourth: When does a person have full capacity?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fifth: A person with limited capacity.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Sixth: A person without capacity.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Seventh: The effect of limited capacity on a contract.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Eighth: Who may rely on lack of capacity?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Ninth: Proving capacity.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Tenth: Practical applications.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/alaqd-fy-alqanwn-alswry",
+      "snapshotFile": "__pages/blog-en-alaqd-fy-alqanwn-alswry.html",
+      "snapshotSha256": "e507e5123ae86765918e8a73182620842e0596bbf6760c15c2433005107d46f5",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: What Is a Contract?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Second: Why Are Contracts the Foundation of Legal Life?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Third: Characteristics of Contracts in Syrian Law.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fourth: The Elements of a Contract in General.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fifth: The Principle of Freedom of Contract.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Sixth: The Difference Between a Contract and an Agreement.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Seventh: When Does a Contract Become Binding?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Eighth: Practical Examples.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Ninth: Common Mistakes When Concluding Contracts.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Tenth: Frequently Asked Questions.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny",
+      "snapshotFile": "__pages/blog-en-alaywb-alkhfyh-fy-alaqwd-wathrha-alqanwny.html",
+      "snapshotSha256": "0cb750351ff3b22de4a21ce878ccbfe9c61842a9c0f95cfd7f603cf39ebbddea",
+      "beforeSemanticHeadingCount": 20,
+      "existingHeadings": [
+        {
+          "tag": "h3",
+          "text": "Hidden Defects in Contracts and Their Legal Effect"
+        },
+        {
+          "tag": "h2",
+          "text": "First: The Concept of Hidden Defects in Contracts"
+        },
+        {
+          "tag": "h3",
+          "text": "Main Conditions for a Defect to Be Considered Hidden:"
+        },
+        {
+          "tag": "h2",
+          "text": "Second: Types of Hidden Defects in Contracts"
+        },
+        {
+          "tag": "h3",
+          "text": "1. Physical Defects:"
+        },
+        {
+          "tag": "h3",
+          "text": "2. Legal Defects:"
+        },
+        {
+          "tag": "h2",
+          "text": "Third: The Legal Effect of Hidden Defects in Contracts"
+        },
+        {
+          "tag": "h3",
+          "text": "1. The Right to Claim Termination of the Contract:"
+        },
+        {
+          "tag": "h3",
+          "text": "2. The Right to Claim Compensation:"
+        },
+        {
+          "tag": "h3",
+          "text": "3. Warranty for Hidden Defects in Commercial Contracts:"
+        },
+        {
+          "tag": "h3",
+          "text": "4. The Obligation to Report the Defect Immediately:"
+        },
+        {
+          "tag": "h2",
+          "text": "Fourth: How to Address Hidden Defects Legally"
+        },
+        {
+          "tag": "h3",
+          "text": "1. Inspecting the Subject Matter of the Contract Before Signing:"
+        },
+        {
+          "tag": "h3",
+          "text": "2. Clarifying Warranties in the Contract:"
+        },
+        {
+          "tag": "h3",
+          "text": "3. Resorting to Litigation or Arbitration:"
+        },
+        {
+          "tag": "h3",
+          "text": "4. Proving the Defect by Legal Means:"
+        },
+        {
+          "tag": "h2",
+          "text": "Fifth: Protecting the Parties from Hidden Defects"
+        },
+        {
+          "tag": "h3",
+          "text": "1. For the Seller or Supplier:"
+        },
+        {
+          "tag": "h3",
+          "text": "2. For the Buyer or Consumer:"
+        },
+        {
+          "tag": "h2",
+          "text": "Conclusion:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh",
+      "snapshotFile": "__pages/blog-en-alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh.html",
+      "snapshotSha256": "538e3096c44de746b721ec3cdfae4689ebf4e58817ec449f1900334de2633bd4",
+      "beforeSemanticHeadingCount": 6,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "Rescission: Ending the Contractual Relationship"
+        },
+        {
+          "tag": "h2",
+          "text": "Damages: Addressing the Loss"
+        },
+        {
+          "tag": "h2",
+          "text": "Can Rescission and Damages Be Combined?"
+        },
+        {
+          "tag": "h2",
+          "text": "How Should You Choose Between Rescission and Damages?"
+        },
+        {
+          "tag": "h2",
+          "text": "The Common Mistake"
+        },
+        {
+          "tag": "h2",
+          "text": "Conclusion"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/almswwlyh-alaqdyh-fy-almaamlat-altjaryh",
+      "snapshotFile": "__pages/blog-en-almswwlyh-alaqdyh-fy-almaamlat-altjaryh.html",
+      "snapshotSha256": "1982fa0820e95750d46d26eba4b959bcb321e3e3039eec7328865229fd203a7c",
+      "beforeSemanticHeadingCount": 9,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "What must the file explain?\n"
+        },
+        {
+          "tag": "h2",
+          "text": "1. Establish the obligation and the authorised parties\n"
+        },
+        {
+          "tag": "h2",
+          "text": "2. Build a dated performance record\n"
+        },
+        {
+          "tag": "h2",
+          "text": "3. Preserve notice and the response\n"
+        },
+        {
+          "tag": "h2",
+          "text": "4. Explain the loss, cause and calculation separately\n"
+        },
+        {
+          "tag": "h2",
+          "text": "5. Review an agreed-compensation clause on its own terms\n"
+        },
+        {
+          "tag": "h2",
+          "text": "An illustrative claim schedule\n"
+        },
+        {
+          "tag": "h2",
+          "text": "How does the same file help a defendant?\n"
+        },
+        {
+          "tag": "h2",
+          "text": "Before taking the next step\n"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/almswwlyh-alaqdyh-fy-alqanwn-alswry",
+      "snapshotFile": "__pages/blog-en-almswwlyh-alaqdyh-fy-alqanwn-alswry.html",
+      "snapshotSha256": "5bf4945de3cc94c6600b43dcfb1f4b185f3e03974f73a1aac6b0ee5f2859a907",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: the existence of a valid contract.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "Second: breach of an obligation by one contracting party.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "Third: occurrence of damage.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "Fourth: a causal relationship.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "What is meant by contractual liability?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "When does contractual liability arise?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Forms of breach of contract:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Is breach alone sufficient to claim compensation?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Formal notice and its effect on contractual liability:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Means of protecting the creditor:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Practical examples:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "When is contractual liability excluded?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "How can contractual liability be avoided?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "References:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/almswwlyh-an-fal-alghyr",
+      "snapshotFile": "__pages/blog-en-almswwlyh-an-fal-alghyr.html",
+      "snapshotSha256": "815529d6e6276dd2cd281dbd3077ae2f4c29920883089a5b8298630f2d5a04df",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: The Concept and Philosophical Basis",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Second: Forms of Liability for the Acts of Others",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Third: Conditions for Application (in Comparative Legislation)",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fourth: The Importance of Understanding This Liability for Society",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/alrda-fy-alqanwn-alswry",
+      "snapshotFile": "__pages/blog-en-alrda-fy-alqanwn-alswry.html",
+      "snapshotSha256": "ebabdd1a697327dfc8fe48216a6c2012d236eb63df23bb4e155e3c4b715b674c",
+      "beforeSemanticHeadingCount": 7,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "First Example:"
+        },
+        {
+          "tag": "h3",
+          "text": "Second Example:"
+        },
+        {
+          "tag": "h3",
+          "text": "Third Example:"
+        },
+        {
+          "tag": "h2",
+          "text": "Must a Contract Be Signed to Be Formed?"
+        },
+        {
+          "tag": "h2",
+          "text": "Can an Email Be Used to Conclude a Contract?"
+        },
+        {
+          "tag": "h2",
+          "text": "Can Consent Be Proven by Electronic Means?"
+        },
+        {
+          "tag": "h2",
+          "text": "References:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy",
+      "snapshotFile": "__pages/blog-en-alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy.html",
+      "snapshotSha256": "da3cb4788bdf09a23d6ac29884510929276a75fd8edaa5ff6403c874b3a72055",
+      "beforeSemanticHeadingCount": 10,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "A Promissory Note Is Not Merely an Ordinary Security Document:"
+        },
+        {
+          "tag": "h2",
+          "text": "Where Does the Problem Arise in Security Notes?"
+        },
+        {
+          "tag": "h2",
+          "text": "Face Value Does Not Always Present the Full Picture of the Dispute"
+        },
+        {
+          "tag": "h2",
+          "text": "Why Must the Actual Debt Be Determined?"
+        },
+        {
+          "tag": "h2",
+          "text": "The Risk of Duplicating Security"
+        },
+        {
+          "tag": "h2",
+          "text": "The End of the Contract Does Not Mean the Notes Can Be Ignored"
+        },
+        {
+          "tag": "h2",
+          "text": "Enforcement May Precede Resolution of the Contractual Dispute"
+        },
+        {
+          "tag": "h2",
+          "text": "How Should Contractual Promissory-Note Risks Be Managed?"
+        },
+        {
+          "tag": "h2",
+          "text": "CounselO’s Approach to Analyzing Security Notes"
+        },
+        {
+          "tag": "h2",
+          "text": "Conclusion"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha",
+      "snapshotFile": "__pages/blog-en-altakhr-fy-alrwatb-aw-alamtnaa-an-dfaha.html",
+      "snapshotSha256": "5571a7fd9417d200b6685fb1bce29a2ed2454694be7a527f26116baa5ce46624",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: The concept of delayed wage payment.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Second: The worker's rights when wages are delayed.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Third: Employer responsibilities.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fourth: Means of proof in wage cases.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fifth: Practical advice for workers.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry",
+      "snapshotFile": "__pages/blog-en-altawyd-an-alakhlal-balaqd-fy-alqanwn-alswry.html",
+      "snapshotSha256": "da59a4327bfc67c9d4feb1416c1570e7ea41c3c685703c55d801732d8400822d",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: the existence of a valid contract",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "Second: occurrence of a contractual breach",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "Third: occurrence of harm",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "Fourth: causation",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "First: actual loss",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "Second: loss of profit",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "What is meant by compensation for breach of contract?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Specific performance is the general rule",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "When is the creditor entitled to compensation?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "What types of harm are compensable?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Direct and indirect harm",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Foreseeable harm at the time of contracting",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Compensation for non-pecuniary harm",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Must the debtor be put in default?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "How does the judge assess compensation?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "The role of expert evidence in assessing compensation",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Pre-agreed compensation",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Compensation for delay in payment of monetary sums",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "The creditor's contribution to the occurrence of harm",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "External cause and force majeure",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Practical examples",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "What documents are required to prove compensation?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "How should a compensation claim be drafted?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Legal advice for individuals and companies",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Conclusion",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Legal references",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/altwqya-ala-byad",
+      "snapshotFile": "__pages/blog-en-altwqya-ala-byad.html",
+      "snapshotSha256": "e638a082e556d44e949252997f988d2f8562f626f8f21509dbdf66038a220b1e",
+      "beforeSemanticHeadingCount": 3,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "Scope of this historical commentary"
+        },
+        {
+          "tag": "h2",
+          "text": "Scope of this historical commentary"
+        },
+        {
+          "tag": "h3",
+          "text": "Al-Sanhuri’s Opinion on Signing in Blank"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/altwsyat-alamlyh-lsyaghh-aqd-qwy",
+      "snapshotFile": "__pages/blog-en-altwsyat-alamlyh-lsyaghh-aqd-qwy.html",
+      "snapshotSha256": "3b0ac134eda3efbdb9233068baf47c9ad23df813ffb62a3908b7b42df85007ed",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: Precisely identify the parties.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Second: Clearly define the scope of the contract.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Third: Specify the term and timetable.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fourth: Specify the financial consideration and payment mechanism.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fifth: Include a liquidated damages clause.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Sixth: Inspection and acceptance mechanism.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Seventh: Force majeure and unforeseen circumstances.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Eighth: Contract termination and rescission mechanism.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Ninth: Dispute resolution.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Tenth: Signature and writing.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/anha-aqd-alaml-bdwn-sbb-mshrwa",
+      "snapshotFile": "__pages/blog-en-anha-aqd-alaml-bdwn-sbb-mshrwa.html",
+      "snapshotSha256": "9a6408f1be9822432c89717c22fa82a60b0c9a88d8d1f2ebe52958db01c23812",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: The concept of unfair dismissal.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Second: The most common cases of unlawful dismissal.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Third: A worker’s rights following unfair dismissal.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fourth: Procedures for a worker facing unfair dismissal.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fifth: The employer’s responsibilities when terminating a contract.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Sixth: Frequently asked questions about unfair dismissal.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy",
+      "snapshotFile": "__pages/blog-en-aqwd-alamtyaz-altjary-alfrnshayz-fy-alnzam-alsawdy.html",
+      "snapshotSha256": "190d6c6f7ffa8ee2e94d6722584b310804c984b719d4dc45e8b47096c0942574",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: The nature of a commercial franchise agreement.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Second: The regulatory framework for commercial franchising in Saudi Arabia.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Third: Obligations of the franchisor.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fourth: Obligations of the franchisee.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fifth: The disclosure document and its legal importance.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Sixth: Key practical risks in franchise agreements.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Seventh: Common disputes in commercial franchise agreements.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Eighth: Saudi judicial approach to franchise disputes.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Ninth: Practical recommendations for drafting a strong franchise agreement.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/aqwd-almqawlat-fy-alnzam-alsawdy",
+      "snapshotFile": "__pages/blog-en-aqwd-almqawlat-fy-alnzam-alsawdy.html",
+      "snapshotSha256": "154e1b9ce5482f0c7d951641f3625bea6216c1bcd077a7c8f10da40b417a3a30",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: Nature of the Construction Contract.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Second: Mutual Obligations of Contractor and Employer.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Third: Essential Terms of Construction Contracts.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fourth: Liability in Construction Contracts.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fifth: Key Construction Contract Disputes.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Sixth: Saudi Judicial Approach to Construction Disputes.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Seventh: Proving Construction Contract Disputes.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Eighth: Practical Recommendations for a Strong Construction Contract.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/aqwd-alwkalat-altjaryh-fy-alnzam-alsawd",
+      "snapshotFile": "__pages/blog-en-aqwd-alwkalat-altjaryh-fy-alnzam-alsawd.html",
+      "snapshotSha256": "3d7b4478968ecdff66c6a7fd8a5392d698324586e0b99fac9660d93809c47a47",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: The Nature of a Commercial Agency Contract.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Second: The Legal Framework for Commercial Agencies in Saudi Arabia.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Third: The Principal’s Rights under a Commercial Agency Contract.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fourth: The Commercial Agent’s Rights.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fifth: The Principal’s Obligations.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Sixth: The Agent’s Obligations.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Seventh: Principal Disputes in Commercial Agency Contracts.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Eighth: Termination and Compensation in Commercial Agency Contracts.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Ninth: Saudi Judicial Approach to Agency Disputes.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Tenth: Essential Clauses in a Commercial Agency Contract.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/athbat-alaqwd-amam-alqda-alsawdy",
+      "snapshotFile": "__pages/blog-en-athbat-alaqwd-amam-alqda-alsawdy.html",
+      "snapshotSha256": "c3cd772e982b23e4440ad95d407f449464f2739ebe4e4cb7fc3f2f25c28e765e",
+      "beforeSemanticHeadingCount": 17,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "1. The Legal Framework for Proving Contracts in Saudi Arabia:"
+        },
+        {
+          "tag": "h2",
+          "text": "2. The Basic Rule of Evidence:"
+        },
+        {
+          "tag": "h2",
+          "text": "3. Types of Evidence in Proving Contracts:"
+        },
+        {
+          "tag": "h3",
+          "text": "3.1 Admission:"
+        },
+        {
+          "tag": "h3",
+          "text": "3.2 Writing - Documents:"
+        },
+        {
+          "tag": "h3",
+          "text": "3.3 Digital Evidence:"
+        },
+        {
+          "tag": "h3",
+          "text": "3.4 Testimony:"
+        },
+        {
+          "tag": "h3",
+          "text": "3.5 Presumptions:"
+        },
+        {
+          "tag": "h3",
+          "text": "3.6 Oath:"
+        },
+        {
+          "tag": "h3",
+          "text": "3.7 Expert Evidence and Inspection:"
+        },
+        {
+          "tag": "h2",
+          "text": "4. Evidentiary Value of Documents in Proving Contracts:"
+        },
+        {
+          "tag": "h3",
+          "text": "4.1 Evidentiary Value of Official Documents:"
+        },
+        {
+          "tag": "h3",
+          "text": "4.2 Evidentiary Value of Private Documents:"
+        },
+        {
+          "tag": "h3",
+          "text": "4.3 Evidentiary Value of Digital Evidence:"
+        },
+        {
+          "tag": "h2",
+          "text": "5. Burden of Proof and Conflicting Evidence:"
+        },
+        {
+          "tag": "h2",
+          "text": "6. When Is Writing Required to Prove a Contract?"
+        },
+        {
+          "tag": "h2",
+          "text": "7. Practical Recommendations for Proving Contracts Before the Courts:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/bna-astratyjyh-aldfaa-qbl-bd-alkhswmh",
+      "snapshotFile": "__pages/blog-en-bna-astratyjyh-aldfaa-qbl-bd-alkhswmh.html",
+      "snapshotSha256": "4b77dfe5af0684248ce8f1b7ebb8b943b0b395ee4765793644137d174dccf30f",
+      "beforeSemanticHeadingCount": 9,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "The strategy begins by reconstructing the dispute."
+        },
+        {
+          "tag": "h2",
+          "text": "We build the opposing party’s case before they do."
+        },
+        {
+          "tag": "h2",
+          "text": "We identify the decisive point in the file."
+        },
+        {
+          "tag": "h2",
+          "text": "We determine the client’s position before drafting the response."
+        },
+        {
+          "tag": "h2",
+          "text": "We manage correspondence before litigation."
+        },
+        {
+          "tag": "h2",
+          "text": "We prepare more than one scenario."
+        },
+        {
+          "tag": "h2",
+          "text": "Cooperation with the legal representative"
+        },
+        {
+          "tag": "h2",
+          "text": "CounselO’s approach to building a defense."
+        },
+        {
+          "tag": "h2",
+          "text": "Conclusion:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/commercial-supply-contracts-in-saudi",
+      "snapshotFile": "__pages/blog-en-commercial-supply-contracts-in-saudi.html",
+      "snapshotSha256": "d928b514451dfe2fd1abb039596bf0974a4b5adf14904b65d6380f2d50c0a120",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: The Nature of a Commercial Supply Contract:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Second: Essential Clauses in Supply Contracts:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Third: Principal Forms of Breach in Supply Contracts:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fourth: Saudi Judicial Approach to Supply Disputes:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fifth: Methods of Proving Breach in Supply Contracts:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Sixth: Risks of Breach in Supply Contracts:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Seventh: Practical Recommendations for Drafting a Strong Supply Contract:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/consensual-formal-real-contracts-syrian-law",
+      "snapshotFile": "__pages/blog-en-consensual-formal-real-contracts-syrian-law.html",
+      "snapshotSha256": "5e1c3a1531686ca8f22ac2c06a92e868c642c5fb4aee3c9a2719ffc559aec8b5",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: Consensual Contracts.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Second: Formal Contracts:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Third: Real Contracts:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/contract-interpretation-syrian-courts",
+      "snapshotFile": "__pages/blog-en-contract-interpretation-syrian-courts.html",
+      "snapshotSha256": "095c32b042f35c319b7f22dd811b47347d524803e0116a5237a4b87108a395ef",
+      "beforeSemanticHeadingCount": 15,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "What does contract interpretation mean?\n"
+        },
+        {
+          "tag": "h2",
+          "text": "The starting rule: the contract binds the parties\n"
+        },
+        {
+          "tag": "h2",
+          "text": "When may a court interpret a contract?\n"
+        },
+        {
+          "tag": "h2",
+          "text": "How does a judge identify the intended meaning?\n"
+        },
+        {
+          "tag": "h3",
+          "text": "1. The parties’ common intention\n"
+        },
+        {
+          "tag": "h3",
+          "text": "2. The contract as a whole\n"
+        },
+        {
+          "tag": "h3",
+          "text": "3. The nature of the transaction\n"
+        },
+        {
+          "tag": "h3",
+          "text": "4. Custom and established usage\n"
+        },
+        {
+          "tag": "h2",
+          "text": "How is unresolved doubt treated?\n"
+        },
+        {
+          "tag": "h2",
+          "text": "Good faith and contractual meaning\n"
+        },
+        {
+          "tag": "h2",
+          "text": "Practical examples\n"
+        },
+        {
+          "tag": "h2",
+          "text": "Common drafting problems that cause disputes\n\n  "
+        },
+        {
+          "tag": "h2",
+          "text": "How can the risk of disagreement be reduced?\n\n  "
+        },
+        {
+          "tag": "h2",
+          "text": "Conclusion\n"
+        },
+        {
+          "tag": "h2",
+          "text": "References\n\n  "
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/contractual-liability-in-commercial-transactions",
+      "snapshotFile": "__pages/blog-en-contractual-liability-in-commercial-transactions.html",
+      "snapshotSha256": "d959c023463d009737b1119cafb59d5627c3ae7c664b2e0c333610d5688072e8",
+      "beforeSemanticHeadingCount": 7,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "A Legal Analysis in Light of Saudi Laws"
+        },
+        {
+          "tag": "h2",
+          "text": "First: The Nature of Contractual Liability under Saudi Law."
+        },
+        {
+          "tag": "h2",
+          "text": "Second: Conditions for Contractual Liability."
+        },
+        {
+          "tag": "h2",
+          "text": "Third: Forms of Contractual Breach in Commercial Transactions."
+        },
+        {
+          "tag": "h2",
+          "text": "Fourth: Compensation for Contractual Liability."
+        },
+        {
+          "tag": "h2",
+          "text": "Fifth: The Role of Penalty Clauses in Promoting Compliance."
+        },
+        {
+          "tag": "h2",
+          "text": "Sixth: Ways Traders Can Protect Themselves from Contractual Liability."
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/defects-of-will-syrian-law",
+      "snapshotFile": "__pages/blog-en-defects-of-will-syrian-law.html",
+      "snapshotSha256": "46dfbebc74f617026f2b6236739c7d9d3a075a92be76495975648ef55454f537",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "Part One: Defects of Consent Affecting Consent",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Section One: Mistake",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "Section Two: Duress",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "Section Three: Fraud",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "Section Four: Exploitation",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "Part Two: Comparison of Defects of Consent",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Part Three: Legal Effects of Defects of Consent",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Part Four: Proving Defects of Consent Before the Courts",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Part Five: The Importance of Legal Review Before Contracting",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/e-contracts-legal-validity-saudi-arabia",
+      "snapshotFile": "__pages/blog-en-e-contracts-legal-validity-saudi-arabia.html",
+      "snapshotSha256": "3fce3db9515ffba96dbad6887ea21d7e5968368d6c84059967edb291eb4991e1",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: The nature of the electronic contract.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Second: The statutory basis for electronic contracts in Saudi Arabia.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Third: The elements of the electronic contract.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fourth: The evidentiary value of the electronic signature.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fifth: Methods of proving electronic contracts before the courts.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Sixth: The principal disputes relating to electronic contracts.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Seventh: Liability of electronic platforms.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Eighth: Practical recommendations for merchants and electronic transactors.",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/formation-of-commercial-contracts-saudi-law",
+      "snapshotFile": "__pages/blog-en-formation-of-commercial-contracts-saudi-law.html",
+      "snapshotSha256": "5912646f5d1b214eaad7a3e548fd59d313b157233911f6af5d819af5554ad04e",
+      "beforeSemanticHeadingCount": 11,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": " Formation of Commercial Contracts Under Saudi Law"
+        },
+        {
+          "tag": "h2",
+          "text": "Elements, Requirements, and Consequences of Their Absence"
+        },
+        {
+          "tag": "h2",
+          "text": "First: The Nature and Importance of a Commercial Contract."
+        },
+        {
+          "tag": "h2",
+          "text": "Second: Elements of Formation of a Commercial Contract Under Saudi Law."
+        },
+        {
+          "tag": "h3",
+          "text": "1) Mutual Consent (Offer and Acceptance):"
+        },
+        {
+          "tag": "h3",
+          "text": "2) Subject Matter (Object of the Contract):"
+        },
+        {
+          "tag": "h3",
+          "text": "3) Cause (the Lawful Purpose of the Contract):"
+        },
+        {
+          "tag": "h2",
+          "text": "Third: Requirements for the Validity of a Commercial Contract."
+        },
+        {
+          "tag": "h2",
+          "text": "Fourth: Stages of Formation of a Commercial Contract."
+        },
+        {
+          "tag": "h2",
+          "text": "Fifth: Consequences of the Absence of an Element or Requirement of the Contract."
+        },
+        {
+          "tag": "h2",
+          "text": "Sixth: Practical Recommendations for Traders When Drafting Contracts."
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/fskh-alaqd-altjary-fy-alnzam-alsawdy",
+      "snapshotFile": "__pages/blog-en-fskh-alaqd-altjary-fy-alnzam-alsawdy.html",
+      "snapshotSha256": "0b173d008b80fe8ab6c9902e3797d95f80101ddcc15ae8cdcd72bb9bc91f3437",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: Meaning of Commercial Contract Termination",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Second: Legal Basis for Termination in Saudi Arabia",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Third: Types of Commercial Contract Termination",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fourth: Conditions for Terminating a Commercial Contract",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Fifth: Effects of Commercial Contract Termination",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Sixth: Issues to examine in a termination claim",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Seventh: Proving Termination Before the Courts",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Eighth: Practical Recommendations for Traders and Lawyers",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry",
+      "snapshotFile": "__pages/blog-en-hdwd-alymyn-alhasmh-fy-alathbat-almdny-swry.html",
+      "snapshotSha256": "68d35d0ed0946c72f645a28667df218577b189fec1bc6442ff506fb7cee3d10e",
+      "beforeSemanticHeadingCount": 30,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "An Analytical Study in Light of Syrian Court of Cassation Ruling No. 4886 of 1963"
+        },
+        {
+          "tag": "h3",
+          "text": "Abstract"
+        },
+        {
+          "tag": "h2",
+          "text": "Introduction"
+        },
+        {
+          "tag": "h2",
+          "text": "1. Research Issue"
+        },
+        {
+          "tag": "h2",
+          "text": "2. Method and Scope"
+        },
+        {
+          "tag": "h2",
+          "text": "Part One: Legal System of the Conclusive Oath"
+        },
+        {
+          "tag": "h3",
+          "text": "First: Concept and Legal Nature"
+        },
+        {
+          "tag": "h3",
+          "text": "Second: Requirements Concerning the Subject Matter"
+        },
+        {
+          "tag": "h2",
+          "text": "Part Two: Legal Limits on Directing the Oath"
+        },
+        {
+          "tag": "h3",
+          "text": "First: Form Required for Proof versus Form Required for Existence or Validity"
+        },
+        {
+          "tag": "h3",
+          "text": "Second: Official Probative Force"
+        },
+        {
+          "tag": "h3",
+          "text": "Third: Public Order"
+        },
+        {
+          "tag": "h2",
+          "text": "Part Three: Facts of Ruling No. 4886 of 1963"
+        },
+        {
+          "tag": "h2",
+          "text": "Part Four: Legal Basis of the Cassation Ruling"
+        },
+        {
+          "tag": "h2",
+          "text": "Part Five: Productivity of the Oath"
+        },
+        {
+          "tag": "h2",
+          "text": "Part Six: The Oath and Official Instruments"
+        },
+        {
+          "tag": "h2",
+          "text": "Part Seven: Inadmissible, Unproductive and Malicious Oaths"
+        },
+        {
+          "tag": "h2",
+          "text": "Part Eight: Liability for Perjury"
+        },
+        {
+          "tag": "h2",
+          "text": "Part Nine: Consistency with Syrian Cassation Jurisprudence"
+        },
+        {
+          "tag": "h2",
+          "text": "Part Ten: Critical Reading"
+        },
+        {
+          "tag": "h2",
+          "text": "Part Eleven: Proposed Judicial Review Test"
+        },
+        {
+          "tag": "h2",
+          "text": "Part Twelve: Rule Derived from the Judgment"
+        },
+        {
+          "tag": "h2",
+          "text": "Findings"
+        },
+        {
+          "tag": "h2",
+          "text": "Professional Recommendations"
+        },
+        {
+          "tag": "h2",
+          "text": "Conclusion"
+        },
+        {
+          "tag": "h2",
+          "text": "Sources and References"
+        },
+        {
+          "tag": "h3",
+          "text": "Legislation"
+        },
+        {
+          "tag": "h3",
+          "text": "Case Law"
+        },
+        {
+          "tag": "h3",
+          "text": "Legal References"
+        },
+        {
+          "tag": "h2",
+          "text": "Documentary Note"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya",
+      "snapshotFile": "__pages/blog-en-hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya.html",
+      "snapshotSha256": "85b45b9f1884097c3118b2586ca91690f617dc4b156bf6b11310d226229710b2",
+      "beforeSemanticHeadingCount": 9,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "Understanding the Deal Comes Before Reviewing the Text:"
+        },
+        {
+          "tag": "h2",
+          "text": "Identifying Risks Before They Become a Dispute:"
+        },
+        {
+          "tag": "h2",
+          "text": "Who Should Bear the Risk?"
+        },
+        {
+          "tag": "h2",
+          "text": "Protecting Commercial Return Matters as Much as Defining Liability:"
+        },
+        {
+          "tag": "h2",
+          "text": "Do Not Read the Termination Clause in Isolation:"
+        },
+        {
+          "tag": "h2",
+          "text": "A Right Has Little Value If It Cannot Be Enforced:"
+        },
+        {
+          "tag": "h2",
+          "text": "A Final Review May Prevent a Major Problem"
+        },
+        {
+          "tag": "h2",
+          "text": "CounselO’s Approach to Contract Review:"
+        },
+        {
+          "tag": "h2",
+          "text": "Conclusion"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh",
+      "snapshotFile": "__pages/blog-en-hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh.html",
+      "snapshotSha256": "a468668a370694d9e49e1ea2df3bb0e3a5cb23760bd597cf9e66f1d1ed64adf1",
+      "beforeSemanticHeadingCount": 6,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "Introduction:"
+        },
+        {
+          "tag": "h2",
+          "text": "First: Manifestations of Majority Overreach and Risks Facing the Minority"
+        },
+        {
+          "tag": "h2",
+          "text": "Second: Protective Mechanisms in Light of Modern Governance Principles"
+        },
+        {
+          "tag": "h3",
+          "text": "1. Preventive Mechanisms (Before Harm Occurs):"
+        },
+        {
+          "tag": "h3",
+          "text": "2. Remedial and Supervisory Mechanisms (After Harm Occurs):"
+        },
+        {
+          "tag": "h2",
+          "text": "Third: The Economic Impact of Protecting the Minority"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/hyn-ykwn-alaqrar-aqwa-mn-alankar",
+      "snapshotFile": "__pages/blog-en-hyn-ykwn-alaqrar-aqwa-mn-alankar.html",
+      "snapshotSha256": "e2012437d58887ef00e4f644b73c0bc78e6a801cebbde1b0e963e6754740d851",
+      "beforeSemanticHeadingCount": 11,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "Distinguishing Between the Substance of the Right and the Possibility of Enforcing It"
+        },
+        {
+          "tag": "h2",
+          "text": "Not Denying the Sale May Be the Stronger Defense"
+        },
+        {
+          "tag": "h2",
+          "text": "Actual Possession Is Not Formal Title Transfer"
+        },
+        {
+          "tag": "h2",
+          "text": "Where the Sold Portion Lies Within a Parent Property"
+        },
+        {
+          "tag": "h2",
+          "text": "An Enforcement Attachment Does Not Necessarily Mean the Sale Is Void"
+        },
+        {
+          "tag": "h2",
+          "text": "The Importance of Explaining That the Attachment Is Not Specific to the Property in Dispute"
+        },
+        {
+          "tag": "h2",
+          "text": "Where the Underlying Debt Is Owed by a Company and the Defendant Is Merely a Guarantor"
+        },
+        {
+          "tag": "h2",
+          "text": "Measured Judicial Admission"
+        },
+        {
+          "tag": "h2",
+          "text": "Joining the Assignor May Be Necessary to Stabilize the Right"
+        },
+        {
+          "tag": "h2",
+          "text": "When Is This Strategy Appropriate?"
+        },
+        {
+          "tag": "h2",
+          "text": "Here Is the Point"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa",
+      "snapshotFile": "__pages/blog-en-lys-kl-mblgh-ytalb-bh-yhkm-bh-kyf-tfkk-almtalbat-altjaryh-qbl-bna-aldfaa.html",
+      "snapshotSha256": "2cd5a86cce8db4e7a15d3b6a32a441516747ea3ca4c041edd1a2aa91c58999a3",
+      "beforeSemanticHeadingCount": 7,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "A Financial Claim Is Not a Single Number:"
+        },
+        {
+          "tag": "h2",
+          "text": "Proving a Breach Does Not Automatically Establish Entitlement to Full Compensation:"
+        },
+        {
+          "tag": "h2",
+          "text": "How Is a Defense Strategy Built?"
+        },
+        {
+          "tag": "h2",
+          "text": "Practical Application: A Claim for SAR 500,000 Resulted in SAR 227,000"
+        },
+        {
+          "tag": "h2",
+          "text": "Managing the Client’s Financial Exposure"
+        },
+        {
+          "tag": "h2",
+          "text": "CounselO’s Approach"
+        },
+        {
+          "tag": "h2",
+          "text": "Accordingly:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/mhl-alaqd-fy-alqanwn-alswry",
+      "snapshotFile": "__pages/blog-en-mhl-alaqd-fy-alqanwn-alswry.html",
+      "snapshotSha256": "dc79fba49ffd121ad77e753ae7ca76b3f0be834e1fe2b9383de24af1c1df9784",
+      "beforeSemanticHeadingCount": 11,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "1. The Subject Matter Must Be Possible"
+        },
+        {
+          "tag": "h2",
+          "text": "2. The Subject Matter Must Be Specified or Capable of Determination"
+        },
+        {
+          "tag": "h2",
+          "text": "3. The Subject Matter Must Be Lawful"
+        },
+        {
+          "tag": "h2",
+          "text": "Example One: Impossible Subject Matter"
+        },
+        {
+          "tag": "h2",
+          "text": "Example Two: Subject Matter Capable of Determination"
+        },
+        {
+          "tag": "h2",
+          "text": "Example Three: Unlawful Subject Matter"
+        },
+        {
+          "tag": "h2",
+          "text": "Example Four: Ambiguous Specifications"
+        },
+        {
+          "tag": "h2",
+          "text": "May the Parties Contract for an Item That Does Not Exist When the Contract Is Made?"
+        },
+        {
+          "tag": "h2",
+          "text": "Does Failure to State the Quality Render the Contract Void?"
+        },
+        {
+          "tag": "h2",
+          "text": "Does Every Difficulty in Performance Mean the Subject Matter Is Impossible?"
+        },
+        {
+          "tag": "h2",
+          "text": "May Determination of the Subject Matter Be Left to a Later Agreement?"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/mnhjyh-5why-fy-alaml-alqanwny",
+      "snapshotFile": "__pages/blog-en-mnhjyh-5why-fy-alaml-alqanwny.html",
+      "snapshotSha256": "2a995f920c4296d2e0bf931d1ae3daa947943772a79c4f3adfe6f08097661a63",
+      "beforeSemanticHeadingCount": 13,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "What is the 5Why methodology?"
+        },
+        {
+          "tag": "h2",
+          "text": "Why do law firms need this methodology?"
+        },
+        {
+          "tag": "h2",
+          "text": "An illustrative legal analysis"
+        },
+        {
+          "tag": "h3",
+          "text": "The problem"
+        },
+        {
+          "tag": "h3",
+          "text": "Why (1)?"
+        },
+        {
+          "tag": "h3",
+          "text": "Why (2)?"
+        },
+        {
+          "tag": "h3",
+          "text": "Why (3)?"
+        },
+        {
+          "tag": "h3",
+          "text": "Why (4)?"
+        },
+        {
+          "tag": "h3",
+          "text": "Why (5)?"
+        },
+        {
+          "tag": "h2",
+          "text": "Conclusion"
+        },
+        {
+          "tag": "h2",
+          "text": "Treating symptoms versus treating the cause"
+        },
+        {
+          "tag": "h2",
+          "text": "When is this methodology effective?"
+        },
+        {
+          "tag": "h2",
+          "text": "How does CounselO apply this philosophy?"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa",
+      "snapshotFile": "__pages/blog-en-mta-yfqd-shrt-althkym-athrh-alamly-fy-alnzaa.html",
+      "snapshotSha256": "8dda2985a0d0845efe9b300afcb63f87f21038948b3f957dc2d0cf4f6fa7bd97",
+      "beforeSemanticHeadingCount": 4,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "Having an Arbitration Clause and Activating It Are Two Different Things:"
+        },
+        {
+          "tag": "h2",
+          "text": "When Does the Problem Arise in Practice?"
+        },
+        {
+          "tag": "h2",
+          "text": "What Happens When Arbitration Is Not Possible?"
+        },
+        {
+          "tag": "h2",
+          "text": "Conclusion:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm",
+      "snapshotFile": "__pages/blog-en-mta-ykwn-alqrar-aladary-qabla-llalgha-amam-dywan-almzalm.html",
+      "snapshotSha256": "d8efb7b6e9c7367692366cd851290ebe869e5206771897f6ce33f4776cafa67c",
+      "beforeSemanticHeadingCount": 5,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "When Can an Administrative Decision Be Challenged?"
+        },
+        {
+          "tag": "h2",
+          "text": "Not Every Administrative Act Is Subject to an Annulment Claim"
+        },
+        {
+          "tag": "h2",
+          "text": "Deadlines and Procedures Matter"
+        },
+        {
+          "tag": "h2",
+          "text": "How Should the Decision Be Analyzed?"
+        },
+        {
+          "tag": "h2",
+          "text": "Conclusion:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh",
+      "snapshotFile": "__pages/blog-en-mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh.html",
+      "snapshotSha256": "e79ba5c2ded645f131ac15a3af8f8426c6ec601edb30965174c319884183bb19",
+      "beforeSemanticHeadingCount": 10,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "Settlement Is Not a Waiver of Rights:"
+        },
+        {
+          "tag": "h2",
+          "text": "When Should the Settlement Option Be Considered?"
+        },
+        {
+          "tag": "h2",
+          "text": "The Difference Between the Value of the Claim and the Value of the Outcome:"
+        },
+        {
+          "tag": "h2",
+          "text": "A Good Settlement Should Close the Dispute, Not Postpone It:"
+        },
+        {
+          "tag": "h2",
+          "text": "Why May Judicial Recording of the Settlement Be Important?"
+        },
+        {
+          "tag": "h2",
+          "text": "From Litigation to Settlement: The Strategic Decision."
+        },
+        {
+          "tag": "h2",
+          "text": "Practical Application: Full Recovery of Capital Through Settlement."
+        },
+        {
+          "tag": "h2",
+          "text": "The Legal Lesson from the Case Study:"
+        },
+        {
+          "tag": "h2",
+          "text": "Accordingly:"
+        },
+        {
+          "tag": "h3",
+          "text": "Related Case Study"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh",
+      "snapshotFile": "__pages/blog-en-mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh.html",
+      "snapshotSha256": "6f15b068404b64598989b8c8c3cf31e57b900232b83cf2d4de32cbd73c67da28",
+      "beforeSemanticHeadingCount": 8,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "First: A Subsequent Final Judgment May Constitute a New Decisive Paper."
+        },
+        {
+          "tag": "h3",
+          "text": "Principle Derived"
+        },
+        {
+          "tag": "h2",
+          "text": "Second: The Appearance of a Decisive Official Document May Reopen a Final Judgment."
+        },
+        {
+          "tag": "h3",
+          "text": "Principle Derived"
+        },
+        {
+          "tag": "h2",
+          "text": "Third: Mischaracterizing New Evidence May Justify Quashing a Decision Rejecting the Petition."
+        },
+        {
+          "tag": "h3",
+          "text": "Principle Derived"
+        },
+        {
+          "tag": "h2",
+          "text": "Statute and identified decision"
+        },
+        {
+          "tag": "h2",
+          "text": "Statute and identified decision"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy",
+      "snapshotFile": "__pages/blog-en-mta-ysbh-astamal-alhq-tasfa-fy-alnzam-alsawdy.html",
+      "snapshotSha256": "ad11283e8ab6fd253dd8503b497e0aab3938ac286aa982298def1d34b63125ea",
+      "beforeSemanticHeadingCount": 7,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "The general rule: lawful exercise of a right does not give rise to liability."
+        },
+        {
+          "tag": "h2",
+          "text": "When is the exercise of a right abusive?"
+        },
+        {
+          "tag": "h2",
+          "text": "The Sharia basis of the principle:"
+        },
+        {
+          "tag": "h2",
+          "text": "How is abuse established before the courts?"
+        },
+        {
+          "tag": "h2",
+          "text": "What is the effect of establishing abuse?"
+        },
+        {
+          "tag": "h2",
+          "text": "How does abuse appear in contracts and commercial transactions?"
+        },
+        {
+          "tag": "h2",
+          "text": "Accordingly:"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/mta-ysthq-alwsyt-altjary-kaml-amwlth",
+      "snapshotFile": "__pages/blog-en-mta-ysthq-alwsyt-altjary-kaml-amwlth.html",
+      "snapshotSha256": "d3ba205a90f558064b9ee4fee760741a173c97fdf30fd4d77b19b17cd85d6855",
+      "beforeSemanticHeadingCount": 9,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "Agreeing on a Commission Does Not Always Mean It Is Fully Payable:"
+        },
+        {
+          "tag": "h2",
+          "text": "The Existence of Entitlement Is One Issue; Its Amount Is Another:"
+        },
+        {
+          "tag": "h2",
+          "text": "The Burden of Proof Extends Beyond the Existence of the Contract"
+        },
+        {
+          "tag": "h2",
+          "text": "Why Are Lump-Sum Claims Rejected?"
+        },
+        {
+          "tag": "h2",
+          "text": "The Role of the Defense in These Cases:"
+        },
+        {
+          "tag": "h2",
+          "text": "Practical Application:"
+        },
+        {
+          "tag": "h2",
+          "text": "The Legal Lesson:"
+        },
+        {
+          "tag": "h2",
+          "text": "Here:"
+        },
+        {
+          "tag": "h3",
+          "text": "Related Case Study"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh",
+      "snapshotFile": "__pages/blog-en-mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh.html",
+      "snapshotSha256": "096da508f50c68da0f86b23502e4cff47df1e29e0a6413193e38b066a66c0449",
+      "beforeSemanticHeadingCount": 7,
+      "existingHeadings": [
+        {
+          "tag": "h2",
+          "text": "The Signature Cannot Be Read Separately from the Record:"
+        },
+        {
+          "tag": "h2",
+          "text": "When Does the Signature Become More Risky?"
+        },
+        {
+          "tag": "h2",
+          "text": "How Can the Meaning of the Signature Be Protected?"
+        },
+        {
+          "tag": "h2",
+          "text": "Memory Is Not a Substitute for Accounting Records:"
+        },
+        {
+          "tag": "h2",
+          "text": "Do Not Sign Before Reading the Result Created by the Record"
+        },
+        {
+          "tag": "h2",
+          "text": "CounselO’s Approach:"
+        },
+        {
+          "tag": "h2",
+          "text": "Conclusion"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/performance-of-contracts-in-good-faith-under-syrian-law",
+      "snapshotFile": "__pages/blog-en-performance-of-contracts-in-good-faith-under-syrian-law.html",
+      "snapshotSha256": "80736b9e95d49e3e105af57f718a1f7cff42d4e338b14047d0b263f25e1c133b",
+      "beforeSemanticHeadingCount": 0,
+      "promotions": [
+        {
+          "text": "First: construction contracts.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "Second: supply contracts.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "Third: lease contracts.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "Fourth: company contracts.",
+          "tag": "h3",
+          "rationale": "Existing subordinate label under the identified major section"
+        },
+        {
+          "text": "What is meant by performing a contract in good faith?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Legal basis:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "What does the principle of good faith require of contracting parties?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Good faith does not mean relinquishing rights:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Practical applications of the principle of good faith:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "When is a party deemed to be acting in bad faith?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Effect of good faith on contract interpretation:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "The relationship between good faith and abuse of rights:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "Burden of proof:",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "How can disputes relating to contract performance be avoided?",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        },
+        {
+          "text": "References",
+          "tag": "h2",
+          "rationale": "Existing standalone major-section label"
+        }
+      ],
+      "stage": "semantic-promotion-authored-words-preserved",
+      "fullSearchIntentCoverage": false
+    },
+    {
+      "route": "/blog/en/syghh-mdhkrh-tfahm-qablh-lltadyl",
+      "snapshotFile": "__pages/blog-en-syghh-mdhkrh-tfahm-qablh-lltadyl.html",
+      "snapshotSha256": "bea08cbe5c15436bda460a8948c1ba90efbafaae448292313f66b769e63170b7",
+      "beforeSemanticHeadingCount": 1,
+      "existingHeadings": [
+        {
+          "tag": "h3",
+          "text": "For Assistance in Preparing a Memorandum of Understanding"
+        }
+      ],
+      "promotions": [],
+      "stage": "existing-semantic-sections-retained",
+      "fullSearchIntentCoverage": false
+    }
+  ],
+  "validation": {
+    "focusedTests": 3,
+    "focusedTestsPassed": 3,
+    "snapshotRoutesChecked": 90,
+    "observedPromotions": 368,
+    "expectedPromotionMismatches": 0,
+    "textPreservation": "All90 full snapshots retained identical text after stripping markup",
+    "idempotency": "All90 full snapshots unchanged on second correction pass",
+    "remaining": "Parent integration, final correction pipeline compatibility and rendered/browser validation"
+  }
+}

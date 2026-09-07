@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEARCH_INTENT_EDITORIAL } from "@/lib/search-intent-editorial-data";
 
@@ -11,6 +12,7 @@ export function SearchIntentGuidance({ page }: { page: "home" | "contact" | "lib
       {faqs.map(faq => <details key={faq.q} className="group border-b border-border py-5">
         <summary className="cursor-pointer text-start font-semibold leading-7">{faq.q}</summary>
         <p className="mt-4 max-w-4xl leading-8 text-muted-foreground">{faq.a}</p>
+        {faq.related && <Link href={faq.related.href} className="mt-3 inline-block max-w-full text-primary underline underline-offset-4">{faq.related.label}</Link>}
       </details>)}
     </div>
   </section>;

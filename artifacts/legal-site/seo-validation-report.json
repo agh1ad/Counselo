@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06 21:21:09 UTC",
+  "generatedAt": "2026-09-07 01:01:32 UTC",
   "summary": {
     "pages": 1468,
     "redirects": 326,
@@ -57,7 +57,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 125
+      "internalLinkCount": 126
     },
     {
       "file": "__pages/ar-our-work.html",
@@ -157,7 +157,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 15
+      "internalLinkCount": 14
     },
     {
       "file": "__pages/blog-ar-alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh.html",
@@ -521,7 +521,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 14
+      "internalLinkCount": 15
     },
     {
       "file": "__pages/blog-ar-hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh.html",
@@ -563,7 +563,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 16
+      "internalLinkCount": 17
     },
     {
       "file": "__pages/blog-ar-mhl-alaqd-fy-alqanwn-alswry.html",
@@ -633,7 +633,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 12
+      "internalLinkCount": 13
     },
     {
       "file": "__pages/blog-ar-mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh.html",
@@ -675,7 +675,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 16
+      "internalLinkCount": 17
     },
     {
       "file": "__pages/blog-ar-mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh.html",
@@ -689,7 +689,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 16
+      "internalLinkCount": 17
     },
     {
       "file": "__pages/blog-ar-performance-of-contracts-in-good-faith-under-syrian-law.html",
@@ -812,7 +812,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 15
+      "internalLinkCount": 14
     },
     {
       "file": "__pages/blog-en-alfrq-byn-alfskh-waltawyd-fy-alaqwd-altjaryh.html",
@@ -1176,7 +1176,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 14
+      "internalLinkCount": 15
     },
     {
       "file": "__pages/blog-en-hwkmh-alshrkat-kdmanh-mwdwayh-lhmayh-hqwq-msahmy-alaqlyh.html",
@@ -1218,7 +1218,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 16
+      "internalLinkCount": 17
     },
     {
       "file": "__pages/blog-en-mhl-alaqd-fy-alqanwn-alswry.html",
@@ -1288,7 +1288,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 12
+      "internalLinkCount": 13
     },
     {
       "file": "__pages/blog-en-mta-yqbl-altmas-aaadh-alnzr-atjahat-qdayyh-mhmh.html",
@@ -1330,7 +1330,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 16
+      "internalLinkCount": 17
     },
     {
       "file": "__pages/blog-en-mta-ythwl-twqya-alaaml-ala-mhdr-almrajah-ala-aqrar-balmswwlyh.html",
@@ -1344,7 +1344,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 16
+      "internalLinkCount": 17
     },
     {
       "file": "__pages/blog-en-performance-of-contracts-in-good-faith-under-syrian-law.html",
@@ -1412,7 +1412,7 @@
         "BreadcrumbList"
       ],
       "hreflangCount": 3,
-      "internalLinkCount": 125
+      "internalLinkCount": 126
     },
     {
       "file": "__pages/our-work.html",
@@ -10455,8 +10455,8 @@
       "file": "__pages/syr-ar-services-arbitration-emergency-arbitration-and-interim-measures.html",
       "route": "/syr/ar/services/arbitration/emergency-arbitration-and-interim-measures",
       "isRedirect": false,
-      "title": "استشارة: التحكيم الطارئ والتدابير المؤقتة | سوريا | كاونسلو",
-      "description": "راجع التحكيم الطارئ والتدابير المؤقتة ضمن التحكيم والوساطة في سوريا. تحدد كاونسلو الجهة والمستندات والخطوة التالية أونلاين.",
+      "title": "استشارة: التدابير العاجلة … وإجراءات المحكمة | سوريا | كاونسلو",
+      "description": "راجع التدابير العاجلة في التحكيم: القواعد المتفق عليها وإجراءات المحكمة ضمن التحكيم والوساطة في سوريا. تحدد كاونسلو الجهة والمستندات والخطوة التالية أونلاين.",
       "issues": [],
       "schemaTypes": [
         "WebPage",
@@ -10776,8 +10776,8 @@
       "file": "__pages/syr-ar-services-business-law-commercial-concealment-dispute.html",
       "route": "/syr/ar/services/business-law/commercial-concealment-dispute",
       "isRedirect": false,
-      "title": "استشارة: منازعة التستر التجاري | سوريا | كاونسلو",
-      "description": "راجع منازعة التستر التجاري ضمن التجاري في سوريا. تحدد كاونسلو الجهة والمستندات والخطوة التالية أونلاين.",
+      "title": "استشارة: منازعة ملكية النشاط التجاري والسيطرة عليه | سوريا | كاونسلو",
+      "description": "راجع منازعة ملكية النشاط التجاري والسيطرة عليه ضمن التجاري في سوريا. تحدد كاونسلو الجهة والمستندات والخطوة التالية أونلاين.",
       "issues": [],
       "schemaTypes": [
         "WebPage",
@@ -12553,8 +12553,8 @@
       "file": "__pages/syr-ar-services-employment-law-sponsorship-transfer-dispute.html",
       "route": "/syr/ar/services/employment-law/sponsorship-transfer-dispute",
       "isRedirect": false,
-      "title": "استشارة: منازعة نقل الكفالة | سوريا | كاونسلو",
-      "description": "راجع منازعة نقل الكفالة ضمن العمل في سوريا. تحدد كاونسلو الجهة والمستندات والخطوة التالية أونلاين.",
+      "title": "استشارة: منازعة تغيير صاحب العمل والسجل الوظيفي | سوريا | كاونسلو",
+      "description": "راجع منازعة تغيير صاحب العمل والسجل الوظيفي ضمن العمل في سوريا. تحدد كاونسلو الجهة والمستندات والخطوة التالية أونلاين.",
       "issues": [],
       "schemaTypes": [
         "WebPage",
@@ -12587,8 +12587,8 @@
       "file": "__pages/syr-ar-services-employment-law-visa-exit-and-re-entry-restriction-affecting-employment.html",
       "route": "/syr/ar/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment",
       "isRedirect": false,
-      "title": "استشارة: قيود التأشيرة … المؤثرة في العمل | سوريا | كاونسلو",
-      "description": "راجع قيود التأشيرة أو الخروج والعودة المؤثرة في العمل ضمن العمل في سوريا. تحدد كاونسلو الجهة والمستندات والخطوة التالية أونلاين.",
+      "title": "استشارة: قيود السفر والدخول المؤثرة في العمل | سوريا | كاونسلو",
+      "description": "راجع قيود السفر والدخول المؤثرة في العمل ضمن العمل في سوريا. تحدد كاونسلو الجهة والمستندات والخطوة التالية أونلاين.",
       "issues": [],
       "schemaTypes": [
         "WebPage",
@@ -12875,8 +12875,8 @@
       "file": "__pages/syr-ar-services-enforcement-service-suspension-and-asset-freezing-request.html",
       "route": "/syr/ar/services/enforcement/service-suspension-and-asset-freezing-request",
       "isRedirect": false,
-      "title": "استشارة: طلب إيقاف الخدمات وتجميد الأصول | سوريا | كاونسلو",
-      "description": "راجع طلب إيقاف الخدمات وتجميد الأصول ضمن التنفيذ وتحصيل الديون في سوريا. تحدد كاونسلو الجهة والمستندات والخطوة التالية أونلاين.",
+      "title": "استشارة: طلب الحجز والتدابير التحفظية | سوريا | كاونسلو",
+      "description": "راجع طلب الحجز والتدابير التحفظية ضمن التنفيذ وتحصيل الديون في سوريا. تحدد كاونسلو الجهة والمستندات والخطوة التالية أونلاين.",
       "issues": [],
       "schemaTypes": [
         "WebPage",
@@ -14144,8 +14144,8 @@
       "file": "__pages/syr-ar-services-real-estate-property-service-charge-and-maintenance-dispute.html",
       "route": "/syr/ar/services/real-estate/property-service-charge-and-maintenance-dispute",
       "isRedirect": false,
-      "title": "استشارة: منازعة رسوم الخدمات وصيانة العقار | سوريا | كاونسلو",
-      "description": "راجع منازعة رسوم الخدمات وصيانة العقار ضمن العقارات في سوريا. تحدد كاونسلو الجهة والمستندات والخطوة التالية أونلاين.",
+      "title": "استشارة: منازعة نفقات البناء المشتركة والصيانة | سوريا | كاونسلو",
+      "description": "راجع منازعة نفقات البناء المشتركة والصيانة ضمن العقارات في سوريا. تحدد كاونسلو الجهة والمستندات والخطوة التالية أونلاين.",
       "issues": [],
       "schemaTypes": [
         "WebPage",
@@ -14998,8 +14998,8 @@
       "file": "__pages/syr-services-arbitration-emergency-arbitration-and-interim-measures.html",
       "route": "/syr/services/arbitration/emergency-arbitration-and-interim-measures",
       "isRedirect": false,
-      "title": "Emergency arbitration and interim measures | Syria | CounselO",
-      "description": "Review Emergency arbitration and interim measures under arbitration & mediation in Syria. CounselO checks the authority, documents and next step online.",
+      "title": "Urgent relief … and court measures | Syria | CounselO",
+      "description": "Review arbitration: agreed rules and court measures under arbitration & mediation in Syria. CounselO checks the authority, documents and next step online.",
       "issues": [],
       "schemaTypes": [
         "WebPage",
@@ -15319,8 +15319,8 @@
       "file": "__pages/syr-services-business-law-commercial-concealment-dispute.html",
       "route": "/syr/services/business-law/commercial-concealment-dispute",
       "isRedirect": false,
-      "title": "Commercial concealment dispute | Syria | CounselO",
-      "description": "Review Commercial concealment dispute under commercial in Syria. CounselO checks the authority, documents and next step online.",
+      "title": "Disputed business ownership and control | Syria | CounselO",
+      "description": "Review Disputed business ownership and control under commercial in Syria. CounselO checks the authority, documents and next step online.",
       "issues": [],
       "schemaTypes": [
         "WebPage",
@@ -17132,8 +17132,8 @@
       "file": "__pages/syr-services-employment-law-sponsorship-transfer-dispute.html",
       "route": "/syr/services/employment-law/sponsorship-transfer-dispute",
       "isRedirect": false,
-      "title": "Sponsorship transfer dispute | Syria | CounselO",
-      "description": "Review Sponsorship transfer dispute under employment in Syria. CounselO checks the authority, documents and next step online.",
+      "title": "Changing employer and employment-record dispute | Syria | CounselO",
+      "description": "Review Changing employer and employment-record dispute under employment in Syria. CounselO checks the authority, documents and next step online.",
       "issues": [],
       "schemaTypes": [
         "WebPage",
@@ -17166,8 +17166,8 @@
       "file": "__pages/syr-services-employment-law-visa-exit-and-re-entry-restriction-affecting-employment.html",
       "route": "/syr/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment",
       "isRedirect": false,
-      "title": "Visa, exit and re-entry … affecting employment | Syria | CounselO",
-      "description": "Review Visa, exit and re-entry restriction affecting employment under employment in Syria. CounselO checks the authority, documents and next step online.",
+      "title": "Travel and entry … affecting employment | Syria | CounselO",
+      "description": "Review Travel and entry restrictions affecting employment under employment in Syria. CounselO checks the authority, documents and next step online.",
       "issues": [],
       "schemaTypes": [
         "WebPage",
@@ -17454,8 +17454,8 @@
       "file": "__pages/syr-services-enforcement-service-suspension-and-asset-freezing-request.html",
       "route": "/syr/services/enforcement/service-suspension-and-asset-freezing-request",
       "isRedirect": false,
-      "title": "Service suspension and asset-freezing request | Syria | CounselO",
-      "description": "Review suspension and asset-freezing request under enforcement & debt collection in Syria. CounselO checks the authority, documents and next step online.",
+      "title": "Asset attachment and protective-measure request | Syria | CounselO",
+      "description": "Review attachment and protective-measure request under enforcement & debt collection in Syria. CounselO checks the authority, documents and next step online.",
       "issues": [],
       "schemaTypes": [
         "WebPage",
@@ -18723,8 +18723,8 @@
       "file": "__pages/syr-services-real-estate-property-service-charge-and-maintenance-dispute.html",
       "route": "/syr/services/real-estate/property-service-charge-and-maintenance-dispute",
       "isRedirect": false,
-      "title": "Property service-charge and maintenance dispute | Syria | CounselO",
-      "description": "Review Property service-charge and maintenance dispute under property in Syria. CounselO checks the authority, documents and next step online.",
+      "title": "Shared-building expenses and maintenance dispute | Syria | CounselO",
+      "description": "Review Shared-building expenses and maintenance dispute under property in Syria. CounselO checks the authority, documents and next step online.",
       "issues": [],
       "schemaTypes": [
         "WebPage",
@@ -26922,7 +26922,7 @@
       "route": "/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
       "isRedirect": false,
       "title": "How CounselO Recovered SAR 300,000 Through Settlement | CounselO",
-      "description": "This case study explains how CounselO handled a commercial dispute to recover SAR 300,000 paid for an investment contribution that did not materialize, after assessing“",
+      "description": "A commercial settlement case: reviewing an unrealised investment contribution, documenting mutual concessions and recording the return of SAR 300,000.",
       "issues": [],
       "schemaTypes": [
         "CreativeWork",
@@ -27089,8 +27089,8 @@
       "file": "../audit-pages/our-work-astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal.html",
       "route": "/our-work/astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal",
       "isRedirect": false,
-      "title": "Recovering SAR 17 Million in Promissory Notes | CounselO",
-      "description": "CounselO reduced enforcement exposure from 16 notes exceeding SAR 17 million and secured recovery of their originals.",
+      "title": "Order to Return 16 Promissory Notes | CounselO",
+      "description": "A Saudi case distinguishing the actual debt from the face value of 16 promissory notes and obtaining an order to return their originals.",
       "issues": [],
       "schemaTypes": [
         "CreativeWork",
@@ -27103,8 +27103,8 @@
       "file": "../audit-pages/ar-our-work-astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal.html",
       "route": "/ar/our-work/astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal",
       "isRedirect": false,
-      "title": "استراتيجية كاونسلو لاسترداد سندات لأمر بقيمة 17 | أعمال كاونسلو",
-      "description": "في ملف كان يحمل خطرًا تنفيذيًا يتجاوز 17 مليون ريال عبر 16 سندًا لأمر، تدخلت كاونسلو لبناء استراتيجية قانونية دقيقة أعادت ربط السندات بسببها التعاقدي، وكشفت",
+      "title": "حكم بتسليم 16 سنداً لأمر | كاونسلو",
+      "description": "قضية سعودية تميز الدين الفعلي عن القيمة الاسمية لستة عشر سنداً لأمر، مع صدور حكم بتسليم أصولها.",
       "issues": [],
       "schemaTypes": [
         "CreativeWork",

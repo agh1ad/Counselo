@@ -1,3 +1,4 @@
+import { BAGHDADI_LAW_PROFILE_URL, BAGHDADI_LAW_CANONICAL_ENTITY_ID } from "./entity-architecture";
 import { getRegionLabel, type Region } from "./region-services";
 
 export type ArticleSource = {
@@ -13,6 +14,7 @@ export type ArticleProvenance = {
   primaryAuthorName: string;
   primaryAuthorNameAr: string;
   primaryAuthorUrl: string;
+  primaryAuthorEntityId?: string;
   legalReviewerName: string;
   legalReviewerNameAr: string;
   legalReviewerUrl: string;
@@ -173,6 +175,16 @@ export function assignArticleProvenance(input: {
   date?: string;
   updatedAt?: string | Date | null;
 }): ArticleProvenance {
+  // Preserve the supplied original credit only for this identified article.
+  const attributedLatentDefectArticle = (
+    input.titleEn?.trim() === "Hidden Defects in Contracts and Their Legal Effect"
+    || input.titleAr?.trim() === "العيوب الخفية في العقود وأثرها القانوني"
+  ) && [input.bodyEn, input.bodyAr].some((body) => body && (
+    body.includes("Prepared by Al-Baghdadi Law Firm and published on baghdadilaw.co")
+    || body.includes("من اعداد البغدادي للمحاماة والمقال منشور على الموقع baghdadilaw.co")
+    || body.includes("Original credit in the supplied article: Al-Baghdadi Law Firm, with publication attributed to baghdadilaw.co.")
+    || body.includes("نسبة التأليف الواردة في المقال المقدم: البغدادي للمحاماة، مع نسبة النشر إلى baghdadilaw.co.")
+  ));
   const contentType = input.contentType ?? "professional-commentary";
   const text = [input.titleEn, input.titleAr, input.excerptEn, input.excerptAr, input.categoryEn, input.categoryAr, input.bodyEn, input.bodyAr].filter(Boolean).join(" ");
   const jurisdiction = inferRegion(text);
@@ -182,9 +194,10 @@ export function assignArticleProvenance(input: {
     : input.date || new Date().toISOString().slice(0, 10);
   return {
     contentType,
-    primaryAuthorName: AUTHOR,
-    primaryAuthorNameAr: AUTHOR_AR,
-    primaryAuthorUrl: `/${jurisdiction}/about`,
+    primaryAuthorName: attributedLatentDefectArticle ? "Al-Baghdadi Law Firm" : AUTHOR,
+    primaryAuthorNameAr: attributedLatentDefectArticle ? "البغدادي للمحاماة" : AUTHOR_AR,
+    primaryAuthorUrl: attributedLatentDefectArticle ? BAGHDADI_LAW_PROFILE_URL : `/${jurisdiction}/about`,
+    ...(attributedLatentDefectArticle ? { primaryAuthorEntityId: BAGHDADI_LAW_CANONICAL_ENTITY_ID } : {}),
     legalReviewerName: REVIEWER,
     legalReviewerNameAr: REVIEWER_AR,
     legalReviewerUrl: `/${jurisdiction}/about`,
@@ -192,10 +205,10 @@ export function assignArticleProvenance(input: {
     applicableLaw: contentType === "legal-guidance" ? applicableLaw : "",
     applicableLawAr: contentType === "legal-guidance" ? applicableLawAr : "",
     sources: contentType === "legal-guidance" ? sourcesForArticle(jurisdiction, input.relatedServiceSlugs) : [],
-    keyLegalUpdateNote: contentType === "legal-guidance" ? "Check the cited primary sources for amendments, implementing decisions and later official guidance before acting." : "This is CounselO professional commentary, not a statement of the law of a particular jurisdiction.",
-    keyLegalUpdateNoteAr: contentType === "legal-guidance" ? "تحقق من المصادر الأولية المذكورة بشأن أي تعديلات أو قرارات تنفيذية أو إرشادات رسمية لاحقة قبل اتخاذ أي إجراء." : "هذا تعليق مهني من كاونسلو وليس بياناً للقانون في اختصاص قضائي محدد.",
-    contentMethodology: contentType === "legal-guidance" ? "Primary-law review plus CounselO practice commentary." : "CounselO editorial analysis and professional commentary based on team experience; no jurisdiction-specific legal conclusion is made.",
-    contentMethodologyAr: contentType === "legal-guidance" ? "مراجعة المصادر القانونية الأولية مع تعليق عملي من كاونسلو." : "تحليل تحريري وتعليق مهني من فريق كاونسلو استناداً إلى الخبرة العملية، من دون إبداء نتيجة قانونية خاصة باختصاص محدد.",
+    keyLegalUpdateNote: contentType === "legal-guidance" ? "Check the cited primary sources for amendments, implementing decisions and later official guidance before acting." : "This is CounselO editorial commentary. Apply any jurisdiction-specific discussion only within the scope stated in the article.",
+    keyLegalUpdateNoteAr: contentType === "legal-guidance" ? "تحقق من المصادر الأولية المذكورة بشأن أي تعديلات أو قرارات تنفيذية أو إرشادات رسمية لاحقة قبل اتخاذ أي إجراء." : "هذا تعليق تحريري من كاونسلو. يُقرأ أي تحليل خاص باختصاص قضائي ضمن النطاق المبين في المقال.",
+    contentMethodology: attributedLatentDefectArticle ? "The supplied article credits Al-Baghdadi Law Firm as original author and attributes its earlier publication to baghdadilaw.co. CounselO publishes an editorially adapted version; this does not replace the original credit or independently verify the earlier publication." : contentType === "legal-guidance" ? "Primary-law review plus CounselO practice commentary." : "Editorial explanation and professional commentary. Check the stated jurisdiction and any cited authority before applying an observation to a case.",
+    contentMethodologyAr: attributedLatentDefectArticle ? "ينسب المقال المقدم التأليف الأصلي إلى البغدادي للمحاماة والنشر السابق إلى baghdadilaw.co. تنشر كاونسلو نسخة محررة؛ ولا يستبدل ذلك نسبة التأليف الأصلية أو يثبت النشر السابق بصورة مستقلة." : contentType === "legal-guidance" ? "مراجعة المصادر القانونية الأولية مع تعليق عملي من كاونسلو." : "شرح تحريري وتعليق مهني. تحقّق من الاختصاص المذكور وأي مرجع مستشهد به قبل تطبيق ملاحظة على قضية محددة.",
     lastSubstantiveReviewAt: reviewDate,
     correctionUrl: `/${jurisdiction}/contact?subject=article-correction`,
   };

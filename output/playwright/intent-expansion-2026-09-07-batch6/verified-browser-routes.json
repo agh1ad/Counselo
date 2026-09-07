@@ -1,0 +1,6744 @@
+{
+  "environment": "local production browser,390x844",
+  "rows": [
+    {
+      "route": "/sa/services/arbitration/arbitration-clause-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must a Saudi arbitration agreement be written?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/arbitration/commercial-arbitration",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must a Saudi arbitration agreement be written?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/arbitration",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must a Saudi arbitration agreement be written?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/arbitration/arbitration-clause-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجب كتابة اتفاق التحكيم السعودي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/arbitration/commercial-arbitration",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجب كتابة اتفاق التحكيم السعودي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/arbitration",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجب كتابة اتفاق التحكيم السعودي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/arbitration/emergency-arbitration-and-interim-measures",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How quickly does SCCA emergency arbitration proceed?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/arbitration/urgent-protective-measures",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How quickly does SCCA emergency arbitration proceed?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/arbitration/emergency-arbitration-and-interim-measures",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما سرعة إجراءات التحكيم الطارئ لدى المركز السعودي للتحكيم التجاري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/arbitration/urgent-protective-measures",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما سرعة إجراءات التحكيم الطارئ لدى المركز السعودي للتحكيم التجاري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/arbitration/mediation-and-negotiated-settlement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can one party initiate a request for SCCA mediation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/arbitration/mediation-and-negotiated-settlement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يستطيع طرف واحد تقديم طلب وساطة لدى المركز؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/banking-finance/debt-settlement-and-financing-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does an involuntary income change support rescheduling consumer finance?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/banking-finance/loan-default-and-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does an involuntary income change support rescheduling consumer finance?",
+          "visible": true
+        },
+        {
+          "question": "Can a financing contract restrict early repayment?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/banking-finance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does an involuntary income change support rescheduling consumer finance?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/banking-finance/debt-settlement-and-financing-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يدعم تغير الدخل القهري إعادة جدولة التمويل الاستهلاكي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/banking-finance/loan-default-and-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يدعم تغير الدخل القهري إعادة جدولة التمويل الاستهلاكي؟",
+          "visible": true
+        },
+        {
+          "question": "هل يجوز تقييد السداد المبكر في عقد التمويل؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/banking-finance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يدعم تغير الدخل القهري إعادة جدولة التمويل الاستهلاكي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/banking-finance/debt-collection-harassment-and-bank-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How many collection calls may a financing entity make?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/banking-finance/debt-collection-harassment-and-bank-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الحد المقرر لاتصالات تحصيل التمويل؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/banking-finance/unauthorized-bank-transaction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What should I do about an unauthorized payment transaction?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/banking-finance/unauthorized-bank-transaction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا أفعل عند وجود عملية دفع غير مصرح بها؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/banking-finance/bank-and-customer-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does every financial dispute belong before the banking disputes committees?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/banking-finance/financial-regulatory-compliance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does every financial dispute belong before the banking disputes committees?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/banking-finance/bank-and-customer-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تختص لجان المنازعات المصرفية بكل نزاع مالي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/banking-finance/financial-regulatory-compliance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تختص لجان المنازعات المصرفية بكل نزاع مالي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/banking-finance/financing-agreement-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a financing contract restrict early repayment?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/banking-finance/financing-agreement-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجوز تقييد السداد المبكر في عقد التمويل؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/insurance-law/delayed-insurance-settlement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When must a compulsory motor insurer settle a complete claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/insurance-law/denied-insurance-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When must a compulsory motor insurer settle a complete claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/insurance-law/traffic-accident-compensation-and-liability-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When must a compulsory motor insurer settle a complete claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/insurance-law/traffic-accident-liability-and-compensation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When must a compulsory motor insurer settle a complete claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/insurance-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When must a compulsory motor insurer settle a complete claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/insurance-law/delayed-insurance-settlement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تُسوّى مطالبة التأمين الإلزامي للمركبات المكتملة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/insurance-law/denied-insurance-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تُسوّى مطالبة التأمين الإلزامي للمركبات المكتملة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/insurance-law/traffic-accident-compensation-and-liability-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تُسوّى مطالبة التأمين الإلزامي للمركبات المكتملة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/insurance-law/traffic-accident-liability-and-compensation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تُسوّى مطالبة التأمين الإلزامي للمركبات المكتملة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/insurance-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تُسوّى مطالبة التأمين الإلزامي للمركبات المكتملة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/insurance-law/coverage-and-policy-interpretation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is compulsory third-party cover the same as comprehensive motor cover?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/insurance-law/policy-coverage-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is compulsory third-party cover the same as comprehensive motor cover?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/insurance-law/coverage-and-policy-interpretation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل التأمين الإلزامي ضد الغير يماثل التأمين الشامل؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/insurance-law/policy-coverage-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل التأمين الإلزامي ضد الغير يماثل التأمين الشامل؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/tax-zakat/vat-refund-and-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What VAT registration thresholds apply to a Saudi resident business?",
+          "visible": true
+        },
+        {
+          "question": "Does a VAT credit balance automatically produce a refund?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/tax-zakat/vat-penalty-and-late-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What VAT registration thresholds apply to a Saudi resident business?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/tax-zakat/vat-and-customs-issues",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What VAT registration thresholds apply to a Saudi resident business?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/tax-zakat",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What VAT registration thresholds apply to a Saudi resident business?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/tax-zakat/vat-refund-and-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما حدود التسجيل في ضريبة القيمة المضافة للمنشأة المقيمة؟",
+          "visible": true
+        },
+        {
+          "question": "هل يؤدي الرصيد الدائن لضريبة القيمة المضافة إلى رد تلقائي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/tax-zakat/vat-penalty-and-late-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما حدود التسجيل في ضريبة القيمة المضافة للمنشأة المقيمة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/tax-zakat/vat-and-customs-issues",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما حدود التسجيل في ضريبة القيمة المضافة للمنشأة المقيمة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/tax-zakat",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما حدود التسجيل في ضريبة القيمة المضافة للمنشأة المقيمة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/tax-zakat/zatca-e-invoicing-compliance-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does phase-two e-invoicing start on the same date for every taxpayer?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/tax-zakat/business-tax-compliance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does phase-two e-invoicing start on the same date for every taxpayer?",
+          "visible": true
+        },
+        {
+          "question": "When is a Saudi withholding-tax monthly statement due?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/tax-zakat/zatca-e-invoicing-compliance-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تبدأ المرحلة الثانية للفوترة الإلكترونية في يوم واحد للجميع؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/tax-zakat/business-tax-compliance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تبدأ المرحلة الثانية للفوترة الإلكترونية في يوم واحد للجميع؟",
+          "visible": true
+        },
+        {
+          "question": "متى يستحق بيان ضريبة الاستقطاع الشهري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/tax-zakat/withholding-tax-assessment-and-objection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When is a Saudi withholding-tax monthly statement due?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/tax-zakat/withholding-tax-assessment-and-objection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى يستحق بيان ضريبة الاستقطاع الشهري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/administrative-law/administrative-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is needed to register a Syrian administrative claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/administrative-law/challenge-to-an-administrative-licence-or-public-decision",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is needed to register a Syrian administrative claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/administrative-law/challenges-to-government-decisions",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is needed to register a Syrian administrative claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/administrative-law/government-contract-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is needed to register a Syrian administrative claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/administrative-law/government-penalty-challenge",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is needed to register a Syrian administrative claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/administrative-law/licence-refusal-or-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is needed to register a Syrian administrative claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/administrative-law/licensing-refusals-and-penalties",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is needed to register a Syrian administrative claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/administrative-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is needed to register a Syrian administrative claim?",
+          "visible": true
+        },
+        {
+          "question": "Is challenging an administrative judgment the same as objecting to the original decision?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/administrative-law/administrative-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المطلوب لقيد دعوى إدارية في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/administrative-law/challenge-to-an-administrative-licence-or-public-decision",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المطلوب لقيد دعوى إدارية في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/administrative-law/challenges-to-government-decisions",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المطلوب لقيد دعوى إدارية في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/administrative-law/government-contract-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المطلوب لقيد دعوى إدارية في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/administrative-law/government-penalty-challenge",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المطلوب لقيد دعوى إدارية في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/administrative-law/licence-refusal-or-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المطلوب لقيد دعوى إدارية في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/administrative-law/licensing-refusals-and-penalties",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المطلوب لقيد دعوى إدارية في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/administrative-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المطلوب لقيد دعوى إدارية في سوريا؟",
+          "visible": true
+        },
+        {
+          "question": "هل الطعن بالحكم الإداري هو التظلم من القرار الأصلي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/administrative-law/administrative-objections-and-appeals",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is challenging an administrative judgment the same as objecting to the original decision?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/administrative-law/administrative-objections-and-appeals",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل الطعن بالحكم الإداري هو التظلم من القرار الأصلي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-procedure/court-filing-and-jurisdiction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can electronic notification affect a Syrian court case?",
+          "visible": true
+        },
+        {
+          "question": "Could a Suwayda case require checking a temporary procedural suspension?",
+          "visible": true
+        },
+        {
+          "question": "Can urgent protection be considered before the main civil dispute is resolved?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-procedure/court-service-and-notification-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can electronic notification affect a Syrian court case?",
+          "visible": true
+        },
+        {
+          "question": "Does recognition of electronic service mean every Syrian court has a fully operating online filing platform?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-procedure/court-filing-and-jurisdiction-objection-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can electronic notification affect a Syrian court case?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-procedure/appeal-deadline-and-service-problem-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can electronic notification affect a Syrian court case?",
+          "visible": true
+        },
+        {
+          "question": "Does recognition of electronic service mean every Syrian court has a fully operating online filing platform?",
+          "visible": true
+        },
+        {
+          "question": "Could a Suwayda case require checking a temporary procedural suspension?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-procedure/appeal-deadline-and-filing-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can electronic notification affect a Syrian court case?",
+          "visible": true
+        },
+        {
+          "question": "Does recognition of electronic service mean every Syrian court has a fully operating online filing platform?",
+          "visible": true
+        },
+        {
+          "question": "Could a Suwayda case require checking a temporary procedural suspension?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-procedure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can electronic notification affect a Syrian court case?",
+          "visible": true
+        },
+        {
+          "question": "Does recognition of electronic service mean every Syrian court has a fully operating online filing platform?",
+          "visible": true
+        },
+        {
+          "question": "Could a Suwayda case require checking a temporary procedural suspension?",
+          "visible": true
+        },
+        {
+          "question": "Can urgent protection be considered before the main civil dispute is resolved?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure/court-filing-and-jurisdiction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يؤثر التبليغ الإلكتروني في الدعوى السورية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحتاج ملف في السويداء إلى فحص وقف إجرائي مؤقت؟",
+          "visible": true
+        },
+        {
+          "question": "هل يمكن بحث حماية عاجلة قبل حسم النزاع المدني؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure/court-service-and-notification-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يؤثر التبليغ الإلكتروني في الدعوى السورية؟",
+          "visible": true
+        },
+        {
+          "question": "هل اعتماد التبليغ الإلكتروني يعني وجود منصة قيد مكتملة في جميع المحاكم؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure/court-filing-and-jurisdiction-objection-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يؤثر التبليغ الإلكتروني في الدعوى السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure/appeal-deadline-and-service-problem-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يؤثر التبليغ الإلكتروني في الدعوى السورية؟",
+          "visible": true
+        },
+        {
+          "question": "هل اعتماد التبليغ الإلكتروني يعني وجود منصة قيد مكتملة في جميع المحاكم؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحتاج ملف في السويداء إلى فحص وقف إجرائي مؤقت؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure/appeal-deadline-and-filing-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يؤثر التبليغ الإلكتروني في الدعوى السورية؟",
+          "visible": true
+        },
+        {
+          "question": "هل اعتماد التبليغ الإلكتروني يعني وجود منصة قيد مكتملة في جميع المحاكم؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحتاج ملف في السويداء إلى فحص وقف إجرائي مؤقت؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يؤثر التبليغ الإلكتروني في الدعوى السورية؟",
+          "visible": true
+        },
+        {
+          "question": "هل اعتماد التبليغ الإلكتروني يعني وجود منصة قيد مكتملة في جميع المحاكم؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحتاج ملف في السويداء إلى فحص وقف إجرائي مؤقت؟",
+          "visible": true
+        },
+        {
+          "question": "هل يمكن بحث حماية عاجلة قبل حسم النزاع المدني؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-procedure/appeals-and-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Could a Suwayda case require checking a temporary procedural suspension?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-procedure/interim-and-protective-measures",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Could a Suwayda case require checking a temporary procedural suspension?",
+          "visible": true
+        },
+        {
+          "question": "Can urgent protection be considered before the main civil dispute is resolved?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure/appeals-and-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحتاج ملف في السويداء إلى فحص وقف إجرائي مؤقت؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure/interim-and-protective-measures",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحتاج ملف في السويداء إلى فحص وقف إجرائي مؤقت؟",
+          "visible": true
+        },
+        {
+          "question": "هل يمكن بحث حماية عاجلة قبل حسم النزاع المدني؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-procedure/litigation-strategy-and-case-management",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can urgent protection be considered before the main civil dispute is resolved?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure/litigation-strategy-and-case-management",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن بحث حماية عاجلة قبل حسم النزاع المدني؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-law/property-and-possession-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is ordinary possession review enough for property taken during the Syrian revolution?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-law/possession-and-interference-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is ordinary possession review enough for property taken during the Syrian revolution?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is ordinary possession review enough for property taken during the Syrian revolution?",
+          "visible": true
+        },
+        {
+          "question": "Does a Syrian treatment-injury claim automatically follow a separate medical-liability statute?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-law/property-and-possession-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تكفي قواعد الحيازة العامة لعقار استولي عليه خلال الثورة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-law/possession-and-interference-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تكفي قواعد الحيازة العامة لعقار استولي عليه خلال الثورة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تكفي قواعد الحيازة العامة لعقار استولي عليه خلال الثورة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تتبع إصابة العلاج في سوريا تلقائياً قانوناً مستقلاً للمسؤولية الطبية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-law/personal-injury-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a Syrian treatment-injury claim automatically follow a separate medical-liability statute?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-law/personal-injury-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تتبع إصابة العلاج في سوريا تلقائياً قانوناً مستقلاً للمسؤولية الطبية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-law/defamation-and-reputation-damage-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does known-author online defamation require police investigation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-law/defamation-and-reputation-damage-claim-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does known-author online defamation require police investigation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-law/defamation-and-reputation-damage-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تبدأ دعوى الذم الإلكتروني من معلوم الهوية بتحقيق الشرطة حتماً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-law/defamation-and-reputation-damage-claim-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تبدأ دعوى الذم الإلكتروني من معلوم الهوية بتحقيق الشرطة حتماً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/criminal-procedure/arrest-and-detention-procedure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What detention safeguard applies to Syrian cybercrime complaints?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/criminal-procedure/arrest-detention-and-release-application-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What detention safeguard applies to Syrian cybercrime complaints?",
+          "visible": true
+        },
+        {
+          "question": "Can a defendant appoint a lawyer for the Syrian criminal trial?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/criminal-procedure/release-and-detention-application",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What detention safeguard applies to Syrian cybercrime complaints?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/criminal-procedure/investigation-rights",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What detention safeguard applies to Syrian cybercrime complaints?",
+          "visible": true
+        },
+        {
+          "question": "Can a defendant appoint a lawyer for the Syrian criminal trial?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/criminal-procedure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What detention safeguard applies to Syrian cybercrime complaints?",
+          "visible": true
+        },
+        {
+          "question": "Can a defendant appoint a lawyer for the Syrian criminal trial?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/criminal-procedure/arrest-and-detention-procedure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الضمانة الخاصة باحتجاز المشكو منه في الجرائم المعلوماتية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/criminal-procedure/arrest-detention-and-release-application-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الضمانة الخاصة باحتجاز المشكو منه في الجرائم المعلوماتية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحق للمتهم توكيل محامٍ في المحاكمة الجزائية السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/criminal-procedure/release-and-detention-application",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الضمانة الخاصة باحتجاز المشكو منه في الجرائم المعلوماتية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/criminal-procedure/investigation-rights",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الضمانة الخاصة باحتجاز المشكو منه في الجرائم المعلوماتية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحق للمتهم توكيل محامٍ في المحاكمة الجزائية السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/criminal-procedure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الضمانة الخاصة باحتجاز المشكو منه في الجرائم المعلوماتية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحق للمتهم توكيل محامٍ في المحاكمة الجزائية السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/criminal-procedure/trial-procedure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a defendant appoint a lawyer for the Syrian criminal trial?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/criminal-procedure/trial-procedure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحق للمتهم توكيل محامٍ في المحاكمة الجزائية السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/arbitration/mediation-and-negotiated-settlement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the Syrian mediation platform mean a mediator can impose a judgment?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/arbitration",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the Syrian mediation platform mean a mediator can impose a judgment?",
+          "visible": true
+        },
+        {
+          "question": "What documents matter when seeking recognition of a foreign award in Syria?",
+          "visible": true
+        },
+        {
+          "question": "What should be checked about a proposed arbitration centre in Syria?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/arbitration/mediation-and-negotiated-settlement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تتيح منصة الوساطة السورية للوسيط فرض حكم؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/arbitration",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تتيح منصة الوساطة السورية للوسيط فرض حكم؟",
+          "visible": true
+        },
+        {
+          "question": "ما المستندات المهمة للاعتراف بحكم تحكيم أجنبي في سوريا؟",
+          "visible": true
+        },
+        {
+          "question": "ما الذي يفحص بشأن مركز تحكيم مقترح في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/arbitration/foreign-arbitral-award-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What documents matter when seeking recognition of a foreign award in Syria?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/arbitration/recognition-and-enforcement-of-awards",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What documents matter when seeking recognition of a foreign award in Syria?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/arbitration/foreign-arbitral-award-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المستندات المهمة للاعتراف بحكم تحكيم أجنبي في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/arbitration/recognition-and-enforcement-of-awards",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المستندات المهمة للاعتراف بحكم تحكيم أجنبي في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/arbitration/commercial-arbitration",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What should be checked about a proposed arbitration centre in Syria?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/arbitration/arbitration-clause-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What should be checked about a proposed arbitration centre in Syria?",
+          "visible": true
+        },
+        {
+          "question": "Did the 2026 arbitration-law review itself replace Law 4/2008?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/arbitration/appointment-or-removal-of-an-arbitrator-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What should be checked about a proposed arbitration centre in Syria?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/arbitration/commercial-arbitration",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الذي يفحص بشأن مركز تحكيم مقترح في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/arbitration/arbitration-clause-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الذي يفحص بشأن مركز تحكيم مقترح في سوريا؟",
+          "visible": true
+        },
+        {
+          "question": "هل استبدلت مراجعة قانون التحكيم في 2026 القانون 4/2008 بذاتها؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/arbitration/appointment-or-removal-of-an-arbitrator-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الذي يفحص بشأن مركز تحكيم مقترح في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/arbitration/challenge-to-a-syrian-arbitration-agreement-or-award",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Did the 2026 arbitration-law review itself replace Law 4/2008?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/arbitration/challenge-to-arbitration-jurisdiction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Did the 2026 arbitration-law review itself replace Law 4/2008?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/arbitration/emergency-arbitration-and-interim-measures",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Did the 2026 arbitration-law review itself replace Law 4/2008?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/arbitration/challenge-to-a-syrian-arbitration-agreement-or-award",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل استبدلت مراجعة قانون التحكيم في 2026 القانون 4/2008 بذاتها؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/arbitration/challenge-to-arbitration-jurisdiction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل استبدلت مراجعة قانون التحكيم في 2026 القانون 4/2008 بذاتها؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/arbitration/emergency-arbitration-and-interim-measures",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل استبدلت مراجعة قانون التحكيم في 2026 القانون 4/2008 بذاتها؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/criminal-law/travel-ban-and-detention-concern",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the June 2026 circular automatically cancel an existing cybercrime wanted notice?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/criminal-law/arrest-and-detention-concerns",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the June 2026 circular automatically cancel an existing cybercrime wanted notice?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/criminal-law/travel-ban-and-detention-concern",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يلغي تعميم حزيران 2026 إذاعة بحث معلوماتية قائمة تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/criminal-law/arrest-and-detention-concerns",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يلغي تعميم حزيران 2026 إذاعة بحث معلوماتية قائمة تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/cyber-law/cybercrime-complaint-and-digital-evidence-problem-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When does a Syrian cybercrime complaint require technical police investigation?",
+          "visible": true
+        },
+        {
+          "question": "Who can examine disputed digital evidence in a Syrian case?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/cyber-law/unauthorized-access-and-account-misuse",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When does a Syrian cybercrime complaint require technical police investigation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/cyber-law/hacked-account-and-unauthorized-access",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When does a Syrian cybercrime complaint require technical police investigation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/cyber-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When does a Syrian cybercrime complaint require technical police investigation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/cyber-law/cybercrime-complaint-and-digital-evidence-problem-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تستلزم الشكوى المعلوماتية السورية تحقيقاً تقنياً لدى الضابطة العدلية؟",
+          "visible": true
+        },
+        {
+          "question": "من يفحص الدليل الرقمي المتنازع عليه في القضية السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/cyber-law/unauthorized-access-and-account-misuse",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تستلزم الشكوى المعلوماتية السورية تحقيقاً تقنياً لدى الضابطة العدلية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/cyber-law/hacked-account-and-unauthorized-access",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تستلزم الشكوى المعلوماتية السورية تحقيقاً تقنياً لدى الضابطة العدلية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/cyber-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تستلزم الشكوى المعلوماتية السورية تحقيقاً تقنياً لدى الضابطة العدلية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/criminal-law/cybercrime-accusation-and-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Who can examine disputed digital evidence in a Syrian case?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/criminal-law/digital-and-documentary-evidence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Who can examine disputed digital evidence in a Syrian case?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/criminal-law/online-defamation-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Who can examine disputed digital evidence in a Syrian case?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/criminal-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Who can examine disputed digital evidence in a Syrian case?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/criminal-law/cybercrime-accusation-and-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "من يفحص الدليل الرقمي المتنازع عليه في القضية السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/criminal-law/digital-and-documentary-evidence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "من يفحص الدليل الرقمي المتنازع عليه في القضية السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/criminal-law/online-defamation-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "من يفحص الدليل الرقمي المتنازع عليه في القضية السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/criminal-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "من يفحص الدليل الرقمي المتنازع عليه في القضية السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/cyber-law/cybercrime-allegations-and-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Who can examine disputed digital evidence in a Syrian case?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/cyber-law/digital-evidence-and-platform-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Who can examine disputed digital evidence in a Syrian case?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/cyber-law/online-defamation-and-removal-request",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Who can examine disputed digital evidence in a Syrian case?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/cyber-law/online-defamation-and-removal-request-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Who can examine disputed digital evidence in a Syrian case?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/cyber-law/cybercrime-allegations-and-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "من يفحص الدليل الرقمي المتنازع عليه في القضية السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/cyber-law/digital-evidence-and-platform-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "من يفحص الدليل الرقمي المتنازع عليه في القضية السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/cyber-law/online-defamation-and-removal-request",
+      "status": 200,
+      "answers": [
+        {
+          "question": "من يفحص الدليل الرقمي المتنازع عليه في القضية السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/cyber-law/online-defamation-and-removal-request-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "من يفحص الدليل الرقمي المتنازع عليه في القضية السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/medical-malpractice/medical-record-access-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can the Syrian digital health gateway help with records or a hospital complaint?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/medical-malpractice/medical-record-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can the Syrian digital health gateway help with records or a hospital complaint?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/medical-malpractice/medical-negligence-complaint-and-compensation-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can the Syrian digital health gateway help with records or a hospital complaint?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/medical-malpractice",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can the Syrian digital health gateway help with records or a hospital complaint?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/medical-malpractice/medical-record-access-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تساعد بوابة الصحة الرقمية السورية في متابعة السجل أو شكوى المشفى؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/medical-malpractice/medical-record-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تساعد بوابة الصحة الرقمية السورية في متابعة السجل أو شكوى المشفى؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/medical-malpractice/medical-negligence-complaint-and-compensation-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تساعد بوابة الصحة الرقمية السورية في متابعة السجل أو شكوى المشفى؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/medical-malpractice",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تساعد بوابة الصحة الرقمية السورية في متابعة السجل أو شكوى المشفى؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/intellectual-property/copyright-protection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does Syrian copyright protection depend on registration or cover an idea itself?",
+          "visible": true
+        },
+        {
+          "question": "What must a Syrian copyright transfer or licence identify?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/intellectual-property/copyright-infringement-online",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does Syrian copyright protection depend on registration or cover an idea itself?",
+          "visible": true
+        },
+        {
+          "question": "What must a Syrian copyright transfer or licence identify?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/intellectual-property/copyright-infringement-and-takedown-request",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does Syrian copyright protection depend on registration or cover an idea itself?",
+          "visible": true
+        },
+        {
+          "question": "What must a Syrian copyright transfer or licence identify?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/intellectual-property",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does Syrian copyright protection depend on registration or cover an idea itself?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/intellectual-property/copyright-protection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تتوقف حماية حق المؤلف السوري على التسجيل وهل تشمل الفكرة ذاتها؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا يجب أن يحدد التصرف أو الترخيص بحقوق المؤلف السوري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/intellectual-property/copyright-infringement-online",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تتوقف حماية حق المؤلف السوري على التسجيل وهل تشمل الفكرة ذاتها؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا يجب أن يحدد التصرف أو الترخيص بحقوق المؤلف السوري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/intellectual-property/copyright-infringement-and-takedown-request",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تتوقف حماية حق المؤلف السوري على التسجيل وهل تشمل الفكرة ذاتها؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا يجب أن يحدد التصرف أو الترخيص بحقوق المؤلف السوري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/intellectual-property",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تتوقف حماية حق المؤلف السوري على التسجيل وهل تشمل الفكرة ذاتها؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/intellectual-property/trade-secret-protection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What distinguishes a protected Syrian trade secret from ordinary business information?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/intellectual-property/trade-secret-protection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الذي يميز السر التجاري المحمي في سوريا عن المعلومات التجارية العادية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/intellectual-property/patent-and-licensing-matters",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a foreign patent or a similar product alone establish Syrian patent infringement?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/intellectual-property/infringement-and-counterfeit-claims",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a foreign patent or a similar product alone establish Syrian patent infringement?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/intellectual-property/patent-and-licensing-matters",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تكفي براءة أجنبية أو مشابهة المنتج لإثبات تعدٍ على براءة في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/intellectual-property/infringement-and-counterfeit-claims",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تكفي براءة أجنبية أو مشابهة المنتج لإثبات تعدٍ على براءة في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/intellectual-property/trademark-registration-and-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What should a Syrian trademark conflict comparison examine?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/intellectual-property/trademark-registration-or-opposition-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What should a Syrian trademark conflict comparison examine?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/intellectual-property/trademark-opposition-and-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What should a Syrian trademark conflict comparison examine?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/intellectual-property/counterfeit-and-brand-infringement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What should a Syrian trademark conflict comparison examine?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/intellectual-property/trademark-registration-and-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا تتناول المقارنة في نزاع العلامة السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/intellectual-property/trademark-registration-or-opposition-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا تتناول المقارنة في نزاع العلامة السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/intellectual-property/trademark-opposition-and-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا تتناول المقارنة في نزاع العلامة السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/intellectual-property/counterfeit-and-brand-infringement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا تتناول المقارنة في نزاع العلامة السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/disciplinary-warning-and-workplace-investigation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is the current Saudi deadline to challenge a disciplinary penalty?",
+          "visible": true
+        },
+        {
+          "question": "Can a disciplinary penalty be imposed without hearing my defence?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/workplace-and-disciplinary-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is the current Saudi deadline to challenge a disciplinary penalty?",
+          "visible": true
+        },
+        {
+          "question": "Can a disciplinary penalty be imposed without hearing my defence?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/disciplinary-warning-and-workplace-investigation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المهلة الحالية للاعتراض على الجزاء التأديبي السعودي؟",
+          "visible": true
+        },
+        {
+          "question": "هل يجوز فرض جزاء دون سماع دفاعي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/workplace-and-disciplinary-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المهلة الحالية للاعتراض على الجزاء التأديبي السعودي؟",
+          "visible": true
+        },
+        {
+          "question": "هل يجوز فرض جزاء دون سماع دفاعي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/wrongful-termination",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How is Saudi compensation for unlawful termination assessed?",
+          "visible": true
+        },
+        {
+          "question": "Where do I start a Saudi labour dispute that needs a decision on the claim?",
+          "visible": true
+        },
+        {
+          "question": "Is Saudi termination notice always 30 days?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How is Saudi compensation for unlawful termination assessed?",
+          "visible": true
+        },
+        {
+          "question": "Can I enforce unpaid Saudi wages through Najiz without a labour judgment?",
+          "visible": true
+        },
+        {
+          "question": "Where do I start a Saudi labour dispute that needs a decision on the claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/wrongful-termination",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف يُقدّر تعويض الإنهاء غير المشروع في السعودية؟",
+          "visible": true
+        },
+        {
+          "question": "أين أبدأ نزاعاً عمالياً سعودياً يحتاج إلى الفصل في المطالبة؟",
+          "visible": true
+        },
+        {
+          "question": "هل مهلة الإشعار بإنهاء العمل في السعودية 30 يوماً دائماً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف يُقدّر تعويض الإنهاء غير المشروع في السعودية؟",
+          "visible": true
+        },
+        {
+          "question": "هل أستطيع تنفيذ الأجور المتأخرة عبر ناجز دون حكم عمالي؟",
+          "visible": true
+        },
+        {
+          "question": "أين أبدأ نزاعاً عمالياً سعودياً يحتاج إلى الفصل في المطالبة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/employment-contract-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is a 180-day probation period automatic in Saudi employment?",
+          "visible": true
+        },
+        {
+          "question": "Can I enforce unpaid Saudi wages through Najiz without a labour judgment?",
+          "visible": true
+        },
+        {
+          "question": "Is Saudi termination notice always 30 days?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/employment-contract-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تكون مدة التجربة في العمل بالسعودية 180 يوماً تلقائياً؟",
+          "visible": true
+        },
+        {
+          "question": "هل أستطيع تنفيذ الأجور المتأخرة عبر ناجز دون حكم عمالي؟",
+          "visible": true
+        },
+        {
+          "question": "هل مهلة الإشعار بإنهاء العمل في السعودية 30 يوماً دائماً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/employment-dispute-after-resignation-or-job-transfer",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When does a Saudi fixed-term resignation request take effect?",
+          "visible": true
+        },
+        {
+          "question": "Where do I start a Saudi labour dispute that needs a decision on the claim?",
+          "visible": true
+        },
+        {
+          "question": "Is Saudi termination notice always 30 days?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/employment-dispute-after-resignation-or-job-transfer",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى ينتج طلب الاستقالة من العقد المحدد أثره؟",
+          "visible": true
+        },
+        {
+          "question": "أين أبدأ نزاعاً عمالياً سعودياً يحتاج إلى الفصل في المطالبة؟",
+          "visible": true
+        },
+        {
+          "question": "هل مهلة الإشعار بإنهاء العمل في السعودية 30 يوماً دائماً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/resignation-because-of-unpaid-wages",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can serious employer breach justify leaving without notice?",
+          "visible": true
+        },
+        {
+          "question": "Can three unpaid months support transfer without the current employer’s consent?",
+          "visible": true
+        },
+        {
+          "question": "Can I enforce unpaid Saudi wages through Najiz without a labour judgment?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/resignation-because-of-unpaid-wages",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجيز إخلال صاحب العمل الجوهري المغادرة دون إشعار؟",
+          "visible": true
+        },
+        {
+          "question": "هل تدعم ثلاثة أشهر دون أجر النقل دون موافقة صاحب العمل؟",
+          "visible": true
+        },
+        {
+          "question": "هل أستطيع تنفيذ الأجور المتأخرة عبر ناجز دون حكم عمالي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/employment-settlement-and-final-dues-calculation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a release signed while I am still employed waive statutory rights?",
+          "visible": true
+        },
+        {
+          "question": "Can annual leave be paid out instead of taken?",
+          "visible": true
+        },
+        {
+          "question": "Where do I start a Saudi labour dispute that needs a decision on the claim?",
+          "visible": true
+        },
+        {
+          "question": "Is Saudi end-of-service pay calculated only on basic salary?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/employment-settlement-and-final-dues-calculation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تسقط المخالصة أثناء العمل حقوقي النظامية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يجوز استبدال الإجازة السنوية بالنقد؟",
+          "visible": true
+        },
+        {
+          "question": "أين أبدأ نزاعاً عمالياً سعودياً يحتاج إلى الفصل في المطالبة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تُحسب مكافأة نهاية الخدمة السعودية على الراتب الأساسي فقط؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/commission-and-bonus-payment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a regularly paid bonus form part of the wage?",
+          "visible": true
+        },
+        {
+          "question": "Where do I start a Saudi labour dispute that needs a decision on the claim?",
+          "visible": true
+        },
+        {
+          "question": "Is Saudi end-of-service pay calculated only on basic salary?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/commission-and-bonus-payment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل قد تدخل المكافأة المعتادة في الأجر؟",
+          "visible": true
+        },
+        {
+          "question": "أين أبدأ نزاعاً عمالياً سعودياً يحتاج إلى الفصل في المطالبة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تُحسب مكافأة نهاية الخدمة السعودية على الراتب الأساسي فقط؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/unpaid-wages-and-benefits",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can overtime pay be replaced with leave without my agreement?",
+          "visible": true
+        },
+        {
+          "question": "Can I enforce unpaid Saudi wages through Najiz without a labour judgment?",
+          "visible": true
+        },
+        {
+          "question": "Where do I start a Saudi labour dispute that needs a decision on the claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/unpaid-wages-and-benefits",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن استبدال أجر العمل الإضافي بإجازة دون موافقتي؟",
+          "visible": true
+        },
+        {
+          "question": "هل أستطيع تنفيذ الأجور المتأخرة عبر ناجز دون حكم عمالي؟",
+          "visible": true
+        },
+        {
+          "question": "أين أبدأ نزاعاً عمالياً سعودياً يحتاج إلى الفصل في المطالبة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/delayed-or-unpaid-salary",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Am I paid if I attend work but the employer prevents me from working?",
+          "visible": true
+        },
+        {
+          "question": "Can I enforce unpaid Saudi wages through Najiz without a labour judgment?",
+          "visible": true
+        },
+        {
+          "question": "Where do I start a Saudi labour dispute that needs a decision on the claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/delayed-or-unpaid-salary",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل أستحق الأجر إذا حضرت ومنعني صاحب العمل من أداء العمل؟",
+          "visible": true
+        },
+        {
+          "question": "هل أستطيع تنفيذ الأجور المتأخرة عبر ناجز دون حكم عمالي؟",
+          "visible": true
+        },
+        {
+          "question": "أين أبدأ نزاعاً عمالياً سعودياً يحتاج إلى الفصل في المطالبة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/workplace-discrimination-and-harassment-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does Saudi Labour Law prohibit discriminatory employment treatment?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/workplace-discrimination-and-harassment-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحظر نظام العمل المعاملة التمييزية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/work-permit-residency-or-employment-status-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Who bears a non-Saudi employee’s work-permit and exit/re-entry fees?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Who bears a non-Saudi employee’s work-permit and exit/re-entry fees?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/work-permit-residency-or-employment-status-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "من يتحمل رسوم تصريح العامل غير السعودي والخروج والعودة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/visa-exit-and-re-entry-restriction-affecting-employment",
+      "status": 200,
+      "answers": [
+        {
+          "question": "من يتحمل رسوم تصريح العامل غير السعودي والخروج والعودة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/experience-certificate-and-service-transfer-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must my employer return documents deposited with it when the contract ends?",
+          "visible": true
+        },
+        {
+          "question": "Can my employer in Saudi Arabia charge for a service certificate after employment ends?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/experience-certificate-and-service-transfer-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجب رد وثائقي المودعة لدى صاحب العمل عند انتهاء العقد؟",
+          "visible": true
+        },
+        {
+          "question": "هل يجوز لصاحب العمل في السعودية طلب مقابل لشهادة الخدمة بعد انتهاء العمل؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/work-injury-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the Labour Law injury chapter apply alongside GOSI occupational hazards in every case?",
+          "visible": true
+        },
+        {
+          "question": "Can a Saudi insured worker report a work injury electronically?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/work-injury-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يطبق فصل إصابات العمل مع فرع الأخطار المهنية في كل حالة؟",
+          "visible": true
+        },
+        {
+          "question": "هل يستطيع المشترك في التأمينات السعودية الإبلاغ عن إصابة العمل إلكترونياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/sponsorship-transfer-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can three unpaid months support transfer without the current employer’s consent?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/sponsorship-transfer-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تدعم ثلاثة أشهر دون أجر النقل دون موافقة صاحب العمل؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/end-of-service-entitlements",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does ordinary resignation always preserve the full end-of-service award?",
+          "visible": true
+        },
+        {
+          "question": "Where do I start a Saudi labour dispute that needs a decision on the claim?",
+          "visible": true
+        },
+        {
+          "question": "Is Saudi end-of-service pay calculated only on basic salary?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/end-of-service-entitlements",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تحفظ الاستقالة العادية كامل مكافأة نهاية الخدمة دائماً؟",
+          "visible": true
+        },
+        {
+          "question": "أين أبدأ نزاعاً عمالياً سعودياً يحتاج إلى الفصل في المطالبة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تُحسب مكافأة نهاية الخدمة السعودية على الراتب الأساسي فقط؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/sick-leave-and-annual-leave-entitlement-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can annual leave be paid out instead of taken?",
+          "visible": true
+        },
+        {
+          "question": "Are Saudi annual leave and sick leave paid on the same basis?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/sick-leave-and-annual-leave-entitlement-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجوز استبدال الإجازة السنوية بالنقد؟",
+          "visible": true
+        },
+        {
+          "question": "هل تتساوى الإجازة السنوية والمرضية السعودية في الأجر والمدة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/foreign-investment/investment-licence-refusal-or-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How is an investment-licence refusal challenged?",
+          "visible": true
+        },
+        {
+          "question": "Can a project violation cancel its licence?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/foreign-investment/foreign-investor-licensing-and-registration-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How is an investment-licence refusal challenged?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/foreign-investment/investment-and-business-licensing",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How is an investment-licence refusal challenged?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/foreign-investment",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How is an investment-licence refusal challenged?",
+          "visible": true
+        },
+        {
+          "question": "Does an investment licence need renewal?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/foreign-investment/investment-licence-refusal-or-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف يعترض على رفض إجازة الاستثمار؟",
+          "visible": true
+        },
+        {
+          "question": "هل تلغى الإجازة فور وقوع مخالفة بالمشروع؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/foreign-investment/foreign-investor-licensing-and-registration-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف يعترض على رفض إجازة الاستثمار؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/foreign-investment/investment-and-business-licensing",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف يعترض على رفض إجازة الاستثمار؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/foreign-investment",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف يعترض على رفض إجازة الاستثمار؟",
+          "visible": true
+        },
+        {
+          "question": "هل تحتاج إجازة الاستثمار إلى تجديد دوري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/foreign-investment/regulatory-compliance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a project violation cancel its licence?",
+          "visible": true
+        },
+        {
+          "question": "Does an investment licence need renewal?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/foreign-investment/regulatory-compliance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تلغى الإجازة فور وقوع مخالفة بالمشروع؟",
+          "visible": true
+        },
+        {
+          "question": "هل تحتاج إجازة الاستثمار إلى تجديد دوري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/foreign-investment/foreign-owned-company-formation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does an investment licence need renewal?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/foreign-investment/market-entry-legal-structure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does an investment licence need renewal?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/foreign-investment/foreign-owned-company-formation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تحتاج إجازة الاستثمار إلى تجديد دوري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/foreign-investment/market-entry-legal-structure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تحتاج إجازة الاستثمار إلى تجديد دوري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/banking-finance/bank-and-customer-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does every foreign remittance have to be paid in Syrian pounds?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/banking-finance/banking-dispute-with-a-syrian-financial-institution",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does every foreign remittance have to be paid in Syrian pounds?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/banking-finance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does every foreign remittance have to be paid in Syrian pounds?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/banking-finance/bank-and-customer-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجب تسليم كل حوالة خارجية بالليرة السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/banking-finance/banking-dispute-with-a-syrian-financial-institution",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجب تسليم كل حوالة خارجية بالليرة السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/banking-finance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجب تسليم كل حوالة خارجية بالليرة السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/insurance-law/coverage-and-policy-interpretation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does compulsory motor insurance establish cover for my own vehicle?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/insurance-law/traffic-accident-compensation-and-fault-dispute-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does compulsory motor insurance establish cover for my own vehicle?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/insurance-law/traffic-accident-compensation-and-liability-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does compulsory motor insurance establish cover for my own vehicle?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/insurance-law/traffic-accident-liability-and-compensation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does compulsory motor insurance establish cover for my own vehicle?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/insurance-law/uninsured-accident-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does compulsory motor insurance establish cover for my own vehicle?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/insurance-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does compulsory motor insurance establish cover for my own vehicle?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/insurance-law/coverage-and-policy-interpretation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يثبت التأمين الإلزامي تغطية أضرار مركبتي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/insurance-law/traffic-accident-compensation-and-fault-dispute-in-syria",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يثبت التأمين الإلزامي تغطية أضرار مركبتي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/insurance-law/traffic-accident-compensation-and-liability-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يثبت التأمين الإلزامي تغطية أضرار مركبتي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/insurance-law/traffic-accident-liability-and-compensation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يثبت التأمين الإلزامي تغطية أضرار مركبتي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/insurance-law/uninsured-accident-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يثبت التأمين الإلزامي تغطية أضرار مركبتي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/insurance-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يثبت التأمين الإلزامي تغطية أضرار مركبتي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/tax-zakat/business-tax-compliance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Do the 2026 tax-reform announcements establish a Syrian VAT obligation?",
+          "visible": true
+        },
+        {
+          "question": "What did the July 2026 consumption-expenditure announcement change?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/tax-zakat/corporate-tax-registration-and-filing-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Do the 2026 tax-reform announcements establish a Syrian VAT obligation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/tax-zakat/tax-and-zakat-assessments",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Do the 2026 tax-reform announcements establish a Syrian VAT obligation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/tax-zakat/vat-and-customs-issues",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Do the 2026 tax-reform announcements establish a Syrian VAT obligation?",
+          "visible": true
+        },
+        {
+          "question": "What did the July 2026 consumption-expenditure announcement change?",
+          "visible": true
+        },
+        {
+          "question": "Why does the actual importer’s identity matter in a customs dispute?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/tax-zakat/vat-invoice-and-tax-correction-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Do the 2026 tax-reform announcements establish a Syrian VAT obligation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/tax-zakat/vat-refund-and-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Do the 2026 tax-reform announcements establish a Syrian VAT obligation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/tax-zakat",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Do the 2026 tax-reform announcements establish a Syrian VAT obligation?",
+          "visible": true
+        },
+        {
+          "question": "What did the July 2026 consumption-expenditure announcement change?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/tax-zakat/business-tax-compliance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تثبت إعلانات الإصلاح الضريبي لعام 2026 التزاماً بضريبة قيمة مضافة سورية؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا غيّر إعلان رسم الإنفاق الاستهلاكي في تموز 2026؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/tax-zakat/corporate-tax-registration-and-filing-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تثبت إعلانات الإصلاح الضريبي لعام 2026 التزاماً بضريبة قيمة مضافة سورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/tax-zakat/tax-and-zakat-assessments",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تثبت إعلانات الإصلاح الضريبي لعام 2026 التزاماً بضريبة قيمة مضافة سورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/tax-zakat/vat-and-customs-issues",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تثبت إعلانات الإصلاح الضريبي لعام 2026 التزاماً بضريبة قيمة مضافة سورية؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا غيّر إعلان رسم الإنفاق الاستهلاكي في تموز 2026؟",
+          "visible": true
+        },
+        {
+          "question": "لماذا تهم هوية المستورد الفعلي في النزاع الجمركي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/tax-zakat/vat-invoice-and-tax-correction-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تثبت إعلانات الإصلاح الضريبي لعام 2026 التزاماً بضريبة قيمة مضافة سورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/tax-zakat/vat-refund-and-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تثبت إعلانات الإصلاح الضريبي لعام 2026 التزاماً بضريبة قيمة مضافة سورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/tax-zakat",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تثبت إعلانات الإصلاح الضريبي لعام 2026 التزاماً بضريبة قيمة مضافة سورية؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا غيّر إعلان رسم الإنفاق الاستهلاكي في تموز 2026؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/tax-zakat/syrian-tax-assessment-and-objection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What did the July 2026 consumption-expenditure announcement change?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/tax-zakat/tax-audit-and-assessment-objection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What did the July 2026 consumption-expenditure announcement change?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/tax-zakat/syrian-tax-assessment-and-objection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا غيّر إعلان رسم الإنفاق الاستهلاكي في تموز 2026؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/tax-zakat/tax-audit-and-assessment-objection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا غيّر إعلان رسم الإنفاق الاستهلاكي في تموز 2026؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/tax-zakat/customs-penalty-challenge",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Why does the actual importer’s identity matter in a customs dispute?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/tax-zakat/customs-valuation-or-penalty-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Why does the actual importer’s identity matter in a customs dispute?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/tax-zakat/customs-penalty-challenge",
+      "status": 200,
+      "answers": [
+        {
+          "question": "لماذا تهم هوية المستورد الفعلي في النزاع الجمركي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/tax-zakat/customs-valuation-or-penalty-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "لماذا تهم هوية المستورد الفعلي في النزاع الجمركي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice/medical-record-access-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Who exercises a minor or incapacitated patient’s data rights?",
+          "visible": true
+        },
+        {
+          "question": "Can inaccurate personal information in a medical file be corrected?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/medical-record-access-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "من يمارس حقوق بيانات المريض ناقص أو عديم الأهلية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يمكن تصحيح بيانات شخصية غير صحيحة في الملف الطبي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice/medical-record-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can inaccurate personal information in a medical file be corrected?",
+          "visible": true
+        },
+        {
+          "question": "Can a court-appointed expert’s medical opinion be questioned?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/medical-record-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن تصحيح بيانات شخصية غير صحيحة في الملف الطبي؟",
+          "visible": true
+        },
+        {
+          "question": "هل يمكن مناقشة رأي الخبير الطبي المنتدب قضائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice/medical-negligence-claims",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a court-appointed expert’s medical opinion be questioned?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice/misdiagnosis-and-delayed-diagnosis",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a court-appointed expert’s medical opinion be questioned?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice/surgical-and-treatment-errors",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a court-appointed expert’s medical opinion be questioned?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice/treatment-injury-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a court-appointed expert’s medical opinion be questioned?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice/compensation-and-professional-liability-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a court-appointed expert’s medical opinion be questioned?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a court-appointed expert’s medical opinion be questioned?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/medical-negligence-claims",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن مناقشة رأي الخبير الطبي المنتدب قضائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/misdiagnosis-and-delayed-diagnosis",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن مناقشة رأي الخبير الطبي المنتدب قضائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/surgical-and-treatment-errors",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن مناقشة رأي الخبير الطبي المنتدب قضائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/treatment-injury-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن مناقشة رأي الخبير الطبي المنتدب قضائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/compensation-and-professional-liability-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن مناقشة رأي الخبير الطبي المنتدب قضائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن مناقشة رأي الخبير الطبي المنتدب قضائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability/misdiagnosis-and-delayed-diagnosis",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where does DHA direct a complaint against a health professional or facility?",
+          "visible": true
+        },
+        {
+          "question": "Does the MOHAP medical-complaint system handle every hospital bill or insurance dispute?",
+          "visible": true
+        },
+        {
+          "question": "Is the committee’s 30-day report period a compensation filing deadline?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability/treatment-injury-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where does DHA direct a complaint against a health professional or facility?",
+          "visible": true
+        },
+        {
+          "question": "Does the MOHAP medical-complaint system handle every hospital bill or insurance dispute?",
+          "visible": true
+        },
+        {
+          "question": "Is the committee’s 30-day report period a compensation filing deadline?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where does DHA direct a complaint against a health professional or facility?",
+          "visible": true
+        },
+        {
+          "question": "Does the MOHAP medical-complaint system handle every hospital bill or insurance dispute?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability/misdiagnosis-and-delayed-diagnosis",
+      "status": 200,
+      "answers": [
+        {
+          "question": "إلى أين توجه هيئة الصحة بدبي شكوى ضد مهني أو منشأة صحية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يعالج نظام الشكاوى الطبية بوزارة الصحة كل خلاف على فاتورة أو تأمين؟",
+          "visible": true
+        },
+        {
+          "question": "هل مهلة الثلاثين يوماً لتقرير اللجنة ميعاد لرفع التعويض؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability/treatment-injury-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "إلى أين توجه هيئة الصحة بدبي شكوى ضد مهني أو منشأة صحية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يعالج نظام الشكاوى الطبية بوزارة الصحة كل خلاف على فاتورة أو تأمين؟",
+          "visible": true
+        },
+        {
+          "question": "هل مهلة الثلاثين يوماً لتقرير اللجنة ميعاد لرفع التعويض؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability",
+      "status": 200,
+      "answers": [
+        {
+          "question": "إلى أين توجه هيئة الصحة بدبي شكوى ضد مهني أو منشأة صحية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يعالج نظام الشكاوى الطبية بوزارة الصحة كل خلاف على فاتورة أو تأمين؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/non-compete-and-confidentiality-clause-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is every Saudi non-compete clause enforceable for two years?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/non-compete-and-confidentiality-clause-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يصح كل شرط عدم منافسة في السعودية لمدة سنتين؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/gosi-registration-or-contribution-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can incorrect GOSI wages or employment dates be corrected retrospectively?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/gosi-registration-or-contribution-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن تصحيح الأجر أو تواريخ العمل المسجلة بالتأمينات بأثر رجعي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour/work-injury-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Who pays for treatment and wages after a UAE work injury?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour/work-injury-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "من يدفع العلاج والأجر بعد إصابة العمل في الإمارات؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour/wrongful-termination-and-labour-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does every UAE dismissal qualify for three months' compensation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour/resignation-because-of-unpaid-wages",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does every UAE dismissal qualify for three months' compensation?",
+          "visible": true
+        },
+        {
+          "question": "Where can I complain about unpaid UAE private-sector salary?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour/wrongful-termination-and-labour-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يستحق كل مفصول في الإمارات تعويض ثلاثة أشهر؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour/resignation-because-of-unpaid-wages",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يستحق كل مفصول في الإمارات تعويض ثلاثة أشهر؟",
+          "visible": true
+        },
+        {
+          "question": "أين أشتكي عن راتب غير مدفوع في القطاع الخاص الإماراتي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour/end-of-service-benefits-and-final-settlement-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Which salary and payment deadline apply to UAE end-of-service gratuity?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour/commission-and-bonus-payment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Which salary and payment deadline apply to UAE end-of-service gratuity?",
+          "visible": true
+        },
+        {
+          "question": "Where can I complain about unpaid UAE private-sector salary?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour/end-of-service-benefits-and-final-settlement-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الأجر وموعد السداد المعتمدان لمكافأة نهاية الخدمة في الإمارات؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour/commission-and-bonus-payment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الأجر وموعد السداد المعتمدان لمكافأة نهاية الخدمة في الإمارات؟",
+          "visible": true
+        },
+        {
+          "question": "أين أشتكي عن راتب غير مدفوع في القطاع الخاص الإماراتي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour/delayed-or-unpaid-salary",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where can I complain about unpaid UAE private-sector salary?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where can I complain about unpaid UAE private-sector salary?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour/delayed-or-unpaid-salary",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أين أشتكي عن راتب غير مدفوع في القطاع الخاص الإماراتي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أين أشتكي عن راتب غير مدفوع في القطاع الخاص الإماراتي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "pass": true
+}

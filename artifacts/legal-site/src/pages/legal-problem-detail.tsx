@@ -13,7 +13,7 @@ import { buildArabicProblemDescription, buildArabicProblemTitle, buildEnglishPro
 import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 import { COUNSELO_LEGAL_MATTERS_CLAIM } from "@/lib/public-claims";
 import { editorialFaqs } from "@/lib/search-intent-editorial";
-import { matterSourceGuidance } from "@/lib/matter-source-guidance";
+import { matterGuidanceUpdatedAt, matterSourceGuidance } from "@/lib/matter-source-guidance";
 
 export default function LegalProblemDetail() {
   const { id = "", problem = "" } = useParams<{ id: string; problem: string }>();
@@ -96,7 +96,7 @@ export default function LegalProblemDetail() {
           "headline": isRTL ? page.titleAr : page.titleEn,
           "description": description,
           "url": `https://counselo-legal.com${regionPrefix}${canonical}`,
-          "dateModified": page.contentUpdatedAt ?? page.legalAccuracy.reviewedAt,
+          "dateModified": matterGuidanceUpdatedAt(region, id, problem, page.contentUpdatedAt ?? page.legalAccuracy.reviewedAt),
           "author": { "@id": COUNSELO_ENTITY_IDS.omar },
           "publisher": { "@id": "https://counselo-legal.com/#organization" },
           "about": {

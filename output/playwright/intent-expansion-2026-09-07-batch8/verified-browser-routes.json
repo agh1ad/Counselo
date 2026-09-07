@@ -1,0 +1,1896 @@
+{
+  "environment": "local production browser,390x844",
+  "rows": [
+    {
+      "route": "/sa/services/employment-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does every worker in Saudi Arabia follow the same Labor Law rules?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تسري قواعد نظام العمل نفسها على كل عامل في السعودية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/employment-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Should a public appointment and an NGO employment contract be assessed under one assumed set of rules?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/employment-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يراجع التعيين العام وعقد العمل لدى منظمة غير حكومية وفق قواعد مفترضة واحدة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/medical-malpractice",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a hospital complaint use the same process as a Syrian medical-compensation claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/medical-malpractice",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تتبع الشكوى إلى المستشفى مسار المطالبة بالتعويض الطبي نفسه في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/family-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What determines the relevant Syrian personal-status framework before choosing a family-law step?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/family-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الذي يحدد إطار الأحوال الشخصية في سوريا قبل اختيار الإجراء الأسري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/contract-evidence-and-electronic-messages",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can witnesses replace written evidence for a large contract?",
+          "visible": true
+        },
+        {
+          "question": "What if written contract evidence was unavailable or lost?",
+          "visible": true
+        },
+        {
+          "question": "How is a disputed electronic message or signature checked in court?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/contract-evidence-and-electronic-messages",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تحل شهادة الشهود محل الكتابة في عقد مرتفع القيمة؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا لو تعذرت الكتابة أو فُقد دليل العقد الكتابي؟",
+          "visible": true
+        },
+        {
+          "question": "كيف يفحص القضاء رسالة أو توقيعاً إلكترونياً متنازعاً عليه؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/defective-goods-and-non-conforming-delivery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a buyer cancel a defective sale or keep the goods with a price adjustment?",
+          "visible": true
+        },
+        {
+          "question": "When might the seller not be responsible under the ordinary defect warranty?",
+          "visible": true
+        },
+        {
+          "question": "Does accepting or disposing of defective goods affect the available remedy?",
+          "visible": true
+        },
+        {
+          "question": "Is prompt defect notice enough to preserve a warranty claim indefinitely?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/defective-goods-and-non-conforming-delivery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحق للمشتري فسخ بيع المعيب أو الاحتفاظ به مع فرق الثمن؟",
+          "visible": true
+        },
+        {
+          "question": "متى قد لا يضمن البائع العيب وفق القواعد العامة؟",
+          "visible": true
+        },
+        {
+          "question": "هل يؤثر قبول المبيع المعيب أو التصرف فيه في الطلب المتاح؟",
+          "visible": true
+        },
+        {
+          "question": "هل يكفي الإبلاغ السريع عن العيب لحفظ الدعوى دون حد زمني؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/family-law/marriage-registration-and-family-status-certificate-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What can the Syrian Civil Affairs app do for a civil-record problem?",
+          "visible": true
+        },
+        {
+          "question": "Must I attend or issue a power of attorney to attest educational or civil-status documents?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/family-law/family-status-document-or-civil-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What can the Syrian Civil Affairs app do for a civil-record problem?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/family-law/inheritance-document-and-civil-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What can the Syrian Civil Affairs app do for a civil-record problem?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/family-law/marriage-registration-and-family-status-certificate-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف يفيد تطبيق الشؤون المدنية في مشكلة قيد مدني؟",
+          "visible": true
+        },
+        {
+          "question": "هل يلزم حضوري أو تنظيم وكالة لتصديق الوثائق الدراسية أو وثائق الأحوال المدنية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/family-law/family-status-document-or-civil-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف يفيد تطبيق الشؤون المدنية في مشكلة قيد مدني؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/family-law/inheritance-document-and-civil-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف يفيد تطبيق الشؤون المدنية في مشكلة قيد مدني؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/contracts/document-attestation-and-legalisation-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must I attend or issue a power of attorney to attest educational or civil-status documents?",
+          "visible": true
+        },
+        {
+          "question": "What documents and attestation steps were announced for foreign secondary-school certificate equivalency?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/contracts/power-of-attorney-drafting-and-authority-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must I attend or issue a power of attorney to attest educational or civil-status documents?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/contracts/document-attestation-and-legalisation-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يلزم حضوري أو تنظيم وكالة لتصديق الوثائق الدراسية أو وثائق الأحوال المدنية؟",
+          "visible": true
+        },
+        {
+          "question": "ما الوثائق والتصديقات المعلنة لمعادلة الشهادة الثانوية غير السورية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/contracts/power-of-attorney-drafting-and-authority-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يلزم حضوري أو تنظيم وكالة لتصديق الوثائق الدراسية أو وثائق الأحوال المدنية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/consumer-ecommerce/defective-product-and-consumer-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When can I choose a refund instead of a repair?",
+          "visible": true
+        },
+        {
+          "question": "Can prior use affect a repeated-defect refund?",
+          "visible": true
+        },
+        {
+          "question": "Can compensation go beyond replacing the defective product?",
+          "visible": true
+        },
+        {
+          "question": "Which authority should receive a consumer complaint?",
+          "visible": true
+        },
+        {
+          "question": "Which failed repairs count toward the warranty replacement remedy?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/consumer-ecommerce/defective-product-and-consumer-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى أختار رد الثمن بدلاً من الإصلاح؟",
+          "visible": true
+        },
+        {
+          "question": "هل يؤثر الاستخدام السابق في رد ثمن سلعة تكرر عيبها؟",
+          "visible": true
+        },
+        {
+          "question": "هل يتجاوز التعويض استبدال المنتج المعيب؟",
+          "visible": true
+        },
+        {
+          "question": "إلى أي جهة أقدم شكوى المستهلك؟",
+          "visible": true
+        },
+        {
+          "question": "أي إصلاحات فاشلة تدخل في معالجة الاستبدال أثناء الضمان؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/commercial-contracts/consumer-refund-and-purchase-cancellation-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When can I choose a refund instead of a repair?",
+          "visible": true
+        },
+        {
+          "question": "Does late delivery give me a statutory return claim?",
+          "visible": true
+        },
+        {
+          "question": "Which authority should receive a consumer complaint?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts/consumer-refund-and-purchase-cancellation-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى أختار رد الثمن بدلاً من الإصلاح؟",
+          "visible": true
+        },
+        {
+          "question": "هل يتيح التأخر في التسليم مطالبة قانونية بالإرجاع؟",
+          "visible": true
+        },
+        {
+          "question": "إلى أي جهة أقدم شكوى المستهلك؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/consumer-ecommerce/online-purchase-refund-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does late delivery give me a statutory return claim?",
+          "visible": true
+        },
+        {
+          "question": "What can exclude the statutory online return right?",
+          "visible": true
+        },
+        {
+          "question": "Which authority should receive a consumer complaint?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/consumer-ecommerce/online-purchase-refund-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يتيح التأخر في التسليم مطالبة قانونية بالإرجاع؟",
+          "visible": true
+        },
+        {
+          "question": "ما الذي قد يسقط حق الإرجاع الإلكتروني القانوني؟",
+          "visible": true
+        },
+        {
+          "question": "إلى أي جهة أقدم شكوى المستهلك؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/commercial-contracts/defective-product-and-consumer-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can compensation go beyond replacing the defective product?",
+          "visible": true
+        },
+        {
+          "question": "Which authority should receive a consumer complaint?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts/defective-product-and-consumer-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يتجاوز التعويض استبدال المنتج المعيب؟",
+          "visible": true
+        },
+        {
+          "question": "إلى أي جهة أقدم شكوى المستهلك؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/consumer-ecommerce/e-commerce-platform-account-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a seller use Dubai’s business-complaint service against a platform?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/consumer-ecommerce/e-commerce-platform-account-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يستخدم البائع خدمة شكاوى الأعمال في دبي ضد منصة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/domestic-violence-protection-and-family-safety-application",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What happens after a domestic-abuse report reaches the protection service?",
+          "visible": true
+        },
+        {
+          "question": "Can serious family-abuse risk lead to a restriction on the abuser’s contact?",
+          "visible": true
+        },
+        {
+          "question": "Will a family-abuse reporter’s identity always remain undisclosed?",
+          "visible": true
+        },
+        {
+          "question": "Who may receive shelter, and can personal documents be recovered safely?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/domestic-violence-protection-and-family-safety-application",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا يحدث بعد وصول بلاغ الإيذاء إلى جهة الحماية؟",
+          "visible": true
+        },
+        {
+          "question": "هل قد تؤدي خطورة الإيذاء الأسري إلى منع المعتدي من التواصل؟",
+          "visible": true
+        },
+        {
+          "question": "هل تبقى هوية المبلغ عن الإيذاء الأسري سرية في جميع الأحوال؟",
+          "visible": true
+        },
+        {
+          "question": "من قد يستحق الإيواء، وكيف تستعاد الوثائق الشخصية بأمان؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/child-custody-and-visitation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is the starting custody order after the parents separate?",
+          "visible": true
+        },
+        {
+          "question": "What can affect a person’s eligibility for custody?",
+          "visible": true
+        },
+        {
+          "question": "Does custody end at fifteen, and what happens if the child still needs dependent care?",
+          "visible": true
+        },
+        {
+          "question": "How should a disputed custody change be presented for judicial review?",
+          "visible": true
+        },
+        {
+          "question": "What if no eligible relative asks to take custody?",
+          "visible": true
+        },
+        {
+          "question": "Who decides visits when the parents cannot agree?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/child-custody-and-visitation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما ترتيب الحضانة المبدئي بعد افتراق الوالدين؟",
+          "visible": true
+        },
+        {
+          "question": "ما الذي قد يؤثر في أهلية الشخص للحضانة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تنتهي الحضانة في الخامسة عشرة، وماذا إذا استمرت الحاجة إلى الرعاية؟",
+          "visible": true
+        },
+        {
+          "question": "كيف يقدم تغيير الحضانة المتنازع عليه للمراجعة القضائية؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا إذا لم يطلب أحد المستحقين الحضانة؟",
+          "visible": true
+        },
+        {
+          "question": "من يحدد الزيارة إذا لم يتفق الوالدان؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/alimony-and-child-maintenance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does living separately automatically remove spousal maintenance?",
+          "visible": true
+        },
+        {
+          "question": "Is waiting-period maintenance the same after every form of marital dissolution?",
+          "visible": true
+        },
+        {
+          "question": "How is an interim maintenance award treated when continuing maintenance is decided?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/alimony-and-child-maintenance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يسقط استحقاق نفقة الزوجة تلقائياً بسبب السكن منفصلة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تكون نفقة العدة واحدة بعد كل صور انتهاء الزواج؟",
+          "visible": true
+        },
+        {
+          "question": "كيف تراعى النفقة المؤقتة عند الحكم بالنفقة المستمرة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insolvency-restructuring/business-debt-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the federal business-bankruptcy law cover every UAE debtor?",
+          "visible": true
+        },
+        {
+          "question": "How do preventive settlement, restructuring and bankruptcy differ?",
+          "visible": true
+        },
+        {
+          "question": "What debt threshold applies to a debtor’s federal application?",
+          "visible": true
+        },
+        {
+          "question": "What financial records are required beyond an unpaid-invoice list?",
+          "visible": true
+        },
+        {
+          "question": "Are the periods stated in days calendar days under this bankruptcy law?",
+          "visible": true
+        },
+        {
+          "question": "Who prepares the restructuring plan and when is it filed?",
+          "visible": true
+        },
+        {
+          "question": "What if the debts are personal rather than those of a business trader?",
+          "visible": true
+        },
+        {
+          "question": "Does a majority of creditor headcount approve a restructuring plan?",
+          "visible": true
+        },
+        {
+          "question": "Does creditor rejection necessarily end a restructuring proposal?",
+          "visible": true
+        },
+        {
+          "question": "Can a secured creditor enforce collateral during the collective procedure?",
+          "visible": true
+        },
+        {
+          "question": "When can the small-debtor procedure change the ordinary timetable and vote?",
+          "visible": true
+        },
+        {
+          "question": "Can the debtor obtain finance during settlement or restructuring?",
+          "visible": true
+        },
+        {
+          "question": "Can a viable business apply again after a failed restructuring?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insolvency-restructuring/creditor-claim-in-insolvency",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the federal business-bankruptcy law cover every UAE debtor?",
+          "visible": true
+        },
+        {
+          "question": "Is filing a claim in an open case the same as petitioning to open bankruptcy?",
+          "visible": true
+        },
+        {
+          "question": "Are the periods stated in days calendar days under this bankruptcy law?",
+          "visible": true
+        },
+        {
+          "question": "Must a secured creditor or a creditor without final judgment submit proof?",
+          "visible": true
+        },
+        {
+          "question": "Is a missed restructuring proof deadline automatically the end of the claim?",
+          "visible": true
+        },
+        {
+          "question": "Does a majority of creditor headcount approve a restructuring plan?",
+          "visible": true
+        },
+        {
+          "question": "How do I object to the restructuring debt list?",
+          "visible": true
+        },
+        {
+          "question": "Can a secured creditor enforce collateral during the collective procedure?",
+          "visible": true
+        },
+        {
+          "question": "Who receives liquidation proceeds first?",
+          "visible": true
+        },
+        {
+          "question": "When can the small-debtor procedure change the ordinary timetable and vote?",
+          "visible": true
+        },
+        {
+          "question": "Must a creditor update its claim when restructuring turns into liquidation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insolvency-restructuring/director-liability-in-insolvency",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the federal business-bankruptcy law cover every UAE debtor?",
+          "visible": true
+        },
+        {
+          "question": "Which conduct can trigger Article 246 director liability?",
+          "visible": true
+        },
+        {
+          "question": "Who brings the director-liability claim and what timing and defence matter?",
+          "visible": true
+        },
+        {
+          "question": "What evidence matters when a director says they tried to reduce losses?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insolvency-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the federal business-bankruptcy law cover every UAE debtor?",
+          "visible": true
+        },
+        {
+          "question": "How do preventive settlement, restructuring and bankruptcy differ?",
+          "visible": true
+        },
+        {
+          "question": "What if the debts are personal rather than those of a business trader?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insolvency-restructuring/business-debt-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يشمل قانون الإفلاس التجاري الاتحادي كل مدين في الإمارات؟",
+          "visible": true
+        },
+        {
+          "question": "ما الفرق بين التسوية الوقائية وإعادة الهيكلة والإفلاس؟",
+          "visible": true
+        },
+        {
+          "question": "ما حد الدين في الطلب الاتحادي المقدم من المدين؟",
+          "visible": true
+        },
+        {
+          "question": "ما السجلات المطلوبة غير قائمة الفواتير المتأخرة؟",
+          "visible": true
+        },
+        {
+          "question": "هل المدد المذكورة بالأيام في قانون الإفلاس أيام تقويمية؟",
+          "visible": true
+        },
+        {
+          "question": "من يعد خطة الهيكلة ومتى تودع؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا إن كانت الديون شخصية وليست ديون تاجر؟",
+          "visible": true
+        },
+        {
+          "question": "هل تكفي أغلبية عدد الدائنين لاعتماد خطة الهيكلة؟",
+          "visible": true
+        },
+        {
+          "question": "هل ينهي رفض الدائنين مقترح الهيكلة بالضرورة؟",
+          "visible": true
+        },
+        {
+          "question": "هل ينفذ الدائن المضمون على الضمان أثناء الإجراء الجماعي؟",
+          "visible": true
+        },
+        {
+          "question": "متى تغير إجراءات صغار المدينين المدد والتصويت المعتادين؟",
+          "visible": true
+        },
+        {
+          "question": "هل يجوز تمويل المدين أثناء التسوية أو الهيكلة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تعيد المنشأة القابلة للاستمرار الطلب بعد فشل الهيكلة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insolvency-restructuring/creditor-claim-in-insolvency",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يشمل قانون الإفلاس التجاري الاتحادي كل مدين في الإمارات؟",
+          "visible": true
+        },
+        {
+          "question": "هل إثبات الدين في قضية مفتوحة كطلب افتتاح الإفلاس؟",
+          "visible": true
+        },
+        {
+          "question": "هل المدد المذكورة بالأيام في قانون الإفلاس أيام تقويمية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يقدم صاحب الضمان أو الدين غير المحكوم به نهائياً إثباته؟",
+          "visible": true
+        },
+        {
+          "question": "هل يفقد الدائن مطالبته تلقائياً إذا فات موعد إثباتها في الهيكلة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تكفي أغلبية عدد الدائنين لاعتماد خطة الهيكلة؟",
+          "visible": true
+        },
+        {
+          "question": "كيف أعترض على قائمة ديون الهيكلة؟",
+          "visible": true
+        },
+        {
+          "question": "هل ينفذ الدائن المضمون على الضمان أثناء الإجراء الجماعي؟",
+          "visible": true
+        },
+        {
+          "question": "من يستوفي حصيلة التصفية أولاً؟",
+          "visible": true
+        },
+        {
+          "question": "متى تغير إجراءات صغار المدينين المدد والتصويت المعتادين؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحدث الدائن مطالبته عند انتقال الهيكلة إلى التصفية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insolvency-restructuring/director-liability-in-insolvency",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يشمل قانون الإفلاس التجاري الاتحادي كل مدين في الإمارات؟",
+          "visible": true
+        },
+        {
+          "question": "ما الأفعال التي قد تقيم مسؤولية المدير بالمادة 246؟",
+          "visible": true
+        },
+        {
+          "question": "من يقيم دعوى مسؤولية المدير وما الميعاد والدفاع المهم؟",
+          "visible": true
+        },
+        {
+          "question": "ما الدليل المهم عندما يقول المدير إنه حاول تقليل الخسائر؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insolvency-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يشمل قانون الإفلاس التجاري الاتحادي كل مدين في الإمارات؟",
+          "visible": true
+        },
+        {
+          "question": "ما الفرق بين التسوية الوقائية وإعادة الهيكلة والإفلاس؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا إن كانت الديون شخصية وليست ديون تاجر؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/disciplinary-warning-and-workplace-investigation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Are there limits on when and how an employer imposes a disciplinary penalty?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/workplace-and-disciplinary-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Are there limits on when and how an employer imposes a disciplinary penalty?",
+          "visible": true
+        },
+        {
+          "question": "Can an employer deduct the full alleged cost of damaged equipment from wages?",
+          "visible": true
+        },
+        {
+          "question": "Can an employer change the job or require relocation without written consent?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/disciplinary-warning-and-workplace-investigation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل توجد حدود لتوقيت الجزاء التأديبي ومقداره؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/workplace-and-disciplinary-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل توجد حدود لتوقيت الجزاء التأديبي ومقداره؟",
+          "visible": true
+        },
+        {
+          "question": "هل يجوز حسم كامل قيمة تلف المعدات المزعوم من الأجر؟",
+          "visible": true
+        },
+        {
+          "question": "هل يغير صاحب العمل المهنة أو يفرض انتقال السكن دون موافقة كتابية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/delayed-or-unpaid-salary",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an employer deduct the full alleged cost of damaged equipment from wages?",
+          "visible": true
+        },
+        {
+          "question": "Does an employer need written consent for every wage deduction?",
+          "visible": true
+        },
+        {
+          "question": "How long after employment ends can a Saudi labour-right claim be brought?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/employment-settlement-and-final-dues-calculation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an employer deduct the full alleged cost of damaged equipment from wages?",
+          "visible": true
+        },
+        {
+          "question": "Does an employer need written consent for every wage deduction?",
+          "visible": true
+        },
+        {
+          "question": "When can resignation still receive a full end-of-service award, and when are final dues payable?",
+          "visible": true
+        },
+        {
+          "question": "How long after employment ends can a Saudi labour-right claim be brought?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/delayed-or-unpaid-salary",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجوز حسم كامل قيمة تلف المعدات المزعوم من الأجر؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحتاج كل حسم من الأجر إلى موافقة كتابية؟",
+          "visible": true
+        },
+        {
+          "question": "ما مدة المطالبة بالحقوق العمالية بعد انتهاء العلاقة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/employment-settlement-and-final-dues-calculation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجوز حسم كامل قيمة تلف المعدات المزعوم من الأجر؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحتاج كل حسم من الأجر إلى موافقة كتابية؟",
+          "visible": true
+        },
+        {
+          "question": "متى تستحق مكافأة كاملة رغم ترك العمل، ومتى تصفى المستحقات؟",
+          "visible": true
+        },
+        {
+          "question": "ما مدة المطالبة بالحقوق العمالية بعد انتهاء العلاقة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/unpaid-wages-and-benefits",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does an employer need written consent for every wage deduction?",
+          "visible": true
+        },
+        {
+          "question": "How long after employment ends can a Saudi labour-right claim be brought?",
+          "visible": true
+        },
+        {
+          "question": "Is every hour spent at the workplace ordinary paid working time?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/unpaid-wages-and-benefits",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحتاج كل حسم من الأجر إلى موافقة كتابية؟",
+          "visible": true
+        },
+        {
+          "question": "ما مدة المطالبة بالحقوق العمالية بعد انتهاء العلاقة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تعد كل ساعة في مقر العمل وقت عمل فعلياً عادياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/commission-and-bonus-payment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How are variable commissions treated in statutory calculations?",
+          "visible": true
+        },
+        {
+          "question": "How long after employment ends can a Saudi labour-right claim be brought?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/end-of-service-entitlements",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How are variable commissions treated in statutory calculations?",
+          "visible": true
+        },
+        {
+          "question": "When can resignation still receive a full end-of-service award, and when are final dues payable?",
+          "visible": true
+        },
+        {
+          "question": "How long after employment ends can a Saudi labour-right claim be brought?",
+          "visible": true
+        },
+        {
+          "question": "Does an employer’s reference to Article 80 automatically remove notice and compensation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/commission-and-bonus-payment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف تدخل العمولات المتغيرة في الحسابات النظامية؟",
+          "visible": true
+        },
+        {
+          "question": "ما مدة المطالبة بالحقوق العمالية بعد انتهاء العلاقة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/end-of-service-entitlements",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف تدخل العمولات المتغيرة في الحسابات النظامية؟",
+          "visible": true
+        },
+        {
+          "question": "متى تستحق مكافأة كاملة رغم ترك العمل، ومتى تصفى المستحقات؟",
+          "visible": true
+        },
+        {
+          "question": "ما مدة المطالبة بالحقوق العمالية بعد انتهاء العلاقة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تكفي إحالة صاحب العمل إلى المادة 80 لإسقاط الإشعار والتعويض؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/non-compete-and-confidentiality-clause-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the two-year non-compete limit also define every confidentiality obligation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/non-compete-and-confidentiality-clause-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تحدد مدة السنتين لعدم المنافسة كل التزام بالسرية أيضاً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/sick-leave-and-annual-leave-entitlement-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can annual leave be postponed indefinitely, and when does the sick-leave year start?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/sick-leave-and-annual-leave-entitlement-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تؤجل الإجازة السنوية بلا نهاية، ومتى تبدأ سنة الإجازة المرضية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/wrongful-termination",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How long after employment ends can a Saudi labour-right claim be brought?",
+          "visible": true
+        },
+        {
+          "question": "Does an employer’s reference to Article 80 automatically remove notice and compensation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/employment-dispute-after-resignation-or-job-transfer",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How long after employment ends can a Saudi labour-right claim be brought?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/wrongful-termination",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما مدة المطالبة بالحقوق العمالية بعد انتهاء العلاقة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تكفي إحالة صاحب العمل إلى المادة 80 لإسقاط الإشعار والتعويض؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/employment-dispute-after-resignation-or-job-transfer",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما مدة المطالبة بالحقوق العمالية بعد انتهاء العلاقة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law/employment-contract-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does repeated renewal make every employment contract indefinite?",
+          "visible": true
+        },
+        {
+          "question": "Can an employer change the job or require relocation without written consent?",
+          "visible": true
+        },
+        {
+          "question": "Is every hour spent at the workplace ordinary paid working time?",
+          "visible": true
+        },
+        {
+          "question": "Which written terms and records should a Saudi employment contract contain?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law/employment-contract-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحول التجديد المتكرر كل عقد عمل إلى غير محدد المدة؟",
+          "visible": true
+        },
+        {
+          "question": "هل يغير صاحب العمل المهنة أو يفرض انتقال السكن دون موافقة كتابية؟",
+          "visible": true
+        },
+        {
+          "question": "هل تعد كل ساعة في مقر العمل وقت عمل فعلياً عادياً؟",
+          "visible": true
+        },
+        {
+          "question": "ما البيانات والحقوق التي ينبغي إثباتها في عقد العمل؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "pass": true
+}

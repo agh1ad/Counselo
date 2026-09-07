@@ -1,0 +1,2205 @@
+{
+  "reviewedAt": "2026-09-07",
+  "taskStatus": "in-progress",
+  "scope": {
+    "routes": 18,
+    "privacy": 6,
+    "terms": 6,
+    "contact": 6,
+    "pageFilesChanged": 3,
+    "completedPages": 0
+  },
+  "method": "Reviewed all18 regional route snapshots, shared bilingual source copy and specific implemented contact/analytics data flows. Changed only3 authorised UI page files, initially free of git diff. No server/analytics behavior changed, forms submitted, credentials read, remote media downloaded or new policy commitments invented. No substantive legal provision changed, so no new legal-source claim is made.",
+  "validation": {
+    "gitDiffCheck": "passed",
+    "fullBuild": "not run per delegation",
+    "renderedAfterChange": "pending root",
+    "liveProviderDelivery": "not tested"
+  },
+  "dataflowFindings": [
+    "POST contact validates input and applies HMAC IP fingerprint rate limiting, then saves encrypted payload with request metadata.",
+    "AES256GCM encrypts submitted payload; Resend internal email includes message and attachments and is addressed to configured team and owner. Customer receives separate confirmation.",
+    "Both provider acceptances clear encrypted payload/IV/tag; metadata remains. Failed or exhausted notifications can retain encrypted content. No general mailbox/backups retention schedule established.",
+    "Analytics stores interaction counts and recent200events locally and pushes page_location with full browser URL, page title and event fields to Google Tag Manager. External container settings are outside repo evidence."
+  ],
+  "pages": [
+    {
+      "route": "/sa/ar/contact",
+      "language": "ar",
+      "region": "sa",
+      "primaryIntent": "ابدأ استشارتك القانونية",
+      "supportingIntents": [
+        "Contact channels and country",
+        "Information and attachments to prepare",
+        "Fee approval and written advice delivery",
+        "Provider identity and separate local representation"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/sa-ar-contact.html",
+        "sha256": "824cd6f057d449794618b36ca7e920fe8ed18427e730a196ba7d08ac42332b32",
+        "textCharacters": 6506,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "ابدأ استشارتك القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تعمل الاستشارة القانونية أونلاين؟"
+          },
+          {
+            "level": "h3",
+            "text": "أرسل التفاصيل"
+          },
+          {
+            "level": "h3",
+            "text": "نراجع مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "اتفق على الخدمة والرسوم"
+          },
+          {
+            "level": "h3",
+            "text": "استلم المشورة والخطوة التالية"
+          },
+          {
+            "level": "h3",
+            "text": "تفاصيل المكتب"
+          },
+          {
+            "level": "h3",
+            "text": "طلب استشارة"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أسئلة تساعدك على تحديد الخطوة التالية"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل المملكة. تفكير قانوني سعودي دقيق."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/contact.tsx",
+        "sha256": "687c5491b8acfe0f0cb43cc4ca97b7aa0fef4f795742e5cf954b23bdf03dff39",
+        "dataflowFiles": [
+          "artifacts/api-server/src/routes/contact.ts",
+          "artifacts/api-server/src/lib/contact-crypto.ts",
+          "artifacts/api-server/src/lib/contact-providers.ts",
+          "artifacts/api-server/src/lib/contact-notifications.ts"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Qualified Saudi/Syria title, description and schema response language as target rather than guarantee.",
+        "Removed generic securely label from pending submission text."
+      ],
+      "previousGaps": [
+        "Delivery and response-time monitoring require an authorised real submission or operational evidence; the local read-only preview does not establish receipt.",
+        "Office-location labels and the local professional responsible need current evidence separate from the common Saudi intake number."
+      ],
+      "knownMissingBusinessFacts": [
+        "A real authorised submission or operational evidence is needed to establish current mailbox receipt and response performance; none sent.",
+        "Office/service-location and responsible-practitioner facts require business evidence separately from the common Saudi telephone number."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/sa/ar/privacy-policy",
+      "language": "ar",
+      "region": "sa",
+      "primaryIntent": "سياسة الخصوصية",
+      "supportingIntents": [
+        "Data collected and purposes",
+        "Confidentiality and disclosures",
+        "Analytics, providers and communications",
+        "Rights requests, retention and contact"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/sa-ar-privacy-policy.html",
+        "sha256": "a9f6e539318abe2989eee04c076896277d50da569983f3f8638ddcb9b37e341a",
+        "textCharacters": 9695,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "سياسة الخصوصية"
+          },
+          {
+            "level": "h2",
+            "text": "١. من نحن"
+          },
+          {
+            "level": "h2",
+            "text": "٢. المعلومات التي نجمعها"
+          },
+          {
+            "level": "h2",
+            "text": "٣. كيف نستخدم معلوماتك"
+          },
+          {
+            "level": "h2",
+            "text": "٤. السرية المهنية القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "٥. التواصل عبر واتساب والبريد الإلكتروني"
+          },
+          {
+            "level": "h2",
+            "text": "٦. ملفات تعريف الارتباط وتحليلات الموقع"
+          },
+          {
+            "level": "h2",
+            "text": "٧. الأساس القانوني للمعالجة"
+          },
+          {
+            "level": "h2",
+            "text": "٨. مشاركة البيانات مع الأطراف الثالثة"
+          },
+          {
+            "level": "h2",
+            "text": "٩. مدة الاحتفاظ بالبيانات"
+          },
+          {
+            "level": "h2",
+            "text": "١٠. حقوقك"
+          },
+          {
+            "level": "h2",
+            "text": "١١. إجراءات الأمن"
+          },
+          {
+            "level": "h2",
+            "text": "١٢. التعديلات على هذه السياسة"
+          },
+          {
+            "level": "h2",
+            "text": "لديك سؤال أو استفسار حول الخصوصية؟"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل المملكة. تفكير قانوني سعودي دقيق."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/privacy-policy.tsx",
+        "sha256": "8dd9445a67ec3161bc4887caeb9b10803fc00a56592c76f1c4d7773c6f3a3443",
+        "dataflowFiles": [
+          "artifacts/api-server/src/routes/contact.ts",
+          "artifacts/api-server/src/lib/contact-crypto.ts",
+          "artifacts/api-server/src/lib/contact-providers.ts",
+          "artifacts/api-server/src/lib/contact-notifications.ts",
+          "artifacts/legal-site/src/lib/analytics.ts",
+          "lib/db/src/schema/contact-submissions.ts"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Disclosed Resend processing of website request details and attachments, plus customer confirmation email.",
+        "Removed unsupported only-legal-team access and universal provider-contract assurances.",
+        "Replaced no-personal-information analytics guarantee with actual page-address/title/event fields and URL-sensitive-data caution.",
+        "Removed unverified no-advertising/cross-site-tracking assertion; external GTM configuration is not established by source code.",
+        "Explained encrypted-payload clearing only after both provider acceptances; did not claim mailbox or metadata deletion.",
+        "Replaced unverified regular-security-review assertion with initial-data-minimisation guidance."
+      ],
+      "previousGaps": [
+        "Verify actual processors, retention and analytics data flow against the published statements.",
+        "Applicable processing basis and rights must be checked for the actual controller/regime; a regional page label alone does not resolve federal/free-zone or cross-border scope."
+      ],
+      "knownMissingBusinessFacts": [
+        "Controller legal identity, establishments and applicable processing regime require business evidence; destination country alone is insufficient.",
+        "Hosting/database/mailbox locations, processor terms and actual transfer safeguards remain unverified; no configuration secrets were read.",
+        "External GTM tags, consent settings, cookie purposes/durations and any Google Analytics or advertising configuration require authorised account evidence.",
+        "Retention schedules for failed payloads, metadata, email/WhatsApp copies and backups are not established by the reviewed code.",
+        "Existing legal-basis allocation, cross-border safeguard assertion, rights handling and material-change notifications require controller confirmation and applicable-law review; these were not invented or certified."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/sa/ar/terms-of-service",
+      "language": "ar",
+      "region": "sa",
+      "primaryIntent": "شروط الخدمة",
+      "supportingIntents": [
+        "Request assessment and fee quote",
+        "Payment before legal answer",
+        "Clarification and mandatory-law refund exception",
+        "Separate representation agreement"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/sa-ar-terms-of-service.html",
+        "sha256": "7994a87946603f76188c66cce9b44d1649a0b07e345d9e17052957adc0dc04fb",
+        "textCharacters": 4940,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "شروط الخدمة"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تسير عملية الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الأولى — إرسال معلوماتك"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الثانية — نقيّم الطلب ونخبرك بالتكلفة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الثالثة — الدفع قبل تلقّي الإجابة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الرابعة — تستلم إجابتك القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "الشروط العامة"
+          },
+          {
+            "level": "h3",
+            "text": "السرية التامة"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "عدم استرداد المبلغ بعد التسليم"
+          },
+          {
+            "level": "h3",
+            "text": "الاستشارة لا تعني التمثيل القانوني"
+          },
+          {
+            "level": "h3",
+            "text": "تعديل الشروط"
+          },
+          {
+            "level": "h2",
+            "text": "مستعد للبدء؟"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل المملكة. تفكير قانوني سعودي دقيق."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/terms-of-service.tsx",
+        "sha256": "fbdc1907d7998d23e35d4af3abfebdd73a22646904d3278648e3b2fc28fb075a",
+        "dataflowFiles": [
+          "artifacts/legal-site/src/pages/contact.tsx"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Aligned enquiry status with existing express fee-approval requirement; initial contact does not itself commit the visitor to payment.",
+        "Included actual website-form intake alongside email and WhatsApp.",
+        "Changed absolute Arabic confidentiality heading to confidentiality without altering underlying legal exceptions."
+      ],
+      "previousGaps": [
+        "Reconcile quote, delivery and clarification commitments with the actual engagement workflow.",
+        "Confirm consumer and professional mandatory terms for the actual service before applying the general terms to an individual dispute."
+      ],
+      "knownMissingBusinessFacts": [
+        "Business confirmation remains needed for stated one-free-clarification policy, cancellation before delivery, fee/payment methods and dispute terms.",
+        "A specific engagement controls scope, practitioner, deliverable and timing; no uniform fee or outcome is established by repository code."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/sa/contact",
+      "language": "en",
+      "region": "sa",
+      "primaryIntent": "Start Your Consultation",
+      "supportingIntents": [
+        "Contact channels and country",
+        "Information and attachments to prepare",
+        "Fee approval and written advice delivery",
+        "Provider identity and separate local representation"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/sa-contact.html",
+        "sha256": "17b3ea47cc93db0b11c9843dc69dd9c578b474324b48ebe9a47ba38b994d47df",
+        "textCharacters": 7661,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Start Your Consultation"
+          },
+          {
+            "level": "h2",
+            "text": "How online legal consultation works"
+          },
+          {
+            "level": "h3",
+            "text": "Send the details"
+          },
+          {
+            "level": "h3",
+            "text": "We review your matter"
+          },
+          {
+            "level": "h3",
+            "text": "Agree on the service and fee"
+          },
+          {
+            "level": "h3",
+            "text": "Receive advice and next steps"
+          },
+          {
+            "level": "h3",
+            "text": "Firm Details"
+          },
+          {
+            "level": "h3",
+            "text": "Request a Consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Questions to clarify your next step"
+          },
+          {
+            "level": "h2",
+            "text": "Kingdom-wide perspective. Precise Saudi legal thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/contact.tsx",
+        "sha256": "687c5491b8acfe0f0cb43cc4ca97b7aa0fef4f795742e5cf954b23bdf03dff39",
+        "dataflowFiles": [
+          "artifacts/api-server/src/routes/contact.ts",
+          "artifacts/api-server/src/lib/contact-crypto.ts",
+          "artifacts/api-server/src/lib/contact-providers.ts",
+          "artifacts/api-server/src/lib/contact-notifications.ts"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Qualified Saudi/Syria title, description and schema response language as target rather than guarantee.",
+        "Removed generic securely label from pending submission text."
+      ],
+      "previousGaps": [
+        "Delivery and response-time monitoring require an authorised real submission or operational evidence; the local read-only preview does not establish receipt.",
+        "Office-location labels and the local professional responsible need current evidence separate from the common Saudi intake number."
+      ],
+      "knownMissingBusinessFacts": [
+        "A real authorised submission or operational evidence is needed to establish current mailbox receipt and response performance; none sent.",
+        "Office/service-location and responsible-practitioner facts require business evidence separately from the common Saudi telephone number."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/sa/privacy-policy",
+      "language": "en",
+      "region": "sa",
+      "primaryIntent": "Privacy Policy",
+      "supportingIntents": [
+        "Data collected and purposes",
+        "Confidentiality and disclosures",
+        "Analytics, providers and communications",
+        "Rights requests, retention and contact"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/sa-privacy-policy.html",
+        "sha256": "70780be51680c9312293090325becb034a0411beafaf8fba2596975e0b6edce0",
+        "textCharacters": 11132,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Privacy Policy"
+          },
+          {
+            "level": "h2",
+            "text": "1. Who We Are"
+          },
+          {
+            "level": "h2",
+            "text": "2. Information We Collect"
+          },
+          {
+            "level": "h2",
+            "text": "3. How We Use Your Information"
+          },
+          {
+            "level": "h2",
+            "text": "4. Professional Legal Confidentiality"
+          },
+          {
+            "level": "h2",
+            "text": "5. WhatsApp & Email Communications"
+          },
+          {
+            "level": "h2",
+            "text": "6. Cookies & Website Analytics"
+          },
+          {
+            "level": "h2",
+            "text": "7. Legal Basis for Processing"
+          },
+          {
+            "level": "h2",
+            "text": "8. Data Sharing & Third Parties"
+          },
+          {
+            "level": "h2",
+            "text": "9. Data Retention"
+          },
+          {
+            "level": "h2",
+            "text": "10. Your Rights"
+          },
+          {
+            "level": "h2",
+            "text": "11. Security Measures"
+          },
+          {
+            "level": "h2",
+            "text": "12. Changes to This Policy"
+          },
+          {
+            "level": "h2",
+            "text": "Privacy Questions or Concerns?"
+          },
+          {
+            "level": "h2",
+            "text": "Kingdom-wide perspective. Precise Saudi legal thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/privacy-policy.tsx",
+        "sha256": "8dd9445a67ec3161bc4887caeb9b10803fc00a56592c76f1c4d7773c6f3a3443",
+        "dataflowFiles": [
+          "artifacts/api-server/src/routes/contact.ts",
+          "artifacts/api-server/src/lib/contact-crypto.ts",
+          "artifacts/api-server/src/lib/contact-providers.ts",
+          "artifacts/api-server/src/lib/contact-notifications.ts",
+          "artifacts/legal-site/src/lib/analytics.ts",
+          "lib/db/src/schema/contact-submissions.ts"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Disclosed Resend processing of website request details and attachments, plus customer confirmation email.",
+        "Removed unsupported only-legal-team access and universal provider-contract assurances.",
+        "Replaced no-personal-information analytics guarantee with actual page-address/title/event fields and URL-sensitive-data caution.",
+        "Removed unverified no-advertising/cross-site-tracking assertion; external GTM configuration is not established by source code.",
+        "Explained encrypted-payload clearing only after both provider acceptances; did not claim mailbox or metadata deletion.",
+        "Replaced unverified regular-security-review assertion with initial-data-minimisation guidance."
+      ],
+      "previousGaps": [
+        "Verify actual processors, retention and analytics data flow against the published statements.",
+        "Applicable processing basis and rights must be checked for the actual controller/regime; a regional page label alone does not resolve federal/free-zone or cross-border scope."
+      ],
+      "knownMissingBusinessFacts": [
+        "Controller legal identity, establishments and applicable processing regime require business evidence; destination country alone is insufficient.",
+        "Hosting/database/mailbox locations, processor terms and actual transfer safeguards remain unverified; no configuration secrets were read.",
+        "External GTM tags, consent settings, cookie purposes/durations and any Google Analytics or advertising configuration require authorised account evidence.",
+        "Retention schedules for failed payloads, metadata, email/WhatsApp copies and backups are not established by the reviewed code.",
+        "Existing legal-basis allocation, cross-border safeguard assertion, rights handling and material-change notifications require controller confirmation and applicable-law review; these were not invented or certified."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/sa/terms-of-service",
+      "language": "en",
+      "region": "sa",
+      "primaryIntent": "Terms of Service",
+      "supportingIntents": [
+        "Request assessment and fee quote",
+        "Payment before legal answer",
+        "Clarification and mandatory-law refund exception",
+        "Separate representation agreement"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/sa-terms-of-service.html",
+        "sha256": "4afaac3cc9a4ac60198d86d4a8f74a4d50b541927a35f96f548f1f83cd7ef3a8",
+        "textCharacters": 5729,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Terms of Service"
+          },
+          {
+            "level": "h2",
+            "text": "How Our Consultation Process Works"
+          },
+          {
+            "level": "h3",
+            "text": "Step 1 — Submit Your Information"
+          },
+          {
+            "level": "h3",
+            "text": "Step 2 — We Assess & Inform You of the Cost"
+          },
+          {
+            "level": "h3",
+            "text": "Step 3 — Payment Before the Answer"
+          },
+          {
+            "level": "h3",
+            "text": "Step 4 — You Receive the Legal Answer"
+          },
+          {
+            "level": "h2",
+            "text": "General Terms"
+          },
+          {
+            "level": "h3",
+            "text": "Confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Scope of Consultation"
+          },
+          {
+            "level": "h3",
+            "text": "No Refunds After Delivery"
+          },
+          {
+            "level": "h3",
+            "text": "No Attorney-Client Relationship for Representation"
+          },
+          {
+            "level": "h3",
+            "text": "Changes to Terms"
+          },
+          {
+            "level": "h2",
+            "text": "Ready to Get Started?"
+          },
+          {
+            "level": "h2",
+            "text": "Kingdom-wide perspective. Precise Saudi legal thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/terms-of-service.tsx",
+        "sha256": "fbdc1907d7998d23e35d4af3abfebdd73a22646904d3278648e3b2fc28fb075a",
+        "dataflowFiles": [
+          "artifacts/legal-site/src/pages/contact.tsx"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Aligned enquiry status with existing express fee-approval requirement; initial contact does not itself commit the visitor to payment.",
+        "Included actual website-form intake alongside email and WhatsApp.",
+        "Changed absolute Arabic confidentiality heading to confidentiality without altering underlying legal exceptions."
+      ],
+      "previousGaps": [
+        "Reconcile quote, delivery and clarification commitments with the actual engagement workflow.",
+        "Confirm consumer and professional mandatory terms for the actual service before applying the general terms to an individual dispute."
+      ],
+      "knownMissingBusinessFacts": [
+        "Business confirmation remains needed for stated one-free-clarification policy, cancellation before delivery, fee/payment methods and dispute terms.",
+        "A specific engagement controls scope, practitioner, deliverable and timing; no uniform fee or outcome is established by repository code."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/syr/ar/contact",
+      "language": "ar",
+      "region": "syr",
+      "primaryIntent": "ابدأ استشارتك القانونية",
+      "supportingIntents": [
+        "Contact channels and country",
+        "Information and attachments to prepare",
+        "Fee approval and written advice delivery",
+        "Provider identity and separate local representation"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/syr-ar-contact.html",
+        "sha256": "e176c2477accc40ee54f2e2bbdb941ef8dee19a0ea1ec3da09176ec308e27f5e",
+        "textCharacters": 6518,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "ابدأ استشارتك القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تعمل الاستشارة القانونية أونلاين؟"
+          },
+          {
+            "level": "h3",
+            "text": "أرسل التفاصيل"
+          },
+          {
+            "level": "h3",
+            "text": "نراجع مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "اتفق على الخدمة والرسوم"
+          },
+          {
+            "level": "h3",
+            "text": "استلم المشورة والخطوة التالية"
+          },
+          {
+            "level": "h3",
+            "text": "تفاصيل المكتب"
+          },
+          {
+            "level": "h3",
+            "text": "طلب استشارة"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أسئلة تساعدك على تحديد الخطوة التالية"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل سوريا. تحليل دقيق للقانون المدني."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/contact.tsx",
+        "sha256": "687c5491b8acfe0f0cb43cc4ca97b7aa0fef4f795742e5cf954b23bdf03dff39",
+        "dataflowFiles": [
+          "artifacts/api-server/src/routes/contact.ts",
+          "artifacts/api-server/src/lib/contact-crypto.ts",
+          "artifacts/api-server/src/lib/contact-providers.ts",
+          "artifacts/api-server/src/lib/contact-notifications.ts"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Qualified Saudi/Syria title, description and schema response language as target rather than guarantee.",
+        "Removed generic securely label from pending submission text."
+      ],
+      "previousGaps": [
+        "Delivery and response-time monitoring require an authorised real submission or operational evidence; the local read-only preview does not establish receipt.",
+        "Office-location labels and the local professional responsible need current evidence separate from the common Saudi intake number."
+      ],
+      "knownMissingBusinessFacts": [
+        "A real authorised submission or operational evidence is needed to establish current mailbox receipt and response performance; none sent.",
+        "Office/service-location and responsible-practitioner facts require business evidence separately from the common Saudi telephone number."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/syr/ar/privacy-policy",
+      "language": "ar",
+      "region": "syr",
+      "primaryIntent": "سياسة الخصوصية",
+      "supportingIntents": [
+        "Data collected and purposes",
+        "Confidentiality and disclosures",
+        "Analytics, providers and communications",
+        "Rights requests, retention and contact"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/syr-ar-privacy-policy.html",
+        "sha256": "d82dd4bde492693945e7f4f2b209bc1f4a6e4f76d78cf7b23decf8b18b7c8d9c",
+        "textCharacters": 9648,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "سياسة الخصوصية"
+          },
+          {
+            "level": "h2",
+            "text": "١. من نحن"
+          },
+          {
+            "level": "h2",
+            "text": "٢. المعلومات التي نجمعها"
+          },
+          {
+            "level": "h2",
+            "text": "٣. كيف نستخدم معلوماتك"
+          },
+          {
+            "level": "h2",
+            "text": "٤. السرية المهنية القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "٥. التواصل عبر واتساب والبريد الإلكتروني"
+          },
+          {
+            "level": "h2",
+            "text": "٦. ملفات تعريف الارتباط وتحليلات الموقع"
+          },
+          {
+            "level": "h2",
+            "text": "٧. الأساس القانوني للمعالجة"
+          },
+          {
+            "level": "h2",
+            "text": "٨. مشاركة البيانات مع الأطراف الثالثة"
+          },
+          {
+            "level": "h2",
+            "text": "٩. مدة الاحتفاظ بالبيانات"
+          },
+          {
+            "level": "h2",
+            "text": "١٠. حقوقك"
+          },
+          {
+            "level": "h2",
+            "text": "١١. إجراءات الأمن"
+          },
+          {
+            "level": "h2",
+            "text": "١٢. التعديلات على هذه السياسة"
+          },
+          {
+            "level": "h2",
+            "text": "لديك سؤال أو استفسار حول الخصوصية؟"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل سوريا. تحليل دقيق للقانون المدني."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/privacy-policy.tsx",
+        "sha256": "8dd9445a67ec3161bc4887caeb9b10803fc00a56592c76f1c4d7773c6f3a3443",
+        "dataflowFiles": [
+          "artifacts/api-server/src/routes/contact.ts",
+          "artifacts/api-server/src/lib/contact-crypto.ts",
+          "artifacts/api-server/src/lib/contact-providers.ts",
+          "artifacts/api-server/src/lib/contact-notifications.ts",
+          "artifacts/legal-site/src/lib/analytics.ts",
+          "lib/db/src/schema/contact-submissions.ts"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Disclosed Resend processing of website request details and attachments, plus customer confirmation email.",
+        "Removed unsupported only-legal-team access and universal provider-contract assurances.",
+        "Replaced no-personal-information analytics guarantee with actual page-address/title/event fields and URL-sensitive-data caution.",
+        "Removed unverified no-advertising/cross-site-tracking assertion; external GTM configuration is not established by source code.",
+        "Explained encrypted-payload clearing only after both provider acceptances; did not claim mailbox or metadata deletion.",
+        "Replaced unverified regular-security-review assertion with initial-data-minimisation guidance."
+      ],
+      "previousGaps": [
+        "Verify actual processors, retention and analytics data flow against the published statements.",
+        "Applicable processing basis and rights must be checked for the actual controller/regime; a regional page label alone does not resolve federal/free-zone or cross-border scope."
+      ],
+      "knownMissingBusinessFacts": [
+        "Controller legal identity, establishments and applicable processing regime require business evidence; destination country alone is insufficient.",
+        "Hosting/database/mailbox locations, processor terms and actual transfer safeguards remain unverified; no configuration secrets were read.",
+        "External GTM tags, consent settings, cookie purposes/durations and any Google Analytics or advertising configuration require authorised account evidence.",
+        "Retention schedules for failed payloads, metadata, email/WhatsApp copies and backups are not established by the reviewed code.",
+        "Existing legal-basis allocation, cross-border safeguard assertion, rights handling and material-change notifications require controller confirmation and applicable-law review; these were not invented or certified."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/syr/ar/terms-of-service",
+      "language": "ar",
+      "region": "syr",
+      "primaryIntent": "شروط الخدمة",
+      "supportingIntents": [
+        "Request assessment and fee quote",
+        "Payment before legal answer",
+        "Clarification and mandatory-law refund exception",
+        "Separate representation agreement"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/syr-ar-terms-of-service.html",
+        "sha256": "61cf0142a319c8cf270835a6c0ee8886b1267afe44b215f188ee3cca122ed654",
+        "textCharacters": 4983,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "شروط الخدمة"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تسير عملية الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الأولى — إرسال معلوماتك"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الثانية — نقيّم الطلب ونخبرك بالتكلفة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الثالثة — الدفع قبل تلقّي الإجابة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الرابعة — تستلم إجابتك القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "الشروط العامة"
+          },
+          {
+            "level": "h3",
+            "text": "السرية التامة"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "عدم استرداد المبلغ بعد التسليم"
+          },
+          {
+            "level": "h3",
+            "text": "الاستشارة لا تعني التمثيل القانوني"
+          },
+          {
+            "level": "h3",
+            "text": "تعديل الشروط"
+          },
+          {
+            "level": "h2",
+            "text": "مستعد للبدء؟"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل سوريا. تحليل دقيق للقانون المدني."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/terms-of-service.tsx",
+        "sha256": "fbdc1907d7998d23e35d4af3abfebdd73a22646904d3278648e3b2fc28fb075a",
+        "dataflowFiles": [
+          "artifacts/legal-site/src/pages/contact.tsx"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Aligned enquiry status with existing express fee-approval requirement; initial contact does not itself commit the visitor to payment.",
+        "Included actual website-form intake alongside email and WhatsApp.",
+        "Changed absolute Arabic confidentiality heading to confidentiality without altering underlying legal exceptions."
+      ],
+      "previousGaps": [
+        "Reconcile quote, delivery and clarification commitments with the actual engagement workflow.",
+        "Confirm consumer and professional mandatory terms for the actual service before applying the general terms to an individual dispute."
+      ],
+      "knownMissingBusinessFacts": [
+        "Business confirmation remains needed for stated one-free-clarification policy, cancellation before delivery, fee/payment methods and dispute terms.",
+        "A specific engagement controls scope, practitioner, deliverable and timing; no uniform fee or outcome is established by repository code."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/syr/contact",
+      "language": "en",
+      "region": "syr",
+      "primaryIntent": "Start Your Consultation",
+      "supportingIntents": [
+        "Contact channels and country",
+        "Information and attachments to prepare",
+        "Fee approval and written advice delivery",
+        "Provider identity and separate local representation"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/syr-contact.html",
+        "sha256": "db1bdd49203b208a66720a3779d87572f3a279a763fc41c337903e2e54707a97",
+        "textCharacters": 7666,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Start Your Consultation"
+          },
+          {
+            "level": "h2",
+            "text": "How online legal consultation works"
+          },
+          {
+            "level": "h3",
+            "text": "Send the details"
+          },
+          {
+            "level": "h3",
+            "text": "We review your matter"
+          },
+          {
+            "level": "h3",
+            "text": "Agree on the service and fee"
+          },
+          {
+            "level": "h3",
+            "text": "Receive advice and next steps"
+          },
+          {
+            "level": "h3",
+            "text": "Firm Details"
+          },
+          {
+            "level": "h3",
+            "text": "Request a Consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Questions to clarify your next step"
+          },
+          {
+            "level": "h2",
+            "text": "Syria-wide perspective. Precise civil-law analysis."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/contact.tsx",
+        "sha256": "687c5491b8acfe0f0cb43cc4ca97b7aa0fef4f795742e5cf954b23bdf03dff39",
+        "dataflowFiles": [
+          "artifacts/api-server/src/routes/contact.ts",
+          "artifacts/api-server/src/lib/contact-crypto.ts",
+          "artifacts/api-server/src/lib/contact-providers.ts",
+          "artifacts/api-server/src/lib/contact-notifications.ts"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Qualified Saudi/Syria title, description and schema response language as target rather than guarantee.",
+        "Removed generic securely label from pending submission text."
+      ],
+      "previousGaps": [
+        "Delivery and response-time monitoring require an authorised real submission or operational evidence; the local read-only preview does not establish receipt.",
+        "Office-location labels and the local professional responsible need current evidence separate from the common Saudi intake number."
+      ],
+      "knownMissingBusinessFacts": [
+        "A real authorised submission or operational evidence is needed to establish current mailbox receipt and response performance; none sent.",
+        "Office/service-location and responsible-practitioner facts require business evidence separately from the common Saudi telephone number."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/syr/privacy-policy",
+      "language": "en",
+      "region": "syr",
+      "primaryIntent": "Privacy Policy",
+      "supportingIntents": [
+        "Data collected and purposes",
+        "Confidentiality and disclosures",
+        "Analytics, providers and communications",
+        "Rights requests, retention and contact"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/syr-privacy-policy.html",
+        "sha256": "affc9e32ad11b356cafbd9ac5eaaaac35927bc3a74734e6059733d96bef872b7",
+        "textCharacters": 11151,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Privacy Policy"
+          },
+          {
+            "level": "h2",
+            "text": "1. Who We Are"
+          },
+          {
+            "level": "h2",
+            "text": "2. Information We Collect"
+          },
+          {
+            "level": "h2",
+            "text": "3. How We Use Your Information"
+          },
+          {
+            "level": "h2",
+            "text": "4. Professional Legal Confidentiality"
+          },
+          {
+            "level": "h2",
+            "text": "5. WhatsApp & Email Communications"
+          },
+          {
+            "level": "h2",
+            "text": "6. Cookies & Website Analytics"
+          },
+          {
+            "level": "h2",
+            "text": "7. Legal Basis for Processing"
+          },
+          {
+            "level": "h2",
+            "text": "8. Data Sharing & Third Parties"
+          },
+          {
+            "level": "h2",
+            "text": "9. Data Retention"
+          },
+          {
+            "level": "h2",
+            "text": "10. Your Rights"
+          },
+          {
+            "level": "h2",
+            "text": "11. Security Measures"
+          },
+          {
+            "level": "h2",
+            "text": "12. Changes to This Policy"
+          },
+          {
+            "level": "h2",
+            "text": "Privacy Questions or Concerns?"
+          },
+          {
+            "level": "h2",
+            "text": "Syria-wide perspective. Precise civil-law analysis."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/privacy-policy.tsx",
+        "sha256": "8dd9445a67ec3161bc4887caeb9b10803fc00a56592c76f1c4d7773c6f3a3443",
+        "dataflowFiles": [
+          "artifacts/api-server/src/routes/contact.ts",
+          "artifacts/api-server/src/lib/contact-crypto.ts",
+          "artifacts/api-server/src/lib/contact-providers.ts",
+          "artifacts/api-server/src/lib/contact-notifications.ts",
+          "artifacts/legal-site/src/lib/analytics.ts",
+          "lib/db/src/schema/contact-submissions.ts"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Disclosed Resend processing of website request details and attachments, plus customer confirmation email.",
+        "Removed unsupported only-legal-team access and universal provider-contract assurances.",
+        "Replaced no-personal-information analytics guarantee with actual page-address/title/event fields and URL-sensitive-data caution.",
+        "Removed unverified no-advertising/cross-site-tracking assertion; external GTM configuration is not established by source code.",
+        "Explained encrypted-payload clearing only after both provider acceptances; did not claim mailbox or metadata deletion.",
+        "Replaced unverified regular-security-review assertion with initial-data-minimisation guidance."
+      ],
+      "previousGaps": [
+        "Verify actual processors, retention and analytics data flow against the published statements.",
+        "Applicable processing basis and rights must be checked for the actual controller/regime; a regional page label alone does not resolve federal/free-zone or cross-border scope."
+      ],
+      "knownMissingBusinessFacts": [
+        "Controller legal identity, establishments and applicable processing regime require business evidence; destination country alone is insufficient.",
+        "Hosting/database/mailbox locations, processor terms and actual transfer safeguards remain unverified; no configuration secrets were read.",
+        "External GTM tags, consent settings, cookie purposes/durations and any Google Analytics or advertising configuration require authorised account evidence.",
+        "Retention schedules for failed payloads, metadata, email/WhatsApp copies and backups are not established by the reviewed code.",
+        "Existing legal-basis allocation, cross-border safeguard assertion, rights handling and material-change notifications require controller confirmation and applicable-law review; these were not invented or certified."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/syr/terms-of-service",
+      "language": "en",
+      "region": "syr",
+      "primaryIntent": "Terms of Service",
+      "supportingIntents": [
+        "Request assessment and fee quote",
+        "Payment before legal answer",
+        "Clarification and mandatory-law refund exception",
+        "Separate representation agreement"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/syr-terms-of-service.html",
+        "sha256": "982f19cb025f13790fcf15b4a2a807a3d65ba6e4c5315688360b9baf4b883614",
+        "textCharacters": 5757,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Terms of Service"
+          },
+          {
+            "level": "h2",
+            "text": "How Our Consultation Process Works"
+          },
+          {
+            "level": "h3",
+            "text": "Step 1 — Submit Your Information"
+          },
+          {
+            "level": "h3",
+            "text": "Step 2 — We Assess & Inform You of the Cost"
+          },
+          {
+            "level": "h3",
+            "text": "Step 3 — Payment Before the Answer"
+          },
+          {
+            "level": "h3",
+            "text": "Step 4 — You Receive the Legal Answer"
+          },
+          {
+            "level": "h2",
+            "text": "General Terms"
+          },
+          {
+            "level": "h3",
+            "text": "Confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Scope of Consultation"
+          },
+          {
+            "level": "h3",
+            "text": "No Refunds After Delivery"
+          },
+          {
+            "level": "h3",
+            "text": "No Attorney-Client Relationship for Representation"
+          },
+          {
+            "level": "h3",
+            "text": "Changes to Terms"
+          },
+          {
+            "level": "h2",
+            "text": "Ready to Get Started?"
+          },
+          {
+            "level": "h2",
+            "text": "Syria-wide perspective. Precise civil-law analysis."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/terms-of-service.tsx",
+        "sha256": "fbdc1907d7998d23e35d4af3abfebdd73a22646904d3278648e3b2fc28fb075a",
+        "dataflowFiles": [
+          "artifacts/legal-site/src/pages/contact.tsx"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Aligned enquiry status with existing express fee-approval requirement; initial contact does not itself commit the visitor to payment.",
+        "Included actual website-form intake alongside email and WhatsApp.",
+        "Changed absolute Arabic confidentiality heading to confidentiality without altering underlying legal exceptions."
+      ],
+      "previousGaps": [
+        "Reconcile quote, delivery and clarification commitments with the actual engagement workflow.",
+        "Confirm consumer and professional mandatory terms for the actual service before applying the general terms to an individual dispute."
+      ],
+      "knownMissingBusinessFacts": [
+        "Business confirmation remains needed for stated one-free-clarification policy, cancellation before delivery, fee/payment methods and dispute terms.",
+        "A specific engagement controls scope, practitioner, deliverable and timing; no uniform fee or outcome is established by repository code."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/uae/ar/contact",
+      "language": "ar",
+      "region": "uae",
+      "primaryIntent": "ابدأ استشارتك الإماراتية",
+      "supportingIntents": [
+        "Contact channels and country",
+        "Information and attachments to prepare",
+        "Fee approval and written advice delivery",
+        "Provider identity and separate local representation"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-contact.html",
+        "sha256": "d674c3c2089d8e2a2b7ffe14c6d6f9a3d2f609865f50f698a8717c60b789d58b",
+        "textCharacters": 6972,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "ابدأ استشارتك الإماراتية"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تعمل الاستشارة القانونية أونلاين؟"
+          },
+          {
+            "level": "h3",
+            "text": "أرسل التفاصيل"
+          },
+          {
+            "level": "h3",
+            "text": "نراجع مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "اتفق على الخدمة والرسوم"
+          },
+          {
+            "level": "h3",
+            "text": "استلم المشورة والخطوة التالية"
+          },
+          {
+            "level": "h3",
+            "text": "تفاصيل خدمة الإمارات"
+          },
+          {
+            "level": "h3",
+            "text": "طلب استشارة"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أسئلة تساعدك على تحديد الخطوة التالية"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل دولة الإمارات. تفكير دقيق في الاختصاص."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/contact.tsx",
+        "sha256": "687c5491b8acfe0f0cb43cc4ca97b7aa0fef4f795742e5cf954b23bdf03dff39",
+        "dataflowFiles": [
+          "artifacts/api-server/src/routes/contact.ts",
+          "artifacts/api-server/src/lib/contact-crypto.ts",
+          "artifacts/api-server/src/lib/contact-providers.ts",
+          "artifacts/api-server/src/lib/contact-notifications.ts"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Removed generic securely label from pending submission text; UAE response metadata already had no universal24-hour promise."
+      ],
+      "previousGaps": [
+        "Delivery and response-time monitoring require an authorised real submission or operational evidence; the local read-only preview does not establish receipt.",
+        "Office-location labels and the local professional responsible need current evidence separate from the common Saudi intake number.",
+        "The actual Emirate, federal/mainland or free-zone framework remains a case-level selection; coverage of allseven Emirates is an online-service claim, not proof of a physical office in each."
+      ],
+      "knownMissingBusinessFacts": [
+        "A real authorised submission or operational evidence is needed to establish current mailbox receipt and response performance; none sent.",
+        "Office/service-location and responsible-practitioner facts require business evidence separately from the common Saudi telephone number."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/uae/ar/privacy-policy",
+      "language": "ar",
+      "region": "uae",
+      "primaryIntent": "سياسة الخصوصية",
+      "supportingIntents": [
+        "Data collected and purposes",
+        "Confidentiality and disclosures",
+        "Analytics, providers and communications",
+        "Rights requests, retention and contact"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-privacy-policy.html",
+        "sha256": "4cb3ed8c184f87a38a8b86ad19ea75d102dba9c0525bca925c344da35103677d",
+        "textCharacters": 10312,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "سياسة الخصوصية"
+          },
+          {
+            "level": "h2",
+            "text": "١. من نحن"
+          },
+          {
+            "level": "h2",
+            "text": "٢. المعلومات التي نجمعها"
+          },
+          {
+            "level": "h2",
+            "text": "٣. كيف نستخدم معلوماتك"
+          },
+          {
+            "level": "h2",
+            "text": "٤. السرية المهنية القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "٥. التواصل عبر واتساب والبريد الإلكتروني"
+          },
+          {
+            "level": "h2",
+            "text": "٦. ملفات تعريف الارتباط وتحليلات الموقع"
+          },
+          {
+            "level": "h2",
+            "text": "٧. الأساس القانوني للمعالجة"
+          },
+          {
+            "level": "h2",
+            "text": "٨. مشاركة البيانات مع الأطراف الثالثة"
+          },
+          {
+            "level": "h2",
+            "text": "٩. مدة الاحتفاظ بالبيانات"
+          },
+          {
+            "level": "h2",
+            "text": "١٠. حقوقك"
+          },
+          {
+            "level": "h2",
+            "text": "١١. إجراءات الأمن"
+          },
+          {
+            "level": "h2",
+            "text": "١٢. التعديلات على هذه السياسة"
+          },
+          {
+            "level": "h2",
+            "text": "لديك سؤال أو استفسار حول الخصوصية؟"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل دولة الإمارات. تفكير دقيق في الاختصاص."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/privacy-policy.tsx",
+        "sha256": "8dd9445a67ec3161bc4887caeb9b10803fc00a56592c76f1c4d7773c6f3a3443",
+        "dataflowFiles": [
+          "artifacts/api-server/src/routes/contact.ts",
+          "artifacts/api-server/src/lib/contact-crypto.ts",
+          "artifacts/api-server/src/lib/contact-providers.ts",
+          "artifacts/api-server/src/lib/contact-notifications.ts",
+          "artifacts/legal-site/src/lib/analytics.ts",
+          "lib/db/src/schema/contact-submissions.ts"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Disclosed Resend processing of website request details and attachments, plus customer confirmation email.",
+        "Removed unsupported only-legal-team access and universal provider-contract assurances.",
+        "Replaced no-personal-information analytics guarantee with actual page-address/title/event fields and URL-sensitive-data caution.",
+        "Removed unverified no-advertising/cross-site-tracking assertion; external GTM configuration is not established by source code.",
+        "Explained encrypted-payload clearing only after both provider acceptances; did not claim mailbox or metadata deletion.",
+        "Replaced unverified regular-security-review assertion with initial-data-minimisation guidance."
+      ],
+      "previousGaps": [
+        "Verify actual processors, retention and analytics data flow against the published statements.",
+        "Applicable processing basis and rights must be checked for the actual controller/regime; a regional page label alone does not resolve federal/free-zone or cross-border scope."
+      ],
+      "knownMissingBusinessFacts": [
+        "Controller legal identity, establishments and applicable processing regime require business evidence; destination country alone is insufficient.",
+        "Hosting/database/mailbox locations, processor terms and actual transfer safeguards remain unverified; no configuration secrets were read.",
+        "External GTM tags, consent settings, cookie purposes/durations and any Google Analytics or advertising configuration require authorised account evidence.",
+        "Retention schedules for failed payloads, metadata, email/WhatsApp copies and backups are not established by the reviewed code.",
+        "Existing legal-basis allocation, cross-border safeguard assertion, rights handling and material-change notifications require controller confirmation and applicable-law review; these were not invented or certified."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/uae/ar/terms-of-service",
+      "language": "ar",
+      "region": "uae",
+      "primaryIntent": "شروط الخدمة",
+      "supportingIntents": [
+        "Request assessment and fee quote",
+        "Payment before legal answer",
+        "Clarification and mandatory-law refund exception",
+        "Separate representation agreement"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-terms-of-service.html",
+        "sha256": "bed9dc026342d05e5eaea9f87285f6b2ce177e5cf9b8635e20ee008c4f260066",
+        "textCharacters": 5387,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "شروط الخدمة"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تسير عملية الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الأولى — إرسال معلوماتك"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الثانية — نقيّم الطلب ونخبرك بالتكلفة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الثالثة — الدفع قبل تلقّي الإجابة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الرابعة — تستلم إجابتك القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "الشروط العامة"
+          },
+          {
+            "level": "h3",
+            "text": "السرية التامة"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "عدم استرداد المبلغ بعد التسليم"
+          },
+          {
+            "level": "h3",
+            "text": "الاستشارة لا تعني التمثيل القانوني"
+          },
+          {
+            "level": "h3",
+            "text": "تعديل الشروط"
+          },
+          {
+            "level": "h2",
+            "text": "مستعد للبدء؟"
+          },
+          {
+            "level": "h2",
+            "text": "منظور يشمل دولة الإمارات. تفكير دقيق في الاختصاص."
+          },
+          {
+            "level": "h3",
+            "text": "مجالات الممارسة"
+          },
+          {
+            "level": "h3",
+            "text": "روابط سريعة"
+          },
+          {
+            "level": "h3",
+            "text": "اتصل بنا"
+          },
+          {
+            "level": "h2",
+            "text": "شبكة عمر البغدادي القانونية"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/terms-of-service.tsx",
+        "sha256": "fbdc1907d7998d23e35d4af3abfebdd73a22646904d3278648e3b2fc28fb075a",
+        "dataflowFiles": [
+          "artifacts/legal-site/src/pages/contact.tsx"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Aligned enquiry status with existing express fee-approval requirement; initial contact does not itself commit the visitor to payment.",
+        "Included actual website-form intake alongside email and WhatsApp.",
+        "Changed absolute Arabic confidentiality heading to confidentiality without altering underlying legal exceptions."
+      ],
+      "previousGaps": [
+        "Reconcile quote, delivery and clarification commitments with the actual engagement workflow.",
+        "Confirm consumer and professional mandatory terms for the actual service before applying the general terms to an individual dispute."
+      ],
+      "knownMissingBusinessFacts": [
+        "Business confirmation remains needed for stated one-free-clarification policy, cancellation before delivery, fee/payment methods and dispute terms.",
+        "A specific engagement controls scope, practitioner, deliverable and timing; no uniform fee or outcome is established by repository code."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/uae/contact",
+      "language": "en",
+      "region": "uae",
+      "primaryIntent": "Start Your UAE Consultation",
+      "supportingIntents": [
+        "Contact channels and country",
+        "Information and attachments to prepare",
+        "Fee approval and written advice delivery",
+        "Provider identity and separate local representation"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-contact.html",
+        "sha256": "3d07963b1fc2fa46fdf67f4420d1c128fc2a8b20d5e39a69d3c27a31aa70bcf0",
+        "textCharacters": 8201,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Start Your UAE Consultation"
+          },
+          {
+            "level": "h2",
+            "text": "How online legal consultation works"
+          },
+          {
+            "level": "h3",
+            "text": "Send the details"
+          },
+          {
+            "level": "h3",
+            "text": "We review your matter"
+          },
+          {
+            "level": "h3",
+            "text": "Agree on the service and fee"
+          },
+          {
+            "level": "h3",
+            "text": "Receive advice and next steps"
+          },
+          {
+            "level": "h3",
+            "text": "UAE Service Details"
+          },
+          {
+            "level": "h3",
+            "text": "Request a Consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Questions to clarify your next step"
+          },
+          {
+            "level": "h2",
+            "text": "UAE-wide perspective. Precise jurisdictional thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/contact.tsx",
+        "sha256": "687c5491b8acfe0f0cb43cc4ca97b7aa0fef4f795742e5cf954b23bdf03dff39",
+        "dataflowFiles": [
+          "artifacts/api-server/src/routes/contact.ts",
+          "artifacts/api-server/src/lib/contact-crypto.ts",
+          "artifacts/api-server/src/lib/contact-providers.ts",
+          "artifacts/api-server/src/lib/contact-notifications.ts"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Removed generic securely label from pending submission text; UAE response metadata already had no universal24-hour promise."
+      ],
+      "previousGaps": [
+        "Delivery and response-time monitoring require an authorised real submission or operational evidence; the local read-only preview does not establish receipt.",
+        "Office-location labels and the local professional responsible need current evidence separate from the common Saudi intake number.",
+        "The actual Emirate, federal/mainland or free-zone framework remains a case-level selection; coverage of allseven Emirates is an online-service claim, not proof of a physical office in each."
+      ],
+      "knownMissingBusinessFacts": [
+        "A real authorised submission or operational evidence is needed to establish current mailbox receipt and response performance; none sent.",
+        "Office/service-location and responsible-practitioner facts require business evidence separately from the common Saudi telephone number."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/uae/privacy-policy",
+      "language": "en",
+      "region": "uae",
+      "primaryIntent": "Privacy Policy",
+      "supportingIntents": [
+        "Data collected and purposes",
+        "Confidentiality and disclosures",
+        "Analytics, providers and communications",
+        "Rights requests, retention and contact"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-privacy-policy.html",
+        "sha256": "81b0b34d45f61636ebde26016ddb4f821901c9cc5cec50d8799043ec139ddaaf",
+        "textCharacters": 11776,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Privacy Policy"
+          },
+          {
+            "level": "h2",
+            "text": "1. Who We Are"
+          },
+          {
+            "level": "h2",
+            "text": "2. Information We Collect"
+          },
+          {
+            "level": "h2",
+            "text": "3. How We Use Your Information"
+          },
+          {
+            "level": "h2",
+            "text": "4. Professional Legal Confidentiality"
+          },
+          {
+            "level": "h2",
+            "text": "5. WhatsApp & Email Communications"
+          },
+          {
+            "level": "h2",
+            "text": "6. Cookies & Website Analytics"
+          },
+          {
+            "level": "h2",
+            "text": "7. Legal Basis for Processing"
+          },
+          {
+            "level": "h2",
+            "text": "8. Data Sharing & Third Parties"
+          },
+          {
+            "level": "h2",
+            "text": "9. Data Retention"
+          },
+          {
+            "level": "h2",
+            "text": "10. Your Rights"
+          },
+          {
+            "level": "h2",
+            "text": "11. Security Measures"
+          },
+          {
+            "level": "h2",
+            "text": "12. Changes to This Policy"
+          },
+          {
+            "level": "h2",
+            "text": "Privacy Questions or Concerns?"
+          },
+          {
+            "level": "h2",
+            "text": "UAE-wide perspective. Precise jurisdictional thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/privacy-policy.tsx",
+        "sha256": "8dd9445a67ec3161bc4887caeb9b10803fc00a56592c76f1c4d7773c6f3a3443",
+        "dataflowFiles": [
+          "artifacts/api-server/src/routes/contact.ts",
+          "artifacts/api-server/src/lib/contact-crypto.ts",
+          "artifacts/api-server/src/lib/contact-providers.ts",
+          "artifacts/api-server/src/lib/contact-notifications.ts",
+          "artifacts/legal-site/src/lib/analytics.ts",
+          "lib/db/src/schema/contact-submissions.ts"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Disclosed Resend processing of website request details and attachments, plus customer confirmation email.",
+        "Removed unsupported only-legal-team access and universal provider-contract assurances.",
+        "Replaced no-personal-information analytics guarantee with actual page-address/title/event fields and URL-sensitive-data caution.",
+        "Removed unverified no-advertising/cross-site-tracking assertion; external GTM configuration is not established by source code.",
+        "Explained encrypted-payload clearing only after both provider acceptances; did not claim mailbox or metadata deletion.",
+        "Replaced unverified regular-security-review assertion with initial-data-minimisation guidance."
+      ],
+      "previousGaps": [
+        "Verify actual processors, retention and analytics data flow against the published statements.",
+        "Applicable processing basis and rights must be checked for the actual controller/regime; a regional page label alone does not resolve federal/free-zone or cross-border scope."
+      ],
+      "knownMissingBusinessFacts": [
+        "Controller legal identity, establishments and applicable processing regime require business evidence; destination country alone is insufficient.",
+        "Hosting/database/mailbox locations, processor terms and actual transfer safeguards remain unverified; no configuration secrets were read.",
+        "External GTM tags, consent settings, cookie purposes/durations and any Google Analytics or advertising configuration require authorised account evidence.",
+        "Retention schedules for failed payloads, metadata, email/WhatsApp copies and backups are not established by the reviewed code.",
+        "Existing legal-basis allocation, cross-border safeguard assertion, rights handling and material-change notifications require controller confirmation and applicable-law review; these were not invented or certified."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    },
+    {
+      "route": "/uae/terms-of-service",
+      "language": "en",
+      "region": "uae",
+      "primaryIntent": "Terms of Service",
+      "supportingIntents": [
+        "Request assessment and fee quote",
+        "Payment before legal answer",
+        "Clarification and mandatory-law refund exception",
+        "Separate representation agreement"
+      ],
+      "renderedEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-terms-of-service.html",
+        "sha256": "a5bc8e2758349e8dade415105970b6d5ccf48c71fd6f6d891b12001fea27dbc7",
+        "textCharacters": 6172,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Terms of Service"
+          },
+          {
+            "level": "h2",
+            "text": "How Our Consultation Process Works"
+          },
+          {
+            "level": "h3",
+            "text": "Step 1 — Submit Your Information"
+          },
+          {
+            "level": "h3",
+            "text": "Step 2 — We Assess & Inform You of the Cost"
+          },
+          {
+            "level": "h3",
+            "text": "Step 3 — Payment Before the Answer"
+          },
+          {
+            "level": "h3",
+            "text": "Step 4 — You Receive the Legal Answer"
+          },
+          {
+            "level": "h2",
+            "text": "General Terms"
+          },
+          {
+            "level": "h3",
+            "text": "Confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Scope of Consultation"
+          },
+          {
+            "level": "h3",
+            "text": "No Refunds After Delivery"
+          },
+          {
+            "level": "h3",
+            "text": "No Attorney-Client Relationship for Representation"
+          },
+          {
+            "level": "h3",
+            "text": "Changes to Terms"
+          },
+          {
+            "level": "h2",
+            "text": "Ready to Get Started?"
+          },
+          {
+            "level": "h2",
+            "text": "UAE-wide perspective. Precise jurisdictional thinking."
+          },
+          {
+            "level": "h3",
+            "text": "Practice Areas"
+          },
+          {
+            "level": "h3",
+            "text": "Quick Links"
+          },
+          {
+            "level": "h3",
+            "text": "Contact Us"
+          },
+          {
+            "level": "h2",
+            "text": "Omar Al-Baghdadi Legal Network"
+          }
+        ],
+        "stage": "Existing rendered snapshot inspected; source-copy changes require root rebuild and new HTML check."
+      },
+      "sourceEvidence": {
+        "file": "artifacts/legal-site/src/pages/terms-of-service.tsx",
+        "sha256": "fbdc1907d7998d23e35d4af3abfebdd73a22646904d3278648e3b2fc28fb075a",
+        "dataflowFiles": [
+          "artifacts/legal-site/src/pages/contact.tsx"
+        ]
+      },
+      "implementedCopyFixes": [
+        "Aligned enquiry status with existing express fee-approval requirement; initial contact does not itself commit the visitor to payment.",
+        "Included actual website-form intake alongside email and WhatsApp.",
+        "Changed absolute Arabic confidentiality heading to confidentiality without altering underlying legal exceptions."
+      ],
+      "previousGaps": [
+        "Reconcile quote, delivery and clarification commitments with the actual engagement workflow.",
+        "Confirm consumer and professional mandatory terms for the actual service before applying the general terms to an individual dispute."
+      ],
+      "knownMissingBusinessFacts": [
+        "Business confirmation remains needed for stated one-free-clarification policy, cancellation before delivery, fee/payment methods and dispute terms.",
+        "A specific engagement controls scope, practitioner, deliverable and timing; no uniform fee or outcome is established by repository code."
+      ],
+      "status": "source-backed-copy-corrections-operational-and-policy-facts-open",
+      "complete": false
+    }
+  ]
+}

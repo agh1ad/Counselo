@@ -72,7 +72,7 @@ export default function Blog() {
     en: {
       eyebrow: "Legal Insights",
       heading: "Articles & Guides",
-      subheading: "A shared legal publication covering Saudi, Syrian and UAE law, with jurisdiction clearly identified in every country-specific article — written by CounselO's legal content team.",
+      subheading: "A shared legal publication covering Saudi, Syrian and UAE law, with jurisdiction clearly identified in every country-specific article — published by CounselO with authorship and editorial methodology identified in each article.",
       readMore: "Read Article",
       minRead: "min read",
       ctaHeading: "Have a Legal Question?",
@@ -84,7 +84,7 @@ export default function Blog() {
     ar: {
       eyebrow: "رؤى قانونية",
       heading: "مقالات وأدلة",
-      subheading: "منصة قانونية مشتركة تغطي قوانين السعودية وسوريا والإمارات، مع بيان الاختصاص بوضوح في كل مقال خاص بدولة — من فريق المحتوى القانوني في كاونسلو.",
+      subheading: "منصة قانونية مشتركة تغطي قوانين السعودية وسوريا والإمارات، مع بيان الاختصاص بوضوح في كل مقال خاص بدولة — تنشرها كاونسلو مع بيان نسبة التأليف والمنهجية التحريرية داخل كل مقال.",
       readMore: "اقرأ المقال",
       minRead: "د قراءة",
       ctaHeading: "هل لديك سؤال قانوني؟",

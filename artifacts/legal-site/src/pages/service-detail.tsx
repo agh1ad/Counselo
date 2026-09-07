@@ -25,7 +25,7 @@ import { LatestContentCarousels } from "@/components/content/latest-content-caro
 import { TrustSignals } from "@/components/seo/TrustSignals";
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
 import { getRegionalLegalSources, type LegalSource } from "@/lib/regional-legal-sources";
-import { sourceBackedSearchGuidance } from "@/lib/source-backed-search-guidance";
+import { serviceGuidanceUpdatedAt, sourceBackedSearchGuidance } from "@/lib/source-backed-search-guidance";
 import { getLegalProblemPages, legalProblemPath } from "@/lib/legal-problem-pages";
 import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI, CONSULTATION_OPERATING_POLICY, getConsultationProduct } from "@workspace/api-zod/browser";
 
@@ -232,7 +232,7 @@ export default function ServiceDetail() {
       "name": seoTitle,
       "description": seoDesc,
       "inLanguage": inLanguage,
-      "dateModified": "2026-09-06",
+      "dateModified": serviceGuidanceUpdatedAt(region, id, "2026-09-06"),
       "citation": legalSources.map((source) => source.href),
       "publisher": {
         "@type": "LegalService",

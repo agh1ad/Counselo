@@ -1,0 +1,60 @@
+import type { MatterSourceGuidance } from "./matter-source-guidance.js";
+
+export const ENFORCEMENT_SEARCH_GUIDANCE: MatterSourceGuidance[] = [
+  {
+    region: "uae", service: "enforcement-debt-recovery", id: "uae-payment-order-eligibility", reviewedAt: "2026-09-07",
+    problems: ["payment-order-and-urgent-debt-recovery"],
+    en: { q: "Does any overdue UAE invoice qualify for a payment order?", a: "Article 143 requires written evidence, including electronic writing, of a due right for a specified money amount or sufficiently identified movable property. Article 144 requires a prior demand allowing at least five days, served through an authorised method, with evidence attached to the application. Urgency alone is insufficient. Check jurisdiction, the debt documents and whether a cheque already has execution status before choosing this route." },
+    ar: { q: "هل تصلح كل فاتورة متأخرة في الإمارات لأمر أداء؟", a: "تتطلب المادة 143 ثبوت الحق بالكتابة، ومنها الإلكترونية، وحلول أدائه وتحديد مبلغ النقود أو المنقول المطلوب بما يكفي. وتشترط المادة 144 تكليفاً سابقاً بالوفاء خلال خمسة أيام على الأقل بإحدى طرق الإعلان المقررة، وإرفاق إثباته بالطلب. لا يكفي الاستعجال وحده. راجع الاختصاص وسند الدين وما إذا كان الشيك يحمل أصلاً صفة السند التنفيذي قبل اختيار المسار." },
+    sources: [{ en: "UAE Legislation — payment orders, Articles 143–144", ar: "تشريعات الإمارات — أوامر الأداء، المادتان 143 و144", href: "https://uaelegislation.gov.ae/ar/legislations/1602" }],
+  },
+  {
+    region: "sa", service: "enforcement", id: "sa-finance-collection-contact-limits", reviewedAt: "2026-09-07",
+    problems: ["wrongful-debt-collection-or-creditor-harassment-complaint"],
+    en: { q: "May a Saudi finance collector visit my home or call my relatives?", a: "SAMA's 2025 collection controls prohibit finance providers and their collection agents from visiting a customer or guarantor at home or work, or calling people other than the customer or guarantor. Telephone contact is limited to ten calls per thirty days per financing product during official working hours. These rules concern supervised financing to natural persons; do not apply them automatically to every private creditor. Preserve the collector's identity and contact records for a complaint." },
+    ar: { q: "هل يحق لمحصل جهة تمويل سعودية زيارة منزلي أو الاتصال بأقاربي؟", a: "تحظر ضوابط التحصيل لعام 2025 على جهات التمويل ومحصلّيها زيارة العميل أو كفيله في المنزل أو العمل، والاتصال الهاتفي بغير العميل أو كفيله. ويحد الاتصال بعشر مكالمات لكل ثلاثين يوماً لكل منتج تمويلي خلال أوقات العمل الرسمية. تخص الضوابط التمويل الخاضع للرقابة للأشخاص الطبيعيين؛ فلا تعممها على كل دائن خاص. احفظ هوية المحصل وسجل التواصل لتقديم الشكوى." },
+    sources: [{ en: "Saudi Central Bank — 2025 collection controls, scope and Article 4", ar: "البنك المركزي السعودي — ضوابط التحصيل لعام 2025 ونطاقها والمادة الرابعة", href: "https://rulebook.sama.gov.sa/ar/ضوابط-وإجراءات-التحصيل" }],
+  },
+  {
+    region: "uae", service: "enforcement-debt-recovery", id: "uae-finance-collection-privacy", reviewedAt: "2026-09-07",
+    problems: ["wrongful-debt-collection-or-creditor-harassment-complaint"],
+    en: { q: "Can a UAE lender disclose my debt to colleagues or send an unidentified collector?", a: "CBUAE's consumer standards restrict disclosure to third parties, with specified exceptions such as authorised collection agents, legal requirements or express consent. A licensed financial institution must identify an appointed collector, the amount and the collector's authority. Home or workplace visits require express consent or a court order, and calls must not be excessive. Check that the lender and product fall within this framework; retain the contact record separately from any dispute over the debt." },
+    ar: { q: "هل يجوز لممول إماراتي كشف ديني لزملائي أو إرسال محصل مجهول؟", a: "تقيد معايير حماية المستهلك لدى المصرف المركزي الإفصاح للغير، مع استثناءات محددة مثل المحصل المخول أو المتطلب القانوني أو الموافقة الصريحة. وتلتزم المؤسسة المالية المرخصة بتعريف العميل بالمحصل المعين والمبلغ وصلاحياته. تتطلب زيارة المنزل أو العمل موافقة صريحة أو أمراً قضائياً، ولا يجوز الإفراط في الاتصالات. تحقق من خضوع الممول والمنتج لهذا الإطار، واحفظ سجل التواصل مستقلاً عن المنازعة في الدين." },
+    sources: [{ en: "CBUAE — consumer standards, debt collection section 5.2.5", ar: "مصرف الإمارات المركزي — معايير حماية المستهلك، التحصيل في البند 5.2.5", href: "https://rulebook.centralbank.ae/en/rulebook/article-5-business-conduct" }],
+  },
+  {
+    region: "sa", service: "enforcement", id: "sa-najiz-execution-documents", reviewedAt: "2026-09-07", includeOnServicePage: true,
+    problems: ["enforcement-of-court-judgments", "bounced-cheque-execution", "promissory-note-and-commercial-paper-enforcement"],
+    en: { q: "What do I need before submitting a Saudi execution request through Najiz?", a: "The Ministry of Justice service requires the appropriate enforceable instrument, debtor details and mandatory attachments for that instrument type. Prepare a copy and an Arabic translation if needed, an active IBAN linked to the applicant's identity, and valid execution authority if applying as a representative. Enter the creditor, debtor and instrument details through the execution service. A submission reference confirms filing, not acceptance of every requested measure or recovery of the debt." },
+    ar: { q: "ماذا أجهز قبل تقديم طلب تنفيذ سعودي عبر ناجز؟", a: "تتطلب خدمة وزارة العدل السند التنفيذي المناسب وبيانات المنفذ ضده والمرفقات الإلزامية بحسب نوع السند. جهّز نسخة السند وترجمته العربية عند الحاجة، وآيباناً فعالاً مرتبطاً بهوية مقدم الطلب، وصلاحية التمثيل والتنفيذ إذا قدمت عن غيرك. تُدخل بيانات الأطراف والسند عبر خدمة التنفيذ. رقم الطلب يثبت التقديم ولا يعني قبول كل إجراء مطلوب أو تحصيل الدين." },
+    sources: [{ en: "Ministry of Justice — submit an execution request", ar: "وزارة العدل — تقديم طلب تنفيذ", href: "https://www.moj.gov.sa/ar/eservices/pages/1c719954-3463-4754-85e1-1b319b937b86.aspx" }],
+  },
+  {
+    region: "sa", service: "enforcement", id: "sa-execution-grace-period-orders", reviewedAt: "2026-09-07",
+    problems: ["enforcement-objections-and-settlement", "bank-account-and-salary-seizure-dispute", "service-suspension-and-asset-freezing-request", "travel-ban-application-for-debt-recovery"],
+    en: { q: "Does agreeing more time to pay automatically lift every Saudi execution order?", a: "A private payment promise should not be treated as confirmation that an order has been lifted. Najiz provides a full or partial grace-period request, available to the creditor or debtor and their authorised representatives. Approval lifts the orders specified in the request during the approved period. Check the actual decision, dates and affected orders; do not infer that a bank restriction or travel ban has ended from a settlement message alone." },
+    ar: { q: "هل الاتفاق على مهلة للسداد يرفع جميع أوامر التنفيذ السعودية تلقائياً؟", a: "لا يُعامل الوعد الخاص بالسداد كتأكيد على رفع أمر قضائي. تتيح ناجز طلب الإمهال الكلي أو الجزئي لطالب التنفيذ والمنفذ ضده ووكلائهما المخولين. وعند الموافقة تُرفع الأوامر المحدد رفعها في الطلب خلال المهلة المعتمدة. راجع القرار الفعلي ومدته والأوامر المشمولة؛ ولا تستنتج زوال قيد مصرفي أو منع سفر من رسالة تسوية وحدها." },
+    sources: [{ en: "Ministry of Justice — execution grace-period request", ar: "وزارة العدل — طلب إمهال أو تأجيل السند التنفيذي", href: "https://www.moj.gov.sa/ar/eServices/Pages/a7eef02b-d9ad-4d3f-9ad0-7b9a67399313.aspx" }],
+  },
+  {
+    region: "sa", service: "enforcement", id: "sa-2026-execution-commencement", reviewedAt: "2026-09-07", includeOnServicePage: true,
+    problems: ["promissory-note-and-commercial-paper-enforcement", "objection-to-an-execution-judge-s-decision", "foreign-judgment-enforcement", "asset-tracing-and-debtor-investigation"],
+    en: { q: "Was the new Saudi Execution Law already in force in September 2026?", a: "Not on this page's review date of 7 September 2026. The law was published on 1 May 2026, and Article 65 postpones operation until 180 days after publication. Check commencement and the transitional provisions before applying its new requirements to an instrument or pending file. Publication alone does not replace the rules governing an earlier procedural step." },
+    ar: { q: "هل كان نظام التنفيذ السعودي الجديد نافذاً في سبتمبر 2026؟", a: "لم يكن نافذاً في تاريخ مراجعة هذه الصفحة، 7 سبتمبر 2026. نُشر النظام في 1 مايو 2026، وتؤجل المادة 65 العمل به إلى ما بعد مضي 180 يوماً من النشر. تحقق من النفاذ والأحكام الانتقالية قبل تطبيق متطلباته الجديدة على سند أو ملف قائم؛ فالنشر وحده لا يستبدل القواعد التي تحكم إجراءً سابقاً." },
+    sources: [{ en: "Umm Al-Qura — Execution Law, commencement in Article 65", ar: "أم القرى — نظام التنفيذ ونفاذه في المادة 65", href: "https://www.uqn.gov.sa/decisions-and-regulations/rules-and-regulations/4000869" }, { en: "Umm Al-Qura — approval and transitional provisions", ar: "أم القرى — الموافقة والأحكام الانتقالية", href: "https://www.uqn.gov.sa/decisions-and-regulations/council-of-ministers-decisions/4000867" }],
+  },
+  {
+    region: "uae", service: "enforcement-debt-recovery", id: "uae-cheque-direct-execution", reviewedAt: "2026-09-07", includeOnServicePage: true,
+    problems: ["bounced-cheque-execution", "bounced-cheque-defence-and-criminal-complaint-concern"],
+    en: { q: "Can a UAE bounced cheque support direct execution without first proving the debt in a full lawsuit?", a: "Article 667 of the 2022 Commercial Transactions Law gives execution status to a cheque bearing the bank's confirmation of no or insufficient funds. Its holder can seek compulsory execution for the unpaid amount under civil-procedure rules. Obtain the bank's return reason and account for partial payments. Execution eligibility does not decide every defence or criminal allegation; other return reasons and the underlying facts require separate assessment." },
+    ar: { q: "هل يمكن تنفيذ الشيك المرتجع في الإمارات دون دعوى كاملة لإثبات الدين أولاً؟", a: "تمنح المادة 667 من قانون المعاملات التجارية لعام 2022 صفة السند التنفيذي للشيك المثبت عليه من البنك عدم وجود الرصيد أو عدم كفايته، ويجوز لحامله طلب التنفيذ الجبري بالمبلغ غير المسدد وفق الإجراءات المدنية. احصل على سبب الإرجاع واحتسب الدفعات الجزئية. لا تحسم قابلية التنفيذ كل دفاع أو اتهام جزائي؛ وتحتاج أسباب الإرجاع الأخرى والوقائع الأساسية إلى تقييم مستقل." },
+    sources: [{ en: "UAE Legislation — Commercial Transactions Law, Article 667", ar: "تشريعات الإمارات — قانون المعاملات التجارية، المادة 667", href: "https://uaelegislation.gov.ae/ar/legislations/1610/download" }],
+  },
+  {
+    region: "uae", service: "enforcement-debt-recovery", id: "uae-foreign-judgment-conditions", reviewedAt: "2026-09-07",
+    problems: ["foreign-judgment-enforcement"],
+    en: { q: "Is a final foreign judgment automatically enforceable in the UAE?", a: "No. For the ordinary civil-procedure route, Article 222 requires an application and checks covering reciprocity, jurisdiction, authentication, proper notice and representation, finality, conflicting UAE judgments and public policy. The Arabic text addresses the UAE courts' exclusive jurisdiction. Supply finality evidence and the procedural record, not just the award amount. Article 225 preserves applicable treaties; identify the relevant court and regime before choosing a route." },
+    ar: { q: "هل يُنفذ الحكم الأجنبي النهائي في الإمارات تلقائياً؟", a: "لا. في مسار الإجراءات المدنية المعتاد تتطلب المادة 222 طلباً وفحص المعاملة بالمثل والاختصاص والتصديق وصحة التبليغ والتمثيل ونهائية الحكم وعدم تعارضه مع حكم إماراتي أو النظام العام. ويتناول النص العربي الاختصاص الحصري لمحاكم الدولة. قدّم إثبات النهائية وسجل الإجراءات، لا مبلغ الحكم فقط. وتحفظ المادة 225 أحكام المعاهدات المنطبقة؛ فحدّد المحكمة والنظام المختصين قبل اختيار المسار." },
+    sources: [{ en: "UAE Legislation — Civil Procedure Code, Articles 222 and 225 (Arabic text)", ar: "تشريعات الإمارات — قانون الإجراءات المدنية، المادتان 222 و225", href: "https://uaelegislation.gov.ae/ar/legislations/1602/download" }],
+  },
+];

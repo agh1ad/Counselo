@@ -1,0 +1,630 @@
+{
+  "reviewedAt": "2026-09-07",
+  "taskStatus": "in-progress",
+  "scope": {
+    "retainedUaeMatterRoutes": 216,
+    "routesInThisBoundedCluster": 10,
+    "newBilingualRecords": 12,
+    "closureRecommendations": 2,
+    "acceptedClosures": 0,
+    "clusterRoutesStillPartial": 8,
+    "otherMatterRoutesNotReassessedInThisBatch": 206,
+    "remainingIfRootAcceptsRecommendations": 214
+  },
+  "method": "Consumer product/refund/platform cluster only. Read current rendered matter content and the integrated source-answer registry, checked the specific gaps in the prior260-route ledger against official indexed legal/service text, and added operative answers. Recommendations are individual editorial judgements for bounded page purpose, not automatic assignment-based completion or all-possible-search-intent claims.",
+  "sourceEvidence": [
+    {
+      "url": "https://uaelegislation.gov.ae/en/legislations/2157/download",
+      "sections": "Articles26–29, indexed printed14–15",
+      "finding": "27actual remedy choice for provider-attributable defect and temporary substitute;28warranty recurrence conditions, repair attempts and consumption adjustment. DirectHTMLfetch403; indexed primary text inspected."
+    },
+    {
+      "url": "https://uaelegislation.gov.ae/en/legislations/1455/download",
+      "sections": "Articles23–24, printed14",
+      "finding": "Testing by competent authority, invalid-goods testing cost, personal/material damage, void contrary agreement and misuse exclusion."
+    },
+    {
+      "url": "https://uaelegislation.gov.ae/en/legislations/2150/download",
+      "sections": "Article7, printed10",
+      "finding": "Delay preventing benefit, contrary contractual receipt and listedreturn exclusions; no universalrefundprocessingclock inferred."
+    },
+    {
+      "url": "https://consumerrights.ae/en/Pages/consumer-complaint.aspx",
+      "sections": "Published bilingualeligibility",
+      "finding": "Dubai licence, affected person orPOA, purchaseproof, technicalreport insomecases; sector exclusions. Published7dayexpectedresolution not copied as guarantee."
+    },
+    {
+      "url": "https://u.ae/information-and-services/justice-safety-and-the-law/consumer-protection",
+      "sections": "Consumer protectiondepartments",
+      "finding": "Ministrycoordinationandemirateauthorityroles; doesnotmakeDubai portalnationwide."
+    },
+    {
+      "url": "https://u.ae/en/information-and-services/business/protection-of-the-rights-of-businesses-from-other-businesses-in-dubai",
+      "sections": "Businessprotection, updated30April2026",
+      "finding": "DETlicensed mainlandcounterparty, evidence, amicableB2Bscope and exclusions; noforeignplatformjurisdiction assumed."
+    }
+  ],
+  "validation": {
+    "newIds": 12,
+    "uniqueIds": 12,
+    "registryIdCollisions": 0,
+    "invalidMatterSlugs": 0,
+    "fullBuildOrBrowser": "Not run by this subagent; root owns integration."
+  },
+  "pages": [
+    {
+      "route": "/uae/ar/services/commercial-contracts/consumer-refund-and-purchase-cancellation-dispute",
+      "language": "ar",
+      "primaryIntent": "منازعة استرداد قيمة الشراء وإلغاء المعاملة",
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-commercial-contracts-consumer-refund-and-purchase-cancellation-dispute.html",
+        "sha256": "3a2386b69133ba7e25c09b068fa1a83c4ca9d2a3462738abfb33f27ddbe6d546",
+        "existingQuestions": [
+          "هل يعني عيب المنتج استرداد الثمن نقداً فوراً في كل حالة بالإمارات؟",
+          "هل طلب الاسترداد بسبب عيب أم عدم تسليم أم تغيير الرأي؟",
+          "ما أول خطوة في مسألة منازعة استرداد قيمة الشراء وإلغاء المعاملة؟",
+          "ما المستندات المفيدة لتقييم منازعة استرداد قيمة الشراء وإلغاء المعاملة؟",
+          "هل يمكن أن تراجع كاونسلو مسألة منازعة استرداد قيمة الشراء وإلغاء المعاملة أونلاين؟",
+          "كيف تساعد كاونسلو في منازعة استرداد قيمة الشراء وإلغاء المعاملة؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "existingSourceAnswerIds": [
+          "uae-consumer-defect-remedies"
+        ],
+        "renderedExistingSourceQuestions": [
+          "uae-consumer-defect-remedies"
+        ]
+      },
+      "newAnswerIds": [
+        "uae-matter-defect-choice-purchase",
+        "uae-matter-late-delivery-purchase",
+        "uae-matter-complaint-authority-purchase"
+      ],
+      "sourceUrls": [
+        "https://consumerrights.ae/en/Pages/consumer-complaint.aspx",
+        "https://u.ae/information-and-services/justice-safety-and-the-law/consumer-protection",
+        "https://uaelegislation.gov.ae/en/legislations/1455",
+        "https://uaelegislation.gov.ae/en/legislations/2150/download",
+        "https://uaelegislation.gov.ae/en/legislations/2157/download"
+      ],
+      "previousKnownPublicGaps": [
+        "Implementing-rule choice of remedy, e-commerce cancellation exceptions and complaint-route eligibility remain open."
+      ],
+      "resolvedPublicIntents": [
+        "متى أختار رد الثمن بدلاً من الإصلاح؟",
+        "هل يتيح التأخر في التسليم مطالبة قانونية بالإرجاع؟",
+        "إلى أي جهة أقدم شكوى المستهلك؟"
+      ],
+      "remainingPublicGaps": [
+        "Digital-return exclusion details are linked in the source but not added to this commercial route; full cancellation exclusions and ordinary change-of-mind contract terms remain open.",
+        "Actual refund-processing deadline, payment-provider remedy and complete non-delivery route remain open."
+      ],
+      "caseSpecificApplication": [
+        "Whether this product defect is attributable to the provider or misuse, the actual repair/use dates, proven loss and applicable trader licence must be established from the file; those unknown facts are not reasons to manufacture another generic answer."
+      ],
+      "closureRecommendation": {
+        "recommend": false,
+        "scope": "Do not close: the main remaining public branches are listed above.",
+        "reason": "A supporting complaint channel or legal entitlement is insufficient to resolve the outstanding main remedy branches.",
+        "conditions": []
+      },
+      "completionAccepted": false,
+      "status": "substantive-additions-with-public-gaps"
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts/defective-product-and-consumer-compensation-claim",
+      "language": "ar",
+      "primaryIntent": "المنتج المعيب ومطالبة المستهلك بالتعويض",
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-commercial-contracts-defective-product-and-consumer-compensation-claim.html",
+        "sha256": "f7c8b8ab1c6f354424729ebdc686201da1b1f6060aab134ab168e5fc2afba17b",
+        "existingQuestions": [
+          "هل يعني عيب المنتج استرداد الثمن نقداً فوراً في كل حالة بالإمارات؟",
+          "ما الضرر الذي سببه عيب المنتج إضافة إلى ثمنه؟",
+          "ما أول خطوة في مسألة المنتج المعيب ومطالبة المستهلك بالتعويض؟",
+          "ما المستندات المفيدة لتقييم المنتج المعيب ومطالبة المستهلك بالتعويض؟",
+          "هل يمكن أن تراجع كاونسلو مسألة المنتج المعيب ومطالبة المستهلك بالتعويض أونلاين؟",
+          "كيف تساعد كاونسلو في المنتج المعيب ومطالبة المستهلك بالتعويض؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "existingSourceAnswerIds": [
+          "uae-consumer-defect-remedies"
+        ],
+        "renderedExistingSourceQuestions": [
+          "uae-consumer-defect-remedies"
+        ]
+      },
+      "newAnswerIds": [
+        "uae-matter-product-damage-injury",
+        "uae-matter-complaint-authority-purchase"
+      ],
+      "sourceUrls": [
+        "https://consumerrights.ae/en/Pages/consumer-complaint.aspx",
+        "https://u.ae/information-and-services/justice-safety-and-the-law/consumer-protection",
+        "https://uaelegislation.gov.ae/en/legislations/1455",
+        "https://uaelegislation.gov.ae/en/legislations/1455/download"
+      ],
+      "previousKnownPublicGaps": [
+        "Compensation heads, expert evidence, reporting urgency and limitation require source-backed expansion; product refund does not fully answer injury intent."
+      ],
+      "resolvedPublicIntents": [
+        "هل يتجاوز التعويض استبدال المنتج المعيب؟",
+        "إلى أي جهة أقدم شكوى المستهلك؟"
+      ],
+      "remainingPublicGaps": [
+        "Article24 answers compensable personal/material damage and misuse exclusion, but the main injury claim still needs current limitation, competent civil filing process, causation/expert assessment and valuation explanation."
+      ],
+      "caseSpecificApplication": [
+        "Whether this product defect is attributable to the provider or misuse, the actual repair/use dates, proven loss and applicable trader licence must be established from the file; those unknown facts are not reasons to manufacture another generic answer."
+      ],
+      "closureRecommendation": {
+        "recommend": false,
+        "scope": "Do not close: the main remaining public branches are listed above.",
+        "reason": "A supporting complaint channel or legal entitlement is insufficient to resolve the outstanding main remedy branches.",
+        "conditions": []
+      },
+      "completionAccepted": false,
+      "status": "substantive-additions-with-public-gaps"
+    },
+    {
+      "route": "/uae/ar/services/consumer-ecommerce/defective-product-and-consumer-claim",
+      "language": "ar",
+      "primaryIntent": "المنتج المعيب ومطالبة المستهلك",
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-consumer-ecommerce-defective-product-and-consumer-claim.html",
+        "sha256": "09db2bf0f94d4be1d2190868c6b4814a56e990f5fcff4fdcccce02c6555b2422",
+        "existingQuestions": [
+          "هل ترد السلعة الإلكترونية المعيبة أو المخالفة للوصف؟",
+          "ما العيب الذي ظهر وما المعالجة المطلوبة من البائع؟",
+          "ما أول خطوة في مسألة المنتج المعيب ومطالبة المستهلك؟",
+          "ما المستندات المفيدة لتقييم المنتج المعيب ومطالبة المستهلك؟",
+          "هل يمكن أن تراجع كاونسلو مسألة المنتج المعيب ومطالبة المستهلك أونلاين؟",
+          "كيف تساعد كاونسلو في المنتج المعيب ومطالبة المستهلك؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "existingSourceAnswerIds": [
+          "uae-digital-purchase-defect-return",
+          "uae-final-defect-remedies",
+          "uae-final-repeated-defect"
+        ],
+        "renderedExistingSourceQuestions": [
+          "uae-digital-purchase-defect-return",
+          "uae-final-defect-remedies",
+          "uae-final-repeated-defect"
+        ]
+      },
+      "newAnswerIds": [
+        "uae-matter-defect-choice-consumer",
+        "uae-matter-repeat-use-adjustment",
+        "uae-matter-product-damage-consumer",
+        "uae-matter-complaint-authority-consumer",
+        "uae-matter-repeat-warranty-conditions"
+      ],
+      "sourceUrls": [
+        "https://consumerrights.ae/en/Pages/consumer-complaint.aspx",
+        "https://u.ae/information-and-services/justice-safety-and-the-law/consumer-protection",
+        "https://uaelegislation.gov.ae/en/legislations/1455/download",
+        "https://uaelegislation.gov.ae/en/legislations/2150/download",
+        "https://uaelegislation.gov.ae/en/legislations/2157/download",
+        "https://www.uaelegislation.gov.ae/en/legislations/1455/download"
+      ],
+      "previousKnownPublicGaps": [
+        "Articles 12 and 13 now answer the general offline remedies and repeated-defect branch. Remaining public gaps: executive-rule remedy conditions/consumption adjustments, product-injury compensation and local enforcement route."
+      ],
+      "resolvedPublicIntents": [
+        "متى أختار رد الثمن بدلاً من الإصلاح؟",
+        "هل يؤثر الاستخدام السابق في رد ثمن سلعة تكرر عيبها؟",
+        "هل يتجاوز التعويض استبدال المنتج المعيب؟",
+        "إلى أي جهة أقدم شكوى المستهلك؟",
+        "أي إصلاحات فاشلة تدخل في معالجة الاستبدال أثناء الضمان؟"
+      ],
+      "remainingPublicGaps": [],
+      "caseSpecificApplication": [
+        "Whether this product defect is attributable to the provider or misuse, the actual repair/use dates, proven loss and applicable trader licence must be established from the file; those unknown facts are not reasons to manufacture another generic answer."
+      ],
+      "closureRecommendation": {
+        "recommend": true,
+        "scope": "General product-defect remedy and complaint-orientation purpose: choice/conditions, recurrence, consumption adjustment, harm beyond product price, evidence and authority boundaries. Does not cover a personalised claim, every sector-specific product regime or every possible future query.",
+        "reason": "All specifically listed public gaps in the final review now have a direct, scoped rule or authority answer; source-backed warranty conditions supplement the first-year rule, and file-specific calculations remain individual advice.",
+        "conditions": [
+          "Root integration and fresh rendered/schema/browser verification of this module",
+          "Editorial acceptance of this bounded page-purpose assessment; no measured ranking claim"
+        ]
+      },
+      "completionAccepted": false,
+      "status": "bounded-page-purpose-closure-recommended-awaiting-root"
+    },
+    {
+      "route": "/uae/ar/services/consumer-ecommerce/e-commerce-platform-account-dispute",
+      "language": "ar",
+      "primaryIntent": "منازعة حساب منصة التجارة الإلكترونية",
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-consumer-ecommerce-e-commerce-platform-account-dispute.html",
+        "sha256": "3c49f7f8c72a3acd3259a0642a7b716c783c5c69e0af1e486448e5ced6b9a77b",
+        "existingQuestions": [
+          "هل تحجب المنصة الدخول أم العروض أم أموال البائع؟",
+          "ما أول خطوة في مسألة منازعة حساب منصة التجارة الإلكترونية؟",
+          "ما المستندات المفيدة لتقييم منازعة حساب منصة التجارة الإلكترونية؟",
+          "هل يمكن أن تراجع كاونسلو مسألة منازعة حساب منصة التجارة الإلكترونية أونلاين؟",
+          "كيف تساعد كاونسلو في منازعة حساب منصة التجارة الإلكترونية؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "existingSourceAnswerIds": [],
+        "renderedExistingSourceQuestions": []
+      },
+      "newAnswerIds": [
+        "uae-matter-platform-b2b-boundary"
+      ],
+      "sourceUrls": [
+        "https://u.ae/en/information-and-services/business/protection-of-the-rights-of-businesses-from-other-businesses-in-dubai"
+      ],
+      "previousKnownPublicGaps": [
+        "No adjacent consumer return FAQ used to pretend a seller-account remedy. Platform-specific rules, payout obligations and governing contract law remain unresolved."
+      ],
+      "resolvedPublicIntents": [
+        "هل يستخدم البائع خدمة شكاوى الأعمال في دبي ضد منصة؟"
+      ],
+      "remainingPublicGaps": [
+        "Dubai B2B amicable route only applies to qualifying DET-licensed counterparties. Platform suspension grounds, internal appeal and seller-payout contractual entitlement remain unanswered for the broad page."
+      ],
+      "caseSpecificApplication": [
+        "Whether this product defect is attributable to the provider or misuse, the actual repair/use dates, proven loss and applicable trader licence must be established from the file; those unknown facts are not reasons to manufacture another generic answer."
+      ],
+      "closureRecommendation": {
+        "recommend": false,
+        "scope": "Do not close: the main remaining public branches are listed above.",
+        "reason": "A supporting complaint channel or legal entitlement is insufficient to resolve the outstanding main remedy branches.",
+        "conditions": []
+      },
+      "completionAccepted": false,
+      "status": "substantive-additions-with-public-gaps"
+    },
+    {
+      "route": "/uae/ar/services/consumer-ecommerce/online-purchase-refund-dispute",
+      "language": "ar",
+      "primaryIntent": "منازعة استرداد قيمة الشراء الإلكتروني",
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-ar-services-consumer-ecommerce-online-purchase-refund-dispute.html",
+        "sha256": "850f816f662c0b8adfd39ba5f3815c99b183ba8d0f90a3c8934eaefd83c21b14",
+        "existingQuestions": [
+          "هل ترد السلعة الإلكترونية المعيبة أو المخالفة للوصف؟",
+          "هل أُلغي الطلب أم لم يُسلّم أم أُعيد أم خالف الوصف؟",
+          "ما أول خطوة في مسألة منازعة استرداد قيمة الشراء الإلكتروني؟",
+          "ما المستندات المفيدة لتقييم منازعة استرداد قيمة الشراء الإلكتروني؟",
+          "هل يمكن أن تراجع كاونسلو مسألة منازعة استرداد قيمة الشراء الإلكتروني أونلاين؟",
+          "كيف تساعد كاونسلو في منازعة استرداد قيمة الشراء الإلكتروني؟",
+          "متى يصل الرد المهني؟"
+        ],
+        "existingSourceAnswerIds": [
+          "uae-digital-purchase-defect-return",
+          "uae-final-defect-remedies"
+        ],
+        "renderedExistingSourceQuestions": [
+          "uae-digital-purchase-defect-return",
+          "uae-final-defect-remedies"
+        ]
+      },
+      "newAnswerIds": [
+        "uae-matter-late-delivery-online",
+        "uae-matter-digital-return-exclusions",
+        "uae-matter-complaint-authority-consumer"
+      ],
+      "sourceUrls": [
+        "https://consumerrights.ae/en/Pages/consumer-complaint.aspx",
+        "https://u.ae/information-and-services/justice-safety-and-the-law/consumer-protection",
+        "https://uaelegislation.gov.ae/en/legislations/2150/download",
+        "https://www.uaelegislation.gov.ae/en/legislations/1455/download"
+      ],
+      "previousKnownPublicGaps": [
+        "Digital and defective-product return grounds are answered. Remaining public gaps: non-delivery, cancellation exceptions, refund timing and payment-dispute procedure."
+      ],
+      "resolvedPublicIntents": [
+        "هل يتيح التأخر في التسليم مطالبة قانونية بالإرجاع؟",
+        "ما الذي قد يسقط حق الإرجاع الإلكتروني القانوني؟",
+        "إلى أي جهة أقدم شكوى المستهلك؟"
+      ],
+      "remainingPublicGaps": [
+        "Actual refund-processing time and payment-provider dispute deadline are not established; they cannot be inferred from Article7.",
+        "Non-delivery rather than delayed/useless delivery, trader insolvency and cancellation outside the stated statutory grounds remain separate public branches."
+      ],
+      "caseSpecificApplication": [
+        "Whether this product defect is attributable to the provider or misuse, the actual repair/use dates, proven loss and applicable trader licence must be established from the file; those unknown facts are not reasons to manufacture another generic answer."
+      ],
+      "closureRecommendation": {
+        "recommend": false,
+        "scope": "Do not close: the main remaining public branches are listed above.",
+        "reason": "A supporting complaint channel or legal entitlement is insufficient to resolve the outstanding main remedy branches.",
+        "conditions": []
+      },
+      "completionAccepted": false,
+      "status": "substantive-additions-with-public-gaps"
+    },
+    {
+      "route": "/uae/services/commercial-contracts/consumer-refund-and-purchase-cancellation-dispute",
+      "language": "en",
+      "primaryIntent": "Consumer refund and purchase cancellation dispute",
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-commercial-contracts-consumer-refund-and-purchase-cancellation-dispute.html",
+        "sha256": "f711fab6c0881f0ba8a34aa2eb833c63737d63719d94cd148574e3baf7240322",
+        "existingQuestions": [
+          "Does a defective product always mean an immediate cash refund in the UAE?",
+          "Is the refund requested for a defect, non-delivery or a change of mind?",
+          "What should I do first about consumer refund and purchase cancellation dispute?",
+          "What documents help assess consumer refund and purchase cancellation dispute?",
+          "Can CounselO review consumer refund and purchase cancellation dispute online?",
+          "How does CounselO help with consumer refund and purchase cancellation dispute?",
+          "How quickly will I receive a response?"
+        ],
+        "existingSourceAnswerIds": [
+          "uae-consumer-defect-remedies"
+        ],
+        "renderedExistingSourceQuestions": [
+          "uae-consumer-defect-remedies"
+        ]
+      },
+      "newAnswerIds": [
+        "uae-matter-defect-choice-purchase",
+        "uae-matter-late-delivery-purchase",
+        "uae-matter-complaint-authority-purchase"
+      ],
+      "sourceUrls": [
+        "https://consumerrights.ae/en/Pages/consumer-complaint.aspx",
+        "https://u.ae/information-and-services/justice-safety-and-the-law/consumer-protection",
+        "https://uaelegislation.gov.ae/en/legislations/1455",
+        "https://uaelegislation.gov.ae/en/legislations/2150/download",
+        "https://uaelegislation.gov.ae/en/legislations/2157/download"
+      ],
+      "previousKnownPublicGaps": [
+        "Implementing-rule choice of remedy, e-commerce cancellation exceptions and complaint-route eligibility remain open."
+      ],
+      "resolvedPublicIntents": [
+        "When can I choose a refund instead of a repair?",
+        "Does late delivery give me a statutory return claim?",
+        "Which authority should receive a consumer complaint?"
+      ],
+      "remainingPublicGaps": [
+        "Digital-return exclusion details are linked in the source but not added to this commercial route; full cancellation exclusions and ordinary change-of-mind contract terms remain open.",
+        "Actual refund-processing deadline, payment-provider remedy and complete non-delivery route remain open."
+      ],
+      "caseSpecificApplication": [
+        "Whether this product defect is attributable to the provider or misuse, the actual repair/use dates, proven loss and applicable trader licence must be established from the file; those unknown facts are not reasons to manufacture another generic answer."
+      ],
+      "closureRecommendation": {
+        "recommend": false,
+        "scope": "Do not close: the main remaining public branches are listed above.",
+        "reason": "A supporting complaint channel or legal entitlement is insufficient to resolve the outstanding main remedy branches.",
+        "conditions": []
+      },
+      "completionAccepted": false,
+      "status": "substantive-additions-with-public-gaps"
+    },
+    {
+      "route": "/uae/services/commercial-contracts/defective-product-and-consumer-compensation-claim",
+      "language": "en",
+      "primaryIntent": "Defective product and consumer compensation claim",
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-commercial-contracts-defective-product-and-consumer-compensation-claim.html",
+        "sha256": "6a9e71fe047d73e60f4422c8d7c72752ffeffc201726eab4a167651e7d719f28",
+        "existingQuestions": [
+          "Does a defective product always mean an immediate cash refund in the UAE?",
+          "What harm did the product defect cause beyond the purchase price?",
+          "What should I do first about defective product and consumer compensation claim?",
+          "What documents help assess defective product and consumer compensation claim?",
+          "Can CounselO review defective product and consumer compensation claim online?",
+          "How does CounselO help with defective product and consumer compensation claim?",
+          "How quickly will I receive a response?"
+        ],
+        "existingSourceAnswerIds": [
+          "uae-consumer-defect-remedies"
+        ],
+        "renderedExistingSourceQuestions": [
+          "uae-consumer-defect-remedies"
+        ]
+      },
+      "newAnswerIds": [
+        "uae-matter-product-damage-injury",
+        "uae-matter-complaint-authority-purchase"
+      ],
+      "sourceUrls": [
+        "https://consumerrights.ae/en/Pages/consumer-complaint.aspx",
+        "https://u.ae/information-and-services/justice-safety-and-the-law/consumer-protection",
+        "https://uaelegislation.gov.ae/en/legislations/1455",
+        "https://uaelegislation.gov.ae/en/legislations/1455/download"
+      ],
+      "previousKnownPublicGaps": [
+        "Compensation heads, expert evidence, reporting urgency and limitation require source-backed expansion; product refund does not fully answer injury intent."
+      ],
+      "resolvedPublicIntents": [
+        "Can compensation go beyond replacing the defective product?",
+        "Which authority should receive a consumer complaint?"
+      ],
+      "remainingPublicGaps": [
+        "Article24 answers compensable personal/material damage and misuse exclusion, but the main injury claim still needs current limitation, competent civil filing process, causation/expert assessment and valuation explanation."
+      ],
+      "caseSpecificApplication": [
+        "Whether this product defect is attributable to the provider or misuse, the actual repair/use dates, proven loss and applicable trader licence must be established from the file; those unknown facts are not reasons to manufacture another generic answer."
+      ],
+      "closureRecommendation": {
+        "recommend": false,
+        "scope": "Do not close: the main remaining public branches are listed above.",
+        "reason": "A supporting complaint channel or legal entitlement is insufficient to resolve the outstanding main remedy branches.",
+        "conditions": []
+      },
+      "completionAccepted": false,
+      "status": "substantive-additions-with-public-gaps"
+    },
+    {
+      "route": "/uae/services/consumer-ecommerce/defective-product-and-consumer-claim",
+      "language": "en",
+      "primaryIntent": "Defective product and consumer claim",
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-consumer-ecommerce-defective-product-and-consumer-claim.html",
+        "sha256": "300590a3e9720d38cbdd4207d4e08dc10c00d67761be851e0cc36cb9a086a3bd",
+        "existingQuestions": [
+          "Can defective or misdescribed online goods be returned?",
+          "What defect appeared and what remedy was requested from the seller?",
+          "What should I do first about defective product and consumer claim?",
+          "What documents help assess defective product and consumer claim?",
+          "Can CounselO review defective product and consumer claim online?",
+          "How does CounselO help with defective product and consumer claim?",
+          "How quickly will I receive a response?"
+        ],
+        "existingSourceAnswerIds": [
+          "uae-digital-purchase-defect-return",
+          "uae-final-defect-remedies",
+          "uae-final-repeated-defect"
+        ],
+        "renderedExistingSourceQuestions": [
+          "uae-digital-purchase-defect-return",
+          "uae-final-defect-remedies",
+          "uae-final-repeated-defect"
+        ]
+      },
+      "newAnswerIds": [
+        "uae-matter-defect-choice-consumer",
+        "uae-matter-repeat-use-adjustment",
+        "uae-matter-product-damage-consumer",
+        "uae-matter-complaint-authority-consumer",
+        "uae-matter-repeat-warranty-conditions"
+      ],
+      "sourceUrls": [
+        "https://consumerrights.ae/en/Pages/consumer-complaint.aspx",
+        "https://u.ae/information-and-services/justice-safety-and-the-law/consumer-protection",
+        "https://uaelegislation.gov.ae/en/legislations/1455/download",
+        "https://uaelegislation.gov.ae/en/legislations/2150/download",
+        "https://uaelegislation.gov.ae/en/legislations/2157/download",
+        "https://www.uaelegislation.gov.ae/en/legislations/1455/download"
+      ],
+      "previousKnownPublicGaps": [
+        "Articles 12 and 13 now answer the general offline remedies and repeated-defect branch. Remaining public gaps: executive-rule remedy conditions/consumption adjustments, product-injury compensation and local enforcement route."
+      ],
+      "resolvedPublicIntents": [
+        "When can I choose a refund instead of a repair?",
+        "Can prior use affect a repeated-defect refund?",
+        "Can compensation go beyond replacing the defective product?",
+        "Which authority should receive a consumer complaint?",
+        "Which failed repairs count toward the warranty replacement remedy?"
+      ],
+      "remainingPublicGaps": [],
+      "caseSpecificApplication": [
+        "Whether this product defect is attributable to the provider or misuse, the actual repair/use dates, proven loss and applicable trader licence must be established from the file; those unknown facts are not reasons to manufacture another generic answer."
+      ],
+      "closureRecommendation": {
+        "recommend": true,
+        "scope": "General product-defect remedy and complaint-orientation purpose: choice/conditions, recurrence, consumption adjustment, harm beyond product price, evidence and authority boundaries. Does not cover a personalised claim, every sector-specific product regime or every possible future query.",
+        "reason": "All specifically listed public gaps in the final review now have a direct, scoped rule or authority answer; source-backed warranty conditions supplement the first-year rule, and file-specific calculations remain individual advice.",
+        "conditions": [
+          "Root integration and fresh rendered/schema/browser verification of this module",
+          "Editorial acceptance of this bounded page-purpose assessment; no measured ranking claim"
+        ]
+      },
+      "completionAccepted": false,
+      "status": "bounded-page-purpose-closure-recommended-awaiting-root"
+    },
+    {
+      "route": "/uae/services/consumer-ecommerce/e-commerce-platform-account-dispute",
+      "language": "en",
+      "primaryIntent": "E-commerce platform account dispute",
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-consumer-ecommerce-e-commerce-platform-account-dispute.html",
+        "sha256": "ed0e8a479dbc9516fec0e21452efad5bc9be25c9bc15ffea087d91f1a982249b",
+        "existingQuestions": [
+          "Is the platform withholding access, listings or seller funds?",
+          "What should I do first about e-commerce platform account dispute?",
+          "What documents help assess e-commerce platform account dispute?",
+          "Can CounselO review e-commerce platform account dispute online?",
+          "How does CounselO help with e-commerce platform account dispute?",
+          "How quickly will I receive a response?"
+        ],
+        "existingSourceAnswerIds": [],
+        "renderedExistingSourceQuestions": []
+      },
+      "newAnswerIds": [
+        "uae-matter-platform-b2b-boundary"
+      ],
+      "sourceUrls": [
+        "https://u.ae/en/information-and-services/business/protection-of-the-rights-of-businesses-from-other-businesses-in-dubai"
+      ],
+      "previousKnownPublicGaps": [
+        "No adjacent consumer return FAQ used to pretend a seller-account remedy. Platform-specific rules, payout obligations and governing contract law remain unresolved."
+      ],
+      "resolvedPublicIntents": [
+        "Can a seller use Dubai’s business-complaint service against a platform?"
+      ],
+      "remainingPublicGaps": [
+        "Dubai B2B amicable route only applies to qualifying DET-licensed counterparties. Platform suspension grounds, internal appeal and seller-payout contractual entitlement remain unanswered for the broad page."
+      ],
+      "caseSpecificApplication": [
+        "Whether this product defect is attributable to the provider or misuse, the actual repair/use dates, proven loss and applicable trader licence must be established from the file; those unknown facts are not reasons to manufacture another generic answer."
+      ],
+      "closureRecommendation": {
+        "recommend": false,
+        "scope": "Do not close: the main remaining public branches are listed above.",
+        "reason": "A supporting complaint channel or legal entitlement is insufficient to resolve the outstanding main remedy branches.",
+        "conditions": []
+      },
+      "completionAccepted": false,
+      "status": "substantive-additions-with-public-gaps"
+    },
+    {
+      "route": "/uae/services/consumer-ecommerce/online-purchase-refund-dispute",
+      "language": "en",
+      "primaryIntent": "Online purchase refund dispute",
+      "actualContentEvidence": {
+        "file": "artifacts/legal-site/dist/public/__pages/uae-services-consumer-ecommerce-online-purchase-refund-dispute.html",
+        "sha256": "b27e8cf9a4f4143c07013ef914da43781094de03127573e7a084f48a6db7c8ba",
+        "existingQuestions": [
+          "Can defective or misdescribed online goods be returned?",
+          "Was the order cancelled, undelivered, returned or different from its description?",
+          "What should I do first about online purchase refund dispute?",
+          "What documents help assess online purchase refund dispute?",
+          "Can CounselO review online purchase refund dispute online?",
+          "How does CounselO help with online purchase refund dispute?",
+          "How quickly will I receive a response?"
+        ],
+        "existingSourceAnswerIds": [
+          "uae-digital-purchase-defect-return",
+          "uae-final-defect-remedies"
+        ],
+        "renderedExistingSourceQuestions": [
+          "uae-digital-purchase-defect-return",
+          "uae-final-defect-remedies"
+        ]
+      },
+      "newAnswerIds": [
+        "uae-matter-late-delivery-online",
+        "uae-matter-digital-return-exclusions",
+        "uae-matter-complaint-authority-consumer"
+      ],
+      "sourceUrls": [
+        "https://consumerrights.ae/en/Pages/consumer-complaint.aspx",
+        "https://u.ae/information-and-services/justice-safety-and-the-law/consumer-protection",
+        "https://uaelegislation.gov.ae/en/legislations/2150/download",
+        "https://www.uaelegislation.gov.ae/en/legislations/1455/download"
+      ],
+      "previousKnownPublicGaps": [
+        "Digital and defective-product return grounds are answered. Remaining public gaps: non-delivery, cancellation exceptions, refund timing and payment-dispute procedure."
+      ],
+      "resolvedPublicIntents": [
+        "Does late delivery give me a statutory return claim?",
+        "What can exclude the statutory online return right?",
+        "Which authority should receive a consumer complaint?"
+      ],
+      "remainingPublicGaps": [
+        "Actual refund-processing time and payment-provider dispute deadline are not established; they cannot be inferred from Article7.",
+        "Non-delivery rather than delayed/useless delivery, trader insolvency and cancellation outside the stated statutory grounds remain separate public branches."
+      ],
+      "caseSpecificApplication": [
+        "Whether this product defect is attributable to the provider or misuse, the actual repair/use dates, proven loss and applicable trader licence must be established from the file; those unknown facts are not reasons to manufacture another generic answer."
+      ],
+      "closureRecommendation": {
+        "recommend": false,
+        "scope": "Do not close: the main remaining public branches are listed above.",
+        "reason": "A supporting complaint channel or legal entitlement is insufficient to resolve the outstanding main remedy branches.",
+        "conditions": []
+      },
+      "completionAccepted": false,
+      "status": "substantive-additions-with-public-gaps"
+    }
+  ]
+}

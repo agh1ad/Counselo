@@ -13,6 +13,8 @@ import {
 import { repairPublicBlogPost } from "../../../api-server/src/lib/public-blog-repairs.js";
 import { repairPublicWorkSample } from "../../../api-server/src/lib/public-work-repairs.js";
 import { getLegalProblemPages, legalProblemPath } from "../lib/legal-problem-pages.js";
+import { matterGuidanceUpdatedAt } from "../lib/matter-source-guidance.js";
+import { serviceGuidanceUpdatedAt } from "../lib/source-backed-search-guidance.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(__dirname, "../..");
@@ -219,26 +221,29 @@ for (const page of CORE_PAGES) {
   if (page.path === "/syr") {
     entries.push("\n  <!-- ===== SYR CORE PAGES ===== -->");
   }
-  entries.push(urlEntry(page.path, page.changefreq, page.priority, /(?:privacy-policy|vision|contact|services)$/.test(page.path) || /^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?)$/.test(page.path) ? "2026-09-06" : STATIC_CONTENT_LASTMOD));
+  entries.push(urlEntry(page.path, page.changefreq, page.priority, /(?:privacy-policy|terms-of-service|contact)$/.test(page.path) ? "2026-09-07" : /(?:vision|services)$/.test(page.path) || /^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?)$/.test(page.path) ? "2026-09-06" : STATIC_CONTENT_LASTMOD));
 }
 
 entries.push("\n  <!-- ===== SA SERVICE PAGES ===== -->");
 for (const slug of SA_SERVICE_SLUGS) {
-  entries.push(urlEntry(`/sa/services/${slug}`, "monthly", "0.9", "2026-09-06"));
-  entries.push(urlEntry(`/sa/ar/services/${slug}`, "monthly", "0.9", "2026-09-06"));
+  const modified = serviceGuidanceUpdatedAt("sa", slug, "2026-09-06");
+  entries.push(urlEntry(`/sa/services/${slug}`, "monthly", "0.9", modified));
+  entries.push(urlEntry(`/sa/ar/services/${slug}`, "monthly", "0.9", modified));
 }
 
 entries.push("\n  <!-- ===== SYR SERVICE PAGES ===== -->");
 for (const slug of SYR_SERVICE_SLUGS) {
   const fn = SYRIA_ONLY_SERVICE_SLUGS.has(slug) ? urlEntrySyrOnly : urlEntry;
-  entries.push(fn(`/syr/services/${slug}`, "monthly", "0.9", "2026-09-06"));
-  entries.push(fn(`/syr/ar/services/${slug}`, "monthly", "0.9", "2026-09-06"));
+  const modified = serviceGuidanceUpdatedAt("syr", slug, "2026-09-06");
+  entries.push(fn(`/syr/services/${slug}`, "monthly", "0.9", modified));
+  entries.push(fn(`/syr/ar/services/${slug}`, "monthly", "0.9", modified));
 }
 
 entries.push("\n  <!-- ===== UAE SERVICE PAGES ===== -->");
 for (const slug of UAE_SERVICE_SLUGS) {
-  entries.push(urlEntry(`/uae/services/${slug}`, "monthly", "0.9", "2026-09-06"));
-  entries.push(urlEntry(`/uae/ar/services/${slug}`, "monthly", "0.9", "2026-09-06"));
+  const modified = serviceGuidanceUpdatedAt("uae", slug, "2026-09-06");
+  entries.push(urlEntry(`/uae/services/${slug}`, "monthly", "0.9", modified));
+  entries.push(urlEntry(`/uae/ar/services/${slug}`, "monthly", "0.9", modified));
 }
 
 entries.push("\n  <!-- ===== LEGAL PROBLEM PAGES ===== -->");
@@ -246,8 +251,9 @@ for (const region of ["sa", "syr", "uae"] as const) {
   for (const page of getLegalProblemPages(region)) {
     const enPath = legalProblemPath(region, "en", page.parentServiceSlug, page.slug);
     const arPath = legalProblemPath(region, "ar", page.parentServiceSlug, page.slug);
-    entries.push(urlEntryLanguageVariant(`${BASE_URL}${enPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8", PROBLEM_CONTENT_LASTMOD));
-    entries.push(urlEntryLanguageVariant(`${BASE_URL}${arPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8", PROBLEM_CONTENT_LASTMOD));
+    const modified = matterGuidanceUpdatedAt(region, page.parentServiceSlug, page.slug, page.contentUpdatedAt ?? PROBLEM_CONTENT_LASTMOD);
+    entries.push(urlEntryLanguageVariant(`${BASE_URL}${enPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8", modified));
+    entries.push(urlEntryLanguageVariant(`${BASE_URL}${arPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8", modified));
   }
 }
 
@@ -261,8 +267,8 @@ entries.push(urlEntryLanguageVariant(blogIndexAr, blogIndexEn, blogIndexAr, "wee
 entries.push("\n  <!-- ===== LEGAL LIBRARY ===== -->");
 const libraryIndexEn = `${BASE_URL}${LEGAL_LIBRARY_BASE_PATH}`;
 const libraryIndexAr = `${BASE_URL}/ar${LEGAL_LIBRARY_BASE_PATH}`;
-entries.push(urlEntryLanguageVariant(libraryIndexEn, libraryIndexEn, libraryIndexAr, "weekly", "0.9", "2026-09-06"));
-entries.push(urlEntryLanguageVariant(libraryIndexAr, libraryIndexEn, libraryIndexAr, "weekly", "0.9", "2026-09-06"));
+entries.push(urlEntryLanguageVariant(libraryIndexEn, libraryIndexEn, libraryIndexAr, "weekly", "0.9", "2026-09-07"));
+entries.push(urlEntryLanguageVariant(libraryIndexAr, libraryIndexEn, libraryIndexAr, "weekly", "0.9", "2026-09-07"));
 
 entries.push("\n  <!-- ===== OUR WORK ===== -->");
 const workIndexEn = `${BASE_URL}${WORK_BASE_PATH}`;

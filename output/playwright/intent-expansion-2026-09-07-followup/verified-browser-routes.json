@@ -1,0 +1,4402 @@
+{
+  "environment": "local production browser,390x844",
+  "rows": [
+    {
+      "route": "/uae/services/enforcement-debt-recovery/payment-order-and-urgent-debt-recovery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does any overdue UAE invoice qualify for a payment order?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/enforcement-debt-recovery/payment-order-and-urgent-debt-recovery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تصلح كل فاتورة متأخرة في الإمارات لأمر أداء؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/enforcement/wrongful-debt-collection-or-creditor-harassment-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "May a Saudi finance collector visit my home or call my relatives?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/enforcement/wrongful-debt-collection-or-creditor-harassment-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحق لمحصل جهة تمويل سعودية زيارة منزلي أو الاتصال بأقاربي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/enforcement-debt-recovery/wrongful-debt-collection-or-creditor-harassment-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a UAE lender disclose my debt to colleagues or send an unidentified collector?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/enforcement-debt-recovery/wrongful-debt-collection-or-creditor-harassment-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجوز لممول إماراتي كشف ديني لزملائي أو إرسال محصل مجهول؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/enforcement/enforcement-of-court-judgments",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What do I need before submitting a Saudi execution request through Najiz?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/enforcement/bounced-cheque-execution",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What do I need before submitting a Saudi execution request through Najiz?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/enforcement/promissory-note-and-commercial-paper-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What do I need before submitting a Saudi execution request through Najiz?",
+          "visible": true
+        },
+        {
+          "question": "Was the new Saudi Execution Law already in force in September 2026?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What do I need before submitting a Saudi execution request through Najiz?",
+          "visible": true
+        },
+        {
+          "question": "Was the new Saudi Execution Law already in force in September 2026?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/enforcement/enforcement-of-court-judgments",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا أجهز قبل تقديم طلب تنفيذ سعودي عبر ناجز؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/enforcement/bounced-cheque-execution",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا أجهز قبل تقديم طلب تنفيذ سعودي عبر ناجز؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/enforcement/promissory-note-and-commercial-paper-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا أجهز قبل تقديم طلب تنفيذ سعودي عبر ناجز؟",
+          "visible": true
+        },
+        {
+          "question": "هل كان نظام التنفيذ السعودي الجديد نافذاً في سبتمبر 2026؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا أجهز قبل تقديم طلب تنفيذ سعودي عبر ناجز؟",
+          "visible": true
+        },
+        {
+          "question": "هل كان نظام التنفيذ السعودي الجديد نافذاً في سبتمبر 2026؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/enforcement/enforcement-objections-and-settlement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does agreeing more time to pay automatically lift every Saudi execution order?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/enforcement/bank-account-and-salary-seizure-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does agreeing more time to pay automatically lift every Saudi execution order?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/enforcement/service-suspension-and-asset-freezing-request",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does agreeing more time to pay automatically lift every Saudi execution order?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/enforcement/travel-ban-application-for-debt-recovery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does agreeing more time to pay automatically lift every Saudi execution order?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/enforcement/enforcement-objections-and-settlement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل الاتفاق على مهلة للسداد يرفع جميع أوامر التنفيذ السعودية تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/enforcement/bank-account-and-salary-seizure-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل الاتفاق على مهلة للسداد يرفع جميع أوامر التنفيذ السعودية تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/enforcement/service-suspension-and-asset-freezing-request",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل الاتفاق على مهلة للسداد يرفع جميع أوامر التنفيذ السعودية تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/enforcement/travel-ban-application-for-debt-recovery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل الاتفاق على مهلة للسداد يرفع جميع أوامر التنفيذ السعودية تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/enforcement/objection-to-an-execution-judge-s-decision",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Was the new Saudi Execution Law already in force in September 2026?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/enforcement/foreign-judgment-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Was the new Saudi Execution Law already in force in September 2026?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/enforcement/asset-tracing-and-debtor-investigation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Was the new Saudi Execution Law already in force in September 2026?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/enforcement/objection-to-an-execution-judge-s-decision",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل كان نظام التنفيذ السعودي الجديد نافذاً في سبتمبر 2026؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/enforcement/foreign-judgment-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل كان نظام التنفيذ السعودي الجديد نافذاً في سبتمبر 2026؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/enforcement/asset-tracing-and-debtor-investigation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل كان نظام التنفيذ السعودي الجديد نافذاً في سبتمبر 2026؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/enforcement-debt-recovery/bounced-cheque-execution",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a UAE bounced cheque support direct execution without first proving the debt in a full lawsuit?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/enforcement-debt-recovery/bounced-cheque-defence-and-criminal-complaint-concern",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a UAE bounced cheque support direct execution without first proving the debt in a full lawsuit?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/enforcement-debt-recovery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a UAE bounced cheque support direct execution without first proving the debt in a full lawsuit?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/enforcement-debt-recovery/bounced-cheque-execution",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن تنفيذ الشيك المرتجع في الإمارات دون دعوى كاملة لإثبات الدين أولاً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/enforcement-debt-recovery/bounced-cheque-defence-and-criminal-complaint-concern",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن تنفيذ الشيك المرتجع في الإمارات دون دعوى كاملة لإثبات الدين أولاً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/enforcement-debt-recovery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن تنفيذ الشيك المرتجع في الإمارات دون دعوى كاملة لإثبات الدين أولاً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/enforcement-debt-recovery/foreign-judgment-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is a final foreign judgment automatically enforceable in the UAE?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/enforcement-debt-recovery/foreign-judgment-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يُنفذ الحكم الأجنبي النهائي في الإمارات تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/employment-law/employment-contract-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does having no written Syrian employment contract mean there is no wage claim?",
+          "visible": true
+        },
+        {
+          "question": "Does working for an NGO in Syria remove social-insurance protection?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/employment-law/delayed-or-unpaid-salary",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does having no written Syrian employment contract mean there is no wage claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/employment-law/unpaid-wages-and-benefits",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does having no written Syrian employment contract mean there is no wage claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/employment-law/employment-contract-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل غياب عقد العمل السوري المكتوب يمنع المطالبة بالأجر؟",
+          "visible": true
+        },
+        {
+          "question": "هل العمل لدى منظمة غير حكومية في سوريا يلغي الحماية التأمينية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/employment-law/delayed-or-unpaid-salary",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل غياب عقد العمل السوري المكتوب يمنع المطالبة بالأجر؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/employment-law/unpaid-wages-and-benefits",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل غياب عقد العمل السوري المكتوب يمنع المطالبة بالأجر؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/employment-law/employment-termination-and-labour-record-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does working for an NGO in Syria remove social-insurance protection?",
+          "visible": true
+        },
+        {
+          "question": "Does the 2026 Syrian insurance-penalty exemption erase unpaid contributions?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/employment-law/work-injury-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does working for an NGO in Syria remove social-insurance protection?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/employment-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does working for an NGO in Syria remove social-insurance protection?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/employment-law/employment-termination-and-labour-record-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل العمل لدى منظمة غير حكومية في سوريا يلغي الحماية التأمينية؟",
+          "visible": true
+        },
+        {
+          "question": "هل إعفاء غرامات التأمينات السورية لعام 2026 يمحو الاشتراكات غير المدفوعة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/employment-law/work-injury-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل العمل لدى منظمة غير حكومية في سوريا يلغي الحماية التأمينية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/employment-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل العمل لدى منظمة غير حكومية في سوريا يلغي الحماية التأمينية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/employment-law/employment-settlement-and-final-dues-calculation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the 2026 Syrian insurance-penalty exemption erase unpaid contributions?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/employment-law/end-of-service-entitlements",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the 2026 Syrian insurance-penalty exemption erase unpaid contributions?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/employment-law/employment-settlement-and-final-dues-calculation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل إعفاء غرامات التأمينات السورية لعام 2026 يمحو الاشتراكات غير المدفوعة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/employment-law/end-of-service-entitlements",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل إعفاء غرامات التأمينات السورية لعام 2026 يمحو الاشتراكات غير المدفوعة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/enforcement/enforcement-of-court-judgments",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an ordinary execution timetable be assumed for a Suwayda property?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/enforcement/execution-of-a-syrian-court-judgment",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an ordinary execution timetable be assumed for a Suwayda property?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/enforcement/objection-to-an-execution-measure-or-seizure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an ordinary execution timetable be assumed for a Suwayda property?",
+          "visible": true
+        },
+        {
+          "question": "Does the Syrian measure lifting security-based attachments cancel every creditor's seizure?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/enforcement/service-suspension-and-asset-freezing-request",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an ordinary execution timetable be assumed for a Suwayda property?",
+          "visible": true
+        },
+        {
+          "question": "Does the Syrian measure lifting security-based attachments cancel every creditor's seizure?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an ordinary execution timetable be assumed for a Suwayda property?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/enforcement/enforcement-of-court-judgments",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن افتراض سير التنفيذ المعتاد على عقار في السويداء؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/enforcement/execution-of-a-syrian-court-judgment",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن افتراض سير التنفيذ المعتاد على عقار في السويداء؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/enforcement/objection-to-an-execution-measure-or-seizure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن افتراض سير التنفيذ المعتاد على عقار في السويداء؟",
+          "visible": true
+        },
+        {
+          "question": "هل رفع الحجوزات ذات الأساس الأمني في سوريا يلغي كل حجز لمصلحة دائن؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/enforcement/service-suspension-and-asset-freezing-request",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن افتراض سير التنفيذ المعتاد على عقار في السويداء؟",
+          "visible": true
+        },
+        {
+          "question": "هل رفع الحجوزات ذات الأساس الأمني في سوريا يلغي كل حجز لمصلحة دائن؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن افتراض سير التنفيذ المعتاد على عقار في السويداء؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/enforcement/enforcement-objections-and-settlement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the Syrian measure lifting security-based attachments cancel every creditor's seizure?",
+          "visible": true
+        },
+        {
+          "question": "Does Syria's 2026 public-bank debt settlement cover an ordinary supplier invoice?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/enforcement/enforcement-objections-and-settlement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل رفع الحجوزات ذات الأساس الأمني في سوريا يلغي كل حجز لمصلحة دائن؟",
+          "visible": true
+        },
+        {
+          "question": "هل تشمل تسوية ديون المصارف العامة السورية لعام 2026 فاتورة مورد عادية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/enforcement/commercial-debt-recovery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does Syria's 2026 public-bank debt settlement cover an ordinary supplier invoice?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/enforcement/commercial-debt-recovery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تشمل تسوية ديون المصارف العامة السورية لعام 2026 فاتورة مورد عادية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/enforcement/travel-ban-application-for-debt-recovery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Did the 2026 measures for Syrian overseas scholarship students abolish all debt-related travel restrictions?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/enforcement/travel-ban-application-for-debt-recovery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل ألغت إجراءات الموفدين السوريين لعام 2026 كل منع سفر مرتبط بدين؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/khul-and-marriage-annulment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can agreed khulʿ be documented without a court judgment?",
+          "visible": true
+        },
+        {
+          "question": "Can surrendering child support or custody be the price of khulʿ?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can agreed khulʿ be documented without a court judgment?",
+          "visible": true
+        },
+        {
+          "question": "Can I use custody documentation when custody is disputed?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/khul-and-marriage-annulment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن توثيق الخلع المتفق عليه دون حكم قضائي؟",
+          "visible": true
+        },
+        {
+          "question": "هل يصلح إسقاط نفقة الأولاد أو حضانتهم عوضاً للخلع؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن توثيق الخلع المتفق عليه دون حكم قضائي؟",
+          "visible": true
+        },
+        {
+          "question": "هل أستخدم خدمة توثيق حضانة عند وجود نزاع؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/child-custody-and-visitation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can I use custody documentation when custody is disputed?",
+          "visible": true
+        },
+        {
+          "question": "Does the statutory custody order decide every case automatically?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/child-custody-and-visitation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل أستخدم خدمة توثيق حضانة عند وجود نزاع؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحسم ترتيب الحضانة النظامي كل حالة تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/visitation-order-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How does Najiz help implement an existing visitation order?",
+          "visible": true
+        },
+        {
+          "question": "Does an electronic custody, visitation or child-support request immediately become enforceable?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/visitation-order-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف تساعد ناجز في تنفيذ حكم زيارة قائم؟",
+          "visible": true
+        },
+        {
+          "question": "هل يصبح طلب الحضانة أو الزيارة أو نفقة الأولاد الإلكتروني قابلاً للتنفيذ فور تقديمه؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/domestic-violence-protection-and-family-safety-application",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where can domestic violence be reported in Saudi Arabia?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/domestic-violence-protection-and-family-safety-application",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أين أبلغ عن العنف الأسري في السعودية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/divorce-and-separation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Which records are requested for Saudi divorce documentation?",
+          "visible": true
+        },
+        {
+          "question": "Does an electronic custody, visitation or child-support request immediately become enforceable?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/marital-status-document-and-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Which records are requested for Saudi divorce documentation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/divorce-and-separation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما البيانات المطلوبة لتوثيق الطلاق في السعودية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يصبح طلب الحضانة أو الزيارة أو نفقة الأولاد الإلكتروني قابلاً للتنفيذ فور تقديمه؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/marital-status-document-and-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما البيانات المطلوبة لتوثيق الطلاق في السعودية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/marriage-registration-and-family-status-certificate-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is digitising a paper marriage contract the same as creating a marriage?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/marriage-and-personal-status-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is digitising a paper marriage contract the same as creating a marriage?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/marriage-registration-and-family-status-certificate-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تحويل عقد الزواج الورقي إلى إلكتروني هو إنشاء زواج جديد؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/marriage-and-personal-status-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تحويل عقد الزواج الورقي إلى إلكتروني هو إنشاء زواج جديد؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/inheritance-and-family-settlements",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does documenting heirs complete distribution of the estate?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/inheritance-document-and-civil-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does documenting heirs complete distribution of the estate?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/inheritance-and-family-settlements",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يكتمل توزيع التركة بمجرد توثيق الورثة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/inheritance-document-and-civil-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يكتمل توزيع التركة بمجرد توثيق الورثة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/recognition-of-foreign-family-judgments",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is a foreign family judgment automatically enforceable in Saudi Arabia?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/recognition-of-foreign-family-judgments",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل ينفذ الحكم الأسري الأجنبي تلقائياً في السعودية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/foreign-property-ownership-eligibility-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How do I check whether a non-Saudi buyer can acquire this property?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How do I check whether a non-Saudi buyer can acquire this property?",
+          "visible": true
+        },
+        {
+          "question": "Can a Riyadh landlord require departure merely because the lease expires?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/foreign-property-ownership-eligibility-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف أتحقق من أهلية غير السعودي لتملك عقار محدد؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف أتحقق من أهلية غير السعودي لتملك عقار محدد؟",
+          "visible": true
+        },
+        {
+          "question": "هل يكفي انتهاء العقد لإلزام مستأجر الرياض بالمغادرة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/lease-and-eviction-matters",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a Riyadh landlord require departure merely because the lease expires?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/eviction-notice-and-eviction-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a Riyadh landlord require departure merely because the lease expires?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/landlord-or-tenant-notice-and-settlement-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a Riyadh landlord require departure merely because the lease expires?",
+          "visible": true
+        },
+        {
+          "question": "What return period does Ejar describe for a residential deposit?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/lease-and-eviction-matters",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يكفي انتهاء العقد لإلزام مستأجر الرياض بالمغادرة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/eviction-notice-and-eviction-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يكفي انتهاء العقد لإلزام مستأجر الرياض بالمغادرة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/landlord-or-tenant-notice-and-settlement-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يكفي انتهاء العقد لإلزام مستأجر الرياض بالمغادرة؟",
+          "visible": true
+        },
+        {
+          "question": "ما مدة رد الضمان الواردة في إرشادات عقد إيجار السكني؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/unpaid-rent-and-rental-payment-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the Riyadh rent freeze apply throughout Saudi Arabia?",
+          "visible": true
+        },
+        {
+          "question": "Which payment record should I use for a new residential Ejar lease?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/ejar-rental-contract-and-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the Riyadh rent freeze apply throughout Saudi Arabia?",
+          "visible": true
+        },
+        {
+          "question": "Which payment record should I use for a new residential Ejar lease?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/unpaid-rent-and-rental-payment-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يشمل تجميد أجرة الرياض جميع مناطق السعودية؟",
+          "visible": true
+        },
+        {
+          "question": "ما سجل السداد المعتمد لعقد إيجار سكني جديد؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/ejar-rental-contract-and-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يشمل تجميد أجرة الرياض جميع مناطق السعودية؟",
+          "visible": true
+        },
+        {
+          "question": "ما سجل السداد المعتمد لعقد إيجار سكني جديد؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/security-deposit-recovery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How is an Ejar-held deposit reconciled after handover?",
+          "visible": true
+        },
+        {
+          "question": "What return period does Ejar describe for a residential deposit?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/security-deposit-recovery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف يسوى مبلغ الضمان المحفوظ في إيجار بعد التسليم؟",
+          "visible": true
+        },
+        {
+          "question": "ما مدة رد الضمان الواردة في إرشادات عقد إيجار السكني؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/off-plan-property-purchase-and-developer-delay-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What does REGA say about compensation for delayed off-plan delivery?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/off-plan-property-purchase-and-developer-delay-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا توضح هيئة العقار عن تعويض تأخر تسليم البيع على الخارطة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/registration-and-title-problems",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Which Saudi registry service addresses a disputed entry?",
+          "visible": true
+        },
+        {
+          "question": "Is there always a full year to challenge first registration?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/title-deed-and-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Which Saudi registry service addresses a disputed entry?",
+          "visible": true
+        },
+        {
+          "question": "Is there always a full year to challenge first registration?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/property-ownership-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Which Saudi registry service addresses a disputed entry?",
+          "visible": true
+        },
+        {
+          "question": "Is there always a full year to challenge first registration?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/property-encroachment-and-boundary-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Which Saudi registry service addresses a disputed entry?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/registration-and-title-problems",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أي خدمة في السجل العقاري تعالج القيد المختلف عليه؟",
+          "visible": true
+        },
+        {
+          "question": "هل تتاح دائماً سنة كاملة للاعتراض على التسجيل العيني الأول؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/title-deed-and-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أي خدمة في السجل العقاري تعالج القيد المختلف عليه؟",
+          "visible": true
+        },
+        {
+          "question": "هل تتاح دائماً سنة كاملة للاعتراض على التسجيل العيني الأول؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/property-ownership-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أي خدمة في السجل العقاري تعالج القيد المختلف عليه؟",
+          "visible": true
+        },
+        {
+          "question": "هل تتاح دائماً سنة كاملة للاعتراض على التسجيل العيني الأول؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/property-encroachment-and-boundary-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أي خدمة في السجل العقاري تعالج القيد المختلف عليه؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/property-service-charge-and-maintenance-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How are common-area maintenance costs allocated among Saudi unit owners?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/property-service-charge-and-maintenance-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف توزع صيانة الأجزاء المشتركة بين ملاك الوحدات؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/alimony-and-child-maintenance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How is maintenance assessed, and can an existing amount change?",
+          "visible": true
+        },
+        {
+          "question": "Does an electronic custody, visitation or child-support request immediately become enforceable?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/alimony-and-child-maintenance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف تقدر النفقة وهل يمكن تعديل مبلغ حكم قائم؟",
+          "visible": true
+        },
+        {
+          "question": "هل يصبح طلب الحضانة أو الزيارة أو نفقة الأولاد الإلكتروني قابلاً للتنفيذ فور تقديمه؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/child-relocation-and-travel-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does custody alone permit unlimited travel abroad with a child?",
+          "visible": true
+        },
+        {
+          "question": "Does the statutory custody order decide every case automatically?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/child-relocation-and-travel-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تجيز الحضانة السفر بالمحضون خارج المملكة دون حدود؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحسم ترتيب الحضانة النظامي كل حالة تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/paternity-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a private DNA result alone establish legal parentage?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/paternity-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تكفي نتيجة تحليل خاصة لإثبات النسب قانوناً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/will-validity-and-estate-distribution",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a will benefit an heir or exceed one third of the estate?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law/contested-will-and-inheritance-distribution-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a will benefit an heir or exceed one third of the estate?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/will-validity-and-estate-distribution",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تنفذ الوصية لوارث أو بأكثر من ثلث التركة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law/contested-will-and-inheritance-distribution-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تنفذ الوصية لوارث أو بأكثر من ثلث التركة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/construction-and-contractor-claims",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an owner immediately replace a contractor for defective work?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/construction-delay-and-defective-construction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an owner immediately replace a contractor for defective work?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/construction-and-contractor-claims",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يستبدل المالك المقاول فوراً عند مخالفة التنفيذ؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/construction-delay-and-defective-construction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يستبدل المالك المقاول فوراً عند مخالفة التنفيذ؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/property-handover-and-defects-after-purchase",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When should a buyer notify a seller about a discovered defect?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/sale-and-purchase-contract-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When should a buyer notify a seller about a discovered defect?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/property-handover-and-defects-after-purchase",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى يبلغ المشتري البائع بالعيب المكتشف؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/sale-and-purchase-contract-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى يبلغ المشتري البائع بالعيب المكتشف؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/mortgage-financing-and-property-lien-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does repaying part of the financing automatically release the mortgage?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/mortgage-financing-and-property-lien-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يؤدي سداد جزء من التمويل إلى فك الرهن تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate/expropriation-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the 2025 expropriation law govern every compensation file?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate/expropriation-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحكم نظام نزع الملكية لعام 2025 كل ملف تعويض؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/corporate-commercial/company-formation-and-registration-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does UAE mainland initial approval let my company start trading?",
+          "visible": true
+        },
+        {
+          "question": "Does the Federal Companies Law govern every issue in a UAE free-zone company?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/corporate-commercial",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does UAE mainland initial approval let my company start trading?",
+          "visible": true
+        },
+        {
+          "question": "Does the Federal Companies Law govern every issue in a UAE free-zone company?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/corporate-commercial/company-formation-and-registration-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تسمح الموافقة المبدئية في البر الرئيسي الإماراتي ببدء النشاط؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحكم قانون الشركات الاتحادي كل مسائل شركة المنطقة الحرة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/corporate-commercial",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تسمح الموافقة المبدئية في البر الرئيسي الإماراتي ببدء النشاط؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحكم قانون الشركات الاتحادي كل مسائل شركة المنطقة الحرة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/corporate-commercial/director-and-manager-liability",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an LLC manager be personally liable despite limited liability?",
+          "visible": true
+        },
+        {
+          "question": "Does the Federal Companies Law govern every issue in a UAE free-zone company?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/corporate-commercial/director-and-manager-liability",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن مساءلة مدير الشركة ذات المسؤولية المحدودة شخصياً؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحكم قانون الشركات الاتحادي كل مسائل شركة المنطقة الحرة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/corporate-commercial/company-dissolution-and-liquidation-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can shareholders divide company capital immediately after dissolution?",
+          "visible": true
+        },
+        {
+          "question": "Does the Federal Companies Law govern every issue in a UAE free-zone company?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/corporate-commercial/company-dissolution-and-liquidation-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يوزع رأس المال على الشركاء فور حل الشركة؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحكم قانون الشركات الاتحادي كل مسائل شركة المنطقة الحرة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/corporate-commercial/shareholder-exit-and-buyout-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Do the 2025 UAE company amendments automatically give me a buyout right?",
+          "visible": true
+        },
+        {
+          "question": "Does the Federal Companies Law govern every issue in a UAE free-zone company?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/corporate-commercial/shareholder-exit-and-buyout-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تمنح تعديلات الشركات الإماراتية لعام 2025 حق تخارج تلقائياً؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحكم قانون الشركات الاتحادي كل مسائل شركة المنطقة الحرة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/commercial-contracts/consumer-refund-and-purchase-cancellation-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a defective product always mean an immediate cash refund in the UAE?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/commercial-contracts/defective-product-and-consumer-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a defective product always mean an immediate cash refund in the UAE?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts/consumer-refund-and-purchase-cancellation-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يعني عيب المنتج استرداد الثمن نقداً فوراً في كل حالة بالإمارات؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts/defective-product-and-consumer-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يعني عيب المنتج استرداد الثمن نقداً فوراً في كل حالة بالإمارات؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/commercial-contracts/contract-evidence-and-electronic-messages",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a contract record lose legal effect just because it is electronic?",
+          "visible": true
+        },
+        {
+          "question": "Should I apply federal UAE contract rules automatically to an ADGM agreement?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/commercial-contracts",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a contract record lose legal effect just because it is electronic?",
+          "visible": true
+        },
+        {
+          "question": "Should a UAE contract dispute still rely only on the 1985 Civil Transactions Law?",
+          "visible": true
+        },
+        {
+          "question": "Can I seek performance or cancellation when a UAE supplier or service provider breaches the contract?",
+          "visible": true
+        },
+        {
+          "question": "Should I apply federal UAE contract rules automatically to an ADGM agreement?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts/contract-evidence-and-electronic-messages",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يفقد السجل العقدي أثره القانوني لمجرد أنه إلكتروني؟",
+          "visible": true
+        },
+        {
+          "question": "هل أطبق قواعد العقود الاتحادية تلقائياً على اتفاق مرتبط بسوق أبوظبي العالمي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يفقد السجل العقدي أثره القانوني لمجرد أنه إلكتروني؟",
+          "visible": true
+        },
+        {
+          "question": "هل يكفي الاعتماد على قانون المعاملات المدنية لعام 1985 في نزاع عقد إماراتي؟",
+          "visible": true
+        },
+        {
+          "question": "هل أطلب التنفيذ أم الفسخ عند إخلال المورد أو مقدم الخدمة في الإمارات؟",
+          "visible": true
+        },
+        {
+          "question": "هل أطبق قواعد العقود الاتحادية تلقائياً على اتفاق مرتبط بسوق أبوظبي العالمي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/commercial-contracts/document-attestation-and-legalisation-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Why might MoFA reject my document for attestation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts/document-attestation-and-legalisation-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "لماذا قد ترفض وزارة الخارجية الإماراتية تصديق المستند؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/commercial-contracts/power-of-attorney-drafting-and-authority-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a power of attorney be notarised in English in Abu Dhabi?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts/power-of-attorney-drafting-and-authority-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن توثيق وكالة باللغة الإنجليزية في أبوظبي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/commercial-contracts/unpaid-business-invoice",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does every unpaid UAE invoice qualify for a payment order?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/commercial-contracts/unpaid-professional-fees-and-service-invoice-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does every unpaid UAE invoice qualify for a payment order?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/commercial-contracts/legal-notice-and-demand-letter-drafting",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does every unpaid UAE invoice qualify for a payment order?",
+          "visible": true
+        },
+        {
+          "question": "Does an automatic cancellation clause remove the need to notify the other party?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts/unpaid-business-invoice",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تصلح كل فاتورة غير مدفوعة في الإمارات لأمر أداء؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts/unpaid-professional-fees-and-service-invoice-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تصلح كل فاتورة غير مدفوعة في الإمارات لأمر أداء؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts/legal-notice-and-demand-letter-drafting",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تصلح كل فاتورة غير مدفوعة في الإمارات لأمر أداء؟",
+          "visible": true
+        },
+        {
+          "question": "هل يعفي شرط الفسخ التلقائي من إعذار الطرف الآخر؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/commercial-contracts/service-agreement-breach",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Should a UAE contract dispute still rely only on the 1985 Civil Transactions Law?",
+          "visible": true
+        },
+        {
+          "question": "Can I seek performance or cancellation when a UAE supplier or service provider breaches the contract?",
+          "visible": true
+        },
+        {
+          "question": "Does an automatic cancellation clause remove the need to notify the other party?",
+          "visible": true
+        },
+        {
+          "question": "If DIFC Contract Law governs, does any missed delivery or service obligation justify termination?",
+          "visible": true
+        },
+        {
+          "question": "Should I apply federal UAE contract rules automatically to an ADGM agreement?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/commercial-contracts/supply-contract-non-delivery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Should a UAE contract dispute still rely only on the 1985 Civil Transactions Law?",
+          "visible": true
+        },
+        {
+          "question": "Can I seek performance or cancellation when a UAE supplier or service provider breaches the contract?",
+          "visible": true
+        },
+        {
+          "question": "Does an automatic cancellation clause remove the need to notify the other party?",
+          "visible": true
+        },
+        {
+          "question": "If DIFC Contract Law governs, does any missed delivery or service obligation justify termination?",
+          "visible": true
+        },
+        {
+          "question": "Should I apply federal UAE contract rules automatically to an ADGM agreement?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts/service-agreement-breach",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يكفي الاعتماد على قانون المعاملات المدنية لعام 1985 في نزاع عقد إماراتي؟",
+          "visible": true
+        },
+        {
+          "question": "هل أطلب التنفيذ أم الفسخ عند إخلال المورد أو مقدم الخدمة في الإمارات؟",
+          "visible": true
+        },
+        {
+          "question": "هل يعفي شرط الفسخ التلقائي من إعذار الطرف الآخر؟",
+          "visible": true
+        },
+        {
+          "question": "إذا حكم قانون عقود مركز دبي المالي العالمي العقد، فهل يبرر كل إخلال إنهاءه؟",
+          "visible": true
+        },
+        {
+          "question": "هل أطبق قواعد العقود الاتحادية تلقائياً على اتفاق مرتبط بسوق أبوظبي العالمي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts/supply-contract-non-delivery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يكفي الاعتماد على قانون المعاملات المدنية لعام 1985 في نزاع عقد إماراتي؟",
+          "visible": true
+        },
+        {
+          "question": "هل أطلب التنفيذ أم الفسخ عند إخلال المورد أو مقدم الخدمة في الإمارات؟",
+          "visible": true
+        },
+        {
+          "question": "هل يعفي شرط الفسخ التلقائي من إعذار الطرف الآخر؟",
+          "visible": true
+        },
+        {
+          "question": "إذا حكم قانون عقود مركز دبي المالي العالمي العقد، فهل يبرر كل إخلال إنهاءه؟",
+          "visible": true
+        },
+        {
+          "question": "هل أطبق قواعد العقود الاتحادية تلقائياً على اتفاق مرتبط بسوق أبوظبي العالمي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/commercial-contracts/defective-goods-and-non-conforming-delivery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a defect discovered after delivery still be a latent defect?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts/defective-goods-and-non-conforming-delivery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يُعد العيب المكتشف بعد التسليم عيباً خفياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/family-law/family-status-document-or-civil-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must a Syrian civil-record correction claim be filed where the original record is held?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/family-law/inheritance-document-and-civil-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must a Syrian civil-record correction claim be filed where the original record is held?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/family-law/marriage-registration-and-family-status-certificate-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must a Syrian civil-record correction claim be filed where the original record is held?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/family-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must a Syrian civil-record correction claim be filed where the original record is held?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/family-law/family-status-document-or-civil-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجب رفع دعوى تصحيح القيد المدني السوري في منطقة القيد الأصلي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/family-law/inheritance-document-and-civil-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجب رفع دعوى تصحيح القيد المدني السوري في منطقة القيد الأصلي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/family-law/marriage-registration-and-family-status-certificate-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجب رفع دعوى تصحيح القيد المدني السوري في منطقة القيد الأصلي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/family-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجب رفع دعوى تصحيح القيد المدني السوري في منطقة القيد الأصلي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/family-law/inheritance-and-family-settlements",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a missing person's Syrian property immediately be divided as an inheritance?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/family-law/will-validity-and-estate-distribution",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a missing person's Syrian property immediately be divided as an inheritance?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/family-law/inheritance-and-family-settlements",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تُقسم أموال المفقود في سوريا فوراً باعتبارها تركة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/family-law/will-validity-and-estate-distribution",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تُقسم أموال المفقود في سوريا فوراً باعتبارها تركة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/family-law/divorce-and-separation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a spouse's disappearance automatically end a Syrian marriage?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/family-law/marriage-and-personal-status-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a spouse's disappearance automatically end a Syrian marriage?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/family-law/divorce-and-separation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل ينتهي الزواج السوري تلقائياً بفقدان أحد الزوجين؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/family-law/marriage-and-personal-status-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل ينتهي الزواج السوري تلقائياً بفقدان أحد الزوجين؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/real-estate/registration-and-title-problems",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can I request a Syrian property-register extract electronically?",
+          "visible": true
+        },
+        {
+          "question": "Is a damaged Zamalka property record handled as an ordinary typing correction?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/real-estate/title-deed-and-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can I request a Syrian property-register extract electronically?",
+          "visible": true
+        },
+        {
+          "question": "Is a damaged Zamalka property record handled as an ordinary typing correction?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/real-estate/property-ownership-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can I request a Syrian property-register extract electronically?",
+          "visible": true
+        },
+        {
+          "question": "Is every disputed occupation of Syrian property a blatant-usurpation case?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/real-estate/sale-and-purchase-contract-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can I request a Syrian property-register extract electronically?",
+          "visible": true
+        },
+        {
+          "question": "Can a Suwayda property-sale case proceed on the ordinary timetable?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/real-estate",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can I request a Syrian property-register extract electronically?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/real-estate/registration-and-title-problems",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن طلب بيان قيد عقاري سوري إلكترونياً؟",
+          "visible": true
+        },
+        {
+          "question": "هل يُعالج تلف صحيفة عقار في زملكا كتصحيح خطأ كتابي عادي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/real-estate/title-deed-and-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن طلب بيان قيد عقاري سوري إلكترونياً؟",
+          "visible": true
+        },
+        {
+          "question": "هل يُعالج تلف صحيفة عقار في زملكا كتصحيح خطأ كتابي عادي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/real-estate/property-ownership-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن طلب بيان قيد عقاري سوري إلكترونياً؟",
+          "visible": true
+        },
+        {
+          "question": "هل يُعد كل إشغال متنازع عليه لعقار سوري غصباً بيناً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/real-estate/sale-and-purchase-contract-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن طلب بيان قيد عقاري سوري إلكترونياً؟",
+          "visible": true
+        },
+        {
+          "question": "هل تسير دعوى بيع عقار في السويداء وفق المواعيد المعتادة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/real-estate",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن طلب بيان قيد عقاري سوري إلكترونياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/real-estate/land-registry-and-title-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is a damaged Zamalka property record handled as an ordinary typing correction?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/real-estate/land-registry-and-title-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يُعالج تلف صحيفة عقار في زملكا كتصحيح خطأ كتابي عادي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/real-estate/property-possession-and-handover-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is every disputed occupation of Syrian property a blatant-usurpation case?",
+          "visible": true
+        },
+        {
+          "question": "Can a Suwayda property-sale case proceed on the ordinary timetable?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/real-estate/eviction-notice-and-eviction-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is every disputed occupation of Syrian property a blatant-usurpation case?",
+          "visible": true
+        },
+        {
+          "question": "Did the announced Syrian rent-review committee itself end statutory lease extensions?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/real-estate/property-possession-and-handover-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يُعد كل إشغال متنازع عليه لعقار سوري غصباً بيناً؟",
+          "visible": true
+        },
+        {
+          "question": "هل تسير دعوى بيع عقار في السويداء وفق المواعيد المعتادة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/real-estate/eviction-notice-and-eviction-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يُعد كل إشغال متنازع عليه لعقار سوري غصباً بيناً؟",
+          "visible": true
+        },
+        {
+          "question": "هل أنهى إعلان لجنة مراجعة الإيجارات السورية التمديد الحكمي بحد ذاته؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/real-estate/lease-and-eviction-matters",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Did the announced Syrian rent-review committee itself end statutory lease extensions?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/real-estate/landlord-or-tenant-notice-and-settlement-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Did the announced Syrian rent-review committee itself end statutory lease extensions?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/real-estate/lease-and-eviction-matters",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل أنهى إعلان لجنة مراجعة الإيجارات السورية التمديد الحكمي بحد ذاته؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/real-estate/landlord-or-tenant-notice-and-settlement-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل أنهى إعلان لجنة مراجعة الإيجارات السورية التمديد الحكمي بحد ذاته؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "pass": true
+}

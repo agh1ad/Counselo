@@ -26,7 +26,8 @@ export function qualifyEeatCopy<T>(value: T): T {
       .replace(/مع ضمن وقت استجابة مستهدف/g, "مع وقت استجابة مستهدف")
       .replace(/وقت الاستجابة المستهدف ضمن وقت استجابة مستهدف/g, "وقت الاستجابة المستهدف")
       .replace(/^an initial consultation/, "An initial consultation")
-      .replace(/^a professional response/, "A professional response");
+      .replace(/^a professional response/, "A professional response")
+      .replace(/(\.\s+)a professional response/g, "$1A professional response");
     return qualified as T;
   }
   if (Array.isArray(value)) return value.map((item) => qualifyEeatCopy(item)) as T;

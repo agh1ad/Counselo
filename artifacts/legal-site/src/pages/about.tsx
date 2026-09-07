@@ -33,38 +33,13 @@ export default function About() {
     ? "/images/optimized/syria-hero-480.webp 480w, /images/optimized/syria-hero-645.webp 645w"
     : "/images/optimized/saudi-arabia-hero-640.webp 640w, /images/optimized/saudi-arabia-hero-960.webp 960w, /images/optimized/saudi-arabia-hero-1600.webp 1600w";
   const regionPath = `/${region}${isRTL ? "/ar" : ""}`;
-  const country = region === "uae" ? "United Arab Emirates" : region === "syr" ? "Syria" : "Saudi Arabia";
   const countryCode = region === "uae" ? "AE" : region === "syr" ? "SY" : "SA";
 
   const schema = [
     {
       "@context": "https://schema.org",
       ...COUNSELO_ORGANIZATION,
-      "url": "https://counselo-legal.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://counselo-legal.com/logo.png",
-        "width": 512,
-        "height": 512,
-      },
-      "description": region === "uae"
-        ? (isRTL ? "منصة استشارات قانونية أونلاين لمسائل الإمارات — بالعربية والإنجليزية ووفق الاختصاص المنطبق" : "UAE-focused online legal consultation platform in Arabic and English")
-        : region === "syr"
-        ? (isRTL
-          ? `منصة الاستشارات القانونية الإلكترونية المتخصصة في سوريا — تأسست على يد المحامي عمر البغدادي بـ${COUNSELO_LEGAL_PRACTICE_CLAIM.ar} في القانون السوري`
-          : `Syria's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en} in Syrian law`)
-        : (isRTL
-          ? "منصة متخصصة للاستشارات القانونية الأونلاين في المملكة العربية السعودية — تأسست على يد المحامي عمر البغدادي"
-          : "Saudi Arabia's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi"),
-      "foundingDate": "2020",
-      "areaServed": { "@type": "Country", "name": country },
-      "telephone": "+966594850247",
-      "email": "info@counselo-legal.com",
-      "address": region === "uae"
-        ? { "@type": "PostalAddress", "addressCountry": countryCode }
-        : region === "syr"
-        ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
-        : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA" },
+
     },
     {
       "@context": "https://schema.org",
@@ -75,11 +50,7 @@ export default function About() {
         "width": 800,
         "height": 1200,
       },
-      "description": region === "uae"
-        ? `Lawyer and legal counsel with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en}. Founder of CounselO's UAE-focused online consultation service.`
-        : region === "syr"
-        ? `Lawyer and legal counsel with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en} across Syria, the UAE and the Arab world. Founder of CounselO.`
-        : `Lawyer and legal counsel with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en} across Saudi Arabia, Syria and the UAE. Founder of CounselO.`,
+
     },
     {
       "@context": "https://schema.org",

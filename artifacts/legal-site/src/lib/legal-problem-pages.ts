@@ -877,13 +877,13 @@ function legalAccuracyBoundary(region: Region): LegalAccuracyBoundary {
     },
     intakeChecklist: {
       en: [
-        "Country, city or emirate, and any free-zone or cross-border connection",
+        region === "uae" ? "Country, Emirate, and any mainland, free-zone or cross-border connection" : "Country, city, competent authority and any cross-border connection",
         "The exact date of any hearing, notice, appeal or filing deadline",
         "A five-line chronology and the outcome you want",
         "The key contract, decision, notice or other document—redacted where appropriate",
       ],
       ar: [
-        "الدولة والمدينة أو الإمارة وأي صلة بمنطقة حرة أو عنصر عابر للحدود",
+        region === "uae" ? "الدولة والإمارة وأي صلة بالبر الرئيسي أو منطقة حرة أو عنصر عابر للحدود" : "الدولة والمدينة والجهة المختصة وأي عنصر عابر للحدود",
         "التاريخ الدقيق لأي جلسة أو إخطار أو اعتراض أو ميعاد قيد",
         "تسلسل زمني في خمسة أسطر والنتيجة التي تريدها",
         "العقد أو القرار أو الإخطار أو المستند الأساسي بعد حجب البيانات غير اللازمة عند الاقتضاء",
@@ -1046,6 +1046,15 @@ function buildDetailedContent({
   };
 }
 
+const SYRIA_SEARCH_ISSUE_TITLES: Record<string, LocalizedText> = {
+  "Emergency arbitration and interim measures": { en: "Urgent relief in arbitration: agreed rules and court measures", ar: "التدابير العاجلة في التحكيم: القواعد المتفق عليها وإجراءات المحكمة" },
+  "Sponsorship transfer dispute": { en: "Changing employer and employment-record dispute", ar: "منازعة تغيير صاحب العمل والسجل الوظيفي" },
+  "Visa, exit and re-entry restriction affecting employment": { en: "Travel and entry restrictions affecting employment", ar: "قيود السفر والدخول المؤثرة في العمل" },
+  "Service suspension and asset-freezing request": { en: "Asset attachment and protective-measure request", ar: "طلب الحجز والتدابير التحفظية" },
+  "Property service-charge and maintenance dispute": { en: "Shared-building expenses and maintenance dispute", ar: "منازعة نفقات البناء المشتركة والصيانة" },
+  "Commercial concealment dispute": { en: "Disputed business ownership and control", ar: "منازعة ملكية النشاط التجاري والسيطرة عليه" },
+};
+
 const SYRIA_TAX_ISSUE_TITLES: Readonly<Record<string, LocalizedText>> = {
   "Tax and zakat assessments": { en: "Tax jurisdiction and assessment review", ar: "مراجعة الاختصاص والتكليف الضريبي" },
   "VAT and customs issues": { en: "Cross-border transaction taxes and customs", ar: "ضرائب المعاملات العابرة للحدود والجمارك" },
@@ -1079,7 +1088,9 @@ function sharedPages(region: "sa" | "syr"): LegalProblemPage[] {
       const issuesEn = issueList.en;
       const issuesAr = issueList.ar;
       return issuesEn.map((originalTitleEn, index) => {
-        const scopedTitle = region === "syr" && parentServiceSlug === "tax-zakat" ? SYRIA_TAX_ISSUE_TITLES[originalTitleEn] : undefined;
+        const scopedTitle = region === "syr"
+          ? SYRIA_SEARCH_ISSUE_TITLES[originalTitleEn] ?? (parentServiceSlug === "tax-zakat" ? SYRIA_TAX_ISSUE_TITLES[originalTitleEn] : undefined)
+          : undefined;
         const titleEn = scopedTitle?.en ?? originalTitleEn;
         const titleAr = scopedTitle?.ar ?? issuesAr[index] ?? titleEn;
         const details = buildDetailedContent({
@@ -1171,7 +1182,7 @@ export const LEGAL_PROBLEM_PAGES: readonly LegalProblemPage[] = [
     ...page,
     editorialTopic: getMatterEditorial(page.titleEn)?.id,
     intentBriefTitle: page.titleEn,
-    contentUpdatedAt: "2026-09-06",
+    contentUpdatedAt: Object.values(SYRIA_SEARCH_ISSUE_TITLES).some(title => title.en === page.titleEn) ? "2026-09-07" : "2026-09-06",
     overview: {
       en: `${brief.answer.en} For ${countryName(page.region).en}, identify the issuing authority, any foreign element and any date stated in a notice so the assessment addresses the actual procedure.`,
       ar: `${brief.answer.ar} وفي الملف المتعلق بـ${countryName(page.region).ar} حدّد الجهة المصدرة وأي عنصر أجنبي والموعد المذكور في الإخطار ليتناول التقييم الإجراء الفعلي.`,

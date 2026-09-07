@@ -22,13 +22,13 @@ export default function TermsOfService() {
       eyebrow: "Legal Consultation Terms",
       heading: "Terms of Service",
       subheading:
-        "Please read these terms carefully before requesting a legal consultation. By contacting CounselO, you agree to the process and payment terms below.",
+        "Please read these terms carefully before requesting a legal consultation. Sending an enquiry does not commit you to a fee; the consultation scope and quoted cost require your agreement.",
       processHeading: "How Our Consultation Process Works",
       steps: [
         {
           icon: FileText,
           title: "Step 1 — Submit Your Information",
-          desc: "Send us all relevant details about your legal matter via WhatsApp or email. Include any documents, contracts, correspondence, or facts that relate to your question. The more context you provide, the more precise and useful our advice will be.",
+          desc: "Send the details needed for an initial review through the website form, WhatsApp or email. Include any documents, contracts, correspondence, or facts that relate to your question. The more context you provide, the more precise and useful our advice will be.",
         },
         {
           icon: CreditCard,
@@ -81,13 +81,13 @@ export default function TermsOfService() {
       eyebrow: "شروط الاستشارة القانونية",
       heading: "شروط الخدمة",
       subheading:
-        "يُرجى قراءة هذه الشروط بعناية قبل طلب استشارة قانونية. بتواصلك مع كاونسلو، فإنك توافق على الآلية وشروط الدفع المبيّنة أدناه.",
+        "يُرجى قراءة هذه الشروط بعناية قبل طلب استشارة قانونية. لا يُلزمك إرسال استفسار بدفع رسوم؛ فنطاق الاستشارة والتكلفة المعروضة يتطلبان موافقتك.",
       processHeading: "كيف تسير عملية الاستشارة",
       steps: [
         {
           icon: FileText,
           title: "الخطوة الأولى — إرسال معلوماتك",
-          desc: "أرسل إلينا جميع التفاصيل المتعلقة بقضيتك القانونية عبر واتساب أو البريد الإلكتروني. أرفق أي مستندات أو عقود أو مراسلات أو وقائع ذات صلة بسؤالك. كلما كانت المعلومات أوفر، كانت الاستشارة أدق وأكثر فائدة.",
+          desc: "أرسل التفاصيل اللازمة للمراجعة الأولية عبر نموذج الموقع أو واتساب أو البريد الإلكتروني. أرفق أي مستندات أو عقود أو مراسلات أو وقائع ذات صلة بسؤالك. كلما كانت المعلومات أوفر، كانت الاستشارة أدق وأكثر فائدة.",
         },
         {
           icon: CreditCard,
@@ -108,7 +108,7 @@ export default function TermsOfService() {
       termsHeading: "الشروط العامة",
       terms: [
         {
-          title: "السرية التامة",
+          title: "السرية",
           desc: "تُعامل المعلومات التي تشاركها مع كاونسلو وفق التزامات السرية وحماية البيانات المنطبقة. ولا نُفصح عنها دون موافقتك إلا إذا كان الإفصاح مطلوباً أو مسموحاً به بموجب القانون المنطبق.",
         },
         {
@@ -158,6 +158,7 @@ export default function TermsOfService() {
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
+            "dateModified": "2026-09-07",
             "@id": `${pageUrl}#webpage`,
             "name": isRTL ? "شروط الخدمة | كاونسلو" : "Terms of Service | CounselO",
             "description": content.seoDesc,

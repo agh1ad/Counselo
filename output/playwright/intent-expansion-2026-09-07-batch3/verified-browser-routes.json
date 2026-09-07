@@ -1,0 +1,3666 @@
+{
+  "environment": "local production browser,390x844",
+  "rows": [
+    {
+      "route": "/sa/services/contracts/breach-of-contract",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can I demand performance or end the contract after a breach?",
+          "visible": true
+        },
+        {
+          "question": "How should a default notice be delivered?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/service-agreement-breach",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can I demand performance or end the contract after a breach?",
+          "visible": true
+        },
+        {
+          "question": "Does a defect or breach establish the amount of compensation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/supply-contract-non-delivery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can I demand performance or end the contract after a breach?",
+          "visible": true
+        },
+        {
+          "question": "What changes when an online seller misses delivery?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/termination-and-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can I demand performance or end the contract after a breach?",
+          "visible": true
+        },
+        {
+          "question": "Does an automatic termination clause remove the need for notice?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can I demand performance or end the contract after a breach?",
+          "visible": true
+        },
+        {
+          "question": "When can an unpaid commercial debt use a payment order?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/breach-of-contract",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل أطلب التنفيذ أم فسخ العقد عند الإخلال؟",
+          "visible": true
+        },
+        {
+          "question": "كيف يوجه إعذار الإخلال؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/service-agreement-breach",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل أطلب التنفيذ أم فسخ العقد عند الإخلال؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحدد العيب أو الإخلال مبلغ التعويض؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/supply-contract-non-delivery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل أطلب التنفيذ أم فسخ العقد عند الإخلال؟",
+          "visible": true
+        },
+        {
+          "question": "ما أثر تأخر المتجر الإلكتروني في التسليم؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/termination-and-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل أطلب التنفيذ أم فسخ العقد عند الإخلال؟",
+          "visible": true
+        },
+        {
+          "question": "هل يغني شرط الفسخ التلقائي عن الإعذار؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل أطلب التنفيذ أم فسخ العقد عند الإخلال؟",
+          "visible": true
+        },
+        {
+          "question": "متى تصلح المطالبة التجارية لأمر أداء؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/commercial-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does one failed business obligation justify cancelling the entire deal?",
+          "visible": true
+        },
+        {
+          "question": "When can an unpaid commercial debt use a payment order?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/commercial-supply-contract-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does one failed business obligation justify cancelling the entire deal?",
+          "visible": true
+        },
+        {
+          "question": "What should I keep when commercial terms were agreed electronically?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/supplier-and-customer-claims",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does one failed business obligation justify cancelling the entire deal?",
+          "visible": true
+        },
+        {
+          "question": "When can an unpaid commercial debt use a payment order?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/business-sale-and-purchase-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does one failed business obligation justify cancelling the entire deal?",
+          "visible": true
+        },
+        {
+          "question": "What should I keep when commercial terms were agreed electronically?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does one failed business obligation justify cancelling the entire deal?",
+          "visible": true
+        },
+        {
+          "question": "When can an unpaid commercial debt use a payment order?",
+          "visible": true
+        },
+        {
+          "question": "When does a Saudi company acquire legal personality?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/commercial-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يبرر إخلال تجاري واحد فسخ الصفقة كاملة؟",
+          "visible": true
+        },
+        {
+          "question": "متى تصلح المطالبة التجارية لأمر أداء؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/commercial-supply-contract-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يبرر إخلال تجاري واحد فسخ الصفقة كاملة؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا أحفظ إذا اتفقنا على الشروط التجارية إلكترونياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/supplier-and-customer-claims",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يبرر إخلال تجاري واحد فسخ الصفقة كاملة؟",
+          "visible": true
+        },
+        {
+          "question": "متى تصلح المطالبة التجارية لأمر أداء؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/business-sale-and-purchase-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يبرر إخلال تجاري واحد فسخ الصفقة كاملة؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا أحفظ إذا اتفقنا على الشروط التجارية إلكترونياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يبرر إخلال تجاري واحد فسخ الصفقة كاملة؟",
+          "visible": true
+        },
+        {
+          "question": "متى تصلح المطالبة التجارية لأمر أداء؟",
+          "visible": true
+        },
+        {
+          "question": "متى تكتسب الشركة السعودية الشخصية الاعتبارية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/contract-drafting-and-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does an automatic termination clause remove the need for notice?",
+          "visible": true
+        },
+        {
+          "question": "Is a penalty clause payable exactly as written?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/legal-notice-and-demand-letter-drafting",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does an automatic termination clause remove the need for notice?",
+          "visible": true
+        },
+        {
+          "question": "How should a default notice be delivered?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/contract-drafting-and-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يغني شرط الفسخ التلقائي عن الإعذار؟",
+          "visible": true
+        },
+        {
+          "question": "هل يستحق الشرط الجزائي بكامل المبلغ المكتوب؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/legal-notice-and-demand-letter-drafting",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يغني شرط الفسخ التلقائي عن الإعذار؟",
+          "visible": true
+        },
+        {
+          "question": "كيف يوجه إعذار الإخلال؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/penalty-and-compensation-clauses",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is a penalty clause payable exactly as written?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/penalty-and-compensation-clauses",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يستحق الشرط الجزائي بكامل المبلغ المكتوب؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/business-contract-risk",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can the contract fix compensation for any business loss?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/commercial-liability",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can the contract fix compensation for any business loss?",
+          "visible": true
+        },
+        {
+          "question": "Can a shareholder sue for loss suffered by the company?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/business-contract-risk",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحدد العقد التعويض عن أي خسارة تجارية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/commercial-liability",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحدد العقد التعويض عن أي خسارة تجارية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يقيم المساهم دعوى عن ضرر أصاب الشركة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/unpaid-business-invoices",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When can an unpaid commercial debt use a payment order?",
+          "visible": true
+        },
+        {
+          "question": "What should I keep when commercial terms were agreed electronically?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/unpaid-business-invoices",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تصلح المطالبة التجارية لأمر أداء؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا أحفظ إذا اتفقنا على الشروط التجارية إلكترونياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/unpaid-professional-fees-and-service-invoice-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When can an unpaid commercial debt use a payment order?",
+          "visible": true
+        },
+        {
+          "question": "Can emails or messages prove an agreement or unpaid fee?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/negotiation-and-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When can an unpaid commercial debt use a payment order?",
+          "visible": true
+        },
+        {
+          "question": "How can a settlement be made directly enforceable?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/unpaid-professional-fees-and-service-invoice-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تصلح المطالبة التجارية لأمر أداء؟",
+          "visible": true
+        },
+        {
+          "question": "هل تثبت الرسائل والبريد الإلكتروني الاتفاق أو الأتعاب؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/negotiation-and-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تصلح المطالبة التجارية لأمر أداء؟",
+          "visible": true
+        },
+        {
+          "question": "كيف تكتسب التسوية قوة السند التنفيذي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/contract-evidence-and-electronic-messages",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can emails or messages prove an agreement or unpaid fee?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/contract-evidence-and-electronic-messages",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تثبت الرسائل والبريد الإلكتروني الاتفاق أو الأتعاب؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/consumer-refund-and-purchase-cancellation-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can I cancel an online purchase simply because I changed my mind?",
+          "visible": true
+        },
+        {
+          "question": "What changes when an online seller misses delivery?",
+          "visible": true
+        },
+        {
+          "question": "Does an online advertisement matter if the product differs from it?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/consumer-refund-and-purchase-cancellation-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل أستطيع إلغاء الشراء الإلكتروني لمجرد تغيير رأيي؟",
+          "visible": true
+        },
+        {
+          "question": "ما أثر تأخر المتجر الإلكتروني في التسليم؟",
+          "visible": true
+        },
+        {
+          "question": "هل للإعلان الإلكتروني أثر إذا اختلف المنتج عنه؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/defective-goods-and-non-conforming-delivery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Should I wait before notifying the seller about a defect?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/defective-product-and-consumer-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Should I wait before notifying the seller about a defect?",
+          "visible": true
+        },
+        {
+          "question": "Does an online advertisement matter if the product differs from it?",
+          "visible": true
+        },
+        {
+          "question": "Does a defect or breach establish the amount of compensation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/defective-goods-and-non-conforming-delivery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل أنتظر قبل إبلاغ البائع بالعيب؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/defective-product-and-consumer-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل أنتظر قبل إبلاغ البائع بالعيب؟",
+          "visible": true
+        },
+        {
+          "question": "هل للإعلان الإلكتروني أثر إذا اختلف المنتج عنه؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحدد العيب أو الإخلال مبلغ التعويض؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/power-of-attorney-drafting-and-authority-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is a general power of attorney enough for the intended transaction?",
+          "visible": true
+        },
+        {
+          "question": "What matters if a representative exceeded the stated authority?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/power-of-attorney-drafting-and-authority-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is a general power of attorney enough for the intended transaction?",
+          "visible": true
+        },
+        {
+          "question": "What matters if a representative exceeded the stated authority?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/power-of-attorney-drafting-and-authority-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تكفي وكالة عامة للتصرف المطلوب؟",
+          "visible": true
+        },
+        {
+          "question": "ما المهم عند تجاوز الوكيل حدود الصلاحية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/power-of-attorney-drafting-and-authority-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تكفي وكالة عامة للتصرف المطلوب؟",
+          "visible": true
+        },
+        {
+          "question": "ما المهم عند تجاوز الوكيل حدود الصلاحية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/document-attestation-and-contract-authentication-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does attestation confirm that a contract is valid in substance?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts/document-attestation-and-legalisation-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does attestation confirm that a contract is valid in substance?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/document-attestation-and-contract-authentication-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يثبت التصديق صحة مضمون العقد؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts/document-attestation-and-legalisation-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يثبت التصديق صحة مضمون العقد؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/company-formation-and-registration",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When does a Saudi company acquire legal personality?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/commercial-due-diligence-before-acquisition-or-investment",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When does a Saudi company acquire legal personality?",
+          "visible": true
+        },
+        {
+          "question": "Does being a shareholder give an unrestricted right to company records?",
+          "visible": true
+        },
+        {
+          "question": "Which franchise terms matter when selling or exiting the business?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/company-formation-and-registration",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تكتسب الشركة السعودية الشخصية الاعتبارية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/commercial-due-diligence-before-acquisition-or-investment",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تكتسب الشركة السعودية الشخصية الاعتبارية؟",
+          "visible": true
+        },
+        {
+          "question": "هل تتيح صفة المساهم الاطلاع غير المقيد على السجلات؟",
+          "visible": true
+        },
+        {
+          "question": "ما شروط الامتياز المهمة عند بيع النشاط أو الخروج منه؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/shareholder-and-partner-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does being a shareholder give an unrestricted right to company records?",
+          "visible": true
+        },
+        {
+          "question": "Can a shareholder sue for loss suffered by the company?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/shareholder-and-partner-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تتيح صفة المساهم الاطلاع غير المقيد على السجلات؟",
+          "visible": true
+        },
+        {
+          "question": "هل يقيم المساهم دعوى عن ضرر أصاب الشركة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/commercial-concealment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What makes a business arrangement a potential concealment offence?",
+          "visible": true
+        },
+        {
+          "question": "What if my legitimate money is linked to a concealment case?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/commercial-concealment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى يثير ترتيب النشاط شبهة تستر تجاري؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا إذا ارتبط مالي المشروع بقضية تستر؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/competition-and-unfair-trade-practice-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When can pricing or exclusivity become a competition issue?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/commercial-distribution-and-agency-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When can pricing or exclusivity become a competition issue?",
+          "visible": true
+        },
+        {
+          "question": "Does cancelling an agency registration settle termination compensation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/competition-and-unfair-trade-practice-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى يصبح التسعير أو الحصر مسألة منافسة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/commercial-distribution-and-agency-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى يصبح التسعير أو الحصر مسألة منافسة؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحسم شطب قيد الوكالة تعويض الإنهاء؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/commercial-agency-termination",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does cancelling an agency registration settle termination compensation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/commercial-agency-termination",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحسم شطب قيد الوكالة تعويض الإنهاء؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/franchise-agreement-and-termination-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When should franchise disclosure reach a prospective franchisee?",
+          "visible": true
+        },
+        {
+          "question": "Which franchise terms matter when selling or exiting the business?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/franchise-agreement-and-termination-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تسلم وثيقة الإفصاح لصاحب الامتياز المحتمل؟",
+          "visible": true
+        },
+        {
+          "question": "ما شروط الامتياز المهمة عند بيع النشاط أو الخروج منه؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/negotiation-and-settlement-strategy",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How can a settlement be made directly enforceable?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/negotiation-and-settlement-strategy",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف تكتسب التسوية قوة السند التنفيذي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law/government-tender-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the procurement law published in September 2026 immediately govern my challenge?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law/government-tender-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يسري نظام المنافسات المنشور في سبتمبر 2026 فوراً على اعتراضي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/family-personal-status/divorce-filing-and-personal-status-procedure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a federal civil divorce require proof that the other spouse was at fault?",
+          "visible": true
+        },
+        {
+          "question": "Is family counselling mandatory before every UAE personal-status case?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/family-personal-status",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a federal civil divorce require proof that the other spouse was at fault?",
+          "visible": true
+        },
+        {
+          "question": "Is family counselling mandatory before every UAE personal-status case?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/family-personal-status/divorce-filing-and-personal-status-procedure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يتطلب الطلاق المدني الاتحادي إثبات خطأ الزوج الآخر؟",
+          "visible": true
+        },
+        {
+          "question": "هل التوجيه الأسري إلزامي قبل كل دعوى أحوال شخصية في الإمارات؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/family-personal-status",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يتطلب الطلاق المدني الاتحادي إثبات خطأ الزوج الآخر؟",
+          "visible": true
+        },
+        {
+          "question": "هل التوجيه الأسري إلزامي قبل كل دعوى أحوال شخصية في الإمارات؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/family-personal-status/alimony-and-child-maintenance-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can temporary maintenance be requested before the final family judgment?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/family-personal-status/alimony-and-child-maintenance-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن طلب نفقة مؤقتة قبل الحكم النهائي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/family-personal-status/child-custody-and-visitation-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does custody under the current general UAE Personal Status Law end at the old age limits?",
+          "visible": true
+        },
+        {
+          "question": "Can one parent take a child abroad over the other’s objection during federal civil joint custody?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/family-personal-status/child-custody-and-visitation-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تنتهي الحضانة في قانون الأحوال الشخصية الإماراتي الحالي بالأعمار القديمة؟",
+          "visible": true
+        },
+        {
+          "question": "هل يسافر أحد الوالدين بالمحضون رغم اعتراض الآخر أثناء الحضانة المدنية المشتركة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/family-personal-status/child-relocation-and-travel-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can one parent take a child abroad over the other’s objection during federal civil joint custody?",
+          "visible": true
+        },
+        {
+          "question": "Is holding the child’s passport enough to travel under the general Personal Status Law?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/family-personal-status/child-relocation-and-travel-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يسافر أحد الوالدين بالمحضون رغم اعتراض الآخر أثناء الحضانة المدنية المشتركة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تكفي حيازة جواز المحضون للسفر وفق قانون الأحوال الشخصية العام؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/family-personal-status/paternity-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a private DNA report itself establish or change legal parentage?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/family-personal-status/paternity-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يثبت تقرير فحص وراثي خاص النسب أو يغيّره قانوناً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/family-personal-status/visitation-order-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What happens when an Abu Dhabi court-ordered visit does not take place?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/family-personal-status/visitation-order-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا يحدث عند تعذر تنفيذ زيارة مقررة من محاكم أبوظبي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/family-personal-status/marriage-registration-and-certificate-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What should I check when a UAE Sharia marriage application is missing documents?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/family-personal-status/marriage-registration-and-certificate-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الذي أراجعه عند نقص مستندات طلب زواج شرعي في الإمارات؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/family-personal-status/inheritance-document-and-civil-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "If a birth-record mismatch affects inheritance documents, where can the underlying record be corrected?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/family-personal-status/inheritance-document-and-civil-record-correction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أين يُصحح اختلاف شهادة الميلاد المؤثر في مستندات الإرث؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/family-personal-status/recognition-of-foreign-family-judgment",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a foreign family judgment simply be filed as if it were a UAE judgment?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/family-personal-status/recognition-of-foreign-family-judgment",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يُودع الحكم الأسري الأجنبي كما لو كان حكماً إماراتياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/real-estate-construction/eviction-notice-and-eviction-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is every Dubai eviction notice governed by a twelve-month period?",
+          "visible": true
+        },
+        {
+          "question": "Does an overdue Dubai rent payment permit immediate eviction?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/real-estate-construction/landlord-notice-and-tenant-settlement-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is every Dubai eviction notice governed by a twelve-month period?",
+          "visible": true
+        },
+        {
+          "question": "Can a Dubai RDC settlement be enforced if the other party later refuses to comply?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/real-estate-construction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is every Dubai eviction notice governed by a twelve-month period?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/real-estate-construction/eviction-notice-and-eviction-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تخضع كل إنذارات الإخلاء في دبي لمهلة اثني عشر شهراً؟",
+          "visible": true
+        },
+        {
+          "question": "هل يجيز تأخر إيجار دبي الإخلاء الفوري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/real-estate-construction/landlord-notice-and-tenant-settlement-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تخضع كل إنذارات الإخلاء في دبي لمهلة اثني عشر شهراً؟",
+          "visible": true
+        },
+        {
+          "question": "هل يمكن تنفيذ تسوية مركز فض المنازعات الإيجارية في دبي إذا امتنع الطرف الآخر؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/real-estate-construction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تخضع كل إنذارات الإخلاء في دبي لمهلة اثني عشر شهراً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/real-estate-construction/unpaid-rent-and-rental-payment-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does an overdue Dubai rent payment permit immediate eviction?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/real-estate-construction/unpaid-rent-and-rental-payment-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجيز تأخر إيجار دبي الإخلاء الفوري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/real-estate-construction/dubai-tenancy-and-rera-rental-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the Dubai rental index alone change the rent payable under my lease?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/real-estate-construction/dubai-tenancy-and-rera-rental-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يغيّر مؤشر إيجارات دبي وحده الأجرة المستحقة في عقدي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/real-estate-construction/security-deposit-recovery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must the landlord return the entire Dubai rental deposit regardless of property condition?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/real-estate-construction/security-deposit-recovery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجب رد كامل تأمين إيجار دبي مهما كانت حالة العقار؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/real-estate-construction/bounced-rental-cheque",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is there a Dubai RDC enforcement service for a dishonoured rental cheque?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/real-estate-construction/bounced-rental-cheque",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يوجد بمركز فض المنازعات الإيجارية في دبي مسار لتنفيذ شيك الإيجار المرتجع؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/real-estate-construction/property-service-charge-and-maintenance-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How can I check the approved charge behind a Dubai jointly owned property invoice?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/real-estate-construction/property-service-charge-and-maintenance-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف أتحقق من الرسم المعتمد وراء فاتورة خدمات عقار مشترك في دبي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/real-estate-construction/property-encroachment-and-boundary-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can Dubai Land Department measure the property when a boundary is disputed?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/real-estate-construction/property-encroachment-and-boundary-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن لدائرة الأراضي في دبي قياس العقار عند نزاع الحدود؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/real-estate-construction/title-deed-and-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an incorrect name or identity detail on a Dubai title deed be corrected administratively?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/real-estate-construction/title-deed-and-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يُصحح الاسم أو بيان الهوية الخاطئ في ملكية دبي إدارياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/real-estate-construction/expropriation-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is a Dubai acquisition-compensation objection the same as challenging implementation of the acquisition?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/real-estate-construction/expropriation-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يساوي الاعتراض على تعويض الاستملاك في دبي الطعن في إجراءات تنفيذه؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/real-estate-construction/construction-delay-and-defective-construction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a construction breach support a request for performance or rescission?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/real-estate-construction/construction-delay-and-defective-construction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يتيح إخلال المقاول طلب التنفيذ أو الفسخ؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour/disciplinary-warning-and-workplace-investigation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an employer impose a disciplinary penalty without hearing my response?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour/disciplinary-warning-and-workplace-investigation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يوقع صاحب العمل جزاءً تأديبياً دون سماع ردي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour/experience-certificate-and-work-permit-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must a UAE private-sector employer provide an experience certificate for free?",
+          "visible": true
+        },
+        {
+          "question": "Does cancelling a MOHRE work permit automatically authorise work for a new employer?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour/experience-certificate-and-work-permit-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يلزم صاحب العمل بالقطاع الخاص الإماراتي بإعطاء شهادة خبرة مجانية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يجيز إلغاء تصريح وزارة الموارد البشرية العمل تلقائياً لدى جهة جديدة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour/sponsorship-and-work-permit-transfer-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does cancelling a MOHRE work permit automatically authorise work for a new employer?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour/sponsorship-and-work-permit-transfer-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجيز إلغاء تصريح وزارة الموارد البشرية العمل تلقائياً لدى جهة جديدة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour/resignation-because-of-unpaid-wages",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can unpaid wages justify leaving without notice immediately?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour/delayed-or-unpaid-salary",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can unpaid wages justify leaving without notice immediately?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can unpaid wages justify leaving without notice immediately?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour/resignation-because-of-unpaid-wages",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجيز عدم دفع الأجر ترك العمل فوراً دون إشعار؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour/delayed-or-unpaid-salary",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجيز عدم دفع الأجر ترك العمل فوراً دون إشعار؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجيز عدم دفع الأجر ترك العمل فوراً دون إشعار؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insurance/denied-insurance-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How long must I wait after complaining to the insurer before approaching Sanadak?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insurance/delayed-insurance-settlement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How long must I wait after complaining to the insurer before approaching Sanadak?",
+          "visible": true
+        },
+        {
+          "question": "Does the motor-insurance settlement period run from the accident date?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insurance/policy-coverage-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How long must I wait after complaining to the insurer before approaching Sanadak?",
+          "visible": true
+        },
+        {
+          "question": "Are third-party motor cover and cover for my own vehicle the same?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insurance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How long must I wait after complaining to the insurer before approaching Sanadak?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insurance/denied-insurance-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كم أنتظر بعد الشكوى لشركة التأمين قبل اللجوء إلى سندك؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insurance/delayed-insurance-settlement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كم أنتظر بعد الشكوى لشركة التأمين قبل اللجوء إلى سندك؟",
+          "visible": true
+        },
+        {
+          "question": "هل تبدأ مدة تسوية التأمين على المركبة من يوم الحادث؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insurance/policy-coverage-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كم أنتظر بعد الشكوى لشركة التأمين قبل اللجوء إلى سندك؟",
+          "visible": true
+        },
+        {
+          "question": "هل تأمين المسؤولية تجاه الغير هو نفسه تغطية أضرار مركبتي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insurance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كم أنتظر بعد الشكوى لشركة التأمين قبل اللجوء إلى سندك؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insurance/traffic-accident-liability-and-compensation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the motor-insurance settlement period run from the accident date?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insurance/traffic-accident-liability-and-compensation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تبدأ مدة تسوية التأمين على المركبة من يوم الحادث؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insurance/uninsured-accident-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Are third-party motor cover and cover for my own vehicle the same?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insurance/uninsured-accident-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تأمين المسؤولية تجاه الغير هو نفسه تغطية أضرار مركبتي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/tax-vat/corporate-tax-registration-and-filing-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is corporate-tax registration the same as filing the annual return?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/tax-vat",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is corporate-tax registration the same as filing the annual return?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/tax-vat/corporate-tax-registration-and-filing-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل التسجيل في ضريبة الشركات هو تقديم الإقرار السنوي نفسه؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/tax-vat",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل التسجيل في ضريبة الشركات هو تقديم الإقرار السنوي نفسه؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/tax-vat/vat-refund-and-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is AED 375,000 an annual profit threshold for VAT registration?",
+          "visible": true
+        },
+        {
+          "question": "Does a refundable VAT return automatically transfer money to my bank?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/tax-vat/vat-refund-and-registration-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل حد 375 ألف درهم للتسجيل في القيمة المضافة يتعلق بالربح السنوي؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحوّل إقرار القيمة المضافة الدائن المبلغ تلقائياً إلى حسابي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/tax-vat/vat-invoice-and-tax-correction-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Should an overcharged VAT invoice simply be deleted?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/tax-vat/vat-invoice-and-tax-correction-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تُحذف ببساطة فاتورة ضريبة القيمة المضافة المحتسبة بالزيادة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/tax-vat/tax-audit-and-assessment-objection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can I use tax-assessment review to submit evidence that was never provided during the audit?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/tax-vat/tax-audit-and-assessment-objection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل أقدم أدلة لم تُعرض أثناء التدقيق عبر طلب مراجعة التقييم الضريبي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/tax-vat/customs-penalty-challenge",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is a Dubai customs valuation objection the same as an FTA tax reconsideration?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/tax-vat/customs-penalty-challenge",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يساوي اعتراض تقييم جمارك دبي إعادة النظر الضريبية لدى الهيئة الاتحادية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/business-law/company-formation-and-registration",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a Syrian company be incorporated entirely online from the first step?",
+          "visible": true
+        },
+        {
+          "question": "Does the July 2026 registration simplification remove activity-licensing requirements?",
+          "visible": true
+        },
+        {
+          "question": "Is company registration the same as registration in Syria’s National Export Register?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/business-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a Syrian company be incorporated entirely online from the first step?",
+          "visible": true
+        },
+        {
+          "question": "Does the July 2026 registration simplification remove activity-licensing requirements?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/business-law/company-formation-and-registration",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يبدأ تأسيس الشركة السورية إلكترونياً دون أي مراجعة؟",
+          "visible": true
+        },
+        {
+          "question": "هل ألغى تبسيط التسجيل في تموز 2026 تراخيص ممارسة النشاط؟",
+          "visible": true
+        },
+        {
+          "question": "هل تأسيس الشركة هو نفسه القيد في السجل الوطني للتصدير؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/business-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يبدأ تأسيس الشركة السورية إلكترونياً دون أي مراجعة؟",
+          "visible": true
+        },
+        {
+          "question": "هل ألغى تبسيط التسجيل في تموز 2026 تراخيص ممارسة النشاط؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/business-law/commercial-register-and-company-record-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does the July 2026 registration simplification remove activity-licensing requirements?",
+          "visible": true
+        },
+        {
+          "question": "Is company registration the same as registration in Syria’s National Export Register?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/business-law/commercial-register-and-company-record-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل ألغى تبسيط التسجيل في تموز 2026 تراخيص ممارسة النشاط؟",
+          "visible": true
+        },
+        {
+          "question": "هل تأسيس الشركة هو نفسه القيد في السجل الوطني للتصدير؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/companies-law/company-formation-and-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a Syrian company be incorporated entirely online from the first step?",
+          "visible": true
+        },
+        {
+          "question": "Does the July 2026 registration simplification remove activity-licensing requirements?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/companies-law/company-registration-and-amendment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a Syrian company be incorporated entirely online from the first step?",
+          "visible": true
+        },
+        {
+          "question": "Does the July 2026 registration simplification remove activity-licensing requirements?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/companies-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a Syrian company be incorporated entirely online from the first step?",
+          "visible": true
+        },
+        {
+          "question": "Does the July 2026 registration simplification remove activity-licensing requirements?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/companies-law/company-formation-and-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يبدأ تأسيس الشركة السورية إلكترونياً دون أي مراجعة؟",
+          "visible": true
+        },
+        {
+          "question": "هل ألغى تبسيط التسجيل في تموز 2026 تراخيص ممارسة النشاط؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/companies-law/company-registration-and-amendment-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يبدأ تأسيس الشركة السورية إلكترونياً دون أي مراجعة؟",
+          "visible": true
+        },
+        {
+          "question": "هل ألغى تبسيط التسجيل في تموز 2026 تراخيص ممارسة النشاط؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/companies-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يبدأ تأسيس الشركة السورية إلكترونياً دون أي مراجعة؟",
+          "visible": true
+        },
+        {
+          "question": "هل ألغى تبسيط التسجيل في تموز 2026 تراخيص ممارسة النشاط؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/contracts/consumer-refund-and-purchase-cancellation-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a “no returns” notice settle a Syrian defective-goods complaint?",
+          "visible": true
+        },
+        {
+          "question": "Is there an electronic channel for a consumer complaint in Syria?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/contracts/defective-goods-and-non-conforming-delivery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a “no returns” notice settle a Syrian defective-goods complaint?",
+          "visible": true
+        },
+        {
+          "question": "Is there an electronic channel for a consumer complaint in Syria?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/contracts/defective-product-and-consumer-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a “no returns” notice settle a Syrian defective-goods complaint?",
+          "visible": true
+        },
+        {
+          "question": "Is there an electronic channel for a consumer complaint in Syria?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/contracts",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a “no returns” notice settle a Syrian defective-goods complaint?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/contracts/consumer-refund-and-purchase-cancellation-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تحسم عبارة «البضاعة المباعة لا تُرد» شكوى عيب في السلعة بسوريا؟",
+          "visible": true
+        },
+        {
+          "question": "هل توجد وسيلة إلكترونية لشكوى المستهلك في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/contracts/defective-goods-and-non-conforming-delivery",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تحسم عبارة «البضاعة المباعة لا تُرد» شكوى عيب في السلعة بسوريا؟",
+          "visible": true
+        },
+        {
+          "question": "هل توجد وسيلة إلكترونية لشكوى المستهلك في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/contracts/defective-product-and-consumer-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تحسم عبارة «البضاعة المباعة لا تُرد» شكوى عيب في السلعة بسوريا؟",
+          "visible": true
+        },
+        {
+          "question": "هل توجد وسيلة إلكترونية لشكوى المستهلك في سوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/contracts",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تحسم عبارة «البضاعة المباعة لا تُرد» شكوى عيب في السلعة بسوريا؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "pass": true
+}

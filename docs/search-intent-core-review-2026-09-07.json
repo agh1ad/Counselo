@@ -1,0 +1,5357 @@
+{
+  "reviewedAt": "2026-09-07",
+  "status": "in-progress",
+  "scope": "All50 retained shared/regional core and directory routes.",
+  "evidenceBoundary": "All50 local HTTP main bodies, headings, links and JSON-LD were extracted. Review used actual page structure, prominent copy, jurisdiction differences and corresponding source templates; this is purpose/intent assessment, not exhaustive legal certification or production/analytics verification.",
+  "summary": {
+    "routes": 50,
+    "http200": 50,
+    "fullIntentReviewsCompleted": 0
+  },
+  "pages": [
+    {
+      "route": "/",
+      "language": "en",
+      "region": null,
+      "role": "global-home",
+      "primaryIntent": "Choose CounselO and the relevant country",
+      "supportingIntents": [
+        "Supported jurisdictions and languages",
+        "Consultation steps and scope",
+        "Response target and confidentiality",
+        "Find the appropriate regional entry point"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "5f0b96d5e8453bd7882e865ef916198001407a4989bbe2ab65def6e669f921c3",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Online Legal Consultation."
+          },
+          {
+            "level": "h2",
+            "text": "Where do you need counsel?"
+          },
+          {
+            "level": "h3",
+            "text": "Saudi Arabia"
+          },
+          {
+            "level": "h3",
+            "text": "Syria"
+          },
+          {
+            "level": "h3",
+            "text": "United Arab Emirates"
+          },
+          {
+            "level": "h2",
+            "text": "One online starting point for legal help"
+          },
+          {
+            "level": "h2",
+            "text": "Comprehensive online legal consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Professional Legal Counsel, Delivered Online"
+          },
+          {
+            "level": "h2",
+            "text": "Three legal environments, one starting point"
+          },
+          {
+            "level": "h3",
+            "text": "Saudi Arabia"
+          },
+          {
+            "level": "h3",
+            "text": "Syria"
+          },
+          {
+            "level": "h3",
+            "text": "United Arab Emirates"
+          },
+          {
+            "level": "h2",
+            "text": "How It Works"
+          },
+          {
+            "level": "h3",
+            "text": "Choose Your Jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Describe Your Legal Matter"
+          },
+          {
+            "level": "h3",
+            "text": "Confirm scope and fee"
+          },
+          {
+            "level": "h3",
+            "text": "Receive structured guidance"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h3",
+            "text": "Latest articles"
+          },
+          {
+            "level": "h3",
+            "text": "Latest our work"
+          },
+          {
+            "level": "h2",
+            "text": "Frequently Asked Questions"
+          },
+          {
+            "level": "h3",
+            "text": "What is CounselO?"
+          },
+          {
+            "level": "h3",
+            "text": "Which jurisdictions does CounselO cover?"
+          },
+          {
+            "level": "h3",
+            "text": "How quickly do I get a response?"
+          },
+          {
+            "level": "h3",
+            "text": "Are consultations confidential?"
+          },
+          {
+            "level": "h3",
+            "text": "What languages does CounselO support?"
+          },
+          {
+            "level": "h3",
+            "text": "How do I start a consultation?"
+          },
+          {
+            "level": "h3",
+            "text": "Does CounselO advise businesses too?"
+          },
+          {
+            "level": "h3",
+            "text": "What areas of law does CounselO cover?"
+          },
+          {
+            "level": "h2",
+            "text": "Ready to Get Expert Legal Advice?"
+          }
+        ],
+        "mainTextCharacters": 17045,
+        "mainLinks": 67
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Compare the actual urgent-intake route with the qualified24-hour target; emergency availability is not established.",
+        "Validate observed country/language query attribution before judging acquisition coverage."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/ar",
+      "language": "ar",
+      "region": null,
+      "role": "global-home",
+      "primaryIntent": "Choose CounselO and the relevant country",
+      "supportingIntents": [
+        "Supported jurisdictions and languages",
+        "Consultation steps and scope",
+        "Response target and confidentiality",
+        "Find the appropriate regional entry point"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "6fd419dafdd5eb1948976dec7d73c0193cf7961062281707818c181c6b2b749e",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "استشارة قانونية عبر الإنترنت."
+          },
+          {
+            "level": "h2",
+            "text": "أين تحتاج إلى الاستشارة؟"
+          },
+          {
+            "level": "h3",
+            "text": "المملكة العربية السعودية"
+          },
+          {
+            "level": "h3",
+            "text": "سوريا"
+          },
+          {
+            "level": "h3",
+            "text": "الإمارات العربية المتحدة"
+          },
+          {
+            "level": "h2",
+            "text": "بوابة إلكترونية واحدة للمساعدة القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "الاستشارة القانونية الإلكترونية المتكاملة"
+          },
+          {
+            "level": "h2",
+            "text": "استشارة قانونية احترافية عبر الإنترنت"
+          },
+          {
+            "level": "h2",
+            "text": "ثلاث بيئات قانونية ونقطة بداية واحدة"
+          },
+          {
+            "level": "h3",
+            "text": "المملكة العربية السعودية"
+          },
+          {
+            "level": "h3",
+            "text": "سوريا"
+          },
+          {
+            "level": "h3",
+            "text": "الإمارات العربية المتحدة"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تعمل الخدمة؟"
+          },
+          {
+            "level": "h3",
+            "text": "اختر نطاقك القضائي"
+          },
+          {
+            "level": "h3",
+            "text": "صف قضيتك القانونية"
+          },
+          {
+            "level": "h3",
+            "text": "أكد النطاق والرسوم"
+          },
+          {
+            "level": "h3",
+            "text": "استلم إرشاداً منظماً"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث مقالاتنا وأعمالنا القانونية"
+          },
+          {
+            "level": "h3",
+            "text": "أحدث المقالات"
+          },
+          {
+            "level": "h3",
+            "text": "أحدث أعمالنا"
+          },
+          {
+            "level": "h2",
+            "text": "الأسئلة الشائعة"
+          },
+          {
+            "level": "h3",
+            "text": "ما هو كاونسلو؟"
+          },
+          {
+            "level": "h3",
+            "text": "ما الدول التي يخدمها كاونسلو؟"
+          },
+          {
+            "level": "h3",
+            "text": "كم يستغرق الرد؟"
+          },
+          {
+            "level": "h3",
+            "text": "هل الاستشارات سرية؟"
+          },
+          {
+            "level": "h3",
+            "text": "ما اللغات المتاحة؟"
+          },
+          {
+            "level": "h3",
+            "text": "كيف أبدأ استشارتي؟"
+          },
+          {
+            "level": "h3",
+            "text": "هل يخدم كاونسلو الشركات؟"
+          },
+          {
+            "level": "h3",
+            "text": "ما مجالات القانون التي يغطيها كاونسلو؟"
+          },
+          {
+            "level": "h2",
+            "text": "هل أنت مستعد للحصول على استشارة قانونية متخصصة؟"
+          }
+        ],
+        "mainTextCharacters": 14012,
+        "mainLinks": 65
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Compare the actual urgent-intake route with the qualified24-hour target; emergency availability is not established.",
+        "Validate observed country/language query attribution before judging acquisition coverage."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/ar/legal-library",
+      "language": "ar",
+      "region": null,
+      "role": "legal-library",
+      "primaryIntent": "Choose relevant legal reading and work evidence",
+      "supportingIntents": [
+        "Select country and service",
+        "Read by question",
+        "Distinguish article, official law and case example",
+        "Follow a source or appropriate service"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "927e1d13df23a2e9c2af3536393992e9e1b0454fbd97be730125546b3208d9c6",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "معرفة قانونية منظّمة لقرارات عملية."
+          },
+          {
+            "level": "h2",
+            "text": "المقالات والتحليلات القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "نماذج من الأعمال القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "تصفح حسب الاختصاص"
+          },
+          {
+            "level": "h2",
+            "text": "ابحث عن الخدمة والمسألة القانونية حسب الدولة"
+          },
+          {
+            "level": "h2",
+            "text": "اختر القراءة بحسب سؤالك"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث التحليلات القانونية"
+          },
+          {
+            "level": "h3",
+            "text": "متى يكون الصلح أفضل من الاستمرار في الخصومة؟"
+          },
+          {
+            "level": "h3",
+            "text": "متى يستحق الوسيط التجاري كامل عمولته؟"
+          },
+          {
+            "level": "h3",
+            "text": "حين يكون الإقرار أقوى من الإنكار"
+          },
+          {
+            "level": "h2",
+            "text": "أعمال قانونية مختارة"
+          },
+          {
+            "level": "h3",
+            "text": "كيف ساعدت كاونسلو في استرداد 300,000 ريال عبر صلح قضائي في نزاع تجاري؟"
+          },
+          {
+            "level": "h3",
+            "text": "كاونسلو و تخفيض مطالبة عمولة تجارية من 3.48 مليون ريال إلى 584 ألف ريال"
+          },
+          {
+            "level": "h3",
+            "text": "تخفيض مطالبة تجارية من 500 ألف ريال إلى 227 ألف ريال"
+          },
+          {
+            "level": "h3",
+            "text": "رأي في مشروع قانون الوساطة السوري/ معالجة 10 ثغرات"
+          },
+          {
+            "level": "h2",
+            "text": "أسئلة تساعدك على تحديد الخطوة التالية"
+          },
+          {
+            "level": "h2",
+            "text": "معيار نشر مبني على الثقة"
+          },
+          {
+            "level": "h2",
+            "text": "هل تحتاج إلى تطبيق القانون على مسألتك؟"
+          }
+        ],
+        "mainTextCharacters": 9051,
+        "mainLinks": 125
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "35 saved procedural query strings were previously assigned to this hub; the new Saudi reconsideration link is pending a fresh build and does not answer every appeal/form query.",
+        "Reading paths need article-level current-law and factual corrections recorded in the90-route article review."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/ar/our-work",
+      "language": "ar",
+      "region": null,
+      "role": "our-work",
+      "primaryIntent": "Evaluate published CounselO work examples",
+      "supportingIntents": [
+        "Understand issue, actual work and outcome",
+        "Inspect available redacted document",
+        "Distinguish advisory work, judgment and implementation",
+        "Find related service or example"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "fcf90e45336384565d7682be55c30d925a2f0cdf68e107d18f986860636678d9",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "خبرة قانونية يمكن الاطلاع عليها"
+          },
+          {
+            "level": "h2",
+            "text": "كيف نحمي خصوصية العملاء"
+          },
+          {
+            "level": "h2",
+            "text": "كيف ساعدت كاونسلو في استرداد 300,000 ريال عبر صلح قضائي في نزاع تجاري؟"
+          },
+          {
+            "level": "h2",
+            "text": "كاونسلو و تخفيض مطالبة عمولة تجارية من 3.48 مليون ريال إلى 584 ألف ريال"
+          },
+          {
+            "level": "h2",
+            "text": "تخفيض مطالبة تجارية من 500 ألف ريال إلى 227 ألف ريال"
+          },
+          {
+            "level": "h2",
+            "text": "رأي في مشروع قانون الوساطة السوري/ معالجة 10 ثغرات"
+          },
+          {
+            "level": "h2",
+            "text": "كيف قادت استراتيجية كاونسلو إلى رفض دعوى فسخ عقد بيع وتعويضات بملايين الريالات؟"
+          },
+          {
+            "level": "h2",
+            "text": "مسانده كاونسلو في قضية عابرة للحدود"
+          },
+          {
+            "level": "h2",
+            "text": "استراتيجية كاونسلو لاسترداد سندات لأمر بقيمة 17 مليون ريال"
+          },
+          {
+            "level": "h2",
+            "text": "كاونسلو وتسوية الارصدة المالية قانونا"
+          },
+          {
+            "level": "h2",
+            "text": "منهج كاونسلو في مراجعة العقود التجارية"
+          },
+          {
+            "level": "h2",
+            "text": "كيف أدارت كاونسلو مراجعة محاسبية حساسة."
+          },
+          {
+            "level": "h2",
+            "text": "الغاء مخالفات الدفاع المدني بحكم قضائي"
+          },
+          {
+            "level": "h2",
+            "text": "رفض دعوى فسخ عقد امتياز تجاري وتعويض"
+          },
+          {
+            "level": "h2",
+            "text": "من الخطأ الى التعويض: كيف حددت كاونسلو المسؤول المباشرعن حادث"
+          },
+          {
+            "level": "h2",
+            "text": "عدم تسليم معدات: حكم بـ248,600 ريال بعد الاستئناف"
+          },
+          {
+            "level": "h2",
+            "text": "تفكيك مستندات التماس اعاده النظر بنجاح"
+          },
+          {
+            "level": "h2",
+            "text": "الاعتراض على المخالفات البيئية"
+          },
+          {
+            "level": "h2",
+            "text": "تحليل مخاطر نقل الأصول والمستحقات بين الشركات المرتبطة أثناء التصفية"
+          },
+          {
+            "level": "h2",
+            "text": "إدارة المخاطر في عقد تأميني"
+          },
+          {
+            "level": "h2",
+            "text": "كيف اثبتت كاونسلو الشراكه"
+          },
+          {
+            "level": "h2",
+            "text": "تحكيم مقاولات: تنظيم المطالبات وأدلة الخبرة"
+          },
+          {
+            "level": "h2",
+            "text": "مطالبة بمستحقات مقاولات: حكم بـ448,958 ريالاً"
+          },
+          {
+            "level": "h2",
+            "text": "مستحقات مقاولات: حكم في مطالبات بإجمالي 2,049,094 ريالاً"
+          },
+          {
+            "level": "h2",
+            "text": "تصحيح التكييف القانوني لانهاء عقد العمل"
+          },
+          {
+            "level": "h2",
+            "text": "فسخ عقد إيجار تجاري بسبب خطأ بيانات منصة إيجار"
+          },
+          {
+            "level": "h2",
+            "text": "فسخ عقد صناعي واسترداد الدفعة المقدمة"
+          },
+          {
+            "level": "h2",
+            "text": "مدفوعات شريك أم دين على الشركة؟ دراسة أسباب الاستئناف"
+          },
+          {
+            "level": "h2",
+            "text": "تحديد سبب الحوالة المالية في منازعة تنفيذ"
+          },
+          {
+            "level": "h2",
+            "text": "متى تكون هيئة التحكيم غير مختصة؟ أثر مخالفة شرط التحكيم"
+          },
+          {
+            "level": "h2",
+            "text": "الأجرة مقابل المنفعة في الإيجار التجاري"
+          },
+          {
+            "level": "h2",
+            "text": "حدود مسؤولية الكفيل في السند لأمر"
+          },
+          {
+            "level": "h2",
+            "text": "تسوية بين شركات مرتبطة: الموافقات وصلاحية التوقيع"
+          },
+          {
+            "level": "h2",
+            "text": "هل يمكن تجاوز التقادم برفع دعوى الإثراء بلا سبب؟"
+          },
+          {
+            "level": "h2",
+            "text": "استبدال مقاول الباطن وتحميله التكاليف: دراسة المسؤولية"
+          },
+          {
+            "level": "h2",
+            "text": "استشاره في احتيال مالي"
+          },
+          {
+            "level": "h2",
+            "text": "دراسه قضيه عقاريه معقده في سوريا"
+          },
+          {
+            "level": "h2",
+            "text": "دراسة مطالبة بمستحقات توريد عمالة قبل رفع الدعوى"
+          },
+          {
+            "level": "h2",
+            "text": "معالجة حالة خطأ طبي"
+          },
+          {
+            "level": "h2",
+            "text": "رأي قانوني في تسوية عابرة للحدود"
+          },
+          {
+            "level": "h2",
+            "text": "التفاوض على سرية مشروع تقني دولي وشروط عدم الالتفاف"
+          },
+          {
+            "level": "h2",
+            "text": "قضية منع سفر ضد عامل"
+          },
+          {
+            "level": "h2",
+            "text": "من اتهام مالي معقد إلى براءة قطعية"
+          },
+          {
+            "level": "h2",
+            "text": "حين لا تنتهي القضية بالحكم الأول: كيف قلبت كاونسلو مسار نزاع عمالي؟"
+          },
+          {
+            "level": "h2",
+            "text": "دراسة طعن امام المحكمة الادارية العليا"
+          },
+          {
+            "level": "h2",
+            "text": "اتفاقية اطار لتقديم الخدمات التقنية وحلول الذكاء الاصطناعي"
+          },
+          {
+            "level": "h2",
+            "text": "رأي قانوني في طلب افلاس"
+          },
+          {
+            "level": "h2",
+            "text": "هل تحتاج إلى عمل قانوني بهذه العناية؟"
+          }
+        ],
+        "mainTextCharacters": 23657,
+        "mainLinks": 47
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Four examples have new scoped copy corrections pending the next build; their old listing titles remain in this captured evidence.",
+        "Document authenticity, exact professional role and implementation of reported outcomes remain per-example checks."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/blog",
+      "language": "en",
+      "region": null,
+      "role": "blog",
+      "primaryIntent": "Browse CounselO legal articles and guides",
+      "supportingIntents": [
+        "Choose an educational issue",
+        "Find Arabic or English article",
+        "Identify article scope and related reading",
+        "Move to the relevant service"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "6b2276772e6608654a4db6211f4c44f44614b81559e736925f4dcb95577fadb7",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Articles & Guides"
+          },
+          {
+            "level": "h2",
+            "text": "When Is Settlement Better Than Continuing Litigation?"
+          },
+          {
+            "level": "h2",
+            "text": "When Is a Commercial Broker Entitled to Full Commission?"
+          },
+          {
+            "level": "h2",
+            "text": "When Admission Is Stronger Than Denial"
+          },
+          {
+            "level": "h2",
+            "text": "Not Every Claimed Amount Is Awarded: How to Break Down Commercial Claims Before Building a Defense"
+          },
+          {
+            "level": "h2",
+            "text": "When Does Exercising a Right Become Abusive Under Saudi Law?"
+          },
+          {
+            "level": "h2",
+            "text": "When Is a Saudi Petition for Reconsideration Accepted?"
+          },
+          {
+            "level": "h2",
+            "text": "Promissory Notes as Security: When Do They Become an Enforcement Risk?"
+          },
+          {
+            "level": "h2",
+            "text": "Hidden Defects in Contracts and Their Legal Effect"
+          },
+          {
+            "level": "h2",
+            "text": "Protecting the Client from Draft to Signature"
+          },
+          {
+            "level": "h2",
+            "text": "When Does an Employee’s Signature on an Audit Record Become an Admission of Liability?"
+          },
+          {
+            "level": "h2",
+            "text": "The Difference Between Rescission and Damages in Commercial Contracts"
+          },
+          {
+            "level": "h2",
+            "text": "Building a Defense Strategy Before Litigation Begins"
+          },
+          {
+            "level": "h2",
+            "text": "When Does an Arbitration Clause Lose Its Practical Effect?"
+          },
+          {
+            "level": "h2",
+            "text": "Signing in Blank"
+          },
+          {
+            "level": "h2",
+            "text": "When Can an Administrative Decision Be Annulled?"
+          },
+          {
+            "level": "h2",
+            "text": "Proving Commercial Contract Breach and Loss in Saudi Arabia"
+          },
+          {
+            "level": "h2",
+            "text": "Amendable Memorandum of Understanding Template"
+          },
+          {
+            "level": "h2",
+            "text": "Corporate Governance as a Safeguard for Minority Shareholders"
+          },
+          {
+            "level": "h2",
+            "text": "Liability for the Acts of Others"
+          },
+          {
+            "level": "h2",
+            "text": "Limits of the Conclusive Oath in Syrian Civil Evidence"
+          },
+          {
+            "level": "h2",
+            "text": "The 5Why Methodology in Legal Practice"
+          },
+          {
+            "level": "h2",
+            "text": "Subject Matter of a Contract under Syrian Law"
+          },
+          {
+            "level": "h2",
+            "text": "Terminating an Employment Contract Without Lawful Cause"
+          },
+          {
+            "level": "h2",
+            "text": "Delayed Wages or Non-Payment"
+          },
+          {
+            "level": "h2",
+            "text": "Contractual Capacity under Syrian Law"
+          },
+          {
+            "level": "h2",
+            "text": "Risk Management in Contracts Under Saudi Law"
+          },
+          {
+            "level": "h2",
+            "text": "Practical Recommendations for Drafting a Strong Contract"
+          },
+          {
+            "level": "h2",
+            "text": "Consent in Syrian Law"
+          },
+          {
+            "level": "h2",
+            "text": "Proving Contracts Before the Saudi Courts"
+          },
+          {
+            "level": "h2",
+            "text": "Contracts in Syrian Law"
+          },
+          {
+            "level": "h2",
+            "text": "Compensation for Breach of Contract under Syrian Law"
+          },
+          {
+            "level": "h2",
+            "text": "Commercial Franchise Agreements in the Saudi Legal System"
+          },
+          {
+            "level": "h2",
+            "text": "Commercial Agency Contracts in the Saudi Legal System"
+          },
+          {
+            "level": "h2",
+            "text": "Contractual Liability under Syrian Law"
+          },
+          {
+            "level": "h2",
+            "text": "Construction Contracts under Saudi Law"
+          },
+          {
+            "level": "h2",
+            "text": "Performance of Contracts in Good Faith under Syrian Law"
+          },
+          {
+            "level": "h2",
+            "text": "Commercial Supply Contracts in Saudi Arabia"
+          },
+          {
+            "level": "h2",
+            "text": "Contract Interpretation Before Syrian Courts"
+          },
+          {
+            "level": "h2",
+            "text": "Electronic Contracts in the Saudi Legal System"
+          },
+          {
+            "level": "h2",
+            "text": "Termination of Commercial Contracts under Saudi Law"
+          },
+          {
+            "level": "h2",
+            "text": "Defects of Consent in Syrian Law: Mistake, Duress, Fraud, and Exploitation"
+          },
+          {
+            "level": "h2",
+            "text": "Consensual, Formal, and Real Contracts in Syrian Law"
+          },
+          {
+            "level": "h2",
+            "text": "Contractual Liability in Commercial Transactions"
+          },
+          {
+            "level": "h2",
+            "text": "Formation of Commercial Contracts Under Saudi Law"
+          },
+          {
+            "level": "h2",
+            "text": "Penalty Clauses in Commercial Contracts"
+          },
+          {
+            "level": "h2",
+            "text": "Have a Legal Question?"
+          }
+        ],
+        "mainTextCharacters": 11571,
+        "mainLinks": 47
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Article-level current-law, provenance, semantic-heading and outcome-source gaps remain in the article ledger.",
+        "The listing is a discovery page, not a complete answer to every question in its article titles."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/blog/ar",
+      "language": "ar",
+      "region": null,
+      "role": "blog",
+      "primaryIntent": "Browse CounselO legal articles and guides",
+      "supportingIntents": [
+        "Choose an educational issue",
+        "Find Arabic or English article",
+        "Identify article scope and related reading",
+        "Move to the relevant service"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "90a71fa7b10c12012939c857e737e720b4d9ef55318e9fb0b9105b55876a3305",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "مقالات وأدلة"
+          },
+          {
+            "level": "h2",
+            "text": "متى يكون الصلح أفضل من الاستمرار في الخصومة؟"
+          },
+          {
+            "level": "h2",
+            "text": "متى يستحق الوسيط التجاري كامل عمولته؟"
+          },
+          {
+            "level": "h2",
+            "text": "حين يكون الإقرار أقوى من الإنكار"
+          },
+          {
+            "level": "h2",
+            "text": "ليس كل مبلغ يُطالب به يُحكم به: كيف تُفكك المطالبات التجارية قبل بناء الدفاع؟"
+          },
+          {
+            "level": "h2",
+            "text": "متى يصبح استعمال الحق تعسفًا في النظام السعودي؟"
+          },
+          {
+            "level": "h2",
+            "text": "متى يقبل التماس إعادة النظر في السعودية؟"
+          },
+          {
+            "level": "h2",
+            "text": "السند لأمر كأداة ضمان: متى يتحول الى خطر تنفيذي."
+          },
+          {
+            "level": "h2",
+            "text": "العيوب الخفية في العقود وأثرها القانوني"
+          },
+          {
+            "level": "h2",
+            "text": "حماية العميل من مسودة العقد الى التوقيع."
+          },
+          {
+            "level": "h2",
+            "text": "متى يتحول توقيع العامل على محضر المراجعة إلى إقرار بالمسؤولية؟"
+          },
+          {
+            "level": "h2",
+            "text": "الفرق بين الفسخ والتعويض في العقود التجارية"
+          },
+          {
+            "level": "h2",
+            "text": "بناء استراتيجية الدفاع قبل بدء الخصومة."
+          },
+          {
+            "level": "h2",
+            "text": "متى يفقد شرط التحكيم أثره العملي في النزاع؟"
+          },
+          {
+            "level": "h2",
+            "text": "التوقيع على بياض."
+          },
+          {
+            "level": "h2",
+            "text": "متى يكون القرار الإداري قابلًا للإلغاء أمام ديوان المظالم؟"
+          },
+          {
+            "level": "h2",
+            "text": "إثبات الإخلال بالعقد التجاري والضرر في السعودية"
+          },
+          {
+            "level": "h2",
+            "text": "صيغة مذكرة تفاهم قابله للتعديل"
+          },
+          {
+            "level": "h2",
+            "text": "حوكمة الشركات كضمانة موضوعية لحماية حقوق مساهمي الأقلية"
+          },
+          {
+            "level": "h2",
+            "text": "المسؤوليه عن فعل الغير"
+          },
+          {
+            "level": "h2",
+            "text": "حدود اليمين الحاسمه في الاثبات المدني - سوري"
+          },
+          {
+            "level": "h2",
+            "text": "منهجية \"5Why\" في العمل القانوني"
+          },
+          {
+            "level": "h2",
+            "text": "محل العقد في القانون السوري"
+          },
+          {
+            "level": "h2",
+            "text": "إنهاء عقد العمل بدون سبب مشروع"
+          },
+          {
+            "level": "h2",
+            "text": "التأخر في الرواتب أو الامتناع عن دفعها"
+          },
+          {
+            "level": "h2",
+            "text": "الأهلية في التعاقد في القانون السوري"
+          },
+          {
+            "level": "h2",
+            "text": "إدارة المخاطر في العقود وفق النظام السعودي"
+          },
+          {
+            "level": "h2",
+            "text": "التوصيات العملية لصياغة عقد قوي"
+          },
+          {
+            "level": "h2",
+            "text": "الرضا في القانون السوري"
+          },
+          {
+            "level": "h2",
+            "text": "اثبات العقود أمام القضاء السعودي."
+          },
+          {
+            "level": "h2",
+            "text": "العقد في القانون السوري"
+          },
+          {
+            "level": "h2",
+            "text": "التعويض عن الإخلال بالعقد في القانون السوري"
+          },
+          {
+            "level": "h2",
+            "text": "عقود الامتياز التجاري (الفرنشايز) في النظام السعودي"
+          },
+          {
+            "level": "h2",
+            "text": "عقود الوكالات التجارية في النظام السعودي"
+          },
+          {
+            "level": "h2",
+            "text": "المسؤولية العقدية في القانون السوري"
+          },
+          {
+            "level": "h2",
+            "text": "عقود المقاولات في النظام السعودي"
+          },
+          {
+            "level": "h2",
+            "text": "تنفيذ العقد بحسن النية في القانون السوري"
+          },
+          {
+            "level": "h2",
+            "text": "عقود التوريد التجارية في السعودية"
+          },
+          {
+            "level": "h2",
+            "text": "تفسير العقود أمام القضاء السوري"
+          },
+          {
+            "level": "h2",
+            "text": "العقود الإلكترونية في النظام السعودي"
+          },
+          {
+            "level": "h2",
+            "text": "فسخ العقد التجاري في النظام السعودي"
+          },
+          {
+            "level": "h2",
+            "text": "عيوب الإرادة في القانون السوري: الغلط والإكراه والتدليس والاستغلال"
+          },
+          {
+            "level": "h2",
+            "text": "العقود الرضائية والشكلية والعينية في القانون السوري."
+          },
+          {
+            "level": "h2",
+            "text": "المسؤولية العقدية في المعاملات التجارية."
+          },
+          {
+            "level": "h2",
+            "text": "تكوين العقد التجاري في النظام السعودي"
+          },
+          {
+            "level": "h2",
+            "text": "الشرط الجزائي في العقود التجارية"
+          },
+          {
+            "level": "h2",
+            "text": "هل لديك سؤال قانوني؟"
+          }
+        ],
+        "mainTextCharacters": 9474,
+        "mainLinks": 47
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Article-level current-law, provenance, semantic-heading and outcome-source gaps remain in the article ledger.",
+        "The listing is a discovery page, not a complete answer to every question in its article titles."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/legal-library",
+      "language": "en",
+      "region": null,
+      "role": "legal-library",
+      "primaryIntent": "Choose relevant legal reading and work evidence",
+      "supportingIntents": [
+        "Select country and service",
+        "Read by question",
+        "Distinguish article, official law and case example",
+        "Follow a source or appropriate service"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "24a5f52f984096d5a57223335a2989e266ae814479969a35df41829bec92d97b",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Legal knowledge, organised for practical decisions."
+          },
+          {
+            "level": "h2",
+            "text": "Legal Articles & Analysis"
+          },
+          {
+            "level": "h2",
+            "text": "Selected Legal Work"
+          },
+          {
+            "level": "h2",
+            "text": "Browse by jurisdiction"
+          },
+          {
+            "level": "h2",
+            "text": "Find services and legal questions by country"
+          },
+          {
+            "level": "h2",
+            "text": "Choose your reading by question"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal analysis"
+          },
+          {
+            "level": "h3",
+            "text": "When Is Settlement Better Than Continuing Litigation?"
+          },
+          {
+            "level": "h3",
+            "text": "When Is a Commercial Broker Entitled to Full Commission?"
+          },
+          {
+            "level": "h3",
+            "text": "When Admission Is Stronger Than Denial"
+          },
+          {
+            "level": "h2",
+            "text": "Selected legal work"
+          },
+          {
+            "level": "h3",
+            "text": "How CounselO Recovered SAR 300,000 Through a Judicial Settlement in a Commercial Dispute"
+          },
+          {
+            "level": "h3",
+            "text": "Reducing a Commercial Commission Claim from SAR 3.48 Million to SAR 584,131"
+          },
+          {
+            "level": "h3",
+            "text": "How CounselO Reduced a SAR 500,000 Claim to SAR 227,000"
+          },
+          {
+            "level": "h3",
+            "text": "Opinion on Syria’s Mediation Law Bill: 10 Gaps"
+          },
+          {
+            "level": "h2",
+            "text": "Questions to clarify your next step"
+          },
+          {
+            "level": "h2",
+            "text": "A publishing standard built for trust"
+          },
+          {
+            "level": "h2",
+            "text": "Need help applying the law to your matter?"
+          }
+        ],
+        "mainTextCharacters": 10615,
+        "mainLinks": 125
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "35 saved procedural query strings were previously assigned to this hub; the new Saudi reconsideration link is pending a fresh build and does not answer every appeal/form query.",
+        "Reading paths need article-level current-law and factual corrections recorded in the90-route article review."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/our-work",
+      "language": "en",
+      "region": null,
+      "role": "our-work",
+      "primaryIntent": "Evaluate published CounselO work examples",
+      "supportingIntents": [
+        "Understand issue, actual work and outcome",
+        "Inspect available redacted document",
+        "Distinguish advisory work, judgment and implementation",
+        "Find related service or example"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "fba3d40569b16c712dc317d0bd703e8782f6a88f5568b5f9e3ef4911c05ec1fc",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Legal experience you can examine"
+          },
+          {
+            "level": "h2",
+            "text": "How client privacy is protected"
+          },
+          {
+            "level": "h2",
+            "text": "How CounselO Recovered SAR 300,000 Through a Judicial Settlement in a Commercial Dispute"
+          },
+          {
+            "level": "h2",
+            "text": "Reducing a Commercial Commission Claim from SAR 3.48 Million to SAR 584,131"
+          },
+          {
+            "level": "h2",
+            "text": "How CounselO Reduced a SAR 500,000 Claim to SAR 227,000"
+          },
+          {
+            "level": "h2",
+            "text": "Opinion on Syria’s Mediation Law Bill: 10 Gaps"
+          },
+          {
+            "level": "h2",
+            "text": "How CounselO Defeated a Sale Contract Rescission Claim"
+          },
+          {
+            "level": "h2",
+            "text": "CounselO’s Support in a Cross-Border Dispute"
+          },
+          {
+            "level": "h2",
+            "text": "CounselO’s Strategy to Recover SAR 17 Million in Promissory Notes"
+          },
+          {
+            "level": "h2",
+            "text": "CounselO and Legal Settlement of Financial Balances"
+          },
+          {
+            "level": "h2",
+            "text": "CounselO’s Approach to Commercial Contract Review"
+          },
+          {
+            "level": "h2",
+            "text": "How CounselO Managed a Sensitive Accounting Review"
+          },
+          {
+            "level": "h2",
+            "text": "Civil Defense Violations Annulled by Court"
+          },
+          {
+            "level": "h2",
+            "text": "Dismissal of Franchise Agreement Termination and Compensation Claim"
+          },
+          {
+            "level": "h2",
+            "text": "From Error to Compensation: How CounselO Identified the Directly Responsible Party in an Accident"
+          },
+          {
+            "level": "h2",
+            "text": "Equipment Non-Delivery: SAR 248,600 Award After Appeal"
+          },
+          {
+            "level": "h2",
+            "text": "Successful Defense of a Reconsideration Petition"
+          },
+          {
+            "level": "h2",
+            "text": "Environmental Violations Objection"
+          },
+          {
+            "level": "h2",
+            "text": "Analyzing the Risks of Transferring Assets and Receivables Between Related Companies During Liquidation"
+          },
+          {
+            "level": "h2",
+            "text": "Insurance Requirements in a Saudi Construction Contract"
+          },
+          {
+            "level": "h2",
+            "text": "How CounselO Proved the Partnership"
+          },
+          {
+            "level": "h2",
+            "text": "Construction Arbitration: Organising Claims and Expert Evidence"
+          },
+          {
+            "level": "h2",
+            "text": "Construction Payment Claim: Judgment for SAR 448,958"
+          },
+          {
+            "level": "h2",
+            "text": "Construction Receivables: Judgment on SAR 2,049,094 in Claims"
+          },
+          {
+            "level": "h2",
+            "text": "Correcting the Legal Characterisation of Employment Contract Termination"
+          },
+          {
+            "level": "h2",
+            "text": "Termination of Commercial Lease Due to Ejar Data Error"
+          },
+          {
+            "level": "h2",
+            "text": "Termination of Industrial Contract and Recovery of Advance Payment"
+          },
+          {
+            "level": "h2",
+            "text": "Partner Payments or Company Debt? Assessing Grounds for Appeal"
+          },
+          {
+            "level": "h2",
+            "text": "Bank Transfer Allocation in an Enforcement Dispute"
+          },
+          {
+            "level": "h2",
+            "text": "When Is an Arbitral Tribunal Incompetent? Effect of Breaching the Arbitration Clause"
+          },
+          {
+            "level": "h2",
+            "text": "Rent vs. Enjoyment in Commercial Leasing"
+          },
+          {
+            "level": "h2",
+            "text": "Limits of the Guarantor's Liability in a Promissory Note"
+          },
+          {
+            "level": "h2",
+            "text": "Intercompany Settlement: Corporate Approvals and Signing Authority"
+          },
+          {
+            "level": "h2",
+            "text": "Can Limitation Be Circumvented by Filing an Unjust Enrichment Claim?"
+          },
+          {
+            "level": "h2",
+            "text": "Subcontractor Replacement and Back Charges: Liability Review"
+          },
+          {
+            "level": "h2",
+            "text": "Consultation on Financial Fraud"
+          },
+          {
+            "level": "h2",
+            "text": "Analysis of a Complex Real Estate Case in Syria"
+          },
+          {
+            "level": "h2",
+            "text": "Pre-Litigation Assessment of a Manpower Services Payment Claim"
+          },
+          {
+            "level": "h2",
+            "text": "Handling a Medical Malpractice Case"
+          },
+          {
+            "level": "h2",
+            "text": "Legal Opinion on a Cross-Border Settlement"
+          },
+          {
+            "level": "h2",
+            "text": "Negotiating an International Technology NDA and Non-Circumvention Terms"
+          },
+          {
+            "level": "h2",
+            "text": "Travel Ban Case Against an Employee"
+          },
+          {
+            "level": "h2",
+            "text": "From a Complex Financial Accusation to a Final Acquittal"
+          },
+          {
+            "level": "h2",
+            "text": "When the First Judgment Is Not the End: How CounselO Reversed an Employment Dispute"
+          },
+          {
+            "level": "h2",
+            "text": "Study of an Appeal Before the Supreme Administrative Court"
+          },
+          {
+            "level": "h2",
+            "text": "Framework Agreement for Technology Services and AI Solutions"
+          },
+          {
+            "level": "h2",
+            "text": "Legal Opinion on a Bankruptcy Application"
+          },
+          {
+            "level": "h2",
+            "text": "Need legal work prepared with this level of care?"
+          }
+        ],
+        "mainTextCharacters": 32109,
+        "mainLinks": 47
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Four examples have new scoped copy corrections pending the next build; their old listing titles remain in this captured evidence.",
+        "Document authenticity, exact professional role and implementation of reported outcomes remain per-example checks."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/sa",
+      "language": "en",
+      "region": "sa",
+      "role": "regional-home",
+      "primaryIntent": "Start online legal consultation for the selected jurisdiction (sa)",
+      "supportingIntents": [
+        "Individuals, businesses and investors",
+        "Written advice versus court representation",
+        "Choose a practice area",
+        "Agree scope and fee before advice"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "fd8bc0b8acf1c0ea277b75a8f6f315bcb9eb092ab46a371b9b6164c671a50019",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Online Legal Consultation for Saudi Arabia — Focused & Structured."
+          },
+          {
+            "level": "h2",
+            "text": "Online legal platform for Saudi Arabia matters"
+          },
+          {
+            "level": "h2",
+            "text": "Comprehensive Online Legal Consultation"
+          },
+          {
+            "level": "h2",
+            "text": "How to Get Your Legal Consultation"
+          },
+          {
+            "level": "h3",
+            "text": "Choose Your Method"
+          },
+          {
+            "level": "h3",
+            "text": "Describe Your Matter"
+          },
+          {
+            "level": "h3",
+            "text": "Complete Payment"
+          },
+          {
+            "level": "h3",
+            "text": "Receive Expert Guidance"
+          },
+          {
+            "level": "h2",
+            "text": "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi"
+          },
+          {
+            "level": "h2",
+            "text": "When a Matter Requires In-Person Presence"
+          },
+          {
+            "level": "h2",
+            "text": "Legal Expertise for Every Client"
+          },
+          {
+            "level": "h3",
+            "text": "Individuals"
+          },
+          {
+            "level": "h3",
+            "text": "Businesses"
+          },
+          {
+            "level": "h3",
+            "text": "Foreign Investors"
+          },
+          {
+            "level": "h3",
+            "text": "Institutions"
+          },
+          {
+            "level": "h2",
+            "text": "Core Practice Areas — Saudi Arabia"
+          },
+          {
+            "level": "h3",
+            "text": "Commercial Law & Litigation"
+          },
+          {
+            "level": "h3",
+            "text": "Arbitration & Dispute Resolution"
+          },
+          {
+            "level": "h3",
+            "text": "Real Estate & Property Law"
+          },
+          {
+            "level": "h3",
+            "text": "Enforcement & Debt Collection"
+          },
+          {
+            "level": "h3",
+            "text": "Administrative & Government Disputes"
+          },
+          {
+            "level": "h3",
+            "text": "Foreign Investment & Business Law"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h3",
+            "text": "Latest articles"
+          },
+          {
+            "level": "h3",
+            "text": "Latest our work"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Know the basis of the service before you begin"
+          },
+          {
+            "level": "h2",
+            "text": "Discuss Your Matter with CounselO."
+          },
+          {
+            "level": "h2",
+            "text": "Questions to clarify your next step"
+          }
+        ],
+        "mainTextCharacters": 20015,
+        "mainLinks": 37
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Validate named local coordination and current professional authority against records for the actual engagement.",
+        "Connect measured landing-page queries to qualified enquiry outcomes; current observed query-to-page data is absent."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/sa/about",
+      "language": "en",
+      "region": "sa",
+      "role": "about",
+      "primaryIntent": "Identify CounselO, its founder and professional service model (sa)",
+      "supportingIntents": [
+        "Founder identity and career evidence",
+        "Platform versus cooperating law office",
+        "Languages and jurisdiction-specific scope",
+        "Request appropriate consultation or representation"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "6c939244387359d1309e17f1e66f5ea7c2b95061f4a436016faad7fd08ede9ea",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Saudi Arabia's Specialized Online Legal Consultation Platform"
+          },
+          {
+            "level": "h2",
+            "text": "Democratising Legal Access in Saudi Arabia"
+          },
+          {
+            "level": "h2",
+            "text": "Lawyer & Legal Counsel Omar Al-Baghdadi"
+          },
+          {
+            "level": "h3",
+            "text": "Omar Al-Baghdadi"
+          },
+          {
+            "level": "h2",
+            "text": "The CounselO Difference"
+          },
+          {
+            "level": "h3",
+            "text": "Accessible Legal Guidance"
+          },
+          {
+            "level": "h2",
+            "text": "Saudi Arabia Office — Lawyer Abdullah Al-Anzi"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Consult CounselO — Your Specialized Online Legal Consultation Platform"
+          }
+        ],
+        "mainTextCharacters": 7316,
+        "mainLinks": 8
+      },
+      "implementedChanges": [
+        "Central platform Organization identity preserved across all three countries; old regional override removed."
+      ],
+      "unresolvedGaps": [
+        "Current professional register evidence and the exact office relationship must substantiate licensing and coordination statements.",
+        "Career-wide figures remain self-reported with their visible methodology; they are not independently audited case outcomes."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/sa/ar",
+      "language": "ar",
+      "region": "sa",
+      "role": "regional-home",
+      "primaryIntent": "Start online legal consultation for the selected jurisdiction (sa)",
+      "supportingIntents": [
+        "Individuals, businesses and investors",
+        "Written advice versus court representation",
+        "Choose a practice area",
+        "Agree scope and fee before advice"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "99af10e441248f3a96dec2f129262a4dfb44fdec38ce272464e602bfbced594e",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "استشارة قانونية أونلاين للمملكة العربية السعودية — مركزة ومنظمة."
+          },
+          {
+            "level": "h2",
+            "text": "منصة قانونية إلكترونية لمسائل السعودية"
+          },
+          {
+            "level": "h2",
+            "text": "الاستشارة القانونية الإلكترونية المتكاملة"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تحصل على استشارتك القانونية"
+          },
+          {
+            "level": "h3",
+            "text": "اختر طريقتك"
+          },
+          {
+            "level": "h3",
+            "text": "صف قضيتك"
+          },
+          {
+            "level": "h3",
+            "text": "إتمام الدفع"
+          },
+          {
+            "level": "h3",
+            "text": "احصل على المشورة القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "تأسست على يد المحامي والمستشار القانوني عمر البغدادي"
+          },
+          {
+            "level": "h2",
+            "text": "عندما تستلزم القضية حضوراً شخصياً"
+          },
+          {
+            "level": "h2",
+            "text": "خبرة قانونية لكل عميل"
+          },
+          {
+            "level": "h3",
+            "text": "الأفراد"
+          },
+          {
+            "level": "h3",
+            "text": "الشركات"
+          },
+          {
+            "level": "h3",
+            "text": "المستثمرون الأجانب"
+          },
+          {
+            "level": "h3",
+            "text": "المؤسسات"
+          },
+          {
+            "level": "h2",
+            "text": "مجالات الممارسة الرئيسية — المملكة العربية السعودية"
+          },
+          {
+            "level": "h3",
+            "text": "النظام التجاري والتقاضي"
+          },
+          {
+            "level": "h3",
+            "text": "التحكيم وحل النزاعات"
+          },
+          {
+            "level": "h3",
+            "text": "النظام العقاري والملكية"
+          },
+          {
+            "level": "h3",
+            "text": "التنفيذ وتحصيل الديون"
+          },
+          {
+            "level": "h3",
+            "text": "النزاعات الإدارية والحكومية"
+          },
+          {
+            "level": "h3",
+            "text": "الاستثمار الأجنبي وقانون الأعمال"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث مقالاتنا وأعمالنا القانونية"
+          },
+          {
+            "level": "h3",
+            "text": "أحدث المقالات"
+          },
+          {
+            "level": "h3",
+            "text": "أحدث أعمالنا"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "اعرف أساس الخدمة قبل البدء"
+          },
+          {
+            "level": "h2",
+            "text": "استجابة قانونية احترافية ضمن وقت استجابة مستهدف خلال 24 ساعة، بحسب النطاق والاستعجال واكتمال المعلومات وتوفر الخدمة."
+          },
+          {
+            "level": "h2",
+            "text": "أسئلة تساعدك على تحديد الخطوة التالية"
+          }
+        ],
+        "mainTextCharacters": 16035,
+        "mainLinks": 37
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Validate named local coordination and current professional authority against records for the actual engagement.",
+        "Connect measured landing-page queries to qualified enquiry outcomes; current observed query-to-page data is absent."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/sa/ar/about",
+      "language": "ar",
+      "region": "sa",
+      "role": "about",
+      "primaryIntent": "Identify CounselO, its founder and professional service model (sa)",
+      "supportingIntents": [
+        "Founder identity and career evidence",
+        "Platform versus cooperating law office",
+        "Languages and jurisdiction-specific scope",
+        "Request appropriate consultation or representation"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "89bad3286bb20574f88cf191352c5ad1be69f572a499546118d615e8089e35bf",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "منصة قانونية متخصصة للاستشارات القانونية الأونلاين في المملكة العربية السعودية"
+          },
+          {
+            "level": "h2",
+            "text": "تيسير الوصول إلى العدالة في المملكة العربية السعودية"
+          },
+          {
+            "level": "h2",
+            "text": "المحامي والمستشار القانوني عمر البغدادي"
+          },
+          {
+            "level": "h3",
+            "text": "المحامي عمر البغدادي"
+          },
+          {
+            "level": "h2",
+            "text": "الفارق الذي تُحدثه كاونسلو"
+          },
+          {
+            "level": "h3",
+            "text": "تيسير الوصول إلى العدالة"
+          },
+          {
+            "level": "h2",
+            "text": "مكتب السعودية — المحامي عبدالله العنزي"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "تشاور مع منصة كاونسلو المتخصصة للاستشارات القانونية أونلاين"
+          }
+        ],
+        "mainTextCharacters": 6462,
+        "mainLinks": 8
+      },
+      "implementedChanges": [
+        "Central platform Organization identity preserved across all three countries; old regional override removed."
+      ],
+      "unresolvedGaps": [
+        "Current professional register evidence and the exact office relationship must substantiate licensing and coordination statements.",
+        "Career-wide figures remain self-reported with their visible methodology; they are not independently audited case outcomes."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/sa/ar/contact",
+      "language": "ar",
+      "region": "sa",
+      "role": "contact",
+      "primaryIntent": "Request a scoped legal consultation (sa)",
+      "supportingIntents": [
+        "Contact channels and country",
+        "Information and attachments to prepare",
+        "Fee approval and written advice delivery",
+        "Provider identity and separate local representation"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "2d1479bd117fa8e52de2cd3abcc33c3c415a8599fd03cc48333a5a74cdf870a3",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "ابدأ استشارتك القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تعمل الاستشارة القانونية أونلاين؟"
+          },
+          {
+            "level": "h3",
+            "text": "أرسل التفاصيل"
+          },
+          {
+            "level": "h3",
+            "text": "نراجع مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "اتفق على الخدمة والرسوم"
+          },
+          {
+            "level": "h3",
+            "text": "استلم المشورة والخطوة التالية"
+          },
+          {
+            "level": "h3",
+            "text": "تفاصيل المكتب"
+          },
+          {
+            "level": "h3",
+            "text": "طلب استشارة"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أسئلة تساعدك على تحديد الخطوة التالية"
+          }
+        ],
+        "mainTextCharacters": 3783,
+        "mainLinks": 5
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Delivery and response-time monitoring require an authorised real submission or operational evidence; the local read-only preview does not establish receipt.",
+        "Office-location labels and the local professional responsible need current evidence separate from the common Saudi intake number."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/sa/ar/privacy-policy",
+      "language": "ar",
+      "region": "sa",
+      "role": "privacy-policy",
+      "primaryIntent": "Understand how CounselO handles consultation and website data (sa)",
+      "supportingIntents": [
+        "Data collected and purposes",
+        "Confidentiality and disclosures",
+        "Analytics, providers and communications",
+        "Rights requests, retention and contact"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "2e3738dfbd87665ef6514ac57975afdf0e05f5ec6c5c9fae7538b8af03324bf6",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "سياسة الخصوصية"
+          },
+          {
+            "level": "h2",
+            "text": "١. من نحن"
+          },
+          {
+            "level": "h2",
+            "text": "٢. المعلومات التي نجمعها"
+          },
+          {
+            "level": "h2",
+            "text": "٣. كيف نستخدم معلوماتك"
+          },
+          {
+            "level": "h2",
+            "text": "٤. السرية المهنية القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "٥. التواصل عبر واتساب والبريد الإلكتروني"
+          },
+          {
+            "level": "h2",
+            "text": "٦. ملفات تعريف الارتباط وتحليلات الموقع"
+          },
+          {
+            "level": "h2",
+            "text": "٧. الأساس القانوني للمعالجة"
+          },
+          {
+            "level": "h2",
+            "text": "٨. مشاركة البيانات مع الأطراف الثالثة"
+          },
+          {
+            "level": "h2",
+            "text": "٩. مدة الاحتفاظ بالبيانات"
+          },
+          {
+            "level": "h2",
+            "text": "١٠. حقوقك"
+          },
+          {
+            "level": "h2",
+            "text": "١١. إجراءات الأمن"
+          },
+          {
+            "level": "h2",
+            "text": "١٢. التعديلات على هذه السياسة"
+          },
+          {
+            "level": "h2",
+            "text": "لديك سؤال أو استفسار حول الخصوصية؟"
+          }
+        ],
+        "mainTextCharacters": 6666,
+        "mainLinks": 17
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Verify actual processors, retention and analytics data flow against the published statements.",
+        "Applicable processing basis and rights must be checked for the actual controller/regime; a regional page label alone does not resolve federal/free-zone or cross-border scope."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/sa/ar/services",
+      "language": "ar",
+      "region": "sa",
+      "role": "services",
+      "primaryIntent": "Find the relevant service or legal problem in the selected jurisdiction (sa)",
+      "supportingIntents": [
+        "Compare service scopes",
+        "Navigate to a precise matter page",
+        "Prepare for an initial consultation",
+        "Identify local forum and engagement limits"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "90196c29c2b51fd54d3dd7bea62a255bc8ef775bfe817629c449d33afc4b1560",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "17 مجالاً قانونياً"
+          }
+        ],
+        "mainTextCharacters": 3972,
+        "mainLinks": 19
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Each linked matter still needs its own rule, exception, process and deadline review; directory coverage alone does not answer those matters.",
+        "Long service-list descriptions need snippet evaluation against actual Google/Bing display, rather than treating a generated description as guaranteed."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/sa/ar/terms-of-service",
+      "language": "ar",
+      "region": "sa",
+      "role": "terms-of-service",
+      "primaryIntent": "Understand consultation scope, price approval and delivery terms (sa)",
+      "supportingIntents": [
+        "Request assessment and fee quote",
+        "Payment before legal answer",
+        "Clarification and mandatory-law refund exception",
+        "Separate representation agreement"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "04f0ce64992a279b59a1dfe2d549cd9744d0dba3afb4413264e24da55be2d949",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "شروط الخدمة"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تسير عملية الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الأولى — إرسال معلوماتك"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الثانية — نقيّم الطلب ونخبرك بالتكلفة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الثالثة — الدفع قبل تلقّي الإجابة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الرابعة — تستلم إجابتك القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "الشروط العامة"
+          },
+          {
+            "level": "h3",
+            "text": "السرية التامة"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "عدم استرداد المبلغ بعد التسليم"
+          },
+          {
+            "level": "h3",
+            "text": "الاستشارة لا تعني التمثيل القانوني"
+          },
+          {
+            "level": "h3",
+            "text": "تعديل الشروط"
+          },
+          {
+            "level": "h2",
+            "text": "مستعد للبدء؟"
+          }
+        ],
+        "mainTextCharacters": 2357,
+        "mainLinks": 6
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Reconcile quote, delivery and clarification commitments with the actual engagement workflow.",
+        "Confirm consumer and professional mandatory terms for the actual service before applying the general terms to an individual dispute."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/sa/ar/vision",
+      "language": "ar",
+      "region": "sa",
+      "role": "vision",
+      "primaryIntent": "Understand CounselO mission and professional approach (sa)",
+      "supportingIntents": [
+        "Why the platform was created",
+        "Professional values",
+        "Legal knowledge and remote services",
+        "Founder statement"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "abe31012dd941a15f10532322a5fa38eb039673dd51d3fcae3165784ec600f7f",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "القانون… أقرب، أوضح، وأكثر موثوقية"
+          },
+          {
+            "level": "h2",
+            "text": "خبرة عملية تستجيب لتحديات قانونية حقيقية"
+          },
+          {
+            "level": "h2",
+            "text": "مرجع قانوني رقمي موثوق للعالم العربي"
+          },
+          {
+            "level": "h2",
+            "text": "خبرة ودقة وتقنية، في خدمة قرار قانوني أفضل"
+          },
+          {
+            "level": "h2",
+            "text": "قيمنا المهنية"
+          },
+          {
+            "level": "h3",
+            "text": "الاحترافية"
+          },
+          {
+            "level": "h3",
+            "text": "النزاهة"
+          },
+          {
+            "level": "h3",
+            "text": "السرية"
+          },
+          {
+            "level": "h3",
+            "text": "الدقة"
+          },
+          {
+            "level": "h3",
+            "text": "الابتكار"
+          },
+          {
+            "level": "h3",
+            "text": "التطوير المستمر"
+          },
+          {
+            "level": "h3",
+            "text": "احترام العميل"
+          },
+          {
+            "level": "h3",
+            "text": "المسؤولية المهنية"
+          },
+          {
+            "level": "h2",
+            "text": "ليست مجرد منصة لحجز استشارة قانونية"
+          },
+          {
+            "level": "h3",
+            "text": "مقالات ودراسات قانونية متخصصة"
+          },
+          {
+            "level": "h3",
+            "text": "استشارات قانونية عن بُعد"
+          },
+          {
+            "level": "h3",
+            "text": "حلول للشركات ورواد الأعمال"
+          },
+          {
+            "level": "h3",
+            "text": "خدمات التقاضي والتحكيم"
+          },
+          {
+            "level": "h3",
+            "text": "نماذج وأدلة قانونية"
+          },
+          {
+            "level": "h3",
+            "text": "دعم قانوني متعدد اللغات"
+          },
+          {
+            "level": "h3",
+            "text": "استخدام التقنيات الحديثة لتحسين تجربة العميل"
+          },
+          {
+            "level": "h2",
+            "text": "كلمة المؤسس"
+          }
+        ],
+        "mainTextCharacters": 3355,
+        "mainLinks": 2
+      },
+      "implementedChanges": [
+        "Central platform Organization identity preserved across all three countries; old regional override removed."
+      ],
+      "unresolvedGaps": [
+        "Mission statements describe intended standards; they are not proof that every legal proposition has been reviewed.",
+        "Brand navigation is this page purpose; unrelated matter-query lists would not supply relevant answers."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/sa/contact",
+      "language": "en",
+      "region": "sa",
+      "role": "contact",
+      "primaryIntent": "Request a scoped legal consultation (sa)",
+      "supportingIntents": [
+        "Contact channels and country",
+        "Information and attachments to prepare",
+        "Fee approval and written advice delivery",
+        "Provider identity and separate local representation"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "9e57a1cf1300dbbcdf409d149e3fd1ffdf4cb2a726d3748c11e32b3926f6b3b6",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Start Your Consultation"
+          },
+          {
+            "level": "h2",
+            "text": "How online legal consultation works"
+          },
+          {
+            "level": "h3",
+            "text": "Send the details"
+          },
+          {
+            "level": "h3",
+            "text": "We review your matter"
+          },
+          {
+            "level": "h3",
+            "text": "Agree on the service and fee"
+          },
+          {
+            "level": "h3",
+            "text": "Receive advice and next steps"
+          },
+          {
+            "level": "h3",
+            "text": "Firm Details"
+          },
+          {
+            "level": "h3",
+            "text": "Request a Consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Questions to clarify your next step"
+          }
+        ],
+        "mainTextCharacters": 4726,
+        "mainLinks": 5
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Delivery and response-time monitoring require an authorised real submission or operational evidence; the local read-only preview does not establish receipt.",
+        "Office-location labels and the local professional responsible need current evidence separate from the common Saudi intake number."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/sa/privacy-policy",
+      "language": "en",
+      "region": "sa",
+      "role": "privacy-policy",
+      "primaryIntent": "Understand how CounselO handles consultation and website data (sa)",
+      "supportingIntents": [
+        "Data collected and purposes",
+        "Confidentiality and disclosures",
+        "Analytics, providers and communications",
+        "Rights requests, retention and contact"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "28eb30b43ed78f34086406df21ae6d6f64a59add841c56184f8bc9946c26b342",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Privacy Policy"
+          },
+          {
+            "level": "h2",
+            "text": "1. Who We Are"
+          },
+          {
+            "level": "h2",
+            "text": "2. Information We Collect"
+          },
+          {
+            "level": "h2",
+            "text": "3. How We Use Your Information"
+          },
+          {
+            "level": "h2",
+            "text": "4. Professional Legal Confidentiality"
+          },
+          {
+            "level": "h2",
+            "text": "5. WhatsApp & Email Communications"
+          },
+          {
+            "level": "h2",
+            "text": "6. Cookies & Website Analytics"
+          },
+          {
+            "level": "h2",
+            "text": "7. Legal Basis for Processing"
+          },
+          {
+            "level": "h2",
+            "text": "8. Data Sharing & Third Parties"
+          },
+          {
+            "level": "h2",
+            "text": "9. Data Retention"
+          },
+          {
+            "level": "h2",
+            "text": "10. Your Rights"
+          },
+          {
+            "level": "h2",
+            "text": "11. Security Measures"
+          },
+          {
+            "level": "h2",
+            "text": "12. Changes to This Policy"
+          },
+          {
+            "level": "h2",
+            "text": "Privacy Questions or Concerns?"
+          }
+        ],
+        "mainTextCharacters": 7897,
+        "mainLinks": 17
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Verify actual processors, retention and analytics data flow against the published statements.",
+        "Applicable processing basis and rights must be checked for the actual controller/regime; a regional page label alone does not resolve federal/free-zone or cross-border scope."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/sa/services",
+      "language": "en",
+      "region": "sa",
+      "role": "services",
+      "primaryIntent": "Find the relevant service or legal problem in the selected jurisdiction (sa)",
+      "supportingIntents": [
+        "Compare service scopes",
+        "Navigate to a precise matter page",
+        "Prepare for an initial consultation",
+        "Identify local forum and engagement limits"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "a4120833323e10840c742ef1848b7b7c066b292e220496731ba45c8a24aa1568",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "17 Legal Practice Areas"
+          }
+        ],
+        "mainTextCharacters": 5087,
+        "mainLinks": 19
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Each linked matter still needs its own rule, exception, process and deadline review; directory coverage alone does not answer those matters.",
+        "Long service-list descriptions need snippet evaluation against actual Google/Bing display, rather than treating a generated description as guaranteed."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/sa/terms-of-service",
+      "language": "en",
+      "region": "sa",
+      "role": "terms-of-service",
+      "primaryIntent": "Understand consultation scope, price approval and delivery terms (sa)",
+      "supportingIntents": [
+        "Request assessment and fee quote",
+        "Payment before legal answer",
+        "Clarification and mandatory-law refund exception",
+        "Separate representation agreement"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "00f0a0f40c229c4eeb4e1d73fdef59f8010d80862f3c1a7d3f1464ac86e37564",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Terms of Service"
+          },
+          {
+            "level": "h2",
+            "text": "How Our Consultation Process Works"
+          },
+          {
+            "level": "h3",
+            "text": "Step 1 — Submit Your Information"
+          },
+          {
+            "level": "h3",
+            "text": "Step 2 — We Assess & Inform You of the Cost"
+          },
+          {
+            "level": "h3",
+            "text": "Step 3 — Payment Before the Answer"
+          },
+          {
+            "level": "h3",
+            "text": "Step 4 — You Receive the Legal Answer"
+          },
+          {
+            "level": "h2",
+            "text": "General Terms"
+          },
+          {
+            "level": "h3",
+            "text": "Confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Scope of Consultation"
+          },
+          {
+            "level": "h3",
+            "text": "No Refunds After Delivery"
+          },
+          {
+            "level": "h3",
+            "text": "No Attorney-Client Relationship for Representation"
+          },
+          {
+            "level": "h3",
+            "text": "Changes to Terms"
+          },
+          {
+            "level": "h2",
+            "text": "Ready to Get Started?"
+          }
+        ],
+        "mainTextCharacters": 2935,
+        "mainLinks": 6
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Reconcile quote, delivery and clarification commitments with the actual engagement workflow.",
+        "Confirm consumer and professional mandatory terms for the actual service before applying the general terms to an individual dispute."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/sa/vision",
+      "language": "en",
+      "region": "sa",
+      "role": "vision",
+      "primaryIntent": "Understand CounselO mission and professional approach (sa)",
+      "supportingIntents": [
+        "Why the platform was created",
+        "Professional values",
+        "Legal knowledge and remote services",
+        "Founder statement"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "1427081b7b591faa51e8882cb2552e287c840a2f03696e576e0484ebf9b8650c",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Law—closer, clearer, and more trustworthy"
+          },
+          {
+            "level": "h2",
+            "text": "Practical experience responding to real legal challenges"
+          },
+          {
+            "level": "h2",
+            "text": "A trusted digital legal reference for the Arab world"
+          },
+          {
+            "level": "h2",
+            "text": "Experience, precision, and technology for better legal decisions"
+          },
+          {
+            "level": "h2",
+            "text": "Our professional values"
+          },
+          {
+            "level": "h3",
+            "text": "Professionalism"
+          },
+          {
+            "level": "h3",
+            "text": "Integrity"
+          },
+          {
+            "level": "h3",
+            "text": "Professional Legal Confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Precision"
+          },
+          {
+            "level": "h3",
+            "text": "Innovation"
+          },
+          {
+            "level": "h3",
+            "text": "Continuous improvement"
+          },
+          {
+            "level": "h3",
+            "text": "Respect for clients"
+          },
+          {
+            "level": "h3",
+            "text": "Professional responsibility"
+          },
+          {
+            "level": "h2",
+            "text": "Not merely a platform for booking legal consultations"
+          },
+          {
+            "level": "h3",
+            "text": "Specialized legal articles and studies"
+          },
+          {
+            "level": "h3",
+            "text": "Remote legal consultations"
+          },
+          {
+            "level": "h3",
+            "text": "Solutions for companies and entrepreneurs"
+          },
+          {
+            "level": "h3",
+            "text": "Litigation and arbitration services"
+          },
+          {
+            "level": "h3",
+            "text": "Legal templates and guides"
+          },
+          {
+            "level": "h3",
+            "text": "Multilingual legal support"
+          },
+          {
+            "level": "h3",
+            "text": "Modern technology to improve the client experience"
+          },
+          {
+            "level": "h2",
+            "text": "A word from the founder"
+          }
+        ],
+        "mainTextCharacters": 4572,
+        "mainLinks": 2
+      },
+      "implementedChanges": [
+        "Central platform Organization identity preserved across all three countries; old regional override removed."
+      ],
+      "unresolvedGaps": [
+        "Mission statements describe intended standards; they are not proof that every legal proposition has been reviewed.",
+        "Brand navigation is this page purpose; unrelated matter-query lists would not supply relevant answers."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/syr",
+      "language": "en",
+      "region": "syr",
+      "role": "regional-home",
+      "primaryIntent": "Start online legal consultation for the selected jurisdiction (syr)",
+      "supportingIntents": [
+        "Individuals, businesses and investors",
+        "Written advice versus court representation",
+        "Choose a practice area",
+        "Agree scope and fee before advice"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "bf38c9b6d3273caa118e7f18d1a6d8983f11728c3ac5af8471c35fe7359bb5d3",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Online Legal Consultation for Syria — Focused & Structured."
+          },
+          {
+            "level": "h2",
+            "text": "Online legal platform for Syria matters"
+          },
+          {
+            "level": "h2",
+            "text": "Comprehensive Online Legal Consultation"
+          },
+          {
+            "level": "h2",
+            "text": "How to Get Your Legal Consultation"
+          },
+          {
+            "level": "h3",
+            "text": "Choose Your Method"
+          },
+          {
+            "level": "h3",
+            "text": "Describe Your Matter"
+          },
+          {
+            "level": "h3",
+            "text": "Complete Payment"
+          },
+          {
+            "level": "h3",
+            "text": "Receive Expert Guidance"
+          },
+          {
+            "level": "h2",
+            "text": "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi"
+          },
+          {
+            "level": "h2",
+            "text": "When a Matter Requires In-Person Presence"
+          },
+          {
+            "level": "h2",
+            "text": "Legal Expertise for Every Client"
+          },
+          {
+            "level": "h3",
+            "text": "Individuals"
+          },
+          {
+            "level": "h3",
+            "text": "Businesses"
+          },
+          {
+            "level": "h3",
+            "text": "Foreign Investors"
+          },
+          {
+            "level": "h3",
+            "text": "Diaspora Clients"
+          },
+          {
+            "level": "h2",
+            "text": "Core Practice Areas in Syria"
+          },
+          {
+            "level": "h3",
+            "text": "Commercial Law & Litigation"
+          },
+          {
+            "level": "h3",
+            "text": "Arbitration & Dispute Resolution"
+          },
+          {
+            "level": "h3",
+            "text": "Real Estate & Property Law"
+          },
+          {
+            "level": "h3",
+            "text": "Enforcement & Debt Collection"
+          },
+          {
+            "level": "h3",
+            "text": "Administrative & Government Disputes"
+          },
+          {
+            "level": "h3",
+            "text": "Foreign Investment & Business Law"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h3",
+            "text": "Latest articles"
+          },
+          {
+            "level": "h3",
+            "text": "Latest our work"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Know the basis of the service before you begin"
+          },
+          {
+            "level": "h2",
+            "text": "Discuss Your Matter with CounselO."
+          },
+          {
+            "level": "h2",
+            "text": "Questions to clarify your next step"
+          }
+        ],
+        "mainTextCharacters": 14918,
+        "mainLinks": 29
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Validate named local coordination and current professional authority against records for the actual engagement.",
+        "Connect measured landing-page queries to qualified enquiry outcomes; current observed query-to-page data is absent.",
+        "Do not import Gulf procedure terminology into Syria matter intake; the current source correction requires the next build."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/syr/about",
+      "language": "en",
+      "region": "syr",
+      "role": "about",
+      "primaryIntent": "Identify CounselO, its founder and professional service model (syr)",
+      "supportingIntents": [
+        "Founder identity and career evidence",
+        "Platform versus cooperating law office",
+        "Languages and jurisdiction-specific scope",
+        "Request appropriate consultation or representation"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "a42f6170ead99c0f5a00b7953c120a6e732008301835122220e0ec8ee8f9048c",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Syria's Specialized Online Legal Consultation Platform"
+          },
+          {
+            "level": "h2",
+            "text": "Democratising Legal Access in Syria"
+          },
+          {
+            "level": "h2",
+            "text": "Lawyer & Legal Counsel Omar Al-Baghdadi"
+          },
+          {
+            "level": "h3",
+            "text": "Omar Al-Baghdadi"
+          },
+          {
+            "level": "h2",
+            "text": "The CounselO Difference"
+          },
+          {
+            "level": "h3",
+            "text": "Access to Justice"
+          },
+          {
+            "level": "h2",
+            "text": "Syria Offices — Field Presence"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Consult CounselO — Syria's Specialized Online Legal Consultation Platform"
+          }
+        ],
+        "mainTextCharacters": 7661,
+        "mainLinks": 9
+      },
+      "implementedChanges": [
+        "Central platform Organization identity preserved across all three countries; old regional override removed."
+      ],
+      "unresolvedGaps": [
+        "Current professional register evidence and the exact office relationship must substantiate licensing and coordination statements.",
+        "Career-wide figures remain self-reported with their visible methodology; they are not independently audited case outcomes."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/syr/ar",
+      "language": "ar",
+      "region": "syr",
+      "role": "regional-home",
+      "primaryIntent": "Start online legal consultation for the selected jurisdiction (syr)",
+      "supportingIntents": [
+        "Individuals, businesses and investors",
+        "Written advice versus court representation",
+        "Choose a practice area",
+        "Agree scope and fee before advice"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "53df82ee50d4805d7ce092d746171ec03a539191403721fe6072a7db02822891",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "استشارة قانونية إلكترونية في سوريا — مركزة ومنظمة."
+          },
+          {
+            "level": "h2",
+            "text": "منصة قانونية إلكترونية لمسائل سوريا"
+          },
+          {
+            "level": "h2",
+            "text": "الاستشارة القانونية الإلكترونية المتكاملة"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تحصل على استشارتك القانونية"
+          },
+          {
+            "level": "h3",
+            "text": "اختر طريقتك"
+          },
+          {
+            "level": "h3",
+            "text": "صف قضيتك"
+          },
+          {
+            "level": "h3",
+            "text": "إتمام الدفع"
+          },
+          {
+            "level": "h3",
+            "text": "احصل على المشورة القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "تأسست على يد المحامي والمستشار القانوني عمر البغدادي"
+          },
+          {
+            "level": "h2",
+            "text": "عندما تستلزم القضية حضوراً شخصياً"
+          },
+          {
+            "level": "h2",
+            "text": "خبرة قانونية لكل عميل"
+          },
+          {
+            "level": "h3",
+            "text": "الأفراد"
+          },
+          {
+            "level": "h3",
+            "text": "الشركات"
+          },
+          {
+            "level": "h3",
+            "text": "المستثمرون الأجانب"
+          },
+          {
+            "level": "h3",
+            "text": "المغتربون السوريون"
+          },
+          {
+            "level": "h2",
+            "text": "مجالات الممارسة الرئيسية في سوريا"
+          },
+          {
+            "level": "h3",
+            "text": "القانون التجاري والتقاضي"
+          },
+          {
+            "level": "h3",
+            "text": "التحكيم وحل النزاعات"
+          },
+          {
+            "level": "h3",
+            "text": "قانون العقارات والملكية"
+          },
+          {
+            "level": "h3",
+            "text": "التنفيذ وتحصيل الديون"
+          },
+          {
+            "level": "h3",
+            "text": "القانون الإداري والنزاعات الحكومية"
+          },
+          {
+            "level": "h3",
+            "text": "الاستثمار الأجنبي وقانون الأعمال"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث مقالاتنا وأعمالنا القانونية"
+          },
+          {
+            "level": "h3",
+            "text": "أحدث المقالات"
+          },
+          {
+            "level": "h3",
+            "text": "أحدث أعمالنا"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "اعرف أساس الخدمة قبل البدء"
+          },
+          {
+            "level": "h2",
+            "text": "استجابة قانونية احترافية ضمن وقت استجابة مستهدف خلال 24 ساعة، بحسب النطاق والاستعجال واكتمال المعلومات وتوفر الخدمة."
+          },
+          {
+            "level": "h2",
+            "text": "أسئلة تساعدك على تحديد الخطوة التالية"
+          }
+        ],
+        "mainTextCharacters": 12239,
+        "mainLinks": 29
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Validate named local coordination and current professional authority against records for the actual engagement.",
+        "Connect measured landing-page queries to qualified enquiry outcomes; current observed query-to-page data is absent.",
+        "Do not import Gulf procedure terminology into Syria matter intake; the current source correction requires the next build."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/syr/ar/about",
+      "language": "ar",
+      "region": "syr",
+      "role": "about",
+      "primaryIntent": "Identify CounselO, its founder and professional service model (syr)",
+      "supportingIntents": [
+        "Founder identity and career evidence",
+        "Platform versus cooperating law office",
+        "Languages and jurisdiction-specific scope",
+        "Request appropriate consultation or representation"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "bca924f7faa599dc2ed5b4a4243f8d057b6cc33f002a5a49b9fed48fc88e86ac",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "منصة الاستشارات القانونية الإلكترونية المتخصصة في سوريا"
+          },
+          {
+            "level": "h2",
+            "text": "تيسير الوصول إلى العدالة في سوريا"
+          },
+          {
+            "level": "h2",
+            "text": "المحامي والمستشار القانوني عمر البغدادي"
+          },
+          {
+            "level": "h3",
+            "text": "المحامي عمر البغدادي"
+          },
+          {
+            "level": "h2",
+            "text": "الفارق الذي تُحدثه كاونسلو"
+          },
+          {
+            "level": "h3",
+            "text": "تيسير الوصول إلى العدالة"
+          },
+          {
+            "level": "h2",
+            "text": "مكاتب سوريا — الحضور الميداني"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "تشاور مع كاونسلو — منصة الاستشارات القانونية الإلكترونية المتخصصة في سوريا"
+          }
+        ],
+        "mainTextCharacters": 6470,
+        "mainLinks": 9
+      },
+      "implementedChanges": [
+        "Central platform Organization identity preserved across all three countries; old regional override removed."
+      ],
+      "unresolvedGaps": [
+        "Current professional register evidence and the exact office relationship must substantiate licensing and coordination statements.",
+        "Career-wide figures remain self-reported with their visible methodology; they are not independently audited case outcomes."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/syr/ar/contact",
+      "language": "ar",
+      "region": "syr",
+      "role": "contact",
+      "primaryIntent": "Request a scoped legal consultation (syr)",
+      "supportingIntents": [
+        "Contact channels and country",
+        "Information and attachments to prepare",
+        "Fee approval and written advice delivery",
+        "Provider identity and separate local representation"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "e914ef16f35d06da1cd0dd6cb6b2f39938075df0ad6e2e820635f27cde6bc315",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "ابدأ استشارتك القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تعمل الاستشارة القانونية أونلاين؟"
+          },
+          {
+            "level": "h3",
+            "text": "أرسل التفاصيل"
+          },
+          {
+            "level": "h3",
+            "text": "نراجع مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "اتفق على الخدمة والرسوم"
+          },
+          {
+            "level": "h3",
+            "text": "استلم المشورة والخطوة التالية"
+          },
+          {
+            "level": "h3",
+            "text": "تفاصيل المكتب"
+          },
+          {
+            "level": "h3",
+            "text": "طلب استشارة"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أسئلة تساعدك على تحديد الخطوة التالية"
+          }
+        ],
+        "mainTextCharacters": 3733,
+        "mainLinks": 5
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Delivery and response-time monitoring require an authorised real submission or operational evidence; the local read-only preview does not establish receipt.",
+        "Office-location labels and the local professional responsible need current evidence separate from the common Saudi intake number."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/syr/ar/privacy-policy",
+      "language": "ar",
+      "region": "syr",
+      "role": "privacy-policy",
+      "primaryIntent": "Understand how CounselO handles consultation and website data (syr)",
+      "supportingIntents": [
+        "Data collected and purposes",
+        "Confidentiality and disclosures",
+        "Analytics, providers and communications",
+        "Rights requests, retention and contact"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "6bfde9c21b6d7bde293b1fc0408bf212f79ecd02a30767f227932fe0db11ff4d",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "سياسة الخصوصية"
+          },
+          {
+            "level": "h2",
+            "text": "١. من نحن"
+          },
+          {
+            "level": "h2",
+            "text": "٢. المعلومات التي نجمعها"
+          },
+          {
+            "level": "h2",
+            "text": "٣. كيف نستخدم معلوماتك"
+          },
+          {
+            "level": "h2",
+            "text": "٤. السرية المهنية القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "٥. التواصل عبر واتساب والبريد الإلكتروني"
+          },
+          {
+            "level": "h2",
+            "text": "٦. ملفات تعريف الارتباط وتحليلات الموقع"
+          },
+          {
+            "level": "h2",
+            "text": "٧. الأساس القانوني للمعالجة"
+          },
+          {
+            "level": "h2",
+            "text": "٨. مشاركة البيانات مع الأطراف الثالثة"
+          },
+          {
+            "level": "h2",
+            "text": "٩. مدة الاحتفاظ بالبيانات"
+          },
+          {
+            "level": "h2",
+            "text": "١٠. حقوقك"
+          },
+          {
+            "level": "h2",
+            "text": "١١. إجراءات الأمن"
+          },
+          {
+            "level": "h2",
+            "text": "١٢. التعديلات على هذه السياسة"
+          },
+          {
+            "level": "h2",
+            "text": "لديك سؤال أو استفسار حول الخصوصية؟"
+          }
+        ],
+        "mainTextCharacters": 6557,
+        "mainLinks": 17
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Verify actual processors, retention and analytics data flow against the published statements.",
+        "Applicable processing basis and rights must be checked for the actual controller/regime; a regional page label alone does not resolve federal/free-zone or cross-border scope."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/syr/ar/services",
+      "language": "ar",
+      "region": "syr",
+      "role": "services",
+      "primaryIntent": "Find the relevant service or legal problem in the selected jurisdiction (syr)",
+      "supportingIntents": [
+        "Compare service scopes",
+        "Navigate to a precise matter page",
+        "Prepare for an initial consultation",
+        "Identify local forum and engagement limits"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "ebe8c4555f2ee7479aeb140c624893b4a84134214ddd3850308213baf7927369",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "20 مجالاً قانونياً متخصصاً"
+          }
+        ],
+        "mainTextCharacters": 4687,
+        "mainLinks": 22
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Each linked matter still needs its own rule, exception, process and deadline review; directory coverage alone does not answer those matters.",
+        "Long service-list descriptions need snippet evaluation against actual Google/Bing display, rather than treating a generated description as guaranteed.",
+        "Do not import Gulf procedure terminology into Syria matter intake; the current source correction requires the next build."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/syr/ar/terms-of-service",
+      "language": "ar",
+      "region": "syr",
+      "role": "terms-of-service",
+      "primaryIntent": "Understand consultation scope, price approval and delivery terms (syr)",
+      "supportingIntents": [
+        "Request assessment and fee quote",
+        "Payment before legal answer",
+        "Clarification and mandatory-law refund exception",
+        "Separate representation agreement"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "e9a8801393db142cecd75221567fd90a6f3d7ea13bb9eef84637a3a07e086dae",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "شروط الخدمة"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تسير عملية الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الأولى — إرسال معلوماتك"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الثانية — نقيّم الطلب ونخبرك بالتكلفة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الثالثة — الدفع قبل تلقّي الإجابة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الرابعة — تستلم إجابتك القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "الشروط العامة"
+          },
+          {
+            "level": "h3",
+            "text": "السرية التامة"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "عدم استرداد المبلغ بعد التسليم"
+          },
+          {
+            "level": "h3",
+            "text": "الاستشارة لا تعني التمثيل القانوني"
+          },
+          {
+            "level": "h3",
+            "text": "تعديل الشروط"
+          },
+          {
+            "level": "h2",
+            "text": "مستعد للبدء؟"
+          }
+        ],
+        "mainTextCharacters": 2338,
+        "mainLinks": 6
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Reconcile quote, delivery and clarification commitments with the actual engagement workflow.",
+        "Confirm consumer and professional mandatory terms for the actual service before applying the general terms to an individual dispute."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/syr/ar/vision",
+      "language": "ar",
+      "region": "syr",
+      "role": "vision",
+      "primaryIntent": "Understand CounselO mission and professional approach (syr)",
+      "supportingIntents": [
+        "Why the platform was created",
+        "Professional values",
+        "Legal knowledge and remote services",
+        "Founder statement"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "465f0abd5b97e20fda8ffa1dbd576ccc737fde3b1afa9c6b680436c7aaed03d7",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "القانون… أقرب، أوضح، وأكثر موثوقية"
+          },
+          {
+            "level": "h2",
+            "text": "خبرة عملية تستجيب لتحديات قانونية حقيقية"
+          },
+          {
+            "level": "h2",
+            "text": "مرجع قانوني رقمي موثوق للعالم العربي"
+          },
+          {
+            "level": "h2",
+            "text": "خبرة ودقة وتقنية، في خدمة قرار قانوني أفضل"
+          },
+          {
+            "level": "h2",
+            "text": "قيمنا المهنية"
+          },
+          {
+            "level": "h3",
+            "text": "الاحترافية"
+          },
+          {
+            "level": "h3",
+            "text": "النزاهة"
+          },
+          {
+            "level": "h3",
+            "text": "السرية"
+          },
+          {
+            "level": "h3",
+            "text": "الدقة"
+          },
+          {
+            "level": "h3",
+            "text": "الابتكار"
+          },
+          {
+            "level": "h3",
+            "text": "التطوير المستمر"
+          },
+          {
+            "level": "h3",
+            "text": "احترام العميل"
+          },
+          {
+            "level": "h3",
+            "text": "المسؤولية المهنية"
+          },
+          {
+            "level": "h2",
+            "text": "ليست مجرد منصة لحجز استشارة قانونية"
+          },
+          {
+            "level": "h3",
+            "text": "مقالات ودراسات قانونية متخصصة"
+          },
+          {
+            "level": "h3",
+            "text": "استشارات قانونية عن بُعد"
+          },
+          {
+            "level": "h3",
+            "text": "حلول للشركات ورواد الأعمال"
+          },
+          {
+            "level": "h3",
+            "text": "خدمات التقاضي والتحكيم"
+          },
+          {
+            "level": "h3",
+            "text": "نماذج وأدلة قانونية"
+          },
+          {
+            "level": "h3",
+            "text": "دعم قانوني متعدد اللغات"
+          },
+          {
+            "level": "h3",
+            "text": "استخدام التقنيات الحديثة لتحسين تجربة العميل"
+          },
+          {
+            "level": "h2",
+            "text": "كلمة المؤسس"
+          }
+        ],
+        "mainTextCharacters": 3336,
+        "mainLinks": 2
+      },
+      "implementedChanges": [
+        "Central platform Organization identity preserved across all three countries; old regional override removed."
+      ],
+      "unresolvedGaps": [
+        "Mission statements describe intended standards; they are not proof that every legal proposition has been reviewed.",
+        "Brand navigation is this page purpose; unrelated matter-query lists would not supply relevant answers."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/syr/contact",
+      "language": "en",
+      "region": "syr",
+      "role": "contact",
+      "primaryIntent": "Request a scoped legal consultation (syr)",
+      "supportingIntents": [
+        "Contact channels and country",
+        "Information and attachments to prepare",
+        "Fee approval and written advice delivery",
+        "Provider identity and separate local representation"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "15ea9f2fc3705d46dffa6bf2c073769978b019d8e7d8f68a72b36ac523abfc1f",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Start Your Consultation"
+          },
+          {
+            "level": "h2",
+            "text": "How online legal consultation works"
+          },
+          {
+            "level": "h3",
+            "text": "Send the details"
+          },
+          {
+            "level": "h3",
+            "text": "We review your matter"
+          },
+          {
+            "level": "h3",
+            "text": "Agree on the service and fee"
+          },
+          {
+            "level": "h3",
+            "text": "Receive advice and next steps"
+          },
+          {
+            "level": "h3",
+            "text": "Firm Details"
+          },
+          {
+            "level": "h3",
+            "text": "Request a Consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Questions to clarify your next step"
+          }
+        ],
+        "mainTextCharacters": 4696,
+        "mainLinks": 5
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Delivery and response-time monitoring require an authorised real submission or operational evidence; the local read-only preview does not establish receipt.",
+        "Office-location labels and the local professional responsible need current evidence separate from the common Saudi intake number."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/syr/privacy-policy",
+      "language": "en",
+      "region": "syr",
+      "role": "privacy-policy",
+      "primaryIntent": "Understand how CounselO handles consultation and website data (syr)",
+      "supportingIntents": [
+        "Data collected and purposes",
+        "Confidentiality and disclosures",
+        "Analytics, providers and communications",
+        "Rights requests, retention and contact"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "f0b7cf2c2467d1935263260b8692340499e3ce986a9d11267fbe2b64b17cb99e",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Privacy Policy"
+          },
+          {
+            "level": "h2",
+            "text": "1. Who We Are"
+          },
+          {
+            "level": "h2",
+            "text": "2. Information We Collect"
+          },
+          {
+            "level": "h2",
+            "text": "3. How We Use Your Information"
+          },
+          {
+            "level": "h2",
+            "text": "4. Professional Legal Confidentiality"
+          },
+          {
+            "level": "h2",
+            "text": "5. WhatsApp & Email Communications"
+          },
+          {
+            "level": "h2",
+            "text": "6. Cookies & Website Analytics"
+          },
+          {
+            "level": "h2",
+            "text": "7. Legal Basis for Processing"
+          },
+          {
+            "level": "h2",
+            "text": "8. Data Sharing & Third Parties"
+          },
+          {
+            "level": "h2",
+            "text": "9. Data Retention"
+          },
+          {
+            "level": "h2",
+            "text": "10. Your Rights"
+          },
+          {
+            "level": "h2",
+            "text": "11. Security Measures"
+          },
+          {
+            "level": "h2",
+            "text": "12. Changes to This Policy"
+          },
+          {
+            "level": "h2",
+            "text": "Privacy Questions or Concerns?"
+          }
+        ],
+        "mainTextCharacters": 7881,
+        "mainLinks": 17
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Verify actual processors, retention and analytics data flow against the published statements.",
+        "Applicable processing basis and rights must be checked for the actual controller/regime; a regional page label alone does not resolve federal/free-zone or cross-border scope."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/syr/services",
+      "language": "en",
+      "region": "syr",
+      "role": "services",
+      "primaryIntent": "Find the relevant service or legal problem in the selected jurisdiction (syr)",
+      "supportingIntents": [
+        "Compare service scopes",
+        "Navigate to a precise matter page",
+        "Prepare for an initial consultation",
+        "Identify local forum and engagement limits"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "88babe78e6ef8079c52bef29d78cc2c8ed980e72502961ebb733c1e3fdd5d73e",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "20 Legal Practice Areas"
+          }
+        ],
+        "mainTextCharacters": 5878,
+        "mainLinks": 22
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Each linked matter still needs its own rule, exception, process and deadline review; directory coverage alone does not answer those matters.",
+        "Long service-list descriptions need snippet evaluation against actual Google/Bing display, rather than treating a generated description as guaranteed.",
+        "Do not import Gulf procedure terminology into Syria matter intake; the current source correction requires the next build."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/syr/terms-of-service",
+      "language": "en",
+      "region": "syr",
+      "role": "terms-of-service",
+      "primaryIntent": "Understand consultation scope, price approval and delivery terms (syr)",
+      "supportingIntents": [
+        "Request assessment and fee quote",
+        "Payment before legal answer",
+        "Clarification and mandatory-law refund exception",
+        "Separate representation agreement"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "b1c2a1ab8606d4e3e73a43ec3fea8978ef1e8708a7ad73f2fac03ffe9ddd5a42",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Terms of Service"
+          },
+          {
+            "level": "h2",
+            "text": "How Our Consultation Process Works"
+          },
+          {
+            "level": "h3",
+            "text": "Step 1 — Submit Your Information"
+          },
+          {
+            "level": "h3",
+            "text": "Step 2 — We Assess & Inform You of the Cost"
+          },
+          {
+            "level": "h3",
+            "text": "Step 3 — Payment Before the Answer"
+          },
+          {
+            "level": "h3",
+            "text": "Step 4 — You Receive the Legal Answer"
+          },
+          {
+            "level": "h2",
+            "text": "General Terms"
+          },
+          {
+            "level": "h3",
+            "text": "Confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Scope of Consultation"
+          },
+          {
+            "level": "h3",
+            "text": "No Refunds After Delivery"
+          },
+          {
+            "level": "h3",
+            "text": "No Attorney-Client Relationship for Representation"
+          },
+          {
+            "level": "h3",
+            "text": "Changes to Terms"
+          },
+          {
+            "level": "h2",
+            "text": "Ready to Get Started?"
+          }
+        ],
+        "mainTextCharacters": 2928,
+        "mainLinks": 6
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Reconcile quote, delivery and clarification commitments with the actual engagement workflow.",
+        "Confirm consumer and professional mandatory terms for the actual service before applying the general terms to an individual dispute."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/syr/vision",
+      "language": "en",
+      "region": "syr",
+      "role": "vision",
+      "primaryIntent": "Understand CounselO mission and professional approach (syr)",
+      "supportingIntents": [
+        "Why the platform was created",
+        "Professional values",
+        "Legal knowledge and remote services",
+        "Founder statement"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "db1cf515cd849a387d6baa40dc391672f019bd2b3fdb238aad76ca954335f980",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Law—closer, clearer, and more trustworthy"
+          },
+          {
+            "level": "h2",
+            "text": "Practical experience responding to real legal challenges"
+          },
+          {
+            "level": "h2",
+            "text": "A trusted digital legal reference for the Arab world"
+          },
+          {
+            "level": "h2",
+            "text": "Experience, precision, and technology for better legal decisions"
+          },
+          {
+            "level": "h2",
+            "text": "Our professional values"
+          },
+          {
+            "level": "h3",
+            "text": "Professionalism"
+          },
+          {
+            "level": "h3",
+            "text": "Integrity"
+          },
+          {
+            "level": "h3",
+            "text": "Professional Legal Confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Precision"
+          },
+          {
+            "level": "h3",
+            "text": "Innovation"
+          },
+          {
+            "level": "h3",
+            "text": "Continuous improvement"
+          },
+          {
+            "level": "h3",
+            "text": "Respect for clients"
+          },
+          {
+            "level": "h3",
+            "text": "Professional responsibility"
+          },
+          {
+            "level": "h2",
+            "text": "Not merely a platform for booking legal consultations"
+          },
+          {
+            "level": "h3",
+            "text": "Specialized legal articles and studies"
+          },
+          {
+            "level": "h3",
+            "text": "Remote legal consultations"
+          },
+          {
+            "level": "h3",
+            "text": "Solutions for companies and entrepreneurs"
+          },
+          {
+            "level": "h3",
+            "text": "Litigation and arbitration services"
+          },
+          {
+            "level": "h3",
+            "text": "Legal templates and guides"
+          },
+          {
+            "level": "h3",
+            "text": "Multilingual legal support"
+          },
+          {
+            "level": "h3",
+            "text": "Modern technology to improve the client experience"
+          },
+          {
+            "level": "h2",
+            "text": "A word from the founder"
+          }
+        ],
+        "mainTextCharacters": 4565,
+        "mainLinks": 2
+      },
+      "implementedChanges": [
+        "Central platform Organization identity preserved across all three countries; old regional override removed."
+      ],
+      "unresolvedGaps": [
+        "Mission statements describe intended standards; they are not proof that every legal proposition has been reviewed.",
+        "Brand navigation is this page purpose; unrelated matter-query lists would not supply relevant answers."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/uae",
+      "language": "en",
+      "region": "uae",
+      "role": "regional-home",
+      "primaryIntent": "Start online legal consultation for the selected jurisdiction (uae)",
+      "supportingIntents": [
+        "Individuals, businesses and investors",
+        "Written advice versus court representation",
+        "Choose a practice area",
+        "Agree scope and fee before advice"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "53aa58a706e49914c02083e81534bea631321bfd72c07142b2087e0a77aa86cc",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Online Legal Consultation for the UAE — Focused & Structured."
+          },
+          {
+            "level": "h2",
+            "text": "Online legal platform for UAE matters"
+          },
+          {
+            "level": "h2",
+            "text": "Comprehensive Online Legal Consultation"
+          },
+          {
+            "level": "h2",
+            "text": "How to Get Your Legal Consultation"
+          },
+          {
+            "level": "h3",
+            "text": "Describe Your Matter"
+          },
+          {
+            "level": "h3",
+            "text": "Confirm the Jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Approve Scope & Fee"
+          },
+          {
+            "level": "h3",
+            "text": "Receive Legal Direction"
+          },
+          {
+            "level": "h2",
+            "text": "Founded by Lawyer and Legal Counsel Omar Al-Baghdadi"
+          },
+          {
+            "level": "h2",
+            "text": "When a Matter Requires In-Person Presence"
+          },
+          {
+            "level": "h2",
+            "text": "Legal Expertise for Every Client"
+          },
+          {
+            "level": "h3",
+            "text": "Individuals & Families"
+          },
+          {
+            "level": "h3",
+            "text": "UAE Businesses"
+          },
+          {
+            "level": "h3",
+            "text": "Founders & Investors"
+          },
+          {
+            "level": "h3",
+            "text": "International Clients"
+          },
+          {
+            "level": "h2",
+            "text": "Core Practice Areas — United Arab Emirates"
+          },
+          {
+            "level": "h3",
+            "text": "Company Formation & Commercial Companies Law"
+          },
+          {
+            "level": "h3",
+            "text": "Foreign Investment & Market Entry"
+          },
+          {
+            "level": "h3",
+            "text": "Commercial Contracts"
+          },
+          {
+            "level": "h3",
+            "text": "Employment & Labour Relations"
+          },
+          {
+            "level": "h3",
+            "text": "Real Estate & Construction"
+          },
+          {
+            "level": "h3",
+            "text": "Family & Personal Status"
+          },
+          {
+            "level": "h2",
+            "text": "Latest legal articles and work"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Know the basis of the service before you begin"
+          },
+          {
+            "level": "h2",
+            "text": "Start with the Right UAE Jurisdiction."
+          },
+          {
+            "level": "h2",
+            "text": "Questions to clarify your next step"
+          }
+        ],
+        "mainTextCharacters": 9604,
+        "mainLinks": 17
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Validate named local coordination and current professional authority against records for the actual engagement.",
+        "Connect measured landing-page queries to qualified enquiry outcomes; current observed query-to-page data is absent.",
+        "The actual Emirate, federal/mainland or free-zone framework remains a case-level selection; coverage of allseven Emirates is an online-service claim, not proof of a physical office in each."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/uae/about",
+      "language": "en",
+      "region": "uae",
+      "role": "about",
+      "primaryIntent": "Identify CounselO, its founder and professional service model (uae)",
+      "supportingIntents": [
+        "Founder identity and career evidence",
+        "Platform versus cooperating law office",
+        "Languages and jurisdiction-specific scope",
+        "Request appropriate consultation or representation"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "48302134c82c101b752472e4b02cb1c7776b8fb18037d2ac58c12209c1381016",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Online Legal Guidance for UAE Matters"
+          },
+          {
+            "level": "h2",
+            "text": "Clearer Access to UAE Legal Guidance"
+          },
+          {
+            "level": "h2",
+            "text": "Lawyer & Legal Counsel Omar Al-Baghdadi"
+          },
+          {
+            "level": "h3",
+            "text": "Omar Al-Baghdadi"
+          },
+          {
+            "level": "h2",
+            "text": "A Jurisdiction-First Consultation Process"
+          },
+          {
+            "level": "h3",
+            "text": "UAE-Specific Scope"
+          },
+          {
+            "level": "h3",
+            "text": "Federal & Local Awareness"
+          },
+          {
+            "level": "h3",
+            "text": "Mainland & Free Zones"
+          },
+          {
+            "level": "h3",
+            "text": "Arabic & English"
+          },
+          {
+            "level": "h3",
+            "text": "Clear Engagement Boundaries"
+          },
+          {
+            "level": "h3",
+            "text": "Confidential Online Access"
+          },
+          {
+            "level": "h2",
+            "text": "Online Consultation with Jurisdiction-Specific Coordination"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Discuss Your UAE Legal Matter with CounselO"
+          }
+        ],
+        "mainTextCharacters": 7178,
+        "mainLinks": 7
+      },
+      "implementedChanges": [
+        "Central platform Organization identity preserved across all three countries; old regional override removed."
+      ],
+      "unresolvedGaps": [
+        "Current professional register evidence and the exact office relationship must substantiate licensing and coordination statements.",
+        "Career-wide figures remain self-reported with their visible methodology; they are not independently audited case outcomes.",
+        "The actual Emirate, federal/mainland or free-zone framework remains a case-level selection; coverage of allseven Emirates is an online-service claim, not proof of a physical office in each."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/uae/ar",
+      "language": "ar",
+      "region": "uae",
+      "role": "regional-home",
+      "primaryIntent": "Start online legal consultation for the selected jurisdiction (uae)",
+      "supportingIntents": [
+        "Individuals, businesses and investors",
+        "Written advice versus court representation",
+        "Choose a practice area",
+        "Agree scope and fee before advice"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "4703592680457a78be73812c16fa123649592f694c2fc2386956507b6eb96fd1",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "استشارة قانونية أونلاين للإمارات العربية المتحدة — مركزة ومنظمة."
+          },
+          {
+            "level": "h2",
+            "text": "منصة قانونية إلكترونية لمسائل الإمارات"
+          },
+          {
+            "level": "h2",
+            "text": "الاستشارة القانونية الإلكترونية المتكاملة"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تحصل على استشارتك القانونية"
+          },
+          {
+            "level": "h3",
+            "text": "اشرح مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "تأكيد الاختصاص"
+          },
+          {
+            "level": "h3",
+            "text": "اعتماد النطاق والأتعاب"
+          },
+          {
+            "level": "h3",
+            "text": "استلم التوجيه"
+          },
+          {
+            "level": "h2",
+            "text": "تأسست على يد المحامي والمستشار القانوني عمر البغدادي"
+          },
+          {
+            "level": "h2",
+            "text": "عندما تستلزم القضية حضوراً شخصياً"
+          },
+          {
+            "level": "h2",
+            "text": "خبرة قانونية لكل عميل"
+          },
+          {
+            "level": "h3",
+            "text": "الأفراد والعائلات"
+          },
+          {
+            "level": "h3",
+            "text": "الشركات الإماراتية"
+          },
+          {
+            "level": "h3",
+            "text": "المؤسسون والمستثمرون"
+          },
+          {
+            "level": "h3",
+            "text": "العملاء الدوليون"
+          },
+          {
+            "level": "h2",
+            "text": "مجالات الممارسة الأساسية — الإمارات العربية المتحدة"
+          },
+          {
+            "level": "h3",
+            "text": "تأسيس الشركات وقانون الشركات التجارية"
+          },
+          {
+            "level": "h3",
+            "text": "الاستثمار الأجنبي ودخول السوق"
+          },
+          {
+            "level": "h3",
+            "text": "العقود التجارية"
+          },
+          {
+            "level": "h3",
+            "text": "علاقات العمل والتوظيف"
+          },
+          {
+            "level": "h3",
+            "text": "العقارات والإنشاءات"
+          },
+          {
+            "level": "h3",
+            "text": "الأسرة والأحوال الشخصية"
+          },
+          {
+            "level": "h2",
+            "text": "أحدث المقالات والأعمال القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "اعرف أساس الخدمة قبل البدء"
+          },
+          {
+            "level": "h2",
+            "text": "ابدأ بالاختصاص الإماراتي الصحيح."
+          },
+          {
+            "level": "h2",
+            "text": "أسئلة تساعدك على تحديد الخطوة التالية"
+          }
+        ],
+        "mainTextCharacters": 7957,
+        "mainLinks": 17
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Validate named local coordination and current professional authority against records for the actual engagement.",
+        "Connect measured landing-page queries to qualified enquiry outcomes; current observed query-to-page data is absent.",
+        "The actual Emirate, federal/mainland or free-zone framework remains a case-level selection; coverage of allseven Emirates is an online-service claim, not proof of a physical office in each."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/uae/ar/about",
+      "language": "ar",
+      "region": "uae",
+      "role": "about",
+      "primaryIntent": "Identify CounselO, its founder and professional service model (uae)",
+      "supportingIntents": [
+        "Founder identity and career evidence",
+        "Platform versus cooperating law office",
+        "Languages and jurisdiction-specific scope",
+        "Request appropriate consultation or representation"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "bd9847162621d527fab73acdaadb7cd145ce39c5314b3d079dab2c1c4be30957",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "إرشاد قانوني أونلاين للمسائل الإماراتية"
+          },
+          {
+            "level": "h2",
+            "text": "وصول أوضح إلى الإرشاد القانوني الإماراتي"
+          },
+          {
+            "level": "h2",
+            "text": "المحامي والمستشار القانوني عمر البغدادي"
+          },
+          {
+            "level": "h3",
+            "text": "المحامي عمر البغدادي"
+          },
+          {
+            "level": "h2",
+            "text": "مسار استشارة يبدأ بالاختصاص"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق إماراتي محدد"
+          },
+          {
+            "level": "h3",
+            "text": "وعي اتحادي ومحلي"
+          },
+          {
+            "level": "h3",
+            "text": "البرّ الرئيسي والمناطق الحرة"
+          },
+          {
+            "level": "h3",
+            "text": "العربية والإنجليزية"
+          },
+          {
+            "level": "h3",
+            "text": "حدود ارتباط واضحة"
+          },
+          {
+            "level": "h3",
+            "text": "وصول أونلاين وسري"
+          },
+          {
+            "level": "h2",
+            "text": "استشارة أونلاين مع تنسيق وفق الاختصاص"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "ناقش مسألتك القانونية الإماراتية مع كاونسلو"
+          }
+        ],
+        "mainTextCharacters": 5972,
+        "mainLinks": 7
+      },
+      "implementedChanges": [
+        "Central platform Organization identity preserved across all three countries; old regional override removed."
+      ],
+      "unresolvedGaps": [
+        "Current professional register evidence and the exact office relationship must substantiate licensing and coordination statements.",
+        "Career-wide figures remain self-reported with their visible methodology; they are not independently audited case outcomes.",
+        "The actual Emirate, federal/mainland or free-zone framework remains a case-level selection; coverage of allseven Emirates is an online-service claim, not proof of a physical office in each."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/uae/ar/contact",
+      "language": "ar",
+      "region": "uae",
+      "role": "contact",
+      "primaryIntent": "Request a scoped legal consultation (uae)",
+      "supportingIntents": [
+        "Contact channels and country",
+        "Information and attachments to prepare",
+        "Fee approval and written advice delivery",
+        "Provider identity and separate local representation"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "60f04358514c5e37adc5ff549ab8899569af2d78a5097d34ef6f6259f709fc8c",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "ابدأ استشارتك الإماراتية"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تعمل الاستشارة القانونية أونلاين؟"
+          },
+          {
+            "level": "h3",
+            "text": "أرسل التفاصيل"
+          },
+          {
+            "level": "h3",
+            "text": "نراجع مسألتك"
+          },
+          {
+            "level": "h3",
+            "text": "اتفق على الخدمة والرسوم"
+          },
+          {
+            "level": "h3",
+            "text": "استلم المشورة والخطوة التالية"
+          },
+          {
+            "level": "h3",
+            "text": "تفاصيل خدمة الإمارات"
+          },
+          {
+            "level": "h3",
+            "text": "طلب استشارة"
+          },
+          {
+            "level": "h2",
+            "text": "من يقدم العمل وما الذي يحدد بتكليف مستقل"
+          },
+          {
+            "level": "h3",
+            "text": "مقدم الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "اختصاص الترخيص المهني"
+          },
+          {
+            "level": "h3",
+            "text": "التمثيل أمام المحاكم"
+          },
+          {
+            "level": "h3",
+            "text": "المهني المتعاون وشروط العمل"
+          },
+          {
+            "level": "h2",
+            "text": "أسئلة تساعدك على تحديد الخطوة التالية"
+          }
+        ],
+        "mainTextCharacters": 3885,
+        "mainLinks": 5
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Delivery and response-time monitoring require an authorised real submission or operational evidence; the local read-only preview does not establish receipt.",
+        "Office-location labels and the local professional responsible need current evidence separate from the common Saudi intake number.",
+        "The actual Emirate, federal/mainland or free-zone framework remains a case-level selection; coverage of allseven Emirates is an online-service claim, not proof of a physical office in each."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/uae/ar/privacy-policy",
+      "language": "ar",
+      "region": "uae",
+      "role": "privacy-policy",
+      "primaryIntent": "Understand how CounselO handles consultation and website data (uae)",
+      "supportingIntents": [
+        "Data collected and purposes",
+        "Confidentiality and disclosures",
+        "Analytics, providers and communications",
+        "Rights requests, retention and contact"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "4c8fc2e0d947af067b873a8300e4b7e5d19ac6ff3aadf954d8fd7f442ebc6da1",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "سياسة الخصوصية"
+          },
+          {
+            "level": "h2",
+            "text": "١. من نحن"
+          },
+          {
+            "level": "h2",
+            "text": "٢. المعلومات التي نجمعها"
+          },
+          {
+            "level": "h2",
+            "text": "٣. كيف نستخدم معلوماتك"
+          },
+          {
+            "level": "h2",
+            "text": "٤. السرية المهنية القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "٥. التواصل عبر واتساب والبريد الإلكتروني"
+          },
+          {
+            "level": "h2",
+            "text": "٦. ملفات تعريف الارتباط وتحليلات الموقع"
+          },
+          {
+            "level": "h2",
+            "text": "٧. الأساس القانوني للمعالجة"
+          },
+          {
+            "level": "h2",
+            "text": "٨. مشاركة البيانات مع الأطراف الثالثة"
+          },
+          {
+            "level": "h2",
+            "text": "٩. مدة الاحتفاظ بالبيانات"
+          },
+          {
+            "level": "h2",
+            "text": "١٠. حقوقك"
+          },
+          {
+            "level": "h2",
+            "text": "١١. إجراءات الأمن"
+          },
+          {
+            "level": "h2",
+            "text": "١٢. التعديلات على هذه السياسة"
+          },
+          {
+            "level": "h2",
+            "text": "لديك سؤال أو استفسار حول الخصوصية؟"
+          }
+        ],
+        "mainTextCharacters": 6893,
+        "mainLinks": 17
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Verify actual processors, retention and analytics data flow against the published statements.",
+        "Applicable processing basis and rights must be checked for the actual controller/regime; a regional page label alone does not resolve federal/free-zone or cross-border scope."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/uae/ar/services",
+      "language": "ar",
+      "region": "uae",
+      "role": "services",
+      "primaryIntent": "Find the relevant service or legal problem in the selected jurisdiction (uae)",
+      "supportingIntents": [
+        "Compare service scopes",
+        "Navigate to a precise matter page",
+        "Prepare for an initial consultation",
+        "Identify local forum and engagement limits"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "362e2b328ab9c5dbf69f42f503c7590bffdf9657d22cc0ea1f46e599df94d855",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "22 مجالاً قانونياً في الإمارات"
+          }
+        ],
+        "mainTextCharacters": 5005,
+        "mainLinks": 24
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Each linked matter still needs its own rule, exception, process and deadline review; directory coverage alone does not answer those matters.",
+        "Long service-list descriptions need snippet evaluation against actual Google/Bing display, rather than treating a generated description as guaranteed.",
+        "The actual Emirate, federal/mainland or free-zone framework remains a case-level selection; coverage of allseven Emirates is an online-service claim, not proof of a physical office in each."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/uae/ar/terms-of-service",
+      "language": "ar",
+      "region": "uae",
+      "role": "terms-of-service",
+      "primaryIntent": "Understand consultation scope, price approval and delivery terms (uae)",
+      "supportingIntents": [
+        "Request assessment and fee quote",
+        "Payment before legal answer",
+        "Clarification and mandatory-law refund exception",
+        "Separate representation agreement"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "d72389aa861a8ca5daa556720cfce41383a3603b854777839e4c60ec4d7c029d",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "شروط الخدمة"
+          },
+          {
+            "level": "h2",
+            "text": "كيف تسير عملية الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الأولى — إرسال معلوماتك"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الثانية — نقيّم الطلب ونخبرك بالتكلفة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الثالثة — الدفع قبل تلقّي الإجابة"
+          },
+          {
+            "level": "h3",
+            "text": "الخطوة الرابعة — تستلم إجابتك القانونية"
+          },
+          {
+            "level": "h2",
+            "text": "الشروط العامة"
+          },
+          {
+            "level": "h3",
+            "text": "السرية التامة"
+          },
+          {
+            "level": "h3",
+            "text": "نطاق الاستشارة"
+          },
+          {
+            "level": "h3",
+            "text": "عدم استرداد المبلغ بعد التسليم"
+          },
+          {
+            "level": "h3",
+            "text": "الاستشارة لا تعني التمثيل القانوني"
+          },
+          {
+            "level": "h3",
+            "text": "تعديل الشروط"
+          },
+          {
+            "level": "h2",
+            "text": "مستعد للبدء؟"
+          }
+        ],
+        "mainTextCharacters": 2404,
+        "mainLinks": 6
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Reconcile quote, delivery and clarification commitments with the actual engagement workflow.",
+        "Confirm consumer and professional mandatory terms for the actual service before applying the general terms to an individual dispute."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/uae/ar/vision",
+      "language": "ar",
+      "region": "uae",
+      "role": "vision",
+      "primaryIntent": "Understand CounselO mission and professional approach (uae)",
+      "supportingIntents": [
+        "Why the platform was created",
+        "Professional values",
+        "Legal knowledge and remote services",
+        "Founder statement"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "b7ff6c8abdba9a3f0ed044851ba3b77e0f50cb6b703cfa5352eab0269aad2e66",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "القانون… أقرب، أوضح، وأكثر موثوقية"
+          },
+          {
+            "level": "h2",
+            "text": "خبرة عملية تستجيب لتحديات قانونية حقيقية"
+          },
+          {
+            "level": "h2",
+            "text": "مرجع قانوني رقمي موثوق للعالم العربي"
+          },
+          {
+            "level": "h2",
+            "text": "خبرة ودقة وتقنية، في خدمة قرار قانوني أفضل"
+          },
+          {
+            "level": "h2",
+            "text": "قيمنا المهنية"
+          },
+          {
+            "level": "h3",
+            "text": "الاحترافية"
+          },
+          {
+            "level": "h3",
+            "text": "النزاهة"
+          },
+          {
+            "level": "h3",
+            "text": "السرية"
+          },
+          {
+            "level": "h3",
+            "text": "الدقة"
+          },
+          {
+            "level": "h3",
+            "text": "الابتكار"
+          },
+          {
+            "level": "h3",
+            "text": "التطوير المستمر"
+          },
+          {
+            "level": "h3",
+            "text": "احترام العميل"
+          },
+          {
+            "level": "h3",
+            "text": "المسؤولية المهنية"
+          },
+          {
+            "level": "h2",
+            "text": "ليست مجرد منصة لحجز استشارة قانونية"
+          },
+          {
+            "level": "h3",
+            "text": "مقالات ودراسات قانونية متخصصة"
+          },
+          {
+            "level": "h3",
+            "text": "استشارات قانونية عن بُعد"
+          },
+          {
+            "level": "h3",
+            "text": "حلول للشركات ورواد الأعمال"
+          },
+          {
+            "level": "h3",
+            "text": "خدمات التقاضي والتحكيم"
+          },
+          {
+            "level": "h3",
+            "text": "نماذج وأدلة قانونية"
+          },
+          {
+            "level": "h3",
+            "text": "دعم قانوني متعدد اللغات"
+          },
+          {
+            "level": "h3",
+            "text": "استخدام التقنيات الحديثة لتحسين تجربة العميل"
+          },
+          {
+            "level": "h2",
+            "text": "كلمة المؤسس"
+          }
+        ],
+        "mainTextCharacters": 3355,
+        "mainLinks": 2
+      },
+      "implementedChanges": [
+        "Central platform Organization identity preserved across all three countries; old regional override removed."
+      ],
+      "unresolvedGaps": [
+        "Mission statements describe intended standards; they are not proof that every legal proposition has been reviewed.",
+        "Brand navigation is this page purpose; unrelated matter-query lists would not supply relevant answers."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/uae/contact",
+      "language": "en",
+      "region": "uae",
+      "role": "contact",
+      "primaryIntent": "Request a scoped legal consultation (uae)",
+      "supportingIntents": [
+        "Contact channels and country",
+        "Information and attachments to prepare",
+        "Fee approval and written advice delivery",
+        "Provider identity and separate local representation"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "c2efa72063da8ac7857e2c13679cf35b64c7c96d406463b0d41a1c7f6f81419b",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Start Your UAE Consultation"
+          },
+          {
+            "level": "h2",
+            "text": "How online legal consultation works"
+          },
+          {
+            "level": "h3",
+            "text": "Send the details"
+          },
+          {
+            "level": "h3",
+            "text": "We review your matter"
+          },
+          {
+            "level": "h3",
+            "text": "Agree on the service and fee"
+          },
+          {
+            "level": "h3",
+            "text": "Receive advice and next steps"
+          },
+          {
+            "level": "h3",
+            "text": "UAE Service Details"
+          },
+          {
+            "level": "h3",
+            "text": "Request a Consultation"
+          },
+          {
+            "level": "h2",
+            "text": "Who provides the work, and what is separately scoped"
+          },
+          {
+            "level": "h3",
+            "text": "Consultation provider"
+          },
+          {
+            "level": "h3",
+            "text": "Professional licensing jurisdiction"
+          },
+          {
+            "level": "h3",
+            "text": "Court representation"
+          },
+          {
+            "level": "h3",
+            "text": "Cooperating counsel and terms"
+          },
+          {
+            "level": "h2",
+            "text": "Questions to clarify your next step"
+          }
+        ],
+        "mainTextCharacters": 4911,
+        "mainLinks": 5
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Delivery and response-time monitoring require an authorised real submission or operational evidence; the local read-only preview does not establish receipt.",
+        "Office-location labels and the local professional responsible need current evidence separate from the common Saudi intake number.",
+        "The actual Emirate, federal/mainland or free-zone framework remains a case-level selection; coverage of allseven Emirates is an online-service claim, not proof of a physical office in each."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/uae/privacy-policy",
+      "language": "en",
+      "region": "uae",
+      "role": "privacy-policy",
+      "primaryIntent": "Understand how CounselO handles consultation and website data (uae)",
+      "supportingIntents": [
+        "Data collected and purposes",
+        "Confidentiality and disclosures",
+        "Analytics, providers and communications",
+        "Rights requests, retention and contact"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "61fc2fbdf9936e078efe132a6cc7ef2a0786973d1089e7917db4b09a6295a70f",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Privacy Policy"
+          },
+          {
+            "level": "h2",
+            "text": "1. Who We Are"
+          },
+          {
+            "level": "h2",
+            "text": "2. Information We Collect"
+          },
+          {
+            "level": "h2",
+            "text": "3. How We Use Your Information"
+          },
+          {
+            "level": "h2",
+            "text": "4. Professional Legal Confidentiality"
+          },
+          {
+            "level": "h2",
+            "text": "5. WhatsApp & Email Communications"
+          },
+          {
+            "level": "h2",
+            "text": "6. Cookies & Website Analytics"
+          },
+          {
+            "level": "h2",
+            "text": "7. Legal Basis for Processing"
+          },
+          {
+            "level": "h2",
+            "text": "8. Data Sharing & Third Parties"
+          },
+          {
+            "level": "h2",
+            "text": "9. Data Retention"
+          },
+          {
+            "level": "h2",
+            "text": "10. Your Rights"
+          },
+          {
+            "level": "h2",
+            "text": "11. Security Measures"
+          },
+          {
+            "level": "h2",
+            "text": "12. Changes to This Policy"
+          },
+          {
+            "level": "h2",
+            "text": "Privacy Questions or Concerns?"
+          }
+        ],
+        "mainTextCharacters": 8145,
+        "mainLinks": 17
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Verify actual processors, retention and analytics data flow against the published statements.",
+        "Applicable processing basis and rights must be checked for the actual controller/regime; a regional page label alone does not resolve federal/free-zone or cross-border scope."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/uae/services",
+      "language": "en",
+      "region": "uae",
+      "role": "services",
+      "primaryIntent": "Find the relevant service or legal problem in the selected jurisdiction (uae)",
+      "supportingIntents": [
+        "Compare service scopes",
+        "Navigate to a precise matter page",
+        "Prepare for an initial consultation",
+        "Identify local forum and engagement limits"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "9bbed194ea79ca6e3cb823c6fa07d5a7801237336c34ce46948238247feef55d",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "22 UAE Legal Practice Areas"
+          }
+        ],
+        "mainTextCharacters": 6448,
+        "mainLinks": 24
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Each linked matter still needs its own rule, exception, process and deadline review; directory coverage alone does not answer those matters.",
+        "Long service-list descriptions need snippet evaluation against actual Google/Bing display, rather than treating a generated description as guaranteed.",
+        "The actual Emirate, federal/mainland or free-zone framework remains a case-level selection; coverage of allseven Emirates is an online-service claim, not proof of a physical office in each."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/uae/terms-of-service",
+      "language": "en",
+      "region": "uae",
+      "role": "terms-of-service",
+      "primaryIntent": "Understand consultation scope, price approval and delivery terms (uae)",
+      "supportingIntents": [
+        "Request assessment and fee quote",
+        "Payment before legal answer",
+        "Clarification and mandatory-law refund exception",
+        "Separate representation agreement"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "91c4c4877ceae8fc71ed5fcccb57bcfa5897933f242cbcd2b3ad3836b6e5148b",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Terms of Service"
+          },
+          {
+            "level": "h2",
+            "text": "How Our Consultation Process Works"
+          },
+          {
+            "level": "h3",
+            "text": "Step 1 — Submit Your Information"
+          },
+          {
+            "level": "h3",
+            "text": "Step 2 — We Assess & Inform You of the Cost"
+          },
+          {
+            "level": "h3",
+            "text": "Step 3 — Payment Before the Answer"
+          },
+          {
+            "level": "h3",
+            "text": "Step 4 — You Receive the Legal Answer"
+          },
+          {
+            "level": "h2",
+            "text": "General Terms"
+          },
+          {
+            "level": "h3",
+            "text": "Confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Scope of Consultation"
+          },
+          {
+            "level": "h3",
+            "text": "No Refunds After Delivery"
+          },
+          {
+            "level": "h3",
+            "text": "No Attorney-Client Relationship for Representation"
+          },
+          {
+            "level": "h3",
+            "text": "Changes to Terms"
+          },
+          {
+            "level": "h2",
+            "text": "Ready to Get Started?"
+          }
+        ],
+        "mainTextCharacters": 2980,
+        "mainLinks": 6
+      },
+      "implementedChanges": [],
+      "unresolvedGaps": [
+        "Reconcile quote, delivery and clarification commitments with the actual engagement workflow.",
+        "Confirm consumer and professional mandatory terms for the actual service before applying the general terms to an individual dispute."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    },
+    {
+      "route": "/uae/vision",
+      "language": "en",
+      "region": "uae",
+      "role": "vision",
+      "primaryIntent": "Understand CounselO mission and professional approach (uae)",
+      "supportingIntents": [
+        "Why the platform was created",
+        "Professional values",
+        "Legal knowledge and remote services",
+        "Founder statement"
+      ],
+      "actualContentEvidence": {
+        "environment": "local production HTTP snapshot before batch4",
+        "file": "output/seo/intent-core-2026-09-07/local-http-evidence.json",
+        "htmlSha256": "ed2e668eac18f07e4e65ca0611f5019981dba141999e3bdb0099d63df27ce2c9",
+        "status": 200,
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Law—closer, clearer, and more trustworthy"
+          },
+          {
+            "level": "h2",
+            "text": "Practical experience responding to real legal challenges"
+          },
+          {
+            "level": "h2",
+            "text": "A trusted digital legal reference for the Arab world"
+          },
+          {
+            "level": "h2",
+            "text": "Experience, precision, and technology for better legal decisions"
+          },
+          {
+            "level": "h2",
+            "text": "Our professional values"
+          },
+          {
+            "level": "h3",
+            "text": "Professionalism"
+          },
+          {
+            "level": "h3",
+            "text": "Integrity"
+          },
+          {
+            "level": "h3",
+            "text": "Professional Legal Confidentiality"
+          },
+          {
+            "level": "h3",
+            "text": "Precision"
+          },
+          {
+            "level": "h3",
+            "text": "Innovation"
+          },
+          {
+            "level": "h3",
+            "text": "Continuous improvement"
+          },
+          {
+            "level": "h3",
+            "text": "Respect for clients"
+          },
+          {
+            "level": "h3",
+            "text": "Professional responsibility"
+          },
+          {
+            "level": "h2",
+            "text": "Not merely a platform for booking legal consultations"
+          },
+          {
+            "level": "h3",
+            "text": "Specialized legal articles and studies"
+          },
+          {
+            "level": "h3",
+            "text": "Remote legal consultations"
+          },
+          {
+            "level": "h3",
+            "text": "Solutions for companies and entrepreneurs"
+          },
+          {
+            "level": "h3",
+            "text": "Litigation and arbitration services"
+          },
+          {
+            "level": "h3",
+            "text": "Legal templates and guides"
+          },
+          {
+            "level": "h3",
+            "text": "Multilingual legal support"
+          },
+          {
+            "level": "h3",
+            "text": "Modern technology to improve the client experience"
+          },
+          {
+            "level": "h2",
+            "text": "A word from the founder"
+          }
+        ],
+        "mainTextCharacters": 4580,
+        "mainLinks": 2
+      },
+      "implementedChanges": [
+        "Central platform Organization identity preserved across all three countries; old regional override removed."
+      ],
+      "unresolvedGaps": [
+        "Mission statements describe intended standards; they are not proof that every legal proposition has been reviewed.",
+        "Brand navigation is this page purpose; unrelated matter-query lists would not supply relevant answers."
+      ],
+      "status": "purpose-and-intent-reviewed-with-evidence-and-operational-gaps",
+      "complete": false
+    }
+  ]
+}

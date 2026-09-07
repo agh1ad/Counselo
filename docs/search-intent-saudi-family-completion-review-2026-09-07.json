@@ -1,0 +1,997 @@
+{
+  "reviewedAt": "2026-09-07",
+  "scope": "Saudi family safety, custody/contact, and maintenance: three exact matter pages in both languages",
+  "summary": {
+    "routes": 6,
+    "newBilingualAnswers": 13,
+    "conditionalClosureCandidates": 6,
+    "completedRoutes": 0
+  },
+  "module": "artifacts/legal-site/src/lib/saudi-family-completion-search-guidance.ts",
+  "exportName": "SAUDI_FAMILY_COMPLETION_SEARCH_GUIDANCE",
+  "sourceVerification": [
+    {
+      "href": "https://www.hrsd.gov.sa/knowledge-centre/decisions-and-regulations/regulation-and-procedures/70781",
+      "evidence": "Current official listing opened and its linked PDF followed; listing publication 25 September 2024, linked file now under a July 2026 path. File-path date is not claimed to be an amendment date."
+    },
+    {
+      "href": "https://www.hrsd.gov.sa/sites/default/files/2026-07/allayht-altnfydhyt-lnzam-alhmayt-mn-alaydha.pdf",
+      "evidence": "Nine-page official PDF; text reviewed for Articles 4–8, including referral, confidentiality exceptions, critical-risk prosecution route and shelter. No penalty amount or universal protection-order entitlement inferred."
+    },
+    {
+      "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1",
+      "evidence": "Indexed primary article text verified for 43, 51–55, 125–135 and 247; direct Bureau of Experts fetch unavailable."
+    },
+    {
+      "href": "https://www.uqn.gov.sa/details?p=27013",
+      "evidence": "Official regulation Article 21 text and numbering corroborated against NCAR official record and Gazette issue 5072. Direct UQN HTML returned 500."
+    },
+    {
+      "href": "https://ncar.gov.sa/document-details/eyJpdiI6ImRxVHRENzEvS0I1WFBlbDR0Uk5PM1E9PSIsInZhbHVlIjoiRDNScjdoajNZc0dpZENLZDFyWHJhZz09IiwibWFjIjoiOTVhZTE3NTMwYWY1OWU4NmE0NWM0MDBiM2NhNThjZTgzZDhhZDQ4MDY5OGVmZmRmNzIyNTI5N2IwYjI1YzUzZSIsInRhZyI6IiJ9",
+      "evidence": "Official indexed record confirms Article 21: spousal interim reconciliation on request; children/parents continuing award from judgment date without counting interim award."
+    },
+    {
+      "href": "https://www.moj.gov.sa/ar/eServices/pages/928b8f02-19a7-482b-ba0e-29a151d9a900.aspx",
+      "evidence": "Current indexed service prerequisites and classification-first filing steps. A practical custody request checklist is not presented as an official exhaustive form."
+    }
+  ],
+  "sourceConflicts": [
+    {
+      "issue": "MOJ explanatory book references interim/final maintenance reconciliation as regulation Article 11.",
+      "resolution": "Operative 1446 regulation uses Article 21; NCAR and Gazette references control. No use of erroneous explanatory numbering."
+    }
+  ],
+  "validation": {
+    "jsonShape": "13 unique bilingual source-backed answers; exact retained problem slugs; service inclusion disabled",
+    "currentVisibleFaqChecks": 54,
+    "buildRun": false,
+    "browserRun": false
+  },
+  "completionBoundary": "No universal future-query coverage, independent professional certification, production publication or ranking claim. Parent must integrate and verify before any page-level acceptance.",
+  "pages": [
+    {
+      "route": "/sa/ar/services/family-law/alimony-and-child-maintenance",
+      "language": "ar",
+      "primaryIntent": "Understand entitlement, variation and interim/final Saudi family maintenance",
+      "supportingIntents": [
+        "Initial spousal eligibility and lawful-excuse exceptions",
+        "Support after different forms of marital dissolution",
+        "Interim versus final award reconciliation"
+      ],
+      "currentHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-ar-services-family-law-alimony-and-child-maintenance.html",
+      "currentHtmlSha256": "8e83f9286722841cb23beb3798b8fb95a9f05a0a5e758b11ebe523d8b8745c1d",
+      "originalReviewFile": "docs/search-intent-saudi-final-review-2026-09-07.json",
+      "exactOriginalGaps": [
+        "Initial spousal eligibility and lawful-excuse exceptions; maintenance after different forms of marital dissolution; exact reconciliation of interim and final awards under the implementing regulation."
+      ],
+      "resolvedPublicQuestions": [
+        {
+          "question": "Initial spousal eligibility and lawful-excuse exceptions",
+          "answerIds": [
+            "sa-family-completion-spousal-entitlement"
+          ],
+          "stage": "authored, requires rendered verification"
+        },
+        {
+          "question": "Support after different forms of marital dissolution",
+          "answerIds": [
+            "sa-family-completion-post-separation-support"
+          ],
+          "stage": "authored, requires rendered verification"
+        },
+        {
+          "question": "Interim versus final award reconciliation",
+          "answerIds": [
+            "sa-family-completion-interim-final-support"
+          ],
+          "stage": "authored, requires rendered verification"
+        }
+      ],
+      "existingVisibleFaq": [
+        {
+          "q": "كيف تقدر النفقة وهل يمكن تعديل مبلغ حكم قائم؟",
+          "a": "تربط المواد 45–48 النفقة بالحاجات الأساسية وحال المستحق وسعة المنفق. قد يبرر تغير الأحوال تعديلها، أما دعوى التعديل قبل سنة من الحكم فتتطلب ظروفاً استثنائية تقدرها المحكمة. بيّن تغير الدخل أو الاحتياجات؛ ولا تحسب الاستحقاق من الراتب وحده.",
+          "visibleMatched": true
+        },
+        {
+          "q": "هل يصبح طلب الحضانة أو الزيارة أو نفقة الأولاد الإلكتروني قابلاً للتنفيذ فور تقديمه؟",
+          "a": "تجعل المادة 38 من لائحة نظام الأحوال الشخصية الوثيقة سنداً تنفيذياً بعد اعتماد المحكمة. ولذي المصلحة الاعتراض على مضمونها بدعوى، وللمحكمة وقف التنفيذ عند خشية الضرر. التقديم والاعتماد والاعتراض ووقف التنفيذ خطوات مختلفة.",
+          "visibleMatched": true
+        },
+        {
+          "q": "هل يمكن طلب نفقة أثناء نظر الدعوى الأصلية؟",
+          "a": "تجيز المادة 50 للمحكمة عند الاقتضاء وبناءً على طلب المستحق الحكم بنفقة مؤقتة أثناء نظر طلب النفقة المستمرة دون حضور الطرف الآخر. بيّن الاحتياجات العاجلة وأدلة الإعالة المتاحة في الطلب. وهو قرار قضائي مؤقت وليس دفعة تلقائية تنشأ بمجرد فتح الملف.",
+          "visibleMatched": true
+        },
+        {
+          "q": "هل تتساوى مدة المطالبة بنفقة الزوجة الماضية والرجوع بمصروفات الأولاد؟",
+          "a": "لا. تمنع المادة 52 سماع دعوى نفقة الزوجة عن مدة سابقة تزيد على سنتين من إقامة الدعوى. وتحدد المادة 59 سنة لدعوى الرجوع على الأب في حالتها المقررة، مع اشتراط نية الرجوع وقت الإنفاق. حدّد المنفق والمستفيد والتواريخ وأدلة السداد؛ فهما طلبان مختلفان ويعتمد النظام الحساب الهجري.",
+          "visibleMatched": true
+        },
+        {
+          "q": "هل تنتهي نفقة الأب تلقائياً بمجرد بلوغ الابن الثامنة عشرة؟",
+          "a": "لا. تربط المادة 58 نفقة الابن بالحد الذي يقدر فيه أمثاله على التكسب مع شروط المال والقدرة الواردة فيها. ولا تعده المادة 24 من اللائحة قادراً قبل الثامنة عشرة، مع مراعاة إكمال تعليمه بنجاح معتاد. وتحفظ المادة 22 نفقة البنت المتزوجة التي لا تستحق نفقة زوجها وفق المادة 51. تُراجع أدلة الاعتماد المالي والتعليم الفعلية.",
+          "visibleMatched": true
+        },
+        {
+          "q": "ما المطلوب في ناجز عندما يكون المسار المناسب صحيفة دعوى؟",
+          "a": "تطلب الوزارة هويات الأطراف والعنوان الوطني، ووكالة مرافعة أو صك ولاية ساريين عند الاقتضاء. اختر صحيفة دعوى من باقة القضاء، وحدّد التصنيف واقرأ متطلباته، ثم أدخل الوقائع والأطراف وأرفق المستندات. لا يتجاوز ذلك إجراءً أولياً واجباً ولا يعني أن جميع المنازعات تندرج في تصنيف واحد.",
+          "visibleMatched": true
+        },
+        {
+          "q": "كيف أنظم طلب النفقة أو الاعتراض عليه؟",
+          "a": "افصل صاحب طلب النفقة والفترة المطالب بها والمصروفات الحالية والمبالغ المدفوعة. ميّز مصروفات الطفل عن النفقة الزوجية. يوضح جدول المصروفات الطلب، لكن الاستحقاق والفترة القابلة للمطالبة والمبلغ تتطلب تقييماً وفق قانون الأسرة المنطبق.",
+          "visibleMatched": true
+        },
+        {
+          "q": "ما أول خطوة في مسألة النفقة الزوجية ونفقة الأطفال؟",
+          "a": "احفظ أحكام النفقة القائمة ومستندات الدخل وإيصالات السكن ومصروفات الأطفال والتحويلات وحساب مفصل لكل فترة وأعد تسلسلاً زمنياً مؤرخاً وحدد أي إخطار أو ميعاد. أرسل هذه المواد إلى كاونسلو لتقييم أولي للوقائع والاختصاص والخيارات في السعودية.",
+          "visibleMatched": true
+        },
+        {
+          "q": "ما المستندات المفيدة لتقييم النفقة الزوجية ونفقة الأطفال؟",
+          "a": "ابدأ بـأحكام النفقة القائمة ومستندات الدخل وإيصالات السكن ومصروفات الأطفال والتحويلات وحساب مفصل لكل فترة، وأضف ملخصاً زمنياً مختصراً وحدد أي إخطار أو ميعاد. وتختلف القائمة النهائية بحسب الوقائع.",
+          "visibleMatched": true
+        },
+        {
+          "q": "هل يمكن أن تراجع كاونسلو مسألة النفقة الزوجية ونفقة الأطفال أونلاين؟",
+          "a": "نعم. يمكن بدء التقييم ومراجعة المستندات عبر واتساب أو البريد الإلكتروني أو نموذج التواصل بالعربية أو الإنجليزية. ويُحدد القيد الرسمي أو الحضور أو التمثيل المنظم بصورة منفصلة حيث يلزم في السعودية.",
+          "visibleMatched": true
+        },
+        {
+          "q": "كيف تساعد كاونسلو في النفقة الزوجية ونفقة الأطفال؟",
+          "a": "تتناول المراجعة السؤال: كيف أنظم طلب النفقة أو الاعتراض عليه؟ وتفحص كاونسلو أحكام النفقة القائمة ومستندات الدخل وإيصالات السكن ومصروفات الأطفال والتحويلات وحساب مفصل لكل فترة وتتحقق من الإطار والجهة المختصة وتوضح الخيارات المؤيدة وما بقي غير محسوم ضمن النطاق المتفق عليه.",
+          "visibleMatched": true
+        },
+        {
+          "q": "متى يصل الرد المهني؟",
+          "a": "تستهدف كاونسلو رداً مهنياً خلال 24 ساعة بحسب نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوفر الخدمة. ولا يمثل ذلك ضماناً لنتيجة قانونية أو لموعد قيد محدد.",
+          "visibleMatched": true
+        }
+      ],
+      "implementedAnswerIds": [
+        "sa-family-completion-spousal-entitlement",
+        "sa-family-completion-post-separation-support",
+        "sa-family-completion-interim-final-support"
+      ],
+      "proposedAnswers": [
+        {
+          "id": "sa-family-completion-spousal-entitlement",
+          "q": "هل يسقط استحقاق نفقة الزوجة تلقائياً بسبب السكن منفصلة؟",
+          "a": "لا. تقرأ المادتان 51 و55 مع قيد العذر المشروع والمادة 43. تستند النفقة إلى الزواج الصحيح وشروطه النظامية، وقد يؤثر الامتناع دون عذر عن الترتيبات الزوجية المحددة. وتحفظ المادة 43 النفقة خلال الامتناع المشروع عن الدخول والانتقال إلى أن يقبض المهر الحال ويهيأ المسكن المناسب. بيّن سبب الانفصال وأدلته ومنها مخاوف السلامة؛ ولا تفترض أن الابتعاد عن وضع خطر يسقط النفقة تلقائياً.",
+          "sources": [
+            {
+              "en": "Personal Status Law — Articles 43, 51 and 55",
+              "ar": "نظام الأحوال الشخصية — المواد 43 و51 و55",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-post-separation-support",
+          "q": "هل تكون نفقة العدة واحدة بعد كل صور انتهاء الزواج؟",
+          "a": "لا. تستمر نفقة المعتدة من طلاق رجعي إلى انتهاء عدتها وفق المادة 53، أما المعتدة البائن فلا نفقة لها إلا إذا كانت حاملاً فحتى تضع حملها. وتعالج المادة 54 الوفاة بصورة مختلفة: تتبع نفقة الحامل حكم مال الحمل ووارثه، وللمعتدة من الوفاة حق مستقل في السكن ببيت الزوجية مدة العدة. حدد صورة الفرقة وتاريخها والحمل؛ فنفقة الطفل والنفقة الزوجية السابقة غير المدفوعة طلبات متميزة.",
+          "sources": [
+            {
+              "en": "Personal Status Law — Articles 53–54",
+              "ar": "نظام الأحوال الشخصية — المادتان 53 و54",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-interim-final-support",
+          "q": "كيف تراعى النفقة المؤقتة عند الحكم بالنفقة المستمرة؟",
+          "a": "تميز المادة 21 من اللائحة بين المستحقين. فإذا كان الحكم للزوجة، راعت المحكمة النفقة المؤقتة زيادة أو نقصاً عند الحكم بالمستمرة بشرط مطالبة أحد الزوجين بذلك بحسب الحال. وللأولاد أو الوالدين تحسب المستمرة من تاريخ الحكم بها دون اعتبار لما حكم به مؤقتاً. قدم القرارين وسجل السداد؛ فلا تفترض خصم كل مبلغ مؤقت تلقائياً أو وجوب رده.",
+          "sources": [
+            {
+              "en": "Personal Status Regulations — Article 21",
+              "ar": "لائحة نظام الأحوال الشخصية — المادة 21",
+              "href": "https://www.uqn.gov.sa/details?p=27013"
+            }
+          ]
+        }
+      ],
+      "remainingKnownPublicContentGaps": [],
+      "caseSpecificOrSeparatePageLimits": [
+        "The amount, lawful excuse, form of dissolution, actual payment reconciliation and any modification depend on the evidence and orders. No automatic entitlement or monetary outcome is promised."
+      ],
+      "closureRecommendation": "accept-after-integration-and-rendered-verification",
+      "completionAccepted": false,
+      "reason": "The existing page-specific preparation and source answers, together with the proposed answers listed here, address the exact recorded public gaps and the primary/supporting questions in this bounded review. Mere intake links were not treated as resolution. Case-specific adjudication and questions reserved to distinct linked pages are not represented as resolved.",
+      "stage": "substantive-content-authored-integration-pending"
+    },
+    {
+      "route": "/sa/ar/services/family-law/child-custody-and-visitation",
+      "language": "ar",
+      "primaryIntent": "Understand Saudi custody eligibility, allocation, contact and a disputed change",
+      "supportingIntents": [
+        "Priority, additional eligibility and loss exceptions",
+        "Age, dependent care and contact arrangements",
+        "Restoration and contested change pleadings"
+      ],
+      "currentHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-ar-services-family-law-child-custody-and-visitation.html",
+      "currentHtmlSha256": "640917205361b83adfc62cc1a6cfb8c3394393b11dee88f934f6cd14970fc670",
+      "originalReviewFile": "docs/search-intent-saudi-final-review-2026-09-07.json",
+      "exactOriginalGaps": [
+        "Documentation eligibility and child-interest departure from priority answered. Remaining: full priority and eligibility exceptions, variation pleadings and age/disability continuation rules."
+      ],
+      "resolvedPublicQuestions": [
+        {
+          "question": "Priority, additional eligibility and loss exceptions",
+          "answerIds": [
+            "sa-family-completion-custody-priority",
+            "sa-family-completion-custody-eligibility",
+            "sa-family-completion-custody-unclaimed"
+          ],
+          "stage": "authored, requires rendered verification"
+        },
+        {
+          "question": "Age, dependent care and contact arrangements",
+          "answerIds": [
+            "sa-family-completion-custody-age",
+            "sa-family-completion-contact-arrangements"
+          ],
+          "stage": "authored, requires rendered verification"
+        },
+        {
+          "question": "Restoration and contested change pleadings",
+          "answerIds": [
+            "sa-family-completion-custody-disputed-filing"
+          ],
+          "stage": "authored, requires rendered verification"
+        }
+      ],
+      "existingVisibleFaq": [
+        {
+          "q": "هل أستخدم خدمة توثيق حضانة عند وجود نزاع؟",
+          "a": "تقصر وزارة العدل خدمة توثيق الحضانة على حالات محددة لأطفال دون الثامنة عشرة بشرط عدم وجود نزاع على الحضانة. تقدمها الحاضنة أو وكيلها. أما طلب الحضانة المتنازع عليه فيحتاج إلى المسار القضائي المناسب؛ ولا يحسم طلب الوثيقة ادعاءات الحضانة المتعارضة.",
+          "visibleMatched": true
+        },
+        {
+          "q": "هل يحسم ترتيب الحضانة النظامي كل حالة تلقائياً؟",
+          "a": "لا. تجيز المادة 127 للمحكمة مخالفة الترتيب لمصلحة المحضون مع مراعاة شروط الاستحقاق. وتتناول المادة 128 الانتقال الذي يفوّت مصلحته. بيّن أثر الترتيب في الرعاية والدراسة والتواصل بدلاً من الاعتماد على صفة الوالد وحدها.",
+          "visibleMatched": true
+        },
+        {
+          "q": "ما المعلومات المفيدة لتقييم ترتيب حضانة مقترح؟",
+          "a": "صف رعاية الطفل الحالية ومدرسته واحتياجاته الصحية وتواصله مع كل والد. وضّح الترتيب المطلوب وأي قلق عاجل على السلامة. ميّز طلب الحضانة الجديد عن تعديل حكم قائم أو تنفيذ زيارات لم تتم.",
+          "visibleMatched": true
+        },
+        {
+          "q": "ما أول خطوة في مسألة الحضانة والزيارة؟",
+          "a": "احفظ سجلات الميلاد والأسرة وأحكام الحضانة القائمة وجداول الدراسة والرعاية والمراسلات ذات الصلة ومخاوف السلامة الموثقة وأعد تسلسلاً زمنياً مؤرخاً وحدد أي إخطار أو ميعاد. أرسل هذه المواد إلى كاونسلو لتقييم أولي للوقائع والاختصاص والخيارات في السعودية.",
+          "visibleMatched": true
+        },
+        {
+          "q": "ما المستندات المفيدة لتقييم الحضانة والزيارة؟",
+          "a": "ابدأ بـسجلات الميلاد والأسرة وأحكام الحضانة القائمة وجداول الدراسة والرعاية والمراسلات ذات الصلة ومخاوف السلامة الموثقة، وأضف ملخصاً زمنياً مختصراً وحدد أي إخطار أو ميعاد. وتختلف القائمة النهائية بحسب الوقائع.",
+          "visibleMatched": true
+        },
+        {
+          "q": "هل يمكن أن تراجع كاونسلو مسألة الحضانة والزيارة أونلاين؟",
+          "a": "نعم. يمكن بدء التقييم ومراجعة المستندات عبر واتساب أو البريد الإلكتروني أو نموذج التواصل بالعربية أو الإنجليزية. ويُحدد القيد الرسمي أو الحضور أو التمثيل المنظم بصورة منفصلة حيث يلزم في السعودية.",
+          "visibleMatched": true
+        },
+        {
+          "q": "كيف تساعد كاونسلو في الحضانة والزيارة؟",
+          "a": "تتناول المراجعة السؤال: ما المعلومات المفيدة لتقييم ترتيب حضانة مقترح؟ وتفحص كاونسلو سجلات الميلاد والأسرة وأحكام الحضانة القائمة وجداول الدراسة والرعاية والمراسلات ذات الصلة ومخاوف السلامة الموثقة وتتحقق من الإطار والجهة المختصة وتوضح الخيارات المؤيدة وما بقي غير محسوم ضمن النطاق المتفق عليه.",
+          "visibleMatched": true
+        },
+        {
+          "q": "متى يصل الرد المهني؟",
+          "a": "تستهدف كاونسلو رداً مهنياً خلال 24 ساعة بحسب نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوفر الخدمة. ولا يمثل ذلك ضماناً لنتيجة قانونية أو لموعد قيد محدد.",
+          "visibleMatched": true
+        }
+      ],
+      "implementedAnswerIds": [
+        "sa-family-completion-custody-priority",
+        "sa-family-completion-custody-eligibility",
+        "sa-family-completion-custody-age",
+        "sa-family-completion-custody-disputed-filing",
+        "sa-family-completion-custody-unclaimed",
+        "sa-family-completion-contact-arrangements"
+      ],
+      "proposedAnswers": [
+        {
+          "id": "sa-family-completion-custody-priority",
+          "q": "ما ترتيب الحضانة المبدئي بعد افتراق الوالدين؟",
+          "a": "تبدأ المادة 127 بالأم ثم الأب ثم أم الأم ثم أم الأب، وبعد ذلك تقرر المحكمة ما تراه لمصلحة المحضون، ولها مخالفة الترتيب لهذه المصلحة. فالأولوية لا تغني عن شروط الحاضن ولا تثبت ملاءمة الترتيب المقترح وحدها. قدم أدلة الرعاية والتعليم والصحة القائمة، وميز الحضانة عن الولاية وحق الزيارة.",
+          "sources": [
+            {
+              "en": "Personal Status Law — Article 127",
+              "ar": "نظام الأحوال الشخصية — المادة 127",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-custody-eligibility",
+          "q": "ما الذي قد يؤثر في أهلية الشخص للحضانة؟",
+          "a": "تشترط المواد 125–128 كمال الأهلية والقدرة على رعاية المحضون والسلامة من الأمراض المعدية الخطيرة، ويشترط في الحاضن الرجل أن يكون ذا رحم محرم للمحضون إن كان أنثى وأن تقيم عنده امرأة صالحة للحضانة. ولزواج الحاضنة من أجنبي عن المحضون استثناء إذا اقتضت مصلحته ذلك. وقد يؤثر الانتقال المفوت للمصلحة أو زوال شرط الأهلية أو السكوت عن المطالبة أكثر من سنة دون عذر، مع استثناء مصلحة المحضون في السكوت. حدد الشرط وأدلته؛ فلا تختزل النصوص في وصف عام أو إسقاط تلقائي لأهلية أحد الوالدين. وتقرر المادة 133 أن مغادرة الأم بيت الزوجية لا تسقط الحضانة وحدها، مع مراعاة مصلحة المحضون.",
+          "sources": [
+            {
+              "en": "Personal Status Law — Articles 125–128 and 133",
+              "ar": "نظام الأحوال الشخصية — المواد 125–128 و133",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-custody-age",
+          "q": "هل تنتهي الحضانة في الخامسة عشرة، وماذا إذا استمرت الحاجة إلى الرعاية؟",
+          "a": "تمنح المادة 135 من أتم الخامسة عشرة اختيار الإقامة لدى أحد والديه ما لم تقتض مصلحته خلاف ذلك. وتنتهي الحضانة المعتادة بإتمام الثامنة عشرة، مع استمرارها في حالات فقد الإدراك أو المرض المقعد المحددة في النص وفق ترتيب الحضانة. واختيار الإقامة ليس إلغاءً تلقائياً للنفقة أو أحكام الولاية. قدم العمر وأدلة احتياجات الرعاية؛ ويعتمد النظام الحساب الهجري في مدده.",
+          "sources": [
+            {
+              "en": "Personal Status Law — Articles 135 and 247",
+              "ar": "نظام الأحوال الشخصية — المادتان 135 و247",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-custody-disputed-filing",
+          "q": "كيف يقدم تغيير الحضانة المتنازع عليه للمراجعة القضائية؟",
+          "a": "تجيز المادة 130 طلب الحضانة مجدداً إذا زال سبب سقوطها. حدد الحكم القائم والتغيير المطلوب بدقة، مع أدلة مؤرخة لتغير الرعاية أو السلامة أو التعليم أو شروط الحضانة. ولا يقدم التغيير المتنازع عليه كتوثيق حضانة غير متنازع عليها. عند ملاءمة صحيفة الدعوى، تتطلب ناجز تصنيف الدعوى وهويات الأطراف والعنوان الوطني والمستندات المطلوبة وسند التمثيل الساري عند الاقتضاء. اقرأ متطلبات التصنيف قبل الإرسال؛ فالتقديم لا يستبدل الحكم القائم أو يوقفه بذاته.",
+          "sources": [
+            {
+              "en": "Ministry of Justice — Statement of Claim service",
+              "ar": "وزارة العدل — خدمة صحيفة الدعوى",
+              "href": "https://www.moj.gov.sa/ar/eServices/pages/928b8f02-19a7-482b-ba0e-29a151d9a900.aspx"
+            },
+            {
+              "en": "Personal Status Law — Article 130",
+              "ar": "نظام الأحوال الشخصية — المادة 130",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-custody-unclaimed",
+          "q": "ماذا إذا لم يطلب أحد المستحقين الحضانة؟",
+          "a": "تحدد المادة 131 المسؤولية عند عدم المطالبة: إذا لم يتجاوز الطفل العامين تلزم الأم إن وجدت وإلا الأب، وبعد العامين يلزم الأب إن وجد وإلا الأم. وإذا لم يوجد الوالدان ولم يقبل مستحق الحضانة، تجيز المادة 132 للمحكمة اختيار قريب صالح أو غيره أو جهة مؤهلة. وهذا تنظيم للرعاية عبر المحكمة وليس إذناً بترك الطفل بلا رعاية.",
+          "sources": [
+            {
+              "en": "Personal Status Law — Articles 131–132",
+              "ar": "نظام الأحوال الشخصية — المادتان 131–132",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-contact-arrangements",
+          "q": "من يحدد الزيارة إذا لم يتفق الوالدان؟",
+          "a": "تقرر المادة 134 لمن ليس حاضناً من الوالدين حق الزيارة والاستزارة والاستصحاب وفق الاتفاق، وتقرر المحكمة عند الاختلاف مع مراعاة أحكام السفر المنفصلة. وإذا كان أحد الوالدين متوفى أو غائباً أو كانت الحضانة لدى غير الوالدين، جاز للمحكمة تعيين مستحق الزيارة من الأقارب وفق مصلحة المحضون. حدد الجدول المطلوب والحكم القائم؛ فخلاف الزيارة لا يعني تلقائياً نقل الحضانة.",
+          "sources": [
+            {
+              "en": "Personal Status Law — Article 134",
+              "ar": "نظام الأحوال الشخصية — المادة 134",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        }
+      ],
+      "remainingKnownPublicContentGaps": [],
+      "caseSpecificOrSeparatePageLimits": [
+        "Which arrangement serves the actual child, adequacy of medical or school evidence, and the specific court classification require the file. Cross-border travel permission and enforcement of an existing contact order remain separate linked matters."
+      ],
+      "closureRecommendation": "accept-after-integration-and-rendered-verification",
+      "completionAccepted": false,
+      "reason": "The existing page-specific preparation and source answers, together with the proposed answers listed here, address the exact recorded public gaps and the primary/supporting questions in this bounded review. Mere intake links were not treated as resolution. Case-specific adjudication and questions reserved to distinct linked pages are not represented as resolved.",
+      "stage": "substantive-content-authored-integration-pending"
+    },
+    {
+      "route": "/sa/ar/services/family-law/domestic-violence-protection-and-family-safety-application",
+      "language": "ar",
+      "primaryIntent": "Obtain safe, official protection against domestic abuse in Saudi Arabia",
+      "supportingIntents": [
+        "Report referral and follow-up",
+        "Critical-risk measures, safe document recovery and shelter",
+        "Confidentiality and its legal limits"
+      ],
+      "currentHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-ar-services-family-law-domestic-violence-protection-and-family-safety-application.html",
+      "currentHtmlSha256": "d016f235c1fd9b240262f7ef232de9b6e15ca41f02ffe14952ed4bd594c8ffc2",
+      "originalReviewFile": "docs/search-intent-saudi-final-review-2026-09-07.json",
+      "exactOriginalGaps": [
+        "Expand protection process, available measures and safe confidentiality guidance; do not imply the reporting number itself grants a protective order."
+      ],
+      "resolvedPublicQuestions": [
+        {
+          "question": "Report referral and follow-up",
+          "answerIds": [
+            "sa-family-completion-protection-response"
+          ],
+          "stage": "authored, requires rendered verification"
+        },
+        {
+          "question": "Critical-risk measures, safe document recovery and shelter",
+          "answerIds": [
+            "sa-family-completion-protection-critical",
+            "sa-family-completion-protection-shelter"
+          ],
+          "stage": "authored, requires rendered verification"
+        },
+        {
+          "question": "Confidentiality and its legal limits",
+          "answerIds": [
+            "sa-family-completion-protection-confidentiality"
+          ],
+          "stage": "authored, requires rendered verification"
+        }
+      ],
+      "existingVisibleFaq": [
+        {
+          "q": "أين أبلغ عن العنف الأسري في السعودية؟",
+          "a": "تستقبل وزارة الموارد البشرية والتنمية الاجتماعية بلاغات العنف الأسري على الرقم المجاني 1919 طوال الساعة، بما في ذلك العطلات. تشمل الخدمة المواطنين والمقيمين ولا تشترط مستندات لتقديم البلاغ. تواصل مع جهة الحماية الرسمية عند الحاجة للمساعدة ولا تنتظر استكمال ملف الاستشارة.",
+          "visibleMatched": true
+        },
+        {
+          "q": "ما الأولوية عندما تكون سلامة الأسرة معرضة للخطر؟",
+          "a": "عند الخطر الفوري تواصل مع خدمات الطوارئ أو الحماية المحلية وأعط الأولوية لمكان آمن. وحين يصبح ذلك آمناً وثّق الواقعة وأي أمر حماية قائم. الاستشارة القانونية ليست خدمة استجابة طارئة، ولا ينبغي أن تؤخر المساعدة العاجلة.",
+          "visibleMatched": true
+        },
+        {
+          "q": "ما أول خطوة في مسألة طلب الحماية من العنف الأسري وحماية الأسرة؟",
+          "a": "احفظ محاضر الوقائع والتقارير الطبية المتاحة وأوامر الحماية القائمة والرسائل ذات الصلة، عند إمكان جمعها بأمان وأعد تسلسلاً زمنياً مؤرخاً وحدد أي إخطار أو ميعاد. أرسل هذه المواد إلى كاونسلو لتقييم أولي للوقائع والاختصاص والخيارات في السعودية.",
+          "visibleMatched": true
+        },
+        {
+          "q": "ما المستندات المفيدة لتقييم طلب الحماية من العنف الأسري وحماية الأسرة؟",
+          "a": "ابدأ بـمحاضر الوقائع والتقارير الطبية المتاحة وأوامر الحماية القائمة والرسائل ذات الصلة، عند إمكان جمعها بأمان، وأضف ملخصاً زمنياً مختصراً وحدد أي إخطار أو ميعاد. وتختلف القائمة النهائية بحسب الوقائع.",
+          "visibleMatched": true
+        },
+        {
+          "q": "هل يمكن أن تراجع كاونسلو مسألة طلب الحماية من العنف الأسري وحماية الأسرة أونلاين؟",
+          "a": "نعم. يمكن بدء التقييم ومراجعة المستندات عبر واتساب أو البريد الإلكتروني أو نموذج التواصل بالعربية أو الإنجليزية. ويُحدد القيد الرسمي أو الحضور أو التمثيل المنظم بصورة منفصلة حيث يلزم في السعودية.",
+          "visibleMatched": true
+        },
+        {
+          "q": "كيف تساعد كاونسلو في طلب الحماية من العنف الأسري وحماية الأسرة؟",
+          "a": "تتناول المراجعة السؤال: ما الأولوية عندما تكون سلامة الأسرة معرضة للخطر؟ وتفحص كاونسلو محاضر الوقائع والتقارير الطبية المتاحة وأوامر الحماية القائمة والرسائل ذات الصلة، عند إمكان جمعها بأمان وتتحقق من الإطار والجهة المختصة وتوضح الخيارات المؤيدة وما بقي غير محسوم ضمن النطاق المتفق عليه.",
+          "visibleMatched": true
+        },
+        {
+          "q": "متى يصل الرد المهني؟",
+          "a": "تستهدف كاونسلو رداً مهنياً خلال 24 ساعة بحسب نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوفر الخدمة. ولا يمثل ذلك ضماناً لنتيجة قانونية أو لموعد قيد محدد.",
+          "visibleMatched": true
+        }
+      ],
+      "implementedAnswerIds": [
+        "sa-family-completion-protection-response",
+        "sa-family-completion-protection-critical",
+        "sa-family-completion-protection-confidentiality",
+        "sa-family-completion-protection-shelter"
+      ],
+      "proposedAnswers": [
+        {
+          "id": "sa-family-completion-protection-response",
+          "q": "ماذا يحدث بعد وصول بلاغ الإيذاء إلى جهة الحماية؟",
+          "a": "تنظم المادتان 4 و7 من اللائحة توثيق البلاغ وإحالته إلى مركز الحماية في منطقة الحالة والتواصل والتقييم واتخاذ الإجراءات المناسبة. وقد تشمل الدعم الصحي والاجتماعي والمتابعة والتعهدات. بيّن الخطر العاجل بوضوح عند الإبلاغ؛ فتقييم الجهة يحدد التدخل. ورقم البلاغ ليس بذاته أمراً قضائياً، ولا تنتظر جواب الاستشارة عند الطوارئ.",
+          "sources": [
+            {
+              "en": "HRSD — Protection from Abuse Regulations, Articles 4 and 7",
+              "ar": "وزارة الموارد البشرية — لائحة الحماية من الإيذاء، المادتان 4 و7",
+              "href": "https://www.hrsd.gov.sa/sites/default/files/2026-07/allayht-altnfydhyt-lnzam-alhmayt-mn-alaydha.pdf"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-protection-critical",
+          "q": "هل قد تؤدي خطورة الإيذاء الأسري إلى منع المعتدي من التواصل؟",
+          "a": "توجب المادة 8 إبلاغ الحاكم الإداري والجهات الأمنية بالحالة الحرجة، كما توجب على مركز الحماية طلب رفعها عبر الجهات الأمنية إلى النيابة العامة لإصدار أمر بعدم التواصل والاتصال في حالة الإيذاء الحرجة. وهذا مسار حماية رسمي وليس أمراً ينشأ بمجرد الاتصال. أبلغ سريعاً عن التهديد والعنف المتكرر وخرق التدابير القائمة، ولا تقترب من المعتدي المزعوم لجمع دليل.",
+          "sources": [
+            {
+              "en": "HRSD — Protection from Abuse Regulations, Article 8",
+              "ar": "وزارة الموارد البشرية — لائحة الحماية من الإيذاء، المادة 8",
+              "href": "https://www.hrsd.gov.sa/sites/default/files/2026-07/allayht-altnfydhyt-lnzam-alhmayt-mn-alaydha.pdf"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-protection-confidentiality",
+          "q": "هل تبقى هوية المبلغ عن الإيذاء الأسري سرية في جميع الأحوال؟",
+          "a": "تحمي المادة 5 هوية المبلغ ومعلومات البلاغ، لكن السرية ليست مطلقة. يكون الإفصاح أصلاً بحسب الحاجة وبعد الموافقة الكتابية، مع استثناءات ضيقة لمعالجة الحالة لأسباب جوهرية يقدرها الفريق المختص أو لطلب رسمي مسبب، وتلتزم الجهة المتلقية بالسرية. أخبر الخدمة إذا كان الاتصال أو الرسائل أو الإفصاح يزيد الخطر وحدد وسيلة تواصل آمنة. ولا تفترض خصوصية جهاز أو حساب مشترك.",
+          "sources": [
+            {
+              "en": "HRSD — Protection from Abuse Regulations, Article 5",
+              "ar": "وزارة الموارد البشرية — لائحة الحماية من الإيذاء، المادة 5",
+              "href": "https://www.hrsd.gov.sa/sites/default/files/2026-07/allayht-altnfydhyt-lnzam-alhmayt-mn-alaydha.pdf"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-protection-shelter",
+          "q": "من قد يستحق الإيواء، وكيف تستعاد الوثائق الشخصية بأمان؟",
+          "a": "يشمل حكم الإيواء في المادة 8 المرأة مهما كان سنها والطفل دون الثامنة عشرة عند التعرض للإيذاء أو الإهمال وتعذر الإيواء لدى الأقارب أو أسرة بديلة. ويتطلب الإيواء وتمديده التقييم والموافقات المحددة، ولا يعني ضمان سكن دائم. وتنص المادة 7 أيضاً على استعادة الأوراق الثبوتية والممتلكات الشخصية من المسكن بحضور الجهات الأمنية. اطلب تنسيق المسار الآمن مع مركز الحماية بدلاً من العودة منفرداً إلى مسكن خطر.",
+          "sources": [
+            {
+              "en": "HRSD — Protection from Abuse Regulations, Articles 7–8",
+              "ar": "وزارة الموارد البشرية — لائحة الحماية من الإيذاء، المادتان 7–8",
+              "href": "https://www.hrsd.gov.sa/sites/default/files/2026-07/allayht-altnfydhyt-lnzam-alhmayt-mn-alaydha.pdf"
+            }
+          ]
+        }
+      ],
+      "remainingKnownPublicContentGaps": [],
+      "caseSpecificOrSeparatePageLimits": [
+        "Individual risk classification, availability of a specific placement and the content of any prosecution order require the protection authority; a private consultation cannot issue them."
+      ],
+      "closureRecommendation": "accept-after-integration-and-rendered-verification",
+      "completionAccepted": false,
+      "reason": "The existing page-specific preparation and source answers, together with the proposed answers listed here, address the exact recorded public gaps and the primary/supporting questions in this bounded review. Mere intake links were not treated as resolution. Case-specific adjudication and questions reserved to distinct linked pages are not represented as resolved.",
+      "stage": "substantive-content-authored-integration-pending"
+    },
+    {
+      "route": "/sa/services/family-law/alimony-and-child-maintenance",
+      "language": "en",
+      "primaryIntent": "Understand entitlement, variation and interim/final Saudi family maintenance",
+      "supportingIntents": [
+        "Initial spousal eligibility and lawful-excuse exceptions",
+        "Support after different forms of marital dissolution",
+        "Interim versus final award reconciliation"
+      ],
+      "currentHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-services-family-law-alimony-and-child-maintenance.html",
+      "currentHtmlSha256": "8ca21106058724cda42a040ba0d9c4b9d713721b4afe3d68099a573fd4d400b2",
+      "originalReviewFile": "docs/search-intent-saudi-final-review-2026-09-07.json",
+      "exactOriginalGaps": [
+        "Initial spousal eligibility and lawful-excuse exceptions; maintenance after different forms of marital dissolution; exact reconciliation of interim and final awards under the implementing regulation."
+      ],
+      "resolvedPublicQuestions": [
+        {
+          "question": "Initial spousal eligibility and lawful-excuse exceptions",
+          "answerIds": [
+            "sa-family-completion-spousal-entitlement"
+          ],
+          "stage": "authored, requires rendered verification"
+        },
+        {
+          "question": "Support after different forms of marital dissolution",
+          "answerIds": [
+            "sa-family-completion-post-separation-support"
+          ],
+          "stage": "authored, requires rendered verification"
+        },
+        {
+          "question": "Interim versus final award reconciliation",
+          "answerIds": [
+            "sa-family-completion-interim-final-support"
+          ],
+          "stage": "authored, requires rendered verification"
+        }
+      ],
+      "existingVisibleFaq": [
+        {
+          "q": "How is maintenance assessed, and can an existing amount change?",
+          "a": "Articles 45–48 link maintenance to basic needs, the recipient’s circumstances and the payer’s means. Changed circumstances can justify variation. A variation claim within one year of the judgment requires exceptional circumstances accepted by the court. Identify what changed in income or needs; do not calculate entitlement from salary alone.",
+          "visibleMatched": true
+        },
+        {
+          "q": "Does an electronic custody, visitation or child-support request immediately become enforceable?",
+          "a": "Article 38 of the Personal Status Regulations makes the resulting document an enforcement instrument after court approval. An interested person may challenge its contents by a court claim, and the court may stay enforcement where harm is feared. Submission, approval, objection and a stay are distinct steps.",
+          "visibleMatched": true
+        },
+        {
+          "q": "Can maintenance be requested while the main claim is still pending?",
+          "a": "Article 50 permits the court, where appropriate and on the entitled person’s request, to award temporary maintenance during a continuing-maintenance claim without the other party attending. Identify immediate needs and available support evidence in the request. This is a judicial interim decision, not an automatic payment resulting from opening a file.",
+          "visibleMatched": true
+        },
+        {
+          "q": "Do spousal arrears and reimbursement of child expenses have the same look-back period?",
+          "a": "No. Article 52 limits hearing a spousal-maintenance claim for a past period exceeding two years before filing. Article 59 sets a one-year limit for its specified reimbursement claim against the father and requires the payer’s intention to seek reimbursement when spending. These are different claims; identify the payer, beneficiary, dates and payment evidence. The law uses the Hijri calendar.",
+          "visibleMatched": true
+        },
+        {
+          "q": "Does a child’s eighteenth birthday automatically end the father’s maintenance duty?",
+          "a": "No. Article 58 ties a son’s maintenance to the ability of comparable people to earn, subject to its means conditions. Regulation Article 24 does not treat him as able to earn before eighteen and preserves ordinary successful completion of education. Article 22 also preserves support for a married daughter who does not qualify for spousal maintenance under Article 51. Review the actual dependency and education evidence.",
+          "visibleMatched": true
+        },
+        {
+          "q": "What does Najiz require when a statement of claim is the appropriate route?",
+          "a": "The Ministry requires the parties’ identity details and national address, plus a valid litigation power of attorney or guardianship document where relevant. In the Judiciary package, choose Statement of Claim, select the case classification, read its specific requirements, enter facts and parties, and attach the required documents. This does not bypass a mandatory preliminary process or mean every dispute uses the same claim category.",
+          "visibleMatched": true
+        },
+        {
+          "q": "How should I organise a maintenance request or objection?",
+          "a": "Separate the person claiming support, the period claimed, current expenses and payments already made. Keep child expenses distinct from spousal support. A budget explains the request, but entitlement, the recoverable period and the amount require the applicable family-law assessment.",
+          "visibleMatched": true
+        },
+        {
+          "q": "What should I do first about alimony and child maintenance?",
+          "a": "Preserve existing support orders, income records, housing and child-expense receipts, transfer records and a period-by-period calculation, prepare a dated chronology and identify any notice or deadline. Send those materials to CounselO for an initial assessment of the facts, forum and options in Saudi Arabia.",
+          "visibleMatched": true
+        },
+        {
+          "q": "What documents help assess alimony and child maintenance?",
+          "a": "For this problem, start with existing support orders, income records, housing and child-expense receipts, transfer records and a period-by-period calculation. Add a short dated summary and identify any notice or deadline. The final list depends on the facts.",
+          "visibleMatched": true
+        },
+        {
+          "q": "Can CounselO review alimony and child maintenance online?",
+          "a": "Yes. The initial assessment and document review can begin through WhatsApp, email or the consultation form in Arabic or English. Formal filing, attendance and reserved representation work are scoped separately where required in Saudi Arabia.",
+          "visibleMatched": true
+        },
+        {
+          "q": "How does CounselO help with alimony and child maintenance?",
+          "a": "The review addresses this question: How should I organise a maintenance request or objection? CounselO examines existing support orders, income records, housing and child-expense receipts, transfer records and a period-by-period calculation, checks the applicable framework and authority, and explains the supported options and remaining uncertainties within the agreed scope.",
+          "visibleMatched": true
+        },
+        {
+          "q": "How quickly will I receive a response?",
+          "a": "CounselO targets a professional response within 24 hours, subject to the matter’s scope, urgency, intake completeness and service availability. The target is not a guaranteed legal outcome or filing deadline.",
+          "visibleMatched": true
+        }
+      ],
+      "implementedAnswerIds": [
+        "sa-family-completion-spousal-entitlement",
+        "sa-family-completion-post-separation-support",
+        "sa-family-completion-interim-final-support"
+      ],
+      "proposedAnswers": [
+        {
+          "id": "sa-family-completion-spousal-entitlement",
+          "q": "Does living separately automatically remove spousal maintenance?",
+          "a": "No. Articles 51 and 55 must be read with the lawful-excuse qualification and Article 43. Maintenance rests on a valid marriage and the statutory conditions; an unjustified refusal of the specified marital living arrangements can affect it. Article 43 preserves maintenance while the wife properly awaits the due dower and suitable marital accommodation before moving in. Explain the reason for separation and available evidence, including safety concerns; do not assume that leaving a dangerous situation automatically forfeits support.",
+          "sources": [
+            {
+              "en": "Personal Status Law — Articles 43, 51 and 55",
+              "ar": "نظام الأحوال الشخصية — المواد 43 و51 و55",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-post-separation-support",
+          "q": "Is waiting-period maintenance the same after every form of marital dissolution?",
+          "a": "No. Article 53 continues maintenance through the waiting period after revocable divorce, while an irrevocably separated woman receives it only if pregnant, until delivery. Article 54 treats bereavement differently: pregnancy support follows the rule about the unborn child’s funds and heirs, and the widow has a separate right to remain in the marital home during the waiting period. Establish the legal form and date of dissolution and pregnancy status; child maintenance and unpaid earlier spousal support are separate questions.",
+          "sources": [
+            {
+              "en": "Personal Status Law — Articles 53–54",
+              "ar": "نظام الأحوال الشخصية — المادتان 53 و54",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-interim-final-support",
+          "q": "How is an interim maintenance award treated when continuing maintenance is decided?",
+          "a": "Regulation Article 21 distinguishes beneficiaries. For a wife, the court considers the interim award when setting continuing maintenance, upward or downward, if either spouse requests that adjustment as applicable. For children or parents, continuing maintenance is calculated from its judgment date without counting the interim award into that calculation. Submit both decisions and the payment record; do not assume that every interim sum is automatically deducted or must be repaid.",
+          "sources": [
+            {
+              "en": "Personal Status Regulations — Article 21",
+              "ar": "لائحة نظام الأحوال الشخصية — المادة 21",
+              "href": "https://www.uqn.gov.sa/details?p=27013"
+            }
+          ]
+        }
+      ],
+      "remainingKnownPublicContentGaps": [],
+      "caseSpecificOrSeparatePageLimits": [
+        "The amount, lawful excuse, form of dissolution, actual payment reconciliation and any modification depend on the evidence and orders. No automatic entitlement or monetary outcome is promised."
+      ],
+      "closureRecommendation": "accept-after-integration-and-rendered-verification",
+      "completionAccepted": false,
+      "reason": "The existing page-specific preparation and source answers, together with the proposed answers listed here, address the exact recorded public gaps and the primary/supporting questions in this bounded review. Mere intake links were not treated as resolution. Case-specific adjudication and questions reserved to distinct linked pages are not represented as resolved.",
+      "stage": "substantive-content-authored-integration-pending"
+    },
+    {
+      "route": "/sa/services/family-law/child-custody-and-visitation",
+      "language": "en",
+      "primaryIntent": "Understand Saudi custody eligibility, allocation, contact and a disputed change",
+      "supportingIntents": [
+        "Priority, additional eligibility and loss exceptions",
+        "Age, dependent care and contact arrangements",
+        "Restoration and contested change pleadings"
+      ],
+      "currentHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-services-family-law-child-custody-and-visitation.html",
+      "currentHtmlSha256": "9983ea9451dbfb69d11645d716be469c35624a193b96d24fb352f69c2d801d84",
+      "originalReviewFile": "docs/search-intent-saudi-final-review-2026-09-07.json",
+      "exactOriginalGaps": [
+        "Documentation eligibility and child-interest departure from priority answered. Remaining: full priority and eligibility exceptions, variation pleadings and age/disability continuation rules."
+      ],
+      "resolvedPublicQuestions": [
+        {
+          "question": "Priority, additional eligibility and loss exceptions",
+          "answerIds": [
+            "sa-family-completion-custody-priority",
+            "sa-family-completion-custody-eligibility",
+            "sa-family-completion-custody-unclaimed"
+          ],
+          "stage": "authored, requires rendered verification"
+        },
+        {
+          "question": "Age, dependent care and contact arrangements",
+          "answerIds": [
+            "sa-family-completion-custody-age",
+            "sa-family-completion-contact-arrangements"
+          ],
+          "stage": "authored, requires rendered verification"
+        },
+        {
+          "question": "Restoration and contested change pleadings",
+          "answerIds": [
+            "sa-family-completion-custody-disputed-filing"
+          ],
+          "stage": "authored, requires rendered verification"
+        }
+      ],
+      "existingVisibleFaq": [
+        {
+          "q": "Can I use custody documentation when custody is disputed?",
+          "a": "The Ministry of Justice limits its custody-documentation service to specified situations involving children under 18 where custody is not disputed. The applicant is the mother with custody or her representative. A contested custody request needs the appropriate judicial assessment; an application for a certificate does not resolve competing custody claims.",
+          "visibleMatched": true
+        },
+        {
+          "q": "Does the statutory custody order decide every case automatically?",
+          "a": "No. Article 127 allows the court to depart from custody priority for the child’s interests. Eligibility conditions still apply. Article 128 also addresses relocation that defeats those interests. Explain the effect on care, school and contact rather than relying on parental status alone.",
+          "visibleMatched": true
+        },
+        {
+          "q": "What information helps assess a proposed custody arrangement?",
+          "a": "Describe the child's present care, school, health needs and contact with each parent. Explain the arrangement requested and any immediate safety concern. Distinguish a new custody request from changing an existing order or enforcing missed visits.",
+          "visibleMatched": true
+        },
+        {
+          "q": "What should I do first about child custody and visitation?",
+          "a": "Preserve birth and family records, existing custody orders, school and care schedules, relevant communications and documented safety concerns, prepare a dated chronology and identify any notice or deadline. Send those materials to CounselO for an initial assessment of the facts, forum and options in Saudi Arabia.",
+          "visibleMatched": true
+        },
+        {
+          "q": "What documents help assess child custody and visitation?",
+          "a": "For this problem, start with birth and family records, existing custody orders, school and care schedules, relevant communications and documented safety concerns. Add a short dated summary and identify any notice or deadline. The final list depends on the facts.",
+          "visibleMatched": true
+        },
+        {
+          "q": "Can CounselO review child custody and visitation online?",
+          "a": "Yes. The initial assessment and document review can begin through WhatsApp, email or the consultation form in Arabic or English. Formal filing, attendance and reserved representation work are scoped separately where required in Saudi Arabia.",
+          "visibleMatched": true
+        },
+        {
+          "q": "How does CounselO help with child custody and visitation?",
+          "a": "The review addresses this question: What information helps assess a proposed custody arrangement? CounselO examines birth and family records, existing custody orders, school and care schedules, relevant communications and documented safety concerns, checks the applicable framework and authority, and explains the supported options and remaining uncertainties within the agreed scope.",
+          "visibleMatched": true
+        },
+        {
+          "q": "How quickly will I receive a response?",
+          "a": "CounselO targets a professional response within 24 hours, subject to the matter’s scope, urgency, intake completeness and service availability. The target is not a guaranteed legal outcome or filing deadline.",
+          "visibleMatched": true
+        }
+      ],
+      "implementedAnswerIds": [
+        "sa-family-completion-custody-priority",
+        "sa-family-completion-custody-eligibility",
+        "sa-family-completion-custody-age",
+        "sa-family-completion-custody-disputed-filing",
+        "sa-family-completion-custody-unclaimed",
+        "sa-family-completion-contact-arrangements"
+      ],
+      "proposedAnswers": [
+        {
+          "id": "sa-family-completion-custody-priority",
+          "q": "What is the starting custody order after the parents separate?",
+          "a": "Article 127 starts with the mother, then the father, maternal grandmother and paternal grandmother, after which the court decides according to the child’s interests. The court may depart from that order for those interests. Priority therefore does not dispense with eligibility or prove that a proposed arrangement is suitable. Present the existing care, schooling and health evidence and distinguish custody from guardianship and contact rights.",
+          "sources": [
+            {
+              "en": "Personal Status Law — Article 127",
+              "ar": "نظام الأحوال الشخصية — المادة 127",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-custody-eligibility",
+          "q": "What can affect a person’s eligibility for custody?",
+          "a": "Articles 125–128 require legal capacity, ability to care for the child and freedom from serious infectious disease, A male custodian must have a woman suitable for custody living with him and, if the child is a girl, be her mahram relative. A female custodian’s marriage to a man unrelated to the child has a child-interest exception. Harmful relocation, loss of an eligibility condition, or not claiming custody for over a year without excuse can affect entitlement, with the stated child-interest exception for delay. Identify the actual condition and evidence; these provisions should not be reduced to a label or an automatic parental disqualification. Article 133 also says a mother leaving the marital home does not itself remove custody, subject to the child’s interests.",
+          "sources": [
+            {
+              "en": "Personal Status Law — Articles 125–128 and 133",
+              "ar": "نظام الأحوال الشخصية — المواد 125–128 و133",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-custody-age",
+          "q": "Does custody end at fifteen, and what happens if the child still needs dependent care?",
+          "a": "Article 135 gives a child who has completed fifteen a choice of residence with either parent unless the child’s interests require otherwise. Ordinary custody ends at eighteen; the law separately continues custody for its specified mental-incapacity or incapacitating-illness cases under the statutory priority. Residence choice is not automatic cancellation of maintenance or guardianship rules. Provide the child’s age and relevant care evidence; the law uses Hijri calculation for its periods.",
+          "sources": [
+            {
+              "en": "Personal Status Law — Articles 135 and 247",
+              "ar": "نظام الأحوال الشخصية — المادتان 135 و247",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-custody-disputed-filing",
+          "q": "How should a disputed custody change be presented for judicial review?",
+          "a": "Article 130 permits a fresh custody request when the reason for losing custody has ended. Identify the existing order and the precise change requested, with dated evidence of changed care, safety, schooling or eligibility. A disputed change should not be presented as an uncontested custody certificate. Where a statement of claim is the appropriate route, Najiz requires the chosen claim classification, parties’ identities, national address, required documents and valid representative authority where relevant. Read that classification’s requirements before submitting; the application does not itself replace or suspend the existing order.",
+          "sources": [
+            {
+              "en": "Ministry of Justice — Statement of Claim service",
+              "ar": "وزارة العدل — خدمة صحيفة الدعوى",
+              "href": "https://www.moj.gov.sa/ar/eServices/pages/928b8f02-19a7-482b-ba0e-29a151d9a900.aspx"
+            },
+            {
+              "en": "Personal Status Law — Article 130",
+              "ar": "نظام الأحوال الشخصية — المادة 130",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-custody-unclaimed",
+          "q": "What if no eligible relative asks to take custody?",
+          "a": "Article 131 allocates responsibility when nobody claims custody: for a child aged two or younger, the mother if present, otherwise the father; above two, the father if present, otherwise the mother. If neither parent exists and no entitled person accepts custody, Article 132 allows the court to select a suitable relative, another person or an appropriately qualified body. This is a court-directed care arrangement, not permission to leave the child without care.",
+          "sources": [
+            {
+              "en": "Personal Status Law — Articles 131–132",
+              "ar": "نظام الأحوال الشخصية — المادتان 131–132",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-contact-arrangements",
+          "q": "Who decides visits when the parents cannot agree?",
+          "a": "Under Article 134, when one parent has custody the other has contact, visits and outings as agreed; the court decides if they disagree, subject to the separate travel rules. If a parent is deceased or absent, or custody is with someone other than the parents, the court may identify relatives entitled to contact according to the child’s interests. Describe the requested schedule and existing order; a contact dispute is not automatically a transfer of custody.",
+          "sources": [
+            {
+              "en": "Personal Status Law — Article 134",
+              "ar": "نظام الأحوال الشخصية — المادة 134",
+              "href": "https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/4d72d829-947b-45d5-b9b5-ae5800d6bac2/1"
+            }
+          ]
+        }
+      ],
+      "remainingKnownPublicContentGaps": [],
+      "caseSpecificOrSeparatePageLimits": [
+        "Which arrangement serves the actual child, adequacy of medical or school evidence, and the specific court classification require the file. Cross-border travel permission and enforcement of an existing contact order remain separate linked matters."
+      ],
+      "closureRecommendation": "accept-after-integration-and-rendered-verification",
+      "completionAccepted": false,
+      "reason": "The existing page-specific preparation and source answers, together with the proposed answers listed here, address the exact recorded public gaps and the primary/supporting questions in this bounded review. Mere intake links were not treated as resolution. Case-specific adjudication and questions reserved to distinct linked pages are not represented as resolved.",
+      "stage": "substantive-content-authored-integration-pending"
+    },
+    {
+      "route": "/sa/services/family-law/domestic-violence-protection-and-family-safety-application",
+      "language": "en",
+      "primaryIntent": "Obtain safe, official protection against domestic abuse in Saudi Arabia",
+      "supportingIntents": [
+        "Report referral and follow-up",
+        "Critical-risk measures, safe document recovery and shelter",
+        "Confidentiality and its legal limits"
+      ],
+      "currentHtmlFile": "artifacts/legal-site/dist/public/__pages/sa-services-family-law-domestic-violence-protection-and-family-safety-application.html",
+      "currentHtmlSha256": "d2c1adf3e9f7dcbdaedf5edf1351887a5a74f69e7b6b34fa8cd8168fca4c40e5",
+      "originalReviewFile": "docs/search-intent-saudi-final-review-2026-09-07.json",
+      "exactOriginalGaps": [
+        "Expand protection process, available measures and safe confidentiality guidance; do not imply the reporting number itself grants a protective order."
+      ],
+      "resolvedPublicQuestions": [
+        {
+          "question": "Report referral and follow-up",
+          "answerIds": [
+            "sa-family-completion-protection-response"
+          ],
+          "stage": "authored, requires rendered verification"
+        },
+        {
+          "question": "Critical-risk measures, safe document recovery and shelter",
+          "answerIds": [
+            "sa-family-completion-protection-critical",
+            "sa-family-completion-protection-shelter"
+          ],
+          "stage": "authored, requires rendered verification"
+        },
+        {
+          "question": "Confidentiality and its legal limits",
+          "answerIds": [
+            "sa-family-completion-protection-confidentiality"
+          ],
+          "stage": "authored, requires rendered verification"
+        }
+      ],
+      "existingVisibleFaq": [
+        {
+          "q": "Where can domestic violence be reported in Saudi Arabia?",
+          "a": "The Ministry of Human Resources and Social Development receives domestic-violence reports on the free number 1919, around the clock, including holidays. The service covers citizens and residents and does not require documents to make a report. Contact the official protection service when help is needed; do not wait to assemble a consultation file.",
+          "visibleMatched": true
+        },
+        {
+          "q": "What comes first when family safety is at risk?",
+          "a": "If there is immediate danger, contact local emergency or protection services and prioritise a safe location. When safe, record the incident and any existing protection order. A legal consultation is not an emergency-response service and should not delay urgent assistance.",
+          "visibleMatched": true
+        },
+        {
+          "q": "What should I do first about domestic-violence protection and family-safety application?",
+          "a": "Preserve available incident and medical records, existing protection orders and relevant messages, gathered only when safe, prepare a dated chronology and identify any notice or deadline. Send those materials to CounselO for an initial assessment of the facts, forum and options in Saudi Arabia.",
+          "visibleMatched": true
+        },
+        {
+          "q": "What documents help assess domestic-violence protection and family-safety application?",
+          "a": "For this problem, start with available incident and medical records, existing protection orders and relevant messages, gathered only when safe. Add a short dated summary and identify any notice or deadline. The final list depends on the facts.",
+          "visibleMatched": true
+        },
+        {
+          "q": "Can CounselO review domestic-violence protection and family-safety application online?",
+          "a": "Yes. The initial assessment and document review can begin through WhatsApp, email or the consultation form in Arabic or English. Formal filing, attendance and reserved representation work are scoped separately where required in Saudi Arabia.",
+          "visibleMatched": true
+        },
+        {
+          "q": "How does CounselO help with domestic-violence protection and family-safety application?",
+          "a": "The review addresses this question: What comes first when family safety is at risk? CounselO examines available incident and medical records, existing protection orders and relevant messages, gathered only when safe, checks the applicable framework and authority, and explains the supported options and remaining uncertainties within the agreed scope.",
+          "visibleMatched": true
+        },
+        {
+          "q": "How quickly will I receive a response?",
+          "a": "CounselO targets a professional response within 24 hours, subject to the matter’s scope, urgency, intake completeness and service availability. The target is not a guaranteed legal outcome or filing deadline.",
+          "visibleMatched": true
+        }
+      ],
+      "implementedAnswerIds": [
+        "sa-family-completion-protection-response",
+        "sa-family-completion-protection-critical",
+        "sa-family-completion-protection-confidentiality",
+        "sa-family-completion-protection-shelter"
+      ],
+      "proposedAnswers": [
+        {
+          "id": "sa-family-completion-protection-response",
+          "q": "What happens after a domestic-abuse report reaches the protection service?",
+          "a": "Regulations Articles 4 and 7 provide for recording the report, referral to the protection centre for the affected person’s area, contact and assessment, and appropriate protective steps. These can include health and social support, monitoring and undertakings. Immediate risk should be stated clearly when reporting; the service’s assessment determines the response. A report reference is not itself a court order, and you should not wait for a consultation response during an emergency.",
+          "sources": [
+            {
+              "en": "HRSD — Protection from Abuse Regulations, Articles 4 and 7",
+              "ar": "وزارة الموارد البشرية — لائحة الحماية من الإيذاء، المادتان 4 و7",
+              "href": "https://www.hrsd.gov.sa/sites/default/files/2026-07/allayht-altnfydhyt-lnzam-alhmayt-mn-alaydha.pdf"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-protection-critical",
+          "q": "Can serious family-abuse risk lead to a restriction on the abuser’s contact?",
+          "a": "Article 8 requires escalation of critical risk to the administrative governor and security authorities. It also requires the protection centre to ask security authorities to refer the case to the Public Prosecution for a no-contact order in a critical abuse case. This is an official protection route, not an order created by making a call. Report threats, repeated violence and any breach of an existing measure promptly; do not approach the alleged abuser to obtain proof.",
+          "sources": [
+            {
+              "en": "HRSD — Protection from Abuse Regulations, Article 8",
+              "ar": "وزارة الموارد البشرية — لائحة الحماية من الإيذاء، المادة 8",
+              "href": "https://www.hrsd.gov.sa/sites/default/files/2026-07/allayht-altnfydhyt-lnzam-alhmayt-mn-alaydha.pdf"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-protection-confidentiality",
+          "q": "Will a family-abuse reporter’s identity always remain undisclosed?",
+          "a": "Article 5 protects the reporter’s identity and report information, but confidentiality is not absolute. Disclosure normally requires need and written consent, with narrow exceptions for essential case handling assessed by the multidisciplinary team or a reasoned official request; the receiving authority must preserve confidentiality. Tell the service if calls, messages or disclosure could increase danger and identify a safe contact method. Do not assume an online device or shared account is private.",
+          "sources": [
+            {
+              "en": "HRSD — Protection from Abuse Regulations, Article 5",
+              "ar": "وزارة الموارد البشرية — لائحة الحماية من الإيذاء، المادة 5",
+              "href": "https://www.hrsd.gov.sa/sites/default/files/2026-07/allayht-altnfydhyt-lnzam-alhmayt-mn-alaydha.pdf"
+            }
+          ]
+        },
+        {
+          "id": "sa-family-completion-protection-shelter",
+          "q": "Who may receive shelter, and can personal documents be recovered safely?",
+          "a": "Article 8’s shelter provision covers women of any age and children under eighteen who experienced covered abuse or neglect and cannot be sheltered with relatives or an alternative family. Placement and extensions require the specified assessment and approvals; this is not a promise of permanent housing. Article 7 also provides for obtaining identity papers and personal possessions from the residence with security authorities present. Ask the protection centre to arrange the safe route rather than returning alone to a dangerous home.",
+          "sources": [
+            {
+              "en": "HRSD — Protection from Abuse Regulations, Articles 7–8",
+              "ar": "وزارة الموارد البشرية — لائحة الحماية من الإيذاء، المادتان 7–8",
+              "href": "https://www.hrsd.gov.sa/sites/default/files/2026-07/allayht-altnfydhyt-lnzam-alhmayt-mn-alaydha.pdf"
+            }
+          ]
+        }
+      ],
+      "remainingKnownPublicContentGaps": [],
+      "caseSpecificOrSeparatePageLimits": [
+        "Individual risk classification, availability of a specific placement and the content of any prosecution order require the protection authority; a private consultation cannot issue them."
+      ],
+      "closureRecommendation": "accept-after-integration-and-rendered-verification",
+      "completionAccepted": false,
+      "reason": "The existing page-specific preparation and source answers, together with the proposed answers listed here, address the exact recorded public gaps and the primary/supporting questions in this bounded review. Mere intake links were not treated as resolution. Case-specific adjudication and questions reserved to distinct linked pages are not represented as resolved.",
+      "stage": "substantive-content-authored-integration-pending"
+    }
+  ]
+}

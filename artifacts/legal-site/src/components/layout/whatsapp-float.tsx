@@ -53,20 +53,6 @@ export function WhatsAppFloat() {
           className="relative flex h-16 w-16 items-center justify-center rounded-full shadow-2xl"
           style={{ backgroundColor: "#0d4a31" }}
         >
-          {/* Pulsing ring */}
-          <m.div
-            className="absolute inset-0 rounded-full"
-            style={{ backgroundColor: "#0d4a31" }}
-            animate={{ scale: [1, 1.4, 1], opacity: [0.55, 0, 0.55] }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-          />
-          {/* Second pulse ring */}
-          <m.div
-            className="absolute inset-0 rounded-full"
-            style={{ backgroundColor: "#0d4a31" }}
-            animate={{ scale: [1, 1.65, 1], opacity: [0.3, 0, 0.3] }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
-          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

@@ -1,0 +1,1894 @@
+{
+  "environment": "local production browser,390x844",
+  "rows": [
+    {
+      "route": "/sa/ar/services/administrative-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/arbitration",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/banking-finance",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/business-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/companies-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/contracts",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/cyber-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/employment-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/enforcement",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/family-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/insurance-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/real-estate",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/tax-zakat",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/administrative-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/arbitration",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/banking-finance",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/business-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/companies-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/contracts",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/cyber-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/employment-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/enforcement",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/family-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/foreign-investment",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/insurance-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/intellectual-property",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/real-estate",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/tax-zakat",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/administrative-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/arbitration",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/banking-finance",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/business-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/civil-procedure",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/companies-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/contracts",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/criminal-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/criminal-procedure",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/cyber-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/employment-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/enforcement",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/family-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/foreign-investment",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/insurance-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/intellectual-property",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/medical-malpractice",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/real-estate",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/ar/services/tax-zakat",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/administrative-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/arbitration",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/banking-finance",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/business-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/civil-procedure",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/companies-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/contracts",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/criminal-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/criminal-procedure",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/cyber-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/employment-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/enforcement",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/family-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/foreign-investment",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/insurance-law",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/intellectual-property",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/medical-malpractice",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/real-estate",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/syr/services/tax-zakat",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/administrative-regulatory",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/arbitration-mediation",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/banking-finance",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/commercial-contracts",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/consumer-ecommerce",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/corporate-commercial",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/criminal-investigations",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/employment-labour",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/enforcement-debt-recovery",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/family-personal-status",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/foreign-investment-market-entry",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/immigration-residency",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insolvency-restructuring",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insurance",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/intellectual-property",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/litigation-court-disputes",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/maritime-aviation-transport",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/real-estate-construction",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/tax-vat",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/technology-data-protection",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/wills-estates",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "ar",
+        "dir": "rtl",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/administrative-regulatory",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/arbitration-mediation",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/banking-finance",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/commercial-contracts",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/consumer-ecommerce",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/corporate-commercial",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/criminal-investigations",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/employment-labour",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/enforcement-debt-recovery",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/family-personal-status",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/foreign-investment-market-entry",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/immigration-residency",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insolvency-restructuring",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insurance",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/intellectual-property",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/litigation-court-disputes",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/maritime-aviation-transport",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/real-estate-construction",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/tax-vat",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/technology-data-protection",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/wills-estates",
+      "width": 390,
+      "status": 200,
+      "initial": {
+        "h1": 1,
+        "lang": "en",
+        "dir": "ltr",
+        "overflow": false
+      },
+      "missing": [],
+      "issueJourney": true,
+      "contactJourney": true,
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "pass": true
+}

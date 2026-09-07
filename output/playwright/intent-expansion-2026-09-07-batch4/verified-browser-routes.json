@@ -1,0 +1,5924 @@
+{
+  "environment": "local production browser,390x844",
+  "rows": [
+    {
+      "route": "/sa/services/companies-law/company-formation-and-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does signing a share sale complete the ownership transfer?",
+          "visible": true
+        },
+        {
+          "question": "Does a merger remove the absorbed company’s obligations?",
+          "visible": true
+        },
+        {
+          "question": "Can an objecting shareholder exit after a company-form conversion?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/companies-law/mergers-and-acquisitions-legal-due-diligence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does signing a share sale complete the ownership transfer?",
+          "visible": true
+        },
+        {
+          "question": "Does a merger remove the absorbed company’s obligations?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/companies-law/shareholder-exit-and-buyout-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does signing a share sale complete the ownership transfer?",
+          "visible": true
+        },
+        {
+          "question": "Must an LLC partner notify the others before selling to an outsider?",
+          "visible": true
+        },
+        {
+          "question": "Is there one statutory valuation method for every partner exit?",
+          "visible": true
+        },
+        {
+          "question": "Can an objecting shareholder exit after a company-form conversion?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/companies-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does signing a share sale complete the ownership transfer?",
+          "visible": true
+        },
+        {
+          "question": "What duties apply when a director has a personal interest in a decision?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/companies-law/company-formation-and-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يكتمل نقل الحصص أو الأسهم بمجرد توقيع البيع؟",
+          "visible": true
+        },
+        {
+          "question": "هل يزيل الاندماج التزامات الشركة المندمجة؟",
+          "visible": true
+        },
+        {
+          "question": "هل يتخارج المعترض على تحول شكل الشركة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/companies-law/mergers-and-acquisitions-legal-due-diligence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يكتمل نقل الحصص أو الأسهم بمجرد توقيع البيع؟",
+          "visible": true
+        },
+        {
+          "question": "هل يزيل الاندماج التزامات الشركة المندمجة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/companies-law/shareholder-exit-and-buyout-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يكتمل نقل الحصص أو الأسهم بمجرد توقيع البيع؟",
+          "visible": true
+        },
+        {
+          "question": "هل يبلغ شريك الشركة المحدودة بقية الشركاء قبل البيع للغير؟",
+          "visible": true
+        },
+        {
+          "question": "هل توجد طريقة نظامية واحدة لتقييم كل تخارج؟",
+          "visible": true
+        },
+        {
+          "question": "هل يتخارج المعترض على تحول شكل الشركة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/companies-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يكتمل نقل الحصص أو الأسهم بمجرد توقيع البيع؟",
+          "visible": true
+        },
+        {
+          "question": "ما واجبات المدير عند وجود مصلحة شخصية في القرار؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/companies-law/shareholder-and-partner-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must an LLC partner notify the others before selling to an outsider?",
+          "visible": true
+        },
+        {
+          "question": "Can minority shareholders bring the company’s liability claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/companies-law/shareholder-and-partner-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يبلغ شريك الشركة المحدودة بقية الشركاء قبل البيع للغير؟",
+          "visible": true
+        },
+        {
+          "question": "هل ترفع الأقلية دعوى المسؤولية المقررة للشركة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/companies-law/company-valuation-and-shareholder-buyout-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is there one statutory valuation method for every partner exit?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/companies-law/company-valuation-and-shareholder-buyout-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل توجد طريقة نظامية واحدة لتقييم كل تخارج؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/companies-law/corporate-governance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What duties apply when a director has a personal interest in a decision?",
+          "visible": true
+        },
+        {
+          "question": "Does a business loss automatically make the manager liable?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/companies-law/director-and-manager-liability",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What duties apply when a director has a personal interest in a decision?",
+          "visible": true
+        },
+        {
+          "question": "Does a business loss automatically make the manager liable?",
+          "visible": true
+        },
+        {
+          "question": "Can minority shareholders bring the company’s liability claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/companies-law/minority-shareholder-oppression-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What duties apply when a director has a personal interest in a decision?",
+          "visible": true
+        },
+        {
+          "question": "Can minority shareholders bring the company’s liability claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/companies-law/corporate-governance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما واجبات المدير عند وجود مصلحة شخصية في القرار؟",
+          "visible": true
+        },
+        {
+          "question": "هل تثبت خسارة النشاط مسؤولية المدير تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/companies-law/director-and-manager-liability",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما واجبات المدير عند وجود مصلحة شخصية في القرار؟",
+          "visible": true
+        },
+        {
+          "question": "هل تثبت خسارة النشاط مسؤولية المدير تلقائياً؟",
+          "visible": true
+        },
+        {
+          "question": "هل ترفع الأقلية دعوى المسؤولية المقررة للشركة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/companies-law/minority-shareholder-oppression-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما واجبات المدير عند وجود مصلحة شخصية في القرار؟",
+          "visible": true
+        },
+        {
+          "question": "هل ترفع الأقلية دعوى المسؤولية المقررة للشركة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/companies-law/company-dissolution-and-liquidation-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can shareholders dissolve a company that cannot pay its debts?",
+          "visible": true
+        },
+        {
+          "question": "Does dissolution immediately end the company and its debts?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/companies-law/mergers-dissolution-and-liquidation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can shareholders dissolve a company that cannot pay its debts?",
+          "visible": true
+        },
+        {
+          "question": "Does dissolution immediately end the company and its debts?",
+          "visible": true
+        },
+        {
+          "question": "Does a merger remove the absorbed company’s obligations?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/companies-law/company-dissolution-and-liquidation-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحل الشركاء شركة لا تكفي أصولها لسداد ديونها؟",
+          "visible": true
+        },
+        {
+          "question": "هل ينهي الحل فوراً شخصية الشركة وديونها؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/companies-law/mergers-dissolution-and-liquidation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحل الشركاء شركة لا تكفي أصولها لسداد ديونها؟",
+          "visible": true
+        },
+        {
+          "question": "هل ينهي الحل فوراً شخصية الشركة وديونها؟",
+          "visible": true
+        },
+        {
+          "question": "هل يزيل الاندماج التزامات الشركة المندمجة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/foreign-investment/market-entry-legal-structure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a foreign investor enter every activity or change ownership freely?",
+          "visible": true
+        },
+        {
+          "question": "Does investment in a special economic zone remove other legal requirements?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/foreign-investment/foreign-owned-company-formation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a foreign investor enter every activity or change ownership freely?",
+          "visible": true
+        },
+        {
+          "question": "Does an investment agreement prove company ownership against third parties?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/foreign-investment/foreign-investor-due-diligence-and-market-entry-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a foreign investor enter every activity or change ownership freely?",
+          "visible": true
+        },
+        {
+          "question": "Does investment in a special economic zone remove other legal requirements?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/foreign-investment/regulatory-compliance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a foreign investor enter every activity or change ownership freely?",
+          "visible": true
+        },
+        {
+          "question": "Is every investment-registration breach followed by immediate cancellation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/foreign-investment/investment-and-business-licensing",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a foreign investor enter every activity or change ownership freely?",
+          "visible": true
+        },
+        {
+          "question": "Does investment in a special economic zone remove other legal requirements?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/foreign-investment",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a foreign investor enter every activity or change ownership freely?",
+          "visible": true
+        },
+        {
+          "question": "Does foreign-investor status automatically create an international arbitration claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/market-entry-legal-structure",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يستثمر الأجنبي في كل نشاط ويغير الملكية بحرية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يزيل الاستثمار في منطقة اقتصادية خاصة المتطلبات الأخرى؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/foreign-owned-company-formation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يستثمر الأجنبي في كل نشاط ويغير الملكية بحرية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يثبت اتفاق الاستثمار ملكية الشركة تجاه الغير؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/foreign-investor-due-diligence-and-market-entry-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يستثمر الأجنبي في كل نشاط ويغير الملكية بحرية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يزيل الاستثمار في منطقة اقتصادية خاصة المتطلبات الأخرى؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/regulatory-compliance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يستثمر الأجنبي في كل نشاط ويغير الملكية بحرية؟",
+          "visible": true
+        },
+        {
+          "question": "هل تؤدي كل مخالفة لتسجيل الاستثمار إلى إلغائه فوراً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/investment-and-business-licensing",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يستثمر الأجنبي في كل نشاط ويغير الملكية بحرية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يزيل الاستثمار في منطقة اقتصادية خاصة المتطلبات الأخرى؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يستثمر الأجنبي في كل نشاط ويغير الملكية بحرية؟",
+          "visible": true
+        },
+        {
+          "question": "هل تمنح صفة المستثمر الأجنبي حق التحكيم الدولي تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/foreign-investment/investment-exit-repatriation-and-shareholder-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "May investment sale proceeds and profits be transferred abroad?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/foreign-investment/investor-and-cross-border-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "May investment sale proceeds and profits be transferred abroad?",
+          "visible": true
+        },
+        {
+          "question": "What protection applies to confiscation or expropriation of investment?",
+          "visible": true
+        },
+        {
+          "question": "Does foreign-investor status automatically create an international arbitration claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/investment-exit-repatriation-and-shareholder-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجوز تحويل أرباح الاستثمار وحصيلة بيعه إلى الخارج؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/investor-and-cross-border-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجوز تحويل أرباح الاستثمار وحصيلة بيعه إلى الخارج؟",
+          "visible": true
+        },
+        {
+          "question": "ما حماية الاستثمار من المصادرة أو نزع الملكية؟",
+          "visible": true
+        },
+        {
+          "question": "هل تمنح صفة المستثمر الأجنبي حق التحكيم الدولي تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/foreign-investment/foreign-investor-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What protection applies to confiscation or expropriation of investment?",
+          "visible": true
+        },
+        {
+          "question": "Does foreign-investor status automatically create an international arbitration claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/foreign-investor-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما حماية الاستثمار من المصادرة أو نزع الملكية؟",
+          "visible": true
+        },
+        {
+          "question": "هل تمنح صفة المستثمر الأجنبي حق التحكيم الدولي تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/foreign-investment/foreign-investor-and-local-partner-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does foreign-investor status automatically create an international arbitration claim?",
+          "visible": true
+        },
+        {
+          "question": "Does an investment agreement prove company ownership against third parties?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/foreign-investor-and-local-partner-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تمنح صفة المستثمر الأجنبي حق التحكيم الدولي تلقائياً؟",
+          "visible": true
+        },
+        {
+          "question": "هل يثبت اتفاق الاستثمار ملكية الشركة تجاه الغير؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/foreign-investment/investment-licence-refusal-or-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is every investment-registration breach followed by immediate cancellation?",
+          "visible": true
+        },
+        {
+          "question": "What is the court-challenge period for a Ministry investment penalty?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/foreign-investment/investment-licence-refusal-or-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تؤدي كل مخالفة لتسجيل الاستثمار إلى إلغائه فوراً؟",
+          "visible": true
+        },
+        {
+          "question": "ما مهلة الطعن في عقوبة تصدرها وزارة الاستثمار؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/administrative-law/challenges-to-government-decisions",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What legal defects can support cancellation of an administrative decision?",
+          "visible": true
+        },
+        {
+          "question": "What is the ordinary objection sequence for a non-civil-service cancellation claim?",
+          "visible": true
+        },
+        {
+          "question": "Does filing a cancellation case suspend the administrative decision?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/administrative-law/licence-refusal-or-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What legal defects can support cancellation of an administrative decision?",
+          "visible": true
+        },
+        {
+          "question": "What is the ordinary objection sequence for a non-civil-service cancellation claim?",
+          "visible": true
+        },
+        {
+          "question": "Does filing a cancellation case suspend the administrative decision?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/administrative-law/licensing-refusals-and-penalties",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What legal defects can support cancellation of an administrative decision?",
+          "visible": true
+        },
+        {
+          "question": "What is the ordinary objection sequence for a non-civil-service cancellation claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/administrative-law/government-penalty-challenge",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What legal defects can support cancellation of an administrative decision?",
+          "visible": true
+        },
+        {
+          "question": "What is the ordinary objection sequence for a non-civil-service cancellation claim?",
+          "visible": true
+        },
+        {
+          "question": "Does filing a cancellation case suspend the administrative decision?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/administrative-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What legal defects can support cancellation of an administrative decision?",
+          "visible": true
+        },
+        {
+          "question": "Does filing a cancellation case suspend the administrative decision?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/challenges-to-government-decisions",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما العيوب التي تسند طلب إلغاء قرار إداري؟",
+          "visible": true
+        },
+        {
+          "question": "ما تسلسل التظلم المعتاد لدعوى الإلغاء غير الوظيفية؟",
+          "visible": true
+        },
+        {
+          "question": "هل توقف دعوى الإلغاء تنفيذ القرار الإداري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/licence-refusal-or-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما العيوب التي تسند طلب إلغاء قرار إداري؟",
+          "visible": true
+        },
+        {
+          "question": "ما تسلسل التظلم المعتاد لدعوى الإلغاء غير الوظيفية؟",
+          "visible": true
+        },
+        {
+          "question": "هل توقف دعوى الإلغاء تنفيذ القرار الإداري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/licensing-refusals-and-penalties",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما العيوب التي تسند طلب إلغاء قرار إداري؟",
+          "visible": true
+        },
+        {
+          "question": "ما تسلسل التظلم المعتاد لدعوى الإلغاء غير الوظيفية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/government-penalty-challenge",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما العيوب التي تسند طلب إلغاء قرار إداري؟",
+          "visible": true
+        },
+        {
+          "question": "ما تسلسل التظلم المعتاد لدعوى الإلغاء غير الوظيفية؟",
+          "visible": true
+        },
+        {
+          "question": "هل توقف دعوى الإلغاء تنفيذ القرار الإداري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/administrative-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما العيوب التي تسند طلب إلغاء قرار إداري؟",
+          "visible": true
+        },
+        {
+          "question": "هل توقف دعوى الإلغاء تنفيذ القرار الإداري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/administrative-law/administrative-objections-and-appeals",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is the ordinary objection sequence for a non-civil-service cancellation claim?",
+          "visible": true
+        },
+        {
+          "question": "Must an urgent cancellation case always wait until the mandatory objection period ends?",
+          "visible": true
+        },
+        {
+          "question": "When does the administrative-judgment objection period start?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/administrative-objections-and-appeals",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما تسلسل التظلم المعتاد لدعوى الإلغاء غير الوظيفية؟",
+          "visible": true
+        },
+        {
+          "question": "هل تنتظر دعوى الإلغاء المستعجلة دائماً انتهاء التظلم الوجوبي؟",
+          "visible": true
+        },
+        {
+          "question": "متى تبدأ مهلة الاعتراض على الحكم الإداري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/administrative-law/municipal-licence-refusal-and-business-activity-suspension",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does filing a cancellation case suspend the administrative decision?",
+          "visible": true
+        },
+        {
+          "question": "Must an urgent cancellation case always wait until the mandatory objection period ends?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/municipal-licence-refusal-and-business-activity-suspension",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل توقف دعوى الإلغاء تنفيذ القرار الإداري؟",
+          "visible": true
+        },
+        {
+          "question": "هل تنتظر دعوى الإلغاء المستعجلة دائماً انتهاء التظلم الوجوبي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/administrative-law/board-of-grievances-appeal-against-an-administrative-judgment",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When does the administrative-judgment objection period start?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/board-of-grievances-appeal-against-an-administrative-judgment",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تبدأ مهلة الاعتراض على الحكم الإداري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/administrative-law/government-compensation-claim-for-an-administrative-decision",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does challenging an administrative decision prove my compensation claim?",
+          "visible": true
+        },
+        {
+          "question": "Do compensation and government-contract claims follow the same short period as cancellation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/government-compensation-claim-for-an-administrative-decision",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يثبت الطعن في القرار الإداري استحقاق التعويض؟",
+          "visible": true
+        },
+        {
+          "question": "هل تتبع دعاوى التعويض والعقود الحكومية مهلة الإلغاء القصيرة نفسها؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/administrative-law/government-contract-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Do compensation and government-contract claims follow the same short period as cancellation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/government-contract-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تتبع دعاوى التعويض والعقود الحكومية مهلة الإلغاء القصيرة نفسها؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/administrative-law/public-sector-employment-and-disciplinary-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an employee covered by the Job Discipline Law be sanctioned without a recorded defence?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/public-sector-employment-and-disciplinary-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يعاقب الخاضع لنظام الانضباط الوظيفي دون إثبات دفاعه؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/administrative-law/public-procurement-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must bid evaluation follow the published criteria?",
+          "visible": true
+        },
+        {
+          "question": "Does a pre-award objection have the same deadline as an award objection?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/administrative-law/public-procurement-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must bid evaluation follow the published criteria?",
+          "visible": true
+        },
+        {
+          "question": "Does a pre-award objection have the same deadline as an award objection?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/public-procurement-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يلتزم تقييم العرض بالمعايير المنشورة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تتطابق مهلة الاعتراض قبل الترسية مع الاعتراض عليها؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/administrative-law/public-procurement-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يلتزم تقييم العرض بالمعايير المنشورة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تتطابق مهلة الاعتراض قبل الترسية مع الاعتراض عليها؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/arbitration-mediation/challenge-to-arbitration-jurisdiction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When must a jurisdiction objection be raised under the federal Arbitration Law?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/arbitration-mediation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When must a jurisdiction objection be raised under the federal Arbitration Law?",
+          "visible": true
+        },
+        {
+          "question": "Can a tribunal preserve evidence or disputed goods?",
+          "visible": true
+        },
+        {
+          "question": "What documents does the New York Convention require for enforcement?",
+          "visible": true
+        },
+        {
+          "question": "When can I apply for a DIAC emergency arbitrator?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/arbitration-mediation/challenge-to-arbitration-jurisdiction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى يثار الدفع بعدم الاختصاص وفق قانون التحكيم الاتحادي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/arbitration-mediation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى يثار الدفع بعدم الاختصاص وفق قانون التحكيم الاتحادي؟",
+          "visible": true
+        },
+        {
+          "question": "هل تستطيع هيئة التحكيم حماية الأدلة أو البضائع المتنازع عليها؟",
+          "visible": true
+        },
+        {
+          "question": "ما مستندات التنفيذ وفق اتفاقية نيويورك؟",
+          "visible": true
+        },
+        {
+          "question": "متى أطلب محكم طوارئ لدى مركز دبي للتحكيم الدولي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/arbitration-mediation/emergency-arbitration-and-interim-measures",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a tribunal preserve evidence or disputed goods?",
+          "visible": true
+        },
+        {
+          "question": "When can I apply for a DIAC emergency arbitrator?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/arbitration-mediation/emergency-arbitration-and-interim-measures",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تستطيع هيئة التحكيم حماية الأدلة أو البضائع المتنازع عليها؟",
+          "visible": true
+        },
+        {
+          "question": "متى أطلب محكم طوارئ لدى مركز دبي للتحكيم الدولي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/arbitration-mediation/foreign-arbitral-award-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What documents does the New York Convention require for enforcement?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/arbitration-mediation/foreign-arbitral-award-enforcement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما مستندات التنفيذ وفق اتفاقية نيويورك؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/banking-finance/unauthorized-bank-transaction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When should an unauthorized bank payment be reimbursed?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/banking-finance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When should an unauthorized bank payment be reimbursed?",
+          "visible": true
+        },
+        {
+          "question": "Must a bank accept my proposed repayment plan?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/banking-finance/unauthorized-bank-transaction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى ترد قيمة دفعة مصرفية غير مأذونة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/banking-finance",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى ترد قيمة دفعة مصرفية غير مأذونة؟",
+          "visible": true
+        },
+        {
+          "question": "هل يجب على البنك قبول خطة السداد المقترحة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/banking-finance/loan-default-and-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Must a bank accept my proposed repayment plan?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/banking-finance/loan-default-and-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يجب على البنك قبول خطة السداد المقترحة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability/misdiagnosis-and-delayed-diagnosis",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is a medical committee review needed before a compensation claim?",
+          "visible": true
+        },
+        {
+          "question": "How do I request an Abu Dhabi medical-error investigation?",
+          "visible": true
+        },
+        {
+          "question": "How can I challenge an Abu Dhabi medical committee report?",
+          "visible": true
+        },
+        {
+          "question": "What must a federal-framework medical-error complaint contain?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability/treatment-injury-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is a medical committee review needed before a compensation claim?",
+          "visible": true
+        },
+        {
+          "question": "How do I request an Abu Dhabi medical-error investigation?",
+          "visible": true
+        },
+        {
+          "question": "How can I challenge an Abu Dhabi medical committee report?",
+          "visible": true
+        },
+        {
+          "question": "What must a federal-framework medical-error complaint contain?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is a medical committee review needed before a compensation claim?",
+          "visible": true
+        },
+        {
+          "question": "How do I request an Abu Dhabi medical-error investigation?",
+          "visible": true
+        },
+        {
+          "question": "Do DHA standards support a patient’s access to medical records?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability/misdiagnosis-and-delayed-diagnosis",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تسبق مراجعة اللجنة الطبية دعوى التعويض؟",
+          "visible": true
+        },
+        {
+          "question": "كيف أطلب التحقيق في خطأ طبي في أبوظبي؟",
+          "visible": true
+        },
+        {
+          "question": "كيف أتظلم من تقرير لجنة المسؤولية الطبية في أبوظبي؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا تتضمن شكوى الخطأ الطبي وفق الإطار الاتحادي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability/treatment-injury-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تسبق مراجعة اللجنة الطبية دعوى التعويض؟",
+          "visible": true
+        },
+        {
+          "question": "كيف أطلب التحقيق في خطأ طبي في أبوظبي؟",
+          "visible": true
+        },
+        {
+          "question": "كيف أتظلم من تقرير لجنة المسؤولية الطبية في أبوظبي؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا تتضمن شكوى الخطأ الطبي وفق الإطار الاتحادي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تسبق مراجعة اللجنة الطبية دعوى التعويض؟",
+          "visible": true
+        },
+        {
+          "question": "كيف أطلب التحقيق في خطأ طبي في أبوظبي؟",
+          "visible": true
+        },
+        {
+          "question": "هل تؤيد معايير هيئة الصحة بدبي حق الاطلاع على السجل الطبي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/healthcare-medical-liability/medical-record-access-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Do DHA standards support a patient’s access to medical records?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/healthcare-medical-liability/medical-record-access-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تؤيد معايير هيئة الصحة بدبي حق الاطلاع على السجل الطبي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/immigration-residency/emirates-id-and-residency-cancellation-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where do I verify residence validity or cancellation status?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/immigration-residency/visa-cancellation-and-overstay-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where do I verify residence validity or cancellation status?",
+          "visible": true
+        },
+        {
+          "question": "When does the ICP residence overstay fine begin?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/immigration-residency",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where do I verify residence validity or cancellation status?",
+          "visible": true
+        },
+        {
+          "question": "When does the ICP residence overstay fine begin?",
+          "visible": true
+        },
+        {
+          "question": "Can I request reduction of a Dubai residence fine?",
+          "visible": true
+        },
+        {
+          "question": "What does the worker’s signature on a MOHRE cancellation acknowledge?",
+          "visible": true
+        },
+        {
+          "question": "Does a valid residence permit rule out deportation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/immigration-residency/emirates-id-and-residency-cancellation-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أين أتحقق من صلاحية الإقامة أو حالة إلغائها؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/immigration-residency/visa-cancellation-and-overstay-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أين أتحقق من صلاحية الإقامة أو حالة إلغائها؟",
+          "visible": true
+        },
+        {
+          "question": "متى تبدأ غرامة تجاوز الإقامة لدى الهيئة الاتحادية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/immigration-residency",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أين أتحقق من صلاحية الإقامة أو حالة إلغائها؟",
+          "visible": true
+        },
+        {
+          "question": "متى تبدأ غرامة تجاوز الإقامة لدى الهيئة الاتحادية؟",
+          "visible": true
+        },
+        {
+          "question": "هل أطلب تخفيض غرامة الإقامة في دبي؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا يقر العامل بتوقيع إلغاء تصريح الوزارة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تمنع الإقامة السارية صدور إبعاد؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/immigration-residency/visa-overstay-and-immigration-penalty-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When does the ICP residence overstay fine begin?",
+          "visible": true
+        },
+        {
+          "question": "Can I request reduction of a Dubai residence fine?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/immigration-residency/visa-overstay-and-immigration-penalty-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تبدأ غرامة تجاوز الإقامة لدى الهيئة الاتحادية؟",
+          "visible": true
+        },
+        {
+          "question": "هل أطلب تخفيض غرامة الإقامة في دبي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/immigration-residency/work-permit-refusal-or-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What does the worker’s signature on a MOHRE cancellation acknowledge?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/immigration-residency/work-permit-refusal-or-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ماذا يقر العامل بتوقيع إلغاء تصريح الوزارة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/wills-estates/foreign-will-recognition-and-probate",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a DIFC Full Will automatically transfer foreign assets?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/wills-estates",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a DIFC Full Will automatically transfer foreign assets?",
+          "visible": true
+        },
+        {
+          "question": "How does a Dubai inheritance file differ from an asset transfer?",
+          "visible": true
+        },
+        {
+          "question": "Is there an Abu Dhabi civil inheritance application without a registered will?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/wills-estates/foreign-will-recognition-and-probate",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تنقل وصية مركز دبي المالي العالمي الأموال الأجنبية تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/wills-estates",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تنقل وصية مركز دبي المالي العالمي الأموال الأجنبية تلقائياً؟",
+          "visible": true
+        },
+        {
+          "question": "كيف يختلف فتح ملف تركة في دبي عن نقل الأموال؟",
+          "visible": true
+        },
+        {
+          "question": "هل يوجد طلب توزيع إرث مدني في أبوظبي دون وصية مسجلة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/wills-estates/estate-administration-and-asset-transfer",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How does a Dubai inheritance file differ from an asset transfer?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/wills-estates/estate-administration-and-asset-transfer",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف يختلف فتح ملف تركة في دبي عن نقل الأموال؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/wills-estates/inheritance-distribution-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is there an Abu Dhabi civil inheritance application without a registered will?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/wills-estates/inheritance-distribution-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يوجد طلب توزيع إرث مدني في أبوظبي دون وصية مسجلة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/criminal-investigations/police-complaint-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an accused person’s lawyer attend the prosecution investigation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/criminal-investigations/fraud-and-breach-of-trust-accusation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an accused person’s lawyer attend the prosecution investigation?",
+          "visible": true
+        },
+        {
+          "question": "Why does the basis on which property was handed over matter?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/criminal-investigations",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can an accused person’s lawyer attend the prosecution investigation?",
+          "visible": true
+        },
+        {
+          "question": "Does a complaint automatically authorise arrest or a travel ban?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/criminal-investigations/police-complaint-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحضر محامي المتهم تحقيق النيابة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/criminal-investigations/fraud-and-breach-of-trust-accusation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحضر محامي المتهم تحقيق النيابة؟",
+          "visible": true
+        },
+        {
+          "question": "لماذا يهم أساس تسليم المال في اتهام خيانة الأمانة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/criminal-investigations",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحضر محامي المتهم تحقيق النيابة؟",
+          "visible": true
+        },
+        {
+          "question": "هل تجيز الشكوى تلقائياً القبض أو منع السفر؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/criminal-investigations/travel-ban-and-detention-concern",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a complaint automatically authorise arrest or a travel ban?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/criminal-investigations/travel-ban-and-detention-concern",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تجيز الشكوى تلقائياً القبض أو منع السفر؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/technology-data-protection/personal-data-breach-response",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is the ADGM personal-data breach notification deadline?",
+          "visible": true
+        },
+        {
+          "question": "Does DIFC use the same 72-hour breach deadline as ADGM?",
+          "visible": true
+        },
+        {
+          "question": "Does the federal Personal Data Protection Law itself set a 72-hour deadline?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/technology-data-protection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is the ADGM personal-data breach notification deadline?",
+          "visible": true
+        },
+        {
+          "question": "Does DIFC use the same 72-hour breach deadline as ADGM?",
+          "visible": true
+        },
+        {
+          "question": "Where can suspected hacking or harmful online conduct be reported?",
+          "visible": true
+        },
+        {
+          "question": "Does the federal Personal Data Protection Law itself set a 72-hour deadline?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/technology-data-protection/personal-data-breach-response",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما مهلة الإبلاغ عن خرق البيانات في سوق أبوظبي العالمي؟",
+          "visible": true
+        },
+        {
+          "question": "هل يطبق مركز دبي المالي العالمي مهلة 72 ساعة نفسها؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحدد قانون حماية البيانات الاتحادي ذاته مهلة 72 ساعة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/technology-data-protection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما مهلة الإبلاغ عن خرق البيانات في سوق أبوظبي العالمي؟",
+          "visible": true
+        },
+        {
+          "question": "هل يطبق مركز دبي المالي العالمي مهلة 72 ساعة نفسها؟",
+          "visible": true
+        },
+        {
+          "question": "أين يبلغ عن اختراق أو سلوك إلكتروني ضار مشتبه به؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحدد قانون حماية البيانات الاتحادي ذاته مهلة 72 ساعة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/technology-data-protection/hacked-account-and-unauthorized-access",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where can suspected hacking or harmful online conduct be reported?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/technology-data-protection/online-defamation-and-removal-request",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where can suspected hacking or harmful online conduct be reported?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/technology-data-protection/hacked-account-and-unauthorized-access",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أين يبلغ عن اختراق أو سلوك إلكتروني ضار مشتبه به؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/technology-data-protection/online-defamation-and-removal-request",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أين يبلغ عن اختراق أو سلوك إلكتروني ضار مشتبه به؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/intellectual-property/trademark-opposition-and-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How long do I have to oppose a published UAE trademark application?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/intellectual-property",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How long do I have to oppose a published UAE trademark application?",
+          "visible": true
+        },
+        {
+          "question": "What supports a Ministry copyright-infringement complaint?",
+          "visible": true
+        },
+        {
+          "question": "Can a registered trademark owner complain to the Ministry about imitation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/intellectual-property/trademark-opposition-and-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كم مهلة الاعتراض على طلب علامة إماراتية منشور؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/intellectual-property",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كم مهلة الاعتراض على طلب علامة إماراتية منشور؟",
+          "visible": true
+        },
+        {
+          "question": "ما الذي يدعم شكوى تعد على حقوق المؤلف لدى الوزارة؟",
+          "visible": true
+        },
+        {
+          "question": "هل يشكو صاحب العلامة المسجلة التقليد لدى الوزارة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/intellectual-property/copyright-infringement-online",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What supports a Ministry copyright-infringement complaint?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/intellectual-property/copyright-infringement-online",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الذي يدعم شكوى تعد على حقوق المؤلف لدى الوزارة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/intellectual-property/counterfeit-and-brand-infringement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a registered trademark owner complain to the Ministry about imitation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/intellectual-property/counterfeit-and-brand-infringement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يشكو صاحب العلامة المسجلة التقليد لدى الوزارة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/immigration-residency/residence-ban-and-entry-restriction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a valid residence permit rule out deportation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/immigration-residency/entry-exit-and-travel-restriction-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a valid residence permit rule out deportation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/immigration-residency/residence-ban-and-entry-restriction",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تمنع الإقامة السارية صدور إبعاد؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/immigration-residency/entry-exit-and-travel-restriction-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تمنع الإقامة السارية صدور إبعاد؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/administrative-regulatory/public-procurement-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How quickly must a federal-procurement grievance be filed?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/administrative-regulatory/government-penalty-challenge",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How quickly must a federal-procurement grievance be filed?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/administrative-regulatory",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How quickly must a federal-procurement grievance be filed?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/administrative-regulatory/public-procurement-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى يقدم التظلم في المشتريات الاتحادية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/administrative-regulatory/government-penalty-challenge",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى يقدم التظلم في المشتريات الاتحادية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/administrative-regulatory",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى يقدم التظلم في المشتريات الاتحادية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/consumer-ecommerce/defective-product-and-consumer-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can defective or misdescribed online goods be returned?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/consumer-ecommerce/online-purchase-refund-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can defective or misdescribed online goods be returned?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/consumer-ecommerce",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can defective or misdescribed online goods be returned?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/consumer-ecommerce/defective-product-and-consumer-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل ترد السلعة الإلكترونية المعيبة أو المخالفة للوصف؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/consumer-ecommerce/online-purchase-refund-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل ترد السلعة الإلكترونية المعيبة أو المخالفة للوصف؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/consumer-ecommerce",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل ترد السلعة الإلكترونية المعيبة أو المخالفة للوصف؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/foreign-investment-market-entry/investment-licence-refusal-or-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a foreign investor own a strategic-impact activity without sector approval?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/foreign-investment-market-entry",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a foreign investor own a strategic-impact activity without sector approval?",
+          "visible": true
+        },
+        {
+          "question": "Does foreign-investor status automatically allow international arbitration?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/foreign-investment-market-entry/investment-licence-refusal-or-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يتملك المستثمر الأجنبي نشاطاً ذا أثر استراتيجي دون موافقة قطاعية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/foreign-investment-market-entry",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يتملك المستثمر الأجنبي نشاطاً ذا أثر استراتيجي دون موافقة قطاعية؟",
+          "visible": true
+        },
+        {
+          "question": "هل تتيح صفة المستثمر الأجنبي التحكيم الدولي تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/foreign-investment-market-entry/foreign-investor-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does foreign-investor status automatically allow international arbitration?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/foreign-investment-market-entry/foreign-investor-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تتيح صفة المستثمر الأجنبي التحكيم الدولي تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/foreign-investment-market-entry/foreign-investor-and-local-partner-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does being a partner automatically give authority to bind an LLC?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/foreign-investment-market-entry/foreign-investor-and-local-partner-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تمنح صفة الشريك تلقائياً سلطة إلزام الشركة المحدودة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insolvency-restructuring/business-debt-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does merely proposing restructuring stop creditor claims?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insolvency-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does merely proposing restructuring stop creditor claims?",
+          "visible": true
+        },
+        {
+          "question": "Where does a creditor submit its claim in federal restructuring?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insolvency-restructuring/business-debt-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يوقف مجرد اقتراح الهيكلة مطالبات الدائنين؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insolvency-restructuring",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يوقف مجرد اقتراح الهيكلة مطالبات الدائنين؟",
+          "visible": true
+        },
+        {
+          "question": "أين يقدم الدائن دينه في إعادة الهيكلة الاتحادية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insolvency-restructuring/creditor-claim-in-insolvency",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where does a creditor submit its claim in federal restructuring?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insolvency-restructuring/creditor-claim-in-insolvency",
+      "status": 200,
+      "answers": [
+        {
+          "question": "أين يقدم الدائن دينه في إعادة الهيكلة الاتحادية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/insolvency-restructuring/director-liability-in-insolvency",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does company bankruptcy automatically make directors pay every debt?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/insolvency-restructuring/director-liability-in-insolvency",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحمل إفلاس الشركة المديرين كل ديونها تلقائياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/litigation-court-disputes/appeal-deadline-and-filing-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is the ordinary appeal period under the federal Civil Procedure Code?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/litigation-court-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is the ordinary appeal period under the federal Civil Procedure Code?",
+          "visible": true
+        },
+        {
+          "question": "When should I respond to a court expert’s preliminary report?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/litigation-court-disputes/appeal-deadline-and-filing-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما مهلة الاستئناف المعتادة وفق الإجراءات المدنية الاتحادية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/litigation-court-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما مهلة الاستئناف المعتادة وفق الإجراءات المدنية الاتحادية؟",
+          "visible": true
+        },
+        {
+          "question": "متى أعقب على التقرير الأولي للخبير؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/litigation-court-disputes/expert-evidence-and-report-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When should I respond to a court expert’s preliminary report?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/litigation-court-disputes/expert-evidence-and-report-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى أعقب على التقرير الأولي للخبير؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/litigation-court-disputes/court-service-and-notification-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What matters when electronic court service went to the wrong person?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/litigation-court-disputes/court-service-and-notification-problem",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما المهم إذا وصل إعلان إلكتروني قضائي للشخص الخطأ؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/maritime-aviation-transport/shipping-delay-and-delivery-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is written notice needed for a sea-cargo delivery-delay claim?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/maritime-aviation-transport",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is written notice needed for a sea-cargo delivery-delay claim?",
+          "visible": true
+        },
+        {
+          "question": "How quickly should damaged international air cargo be notified?",
+          "visible": true
+        },
+        {
+          "question": "Is the Montreal passenger-delay limit an automatic payment?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/maritime-aviation-transport/shipping-delay-and-delivery-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يلزم إخطار كتابي عن تأخر تسليم الشحن البحري؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/maritime-aviation-transport",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يلزم إخطار كتابي عن تأخر تسليم الشحن البحري؟",
+          "visible": true
+        },
+        {
+          "question": "متى يبلغ عن تلف البضائع في النقل الجوي الدولي؟",
+          "visible": true
+        },
+        {
+          "question": "هل حد تعويض تأخير المسافر بمونتريال دفعة تلقائية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/maritime-aviation-transport/cargo-damage-and-transport-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How quickly should damaged international air cargo be notified?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/maritime-aviation-transport/cargo-damage-and-transport-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى يبلغ عن تلف البضائع في النقل الجوي الدولي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/services/maritime-aviation-transport/passenger-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is the Montreal passenger-delay limit an automatic payment?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/uae/ar/services/maritime-aviation-transport/passenger-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل حد تعويض تأخير المسافر بمونتريال دفعة تلقائية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/arrest-and-detention-concerns",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What rights apply when someone is detained in a Saudi criminal case?",
+          "visible": true
+        },
+        {
+          "question": "Does a release decision close every case or travel restriction?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/travel-ban-and-detention-concern",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What rights apply when someone is detained in a Saudi criminal case?",
+          "visible": true
+        },
+        {
+          "question": "Does a release decision close every case or travel restriction?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What rights apply when someone is detained in a Saudi criminal case?",
+          "visible": true
+        },
+        {
+          "question": "Can a lawyer attend the investigation and submit defence observations?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/arrest-and-detention-concerns",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما حقوق الموقوف في قضية جزائية سعودية؟",
+          "visible": true
+        },
+        {
+          "question": "هل ينهي قرار الإفراج كل قضية أو قيد سفر؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/travel-ban-and-detention-concern",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما حقوق الموقوف في قضية جزائية سعودية؟",
+          "visible": true
+        },
+        {
+          "question": "هل ينهي قرار الإفراج كل قضية أو قيد سفر؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما حقوق الموقوف في قضية جزائية سعودية؟",
+          "visible": true
+        },
+        {
+          "question": "هل يحضر المحامي التحقيق ويقدم ملاحظات الدفاع؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/criminal-complaints-and-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a lawyer attend the investigation and submit defence observations?",
+          "visible": true
+        },
+        {
+          "question": "Does a victim’s settlement end the prosecution?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/police-complaint-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a lawyer attend the investigation and submit defence observations?",
+          "visible": true
+        },
+        {
+          "question": "What if the investigation record does not reflect my answer?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/investigation-and-questioning",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a lawyer attend the investigation and submit defence observations?",
+          "visible": true
+        },
+        {
+          "question": "What if the investigation record does not reflect my answer?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/public-prosecution-investigation-and-questioning",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a lawyer attend the investigation and submit defence observations?",
+          "visible": true
+        },
+        {
+          "question": "What if the investigation record does not reflect my answer?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/criminal-complaints-and-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحضر المحامي التحقيق ويقدم ملاحظات الدفاع؟",
+          "visible": true
+        },
+        {
+          "question": "هل تنهي تسوية المجني عليه دعوى الحق العام؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/police-complaint-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحضر المحامي التحقيق ويقدم ملاحظات الدفاع؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا أفعل إذا لم يعكس محضر التحقيق جوابي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/investigation-and-questioning",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحضر المحامي التحقيق ويقدم ملاحظات الدفاع؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا أفعل إذا لم يعكس محضر التحقيق جوابي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/public-prosecution-investigation-and-questioning",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحضر المحامي التحقيق ويقدم ملاحظات الدفاع؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا أفعل إذا لم يعكس محضر التحقيق جوابي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/criminal-compensation-and-restitution-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a victim’s settlement end the prosecution?",
+          "visible": true
+        },
+        {
+          "question": "Can seized property be returned before the criminal judgment?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/breach-of-trust-complaint-or-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a victim’s settlement end the prosecution?",
+          "visible": true
+        },
+        {
+          "question": "What distinguishes breach of trust from an ordinary account dispute?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/criminal-compensation-and-restitution-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تنهي تسوية المجني عليه دعوى الحق العام؟",
+          "visible": true
+        },
+        {
+          "question": "هل تسترد المضبوطات قبل الحكم الجزائي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/breach-of-trust-complaint-or-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تنهي تسوية المجني عليه دعوى الحق العام؟",
+          "visible": true
+        },
+        {
+          "question": "ما الذي يميز خيانة الأمانة عن خلاف حسابي عادي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/fraud-and-financial-crime-accusation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When does a failed financial transaction raise a fraud issue?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/fraud-and-financial-crime-accusation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تثير المعاملة المالية الخاسرة شبهة احتيال؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/forgery-and-false-document-accusation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Is every incorrect document criminal forgery?",
+          "visible": true
+        },
+        {
+          "question": "Can digital or document evidence be examined by another expert?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/forgery-and-false-document-accusation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يعد كل مستند غير صحيح تزويراً جزائياً؟",
+          "visible": true
+        },
+        {
+          "question": "هل يمكن فحص الدليل الرقمي أو المستند بخبير آخر؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/digital-and-documentary-evidence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can digital or document evidence be examined by another expert?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/cybercrime-accusation-and-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can digital or document evidence be examined by another expert?",
+          "visible": true
+        },
+        {
+          "question": "What must be distinguished in a Saudi cybercrime accusation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/digital-and-documentary-evidence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن فحص الدليل الرقمي أو المستند بخبير آخر؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/cybercrime-accusation-and-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمكن فحص الدليل الرقمي أو المستند بخبير آخر؟",
+          "visible": true
+        },
+        {
+          "question": "ما الذي يجب تمييزه في اتهام بجريمة معلوماتية سعودية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/trial-and-appeal-preparation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How is an ordinary criminal appeal lodged?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/trial-and-appeal-preparation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف يقدم الاعتراض العادي على حكم جزائي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/cyber-law/cybercrime-allegations-and-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What must be distinguished in a Saudi cybercrime accusation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/cyber-law/unauthorized-access-and-account-misuse",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What must be distinguished in a Saudi cybercrime accusation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/cyber-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What must be distinguished in a Saudi cybercrime accusation?",
+          "visible": true
+        },
+        {
+          "question": "When does the Saudi 72-hour personal-data breach notice apply?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/cyber-law/cybercrime-allegations-and-defence",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الذي يجب تمييزه في اتهام بجريمة معلوماتية سعودية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/cyber-law/unauthorized-access-and-account-misuse",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الذي يجب تمييزه في اتهام بجريمة معلوماتية سعودية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/cyber-law",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما الذي يجب تمييزه في اتهام بجريمة معلوماتية سعودية؟",
+          "visible": true
+        },
+        {
+          "question": "متى ينطبق إشعار تسرب البيانات خلال 72 ساعة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/criminal-law/online-defamation-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does removing a post settle an online-defamation allegation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/criminal-law/online-defamation-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحسم حذف المنشور ادعاء التشهير الإلكتروني؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/cyber-law/online-defamation-and-removal-request",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does removing a post settle an online-defamation allegation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/cyber-law/online-defamation-and-removal-request",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يحسم حذف المنشور ادعاء التشهير الإلكتروني؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/cyber-law/hacked-account-and-unauthorized-access",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where should an account-recovery request start?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/cyber-law/online-account-recovery-and-platform-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Where should an account-recovery request start?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/cyber-law/hacked-account-and-unauthorized-access",
+      "status": 200,
+      "answers": [
+        {
+          "question": "من أين يبدأ طلب استرجاع الحساب؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/cyber-law/online-account-recovery-and-platform-complaint",
+      "status": 200,
+      "answers": [
+        {
+          "question": "من أين يبدأ طلب استرجاع الحساب؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/cyber-law/data-protection-incidents",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When does the Saudi 72-hour personal-data breach notice apply?",
+          "visible": true
+        },
+        {
+          "question": "What if the breach occurred at a service provider?",
+          "visible": true
+        },
+        {
+          "question": "How can an individual escalate a personal-data violation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/cyber-law/personal-data-breach-response",
+      "status": 200,
+      "answers": [
+        {
+          "question": "When does the Saudi 72-hour personal-data breach notice apply?",
+          "visible": true
+        },
+        {
+          "question": "What if the breach occurred at a service provider?",
+          "visible": true
+        },
+        {
+          "question": "How can an individual escalate a personal-data violation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/cyber-law/data-protection-incidents",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى ينطبق إشعار تسرب البيانات خلال 72 ساعة؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا لو وقع التسرب لدى مقدم خدمة؟",
+          "visible": true
+        },
+        {
+          "question": "كيف يصعّد الفرد شكوى مخالفة بيانات شخصية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/cyber-law/personal-data-breach-response",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى ينطبق إشعار تسرب البيانات خلال 72 ساعة؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا لو وقع التسرب لدى مقدم خدمة؟",
+          "visible": true
+        },
+        {
+          "question": "كيف يصعّد الفرد شكوى مخالفة بيانات شخصية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/cyber-law/personal-data-access-correction-or-deletion-request",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How long does a controller have to answer a data-rights request?",
+          "visible": true
+        },
+        {
+          "question": "How can an individual escalate a personal-data violation?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/cyber-law/personal-data-access-correction-or-deletion-request",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كم مدة تنفيذ طلب ممارسة حقوق البيانات؟",
+          "visible": true
+        },
+        {
+          "question": "كيف يصعّد الفرد شكوى مخالفة بيانات شخصية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/cyber-law/digital-evidence-and-platform-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "How should evidence requests differ between a platform dispute and a criminal case?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/cyber-law/digital-evidence-and-platform-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "كيف يختلف طلب الدليل في نزاع المنصة عن القضية الجزائية؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/intellectual-property/trademark-registration-and-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a trademark registration prohibit every similar word?",
+          "visible": true
+        },
+        {
+          "question": "What is the opposition period for a published trademark application?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/intellectual-property/counterfeit-and-brand-infringement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a trademark registration prohibit every similar word?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/intellectual-property/infringement-and-counterfeit-claims",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a trademark registration prohibit every similar word?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/intellectual-property",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a trademark registration prohibit every similar word?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property/trademark-registration-and-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمنع تسجيل العلامة كل استعمال لكلمة مشابهة؟",
+          "visible": true
+        },
+        {
+          "question": "ما مدة الاعتراض على طلب علامة منشور؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property/counterfeit-and-brand-infringement",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمنع تسجيل العلامة كل استعمال لكلمة مشابهة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property/infringement-and-counterfeit-claims",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمنع تسجيل العلامة كل استعمال لكلمة مشابهة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يمنع تسجيل العلامة كل استعمال لكلمة مشابهة؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/intellectual-property/trademark-opposition-and-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What is the opposition period for a published trademark application?",
+          "visible": true
+        },
+        {
+          "question": "Can a registered mark be cancelled for non-use?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property/trademark-opposition-and-cancellation",
+      "status": 200,
+      "answers": [
+        {
+          "question": "ما مدة الاعتراض على طلب علامة منشور؟",
+          "visible": true
+        },
+        {
+          "question": "هل تشطب العلامة المسجلة لعدم الاستعمال؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/intellectual-property/copyright-protection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does copyright protect an idea or a copied creative work?",
+          "visible": true
+        },
+        {
+          "question": "What should a copyright assignment establish?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/intellectual-property/copyright-infringement-online",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does copyright protect an idea or a copied creative work?",
+          "visible": true
+        },
+        {
+          "question": "What should a copyright assignment establish?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property/copyright-protection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تحمي حقوق المؤلف الفكرة أم المصنف المنسوخ؟",
+          "visible": true
+        },
+        {
+          "question": "ما الذي يثبته التنازل عن حقوق المؤلف؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property/copyright-infringement-online",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تحمي حقوق المؤلف الفكرة أم المصنف المنسوخ؟",
+          "visible": true
+        },
+        {
+          "question": "ما الذي يثبته التنازل عن حقوق المؤلف؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/intellectual-property/patent-and-licensing-matters",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Why should an invention be reviewed before public disclosure?",
+          "visible": true
+        },
+        {
+          "question": "Does a patent licence automatically give exclusive, transferable rights?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property/patent-and-licensing-matters",
+      "status": 200,
+      "answers": [
+        {
+          "question": "لماذا تراجع تفاصيل الاختراع قبل نشرها؟",
+          "visible": true
+        },
+        {
+          "question": "هل يمنح ترخيص البراءة تلقائياً حقاً حصرياً قابلاً للنقل؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/intellectual-property/trade-secret-protection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "What makes business information a protected trade secret?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/intellectual-property/trade-secret-protection",
+      "status": 200,
+      "answers": [
+        {
+          "question": "متى تكون معلومات النشاط سراً تجارياً محمياً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice/medical-negligence-claims",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a poor treatment outcome establish medical negligence?",
+          "visible": true
+        },
+        {
+          "question": "Does signing a consent form excuse a treatment error?",
+          "visible": true
+        },
+        {
+          "question": "How does a medical-error complaint reach the Saudi courts?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice/misdiagnosis-and-delayed-diagnosis",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a poor treatment outcome establish medical negligence?",
+          "visible": true
+        },
+        {
+          "question": "How should records support a review of delayed diagnosis?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice/surgical-and-treatment-errors",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a poor treatment outcome establish medical negligence?",
+          "visible": true
+        },
+        {
+          "question": "Does signing a consent form excuse a treatment error?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice/treatment-injury-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a poor treatment outcome establish medical negligence?",
+          "visible": true
+        },
+        {
+          "question": "How does a medical-error complaint reach the Saudi courts?",
+          "visible": true
+        },
+        {
+          "question": "What if professional-liability insurance does not cover the judgment fully?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice/compensation-and-professional-liability-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a poor treatment outcome establish medical negligence?",
+          "visible": true
+        },
+        {
+          "question": "How does a medical-error complaint reach the Saudi courts?",
+          "visible": true
+        },
+        {
+          "question": "What if professional-liability insurance does not cover the judgment fully?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Does a poor treatment outcome establish medical negligence?",
+          "visible": true
+        },
+        {
+          "question": "How does a medical-error complaint reach the Saudi courts?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/medical-negligence-claims",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تثبت النتيجة العلاجية السيئة الخطأ الطبي؟",
+          "visible": true
+        },
+        {
+          "question": "هل يعفي توقيع الموافقة من الخطأ في العلاج؟",
+          "visible": true
+        },
+        {
+          "question": "كيف تصل شكوى الخطأ الطبي إلى القضاء السعودي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/misdiagnosis-and-delayed-diagnosis",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تثبت النتيجة العلاجية السيئة الخطأ الطبي؟",
+          "visible": true
+        },
+        {
+          "question": "كيف تدعم السجلات مراجعة تأخر التشخيص؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/surgical-and-treatment-errors",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تثبت النتيجة العلاجية السيئة الخطأ الطبي؟",
+          "visible": true
+        },
+        {
+          "question": "هل يعفي توقيع الموافقة من الخطأ في العلاج؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/treatment-injury-and-compensation-claim",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تثبت النتيجة العلاجية السيئة الخطأ الطبي؟",
+          "visible": true
+        },
+        {
+          "question": "كيف تصل شكوى الخطأ الطبي إلى القضاء السعودي؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا إذا لم يغط تأمين المسؤولية المهنية الحكم كاملاً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/compensation-and-professional-liability-disputes",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تثبت النتيجة العلاجية السيئة الخطأ الطبي؟",
+          "visible": true
+        },
+        {
+          "question": "كيف تصل شكوى الخطأ الطبي إلى القضاء السعودي؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا إذا لم يغط تأمين المسؤولية المهنية الحكم كاملاً؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل تثبت النتيجة العلاجية السيئة الخطأ الطبي؟",
+          "visible": true
+        },
+        {
+          "question": "كيف تصل شكوى الخطأ الطبي إلى القضاء السعودي؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice/medical-record-access-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a patient request a copy of personal medical data?",
+          "visible": true
+        },
+        {
+          "question": "What if a medical-data access request is refused or ignored?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/services/medical-malpractice/medical-record-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "Can a patient request a copy of personal medical data?",
+          "visible": true
+        },
+        {
+          "question": "How should records support a review of delayed diagnosis?",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "en",
+        "dir": "ltr",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/medical-record-access-dispute",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يطلب المريض نسخة من بياناته الطبية؟",
+          "visible": true
+        },
+        {
+          "question": "ماذا إذا رُفض طلب البيانات الطبية أو لم يُنفذ؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    },
+    {
+      "route": "/sa/ar/services/medical-malpractice/medical-record-review",
+      "status": 200,
+      "answers": [
+        {
+          "question": "هل يطلب المريض نسخة من بياناته الطبية؟",
+          "visible": true
+        },
+        {
+          "question": "كيف تدعم السجلات مراجعة تأخر التشخيص؟",
+          "visible": true
+        }
+      ],
+      "state": {
+        "lang": "ar",
+        "dir": "rtl",
+        "width": 375,
+        "scrollWidth": 375,
+        "h1s": 1
+      },
+      "errors": [],
+      "pass": true
+    }
+  ],
+  "pass": true
+}

@@ -5,6 +5,7 @@ import { Link } from "wouter";
 import { ArrowRight, BookOpen, BriefcaseBusiness, FileCheck2, Scale } from "lucide-react";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { SearchIntentGuidance } from "@/components/content/search-intent-guidance";
+import { SaudiJudgmentObjectionGuidance } from "@/components/content/saudi-judgment-objection-guidance";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { fetchPublicJson } from "@/lib/public-api";
 import { type WorkSamplePublic, localized, workSamplePath } from "@/lib/work-samples";
@@ -78,7 +79,7 @@ export default function LegalLibrary() {
     viewAllWork: "جميع الأعمال",
     methodology: "معيار نشر مبني على الثقة",
     methodologyText: "توضح الموارد لغتها واختصاصها أو سياقها المهني، مع التمييز بين التأليف والتحديث التحريري والمراجعة المهنية المعلنة. ولا تُنشر أعمال العملاء إلا بعد تنقيحها وحماية الهوية.",
-    principles: ["محتوى عربي وإنجليزي مستقل", "تحديد المؤلف والمراجعة القانونية", "أعمال منقحة مع حماية السرية"],
+    principles: ["محتوى عربي وإنجليزي مستقل", "بيان التأليف والتحديث والمراجعة المعلنة", "أعمال منقحة مع حماية السرية"],
     ctaTitle: "هل تحتاج إلى تطبيق القانون على مسألتك؟",
     ctaText: "استخدم المكتبة لفهم الموضوع، ثم تحدث مع كاونسلو حول الوقائع والنطاق والخطوة التالية.",
     cta: "ابدأ استشارة",
@@ -100,7 +101,7 @@ export default function LegalLibrary() {
     viewAllWork: "View all work",
     methodology: "A publishing standard built for trust",
     methodologyText: "Resources identify their language and jurisdiction or professional context. Authorship, editorial updates and any stated professional review are shown separately. Client work is published only after redaction and identity protection.",
-    principles: ["Independent Arabic and English content", "Named authorship and legal review", "Redacted work, confidentiality protected"],
+    principles: ["Independent Arabic and English content", "Authorship, updates and stated review", "Redacted work, confidentiality protected"],
     ctaTitle: "Need help applying the law to your matter?",
     ctaText: "Use the library to understand the issue, then speak with CounselO about the facts, scope, and next step.",
     cta: "Start a consultation",
@@ -125,6 +126,7 @@ export default function LegalLibrary() {
       description: ui.intro,
       url: `https://counselo-legal.com${libraryPath}`,
       inLanguage: lang,
+      dateModified: "2026-09-07",
       isPartOf: { "@id": COUNSELO_ENTITY_IDS.website },
       about: { "@id": COUNSELO_ENTITY_IDS.organization },
       hasPart: [
@@ -231,6 +233,8 @@ export default function LegalLibrary() {
             </div>
           </div>
         </section>
+
+        <SaudiJudgmentObjectionGuidance />
 
         {libraryReadingPaths(visiblePosts, ar).length > 0 && (
           <section id="reading-by-question" aria-labelledby="reading-by-question-heading" className="bg-[#f8f5ed] px-5 py-12 sm:px-8 lg:px-12">
