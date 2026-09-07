@@ -17,3 +17,5 @@ export * from "./acquisition-context";
 export { LEGACY_BLOG_REDIRECTS } from "./legacy-blog-redirects";
 
 export { LEGACY_SEARCH_REDIRECTS } from "./legacy-search-redirects.js";
+
+export * from "./public-work-documents";

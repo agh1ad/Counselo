@@ -1,3 +1,4 @@
+import { workAttachmentPath } from "@workspace/api-zod";
 import express, { type Express, type Request, type Response } from "express";
 import { db, blogPostsTable, workSamplesTable } from "@workspace/db";
 import { and, eq, getTableColumns } from "drizzle-orm";
@@ -378,7 +379,7 @@ export function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | 
   const canonical = metadata.canonical;
   const englishUrl = `${BASE_URL}/our-work/${sample.slug}`;
   const arabicUrl = `${BASE_URL}/ar/our-work/${sample.slug}`;
-  const fileUrl = `${BASE_URL}/api/work/${sample.slug}/file`;
+  const fileUrl = `${BASE_URL}${workAttachmentPath(sample)}`;
   const shell = getShellHtml() ?? getIndexHtml();
   const schema = safeJson({
     "@context": "https://schema.org",

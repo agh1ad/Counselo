@@ -7,7 +7,7 @@ import { SEOHead } from "@/components/seo/SEOHead";
 import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized, workSamplePath } from "@/lib/work-samples";
 import type { InitialBlogPost } from "@/App";
 import { fetchPublicJson, publicApiUrl } from "@/lib/public-api";
-import { blogPath, WORK_CONTEXT, WORK_READER_GUIDANCE, workModifiedAt, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion } from "@workspace/api-zod/browser";
+import { workAttachmentPath, blogPath, WORK_CONTEXT, WORK_READER_GUIDANCE, workModifiedAt, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion } from "@workspace/api-zod/browser";
 
 declare global {
   interface Window {
@@ -90,7 +90,7 @@ export default function WorkSample() {
   const outcome = localized(sample.outcomeEn, sample.outcomeAr, lang);
   const seoTitle = localized(sample.seoTitleEn, sample.seoTitleAr, lang) || title;
   const seoDescription = localized(sample.seoDescriptionEn, sample.seoDescriptionAr, lang) || summary;
-  const fileUrl = publicApiUrl(`/api/work/${encodeURIComponent(sample.slug)}/file`);
+  const fileUrl = publicApiUrl(workAttachmentPath(sample));
   const canonicalPath = `${workBasePath}/${sample.slug}`;
   const canonical = `https://counselo-legal.com${canonicalPath}`;
   const validServiceSlugs = new Set(region ? getServicesForRegion(region).map((service) => service.slug) : []);

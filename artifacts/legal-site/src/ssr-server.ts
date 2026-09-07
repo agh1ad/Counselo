@@ -34,6 +34,7 @@ import { resolveBlogRoute } from "./lib/blog-route-policy.js";
 import {
   ARTICLE_CONTEXT,
   WORK_CONTEXT,
+  workAttachmentPath,
   articleModifiedAt,
   workModifiedAt,
   buildDiscoveryFeed,
@@ -120,6 +121,7 @@ interface ApiWorkSample {
   seoDescriptionEn: string;
   seoDescriptionAr: string;
   fileMimeType: string;
+  fileSize: number;
   published: boolean;
   hasFile?: boolean;
 }
@@ -408,7 +410,7 @@ export function buildWorkHtmlFromTemplate(
   const canonical = `${BASE}${basePath}/${sample.slug}`;
   const englishUrl = `${BASE}/our-work/${sample.slug}`;
   const arabicUrl = `${BASE}/ar/our-work/${sample.slug}`;
-  const fileUrl = `${BASE}/api/work/${sample.slug}/file`;
+  const fileUrl = `${BASE}${workAttachmentPath(sample)}`;
 
   const hreflangLinks =
     sample.titleEn && sample.titleAr
