@@ -45,6 +45,26 @@ function fakeStorage(t: TestContext) {
   return { stored, stats };
 }
 
+test("cache invalidation selects the configured bucket without default discovery", async (t) => {
+  fakeStorage(t);
+  const previousBucket = process.env.PUBLIC_RESPONSE_CACHE_BUCKET_ID;
+  t.after(() => {
+    if (previousBucket === undefined) delete process.env.PUBLIC_RESPONSE_CACHE_BUCKET_ID;
+    else process.env.PUBLIC_RESPONSE_CACHE_BUCKET_ID = previousBucket;
+  });
+  const buckets: (string | undefined)[] = [];
+  t.mock.method(Client.prototype as unknown as { init: (bucketId?: string) => Promise<unknown> }, "init", async (bucketId?: string) => {
+    buckets.push(bucketId);
+    return {};
+  });
+  process.env.PUBLIC_RESPONSE_CACHE_BUCKET_ID = "  configured-cache-bucket  ";
+  await invalidatePublicResponseCache("a".repeat(64));
+  assert.deepEqual(buckets, ["configured-cache-bucket"]);
+  delete process.env.PUBLIC_RESPONSE_CACHE_BUCKET_ID;
+  await invalidatePublicResponseCache("a".repeat(64));
+  assert.deepEqual(buckets, ["configured-cache-bucket", undefined]);
+});
+
 test("persistent cache keys are deterministic and do not expose URLs", () => {
   const key = "page:GET:/blog/en/confidential-contract-query?source=test";
   const release = "a".repeat(64);
