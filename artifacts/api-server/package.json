@@ -9,6 +9,7 @@
     "start": "node --enable-source-maps ./dist/index.mjs",
     "test": "tsx --test src/**/*.test.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
+    "cache:control": "tsx src/scripts/public-cache-control.ts",
     "recover:contact-notifications": "tsx src/scripts/recover-contact-notifications.ts",
     "apply:prepared-translations": "tsx src/scripts/apply-pretranslated-content.ts",
     "backfill:internal-links": "tsx src/scripts/backfill-internal-links.ts"

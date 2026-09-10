@@ -10,7 +10,7 @@ kind = "api"
   paths = ["/api", "/sa", "/syr"]
 
   [services.development]
-  run = "pnpm --filter @workspace/api-server run dev"
+  run = "PUBLIC_RESPONSE_CACHE_MODE=fenced PUBLIC_RESPONSE_CACHE_BACKEND=object-storage PUBLIC_RESPONSE_CACHE_BUCKET_ID=replit-objstore-a69094dc-1cf1-4dcc-9b7c-8c67e9f645be pnpm --filter @workspace/api-server run dev"
 
   [services.production]
 
@@ -28,6 +28,7 @@ kind = "api"
   PORT = "8080"
   NODE_ENV = "production"
   PUBLIC_RESPONSE_CACHE_BACKEND = "object-storage"
+  PUBLIC_RESPONSE_CACHE_MODE = "fenced"
   PUBLIC_RESPONSE_CACHE_BUCKET_ID = "replit-objstore-a69094dc-1cf1-4dcc-9b7c-8c67e9f645be"
 
   [services.production.health.startup]

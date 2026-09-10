@@ -48,6 +48,8 @@ function isCacheablePublicPagePath(path: string): boolean {
   return (
     path === "/blog" ||
     path === "/blog/ar" ||
+    /^\/blog\/[^/]+$/.test(path) ||
+    /^\/(?:(?:sa|syr|uae)\/(?:ar\/)?blog|ar\/blog)\/[^/]+$/.test(path) ||
     path.startsWith("/blog/en/") ||
     path.startsWith("/blog/ar/") ||
     path === "/our-work" ||
