@@ -42,7 +42,7 @@ test("contact drafts retain deadline, time zone and document fields in both lang
     assert.equal(c.services.length, 3);
     assert.equal(c.steps.length, 4);
     assert.match(c.timing, ar ? /٣ ساعات/ : /3 hours/);
-    assert.match(c.availability, ar ? /لا نستقبل أي حالة طارئة يوم الجمعة/ : /do not accept any urgent cases on Friday/);
+    assert.match(c.availability, ar ? /لا نستقبل حالات طارئة جديدة يوم الجمعة/ : /do not accept new urgent cases on Friday/);
     assert.match(c.boundary, ar ? /لا تنشئ هذه الخدمة تمثيلاً/ : /does not establish court representation/);
     assert.match(c.timing, ar ? /قبل الدفع/ : /before payment/);
   }

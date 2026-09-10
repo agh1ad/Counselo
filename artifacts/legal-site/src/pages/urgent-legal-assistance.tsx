@@ -17,9 +17,6 @@ export default function UrgentLegalAssistance() {
   const regional = /^\/(sa|syr|uae)\//.test(location);
   const c = urgentCopy[lang];
   const jurisdiction = urgentJurisdictions[region][lang];
-  const introBreak = c.intro.indexOf(".") + 1;
-  const heroIntro = c.intro.slice(0, introBreak);
-  const serviceIntro = c.intro.slice(introBreak).trim();
   const path = urgentPath(isRTL, regional ? region : undefined);
   const url = `https://counselo-legal.com${path}`;
   const title = regional ? `${c.title} ${isRTL ? "في" : "in"} ${jurisdiction[0]}` : c.title;
@@ -33,7 +30,7 @@ export default function UrgentLegalAssistance() {
   });
   const related = getServicesForRegion(region).filter(service => ["contracts", "civil-law", "criminal-law", "business-law"].includes(service.clusterSlug));
   const schema = [
-    { "@context": "https://schema.org", "@type": "Service", "@id": `${url}#service`, name: title, description: `${description} ${c.timing}`, url, serviceType: c.title, provider: { "@id": COUNSELO_ENTITY_IDS.organization }, availableChannel: [{ "@type": "ServiceChannel", serviceUrl: contacts.whatsapp, availableLanguage: ["Arabic", "English"] }] },
+    { "@context": "https://schema.org", "@type": "Service", "@id": `${url}#service`, name: title, description: `${c.intro} ${c.timing} ${c.availability}`, url, serviceType: c.title, provider: { "@id": COUNSELO_ENTITY_IDS.organization }, availableChannel: [{ "@type": "ServiceChannel", serviceUrl: contacts.whatsapp, availableLanguage: ["Arabic", "English"] }] },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: isRTL ? "الرئيسية" : "Home", item: `https://counselo-legal.com${regional ? regionPrefix : isRTL ? "/ar" : "/"}` },
       ...(regional ? [{ "@type": "ListItem", position: 2, name: isRTL ? "الخدمات" : "Services", item: `https://counselo-legal.com${regionPrefix}/services` }] : []),
@@ -81,7 +78,7 @@ export default function UrgentLegalAssistance() {
           <div className="urgent-hero-copy">
             <p className="urgent-eyebrow"><Clock3 aria-hidden="true" />{c.eyebrow}</p>
             <h1>{title}</h1>
-            <p className="urgent-intro">{heroIntro}</p>
+            <p className="urgent-intro">{c.intro}</p>
             <a className="urgent-hero-explore" href="#urgent-scope">{isRTL ? "اختر المساعدة التي تحتاجها" : "Find the assistance you need"}<ArrowRight aria-hidden="true" /></a>
           </div>
           <aside className="urgent-request-panel" aria-labelledby="urgent-request-title">
@@ -97,7 +94,7 @@ export default function UrgentLegalAssistance() {
     <nav className="urgent-section-nav" aria-label={isRTL ? "أقسام المساعدة العاجلة" : "Urgent assistance sections"}><div className="urgent-shell">{sections.map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</div></nav>
     <section className="urgent-section urgent-scope-section" aria-labelledby="urgent-scope">
       <div className="urgent-shell">
-        <div className="urgent-section-heading"><h2 id="urgent-scope">{c.scopeTitle}</h2><p>{serviceIntro}</p></div>
+        <div className="urgent-section-heading"><h2 id="urgent-scope">{c.scopeTitle}</h2></div>
         <div className="urgent-grid">{c.services.map(([heading, body], index) => {
           const Icon = serviceIcons[index];
           return <article key={heading}><span className="urgent-service-icon"><Icon aria-hidden="true" /></span><div><h3>{heading}</h3><p>{body}</p></div></article>;
@@ -130,7 +127,7 @@ export default function UrgentLegalAssistance() {
     </section>
     <section className="urgent-section urgent-trust" aria-labelledby="trust-signals-heading">
       <div className="urgent-shell urgent-trust-layout"><div><span className="urgent-section-icon"><ShieldCheck aria-hidden="true" /></span><h2 id="trust-signals-heading">{isRTL ? "نطاق واضح وأتعاب متفق عليها" : "Clear scope and agreed fees"}</h2><div className="urgent-policy-links"><Link href={`${regionPrefix}/about`}>{isRTL ? "عن كاونسلو والفريق" : "About CounselO and the team"}</Link><Link href={`${regionPrefix}/terms-of-service`}>{isRTL ? "شروط الخدمة" : "Terms of service"}</Link><Link href={`${regionPrefix}/privacy-policy`}>{isRTL ? "سياسة الخصوصية" : "Privacy policy"}</Link></div></div>
-        <div className="urgent-fee-copy"><h3>{c.feesTitle}</h3><p>{c.fees}</p><div className="urgent-fee-boundary"><Check aria-hidden="true" /><p>{c.boundary}</p></div></div>
+        <div className="urgent-fee-copy"><h3>{c.feesTitle}</h3><p>{c.fees}</p><h3 className="urgent-agreement-heading">{c.deliveryTitle}</h3><p>{c.delivery}</p><h3 className="urgent-agreement-heading">{c.handlingTitle}</h3><p>{c.handling}</p><div className="urgent-fee-boundary"><Check aria-hidden="true" /><p>{c.boundary}</p></div></div>
       </div>
     </section>
     <section className="urgent-section urgent-questions" aria-labelledby="urgent-faq"><div className="urgent-shell urgent-faq-layout"><div><h2 id="urgent-faq">{c.faqTitle}</h2><p>{isRTL ? "تفاصيل تساعدك على اتخاذ الخطوة التالية بوضوح." : "The practical details before you take the next step."}</p></div><div className="urgent-faq">{c.faqs.map(([q, a]) => <details key={q}><summary><span>{q}</span><Plus aria-hidden="true" /></summary><p>{a}</p></details>)}</div></div></section>
