@@ -1,8 +1,7 @@
 import type { Express } from "express";
 import * as fs from "fs";
 import * as path from "path";
-import { eq } from "drizzle-orm";
-import { blogPostsTable, db, workSamplesTable } from "@workspace/db";
+import { publishedBlogs as loadPublishedBlogs, publishedWork as loadPublishedWork } from "./lib/published-content.js";
 import {
   buildDiscoveryFeed,
   buildDynamicSitemap,
@@ -29,54 +28,18 @@ function baseSitemap(filename: string): string {
   return xml;
 }
 
-const blogDiscoveryColumns = {
-  slug: blogPostsTable.slug,
-  titleEn: blogPostsTable.titleEn,
-  titleAr: blogPostsTable.titleAr,
-  excerptEn: blogPostsTable.excerptEn,
-  excerptAr: blogPostsTable.excerptAr,
-  date: blogPostsTable.date,
-  updatedAt: blogPostsTable.updatedAt,
-  seoTitleEn: blogPostsTable.seoTitleEn,
-  seoTitleAr: blogPostsTable.seoTitleAr,
-  seoDescriptionEn: blogPostsTable.seoDescriptionEn,
-  seoDescriptionAr: blogPostsTable.seoDescriptionAr,
-  bodyEn: blogPostsTable.bodyEn,
-  bodyAr: blogPostsTable.bodyAr,
-  contentEn: blogPostsTable.contentEn,
-  contentAr: blogPostsTable.contentAr,
-};
-
-const workDiscoveryColumns = {
-  slug: workSamplesTable.slug,
-  titleEn: workSamplesTable.titleEn,
-  titleAr: workSamplesTable.titleAr,
-  summaryEn: workSamplesTable.summaryEn,
-  summaryAr: workSamplesTable.summaryAr,
-  date: workSamplesTable.date,
-  updatedAt: workSamplesTable.updatedAt,
-};
-
 async function publishedBlogs() {
-  const posts = await db
-    .select(blogDiscoveryColumns)
-    .from(blogPostsTable)
-    .where(eq(blogPostsTable.published, true));
-  return posts.map(repairPublicBlogPost);
+  return (await loadPublishedBlogs()).map(repairPublicBlogPost);
 }
 
 async function publishedWork() {
-  const samples = await db
-    .select(workDiscoveryColumns)
-    .from(workSamplesTable)
-    .where(eq(workSamplesTable.published, true));
-  return samples.map(repairPublicWorkSample);
+  return (await loadPublishedWork()).map(repairPublicWorkSample);
 }
 
 /**
  * Lean discovery routes registered before the legacy dynamic route module.
- * They intentionally generate the same sitemap/feed output while avoiding
- * unrelated table reads and large columns on crawler requests.
+ * They generate the same sitemap/feed output from the shared published
+ * collections, avoiding repeated database reads across crawler URLs.
  */
 export function registerDiscoveryRoutes(app: Express): void {
   app.get("/sitemap-blog.xml", async (_req, res) => {

@@ -1,6 +1,7 @@
 import { blogPostsTable, db, pool, workSamplesTable } from "@workspace/db";
 import { eq, isNull } from "drizzle-orm";
 import { assignInternalLinks } from "../lib/internal-link-assignment.js";
+import { withPublicContentMutation, assertPublicMaintenanceCacheConfiguration } from "../lib/publication-cache.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 
 const force = process.argv.includes("--all");
@@ -19,12 +20,12 @@ async function backfillBlogPosts() {
       summary: post.excerptEn || post.excerptAr,
       body: post.bodyEn || post.bodyAr || JSON.stringify(post.contentEn.length ? post.contentEn : post.contentAr),
     });
-    await db.update(blogPostsTable).set({
+    await withPublicContentMutation(() => db.update(blogPostsTable).set({
       relatedServiceSlugs: assignment.relatedServiceSlugs,
       relatedBlogSlugs: assignment.relatedBlogSlugs,
       relatedWorkSlugs: assignment.relatedWorkSlugs,
       aiLinksAssignedAt: new Date(),
-    }).where(eq(blogPostsTable.id, post.id));
+    }).where(eq(blogPostsTable.id, post.id)));
     console.log(`[${index + 1}/${published.length}] blog ${post.slug}: ${assignment.relatedServiceSlugs.join(", ")} (${assignment.assignedBy})`);
   }
   return published.length;
@@ -44,18 +45,19 @@ async function backfillWorkSamples() {
       summary: sample.summaryEn || sample.summaryAr,
       body: [sample.challengeEn, sample.challengeAr, sample.approachEn, sample.approachAr, sample.outcomeEn, sample.outcomeAr].join(" "),
     });
-    await db.update(workSamplesTable).set({
+    await withPublicContentMutation(() => db.update(workSamplesTable).set({
       relatedServiceSlugs: assignment.relatedServiceSlugs,
       relatedBlogSlugs: assignment.relatedBlogSlugs,
       relatedWorkSlugs: assignment.relatedWorkSlugs,
       aiLinksAssignedAt: new Date(),
-    }).where(eq(workSamplesTable.id, sample.id));
+    }).where(eq(workSamplesTable.id, sample.id)));
     console.log(`[${index + 1}/${published.length}] work ${sample.slug}: ${assignment.relatedServiceSlugs.join(", ")} (${assignment.assignedBy})`);
   }
   return published.length;
 }
 
 try {
+  assertPublicMaintenanceCacheConfiguration();
   const [blogCount, workCount] = await Promise.all([
     backfillBlogPosts(),
     backfillWorkSamples(),

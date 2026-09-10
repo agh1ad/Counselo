@@ -3,15 +3,30 @@ import { Client } from "@replit/object-storage";
 import type { RequestHandler } from "express";
 import { logger } from "./logger.js";
 import { PUBLIC_CACHE_DEPLOYMENT_VERSION } from "./public-cache-version.js";
+import { publicationCacheEnabled, publicationCoordinator, type PublicationCoordinator } from "./publication-cache.js";
 
 const CACHE_PREFIX = "counselo/public-response-cache/v2/";
 const PROCESS_CACHE_TTL_MS = 15_000;
 const PERSISTENT_CACHE_MAX_AGE_MS = 5 * 60_000;
+const PUBLICATION_CACHE_MAX_AGE_MS = 24 * 60 * 60_000;
 const MAX_PROCESS_CACHE_ENTRIES = 500;
 const INVALIDATION_BATCH_SIZE = 250;
 const INVALIDATION_DELETE_CONCURRENCY = 8;
 const MAX_INVALIDATION_BATCHES = 20;
 const STORAGE_RETRY_DELAY_MS = 5 * 60_000;
+const MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
+
+/** Attribution parameters do not change these public handlers' response bodies. */
+export function publicResponseCacheUrl(originalUrl: string): string {
+  const separator = originalUrl.indexOf("?");
+  if (separator < 0) return originalUrl;
+  const params = new URLSearchParams(originalUrl.slice(separator + 1));
+  for (const key of [...params.keys()]) {
+    if (/^utm_/i.test(key) || /^(gclid|dclid|fbclid|msclkid)$/i.test(key)) params.delete(key);
+  }
+  const query = params.toString();
+  return originalUrl.slice(0, separator) + (query ? `?${query}` : "");
+}
 
 const SAFE_RESPONSE_HEADERS = [
   "Cache-Control",
@@ -20,6 +35,7 @@ const SAFE_RESPONSE_HEADERS = [
   "Content-Type",
   "Cross-Origin-Resource-Policy",
   "X-CounselO-Page-Source",
+  "Location",
 ] as const;
 
 export type PublicResponseCacheEntry = {
@@ -34,6 +50,7 @@ export type PublicResponseCacheEntry = {
 type ProcessCacheEntry = PublicResponseCacheEntry & { expiresAt: number };
 
 const processCache = new Map<string, ProcessCacheEntry>();
+const pendingResponses = new Map<string, Promise<void>>();
 let storageDisabledUntil = 0;
 let storageWarningLogged = false;
 
@@ -118,6 +135,7 @@ function isPublicResponseCacheEntry(
 async function readPersistentEntry(
   cacheKey: string,
   deploymentVersion: string | null,
+  maxAge = PERSISTENT_CACHE_MAX_AGE_MS,
 ): Promise<PublicResponseCacheEntry | null> {
   if (!deploymentVersion) return null;
   const client = storageClient();
@@ -132,7 +150,7 @@ async function readPersistentEntry(
     if (!isPublicResponseCacheEntry(parsed)) return null;
     noteStorageSuccess();
     const age = Date.now() - parsed.createdAt;
-    if (age < 0 || age >= PERSISTENT_CACHE_MAX_AGE_MS) return null;
+    if (age < 0 || age >= maxAge) return null;
     return parsed;
   } catch (error) {
     noteStorageFailure(error);
@@ -164,6 +182,10 @@ async function writePersistentEntry(
   }
 }
 
+export function clearPublicResponseProcessCache(): void {
+  processCache.clear();
+}
+
 function trimProcessCache(): void {
   while (processCache.size > MAX_PROCESS_CACHE_ENTRIES) {
     const oldestKey = processCache.keys().next().value as string | undefined;
@@ -191,6 +213,14 @@ function sendCachedResponse(
     res.setHeader(name, value);
   }
   res.setHeader("X-CounselO-Response-Cache", source);
+  if (entry.statusCode === 301 && entry.headers.Location) {
+    // Recreate Express's negotiated redirect body for this request's Accept.
+    res.redirect(301, entry.headers.Location);
+    return;
+  }
+  if (entry.headers["Content-Security-Policy"] === "frame-ancestors 'self'") {
+    res.removeHeader("X-Frame-Options");
+  }
   res.send(decodePublicResponseBody(entry));
 }
 
@@ -198,19 +228,40 @@ export function cachePublicResponses(
   keyPrefix: string,
   isEligible: (path: string) => boolean,
   deploymentVersion: string | null = PUBLIC_CACHE_DEPLOYMENT_VERSION,
+  coordinator: PublicationCoordinator = publicationCoordinator,
 ): RequestHandler {
   return async (req, res, next) => {
     if (
       (req.method !== "GET" && req.method !== "HEAD") ||
+      Boolean(req.headers.authorization) ||
       !isEligible(req.path)
     ) {
       next();
       return;
     }
 
+    // Never reuse an older process response when publication state is unknown.
+    // The control check is shared for at most 15 seconds, rather than waking
+    // PostgreSQL to refresh every URL every five minutes.
+    let namespace = deploymentVersion;
+    let maxAge = PERSISTENT_CACHE_MAX_AGE_MS;
+    if (publicationCacheEnabled()) {
+      const state = deploymentVersion ? await coordinator.state() : null;
+      if (!state?.cacheable) {
+        res.setHeader("X-CounselO-Response-Cache", "BYPASS");
+        next();
+        return;
+      }
+      namespace = `${deploymentVersion}/publication/${state.epoch}`;
+      maxAge = PUBLICATION_CACHE_MAX_AGE_MS;
+    }
+
+    // Revision validation already precedes every process lookup. Keep warm
+    // responses for the revision lifetime instead of re-downloading every 15s.
+    const processTtl = publicationCacheEnabled() ? maxAge : PROCESS_CACHE_TTL_MS;
     const cacheMethod = req.method === "HEAD" ? "GET" : req.method;
-    const cacheKey = `${keyPrefix}:${cacheMethod}:${req.originalUrl}`;
-    const processKey = `${deploymentVersion ?? "process-only"}:${cacheKey}`;
+    const cacheKey = `${keyPrefix}:${cacheMethod}:${publicResponseCacheUrl(req.originalUrl)}`;
+    const processKey = `${namespace ?? "process-only"}:${cacheKey}`;
     const processEntry = processCache.get(processKey);
     if (processEntry && processEntry.expiresAt > Date.now()) {
       sendCachedResponse(res, processEntry, "PROCESS");
@@ -218,11 +269,39 @@ export function cachePublicResponses(
     }
     if (processEntry) processCache.delete(processKey);
 
-    const persistentEntry = await readPersistentEntry(cacheKey, deploymentVersion);
+    const pendingResponse = pendingResponses.get(processKey);
+    if (pendingResponse) {
+      await pendingResponse;
+      const generated = processCache.get(processKey);
+      if (generated && generated.expiresAt > Date.now()) {
+        sendCachedResponse(res, generated, "PROCESS");
+        return;
+      }
+    }
+
+    // Coalesce cold readers before either App Storage or PostgreSQL is queried.
+    // Release on errors, disconnects and a bounded deadline as well as success.
+    if (!pendingResponses.has(processKey) && pendingResponses.size < MAX_PROCESS_CACHE_ENTRIES) {
+      let release!: () => void;
+      const pending = new Promise<void>(resolve => { release = resolve; });
+      pendingResponses.set(processKey, pending);
+      let timeout: ReturnType<typeof setTimeout>;
+      const finish = () => {
+        clearTimeout(timeout);
+        if (pendingResponses.get(processKey) === pending) pendingResponses.delete(processKey);
+        release();
+      };
+      timeout = setTimeout(finish, 5_000);
+      timeout.unref();
+      res.once("finish", finish);
+      res.once("close", finish);
+    }
+
+    const persistentEntry = await readPersistentEntry(cacheKey, namespace, maxAge);
     if (persistentEntry) {
       processCache.set(processKey, {
         ...persistentEntry,
-        expiresAt: Math.min(Date.now() + PROCESS_CACHE_TTL_MS, persistentEntry.createdAt + PERSISTENT_CACHE_MAX_AGE_MS),
+        expiresAt: Math.min(Date.now() + processTtl, persistentEntry.createdAt + maxAge),
       });
       trimProcessCache();
       sendCachedResponse(res, persistentEntry, "APP-STORAGE");
@@ -231,11 +310,13 @@ export function cachePublicResponses(
 
     const responseStartedAt = Date.now();
     const originalSend = res.send.bind(res);
-    res.send = ((body: unknown) => {
-      const cacheableStatus = res.statusCode === 200 || res.statusCode === 404;
+    const remember = (body: unknown) => {
+      const cacheableStatus = res.statusCode === 200 || res.statusCode === 404 || res.statusCode === 301;
       if (
         cacheableStatus &&
-        (typeof body === "string" || Buffer.isBuffer(body))
+        !res.getHeader("Set-Cookie") &&
+        (typeof body === "string" || Buffer.isBuffer(body)) &&
+        Buffer.byteLength(body) <= MAX_RESPONSE_BYTES
       ) {
         const entry = encodePublicResponseEntry({
           statusCode: res.statusCode,
@@ -245,13 +326,22 @@ export function cachePublicResponses(
         });
         processCache.set(processKey, {
           ...entry,
-          expiresAt: Math.min(Date.now() + PROCESS_CACHE_TTL_MS, entry.createdAt + PERSISTENT_CACHE_MAX_AGE_MS),
+          expiresAt: Math.min(Date.now() + processTtl, entry.createdAt + maxAge),
         });
         trimProcessCache();
-        void writePersistentEntry(cacheKey, entry, deploymentVersion);
+        void writePersistentEntry(cacheKey, entry, namespace);
       }
+    };
+    res.send = ((body: unknown) => {
+      remember(body);
       return originalSend(body);
     }) as typeof res.send;
+    // Express redirects end the response directly rather than calling send().
+    const originalEnd = res.end.bind(res);
+    res.end = ((chunk: unknown, ...args: unknown[]) => {
+      if (res.statusCode === 301) remember(chunk);
+      return Reflect.apply(originalEnd, res, [chunk, ...args]);
+    }) as typeof res.end;
 
     res.setHeader("X-CounselO-Response-Cache", "MISS");
     next();
@@ -261,7 +351,17 @@ export function cachePublicResponses(
 export async function invalidatePublicResponseCache(
   deploymentVersion: string | null = PUBLIC_CACHE_DEPLOYMENT_VERSION,
 ): Promise<{ complete: boolean; deleted: number; reason: "complete" | "unavailable" | "failed" }> {
-  processCache.clear();
+  clearPublicResponseProcessCache();
+  if (publicationCacheEnabled()) {
+    try {
+      const fence = await publicationCoordinator.begin();
+      await publicationCoordinator.finish(fence);
+      return { complete: true, deleted: 0, reason: "complete" };
+    } catch (err) {
+      logger.error({ err }, "Publication cache invalidation failed; fence retained when created");
+      return { complete: false, deleted: 0, reason: "failed" };
+    }
+  }
   const client = storageClient();
   if (!client) return { complete: false, deleted: 0, reason: "unavailable" };
   let deleted = 0;
