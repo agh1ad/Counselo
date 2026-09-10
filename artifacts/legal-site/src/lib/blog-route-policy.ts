@@ -1,11 +1,17 @@
 import {
   blogPath,
   hasQualityBilingualBlogContent,
+  LEGACY_BLOG_REDIRECTS,
   type BlogLanguage,
   type BilingualBlogContent,
 } from "@workspace/api-zod/browser";
 
 type BlogRoutePost = BilingualBlogContent & { slug: string };
+
+/** Client-side legacy navigation must use the same exact aliases as HTTP SSR. */
+export function resolveUnqualifiedBlogPath(slug: string): string {
+  return LEGACY_BLOG_REDIRECTS[`/blog/${slug}`] ?? blogPath(slug, "en");
+}
 
 export type BlogRouteDecision =
   | { action: "notfound" }

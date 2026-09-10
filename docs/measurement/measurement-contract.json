@@ -1,0 +1,58 @@
+{
+  "container": "GTM-WZ6SW99X",
+  "measurementId": "G-1M9ZZX7VT6",
+  "trigger": "counselo_event",
+  "eventName": "counselo.name",
+  "events": [
+    "page_view",
+    "click",
+    "whatsapp_click",
+    "consultation_click",
+    "phone_click",
+    "email_click",
+    "file_download",
+    "form_submit_attempt",
+    "form_submit_error",
+    "generate_lead"
+  ],
+  "parameters": [
+    "page_location",
+    "page_path",
+    "page_title",
+    "region",
+    "language",
+    "cta",
+    "conversion_position",
+    "service",
+    "consultation_product",
+    "form_name",
+    "form_id",
+    "element_tag",
+    "attachment_count",
+    "lead_id",
+    "outbound",
+    "link_url",
+    "landing_page",
+    "acquisition_source",
+    "acquisition_medium"
+  ],
+  "bootstrap": {
+    "counselo_page_location": "sanitized public URL without query/fragment",
+    "counselo_page_referrer": "Recognized search/AI/social origin only; all paths, queries and unknown domains omitted",
+    "counselo_campaign_source": "Explicit allowlisted UTM source only",
+    "counselo_campaign_medium": "Explicit allowlisted UTM medium paired with an accepted source"
+  },
+  "disabledLegacyTagIds": [
+    "4",
+    "7"
+  ],
+  "ga4RequiredSettings": [
+    "Disable enhanced-measurement Page changes based on browser history events",
+    "Disable automatic form interactions, outbound clicks and file downloads: application owns these events",
+    "Do not enable user-provided data collection for legal enquiries",
+    "Mark generate_lead as a key event after accepted-request verification"
+  ],
+  "disabledLegacyTriggerIds": [
+    "6"
+  ]
+}

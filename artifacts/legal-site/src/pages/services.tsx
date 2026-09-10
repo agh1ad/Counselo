@@ -1,3 +1,4 @@
+import { regionalServiceDirectoryEntity, COUNSELO_ORGANIZATION } from "@workspace/api-zod/browser";
 import * as m from "framer-motion/m";
 import { Link } from "wouter";
 import {
@@ -99,36 +100,8 @@ export default function Services() {
         "url": `${baseUrl}/services/${item.id}`,
       })),
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "LegalService",
-      "@id": `https://counselo-legal.com/#${region}-service-directory`,
-      "name": "CounselO",
-      "description": region === "uae"
-        ? (isRTL ? `منصة استشارات قانونية أونلاين لمسائل الإمارات — ${areaCount} مجالاً ضمن الأطر الاتحادية والمحلية والمناطق الحرة` : `UAE online legal consultation platform — ${areaCount} legal services across federal, emirate-level, mainland and free-zone frameworks`)
-        : region === "syr"
-        ? (isRTL ? `منصة سوريا للاستشارات القانونية الأونلاين — ${areaCount} مجالاً مع تحديد النص النافذ والجهة والنطاق قبل تقديم المشورة` : `Syria's online legal consultation platform — ${areaCount} legal services with the operative text, authority and scope identified before advice`)
-        : (isRTL ? `منصة استشارات قانونية أونلاين لمسائل المملكة — ${areaCount} مجالاً مع تحديد الوقائع والاختصاص والنطاق` : `Saudi Arabia online legal consultation platform — ${areaCount} legal services with facts, jurisdiction and scope identified before advice`),
-      "url": "https://counselo-legal.com",
-      "provider": { "@id": COUNSELO_ENTITY_IDS.organization },
-      "telephone": "+966594850247",
-      "address": region === "uae"
-        ? { "@type": "PostalAddress", "addressCountry": "AE" }
-        : region === "syr"
-        ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
-        : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressCountry": "SA" },
-      "founder": OMAR_AL_BAGHDADI,
-      "areaServed": region === "uae"
-        ? { "@type": "Country", "name": "United Arab Emirates" }
-        : region === "syr"
-        ? { "@type": "Country", "name": "Syria" }
-        : { "@type": "Country", "name": "Saudi Arabia" },
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "serviceUrl": baseUrl,
-        "availableLanguage": ["Arabic", "English"],
-      },
-    },
+    { "@context": "https://schema.org", ...regionalServiceDirectoryEntity(region, isRTL ? "ar" : "en", isRTL ? "خدمات كاونسلو القانونية" : "CounselO legal consultation services", seoDesc, s.items) },
+    { "@context": "https://schema.org", ...COUNSELO_ORGANIZATION },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",

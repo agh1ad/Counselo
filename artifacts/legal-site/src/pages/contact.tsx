@@ -16,9 +16,10 @@ import { Clock, Mail, MapPin, Phone, CreditCard, Paperclip, X, FileText, ImageIc
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
-import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
+import { COUNSELO_ORGANIZATION } from "@workspace/api-zod/browser";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { trackEvent } from "@/lib/analytics";
+import { getAcquisitionContext } from "@/lib/acquisition";
 import { SearchIntentGuidance } from "@/components/content/search-intent-guidance";
 import { getServicesForRegion } from "@workspace/api-zod/browser";
 
@@ -44,6 +45,7 @@ function FileIcon({ type }: { type: string }) {
 
 type ContactApiResponse = {
   reference?: string;
+  leadId?: string;
   notificationStatus?: "accepted" | "pending" | "sent";
   error?: string;
 };
@@ -154,6 +156,7 @@ export default function Contact() {
           ...values,
           region,
           language: isRTL ? "ar" : "en",
+          acquisition: getAcquisitionContext(),
           website: honeypotRef.current?.value ?? "",
           attachments,
         }),
@@ -178,6 +181,7 @@ export default function Contact() {
       setWasSent(true);
       trackEvent("generate_lead", window.location.pathname, {
         form_name: "consultation",
+        lead_id: result.leadId,
         service: values.service,
         consultation_product: "comprehensive-consultation",
         region,
@@ -262,20 +266,8 @@ export default function Contact() {
           },
           {
             "@context": "https://schema.org",
-            "@type": "Organization",
-            "@id": COUNSELO_ENTITY_IDS.organization,
-            "name": "CounselO",
-            "telephone": "+966594850247",
+            ...COUNSELO_ORGANIZATION,
             "email": "info@counselo-legal.com",
-            "url": "https://counselo-legal.com",
-            "address": isUae
-              ? { "@type": "PostalAddress", "addressCountry": "AE" }
-              : isSyr
-              ? { "@type": "PostalAddress", "addressLocality": "Damascus", "addressRegion": "Damascus Governorate", "addressCountry": "SY" }
-              : { "@type": "PostalAddress", "addressLocality": "Jubail", "addressRegion": "Eastern Province", "addressCountry": "SA", "streetAddress": "Madinah Street, Radma Hotel Apartments Building, Jubail Al-Balad" },
-            "founder": OMAR_AL_BAGHDADI,
-            "areaServed": { "@type": "Country", "name": countryName },
-            "contactPoint": { "@type": "ContactPoint", "telephone": "+966594850247", "contactType": "legal consultation", "availableLanguage": ["Arabic", "English"] },
           },
           {
             "@context": "https://schema.org",
@@ -435,7 +427,7 @@ export default function Contact() {
                     <p>{isRTL ? "هل لديك مهلة قريبة؟ تواصل عبر واتساب أو البريد في صفحة المساعدة العاجلة لتأكيد التوافر والموعد قبل الدفع. الوقت المستهدف لتسليم الرد ٣ ساعات بعد قبول الطلب واكتمال المستندات والسداد معاً. نستقبل الحالات من السبت إلى الخميس فقط، ولا نستقبلها يوم الجمعة؛ إرسال النموذج لا يؤكد قبول المهمة." : "Facing a short deadline? Use WhatsApp or email on the urgent assistance page to confirm availability and delivery before payment. The response delivery target is 3 hours after acceptance, complete documents and payment. Urgent cases are accepted Saturday through Thursday only, never Friday; submitting this form does not confirm engagement."}</p>
                     <Link href={urgentPath(isRTL, region)} className="mt-3 inline-block font-semibold underline">{isRTL ? "تواصل لطلب مساعدة قانونية عاجلة" : "Contact the team for urgent legal assistance"}</Link>
                   </aside>}
-                  <form id="consultation-form" name="consultation" onSubmit={form.handleSubmit(onSubmit)} aria-busy={!formReady}>
+                  <form id="consultation-form" name="consultation" noValidate onSubmit={form.handleSubmit(onSubmit, () => trackEvent("form_submit_error", window.location.pathname, { form_name: "consultation" }))} aria-busy={!formReady || isSubmitting}>
                     <fieldset disabled={!formReady} className="m-0 min-w-0 space-y-6 border-0 p-0">
                     <div className="sr-only" aria-hidden="true">
                       <label htmlFor="contact-website">Website</label>
@@ -448,18 +440,19 @@ export default function Contact() {
                         autoComplete="off"
                       />
                     </div>
+                    <p className="text-sm text-muted-foreground">{isRTL ? "الاسم والبريد الإلكتروني والهاتف والمجال القانوني ووصف المسألة حقول مطلوبة. المرفقات اختيارية." : "Name, email, phone, legal service and matter description are required. Attachments are optional."}</p>
                     <div className="grid sm:grid-cols-2 gap-6">
                       <FormField control={form.control} name="name" render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-foreground font-medium">{f.nameLabel}</FormLabel>
-                          <FormControl><Input placeholder={f.namePlaceholder} {...field} className="border-border focus:border-primary" /></FormControl>
+                          <FormControl><Input autoComplete="name" required aria-required="true" maxLength={120} placeholder={f.namePlaceholder} {...field} className="border-border focus:border-primary" /></FormControl>
                           <FormMessage />
                         </FormItem>
                       )} />
                       <FormField control={form.control} name="email" render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-foreground font-medium">{f.emailLabel}</FormLabel>
-                          <FormControl><Input type="email" placeholder={f.emailPlaceholder} {...field} className="border-border focus:border-primary" /></FormControl>
+                          <FormControl><Input type="email" autoComplete="email" inputMode="email" dir="ltr" required aria-required="true" maxLength={254} placeholder={f.emailPlaceholder} {...field} className="border-border focus:border-primary" /></FormControl>
                           <FormMessage />
                         </FormItem>
                       )} />
@@ -468,14 +461,14 @@ export default function Contact() {
                       <FormField control={form.control} name="phone" render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-foreground font-medium">{f.phoneLabel}</FormLabel>
-                          <FormControl><Input type="tel" placeholder={f.phonePlaceholder} {...field} className="border-border focus:border-primary" dir="ltr" /></FormControl>
+                          <FormControl><Input type="tel" autoComplete="tel" inputMode="tel" required aria-required="true" maxLength={30} placeholder={f.phonePlaceholder} {...field} className="border-border focus:border-primary" dir="ltr" /></FormControl>
                           <FormMessage />
                         </FormItem>
                       )} />
                       <FormField control={form.control} name="service" render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-foreground font-medium">{f.serviceLabel}</FormLabel>
-                          <Select
+                          <Select name="service" required
                             key={field.value || prefillService || "empty"}
                             onValueChange={(value) => {
                               setPrefillService("");
@@ -484,7 +477,7 @@ export default function Contact() {
                             value={field.value || prefillService}
                           >
                             <FormControl>
-                              <SelectTrigger className="border-border"><SelectValue placeholder={f.servicePlaceholder} /></SelectTrigger>
+                              <SelectTrigger aria-required="true" className="border-border"><SelectValue placeholder={f.servicePlaceholder} /></SelectTrigger>
                             </FormControl>
                             <SelectContent>
                               {serviceOptions.map((opt) => (
@@ -500,7 +493,7 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel className="text-foreground font-medium">{f.messageLabel}</FormLabel>
                         <FormControl>
-                          <Textarea placeholder={f.messagePlaceholder} className="min-h-[140px] border-border focus:border-primary resize-none" {...field} />
+                          <Textarea required aria-required="true" maxLength={5000} placeholder={f.messagePlaceholder} className="min-h-[140px] border-border focus:border-primary resize-none" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>

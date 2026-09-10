@@ -8,6 +8,7 @@ import {
   CheckCircle2, XCircle, Clock, Copy, BriefcaseBusiness,
 } from "lucide-react";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
+import { ContactOutcomes } from "@/components/admin/ContactOutcomes";
 import { WorkSamplesManager } from "@/components/admin/WorkSamplesManager";
 import {
   getAnalytics, clearAnalytics, getGTMContainerId, type AnalyticsStore,
@@ -16,7 +17,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 import { blogPath } from "@workspace/api-zod/browser";
 
 const API = "/api";
-type Tab = "blog" | "work" | "analytics" | "seo" | "tools";
+type Tab = "blog" | "work" | "analytics" | "seo" | "tools" | "enquiries";
 
 interface BlogPost {
   id: number;
@@ -522,13 +523,13 @@ function AnalyticsTab({ posts }: { posts: BlogPost[] }) {
             </p>
             <p className="text-xs text-gray-400 mt-0.5">GA4 tracking is managed through GTM — configure tags, triggers, and events in the GTM dashboard.</p>
           </div>
-          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-green-700 bg-green-50 px-3 py-1 rounded-full">
-            <CheckCircle2 size={12} /> Active
+          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-800 bg-amber-50 px-3 py-1 rounded-full">
+            <Clock size={12} /> Delivery verification required
           </span>
         </div>
         <div className="p-3 bg-gray-50 rounded-lg space-y-1">
           <p className="text-xs text-gray-500">Container ID: <code className="font-mono text-green-700">{gtmId}</code></p>
-          <p className="text-xs text-gray-400">Page views and custom events (WhatsApp clicks, form submits, etc.) are pushed to the GTM dataLayer automatically.</p>
+          <p className="text-xs text-gray-400">The site queues an allowlisted counselo_event envelope. Published GTM tags and GA4 DebugView must confirm delivery; this panel does not inspect the account.</p>
         </div>
         <div className="mt-3 flex gap-2 flex-wrap">
           <a href="https://tagmanager.google.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#006C35] text-white text-xs font-semibold rounded-lg hover:bg-green-800">Open Tag Manager <ExternalLink size={11} /></a>
@@ -562,50 +563,22 @@ function AnalyticsTab({ posts }: { posts: BlogPost[] }) {
 }
 
 const SEO_CHECKS = [
-  { id: "sitemap", label: "Sitemap accessible", desc: "Canonical URLs listed for discovery", url: "/sitemap.xml", pass: true },
-  { id: "robots", label: "robots.txt configured", desc: "Allow: / + Sitemap linked", url: "/robots.txt", pass: true },
-  { id: "og_image", label: "Open Graph image present", desc: "1200×630 opengraph.jpg", url: "/opengraph.jpg", pass: true },
-  { id: "schema_home", label: "Homepage — 7 schema types", desc: "LegalService, Person, Organization, AggregateRating…", pass: true },
-  { id: "hreflang", label: "hrefLang en/ar/x-default", desc: "Set on every page via SEOHead component", pass: true },
-  { id: "canonical", label: "Canonical URLs on all pages", desc: "All 9 page types + 18 sub-areas", pass: true },
-  { id: "keywords", label: "Keywords meta tag — all pages", desc: "Including blog posts, terms, privacy", pass: true },
-  { id: "twitter_card", label: "Twitter/X summary_large_image", desc: "twitter:site @CounselOLegal set", pass: true },
-  { id: "titles_145", label: "145 seoTitles — all branded", desc: "Every sub-page title ends with CounselO suffix", pass: true },
-  { id: "sub_schema", label: "All 18 sub-pages — 3 schemas each", desc: "LegalService + FAQPage + BreadcrumbList", pass: true },
-  { id: "no_247", label: "No 'Online, 24/7' in SEO descriptions", desc: "All replaced with '24 hours via WhatsApp'", pass: true },
-  { id: "geo", label: "Geo meta tags — Jubail, SA-04", desc: "geo.region, geo.placename, geo.position", pass: true },
-];
-
-const PRACTICE_AREAS = [
-  { name: "Family Law", slug: "family-law", subs: 6 },
-  { name: "Business Law", slug: "business-law", subs: 8 },
-  { name: "Real Estate", slug: "real-estate", subs: 6 },
-  { name: "Employment Law", slug: "employment-law", subs: 6 },
-  { name: "Foreign Investment", slug: "foreign-investment", subs: 9 },
-  { name: "Administrative Law", slug: "administrative-law", subs: 8 },
-  { name: "Enforcement", slug: "enforcement", subs: 5 },
-  { name: "Arbitration", slug: "arbitration", subs: 5 },
-  { name: "Companies Law", slug: "companies-law", subs: 19 },
-  { name: "Contracts", slug: "contracts", subs: 5 },
-  { name: "Criminal Law", slug: "criminal-law", subs: 6 },
-  { name: "Banking & Finance", slug: "banking-finance", subs: 6 },
-  { name: "Intellectual Property", slug: "intellectual-property", subs: 6 },
-  { name: "Tax & Zakat", slug: "tax-zakat", subs: 5 },
-  { name: "Cyber Law", slug: "cyber-law", subs: 6 },
-  { name: "Medical Malpractice", slug: "medical-malpractice", subs: 8 },
-  { name: "Insurance Law", slug: "insurance-law", subs: 7 },
-  { name: "Immigration Law", slug: "immigration-law", subs: 8 },
+  { id: "sitemap", label: "Sitemap discovery", desc: "Check current URL coverage and Search Console processing", url: "/sitemap.xml" },
+  { id: "robots", label: "Crawler access", desc: "Inspect robots.txt plus page-level HTTP and HTML directives", url: "/robots.txt" },
+  { id: "indexing", label: "Google indexing and performance", desc: "Review indexed/excluded URLs, queries, countries, devices and clicks in the account", url: "https://search.google.com/search-console" },
+  { id: "bing", label: "Bing indexing and AI citations", desc: "Inspect current Webmaster Tools reports; a successful crawl does not prove visibility", url: "https://www.bing.com/webmasters/" },
+  { id: "schema", label: "Structured-data meaning", desc: "Validate rendered graphs and their factual consistency", url: "https://validator.schema.org/" },
+  { id: "measurement", label: "Accepted leads and conversion events", desc: "Check event transport and key events against actual enquiry outcomes", url: "https://analytics.google.com/" },
 ];
 
 function SEOMonitorTab() {
-  const totalSubs = PRACTICE_AREAS.reduce((s, a) => s + a.subs, 0);
 
   return (
     <div className="p-6 space-y-6 max-w-6xl mx-auto">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-xl font-bold text-gray-900">SEO Monitor</h2>
-          <p className="text-sm text-gray-500 mt-0.5">Site-wide SEO health — checked against all pages and configurations</p>
+          <p className="text-sm text-gray-500 mt-0.5">Links to current verification tools. Account results and live pages must be inspected before reporting a pass.</p>
         </div>
         <div className="flex items-center gap-3">
           <a
@@ -616,9 +589,9 @@ function SEOMonitorTab() {
           >
             <Search size={14} /> Inspect URLs in Search Console <ExternalLink size={12} />
           </a>
-          <div className="flex items-center gap-2 bg-green-50 border border-green-200 px-4 py-2 rounded-xl">
-            <CheckCircle2 size={16} className="text-green-600" />
-            <span className="text-sm font-bold text-green-700">All checks passing</span>
+          <div className="flex items-center gap-2 bg-amber-50 border border-amber-200 px-4 py-2 rounded-xl">
+            <Clock size={16} className="text-amber-700" />
+            <span className="text-sm font-bold text-amber-800">Current verification required</span>
           </div>
         </div>
       </div>
@@ -626,13 +599,13 @@ function SEOMonitorTab() {
       {/* Health checks */}
       <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
         <div className="px-5 py-4 border-b border-gray-50 bg-gray-50">
-          <p className="text-xs font-bold text-gray-500 uppercase tracking-wide">Technical SEO Checklist ({SEO_CHECKS.length} checks)</p>
+          <p className="text-xs font-bold text-gray-500 uppercase tracking-wide">Review resources ({SEO_CHECKS.length}) — no live pass is inferred</p>
         </div>
         <div className="divide-y divide-gray-50">
           {SEO_CHECKS.map((check) => (
             <div key={check.id} className="flex items-center justify-between px-5 py-3.5">
               <div className="flex items-center gap-3">
-                {check.pass ? <CheckCircle2 size={16} className="text-green-500 shrink-0" /> : <XCircle size={16} className="text-red-400 shrink-0" />}
+                <Clock size={16} className="text-gray-400 shrink-0" />
                 <div>
                   <p className="text-sm font-medium text-gray-800">{check.label}</p>
                   <p className="text-xs text-gray-400">{check.desc}</p>
@@ -646,39 +619,9 @@ function SEOMonitorTab() {
         </div>
       </div>
 
-      {/* Practice areas coverage */}
-      <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
-        <div className="px-5 py-4 border-b border-gray-50 bg-gray-50 flex items-center justify-between">
-          <p className="text-xs font-bold text-gray-500 uppercase tracking-wide">Practice Area Coverage — 18 Areas · {totalSubs} Sub-Pages</p>
-          <span className="text-xs text-green-600 font-semibold">All indexed ✓</span>
-        </div>
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-0 divide-y divide-x divide-gray-50">
-          {PRACTICE_AREAS.map((area) => (
-            <div key={area.slug} className="px-5 py-3 flex items-center justify-between">
-              <div>
-                <a href={`/services/${area.slug}`} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-gray-800 hover:text-green-700 transition-colors">{area.name}</a>
-                <p className="text-xs text-gray-400">{area.subs} sub-pages</p>
-              </div>
-              <CheckCircle2 size={14} className="text-green-500 shrink-0" />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Score overview */}
-      <div className="grid grid-cols-3 gap-4">
-        <div className="bg-white rounded-xl border border-gray-100 p-5 text-center">
-          <p className="text-4xl font-bold text-green-600">169</p>
-          <p className="text-xs text-gray-400 mt-1 font-medium uppercase tracking-wide">URLs in Sitemap</p>
-        </div>
-        <div className="bg-white rounded-xl border border-gray-100 p-5 text-center">
-          <p className="text-4xl font-bold text-green-600">145</p>
-          <p className="text-xs text-gray-400 mt-1 font-medium uppercase tracking-wide">Branded SEO Titles</p>
-        </div>
-        <div className="bg-white rounded-xl border border-gray-100 p-5 text-center">
-          <p className="text-4xl font-bold text-green-600">3</p>
-          <p className="text-xs text-gray-400 mt-1 font-medium uppercase tracking-wide">Schemas per Sub-Page</p>
-        </div>
+      <div className="rounded-xl border bg-white p-5 text-sm text-gray-600">
+        <p>Technical checks require fresh rendered-page evidence. Indexing, rankings, AI citations and qualified enquiries require their own account or operational records.</p>
+        <div className="mt-3 flex flex-wrap gap-4">{["sa", "syr", "uae"].map((region) => <a key={region} href={`/${region}/ar/services`} target="_blank" rel="noopener noreferrer" className="text-green-700 underline">{region.toUpperCase()} service index</a>)}</div>
       </div>
 
       {/* External validation links */}
@@ -894,6 +837,7 @@ export default function AdminCMS() {
     { id: "blog", label: "Blog Posts", icon: <FileText size={15} /> },
     { id: "work", label: "Our Work", icon: <BriefcaseBusiness size={15} /> },
     { id: "analytics", label: "Analytics", icon: <BarChart2 size={15} /> },
+    { id: "enquiries", label: "Enquiry outcomes", icon: <Users size={15} /> },
     { id: "seo", label: "SEO Monitor", icon: <Search size={15} /> },
     { id: "tools", label: "Tools", icon: <Wrench size={15} /> },
   ];
@@ -924,6 +868,7 @@ export default function AdminCMS() {
 
       {/* Tab content */}
       {tab === "analytics" && <AnalyticsTab posts={posts} />}
+      {tab === "enquiries" && <ContactOutcomes token={token} />}
       {tab === "seo" && <SEOMonitorTab />}
       {tab === "tools" && <ToolsTab />}
       {tab === "work" && <WorkSamplesManager token={token} />}

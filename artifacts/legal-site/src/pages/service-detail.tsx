@@ -1,4 +1,4 @@
-import { SEARCH_COPY_UPDATED_AT, serviceSearchCopy } from "@/lib/search-intent-copy";
+import { SEARCH_COPY_UPDATED_AT, searchIntentMeta, serviceSearchCopy } from "@/lib/search-intent-copy";
 import * as m from "framer-motion/m";
 import { useParams, Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -28,7 +28,7 @@ import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosur
 import { getRegionalLegalSources, type LegalSource } from "@/lib/regional-legal-sources";
 import { serviceGuidanceUpdatedAt, sourceBackedSearchGuidance } from "@/lib/source-backed-search-guidance";
 import { getLegalProblemPages, legalProblemPath } from "@/lib/legal-problem-pages";
-import { COUNSELO_ENTITY_IDS, OMAR_AL_BAGHDADI, CONSULTATION_OPERATING_POLICY, getConsultationProduct } from "@workspace/api-zod/browser";
+import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, regionalServiceEntity, OMAR_AL_BAGHDADI, CONSULTATION_OPERATING_POLICY, getConsultationProduct } from "@workspace/api-zod/browser";
 
 function truncateMeta(value: string, maxLength = 158): string {
   if (value.length <= maxLength) return value;
@@ -71,7 +71,7 @@ export default function ServiceDetail() {
       ? "ضريبة الشركات والقيمة المضافة"
       : data.title;
 
-  const seoTitle = isUae
+  const fallbackSeoTitle = isUae
     ? (isRTL
       ? `${uaeArabicSeoTitle} | الإمارات`
       : `${data.title} | UAE`)
@@ -83,7 +83,7 @@ export default function ServiceDetail() {
         ? (dataSeoTitle ?? `${data.title} Lawyer in Syria | Online Legal Consultation | CounselO`)
         : `${data.title} Lawyer in ${isUae ? "the UAE" : "Saudi Arabia"} | Online Legal Consultation | CounselO`);
 
-  const seoDesc = isUae
+  const fallbackSeoDesc = isUae
     ? truncateMeta(isRTL
       ? `${data.subtitle} استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق الحرة بالعربية أو الإنجليزية.`
       : `${data.subtitle} UAE-focused online legal consultation covering federal, emirate-level, mainland and free-zone requirements in Arabic or English.`)
@@ -97,11 +97,9 @@ export default function ServiceDetail() {
       ? (syrSeo?.kwAr ?? `${data.title} محامي ${isSyr ? "سوريا" : "المملكة العربية السعودية"}, استشارة قانونية أونلاين`)
       : (syrSeo?.kw ?? `${data.title} lawyer ${isSyr ? "Syria" : "Saudi Arabia"}, online legal consultation`);
 
-  const serviceAddress = isUae
-    ? { "@type": "PostalAddress", "addressCountry": "AE" }
-    : isSyr
-    ? { "@type": "PostalAddress", "addressCountry": "SY" }
-    : { "@type": "PostalAddress", "addressCountry": "SA" };
+  const currentMeta = searchIntentMeta(`${regionPrefix}/services/${id}`);
+  const seoTitle = currentMeta?.title ?? fallbackSeoTitle;
+  const seoDesc = currentMeta?.description ?? fallbackSeoDesc;
 
   const isJurisdictionSafe = (value: string) => {
     if (isUae) return !/(Saudi|KSA|SAMA|ZATCA|MISA|SAIP|Vision 2030|Syria|Syrian|السعود|ساما|هيئة الزكاة|سوريا|السوري)/i.test(value);
@@ -162,6 +160,7 @@ export default function ServiceDetail() {
   const uaeService = isUae ? UAE_SERVICES.find(service => service.slug === id) : undefined;
   const regionalFaqs = uaeService ? buildUaeServicePageContent(uaeService).faqs[isRTL ? "ar" : "en"] : universalFaqs;
   const displayFaqs = [...getServiceIntentFaqs(region, id, isRTL, data.title, documents, displayCovers), ...editorialFaqs(`${regionPrefix}/services/${id}`, region, isRTL), ...regionalFaqs];
+  const openingGuidance = sourceBackedSearchGuidance(region, id)[0];
   const canonicalPath = `/services/${id}`;
   const langSeg = isRTL ? "/ar" : "";
   const regionSeg = `/${region}`;
@@ -200,22 +199,8 @@ export default function ServiceDetail() {
       ];
 
   const schemas: object[] = [
-    {
-      "@context": "https://schema.org",
-      "@type": "LegalService",
-      "@id": `https://counselo-legal.com/#${region}-service-${id}`,
-      "name": isRTL ? `${data.title} — كاونسلو` : `${data.title} — CounselO`,
-      "description": seoDesc,
-      "url": canonicalUrlFull,
-      "areaServed": { "@type": "Country", "name": isSyr ? "Syria" : isUae ? "United Arab Emirates" : "Saudi Arabia" },
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "serviceUrl": canonicalUrlFull,
-        "availableLanguage": ["Arabic", "English"],
-      },
-      "serviceType": data.title,
-      "provider": { "@id": COUNSELO_ENTITY_IDS.organization },
-    },
+    { "@context": "https://schema.org", ...regionalServiceEntity(region, id, data.title, seoDesc, isRTL ? "ar" : "en") },
+    { "@context": "https://schema.org", ...COUNSELO_ORGANIZATION },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -235,11 +220,9 @@ export default function ServiceDetail() {
       "inLanguage": inLanguage,
       "dateModified": serviceGuidanceUpdatedAt(region, id, SEARCH_COPY_UPDATED_AT),
       "citation": legalSources.map((source) => source.href),
+      "about": { "@id": `https://counselo-legal.com/#${region}-service-${id}` },
       "publisher": {
-        "@type": "LegalService",
         "@id": COUNSELO_ENTITY_IDS.organization,
-        "name": "CounselO",
-        "url": "https://counselo-legal.com",
       },
     },
   ];
@@ -318,6 +301,15 @@ export default function ServiceDetail() {
         <div className="grid gap-12 lg:grid-cols-12 xl:gap-16">
           <div className="lg:col-span-8 xl:col-span-9">
             <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+              {openingGuidance && (
+                <section id="service-direct-answer" className="mb-12 scroll-mt-36 border-s-4 border-[#b4924a] bg-[#eef4f0] p-6 lg:p-8" aria-labelledby="service-direct-answer-heading">
+                  <h2 id="service-direct-answer-heading" className="mb-4 font-serif text-3xl leading-snug">{openingGuidance[isRTL ? "ar" : "en"].q}</h2>
+                  <p className="text-lg leading-8">{openingGuidance[isRTL ? "ar" : "en"].a}</p>
+                  <ul className="mt-5 space-y-2 text-sm leading-6" aria-label={isRTL ? "مصادر هذا الشرح" : "Sources for this explanation"}>
+                    {openingGuidance.sources.map(source => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">{source[isRTL ? "ar" : "en"]}</a></li>)}
+                  </ul>
+                </section>
+              )}
               <section id="service-overview" className="mb-12 scroll-mt-36" aria-labelledby="service-overview-heading">
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary">{isRTL ? "ابدأ من هنا" : "Start here"}</p>
                 <h2 id="service-overview-heading" className="mb-6 font-serif text-3xl lg:text-4xl">{isRTL ? "الخدمة في لمحة" : "The service at a glance"}</h2>

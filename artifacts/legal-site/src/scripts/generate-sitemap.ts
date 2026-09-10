@@ -15,6 +15,7 @@ import { repairPublicBlogPost } from "../../../api-server/src/lib/public-blog-re
 import { repairPublicWorkSample } from "../../../api-server/src/lib/public-work-repairs.js";
 import { getLegalProblemPages, legalProblemPath } from "../lib/legal-problem-pages.js";
 import { matterGuidanceUpdatedAt } from "../lib/matter-source-guidance.js";
+import { getMatterAnswer } from "../lib/matter-answer.js";
 import { serviceGuidanceUpdatedAt } from "../lib/source-backed-search-guidance.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -252,7 +253,7 @@ for (const region of ["sa", "syr", "uae"] as const) {
   for (const page of getLegalProblemPages(region)) {
     const enPath = legalProblemPath(region, "en", page.parentServiceSlug, page.slug);
     const arPath = legalProblemPath(region, "ar", page.parentServiceSlug, page.slug);
-    const modified = matterGuidanceUpdatedAt(region, page.parentServiceSlug, page.slug, [page.contentUpdatedAt ?? "", PROBLEM_CONTENT_LASTMOD].sort().at(-1)!);
+    const modified = matterGuidanceUpdatedAt(region, page.parentServiceSlug, page.slug, [page.contentUpdatedAt ?? "", getMatterAnswer(region, page.parentServiceSlug, page.slug)?.updatedAt ?? "", PROBLEM_CONTENT_LASTMOD].sort().at(-1)!);
     entries.push(urlEntryLanguageVariant(`${BASE_URL}${enPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8", modified));
     entries.push(urlEntryLanguageVariant(`${BASE_URL}${arPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8", modified));
   }

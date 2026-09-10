@@ -330,8 +330,8 @@ export default function BlogPost() {
     ...(contentType === "legal-guidance" && articleRegion ? {
       "citation": provenance.sources.map((source) => source.href),
       "about": {
-        "@type": "LegalService",
-        "areaServed": articleRegion === "uae" ? "United Arab Emirates" : articleRegion === "syr" ? "Syria" : "Saudi Arabia",
+        "@type": "Thing",
+        "name": useAr ? `القانون في ${articleRegion === "uae" ? "الإمارات" : articleRegion === "syr" ? "سوريا" : "السعودية"}` : `Law in ${articleRegion === "uae" ? "the UAE" : articleRegion === "syr" ? "Syria" : "Saudi Arabia"}`,
       },
     } : {}),
   };
