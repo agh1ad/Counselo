@@ -79,14 +79,17 @@ export default function UrgentLegalAssistance() {
             <p className="urgent-eyebrow"><Clock3 aria-hidden="true" />{c.eyebrow}</p>
             <h1>{title}</h1>
             <p className="urgent-intro">{c.intro}</p>
+            <div className="urgent-delivery-proposition"><span>{isRTL ? "هدف التسليم خلال" : "Target delivery within"}</span><strong>{isRTL ? "٣ ساعات" : "3 hours"}</strong></div>
+            <p className="urgent-delivery-condition">{isRTL ? "بعد قبول الطلب واكتمال المستندات وتأكيد السداد." : "After acceptance, complete documents and confirmed payment."}</p>
             <a className="urgent-hero-explore" href="#urgent-scope">{isRTL ? "اختر المساعدة التي تحتاجها" : "Find the assistance you need"}<ArrowRight aria-hidden="true" /></a>
           </div>
           <aside className="urgent-request-panel" aria-labelledby="urgent-request-title">
             <div className="urgent-panel-symbol"><MessageSquareText aria-hidden="true" /></div>
             <h2 id="urgent-request-title">{isRTL ? "لنبدأ بما تحتاجه الآن" : "Tell us what you need now"}</h2>
             <p>{isRTL ? "المسألة، المستندات، والموعد المطلوب. نؤكد معك الخطوة التالية." : "Your matter, your documents, your deadline. We will confirm the next step with you."}</p>
+            <p className="urgent-availability">{c.availability}</p>
             {actions}
-            <div className="urgent-timing"><Clock3 aria-hidden="true" /><p>{c.timing}</p></div><p className="urgent-availability">{c.availability}</p>
+            <p className="urgent-request-note">{isRTL ? "إرسال الرسالة لا يعني قبول الطلب ولا يبدأ به هدف التسليم. نؤكد القبول والأتعاب والموعد قبل الدفع." : "Sending a message does not mean acceptance or start the delivery target. We confirm acceptance, fees and timing before payment."}</p>
           </aside>
         </div>
       </div>
@@ -103,7 +106,7 @@ export default function UrgentLegalAssistance() {
     </section>
     <section className="urgent-section urgent-process" aria-labelledby="urgent-process">
       <div className="urgent-shell"><div className="urgent-section-heading"><h2 id="urgent-process">{c.stepsTitle}</h2></div>
-        <ol>{c.steps.map(([heading, body], i) => <li key={heading}><span className="urgent-step-number" aria-hidden="true">{new Intl.NumberFormat(lang).format(i + 1)}</span><h3>{heading.replace(/^[1-4١-٤]\.\s*/, "")}</h3><p>{body}</p></li>)}</ol>
+        <ol>{c.steps.map(([heading, body], i) => <li key={heading}><span className="urgent-step-number" aria-hidden="true">{new Intl.NumberFormat(lang).format(i + 1)}</span><h3>{heading.replace(/^[1-5١-٥]\.\s*/, "")}</h3><p>{body}</p></li>)}</ol>
       </div>
     </section>
     <section className="urgent-section" aria-labelledby="urgent-documents">

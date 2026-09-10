@@ -64,7 +64,7 @@
 .urgent-grid p { font-size: .95rem; }
 .urgent-process { background: var(--urgent-sage); }
 .urgent-process .urgent-section-heading { max-width: 760px; margin-bottom: 44px; }
-.urgent-process ol { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 30px; list-style: none; padding: 0; margin: 0; }
+.urgent-process ol { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 30px; list-style: none; padding: 0; margin: 0; }
 .urgent-process ol::before { content: ""; position: absolute; inset-inline: 23px; top: 23px; height: 1px; background: #b2c7b8; }
 .urgent-process li { position: relative; min-width: 0; }
 .urgent-step-number { position: relative; display: flex; align-items: center; justify-content: center; width: 47px; height: 47px; color: #fff; background: var(--urgent-forest); border: 6px solid var(--urgent-sage); border-radius: 50%; margin-bottom: 23px; font-weight: 650; }
@@ -237,3 +237,10 @@
 @media (min-width: 641px) and (max-width: 1000px) { .urgent-grid { grid-template-columns: minmax(0, 1fr); } }
 
 .urgent-fee-copy .urgent-agreement-heading { margin-top: 32px; }
+
+.urgent-delivery-proposition { display: flex; flex-direction: column; gap: 4px; margin-top: 26px; color: #d9b878; }
+.urgent-delivery-proposition > span { font-size: 1.15rem; font-weight: 600; }
+.urgent-delivery-proposition strong { font-size: clamp(3.2rem, 6vw, 5.8rem); font-weight: 600; line-height: 1.12; }
+.urgent-delivery-condition { color: #d8e5dc; font-size: .9rem; max-width: 45ch; margin-top: 14px; }
+.urgent-request-panel .urgent-availability { color: var(--urgent-forest); background: #eff5f1; border: 0; border-inline-start: 3px solid #d9b878; padding: 14px 16px; margin: 20px 0; }
+.urgent-request-panel .urgent-request-note { font-size: .85rem; line-height: 1.7; margin-top: 20px; }

@@ -40,9 +40,9 @@ test("contact drafts retain deadline, time zone and document fields in both lang
     assert.match(c.template, ar ? /المنطقة الزمنية/ : /time zone/);
     assert.match(c.template, ar ? /المستندات/ : /documents/);
     assert.equal(c.services.length, 3);
-    assert.equal(c.steps.length, 4);
-    assert.match(c.timing, ar ? /٣ ساعات/ : /3 hours/);
-    assert.match(c.availability, ar ? /لا نستقبل حالات طارئة جديدة يوم الجمعة/ : /do not accept new urgent cases on Friday/);
+    assert.equal(c.steps.length, 5);
+    assert.match(c.timing, ar ? /٣ ساعات/ : /3-hour/);
+    assert.match(c.availability, ar ? /لا نستقبل طلبات مستعجلة جديدة يوم الجمعة/ : /No new urgent requests on Friday/);
     assert.match(c.boundary, ar ? /لا تنشئ هذه الخدمة تمثيلاً/ : /does not establish court representation/);
     assert.match(c.timing, ar ? /قبل الدفع/ : /before payment/);
   }
