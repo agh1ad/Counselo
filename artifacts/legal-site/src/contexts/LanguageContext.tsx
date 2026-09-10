@@ -62,7 +62,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       location === "/ar/our-work" ||
       location.startsWith("/ar/our-work/");
     const isLibraryPath = location === "/legal-library" || location === "/ar/legal-library";
-    if (isBlogPath) {
+    if (location === "/urgent-legal-assistance" || location === "/ar/urgent-legal-assistance") {
+      navigate(next === "ar" ? "/ar/urgent-legal-assistance" : "/urgent-legal-assistance");
+    } else if (isBlogPath) {
       if (location === "/blog") {
         navigate("/blog/ar");
       } else if (location === "/blog/ar") {

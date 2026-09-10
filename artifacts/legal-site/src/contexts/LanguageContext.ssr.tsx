@@ -11,6 +11,7 @@ import { arUae } from "@/translations/ar-uae";
 import { useRegion } from "@/contexts/RegionContext";
 import { LanguageContext } from "@/contexts/LanguageContextCore";
 import { qualifyProfessionalRoleCopy } from "@/lib/professional-role-scope";
+import { alignSearchIntentCopy } from "@/lib/search-intent-copy";
 import { qualifyEeatCopy } from "@/lib/eeat-scope";
 
 export type { Lang, Translations, LanguageContextType } from "@/contexts/LanguageContextCore";
@@ -24,7 +25,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const isBlogPath = location === "/blog" || location.startsWith("/blog/");
     const isWorkPath = location === "/our-work" || location.startsWith("/our-work/") || location === "/ar/our-work" || location.startsWith("/ar/our-work/");
     const isLibraryPath = location === "/legal-library" || location === "/ar/legal-library";
-    if (isBlogPath) {
+    if (location === "/urgent-legal-assistance" || location === "/ar/urgent-legal-assistance") {
+      navigate(next === "ar" ? "/ar/urgent-legal-assistance" : "/urgent-legal-assistance");
+    } else if (isBlogPath) {
       if (location === "/blog") navigate("/blog/ar");
       else if (location === "/blog/ar") navigate("/blog");
       else if (location.startsWith("/blog/en/") || location.startsWith("/blog/ar/")) navigate(next === "ar" ? location.replace(/^\/blog\/en\//, "/blog/ar/") : location.replace(/^\/blog\/ar\//, "/blog/en/"));
@@ -36,7 +39,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const isRTL = lang === "ar";
   const t = useMemo(() => {
     const source = region === "syr" ? (lang === "en" ? enSyr : arSyr) : region === "uae" ? (lang === "en" ? enUae : arUae) : (lang === "en" ? en : ar);
-    return qualifyEeatCopy(qualifyProfessionalRoleCopy(source));
+    return qualifyEeatCopy(qualifyProfessionalRoleCopy(alignSearchIntentCopy(source, region, lang)));
   }, [region, lang]);
   useEffect(() => {
     document.documentElement.dir = isRTL ? "rtl" : "ltr";

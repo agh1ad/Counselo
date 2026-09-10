@@ -62,6 +62,8 @@ export function getPublicRouteInventory(): string[] {
     "/blog/ar",
     "/legal-library",
     "/ar/legal-library",
+    "/urgent-legal-assistance",
+    "/ar/urgent-legal-assistance",
     "/our-work",
     "/ar/our-work",
   ];
@@ -218,6 +220,16 @@ function latestDate(values: Array<string | Date | null | undefined>): string | u
 }
 
 export function buildHreflangLinks(path: string): string[] {
+  if (/^(?:\/(?:sa|syr|uae)(?:\/ar)?\/services|(?:\/ar)?)\/urgent-legal-assistance$/.test(path)) {
+    return [
+      ["en", "/urgent-legal-assistance"], ["ar", "/ar/urgent-legal-assistance"],
+      ...REGIONAL_SEO_REGISTRY.flatMap(entry => [
+        [entry.hreflang.en, `${entry.pathPrefix}/services/urgent-legal-assistance`],
+        [entry.hreflang.ar, `${entry.pathPrefix}/ar/services/urgent-legal-assistance`],
+      ]),
+      ["x-default", "/urgent-legal-assistance"],
+    ].map(([language, target]) => `${language}|${canonicalPublicUrl(target)}`);
+  }
   if (path === "/" || path === "/ar") {
     return [
       ["x-default", "/"],

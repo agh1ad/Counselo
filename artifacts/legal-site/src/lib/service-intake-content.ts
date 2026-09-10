@@ -2,6 +2,13 @@
 type Localized<T> = { en: T; ar: T };
 export type ServiceIntakeContent = { summary: Localized<string>; documents: Localized<string[]> };
 export const SERVICE_INTAKE_CONTENT: Record<string, ServiceIntakeContent> = {
+  "urgent-legal-assistance": {
+    summary: { en: "Request a legal memorandum, statement of claim or review of an existing contract or agreement. Share documents and your deadline; urgent fees differ from standard fees.", ar: "اطلب إعداد مذكرة قانونية أو لائحة دعوى أو تدقيق عقد أو اتفاقية قائمة. أرسل المستندات والموعد المطلوب؛ تختلف أتعاب الطوارئ عن الأتعاب العادية." },
+    documents: {
+      en: ["Notice or document showing the official deadline", "Relevant contract, draft or case papers", "Key evidence and previous correspondence", "Parties, jurisdiction and requested deliverable with date, time and time zone"],
+      ar: ["الإخطار أو المستند المتضمن الموعد الرسمي", "العقد أو المسودة أو أوراق القضية ذات الصلة", "الأدلة الأساسية والمراسلات السابقة", "الأطراف والاختصاص والمخرج المطلوب مع التاريخ والساعة والمنطقة الزمنية"],
+    },
+  },
   "administrative-law": {
     "summary": {
       "en": "Review a licence refusal, administrative penalty or tender decision before choosing an objection or court challenge. The review examines the decision, reasons, service date and available procedural route.",
@@ -806,6 +813,7 @@ export const SERVICE_INTAKE_CONTENT: Record<string, ServiceIntakeContent> = {
 
 /** Related services follow the likely next question, rather than catalogue order. */
 export const UAE_RELATED_SERVICES: Record<string, string[]> = {
+  "urgent-legal-assistance": ["commercial-contracts", "litigation-court-disputes", "criminal-investigations"],
   "administrative-regulatory": ["litigation-court-disputes", "foreign-investment-market-entry", "tax-vat"],
   "arbitration-mediation": ["commercial-contracts", "enforcement-debt-recovery", "litigation-court-disputes"],
   "banking-finance": ["enforcement-debt-recovery", "insolvency-restructuring", "commercial-contracts"],

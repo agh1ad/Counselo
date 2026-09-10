@@ -1,5 +1,6 @@
 /** A service's subject controls its evidence guidance; incidental title words do not. */
 export const SERVICE_TOPICS: Readonly<Record<string, string>> = {
+  "urgent-legal-assistance": "urgent",
   "family-law": "family", "family-personal-status": "family", "wills-estates": "estate",
   "employment-law": "employment", "employment-labour": "employment",
   "business-law": "commercial", "companies-law": "company", "corporate-commercial": "company",

@@ -1,3 +1,4 @@
+import { urgentPath } from "@/lib/urgent-legal-assistance";
 import * as m from "framer-motion/m";
 import { Link } from "wouter";
 import { useForm } from "react-hook-form";
@@ -105,6 +106,8 @@ export default function Contact() {
       form.setValue("service", requestedService);
     }
   }, [form, serviceOptions]);
+
+  const urgentSelected = form.watch("service") === "urgent-legal-assistance";
 
   const handleFiles = useCallback((incoming: FileList | null) => {
     if (!incoming) return;
@@ -428,6 +431,10 @@ export default function Contact() {
                     : "Describe the facts in date order, explain what you need to know or achieve, and attach only relevant documents. Do not send the only copy of an original or include information that is not needed to assess the matter."}
                 </div>
                 <Form {...form}>
+                  {urgentSelected && <aside className="mb-6 border-s-4 border-primary bg-secondary p-5" aria-live="polite">
+                    <p>{isRTL ? "هل لديك مهلة قريبة؟ تواصل عبر واتساب أو البريد في صفحة المساعدة العاجلة لتأكيد التوافر والموعد قبل الدفع. الوقت المستهدف لتسليم الرد ٣ ساعات بعد قبول الطلب واكتمال المستندات والسداد معاً. نستقبل الحالات من السبت إلى الخميس فقط، ولا نستقبلها يوم الجمعة؛ إرسال النموذج لا يؤكد قبول المهمة." : "Facing a short deadline? Use WhatsApp or email on the urgent assistance page to confirm availability and delivery before payment. The response delivery target is 3 hours after acceptance, complete documents and payment. Urgent cases are accepted Saturday through Thursday only, never Friday; submitting this form does not confirm engagement."}</p>
+                    <Link href={urgentPath(isRTL, region)} className="mt-3 inline-block font-semibold underline">{isRTL ? "تواصل لطلب مساعدة قانونية عاجلة" : "Contact the team for urgent legal assistance"}</Link>
+                  </aside>}
                   <form id="consultation-form" name="consultation" onSubmit={form.handleSubmit(onSubmit)} aria-busy={!formReady}>
                     <fieldset disabled={!formReady} className="m-0 min-w-0 space-y-6 border-0 p-0">
                     <div className="sr-only" aria-hidden="true">

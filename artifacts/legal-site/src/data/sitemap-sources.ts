@@ -9,6 +9,8 @@ type CorePage = {
 };
 
 const CORE_PAGES_EN: CorePage[] = [
+  { path: "/urgent-legal-assistance", changefreq: "monthly", priority: "0.9", isRoot: true },
+  { path: "/ar/urgent-legal-assistance", changefreq: "monthly", priority: "0.9", isRoot: true },
   { path: "", changefreq: "weekly", priority: "1.0", isRoot: true },
   { path: "/ar", changefreq: "weekly", priority: "1.0", isRoot: true },
   { path: "/sa", changefreq: "weekly", priority: "0.95" },

@@ -19,14 +19,58 @@
       "syr",
       "uae"
     ],
-    "totalRows": 678,
-    "serviceRows": 59,
+    "totalRows": 684,
+    "serviceRows": 62,
     "problemRows": 560,
-    "conversionRows": 59,
-    "englishUrls": 678,
-    "arabicUrls": 678
+    "conversionRows": 62,
+    "englishUrls": 684,
+    "arabicUrls": 684
   },
   "rows": [
+    {
+      "region": "sa",
+      "intent": "service",
+      "pageType": "service",
+      "serviceSlug": "urgent-legal-assistance",
+      "slug": "urgent-legal-assistance",
+      "pathEn": "/sa/services/urgent-legal-assistance",
+      "pathAr": "/sa/ar/services/urgent-legal-assistance",
+      "keywordEn": "urgent legal assistance Saudi Arabia",
+      "keywordAr": "المساعدة القانونية العاجلة في السعودية",
+      "keywordVariantsEn": [
+        "urgent statement of claim Saudi Arabia",
+        "urgent contract review Saudi Arabia",
+        "urgent legal memorandum Saudi Arabia"
+      ],
+      "keywordVariantsAr": [
+        "إعداد لائحة دعوى عاجلة السعودية",
+        "تدقيق عقد عاجل السعودية",
+        "كتابة مذكرة عاجلة السعودية"
+      ],
+      "contentBrief": "Explain only legal memoranda, statements of claim and existing contract or agreement review based on client documents; exclude new contracts and court representation; explain urgent fees differ from standard fees, the 3-hour delivery target after complete documents and payment, and Saturday through Thursday intake with no Friday cases.",
+      "publishStatus": "planned"
+    },
+    {
+      "region": "sa",
+      "intent": "conversion",
+      "pageType": "conversion",
+      "serviceSlug": "urgent-legal-assistance",
+      "slug": "urgent-legal-assistance",
+      "pathEn": "/sa/contact?service=urgent-legal-assistance",
+      "pathAr": "/sa/ar/contact?service=urgent-legal-assistance",
+      "keywordEn": "Urgent Legal Assistance legal consultation Saudi Arabia",
+      "keywordAr": "استشارة المساعدة القانونية العاجلة السعودية",
+      "keywordVariantsEn": [
+        "Urgent Legal Assistance consultation cost Saudi Arabia",
+        "urgent Urgent Legal Assistance lawyer Saudi Arabia"
+      ],
+      "keywordVariantsAr": [
+        "تكلفة استشارة المساعدة القانونية العاجلة السعودية",
+        "محامي المساعدة القانونية العاجلة عاجل السعودية"
+      ],
+      "contentBrief": "Track consultation CTA, contact form submission, WhatsApp click, phone click, service prefill, and source route.",
+      "publishStatus": "funnel"
+    },
     {
       "region": "sa",
       "intent": "service",
@@ -19421,6 +19465,50 @@
       ],
       "contentBrief": "Answer the specific Personal injury compensation for a non-traffic accident problem in Saudi Arabia: facts, documents, process, jurisdiction limits, expected deliverables, FAQs, related service, and consultation CTA.",
       "publishStatus": "live"
+    },
+    {
+      "region": "syr",
+      "intent": "service",
+      "pageType": "service",
+      "serviceSlug": "urgent-legal-assistance",
+      "slug": "urgent-legal-assistance",
+      "pathEn": "/syr/services/urgent-legal-assistance",
+      "pathAr": "/syr/ar/services/urgent-legal-assistance",
+      "keywordEn": "urgent legal assistance Syria",
+      "keywordAr": "المساعدة القانونية العاجلة في سوريا",
+      "keywordVariantsEn": [
+        "urgent statement of claim Syria",
+        "urgent contract review Syria",
+        "urgent legal memorandum Syria"
+      ],
+      "keywordVariantsAr": [
+        "إعداد لائحة دعوى عاجلة سوريا",
+        "تدقيق عقد عاجل سوريا",
+        "كتابة مذكرة عاجلة سوريا"
+      ],
+      "contentBrief": "Explain only legal memoranda, statements of claim and existing contract or agreement review based on client documents; exclude new contracts and court representation; explain urgent fees differ from standard fees, the 3-hour delivery target after complete documents and payment, and Saturday through Thursday intake with no Friday cases.",
+      "publishStatus": "planned"
+    },
+    {
+      "region": "syr",
+      "intent": "conversion",
+      "pageType": "conversion",
+      "serviceSlug": "urgent-legal-assistance",
+      "slug": "urgent-legal-assistance",
+      "pathEn": "/syr/contact?service=urgent-legal-assistance",
+      "pathAr": "/syr/ar/contact?service=urgent-legal-assistance",
+      "keywordEn": "Urgent Legal Assistance legal consultation Syria",
+      "keywordAr": "استشارة المساعدة القانونية العاجلة سوريا",
+      "keywordVariantsEn": [
+        "Urgent Legal Assistance consultation cost Syria",
+        "urgent Urgent Legal Assistance lawyer Syria"
+      ],
+      "keywordVariantsAr": [
+        "تكلفة استشارة المساعدة القانونية العاجلة سوريا",
+        "محامي المساعدة القانونية العاجلة عاجل سوريا"
+      ],
+      "contentBrief": "Track consultation CTA, contact form submission, WhatsApp click, phone click, service prefill, and source route.",
+      "publishStatus": "funnel"
     },
     {
       "region": "syr",
@@ -40440,6 +40528,50 @@
       ],
       "contentBrief": "Answer the specific Criminal appeal and evidence objection in Syria problem in Syria: facts, documents, process, jurisdiction limits, expected deliverables, FAQs, related service, and consultation CTA.",
       "publishStatus": "live"
+    },
+    {
+      "region": "uae",
+      "intent": "service",
+      "pageType": "service",
+      "serviceSlug": "urgent-legal-assistance",
+      "slug": "urgent-legal-assistance",
+      "pathEn": "/uae/services/urgent-legal-assistance",
+      "pathAr": "/uae/ar/services/urgent-legal-assistance",
+      "keywordEn": "urgent legal assistance UAE",
+      "keywordAr": "المساعدة القانونية العاجلة في الإمارات",
+      "keywordVariantsEn": [
+        "urgent statement of claim UAE",
+        "urgent contract review UAE",
+        "urgent legal memorandum UAE"
+      ],
+      "keywordVariantsAr": [
+        "إعداد لائحة دعوى عاجلة الإمارات",
+        "تدقيق عقد عاجل الإمارات",
+        "كتابة مذكرة عاجلة الإمارات"
+      ],
+      "contentBrief": "Explain only legal memoranda, statements of claim and existing contract or agreement review based on client documents; exclude new contracts and court representation; explain urgent fees differ from standard fees, the 3-hour delivery target after complete documents and payment, and Saturday through Thursday intake with no Friday cases.",
+      "publishStatus": "planned"
+    },
+    {
+      "region": "uae",
+      "intent": "conversion",
+      "pageType": "conversion",
+      "serviceSlug": "urgent-legal-assistance",
+      "slug": "urgent-legal-assistance",
+      "pathEn": "/uae/contact?service=urgent-legal-assistance",
+      "pathAr": "/uae/ar/contact?service=urgent-legal-assistance",
+      "keywordEn": "Urgent Legal Assistance legal consultation UAE",
+      "keywordAr": "استشارة المساعدة القانونية العاجلة الإمارات",
+      "keywordVariantsEn": [
+        "Urgent Legal Assistance consultation cost UAE",
+        "urgent Urgent Legal Assistance lawyer UAE"
+      ],
+      "keywordVariantsAr": [
+        "تكلفة استشارة المساعدة القانونية العاجلة الإمارات",
+        "محامي المساعدة القانونية العاجلة عاجل الإمارات"
+      ],
+      "contentBrief": "Track consultation CTA, contact form submission, WhatsApp click, phone click, service prefill, and source route.",
+      "publishStatus": "funnel"
     },
     {
       "region": "uae",

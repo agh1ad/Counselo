@@ -30,7 +30,7 @@ test("problem-page registry covers every served region and language", () => {
     assert.ok(pages.every((page) => page.legalAccuracy.intakeChecklist.en.length === 4 && page.legalAccuracy.intakeChecklist.ar.length === 4));
     assert.deepEqual(
       new Set(pages.map((page) => page.parentServiceSlug)),
-      new Set(getServicesForRegion(region).map((service) => service.slug)),
+      new Set(getServicesForRegion(region).filter(service => service.kind !== "priority-intake").map((service) => service.slug)),
       `${region} service catalogue is missing problem pages`,
     );
     for (const page of pages) {
@@ -137,7 +137,7 @@ test("problem hreflang alternates only reference real reciprocal routes", () => 
 
 test("related-problem clusters distribute contextual inbound links across every sibling", () => {
   for (const region of ["sa", "syr", "uae"] as const) {
-    for (const service of getServicesForRegion(region)) {
+    for (const service of getServicesForRegion(region).filter(service => service.kind !== "priority-intake")) {
       const pages = getLegalProblemPages(region, service.slug);
       const inbound = new Map(pages.map((page) => [page.slug, 0]));
       for (const page of pages) {
@@ -154,7 +154,7 @@ test("related-problem clusters distribute contextual inbound links across every 
 
 test("problem inventories do not contain duplicate slugs or duplicate search targets", () => {
   for (const region of ["sa", "syr", "uae"] as const) {
-    for (const service of getServicesForRegion(region)) {
+    for (const service of getServicesForRegion(region).filter(service => service.kind !== "priority-intake")) {
       const pages = getLegalProblemPages(region, service.slug);
       assert.ok(pages.length > 0, `${region}/${service.slug} should expose specific legal-matter guidance`);
       assert.equal(new Set(pages.map((page) => page.slug)).size, pages.length, `${region}/${service.slug} has duplicate slugs`);

@@ -3,6 +3,36 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
 <url>
+    <loc>https://counselo-legal.com/sa/services/urgent-legal-assistance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="en-SA" href="https://counselo-legal.com/sa/services/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://counselo-legal.com/sa/ar/services/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr/services/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="ar-SY" href="https://counselo-legal.com/syr/ar/services/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/urgent-legal-assistance"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+<url>
+    <loc>https://counselo-legal.com/sa/ar/services/urgent-legal-assistance</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://counselo-legal.com/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://counselo-legal.com/ar/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="en-SA" href="https://counselo-legal.com/sa/services/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://counselo-legal.com/sa/ar/services/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="en-SY" href="https://counselo-legal.com/syr/services/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="ar-SY" href="https://counselo-legal.com/syr/ar/services/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://counselo-legal.com/uae/services/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="ar-AE" href="https://counselo-legal.com/uae/ar/services/urgent-legal-assistance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://counselo-legal.com/urgent-legal-assistance"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-09-10</lastmod>
+  </url>
+<url>
     <loc>https://counselo-legal.com/sa/services/family-law</loc>
     <xhtml:link rel="alternate" hreflang="en-SA" href="https://counselo-legal.com/sa/services/family-law"/>
     <xhtml:link rel="alternate" hreflang="ar-SA" href="https://counselo-legal.com/sa/ar/services/family-law"/>

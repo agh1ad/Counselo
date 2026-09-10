@@ -1,3 +1,4 @@
+import { urgentCopy } from "./urgent-legal-assistance";
 import type { Region } from "@workspace/api-zod/browser";
 import { serviceTopicFaq } from "./service-topic-faqs.js";
 import { sourceBackedSearchGuidance } from "./source-backed-search-guidance";
@@ -48,6 +49,7 @@ const UAE_EQUIVALENTS: Record<string, string> = {
 };
 
 export function getServiceIntentFaqs(region: Region, slug: string, ar: boolean, title: string, documents: string[], issues: string[]): Faq[] {
+  if (slug === "urgent-legal-assistance") return urgentCopy[ar ? "ar" : "en"].faqs.slice(0, 2).map(([q, a]) => ({ q, a }));
   const country = ar ? { sa: "السعودية", syr: "سوريا", uae: "الإمارات" }[region] : { sa: "Saudi Arabia", syr: "Syria", uae: "the UAE" }[region];
   const entry = INTENTS[region === "uae" ? UAE_EQUIVALENTS[slug] ?? slug : slug];
   const faqs: Faq[] = entry ? [{ ...entry[ar ? "ar" : "en"] }] : [];

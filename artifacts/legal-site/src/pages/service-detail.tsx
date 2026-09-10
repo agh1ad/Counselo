@@ -507,6 +507,10 @@ export default function ServiceDetail() {
                 </div>
               </section>
 
+              <aside className="my-8 border-s-4 border-[#b4924a] bg-[#eef4f0] p-5">
+                <p className="mb-2 font-semibold">{isRTL ? "هل تحتاج هذه الخدمة قبل موعد قريب؟" : "Need this service before a short deadline?"}</p>
+                <Link href={`${regionPrefix}/services/urgent-legal-assistance`} className="text-primary underline underline-offset-4">{isRTL ? "اطلب المساعدة القانونية العاجلة وحدد موعد التسليم المطلوب" : "Request urgent legal assistance and specify your delivery deadline"}</Link>
+              </aside>
               <section id="service-contact" className="service-content-band scroll-mt-36 bg-[#0d4a31] p-7 text-white lg:p-10" aria-labelledby="service-contact-heading">
                 <h2 id="service-contact-heading" className="mb-4 font-serif text-3xl">{isRTL ? "ابدأ مراجعة مسألتك" : "Start a review of your matter"}</h2>
                 <p className="max-w-3xl leading-7 opacity-90">{isRTL ? "أرسل الهدف والوقائع الأساسية وأي ميعاد قريب والمستندات المتاحة. تؤكد كاونسلو نطاق العمل والرسوم والمخرج قبل بدء العمل المدفوع، ولا ينشئ التواصل وحده تكليفاً مهنياً." : "Send the objective, key facts, any approaching date and the available documents. CounselO confirms scope, fee and deliverable before paid work begins; contacting us alone does not create a professional engagement."}</p>

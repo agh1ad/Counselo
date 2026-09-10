@@ -80,7 +80,8 @@ export function RegionProvider({ children }: { children: ReactNode }) {
     location === "/ar/our-work" ||
     location.startsWith("/ar/our-work/");
   const isLibraryPath = location === "/legal-library" || location === "/ar/legal-library";
-  const isSharedPath = isBlogPath || isLibraryPath || isWorkPath;
+  const isUrgentPath = location === "/urgent-legal-assistance" || location === "/ar/urgent-legal-assistance";
+  const isSharedPath = isBlogPath || isLibraryPath || isWorkPath || isUrgentPath;
 
   const region = isSharedPath ? sharedRegion : detectRegion(location);
   const lang: Lang = isBlogPath

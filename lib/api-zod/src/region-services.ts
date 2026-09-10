@@ -2,6 +2,8 @@ export type Region = "uae" | "sa" | "syr";
 
 export type ServiceDefinition = {
   slug: string;
+  /** Cross-practice priority intake does not create a separate body of law. */
+  kind?: "priority-intake";
   /** Shared discovery family used to align equivalent regional offerings. */
   clusterSlug: string;
   regions: Region[];
@@ -80,6 +82,7 @@ const uaeServices: ServiceDefinition[] = [
 ];
 
 export const SERVICE_REGISTRY: readonly ServiceDefinition[] = [
+  { slug: "urgent-legal-assistance", kind: "priority-intake", clusterSlug: "urgent-legal-assistance", regions: ["sa", "syr", "uae"], titleEn: "Urgent Legal Assistance", titleAr: "المساعدة القانونية العاجلة", leadCategory: "urgent" },
   ...saSyriaServices,
   ...syriaOnlyServices,
   ...uaeServices,

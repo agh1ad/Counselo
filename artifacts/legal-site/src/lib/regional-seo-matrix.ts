@@ -44,20 +44,24 @@ function serviceRows(region: Region): RegionalSeoMatrixRow[] {
         slug: service.slug,
         pathEn,
         pathAr,
-        keywordEn: `${service.titleEn} lawyer in ${modifier.en}`,
+        keywordEn: service.kind === "priority-intake" ? `urgent legal assistance ${modifier.en}` : `${service.titleEn} lawyer in ${modifier.en}`,
         keywordAr: `${service.titleAr} في ${modifier.ar}`,
-        keywordVariantsEn: [
+        keywordVariantsEn: service.kind === "priority-intake" ? [
+          `urgent statement of claim ${modifier.en}`, `urgent contract review ${modifier.en}`, `urgent legal memorandum ${modifier.en}`,
+        ] : [
           `${service.titleEn} legal advice ${modifier.en}`,
           `online ${service.titleEn} consultation ${modifier.en}`,
           `${service.titleEn} lawyer near me`,
         ],
-        keywordVariantsAr: [
+        keywordVariantsAr: service.kind === "priority-intake" ? [
+          `إعداد لائحة دعوى عاجلة ${modifier.ar}`, `تدقيق عقد عاجل ${modifier.ar}`, `كتابة مذكرة عاجلة ${modifier.ar}`,
+        ] : [
           `استشارة ${service.titleAr} ${modifier.ar}`,
           `محامي ${service.titleAr} أونلاين`,
           `محامي ${service.titleAr} قريب مني`,
         ],
-        contentBrief: `Build the ${service.titleEn} service landing page for ${profile.countryEn}, including local legal basis, scope, documents, FAQs, proof, related services, and consultation CTA.`,
-        publishStatus: "live" as const,
+        contentBrief: service.kind === "priority-intake" ? "Explain only legal memoranda, statements of claim and existing contract or agreement review based on client documents; exclude new contracts and court representation; explain urgent fees differ from standard fees, the 3-hour delivery target after complete documents and payment, and Saturday through Thursday intake with no Friday cases." : `Build the ${service.titleEn} service landing page for ${profile.countryEn}, including local legal basis, scope, documents, FAQs, proof, related services, and consultation CTA.`,
+        publishStatus: service.kind === "priority-intake" ? "planned" as const : "live" as const,
       },
       {
         region,
