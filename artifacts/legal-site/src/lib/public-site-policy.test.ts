@@ -164,10 +164,10 @@ test("checked-in sitemap index and child files are purpose-separated", () => {
     assert.match(xml, /<urlset[\s>]/);
     assert.match(xml, /<loc>https:\/\/counselo-legal\.com\//);
   }
-  assert.doesNotMatch(readFileSync(resolve(publicDir, "sitemap-core.xml"), "utf8"), /\/services\//);
+  assert.doesNotMatch(readFileSync(resolve(publicDir, "sitemap-core.xml"), "utf8"), /<loc>[^<]*\/services\//);
   assert.doesNotMatch(readFileSync(resolve(publicDir, "sitemap-core.xml"), "utf8"), /\/blog(?:\/|<)/);
   assert.match(readFileSync(resolve(publicDir, "sitemap-uae-services.xml"), "utf8"), /\/uae\/(?:ar\/)?services\//);
-  assert.doesNotMatch(readFileSync(resolve(publicDir, "sitemap-uae-services.xml"), "utf8"), /\/sa\/(?:ar\/)?services\//);
+  assert.doesNotMatch(readFileSync(resolve(publicDir, "sitemap-uae-services.xml"), "utf8"), /<loc>[^<]*\/sa\/(?:ar\/)?services\//);
   assert.match(readFileSync(resolve(publicDir, "sitemap-blog.xml"), "utf8"), /\/blog(?:\/|<)/);
   assert.match(readFileSync(resolve(publicDir, "sitemap-work.xml"), "utf8"), /\/(?:ar\/)?our-work(?:\/|<)/);
 });

@@ -68,11 +68,11 @@ export default function Services() {
   const seoTitle = region === "uae"
     ? (isRTL ? `${areaCount} خدمة قانونية أونلاين في الإمارات | كاونسلو` : `${areaCount} UAE Online Legal Services | CounselO`)
     : isRTL
-      ? `${areaCount} مجالاً قانونياً في ${country} | منصة استشارات قانونية أونلاين | كاونسلو`
-      : `${areaCount} Legal Practice Areas ${country} | CounselO — Online Legal Consultation Platform`;
+      ? `${areaCount} خدمة قانونية في ${country} | منصة استشارات قانونية أونلاين | كاونسلو`
+      : `${areaCount} Legal Services ${country} | CounselO — Online Legal Consultation Platform`;
   const seoDesc = isRTL
-    ? `كاونسلو — منصة استشارات قانونية أونلاين لمسائل ${country}. ${areaCount} مجالاً قانونياً: ${s.items.map((item) => item.title).join("، ")}. يبدأ التقييم بتحديد الوقائع والاختصاص والنطاق المناسب.`
-    : `${COUNSELO_PLATFORM_POSITIONING.name} — ${country}'s online legal platform for consultation, document review and structured legal guidance. ${areaCount} practice areas: ${s.items.map((item) => item.title).join(", ")}.`;
+    ? `كاونسلو — منصة استشارات قانونية أونلاين لمسائل ${country}. ${areaCount} خدمة قانونية: ${s.items.map((item) => item.title).join("، ")}. يبدأ التقييم بتحديد الوقائع والاختصاص والنطاق المناسب.`
+    : `${COUNSELO_PLATFORM_POSITIONING.name} — ${country}'s online legal platform for consultation, document review and structured legal guidance. ${areaCount} legal services: ${s.items.map((item) => item.title).join(", ")}.`;
 
   const baseUrl = `https://counselo-legal.com/${region}${isRTL ? "/ar" : ""}`;
   const servicesSchema = [
@@ -87,10 +87,10 @@ export default function Services() {
       "@context": "https://schema.org",
       "@type": "ItemList",
       "name": region === "uae"
-        ? (isRTL ? `${areaCount} مجالاً للممارسة القانونية — كاونسلو الإمارات` : `${areaCount} Legal Practice Areas — CounselO UAE`)
+        ? (isRTL ? `${areaCount} خدمة قانونية — كاونسلو الإمارات` : `${areaCount} Legal Services — CounselO UAE`)
         : region === "syr"
-        ? (isRTL ? `${areaCount} مجالاً للممارسة القانونية — كاونسلو سوريا` : `${areaCount} Legal Practice Areas — CounselO Syria`)
-        : (isRTL ? `${areaCount} مجالاً للممارسة القانونية — كاونسلو السعودية` : `${areaCount} Legal Practice Areas — CounselO Saudi Arabia`),
+        ? (isRTL ? `${areaCount} خدمة قانونية — كاونسلو سوريا` : `${areaCount} Legal Services — CounselO Syria`)
+        : (isRTL ? `${areaCount} خدمة قانونية — كاونسلو السعودية` : `${areaCount} Legal Services — CounselO Saudi Arabia`),
       "url": `${baseUrl}/services`,
       "numberOfItems": areaCount,
       "itemListElement": s.items.map((item, index) => ({
@@ -121,14 +121,14 @@ export default function Services() {
         keywords={region === "uae"
           ? (isRTL
             ? "خدمات قانونية الإمارات, محامي دبي, محامي أبوظبي, قانون الشركات الإماراتي, قانون العمل الإماراتي, المناطق الحرة, مركز دبي المالي, أبوظبي العالمي"
-            : `UAE legal services, ${areaCount} practice areas UAE, Dubai lawyer online, Abu Dhabi legal advice, UAE company law, UAE employment law, free zones, DIFC, ADGM`)
+            : `UAE legal services, ${areaCount} legal services UAE, Dubai lawyer online, Abu Dhabi legal advice, UAE company law, UAE employment law, free zones, DIFC, ADGM`)
           : region === "syr"
           ? (isRTL
             ? "خدمات قانونية سوريا, قانون الأسرة السوري, القانون المدني السوري, قانون العمل السوري, القانون العقاري السوري, استثمار أجنبي سوريا, القانون الإداري السوري, القانون الجنائي السوري, قانون مصرف سوريا المركزي, الضرائب العامة سوريا, قانون الشركات السوري 29/2011, قانون التحكيم السوري 4/2008, محامي أونلاين سوريا, قانوني دمشق, قانوني حلب"
-            : `legal services Syria, ${areaCount} practice areas Syria, family law Syria, civil law Syria, employment law Syria, real estate law Syria, foreign investment Syria, administrative law Syria, criminal law Syria, banking law Syria, tax law Syria, companies law Syria 29/2011, arbitration Syria 4/2008, cyber law Syria, medical malpractice Syria, insurance law Syria, online lawyer Damascus, CounselO Syria`)
+            : `legal services Syria, ${areaCount} legal services Syria, family law Syria, civil law Syria, employment law Syria, real estate law Syria, foreign investment Syria, administrative law Syria, criminal law Syria, banking law Syria, tax law Syria, companies law Syria 29/2011, arbitration Syria 4/2008, cyber law Syria, medical malpractice Syria, insurance law Syria, online lawyer Damascus, CounselO Syria`)
           : (isRTL
             ? "خدمات قانونية السعودية, قانون الأسرة, القانون التجاري, قانون العمل, القانون العقاري, الاستثمار الأجنبي, القانون الإداري, القانون الجنائي, قانون البنوك, الضرائب والزكاة, قانون الجرائم الإلكترونية, الأخطاء الطبية, نظام التأمين, الإقامة والتأشيرات, التحكيم, التنفيذ, قانون الشركات, الملكية الفكرية, العقود, محامي أونلاين المملكة, قانوني الجبيل"
-            : `legal services Saudi Arabia, ${areaCount} practice areas KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, property law KSA, foreign investment lawyer Saudi Arabia, administrative law KSA, criminal law Saudi Arabia, banking finance law KSA, tax zakat lawyer Saudi, cyber law Saudi Arabia, medical malpractice KSA, insurance law Saudi, arbitration KSA, enforcement law Saudi, companies law KSA, intellectual property Saudi, online lawyer Jubail, CounselO`)}
+            : `legal services Saudi Arabia, ${areaCount} legal services KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, property law KSA, foreign investment lawyer Saudi Arabia, administrative law KSA, criminal law Saudi Arabia, banking finance law KSA, tax zakat lawyer Saudi, cyber law Saudi Arabia, medical malpractice KSA, insurance law Saudi, arbitration KSA, enforcement law Saudi, companies law KSA, intellectual property Saudi, online lawyer Jubail, CounselO`)}
         schema={servicesSchema}
       />
       <section className="services-directory-hero premium-page-hero py-20 lg:py-28">

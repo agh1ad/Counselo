@@ -38,6 +38,7 @@ import {
   Services,
   TermsOfService,
   Vision,
+  UrgentLegalAssistance,
   WorkSample,
 } from "@/route-pages";
 
@@ -198,6 +199,7 @@ const REGION_LANG_PREFIXES = ["/sa", "/sa/ar", "/syr", "/syr/ar", "/uae", "/uae/
 
 function buildRegionRoutes() {
   return REGION_LANG_PREFIXES.flatMap((prefix) => [
+    <Route key={`${prefix}-urgent`} path={`${prefix}/services/urgent-legal-assistance`} component={UrgentLegalAssistance} />,
     <Route
       key={`${prefix}-services-id`}
       path={`${prefix}/services/:id`}
@@ -303,6 +305,8 @@ function Router() {
         {/* Region picker — English (x-default) and Arabic */}
         <Route path="/" component={RegionPicker} />
         <Route path="/ar" component={ArRegionPicker} />
+        <Route path="/urgent-legal-assistance" component={UrgentLegalAssistance} />
+        <Route path="/ar/urgent-legal-assistance" component={UrgentLegalAssistance} />
 
         {/* SA + Syria routes, English and Arabic */}
         {buildRegionRoutes()}

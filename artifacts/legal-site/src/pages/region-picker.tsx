@@ -335,7 +335,7 @@ export default function RegionPicker() {
                   </div>
                   <div>
                     <div className="font-serif font-bold text-lg">Lawyer &amp; Legal Counsel</div>
-                    <div className="text-white/70 text-sm mb-2">Omar Al-Baghdadi</div>
+                    <div className="text-white/70 text-sm mb-2"><a href="https://omarbaghdadi.com/" className="underline underline-offset-4 hover:text-white">Omar Al-Baghdadi — professional profile</a></div>
                     <a
                       href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
                       target="_blank"

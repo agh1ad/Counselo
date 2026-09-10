@@ -19,3 +19,5 @@ export const WorkSample = lazy(() => import("@/pages/work-sample"));
 export const TermsOfService = lazy(() => import("@/pages/terms-of-service"));
 export const PrivacyPolicy = lazy(() => import("@/pages/privacy-policy"));
 export const NotFound = lazy(() => import("@/pages/not-found"));
+
+export const UrgentLegalAssistance = lazy(() => import("@/pages/urgent-legal-assistance"));

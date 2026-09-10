@@ -351,7 +351,7 @@ export default function ArRegionPicker() {
                   </div>
                   <div>
                     <div className="font-serif font-bold text-lg">محامٍ ومستشار قانوني</div>
-                    <div className="text-white/70 text-sm mb-2">عمر البغدادي</div>
+                    <div className="text-white/70 text-sm mb-2"><a href="https://omarbaghdadi.com/ar" className="underline underline-offset-4 hover:text-white">عمر البغدادي — الملف المهني</a></div>
                     <a
                       href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
                       target="_blank"

@@ -112,6 +112,7 @@ export function Footer() {
         </nav>
         <nav aria-label={isArabic ? "روابط سريعة" : "Quick links"}>
           <h3>{f.quickLinksHeading}</h3>
+          <Link href={`${isArabic ? "/ar" : ""}/urgent-legal-assistance`}>{isArabic ? "المساعدة القانونية العاجلة" : "Urgent Legal Assistance"}</Link>
           <Link href={isSharedPath ? regionPickerPath : regionPrefix}>{f.links.home}<ArrowRight /></Link>
           {!isSharedPath && <Link href={p("/services")}>{f.links.allServices}<ArrowRight /></Link>}
           {!isSharedPath && <Link href={p("/about")}>{f.links.about}<ArrowRight /></Link>}

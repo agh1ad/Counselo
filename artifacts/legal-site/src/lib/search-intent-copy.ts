@@ -6,6 +6,7 @@ type Locale = "ar" | "en";
 type Region = "sa" | "syr" | "uae";
 type Translations = typeof import("../translations/en")["en"];
 export const SEARCH_SERVICE_LABELS: Record<string, Record<Locale, string>> = {
+  "urgent-legal-assistance": { en: "Urgent Legal Assistance", ar: "المساعدة القانونية العاجلة" },
   "family-law": {
     "ar": "الطلاق والنفقة وحضانة الأطفال",
     "en": "Divorce, maintenance and child custody"
@@ -207,6 +208,11 @@ export function alignSearchIntentCopy(source: Translations, region: Region, lang
     if (!copy) continue;
     service.title = copy.label;
     if (copy.summary) { service.subtitle = copy.summary; service.overview = copy.summary; }
+  }
+  const urgent = serviceSearchCopy("urgent-legal-assistance", region, lang)!;
+  if (!t.services.items.some(item => item.id === "urgent-legal-assistance")) {
+    t.services.items.unshift({ id: "urgent-legal-assistance", title: urgent.label, longDesc: urgent.summary ?? "" });
+    t.nav.servicesList.unshift({ href: "/services/urgent-legal-assistance", name: urgent.label });
   }
   t.services.items = t.services.items.map(item => {
     const copy = serviceSearchCopy(item.id, region, lang);

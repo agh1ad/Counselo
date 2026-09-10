@@ -18,3 +18,5 @@ export { default as WorkSample } from "@/pages/work-sample";
 export { default as TermsOfService } from "@/pages/terms-of-service";
 export { default as PrivacyPolicy } from "@/pages/privacy-policy";
 export { default as NotFound } from "@/pages/not-found";
+
+export { default as UrgentLegalAssistance } from "@/pages/urgent-legal-assistance";

@@ -22,7 +22,7 @@ test("every Syria service has an explicit practice source mapping", () => {
     new Set(Object.keys(SYRIA_SERVICE_SOURCES)),
     new Set(SYRIA_SERVICE_SLUGS),
   );
-  for (const service of getServicesForRegion("syr")) {
+  for (const service of getServicesForRegion("syr").filter(service => service.kind !== "priority-intake")) {
     const sources = getRegionalLegalSources("syr", service.slug);
     assert.equal(sources.length, 2, `${service.slug} must have two reviewed official sources`);
     assert.ok(getLegalProblemPages("syr", service.slug).length > 0, `${service.slug} must have problem pages`);
@@ -59,7 +59,7 @@ test("practice mappings do not cross-link unrelated authorities", () => {
 
 test("every generated legal page resolves through the regional source matrix", () => {
   for (const region of ["sa", "syr", "uae"] as const) {
-    for (const service of getServicesForRegion(region)) {
+    for (const service of getServicesForRegion(region).filter(service => service.kind !== "priority-intake")) {
       assert.ok(getRegionalLegalSources(region, service.slug).length > 0, `${region}/${service.slug} needs an official source`);
     }
     for (const page of getLegalProblemPages(region)) {

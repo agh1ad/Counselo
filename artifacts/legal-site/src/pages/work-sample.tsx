@@ -158,7 +158,7 @@ export default function WorkSample() {
         <div className="grid lg:grid-cols-[minmax(0,1fr)_360px] gap-10">
           <div className="space-y-10">
             {context && <p className="text-sm text-muted-foreground">{ar ? "تحديث المحتوى: " : "Content updated: "}{modifiedAt?.slice(0, 10)}</p>}
-            {context?.creator === "baghdadi-law" && <p>{ar ? "الجهة صاحبة الدراسة: " : "Study by: "}<a href="https://www.baghdadilaw.co" className="text-primary underline">{ar ? "البغدادي للمحاماة" : "Baghdadi Law"}</a></p>}
+            {context?.creator === "baghdadi-law" && <p>{ar ? "الجهة صاحبة الدراسة: " : "Study by: "}<a href={ar ? "https://www.baghdadilaw.co/ar/who-we-are" : "https://www.baghdadilaw.co/who-we-are"} className="text-primary underline">{ar ? "البغدادي للمحاماة" : "Baghdadi Law"}</a></p>}
             <div className="grid sm:grid-cols-2 gap-4">
               {[
                 [Calendar, ui.completed, formatWorkDate(sample.date, lang)],

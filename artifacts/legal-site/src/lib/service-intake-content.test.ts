@@ -25,7 +25,7 @@ test("every regional service has bilingual subject-specific intake and valid rel
       }
     }
   }
-  assert.equal(count, 59);
+  assert.equal(count, 62);
 });
 
 test("criminal intake does not reuse corporate documents or promise arbitration jurisdiction", () => {

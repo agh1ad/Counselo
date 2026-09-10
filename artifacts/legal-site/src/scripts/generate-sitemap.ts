@@ -223,12 +223,12 @@ for (const page of CORE_PAGES) {
   if (page.path === "/syr") {
     entries.push("\n  <!-- ===== SYR CORE PAGES ===== -->");
   }
-  entries.push(urlEntry(page.path, page.changefreq, page.priority, /(?:privacy-policy|terms-of-service|contact)$/.test(page.path) ? "2026-09-07" : /(?:vision|services)$/.test(page.path) || /^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?)$/.test(page.path) ? SEARCH_COPY_UPDATED_AT : STATIC_CONTENT_LASTMOD));
+  entries.push(urlEntry(page.path, page.changefreq, page.priority, page.path.endsWith("/urgent-legal-assistance") ? "2026-09-11" : /(?:privacy-policy|terms-of-service|contact)$/.test(page.path) ? "2026-09-07" : /(?:vision|services)$/.test(page.path) || /^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?)$/.test(page.path) ? SEARCH_COPY_UPDATED_AT : STATIC_CONTENT_LASTMOD));
 }
 
 entries.push("\n  <!-- ===== SA SERVICE PAGES ===== -->");
 for (const slug of SA_SERVICE_SLUGS) {
-  const modified = serviceGuidanceUpdatedAt("sa", slug, SEARCH_COPY_UPDATED_AT);
+  const modified = slug === "urgent-legal-assistance" ? "2026-09-11" : serviceGuidanceUpdatedAt("sa", slug, SEARCH_COPY_UPDATED_AT);
   entries.push(urlEntry(`/sa/services/${slug}`, "monthly", "0.9", modified));
   entries.push(urlEntry(`/sa/ar/services/${slug}`, "monthly", "0.9", modified));
 }
@@ -236,14 +236,14 @@ for (const slug of SA_SERVICE_SLUGS) {
 entries.push("\n  <!-- ===== SYR SERVICE PAGES ===== -->");
 for (const slug of SYR_SERVICE_SLUGS) {
   const fn = SYRIA_ONLY_SERVICE_SLUGS.has(slug) ? urlEntrySyrOnly : urlEntry;
-  const modified = serviceGuidanceUpdatedAt("syr", slug, SEARCH_COPY_UPDATED_AT);
+  const modified = slug === "urgent-legal-assistance" ? "2026-09-11" : serviceGuidanceUpdatedAt("syr", slug, SEARCH_COPY_UPDATED_AT);
   entries.push(fn(`/syr/services/${slug}`, "monthly", "0.9", modified));
   entries.push(fn(`/syr/ar/services/${slug}`, "monthly", "0.9", modified));
 }
 
 entries.push("\n  <!-- ===== UAE SERVICE PAGES ===== -->");
 for (const slug of UAE_SERVICE_SLUGS) {
-  const modified = serviceGuidanceUpdatedAt("uae", slug, SEARCH_COPY_UPDATED_AT);
+  const modified = slug === "urgent-legal-assistance" ? "2026-09-11" : serviceGuidanceUpdatedAt("uae", slug, SEARCH_COPY_UPDATED_AT);
   entries.push(urlEntry(`/uae/services/${slug}`, "monthly", "0.9", modified));
   entries.push(urlEntry(`/uae/ar/services/${slug}`, "monthly", "0.9", modified));
 }

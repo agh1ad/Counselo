@@ -387,7 +387,7 @@ function validatePage(filepath: string): PageResult {
 
   // ── geo ──
   const geoRegion = meta(html, "name", "geo.region");
-  if (!geoRegion && !isSingleUrlBlog && !isSharedWork)
+  if (!geoRegion && !isSingleUrlBlog && !isSharedWork && !/^\/(?:ar\/)?urgent-legal-assistance$/.test(route))
     issues.push({
       severity: "warn",
       rule: "geo-region-missing",

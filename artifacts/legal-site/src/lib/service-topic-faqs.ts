@@ -1,3 +1,4 @@
+import { urgentCopy } from "./urgent-legal-assistance";
 import { SERVICE_TOPICS } from "./matter-topic-routing.js";
 type Faq = { q: string; a: string };
 type Pair = { en: Faq; ar: Faq };
@@ -102,6 +103,10 @@ const FAQS: Record<string, Pair> = {
 };
 
 export function serviceTopicFaq(slug: string, ar: boolean): Faq {
+  if (slug === "urgent-legal-assistance") {
+    const [q, a] = urgentCopy[ar ? "ar" : "en"].faqs[0];
+    return { q, a };
+  }
   const entry = FAQS[SERVICE_TOPICS[slug]];
   if (!entry) throw new Error(`Missing topic-specific FAQ for ${slug}`);
   return entry[ar ? "ar" : "en"];

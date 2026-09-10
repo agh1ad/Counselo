@@ -123,3 +123,12 @@ test("preserves the honeypot value for silent bot handling", () => {
   });
   assert.equal(parsed.website, "https://spam.invalid");
 });
+
+test("urgent assistance is accepted for each supported region and language", () => {
+  for (const region of ["sa", "syr", "uae"]) for (const language of ["en", "ar"]) {
+    const result = parseContactInput({ ...validInput, region, language, service: "urgent-legal-assistance" });
+    assert.equal(result.service, "urgent-legal-assistance");
+    assert.equal(result.region, region);
+    assert.equal(result.language, language);
+  }
+});

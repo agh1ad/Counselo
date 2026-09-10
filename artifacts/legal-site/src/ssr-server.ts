@@ -692,6 +692,9 @@ app.get(
     "/syr/ar/services/:id",
   ],
   async (req: Request, res: Response, next: NextFunction) => {
+    // Urgent intake has no CMS-dependent content. Serve its complete prerendered
+    // page immediately, even when the article or work-sample API is unavailable.
+    if (req.params["id"] === "urgent-legal-assistance") return next();
     try {
       const { posts, samples } = await fetchDiscoveryInventory();
       const html = await ssrRender(req.path, posts, samples);
