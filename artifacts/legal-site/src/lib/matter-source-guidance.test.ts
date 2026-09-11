@@ -34,7 +34,8 @@ test("employment additions keep Saudi execution eligibility out of other regimes
 
 test("guidance dates update affected content without refreshing untouched pages or using build time", () => {
   assert.equal(matterGuidanceUpdatedAt("sa", "employment-law", "delayed-or-unpaid-salary", "2026-09-06"), "2026-09-07");
-  assert.equal(matterGuidanceUpdatedAt("syr", "employment-law", "sponsorship-transfer-dispute", "2026-09-06"), "2026-09-06");
+  assert.equal(matterGuidanceUpdatedAt("syr", "employment-law", "sponsorship-transfer-dispute", "2026-09-06"), "2026-09-11");
+  assert.equal(matterGuidanceUpdatedAt("syr", "employment-law", "no-source-guidance-entry", "2026-09-06"), "2026-09-06");
   assert.equal(matterGuidanceUpdatedAt("sa", "employment-law", "delayed-or-unpaid-salary", "2026-10-01"), "2026-10-01");
   assert.equal(serviceGuidanceUpdatedAt("uae", "employment-labour", "2026-09-06"), "2026-09-07");
   assert.equal(serviceGuidanceUpdatedAt("sa", "medical-malpractice", "2026-09-06"), "2026-09-07");

@@ -51,7 +51,7 @@ test("problem template keeps the scan-first hierarchy concise", () => {
   assert.equal(template.match(/className="service-anchor-link"/g)?.length, 5, "sticky navigation should expose only five primary choices");
   assert.match(template, /page\.heroSummary/);
   assert.match(template, /problem-at-a-glance-heading/);
-  assert.match(template, /<details id="problem-context"/);
+  assert.match(template, /<section id="problem-context"/);
   assert.match(template, /<details id="problem-questions"/);
   assert.match(template, /<details id="problem-process"/);
   assert.match(template, /<details id="consultation-package"/);
@@ -186,6 +186,9 @@ test("Syria has jurisdiction-specific additions instead of an unchanged Saudi in
 });
 
 test("UAE problem titles stay tied to the service instead of using bare generic labels", () => {
+  const attachment = getLegalProblemPages("uae", "enforcement-debt-recovery").find(page => page.slug === "service-suspension-and-asset-freezing-request");
+  assert.equal(attachment?.titleEn, "Asset-freezing and precautionary-attachment request");
+  assert.equal(attachment?.titleAr, "طلب تجميد الأصول والحجز التحفظي");
   const generic = /^(A missed notice, filing, objection or appeal deadline|Unclear allocation between federal|The need to preserve evidence)/i;
   for (const page of getLegalProblemPages("uae")) {
     assert.ok(!generic.test(page.titleEn) || page.titleEn.includes(page.serviceTitleEn), `Generic UAE title leaked into ${page.parentServiceSlug}: ${page.titleEn}`);

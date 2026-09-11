@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import {
+  getServicesForRegion,
   BAGHDADI_LAW_PROFILE_URL,
   COUNSELO_ORGANIZATION,
   OMAR_AL_BAGHDADI,
@@ -26,8 +27,9 @@ const whyIcons = [Scale, Globe, Award, Globe, Zap, Users];
 
 export default function About() {
   const { t, isRTL } = useLanguage();
-  const { region, regionPrefix } = useRegion();
+  const { region } = useRegion();
   const a = t.aboutPage;
+  const practiceAreaCount = getServicesForRegion(region).length;
   const heroFlag = region === "uae" ? uaeFlag : region === "syr" ? syrianFlag : saudiFlag;
   const heroFlagSources = region === "uae" ? undefined : region === "syr"
     ? "/images/optimized/syria-hero-480.webp 480w, /images/optimized/syria-hero-645.webp 645w"
@@ -59,7 +61,7 @@ export default function About() {
       "name": isRTL ? "عن كاونسلو" : "About CounselO",
       "url": `https://counselo-legal.com${regionPath}/about`,
       "description": a.seoDesc,
-      "dateModified": "2026-09-01T16:58:56+04:00",
+      "dateModified": "2026-09-11",
       "mainEntity": { "@id": COUNSELO_ENTITY_IDS.organization },
       "inLanguage": isRTL ? `ar-${countryCode}` : `en-${countryCode}`,
       "breadcrumb": {
@@ -115,7 +117,7 @@ export default function About() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {a.stats.map((s, i) => (
               <m.div key={i} initial={false} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
-                <div className="text-3xl md:text-4xl font-serif font-bold text-white mb-1">{s.stat}</div>
+                <div className="text-3xl md:text-4xl font-serif font-bold text-white mb-1">{i === 2 ? practiceAreaCount : s.stat}</div>
                 <div className="text-sm text-white/70 uppercase tracking-wider">{s.label}</div>
               </m.div>
             ))}
@@ -184,8 +186,8 @@ export default function About() {
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {isRTL
-                        ? "إرث قانوني عريق يمتد لأكثر من 67 عاماً في سوريا — خبرة متوارثة من جيل إلى جيل في التقاضي والمشورة القانونية."
-                        : "A distinguished legal legacy spanning over 67 years in Syria — expertise passed from generation to generation in litigation and legal counsel."}
+                        ? "يخص تاريخ التأسيس عام 1957 مكتب البغدادي للمحاماة (BaghdadiLaw)، لا كاونسلو. وتشكل صلة عمر البغدادي العائلية والمهنية بالمكتب جزءاً من خلفيته بصفته مؤسس منصة الاستشارات الإلكترونية المنفصلة."
+                        : "The 1957 founding date belongs to Al-Baghdadi Law Firm (BaghdadiLaw), not CounselO. Omar Al-Baghdadi’s family and professional connection to the firm forms part of his background as founder of the separate online consultation platform."}
                     </p>
                   </>
                 ) : (
@@ -321,8 +323,8 @@ export default function About() {
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {isRTL
-                    ? "تأسس مكتب البغدادي للمحاماة عام 1957 على يد المحامي رياض البغدادي — والد المحامي عمر البغدادي. نشأة عمر في كنف هذا الإرث القانوني العريق أرست دعائم خبرته الاستثنائية وعمقه القانوني الفريد."
-                    : "Al-Baghdadi Law Firm was founded in 1957 by Lawyer Riyad Al-Baghdadi — father of Lawyer Omar Al-Baghdadi. Omar's upbringing within this distinguished legal legacy laid the foundation for his exceptional expertise and depth of legal knowledge."}
+                    ? "تأسس مكتب البغدادي للمحاماة (BaghdadiLaw) عام 1957 على يد المحامي رياض البغدادي، والد عمر. تخرج عمر من كلية الحقوق بجامعة دمشق عام 1996 وأسس كاونسلو بوصفها منصة استشارات إلكترونية منفصلة. تربط المكتب والمنصة صلة مهنية وتاريخية عبر عمر، مع بقاء هوية كل منهما وتكليفاته مستقلة."
+                    : "Al-Baghdadi Law Firm (BaghdadiLaw) was founded in 1957 by Lawyer Riyad Al-Baghdadi, Omar’s father. Omar graduated from Damascus University’s Faculty of Law in 1996 and founded CounselO as a distinct online consultation platform. The firm and platform share a professional and historical connection through Omar; their identities and engagements remain separate."}
                 </p>
                 <a
                   href={isRTL ? "https://www.baghdadilaw.co/ar/who-we-are" : BAGHDADI_LAW_PROFILE_URL}
@@ -476,19 +478,19 @@ export default function About() {
             <div className="w-20 h-1 bg-primary/30 mx-auto mb-8" />
             <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-2xl mx-auto">{a.cta.desc}</p>
             <p className="mb-8 leading-7 text-muted-foreground">
-              <Link href={`${regionPrefix}/vision`} className="text-primary underline underline-offset-4">
+              <Link href={`${regionPath}/vision`} className="text-primary underline underline-offset-4">
                 {isRTL ? "تعرّف على رؤيتنا لتقديم الاستشارة القانونية وحدود نطاق الخدمة" : "Read our approach to legal consultation and the scope of our service"}
               </Link>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="rounded-none bg-primary text-white hover:bg-primary/90 px-10 py-6 text-base font-semibold">
-                <Link href={`${regionPrefix}/contact`}>
+                <Link href={`${regionPath}/contact`}>
                   {a.cta.ctaBtn}
                   <ArrowRight className={`ms-2 h-5 w-5 ${isRTL ? "rotate-180" : ""}`} />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-10 py-6 text-base font-semibold">
-                <Link href={`${regionPrefix}/services`}>
+                <Link href={`${regionPath}/services`}>
                   {a.cta.learnMoreBtn}
                 </Link>
               </Button>

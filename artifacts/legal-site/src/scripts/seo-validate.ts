@@ -8,6 +8,7 @@
  *   - seo-validation-report.json (machine-readable full detail)
  */
 
+import { jurisdictionEditorialContent, jurisdictionAdviceForContaminationCheck } from "../lib/jurisdiction-audit-content";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -407,13 +408,7 @@ function validatePage(filepath: string): PageResult {
         detail: `"Saudi Arabia" in title without "Syria"`,
       });
 
-    const visibleText = decode(
-      html
-        .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
-        .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
-        .replace(/<[^>]+>/g, " ")
-        .replace(/\s+/g, " "),
-    );
+    const visibleText = jurisdictionAdviceForContaminationCheck(decode(jurisdictionEditorialContent(html)));
     const contamination = visibleText.match(
       /Saudi(?: Arabia)?|\bKSA\b|\bSAMA\b|\bCMA\b|\bZATCA\b|\bMISA\b|\bSAIP\b|\bCITC\b|Vision 2030|السعود(?:ية|ي)?|ساما|هيئة الزكاة/gi,
     );

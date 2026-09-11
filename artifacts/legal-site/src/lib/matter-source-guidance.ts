@@ -1,3 +1,5 @@
+import { PROBLEM_GAP_GUIDANCE } from "./problem-gap-guidance";
+import { PROBLEM_COMPLETION_GUIDANCE } from "./problem-completion-guidance";
 import type { Region } from "@workspace/api-zod/browser";
 import type { LegalSource } from "./regional-legal-sources";
 import { INTENT_EXPANSION_GUIDANCE } from "./intent-expansion-guidance.js";
@@ -15,6 +17,8 @@ export type MatterSourceGuidance = {
 };
 
 export const MATTER_SOURCE_GUIDANCE: MatterSourceGuidance[] = [
+  ...PROBLEM_GAP_GUIDANCE,
+  ...PROBLEM_COMPLETION_GUIDANCE,
   ...INTENT_EXPANSION_GUIDANCE,
   {
     region: "sa", service: "insurance-law", problems: ["denied-insurance-claim", "delayed-insurance-settlement", "policy-coverage-dispute"],

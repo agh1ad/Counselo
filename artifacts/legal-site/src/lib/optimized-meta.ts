@@ -79,22 +79,22 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   // ─── CONTACT PAGES ───────────────────────────────────────────────────────
 
   "/sa/contact": {
-    title: "Book an Online Legal Consultation in Saudi Arabia | CounselO",
+    title: "Online Legal Consultation Saudi Arabia | CounselO",
     description:
       "Contact CounselO to book a confidential online legal consultation in Saudi Arabia. Send your case details and receive professional legal guidance within 24 hours.",
   },
   "/sa/ar/contact": {
-    title: "احجز استشارة قانونية أونلاين في السعودية | كاونسلو",
+    title: "استشارة قانونية أونلاين في السعودية | كاونسلو",
     description:
       "تواصل مع كاونسلو لحجز استشارة قانونية أونلاين بسرية في السعودية. أرسل تفاصيل قضيتك واحصل على توجيه قانوني مهني خلال 24 ساعة.",
   },
   "/syr/contact": {
-    title: "Book an Online Legal Consultation in Syria | CounselO",
+    title: "Online Legal Consultation Syria | CounselO",
     description:
       "Contact CounselO to book a confidential online legal consultation in Syria. Send your case details and receive professional legal guidance within 24 hours.",
   },
   "/syr/ar/contact": {
-    title: "احجز استشارة قانونية أونلاين في سوريا | كاونسلو",
+    title: "استشارة قانونية أونلاين في سوريا | كاونسلو",
     description:
       "تواصل مع كاونسلو لحجز استشارة قانونية أونلاين بسرية في سوريا. أرسل تفاصيل قضيتك واحصل على توجيه قانوني مهني خلال 24 ساعة.",
   },

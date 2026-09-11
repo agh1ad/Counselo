@@ -50,7 +50,7 @@ test("case copy preserves outcome stages and removes actual publication defects"
 });
 
 test("all curated work relationships refer to retained records and valid regional services", () => {
-  assert.equal(Object.keys(WORK_CONTEXT).length, 45);
+  assert.equal(Object.keys(WORK_CONTEXT).length, 46);
   for (const [slug, context] of Object.entries(WORK_CONTEXT)) {
     assert.ok(context.titleEn.trim() && context.titleAr.trim(), slug);
     for (const service of context.relatedServiceSlugs) assert.ok(context.region && getServiceDefinition(service, context.region), `${slug}: ${service}`);
@@ -86,4 +86,16 @@ test("work intent edits distinguish court orders, face value and reconsideration
   assert.match(lease.challengeAr, /في هذه القضية/);
   const settlement = repairPublicWorkSample(intentBySlug("kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary"));
   assert.ok(settlement.seoDescriptionEn.endsWith('SAR 300,000.'));
+});
+
+
+test("financial-claim English completion follows the recorded Arabic source and preserves new writing", () => {
+  const input = JSON.parse(readFileSync(new URL("./__fixtures__/financial-claim-language-gap.json", import.meta.url), "utf8"));
+  const fixed = repairPublicWorkSample(input);
+  for (const key of ["titleEn", "challengeEn", "approachEn", "outcomeEn", "jurisdictionEn"]) assert.ok(fixed[key]?.trim(), key);
+  assert.equal(fixed.summaryEn, input.summaryEn);
+  assert.match(fixed.outcomeEn, /published account/);
+  assert.deepEqual(repairPublicWorkSample(fixed), fixed);
+  assert.equal(repairPublicWorkSample({ ...input, titleEn: "Later authored title" }).titleEn, "Later authored title");
+  assert.equal(repairPublicWorkSample({ ...input, summaryAr: "Changed source" }).titleEn, input.titleEn);
 });

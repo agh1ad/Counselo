@@ -245,7 +245,7 @@ export function alignSearchIntentCopy(source: Translations, region: Region, lang
   t.services.hero.desc = ar ? "اختر الموضوع الأقرب إلى مسألتك للاطلاع على المشكلات التي نراجعها والمستندات المطلوبة والأسئلة الشائعة، ثم اطلب استشارة بشأن حالتك." : "Choose the issue closest to yours to see what we review, the documents to prepare and common questions, then request advice on your circumstances.";
   t.footer.practiceAreasHeading = ar ? "موضوعات الاستشارة القانونية" : "Legal consultation topics";
   t.footer.tagline = ar ? `استشارات قانونية أونلاين في ${country} للأفراد والشركات. مراجعة الوقائع والمستندات وتوضيح الخيارات القانونية.` : `Online legal advice in ${country} for individuals and businesses. Review your facts and documents and understand your legal options.`;
-  t.contact.hero.heading = ar ? `اطلب استشارة قانونية في ${country}` : `Request a legal consultation in ${country}`;
+  t.contact.hero.heading = ar ? `اطلب استشارة قانونية أونلاين في ${country}` : `Request an Online Legal Consultation in ${country}`;
   t.contact.hero.subheading = ar ? "اشرح المسألة، وحدد الدولة والنتيجة المطلوبة وأي ميعاد قريب. نراجع الطلب ونؤكد نطاق الاستشارة ورسومها قبل بدء العمل المدفوع." : "Explain your legal issue, country, intended outcome and any urgent deadline. We review your request and confirm the consultation scope and fee before paid work starts.";
   t.contact.firmDetails.heading = ar ? "التواصل مع كاونسلو" : "Contact CounselO";
   t.contact.form.messageLabel = ar ? "ما المسألة القانونية التي تحتاج إلى مساعدة بشأنها؟" : "What legal issue do you need help with?";
@@ -268,8 +268,19 @@ export function searchIntentMeta(path: string) {
     vision: {ar: "رؤية كاونسلو ومنهج الاستشارات القانونية", en: "CounselO’s vision and approach to legal advice"},
   };
   const page = match[3] as keyof typeof pageLabels | undefined;
+  if (page === "services") {
+    const descriptions = {
+      sa: { en: "Explore Saudi legal services for companies, contracts, employment, family and disputes. Compare review scope, documents and separately agreed representation.", ar: "استكشف الخدمات القانونية السعودية للشركات والعقود والعمل والأسرة والنزاعات. تعرّف على نطاق المراجعة والمستندات والتمثيل المتفق عليه بصورة مستقلة." },
+      syr: { en: "Explore Syrian legal services for property, family, business and disputes, including enquiries from abroad. Review documents, service scope and local work requirements.", ar: "استكشف الخدمات القانونية السورية للعقارات والأسرة والأعمال والنزاعات، وللمغتربين. تعرّف على المستندات ونطاق الاستشارة ومتطلبات العمل المحلي." },
+      uae: { en: "Explore UAE legal services across corporate, employment, property and family matters. Identify the emirate or free-zone context, documents and consultation scope.", ar: "استكشف الخدمات القانونية الإماراتية للشركات والعمل والعقارات والأسرة. حدد الإمارة أو المنطقة الحرة والمستندات ونطاق الاستشارة المناسب." },
+    };
+    return { title: lang === "ar" ? `دليل الخدمات القانونية في ${country} | كاونسلو` : `Legal Services Directory in ${country} | CounselO`, description: descriptions[region][lang] };
+  }
+
   if (page) return {
-    title: `${pageLabels[page][lang]} ${lang === "ar" ? "في" : "in"} ${country} | ${lang === "ar" ? "كاونسلو" : "CounselO"}`,
+    title: page === "contact" && region !== "uae"
+      ? (lang === "ar" ? `استشارة قانونية أونلاين في ${country} | كاونسلو` : `Online Legal Consultation ${country} | CounselO`)
+      : `${pageLabels[page][lang]} ${lang === "ar" ? "في" : "in"} ${country} | ${lang === "ar" ? "كاونسلو" : "CounselO"}`,
     description: lang === "ar"
       ? ({services: `اختر موضوع استشارتك القانونية في ${country}. اطّلع على نطاق مراجعة قضايا العمل والأسرة والعقارات والشركات والمستندات اللازمة لكل خدمة.`, about: `تعرّف على فريق كاونسلو وخبرته المهنية ومنهج مراجعة طلبات الاستشارة القانونية المتعلقة بـ${country} وحدود نطاق الخدمة.`, contact: `اطلب استشارة قانونية بشأن مسألتك في ${country} عبر واتساب أو البريد الإلكتروني. أرسل الوقائع والمواعيد المهمة لتأكيد نطاق المراجعة ورسومها.`, vision: `تعرّف على منهج كاونسلو للاستشارات القانونية المتعلقة بـ${country}: مراجعة الوقائع والمصادر، وضوح النطاق، وسرية المعلومات.`})[page]
       : ({services: `Find legal advice in ${country} by issue. Explore employment, family, property and business services, review scope and the documents to prepare.`, about: `Meet CounselO’s professionals and learn about their experience, request review process and the scope of legal consultations concerning ${country}.`, contact: `Request legal advice concerning ${country} by WhatsApp or email. Send the facts and relevant dates so we can confirm the review scope and fee.`, vision: `Learn how CounselO approaches legal consultations concerning ${country}: review of facts and sources, a clear scope and professional confidentiality.`})[page],

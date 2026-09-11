@@ -114,7 +114,7 @@ export const ARBITRATION_ENFORCEMENT_BRIEFS = [
     "حدّد المال وموقعه وحق الدائن والتدبير المطلوب بدقة. وعند وجود حجز قائم، احصل على قرار إصداره وسنده القانوني. يختلف الحجز التحفظي المدني عن الحجز الإداري المبني على سبب أمني؛ ولا يُسمى أي منهما إيقافاً عاماً للخدمات الحكومية. بيّن الاستعجال وأدلة الملكية قبل اختيار الطلب.",
     "claim evidence, asset and ownership records, existing attachment decision, issuing authority and urgency evidence",
     "دليل المطالبة وسجلات المال والملكية وقرار الحجز القائم والجهة المصدرة وأدلة الاستعجال"),
-  brief(["Service suspension and asset-freezing request"],
+  brief(["Service suspension and asset-freezing request", "Asset-freezing and precautionary-attachment request"],
     "Which restriction or asset measure is actually sought?", "ما القيد أو التدبير على الأموال المطلوب فعلاً؟",
     "Identify the asset, account or service affected and the existing court or enforcement file. Do not combine distinct restrictions under one label. The available measure, safeguards and authority depend on the jurisdiction and stage, and should be assessed before a request is drafted.",
     "حدّد الأصل أو الحساب أو الخدمة المتأثرة وملف المحكمة أو التنفيذ القائم. لا تجمع قيوداً مختلفة تحت تسمية واحدة. يتوقف التدبير والضمانات والجهة على الاختصاص والمرحلة، ويجب تقييمها قبل صياغة الطلب.",

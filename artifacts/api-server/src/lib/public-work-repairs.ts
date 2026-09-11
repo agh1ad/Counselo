@@ -40,6 +40,23 @@ function applyWorkRepairs<T extends PublicWorkRecord>(sample: T): T {
       ...(sample.titleAr === "ادراة المخاطر في عقد تأميني" ? { titleAr: "إدارة المخاطر في عقد تأميني" } : {}),
     };
   }
+  if (sample.slug === "kyf-rfdt-almhkmh-qdyh-malyh-dkhmh-rghm-thbwt-althwyl" && createHash("sha256").update(String((sample as Record<string, unknown>).summaryAr ?? "")).digest("hex") === "bc48c568725101c9c36b027dce20878b2476053da49da41ab2d8f3a792836818") {
+    // Translate only this recorded Arabic version; preserve later authored English.
+    const translation = {
+      titleEn: "Saudi Financial Claim Dismissed Despite Bank Transfers",
+      workTypeEn: "Employment-related financial claim, release and bank transfers",
+      jurisdictionEn: "Saudi Arabia",
+      clientTypeEn: "Employee",
+      challengeEn: "The client faced a claim for approximately three quarters of a million Saudi riyals, supported by bank statements and an accounting report prepared by the claimant company. The transfers themselves were documented. The issue was whether those transfers established an outstanding debt, taking account of how the money had been used for the company, the operational records and the financial release.",
+      approachEn: "CounselO reviewed the legal and accounting material, traced the funds and compared the transfers with operational documents. The analysis focused on entitlement and the burden of proof rather than denying the transfers. The financial release and the authority of its issuer formed central parts of the defence described in the published account.",
+      outcomeEn: "The published account records that the court dismissed the financial claim in full. It states that the court accepted the financial release and the authority of the person who issued it, and found no remaining liability for the amounts claimed. The account illustrates the role of operational records and a financial release in this particular dispute; it does not establish that bank transfers can never prove a debt or guarantee the same outcome in another case.",
+    };
+    const additions = Object.fromEntries(Object.entries(translation).filter(([key]) => {
+      const existing = (sample as Record<string, unknown>)[key];
+      return typeof existing !== "string" || !existing.trim();
+    }));
+    return { ...sample, ...additions };
+  }
   return sample;
 }
 

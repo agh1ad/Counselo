@@ -72,11 +72,11 @@ const rows = source.rows.map((row: { keyword: string; monthlySearches: number | 
   // unsegmented search-volume estimate to any country.
   const regions = /سعود|بالسعود|بالرياض|الرياض/.test(q) ? ["sa"] as const : ["sa", "syr", "uae"] as const;
   return { keyword: row.keyword, monthlySearches: row.monthlySearches, sources: row.sources, disposition: "mapped", intent: intentId,
-    reason: intentId === "selection" ? "Selection and credential-verification guidance, without claiming superiority, nationality or an unverified licence" : "Same-intent variants share a primary page; literal inclusion of every spelling is not required",
+    reason: intentId === "selection" ? "Selection and credential-verification guidance, without claiming superiority, nationality or an unverified licence" : "Broad research candidate only; primary commercial ownership must follow docs/keyword-ownership/policy.json",
     targets: regions.map(region => ({ region, ar: editorialTarget(intent, region, true), en: editorialTarget(intent, region, false) })) };
 });
 if (unresolved.length) throw new Error(`Unresolved queries: ${JSON.stringify(unresolved)}`);
-const result = { generatedAt: new Date().toISOString(), sourceFiles: source.sources, basis: "Editorial intent assignment, not verified ranking or Google-selected canonical. English targets are translations, not measured English keyword demand.",
+const result = { generatedAt: new Date().toISOString(), sourceFiles: source.sources, primaryOwnershipRegistry: "docs/keyword-ownership/policy.json", basis: "Legacy broad research candidates, not primary commercial ownership. The keyword-ownership registry takes precedence. Not verified ranking or Google-selected canonical. English targets are translations, not measured English keyword demand.",
   summary: { total: rows.length, mapped: rows.filter((row: any) => row.disposition === "mapped").length, excluded: rows.filter((row: any) => row.disposition === "excluded").length, unresolved: 0 }, rows };
 writeFileSync(resolve(root, "docs/search-query-targets-2026-09-06.json"), JSON.stringify(result, null, 2) + "\n");
 console.log(JSON.stringify(result.summary));

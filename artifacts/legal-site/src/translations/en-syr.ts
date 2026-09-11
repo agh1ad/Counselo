@@ -43,7 +43,7 @@ export const enSyr: typeof en = {
     },
     platform: {
       ...en.home.platform,
-      subheading: "CounselO is a fully digital legal platform serving Syria. Expert legal guidance covering Syrian law — instantly, securely, and professionally.",
+      subheading: "CounselO is a fully digital legal platform serving Syria. Consultation and document review scoped to the relevant Syrian matter, documents and professional requirements.",
       advantages: [
         { icon: "wifi", title: "Fully Online — Anywhere in Syria", desc: "Consult from Damascus, Aleppo, Homs, Lattakia or anywhere in Syria — no office visit, no commute, no waiting room." },
         { icon: "clock", title: "Target Response Within 24 Hours", desc: "Submit your legal matter for a structured professional response. CounselO targets a response within 24 hours, subject to the matter's scope and urgency." },
@@ -66,14 +66,14 @@ export const enSyr: typeof en = {
       clients: [
         { title: "Individuals", desc: "Personal legal matters including family law, real estate, employment disputes and debt recovery under Syrian law." },
         { title: "Businesses", desc: "Commercial contracts, corporate disputes, company formation and regulatory compliance in Syria." },
-        { title: "Foreign Investors", desc: "Legal representation for investors entering the Syrian market — licensing under Investment Law No. 18/2021, compliance and dispute resolution." },
+        { title: "Foreign Investors", desc: "Consultation for investment and market entry in Syria: review the activity, proposed entity, available approvals and applicable investment rules and amendments before deciding the next step." },
         { title: "Diaspora Clients", desc: "Legal guidance for Syrians abroad — property matters, inheritance, family law, and repatriation legal needs." },
       ],
     },
     practiceAreas: {
       ...en.home.practiceAreas,
       heading: "Core Practice Areas in Syria",
-      subheading: "30+ years of legal practice across Syria and the region — comprehensive legal representation across all major areas of Syrian law.",
+      subheading: "Consultation and document review for Syrian matters. Any court representation or reserved local work is separately agreed with an appropriately authorised professional.",
       areas: [
         { title: "Commercial Law & Litigation", desc: "Contract disputes, shareholder conflicts, corporate governance, and commercial agency disputes before Syrian commercial courts.", path: "/services/business-law" },
         { title: "Arbitration & Dispute Resolution", desc: "Commercial arbitration under Syrian Arbitration Law No. 4/2008, enforcement of arbitral awards, Damascus Chamber arbitration, and investment dispute resolution.", path: "/services/arbitration" },
@@ -158,7 +158,7 @@ export const enSyr: typeof en = {
       "business-law": {
         title: "Commercial Law",
         subtitle: "Strategic legal representation under the Syrian Commercial Code.",
-        overview: "Syria's commercial law — codified in the Syrian Commercial Code (Legislative Decree No. 149 of 1949) and administered by Commercial Courts in Damascus, Aleppo, Homs, and Lattakia — governs all commercial relationships and disputes in the country. At CounselO, our commercial law practice covers the full range of Syrian commercial matters: contract disputes, company conflicts, banking disputes, commercial agency, and litigation before Syrian commercial courts. With 30+ years of legal practice and 20,000+ legal matters and consultations handled, CounselO delivers decisive results for businesses operating in Syria.",
+        overview: "Syrian commercial review covers sales, supply, agency arrangements and business claims. Trade Law 33/2007 is a legislative starting point; the contract, transaction date, parties and special legislation must be checked before choosing the applicable rule or forum. CounselO provides structured legal analysis and practical guidance within the agreed scope.",
         covers: ["Commercial Contract Disputes", "Shareholder & Partner Conflicts", "Company Formation under Syrian Law", "Commercial Agency Disputes", "Corporate Governance & Compliance"],
         process: [
           { title: "Commercial Assessment", desc: "We analyse your dispute or transaction under Syrian commercial law — identifying your strongest legal position and the most effective forum." },
@@ -811,6 +811,7 @@ export const enSyr: typeof en = {
     ...en.contact,
     firmDetails: {
       ...en.contact.firmDetails,
+      phoneTitle: "Regional intake phone & WhatsApp (Saudi number)",
       address: "Hama, Syria",
     },
     form: {
@@ -822,52 +823,52 @@ export const enSyr: typeof en = {
   aboutPage: {
     ...en.aboutPage,
     stats: [
-      { stat: "20,000+", label: "Legal Matters & Consultations" },
+      { stat: "20,000+", label: "Career-wide matters & consultations across the region" },
       { stat: "30+", label: "Years of Legal Experience" },
       { stat: "20", label: "Practice Areas" },
       { stat: "40+", label: "Lawyers Mentored" },
     ],
     seoTitle: "About CounselO — Syria's Specialized Online Legal Consultation Platform",
-    seoDesc: "CounselO is Syria's specialized online legal consultation platform — founded by Lawyer Omar Al-Baghdadi, with 30+ years of legal practice and 20,000+ legal matters and consultations handled across Syria and the region.",
+    seoDesc: "CounselO provides online legal consultation for Syrian matters in Arabic and English, founded and led by Lawyer Omar Al-Baghdadi, whose professional practice began in 1996.",
     seoKeywords: "about CounselO, online legal platform Syria, lawyer Omar Al-Baghdadi, specialized legal platform Syria, online legal consultation Syria, Syrian law expert",
     hero: {
       ...en.aboutPage.hero,
       badge: "Syria's Specialized Online Legal Consultation Platform · CounselO",
       heading: "Syria's Specialized Online Legal Consultation Platform",
-      subheading: "CounselO delivers expert legal guidance online for individuals, businesses and investors across Syria — fast, professionally, and in both Arabic and English.",
+      subheading: "CounselO provides online consultation, document review and written legal guidance for Syrian matters in Arabic and English, with scope and fees agreed before work begins.",
     },
     mission: {
       eyebrow: "Our Mission",
       heading: "Democratising Legal Access in Syria",
-      p1: "CounselO was established with a clear mission: to make expert legal advice accessible to every individual, business and investor in Syria — online, instantly, and without the barriers of traditional legal practice. No office visits, no waiting rooms, no geographic limitations. One platform. All practice areas. Professional quality on every consultation.",
-      p2: "Syria's legal landscape demands experienced, reliable counsel — for individuals navigating personal status matters, businesses protecting their commercial interests, and foreign investors entering the Syrian market. CounselO puts specialist expertise within reach of every client across Syria, via WhatsApp or email, 24/7, in both Arabic and English. We are Syria's specialized online legal consultation platform — with 20 major practice areas, a professional legal team led by a 30-year senior advocate, and the ability to serve any client, anywhere in Syria, within 24 hours.",
-      p3: "From a single consultation to complex multi-jurisdictional disputes, CounselO delivers structured legal analysis, practical guidance, and expert representation across all major areas of Syrian law — online, fast, and with the professional quality that every client deserves.",
-      vision2030Badge: "Syria's Legal Experts",
+      p1: "CounselO provides online legal consultation, document review and written legal guidance for individuals, businesses and investors with matters involving Syria. Send the facts, documents and any deadline through WhatsApp or email so we can assess the request and confirm the service scope and fee.",
+      p2: "Requests can be submitted at any time in Arabic or English. Submission does not mean a lawyer is available continuously or that advice is immediate. Response timing depends on the matter, urgency, completeness of information and service availability; we confirm the expected delivery time when agreeing the work.",
+      p3: "The online service covers review of facts and documents, legal analysis and practical next steps. Court filing, representation, notarisation and other work requiring local authority are separately agreed with the appropriately authorised professional; they are not included automatically in an online consultation.",
+      vision2030Badge: "Online consultation for Syrian matters",
       vision2030Desc: "Making professional Syrian legal guidance accessible to individuals, businesses and investors — wherever they are.",
     },
     founder: {
       ...en.aboutPage.founder,
-      subheading: "Senior Advocate · Regional Legal Authority · Syria & the Region",
+      subheading: "Damascus University Law Graduate (1996) · CounselO Founder",
       bio4: "Omar has trained or supervised more than 40 lawyers. At CounselO, his role includes professional direction, review of legal analysis and coordination of matters requiring jurisdiction-specific support.",
     },
     why: {
       eyebrow: "Why CounselO",
       heading: "The CounselO Difference",
       points: [
-        { title: "Access to Justice", desc: "CounselO makes professional legal guidance accessible to all individuals, businesses and investors across Syria — online, without barriers, in both Arabic and English." },
+        { title: "Access to Justice", desc: "Individuals, businesses and investors can request online consultation in Arabic or English for Syrian matters. We confirm the scope, documents needed and availability before accepting the work." },
       ],
     },
     cta: {
-      eyebrow: "Get Expert Legal Advice Today",
+      eyebrow: "Discuss Your Legal Matter",
       heading: "Consult CounselO — Syria's Specialized Online Legal Consultation Platform",
-      desc: "Professional legal guidance delivered online — fast, confidential, and backed by 30+ years of legal practice across Syria and the Arab world. Start your consultation today via WhatsApp or email.",
+      desc: "Send your question, relevant documents and any deadline through WhatsApp or email. We review the request and explain the consultation scope, fee and expected timing before work begins.",
       ctaBtn: "Start Your Consultation",
       learnMoreBtn: "View All Services",
     },
     office: {
       ...en.aboutPage.office,
       eyebrow: "Physical Presence",
-      heading: "Syria Offices — Field Presence",
+      heading: "Cooperating Law Offices in Syria",
       p1: "CounselO provides online legal consultation services, document analysis, and remote legal opinion preparation — enabling clients across all of Syria to access professional legal services without the need for in-person attendance.",
       p2: "Where a case requires court representation, appearances before courts or competent authorities, or document notarization and procedures requiring physical presence, CounselO works through its licensed legal partners in Syria to handle judicial representation proceedings before Syrian courts and government authorities.",
       city: "Syria",
