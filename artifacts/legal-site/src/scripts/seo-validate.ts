@@ -8,6 +8,7 @@
  *   - seo-validation-report.json (machine-readable full detail)
  */
 
+import { jurisdictionEditorialContent, jurisdictionAdviceForContaminationCheck } from "../lib/jurisdiction-audit-content";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -410,13 +411,7 @@ function validatePage(filepath: string): PageResult {
         detail: `"Saudi Arabia" in title without "Syria"`,
       });
 
-    const visibleText = decode(
-      html
-        .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
-        .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
-        .replace(/<[^>]+>/g, " ")
-        .replace(/\s+/g, " "),
-    );
+    const visibleText = jurisdictionAdviceForContaminationCheck(decode(jurisdictionEditorialContent(html)));
     const contamination = saudiTermsOutsideJurisdictionBoundaries(visibleText);
     // The About page deliberately documents the founder's cross-border work.
     // That authority evidence is not an offer of Saudi-only services on Syria URLs.

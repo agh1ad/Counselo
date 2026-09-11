@@ -58,11 +58,9 @@ test("problem schema does not duplicate the Arabic locale prefix", () => {
 });
 
 test("global FAQ structured data shares the visible question collection", () => {
-  for (const name of ["region-picker", "ar-region-picker"]) {
-    const source = readFileSync(new URL(`../pages/${name}.tsx`, import.meta.url), "utf8");
-    assert.match(source, /mainEntity: FAQS\.map/);
-    assert.match(source, /\{FAQS\.map/);
-  }
+  const source = readFileSync(new URL("../components/home/global-homepage.tsx", import.meta.url), "utf8");
+  assert.match(source, /mainEntity: c\.questions\.map/);
+  assert.match(source, /\{c\.questions\.map/);
 });
 
 test("work audit snapshots do not override fresh production work records", () => {

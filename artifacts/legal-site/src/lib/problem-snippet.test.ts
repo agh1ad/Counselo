@@ -158,3 +158,13 @@ test("prerendered public HTML has a short shared-cache window", () => {
     "public, max-age=300, must-revalidate",
   );
 });
+
+
+test("self-describing Arabic tax topics do not repeat the entire service label", () => {
+  const title = buildArabicProblemTitle({
+    titleAr: "مشكلة التسجيل والإقرار بضريبة الشركات",
+    serviceTitleAr: "ضريبة الشركات وضريبة القيمة المضافة والمنازعات الضريبية",
+    countryNameAr: "الإمارات",
+  });
+  assert.equal(title, "مشكلة التسجيل والإقرار بضريبة الشركات في الإمارات | كاونسلو");
+});

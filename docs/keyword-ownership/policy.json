@@ -1,0 +1,856 @@
+{
+  "version": 1,
+  "scope": "One primary URL per country, language and canonical client-task intent. Synonyms share an intent ID. Country and language versions are separate owners.",
+  "semantic_review": "A human must group semantically identical tasks before adding intent IDs. This validator does not infer intent from every page or force search engines to select a URL.",
+  "owners": [
+    {
+      "key": "sa:ar:online-consultation",
+      "url": "https://counselo-legal.com/sa/ar",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:online-consultation",
+      "url": "https://counselo-legal.com/sa",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:corporate-counsel",
+      "url": "https://counselo-legal.com/sa/ar/services/companies-law",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:corporate-counsel",
+      "url": "https://counselo-legal.com/sa/services/companies-law",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:foreign-company-formation",
+      "url": "https://counselo-legal.com/sa/ar/services/foreign-investment/foreign-owned-company-formation",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:foreign-company-formation",
+      "url": "https://counselo-legal.com/sa/services/foreign-investment/foreign-owned-company-formation",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:contract-review",
+      "url": "https://counselo-legal.com/sa/ar/services/contracts/contract-drafting-and-review",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:contract-review",
+      "url": "https://counselo-legal.com/sa/services/contracts/contract-drafting-and-review",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:debt-collection",
+      "url": "https://counselo-legal.com/sa/ar/services/enforcement/commercial-debt-recovery",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:debt-collection",
+      "url": "https://counselo-legal.com/sa/services/enforcement/commercial-debt-recovery",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:employment-counsel",
+      "url": "https://counselo-legal.com/sa/ar/services/employment-law",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:employment-counsel",
+      "url": "https://counselo-legal.com/sa/services/employment-law",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:unpaid-wages",
+      "url": "https://counselo-legal.com/sa/ar/services/employment-law/delayed-or-unpaid-salary",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:unpaid-wages",
+      "url": "https://counselo-legal.com/sa/services/employment-law/delayed-or-unpaid-salary",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:wrongful-termination",
+      "url": "https://counselo-legal.com/sa/ar/services/employment-law/wrongful-termination",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:wrongful-termination",
+      "url": "https://counselo-legal.com/sa/services/employment-law/wrongful-termination",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:end-of-service",
+      "url": "https://counselo-legal.com/sa/ar/services/employment-law/end-of-service-entitlements",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:end-of-service",
+      "url": "https://counselo-legal.com/sa/services/employment-law/end-of-service-entitlements",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:divorce",
+      "url": "https://counselo-legal.com/sa/ar/services/family-law/divorce-and-separation",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:divorce",
+      "url": "https://counselo-legal.com/sa/services/family-law/divorce-and-separation",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:child-custody",
+      "url": "https://counselo-legal.com/sa/ar/services/family-law/child-custody-and-visitation",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:child-custody",
+      "url": "https://counselo-legal.com/sa/services/family-law/child-custody-and-visitation",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:inheritance-distribution",
+      "url": "https://counselo-legal.com/sa/ar/services/family-law/inheritance-and-family-settlements",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:inheritance-distribution",
+      "url": "https://counselo-legal.com/sa/services/family-law/inheritance-and-family-settlements",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:property-counsel",
+      "url": "https://counselo-legal.com/sa/ar/services/real-estate",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:property-counsel",
+      "url": "https://counselo-legal.com/sa/services/real-estate",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:rental-dispute",
+      "url": "https://counselo-legal.com/sa/ar/services/real-estate/lease-and-eviction-matters",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:rental-dispute",
+      "url": "https://counselo-legal.com/sa/services/real-estate/lease-and-eviction-matters",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:medical-malpractice",
+      "url": "https://counselo-legal.com/sa/ar/services/medical-malpractice",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:medical-malpractice",
+      "url": "https://counselo-legal.com/sa/services/medical-malpractice",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:denied-insurance",
+      "url": "https://counselo-legal.com/sa/ar/services/insurance-law/denied-insurance-claim",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:denied-insurance",
+      "url": "https://counselo-legal.com/sa/services/insurance-law/denied-insurance-claim",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:trademark-registration",
+      "url": "https://counselo-legal.com/sa/ar/services/intellectual-property/trademark-registration-and-disputes",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:trademark-registration",
+      "url": "https://counselo-legal.com/sa/services/intellectual-property/trademark-registration-and-disputes",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:criminal-defence",
+      "url": "https://counselo-legal.com/sa/ar/services/criminal-law",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:criminal-defence",
+      "url": "https://counselo-legal.com/sa/services/criminal-law",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:commercial-arbitration",
+      "url": "https://counselo-legal.com/sa/ar/services/arbitration",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:commercial-arbitration",
+      "url": "https://counselo-legal.com/sa/services/arbitration",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:tax-assessment-objection",
+      "url": "https://counselo-legal.com/sa/ar/services/tax-zakat/tax-audit-and-assessment-objection",
+      "status": "existing"
+    },
+    {
+      "key": "sa:en:tax-assessment-objection",
+      "url": "https://counselo-legal.com/sa/services/tax-zakat/tax-audit-and-assessment-objection",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:online-consultation",
+      "url": "https://counselo-legal.com/uae/ar",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:online-consultation",
+      "url": "https://counselo-legal.com/uae",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:corporate-counsel",
+      "url": "https://counselo-legal.com/uae/ar/services/corporate-commercial",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:corporate-counsel",
+      "url": "https://counselo-legal.com/uae/services/corporate-commercial",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:foreign-company-formation",
+      "url": "https://counselo-legal.com/uae/ar/services/foreign-investment-market-entry",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:foreign-company-formation",
+      "url": "https://counselo-legal.com/uae/services/foreign-investment-market-entry",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:contract-review",
+      "url": "https://counselo-legal.com/uae/ar/services/commercial-contracts",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:contract-review",
+      "url": "https://counselo-legal.com/uae/services/commercial-contracts",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:debt-collection",
+      "url": "https://counselo-legal.com/uae/ar/services/enforcement-debt-recovery",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:debt-collection",
+      "url": "https://counselo-legal.com/uae/services/enforcement-debt-recovery",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:employment-counsel",
+      "url": "https://counselo-legal.com/uae/ar/services/employment-labour",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:employment-counsel",
+      "url": "https://counselo-legal.com/uae/services/employment-labour",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:unpaid-wages",
+      "url": "https://counselo-legal.com/uae/ar/services/employment-labour/delayed-or-unpaid-salary",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:unpaid-wages",
+      "url": "https://counselo-legal.com/uae/services/employment-labour/delayed-or-unpaid-salary",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:wrongful-termination",
+      "url": "https://counselo-legal.com/uae/ar/services/employment-labour/wrongful-termination-and-labour-complaint",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:wrongful-termination",
+      "url": "https://counselo-legal.com/uae/services/employment-labour/wrongful-termination-and-labour-complaint",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:end-of-service",
+      "url": "https://counselo-legal.com/uae/ar/services/employment-labour/end-of-service-benefits-and-final-settlement-dispute",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:end-of-service",
+      "url": "https://counselo-legal.com/uae/services/employment-labour/end-of-service-benefits-and-final-settlement-dispute",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:divorce",
+      "url": "https://counselo-legal.com/uae/ar/services/family-personal-status/divorce-filing-and-personal-status-procedure",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:divorce",
+      "url": "https://counselo-legal.com/uae/services/family-personal-status/divorce-filing-and-personal-status-procedure",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:child-custody",
+      "url": "https://counselo-legal.com/uae/ar/services/family-personal-status/child-custody-and-visitation-dispute",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:child-custody",
+      "url": "https://counselo-legal.com/uae/services/family-personal-status/child-custody-and-visitation-dispute",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:inheritance-distribution",
+      "url": "https://counselo-legal.com/uae/ar/services/wills-estates/inheritance-distribution-dispute",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:inheritance-distribution",
+      "url": "https://counselo-legal.com/uae/services/wills-estates/inheritance-distribution-dispute",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:property-counsel",
+      "url": "https://counselo-legal.com/uae/ar/services/real-estate-construction",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:property-counsel",
+      "url": "https://counselo-legal.com/uae/services/real-estate-construction",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:rental-dispute",
+      "url": "https://counselo-legal.com/uae/ar/services/real-estate-construction/dubai-tenancy-and-rera-rental-dispute",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:rental-dispute",
+      "url": "https://counselo-legal.com/uae/services/real-estate-construction/dubai-tenancy-and-rera-rental-dispute",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:medical-malpractice",
+      "url": "https://counselo-legal.com/uae/ar/services/healthcare-medical-liability",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:medical-malpractice",
+      "url": "https://counselo-legal.com/uae/services/healthcare-medical-liability",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:denied-insurance",
+      "url": "https://counselo-legal.com/uae/ar/services/insurance/denied-insurance-claim",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:denied-insurance",
+      "url": "https://counselo-legal.com/uae/services/insurance/denied-insurance-claim",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:trademark-registration",
+      "url": "https://counselo-legal.com/uae/ar/services/intellectual-property",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:trademark-registration",
+      "url": "https://counselo-legal.com/uae/services/intellectual-property",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:criminal-defence",
+      "url": "https://counselo-legal.com/uae/ar/services/criminal-investigations",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:criminal-defence",
+      "url": "https://counselo-legal.com/uae/services/criminal-investigations",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:commercial-arbitration",
+      "url": "https://counselo-legal.com/uae/ar/services/arbitration-mediation",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:commercial-arbitration",
+      "url": "https://counselo-legal.com/uae/services/arbitration-mediation",
+      "status": "existing"
+    },
+    {
+      "key": "uae:ar:tax-assessment-objection",
+      "url": "https://counselo-legal.com/uae/ar/services/tax-vat/tax-audit-and-assessment-objection",
+      "status": "existing"
+    },
+    {
+      "key": "uae:en:tax-assessment-objection",
+      "url": "https://counselo-legal.com/uae/services/tax-vat/tax-audit-and-assessment-objection",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:online-consultation",
+      "url": "https://counselo-legal.com/syr/ar",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:online-consultation",
+      "url": "https://counselo-legal.com/syr",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:corporate-counsel",
+      "url": "https://counselo-legal.com/syr/ar/services/companies-law",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:corporate-counsel",
+      "url": "https://counselo-legal.com/syr/services/companies-law",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:foreign-company-formation",
+      "url": "https://counselo-legal.com/syr/ar/services/foreign-investment/foreign-owned-company-formation",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:foreign-company-formation",
+      "url": "https://counselo-legal.com/syr/services/foreign-investment/foreign-owned-company-formation",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:contract-review",
+      "url": "https://counselo-legal.com/syr/ar/services/contracts/contract-drafting-and-review",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:contract-review",
+      "url": "https://counselo-legal.com/syr/services/contracts/contract-drafting-and-review",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:debt-collection",
+      "url": "https://counselo-legal.com/syr/ar/services/enforcement/commercial-debt-recovery",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:debt-collection",
+      "url": "https://counselo-legal.com/syr/services/enforcement/commercial-debt-recovery",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:employment-counsel",
+      "url": "https://counselo-legal.com/syr/ar/services/employment-law",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:employment-counsel",
+      "url": "https://counselo-legal.com/syr/services/employment-law",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:unpaid-wages",
+      "url": "https://counselo-legal.com/syr/ar/services/employment-law/delayed-or-unpaid-salary",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:unpaid-wages",
+      "url": "https://counselo-legal.com/syr/services/employment-law/delayed-or-unpaid-salary",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:wrongful-termination",
+      "url": "https://counselo-legal.com/syr/ar/services/employment-law/wrongful-termination",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:wrongful-termination",
+      "url": "https://counselo-legal.com/syr/services/employment-law/wrongful-termination",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:end-of-service",
+      "url": "https://counselo-legal.com/syr/ar/services/employment-law/end-of-service-entitlements",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:end-of-service",
+      "url": "https://counselo-legal.com/syr/services/employment-law/end-of-service-entitlements",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:divorce",
+      "url": "https://counselo-legal.com/syr/ar/services/family-law/divorce-and-separation",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:divorce",
+      "url": "https://counselo-legal.com/syr/services/family-law/divorce-and-separation",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:child-custody",
+      "url": "https://counselo-legal.com/syr/ar/services/family-law/child-custody-and-visitation",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:child-custody",
+      "url": "https://counselo-legal.com/syr/services/family-law/child-custody-and-visitation",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:inheritance-distribution",
+      "url": "https://counselo-legal.com/syr/ar/services/family-law/inheritance-and-family-settlements",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:inheritance-distribution",
+      "url": "https://counselo-legal.com/syr/services/family-law/inheritance-and-family-settlements",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:property-counsel",
+      "url": "https://counselo-legal.com/syr/ar/services/real-estate",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:property-counsel",
+      "url": "https://counselo-legal.com/syr/services/real-estate",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:rental-dispute",
+      "url": "https://counselo-legal.com/syr/ar/services/real-estate/lease-and-eviction-matters",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:rental-dispute",
+      "url": "https://counselo-legal.com/syr/services/real-estate/lease-and-eviction-matters",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:medical-malpractice",
+      "url": "https://counselo-legal.com/syr/ar/services/medical-malpractice",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:medical-malpractice",
+      "url": "https://counselo-legal.com/syr/services/medical-malpractice",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:denied-insurance",
+      "url": "https://counselo-legal.com/syr/ar/services/insurance-law/denied-insurance-claim",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:denied-insurance",
+      "url": "https://counselo-legal.com/syr/services/insurance-law/denied-insurance-claim",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:trademark-registration",
+      "url": "https://counselo-legal.com/syr/ar/services/intellectual-property/trademark-registration-or-opposition-in-syria",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:trademark-registration",
+      "url": "https://counselo-legal.com/syr/services/intellectual-property/trademark-registration-or-opposition-in-syria",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:criminal-defence",
+      "url": "https://counselo-legal.com/syr/ar/services/criminal-law",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:criminal-defence",
+      "url": "https://counselo-legal.com/syr/services/criminal-law",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:commercial-arbitration",
+      "url": "https://counselo-legal.com/syr/ar/services/arbitration",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:commercial-arbitration",
+      "url": "https://counselo-legal.com/syr/services/arbitration",
+      "status": "existing"
+    },
+    {
+      "key": "syr:ar:tax-assessment-objection",
+      "url": "https://counselo-legal.com/syr/ar/services/tax-zakat/syrian-tax-assessment-and-objection",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:tax-assessment-objection",
+      "url": "https://counselo-legal.com/syr/services/tax-zakat/syrian-tax-assessment-and-objection",
+      "status": "existing"
+    },
+    {
+      "key": "sa:ar:zakat-assessment-objection",
+      "url": "https://counselo-legal.com/sa/ar/services/tax-zakat/zakat-assessment-objection",
+      "status": "planned"
+    },
+    {
+      "key": "uae:ar:labour-complaint-filing",
+      "url": "https://counselo-legal.com/uae/ar/services/employment-labour/labour-complaint-filing",
+      "status": "planned"
+    },
+    {
+      "key": "uae:ar:company-incorporation",
+      "url": "https://counselo-legal.com/uae/ar/services/corporate-commercial/company-incorporation",
+      "status": "planned"
+    },
+    {
+      "key": "syr:ar:local-practitioner-selection",
+      "url": "https://counselo-legal.com/syr/ar",
+      "status": "conditional"
+    },
+    {
+      "key": "syr:ar:marriage-registration",
+      "url": "https://counselo-legal.com/syr/ar/services/family-law/marriage-confirmation-and-registration",
+      "status": "planned"
+    },
+    {
+      "key": "syr:ar:inheritance-certificate",
+      "url": "https://counselo-legal.com/syr/ar/services/family-law/inheritance-certificate",
+      "status": "planned"
+    },
+    {
+      "key": "syr:ar:company-incorporation",
+      "url": "https://counselo-legal.com/syr/ar/services/business-law/company-formation-and-registration",
+      "status": "existing"
+    },
+    {
+      "key": "syr:en:inheritance-certificate",
+      "url": "https://counselo-legal.com/syr/services/family-law/inheritance-certificate",
+      "status": "planned"
+    },
+    {
+      "key": "syr:en:marriage-registration",
+      "url": "https://counselo-legal.com/syr/services/family-law/marriage-confirmation-and-registration",
+      "status": "planned"
+    },
+    {
+      "key": "sa:en:zakat-assessment-objection",
+      "url": "https://counselo-legal.com/sa/services/tax-zakat/zakat-assessment-objection",
+      "status": "planned"
+    },
+    {
+      "key": "uae:en:labour-complaint-filing",
+      "url": "https://counselo-legal.com/uae/services/employment-labour/labour-complaint-filing",
+      "status": "planned"
+    },
+    {
+      "key": "uae:en:company-incorporation",
+      "url": "https://counselo-legal.com/uae/services/corporate-commercial/company-incorporation",
+      "status": "planned"
+    },
+    {
+      "key": "syr:en:company-incorporation",
+      "url": "https://counselo-legal.com/syr/services/business-law/company-formation-and-registration",
+      "status": "existing"
+    }
+  ],
+  "supporting_routes": [
+    {
+      "url": "https://counselo-legal.com/sa/ar/services/employment-law/unpaid-wages-and-benefits",
+      "prohibited_primary_keys": [
+        "sa:ar:unpaid-wages"
+      ],
+      "reason": "Broader benefits overview must route salary-recovery enquiries to the delayed-or-unpaid-salary owner; repositioning remains an editorial action."
+    },
+    {
+      "url": "https://counselo-legal.com/sa/services/employment-law/unpaid-wages-and-benefits",
+      "prohibited_primary_keys": [
+        "sa:en:unpaid-wages"
+      ],
+      "reason": "Broader benefits overview must route salary-recovery enquiries to the delayed-or-unpaid-salary owner; repositioning remains an editorial action."
+    },
+    {
+      "url": "https://counselo-legal.com/sa/ar/services/contracts",
+      "prohibited_primary_keys": [
+        "sa:ar:contract-review"
+      ],
+      "reason": "Contracts hub supports discovery; the drafting-and-review page owns the review task."
+    },
+    {
+      "url": "https://counselo-legal.com/sa/services/contracts",
+      "prohibited_primary_keys": [
+        "sa:en:contract-review"
+      ],
+      "reason": "Contracts hub supports discovery; the drafting-and-review page owns the review task."
+    },
+    {
+      "url": "https://counselo-legal.com/sa/ar/services/enforcement",
+      "prohibited_primary_keys": [
+        "sa:ar:debt-collection"
+      ],
+      "reason": "Enforcement hub supports discovery; commercial-debt-recovery owns commercial collection."
+    },
+    {
+      "url": "https://counselo-legal.com/sa/services/enforcement",
+      "prohibited_primary_keys": [
+        "sa:en:debt-collection"
+      ],
+      "reason": "Enforcement hub supports discovery; commercial-debt-recovery owns commercial collection."
+    },
+    {
+      "url": "https://counselo-legal.com/syr/ar/services/employment-law/unpaid-wages-and-benefits",
+      "prohibited_primary_keys": [
+        "syr:ar:unpaid-wages"
+      ],
+      "reason": "Broader benefits overview must route salary-recovery enquiries to the delayed-or-unpaid-salary owner; repositioning remains an editorial action."
+    },
+    {
+      "url": "https://counselo-legal.com/syr/services/employment-law/unpaid-wages-and-benefits",
+      "prohibited_primary_keys": [
+        "syr:en:unpaid-wages"
+      ],
+      "reason": "Broader benefits overview must route salary-recovery enquiries to the delayed-or-unpaid-salary owner; repositioning remains an editorial action."
+    },
+    {
+      "url": "https://counselo-legal.com/syr/ar/services/contracts",
+      "prohibited_primary_keys": [
+        "syr:ar:contract-review"
+      ],
+      "reason": "Contracts hub supports discovery; the drafting-and-review page owns the review task."
+    },
+    {
+      "url": "https://counselo-legal.com/syr/services/contracts",
+      "prohibited_primary_keys": [
+        "syr:en:contract-review"
+      ],
+      "reason": "Contracts hub supports discovery; the drafting-and-review page owns the review task."
+    },
+    {
+      "url": "https://counselo-legal.com/syr/ar/services/enforcement",
+      "prohibited_primary_keys": [
+        "syr:ar:debt-collection"
+      ],
+      "reason": "Enforcement hub supports discovery; commercial-debt-recovery owns commercial collection."
+    },
+    {
+      "url": "https://counselo-legal.com/syr/services/enforcement",
+      "prohibited_primary_keys": [
+        "syr:en:debt-collection"
+      ],
+      "reason": "Enforcement hub supports discovery; commercial-debt-recovery owns commercial collection."
+    },
+    {
+      "url": "https://counselo-legal.com/syr/ar/services/companies-law/company-formation-and-restructuring",
+      "prohibited_primary_keys": [
+        "syr:ar:company-incorporation"
+      ],
+      "reason": "Initial formation belongs to business-law/company-formation-and-registration; retain distinct restructuring work here."
+    },
+    {
+      "url": "https://counselo-legal.com/syr/services/companies-law/company-formation-and-restructuring",
+      "prohibited_primary_keys": [
+        "syr:en:company-incorporation"
+      ],
+      "reason": "Initial formation belongs to business-law/company-formation-and-registration; retain distinct restructuring work here."
+    },
+    {
+      "url": "https://counselo-legal.com/syr/ar/services/tax-zakat/tax-audit-and-assessment-objection",
+      "prohibited_primary_keys": [
+        "syr:ar:tax-assessment-objection"
+      ],
+      "reason": "The Syria-specific assessment page is primary; generic tax page needs differentiation or consolidation review."
+    },
+    {
+      "url": "https://counselo-legal.com/syr/services/tax-zakat/tax-audit-and-assessment-objection",
+      "prohibited_primary_keys": [
+        "syr:en:tax-assessment-objection"
+      ],
+      "reason": "The Syria-specific assessment page is primary; generic tax page needs differentiation or consolidation review."
+    },
+    {
+      "url": "https://counselo-legal.com/syr/ar/services/intellectual-property/trademark-registration-and-disputes",
+      "prohibited_primary_keys": [
+        "syr:ar:trademark-registration"
+      ],
+      "reason": "Syria-specific registration page is primary; broader disputes page must support it."
+    },
+    {
+      "url": "https://counselo-legal.com/syr/services/intellectual-property/trademark-registration-and-disputes",
+      "prohibited_primary_keys": [
+        "syr:en:trademark-registration"
+      ],
+      "reason": "Syria-specific registration page is primary; broader disputes page must support it."
+    },
+    {
+      "url": "https://counselo-legal.com/syr/ar/services/family-law/marriage-registration-and-family-status-certificate-problem",
+      "prohibited_primary_keys": [
+        "syr:ar:marriage-registration"
+      ],
+      "reason": "Rejected or deficient records are a remediation task, not the reserved initial-registration task."
+    },
+    {
+      "url": "https://counselo-legal.com/syr/services/family-law/marriage-registration-and-family-status-certificate-problem",
+      "prohibited_primary_keys": [
+        "syr:en:marriage-registration"
+      ],
+      "reason": "Rejected or deficient records are a remediation task, not the reserved initial-registration task."
+    },
+    {
+      "url": "https://counselo-legal.com/uae/ar/services/corporate-commercial/company-formation-and-registration-problem",
+      "prohibited_primary_keys": [
+        "uae:ar:company-incorporation"
+      ],
+      "reason": "Deficient/refused registration is distinct from initial incorporation."
+    },
+    {
+      "url": "https://counselo-legal.com/uae/services/corporate-commercial/company-formation-and-registration-problem",
+      "prohibited_primary_keys": [
+        "uae:en:company-incorporation"
+      ],
+      "reason": "Deficient/refused registration is distinct from initial incorporation."
+    },
+    {
+      "url": "https://counselo-legal.com/uae/ar/services/employment-labour/wrongful-termination-and-labour-complaint",
+      "prohibited_primary_keys": [
+        "uae:ar:labour-complaint-filing"
+      ],
+      "reason": "Termination challenge is narrower than all employee complaints; complaint filing has a reserved owner."
+    },
+    {
+      "url": "https://counselo-legal.com/uae/services/employment-labour/wrongful-termination-and-labour-complaint",
+      "prohibited_primary_keys": [
+        "uae:en:labour-complaint-filing"
+      ],
+      "reason": "Termination challenge is narrower than all employee complaints; complaint filing has a reserved owner."
+    },
+    {
+      "url": "https://counselo-legal.com/sa/ar/services/tax-zakat/tax-audit-and-assessment-objection",
+      "prohibited_primary_keys": [
+        "sa:ar:zakat-assessment-objection"
+      ],
+      "reason": "Do not use a general tax objection page as the primary zakat-objection owner."
+    },
+    {
+      "url": "https://counselo-legal.com/sa/services/tax-zakat/tax-audit-and-assessment-objection",
+      "prohibited_primary_keys": [
+        "sa:en:zakat-assessment-objection"
+      ],
+      "reason": "Do not use a general tax objection page as the primary zakat-objection owner."
+    }
+  ]
+}

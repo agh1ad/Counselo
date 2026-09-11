@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-09-07",
+  "environment": "local working tree based on 0b90299",
+  "queries": 137,
+  "intent_owners": 133,
+  "supporting_route_restrictions": 26,
+  "ownership_route_and_search_evidence_gate": "pass",
+  "tests": { "passed": 133, "failed": 0 },
+  "typecheck": "pass",
+  "legacy_research_mapping": { "mapped": 435, "excluded": 85, "unresolved": 0 },
+  "report_browser": {
+    "initial_rows": 137,
+    "syria_filter_rows": 47,
+    "syria_arabic_filter_rows": 24,
+    "syria_arabic_planned_rows": 2,
+    "combined_inheritance_search_rows": 1,
+    "mobile_horizontal_table_scroll": "pass",
+    "javascript_page_errors": 0,
+    "desktop_and_mobile_visual_review": "pass"
+  },
+  "full_site_build": "not rerun; ownership preflight tested directly, no public page content or runtime changed",
+  "production_deployment": "not performed",
+  "localized_google_rank_or_ai_answer_measurement": "not performed",
+  "external_authority_census": "not performed; matrix records verification requirements"
+}

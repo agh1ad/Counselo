@@ -1,3 +1,4 @@
+import { distinctProblemFaqs, problemContentDescription } from "@/lib/problem-content-quality";
 import { SEARCH_COPY_UPDATED_AT, serviceSearchCopy } from "@/lib/search-intent-copy";
 import { Link, Redirect, useParams } from "wouter";
 import { ArrowLeft, CheckCircle2, ChevronRight, FileText, Mail, MessageSquareText, Phone, ShieldCheck } from "lucide-react";
@@ -10,7 +11,7 @@ import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosur
 import { ExperienceMethodologyNote } from "@/components/legal/ExperienceMethodologyNote";
 import { LEGAL_PROBLEM_REDIRECTS, getLegalProblemLanguageAlternates, getLegalProblemPage, getRelatedLegalProblemPages, legalProblemPath } from "@/lib/legal-problem-pages";
 import { getRegionalLegalSources, type LegalSource } from "@/lib/regional-legal-sources";
-import { buildArabicProblemDescription, buildArabicProblemTitle, buildEnglishProblemDescription, buildEnglishProblemTitle } from "@/lib/problem-snippet";
+import { buildArabicProblemTitle, buildEnglishProblemTitle } from "@/lib/problem-snippet";
 import { COUNSELO_ENTITY_IDS, COUNSELO_ORGANIZATION, getConsultationProduct, OMAR_AL_BAGHDADI } from "@workspace/api-zod/browser";
 import { COUNSELO_LEGAL_MATTERS_CLAIM } from "@/lib/public-claims";
 import { editorialFaqs } from "@/lib/search-intent-editorial";
@@ -40,19 +41,17 @@ export default function LegalProblemDetail() {
   }
 
   const parentTitle = serviceSearchCopy(id, region, isRTL ? "ar" : "en")?.label ?? (isRTL ? page.serviceTitleAr : page.serviceTitleEn);
-  // Do not reintroduce legacy service marketing or legal propositions into every matter page.
-  const parentOverview = isRTL
-    ? `ترتبط هذه المسألة بخدمة ${page.serviceTitleAr}. تعرض صفحة الخدمة نطاق المراجعة وطريقة بدء الاستشارة. ويُحدد المسار القانوني المناسب لهذه المسألة وفق الوقائع والمستندات والاختصاص، لا بمجرد تصنيفها ضمن مجال الخدمة.`
-    : `This matter falls within ${page.serviceTitleEn.toLowerCase()}. The service page explains the review scope and how to start a consultation. The appropriate legal route depends on the facts, documents and jurisdiction, not on the service category alone.`;
   const documents = isRTL ? page.documentsAr : page.documentsEn;
   const countryName = region === "uae" ? (isRTL ? "الإمارات" : "the UAE") : region === "syr" ? (isRTL ? "سوريا" : "Syria") : (isRTL ? "السعودية" : "Saudi Arabia");
   const canonical = `/services/${id}/${problem}`;
   const sourceGuidance = matterSourceGuidance(region, id, problem);
   const directAnswer = getMatterAnswer(region, id, problem);
-  const faqs = [
-    ...(directAnswer ? [{ q: directAnswer.question[isRTL ? "ar" : "en"], a: directAnswer.answer[isRTL ? "ar" : "en"] }] : []),
-    ...sourceGuidance.map(item => item[isRTL ? "ar" : "en"]), ...editorialFaqs(`${regionPrefix}${canonical}`, region, isRTL), ...(isRTL ? page.faqs.ar : page.faqs.en),
-  ].filter((faq, index, list) => list.findIndex(item => item.q === faq.q) === index);
+  const citedAnswers = sourceGuidance.map(item => ({ ...item[isRTL ? "ar" : "en"], sources: item.sources }));
+  const primaryAnswer = citedAnswers[0];
+  const faqs = distinctProblemFaqs([
+    ...citedAnswers, ...editorialFaqs(`${regionPrefix}${canonical}`, region, isRTL),
+    ...(isRTL ? page.faqs.ar : page.faqs.en),
+  ], [page.heroSummary[isRTL ? "ar" : "en"], ...(primaryAnswer ? [primaryAnswer.a] : [])]);
   const title = isRTL
     ? buildArabicProblemTitle({
         titleAr: page.titleAr,
@@ -64,17 +63,7 @@ export default function LegalProblemDetail() {
         serviceTitleEn: page.serviceTitleEn,
         countryNameEn: countryName,
       });
-  const description = directAnswer?.description[isRTL ? "ar" : "en"] ?? (isRTL
-    ? buildArabicProblemDescription({
-        titleAr: page.titleAr,
-        serviceTitleAr: page.serviceTitleAr,
-        countryNameAr: countryName,
-      })
-    : buildEnglishProblemDescription({
-        titleEn: page.titleEn,
-        serviceTitleEn: page.serviceTitleEn,
-        countryNameEn: countryName,
-      }));
+  const description = directAnswer?.description[isRTL ? "ar" : "en"] ?? problemContentDescription(page.heroSummary[isRTL ? "ar" : "en"], countryName, isRTL);
   const keywords = [
     isRTL ? page.titleAr : page.titleEn,
     isRTL ? `استشارة ${page.serviceTitleAr} في ${countryName}` : `${page.serviceTitleEn} consultation in ${countryName.replace(/^the /, "")}`,
@@ -231,15 +220,20 @@ export default function LegalProblemDetail() {
       <div className="premium-content-shell py-12 lg:py-16">
         <div className="grid gap-12 lg:grid-cols-12 xl:gap-16">
           <div className="space-y-12 lg:col-span-8 xl:col-span-9">
-        <details id="problem-context" className="group service-answer-panel border border-[#0d4a31]/14 border-s-4 border-s-[#b4924a] bg-[#eef4f0] px-6 py-2 lg:px-8">
-          <summary className="cursor-pointer list-none py-5 font-serif text-2xl marker:content-none">
-            <span className="flex items-center justify-between gap-4"><span>{isRTL ? `كيف ترتبط هذه المسألة بخدمة ${parentTitle}؟` : `How this fits within ${parentTitle}`}</span><span aria-hidden="true" className="font-sans text-xl text-primary transition-transform group-open:rotate-45">+</span></span>
-          </summary>
-          <div className="pb-7">
-            <p className="text-lg leading-8 max-w-4xl">{parentOverview}</p>
-            <p className="mt-5 max-w-4xl leading-7 text-muted-foreground">{isRTL ? page.overview.ar : page.overview.en}</p>
-          </div>
-        </details>
+        {primaryAnswer && (
+          <section id="problem-direct-answer" className="scroll-mt-36 border-s-4 border-[#b4924a] bg-[#eef4f0] p-6 lg:p-8" aria-labelledby="problem-answer-heading">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">{isRTL ? "إجابة قانونية ومصادرها" : "Legal answer and supporting sources"}</p>
+            <h2 id="problem-answer-heading" className="font-serif text-2xl lg:text-3xl">{primaryAnswer.q}</h2>
+            <p className="mt-4 leading-8 text-muted-foreground">{primaryAnswer.a}</p>
+            <ul className="mt-5 space-y-2 text-sm">{primaryAnswer.sources.map(source => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">{isRTL ? source.ar : source.en}</a></li>)}</ul>
+          </section>
+        )}
+        <section id="problem-context" className="service-answer-panel scroll-mt-36 border border-[#0d4a31]/14 bg-white p-6 lg:p-8" aria-labelledby="problem-context-heading">
+          <h2 id="problem-context-heading" className="font-serif text-2xl lg:text-3xl">{isRTL ? `الإطار القانوني في ${countryName}` : `Legal context in ${countryName}`}</h2>
+          <p className="mt-5 max-w-4xl leading-8 text-muted-foreground">{isRTL ? page.overview.ar : page.overview.en}</p>
+          {!primaryAnswer && <p className="mt-4 border-s-2 border-[#b4924a] ps-4 text-sm leading-7 text-muted-foreground">{isRTL ? "تعرض هذه الصفحة خطوات التحضير والإطار العام للمراجعة. المصادر المدرجة مراجع للمجال القانوني؛ ولا تثبت وحدها استحقاقاً أو ميعاداً أو إجراءً لهذه المسألة بعينها." : "This page explains preparation and the broader review framework. The listed sources are references for the practice area; they do not by themselves establish an entitlement, deadline or procedure for this particular issue."}</p>}
+          <Link href={`${regionPrefix}/services/${id}`} className="mt-5 inline-block font-semibold text-primary underline underline-offset-4">{isRTL ? `نطاق خدمة ${parentTitle} ومراجعها` : `Explore ${parentTitle}: service scope and references`}</Link>
+        </section>
 
         <section id="service-context" className="scroll-mt-36" aria-labelledby="problem-at-a-glance-heading">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary">{isRTL ? "ابدأ من هنا" : "Start here"}</p>
@@ -370,6 +364,7 @@ export default function LegalProblemDetail() {
               <details key={faq.q} className="border border-border bg-white p-5">
                 <summary className="cursor-pointer font-semibold leading-7">{faq.q}</summary>
                 <p className="mt-3 leading-7 text-muted-foreground">{faq.a}</p>
+                {faq.sources && <ul className="mt-4 space-y-2 text-sm">{faq.sources.map(source => <li key={source.href}><a href={source.href} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">{isRTL ? source.ar : source.en}</a></li>)}</ul>}
               </details>
             ))}
           </div>

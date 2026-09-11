@@ -1,3 +1,6 @@
+import { serviceFrameworkCopy } from "@/lib/service-framework-copy";
+import { serviceLegalOverview } from "@/lib/service-legal-overviews";
+import { serviceFrameworkSources } from "@/lib/service-framework-sources";
 import { SEARCH_COPY_UPDATED_AT, searchIntentMeta, serviceSearchCopy } from "@/lib/search-intent-copy";
 import * as m from "framer-motion/m";
 import { useParams, Link } from "wouter";
@@ -159,8 +162,15 @@ export default function ServiceDetail() {
       ];
   const uaeService = isUae ? UAE_SERVICES.find(service => service.slug === id) : undefined;
   const regionalFaqs = uaeService ? buildUaeServicePageContent(uaeService).faqs[isRTL ? "ar" : "en"] : universalFaqs;
-  const displayFaqs = [...getServiceIntentFaqs(region, id, isRTL, data.title, documents, displayCovers), ...editorialFaqs(`${regionPrefix}/services/${id}`, region, isRTL), ...regionalFaqs];
-  const openingGuidance = sourceBackedSearchGuidance(region, id)[0];
+  const frameworkSources = serviceFrameworkSources(region, id);
+  const frameworkCopy = serviceFrameworkCopy(region, id, isRTL ? "ar" : "en");
+  const legalOverview = serviceLegalOverview(region, id, isRTL ? "ar" : "en");
+  const substantiveAnswers = [...sourceBackedSearchGuidance(region, id)]
+    .sort((a, b) => Number(b.id.includes("-hub-")) - Number(a.id.includes("-hub-")))
+    .slice(0, 3);
+  const substantiveQuestions = new Set(substantiveAnswers.map(item => item[isRTL ? "ar" : "en"].q));
+  const displayFaqs = [...getServiceIntentFaqs(region, id, isRTL, data.title, documents, displayCovers), ...editorialFaqs(`${regionPrefix}/services/${id}`, region, isRTL), ...regionalFaqs].filter(faq => !substantiveQuestions.has(faq.q));
+  const openingGuidance = substantiveAnswers[0];
   const canonicalPath = `/services/${id}`;
   const langSeg = isRTL ? "/ar" : "";
   const regionSeg = `/${region}`;
@@ -168,6 +178,7 @@ export default function ServiceDetail() {
   const regionBase = `https://counselo-legal.com${regionSeg}${langSeg}`;
   const inLanguage = isRTL ? (isSyr ? "ar-SY" : isUae ? "ar-AE" : "ar-SA") : (isSyr ? "en-SY" : isUae ? "en-AE" : "en-SA");
   const legalSources = [...new Map([
+    ...frameworkSources,
     ...getRegionalLegalSources(region, id),
     ...sourceBackedSearchGuidance(region, id).flatMap(item => item.sources),
   ].map(source => [source.href, source])).values()];
@@ -323,6 +334,34 @@ export default function ServiceDetail() {
                 </div>
               </section>
 
+              <section id="service-legal-framework" className="service-answer-panel mb-12 border border-[#0d4a31]/14 border-s-4 border-s-[#b4924a] bg-[#eef4f0] p-6 lg:p-8" aria-labelledby="service-framework-heading">
+                <h2 id="service-framework-heading" className="mb-5 font-serif text-3xl">{isRTL ? `عن ${data.title} في ${countryName}` : `About ${data.title} in ${countryName}`}</h2>
+                <p className="text-lg leading-8 text-muted-foreground">{legalOverview}</p>
+                <div className="mt-6 border-t border-[#0d4a31]/15 pt-6" data-service-framework>
+                  <h3 className="mb-3 font-serif text-2xl">{isRTL ? "الأطر القانونية والمسار المختص" : "Relevant frameworks and legal route"}</h3>
+                  <p className="leading-8 text-muted-foreground">{frameworkCopy}</p>
+                </div>
+                {frameworkSources.length > 0 && (
+                  <ul className="mt-4 space-y-2 text-sm">
+                    {frameworkSources.map(source => <li key={source.href}><a className="text-primary underline underline-offset-4" href={source.href} target="_blank" rel="noopener noreferrer">{isRTL ? source.ar : source.en}</a></li>)}
+                  </ul>
+                )}
+                <h3 className="mb-5 mt-8 font-serif text-2xl">{isRTL ? "الإطار القانوني وأسئلة تغيّر المسار" : "Legal framework and questions that change the route"}</h3>
+                {substantiveAnswers.map((item, index) => {
+                  const answer = item[isRTL ? "ar" : "en"];
+                  const content = <>
+                    <p className="mt-3 leading-8 text-muted-foreground">{answer.a}</p>
+                    <ul className="mb-5 mt-4 space-y-2 text-sm" aria-label={isRTL ? "مصادر هذه الإجابة" : "Sources for this answer"}>
+                      {item.sources.map(source => <li key={source.href}><a className="inline-flex items-start gap-2 text-primary underline underline-offset-4" href={source.href} target="_blank" rel="noopener noreferrer"><ExternalLink className="mt-1 h-4 w-4 shrink-0" aria-hidden="true"/><span>{isRTL ? source.ar : source.en}</span></a></li>)}
+                    </ul>
+                  </>;
+                  return index === 0
+                    ? <article key={item.id} data-source-answer={item.id}><h4 className="text-lg font-semibold">{answer.q}</h4>{content}</article>
+                    : <details key={item.id} data-source-answer={item.id} className="border-t border-[#0d4a31]/15 py-4"><summary className="cursor-pointer font-semibold">{answer.q}</summary>{content}</details>;
+                })}
+                <p className="mt-4 text-sm leading-7 text-muted-foreground">{isRTL ? "تدعم المصادر الإجابات المرتبطة بها؛ وقد تكون نصاً تشريعياً أو إرشاداً من جهة مختصة أو تقريراً رسمياً، وليست جميعها نصوصاً تشريعية موحدة. يجب التحقق من التعديلات والنص النافذ وقت الواقعة. للاطلاع على الوقائع والمستندات والخطوات بمزيد من التفصيل، اختر المسألة المناسبة أدناه." : "Sources support the answers beside them and may be legislation, authority guidance or official reporting; they are not all consolidated legal texts. Check amendments and the text applicable when the events occurred. Choose a problem below for more detailed facts, documents and next steps."}</p>
+              </section>
+
               <section id="service-legal-checks" className="mb-12 scroll-mt-36 border border-[#b4924a]/45 bg-[#fbf8ef] p-6 lg:p-8" aria-labelledby="service-legal-checks-heading">
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary">{isRTL ? "قبل الاعتماد على أي إجابة" : "Before relying on an answer"}</p>
                 <h2 id="service-legal-checks-heading" className="mb-4 font-serif text-3xl lg:text-4xl">{isRTL ? "ما الذي يجب التحقق منه قانونياً؟" : "What must be legally verified?"}</h2>
@@ -356,10 +395,6 @@ export default function ServiceDetail() {
                 </details>
               )}
 
-              <details className="group service-answer-panel mb-12 border border-[#0d4a31]/14 border-s-4 border-s-[#b4924a] bg-[#eef4f0] px-6 py-2 lg:px-8">
-                <summary className="cursor-pointer list-none py-5 font-serif text-2xl marker:content-none"><span className="flex items-center justify-between gap-4"><span>{isRTL ? `عن ${data.title} في ${countryName}` : `About ${data.title} in ${countryName}`}</span><span aria-hidden="true" className="font-sans text-xl text-primary transition-transform group-open:rotate-45">+</span></span></summary>
-                <p className="pb-7 text-lg leading-8 text-muted-foreground">{serviceSummary} {isRTL ? "افتح إحدى المشكلات الشائعة أدناه للحصول على صفحة أكثر تحديداً للوقائع والأدلة والمخرج." : "Open a common problem below for a more specific page covering facts, evidence and the expected output."}</p>
-              </details>
 
               <h2 id="service-covers-heading" className="scroll-mt-36 text-3xl font-serif font-bold text-foreground mb-7">{sd.coversHeading}</h2>
               <div className="service-content-band mb-16 grid bg-[#eef4f0] p-2 sm:grid-cols-2 speakable-covers">

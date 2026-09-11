@@ -1,3 +1,4 @@
+import { serviceFrameworkCopy } from "./service-framework-copy";
 import type { Region, Lang } from "../contexts/RegionContext.js";
 import { ADDITIONAL_SEARCH_ISSUES, SERVICE_SEARCH_CONTENT } from "./service-search-content.js";
 import { UAE_SERVICES } from "../data/uae-legal-services.js";
@@ -1127,8 +1128,9 @@ function uaePages(): LegalProblemPage[] {
     );
     return issueList.en.map((originalTitleEn, index) => {
       const isDubaiRental = originalTitleEn === "Dubai tenancy and RERA rental dispute";
-      const titleEn = isDubaiRental ? "Dubai tenancy and Rental Disputes Center claim" : originalTitleEn;
-      const titleAr = isDubaiRental ? "منازعة إيجار دبي أمام مركز فض المنازعات الإيجارية" : issueList.ar[index] ?? titleEn;
+      const isAssetAttachment = originalTitleEn === "Service suspension and asset-freezing request";
+      const titleEn = isDubaiRental ? "Dubai tenancy and Rental Disputes Center claim" : isAssetAttachment ? "Asset-freezing and precautionary-attachment request" : originalTitleEn;
+      const titleAr = isDubaiRental ? "منازعة إيجار دبي أمام مركز فض المنازعات الإيجارية" : isAssetAttachment ? "طلب تجميد الأصول والحجز التحفظي" : issueList.ar[index] ?? titleEn;
       const details = buildDetailedContent({
         region: "uae",
         serviceSlug: service.slug,
@@ -1182,10 +1184,10 @@ export const LEGAL_PROBLEM_PAGES: readonly LegalProblemPage[] = [
     ...page,
     editorialTopic: getMatterEditorial(page.titleEn)?.id,
     intentBriefTitle: page.titleEn,
-    contentUpdatedAt: Object.values(SYRIA_SEARCH_ISSUE_TITLES).some(title => title.en === page.titleEn) ? "2026-09-07" : "2026-09-06",
+    contentUpdatedAt: page.region === "uae" && page.slug === "service-suspension-and-asset-freezing-request" ? "2026-09-11" : Object.values(SYRIA_SEARCH_ISSUE_TITLES).some(title => title.en === page.titleEn) ? "2026-09-07" : "2026-09-06",
     overview: {
-      en: `${brief.answer.en} For ${countryName(page.region).en}, identify the issuing authority, any foreign element and any date stated in a notice so the assessment addresses the actual procedure.`,
-      ar: `${brief.answer.ar} وفي الملف المتعلق بـ${countryName(page.region).ar} حدّد الجهة المصدرة وأي عنصر أجنبي والموعد المذكور في الإخطار ليتناول التقييم الإجراء الفعلي.`,
+      en: `${countryName(page.region).en}: ${serviceFrameworkCopy(page.region, page.parentServiceSlug, "en")} ${brief.question.en}`,
+      ar: `${countryName(page.region).ar}: ${serviceFrameworkCopy(page.region, page.parentServiceSlug, "ar")} ${brief.question.ar}`,
     },
     keyQuestions: {
       en: [brief.question.en, ...(getMatterEditorial(page.titleEn)?.questions.en ?? []), "What outcome do you need, and which facts are disputed?", "What is missing from the evidence listed below?", "Which countries, parties, assets or authorities connect to this matter?", "Has any notice, agreement or decision set a date for action?"],
@@ -1197,9 +1199,14 @@ export const LEGAL_PROBLEM_PAGES: readonly LegalProblemPage[] = [
     },
   };
   const editorial = getMatterEditorial(page.titleEn);
-  if (!editorial) return page;
+  const frameworkOverview = {
+    en: `${countryName(page.region).en}: ${serviceFrameworkCopy(page.region, page.parentServiceSlug, "en")} ${page.keyQuestions.en[0]}`,
+    ar: `${countryName(page.region).ar}: ${serviceFrameworkCopy(page.region, page.parentServiceSlug, "ar")} ${page.keyQuestions.ar[0]}`,
+  };
+  if (!editorial) return { ...page, overview: frameworkOverview };
   return {
     ...page,
+    overview: frameworkOverview,
     editorialTopic: editorial.id,
     contentUpdatedAt: "2026-09-06",
     documentsEn: [editorial.evidenceEn],

@@ -67,7 +67,8 @@ function fileToBase64(file: File): Promise<string> {
 export default function Contact() {
   const { toast } = useToast();
   const { t, isRTL } = useLanguage();
-  const { region, regionPrefix } = useRegion();
+  const { region } = useRegion();
+  const regionPrefix = `/${region}${isRTL ? "/ar" : ""}`;
   const c = t.contact;
   const f = c.form;
   const serviceOptions = useMemo(
@@ -217,11 +218,11 @@ export default function Contact() {
           ? (isRTL ? "احجز استشارة قانونية في الإمارات | كاونسلو" : "Book a UAE Legal Consultation | CounselO")
           : region === "syr"
           ? (isRTL
-            ? "احجز استشارة قانونية أونلاين في سوريا | رد مستهدف خلال 24 ساعة | كاونسلو"
-            : "Book Online Legal Consultation Syria | Target Reply Within 24 Hours | CounselO")
+            ? "استشارة قانونية أونلاين في سوريا | كاونسلو"
+            : "Online Legal Consultation Syria | CounselO")
           : (isRTL
-            ? "احجز استشارة قانونية أونلاين في السعودية | رد مستهدف خلال 24 ساعة | كاونسلو"
-            : "Book Online Legal Consultation Saudi Arabia | Target Reply Within 24 Hours | CounselO")}
+            ? "استشارة قانونية أونلاين في السعودية | كاونسلو"
+            : "Online Legal Consultation Saudi Arabia | CounselO")}
         description={isUae
           ? (isRTL
             ? "تواصل مع كاونسلو الإمارات لطلب استشارة قانونية أونلاين في المسائل الاتحادية والمحلية ومسائل البرّ الرئيسي والمناطق الحرة، بالعربية أو الإنجليزية."
@@ -249,7 +250,7 @@ export default function Contact() {
           {
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            "dateModified": "2026-09-07",
+            "dateModified": "2026-09-11",
             "name": isRTL ? "تواصل مع كاونسلو" : "Contact CounselO",
             "description": isUae
               ? (isRTL

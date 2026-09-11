@@ -24,13 +24,13 @@ test("vision copy is aspirational without unsupported superlatives", () => {
 });
 
 test("global entry pages keep qualified positioning and accessible heading spacing", () => {
-  const english = readPage("region-picker.tsx");
-  const arabic = readPage("ar-region-picker.tsx");
+  const copy = readComponent("home/homepage-content.ts");
+  const template = readComponent("home/global-homepage.tsx");
   const home = readPage("home.tsx");
-  assert.doesNotMatch(english, /fast, professional and trusted/i);
-  assert.doesNotMatch(arabic, /مستشار قانوني معتمد/);
-  assert.match(english, /Online Legal\{" "\}/);
-  assert.match(arabic, /استشارة قانونية\{" "\}/);
+  assert.doesNotMatch(copy, /fast, professional and trusted|مستشار قانوني معتمد/i);
+  assert.match(copy, /subject to scope, urgency/);
+  assert.match(copy, /بحسب نطاق المسألة/);
+  assert.match(template, /<h1 id="home-title">\s*\{c\.h1\}\s*<\/h1>/);
   assert.match(home, /h\.hero\.h1a\}\{" "\}/);
 });
 

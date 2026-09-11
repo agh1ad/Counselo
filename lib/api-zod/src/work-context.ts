@@ -15,6 +15,19 @@ export type WorkContext = {
 
 /** Relationships selected from each published case account, not automatic topic guesses. */
 export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
+  "kyf-rfdt-almhkmh-qdyh-malyh-dkhmh-rghm-thbwt-althwyl": {
+    region: "sa",
+    relatedServiceSlugs: ["employment-law", "contracts"],
+    relatedBlogSlugs: ["hl-ykfy-dkhwl-almal-ala-alhsab-lathbat-almswwlyh"],
+    relatedWorkSlugs: [],
+    titleEn: "Saudi Financial Claim Dismissed Despite Bank Transfers",
+    titleAr: "كيف رفضت المحكمة قضية مالية رغم ثبوت التحويل",
+    editorialUpdatedAt: "2026-09-11",
+    evidenceNote: {
+      en: "The published professional account reports dismissal of the claim after review of operational records and a financial release. The stated outcome concerns that particular dispute and is not independent verification of a court record or a general rule about bank transfers.",
+      ar: "يفيد العرض المهني المنشور برفض المطالبة بعد مراجعة المستندات التشغيلية والمخالصة المالية. وتخص النتيجة المذكورة ذلك النزاع بعينه، ولا تمثل تحققاً مستقلاً من سجل قضائي أو قاعدة عامة بشأن التحويلات البنكية.",
+    },
+  },
   "kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary": {
     "evidenceNote": {
       "en": "The attached CounselO case study describes a judicial settlement providing for the return of SAR 300,000, together with the claimant giving up an interest in another company. It explains the reported settlement terms; the attachment does not include a payment receipt or the court-issued settlement record.",

@@ -19,6 +19,14 @@ const CONCISE_ARABIC_SERVICE_CONTEXT: Readonly<Record<string, string>> = {
   "القانون الجزائي والتحقيقات والإجراءات": "القضايا الجزائية",
   "الدخول والإقامة والهجرة": "الإقامة والهجرة",
 };
+// These topics already name the legal subject; repeating the full service label
+// makes the snippet harder to read without adding context.
+const SELF_DESCRIBING_ARABIC_TOPICS = new Set([
+  "مشكلة تأسيس الشركة وتسجيلها",
+  "مشكلة منع السفر أو التوقيف",
+  "مشكلة إلغاء الهوية الإماراتية والإقامة",
+  "مشكلة التسجيل والإقرار بضريبة الشركات",
+]);
 
 // Preserve the complete legal subject. Search engines choose display length;
 // cutting the middle of a phrase can change its meaning and create duplicates.
@@ -26,7 +34,7 @@ export function buildArabicProblemTitle({titleAr, serviceTitleAr, countryNameAr}
   const topic = arabicTopic(titleAr, countryNameAr);
   if (countryNameAr === "سوريا" && /أجنبية (?:لنشاط سوري|لمعاملة سورية)$/.test(topic)) return `${topic} | كاونسلو`;
   const needsContext = /^(?:عدم وضوح|الحاجة إلى|مشكلة|وجود|نزاع بشأن)/.test(topic)
-    && !SELF_IDENTIFYING_ARABIC_SUBJECT.test(topic);
+    && !SELF_IDENTIFYING_ARABIC_SUBJECT.test(topic) && !SELF_DESCRIBING_ARABIC_TOPICS.has(topic);
   const context = needsContext ? ` | ${CONCISE_ARABIC_SERVICE_CONTEXT[serviceTitleAr] ?? serviceTitleAr}` : "";
   return `${topic}${context} في ${countryNameAr} | كاونسلو`;
 }

@@ -40,8 +40,8 @@ test("the experience-volume claim uses the neutral centralized wording", () => {
     ar: "أكثر من 20,000 مسألة واستشارة قانونية",
   });
   const sourceFiles = [
-    resolve(process.cwd(), "src/pages/region-picker.tsx"),
-    resolve(process.cwd(), "src/pages/ar-region-picker.tsx"),
+    resolve(process.cwd(), "src/components/home/global-homepage.tsx"),
+    resolve(process.cwd(), "src/components/home/homepage-content.ts"),
     resolve(process.cwd(), "src/pages/home.tsx"),
     resolve(process.cwd(), "src/pages/services.tsx"),
     resolve(process.cwd(), "src/pages/blog-post.tsx"),
@@ -56,8 +56,7 @@ test("the experience-volume claim uses the neutral centralized wording", () => {
 
 test("experience methodology is visible on every claim-bearing page family and linked site-wide", () => {
   const directSurfaces = [
-    "src/pages/region-picker.tsx",
-    "src/pages/ar-region-picker.tsx",
+    "src/components/home/global-homepage.tsx",
     "src/pages/home.tsx",
     "src/pages/about.tsx",
     "src/pages/legal-problem-detail.tsx",
@@ -85,8 +84,8 @@ test("the professional-experience claim is derived from the approved start year"
   assert.deepEqual(COUNSELO_LEGAL_PRACTICE_CLAIM, getCounseloLegalPracticeClaim());
 
   const sourceFiles = [
-    resolve(process.cwd(), "src/pages/region-picker.tsx"),
-    resolve(process.cwd(), "src/pages/ar-region-picker.tsx"),
+    resolve(process.cwd(), "src/components/home/global-homepage.tsx"),
+    resolve(process.cwd(), "src/components/home/homepage-content.ts"),
     resolve(process.cwd(), "src/pages/about.tsx"),
     resolve(process.cwd(), "src/pages/vision.tsx"),
     resolve(process.cwd(), "src/pages/home.tsx"),
@@ -104,8 +103,8 @@ test("the professional-experience claim is derived from the approved start year"
 
 test("known high-risk claim contradictions are absent from the public shell copy", () => {
   const files = [
-    resolve(process.cwd(), "src/pages/region-picker.tsx"),
-    resolve(process.cwd(), "src/pages/ar-region-picker.tsx"),
+    resolve(process.cwd(), "src/components/home/global-homepage.tsx"),
+    resolve(process.cwd(), "src/components/home/homepage-content.ts"),
     resolve(process.cwd(), "src/translations/en.ts"),
   ];
   const copy = files.map((file) => readFileSync(file, "utf8")).join("\n");
@@ -151,8 +150,8 @@ test("confirmed Saudi legal inaccuracies are absent from every public source fil
 
 test("professional-role labels stay aligned across shared identity and provenance surfaces", () => {
   const files = [
-    resolve(process.cwd(), "src/pages/region-picker.tsx"),
-    resolve(process.cwd(), "src/pages/ar-region-picker.tsx"),
+    resolve(process.cwd(), "src/components/home/global-homepage.tsx"),
+    resolve(process.cwd(), "src/components/home/homepage-content.ts"),
     resolve(process.cwd(), "src/pages/about.tsx"),
     resolve(process.cwd(), "src/lib/article-provenance.test.ts"),
     resolve(process.cwd(), "../../lib/api-zod/src/article-provenance.ts"),
@@ -163,14 +162,14 @@ test("professional-role labels stay aligned across shared identity and provenanc
   assert.doesNotMatch(copy, /Licensed Legal Counsel · UAE · Saudi Arabia · Syria/);
   assert.doesNotMatch(copy, /licensed lawyers across three jurisdictions/i);
   assert.doesNotMatch(copy, /Legal Consultant Omar Al-Baghdadi/);
-  assert.match(copy, /Lawyer and Legal Counsel Omar Al-Baghdadi/);
+  assert.match(copy, /lawyer and legal counsel Omar Al-Baghdadi/i);
 });
 
 test("unverified testimonial outcomes and unsupported personal licence numbers stay out of public source copy", () => {
   const sourceFiles = [
     resolve(process.cwd(), "src/pages/home.tsx"),
-    resolve(process.cwd(), "src/pages/region-picker.tsx"),
-    resolve(process.cwd(), "src/pages/ar-region-picker.tsx"),
+    resolve(process.cwd(), "src/components/home/global-homepage.tsx"),
+    resolve(process.cwd(), "src/components/home/homepage-content.ts"),
     resolve(process.cwd(), "src/translations/en.ts"),
     resolve(process.cwd(), "src/translations/ar.ts"),
     resolve(process.cwd(), "src/translations/en-syr.ts"),
@@ -201,4 +200,14 @@ test("EEAT boundary qualifies legacy outcome, timing and online-service claims",
   assert.match(qualified, /initial online consultation/);
   assert.match(qualified, /target 24-hour response window/);
   assert.match(qualified, /initial consultation may begin without an office visit/);
+});
+
+test("About missions avoid immediate advice, continuous availability and bundled representation claims", () => {
+  for (const locale of ["en", "ar", "en-syr", "ar-syr", "en-uae", "ar-uae"]) {
+    const source = readFileSync(resolve(process.cwd(), `src/translations/${locale}.ts`), "utf8");
+    const about = source.slice(source.indexOf("  aboutPage: {"));
+    const mission = about.slice(about.indexOf("    mission: {"), about.indexOf("    founder: {"));
+    assert.doesNotMatch(mission, /instantly|24\/7|expert representation|على مدار الساعة|تمثيلاً متخصصاً/, locale);
+    assert.match(mission, /separate agreement|separately agreed|identified separately|اتفاق مستقل|اتفاقاً مستقلاً|بشكل مستقل|بصورة منفصلة/, locale);
+  }
 });

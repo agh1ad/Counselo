@@ -223,7 +223,7 @@ for (const page of CORE_PAGES) {
   if (page.path === "/syr") {
     entries.push("\n  <!-- ===== SYR CORE PAGES ===== -->");
   }
-  entries.push(urlEntry(page.path, page.changefreq, page.priority, page.path.endsWith("/urgent-legal-assistance") ? "2026-09-11" : /(?:privacy-policy|terms-of-service|contact)$/.test(page.path) ? "2026-09-07" : /(?:vision|services)$/.test(page.path) || /^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?)$/.test(page.path) ? SEARCH_COPY_UPDATED_AT : STATIC_CONTENT_LASTMOD));
+  entries.push(urlEntry(page.path, page.changefreq, page.priority, /(?:urgent-legal-assistance|about|contact)$/.test(page.path) ? "2026-09-11" : /(?:privacy-policy|terms-of-service)$/.test(page.path) ? "2026-09-07" : /(?:vision|services)$/.test(page.path) || /^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?)$/.test(page.path) ? SEARCH_COPY_UPDATED_AT : STATIC_CONTENT_LASTMOD));
 }
 
 entries.push("\n  <!-- ===== SA SERVICE PAGES ===== -->");
