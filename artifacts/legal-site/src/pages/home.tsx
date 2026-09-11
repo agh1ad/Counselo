@@ -1,5 +1,4 @@
 import { regionalServiceDirectoryEntity, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE } from "@workspace/api-zod/browser";
-import { searchIntentMeta } from "@/lib/search-intent-copy";
 import { PracticeDirectory } from "@/components/home/practice-directory";
 import { RegionalHomeFaq } from "@/components/home/regional-home-faq";
 import { COUNSELO_EXPERIENCE_SCOPE_NOTE, getCounseloYearsOfPractice } from "@/lib/public-claims";

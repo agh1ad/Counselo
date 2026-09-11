@@ -40,7 +40,7 @@ test("SSR and the lazy browser provider expose identical public copy for all six
       const browser = await renderPublicCopy(BrowserLanguageProvider, path);
       assert.deepEqual(server, browser, `${path}: every public translation must match before hydration`);
       assert.equal(server.t.home.hero.h1a, locale ? "استشارات قانونية أونلاين" : "Online legal advice");
-      assert.match(server.t.contact.hero.heading, locale ? /^اطلب استشارة قانونية/ : /^Request a legal consultation/);
+      assert.match(server.t.contact.hero.heading, locale ? /^اطلب استشارة قانونية/ : /^Request an Online Legal Consultation in /);
       assert.equal(server.isRTL, Boolean(locale));
     }
   }

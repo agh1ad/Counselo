@@ -47,7 +47,7 @@ export default function LegalProblemDetail() {
   const sourceGuidance = matterSourceGuidance(region, id, problem);
   const directAnswer = getMatterAnswer(region, id, problem);
   const citedAnswers = sourceGuidance.map(item => ({ ...item[isRTL ? "ar" : "en"], sources: item.sources }));
-  const primaryAnswer = citedAnswers[0];
+  const primaryAnswer = citedAnswers.find(answer => answer.q !== directAnswer?.question[isRTL ? "ar" : "en"] && answer.a !== directAnswer?.answer[isRTL ? "ar" : "en"]);
   const faqs = distinctProblemFaqs([
     ...citedAnswers, ...editorialFaqs(`${regionPrefix}${canonical}`, region, isRTL),
     ...(isRTL ? page.faqs.ar : page.faqs.en),

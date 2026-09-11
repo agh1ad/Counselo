@@ -46,6 +46,8 @@ export function getMatterAnswer(region: Region, serviceSlug: string, problemSlug
   const brief = getMatterIntentBrief(page.titleEn);
   const additions = MATTER_ANSWER_ADDITIONS.filter(item => item.region === region && item.service === serviceSlug && item.problems.includes(problemSlug));
   const guidance = matterSourceGuidance(region, serviceSlug, problemSlug);
+  // General execution guidance does not verify the procedure for visitation orders.
+  const visitationProcedureUnverified = region === "syr" && serviceSlug === "family-law" && problemSlug === "visitation-order-enforcement";
   const sourceAnswer = additions[0] ?? guidance[0];
   // Keep the source's question and answer together: its opening "No" or a
   // dependent phrase must never be made to answer a different intake question.
@@ -67,10 +69,10 @@ export function getMatterAnswer(region: Region, serviceSlug: string, problemSlug
       ar: description(page.titleAr, country.ar, briefAnswer.ar, "ar"),
     },
     sources: [...new Map(sources.map(source => [source.href, source])).values()],
-    evidenceStatus: sourceAnswer ? "source-supported" : "source-routing-only",
+    evidenceStatus: sourceAnswer && !visitationProcedureUnverified ? "source-supported" : "source-routing-only",
     updatedAt: "2026-09-07",
-    evidenceIds: sourceAnswer ? [sourceAnswer.id] : [],
-    sourceLimitation: additions[0]?.sourceLimitation ?? (sourceAnswer ? undefined : region === "syr" && serviceSlug === "family-law" && problemSlug === "visitation-order-enforcement"
+    evidenceIds: sourceAnswer && !visitationProcedureUnverified ? [sourceAnswer.id] : [],
+    sourceLimitation: additions[0]?.sourceLimitation ?? (sourceAnswer && !visitationProcedureUnverified ? undefined : visitationProcedureUnverified
       ? "No current primary text was found for ordinary Syrian visitation-order enforcement: the competent execution route, prerequisites, permitted coercive measures and any applicable filing period remain unverified. Historical maintenance/mahr detention rules and2025 northern-court integration circulars do not establish visitation procedure. The page retains order-specific evidence preparation and does not assert a remedy or numeric deadline."
       : `No topic-specific substantive source verified for ${region}/${serviceSlug}/${problemSlug}; the answer gives issue preparation only.`),
   };

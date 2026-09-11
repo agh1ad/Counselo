@@ -347,7 +347,7 @@ export default function ServiceDetail() {
                   </ul>
                 )}
                 <h3 className="mb-5 mt-8 font-serif text-2xl">{isRTL ? "الإطار القانوني وأسئلة تغيّر المسار" : "Legal framework and questions that change the route"}</h3>
-                {substantiveAnswers.map((item, index) => {
+                {substantiveAnswers.slice(1).map((item, index) => {
                   const answer = item[isRTL ? "ar" : "en"];
                   const content = <>
                     <p className="mt-3 leading-8 text-muted-foreground">{answer.a}</p>

@@ -23,7 +23,6 @@ const CONCISE_ARABIC_SERVICE_CONTEXT: Readonly<Record<string, string>> = {
 // makes the snippet harder to read without adding context.
 const SELF_DESCRIBING_ARABIC_TOPICS = new Set([
   "مشكلة تأسيس الشركة وتسجيلها",
-  "مشكلة منع السفر أو التوقيف",
   "مشكلة إلغاء الهوية الإماراتية والإقامة",
   "مشكلة التسجيل والإقرار بضريبة الشركات",
 ]);
