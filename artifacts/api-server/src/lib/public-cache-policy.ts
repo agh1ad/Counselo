@@ -30,6 +30,10 @@ export function isDatabaseBackedPublicApiPath(path: string): boolean {
   );
 }
 
+export function isCacheablePublicDocumentPath(path: string): boolean {
+  return /^\/documents\/[^/]+\.pdf$/.test(path);
+}
+
 export function isCacheablePublicPagePath(path: string): boolean {
   return (
     path === "/blog" ||

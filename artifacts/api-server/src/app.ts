@@ -19,6 +19,7 @@ import { cachePublicResponses } from "./lib/public-response-cache.js";
 import { handleResendWebhook } from "./lib/resend-webhook.js";
 import {
   isCacheablePublicPagePath,
+  isCacheablePublicDocumentPath,
   isDatabaseBackedPublicApiPath,
   isDiscoveryPath,
   publicCacheControl,
@@ -104,6 +105,11 @@ app.use("/api", (req, res, next) => {
 app.use("/api", cachePublicResponses("api", isDatabaseBackedPublicApiPath));
 app.use("/api", router);
 
+// Approved public documents are immutable within a publication epoch. Keep
+// client-facing no-store headers, but avoid reloading PDF bytes from
+// PostgreSQL after the first verified response. Work mutations rotate the
+// publication namespace before cached documents can be reused.
+app.use(cachePublicResponses("document", isCacheablePublicDocumentPath));
 app.use("/documents", createPublicDocumentsRouter(async (slug) => {
   const [sample] = await db.select({
     slug: workSamplesTable.slug,
