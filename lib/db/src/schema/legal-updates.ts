@@ -108,5 +108,10 @@ export const legalUpdateAuditTable = pgTable(
       table.updateId,
       table.createdAt.desc(),
     ),
+    index("legal_updates_audit_public_corrections")
+      .on(table.updateId, table.createdAt.desc())
+      .where(
+        sql`action = 'publish' AND coalesce(snapshot->'afterEditorial'->>'correctionEn','') <> ''`,
+      ),
   ],
 ).enableRLS();

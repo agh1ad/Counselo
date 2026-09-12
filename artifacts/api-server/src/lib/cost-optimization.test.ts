@@ -57,3 +57,12 @@ test("every public legal-update mutation participates in cache fencing", () => {
   assert.match(monitor, /withPublicContentMutation/);
   assert.match(monitor, /invalidatePublicResponseCache/);
 });
+
+test("all public legal-update pages share a snapshot without storing source evidence", () => {
+  const store = source("artifacts/api-server/src/legal-updates/store.ts");
+  assert.match(store, /publicationDataCache\.read/);
+  assert.match(store, /read\(\s*"legal-updates"/);
+  assert.match(store, /draft - 'evidence' - 'reason' AS draft/);
+  assert.match(store, /legal_update_audit/);
+  assert.doesNotMatch(store, /SELECT \* FROM legal_updates/);
+});

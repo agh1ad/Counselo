@@ -28,7 +28,11 @@ export class PublicationDataCache {
     private readonly deployment: string | null = PUBLIC_CACHE_DEPLOYMENT_VERSION,
   ) {}
 
-  async read<T>(collection: "blogs" | "work", load: () => Promise<T>, decode: (value: unknown) => T): Promise<T> {
+  async read<T>(
+    collection: "blogs" | "work" | "legal-updates",
+    load: () => Promise<T>,
+    decode: (value: unknown) => T,
+  ): Promise<T> {
     if (!publicationCacheEnabled() || !this.deployment) return load();
     const state = await this.coordinator.state();
     if (!state.cacheable) return load();
