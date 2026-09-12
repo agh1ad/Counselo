@@ -251,6 +251,22 @@ test("public collection snapshots coalesce distinct URLs and survive restart wit
   assert.equal(reads, 2, "an active publication snapshot remains valid across deployments and time");
 });
 
+test("prewarming replaces an existing snapshot with the current database records", async t => {
+  const f = fixture(t), writer = f.coordinator();
+  await writer.mutate(async () => {});
+  const cache = new PublicationDataCache(() => new Client(), f.coordinator(), true);
+  let records = [{ slug: "old" }];
+  const load = async () => records;
+  const decode = (value: unknown) => value as typeof records;
+  await cache.prime("blogs", load, decode);
+  records = [{ slug: "current" }];
+  await cache.prime("blogs", load, decode);
+  const strict = new PublicationDataCache(() => new Client(), f.coordinator(), true);
+  assert.deepEqual(await strict.read("blogs", async () => [{ slug: "should-not-load" }], decode, {
+    allowDatabaseFallback: false,
+  }), [{ slug: "current" }]);
+});
+
 test("corrupt snapshots, pending writes and fenced rollback retain database reads", async t => {
   const f = fixture(t), writer = f.coordinator();
   await writer.mutate(async () => {});

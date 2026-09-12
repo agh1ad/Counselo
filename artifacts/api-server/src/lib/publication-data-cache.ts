@@ -107,10 +107,20 @@ export class PublicationDataCache {
     load: () => Promise<T>,
     decode: (value: unknown) => T,
   ): Promise<T> {
-    return this.read(collection, load, decode, {
-      allowDatabaseFallback: true,
-      awaitPersistence: true,
-    });
+    if (!this.enabled) return load();
+    const state = await this.coordinator.state();
+    if (!state.cacheable) throw new PublicSnapshotUnavailableError(collection);
+    const key = `counselo/public-data-cache/v2/${state.epoch}/${collection}.json`;
+    const records = await load();
+    const source = JSON.stringify({ version: 1, createdAt: Date.now(), records });
+    if (Buffer.byteLength(source) > MAX_BYTES) {
+      throw new Error(`Published ${collection} snapshot exceeds size limit`);
+    }
+    decode(source);
+    const written = await this.storage().uploadFromText(key, source, { compress: true });
+    if (!written.ok) throw written.error;
+    this.remember(key, source);
+    return decode(source);
   }
 
   private remember(key: string, value: string): void {
