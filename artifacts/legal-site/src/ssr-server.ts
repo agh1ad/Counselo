@@ -601,8 +601,9 @@ app.get("/sitemap.xml", async (_req, res) => {
     res.type("application/xml").setHeader("Cache-Control", "public, max-age=300, must-revalidate");
     res.send(dynamicSitemap(baseXml, posts, samples));
   } catch {
-    res.type("application/xml").setHeader("Cache-Control", "public, max-age=300, must-revalidate");
-    res.send(baseXml);
+    res.setHeader("Cache-Control", "no-store");
+    res.setHeader("Retry-After", "60");
+    res.status(503).type("text/plain").send("Sitemap temporarily unavailable");
   }
 });
 
@@ -612,10 +613,9 @@ app.get("/feed.xml", async (_req, res) => {
     res.type("application/rss+xml").setHeader("Cache-Control", "public, max-age=300, must-revalidate");
     res.send(discoveryFeed(posts, samples));
   } catch {
-    res
-      .type("application/rss+xml")
-      .setHeader("Cache-Control", "public, max-age=300, must-revalidate");
-    res.send(readFileSync(resolve(publicDir, "feed.xml"), "utf-8"));
+    res.setHeader("Cache-Control", "no-store");
+    res.setHeader("Retry-After", "60");
+    res.status(503).type("text/plain").send("Feed temporarily unavailable");
   }
 });
 
@@ -724,7 +724,7 @@ app.get(
       return res.send(html);
     } catch (error) {
       console.error(`Fresh discovery SSR failed for ${req.path}:`, error);
-      return next();
+      return sendContentUnavailable(res, req.path.includes("/ar"));
     }
   },
 );

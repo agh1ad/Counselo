@@ -20,9 +20,43 @@ if (!rawPort) {
 }
 
 const port = Number(rawPort);
+const DATA_PREWARM_RETRY_MS = 15_000;
+const FILE_PREWARM_RETRY_MS = 60_000;
 
 if (Number.isNaN(port) || port <= 0) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
+}
+
+function retryAfter(delay: number, task: () => void): void {
+  const timer = setTimeout(task, delay);
+  timer.unref();
+}
+
+async function prewarmPublicWorkFilesUntilReady(): Promise<void> {
+  try {
+    await primePublicWorkFileSnapshots();
+    completePublicWorkFileSnapshotStartupPrewarm();
+    logger.info("Public work file startup prewarm completed");
+  } catch (err) {
+    logger.error({ err }, "Public work file startup prewarm failed; retrying");
+    retryAfter(FILE_PREWARM_RETRY_MS, () => {
+      void prewarmPublicWorkFilesUntilReady();
+    });
+  }
+}
+
+async function prewarmPublicDataUntilReady(): Promise<void> {
+  try {
+    await primePublicDataSnapshots();
+    completePublicDataSnapshotStartupPrewarm();
+    logger.info("Public data snapshot startup prewarm completed");
+    void prewarmPublicWorkFilesUntilReady();
+  } catch (err) {
+    logger.error({ err }, "Public data snapshot startup prewarm failed; retrying");
+    retryAfter(DATA_PREWARM_RETRY_MS, () => {
+      void prewarmPublicDataUntilReady();
+    });
+  }
 }
 
 async function start(): Promise<void> {
@@ -42,22 +76,7 @@ async function start(): Promise<void> {
   });
 
   if (prewarmOnStartup) {
-    void primePublicDataSnapshots()
-      .then(() => {
-        completePublicDataSnapshotStartupPrewarm();
-        logger.info("Public data snapshot startup prewarm completed");
-        return primePublicWorkFileSnapshots();
-      })
-      .then(() => {
-        completePublicWorkFileSnapshotStartupPrewarm();
-        logger.info("Public work file startup prewarm completed");
-      })
-      .catch((err) => {
-        // Keep the API available for health checks and authenticated traffic.
-        // Public snapshot reads remain fail-closed until a later prewarm or
-        // publication mutation succeeds.
-        logger.error({ err }, "Public snapshot startup prewarm failed");
-      });
+    void prewarmPublicDataUntilReady();
   }
 }
 

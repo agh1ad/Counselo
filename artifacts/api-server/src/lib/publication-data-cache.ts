@@ -121,11 +121,11 @@ export class PublicationDataCache {
     if (Buffer.byteLength(source) > MAX_BYTES) {
       throw new Error(`Published ${collection} snapshot exceeds size limit`);
     }
-    decode(source);
+    const decoded = decode((JSON.parse(source) as Entry).records);
     const written = await this.storage().uploadFromText(key, source, { compress: true });
     if (!written.ok) throw written.error;
     this.remember(key, source);
-    return decode(source);
+    return decoded;
   }
 
   private remember(key: string, value: string): void {
