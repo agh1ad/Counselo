@@ -49,10 +49,11 @@ router.get("/work/:slug/file", async (req, res) => {
       fileMimeType: workSamplesTable.fileMimeType,
       fileData: workSamplesTable.fileData,
       published: workSamplesTable.published,
+      confidentialityConfirmed: workSamplesTable.confidentialityConfirmed,
     })
     .from(workSamplesTable)
     .where(eq(workSamplesTable.slug, String(req.params["slug"] ?? "")));
-  if (!sample?.published || !sample.fileData) {
+  if (!sample?.published || !sample.confidentialityConfirmed || !sample.fileData) {
     res.status(404).json({ error: "Not found" });
     return;
   }

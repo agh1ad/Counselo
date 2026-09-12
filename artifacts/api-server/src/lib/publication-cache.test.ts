@@ -343,7 +343,7 @@ test("legal-update API and regional rendering reuse only the current published r
   assert.ok(burst.every(response => response.status === 200));
   assert.match(await (await fetch(first + syrApi)).text(), /سوريا العربية/);
   assert.equal(reads.api, 2, "language and jurisdiction filters remain distinct");
-  assert.equal(isDatabaseBackedPublicApiPath("/work/public-sample/file"), false);
+   assert.equal(isDatabaseBackedPublicApiPath("/work/public-sample/file"), true);
   assert.equal(isDatabaseBackedPublicApiPath("/work/public-sample"), true);
   assert.equal((await fetch(first + "/api/legal-updates-sitemap")).status, 200);
   assert.equal((await fetch(first + "/api/legal-updates-sitemap")).headers.get("x-counselo-response-cache"), "PROCESS");

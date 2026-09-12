@@ -50,17 +50,21 @@ test("legal-update renderers run behind the anonymous publication cache", () => 
   assert.match(app, /if \(req\.headers\.authorization\)/);
 });
 
-test("approved public documents are cached before PDF database reads, while legacy API files stay excluded", () => {
+test("approved public documents and legacy attachments are cached only after public approval checks", () => {
   const app = source("artifacts/api-server/src/app.ts");
   const policy = source("artifacts/api-server/src/lib/public-cache-policy.ts");
+  const work = source("artifacts/api-server/src/routes/work.ts");
   assert.match(policy, /function isCacheablePublicDocumentPath/);
   assert.ok(policy.includes('return /^\\/documents\\/[^/]+\\.pdf$/.test(path);'));
+  assert.match(policy, /work\\\/\[\^\/\]\+\\\/file/);
+  assert.match(work, /confidentialityConfirmed: workSamplesTable\.confidentialityConfirmed/);
+  assert.match(work, /!sample\.confidentialityConfirmed/);
   assert.ok(
     app.indexOf('cachePublicResponses("document", isCacheablePublicDocumentPath)') <
       app.indexOf('app.use("/documents", createPublicDocumentsRouter'),
     "document cache must wrap the verified public document router",
   );
-  assert.doesNotMatch(policy, /work\\\/\[\^\/\]\+\\\/file/);
+  assert.match(app, /cachePublicResponses\("api", isDatabaseBackedPublicApiPath\)/);
 });
 
 test("every public legal-update mutation participates in cache fencing", () => {
