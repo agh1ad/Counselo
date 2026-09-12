@@ -5,7 +5,8 @@ import { getTableColumns } from "drizzle-orm";
 // This suite validates serialization only and never connects to PostgreSQL.
 process.env.DATABASE_URL ??= "postgres://test:test@127.0.0.1:1/test";
 const { blogPostsTable, workSamplesTable } = await import("@workspace/db");
-const { decodePublishedBlogs, decodePublishedWork } = await import("./published-content.js");
+const { decodePublishedBlogs, decodePublishedWork, decodePublishedWorkSummaries } =
+  await import("./published-content.js");
 
 function record(table: typeof blogPostsTable | typeof workSamplesTable) {
   return Object.fromEntries(Object.entries(getTableColumns(table)).map(([key, column]) => {
@@ -33,4 +34,16 @@ test("public work snapshots exclude file bytes and confidentiality approval", ()
   assert.equal("confidentialityConfirmed" in decoded, false);
   assert.ok(decoded.updatedAt instanceof Date);
   assert.throws(() => decodePublishedWork([{ ...work, published: false }]));
+});
+
+test("public work summaries exclude document-detail prose and filenames", () => {
+  const work = record(workSamplesTable);
+  const decoded = decodePublishedWorkSummaries([work])[0];
+  assert.equal(decoded.challengeEn, "");
+  assert.equal(decoded.approachEn, "");
+  assert.equal(decoded.outcomeEn, "");
+  assert.equal(decoded.seoTitleEn, "");
+  assert.equal(decoded.fileName, "");
+  assert.equal(decoded.fileSize, 1);
+  assert.equal(decoded.published, true);
 });

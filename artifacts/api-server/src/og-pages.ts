@@ -1,7 +1,12 @@
 import { workAttachmentPath } from "@workspace/api-zod";
 import express, { type Express, type Request, type Response } from "express";
 import { blogPostsTable, workSamplesTable } from "@workspace/db";
-import { publishedBlogs, publishedWork } from "./lib/published-content.js";
+import {
+  publishedBlogBySlug,
+  publishedBlogs,
+  publishedWorkBySlug,
+  publishedWorkSummaries,
+} from "./lib/published-content.js";
 import * as fs from "fs";
 import * as path from "path";
 import * as http from "http";
@@ -543,7 +548,7 @@ export function registerOgPageRoutes(app: Express): void {
       const filename = req.path.endsWith("blog.xml") ? "sitemap-blog.xml" : "sitemap-work.xml";
       const baseXml = fs.readFileSync(path.join(LEGAL_DIST, filename), "utf-8");
       const posts = await publishedBlogs();
-      const samples = await publishedWork();
+       const samples = await publishedWorkSummaries();
       res.type("application/xml");
       res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
       res.send(
@@ -565,7 +570,7 @@ export function registerOgPageRoutes(app: Express): void {
   app.get("/feed.xml", async (_req, res) => {
     try {
       const posts = await publishedBlogs();
-      const samples = await publishedWork();
+       const samples = await publishedWorkSummaries();
       res.type("application/rss+xml");
       res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
       res.send(buildDiscoveryFeed(posts.map(repairPublicBlogPost), samples.map(repairPublicWorkSample)));
@@ -617,7 +622,7 @@ export function registerOgPageRoutes(app: Express): void {
     ["/sa/blog/:slug", "/syr/blog/:slug", "/uae/blog/:slug"],
     async (req, res) => {
       const slug = String(req.params["slug"] ?? "");
-      const [post] = (await publishedBlogs()).filter(post => post.slug === slug);
+       const post = await publishedBlogBySlug(slug);
       res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
       // Preserve a published article destination; retired legacy articles
       // consolidate to the blog hub instead of producing a redirect-to-404.
@@ -628,7 +633,7 @@ export function registerOgPageRoutes(app: Express): void {
     ["/ar/blog/:slug", "/sa/ar/blog/:slug", "/syr/ar/blog/:slug", "/uae/ar/blog/:slug"],
     async (req, res) => {
       const slug = String(req.params["slug"] ?? "");
-      const [post] = (await publishedBlogs()).filter(post => post.slug === slug);
+       const post = await publishedBlogBySlug(slug);
       res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.redirect);
       res.redirect(301, post ? blogPath(encodeURIComponent(slug), "ar") : "/blog/ar");
     },
@@ -652,7 +657,7 @@ export function registerOgPageRoutes(app: Express): void {
   });
 
   app.get("/ar/our-work/:slug", async (req, res) => {
-    const [rawSample] = (await publishedWork()).filter(sample => sample.slug === String(req.params["slug"] ?? ""));
+     const rawSample = await publishedWorkBySlug(String(req.params["slug"] ?? ""));
     const sample = rawSample ? repairPublicWorkSample(rawSample) : undefined;
     if (!sample) {
       sendNotFound(res);
@@ -668,14 +673,14 @@ export function registerOgPageRoutes(app: Express): void {
   });
 
   app.get("/ar/our-work", async (_req, res) => {
-    const samples = await publishedWork();
+     const samples = await publishedWorkSummaries();
     res.type("html");
     res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
     res.send(buildDynamicWorkIndex(samples, "ar"));
   });
 
   app.get("/our-work/:slug", async (req, res) => {
-    const [rawSample] = (await publishedWork()).filter(sample => sample.slug === String(req.params["slug"] ?? ""));
+     const rawSample = await publishedWorkBySlug(String(req.params["slug"] ?? ""));
     const sample = rawSample ? repairPublicWorkSample(rawSample) : undefined;
     if (!sample) {
       sendNotFound(res);
@@ -691,7 +696,7 @@ export function registerOgPageRoutes(app: Express): void {
   });
 
   app.get("/our-work", async (_req, res) => {
-    const samples = await publishedWork();
+     const samples = await publishedWorkSummaries();
     res.type("html");
     res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
     res.send(buildDynamicWorkIndex(samples, "en"));
@@ -707,7 +712,7 @@ export function registerOgPageRoutes(app: Express): void {
   app.get(["/blog/en/:slug", "/blog/ar/:slug"], async (req, res) => {
     const slug = String(req.params["slug"] ?? "");
     const language: "en" | "ar" = req.path.startsWith("/blog/ar/") ? "ar" : "en";
-    const [post] = (await publishedBlogs()).filter(post => post.slug === slug);
+     const post = await publishedBlogBySlug(slug);
     const repairedPost = post ? repairPublicBlogPost(post) : undefined;
     if (!repairedPost) {
       sendNotFound(res);
@@ -725,7 +730,7 @@ export function registerOgPageRoutes(app: Express): void {
 
   app.get("/blog/:slug", async (req, res) => {
     const slug = String(req.params["slug"] ?? "");
-    const [post] = (await publishedBlogs()).filter(post => post.slug === slug);
+     const post = await publishedBlogBySlug(slug);
     const repairedPost = post ? repairPublicBlogPost(post) : undefined;
     if (!repairedPost) {
       sendNotFound(res);

@@ -25,7 +25,7 @@ import { withPublicContentMutation } from "../lib/publication-cache.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 import { repairPublicBlogPost } from "../lib/public-blog-repairs.js";
 
-import { publishedBlogs } from "../lib/published-content.js";
+import { publishedBlogBySlug, publishedBlogs } from "../lib/published-content.js";
 
 const router = Router();
 const ADMIN_PAGE_SIZE = 50;
@@ -92,7 +92,7 @@ router.get("/blog/posts/discovery", async (_req, res) => {
 
 router.get("/blog/posts/:slug", async (req, res) => {
   const { slug } = req.params;
-  const [post] = (await publishedBlogs()).filter(post => post.slug === slug);
+  const post = await publishedBlogBySlug(slug);
   const repairedPost = post ? repairPublicBlogPost(post) : undefined;
   if (!repairedPost || !repairedPost.published || !hasQualityBilingualBlogContent(repairedPost)) {
     res.status(404).json({ error: "Not found" });

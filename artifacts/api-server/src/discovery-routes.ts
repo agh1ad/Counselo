@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import * as fs from "fs";
 import * as path from "path";
-import { publishedBlogs as loadPublishedBlogs, publishedWork as loadPublishedWork } from "./lib/published-content.js";
+import { publishedBlogs as loadPublishedBlogs, publishedWorkSummaries as loadPublishedWorkSummaries } from "./lib/published-content.js";
 import {
   buildDiscoveryFeed,
   buildDynamicSitemap,
@@ -33,7 +33,7 @@ async function publishedBlogs() {
 }
 
 async function publishedWork() {
-  return (await loadPublishedWork()).map(repairPublicWorkSample);
+  return (await loadPublishedWorkSummaries()).map(repairPublicWorkSample);
 }
 
 /**

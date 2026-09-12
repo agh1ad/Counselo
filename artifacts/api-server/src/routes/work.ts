@@ -15,7 +15,7 @@ import { withPublicContentMutation } from "../lib/publication-cache.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 import { repairPublicWorkSample } from "../lib/public-work-repairs.js";
 
-import { publishedWork } from "../lib/published-content.js";
+import { publishedWorkBySlug, publishedWorkSummaries } from "../lib/published-content.js";
 
 const router = Router();
 const ADMIN_PAGE_SIZE = 50;
@@ -52,7 +52,7 @@ function publicTestimonials(sample: { testimonials?: unknown[]; testimonialGover
 }
 
 router.get("/work", async (_req, res) => {
-  const samples = await publishedWork();
+  const samples = await publishedWorkSummaries();
   res.json(samples.map(repairPublicWorkSample).map((sample) => ({
     ...sample,
     testimonials: publicTestimonials(sample),
@@ -88,7 +88,7 @@ router.get("/work/:slug/file", async (req, res) => {
 });
 
 router.get("/work/:slug", async (req, res) => {
-  const [sample] = (await publishedWork()).filter(sample => sample.slug === String(req.params["slug"] ?? ""));
+  const sample = await publishedWorkBySlug(String(req.params["slug"] ?? ""));
   if (!sample?.published) {
     res.status(404).json({ error: "Not found" });
     return;

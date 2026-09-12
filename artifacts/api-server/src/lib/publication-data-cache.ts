@@ -29,7 +29,7 @@ export class PublicationDataCache {
   ) {}
 
   async read<T>(
-    collection: "blogs" | "work" | "legal-updates",
+    collection: "blogs" | "work" | "work-summaries" | "legal-updates",
     load: () => Promise<T>,
     decode: (value: unknown) => T,
   ): Promise<T> {

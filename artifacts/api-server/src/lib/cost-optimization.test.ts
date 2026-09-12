@@ -89,6 +89,22 @@ test("private admin queues use bounded summaries and load confidential details o
   assert.match(updatesUi, /request\(`\/\$\{id\}`\)/);
 });
 
+test("public work collections use a lean snapshot while details remain publication-gated", () => {
+  const content = source("artifacts/api-server/src/lib/published-content.ts");
+  const workRoutes = source("artifacts/api-server/src/routes/work.ts");
+  const discovery = source("artifacts/api-server/src/discovery-routes.ts");
+  const og = source("artifacts/api-server/src/og-pages.ts");
+  assert.match(content, /workSummaryColumns/);
+  assert.match(content, /publicationDataCache\.read\("work-summaries"/);
+  assert.match(content, /publishedWorkBySlug/);
+  assert.match(content, /return sample\?\.published \? sample : undefined/);
+  assert.match(workRoutes, /publishedWorkSummaries/);
+  assert.match(workRoutes, /publishedWorkBySlug/);
+  assert.match(discovery, /publishedWorkSummaries as loadPublishedWorkSummaries/);
+  assert.match(og, /publishedWorkSummaries/);
+  assert.match(og, /publishedWorkBySlug/);
+});
+
 test("every public legal-update mutation participates in cache fencing", () => {
   const routes = source("artifacts/api-server/src/legal-updates/routes.ts");
   const monitor = source("artifacts/api-server/src/legal-updates/monitor.ts");
