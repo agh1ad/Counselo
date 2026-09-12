@@ -1,3 +1,4 @@
+import { registerLegalUpdatePages } from "./legal-updates/public-pages.js";
 import { db, workSamplesTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import { createPublicDocumentsRouter } from "./lib/public-work-documents.js";
@@ -146,6 +147,8 @@ app.use("/documents", createPublicDocumentsRouter(async (slug) => {
   }).from(workSamplesTable).where(eq(workSamplesTable.slug, slug));
   return sample;
 }));
+
+registerLegalUpdatePages(app);
 
 app.use(cachePublicResponses("page", isCacheablePublicPagePath));
 

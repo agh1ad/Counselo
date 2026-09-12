@@ -21,3 +21,5 @@ export const PrivacyPolicy = lazy(() => import("@/pages/privacy-policy"));
 export const NotFound = lazy(() => import("@/pages/not-found"));
 
 export const UrgentLegalAssistance = lazy(() => import("@/pages/urgent-legal-assistance"));
+
+export const LegalUpdates = lazy(() => import("@/pages/legal-updates"));

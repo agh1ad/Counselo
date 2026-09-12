@@ -96,6 +96,8 @@ interface SEOHeadProps {
   reviewedBy?: string;
   /** Accessible description of the social-share image. */
   ogImageAlt?: string;
+  ogImageUrl?: string;
+  noIndex?: boolean;
   /** Override the document language when content intentionally differs from the site UI. */
   contentLanguage?: "en" | "ar";
   /**
@@ -166,6 +168,8 @@ export function SEOHead({
   articleSection,
   reviewedBy,
   ogImageAlt,
+  ogImageUrl,
+  noIndex = false,
   contentLanguage,
   noRegionPrefix = false,
   sharedLanguageAlternates,
@@ -316,7 +320,7 @@ export function SEOHead({
       ? canonicalUrl
       : "https://counselo-legal.com/";
 
-  const ogImage = BLOG_SOCIAL_IMAGE.url;
+  const ogImage = ogImageUrl || BLOG_SOCIAL_IMAGE.url;
   const socialImageAlt = ogImageAlt ?? geo.imgAlt;
   const locale = isArabic ? geo.ogLocaleAr : geo.ogLocaleEn;
   const alternateLocale = isArabic ? geo.ogLocaleEn : geo.ogLocaleAr;
@@ -381,7 +385,7 @@ export function SEOHead({
       <meta name="keywords" content={finalKeywords} />
       <meta
         name="robots"
-        content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+        content={noIndex ? "noindex, follow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"}
       />
 
       {/* Region-independent pages must not inherit a misleading country target. */}
@@ -412,10 +416,10 @@ export function SEOHead({
       <meta property="og:site_name" content="CounselO كاونسلو" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:image:secure_url" content={BLOG_SOCIAL_IMAGE.secureUrl} />
-      <meta property="og:image:type" content={BLOG_SOCIAL_IMAGE.type} />
-      <meta property="og:image:width" content={String(BLOG_SOCIAL_IMAGE.width)} />
-      <meta property="og:image:height" content={String(BLOG_SOCIAL_IMAGE.height)} />
+      <meta property="og:image:secure_url" content={ogImage} />
+      {!ogImageUrl && <meta property="og:image:type" content={BLOG_SOCIAL_IMAGE.type} />}
+      {!ogImageUrl && <meta property="og:image:width" content={String(BLOG_SOCIAL_IMAGE.width)} />}
+      {!ogImageUrl && <meta property="og:image:height" content={String(BLOG_SOCIAL_IMAGE.height)} />}
       <meta property="og:image:alt" content={socialImageAlt} />
       <meta property="og:locale" content={locale} />
       <meta property="og:locale:alternate" content={alternateLocale} />

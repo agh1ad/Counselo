@@ -1,3 +1,4 @@
+import { LegalUpdatesFeed } from "@/components/content/legal-updates-feed";
 import { regionalServiceDirectoryEntity, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE } from "@workspace/api-zod/browser";
 import { PracticeDirectory } from "@/components/home/practice-directory";
 import { RegionalHomeFaq } from "@/components/home/regional-home-faq";
@@ -425,6 +426,7 @@ export default function Home() {
         </div>
       </section>
 
+      <LegalUpdatesFeed region={region} isArabic={isRTL} />
       <RegionalHomeFaq region={region} isArabic={isRTL} />
 
       {/* ── CTA ── */}

@@ -1,3 +1,4 @@
+import { updatesSitemap } from "@workspace/api-zod";
 import { SEARCH_COPY_UPDATED_AT } from "../lib/search-intent-copy.js";
 import { writeFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
@@ -416,10 +417,13 @@ for (const [bucket, filename] of sitemapFiles) {
   writeFileSync(resolve(rootDir, "public", filename), renderUrlset(buckets[bucket]), "utf-8");
 }
 
+writeFileSync(resolve(rootDir, "public/sitemap-legal-updates.xml"), updatesSitemap([]), "utf-8");
+
 const outPath = resolve(rootDir, "public/sitemap.xml");
 const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${sitemapFiles.map(([, filename]) => `  <sitemap><loc>${BASE_URL}/${filename}</loc></sitemap>`).join("\n")}
+  <sitemap><loc>${BASE_URL}/sitemap-legal-updates.xml</loc></sitemap>
 </sitemapindex>
 `;
 writeFileSync(outPath, sitemapIndex, "utf-8");

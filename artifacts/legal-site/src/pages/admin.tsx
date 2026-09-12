@@ -1,3 +1,4 @@
+import { LegalUpdatesManager } from "@/components/admin/legal-updates-manager";
 import { useState, useEffect, useCallback } from "react";
 import {
   Plus, Edit2, Trash2, LogOut, Eye, ChevronRight,
@@ -17,7 +18,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 import { blogPath } from "@workspace/api-zod/browser";
 
 const API = "/api";
-type Tab = "blog" | "work" | "analytics" | "seo" | "tools" | "enquiries";
+type Tab = "updates" | "blog" | "work" | "analytics" | "seo" | "tools" | "enquiries";
 
 interface BlogPost {
   id: number;
@@ -835,6 +836,7 @@ export default function AdminCMS() {
 
   const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
     { id: "blog", label: "Blog Posts", icon: <FileText size={15} /> },
+    { id: "updates", label: "Legal Updates", icon: <Search size={15} /> },
     { id: "work", label: "Our Work", icon: <BriefcaseBusiness size={15} /> },
     { id: "analytics", label: "Analytics", icon: <BarChart2 size={15} /> },
     { id: "enquiries", label: "Enquiry outcomes", icon: <Users size={15} /> },
@@ -871,6 +873,7 @@ export default function AdminCMS() {
       {tab === "enquiries" && <ContactOutcomes token={token} />}
       {tab === "seo" && <SEOMonitorTab />}
       {tab === "tools" && <ToolsTab />}
+      {tab === "updates" && <LegalUpdatesManager token={token} />}
       {tab === "work" && <WorkSamplesManager token={token} />}
 
       {tab === "blog" && (

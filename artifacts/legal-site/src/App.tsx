@@ -1,3 +1,4 @@
+import { legalUpdatesData, type LegalUpdatesData } from "@workspace/api-zod/browser";
 import {
   Switch,
   Route,
@@ -18,10 +19,13 @@ import { ErrorBoundary } from "@/components/error-boundary";
 import { Helmet } from "react-helmet-async";
 import { trackEvent, trackPageview, injectGTM } from "@/lib/analytics";
 import type { WorkSamplePublic } from "@/lib/work-samples";
+import type { LegalUpdate } from "@workspace/api-zod/browser";
+import { LegalUpdatesFeed } from "@/components/content/legal-updates-feed";
 import { blogPath } from "@workspace/api-zod/browser";
 import { resolveUnqualifiedBlogPath } from "@/lib/blog-route-policy";
 
 import {
+  LegalUpdates,
   About,
   ArRegionPicker,
   Blog,
@@ -73,8 +77,9 @@ export interface InitialBlogPost {
   relatedWorkSlugs?: string[];
 }
 
-function createSsrQueryClient(posts: InitialBlogPost[], workSamples: WorkSamplePublic[]): QueryClient {
+function createSsrQueryClient(posts: InitialBlogPost[], workSamples: WorkSamplePublic[], updates: LegalUpdatesData | LegalUpdate[], path: string): QueryClient {
   const client = new QueryClient();
+  client.setQueryData(["legal-updates", path], legalUpdatesData(path, updates));
   client.setQueryData(["blog-posts"], posts);
   client.setQueryData(["work-samples"], workSamples);
   for (const post of posts) {
@@ -314,6 +319,17 @@ function Router() {
         {/* Legacy routes (no prefix → defaults to SA/English) */}
         <Route path="/services/:id" component={ServiceDetail} />
         <Route path="/services" component={Services} />
+        <Route path="/legal-updates/page/:page" component={LegalUpdates} />
+        <Route path="/ar/legal-updates/page/:page" component={LegalUpdates} />
+        <Route path="/legal-updates" component={LegalUpdates} />
+        <Route path="/ar/legal-updates" component={LegalUpdates} />
+        {(["sa", "uae", "syr"] as const).flatMap(r => ["", "/ar"].flatMap(l => [
+          <Route key={`${r}${l}-practice-page`} path={`/${r}${l}/legal-updates/practice/:service/page/:page`} component={LegalUpdates} />,
+          <Route key={`${r}${l}-practice`} path={`/${r}${l}/legal-updates/practice/:service`} component={LegalUpdates} />,
+          <Route key={`${r}${l}-page`} path={`/${r}${l}/legal-updates/page/:page`} component={LegalUpdates} />,
+          <Route key={`${r}${l}-update`} path={`/${r}${l}/legal-updates/:slug`} component={LegalUpdates} />,
+          <Route key={`${r}${l}-updates`} path={`/${r}${l}/legal-updates`} component={LegalUpdates} />,
+        ]))}
         <Route path="/blog/ar" component={Blog} />
         <Route path="/ar/blog/:slug">
           {(params: { slug: string }) => <Redirect to={blogPath(params.slug, "ar")} replace />}
@@ -400,10 +416,17 @@ function AppShell() {
         <RegionIdentityBar />
         <Router />
       </main>
+      {/^\/(sa|syr|uae)(?:\/ar)?\/services\//.test(location) && <RelatedUpdates />}
       <Footer />
       <WhatsAppFloat />
     </div>
   );
+}
+
+
+function RelatedUpdates() {
+ const [location]=useLocation(); const {region,lang}=useRegion();
+ return <LegalUpdatesFeed region={region} isArabic={lang==='ar'} serviceSlug={location.split('/services/')[1]?.split('/')[0]} />;
 }
 
 function RoutedLanguageBoundary() {
@@ -434,13 +457,14 @@ interface AppProps {
   ssrUrl?: string;
   /** Published posts supplied by the prerender pipeline for first-byte HTML. */
   initialBlogPosts?: InitialBlogPost[];
+  initialLegalUpdates?: LegalUpdatesData | LegalUpdate[];
   /** Published work samples supplied for crawlable discovery links. */
   initialWorkSamples?: WorkSamplePublic[];
 }
 
-function App({ ssrUrl, initialBlogPosts = [], initialWorkSamples = [] }: AppProps = {}) {
+function App({ ssrUrl, initialBlogPosts = [], initialWorkSamples = [], initialLegalUpdates = [] }: AppProps = {}) {
   const activeQueryClient = ssrUrl
-    ? createSsrQueryClient(initialBlogPosts, initialWorkSamples)
+    ? createSsrQueryClient(initialBlogPosts, initialWorkSamples, initialLegalUpdates, ssrUrl || "/")
     : queryClient;
   return (
     <QueryClientProvider client={activeQueryClient}>
