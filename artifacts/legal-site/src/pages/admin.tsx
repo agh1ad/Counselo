@@ -42,6 +42,11 @@ interface BlogPost {
   createdAt: string;
 }
 
+type BlogPostSummary = Pick<
+  BlogPost,
+  "id" | "slug" | "date" | "categoryEn" | "categoryAr" | "titleEn" | "titleAr" | "published" | "contentType" | "createdAt"
+>;
+
 type FormData = Omit<BlogPost, "id" | "createdAt">;
 
 const emptyForm = (): FormData => ({
@@ -433,7 +438,7 @@ function StatCard({ icon, label, value, sub, color = "green" }: { icon: React.Re
   );
 }
 
-function AnalyticsTab({ posts }: { posts: BlogPost[] }) {
+function AnalyticsTab({ posts }: { posts: Array<Pick<BlogPost, "published">> }) {
   const [data, setData] = useState<AnalyticsStore | null>(null);
   const [copied, setCopied] = useState(false);
   const gtmId = getGTMContainerId();
@@ -761,27 +766,44 @@ export default function AdminCMS() {
   const [password, setPassword] = useState("");
   const [showPw, setShowPw] = useState(false);
   const [loginErr, setLoginErr] = useState("");
-  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [posts, setPosts] = useState<BlogPostSummary[]>([]);
   const [loading, setLoading] = useState(false);
+  const [loadingEdit, setLoadingEdit] = useState<number | null>(null);
+  const [postsHasMore, setPostsHasMore] = useState(false);
   const [editing, setEditing] = useState<(FormData & { id?: number }) | null>(null);
   const [toast, setToast] = useState<{ msg: string; type: "success" | "error" } | null>(null);
   const [tab, setTab] = useState<Tab>("blog");
 
   const isLoggedIn = !!token;
 
-  const fetchPosts = useCallback(async () => {
+  const fetchPosts = useCallback(async (offset = 0, append = false) => {
     if (!token) return;
     setLoading(true);
     try {
-      const res = await fetch(`${API}/admin/blog/posts`, { headers: { Authorization: `Bearer ${token}` } });
+      const res = await fetch(`${API}/admin/blog/posts?offset=${offset}`, { headers: { Authorization: `Bearer ${token}` } });
       if (res.status === 401) { logout(); return; }
-      setPosts(await res.json() as BlogPost[]);
+      const data = await res.json() as { items: BlogPostSummary[]; hasMore: boolean };
+      setPosts((current) => append ? [...current, ...data.items] : data.items);
+      setPostsHasMore(data.hasMore);
     } finally {
       setLoading(false);
     }
   }, [token]);
 
   useEffect(() => { void fetchPosts(); }, [fetchPosts]);
+
+  const openPost = async (id: number) => {
+    setLoadingEdit(id);
+    try {
+      const res = await fetch(`${API}/admin/blog/posts/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+      if (!res.ok) throw new Error("Could not load the post");
+      setEditing(await res.json() as BlogPost);
+    } catch (error) {
+      setToast({ msg: String(error), type: "error" });
+    } finally {
+      setLoadingEdit(null);
+    }
+  };
 
   const login = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -913,8 +935,8 @@ export default function AdminCMS() {
                   </tr>
                 </thead>
                 <tbody>
-                  {posts.map((p, i) => (
-                    <tr key={p.id} className={`border-b border-gray-50 hover:bg-gray-50/80 transition-colors cursor-pointer ${i === posts.length - 1 ? "border-0" : ""}`} onClick={() => setEditing({ ...p })}>
+                   {posts.map((p, i) => (
+                    <tr key={p.id} className={`border-b border-gray-50 hover:bg-gray-50/80 transition-colors cursor-pointer ${i === posts.length - 1 ? "border-0" : ""}`} onClick={() => void openPost(p.id)}>
                       <td className="px-5 py-4 max-w-xs">
                         <p className="font-semibold text-gray-900 truncate" dir={!p.titleEn && p.titleAr ? "rtl" : "ltr"}>{p.titleEn || p.titleAr || <span className="text-gray-300 italic">Untitled</span>}</p>
                         <p className="text-[10px] text-gray-400 mt-0.5">{p.titleEn ? "English" : "Arabic"}</p>
@@ -930,14 +952,25 @@ export default function AdminCMS() {
                       <td className="px-5 py-4">
                         <div className="flex items-center justify-end gap-1" onClick={(e) => e.stopPropagation()}>
                           <a href={blogPath(p.slug, p.titleEn ? "en" : "ar")} target="_blank" rel="noopener noreferrer" className="p-1.5 text-gray-300 hover:text-gray-600 rounded" title="Preview"><Eye size={15} /></a>
-                          <button onClick={() => setEditing({ ...p })} className="p-1.5 text-gray-300 hover:text-green-700 rounded" title="Edit"><Edit2 size={15} /></button>
+                           <button onClick={() => void openPost(p.id)} disabled={loadingEdit === p.id} className="p-1.5 text-gray-300 hover:text-green-700 rounded disabled:opacity-50" title="Edit"><Edit2 size={15} /></button>
                           <button onClick={() => void deletePost(p.id, p.titleEn || p.titleAr)} className="p-1.5 text-gray-300 hover:text-red-600 rounded" title="Delete"><Trash2 size={15} /></button>
                         </div>
                       </td>
                     </tr>
                   ))}
                 </tbody>
-              </table>
+               </table>
+              {postsHasMore && (
+                <div className="p-4 text-center border-t border-gray-100">
+                  <button
+                    onClick={() => void fetchPosts(posts.length, true)}
+                    disabled={loading}
+                    className="px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-700 disabled:opacity-50"
+                  >
+                    {loading ? "Loading…" : "Load more posts"}
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>

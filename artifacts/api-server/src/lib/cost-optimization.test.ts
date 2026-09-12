@@ -67,6 +67,28 @@ test("approved public documents and legacy attachments are cached only after pub
   assert.match(app, /cachePublicResponses\("api", isDatabaseBackedPublicApiPath\)/);
 });
 
+test("private admin queues use bounded summaries and load confidential details on demand", () => {
+  const blog = source("artifacts/api-server/src/routes/blog.ts");
+  const work = source("artifacts/api-server/src/routes/work.ts");
+  const updates = source("artifacts/api-server/src/legal-updates/routes.ts");
+  const adminBlogUi = source("artifacts/legal-site/src/pages/admin.tsx");
+  const workUi = source("artifacts/legal-site/src/components/admin/WorkSamplesManager.tsx");
+  const updatesUi = source("artifacts/legal-site/src/components/admin/legal-updates-manager.tsx");
+
+  assert.match(blog, /select\(adminBlogSummaryColumns\)/);
+  assert.match(blog, /\.limit\(ADMIN_PAGE_SIZE \+ 1\)/);
+  assert.match(blog, /router\.get\("\/admin\/blog\/posts\/:id"/);
+  assert.match(work, /select\(adminWorkSummaryColumns\)/);
+  assert.match(work, /\.limit\(ADMIN_PAGE_SIZE \+ 1\)/);
+  assert.match(work, /router\.get\("\/admin\/work\/:id"/);
+  assert.match(updates, /draft->'en'->>'title' AS title_en/);
+  assert.match(updates, /LIMIT \$1 OFFSET \$2/);
+  assert.match(updates, /SELECT \* FROM legal_updates WHERE id = \$1 LIMIT 1/);
+  assert.match(adminBlogUi, /\/admin\/blog\/posts\/\$\{id\}/);
+  assert.match(workUi, /\/admin\/work\/\$\{id\}/);
+  assert.match(updatesUi, /request\(`\/\$\{id\}`\)/);
+});
+
 test("every public legal-update mutation participates in cache fencing", () => {
   const routes = source("artifacts/api-server/src/legal-updates/routes.ts");
   const monitor = source("artifacts/api-server/src/legal-updates/monitor.ts");

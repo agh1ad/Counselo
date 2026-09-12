@@ -18,7 +18,25 @@ import { repairPublicWorkSample } from "../lib/public-work-repairs.js";
 import { publishedWork } from "../lib/published-content.js";
 
 const router = Router();
+const ADMIN_PAGE_SIZE = 50;
 const { fileData: _adminFileData, ...adminColumns } = getTableColumns(workSamplesTable);
+const adminWorkSummaryColumns = {
+  id: workSamplesTable.id,
+  slug: workSamplesTable.slug,
+  date: workSamplesTable.date,
+  titleEn: workSamplesTable.titleEn,
+  titleAr: workSamplesTable.titleAr,
+  fileName: workSamplesTable.fileName,
+  fileSize: workSamplesTable.fileSize,
+  published: workSamplesTable.published,
+  featured: workSamplesTable.featured,
+  updatedAt: workSamplesTable.updatedAt,
+};
+
+function adminPageOffset(value: unknown): number {
+  const parsed = typeof value === "string" ? Number(value) : Number.NaN;
+  return Number.isSafeInteger(parsed) && parsed >= 0 ? parsed : 0;
+}
 
 function publicTestimonials(sample: { testimonials?: unknown[]; testimonialGovernanceVersion?: number }) {
   const testimonials = Array.isArray(sample.testimonials) ? sample.testimonials : [];
@@ -82,12 +100,37 @@ router.get("/work/:slug", async (req, res) => {
   });
 });
 
-router.get("/admin/work", requireAdmin, async (_req, res) => {
+router.get("/admin/work", requireAdmin, async (req, res) => {
   const samples = await db
+    .select(adminWorkSummaryColumns)
+    .from(workSamplesTable)
+    .orderBy(desc(workSamplesTable.createdAt), desc(workSamplesTable.id))
+    .limit(ADMIN_PAGE_SIZE + 1)
+    .offset(adminPageOffset(req.query.offset));
+  res.json({
+    items: samples.slice(0, ADMIN_PAGE_SIZE).map((sample) => ({ ...sample, hasFile: sample.fileSize > 0 })),
+    hasMore: samples.length > ADMIN_PAGE_SIZE,
+  });
+});
+
+router.get("/admin/work/:id", requireAdmin, async (req, res) => {
+  let id: number;
+  try {
+    id = parsePositiveId(req.params.id);
+  } catch (error) {
+    res.status(400).json({ error: (error as Error).message });
+    return;
+  }
+  const [sample] = await db
     .select(adminColumns)
     .from(workSamplesTable)
-    .orderBy(desc(workSamplesTable.createdAt));
-  res.json(samples.map((sample) => ({ ...sample, hasFile: sample.fileSize > 0 })));
+    .where(eq(workSamplesTable.id, id))
+    .limit(1);
+  if (!sample) {
+    res.status(404).json({ error: "Work sample not found" });
+    return;
+  }
+  res.json({ ...sample, hasFile: sample.fileSize > 0 });
 });
 
 router.post("/admin/work", requireAdmin, async (req, res) => {

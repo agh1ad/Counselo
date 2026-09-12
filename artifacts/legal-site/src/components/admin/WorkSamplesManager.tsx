@@ -5,12 +5,21 @@ const API = "/api";
 const MAX_FILE_SIZE = 8 * 1024 * 1024;
 const ACCEPTED_TYPES = ["application/pdf", "image/jpeg", "image/png", "image/webp"];
 
-interface WorkSampleAdmin {
+interface WorkSampleSummary {
   id: number;
   slug: string;
   date: string;
   titleEn: string;
   titleAr: string;
+  fileName: string;
+  fileSize: number;
+  featured: boolean;
+  published: boolean;
+  updatedAt: string;
+  hasFile: boolean;
+}
+
+interface WorkSampleDetail extends WorkSampleSummary {
   summaryEn: string;
   summaryAr: string;
   workTypeEn: string;
@@ -32,14 +41,10 @@ interface WorkSampleAdmin {
   documentLanguage: "ar" | "en" | "bilingual";
   fileName: string;
   fileMimeType: string;
-  fileSize: number;
   confidentialityConfirmed: boolean;
-  featured: boolean;
-  published: boolean;
-  hasFile: boolean;
 }
 
-type WorkForm = Omit<WorkSampleAdmin, "id" | "hasFile"> & { fileData?: string };
+type WorkForm = Omit<WorkSampleDetail, "id" | "hasFile" | "updatedAt"> & { fileData?: string };
 
 const emptyWork = (): WorkForm => ({
   slug: "",
@@ -183,17 +188,21 @@ function WorkEditor({ initial, token, onBack, onSaved }: { initial: WorkForm & {
 }
 
 export function WorkSamplesManager({ token }: { token: string }) {
-  const [samples, setSamples] = useState<WorkSampleAdmin[]>([]);
+  const [samples, setSamples] = useState<WorkSampleSummary[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingEdit, setLoadingEdit] = useState<number | null>(null);
+  const [hasMore, setHasMore] = useState(false);
   const [editing, setEditing] = useState<(WorkForm & { id?: number; hasFile?: boolean }) | null>(null);
   const [message, setMessage] = useState<string>("");
 
-  const load = useCallback(async () => {
+  const load = useCallback(async (offset = 0, append = false) => {
     setLoading(true);
     try {
-      const response = await fetch(`${API}/admin/work`, { headers: { Authorization: `Bearer ${token}` } });
+      const response = await fetch(`${API}/admin/work?offset=${offset}`, { headers: { Authorization: `Bearer ${token}` } });
       if (!response.ok) throw new Error("Could not load work samples");
-      setSamples(await response.json() as WorkSampleAdmin[]);
+      const data = await response.json() as { items: WorkSampleSummary[]; hasMore: boolean };
+      setSamples((current) => append ? [...current, ...data.items] : data.items);
+      setHasMore(data.hasMore);
     } catch (error) {
       setMessage((error as Error).message);
     } finally {
@@ -203,7 +212,20 @@ export function WorkSamplesManager({ token }: { token: string }) {
 
   useEffect(() => { void load(); }, [load]);
 
-  const remove = async (sample: WorkSampleAdmin) => {
+  const openSample = async (id: number) => {
+    setLoadingEdit(id);
+    try {
+      const response = await fetch(`${API}/admin/work/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+      if (!response.ok) throw new Error("Could not load work sample");
+      setEditing(await response.json() as WorkSampleDetail);
+    } catch (error) {
+      setMessage((error as Error).message);
+    } finally {
+      setLoadingEdit(null);
+    }
+  };
+
+  const remove = async (sample: WorkSampleSummary) => {
     if (!confirm(`Delete "${sample.titleEn || sample.titleAr}"?`)) return;
     const response = await fetch(`${API}/admin/work/${sample.id}`, { method: "DELETE", headers: { Authorization: `Bearer ${token}` } });
     if (response.ok) void load(); else setMessage("Delete failed");
@@ -212,10 +234,10 @@ export function WorkSamplesManager({ token }: { token: string }) {
   if (editing) return <WorkEditor initial={editing} token={token} onBack={() => setEditing(null)} onSaved={() => { setEditing(null); void load(); }} />;
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-8">
-      <div className="flex items-center justify-between mb-6"><div><h2 className="text-2xl font-bold text-gray-900">Our Work</h2><p className="text-sm text-gray-500 mt-1">{samples.length} sample{samples.length === 1 ? "" : "s"} · {samples.filter((sample) => sample.published).length} published · shared across both regions</p></div><button onClick={() => setEditing(emptyWork())} className="flex items-center gap-2 bg-[#006C35] text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-green-800"><Plus size={16} /> Add Work Sample</button></div>
+     <div className="max-w-6xl mx-auto px-6 py-8">
+      <div className="flex items-center justify-between mb-6"><div><h2 className="text-2xl font-bold text-gray-900">Our Work</h2><p className="text-sm text-gray-500 mt-1">Showing {samples.length} sample{samples.length === 1 ? "" : "s"} · {samples.filter((sample) => sample.published).length} published · shared across both regions</p></div><button onClick={() => setEditing(emptyWork())} className="flex items-center gap-2 bg-[#006C35] text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-green-800"><Plus size={16} /> Add Work Sample</button></div>
       {message && <div className="mb-4 bg-red-50 border border-red-200 text-red-700 p-3 rounded-lg text-sm">{message}</div>}
-      {loading ? <div className="text-center py-20 text-gray-400">Loading…</div> : samples.length === 0 ? <div className="text-center py-24 bg-white border border-gray-100 rounded-2xl"><BriefcaseBusiness size={42} className="mx-auto text-gray-200 mb-4" /><p className="text-gray-500 font-semibold">No work samples yet</p><p className="text-sm text-gray-400 mt-1 mb-5">Upload your first redacted legal document.</p><button onClick={() => setEditing(emptyWork())} className="inline-flex items-center gap-2 bg-[#006C35] text-white px-5 py-2.5 rounded-xl text-sm font-semibold"><Plus size={15} /> Add Work Sample</button></div> : <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden"><table className="w-full text-sm"><thead><tr className="bg-gray-50 border-b border-gray-100 text-left text-xs uppercase tracking-wide text-gray-400"><th className="px-5 py-3.5">Work</th><th className="px-5 py-3.5">Document</th><th className="px-5 py-3.5">Date</th><th className="px-5 py-3.5">Status</th><th className="px-5 py-3.5 text-right">Actions</th></tr></thead><tbody>{samples.map((sample) => { const previewPath = `${sample.titleEn ? "" : "/ar"}/our-work/${sample.slug}`; return <tr key={sample.id} onClick={() => setEditing({ ...sample })} className="border-b border-gray-50 hover:bg-gray-50 cursor-pointer"><td className="px-5 py-4"><p className="font-semibold text-gray-900">{sample.titleEn || sample.titleAr}</p><p className="text-xs text-gray-400 mt-1 font-mono">{previewPath}</p></td><td className="px-5 py-4"><span className={`inline-flex items-center gap-1.5 text-xs ${sample.hasFile ? "text-green-700" : "text-amber-700"}`}>{sample.hasFile ? <CheckCircle2 size={14} /> : <AlertTriangle size={14} />}{sample.hasFile ? sample.fileName : "No file"}</span></td><td className="px-5 py-4 text-xs text-gray-500">{sample.date}</td><td className="px-5 py-4"><span className={`px-2.5 py-1 rounded-full text-xs ${sample.published ? "bg-green-50 text-green-700" : "bg-gray-100 text-gray-500"}`}>{sample.published ? "Published" : "Draft"}</span></td><td className="px-5 py-4"><div className="flex justify-end gap-1" onClick={(event) => event.stopPropagation()}><a href={previewPath} target="_blank" rel="noopener noreferrer" className="p-2 text-gray-400 hover:text-gray-700"><Eye size={15} /></a><button onClick={() => setEditing({ ...sample })} className="p-2 text-gray-400 hover:text-green-700"><Edit2 size={15} /></button><button onClick={() => void remove(sample)} className="p-2 text-gray-400 hover:text-red-600"><Trash2 size={15} /></button></div></td></tr>; })}</tbody></table></div>}
+      {loading ? <div className="text-center py-20 text-gray-400">Loading…</div> : samples.length === 0 ? <div className="text-center py-24 bg-white border border-gray-100 rounded-2xl"><BriefcaseBusiness size={42} className="mx-auto text-gray-200 mb-4" /><p className="text-gray-500 font-semibold">No work samples yet</p><p className="text-sm text-gray-400 mt-1 mb-5">Upload your first redacted legal document.</p><button onClick={() => setEditing(emptyWork())} className="inline-flex items-center gap-2 bg-[#006C35] text-white px-5 py-2.5 rounded-xl text-sm font-semibold"><Plus size={15} /> Add Work Sample</button></div> : <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden"><table className="w-full text-sm"><thead><tr className="bg-gray-50 border-b border-gray-100 text-left text-xs uppercase tracking-wide text-gray-400"><th className="px-5 py-3.5">Work</th><th className="px-5 py-3.5">Document</th><th className="px-5 py-3.5">Date</th><th className="px-5 py-3.5">Status</th><th className="px-5 py-3.5 text-right">Actions</th></tr></thead><tbody>{samples.map((sample) => { const previewPath = `${sample.titleEn ? "" : "/ar"}/our-work/${sample.slug}`; return <tr key={sample.id} onClick={() => void openSample(sample.id)} className="border-b border-gray-50 hover:bg-gray-50 cursor-pointer"><td className="px-5 py-4"><p className="font-semibold text-gray-900">{sample.titleEn || sample.titleAr}</p><p className="text-xs text-gray-400 mt-1 font-mono">{previewPath}</p></td><td className="px-5 py-4"><span className={`inline-flex items-center gap-1.5 text-xs ${sample.hasFile ? "text-green-700" : "text-amber-700"}`}>{sample.hasFile ? <CheckCircle2 size={14} /> : <AlertTriangle size={14} />}{sample.hasFile ? sample.fileName : "No file"}</span></td><td className="px-5 py-4 text-xs text-gray-500">{sample.date}</td><td className="px-5 py-4"><span className={`px-2.5 py-1 rounded-full text-xs ${sample.published ? "bg-green-50 text-green-700" : "bg-gray-100 text-gray-500"}`}>{sample.published ? "Published" : "Draft"}</span></td><td className="px-5 py-4"><div className="flex justify-end gap-1" onClick={(event) => event.stopPropagation()}><a href={previewPath} target="_blank" rel="noopener noreferrer" className="p-2 text-gray-400 hover:text-gray-700"><Eye size={15} /></a><button onClick={() => void openSample(sample.id)} disabled={loadingEdit === sample.id} className="p-2 text-gray-400 hover:text-green-700 disabled:opacity-50"><Edit2 size={15} /></button><button onClick={() => void remove(sample)} className="p-2 text-gray-400 hover:text-red-600"><Trash2 size={15} /></button></div></td></tr>; })}</tbody></table>{hasMore && <div className="p-4 text-center border-t border-gray-100"><button onClick={() => void load(samples.length, true)} disabled={loading} className="px-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-700 disabled:opacity-50">{loading ? "Loading…" : "Load more work samples"}</button></div>}</div>}
     </div>
   );
 }

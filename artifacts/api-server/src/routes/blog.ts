@@ -28,6 +28,25 @@ import { repairPublicBlogPost } from "../lib/public-blog-repairs.js";
 import { publishedBlogs } from "../lib/published-content.js";
 
 const router = Router();
+const ADMIN_PAGE_SIZE = 50;
+
+const adminBlogSummaryColumns = {
+  id: blogPostsTable.id,
+  slug: blogPostsTable.slug,
+  date: blogPostsTable.date,
+  categoryEn: blogPostsTable.categoryEn,
+  categoryAr: blogPostsTable.categoryAr,
+  titleEn: blogPostsTable.titleEn,
+  titleAr: blogPostsTable.titleAr,
+  published: blogPostsTable.published,
+  contentType: blogPostsTable.contentType,
+  createdAt: blogPostsTable.createdAt,
+};
+
+function adminPageOffset(value: unknown): number {
+  const parsed = typeof value === "string" ? Number(value) : Number.NaN;
+  return Number.isSafeInteger(parsed) && parsed >= 0 ? parsed : 0;
+}
 
 router.get("/blog/posts", async (_req, res) => {
   const posts = await publishedBlogs();
@@ -96,12 +115,38 @@ router.post("/admin/auth", (req, res) => {
   res.status(401).json({ error: "Wrong password" });
 });
 
-router.get("/admin/blog/posts", requireAdmin, async (_req, res) => {
+router.get("/admin/blog/posts", requireAdmin, async (req, res) => {
   const posts = await db
+    .select(adminBlogSummaryColumns)
+    .from(blogPostsTable)
+    .orderBy(desc(blogPostsTable.createdAt), desc(blogPostsTable.id))
+    .limit(ADMIN_PAGE_SIZE + 1)
+    .offset(adminPageOffset(req.query.offset));
+  const hasMore = posts.length > ADMIN_PAGE_SIZE;
+  res.json({
+    items: posts.slice(0, ADMIN_PAGE_SIZE),
+    hasMore,
+  });
+});
+
+router.get("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
+  let id: number;
+  try {
+    id = parsePositiveId(req.params.id);
+  } catch (error) {
+    res.status(400).json({ error: (error as Error).message });
+    return;
+  }
+  const [post] = await db
     .select()
     .from(blogPostsTable)
-    .orderBy(desc(blogPostsTable.createdAt));
-  res.json(posts.map(sanitizeBlogPost));
+    .where(eq(blogPostsTable.id, id))
+    .limit(1);
+  if (!post) {
+    res.status(404).json({ error: "Post not found" });
+    return;
+  }
+  res.json(sanitizeBlogPost(post));
 });
 
 router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
