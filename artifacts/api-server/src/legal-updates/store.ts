@@ -82,7 +82,9 @@ function decodePublicLegalUpdateSnapshot(
   return { updates, corrections };
 }
 
-async function loadPublicLegalUpdateSnapshot(): Promise<PublicLegalUpdateSnapshot> {
+async function loadPublicLegalUpdateSnapshot(
+  allowDatabaseFallback = false,
+): Promise<PublicLegalUpdateSnapshot> {
   return publicationDataCache.read(
     "legal-updates",
     async () => {
@@ -160,7 +162,12 @@ async function loadPublicLegalUpdateSnapshot(): Promise<PublicLegalUpdateSnapsho
       });
       return decodePublicLegalUpdateSnapshot({ updates, corrections });
     },
+    { allowDatabaseFallback },
   );
+}
+
+export function primePublicLegalUpdateSnapshot(): Promise<PublicLegalUpdateSnapshot> {
+  return loadPublicLegalUpdateSnapshot(true);
 }
 export async function publishedUpdates(
   path = "/legal-updates",

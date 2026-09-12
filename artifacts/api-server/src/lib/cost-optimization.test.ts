@@ -57,8 +57,8 @@ test("approved public documents and legacy attachments are cached only after pub
   assert.match(policy, /function isCacheablePublicDocumentPath/);
   assert.ok(policy.includes('return /^\\/documents\\/[^/]+\\.pdf$/.test(path);'));
   assert.match(policy, /work\\\/\[\^\/\]\+\\\/file/);
-  assert.match(work, /confidentialityConfirmed: workSamplesTable\.confidentialityConfirmed/);
-  assert.match(work, /!sample\.confidentialityConfirmed/);
+  assert.match(work, /publishedWorkFileBySlug/);
+  assert.match(work, /publishedWork\(\)/);
   assert.ok(
     app.indexOf('cachePublicResponses("document", isCacheablePublicDocumentPath)') <
       app.indexOf('app.use("/documents", createPublicDocumentsRouter'),
@@ -97,7 +97,7 @@ test("public work collections use a lean snapshot while details remain publicati
   assert.match(content, /workSummaryColumns/);
   assert.match(content, /publicationDataCache\.read\("work-summaries"/);
   assert.match(content, /publishedWorkBySlug/);
-  assert.match(content, /return sample\?\.published \? sample : undefined/);
+  assert.match(content, /return \(await publishedWork\(\)\)\.find/);
   assert.match(workRoutes, /publishedWorkSummaries/);
   assert.match(workRoutes, /publishedWorkBySlug/);
   assert.match(discovery, /publishedWorkSummaries as loadPublishedWorkSummaries/);

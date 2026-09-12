@@ -356,6 +356,10 @@ export async function invalidatePublicResponseCache(
     try {
       const fence = await publicationCoordinator.begin();
       await publicationCoordinator.finish(fence);
+      if (process.env.NODE_ENV === "production") {
+        const { primePublicSnapshots } = await import("./public-snapshot-primer.js");
+        await primePublicSnapshots();
+      }
       return { complete: true, deleted: 0, reason: "complete" };
     } catch (err) {
       logger.error({ err }, "Publication cache invalidation failed; fence retained when created");

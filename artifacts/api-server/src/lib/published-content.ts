@@ -1,6 +1,7 @@
 import { blogPostsTable, db, selectBlogPostSchema, selectWorkSampleSchema, workSamplesTable } from "@workspace/db";
-import { desc, eq, getTableColumns } from "drizzle-orm";
+import { and, desc, eq, getTableColumns } from "drizzle-orm";
 import { publicationDataCache } from "./publication-data-cache.js";
+import { publicWorkFileCache, type PublicWorkFile } from "./public-work-file-cache.js";
 
 const { fileData: _file, confidentialityConfirmed: _approval, ...workColumns } = getTableColumns(workSamplesTable);
 type Blog = typeof blogPostsTable.$inferSelect;
@@ -62,6 +63,17 @@ const workSummarySchema = selectWorkSampleSchema.pick({
   updatedAt: true,
 });
 
+const publicWorkFileColumns = {
+  slug: workSamplesTable.slug,
+  fileName: workSamplesTable.fileName,
+  fileMimeType: workSamplesTable.fileMimeType,
+  fileData: workSamplesTable.fileData,
+  fileSize: workSamplesTable.fileSize,
+  published: workSamplesTable.published,
+  confidentialityConfirmed: workSamplesTable.confidentialityConfirmed,
+  updatedAt: workSamplesTable.updatedAt,
+};
+
 function dates(value: unknown): Record<string, unknown> {
   if (!value || typeof value !== "object") throw new Error("Invalid public collection record");
   const record = { ...value } as Record<string, unknown>;
@@ -111,9 +123,7 @@ export function publishedBlogs(): Promise<Blog[]> {
 }
 
 export async function publishedBlogBySlug(slug: string): Promise<Blog | undefined> {
-  const [post] = await db.select().from(blogPostsTable)
-    .where(eq(blogPostsTable.slug, slug)).limit(1);
-  return post?.published ? post : undefined;
+  return (await publishedBlogs()).find((post) => post.slug === slug);
 }
 
 export function publishedWork(): Promise<Work[]> {
@@ -130,7 +140,53 @@ export function publishedWorkSummaries(): Promise<Work[]> {
 }
 
 export async function publishedWorkBySlug(slug: string): Promise<Work | undefined> {
-  const [sample] = await db.select(workColumns).from(workSamplesTable)
-    .where(eq(workSamplesTable.slug, slug)).limit(1);
-  return sample?.published ? sample : undefined;
+  return (await publishedWork()).find((sample) => sample.slug === slug);
+}
+
+export function publishedWorkFileBySlug(slug: string): Promise<PublicWorkFile | undefined> {
+  return publicWorkFileCache.read(slug, async () => {
+    const [file] = await db.select(publicWorkFileColumns)
+      .from(workSamplesTable)
+      .where(and(
+        eq(workSamplesTable.slug, slug),
+        eq(workSamplesTable.published, true),
+        eq(workSamplesTable.confidentialityConfirmed, true),
+      ))
+      .limit(1);
+    if (!file?.fileData || file.fileSize <= 0) return undefined;
+    return file as PublicWorkFile;
+  });
+}
+
+export async function primePublishedContentSnapshots(): Promise<void> {
+  const [, , , files] = await Promise.all([
+    publicationDataCache.prime(
+      "blogs",
+      () => db.select().from(blogPostsTable)
+        .where(eq(blogPostsTable.published, true)).orderBy(desc(blogPostsTable.date)),
+      decodePublishedBlogs,
+    ),
+    publicationDataCache.prime(
+      "work",
+      () => db.select(workColumns).from(workSamplesTable)
+        .where(eq(workSamplesTable.published, true)).orderBy(desc(workSamplesTable.date)),
+      decodePublishedWork,
+    ),
+    publicationDataCache.prime(
+      "work-summaries",
+      async () => {
+        const rows = await db.select(workSummaryColumns).from(workSamplesTable)
+          .where(eq(workSamplesTable.published, true)).orderBy(desc(workSamplesTable.date));
+        return rows.map((row) => toPublicWorkSummary(row));
+      },
+      decodePublishedWorkSummaries,
+    ),
+    db.select(publicWorkFileColumns)
+      .from(workSamplesTable)
+      .where(and(
+        eq(workSamplesTable.published, true),
+        eq(workSamplesTable.confidentialityConfirmed, true),
+      )),
+  ]);
+  await publicWorkFileCache.prime(files.filter((file) => Boolean(file.fileData && file.fileSize > 0)) as PublicWorkFile[]);
 }

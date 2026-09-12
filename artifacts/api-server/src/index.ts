@@ -1,5 +1,7 @@
 import app from "./app";
 import { logger } from "./lib/logger";
+import { publicationCacheEnabled } from "./lib/publication-cache.js";
+import { primePublicSnapshots } from "./lib/public-snapshot-primer.js";
 
 const rawPort = process.env["PORT"];
 
@@ -15,11 +17,22 @@ if (Number.isNaN(port) || port <= 0) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
 
-app.listen(port, (err) => {
+async function start(): Promise<void> {
+  if (process.env.NODE_ENV === "production" && publicationCacheEnabled()) {
+    await primePublicSnapshots();
+  }
+
+  app.listen(port, (err) => {
   if (err) {
     logger.error({ err }, "Error listening on port");
     process.exit(1);
   }
 
   logger.info({ port }, "Server listening");
+  });
+}
+
+start().catch((err) => {
+  logger.error({ err }, "Public snapshot prewarm failed");
+  process.exit(1);
 });

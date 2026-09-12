@@ -15,7 +15,7 @@ import { withPublicContentMutation } from "../lib/publication-cache.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 import { repairPublicWorkSample } from "../lib/public-work-repairs.js";
 
-import { publishedWorkBySlug, publishedWorkSummaries } from "../lib/published-content.js";
+import { publishedWork, publishedWorkBySlug, publishedWorkFileBySlug, publishedWorkSummaries } from "../lib/published-content.js";
 
 const router = Router();
 const ADMIN_PAGE_SIZE = 50;
@@ -61,17 +61,14 @@ router.get("/work", async (_req, res) => {
 });
 
 router.get("/work/:slug/file", async (req, res) => {
-  const [sample] = await db
-    .select({
-      fileName: workSamplesTable.fileName,
-      fileMimeType: workSamplesTable.fileMimeType,
-      fileData: workSamplesTable.fileData,
-      published: workSamplesTable.published,
-      confidentialityConfirmed: workSamplesTable.confidentialityConfirmed,
-    })
-    .from(workSamplesTable)
-    .where(eq(workSamplesTable.slug, String(req.params["slug"] ?? "")));
-  if (!sample?.published || !sample.confidentialityConfirmed || !sample.fileData) {
+  const slug = String(req.params["slug"] ?? "");
+  const publicSample = (await publishedWork()).find((sample) => sample.slug === slug);
+  if (!publicSample || publicSample.fileSize <= 0) {
+    res.status(404).json({ error: "Not found" });
+    return;
+  }
+  const sample = await publishedWorkFileBySlug(slug);
+  if (!sample?.fileData) {
     res.status(404).json({ error: "Not found" });
     return;
   }

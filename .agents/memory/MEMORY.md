@@ -9,3 +9,4 @@
 - [CounselO OG proxy architecture](counselo-og-proxy.md) — all /sa/* and /syr/* routed through API server; og-pages.ts serves prerendered flat files first (correct OG tags), then DB for CMS posts, then index.html fallback.
 - [CounselO production web server is ssr-server](counselo-ssr-server-routing.md) — in production Replit routes ALL HTML page requests (including /ar/our-work/:slug) to the legal-site ssr-server (port 24438), not the api-server; dynamic work/blog routes must be added to ssr-server.ts, not just og-pages.ts.
 - [Public read cost safety](public-read-cost-safety.md) — public legal-update snapshots must be publication-fenced and exclude source evidence, reasoning, drafts, and admin records.
+- [Public snapshot publication fence](public-snapshot-publish-fence.md) — public published content reads object-storage snapshots only; PostgreSQL is used during prewarming, never a production cache miss.

@@ -19,7 +19,12 @@ if (command === "status") {
   // Prune only unreachable generated caches, never uploads or control objects.
   const epoch = await storage.epochGeneration();
   if (!/^\d+$/.test(epoch)) throw new Error("Initialize and verify publication control before pruning.");
-  const prefixes = ["counselo/public-response-cache/v2/", "counselo/public-data-cache/v1/"];
+  const prefixes = [
+    "counselo/public-response-cache/v2/",
+    "counselo/public-data-cache/v1/",
+    "counselo/public-data-cache/v2/",
+    "counselo/public-work-files/v1/",
+  ];
   const candidates: string[] = [];
   for (const prefix of prefixes) {
     const listed = await storage.list({ prefix, maxResults: 10_001 });
@@ -27,7 +32,9 @@ if (command === "status") {
     if (listed.value.length > 10_000) throw new Error("Prune listing exceeds safety limit; no objects removed.");
     for (const { name } of listed.value) {
       const revision = name.match(/^counselo\/public-response-cache\/v2\/[^/]+\/publication\/(\d+)\//)?.[1]
-        ?? name.match(/^counselo\/public-data-cache\/v1\/[^/]+\/(\d+)\//)?.[1];
+        ?? name.match(/^counselo\/public-data-cache\/v1\/[^/]+\/(\d+)\//)?.[1]
+        ?? name.match(/^counselo\/public-data-cache\/v2\/(\d+)\//)?.[1]
+        ?? name.match(/^counselo\/public-work-files\/v1\/(\d+)\//)?.[1];
       if (revision && revision !== epoch) candidates.push(name);
     }
   }

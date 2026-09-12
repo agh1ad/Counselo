@@ -1,6 +1,4 @@
 import { registerLegalUpdatePages } from "./legal-updates/public-pages.js";
-import { db, workSamplesTable } from "@workspace/db";
-import { eq } from "drizzle-orm";
 import { createPublicDocumentsRouter } from "./lib/public-work-documents.js";
 import express, { type Express } from "express";
 import cors from "cors";
@@ -24,6 +22,9 @@ import {
   isDiscoveryPath,
   publicCacheControl,
 } from "./lib/public-cache-policy.js";
+import { PublicSnapshotUnavailableError } from "./lib/publication-data-cache.js";
+import { PublicWorkFileUnavailableError } from "./lib/public-work-file-cache.js";
+import { publishedWorkFileBySlug } from "./lib/published-content.js";
 
 const app: Express = express();
 
@@ -111,16 +112,7 @@ app.use("/api", router);
 // publication namespace before cached documents can be reused.
 app.use(cachePublicResponses("document", isCacheablePublicDocumentPath));
 app.use("/documents", createPublicDocumentsRouter(async (slug) => {
-  const [sample] = await db.select({
-    slug: workSamplesTable.slug,
-    published: workSamplesTable.published,
-    updatedAt: workSamplesTable.updatedAt,
-    fileSize: workSamplesTable.fileSize,
-    fileMimeType: workSamplesTable.fileMimeType,
-    fileData: workSamplesTable.fileData,
-    confidentialityConfirmed: workSamplesTable.confidentialityConfirmed,
-  }).from(workSamplesTable).where(eq(workSamplesTable.slug, slug));
-  return sample;
+  return publishedWorkFileBySlug(slug);
 }));
 
 // Cache legal-update and regional page responses before their renderers can
@@ -137,5 +129,19 @@ registerDiscoveryRoutes(app);
 // Public site routes must be registered after /api so the final site-level
 // 404 handler cannot swallow API requests.
 registerOgPageRoutes(app);
+
+app.use((error: unknown, _req: express.Request, res: express.Response, next: express.NextFunction) => {
+  if ((error instanceof PublicSnapshotUnavailableError || error instanceof PublicWorkFileUnavailableError) && !res.headersSent) {
+    res
+      .status(503)
+      .setHeader("Cache-Control", "no-store")
+      .setHeader("Retry-After", "60")
+      .setHeader("X-Robots-Tag", "noindex, nofollow, noarchive")
+      .type("text/plain")
+      .send("Public content temporarily unavailable");
+    return;
+  }
+  next(error);
+});
 
 export default app;
