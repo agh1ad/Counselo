@@ -14,6 +14,8 @@ test("the public server never polls PostgreSQL while idle", () => {
     "artifacts/api-server/src/lib/contact-notifications.ts",
   );
   assert.doesNotMatch(entry, /startContactNotificationWorker/);
+  assert.doesNotMatch(entry, /primePublic(?:Data|WorkFile|Snapshots)/);
+  assert.doesNotMatch(entry, /prewarmPublic/);
   assert.doesNotMatch(notifications, /setInterval|RECOVERY_SCAN_INTERVAL_MS/);
   assert.match(notifications, /scheduleNotificationRetry/);
   assert.match(notifications, /export async function processPendingNotifications/);
