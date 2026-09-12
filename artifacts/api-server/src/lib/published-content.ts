@@ -158,8 +158,8 @@ export function publishedWorkFileBySlug(slug: string): Promise<PublicWorkFile | 
   });
 }
 
-export async function primePublishedContentSnapshots(): Promise<void> {
-  const [, , , files] = await Promise.all([
+export async function primePublishedContentDataSnapshots(): Promise<void> {
+  await Promise.all([
     publicationDataCache.prime(
       "blogs",
       () => db.select().from(blogPostsTable)
@@ -181,12 +181,20 @@ export async function primePublishedContentSnapshots(): Promise<void> {
       },
       decodePublishedWorkSummaries,
     ),
-    db.select(publicWorkFileColumns)
-      .from(workSamplesTable)
-      .where(and(
-        eq(workSamplesTable.published, true),
-        eq(workSamplesTable.confidentialityConfirmed, true),
-      )),
   ]);
+}
+
+export async function primePublishedWorkFileSnapshots(): Promise<void> {
+  const files = await db.select(publicWorkFileColumns)
+    .from(workSamplesTable)
+    .where(and(
+      eq(workSamplesTable.published, true),
+      eq(workSamplesTable.confidentialityConfirmed, true),
+    ));
   await publicWorkFileCache.prime(files.filter((file) => Boolean(file.fileData && file.fileSize > 0)) as PublicWorkFile[]);
+}
+
+export async function primePublishedContentSnapshots(): Promise<void> {
+  await primePublishedContentDataSnapshots();
+  await primePublishedWorkFileSnapshots();
 }

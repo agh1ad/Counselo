@@ -1,6 +1,7 @@
 import { Client } from "@replit/object-storage";
 import { publicationCacheEnabled, publicationCoordinator, type PublicationCoordinator } from "./publication-cache.js";
 import { logger } from "./logger.js";
+import { publicDataSnapshotReadsReady } from "./public-snapshot-readiness.js";
 
 const MAX_BYTES = 8 * 1024 * 1024;
 type DataStorage = Pick<Client, "downloadAsText" | "uploadFromText">;
@@ -42,6 +43,10 @@ export class PublicationDataCache {
     const allowDatabaseFallback =
       options.allowDatabaseFallback ?? process.env.NODE_ENV !== "production";
     if (!this.enabled) return load();
+    if (!publicDataSnapshotReadsReady()) {
+      if (allowDatabaseFallback) return load();
+      throw new PublicSnapshotUnavailableError(collection);
+    }
     const state = await this.coordinator.state();
     if (!state.cacheable) {
       if (allowDatabaseFallback) return load();

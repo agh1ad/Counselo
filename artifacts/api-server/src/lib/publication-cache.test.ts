@@ -8,6 +8,11 @@ import { logger } from "./logger.js";
 import { cachePublicResponses, clearPublicResponseProcessCache, publicResponseCacheUrl } from "./public-response-cache.js";
 import { PublicationCoordinator, PUBLICATION_EPOCH_OBJECT, PUBLICATION_PENDING_PREFIX, type PublicationStorage } from "./publication-cache.js";
 import { isCacheablePublicPagePath, isDatabaseBackedPublicApiPath } from "./public-cache-policy.js";
+import {
+  beginPublicSnapshotStartupPrewarm,
+  completePublicDataSnapshotStartupPrewarm,
+  completePublicWorkFileSnapshotStartupPrewarm,
+} from "./public-snapshot-readiness.js";
 
 function fixture(t: TestContext) {
   const previous = { ...process.env };
@@ -265,6 +270,38 @@ test("prewarming replaces an existing snapshot with the current database records
   assert.deepEqual(await strict.read("blogs", async () => [{ slug: "should-not-load" }], decode, {
     allowDatabaseFallback: false,
   }), [{ slug: "current" }]);
+});
+
+test("startup prewarming cannot serve an older snapshot before rebuilding it", async t => {
+  const f = fixture(t), writer = f.coordinator();
+  await writer.mutate(async () => {});
+  const cache = new PublicationDataCache(() => new Client(), f.coordinator(), true);
+  const decode = (value: unknown) => value as Array<{ slug: string }>;
+  let records = [{ slug: "stale" }];
+  await cache.prime("blogs", async () => records, decode);
+
+  beginPublicSnapshotStartupPrewarm();
+  t.after(() => {
+    completePublicDataSnapshotStartupPrewarm();
+    completePublicWorkFileSnapshotStartupPrewarm();
+  });
+  const strict = new PublicationDataCache(() => new Client(), f.coordinator(), true);
+  await assert.rejects(
+    strict.read("blogs", async () => [{ slug: "database-fallback" }], decode, {
+      allowDatabaseFallback: false,
+    }),
+    { name: "PublicSnapshotUnavailableError" },
+  );
+
+  records = [{ slug: "rebuilt" }];
+  await cache.prime("blogs", async () => records, decode);
+  completePublicDataSnapshotStartupPrewarm();
+  assert.deepEqual(
+    await strict.read("blogs", async () => [{ slug: "database-fallback" }], decode, {
+      allowDatabaseFallback: false,
+    }),
+    records,
+  );
 });
 
 test("corrupt snapshots, pending writes and fenced rollback retain database reads", async t => {

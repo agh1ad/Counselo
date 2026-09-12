@@ -4,6 +4,10 @@ import type { RequestHandler } from "express";
 import { logger } from "./logger.js";
 import { PUBLIC_CACHE_DEPLOYMENT_VERSION } from "./public-cache-version.js";
 import { publicationCacheEnabled, publicationCoordinator, type PublicationCoordinator } from "./publication-cache.js";
+import {
+  publicDataSnapshotReadsReady,
+  publicWorkFileSnapshotReadsReady,
+} from "./public-snapshot-readiness.js";
 
 const CACHE_PREFIX = "counselo/public-response-cache/v2/";
 const PROCESS_CACHE_TTL_MS = 15_000;
@@ -236,6 +240,18 @@ export function cachePublicResponses(
       Boolean(req.headers.authorization) ||
       !isEligible(req.path)
     ) {
+      next();
+      return;
+    }
+
+    // A new process rebuilds snapshots in the background so it can satisfy the
+    // platform health check immediately. Do not let an old persistent response
+    // race that rebuild and become the new deployment's day-long cached result.
+    const startupSnapshotsReady = keyPrefix === "document"
+      ? publicWorkFileSnapshotReadsReady()
+      : publicDataSnapshotReadsReady();
+    if (publicationCacheEnabled() && !startupSnapshotsReady) {
+      res.setHeader("X-CounselO-Response-Cache", "BYPASS");
       next();
       return;
     }

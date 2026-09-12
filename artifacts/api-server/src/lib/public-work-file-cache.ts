@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { Client } from "@replit/object-storage";
 import { publicationCacheEnabled, publicationCoordinator } from "./publication-cache.js";
 import { logger } from "./logger.js";
+import { publicWorkFileSnapshotReadsReady } from "./public-snapshot-readiness.js";
 
 const MAX_BYTES = 32 * 1024 * 1024;
 const PREFIX = "counselo/public-work-files/v1/";
@@ -78,6 +79,10 @@ export class PublicWorkFileCache {
     const allowDatabaseFallback =
       options.allowDatabaseFallback ?? process.env.NODE_ENV !== "production";
     if (!this.enabled) return load();
+    if (!publicWorkFileSnapshotReadsReady()) {
+      if (allowDatabaseFallback) return load();
+      throw new PublicWorkFileUnavailableError();
+    }
     const state = await this.coordinator.state();
     if (!state.cacheable) {
       if (allowDatabaseFallback) return load();
