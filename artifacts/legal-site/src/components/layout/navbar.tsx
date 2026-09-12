@@ -66,7 +66,7 @@ export function Navbar() {
     <nav className={`region-navbar region-navbar--${region} fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-b border-[#b4924a]/25`}>
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
         <div className="flex justify-between items-center h-21">
-          <div className="flex items-center gap-3 min-w-0">
+          <div className="flex items-center gap-3 min-w-0 shrink-0">
             <Link href={isSharedPath ? regionPickerPath : regionPrefix} className="regional-navbar-lockup">
               <img src={brandMark} alt="" width="42" height="42" decoding="async" />
               <span className="uae-navbar-brand">
@@ -77,13 +77,14 @@ export function Navbar() {
             <span className="uae-navbar-title">{regionTitle}</span>
           </div>
 
-          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 rtl:space-x-reverse">
+          <div className="hidden lg:flex items-center gap-3">
             {isSharedPath ? <>
               <Link href={regionPickerPath} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">{t.nav.home}</Link>
               <Link href={lang === "ar" ? "/uae/ar" : "/uae"} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">{lang === "ar" ? "الإمارات" : "UAE"}</Link>
               <Link href={lang === "ar" ? "/sa/ar" : "/sa"} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">{lang === "ar" ? "السعودية" : "Saudi Arabia"}</Link>
               <Link href={lang === "ar" ? "/syr/ar" : "/syr"} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">{lang === "ar" ? "سوريا" : "Syria"}</Link>
               <Link href={libraryPath} className={`text-sm font-medium transition-colors hover:text-primary ${location.includes("legal-library") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.ourWork}</Link>
+              <Link href={`${isSharedPath ? (lang === "ar" ? "/ar" : "") : regionPrefix}/legal-updates`} className="text-sm font-medium hover:text-primary" onClick={() => setIsOpen(false)}>{lang === "ar" ? "المستجدات القانونية" : "Legal Updates"}</Link>
               <Link href={blogIndexPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location === "/blog" || location.startsWith("/blog/")) ? "text-primary" : "text-muted-foreground"}`}>{t.nav.blog}</Link>
               <Link href={workPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location.startsWith("/our-work") || location.startsWith("/ar/our-work")) ? "text-primary" : "text-muted-foreground"}`}>{workLabel}</Link>
               <Link href={regionPickerPath} className="region-picker-nav-link">
@@ -131,7 +132,8 @@ export function Navbar() {
             <Link href={p("/about")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/about") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.about}</Link>
             <Link href={p("/vision")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/vision") ? "text-primary" : "text-muted-foreground"}`}>{lang === "ar" ? "رؤيتنا" : "Our Vision"}</Link>
             <Link href={libraryPath} className={`text-sm font-medium transition-colors hover:text-primary ${location.includes("legal-library") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.ourWork}</Link>
-            <Link href={blogIndexPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location === "/blog" || location.startsWith("/blog/")) ? "text-primary" : "text-muted-foreground"}`}>{t.nav.blog}</Link>
+            <Link href={`${isSharedPath ? (lang === "ar" ? "/ar" : "") : regionPrefix}/legal-updates`} className="text-sm font-medium hover:text-primary" onClick={() => setIsOpen(false)}>{lang === "ar" ? "المستجدات القانونية" : "Legal Updates"}</Link>
+              <Link href={blogIndexPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location === "/blog" || location.startsWith("/blog/")) ? "text-primary" : "text-muted-foreground"}`}>{t.nav.blog}</Link>
             <Link href={workPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location.startsWith("/our-work") || location.startsWith("/ar/our-work")) ? "text-primary" : "text-muted-foreground"}`}>{workLabel}</Link>
             <Link href={p("/contact")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/contact") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.contact}</Link>
 
@@ -191,7 +193,8 @@ export function Navbar() {
                 <Link href={lang === "ar" ? "/sa/ar" : "/sa"} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{lang === "ar" ? "المملكة العربية السعودية" : "Saudi Arabia"}</Link>
                 <Link href={lang === "ar" ? "/syr/ar" : "/syr"} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{lang === "ar" ? "سوريا" : "Syria"}</Link>
                 <Link href={libraryPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.ourWork}</Link>
-                <Link href={blogIndexPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-primary">{t.nav.blog}</Link>
+                <Link href={`${isSharedPath ? (lang === "ar" ? "/ar" : "") : regionPrefix}/legal-updates`} className="text-sm font-medium hover:text-primary" onClick={() => setIsOpen(false)}>{lang === "ar" ? "المستجدات القانونية" : "Legal Updates"}</Link>
+              <Link href={blogIndexPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-primary">{t.nav.blog}</Link>
                 <Link href={workPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{workLabel}</Link>
                 <Link href={regionPickerPath} onClick={() => setIsOpen(false)} className="flex items-center gap-2 px-3 py-2 text-base font-medium text-foreground hover:text-primary"><Globe2 className="h-4 w-4" />{lang === "ar" ? "اختيار الدولة" : "Choose Region"}</Link>
               </> : <>
@@ -207,6 +210,7 @@ export function Navbar() {
               <Link href={p("/about")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.about}</Link>
               <Link href={p("/vision")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{lang === "ar" ? "رؤيتنا" : "Our Vision"}</Link>
               <Link href={libraryPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.ourWork}</Link>
+              <Link href={`${isSharedPath ? (lang === "ar" ? "/ar" : "") : regionPrefix}/legal-updates`} className="text-sm font-medium hover:text-primary" onClick={() => setIsOpen(false)}>{lang === "ar" ? "المستجدات القانونية" : "Legal Updates"}</Link>
               <Link href={blogIndexPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.blog}</Link>
               <Link href={workPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{workLabel}</Link>
               <Link href={p("/contact")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.contact}</Link>

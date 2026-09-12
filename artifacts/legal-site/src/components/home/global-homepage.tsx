@@ -197,6 +197,7 @@ export default function GlobalHomepage({
               {c.nav[i]}
             </a>
           ))}
+          <Link href={isArabic ? "/ar/legal-updates" : "/legal-updates"}>{isArabic ? "المستجدات القانونية" : "Legal Updates"}</Link>
           <Link href={isArabic ? "/blog/ar" : "/blog"}>{isArabic ? "المقالات" : "Blog"}</Link>
           <Link href={isArabic ? "/ar/our-work" : "/our-work"}>{isArabic ? "أعمالنا" : "Our Work"}</Link>
           <Link href={isArabic ? "/ar/legal-library" : "/legal-library"}>

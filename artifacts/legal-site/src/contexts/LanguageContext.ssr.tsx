@@ -23,7 +23,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const isBlogPath = location === "/blog" || location.startsWith("/blog/");
     const isWorkPath = location === "/our-work" || location.startsWith("/our-work/") || location === "/ar/our-work" || location.startsWith("/ar/our-work/");
     const isLibraryPath = location === "/legal-library" || location === "/ar/legal-library";
-    if (location === "/urgent-legal-assistance" || location === "/ar/urgent-legal-assistance") {
+    if (/^\/(?:ar\/)?legal-updates(?:\/|$)/.test(location)) {
+      const neutral = location.replace(/^\/ar(?=\/)/, "");
+      navigate(next === "ar" ? `/ar${neutral}` : neutral);
+    } else if (location === "/urgent-legal-assistance" || location === "/ar/urgent-legal-assistance") {
       navigate(next === "ar" ? "/ar/urgent-legal-assistance" : "/urgent-legal-assistance");
     } else if (isBlogPath) {
       if (location === "/blog") navigate("/blog/ar");

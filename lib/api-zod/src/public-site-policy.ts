@@ -45,6 +45,7 @@ export function toArabicRoute(route: string): string {
 export function getPublicRouteInventory(): string[] {
   const englishRoutes = REGIONAL_SEO_REGISTRY.flatMap(({ region, pathPrefix }) => [
     pathPrefix,
+    `${pathPrefix}/legal-updates`,
     `${pathPrefix}/services`,
     `${pathPrefix}/about`,
     `${pathPrefix}/vision`,
@@ -60,6 +61,8 @@ export function getPublicRouteInventory(): string[] {
     ...englishRoutes.map(toArabicRoute),
     "/blog",
     "/blog/ar",
+    "/legal-updates",
+    "/ar/legal-updates",
     "/legal-library",
     "/ar/legal-library",
     "/urgent-legal-assistance",

@@ -20,3 +20,5 @@ export { default as PrivacyPolicy } from "@/pages/privacy-policy";
 export { default as NotFound } from "@/pages/not-found";
 
 export { default as UrgentLegalAssistance } from "@/pages/urgent-legal-assistance";
+
+export { default as LegalUpdates } from "@/pages/legal-updates";

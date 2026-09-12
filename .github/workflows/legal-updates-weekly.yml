@@ -1,0 +1,33 @@
+name: CounselO weekly legal discovery
+on:
+  schedule:
+    # Saturday 08:00 Asia/Tbilisi (UTC+4).
+    - cron: '0 4 * * 6'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: legal-updates-discovery
+  cancel-in-progress: false
+jobs:
+  discover:
+    # Explicit opt-in: CounselO normally uses Replit-billed AI in a Replit job.
+    if: vars.LEGAL_UPDATES_PROVIDER == 'openai-direct'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Discover and prepare drafts
+        run: pnpm --filter @workspace/api-server legal-updates:run
+        env:
+          DATABASE_URL: ${{ secrets.LEGAL_UPDATES_DATABASE_URL }}
+          OPENAI_API_KEY: ${{ secrets.LEGAL_UPDATES_OPENAI_API_KEY }}
+          LEGAL_UPDATES_MODEL: gpt-5.6-luna

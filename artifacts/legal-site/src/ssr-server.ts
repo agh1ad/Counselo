@@ -1,3 +1,4 @@
+import { updatesSitemap, routeToFlatFilename, type LegalUpdate, type LegalUpdatesData, updateContext, legalUpdatesData } from "@workspace/api-zod";
 /**
  * Production SSR server for the legal-site artifact.
  *
@@ -524,29 +525,30 @@ function htmlTag(route: string): string {
 // On-demand SSR for routes with no prerendered file
 // ---------------------------------------------------------------------------
 
-let _render: ((url: string, posts?: ApiPost[], samples?: WorkSamplePublic[]) => RenderResult) | null = null;
+let _render: ((url: string, posts?: ApiPost[], samples?: WorkSamplePublic[], updates?: LegalUpdatesData | LegalUpdate[]) => RenderResult) | null = null;
 
 async function ssrRender(
   url: string,
   posts: ApiPost[] = [],
   samples: WorkSamplePublic[] = [],
+  updates: LegalUpdatesData | LegalUpdate[] = [],
 ): Promise<string> {
   if (!_render) {
     const mod = (await import(ssrBundle)) as {
-      render: (url: string, posts?: ApiPost[], samples?: WorkSamplePublic[]) => RenderResult;
+      render: (url: string, posts?: ApiPost[], samples?: WorkSamplePublic[], updates?: LegalUpdatesData | LegalUpdate[]) => RenderResult;
     };
     _render = mod.render;
   }
 
   const template = readFileSync(shellHtml, "utf-8");
-  const { head, body } = _render(url, posts, samples);
+  const { head, body } = _render(url, posts, samples, updates);
   const discoveryWorkSamples = compactWorkSamplesForDiscovery(samples);
   const blogSlug = url.match(/^\/blog\/(?:en|ar)\/([^/?]+)$/)?.[1];
   const workSlug = url.match(/^\/(?:ar\/)?our-work\/([^/?]+)$/)?.[1];
   const detailPost = blogSlug ? posts.find(post => post.slug === decodeURIComponent(blogSlug)) : undefined;
   const detailWork = workSlug ? samples.find(sample => sample.slug === decodeURIComponent(workSlug)) : undefined;
   const detailData = `${detailPost ? `window.__SSR_POST__=${JSON.stringify(detailPost).replace(/</g, "\\u003c")};` : ""}${detailWork ? `window.__SSR_WORK__=${JSON.stringify(detailWork).replace(/</g, "\\u003c")};` : ""}`;
-  const discoveryData = `<script>${detailData}window.__SSR_POSTS__=${JSON.stringify(posts).replace(/</g, "\\u003c")};window.__SSR_WORK_SAMPLES__=${JSON.stringify(discoveryWorkSamples).replace(/</g, "\\u003c")};</script>`;
+  const discoveryData = `<script>window.__SSR_LEGAL_UPDATES__=${JSON.stringify(legalUpdatesData(url, updates)).replace(/</g, "\\u003c")};${detailData}window.__SSR_POSTS__=${JSON.stringify(posts).replace(/</g, "\\u003c")};window.__SSR_WORK_SAMPLES__=${JSON.stringify(discoveryWorkSamples).replace(/</g, "\\u003c")};</script>`;
 
   return template
     .replace('<html lang="en">', htmlTag(url))
@@ -615,6 +617,25 @@ app.get("/feed.xml", async (_req, res) => {
       .setHeader("Cache-Control", "public, max-age=300, must-revalidate");
     res.send(readFileSync(resolve(publicDir, "feed.xml"), "utf-8"));
   }
+});
+
+async function fetchLegalUpdates(path: string): Promise<LegalUpdatesData> {
+ const response=await fetch(`${apiOrigin}/api/legal-updates?path=${encodeURIComponent(path)}`,{signal:AbortSignal.timeout(10000)});
+ if(!response.ok)throw new Error("Legal updates unavailable");
+ return response.json() as Promise<LegalUpdatesData>;
+}
+app.get(/^\/sitemap-legal-updates(?:-([1-9]\d*))?\.xml$/,async(req,res)=>{try{const r=await fetch(`${apiOrigin}/api/legal-updates-sitemap${req.params[0] ? `?part=${req.params[0]}` : ""}`,{signal:AbortSignal.timeout(10000)}); if(r.status===404){res.status(404).send("Sitemap not found");return;} if(!r.ok)throw new Error("Sitemap unavailable");res.type("application/xml").set("Cache-Control","no-cache").send(await r.text());}catch{res.status(503).send("Sitemap temporarily unavailable");}});
+app.get(/^\/(?:ar\/)?legal-updates(?:\/.*)?$|^\/(sa|uae|syr)(?:\/ar)?\/legal-updates(?:\/.*)?$|^\/(sa|uae|syr)(?:\/ar)?(?:\/services\/[^/]+(?:\/[^/]+)?)?$/,async(req,res,next)=>{
+ const isUpdate=req.path.includes("/legal-updates");
+ if(!isUpdate && !existsSync(resolve(pagesDir,routeToFlatFilename(req.path))))return next();
+ try{
+  const context=updateContext(req.path);
+  if(!context){res.status(404).set("X-Robots-Tag","noindex").send("Legal update not found");return;}
+  const updates=await fetchLegalUpdates(req.path);if(!isUpdate&&!updates.items.length)return next();
+  if((context.kind==="article"&&!updates.article)||(context.kind==="hub"&&(context.page>1||context.service)&&!updates.items.length)){res.status(404).set("X-Robots-Tag","noindex").send("Legal update not found");return;}
+  const inventory = isUpdate ? {posts:[],samples:[]} : await fetchDiscoveryInventory();
+  res.type("html").set("Cache-Control","public, max-age=0, must-revalidate").send(await ssrRender(req.path,inventory.posts,inventory.samples,updates));
+ }catch{if(!isUpdate)return next();res.status(503).send("Legal updates temporarily unavailable");}
 });
 
 // 1. Static assets — JS, CSS, images, fonts, robots.txt, sitemap.xml, etc.

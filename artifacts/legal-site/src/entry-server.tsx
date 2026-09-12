@@ -18,6 +18,7 @@
  * those hoisted tags so the prerender script can place them in <head>.
  */
 
+import type { LegalUpdate, LegalUpdatesData } from "@workspace/api-zod/browser";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { HelmetProvider } from "react-helmet-async";
@@ -77,10 +78,11 @@ export function render(
   url: string,
   initialBlogPosts: InitialBlogPost[] = [],
   initialWorkSamples: WorkSamplePublic[] = [],
+  initialLegalUpdates: LegalUpdatesData | LegalUpdate[] = [],
 ): RenderResult {
   const rendered = renderToString(
     <HelmetProvider>
-      <App ssrUrl={url} initialBlogPosts={initialBlogPosts} initialWorkSamples={initialWorkSamples} />
+      <App ssrUrl={url} initialBlogPosts={initialBlogPosts} initialWorkSamples={initialWorkSamples} initialLegalUpdates={initialLegalUpdates} />
     </HelmetProvider>,
   );
 

@@ -12,7 +12,8 @@
     "cache:control": "tsx src/scripts/public-cache-control.ts",
     "recover:contact-notifications": "tsx src/scripts/recover-contact-notifications.ts",
     "apply:prepared-translations": "tsx src/scripts/apply-pretranslated-content.ts",
-    "backfill:internal-links": "tsx src/scripts/backfill-internal-links.ts"
+    "backfill:internal-links": "tsx src/scripts/backfill-internal-links.ts",
+    "legal-updates:run": "tsx src/scripts/run-legal-updates.ts"
   },
   "dependencies": {
     "@google-cloud/storage": "7.22.0",
