@@ -7,6 +7,7 @@ import { PublicationDataCache } from "./publication-data-cache.js";
 import { logger } from "./logger.js";
 import { cachePublicResponses, clearPublicResponseProcessCache, publicResponseCacheUrl } from "./public-response-cache.js";
 import { PublicationCoordinator, PUBLICATION_EPOCH_OBJECT, PUBLICATION_PENDING_PREFIX, type PublicationStorage } from "./publication-cache.js";
+import { isCacheablePublicPagePath, isDatabaseBackedPublicApiPath } from "./public-cache-policy.js";
 
 function fixture(t: TestContext) {
   const previous = { ...process.env };
@@ -269,4 +270,114 @@ test("corrupt snapshots, pending writes and fenced rollback retain database read
   process.env.PUBLIC_RESPONSE_CACHE_MODE = "fenced";
   await cache.read("work", load, decode);
   assert.equal(reads, 4);
+});
+
+test("legal-update API and regional rendering reuse only the current published revision", async t => {
+  const f = fixture(t), writer = f.coordinator();
+  await writer.mutate(async () => {});
+  const version = "legal-updates";
+  const servers: Server[] = [];
+  const reads = { api: 0, page: 0, sitemap: 0 };
+  const bodies = new Map([
+    ["/sa/legal-updates", "Saudi English"],
+    ["/syr/ar/legal-updates", "سوريا العربية"],
+    ["/sa", "Saudi regional page"],
+  ]);
+  let failPages = false;
+
+  const makeApp = async () => {
+    const app = express();
+    const coordinator = f.coordinator();
+    app.use("/api", cachePublicResponses("api", isDatabaseBackedPublicApiPath, version, coordinator));
+    app.get("/api/legal-updates", async (req, res) => {
+      reads.api++;
+      await new Promise(resolve => setTimeout(resolve, 10));
+      if (failPages) {
+        res.status(503).send("temporarily unavailable");
+        return;
+      }
+      const path = String(req.query.path || "/legal-updates");
+      const body = bodies.get(path);
+      if (!body) {
+        res.status(404).send("not found");
+        return;
+      }
+      res.json({ path, body });
+    });
+    app.get("/api/legal-updates-sitemap", (_req, res) => {
+      reads.sitemap++;
+      res.type("application/xml").send("<urlset />");
+    });
+    app.use(cachePublicResponses("page", isCacheablePublicPagePath, version, coordinator));
+    app.get(/^\/(?:sa|syr|uae)(?:\/.*)?$/, async (req, res) => {
+      reads.page++;
+      await new Promise(resolve => setTimeout(resolve, 10));
+      if (failPages) {
+        res.status(503).send("temporarily unavailable");
+        return;
+      }
+      const body = bodies.get(req.path);
+      if (!body) {
+        res.status(404).send("not found");
+        return;
+      }
+      res.type("html").send(body);
+    });
+    const server: Server = app.listen(0, "127.0.0.1");
+    servers.push(server);
+    await new Promise<void>(resolve => server.once("listening", resolve));
+    const address = server.address();
+    assert.ok(address && typeof address !== "string");
+    return `http://127.0.0.1:${address.port}`;
+  };
+
+  t.after(() => Promise.all(servers.map(server => new Promise<void>((resolve, reject) =>
+    server.close(error => error ? reject(error) : resolve()),
+  ))).then(() => undefined));
+
+  const first = await makeApp();
+  const saApi = "/api/legal-updates?path=%2Fsa%2Flegal-updates";
+  const syrApi = "/api/legal-updates?path=%2Fsyr%2Far%2Flegal-updates";
+  const burst = await Promise.all(Array.from({ length: 12 }, () => fetch(first + saApi)));
+  assert.equal(reads.api, 1, "simultaneous anonymous readers share one database-backed render");
+  assert.ok(burst.every(response => response.status === 200));
+  assert.match(await (await fetch(first + syrApi)).text(), /سوريا العربية/);
+  assert.equal(reads.api, 2, "language and jurisdiction filters remain distinct");
+  assert.equal(isDatabaseBackedPublicApiPath("/work/public-sample/file"), false);
+  assert.equal(isDatabaseBackedPublicApiPath("/work/public-sample"), true);
+  assert.equal((await fetch(first + "/api/legal-updates-sitemap")).status, 200);
+  assert.equal((await fetch(first + "/api/legal-updates-sitemap")).headers.get("x-counselo-response-cache"), "PROCESS");
+  assert.equal(reads.sitemap, 1);
+  assert.equal(await (await fetch(first + "/sa")).text(), "Saudi regional page");
+  assert.equal(reads.page, 1);
+
+  clearPublicResponseProcessCache();
+  const restarted = await makeApp();
+  assert.equal((await fetch(restarted + saApi)).headers.get("x-counselo-response-cache"), "APP-STORAGE");
+  assert.equal((await fetch(restarted + "/sa")).headers.get("x-counselo-response-cache"), "APP-STORAGE");
+  assert.deepEqual(reads, { api: 2, page: 1, sitemap: 1 }, "valid restart hits perform no database-backed work");
+
+  await writer.mutate(async () => bodies.set("/sa", "Updated Saudi regional page"));
+  f.advance(15_001);
+  assert.equal(await (await fetch(restarted + "/sa")).text(), "Updated Saudi regional page");
+  assert.equal(reads.page, 2, "publication rotates the shared revision");
+
+  await writer.mutate(async () => bodies.delete("/sa"));
+  f.advance(15_001);
+  assert.equal((await fetch(restarted + "/sa")).status, 404);
+  assert.equal(reads.page, 3, "withdrawal cannot reuse the published page");
+
+  f.faults.epochRead = true;
+  f.advance(15_001);
+  await fetch(restarted + syrApi);
+  await fetch(restarted + syrApi);
+  assert.equal(reads.api, 4, "unavailable publication controls bypass cached responses");
+  f.faults.epochRead = false;
+
+  failPages = true;
+  f.advance(15_001);
+  const failingPath = "/api/legal-updates?path=%2Fuae%2Flegal-updates";
+  assert.equal((await fetch(restarted + failingPath)).status, 503);
+  assert.equal((await fetch(restarted + failingPath)).status, 503);
+  assert.equal(reads.api, 6, "server errors are never cached");
 });

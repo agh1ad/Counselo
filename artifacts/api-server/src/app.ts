@@ -17,49 +17,14 @@ import {
 import { PUBLIC_CACHE_POLICY } from "@workspace/api-zod";
 import { cachePublicResponses } from "./lib/public-response-cache.js";
 import { handleResendWebhook } from "./lib/resend-webhook.js";
+import {
+  isCacheablePublicPagePath,
+  isDatabaseBackedPublicApiPath,
+  isDiscoveryPath,
+  publicCacheControl,
+} from "./lib/public-cache-policy.js";
 
 const app: Express = express();
-
-function isDiscoveryPath(path: string): boolean {
-  return (
-    path === "/sitemap.xml" ||
-    path === "/sitemap-blog.xml" ||
-    path === "/sitemap-work.xml" ||
-    path === "/feed.xml"
-  );
-}
-
-function publicCacheControl(path: string): string {
-  return isDiscoveryPath(path)
-    ? "public, max-age=0, s-maxage=300, stale-while-revalidate=600, must-revalidate"
-    : "public, max-age=0, s-maxage=15, stale-while-revalidate=30, must-revalidate";
-}
-
-function isDatabaseBackedPublicApiPath(path: string): boolean {
-  return (
-    path === "/blog/posts" ||
-    path === "/blog/posts/discovery" ||
-    path.startsWith("/blog/posts/") ||
-    path === "/work" ||
-    path.startsWith("/work/")
-  );
-}
-
-function isCacheablePublicPagePath(path: string): boolean {
-  return (
-    path === "/blog" ||
-    path === "/blog/ar" ||
-    /^\/blog\/[^/]+$/.test(path) ||
-    /^\/(?:(?:sa|syr|uae)\/(?:ar\/)?blog|ar\/blog)\/[^/]+$/.test(path) ||
-    path.startsWith("/blog/en/") ||
-    path.startsWith("/blog/ar/") ||
-    path === "/our-work" ||
-    path === "/ar/our-work" ||
-    path.startsWith("/our-work/") ||
-    path.startsWith("/ar/our-work/") ||
-    isDiscoveryPath(path)
-  );
-}
 
 function isStaticAssetRequest(url: string | undefined): boolean {
   const path = url?.split("?", 1)[0] ?? "";
@@ -126,7 +91,9 @@ app.use(redirectTrailingSlash);
 app.use("/api", (req, res, next) => {
   res.setHeader("X-Robots-Tag", "noindex, nofollow, noarchive");
 
-  if (isDatabaseBackedPublicApiPath(req.path)) {
+  if (req.headers.authorization) {
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
+  } else if (isDatabaseBackedPublicApiPath(req.path)) {
     res.setHeader("Cache-Control", publicCacheControl(req.path));
   } else {
     // Admin, contact, and other stateful API traffic must never be cached.
@@ -150,9 +117,11 @@ app.use("/documents", createPublicDocumentsRouter(async (slug) => {
   return sample;
 }));
 
-registerLegalUpdatePages(app);
-
+// Cache legal-update and regional page responses before their renderers can
+// query published records. Publication fences rotate the shared namespace.
 app.use(cachePublicResponses("page", isCacheablePublicPagePath));
+
+registerLegalUpdatePages(app);
 
 // Lean crawler discovery routes come first so each child sitemap queries only
 // the table it actually needs. The broader public renderer remains the fallback

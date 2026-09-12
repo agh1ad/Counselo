@@ -9,9 +9,13 @@ import { runLegalUpdates } from "./worker.js";
 import { validateDraft } from "./validation.js";
 import { officialSources } from "./sources.js";
 import { fetchOfficial, sourceText } from "./retrieval.js";
+import { withPublicContentMutation } from "../lib/publication-cache.js";
+import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 const router = Router();
 router.get("/legal-updates", async (req, res) => {
   try {
+    // Replit's revisioned application cache handles reuse. Browsers and
+    // intermediaries must revalidate so a withdrawal is never edge-stale.
     res.setHeader("Cache-Control", "no-store");
     const path =
       typeof req.query.path === "string" ? req.query.path : "/legal-updates";
@@ -26,6 +30,7 @@ router.get("/legal-updates", async (req, res) => {
 });
 router.get("/legal-updates-sitemap", async (req, res) => {
   try {
+    res.setHeader("Cache-Control", "no-cache");
     const xml = legalUpdatesSitemapDocument(
       await legalUpdatesSitemapRows(),
       req.query.part ? Number(req.query.part) : undefined,
@@ -98,8 +103,11 @@ router.put("/admin/legal-updates/:id", requireAdmin, async (req, res) => {
     });
     return;
   }
-  const client = await pool.connect();
-  try {
+  let publicContentChanged = false;
+  let operationSucceeded = false;
+  await withPublicContentMutation(async () => {
+    const client = await pool.connect();
+    try {
     await client.query("BEGIN");
     const row = (
       await client.query("SELECT * FROM legal_updates WHERE id=$1 FOR UPDATE", [
@@ -118,6 +126,7 @@ router.put("/admin/legal-updates/:id", requireAdmin, async (req, res) => {
         .json({ error: "Draft changed. Reload before reviewing." });
       return;
     }
+    publicContentChanged = action === "publish" || action === "withdraw";
     if (action === "save" && row.status === "published")
       throw new Error("Withdraw before changing published content");
     if (action === "publish" && !["draft", "withdrawn"].includes(row.status))
@@ -145,7 +154,7 @@ router.put("/admin/legal-updates/:id", requireAdmin, async (req, res) => {
         [row.id, text, createHash("sha256").update(text).digest("hex")],
       );
       await client.query("COMMIT");
-      res.json({ ok: true });
+      operationSucceeded = true;
       return;
     }
     const editorial =
@@ -240,14 +249,24 @@ router.put("/admin/legal-updates/:id", requireAdmin, async (req, res) => {
       ],
     );
     await client.query("COMMIT");
+    operationSucceeded = true;
+    } catch (error) {
+      await client.query("ROLLBACK");
+      res.status(400).json({
+        error: error instanceof Error ? error.message : "Review failed",
+      });
+    } finally {
+      client.release();
+    }
+  }, () => res.setHeader("X-CounselO-Cache-Status", "bypass"));
+  if (operationSucceeded && !res.headersSent) {
+    if (publicContentChanged) {
+      const invalidation = await invalidatePublicResponseCache();
+      if (!invalidation.complete) {
+        res.setHeader("X-CounselO-Cache-Status", "bypass");
+      }
+    }
     res.json({ ok: true });
-  } catch (error) {
-    await client.query("ROLLBACK");
-    res.status(400).json({
-      error: error instanceof Error ? error.message : "Review failed",
-    });
-  } finally {
-    client.release();
   }
 });
 export default router;
