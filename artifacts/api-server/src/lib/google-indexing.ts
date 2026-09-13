@@ -144,7 +144,7 @@ async function submitSitemapToGoogle(): Promise<void> {
   return googleSitemapSubmission;
 }
 
-function notifySearchEngines(): void {
+export function notifySitemapUpdated(): void {
   void submitSitemapToGoogle();
 }
 
@@ -172,14 +172,14 @@ export function blogPostUrls(slug: string): string[] {
 export function notifyPublished(slug: string): void {
   const urls = blogPostUrls(slug);
   void pingIndexNow(urls);
-  notifySearchEngines();
+  notifySitemapUpdated();
 }
 
 /** Ask participating engines to recrawl a removed/unpublished article so its
  * new 404 state is discovered promptly. The live sitemap drops it instantly. */
 export function notifyRemoved(slug: string): void {
   void pingIndexNow(blogPostUrls(slug));
-  notifySearchEngines();
+  notifySitemapUpdated();
 }
 
 export function workSampleUrls(slug: string): string[] {
@@ -196,10 +196,10 @@ export function workSampleUrls(slug: string): string[] {
 export function notifyWorkPublished(slug: string): void {
   const urls = workSampleUrls(slug);
   void pingIndexNow(urls);
-  notifySearchEngines();
+  notifySitemapUpdated();
 }
 
 export function notifyWorkRemoved(slug: string): void {
   void pingIndexNow(workSampleUrls(slug));
-  notifySearchEngines();
+  notifySitemapUpdated();
 }

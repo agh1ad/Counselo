@@ -8,6 +8,7 @@ import {
   publicDataSnapshotReadsReady,
   publicWorkFileSnapshotReadsReady,
 } from "./public-snapshot-readiness.js";
+import { notifySitemapUpdated } from "./google-indexing.js";
 
 const CACHE_PREFIX = "counselo/public-response-cache/v2/";
 const PROCESS_CACHE_TTL_MS = 15_000;
@@ -375,6 +376,7 @@ export async function invalidatePublicResponseCache(
       if (process.env.NODE_ENV === "production") {
         const { primePublicSnapshots } = await import("./public-snapshot-primer.js");
         await primePublicSnapshots();
+        notifySitemapUpdated();
       }
       return { complete: true, deleted: 0, reason: "complete" };
     } catch (err) {
