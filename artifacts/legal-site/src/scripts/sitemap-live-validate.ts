@@ -23,6 +23,7 @@ export const SITEMAP_FILES = [
   "sitemap-syr-services.xml",
   "sitemap-blog.xml",
   "sitemap-work.xml",
+  "sitemap-legal-updates.xml",
 ] as const;
 
 type SitemapEntry = {
