@@ -131,7 +131,17 @@ async function submitSitemapToGoogle(): Promise<void> {
         headers: { Authorization: `Bearer ${token.access_token}` },
       });
       if (!submitResponse.ok) {
-        throw new Error(`Google sitemap submission failed with HTTP ${submitResponse.status}`);
+        const errorBody = await submitResponse.text();
+        let googleMessage = "";
+        try {
+          const parsed = JSON.parse(errorBody) as { error?: { message?: unknown } };
+          if (typeof parsed.error?.message === "string") googleMessage = parsed.error.message;
+        } catch {
+          // Keep the status-only error when Google does not return JSON.
+        }
+        throw new Error(
+          `Google sitemap submission failed with HTTP ${submitResponse.status}${googleMessage ? `: ${googleMessage}` : ""}`,
+        );
       }
       lastGoogleSitemapSubmission = Date.now();
       logger.info({ sitemap: config.sitemapUrl }, "[google] sitemap submitted to Search Console");
