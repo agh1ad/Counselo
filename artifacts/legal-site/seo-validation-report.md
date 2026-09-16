@@ -1,30 +1,77 @@
 # CounselO SEO Validation Report
 
-_Generated: 2026-09-11 03:18:52 UTC_
+_Generated: 2026-09-16 00:09:05 UTC_
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| Pages validated | 1484 |
+| Pages validated | 1492 |
 | Redirect pages  | 327 |
-| ✅ Clean pages  | 1327 |
-| ⚠️  Warn-only pages | 157 |
-| ❌ Error pages  | 0 |
-| Total errors    | 0 |
-| Total warnings  | 170 |
-| SEO score       | **95/100** |
-
-> ✅ **No errors found.** All pages pass critical SEO checks.
+| ✅ Clean pages  | 1254 |
+| ⚠️  Warn-only pages | 232 |
+| ❌ Error pages  | 6 |
+| Total errors    | 12 |
+| Total warnings  | 272 |
+| SEO score       | **92/100** |
 
 ## Issues by Rule
 
 | Rule | Errors | Warnings |
 |------|--------|----------|
-| `title-too-long` | — | 112 |
-| `desc-too-long` | — | 54 |
-| `geo-region-missing` | — | 2 |
-| `schema-no-breadcrumb` | — | 2 |
+| `sa-hreflang-en-sa-missing` | 2 | — |
+| `sa-hreflang-ar-sa-missing` | 2 | — |
+| `syr-hreflang-en-sy-missing` | 2 | — |
+| `syr-hreflang-ar-sy-missing` | 2 | — |
+| `uae-hreflang-en-ae-missing` | 2 | — |
+| `uae-hreflang-ar-ae-missing` | 2 | — |
+| `desc-too-long` | — | 133 |
+| `title-too-long` | — | 129 |
+| `geo-region-missing` | — | 10 |
+
+## ❌ Pages with Errors
+
+### `/sa/ar/legal-updates`
+_Title: المستجدات القانونية — السعودية | كاونسلو_
+
+- ❌ **sa-hreflang-en-sa-missing**: Missing en-SA hreflang
+- ❌ **sa-hreflang-ar-sa-missing**: Missing ar-SA hreflang
+- ⚠️  **geo-region-missing**: No geo.region meta
+
+### `/sa/legal-updates`
+_Title: Legal Updates — Saudi Arabia | CounselO_
+
+- ❌ **sa-hreflang-en-sa-missing**: Missing en-SA hreflang
+- ❌ **sa-hreflang-ar-sa-missing**: Missing ar-SA hreflang
+- ⚠️  **geo-region-missing**: No geo.region meta
+
+### `/syr/ar/legal-updates`
+_Title: المستجدات القانونية — سوريا | كاونسلو_
+
+- ❌ **syr-hreflang-en-sy-missing**: Missing en-SY hreflang
+- ❌ **syr-hreflang-ar-sy-missing**: Missing ar-SY hreflang
+- ⚠️  **geo-region-missing**: No geo.region meta
+
+### `/syr/legal-updates`
+_Title: Legal Updates — Syria | CounselO_
+
+- ❌ **syr-hreflang-en-sy-missing**: Missing en-SY hreflang
+- ❌ **syr-hreflang-ar-sy-missing**: Missing ar-SY hreflang
+- ⚠️  **geo-region-missing**: No geo.region meta
+
+### `/uae/ar/legal-updates`
+_Title: المستجدات القانونية — الإمارات العربية المتحدة | كاونسلو_
+
+- ❌ **uae-hreflang-en-ae-missing**: Missing en-AE hreflang
+- ❌ **uae-hreflang-ar-ae-missing**: Missing ar-AE hreflang
+- ⚠️  **geo-region-missing**: No geo.region meta
+
+### `/uae/legal-updates`
+_Title: Legal Updates — United Arab Emirates | CounselO_
+
+- ❌ **uae-hreflang-en-ae-missing**: Missing en-AE hreflang
+- ❌ **uae-hreflang-ar-ae-missing**: Missing ar-AE hreflang
+- ⚠️  **geo-region-missing**: No geo.region meta
 
 ## ⚠️  Pages with Warnings Only
 
@@ -38,6 +85,237 @@ _Title: كاونسلو | استشارات قانونية إلكترونية لل
 
 - ⚠️  **geo-region-missing**: No geo.region meta
 
+### `/ar/legal-updates`
+_Title: المستجدات القانونية | كاونسلو_
+
+- ⚠️  **geo-region-missing**: No geo.region meta
+
+### `/ar/our-work/alaatrad-ala-almkhalfat-albyyyh`
+_Title: الاعتراض على المخالفات البيئية | كاونسلو_
+
+- ⚠️  **desc-too-long**: 720 chars (max 170)
+
+### `/ar/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary`
+_Title: الأجرة مقابل المنفعة في الإيجار التجاري | كاونسلو_
+
+- ⚠️  **desc-too-long**: 314 chars (max 170)
+
+### `/ar/our-work/algha-mkhalfat-aldfaa-almdny-bhkm-qdayy`
+_Title: الغاء مخالفات الدفاع المدني بحكم قضائي | كاونسلو_
+
+- ⚠️  **desc-too-long**: 452 chars (max 170)
+
+### `/ar/our-work/almttlbat-alqanwnyh-walhwkmh-aldakhlyh`
+_Title: تسوية بين شركات مرتبطة: الموافقات وصلاحية التوقيع | كاونسلو_
+
+- ⚠️  **desc-too-long**: 402 chars (max 170)
+
+### `/ar/our-work/altfawd-alqanwny-aldhky`
+_Title: التفاوض على سرية مشروع تقني دولي وشروط عدم الالتفاف | كاونسلو_
+
+- ⚠️  **desc-too-long**: 508 chars (max 170)
+
+### `/ar/our-work/andma-la-ykwn-alnzaa-hwl-alwaya-anma-altkyyf`
+_Title: مدفوعات شريك أم دين على الشركة؟ دراسة أسباب الاستئناف | كاونسلو_
+
+- ⚠️  **desc-too-long**: 387 chars (max 170)
+
+### `/ar/our-work/astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal`
+_Title: حكم بتسليم 16 سنداً لأمر تتجاوز قيمتها الاسمية 17 مليون ريال | كاونسلو_
+
+- ⚠️  **desc-too-long**: 271 chars (max 170)
+
+### `/ar/our-work/astsharh-fy-ahtyal-maly`
+_Title: استشاره في احتيال مالي | كاونسلو_
+
+- ⚠️  **desc-too-long**: 176 chars (max 170)
+
+### `/ar/our-work/atfaqyh-atar-ltqdym-alkhdmat-altqnyh-whlwl-aldhka-alastnaay`
+_Title: اتفاقية اطار لتقديم الخدمات التقنية وحلول الذكاء الاصطناعي | كاونسلو_
+
+- ⚠️  **desc-too-long**: 294 chars (max 170)
+
+### `/ar/our-work/darsh-qdyh-qbl-alnzaa`
+_Title: دراسة مطالبة بمستحقات توريد عمالة قبل رفع الدعوى | كاونسلو_
+
+- ⚠️  **desc-too-long**: 437 chars (max 170)
+
+### `/ar/our-work/drash-qdyh-aqaryh-maqdh-fy-swrya`
+_Title: دراسه قضيه عقاريه معقده في سوريا | كاونسلو_
+
+- ⚠️  **desc-too-long**: 733 chars (max 170)
+
+### `/ar/our-work/drash-tan-amam-almhkmh-aladaryh-alalya`
+_Title: دراسة طعن امام المحكمة الادارية العليا | كاونسلو_
+
+- ⚠️  **desc-too-long**: 256 chars (max 170)
+
+### `/ar/our-work/fskh-aqd-iyjar-tjary-bsbb-khta-byanat-mnsh-iyjar`
+_Title: فسخ عقد إيجار تجاري بسبب خطأ بيانات منصة إيجار | كاونسلو_
+
+- ⚠️  **desc-too-long**: 380 chars (max 170)
+
+### `/ar/our-work/fskh-aqd-snaay-wastrdad-aldfah-almqdmh`
+_Title: فسخ عقد صناعي واسترداد الدفعة المقدمة | كاونسلو_
+
+- ⚠️  **desc-too-long**: 171 chars (max 170)
+
+### `/ar/our-work/hdwd-mswwlyh-alkfyl-fy-alsnd-lamr`
+_Title: حدود مسؤولية الكفيل في السند لأمر | كاونسلو_
+
+- ⚠️  **desc-too-long**: 320 chars (max 170)
+
+### `/ar/our-work/hl-ymkn-tjawz-altqadm-brfa-dawa-alithra-bla-sbb`
+_Title: هل يمكن تجاوز التقادم برفع دعوى الإثراء بلا سبب؟ | كاونسلو_
+
+- ⚠️  **desc-too-long**: 391 chars (max 170)
+
+### `/ar/our-work/hyn-la-tnthy-alqdyh-balhkm-alawl-kyf-qlbt-kawnslw-msar-nzaa-amaly`
+_Title: حين لا تنتهي القضية بالحكم الأول: كيف قلبت كاونسلو مسار نزاع عمالي؟ | كاونسلو_
+
+- ⚠️  **title-too-long**: 77 chars (max 70)
+- ⚠️  **desc-too-long**: 326 chars (max 170)
+
+### `/ar/our-work/kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat`
+_Title: مطالبة بمستحقات مقاولات: حكم بـ448,958 ريالاً | كاونسلو_
+
+- ⚠️  **desc-too-long**: 243 chars (max 170)
+
+### `/ar/our-work/kawnslw-wtswyh-alarsdh-almalyh-qanwna`
+_Title: كاونسلو وتسوية الارصدة المالية قانونا | كاونسلو_
+
+- ⚠️  **desc-too-long**: 445 chars (max 170)
+
+### `/ar/our-work/kyf-adart-kawnslw-mrajah-mhasbyh-hsash`
+_Title: كيف أدارت كاونسلو مراجعة محاسبية حساسة. | كاونسلو_
+
+- ⚠️  **desc-too-long**: 405 chars (max 170)
+
+### `/ar/our-work/kyf-athbtt-kawnslw-alshrakh`
+_Title: كيف اثبتت كاونسلو الشراكه | كاونسلو_
+
+- ⚠️  **desc-too-long**: 472 chars (max 170)
+
+### `/ar/our-work/kyf-qadt-astratyjyh-kawnslw-ila-rfd-dawa-fskh-aqd-bya-wtawydat-bmlayyn-alryalat`
+_Title: كيف قادت استراتيجية كاونسلو إلى رفض دعوى فسخ عقد بيع وتعويضات بملايين الريالات؟ | كاونسلو_
+
+- ⚠️  **title-too-long**: 89 chars (max 70)
+- ⚠️  **desc-too-long**: 406 chars (max 170)
+
+### `/ar/our-work/kyf-rfdt-almhkmh-qdyh-malyh-dkhmh-rghm-thbwt-althwyl`
+_Title: كيف رفضت المحكمة قضية ماليه ضخمه رغم ثبوت التحويل | كاونسلو_
+
+- ⚠️  **desc-too-long**: 271 chars (max 170)
+
+### `/ar/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary`
+_Title: كيف ساعدت كاونسلو في استرداد 300,000 ريال عبر صلح قضائي في نزاع تجاري؟ | كاونسلو_
+
+- ⚠️  **title-too-long**: 80 chars (max 70)
+- ⚠️  **desc-too-long**: 288 chars (max 170)
+
+### `/ar/our-work/kyf-sahmt-kawnslw-fy-anjah-mlf-thkymy-kaml`
+_Title: تحكيم مقاولات: تنظيم المطالبات وأدلة الخبرة | كاونسلو_
+
+- ⚠️  **desc-too-long**: 381 chars (max 170)
+
+### `/ar/our-work/kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227`
+_Title: تخفيض مطالبة تجارية من 500 ألف ريال إلى 227 ألف ريال | كاونسلو_
+
+- ⚠️  **desc-too-long**: 406 chars (max 170)
+
+### `/ar/our-work/maaljh-halh-khta-tby`
+_Title: معالجة حالة خطأ طبي | كاونسلو_
+
+- ⚠️  **desc-too-long**: 667 chars (max 170)
+
+### `/ar/our-work/mn-alkhta-ala-altawyd-kyf-hddt-kawnslw-almswwl-almbashran-hadth`
+_Title: من الخطأ الى التعويض: كيف حددت كاونسلو المسؤول المباشرعن حادث | كاونسلو_
+
+- ⚠️  **title-too-long**: 71 chars (max 70)
+- ⚠️  **desc-too-long**: 304 chars (max 170)
+
+### `/ar/our-work/mn-altathr-ila-alhkm-astrdad-16-mlywn-ryal-rghm-ghyab-almdaa-alyh`
+_Title: من التعثر إلى الحكم: استرداد 1.6 مليون ريال رغم غياب المدعى عليه | كاونسلو_
+
+- ⚠️  **title-too-long**: 74 chars (max 70)
+- ⚠️  **desc-too-long**: 417 chars (max 170)
+
+### `/ar/our-work/mn-atham-maly-maqd-ila-brah-qtayh`
+_Title: من اتهام مالي معقد إلى براءة قطعية | كاونسلو_
+
+- ⚠️  **desc-too-long**: 395 chars (max 170)
+
+### `/ar/our-work/mn-drash-almstndat-ila-alhkm-bjmya-altlbat`
+_Title: مستحقات مقاولات: حكم في مطالبات بإجمالي 2,049,094 ريالاً | كاونسلو_
+
+- ⚠️  **desc-too-long**: 297 chars (max 170)
+
+### `/ar/our-work/mnazah-tnfydh`
+_Title: تحديد سبب الحوالة المالية في منازعة تنفيذ | كاونسلو_
+
+- ⚠️  **desc-too-long**: 404 chars (max 170)
+
+### `/ar/our-work/mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh`
+_Title: منهج كاونسلو في مراجعة العقود التجارية | كاونسلو_
+
+- ⚠️  **desc-too-long**: 377 chars (max 170)
+
+### `/ar/our-work/msandh-kawnslw-fy-qdyh-aabrh-llhdwd`
+_Title: مسانده كاونسلو في قضية عابرة للحدود | كاونسلو_
+
+- ⚠️  **desc-too-long**: 302 chars (max 170)
+
+### `/ar/our-work/mswwlyh-almqawlyn`
+_Title: استبدال مقاول الباطن وتحميله التكاليف: دراسة المسؤولية | كاونسلو_
+
+- ⚠️  **desc-too-long**: 322 chars (max 170)
+
+### `/ar/our-work/mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym`
+_Title: متى تكون هيئة التحكيم غير مختصة؟ أثر مخالفة شرط التحكيم | كاونسلو_
+
+- ⚠️  **desc-too-long**: 284 chars (max 170)
+
+### `/ar/our-work/qdyh-mna-sfr-dd-aaml`
+_Title: قضية منع سفر ضد عامل | كاونسلو_
+
+- ⚠️  **desc-too-long**: 566 chars (max 170)
+
+### `/ar/our-work/ray-fy-mshrwa-qanwn-alwsath-alswry-maaljh-10-thghrat`
+_Title: رأي في مشروع قانون الوساطة السوري/ معالجة 10 ثغرات | كاونسلو_
+
+- ⚠️  **desc-too-long**: 1707 chars (max 170)
+
+### `/ar/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd`
+_Title: رأي قانوني في تسوية عابرة للحدود | كاونسلو_
+
+- ⚠️  **desc-too-long**: 262 chars (max 170)
+
+### `/ar/our-work/rfd-dawa-fskh-aqd-amtyaz-tjary-wtawyd`
+_Title: رفض دعوى فسخ عقد امتياز تجاري وتعويض | كاونسلو_
+
+- ⚠️  **desc-too-long**: 318 chars (max 170)
+
+### `/ar/our-work/tfkyk-mstndat-altmas-aaadh-alnzr-bnjah`
+_Title: تفكيك مستندات التماس اعاده النظر بنجاح | كاونسلو_
+
+- ⚠️  **desc-too-long**: 423 chars (max 170)
+
+### `/ar/our-work/thlyl-mkhatr-nql-alaswl-walmsthqat-byn-alshrkat-almrtbth-athna-altsfyh`
+_Title: تحليل مخاطر نقل الأصول والمستحقات بين الشركات المرتبطة أثناء التصفية | كاونسلو_
+
+- ⚠️  **title-too-long**: 78 chars (max 70)
+- ⚠️  **desc-too-long**: 388 chars (max 170)
+
+### `/ar/our-work/thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd`
+_Title: عدم تسليم معدات: حكم بـ248,600 ريال بعد الاستئناف | كاونسلو_
+
+- ⚠️  **desc-too-long**: 425 chars (max 170)
+
+### `/ar/our-work/tshyh-altkyyf-alqanwny-lanha-aqd-alaml`
+_Title: تصحيح التكييف القانوني لانهاء عقد العمل | كاونسلو_
+
+- ⚠️  **desc-too-long**: 396 chars (max 170)
+
 ### `/blog/ar/e-contracts-legal-validity-saudi-arabia`
 _Title: حجية العقود الإلكترونية في السعودية | طرق الإثبات أمام القضاء | كاونسلو_
 
@@ -48,88 +326,253 @@ _Title: Electronic Contracts in Saudi Arabia | Legal Validity and Proof | Counse
 
 - ⚠️  **title-too-long**: 74 chars (max 70)
 
+### `/legal-updates`
+_Title: Legal Updates | CounselO_
+
+- ⚠️  **geo-region-missing**: No geo.region meta
+
+### `/our-work/alaatrad-ala-almkhalfat-albyyyh`
+_Title: Environmental Violations Objection | CounselO_
+
+- ⚠️  **desc-too-long**: 1000 chars (max 170)
+
+### `/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary`
+_Title: Rent vs. Enjoyment in Commercial Leasing | CounselO_
+
+- ⚠️  **desc-too-long**: 397 chars (max 170)
+
+### `/our-work/algha-mkhalfat-aldfaa-almdny-bhkm-qdayy`
+_Title: Civil Defense Violations Annulled by Court | CounselO_
+
+- ⚠️  **desc-too-long**: 640 chars (max 170)
+
 ### `/our-work/almttlbat-alqanwnyh-walhwkmh-aldakhlyh`
 _Title: Intercompany Settlement: Corporate Approvals and Signing Authority | CounselO_
 
 - ⚠️  **title-too-long**: 77 chars (max 70)
-- ⚠️  **desc-too-long**: 171 chars (max 170)
+- ⚠️  **desc-too-long**: 499 chars (max 170)
 
 ### `/our-work/altfawd-alqanwny-aldhky`
 _Title: Negotiating an International Technology NDA and Non-Circumvention Terms | CounselO_
 
 - ⚠️  **title-too-long**: 82 chars (max 70)
+- ⚠️  **desc-too-long**: 691 chars (max 170)
 
 ### `/our-work/andma-la-ykwn-alnzaa-hwl-alwaya-anma-altkyyf`
 _Title: Partner Payments or Company Debt? Assessing Grounds for Appeal | CounselO_
 
 - ⚠️  **title-too-long**: 73 chars (max 70)
+- ⚠️  **desc-too-long**: 541 chars (max 170)
+
+### `/our-work/astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal`
+_Title: Order to Return 16 Promissory Notes with a Face Value over SAR 17 Million | CounselO_
+
+- ⚠️  **title-too-long**: 84 chars (max 70)
+- ⚠️  **desc-too-long**: 347 chars (max 170)
+
+### `/our-work/astsharh-fy-ahtyal-maly`
+_Title: Consultation on Financial Fraud | CounselO_
+
+- ⚠️  **desc-too-long**: 251 chars (max 170)
+
+### `/our-work/atfaqyh-atar-ltqdym-alkhdmat-altqnyh-whlwl-aldhka-alastnaay`
+_Title: Framework Agreement for Technology Services and AI Solutions | CounselO_
+
+- ⚠️  **title-too-long**: 71 chars (max 70)
+- ⚠️  **desc-too-long**: 382 chars (max 170)
 
 ### `/our-work/darsh-qdyh-qbl-alnzaa`
 _Title: Pre-Litigation Assessment of a Manpower Services Payment Claim | CounselO_
 
 - ⚠️  **title-too-long**: 73 chars (max 70)
+- ⚠️  **desc-too-long**: 577 chars (max 170)
+
+### `/our-work/drash-qdyh-aqaryh-maqdh-fy-swrya`
+_Title: Analysis of a Complex Real Estate Case in Syria | CounselO_
+
+- ⚠️  **desc-too-long**: 1052 chars (max 170)
+
+### `/our-work/drash-tan-amam-almhkmh-aladaryh-alalya`
+_Title: Study of an Appeal Before the Supreme Administrative Court | CounselO_
+
+- ⚠️  **desc-too-long**: 334 chars (max 170)
 
 ### `/our-work/fskh-aqd-iyjar-tjary-bsbb-khta-byanat-mnsh-iyjar`
 _Title: Termination of Commercial Lease Due to Ejar Data Error | CounselO_
 
-- ⚠️  **desc-too-long**: 176 chars (max 170)
+- ⚠️  **desc-too-long**: 565 chars (max 170)
 
 ### `/our-work/fskh-aqd-snaay-wastrdad-aldfah-almqdmh`
-_Title: Contract Termination & SAR 470,000 Refund | CounselO_
+_Title: Termination of Industrial Contract and Recovery of Advance Payment | CounselO_
 
-- ⚠️  **desc-too-long**: 183 chars (max 170)
+- ⚠️  **title-too-long**: 77 chars (max 70)
+- ⚠️  **desc-too-long**: 265 chars (max 170)
 
 ### `/our-work/hdwd-mswwlyh-alkfyl-fy-alsnd-lamr`
-_Title: Guarantor Liability Limits in Promissory Notes | CounselO_
+_Title: Limits of the Guarantor's Liability in a Promissory Note | CounselO_
 
-- ⚠️  **desc-too-long**: 209 chars (max 170)
+- ⚠️  **desc-too-long**: 347 chars (max 170)
 
 ### `/our-work/hl-ymkn-tjawz-altqadm-brfa-dawa-alithra-bla-sbb`
-_Title: Can Limitation Be Avoided by an Unjust Enrichment Claim? | CounselO_
+_Title: Can Limitation Be Circumvented by Filing an Unjust Enrichment Claim? | CounselO_
 
-- ⚠️  **desc-too-long**: 214 chars (max 170)
+- ⚠️  **title-too-long**: 79 chars (max 70)
+- ⚠️  **desc-too-long**: 594 chars (max 170)
+
+### `/our-work/hyn-la-tnthy-alqdyh-balhkm-alawl-kyf-qlbt-kawnslw-msar-nzaa-amaly`
+_Title: When the First Judgment Is Not the End: How CounselO Reversed an Employment Dispute | CounselO_
+
+- ⚠️  **title-too-long**: 94 chars (max 70)
+- ⚠️  **desc-too-long**: 505 chars (max 170)
+
+### `/our-work/kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat`
+_Title: Construction Payment Claim: Judgment for SAR 448,958 | CounselO_
+
+- ⚠️  **desc-too-long**: 322 chars (max 170)
+
+### `/our-work/kawnslw-wtswyh-alarsdh-almalyh-qanwna`
+_Title: CounselO and Legal Settlement of Financial Balances | CounselO_
+
+- ⚠️  **desc-too-long**: 631 chars (max 170)
+
+### `/our-work/kyf-adart-kawnslw-mrajah-mhasbyh-hsash`
+_Title: How CounselO Managed a Sensitive Accounting Review | CounselO_
+
+- ⚠️  **desc-too-long**: 559 chars (max 170)
 
 ### `/our-work/kyf-athbtt-kawnslw-alshrakh`
 _Title: How CounselO Proved the Partnership | CounselO_
 
-- ⚠️  **desc-too-long**: 179 chars (max 170)
+- ⚠️  **desc-too-long**: 629 chars (max 170)
+
+### `/our-work/kyf-qadt-astratyjyh-kawnslw-ila-rfd-dawa-fskh-aqd-bya-wtawydat-bmlayyn-alryalat`
+_Title: How CounselO Defeated a Sale Contract Rescission Claim | CounselO_
+
+- ⚠️  **desc-too-long**: 613 chars (max 170)
+
+### `/our-work/kyf-rfdt-almhkmh-qdyh-malyh-dkhmh-rghm-thbwt-althwyl`
+_Title: Saudi Financial Claim Dismissed Despite Bank Transfers | CounselO_
+
+- ⚠️  **desc-too-long**: 384 chars (max 170)
+
+### `/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary`
+_Title: How CounselO Recovered SAR 300,000 Through a Judicial Settlement in a Commercial Dispute | CounselO_
+
+- ⚠️  **title-too-long**: 99 chars (max 70)
+- ⚠️  **desc-too-long**: 419 chars (max 170)
 
 ### `/our-work/kyf-sahmt-kawnslw-fy-anjah-mlf-thkymy-kaml`
 _Title: Construction Arbitration: Organising Claims and Expert Evidence | CounselO_
 
 - ⚠️  **title-too-long**: 74 chars (max 70)
-- ⚠️  **desc-too-long**: 212 chars (max 170)
+- ⚠️  **desc-too-long**: 545 chars (max 170)
+
+### `/our-work/kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227`
+_Title: How CounselO Reduced a SAR 500,000 Claim to SAR 227,000 | CounselO_
+
+- ⚠️  **desc-too-long**: 532 chars (max 170)
+
+### `/our-work/maaljh-halh-khta-tby`
+_Title: Handling a Medical Malpractice Case | CounselO_
+
+- ⚠️  **desc-too-long**: 1029 chars (max 170)
+
+### `/our-work/mn-alkhta-ala-altawyd-kyf-hddt-kawnslw-almswwl-almbashran-hadth`
+_Title: From Error to Compensation: How CounselO Identified the Directly Responsible Party in an Accident | CounselO_
+
+- ⚠️  **title-too-long**: 108 chars (max 70)
+- ⚠️  **desc-too-long**: 476 chars (max 170)
+
+### `/our-work/mn-altathr-ila-alhkm-astrdad-16-mlywn-ryal-rghm-ghyab-almdaa-alyh`
+_Title: From Default to Judgment: Recovering SAR 1.6 Million | CounselO_
+
+- ⚠️  **desc-too-long**: 560 chars (max 170)
+
+### `/our-work/mn-atham-maly-maqd-ila-brah-qtayh`
+_Title: From a Complex Financial Accusation to a Final Acquittal | CounselO_
+
+- ⚠️  **desc-too-long**: 560 chars (max 170)
 
 ### `/our-work/mn-drash-almstndat-ila-alhkm-bjmya-altlbat`
 _Title: Construction Receivables: Judgment on SAR 2,049,094 in Claims | CounselO_
 
 - ⚠️  **title-too-long**: 72 chars (max 70)
-- ⚠️  **desc-too-long**: 178 chars (max 170)
+- ⚠️  **desc-too-long**: 380 chars (max 170)
 
 ### `/our-work/mnazah-tnfydh`
 _Title: Bank Transfer Allocation in an Enforcement Dispute | CounselO_
 
-- ⚠️  **desc-too-long**: 178 chars (max 170)
+- ⚠️  **desc-too-long**: 592 chars (max 170)
+
+### `/our-work/mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh`
+_Title: CounselO’s Approach to Commercial Contract Review | CounselO_
+
+- ⚠️  **desc-too-long**: 549 chars (max 170)
+
+### `/our-work/msandh-kawnslw-fy-qdyh-aabrh-llhdwd`
+_Title: CounselO’s Support in a Cross-Border Dispute | CounselO_
+
+- ⚠️  **desc-too-long**: 376 chars (max 170)
 
 ### `/our-work/mswwlyh-almqawlyn`
 _Title: Subcontractor Replacement and Back Charges: Liability Review | CounselO_
 
 - ⚠️  **title-too-long**: 71 chars (max 70)
+- ⚠️  **desc-too-long**: 456 chars (max 170)
 
 ### `/our-work/mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym`
-_Title: When Is an Arbitral Tribunal Incompetent? | CounselO_
+_Title: When Is an Arbitral Tribunal Incompetent? Effect of Breaching the Arbitration Clause | CounselO_
 
-- ⚠️  **desc-too-long**: 175 chars (max 170)
+- ⚠️  **title-too-long**: 95 chars (max 70)
+- ⚠️  **desc-too-long**: 419 chars (max 170)
 
-### `/sa`
-_Title: Online legal advice in Saudi Arabia | CounselO_
+### `/our-work/qdyh-mna-sfr-dd-aaml`
+_Title: Travel Ban Case Against an Employee | CounselO_
 
-- ⚠️  **schema-no-breadcrumb**: No BreadcrumbList schema
+- ⚠️  **desc-too-long**: 947 chars (max 170)
 
-### `/sa/ar`
-_Title: استشارات قانونية أونلاين في السعودية | كاونسلو_
+### `/our-work/ray-fy-mshrwa-qanwn-alwsath-alswry-maaljh-10-thghrat`
+_Title: Opinion on Syria’s Mediation Law Bill: 10 Gaps | CounselO_
 
-- ⚠️  **schema-no-breadcrumb**: No BreadcrumbList schema
+- ⚠️  **desc-too-long**: 2488 chars (max 170)
+
+### `/our-work/ray-qanwny-fy-tlb-aflas`
+_Title: Legal Opinion on a Bankruptcy Application | CounselO_
+
+- ⚠️  **desc-too-long**: 183 chars (max 170)
+
+### `/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd`
+_Title: Legal Opinion on a Cross-Border Settlement | CounselO_
+
+- ⚠️  **desc-too-long**: 315 chars (max 170)
+
+### `/our-work/rfd-dawa-fskh-aqd-amtyaz-tjary-wtawyd`
+_Title: Dismissal of Franchise Agreement Termination and Compensation Claim | CounselO_
+
+- ⚠️  **title-too-long**: 78 chars (max 70)
+- ⚠️  **desc-too-long**: 450 chars (max 170)
+
+### `/our-work/tfkyk-mstndat-altmas-aaadh-alnzr-bnjah`
+_Title: Successful Defense of a Reconsideration Petition | CounselO_
+
+- ⚠️  **desc-too-long**: 644 chars (max 170)
+
+### `/our-work/thlyl-mkhatr-nql-alaswl-walmsthqat-byn-alshrkat-almrtbth-athna-altsfyh`
+_Title: Analyzing the Risks of Transferring Assets and Receivables Between Related Companies During Liquidation | CounselO_
+
+- ⚠️  **title-too-long**: 114 chars (max 70)
+- ⚠️  **desc-too-long**: 604 chars (max 170)
+
+### `/our-work/thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd`
+_Title: Equipment Non-Delivery: SAR 248,600 Award After Appeal | CounselO_
+
+- ⚠️  **desc-too-long**: 677 chars (max 170)
+
+### `/our-work/tshyh-altkyyf-alqanwny-lanha-aqd-alaml`
+_Title: Correcting the Legal Characterisation of Employment Contract Termination | CounselO_
+
+- ⚠️  **title-too-long**: 83 chars (max 70)
+- ⚠️  **desc-too-long**: 519 chars (max 170)
 
 ### `/sa/ar/services/business-law/commercial-due-diligence-before-acquisition-or-investment`
 _Title: الفحص القانوني التجاري قبل الاستحواذ أو الاستثمار في السعودية | كاونسلو_
@@ -826,57 +1269,13 @@ _Title: Terms of Service | Online Legal Consultation Process | CounselO_
 
 - ⚠️  **desc-too-long**: 212 chars (max 170)
 
-## ✅ Clean Pages (1327)
+## ✅ Clean Pages (1254)
 
 - `/ar/legal-library` — schemas: CollectionPage, ItemList, ListItem, BreadcrumbList
 - `/ar/our-work` — schemas: CollectionPage, ItemList, ListItem, BreadcrumbList
 - `/ar/our-work/adrah-almkhatr-fy-aqd-tamyny` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/alaatrad-ala-almkhalfat-albyyyh` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/algha-mkhalfat-aldfaa-almdny-bhkm-qdayy` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/almttlbat-alqanwnyh-walhwkmh-aldakhlyh` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/altfawd-alqanwny-aldhky` — schemas: CreativeWork, WebPage, Thing, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/andma-la-ykwn-alnzaa-hwl-alwaya-anma-altkyyf` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/astsharh-fy-ahtyal-maly` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/atfaqyh-atar-ltqdym-alkhdmat-altqnyh-whlwl-aldhka-alastnaay` — schemas: CreativeWork, WebPage, Thing, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/darsh-qdyh-qbl-alnzaa` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/drash-qdyh-aqaryh-maqdh-fy-swrya` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/drash-tan-amam-almhkmh-aladaryh-alalya` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/fskh-aqd-iyjar-tjary-bsbb-khta-byanat-mnsh-iyjar` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/fskh-aqd-snaay-wastrdad-aldfah-almqdmh` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/hdwd-mswwlyh-alkfyl-fy-alsnd-lamr` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/hl-ymkn-tjawz-altqadm-brfa-dawa-alithra-bla-sbb` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/hyn-la-tnthy-alqdyh-balhkm-alawl-kyf-qlbt-kawnslw-msar-nzaa-amaly` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
 - `/ar/our-work/kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/kawnslw-wtswyh-alarsdh-almalyh-qanwna` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/kyf-adart-kawnslw-mrajah-mhasbyh-hsash` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/kyf-athbtt-kawnslw-alshrakh` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/kyf-qadt-astratyjyh-kawnslw-ila-rfd-dawa-fskh-aqd-bya-wtawydat-bmlayyn-alryalat` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/kyf-rfdt-almhkmh-qdyh-malyh-dkhmh-rghm-thbwt-althwyl` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary` — schemas: CreativeWork, WebPage, Thing, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/kyf-sahmt-kawnslw-fy-anjah-mlf-thkymy-kaml` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/maaljh-halh-khta-tby` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/mn-alkhta-ala-altawyd-kyf-hddt-kawnslw-almswwl-almbashran-hadth` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/mn-altathr-ila-alhkm-astrdad-16-mlywn-ryal-rghm-ghyab-almdaa-alyh` — schemas: CreativeWork, WebPage, Thing, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/mn-atham-maly-maqd-ila-brah-qtayh` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/mn-drash-almstndat-ila-alhkm-bjmya-altlbat` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/mnazah-tnfydh` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh` — schemas: CreativeWork, WebPage, Thing, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/msandh-kawnslw-fy-qdyh-aabrh-llhdwd` — schemas: CreativeWork, WebPage, Thing, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/mswwlyh-almqawlyn` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/mta-tkwn-hyyh-althkym-ghyr-mkhtsh-athr-mkhalfh-shrt-althkym` — schemas: CreativeWork, WebPage, Thing, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/qdyh-mna-sfr-dd-aaml` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/ray-fy-mshrwa-qanwn-alwsath-alswry-maaljh-10-thghrat` — schemas: CreativeWork, WebPage, Service, LegalService, MediaObject, BreadcrumbList, ListItem
 - `/ar/our-work/ray-qanwny-fy-tlb-aflas` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/rfd-dawa-fskh-aqd-amtyaz-tjary-wtawyd` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/tfkyk-mstndat-altmas-aaadh-alnzr-bnjah` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/thlyl-mkhatr-nql-alaswl-walmsthqat-byn-alshrkat-almrtbth-athna-altsfyh` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/ar/our-work/tshyh-altkyyf-alqanwny-lanha-aqd-alaml` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
 - `/ar/urgent-legal-assistance` — schemas: Service, ServiceChannel, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - `/blog` — schemas: CollectionPage, Blog, Organization, ItemList, ListItem, BreadcrumbList
 - `/blog/ar` — schemas: CollectionPage, Blog, Organization, ItemList, ListItem, BreadcrumbList
@@ -975,39 +1374,10 @@ _Title: Terms of Service | Online Legal Consultation Process | CounselO_
 - `/legal-library` — schemas: CollectionPage, ItemList, ListItem, BreadcrumbList
 - `/our-work` — schemas: CollectionPage, ItemList, ListItem, BreadcrumbList
 - `/our-work/adrah-almkhatr-fy-aqd-tamyny` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/alaatrad-ala-almkhalfat-albyyyh` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/alajrh-mqabl-almnfah-fy-aliyjar-altjary` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/algha-mkhalfat-aldfaa-almdny-bhkm-qdayy` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/astsharh-fy-ahtyal-maly` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/atfaqyh-atar-ltqdym-alkhdmat-altqnyh-whlwl-aldhka-alastnaay` — schemas: CreativeWork, WebPage, Thing, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/drash-qdyh-aqaryh-maqdh-fy-swrya` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/drash-tan-amam-almhkmh-aladaryh-alalya` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/hyn-la-tnthy-alqdyh-balhkm-alawl-kyf-qlbt-kawnslw-msar-nzaa-amaly` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/kawnslw-tdam-shrkh-lastrdad-448958-ryala-an-aqd-mqawlat` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
 - `/our-work/kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/kawnslw-wtswyh-alarsdh-almalyh-qanwna` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/kyf-adart-kawnslw-mrajah-mhasbyh-hsash` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/kyf-qadt-astratyjyh-kawnslw-ila-rfd-dawa-fskh-aqd-bya-wtawydat-bmlayyn-alryalat` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/kyf-rfdt-almhkmh-qdyh-malyh-dkhmh-rghm-thbwt-althwyl` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary` — schemas: CreativeWork, WebPage, Thing, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/maaljh-halh-khta-tby` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/mn-alkhta-ala-altawyd-kyf-hddt-kawnslw-almswwl-almbashran-hadth` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/mn-altathr-ila-alhkm-astrdad-16-mlywn-ryal-rghm-ghyab-almdaa-alyh` — schemas: CreativeWork, WebPage, Thing, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/mn-atham-maly-maqd-ila-brah-qtayh` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh` — schemas: CreativeWork, WebPage, Thing, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/msandh-kawnslw-fy-qdyh-aabrh-llhdwd` — schemas: CreativeWork, WebPage, Thing, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/qdyh-mna-sfr-dd-aaml` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/ray-fy-mshrwa-qanwn-alwsath-alswry-maaljh-10-thghrat` — schemas: CreativeWork, WebPage, Service, LegalService, MediaObject, BreadcrumbList, ListItem
-- `/our-work/ray-qanwny-fy-tlb-aflas` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/ray-qanwny-fy-tswyh-aabrh-llhdwd` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/rfd-dawa-fskh-aqd-amtyaz-tjary-wtawyd` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/tfkyk-mstndat-altmas-aaadh-alnzr-bnjah` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/thlyl-mkhatr-nql-alaswl-walmsthqat-byn-alshrkat-almrtbth-athna-altsfyh` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
-- `/our-work/tshyh-altkyyf-alqanwny-lanha-aqd-alaml` — schemas: CreativeWork, WebPage, Service, Organization, MediaObject, BreadcrumbList, ListItem
+- `/sa` — schemas: Organization, ImageObject, Country, ContactPoint, WebSite, Service, ServiceChannel, OfferCatalog, Offer, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - `/sa/about` — schemas: Organization, ImageObject, Country, ContactPoint, Person, EducationalOrganization, ProfilePage, WebPage, BreadcrumbList, ListItem, LegalService, PropertyValue
+- `/sa/ar` — schemas: Organization, ImageObject, Country, ContactPoint, WebSite, Service, ServiceChannel, OfferCatalog, Offer, BreadcrumbList, ListItem, FAQPage, Question, Answer
 - `/sa/ar/about` — schemas: Organization, ImageObject, Country, ContactPoint, Person, EducationalOrganization, ProfilePage, WebPage, BreadcrumbList, ListItem, LegalService, PropertyValue
 - `/sa/ar/contact` — schemas: ContactPage, Organization, ImageObject, Country, ContactPoint, BreadcrumbList, ListItem
 - `/sa/ar/privacy-policy` — schemas: WebPage, WebSite, BreadcrumbList, ListItem
