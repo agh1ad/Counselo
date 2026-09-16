@@ -423,6 +423,8 @@ export function buildWorkHtmlFromTemplate(
   const workSchema = safeJson({
     "@context": "https://schema.org",
     "@type": "CreativeWork",
+    "@id": `${canonical}#work-sample`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${canonical}#webpage` },
     name: title,
     description,
     url: canonical,
@@ -431,12 +433,18 @@ export function buildWorkHtmlFromTemplate(
     inLanguage: language,
     genre: sample.workTypeEn || sample.workTypeAr,
     contentLocation: sample.jurisdictionEn || sample.jurisdictionAr,
+    isAccessibleForFree: true,
+    conditionsOfAccess: isArabic
+      ? "دراسة مهنية منقحة منشورة مع حماية سرية العملاء"
+      : "Published redacted professional case study with client confidentiality protected",
     creator: {
       "@type": WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "LegalService" : "Organization",
       "@id": WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? COUNSELO_ENTITY_IDS.alBaghdadiOffice : COUNSELO_ENTITY_IDS.organization,
       name: WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "Baghdadi Law" : "CounselO",
       url: BASE,
     },
+    publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
+    isPartOf: { "@id": `${BASE}${basePath}#webpage` },
     encoding: {
       "@type": "MediaObject",
       contentUrl: fileUrl,

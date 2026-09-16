@@ -38,7 +38,7 @@ export default function OurWork() {
     title: "نماذج الأعمال والمذكرات القانونية",
     intro: "نماذج مختارة ومنقحة من مستندات وأعمال قانونية أعدها فريق كاونسلو. نحذف بيانات العملاء والمعلومات السرية قبل النشر.",
     trustTitle: "كيف نحمي خصوصية العملاء",
-    trustText: "لا ننشر أسماء العملاء أو بياناتهم أو تفاصيل تسمح بالتعرف عليهم. تُعرض هذه النماذج لإيضاح منهجية العمل وجودة الصياغة فقط.",
+    trustText: "لا ننشر أسماء العملاء أو بياناتهم أو تفاصيل تسمح بالتعرف عليهم. تُعرض هذه النماذج لإيضاح منهجية العمل وجودة الصياغة فقط، وليست مراجعات عملاء أو تقييماً مستقلاً.",
     empty: "ستُضاف نماذج أعمال منقحة قريباً.",
     view: "عرض نموذج العمل",
     featured: "عمل مميز",
@@ -52,7 +52,7 @@ export default function OurWork() {
     title: "Legal work samples and memoranda",
     intro: "A selection of redacted legal documents and professional work prepared by CounselO. Client identities and confidential information are removed before publication.",
     trustTitle: "How client privacy is protected",
-    trustText: "We do not publish client names, personal data, or identifying matter details. These samples demonstrate our working method and drafting quality only.",
+    trustText: "We do not publish client names, personal data, or identifying matter details. These samples demonstrate our working method and drafting quality only; they are not customer reviews or independent ratings.",
     empty: "Redacted work samples will be added soon.",
     view: "View Work Sample",
     featured: "Featured work",
@@ -131,7 +131,15 @@ export default function OurWork() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="border border-border bg-muted/40 p-6 md:p-8 flex flex-col md:flex-row gap-5 mb-12">
           <div className="h-12 w-12 shrink-0 bg-primary/10 text-primary flex items-center justify-center"><LockKeyhole className="h-6 w-6" /></div>
-          <div><h2 className="text-xl font-serif font-bold mb-2">{ui.trustTitle}</h2><p className="text-muted-foreground leading-relaxed max-w-4xl">{ui.trustText}</p></div>
+          <div>
+            <h2 className="text-xl font-serif font-bold mb-2">{ui.trustTitle}</h2>
+            <p className="text-muted-foreground leading-relaxed max-w-4xl">{ui.trustText}</p>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground max-w-4xl">
+              {ar
+                ? "ما يمكن التحقق منه هنا هو طبيعة العمل المنشور ونطاقه وحدود ما يثبته المستند؛ أما آراء العملاء وتقييماتهم فتُنشر فقط إذا قُدمت بموافقة صريحة."
+                : "What can be assessed here is the nature and scope of the published work and the limits of what each document establishes. Client feedback is published only when it is provided with explicit consent."}
+            </p>
+          </div>
         </div>
 
         {isLoading ? (
