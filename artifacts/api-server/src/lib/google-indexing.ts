@@ -76,7 +76,7 @@ function base64Url(value: string | Buffer): string {
 function googleSitemapConfig(): {
   key: GoogleServiceAccount;
   siteUrl: string;
-  sitemapUrl: string;
+  sitemapUrls: string[];
 } | undefined {
   const raw = process.env.GOOGLE_INDEXING_SA_KEY?.trim();
   if (!raw) return undefined;
