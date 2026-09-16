@@ -11,6 +11,7 @@ import { officialSources } from "./sources.js";
 import { fetchOfficial, sourceText } from "./retrieval.js";
 import { withPublicContentMutation } from "../lib/publication-cache.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
+import { notifySitemapUpdated } from "../lib/google-indexing.js";
 const router = Router();
 const ADMIN_PAGE_SIZE = 50;
 
@@ -309,6 +310,7 @@ router.put("/admin/legal-updates/:id", requireAdmin, async (req, res) => {
       if (!invalidation.complete) {
         res.setHeader("X-CounselO-Cache-Status", "bypass");
       }
+      notifySitemapUpdated();
     }
     res.json({ ok: true });
   }

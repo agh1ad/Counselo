@@ -8,6 +8,16 @@ const GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token";
 const GOOGLE_SEARCH_CONSOLE_API = "https://www.googleapis.com/webmasters/v3";
 const DEFAULT_SITE_URL = `${BASE}/`;
 const DEFAULT_SITEMAP_URL = `${BASE}/sitemap.xml`;
+const SITEMAP_PATHS = [
+  "/sitemap.xml",
+  "/sitemap-core.xml",
+  "/sitemap-uae-services.xml",
+  "/sitemap-sa-services.xml",
+  "/sitemap-syr-services.xml",
+  "/sitemap-blog.xml",
+  "/sitemap-work.xml",
+  "/sitemap-legal-updates.xml",
+] as const;
 const LEGAL_LIBRARY_URLS = [`${BASE}/legal-library`, `${BASE}/ar/legal-library`];
 const DISCOVERY_HOMES = [
   `${BASE}/sa`,
@@ -50,6 +60,11 @@ type GoogleServiceAccount = {
   private_key: string;
 };
 
+export function googleSitemapUrls(sitemapUrl = DEFAULT_SITEMAP_URL): string[] {
+  const origin = new URL(sitemapUrl).origin;
+  return [...new Set([sitemapUrl, ...SITEMAP_PATHS.map((path) => `${origin}${path}`)])];
+}
+
 function base64Url(value: string | Buffer): string {
   return Buffer.from(value)
     .toString("base64")
@@ -74,10 +89,11 @@ function googleSitemapConfig(): {
     ) {
       throw new Error("Google service-account key is missing client_email or private_key");
     }
+    const sitemapUrl = process.env.GOOGLE_SEARCH_CONSOLE_SITEMAP_URL?.trim() || DEFAULT_SITEMAP_URL;
     return {
       key: { client_email: parsed.client_email, private_key: parsed.private_key },
       siteUrl: process.env.GOOGLE_SEARCH_CONSOLE_SITE_URL?.trim() || DEFAULT_SITE_URL,
-      sitemapUrl: process.env.GOOGLE_SEARCH_CONSOLE_SITEMAP_URL?.trim() || DEFAULT_SITEMAP_URL,
+      sitemapUrls: googleSitemapUrls(sitemapUrl),
     };
   } catch (err) {
     logger.warn({ err }, "[google] Search Console key is invalid; sitemap submission skipped");
@@ -86,14 +102,10 @@ function googleSitemapConfig(): {
 }
 
 let googleSitemapSubmission: Promise<void> | undefined;
-let lastGoogleSitemapSubmission = 0;
-const GOOGLE_SITEMAP_MIN_INTERVAL_MS = 60_000;
 
 async function submitSitemapToGoogle(): Promise<void> {
   const config = googleSitemapConfig();
   if (!config) return;
-  const now = Date.now();
-  if (now - lastGoogleSitemapSubmission < GOOGLE_SITEMAP_MIN_INTERVAL_MS) return;
   if (googleSitemapSubmission) return googleSitemapSubmission;
 
   googleSitemapSubmission = (async () => {
@@ -125,26 +137,40 @@ async function submitSitemapToGoogle(): Promise<void> {
         throw new Error("Google OAuth token response did not contain access_token");
       }
 
-      const endpoint = `${GOOGLE_SEARCH_CONSOLE_API}/sites/${encodeURIComponent(config.siteUrl)}/sitemaps/${encodeURIComponent(config.sitemapUrl)}`;
-      const submitResponse = await fetch(endpoint, {
-        method: "PUT",
-        headers: { Authorization: `Bearer ${token.access_token}` },
-      });
-      if (!submitResponse.ok) {
-        const errorBody = await submitResponse.text();
-        let googleMessage = "";
-        try {
-          const parsed = JSON.parse(errorBody) as { error?: { message?: unknown } };
-          if (typeof parsed.error?.message === "string") googleMessage = parsed.error.message;
-        } catch {
-          // Keep the status-only error when Google does not return JSON.
-        }
-        throw new Error(
-          `Google sitemap submission failed with HTTP ${submitResponse.status}${googleMessage ? `: ${googleMessage}` : ""}`,
+      const results = await Promise.allSettled(
+        config.sitemapUrls.map(async (sitemapUrl) => {
+          const endpoint = `${GOOGLE_SEARCH_CONSOLE_API}/sites/${encodeURIComponent(config.siteUrl)}/sitemaps/${encodeURIComponent(sitemapUrl)}`;
+          const submitResponse = await fetch(endpoint, {
+            method: "PUT",
+            headers: { Authorization: `Bearer ${token.access_token}` },
+          });
+          if (!submitResponse.ok) {
+            const errorBody = await submitResponse.text();
+            let googleMessage = "";
+            try {
+              const parsed = JSON.parse(errorBody) as { error?: { message?: unknown } };
+              if (typeof parsed.error?.message === "string") googleMessage = parsed.error.message;
+            } catch {
+              // Keep the status-only error when Google does not return JSON.
+            }
+            throw new Error(
+              `Google sitemap submission failed for ${sitemapUrl} with HTTP ${submitResponse.status}${googleMessage ? `: ${googleMessage}` : ""}`,
+            );
+          }
+          return sitemapUrl;
+        }),
+      );
+      const failed = results.filter(
+        (result): result is PromiseRejectedResult => result.status === "rejected",
+      );
+      if (failed.length > 0) {
+        logger.warn(
+          { submitted: config.sitemapUrls.length - failed.length, failed: failed.length },
+          "[google] some sitemap submissions failed — non-fatal",
         );
+      } else {
+        logger.info({ count: config.sitemapUrls.length }, "[google] all sitemaps submitted to Search Console");
       }
-      lastGoogleSitemapSubmission = Date.now();
-      logger.info({ sitemap: config.sitemapUrl }, "[google] sitemap submitted to Search Console");
     } catch (err) {
       logger.warn({ err }, "[google] sitemap submission failed — non-fatal");
     } finally {

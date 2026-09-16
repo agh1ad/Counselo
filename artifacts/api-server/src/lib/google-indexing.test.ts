@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { blogPostUrls, workSampleUrls } from "./google-indexing.js";
+import { blogPostUrls, googleSitemapUrls, workSampleUrls } from "./google-indexing.js";
 
 test("submits both blog language canonicals and both collection pages", () => {
   const urls = blogPostUrls("contract-guide");
@@ -31,5 +31,17 @@ test("supports the Google Search Console sitemap submission path", async () => {
   assert.match(source, /sitemaps/);
   assert.match(source, /GOOGLE_INDEXING_SA_KEY/);
   assert.match(source, /GOOGLE_SEARCH_CONSOLE_SITE_URL/);
-  assert.match(source, /GOOGLE_SITEMAP_MIN_INTERVAL_MS/);
+});
+
+test("submits the sitemap index and every child sitemap", () => {
+  assert.deepEqual(googleSitemapUrls(), [
+    "https://counselo-legal.com/sitemap.xml",
+    "https://counselo-legal.com/sitemap-core.xml",
+    "https://counselo-legal.com/sitemap-uae-services.xml",
+    "https://counselo-legal.com/sitemap-sa-services.xml",
+    "https://counselo-legal.com/sitemap-syr-services.xml",
+    "https://counselo-legal.com/sitemap-blog.xml",
+    "https://counselo-legal.com/sitemap-work.xml",
+    "https://counselo-legal.com/sitemap-legal-updates.xml",
+  ]);
 });
