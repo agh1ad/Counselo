@@ -53,6 +53,18 @@ export default function LegalUpdates() {
     post
       ? legalUpdatesPath(post.region, l, post.slug)
       : updateArchivePath(region, l, service, page);
+  const regionalAlternates = region
+    ? [
+        {
+          hrefLang: region === "sa" ? "en-SA" : region === "syr" ? "en-SY" : "en-AE",
+          href: alternate("en"),
+        },
+        {
+          hrefLang: region === "sa" ? "ar-SA" : region === "syr" ? "ar-SY" : "ar-AE",
+          href: alternate("ar"),
+        },
+      ]
+    : undefined;
   const reviewerIsOmar = post?.reviewer === legalUpdatesDefaultReviewer.en;
   const articleUrl = `https://counselo-legal.com${canonical}`;
   const schema = post
@@ -128,7 +140,9 @@ export default function LegalUpdates() {
         articleAuthor={post ? "CounselO Editorial" : undefined}
         canonical={canonical}
         noRegionPrefix
-        sharedLanguageAlternates={{ en: alternate("en"), ar: alternate("ar") }}
+        {...(regionalAlternates
+          ? { regionalLanguageAlternates: regionalAlternates, geoRegion: region }
+          : { sharedLanguageAlternates: { en: alternate("en"), ar: alternate("ar") } })}
         schema={schema}
         extraSchemas={[
           ...(post

@@ -11,3 +11,4 @@
 - [Public read cost safety](public-read-cost-safety.md) — public legal-update snapshots must be publication-fenced and exclude source evidence, reasoning, drafts, and admin records.
 - [Public snapshot publication fence](public-snapshot-publish-fence.md) — public published content reads object-storage snapshots only; PostgreSQL is used during prewarming, never a production cache miss.
 - [Google indexing automation](google-indexing-automation.md) — ordinary pages cannot use Google's Indexing API; submit the sitemap after mutations and rely on crawlable links and accurate sitemaps.
+- [SEO prerender inventory merge](seo-prerender-inventory.md) — merge discovery inventory with full blog records before prerendering article detail pages.

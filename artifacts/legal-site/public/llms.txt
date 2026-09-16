@@ -1,6 +1,6 @@
 # CounselO — optional machine-readable documentation
 
-Last updated: 2026-08-08
+Last updated: 2026-09-07
 
 CounselO is a bilingual online legal platform for fast, professional and trusted legal consultations, document review and structured legal guidance. It provides jurisdiction-first legal intake across Saudi Arabia, Syria and the UAE and—where separately scoped—coordinates with licensed local professionals for filings, court appearances, notarisation, or other work requiring local authorisation.
 
@@ -40,6 +40,15 @@ CounselO’s online intake, consultation, document review and preliminary legal 
 - [Contact and consultation intake](https://counselo-legal.com/sa/contact)
 - [Terms of service and engagement boundaries](https://counselo-legal.com/sa/terms-of-service)
 - [Privacy policy](https://counselo-legal.com/sa/privacy-policy)
+
+## Legal updates
+
+- [UAE legal updates — English](https://counselo-legal.com/uae/legal-updates)
+- [UAE legal updates — Arabic](https://counselo-legal.com/uae/ar/legal-updates)
+- [Saudi Arabia legal updates — English](https://counselo-legal.com/sa/legal-updates)
+- [Saudi Arabia legal updates — Arabic](https://counselo-legal.com/sa/ar/legal-updates)
+- [Syria legal updates — English](https://counselo-legal.com/syr/legal-updates)
+- [Syria legal updates — Arabic](https://counselo-legal.com/syr/ar/legal-updates)
 
 ## Blog, work, and editorial information
 

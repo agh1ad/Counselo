@@ -10,6 +10,7 @@ test("work links use an available language and title limits preserve branding", 
   for (const title of ["كاونسلو و تخفيض مطالبة عمولة تجارية من 3.48 مليون ريال | أعمال كاونسلو", "كيف ساهمت كاونسلو في تخفيض مطالبة من 500 ألف ريال إلى | أعمال كاونسلو", "A detailed professional review of a complex commercial agreement and its clauses | CounselO"]) {
     const result = limitSeoTitle(title);
     assert.ok(result.startsWith(title.split(" ").slice(0, 5).join(" ")));
+    assert.ok([...result].length <= 68);
     assert.doesNotMatch(result, /…/);
     assert.match(result, /(?:كاونسلو|CounselO)$/);
     assert.doesNotMatch(result, /(?:إلى|من|and|of|to)\s*\|/);

@@ -50,6 +50,7 @@ import {
   COUNSELO_ENTITY_IDS,
   type BlogLanguage,
 } from "@workspace/api-zod";
+import { limitSeoTitle, normalizeSeoDescription } from "./lib/seo-title.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -179,14 +180,6 @@ function stripHtml(html: string): string {
     .trim();
 }
 
-function normalizeDescription(primary: string, fallback: string): string {
-  const combined = primary.trim().length >= 80
-    ? primary.trim()
-    : `${primary.trim()} ${fallback.trim()}`.trim();
-  if (combined.length <= 170) return combined;
-  return `${combined.slice(0, 167).replace(/\s+\S*$/, "").trimEnd()}…`;
-}
-
 /** XSS-safe JSON serialisation for inline <script> tags. */
 function safeJson(value: unknown): string {
   return JSON.stringify(value)
@@ -233,12 +226,17 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
 
   const canonical = `https://counselo-legal.com/blog/${slug}`;
   const primaryTitle = seoTitleEn || seoTitleAr;
-  const brandedTitle = /(?:CounselO|كاونسلو)$/i.test(primaryTitle)
-    ? primaryTitle
-    : `${primaryTitle} | ${isArabicPost ? "كاونسلو" : "CounselO"}`;
-  const primaryDesc = normalizeDescription(
-    seoDescEn || seoDescAr,
-    post.excerptEn || post.excerptAr || stripHtml(post.bodyEn || post.bodyAr || ""),
+  const brandedTitle = limitSeoTitle(
+    /(?:CounselO|كاونسلو)$/i.test(primaryTitle)
+      ? primaryTitle
+      : `${primaryTitle} | ${isArabicPost ? "كاونسلو" : "CounselO"}`,
+  );
+  const primaryDesc = normalizeSeoDescription(
+    seoDescEn ||
+      seoDescAr ||
+      post.excerptEn ||
+      post.excerptAr ||
+      stripHtml(post.bodyEn || post.bodyAr || ""),
   );
   const provenance = assignArticleProvenance(post);
   const reviewerAttribution = isArabicPost ? BLOG_REVIEWER_ATTRIBUTION.ar : BLOG_REVIEWER_ATTRIBUTION.en;
@@ -391,20 +389,20 @@ export function buildWorkHtmlFromTemplate(
   const isArabic = language === "ar";
   const BASE = "https://counselo-legal.com";
 
-  const title =
-    (isArabic
+  const title = limitSeoTitle(
+    ((isArabic
       ? sample.seoTitleAr || sample.titleAr
       : sample.seoTitleEn || sample.titleEn) ||
-    sample.titleAr ||
-    sample.titleEn;
+      sample.titleAr ||
+      sample.titleEn),
+  );
 
-  const description = normalizeDescription(
+  const description = normalizeSeoDescription(
     (isArabic
       ? sample.seoDescriptionAr || sample.summaryAr
       : sample.seoDescriptionEn || sample.summaryEn) ||
       sample.summaryAr ||
       sample.summaryEn,
-    sample.summaryEn || sample.summaryAr,
   );
 
   const basePath = isArabic ? "/ar/our-work" : "/our-work";

@@ -33,31 +33,46 @@ import { repairPublicBlogPost } from "../../../api-server/src/lib/public-blog-re
 import { repairPublicWorkSample } from "../../../api-server/src/lib/public-work-repairs.js";
 
 // ---------------------------------------------------------------------------
-// Fetch published blog post slugs from the running API at build time.
+// Fetch published blog posts from the running API at build time. The discovery
+// endpoint is the inventory authority, while the full endpoint supplies the
+// body/SEO fields needed to prerender each detail route. Merge them by slug so
+// collection pages and article pages always use the same published set.
 // Falls back to an empty array with a warning so the build never hard-fails
 // just because the API isn't reachable (e.g. local dev without the server).
 // ---------------------------------------------------------------------------
 async function fetchBlogPosts(): Promise<InitialBlogPost[]> {
   try {
-    const blogApiUrl =
-      process.env["BLOG_API_URL"]?.trim() ||
+    const configuredUrl = process.env["BLOG_API_URL"]?.trim() ||
       "https://counselo-legal.com/api/blog/posts";
-    const res = await fetch(blogApiUrl, {
-      signal: AbortSignal.timeout(30_000),
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = (await res.json()) as unknown;
-    if (!Array.isArray(data)) return [];
-    const candidates = data.filter(
-      (post): post is InitialBlogPost => Boolean(post && typeof post === "object"),
-    );
-    const repaired = candidates.map((post) => repairPublicBlogPost(post));
-    const repairedSlug = "contract-interpretation-syrian-courts";
-    if (!repaired.some((post) => post.slug === repairedSlug)) {
-      const explicitUrl = new URL(`/api/blog/posts/${repairedSlug}`, blogApiUrl).toString();
-      const explicitResponse = await fetch(explicitUrl, { signal: AbortSignal.timeout(30_000) });
-      if (explicitResponse.ok) repaired.push(repairPublicBlogPost(await explicitResponse.json() as InitialBlogPost));
+    const fullUrl = configuredUrl.replace(/\/discovery\/?$/, "");
+    const discoveryUrl = `${fullUrl}/discovery`;
+    const [fullRes, discoveryRes] = await Promise.all([
+      fetch(fullUrl, { signal: AbortSignal.timeout(30_000) }),
+      fetch(discoveryUrl, { signal: AbortSignal.timeout(30_000) }),
+    ]);
+    if (!fullRes.ok && !discoveryRes.ok) {
+      throw new Error(`full HTTP ${fullRes.status}; discovery HTTP ${discoveryRes.status}`);
     }
+    const fullData = fullRes.ok ? ((await fullRes.json()) as unknown) : [];
+    const discoveryData = discoveryRes.ok ? ((await discoveryRes.json()) as unknown) : [];
+    const fullCandidates = Array.isArray(fullData) ? fullData.filter(
+      (post): post is InitialBlogPost => Boolean(post && typeof post === "object"),
+    ) : [];
+    const discoveryCandidates = Array.isArray(discoveryData) ? discoveryData.filter(
+      (post): post is InitialBlogPost => Boolean(post && typeof post === "object"),
+    ) : [];
+    const fullBySlug = new Map(
+      fullCandidates
+        .filter((post) => typeof post.slug === "string")
+        .map((post) => [post.slug, post]),
+    );
+    const candidates = discoveryCandidates.length > 0
+      ? discoveryCandidates.map((post) => ({
+          ...post,
+          ...(typeof post.slug === "string" ? fullBySlug.get(post.slug) : undefined),
+        }))
+      : fullCandidates;
+    const repaired = candidates.map((post) => repairPublicBlogPost(post));
     return repaired.filter(
       (post): post is InitialBlogPost =>
         !!post &&

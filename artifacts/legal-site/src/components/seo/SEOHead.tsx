@@ -16,7 +16,7 @@ import { useRegion } from "@/contexts/RegionContext";
 import { COUNSELO_OPTIMIZED_META } from "@/lib/optimized-meta";
 import { BLOG_SOCIAL_IMAGE } from "@workspace/api-zod/browser";
 import { searchIntentMeta } from "@/lib/search-intent-copy";
-import { limitSeoTitle } from "@/lib/seo-title";
+import { limitSeoTitle, normalizeSeoDescription } from "@/lib/seo-title";
 
 const SYR_TEXT_MAP: [RegExp, string][] = [
   [/Saudi Arabia/gi, "Syria"],
@@ -111,6 +111,8 @@ interface SEOHeadProps {
   sharedLanguageAlternates?: { en: string; ar: string; xDefault?: string };
   /** Exact regional alternates for route families whose slugs differ by jurisdiction. */
   regionalLanguageAlternates?: Array<{ hrefLang: string; href: string }>;
+  /** Keep region-specific geo metadata when canonical is already an absolute route. */
+  geoRegion?: "sa" | "syr" | "uae";
 }
 
 const GEO = {
@@ -152,6 +154,25 @@ const GEO = {
   },
 } as const;
 
+const TITLE_DISAMBIGUATORS: Record<string, { en: string; ar: string }> = {
+  "/services/commercial-contracts/defective-product-and-consumer-compensation-claim": {
+    en: "Commercial contracts",
+    ar: "العقود التجارية",
+  },
+  "/services/consumer-ecommerce/defective-product-and-consumer-claim": {
+    en: "Consumer e-commerce",
+    ar: "التجارة الإلكترونية",
+  },
+  "/services/foreign-investment-market-entry/foreign-investor-and-local-partner-dispute": {
+    en: "Local partner dispute",
+    ar: "نزاع الشريك المحلي",
+  },
+  "/services/foreign-investment-market-entry/foreign-investor-compensation-claim": {
+    en: "Investor compensation",
+    ar: "تعويض المستثمر",
+  },
+};
+
 export function SEOHead({
   heroArtwork,
   title,
@@ -174,14 +195,16 @@ export function SEOHead({
   noRegionPrefix = false,
   sharedLanguageAlternates,
   regionalLanguageAlternates,
+  geoRegion,
 }: SEOHeadProps) {
   const { lang } = useLanguage();
   const { region } = useRegion();
 
-  const geo = GEO[region];
+  const resolvedGeoRegion = geoRegion ?? region;
+  const geo = GEO[resolvedGeoRegion];
   const effectiveLanguage = contentLanguage ?? lang;
   const isArabic = effectiveLanguage === "ar";
-  const isSyr = region === "syr";
+  const isSyr = resolvedGeoRegion === "syr";
 
   const basePath = canonical === "/" ? "" : canonical ?? "";
   const langSegment = isArabic ? "/ar" : "";
@@ -248,17 +271,61 @@ export function SEOHead({
     : (noRegionPrefix && sharedTitleOverrides[basePath])
       ? sharedTitleOverrides[basePath]
       : (isSyr ? syriafyText(title) : title);
+  const isRegionalProblemPage =
+    !noRegionPrefix &&
+    /^\/(?:(?:sa|syr|uae)(?:\/ar)?\/)?services\/[^/]+\/[^/]+$/.test(basePath);
+  const regionalName = isArabic
+    ? resolvedGeoRegion === "sa"
+      ? "السعودية"
+      : resolvedGeoRegion === "syr"
+        ? "سوريا"
+        : "الإمارات"
+    : resolvedGeoRegion === "sa"
+      ? "Saudi Arabia"
+      : resolvedGeoRegion === "syr"
+        ? "Syria"
+        : "United Arab Emirates";
+  const regionAliases = resolvedGeoRegion === "uae"
+    ? isArabic
+      ? ["الإمارات", "الإمارات العربية المتحدة"]
+      : ["UAE", "the UAE", "United Arab Emirates"]
+    : resolvedGeoRegion === "sa"
+      ? isArabic
+        ? ["السعودية", "المملكة العربية السعودية"]
+        : ["Saudi Arabia", "KSA"]
+      : isArabic
+        ? ["سوريا"]
+        : ["Syria"];
+  const alreadyNamesRegion = regionAliases.some((alias) =>
+    isArabic
+      ? new RegExp(`^${alias}\\s*:`, "u").test(rawTitle)
+      : new RegExp(`^${alias.replace(/\s+/g, "\\s+")}\\s*:`, "i").test(rawTitle),
+  );
+  const titleDisambiguator = TITLE_DISAMBIGUATORS[basePath]?.[isArabic ? "ar" : "en"];
+  const titlePrefix = [
+    isRegionalProblemPage && !alreadyNamesRegion ? regionalName : "",
+    titleDisambiguator ?? "",
+  ].filter(Boolean).join(": ");
+  const titleWithRegionalContext = titlePrefix
+    ? `${titlePrefix}: ${rawTitle}`
+    : rawTitle;
+  const titleWithLanguageContext =
+    noRegionPrefix &&
+    effectiveLanguage === "ar" &&
+    !/[\u0600-\u06ff]/u.test(titleWithRegionalContext)
+      ? `${titleWithRegionalContext} — العربية`
+      : titleWithRegionalContext;
   // Optimized meta titles are already final — never append a suffix to them.
   // For fallback (non-map) titles, append "| CounselO" only if not already present.
-  const fullTitle = limitTitle(metaOverride && !preferPageMetadata
-    ? rawTitle
-    : (rawTitle.endsWith("| CounselO") ||
-        rawTitle.endsWith("| كاونسلو") ||
-        rawTitle.endsWith("كاونسلو")
-          ? rawTitle
-          : isArabic
-            ? `${rawTitle} | كاونسلو`
-            : `${rawTitle} | CounselO`));
+  const fullTitle = limitTitle(
+    titleWithLanguageContext.endsWith("| CounselO") ||
+      titleWithLanguageContext.endsWith("| كاونسلو") ||
+      titleWithLanguageContext.endsWith("كاونسلو")
+      ? titleWithLanguageContext
+      : isArabic
+        ? `${titleWithLanguageContext} | كاونسلو`
+        : `${titleWithLanguageContext} | CounselO`,
+  );
 
   // Shared collection pages (noRegionPrefix=true without explicit alternates,
   // e.g. /blog) emit no regional alternates. Bilingual
@@ -344,7 +411,7 @@ export function SEOHead({
   const untrimmedDescription = preferPageMetadata ? description : metaOverride
     ? metaOverride.description
     : (isSyr ? syriafyText(description) : description);
-  const finalDescription = untrimmedDescription.replace(/\s+/g, " ").trim();
+  const finalDescription = normalizeSeoDescription(untrimmedDescription);
   const finalKeywords = isSyr ? syriafyText(rawKeywords) : rawKeywords;
 
   // Localize legacy page fields while preserving entity facts and FAQ text; patch name +
@@ -389,10 +456,10 @@ export function SEOHead({
       />
 
       {/* Region-independent pages must not inherit a misleading country target. */}
-      {!noRegionPrefix && <meta name="geo.region" content={geo.region} />}
-      {!noRegionPrefix && <meta name="geo.placename" content={geo.placename} />}
-      {!noRegionPrefix && <meta name="geo.position" content={geo.position} />}
-      {!noRegionPrefix && <meta name="ICBM" content={geo.icbm} />}
+       {(!noRegionPrefix || geoRegion) && <meta name="geo.region" content={geo.region} />}
+       {(!noRegionPrefix || geoRegion) && <meta name="geo.placename" content={geo.placename} />}
+       {(!noRegionPrefix || geoRegion) && <meta name="geo.position" content={geo.position} />}
+       {(!noRegionPrefix || geoRegion) && <meta name="ICBM" content={geo.icbm} />}
       <meta httpEquiv="content-language" content={effectiveLanguage} />
 
       {/* Canonical */}

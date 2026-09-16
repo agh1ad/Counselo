@@ -1,6 +1,6 @@
 import { updatesSitemap } from "@workspace/api-zod";
 import { SEARCH_COPY_UPDATED_AT } from "../lib/search-intent-copy.js";
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
@@ -452,6 +452,24 @@ ${feedPosts.map((post) => `    <item>
 </rss>
 `;
 writeFileSync(resolve(rootDir, "public/feed.xml"), feedXml, "utf-8");
+
+// Keep the optional AI-readable guide synchronized with the checked-in
+// editorial freshness date and the public discovery surfaces. The guide is
+// supplementary; ordinary HTML, internal links, RSS, and sitemaps remain the
+// authoritative crawl paths.
+const llmsPath = resolve(rootDir, "public/llms.txt");
+const llmsTemplate = readFileSync(llmsPath, "utf-8");
+const llmsWithDate = llmsTemplate.replace(
+  /^Last updated: .*$/m,
+  `Last updated: ${SEARCH_COPY_UPDATED_AT}`,
+);
+const llmsContent = llmsWithDate.includes("/uae/legal-updates")
+  ? llmsWithDate
+  : llmsWithDate.replace(
+      /## Blog, work, and editorial information\n/,
+      `## Legal updates\n\n- [UAE legal updates — English](https://counselo-legal.com/uae/legal-updates)\n- [UAE legal updates — Arabic](https://counselo-legal.com/uae/ar/legal-updates)\n- [Saudi Arabia legal updates — English](https://counselo-legal.com/sa/legal-updates)\n- [Saudi Arabia legal updates — Arabic](https://counselo-legal.com/sa/ar/legal-updates)\n- [Syria legal updates — English](https://counselo-legal.com/syr/legal-updates)\n- [Syria legal updates — Arabic](https://counselo-legal.com/syr/ar/legal-updates)\n\n## Blog, work, and editorial information\n`,
+    );
+writeFileSync(llmsPath, llmsContent, "utf-8");
 console.log(
   `[sitemap] wrote index and ${sitemapFiles.length} purpose-specific sitemaps (${SA_SERVICE_SLUGS.length} SA services, ${SYR_SERVICE_SLUGS.length} SYR services, ${UAE_SERVICE_SLUGS.length} UAE services)`,
 );
