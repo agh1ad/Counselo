@@ -61,7 +61,6 @@ export default function About() {
       "name": isRTL ? "عن كاونسلو" : "About CounselO",
       "url": `https://counselo-legal.com${regionPath}/about`,
       "description": a.seoDesc,
-      "dateModified": "2026-09-11",
       "mainEntity": { "@id": COUNSELO_ENTITY_IDS.organization },
       "inLanguage": isRTL ? `ar-${countryCode}` : `en-${countryCode}`,
       "breadcrumb": {
