@@ -10,6 +10,8 @@ import {
 const originalFetch = globalThis.fetch;
 const originalKey = process.env["OPENAI_API_KEY"];
 const originalModel = process.env["OPENAI_TRANSLATION_MODEL"];
+const originalIntegrationKey = process.env["AI_INTEGRATIONS_OPENAI_API_KEY"];
+const originalIntegrationBase = process.env["AI_INTEGRATIONS_OPENAI_BASE_URL"];
 
 function responseWithJson(value: unknown): Response {
   return new Response(
@@ -27,6 +29,12 @@ test.afterEach(() => {
   if (originalModel === undefined)
     delete process.env["OPENAI_TRANSLATION_MODEL"];
   else process.env["OPENAI_TRANSLATION_MODEL"] = originalModel;
+  if (originalIntegrationKey === undefined)
+    delete process.env["AI_INTEGRATIONS_OPENAI_API_KEY"];
+  else process.env["AI_INTEGRATIONS_OPENAI_API_KEY"] = originalIntegrationKey;
+  if (originalIntegrationBase === undefined)
+    delete process.env["AI_INTEGRATIONS_OPENAI_BASE_URL"];
+  else process.env["AI_INTEGRATIONS_OPENAI_BASE_URL"] = originalIntegrationBase;
 });
 
 test("fills missing English blog, repairs SEO, and requests strict structured output", async () => {
@@ -219,6 +227,8 @@ test("complete bilingual work does not require optional client or outcome fields
 
 test("missing API key prevents incomplete bilingual publication", async () => {
   delete process.env["OPENAI_API_KEY"];
+  delete process.env["AI_INTEGRATIONS_OPENAI_API_KEY"];
+  delete process.env["AI_INTEGRATIONS_OPENAI_BASE_URL"];
   const incomplete = {
     slug: "arabic-only",
     date: "2026-07-29",
