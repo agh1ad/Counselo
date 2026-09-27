@@ -13,3 +13,4 @@
 - [Google indexing automation](google-indexing-automation.md) — ordinary pages cannot use Google's Indexing API; submit the sitemap after mutations and rely on crawlable links and accurate sitemaps.
 - [SEO prerender inventory merge](seo-prerender-inventory.md) — merge discovery inventory with full blog records before prerendering article detail pages.
 - [Our Work evidence boundary](our-work-evidence-boundary.md) — case studies support expertise and scope, but never Review or aggregateRating markup without independent client feedback.
+- [Replit rebase interruptions](git-rebase-interruptions.md) — paused rebases may reset between tool calls; verify reflog and keep known conflict resolution plus continuation together.
