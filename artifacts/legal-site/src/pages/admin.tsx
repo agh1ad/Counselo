@@ -11,6 +11,7 @@ import {
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
 import { ContactOutcomes } from "@/components/admin/ContactOutcomes";
 import { WorkSamplesManager } from "@/components/admin/WorkSamplesManager";
+import { TranslationRepairManager } from "@/components/admin/TranslationRepairManager";
 import {
   getAnalytics, clearAnalytics, getGTMContainerId, type AnalyticsStore,
 } from "@/lib/analytics";
@@ -18,7 +19,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 import { blogPath } from "@workspace/api-zod/browser";
 
 const API = "/api";
-type Tab = "updates" | "blog" | "work" | "analytics" | "seo" | "tools" | "enquiries";
+type Tab = "updates" | "blog" | "work" | "analytics" | "seo" | "tools" | "enquiries" | "translations";
 
 interface BlogPost {
   id: number;
@@ -860,6 +861,7 @@ export default function AdminCMS() {
     { id: "blog", label: "Blog Posts", icon: <FileText size={15} /> },
     { id: "updates", label: "Legal Updates", icon: <Search size={15} /> },
     { id: "work", label: "Our Work", icon: <BriefcaseBusiness size={15} /> },
+    { id: "translations", label: "Translations", icon: <Globe size={15} /> },
     { id: "analytics", label: "Analytics", icon: <BarChart2 size={15} /> },
     { id: "enquiries", label: "Enquiry outcomes", icon: <Users size={15} /> },
     { id: "seo", label: "SEO Monitor", icon: <Search size={15} /> },
@@ -895,6 +897,7 @@ export default function AdminCMS() {
       {tab === "enquiries" && <ContactOutcomes token={token} />}
       {tab === "seo" && <SEOMonitorTab />}
       {tab === "tools" && <ToolsTab />}
+      {tab === "translations" && <TranslationRepairManager token={token} />}
       {tab === "updates" && <LegalUpdatesManager token={token} />}
       {tab === "work" && <WorkSamplesManager token={token} />}
 

@@ -9,6 +9,7 @@ import { assignInternalLinks } from "../lib/internal-link-assignment.js";
 import { publicTestimonial } from "@workspace/api-zod";
 import {
   ContentTranslationError,
+  hasCompleteWorkTranslation,
   translateWorkForPublishing,
 } from "../lib/content-translation.js";
 import { withPublicContentMutation } from "../lib/publication-cache.js";
@@ -146,6 +147,11 @@ router.post("/admin/work", requireAdmin, async (req, res) => {
         ...translation,
         published: true,
       });
+      if (!hasCompleteWorkTranslation(values)) {
+        throw new WorkInputError(
+          "Published work samples require complete English and Arabic content",
+        );
+      }
       const assignment = await assignInternalLinks({
         kind: "work",
         slug: values.slug,
@@ -217,6 +223,11 @@ router.put("/admin/work/:id", requireAdmin, async (req, res) => {
         { ...draftValues, ...translation, published: true },
         { existingSlug: before.slug, existingFile: before, existingTestimonials: before },
       );
+      if (!hasCompleteWorkTranslation(values)) {
+        throw new WorkInputError(
+          "Published work samples require complete English and Arabic content",
+        );
+      }
       if (!before.published) {
         const assignment = await assignInternalLinks({
           kind: "work",

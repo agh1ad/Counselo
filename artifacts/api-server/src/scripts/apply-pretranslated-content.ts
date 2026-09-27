@@ -3,6 +3,10 @@ import { blogPostsTable, db, pool, workSamplesTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import { parseBlogPostInput } from "../lib/blog-input.js";
 import { parseWorkSampleInput } from "../lib/work-input.js";
+import {
+  hasCompleteBlogTranslation,
+  hasCompleteWorkTranslation,
+} from "../lib/content-translation.js";
 import { withPublicContentMutation, assertPublicMaintenanceCacheConfiguration } from "../lib/publication-cache.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 import { containsPublishingPlaceholder, isRouteLikeSeoTitle } from "@workspace/api-zod";
@@ -176,6 +180,11 @@ async function main() {
       contentEn: validated.contentEn,
       excerptAr: validated.excerptAr,
     };
+    if (!hasCompleteBlogTranslation({ ...post, ...values, published: true })) {
+      throw new Error(
+        `Prepared blog translation is still incomplete: ${translation.slug}`,
+      );
+    }
     blogUpdates.push({ id: post.id, slug: post.slug, values });
   }
 
@@ -219,6 +228,11 @@ async function main() {
       seoTitleEn: validated.seoTitleEn,
       seoDescriptionEn: validated.seoDescriptionEn,
     };
+    if (!hasCompleteWorkTranslation({ ...sample, ...values })) {
+      throw new Error(
+        `Prepared work translation is still incomplete: ${translation.slug}`,
+      );
+    }
     workUpdates.push({ id: sample.id, slug: sample.slug, values });
   }
 

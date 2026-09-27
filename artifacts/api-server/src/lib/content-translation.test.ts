@@ -3,6 +3,8 @@ import test from "node:test";
 import type { InsertBlogPost, InsertWorkSample } from "@workspace/db";
 import {
   ContentTranslationError,
+  getWorkTranslationGaps,
+  hasCompleteWorkTranslation,
   translateBlogForPublishing,
   translateWorkForPublishing,
 } from "./content-translation.js";
@@ -253,5 +255,38 @@ test("missing API key prevents incomplete bilingual publication", async () => {
   await assert.rejects(
     translateBlogForPublishing(incomplete),
     ContentTranslationError,
+  );
+});
+
+test("treats a two-language empty optional field as absent, but flags one-sided source text", () => {
+  const values = {
+    titleEn: "Commercial Contract Review",
+    titleAr: "مراجعة عقد تجاري",
+    summaryEn: "A complete English summary of the contract review and its scope.",
+    summaryAr: "ملخص عربي كامل لمراجعة العقد ونطاق العمل القانوني.",
+    workTypeEn: "Contract review",
+    workTypeAr: "مراجعة العقود",
+    jurisdictionEn: "Saudi Arabia",
+    jurisdictionAr: "المملكة العربية السعودية",
+    challengeEn: "The contract needed clearer allocation of commercial risks.",
+    challengeAr: "احتاج العقد إلى توزيع أوضح للمخاطر التجارية.",
+    approachEn: "CounselO clarified obligations and proposed practical safeguards.",
+    approachAr: "وضحت كاونسلو الالتزامات واقترحت ضمانات عملية.",
+    clientTypeEn: "",
+    clientTypeAr: "",
+    outcomeEn: "",
+    outcomeAr: "",
+    seoTitleEn: "Commercial Contract Review | CounselO",
+    seoTitleAr: "مراجعة عقد تجاري في السعودية | كاونسلو",
+    seoDescriptionEn:
+      "Read how CounselO reviewed a commercial agreement, clarified key obligations, and addressed practical risk allocation for the client.",
+    seoDescriptionAr:
+      "اطّلع على كيفية مراجعة كاونسلو لاتفاقية تجارية وتوضيح الالتزامات الرئيسية ومعالجة توزيع المخاطر العملية بما يناسب العميل.",
+  };
+  assert.deepEqual(getWorkTranslationGaps(values), []);
+  assert.equal(hasCompleteWorkTranslation(values), true);
+  assert.ok(
+    getWorkTranslationGaps({ ...values, outcomeEn: "The contract was signed." })
+      .some((gap) => gap.startsWith("outcome:")),
   );
 });

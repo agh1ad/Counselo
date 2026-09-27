@@ -19,6 +19,7 @@ import {
 } from "@workspace/api-zod";
 import {
   ContentTranslationError,
+  hasCompleteBlogTranslation,
   translateBlogForPublishing,
 } from "../lib/content-translation.js";
 import { withPublicContentMutation } from "../lib/publication-cache.js";
@@ -165,6 +166,11 @@ router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
         ...translation,
         published: true,
       });
+      if (!hasCompleteBlogTranslation(values)) {
+        throw new BlogInputError(
+          "Published blog posts require complete English and Arabic content",
+        );
+      }
       const assignment = await assignInternalLinks({
         kind: "blog",
         slug: values.slug,
@@ -238,6 +244,11 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
         { ...draftValues, ...translation, published: true },
         { existingSlug: before.slug },
       );
+      if (!hasCompleteBlogTranslation(values)) {
+        throw new BlogInputError(
+          "Published blog posts require complete English and Arabic content",
+        );
+      }
       if (!before.published) {
         const assignment = await assignInternalLinks({
           kind: "blog",
