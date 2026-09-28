@@ -5,6 +5,7 @@ import {
   ContentTranslationError,
   getWorkTranslationGaps,
   hasCompleteWorkTranslation,
+  restoreBlankSeoMetadata,
   translateBlogForPublishing,
   translateWorkForPublishing,
 } from "./content-translation.js";
@@ -23,6 +24,29 @@ function responseWithJson(value: unknown): Response {
     { status: 200, headers: { "Content-Type": "application/json" } },
   );
 }
+
+test("restores blank SEO fields from the raw input for AI generation", () => {
+  const parsedValues = {
+    seoTitleEn: "Publisher supplied English title",
+    seoTitleAr: "Parser generated Arabic fallback",
+    seoDescriptionEn: "Parser generated English fallback",
+    seoDescriptionAr: "Publisher supplied Arabic description",
+  };
+
+  const prepared = restoreBlankSeoMetadata(parsedValues, {
+    seoTitleEn: "Publisher supplied English title",
+    seoTitleAr: "   ",
+    seoDescriptionAr: "Publisher supplied Arabic description",
+  });
+
+  assert.equal(prepared.seoTitleEn, "Publisher supplied English title");
+  assert.equal(prepared.seoTitleAr, "");
+  assert.equal(prepared.seoDescriptionEn, "");
+  assert.equal(
+    prepared.seoDescriptionAr,
+    "Publisher supplied Arabic description",
+  );
+});
 
 test.afterEach(() => {
   globalThis.fetch = originalFetch;
@@ -97,6 +121,10 @@ test("fills missing English blog, repairs SEO, and requests strict structured ou
     '<p style="text-align:left">Translated legal body.</p>',
   );
   assert.equal(patch.seoTitleAr, "تكوين العقد في القانون السوري | كاونسلو");
+  assert.equal(
+    patch.seoDescriptionEn,
+    "Learn the requirements for valid contract formation under Syrian law, including consent, capacity, lawful purpose, and practical evidence.",
+  );
   assert.equal(patch.titleAr, undefined, "Arabic source must be preserved");
   assert.match(requestUrl, /\/chat\/completions$/);
   assert.equal(requestBody?.model, "gpt-5.6-luna");
@@ -177,6 +205,11 @@ test("fills missing Arabic work fields and preserves English source", async () =
   assert.equal(patch.jurisdictionAr, "المملكة العربية السعودية");
   assert.equal(patch.titleEn, undefined);
   assert.equal(patch.summaryEn, undefined);
+  assert.equal(patch.seoTitleAr, "مراجعة عقد تجاري في السعودية | كاونسلو");
+  assert.equal(
+    patch.seoDescriptionAr,
+    "اطّلع على كيفية مراجعة كاونسلو لعقد تجاري وتوضيح توزيع المخاطر وتعزيز الحماية العملية لعميل من قطاع الأعمال.",
+  );
   assert.equal(patch.clientTypeAr, undefined);
   assert.equal(patch.outcomeAr, undefined);
 });

@@ -10,6 +10,7 @@ import { publicTestimonial } from "@workspace/api-zod";
 import {
   ContentTranslationError,
   hasCompleteWorkTranslation,
+  restoreBlankSeoMetadata,
   translateWorkForPublishing,
 } from "../lib/content-translation.js";
 import { withPublicContentMutation } from "../lib/publication-cache.js";
@@ -141,7 +142,8 @@ router.post("/admin/work", requireAdmin, async (req, res) => {
     let values = draftValues;
     let linkValues = {};
     if (requestedPublished) {
-      const translation = await translateWorkForPublishing(draftValues);
+      const translationInput = restoreBlankSeoMetadata(draftValues, req.body);
+      const translation = await translateWorkForPublishing(translationInput);
       values = parseWorkSampleInput({
         ...draftValues,
         ...translation,
@@ -218,7 +220,8 @@ router.put("/admin/work/:id", requireAdmin, async (req, res) => {
     let values = draftValues;
     let linkValues = {};
     if (requestedPublished) {
-      const translation = await translateWorkForPublishing(draftValues);
+      const translationInput = restoreBlankSeoMetadata(draftValues, req.body);
+      const translation = await translateWorkForPublishing(translationInput);
       values = parseWorkSampleInput(
         { ...draftValues, ...translation, published: true },
         { existingSlug: before.slug, existingFile: before, existingTestimonials: before },

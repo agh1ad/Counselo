@@ -20,6 +20,7 @@ import {
 import {
   ContentTranslationError,
   hasCompleteBlogTranslation,
+  restoreBlankSeoMetadata,
   translateBlogForPublishing,
 } from "../lib/content-translation.js";
 import { withPublicContentMutation } from "../lib/publication-cache.js";
@@ -160,7 +161,8 @@ router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
     let values = draftValues;
     let linkValues = {};
     if (requestedPublished) {
-      const translation = await translateBlogForPublishing(draftValues);
+      const translationInput = restoreBlankSeoMetadata(draftValues, req.body);
+      const translation = await translateBlogForPublishing(translationInput);
       values = parseBlogPostInput({
         ...draftValues,
         ...translation,
@@ -239,7 +241,8 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
     let values = draftValues;
     let linkValues = {};
     if (requestedPublished) {
-      const translation = await translateBlogForPublishing(draftValues);
+      const translationInput = restoreBlankSeoMetadata(draftValues, req.body);
+      const translation = await translateBlogForPublishing(translationInput);
       values = parseBlogPostInput(
         { ...draftValues, ...translation, published: true },
         { existingSlug: before.slug },

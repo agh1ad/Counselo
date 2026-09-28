@@ -53,6 +53,40 @@ type WorkTranslation = {
   seoDescriptionAr: string;
 };
 
+const SEO_METADATA_FIELDS = [
+  "seoTitleEn",
+  "seoTitleAr",
+  "seoDescriptionEn",
+  "seoDescriptionAr",
+] as const;
+
+/**
+ * Restore blank SEO fields from the original publish input after parsing.
+ * The input parsers create useful text fallbacks, but those defaults should
+ * not prevent the AI from generating SEO metadata the publisher left blank.
+ */
+export function restoreBlankSeoMetadata<T extends {
+  seoTitleEn?: string | null;
+  seoTitleAr?: string | null;
+  seoDescriptionEn?: string | null;
+  seoDescriptionAr?: string | null;
+}>(parsedValues: T, rawInput: unknown): T {
+  const raw =
+    rawInput && typeof rawInput === "object" && !Array.isArray(rawInput)
+      ? (rawInput as Record<string, unknown>)
+      : {};
+  const result: Record<string, unknown> = { ...parsedValues };
+
+  for (const key of SEO_METADATA_FIELDS) {
+    const originalValue = raw[key];
+    if (typeof originalValue !== "string" || !originalValue.trim()) {
+      result[key] = "";
+    }
+  }
+
+  return result as T;
+}
+
 const stringSchema = { type: "string" } as const;
 const seoTitleSchema = {
   type: "string",
