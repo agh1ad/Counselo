@@ -146,14 +146,26 @@ export class PublicationCoordinator {
     this.clear();
   }
 
-  async mutate<T>(write: () => PromiseLike<T>, onWarning?: () => void): Promise<T> {
+  async mutate<T>(
+    write: () => PromiseLike<T>,
+    onWarning?: () => void,
+    shouldCommit?: (result: T) => boolean,
+  ): Promise<T> {
     const fence = await this.begin();
+    let result!: T;
+    let completed = false;
     try {
-      return await write();
+      result = await write();
+      completed = true;
+      return result;
     } finally {
       try {
-        // Also rotate after a failed/partially completed maintenance operation.
-        await this.finish(fence);
+        if (completed && shouldCommit && !shouldCommit(result)) {
+          await this.cancel(fence);
+        } else {
+          // Also rotate after a failed/partially completed maintenance operation.
+          await this.finish(fence);
+        }
       } catch (err) {
         this.clear();
         logger.error({ err, fence }, "Publication fence retained; cache bypass requires operator recovery");
@@ -162,11 +174,22 @@ export class PublicationCoordinator {
       }
     }
   }
+
+  private async cancel(fence: string): Promise<void> {
+    if (!fence.startsWith(PUBLICATION_PENDING_PREFIX)) throw new Error("Invalid publication fence");
+    const removed = await this.storage().delete(fence, { ignoreNotFound: true });
+    if (!removed.ok) throw removed.error;
+    this.clear();
+  }
 }
 
 export const publicationCoordinator = new PublicationCoordinator();
 
-export async function withPublicContentMutation<T>(write: () => PromiseLike<T>, onWarning?: () => void): Promise<T> {
+export async function withPublicContentMutation<T>(
+  write: () => PromiseLike<T>,
+  onWarning?: () => void,
+  shouldCommit?: (result: T) => boolean,
+): Promise<T> {
   if (!publicationFencingEnabled()) return await write();
-  return publicationCoordinator.mutate(write, onWarning);
+  return publicationCoordinator.mutate(write, onWarning, shouldCommit);
 }

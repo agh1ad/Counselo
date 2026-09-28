@@ -172,6 +172,22 @@ test("a failed database operation rotates the revision before releasing its fenc
   assert.equal((await f.coordinator().state()).cacheable, true);
 });
 
+test("a no-op compare-and-swap removes its fence without rotating the published revision", async t => {
+  const f = fixture(t), writer = f.coordinator();
+  await writer.mutate(async () => {});
+  const before = await f.store.epochGeneration();
+
+  const rows = await writer.mutate(async () => [], undefined, result => result.length > 0);
+
+  assert.deepEqual(rows, []);
+  assert.equal(await f.store.epochGeneration(), before);
+  assert.equal((await writer.state()).cacheable, true);
+  assert.equal(
+    [...f.objects.keys()].filter(name => name.startsWith(PUBLICATION_PENDING_PREFIX)).length,
+    0,
+  );
+});
+
 test("storage errors and a missing control object bypass existing responses; late overwrites get new generations", async t => {
   const f = fixture(t), writer = f.coordinator();
   assert.equal((await writer.state()).cacheable, false, "missing state never restores an initial revision");

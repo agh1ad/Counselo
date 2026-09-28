@@ -170,8 +170,8 @@ router.post("/admin/translations/backfill", requireAdmin, async (req, res) => {
         return;
       }
 
-      const [updated] = await withPublicContentMutation(() =>
-        db
+      const [updated] = await withPublicContentMutation(
+        () => db
           .update(blogPostsTable)
           .set({
             categoryEn: values.categoryEn,
@@ -209,6 +209,8 @@ router.post("/admin/translations/backfill", requireAdmin, async (req, res) => {
             eq(blogPostsTable.contentAr, post.contentAr),
           ))
           .returning({ id: blogPostsTable.id, slug: blogPostsTable.slug }),
+        undefined,
+        (rows) => rows.length > 0,
       );
       if (!updated) {
         res.status(409).json({ error: "The post changed during repair; run the audit again" });
@@ -248,8 +250,8 @@ router.post("/admin/translations/backfill", requireAdmin, async (req, res) => {
       return;
     }
 
-    const [updated] = await withPublicContentMutation(() =>
-      db
+    const [updated] = await withPublicContentMutation(
+      () => db
         .update(workSamplesTable)
         .set({
           ...translation,
@@ -280,6 +282,8 @@ router.post("/admin/translations/backfill", requireAdmin, async (req, res) => {
           eq(workSamplesTable.seoDescriptionAr, sample.seoDescriptionAr),
         ))
         .returning({ id: workSamplesTable.id, slug: workSamplesTable.slug }),
+      undefined,
+      (rows) => rows.length > 0,
     );
     if (!updated) {
       res.status(409).json({ error: "The work sample changed during repair; run the audit again" });
