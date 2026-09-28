@@ -35,8 +35,13 @@ interface Props {
 
 async function responseError(response: Response): Promise<string> {
   try {
-    const body = (await response.json()) as { error?: string };
-    return body.error || `Request failed (${response.status})`;
+    const body = (await response.json()) as {
+      error?: string;
+      remainingGaps?: string[];
+    };
+    const error = body.error || `Request failed (${response.status})`;
+    const gaps = body.remainingGaps?.filter(Boolean) ?? [];
+    return gaps.length ? `${error}: ${gaps.join("; ")}` : error;
   } catch {
     return `Request failed (${response.status})`;
   }
