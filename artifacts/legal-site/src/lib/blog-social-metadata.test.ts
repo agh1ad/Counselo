@@ -37,6 +37,6 @@ test("Arabic blog social image alt text includes the Arabic reviewer attribution
     reviewerName: "المحامي والمستشار القانوني عمر البغدادي",
   });
 
-  assert.match(html, /مقال قانوني من كاونسلو، راجعه المحامي والمستشار القانوني عمر البغدادي/);
+  assert.match(html, /مقال قانوني من كاونسلو للاستشارات القانونية، راجعه المحامي والمستشار القانوني عمر البغدادي/);
   assert.match(html, /property="og:locale" content="ar_SA"/);
 });

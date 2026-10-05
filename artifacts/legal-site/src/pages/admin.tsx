@@ -94,9 +94,9 @@ function truncateAtWord(text: string, limit: number): string {
 }
 
 function seoTitle(title: string, Arabic: boolean): string {
-  const suffix = Arabic ? " | كاونسلو" : " | CounselO";
+  const suffix = Arabic ? " | كاونسلو للاستشارات القانونية" : " | CounselO Legal";
   if (!title.trim()) return "";
-  if (title.endsWith("CounselO") || title.endsWith("كاونسلو")) return truncateAtWord(title, 70);
+  if (title.endsWith("CounselO Legal") || title.endsWith("كاونسلو للاستشارات القانونية")) return truncateAtWord(title, 70);
   return `${truncateAtWord(title, 70 - suffix.length)}${suffix}`;
 }
 
@@ -407,7 +407,7 @@ function PostEditor({ initial, token, onSave, onBack }: {
               </div>
               <div className="px-10 py-5 border-t border-gray-50 bg-gray-50/50 text-xs text-gray-300 flex items-center gap-4">
                 <FileText size={12} />
-                {lang === "en" ? "CounselO Legal Blog — English version" : "مدونة كاونسلو القانونية — النسخة العربية"}
+                {lang === "en" ? "CounselO Legal Blog — English version" : "مدونة كاونسلو للاستشارات القانونية — النسخة العربية"}
               </div>
             </div>
           </div>
@@ -813,7 +813,7 @@ export default function AdminCMS() {
         <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-8">
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-50 mb-4 text-2xl">🔒</div>
-            <h1 className="text-xl font-bold text-gray-900">CounselO Admin</h1>
+            <h1 className="text-xl font-bold text-gray-900">CounselO Legal Admin</h1>
             <p className="text-sm text-gray-500 mt-1">Analytics · Blog · SEO · Tools</p>
           </div>
           <form onSubmit={login} className="space-y-4">
@@ -850,7 +850,7 @@ export default function AdminCMS() {
       <div className="bg-[#006C35] text-white shadow sticky top-0 z-20">
         <div className="px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="text-base font-bold">CounselO Admin</span>
+            <span className="text-base font-bold">CounselO Legal Admin</span>
             <ChevronRight size={14} className="opacity-40" />
             <span className="text-sm opacity-70">{TABS.find((t) => t.id === tab)?.label}</span>
           </div>

@@ -70,8 +70,8 @@ export function Navbar() {
             <Link href={isSharedPath ? regionPickerPath : regionPrefix} className="regional-navbar-lockup">
               <img src={brandMark} alt="" width="42" height="42" decoding="async" />
               <span className="uae-navbar-brand">
-                <strong>{lang === "ar" ? "كاونسلو" : "CounselO"}</strong>
-                <small>{lang === "ar" ? "استشارات قانونية أونلاين" : "LEGAL CONSULTATION, ONLINE"}</small>
+                <strong>{lang === "ar" ? "كاونسلو للاستشارات القانونية" : "CounselO Legal"}</strong>
+                <small>{lang === "ar" ? "استشارات قانونية عبر الإنترنت" : "Online Legal Consultations"}</small>
               </span>
             </Link>
             <span className="uae-navbar-title">{regionTitle}</span>

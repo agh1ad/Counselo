@@ -40,9 +40,11 @@ function requireValue(name: string): string {
 }
 
 function getProviderConfig(): ProviderConfig {
+  const configuredSender = requireValue("CONTACT_FROM_EMAIL");
+  const senderAddress = configuredSender.match(/<([^<>]+)>$/)?.[1] ?? configuredSender;
   return {
     resendApiKey: requireValue("RESEND_API_KEY"),
-    fromEmail: requireValue("CONTACT_FROM_EMAIL"),
+    fromEmail: `CounselO Legal <${senderAddress}>`,
     teamEmail: requireValue("CONTACT_TEAM_EMAIL"),
     ownerEmail: requireValue("CONTACT_OWNER_EMAIL"),
     siteUrl: requireValue("PUBLIC_SITE_URL").replace(/\/+$/, ""),
@@ -63,7 +65,7 @@ function emailText(input: ContactInput, reference: string): string {
         .join("\n")
     : "None";
   return [
-    "New CounselO legal consultation",
+    "New CounselO Legal consultation",
     "",
     `Reference: ${reference}`,
     `Region: ${getRegionLabel(input.region)}`,
@@ -97,10 +99,10 @@ function customerEmailText(input: ContactInput, reference: string): string {
   return [
     `Hello ${input.name},`,
     "",
-    "Thank you for choosing CounselO.",
+    "Thank you for choosing CounselO Legal.",
     `Region: ${getRegionLabel(input.region)}`,
     `Requested consultation route: ${product?.titleEn ?? input.consultationProduct}`,
-    "We have received your consultation request. Our legal team will review it shortly, and CounselO targets a reply within 24 hours, subject to scope, urgency, intake completeness and service availability.",
+    "We have received your consultation request. Our legal team will review it shortly, and CounselO Legal targets a reply within 24 hours, subject to scope, urgency, intake completeness and service availability.",
     "",
     "Please monitor:",
     "- Your email inbox, including the spam or junk folder",
@@ -113,14 +115,14 @@ function customerEmailText(input: ContactInput, reference: string): string {
     "",
     "This confirmation acknowledges receipt of your request and is not legal advice. Your information is handled confidentially.",
     "",
-    "CounselO Team",
+    "CounselO Legal Team",
     "",
     "—",
     "",
     `مرحباً ${input.name}،`,
     "",
-    "شكراً لاختيارك كاونسلو.",
-    "تم استلام طلب الاستشارة الخاص بك، وسيقوم فريقنا القانوني بمراجعته قريباً. تستهدف كاونسلو الرد خلال 24 ساعة بحسب النطاق والاستعجال واكتمال المعلومات وتوفر الخدمة.",
+    "شكراً لاختيارك كاونسلو للاستشارات القانونية.",
+    "تم استلام طلب الاستشارة الخاص بك، وسيقوم فريقنا القانوني بمراجعته قريباً. تستهدف كاونسلو للاستشارات القانونية الرد خلال 24 ساعة بحسب النطاق والاستعجال واكتمال المعلومات وتوفر الخدمة.",
     "",
     "يرجى متابعة:",
     "- صندوق بريدك الإلكتروني، بما في ذلك مجلد الرسائل غير المرغوب فيها",
@@ -133,7 +135,7 @@ function customerEmailText(input: ContactInput, reference: string): string {
     "",
     "هذا البريد تأكيد لاستلام الطلب ولا يُعد استشارة قانونية. يتم التعامل مع معلوماتك بسرية.",
     "",
-    "فريق كاونسلو",
+    "فريق كاونسلو للاستشارات القانونية",
   ].join("\n");
 }
 
@@ -149,7 +151,7 @@ function customerEmailHtml(
   const productEn = escapeHtml(product?.titleEn ?? input.consultationProduct);
   const productAr = escapeHtml(product?.titleAr ?? input.consultationProduct);
   const teamEmail = escapeHtml(config.teamEmail);
-  const logoUrl = `${config.siteUrl}/images/counselo-logo.png`;
+  const logoUrl = `${config.siteUrl}/logo.png`;
   const siteUrl = escapeHtml(config.siteUrl);
 
   return `<!doctype html>
@@ -162,16 +164,18 @@ function customerEmailHtml(
             <tr>
               <td align="center" style="background:#ffffff;padding:0;line-height:0;font-size:0;">
                 <a href="${siteUrl}" style="display:block;text-decoration:none;line-height:0;font-size:0;">
-                  <img src="${logoUrl}" width="640" alt="CounselO — Online Legal Consultations" style="display:block;width:100%;max-width:640px;height:auto;border:0;margin:0;">
+                  <img src="${logoUrl}" width="80" height="80" alt="" style="display:block;width:80px;height:80px;border:0;margin:20px auto;">
+                  <p style="font:700 26px/1.4 Arial,sans-serif;color:#123d32;margin:12px 20px;">CounselO Legal</p>
+                  <p style="font:16px/1.6 Arial,sans-serif;color:#123d32;margin:12px 20px 24px;">Online Legal Consultations<br><span lang="ar" dir="rtl">كاونسلو للاستشارات القانونية</span></p>
                 </a>
               </td>
             </tr>
             <tr>
               <td style="padding:34px 38px 18px;">
                 <div style="display:inline-block;background:#e8f3ed;color:#176044;border-radius:999px;padding:7px 13px;font-size:13px;font-weight:700;">Request received</div>
-                <h1 style="margin:18px 0 12px;font-size:27px;line-height:1.25;color:#123d32;">Thank you for choosing CounselO</h1>
+                <h1 style="margin:18px 0 12px;font-size:27px;line-height:1.25;color:#123d32;">Thank you for choosing CounselO Legal</h1>
                 <p style="margin:0 0 14px;font-size:16px;line-height:1.7;">Hello ${name},</p>
-                <p style="margin:0 0 18px;font-size:16px;line-height:1.7;">We have received your consultation request. Our legal team will review it shortly, and CounselO targets a reply <strong>within 24 hours</strong>, subject to scope, urgency, intake completeness and service availability.</p>
+                <p style="margin:0 0 18px;font-size:16px;line-height:1.7;">We have received your consultation request. Our legal team will review it shortly, and CounselO Legal targets a reply <strong>within 24 hours</strong>, subject to scope, urgency, intake completeness and service availability.</p>
                 <p style="margin:0 0 18px;font-size:15px;line-height:1.7;"><strong>Region:</strong> ${escapeHtml(getRegionLabel(input.region))}</p>
                 <p style="margin:0 0 18px;font-size:15px;line-height:1.7;"><strong>Requested route:</strong> ${productEn}</p>
                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f7f9f6;border:1px solid #dce7e1;border-radius:10px;margin:22px 0;">
@@ -190,9 +194,9 @@ function customerEmailHtml(
               <td style="padding:22px 38px 32px;" dir="rtl" lang="ar">
                 <div style="border-top:1px solid #e1e8e4;padding-top:26px;text-align:right;font-family:Tahoma,Arial,sans-serif;">
                   <div style="display:inline-block;background:#e8f3ed;color:#176044;border-radius:999px;padding:7px 13px;font-size:13px;font-weight:700;">تم استلام الطلب</div>
-                  <h2 style="margin:18px 0 12px;font-size:25px;line-height:1.45;color:#123d32;">شكراً لاختيارك كاونسلو</h2>
+                  <h2 style="margin:18px 0 12px;font-size:25px;line-height:1.45;color:#123d32;">شكراً لاختيارك كاونسلو للاستشارات القانونية</h2>
                   <p style="margin:0 0 14px;font-size:16px;line-height:1.9;">مرحباً ${name}،</p>
-                  <p style="margin:0 0 18px;font-size:16px;line-height:1.9;">تم استلام طلب الاستشارة الخاص بك، وسيقوم فريقنا القانوني بمراجعته قريباً. تستهدف كاونسلو الرد <strong>خلال 24 ساعة</strong> بحسب النطاق والاستعجال واكتمال المعلومات وتوفر الخدمة.</p>
+                  <p style="margin:0 0 18px;font-size:16px;line-height:1.9;">تم استلام طلب الاستشارة الخاص بك، وسيقوم فريقنا القانوني بمراجعته قريباً. تستهدف كاونسلو للاستشارات القانونية الرد <strong>خلال 24 ساعة</strong> بحسب النطاق والاستعجال واكتمال المعلومات وتوفر الخدمة.</p>
                   <p style="margin:0 0 18px;font-size:15px;line-height:1.9;"><strong>المنطقة:</strong> ${escapeHtml(getRegionLabel(input.region))}</p>
                   <p style="margin:0 0 18px;font-size:15px;line-height:1.9;"><strong>مسار الاستشارة المطلوب:</strong> ${productAr}</p>
                   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f7f9f6;border:1px solid #dce7e1;border-radius:10px;margin:22px 0;text-align:right;">
@@ -212,7 +216,7 @@ function customerEmailHtml(
               <td align="center" style="background:#eef2ef;padding:20px 30px;color:#687a73;font-size:12px;line-height:1.7;">
                 This email confirms receipt and is not legal advice. Your information is handled confidentially.<br>
                 هذا البريد تأكيد لاستلام الطلب ولا يُعد استشارة قانونية. يتم التعامل مع معلوماتك بسرية.<br>
-                <strong style="color:#123d32;">CounselO Team · فريق كاونسلو</strong>
+                <strong style="color:#123d32;">CounselO Legal Team · فريق كاونسلو للاستشارات القانونية</strong>
               </td>
             </tr>
           </table>

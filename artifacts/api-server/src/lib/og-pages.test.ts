@@ -40,7 +40,7 @@ const futurePost = {
   contentType: "professional-commentary",
   aiLinksAssignedAt: null,
   primaryAuthorName: "CounselO Legal Team",
-  primaryAuthorNameAr: "فريق كاونسلو القانوني",
+  primaryAuthorNameAr: "فريق كاونسلو للاستشارات القانونية القانوني",
   primaryAuthorUrl: "/sa/about",
   legalReviewerName: "stale value that must not control attribution",
   legalReviewerNameAr: "قيمة قديمة يجب ألا تتحكم في اسم المراجع",
@@ -98,12 +98,12 @@ for (const language of ["en", "ar"] as const) {
 
 test("route-like legacy SEO titles fall back to the descriptive article title", () => {
   const html = buildDynamicBlogHtml({ ...futurePost, seoTitleEn: `/blog/${FUTURE_SLUG}` }, "en", shell);
-  assert.match(html, /<title>A Future Contract Article Published Without a Rebuild \| CounselO<\/title>/);
+  assert.match(html, /<title>A Future Contract Article Published Without a Rebuild \| CounselO Legal<\/title>/);
   assert.doesNotMatch(html, new RegExp(`<title>/blog/${FUTURE_SLUG}`));
 });
 
 
-test("an attributed external original author keeps its own URL and entity while CounselO publishes", () => {
+test("an attributed external original author keeps its own URL and entity while CounselO Legal publishes", () => {
   const post = { ...futurePost,
     titleEn: "Hidden Defects in Contracts and Their Legal Effect",
     bodyEn: "<p>Prepared by Al-Baghdadi Law Firm and published on baghdadilaw.co</p>",

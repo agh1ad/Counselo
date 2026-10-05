@@ -159,18 +159,18 @@ function RegionIdentityBar() {
 
   const details = {
     sa: {
-      en: "CounselO Saudi Arabia",
-      ar: "كاونسلو المملكة العربية السعودية",
+      en: "CounselO Legal Saudi Arabia",
+      ar: "كاونسلو للاستشارات القانونية المملكة العربية السعودية",
       flag: "/images/optimized/saudi-arabia-flag.webp",
     },
     syr: {
-      en: "CounselO Syria",
-      ar: "كاونسلو سوريا",
+      en: "CounselO Legal Syria",
+      ar: "كاونسلو للاستشارات القانونية سوريا",
       flag: "/images/optimized/syria-flag.webp",
     },
     uae: {
-      en: "CounselO United Arab Emirates",
-      ar: "كاونسلو الإمارات العربية المتحدة",
+      en: "CounselO Legal United Arab Emirates",
+      ar: "كاونسلو للاستشارات القانونية الإمارات العربية المتحدة",
       flag: "/images/optimized/uae-flag.svg",
     },
   } as const;
@@ -371,7 +371,7 @@ function AppShell() {
     return (
       <div className="min-h-screen bg-gray-50">
         <Helmet>
-          <title>CounselO Admin</title>
+          <title>CounselO Legal Admin</title>
           <meta name="robots" content="noindex, nofollow, noarchive" />
         </Helmet>
         <Router />

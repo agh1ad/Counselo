@@ -82,7 +82,7 @@ export default function Contact() {
   const isSyr = region === "syr";
   const countryName = isUae ? "United Arab Emirates" : isSyr ? "Syria" : "Saudi Arabia";
   const pageUrl = `https://counselo-legal.com${regionPrefix}/contact`;
-  const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو، أحتاج إلى استشارة بخصوص مسألة قانونية في ${countryName === "United Arab Emirates" ? "الإمارات" : countryName === "Syria" ? "سوريا" : "السعودية"}.` : `Hello CounselO, I need a consultation about a legal matter in ${countryName}.`)}`;
+  const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو للاستشارات القانونية، أحتاج إلى استشارة بخصوص مسألة قانونية في ${countryName === "United Arab Emirates" ? "الإمارات" : countryName === "Syria" ? "سوريا" : "السعودية"}.` : `Hello CounselO Legal, I need a consultation about a legal matter in ${countryName}.`)}`;
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
@@ -215,43 +215,43 @@ export default function Contact() {
       <SEOHead
         heroArtwork="platform"
         title={region === "uae"
-          ? (isRTL ? "احجز استشارة قانونية في الإمارات | كاونسلو" : "Book a UAE Legal Consultation | CounselO")
+          ? (isRTL ? "احجز استشارة قانونية في الإمارات | كاونسلو للاستشارات القانونية" : "Book a UAE Legal Consultation | CounselO Legal")
           : region === "syr"
           ? (isRTL
-            ? "استشارة قانونية أونلاين في سوريا | كاونسلو"
-            : "Online Legal Consultation Syria | CounselO")
+            ? "استشارة قانونية أونلاين في سوريا | كاونسلو للاستشارات القانونية"
+            : "Online Legal Consultation Syria | CounselO Legal")
           : (isRTL
-            ? "استشارة قانونية أونلاين في السعودية | كاونسلو"
-            : "Online Legal Consultation Saudi Arabia | CounselO")}
+            ? "استشارة قانونية أونلاين في السعودية | كاونسلو للاستشارات القانونية"
+            : "Online Legal Consultation Saudi Arabia | CounselO Legal")}
         description={isUae
           ? (isRTL
-            ? "تواصل مع كاونسلو الإمارات لطلب استشارة قانونية أونلاين في المسائل الاتحادية والمحلية ومسائل البرّ الرئيسي والمناطق الحرة، بالعربية أو الإنجليزية."
-            : "Contact CounselO, the UAE online legal platform, for confidential consultation on federal, emirate-level, mainland and free-zone matters in Arabic or English.")
+            ? "تواصل مع كاونسلو للاستشارات القانونية الإمارات لطلب استشارة قانونية أونلاين في المسائل الاتحادية والمحلية ومسائل البرّ الرئيسي والمناطق الحرة، بالعربية أو الإنجليزية."
+            : "Contact CounselO Legal, the UAE online legal platform, for confidential consultation on federal, emirate-level, mainland and free-zone matters in Arabic or English.")
           : isSyr
           ? (isRTL
-            ? "تواصل مع كاونسلو — منصة الاستشارات القانونية الأونلاين في سوريا. نستهدف رداً مهنياً خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
-            : "Contact CounselO — Syria's online legal platform for fast, professional legal consultation. Target response within 24 hours via WhatsApp (+966 59 485 0247) or email, in Arabic or English.")
+            ? "تواصل مع كاونسلو للاستشارات القانونية — منصة الاستشارات القانونية الأونلاين في سوريا. نستهدف رداً مهنياً خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
+            : "Contact CounselO Legal — Syria's online legal platform for fast, professional legal consultation. Target response within 24 hours via WhatsApp (+966 59 485 0247) or email, in Arabic or English.")
           : (isRTL
-            ? "تواصل مع كاونسلو — منصة متخصصة للاستشارات القانونية أونلاين في المملكة. نستهدف رداً مهنياً خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
-            : "Contact CounselO — Saudi Arabia's online legal platform for fast, professional legal consultation. Target response within 24 hours via WhatsApp (+966 59 485 0247) or email, in Arabic or English.")}
+            ? "تواصل مع كاونسلو للاستشارات القانونية — منصة متخصصة للاستشارات القانونية أونلاين في المملكة. نستهدف رداً مهنياً خلال 24 ساعة عبر واتساب (+966 59 485 0247) أو البريد الإلكتروني. لا حاجة لزيارة مكتب. بالعربية والإنجليزية."
+            : "Contact CounselO Legal — Saudi Arabia's online legal platform for fast, professional legal consultation. Target response within 24 hours via WhatsApp (+966 59 485 0247) or email, in Arabic or English.")}
         canonical="/contact"
         keywords={isUae
           ? (isRTL
-            ? "احجز استشارة قانونية الإمارات, استشارة قانونية أونلاين دبي, محامي أونلاين أبوظبي, استشارة قانونية واتساب الإمارات, كاونسلو الإمارات"
-            : "book UAE legal consultation, online legal advice Dubai, Abu Dhabi legal consultation, UAE lawyer consultation online, CounselO UAE contact")
+            ? "احجز استشارة قانونية الإمارات, استشارة قانونية أونلاين دبي, محامي أونلاين أبوظبي, استشارة قانونية واتساب الإمارات, كاونسلو للاستشارات القانونية الإمارات"
+            : "book UAE legal consultation, online legal advice Dubai, Abu Dhabi legal consultation, UAE lawyer consultation online, CounselO Legal UAE contact")
           : isSyr
           ? (isRTL
-            ? "احجز استشارة قانونية سوريا, تواصل مع محامي أونلاين سوريا, استشارة قانونية واتساب سوريا, استجابة خلال 24 ساعة, محامي دمشق أونلاين, كاونسلو اتصل سوريا, استشارة قانونية إلكترونية سوريا"
-            : "book legal consultation Syria, contact lawyer online Syria, WhatsApp legal consultation Syria, legal advice within 24 hours Syria, Damascus lawyer online, CounselO contact Syria, book lawyer Syria")
+            ? "احجز استشارة قانونية سوريا, تواصل مع محامي أونلاين سوريا, استشارة قانونية واتساب سوريا, استجابة خلال 24 ساعة, محامي دمشق أونلاين, كاونسلو للاستشارات القانونية اتصل سوريا, استشارة قانونية إلكترونية سوريا"
+            : "book legal consultation Syria, contact lawyer online Syria, WhatsApp legal consultation Syria, legal advice within 24 hours Syria, Damascus lawyer online, CounselO Legal contact Syria, book lawyer Syria")
           : (isRTL
-            ? "احجز استشارة قانونية السعودية, تواصل مع محامي أونلاين, استشارة قانونية واتساب السعودية, استجابة خلال 24 ساعة, محامي الجبيل أونلاين, كاونسلو اتصل, استشارة فورية السعودية"
-            : "book legal consultation Saudi Arabia, contact lawyer online KSA, WhatsApp legal consultation Saudi Arabia, legal advice within 24 hours, Jubail lawyer online, CounselO contact, book lawyer KSA")}
+            ? "احجز استشارة قانونية السعودية, تواصل مع محامي أونلاين, استشارة قانونية واتساب السعودية, استجابة خلال 24 ساعة, محامي الجبيل أونلاين, كاونسلو للاستشارات القانونية اتصل, استشارة فورية السعودية"
+            : "book legal consultation Saudi Arabia, contact lawyer online KSA, WhatsApp legal consultation Saudi Arabia, legal advice within 24 hours, Jubail lawyer online, CounselO Legal contact, book lawyer KSA")}
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "ContactPage",
             "dateModified": "2026-09-11",
-            "name": isRTL ? "تواصل مع كاونسلو" : "Contact CounselO",
+            "name": isRTL ? "تواصل مع كاونسلو للاستشارات القانونية" : "Contact CounselO Legal",
             "description": isUae
               ? (isRTL
                 ? "احجز استشارة قانونية أونلاين لمسائل الإمارات بالعربية أو الإنجليزية"
@@ -340,8 +340,8 @@ export default function Contact() {
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {isRTL
-                    ? "تم استلام طلبك بنجاح. تستهدف كاونسلو تقديم رد مهني خلال 24 ساعة، بحسب نطاق المسألة واكتمال المعلومات وتوفر الخدمة."
-                    : "Your consultation request has been received. CounselO targets a professional response within 24 hours, depending on the matter, the details provided and service availability."}
+                    ? "تم استلام طلبك بنجاح. تستهدف كاونسلو للاستشارات القانونية تقديم رد مهني خلال 24 ساعة، بحسب نطاق المسألة واكتمال المعلومات وتوفر الخدمة."
+                    : "Your consultation request has been received. CounselO Legal targets a professional response within 24 hours, depending on the matter, the details provided and service availability."}
                 </p>
                 {reference && (
                   <p className="text-sm font-semibold text-primary" dir="ltr">

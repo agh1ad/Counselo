@@ -180,7 +180,7 @@ export function LatestContentCarousels({
       >
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#755615]">
-            {isArabic ? "محتوى كاونسلو" : "CounselO content"}
+            {isArabic ? "محتوى كاونسلو للاستشارات القانونية" : "CounselO Legal content"}
           </p>
           <h2
             id={isArabic ? "latest-content-empty-heading-ar" : "latest-content-empty-heading"}
@@ -190,8 +190,8 @@ export function LatestContentCarousels({
           </h2>
           <p className="mb-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             {isArabic
-              ? "استكشف المقالات القانونية ونماذج الأعمال المنشورة حديثاً من كاونسلو."
-              : "Explore CounselO's latest legal articles and published work samples."}
+              ? "استكشف المقالات القانونية ونماذج الأعمال المنشورة حديثاً من كاونسلو للاستشارات القانونية."
+              : "Explore CounselO Legal's latest legal articles and published work samples."}
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href={isArabic ? "/ar/legal-library" : "/legal-library"} className="inline-flex items-center gap-2 bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90">

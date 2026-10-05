@@ -48,7 +48,7 @@ const globalFooterContent = {
   map: "/images/optimized/counselo-platform-line-art-v1.webp",
   label: { en: "GLOBAL INSIGHTS", ar: "رؤى عالمية" },
   heading: { en: "One publication. Jurisdiction-specific legal analysis.", ar: "منصة واحدة. تحليل قانوني محدد الاختصاص." },
-  description: { en: "CounselO's shared legal publication covers Saudi, Syrian and UAE law. Every country-specific article identifies the legal system it addresses.", ar: "تغطي منصة كاونسلو المشتركة قوانين السعودية وسوريا والإمارات، ويحدد كل مقال خاص بدولة النظام القانوني الذي يتناوله." },
+  description: { en: "CounselO Legal's shared legal publication covers Saudi, Syrian and UAE law. Every country-specific article identifies the legal system it addresses.", ar: "تغطي منصة كاونسلو للاستشارات القانونية المشتركة قوانين السعودية وسوريا والإمارات، ويحدد كل مقال خاص بدولة النظام القانوني الذي يتناوله." },
   jurisdictions: {
     en: [[BookOpen, "Shared legal publication"], [Building2, "Saudi Arabia"], [Mountain, "Syria"], [Landmark, "United Arab Emirates"], [Globe2, "Arabic & English"]] as const,
     ar: [[BookOpen, "منصة قانونية مشتركة"], [Building2, "المملكة العربية السعودية"], [Mountain, "سوريا"], [Landmark, "الإمارات العربية المتحدة"], [Globe2, "العربية والإنجليزية"]] as const,
@@ -65,7 +65,7 @@ export function Footer() {
   const libraryPath = isArabic ? "/ar/legal-library" : "/legal-library";
   const blogIndexPath = isArabic ? "/blog/ar" : "/blog";
   const regionPickerPath = isArabic ? "/ar" : "/";
-  const brandName = isArabic ? "كاونسلو" : "CounselO";
+  const brandName = isArabic ? "كاونسلو للاستشارات القانونية" : "CounselO Legal";
   const methodologyPath = isSharedPath
     ? `${isArabic ? "/sa/ar/about" : "/sa/about"}#experience-methodology`
     : `${regionPrefix}/about#experience-methodology`;
@@ -92,11 +92,13 @@ export function Footer() {
             <img src={brandMark} alt="" width="40" height="40" loading="lazy" decoding="async" />
             <span>{brandName}</span><strong>{regional.label[lang]}</strong>
           </Link>
+          <p>{isArabic ? "استشارات قانونية عبر الإنترنت" : "Online Legal Consultations"}</p>
+          <p>{isArabic ? "أسسها المحامي عمر البغدادي" : "Founded by Lawyer Omar Al-Baghdadi"}</p>
           <p>{isSharedPath ? regional.description[lang] : f.tagline}</p>
           <p className="mt-3 max-w-md text-xs leading-relaxed text-muted-foreground">
             {isArabic
-              ? "كاونسلو منصة إلكترونية للاستشارات القانونية. لا ينشئ التصفح أو الاستشارة وحدهما تفويضاً بالتمثيل؛ ويُحدد أي عمل محلي أو تمثيل مع مهني مرخص ضمن نطاق مستقل."
-              : "CounselO is an online legal consultation platform. Browsing or consultation alone does not create a representation mandate; local or reserved work is separately scoped with an appropriately licensed professional."}
+              ? "كاونسلو للاستشارات القانونية منصة إلكترونية للاستشارات القانونية. لا ينشئ التصفح أو الاستشارة وحدهما تفويضاً بالتمثيل؛ ويُحدد أي عمل محلي أو تمثيل مع مهني مرخص ضمن نطاق مستقل."
+              : "CounselO Legal is an online legal consultation platform. Browsing or consultation alone does not create a representation mandate; local or reserved work is separately scoped with an appropriately licensed professional."}
           </p>
           <Link href={methodologyPath} className="mt-3 inline-flex text-xs font-semibold text-[#e5c77e] underline underline-offset-4 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
             {isArabic ? "منهجية أرقام الخبرة وحدودها" : "Experience-figure methodology and limitations"}
@@ -124,7 +126,7 @@ export function Footer() {
           <Link href={regionPickerPath}>{isArabic ? "اختيار الدولة" : "Choose Region"}<Globe2 /></Link>
         </nav>
         <div className="uae-reference-footer__contact">
-          <h3>{isSharedPath ? (isArabic ? "كاونسلو العالمية" : "CounselO Global") : f.contactHeading}</h3>
+          <h3>{isSharedPath ? (isArabic ? "كاونسلو للاستشارات القانونية العالمية" : "CounselO Legal Global") : f.contactHeading}</h3>
           <span><Landmark aria-hidden="true" /><span className="whitespace-pre-line">{isSharedPath ? (isArabic ? "اختر الدولة للوصول إلى الخدمات ومعلومات التواصل الخاصة بالاختصاص." : "Choose a country for jurisdiction-specific services and contact details.") : f.address}</span></span>
           {!isSharedPath && <a href={`tel:${f.phone.replace(/[^+\d]/g, "")}`}><MessageCircle aria-hidden="true" /><span>{region === "uae" ? (isArabic ? "استقبال إقليمي · " : "Regional intake · ") : ""}<span dir="ltr">{f.phone}</span></span></a>}
           <a href={`mailto:${f.email}`}><Mail aria-hidden="true" />{f.email}</a>
@@ -142,7 +144,7 @@ export function Footer() {
           </a>
           <div className="legal-network-footer__item is-current" aria-current="page">
             <img src="/images/optimized/counselo-network-icon.webp" alt="" width="34" height="34" loading="lazy" decoding="async" className="legal-network-footer__icon" />
-            <span><strong>CounselO</strong><small>{isArabic ? "منصة الاستشارات القانونية الرقمية · الموقع الحالي" : "Online legal consultation platform · Current site"}</small></span>
+            <span><strong>{brandName}</strong><small>{isArabic ? "منصة الاستشارات القانونية الرقمية · الموقع الحالي" : "Online legal consultation platform · Current site"}</small></span>
           </div>
           <a href={isArabic ? "https://www.baghdadilaw.co/ar/who-we-are" : "https://www.baghdadilaw.co/who-we-are"} target="_blank" rel="noopener noreferrer" className="legal-network-footer__item">
             <img src="https://www.baghdadilaw.co/favicon-48x48.png" alt="" width="34" height="34" loading="lazy" decoding="async" className="legal-network-footer__icon" />

@@ -269,7 +269,7 @@ function validatePage(filepath: string): PageResult {
       rule: "title-route-like",
       detail: "Title contains a URL or route instead of a descriptive page name",
     });
-  if (/\b(?:a|an|and|at|by|for|from|in|of|on|or|the|to|under|with)$/i.test(t.replace(/\s*\|\s*(?:CounselO|كاونسلو)\s*$/i, "")))
+  if (/\b(?:a|an|and|at|by|for|from|in|of|on|or|the|to|under|with)$/i.test(t.replace(/\s*\|\s*(?:CounselO Legal|كاونسلو للاستشارات القانونية)\s*$/i, "")))
     issues.push({
       severity: "error",
       rule: "title-dangling-word",
@@ -488,11 +488,11 @@ function validatePage(filepath: string): PageResult {
 
   const bodyLinks = internalLinksFromBody(html);
   const isProblemPage = /^\/(?:sa|syr|uae)(?:\/ar)?\/services\/[^/]+\/[^/]+$/.test(route);
-  if (isProblemPage && !/(CounselO|كاونسلو)/.test(t))
+  if (isProblemPage && !/(CounselO Legal|كاونسلو للاستشارات القانونية)/.test(t))
     issues.push({
       severity: "error",
       rule: "problem-title-brand-missing",
-      detail: "Problem-page title was truncated before the CounselO brand",
+      detail: "Problem-page title was truncated before the CounselO Legal brand",
     });
   if (isProblemPage && /\b(?:a|an|and|for|in|of|or|the|to|with)$/i.test(t))
     issues.push({
@@ -735,7 +735,7 @@ function main() {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
   const lines: string[] = [];
 
-  lines.push(`# CounselO SEO Validation Report`);
+  lines.push(`# CounselO Legal SEO Validation Report`);
   lines.push(`\n_Generated: ${now}_\n`);
   lines.push(`## Summary\n`);
   lines.push(`| Metric | Value |`);

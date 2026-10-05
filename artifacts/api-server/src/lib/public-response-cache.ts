@@ -4,7 +4,7 @@ import type { RequestHandler } from "express";
 import { logger } from "./logger.js";
 import { PUBLIC_CACHE_DEPLOYMENT_VERSION } from "./public-cache-version.js";
 
-const CACHE_PREFIX = "counselo/public-response-cache/v2/";
+const CACHE_PREFIX = "counselo/public-response-cache/v2-brand/";
 const PROCESS_CACHE_TTL_MS = 15_000;
 const PERSISTENT_CACHE_MAX_AGE_MS = 5 * 60_000;
 const MAX_PROCESS_CACHE_ENTRIES = 500;

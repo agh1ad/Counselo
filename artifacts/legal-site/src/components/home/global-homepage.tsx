@@ -153,7 +153,7 @@ export default function GlobalHomepage({
         <meta property="og:title" content={c.title} />
         <meta property="og:description" content={c.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="CounselO كاونسلو" />
+        <meta property="og:site_name" content="CounselO Legal كاونسلو للاستشارات القانونية" />
         <meta property="og:url" content={url} />
         <meta property="og:locale" content={isArabic ? "ar_SA" : "en_US"} />
         <meta
@@ -164,7 +164,7 @@ export default function GlobalHomepage({
           property="og:image"
           content="https://counselo-legal.com/og-image.png"
         />
-        <meta property="og:image:alt" content="CounselO كاونسلو" />
+        <meta property="og:image:alt" content="CounselO Legal كاونسلو للاستشارات القانونية" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={c.title} />
         <meta name="twitter:description" content={c.description} />
@@ -182,14 +182,16 @@ export default function GlobalHomepage({
       <header className="home-header home-container">
         <Link
           href={isArabic ? "/ar" : "/"}
-          aria-label={isArabic ? "كاونسلو الرئيسية" : "CounselO home"}
+          className="home-brand-lockup"
+          aria-label={isArabic ? "كاونسلو للاستشارات القانونية الرئيسية" : "CounselO Legal home"}
         >
           <img
-            src="/images/optimized/counselo-region-logo.webp"
-            alt="CounselO كاونسلو"
-            width="193"
-            height="80"
+            src="/images/optimized/counselo-footer-logo.png"
+            alt=""
+            width="48"
+            height="48"
           />
+          <span><strong>{isArabic ? "كاونسلو للاستشارات القانونية" : "CounselO Legal"}</strong><small>{isArabic ? "استشارات قانونية عبر الإنترنت" : "Online Legal Consultations"}</small></span>
         </Link>
         <nav aria-label={isArabic ? "التنقل الرئيسي" : "Main navigation"}>
           {navigation.map((id, i) => (
@@ -220,10 +222,11 @@ export default function GlobalHomepage({
                 <Scale size={18} aria-hidden="true" />
                 {isArabic
                   ? "كاونسلو للاستشارات القانونية"
-                  : "CounselO legal consultations"}
+                  : "CounselO Legal"}
               </p>
               <h1 id="home-title">{c.h1}</h1>
               <p className="home-lede">{c.heroSummary}</p>
+              <p className="home-brand-founder">{isArabic ? "أسسها المحامي عمر البغدادي" : "Founded by Lawyer Omar Al-Baghdadi"}</p>
               <div className="home-actions">
                 <a className="home-button" href="#contact">
                   {c.primary}

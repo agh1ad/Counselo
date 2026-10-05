@@ -75,18 +75,18 @@ export default function Home() {
   const h = t.home;
   const c = homepageContent[isRTL ? "ar" : "en"];
   const country = c.countryNames[region === "sa" ? 0 : region === "syr" ? 1 : 2];
-  const description = isRTL ? `كاونسلو تقدم استشارات قانونية إلكترونية ومراجعة مستندات وإرشاداً مكتوباً لمسائل ${country}، بإشراف مؤسسها عمر البغدادي، بالعربية والإنجليزية.` : `CounselO provides online legal consultation, document review and written guidance for ${country} matters, founded by Omar Al-Baghdadi, in Arabic and English.`;
+  const description = isRTL ? `كاونسلو للاستشارات القانونية تقدم استشارات قانونية إلكترونية ومراجعة مستندات وإرشاداً مكتوباً لمسائل ${country}، بإشراف مؤسسها عمر البغدادي، بالعربية والإنجليزية.` : `CounselO Legal provides online legal consultation, document review and written guidance for ${country} matters, founded by Omar Al-Baghdadi, in Arabic and English.`;
   const comprehensiveConsultation = getConsultationProduct("comprehensive-consultation");
   return (
     <div className="w-full flex flex-col">
       <SEOHead
-        title={isRTL ? `كاونسلو | استشارات قانونية في ${country}` : `CounselO | Legal Consultation for ${country}`}
+        title={isRTL ? `كاونسلو للاستشارات القانونية | استشارات قانونية في ${country}` : `CounselO Legal | Legal Consultation for ${country}`}
         description={description}
         canonical="/"
         schema={[
           { "@context": "https://schema.org", ...COUNSELO_ORGANIZATION },
           { "@context": "https://schema.org", ...COUNSELO_WEBSITE },
-          { "@context": "https://schema.org", ...regionalServiceDirectoryEntity(region, isRTL ? "ar" : "en", isRTL ? `كاونسلو — ${country}` : `CounselO — ${country}`, description, t.services.items) },
+          { "@context": "https://schema.org", ...regionalServiceDirectoryEntity(region, isRTL ? "ar" : "en", isRTL ? `كاونسلو للاستشارات القانونية — ${country}` : `CounselO Legal — ${country}`, description, t.services.items) },
         ]}
         extraSchemas={[{
           "@context": "https://schema.org",
@@ -111,7 +111,7 @@ export default function Home() {
               </h2>
             </div>
             <div className="space-y-5 text-base leading-8 text-muted-foreground md:text-lg">
-              <p><strong className="text-foreground">{isRTL ? `كاونسلو تقدم استشارات قانونية أونلاين ومراجعة مستندات وإرشاداً مكتوباً وفق اختصاص ${region === "uae" ? "الإمارات" : region === "syr" ? "القانون السوري" : "القانون السعودي"}.` : `CounselO provides online legal consultation, document review and structured written guidance for ${region === "uae" ? "UAE" : region === "syr" ? "Syrian" : "Saudi"} matters.`}</strong> {isRTL ? "ابدأ بتحديد المسألة وإرسال المعلومات الأساسية بالعربية أو الإنجليزية." : "Start by describing the matter and sending the essential information in Arabic or English."}</p>
+              <p><strong className="text-foreground">{isRTL ? `كاونسلو للاستشارات القانونية تقدم استشارات قانونية أونلاين ومراجعة مستندات وإرشاداً مكتوباً وفق اختصاص ${region === "uae" ? "الإمارات" : region === "syr" ? "القانون السوري" : "القانون السعودي"}.` : `CounselO Legal provides online legal consultation, document review and structured written guidance for ${region === "uae" ? "UAE" : region === "syr" ? "Syrian" : "Saudi"} matters.`}</strong> {isRTL ? "ابدأ بتحديد المسألة وإرسال المعلومات الأساسية بالعربية أو الإنجليزية." : "Start by describing the matter and sending the essential information in Arabic or English."}</p>
               <p>{isRTL ? "يحدد الفريق القانون والجهة والنطاق المناسب قبل تأكيد العمل. وقت الاستجابة المهني مستهدف خلال 24 ساعة وفق نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوفر الخدمة." : "The team identifies the applicable law, authority and scope before confirming the work. A professional response is targeted within 24 hours, subject to scope, urgency, intake completeness and service availability."}</p>
               <dl className="grid gap-3 sm:grid-cols-2">
                 {[
@@ -417,7 +417,7 @@ export default function Home() {
           <div className="max-w-3xl">
             <p className="text-[#755615] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{isRTL ? "الخبرة والشفافية" : "Experience and transparency"}</p>
             <h2 id="experience-evidence-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6"><ShieldCheck aria-hidden="true" className="mb-4 h-8 w-8" strokeWidth={1.5} />{isRTL ? "اعرف أساس الخدمة قبل البدء" : "Know the basis of the service before you begin"}</h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8">{isRTL ? "توضح كاونسلو نطاق الاستشارة والاختصاص والمصادر وطريقة التنسيق مع المهنيين المرخصين قبل بدء العمل. نماذج الأعمال المنشورة منقحة وتوضيحية، ولا تضمن الأعمال أو النتائج السابقة نتيجة أي مسألة أخرى." : "CounselO explains the consultation scope, jurisdiction, sources, and any coordination with licensed professionals before work begins. Published work samples are redacted and illustrative; past work or outcomes do not guarantee the result of another matter."}</p>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8">{isRTL ? "توضح كاونسلو للاستشارات القانونية نطاق الاستشارة والاختصاص والمصادر وطريقة التنسيق مع المهنيين المرخصين قبل بدء العمل. نماذج الأعمال المنشورة منقحة وتوضيحية، ولا تضمن الأعمال أو النتائج السابقة نتيجة أي مسألة أخرى." : "CounselO Legal explains the consultation scope, jurisdiction, sources, and any coordination with licensed professionals before work begins. Published work samples are redacted and illustrative; past work or outcomes do not guarantee the result of another matter."}</p>
             <div className="grid sm:grid-cols-3 gap-4">
               {[isRTL ? "اختصاص محدد" : "Jurisdiction-specific scope", isRTL ? "مصادر رسمية" : "Official-source links", isRTL ? "تكليف واضح" : "Defined engagement"].map((label) => <div key={label} className="border border-border p-5 text-sm font-semibold text-foreground">{label}</div>)}
             </div>

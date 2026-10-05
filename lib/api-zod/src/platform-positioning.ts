@@ -1,13 +1,13 @@
 export const COUNSELO_PLATFORM_POSITIONING = {
-  name: "CounselO",
+  name: "CounselO Legal",
   jurisdictions: ["Saudi Arabia", "Syria", "United Arab Emirates"],
   languages: ["Arabic", "English"],
   descriptionEn:
-    "CounselO is a bilingual online legal platform for fast, professional and trusted legal consultations, document review and structured legal guidance across Saudi Arabia, Syria and the UAE.",
+    "CounselO Legal is a bilingual online legal platform for fast, professional and trusted legal consultations, document review and structured legal guidance across Saudi Arabia, Syria and the UAE.",
   descriptionAr:
-    "كاونسلو منصة قانونية إلكترونية ثنائية اللغة للاستشارات القانونية السريعة والمهنية والموثوقة، ومراجعة المستندات والإرشاد القانوني المنظم في السعودية وسوريا والإمارات.",
+    "كاونسلو للاستشارات القانونية منصة قانونية إلكترونية ثنائية اللغة للاستشارات القانونية السريعة والمهنية والموثوقة، ومراجعة المستندات والإرشاد القانوني المنظم في السعودية وسوريا والإمارات.",
   scopeEn:
-    "Online intake, consultation, preliminary legal analysis, document review and written guidance. If court representation is requested or necessary, CounselO can arrange it through an appropriately licensed partner professional or cooperating office in the relevant served jurisdiction; representation, filings, notarisation and other reserved work are separately scoped and agreed.",
+    "Online intake, consultation, preliminary legal analysis, document review and written guidance. If court representation is requested or necessary, CounselO Legal can arrange it through an appropriately licensed partner professional or cooperating office in the relevant served jurisdiction; representation, filings, notarisation and other reserved work are separately scoped and agreed.",
   scopeAr:
     "تشمل الخدمة استقبال الطلبات إلكترونياً والاستشارات والتحليل القانوني الأولي ومراجعة المستندات والإرشاد المكتوب. وإذا طُلب التمثيل أمام المحاكم أو أصبح ضرورياً، يمكن ترتيب ذلك من خلال مهني شريك أو مكتب متعاون مرخص في الدولة المعنية ضمن نطاق الدول التي نخدمها؛ ويحدد التمثيل والإيداعات والتوثيق والأعمال المحجوزة قانوناً باتفاق مستقل.",
   responseEn:

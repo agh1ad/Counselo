@@ -65,7 +65,7 @@ export default function UrgentLegalAssistance() {
     <SEOHead title={title} description={description} canonical={path} noRegionPrefix
       contentLanguage={lang} regionalLanguageAlternates={alternates}
       sharedLanguageAlternates={{ en: urgentPath(false), ar: urgentPath(true), xDefault: urgentPath(false) }}
-      ogImageAlt={isRTL ? "كاونسلو — المساعدة القانونية العاجلة" : "CounselO — Urgent Legal Assistance"}
+      ogImageAlt={isRTL ? "كاونسلو للاستشارات القانونية — المساعدة القانونية العاجلة" : "CounselO Legal — Urgent Legal Assistance"}
       keywords={isRTL ? "مساعدة قانونية عاجلة، إعداد مذكرة قانونية، إعداد لائحة دعوى، تدقيق عقد، تدقيق اتفاقية" : "urgent legal assistance, urgent contract review, agreement review, legal memorandum, statement of claim"}
       schema={schema} />
     <section className="urgent-hero">
@@ -129,7 +129,7 @@ export default function UrgentLegalAssistance() {
       </div>
     </section>
     <section className="urgent-section urgent-trust" aria-labelledby="trust-signals-heading">
-      <div className="urgent-shell urgent-trust-layout"><div><span className="urgent-section-icon"><ShieldCheck aria-hidden="true" /></span><h2 id="trust-signals-heading">{isRTL ? "نطاق واضح وأتعاب متفق عليها" : "Clear scope and agreed fees"}</h2><div className="urgent-policy-links"><Link href={`${regionPrefix}/about`}>{isRTL ? "عن كاونسلو والفريق" : "About CounselO and the team"}</Link><Link href={`${regionPrefix}/terms-of-service`}>{isRTL ? "شروط الخدمة" : "Terms of service"}</Link><Link href={`${regionPrefix}/privacy-policy`}>{isRTL ? "سياسة الخصوصية" : "Privacy policy"}</Link></div></div>
+      <div className="urgent-shell urgent-trust-layout"><div><span className="urgent-section-icon"><ShieldCheck aria-hidden="true" /></span><h2 id="trust-signals-heading">{isRTL ? "نطاق واضح وأتعاب متفق عليها" : "Clear scope and agreed fees"}</h2><div className="urgent-policy-links"><Link href={`${regionPrefix}/about`}>{isRTL ? "عن كاونسلو للاستشارات القانونية والفريق" : "About CounselO Legal and the team"}</Link><Link href={`${regionPrefix}/terms-of-service`}>{isRTL ? "شروط الخدمة" : "Terms of service"}</Link><Link href={`${regionPrefix}/privacy-policy`}>{isRTL ? "سياسة الخصوصية" : "Privacy policy"}</Link></div></div>
         <div className="urgent-fee-copy"><h3>{c.feesTitle}</h3><p>{c.fees}</p><h3 className="urgent-agreement-heading">{c.deliveryTitle}</h3><p>{c.delivery}</p><h3 className="urgent-agreement-heading">{c.handlingTitle}</h3><p>{c.handling}</p><div className="urgent-fee-boundary"><Check aria-hidden="true" /><p>{c.boundary}</p></div></div>
       </div>
     </section>

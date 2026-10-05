@@ -395,10 +395,10 @@ export function buildDiscoveryFeed(
     ]),
   ].sort((a, b) => Date.parse(String(b.modified)) - Date.parse(String(a.modified))).slice(0, 50);
   const lastBuildDate = items[0]?.modified ? new Date(items[0].modified).toUTCString() : new Date(0).toUTCString();
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>CounselO Legal Articles and Work</title>\n    <link>${PUBLIC_BASE_URL}/</link>\n    <description>Recently published legal articles and redacted professional work from CounselO.</description>\n    <language>en</language>\n    <lastBuildDate>${escapeXml(lastBuildDate)}</lastBuildDate>\n${items.map((item) => `    <item>\n      <title>${escapeXml(item.title)}</title>\n      <link>${escapeXml(item.url)}</link>\n      <guid isPermaLink="true">${escapeXml(item.url)}</guid>\n      <description>${escapeXml(item.description)}</description>\n      <pubDate>${escapeXml(new Date(item.modified).toUTCString())}</pubDate>\n    </item>`).join("\n")}\n  </channel>\n</rss>`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>CounselO Legal Articles and Work</title>\n    <link>${PUBLIC_BASE_URL}/</link>\n    <description>Recently published legal articles and redacted professional work from CounselO Legal.</description>\n    <language>en</language>\n    <lastBuildDate>${escapeXml(lastBuildDate)}</lastBuildDate>\n${items.map((item) => `    <item>\n      <title>${escapeXml(item.title)}</title>\n      <link>${escapeXml(item.url)}</link>\n      <guid isPermaLink="true">${escapeXml(item.url)}</guid>\n      <description>${escapeXml(item.description)}</description>\n      <pubDate>${escapeXml(new Date(item.modified).toUTCString())}</pubDate>\n    </item>`).join("\n")}\n  </channel>\n</rss>`;
 }
 
-export function buildNotFoundHtml(shellHtml?: string, title = "Page Not Found | CounselO"): string {
+export function buildNotFoundHtml(shellHtml?: string, title = "Page Not Found | CounselO Legal"): string {
   const head = `<title>${title}</title><meta name="robots" content="noindex, nofollow">`;
   if (shellHtml) return shellHtml.replace("<!--app-head-->", head);
   return `<!doctype html><html><head>${head}</head><body><h1>Page not found</h1></body></html>`;

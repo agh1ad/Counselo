@@ -53,13 +53,13 @@ export const enUae = {
   },
   aboutPage: {
     ...uaeBase.aboutPage,
-    seoTitle: "About CounselO UAE | Online Legal Consultation",
-    seoDesc: "Learn about CounselO UAE, an online legal consultation service for federal, emirate-level, mainland and free-zone matters, available in Arabic and English across 22 practice areas.",
-    seoKeywords: "about CounselO UAE, UAE online legal consultation, UAE legal services Arabic English, federal and free zone legal guidance",
+    seoTitle: "About CounselO Legal UAE | Online Legal Consultation",
+    seoDesc: "Learn about CounselO Legal UAE, an online legal consultation service for federal, emirate-level, mainland and free-zone matters, available in Arabic and English across 22 practice areas.",
+    seoKeywords: "about CounselO Legal UAE, UAE online legal consultation, UAE legal services Arabic English, federal and free zone legal guidance",
     hero: {
-      eyebrow: "About CounselO UAE",
+      eyebrow: "About CounselO Legal UAE",
       heading: "Online Legal Guidance for UAE Matters",
-      subheading: "CounselO combines regional legal experience with a jurisdiction-first online process for individuals, families, businesses and investors across the United Arab Emirates.",
+      subheading: "CounselO Legal combines regional legal experience with a jurisdiction-first online process for individuals, families, businesses and investors across the United Arab Emirates.",
       badge: "Federal · Emirate-level · Mainland · Free zones",
     },
     stats: [
@@ -71,7 +71,7 @@ export const enUae = {
     mission: {
       eyebrow: "Our UAE Mission",
       heading: "Clearer Access to UAE Legal Guidance",
-      p1: "CounselO helps clients begin UAE legal matters online, without assuming that every issue belongs to the same court, authority or legal framework. We first identify the relevant Emirate, federal or local authority, mainland or free-zone setting, and any DIFC or ADGM connection.",
+      p1: "CounselO Legal helps clients begin UAE legal matters online, without assuming that every issue belongs to the same court, authority or legal framework. We first identify the relevant Emirate, federal or local authority, mainland or free-zone setting, and any DIFC or ADGM connection.",
       p2: "The service is designed for individuals, families, UAE businesses, founders and international investors who need structured guidance in Arabic or English before deciding on documents, negotiations, filings or formal representation.",
       p3: "Each consultation is scoped according to the facts and jurisdiction. Where a matter requires a UAE-licensed practitioner, formal filing, notarisation or in-person appearance, the required local engagement is identified separately and transparently.",
       vision2030Badge: "Built for the UAE's Digital Environment",
@@ -81,10 +81,10 @@ export const enUae = {
       eyebrow: "Our Founder",
       heading: "Lawyer & Legal Counsel Omar Al-Baghdadi",
       subheading: "Senior Counsel · Regional Experience · Mentor to 40+ Lawyers",
-      bio1: "Lawyer and Legal Counsel Omar Al-Baghdadi has 30+ years of legal practice across litigation, commercial disputes, contracts, arbitration and cross-border matters. He founded CounselO to make structured legal guidance easier to access online.",
+      bio1: "Lawyer and Legal Counsel Omar Al-Baghdadi has 30+ years of legal practice across litigation, commercial disputes, contracts, arbitration and cross-border matters. He founded CounselO Legal to make structured legal guidance easier to access online.",
       bio2: "He graduated from the Faculty of Law at Damascus University in 1996 and developed his practice within a legal family whose professional history began with Al-Baghdadi Law Firm in 1957.",
-      bio3: "CounselO reports a career-wide regional total of 20,000+ legal matters and consultations handled or supervised during Omar’s professional practice, including advice, document reviews and related engagements. This stated experience figure is not independently audited and is not a count of court victories, matters in a single jurisdiction or work performed solely through CounselO. Local representation requires a separate agreement with the authorised professional.",
-      bio4: "He has trained and supervised more than 40 lawyers. CounselO applies that senior review discipline to its UAE consultation process while avoiding any implication that an online consultation alone constitutes local court representation.",
+      bio3: "CounselO Legal reports a career-wide regional total of 20,000+ legal matters and consultations handled or supervised during Omar’s professional practice, including advice, document reviews and related engagements. This stated experience figure is not independently audited and is not a count of court victories, matters in a single jurisdiction or work performed solely through CounselO Legal. Local representation requires a separate agreement with the authorised professional.",
+      bio4: "He has trained and supervised more than 40 lawyers. CounselO Legal applies that senior review discipline to its UAE consultation process while avoiding any implication that an online consultation alone constitutes local court representation.",
       credentials: [
         "Graduate, Faculty of Law — Damascus University (1996)",
         "Regional legal leadership; local representation separately scoped",
@@ -93,7 +93,7 @@ export const enUae = {
         "20,000+ career-wide legal matters and consultations across the region",
         "Mentor and supervisor to 40+ lawyers",
         "Experience in commercial, civil, administrative, arbitration and cross-border matters",
-        "Founder of CounselO's bilingual online consultation platform",
+        "Founder of CounselO Legal's bilingual online consultation platform",
       ],
       stats: [
         { stat: "1996", label: "Legal Career Began" },
@@ -106,11 +106,11 @@ export const enUae = {
       ...uaeBase.aboutPage.office,
       eyebrow: "UAE Service Model",
       heading: "Online Consultation with Jurisdiction-Specific Coordination",
-      p1: "CounselO provides online consultation, document review and preliminary legal analysis for UAE matters across all seven Emirates.",
+      p1: "CounselO Legal provides online consultation, document review and preliminary legal analysis for UAE matters across all seven Emirates.",
       p2: "If the reviewed scope requires a locally licensed advocate, court filing, notarisation or appearance before a UAE authority, that requirement and the appropriate engagement route are confirmed before the additional work begins.",
       city: "United Arab Emirates",
       region: "Online across all seven Emirates",
-      partnerName: "CounselO UAE Matter Support",
+      partnerName: "CounselO Legal UAE Matter Support",
       licenseNo: "Online consultation and jurisdiction review",
       address: "United Arab Emirates\nFederal, emirate-level, mainland and free-zone matters",
       mapsUrl: "",
@@ -118,7 +118,7 @@ export const enUae = {
       office2: undefined,
     },
     why: {
-      eyebrow: "Why CounselO UAE",
+      eyebrow: "Why CounselO Legal UAE",
       heading: "A Jurisdiction-First Consultation Process",
       points: [
         { title: "UAE-Specific Scope", desc: "The Emirate, authority and applicable legal framework are identified before recommendations are made." },
@@ -131,7 +131,7 @@ export const enUae = {
     },
     cta: {
       eyebrow: "Start with the Correct UAE Framework",
-      heading: "Discuss Your UAE Legal Matter with CounselO",
+      heading: "Discuss Your UAE Legal Matter with CounselO Legal",
       desc: "Share the facts, documents, Emirate and relevant authority or free zone. We will identify the appropriate consultation scope in Arabic or English.",
       ctaBtn: "Start Your Consultation",
       learnMoreBtn: "View UAE Services",
@@ -144,14 +144,14 @@ export const enUae = {
       badge: "Online Legal Consultation Platform — United Arab Emirates",
       h1a: "Online Legal Consultation",
       h1b: "for the UAE — Focused & Structured.",
-      desc: "CounselO is an online legal consultation platform serving the United Arab Emirates — delivering expert legal guidance for individuals, families, businesses and investors across federal, emirate-level, mainland and free-zone matters",
+      desc: "CounselO Legal is an online legal consultation platform serving the United Arab Emirates — delivering expert legal guidance for individuals, families, businesses and investors across federal, emirate-level, mainland and free-zone matters",
       descBold: "without leaving your desk.",
       subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in the UAE — with a target professional response time of 24 hours. We identify the relevant UAE framework before advising. 30+ years of legal practice, 20,000+ legal matters and consultations.",
       chips: ["✓ UAE-focused legal guidance", "✓ Arabic & English", "✓ Individuals & Businesses", "✓ Online across all Emirates"],
     },
     platform: {
       ...en.home.platform,
-      subheading: "CounselO is a digital legal platform for UAE matters. Get structured guidance from anywhere in the Emirates, with the competent jurisdiction identified from the outset.",
+      subheading: "CounselO Legal is a digital legal platform for UAE matters. Get structured guidance from anywhere in the Emirates, with the competent jurisdiction identified from the outset.",
       advantages: [
         { icon: "wifi", title: "Fully Online — Across the UAE", desc: "Consult from Dubai, Abu Dhabi, Sharjah or any other Emirate without an office visit." },
         { icon: "clock", title: "Clear Scope Before Work Begins", desc: "We confirm the matter, governing framework, deliverable and fee before starting legal work." },
@@ -161,9 +161,9 @@ export const enUae = {
     },
     about: {
       ...en.home.about,
-      p1: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi, a senior advocate with 30+ years of legal practice across the region. The UAE service brings that experience to matters involving federal law, emirate-level authorities, mainland businesses and financial free zones.",
+      p1: "CounselO Legal was founded by Lawyer and Legal Counsel Omar Al-Baghdadi, a senior advocate with 30+ years of legal practice across the region. The UAE service brings that experience to matters involving federal law, emirate-level authorities, mainland businesses and financial free zones.",
       p2: "The platform coordinates UAE-focused legal analysis across corporate, commercial, employment, property, family, disputes and regulated-sector matters, with senior review and a clear scope for each consultation.",
-      p3: "Whether you are an individual, a UAE company, a founder or a foreign investor, CounselO provides a direct bilingual route to structured legal guidance without unnecessary office visits.",
+      p3: "Whether you are an individual, a UAE company, a founder or a foreign investor, CounselO Legal provides a direct bilingual route to structured legal guidance without unnecessary office visits.",
       founderTeamLine: "Leading a professional legal network across the UAE and the region",
       caseLabel: "Cases & Consultations Across the Region",
     },
@@ -180,7 +180,7 @@ export const enUae = {
     consultMethods: {
       ...en.home.consultMethods,
       eyebrow: "Available Online — Across the UAE",
-      intro: "Start securely by WhatsApp or email. CounselO reviews the UAE jurisdiction, relevant authority and documents before confirming the appropriate legal work.",
+      intro: "Start securely by WhatsApp or email. CounselO Legal reviews the UAE jurisdiction, relevant authority and documents before confirming the appropriate legal work.",
     },
     whoWeServe: {
       ...en.home.whoWeServe,
@@ -203,7 +203,7 @@ export const enUae = {
       features: [
         { title: "Jurisdiction First", desc: "We identify the Emirate, authority, court, mainland or free-zone framework before recommending a route." },
         { title: "Confidential & Structured", desc: "Your facts and documents are reviewed through a clear professional consultation process." },
-        { title: "Senior Legal Oversight", desc: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice." },
+        { title: "Senior Legal Oversight", desc: "CounselO Legal was founded by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice." },
         { title: "Arabic & English", desc: "Bilingual legal guidance for UAE residents, businesses and international clients." },
       ],
     },

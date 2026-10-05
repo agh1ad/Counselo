@@ -1840,3 +1840,15 @@
     --counselo-gold-art: image-set(url("/images/optimized/counselo-gold-legal-line-art-v1-640.webp") 1x, url("/images/optimized/counselo-gold-legal-line-art-v1.webp") 2x);
   }
 }
+
+/* Full brand names need wrapping in Arabic and in compact navigation. */
+.region-navbar .uae-navbar-brand strong { font-size:1.35rem; }
+.region-navbar .uae-navbar-brand small { font-size:.55rem; letter-spacing:.02em; }
+[dir="rtl"] .region-navbar .uae-navbar-brand strong { font-size:1rem; white-space:normal; max-width:13rem; line-height:1.4; }
+[dir="rtl"] .region-navbar .uae-navbar-brand small { font-size:.55rem; white-space:normal; }
+.uae-reference-footer__lockup { flex-wrap:wrap; }
+.uae-reference-footer__lockup > span { white-space:normal; overflow-wrap:break-word; }
+@media(max-width:600px) {
+ .region-navbar .uae-navbar-brand strong { font-size:1.05rem; }
+ [dir="rtl"] .region-navbar .uae-navbar-brand strong { font-size:.85rem; max-width:11rem; }
+}

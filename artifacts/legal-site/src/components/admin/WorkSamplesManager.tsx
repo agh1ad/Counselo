@@ -70,7 +70,7 @@ function truncate(value: string, max: number): string {
 
 function autoSeoTitle(value: string, arabic: boolean): string {
   if (!value) return "";
-  const suffix = arabic ? " | أعمال كاونسلو" : " | CounselO Legal Work";
+  const suffix = arabic ? " | أعمال كاونسلو للاستشارات القانونية" : " | CounselO Legal Work";
   return `${truncate(value, 70 - suffix.length)}${suffix}`;
 }
 

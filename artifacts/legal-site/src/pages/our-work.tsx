@@ -34,9 +34,9 @@ export default function OurWork() {
   const workBasePath = ar ? "/ar/our-work" : "/our-work";
   const visibleSamples = samples.filter((sample) => ar ? Boolean(sample.titleAr) : Boolean(sample.titleEn));
   const ui = ar ? {
-    eyebrow: "مكتبة كاونسلو القانونية · نماذج الأعمال",
+    eyebrow: "مكتبة كاونسلو للاستشارات القانونية · نماذج الأعمال",
     title: "نماذج الأعمال والمذكرات القانونية",
-    intro: "نماذج مختارة ومنقحة من مستندات وأعمال قانونية أعدها فريق كاونسلو. نحذف بيانات العملاء والمعلومات السرية قبل النشر.",
+    intro: "نماذج مختارة ومنقحة من مستندات وأعمال قانونية أعدها فريق كاونسلو للاستشارات القانونية. نحذف بيانات العملاء والمعلومات السرية قبل النشر.",
     trustTitle: "كيف نحمي خصوصية العملاء",
     trustText: "لا ننشر أسماء العملاء أو بياناتهم أو تفاصيل تسمح بالتعرف عليهم. تُعرض هذه النماذج لإيضاح منهجية العمل وجودة الصياغة فقط.",
     empty: "ستُضاف نماذج أعمال منقحة قريباً.",
@@ -50,7 +50,7 @@ export default function OurWork() {
   } : {
     eyebrow: "CounselO Legal Library · Selected Work",
     title: "Legal work samples and memoranda",
-    intro: "A selection of redacted legal documents and professional work prepared by CounselO. Client identities and confidential information are removed before publication.",
+    intro: "A selection of redacted legal documents and professional work prepared by CounselO Legal. Client identities and confidential information are removed before publication.",
     trustTitle: "How client privacy is protected",
     trustText: "We do not publish client names, personal data, or identifying matter details. These samples demonstrate our working method and drafting quality only.",
     empty: "Redacted work samples will be added soon.",
@@ -68,7 +68,7 @@ export default function OurWork() {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       "@id": `https://counselo-legal.com${workBasePath}#webpage`,
-      name: ar ? "نماذج أعمال كاونسلو القانونية" : "CounselO Legal Work Samples",
+      name: ar ? "نماذج أعمال كاونسلو للاستشارات القانونية" : "CounselO Legal Work Samples",
       description: ui.intro,
       url: `https://counselo-legal.com${workBasePath}`,
       inLanguage: ar ? "ar" : "en",
@@ -101,13 +101,13 @@ export default function OurWork() {
     <div className="counselo-editorial-page legal-portfolio-page min-h-screen bg-background" dir={isRTL ? "rtl" : "ltr"}>
       <SEOHead
         heroArtwork="gold"
-        title={ar ? "نماذج من أعمالنا القانونية | خبرة وصياغة احترافية | كاونسلو" : "Our Legal Work | Redacted Documents & Experience | CounselO"}
-        description={ar ? "اطلع على نماذج منقحة من العقود والمذكرات والأعمال القانونية التي أعدها فريق كاونسلو، مع حماية كاملة لسرية وخصوصية العملاء." : "View redacted contracts, legal documents, and selected professional work prepared by CounselO, with client confidentiality and identifying information protected."}
+        title={ar ? "نماذج من أعمالنا القانونية | خبرة وصياغة احترافية | كاونسلو للاستشارات القانونية" : "Our Legal Work | Redacted Documents & Experience | CounselO Legal"}
+        description={ar ? "اطلع على نماذج منقحة من العقود والمذكرات والأعمال القانونية التي أعدها فريق كاونسلو للاستشارات القانونية، مع حماية كاملة لسرية وخصوصية العملاء." : "View redacted contracts, legal documents, and selected professional work prepared by CounselO Legal, with client confidentiality and identifying information protected."}
         canonical={workBasePath}
         noRegionPrefix
         sharedLanguageAlternates={{ en: "/our-work", ar: "/ar/our-work" }}
         contentLanguage={lang}
-        keywords={ar ? "نماذج عقود قانونية, أعمال محاماة, صياغة عقود, خبرة قانونية, نماذج قانونية كاونسلو" : "legal work samples, redacted contracts, contract drafting experience, law firm portfolio, CounselO legal documents"}
+        keywords={ar ? "نماذج عقود قانونية, أعمال محاماة, صياغة عقود, خبرة قانونية, نماذج قانونية كاونسلو للاستشارات القانونية" : "legal work samples, redacted contracts, contract drafting experience, law firm portfolio, CounselO Legal documents"}
         schema={schemas}
       />
 

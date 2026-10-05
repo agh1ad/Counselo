@@ -30,8 +30,8 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
   },
   "kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary": {
     "evidenceNote": {
-      "en": "The attached CounselO case study describes a judicial settlement providing for the return of SAR 300,000, together with the claimant giving up an interest in another company. It explains the reported settlement terms; the attachment does not include a payment receipt or the court-issued settlement record.",
-      "ar": "تصف دراسة كاونسلو المرفقة صلحاً قضائياً يتضمن رد 300,000 ريال، مع تنازل المدعي عن حصة في شركة أخرى. وهي تشرح شروط الصلح الواردة في عرض القضية؛ ولا تتضمن المرفقات إيصال سداد أو محضر الصلح الصادر عن المحكمة."
+      "en": "The attached CounselO Legal case study describes a judicial settlement providing for the return of SAR 300,000, together with the claimant giving up an interest in another company. It explains the reported settlement terms; the attachment does not include a payment receipt or the court-issued settlement record.",
+      "ar": "تصف دراسة كاونسلو للاستشارات القانونية المرفقة صلحاً قضائياً يتضمن رد 300,000 ريال، مع تنازل المدعي عن حصة في شركة أخرى. وهي تشرح شروط الصلح الواردة في عرض القضية؛ ولا تتضمن المرفقات إيصال سداد أو محضر الصلح الصادر عن المحكمة."
     },
     "region": null,
     "relatedServiceSlugs": [],
@@ -43,14 +43,14 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
       "msandh-kawnslw-fy-qdyh-aabrh-llhdwd",
       "ray-qanwny-fy-tswyh-aabrh-llhdwd"
     ],
-    "titleEn": "How CounselO Recovered SAR 300,000 Through a Judicial Settlement in a Commercial Dispute",
-    "titleAr": "كيف ساعدت كاونسلو في استرداد 300,000 ريال عبر صلح قضائي في نزاع تجاري؟",
+    "titleEn": "How CounselO Legal Recovered SAR 300,000 Through a Judicial Settlement in a Commercial Dispute",
+    "titleAr": "كيف ساعدت كاونسلو للاستشارات القانونية في استرداد 300,000 ريال عبر صلح قضائي في نزاع تجاري؟",
     "editorialUpdatedAt": "2026-09-07"
   },
   "kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal": {
     "evidenceNote": {
-      "en": "The attached CounselO case study reports a SAR 3,480,000 claim and a SAR 584,131 award. Its statement that the judgment was affirmed on appeal is expressly based on what the client reported. The reduction describes the amount claimed compared with the reported award, rather than money collected.",
-      "ar": "تعرض دراسة كاونسلو المرفقة مطالبة بمبلغ 3,480,000 ريال وحكماً بمبلغ 584,131 ريال. وتوضح الدراسة صراحة أن تأييد الحكم استئنافياً ورد بحسب إفادة العميل. ويعبر التخفيض عن الفرق بين المطالبة والمبلغ المحكوم به وفق العرض المنشور، وليس عن أموال جرى تحصيلها."
+      "en": "The attached CounselO Legal case study reports a SAR 3,480,000 claim and a SAR 584,131 award. Its statement that the judgment was affirmed on appeal is expressly based on what the client reported. The reduction describes the amount claimed compared with the reported award, rather than money collected.",
+      "ar": "تعرض دراسة كاونسلو للاستشارات القانونية المرفقة مطالبة بمبلغ 3,480,000 ريال وحكماً بمبلغ 584,131 ريال. وتوضح الدراسة صراحة أن تأييد الحكم استئنافياً ورد بحسب إفادة العميل. ويعبر التخفيض عن الفرق بين المطالبة والمبلغ المحكوم به وفق العرض المنشور، وليس عن أموال جرى تحصيلها."
     },
     "region": "sa",
     "relatedServiceSlugs": [
@@ -67,13 +67,13 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
       "mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh"
     ],
     "titleEn": "Reducing a Commercial Commission Claim from SAR 3.48 Million to SAR 584,131",
-    "titleAr": "كاونسلو و تخفيض مطالبة عمولة تجارية من 3.48 مليون ريال إلى 584 ألف ريال",
+    "titleAr": "كاونسلو للاستشارات القانونية و تخفيض مطالبة عمولة تجارية من 3.48 مليون ريال إلى 584 ألف ريال",
     "editorialUpdatedAt": "2026-09-07"
   },
   "kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227": {
     "evidenceNote": {
-      "en": "The attached CounselO case study describes a SAR 500,000 claim reduced to a reported final award of SAR 227,000. The published attachment is the professional case account explaining the defence and outcome; it is not a copy of the court judgment or evidence of payment.",
-      "ar": "تصف دراسة كاونسلو المرفقة تخفيض مطالبة بمبلغ 500,000 ريال إلى حكم نهائي بمبلغ 227,000 ريال وفق عرض القضية. والمرفق المنشور دراسة مهنية تشرح الدفاع والنتيجة، وليس نسخة من الحكم القضائي أو دليلاً على السداد."
+      "en": "The attached CounselO Legal case study describes a SAR 500,000 claim reduced to a reported final award of SAR 227,000. The published attachment is the professional case account explaining the defence and outcome; it is not a copy of the court judgment or evidence of payment.",
+      "ar": "تصف دراسة كاونسلو للاستشارات القانونية المرفقة تخفيض مطالبة بمبلغ 500,000 ريال إلى حكم نهائي بمبلغ 227,000 ريال وفق عرض القضية. والمرفق المنشور دراسة مهنية تشرح الدفاع والنتيجة، وليس نسخة من الحكم القضائي أو دليلاً على السداد."
     },
     "region": "sa",
     "relatedServiceSlugs": [
@@ -89,7 +89,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
       "kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal",
       "thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd"
     ],
-    "titleEn": "How CounselO Reduced a SAR 500,000 Claim to SAR 227,000",
+    "titleEn": "How CounselO Legal Reduced a SAR 500,000 Claim to SAR 227,000",
     "titleAr": "تخفيض مطالبة تجارية من 500 ألف ريال إلى 227 ألف ريال",
     "editorialUpdatedAt": "2026-09-07"
   },
@@ -125,8 +125,8 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
       "rfd-dawa-fskh-aqd-amtyaz-tjary-wtawyd",
       "fskh-aqd-snaay-wastrdad-aldfah-almqdmh"
     ],
-    "titleEn": "How CounselO Defeated a Sale Contract Rescission Claim",
-    "titleAr": "كيف قادت استراتيجية كاونسلو إلى رفض دعوى فسخ عقد بيع وتعويضات بملايين الريالات؟",
+    "titleEn": "How CounselO Legal Defeated a Sale Contract Rescission Claim",
+    "titleAr": "كيف قادت استراتيجية كاونسلو للاستشارات القانونية إلى رفض دعوى فسخ عقد بيع وتعويضات بملايين الريالات؟",
     "editorialUpdatedAt": "2026-09-07"
   },
   "msandh-kawnslw-fy-qdyh-aabrh-llhdwd": {
@@ -140,14 +140,14 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
       "kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary",
       "thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd"
     ],
-    "titleEn": "CounselO’s Support in a Cross-Border Dispute",
-    "titleAr": "مسانده كاونسلو في قضية عابرة للحدود",
+    "titleEn": "CounselO Legal’s Support in a Cross-Border Dispute",
+    "titleAr": "مسانده كاونسلو للاستشارات القانونية في قضية عابرة للحدود",
     "editorialUpdatedAt": "2026-09-07"
   },
   "astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal": {
     "evidenceNote": {
-      "en": "The attached CounselO case study describes an order to hand over 16 original promissory notes. The value above SAR 17 million is their face value. The study does not include a record establishing that the originals were subsequently delivered or that this amount was paid.",
-      "ar": "تصف دراسة كاونسلو المرفقة حكماً بتسليم أصول 16 سنداً لأمر. والمبلغ الذي يتجاوز 17 مليون ريال هو قيمتها الاسمية. ولا تتضمن الدراسة محضراً يثبت تسليم الأصول لاحقاً أو سداد هذا المبلغ."
+      "en": "The attached CounselO Legal case study describes an order to hand over 16 original promissory notes. The value above SAR 17 million is their face value. The study does not include a record establishing that the originals were subsequently delivered or that this amount was paid.",
+      "ar": "تصف دراسة كاونسلو للاستشارات القانونية المرفقة حكماً بتسليم أصول 16 سنداً لأمر. والمبلغ الذي يتجاوز 17 مليون ريال هو قيمتها الاسمية. ولا تتضمن الدراسة محضراً يثبت تسليم الأصول لاحقاً أو سداد هذا المبلغ."
     },
     "region": "sa",
     "relatedServiceSlugs": [
@@ -180,8 +180,8 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
       "almttlbat-alqanwnyh-walhwkmh-aldakhlyh",
       "andma-la-ykwn-alnzaa-hwl-alwaya-anma-altkyyf"
     ],
-    "titleEn": "CounselO and Legal Settlement of Financial Balances",
-    "titleAr": "كاونسلو وتسوية الارصدة المالية قانونا",
+    "titleEn": "CounselO Legal and Legal Settlement of Financial Balances",
+    "titleAr": "كاونسلو للاستشارات القانونية وتسوية الارصدة المالية قانونا",
     "editorialUpdatedAt": "2026-09-07"
   },
   "mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh": {
@@ -196,8 +196,8 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
       "altfawd-alqanwny-aldhky",
       "atfaqyh-atar-ltqdym-alkhdmat-altqnyh-whlwl-aldhka-alastnaay"
     ],
-    "titleEn": "CounselO’s Approach to Commercial Contract Review",
-    "titleAr": "منهج كاونسلو في مراجعة العقود التجارية",
+    "titleEn": "CounselO Legal’s Approach to Commercial Contract Review",
+    "titleAr": "منهج كاونسلو للاستشارات القانونية في مراجعة العقود التجارية",
     "editorialUpdatedAt": "2026-09-07"
   },
   "kyf-adart-kawnslw-mrajah-mhasbyh-hsash": {
@@ -213,8 +213,8 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
       "qdyh-mna-sfr-dd-aaml",
       "mn-atham-maly-maqd-ila-brah-qtayh"
     ],
-    "titleEn": "How CounselO Managed a Sensitive Accounting Review",
-    "titleAr": "كيف أدارت كاونسلو مراجعة محاسبية حساسة.",
+    "titleEn": "How CounselO Legal Managed a Sensitive Accounting Review",
+    "titleAr": "كيف أدارت كاونسلو للاستشارات القانونية مراجعة محاسبية حساسة.",
     "editorialUpdatedAt": "2026-09-07"
   },
   "algha-mkhalfat-aldfaa-almdny-bhkm-qdayy": {
@@ -263,8 +263,8 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     "relatedWorkSlugs": [
       "maaljh-halh-khta-tby"
     ],
-    "titleEn": "From Error to Compensation: How CounselO Identified the Directly Responsible Party in an Accident",
-    "titleAr": "من الخطأ الى التعويض: كيف حددت كاونسلو المسؤول المباشرعن حادث",
+    "titleEn": "From Error to Compensation: How CounselO Legal Identified the Directly Responsible Party in an Accident",
+    "titleAr": "من الخطأ الى التعويض: كيف حددت كاونسلو للاستشارات القانونية المسؤول المباشرعن حادث",
     "editorialUpdatedAt": "2026-09-07"
   },
   "thwyl-qdyh-mn-rfd-ala-qbwl-wtayyd": {
@@ -288,8 +288,8 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
   },
   "tfkyk-mstndat-altmas-aaadh-alnzr-bnjah": {
     "evidenceNote": {
-      "en": "The attached CounselO case study describes procedural admission of the reconsideration petition, rejection on its merits, lifting the enforcement stay and a SAR 23,000 fee award. These are the stages reported in the case account; the attachment is not the court-issued decision.",
-      "ar": "تصف دراسة كاونسلو المرفقة قبول التماس إعادة النظر شكلاً ثم رفضه موضوعاً، ورفع وقف التنفيذ، والحكم بأتعاب قدرها 23,000 ريال. وهذه هي المراحل الواردة في عرض القضية؛ والمرفق دراسة للحالة وليس القرار الصادر عن المحكمة."
+      "en": "The attached CounselO Legal case study describes procedural admission of the reconsideration petition, rejection on its merits, lifting the enforcement stay and a SAR 23,000 fee award. These are the stages reported in the case account; the attachment is not the court-issued decision.",
+      "ar": "تصف دراسة كاونسلو للاستشارات القانونية المرفقة قبول التماس إعادة النظر شكلاً ثم رفضه موضوعاً، ورفع وقف التنفيذ، والحكم بأتعاب قدرها 23,000 ريال. وهذه هي المراحل الواردة في عرض القضية؛ والمرفق دراسة للحالة وليس القرار الصادر عن المحكمة."
     },
     "region": "sa",
     "relatedServiceSlugs": [
@@ -373,8 +373,8 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
       "andma-la-ykwn-alnzaa-hwl-alwaya-anma-altkyyf",
       "almttlbat-alqanwnyh-walhwkmh-aldakhlyh"
     ],
-    "titleEn": "How CounselO Proved the Partnership",
-    "titleAr": "كيف اثبتت كاونسلو الشراكه",
+    "titleEn": "How CounselO Legal Proved the Partnership",
+    "titleAr": "كيف اثبتت كاونسلو للاستشارات القانونية الشراكه",
     "editorialUpdatedAt": "2026-09-07"
   },
   "kyf-sahmt-kawnslw-fy-anjah-mlf-thkymy-kaml": {
@@ -771,8 +771,8 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
       "tshyh-altkyyf-alqanwny-lanha-aqd-alaml",
       "qdyh-mna-sfr-dd-aaml"
     ],
-    "titleEn": "When the First Judgment Is Not the End: How CounselO Reversed an Employment Dispute",
-    "titleAr": "حين لا تنتهي القضية بالحكم الأول: كيف قلبت كاونسلو مسار نزاع عمالي؟",
+    "titleEn": "When the First Judgment Is Not the End: How CounselO Legal Reversed an Employment Dispute",
+    "titleAr": "حين لا تنتهي القضية بالحكم الأول: كيف قلبت كاونسلو للاستشارات القانونية مسار نزاع عمالي؟",
     "editorialUpdatedAt": "2026-09-07"
   },
   "drash-tan-amam-almhkmh-aladaryh-alalya": {

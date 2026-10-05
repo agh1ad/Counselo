@@ -108,7 +108,7 @@ test("known high-risk claim contradictions are absent from the public shell copy
     resolve(process.cwd(), "src/translations/en.ts"),
   ];
   const copy = files.map((file) => readFileSync(file, "utf8")).join("\n");
-  assert.doesNotMatch(copy, /Guaranteed Response|never shared|never share|يضمن كاونسلو|لا تُشارَك/);
+  assert.doesNotMatch(copy, /Guaranteed Response|never shared|never share|يضمن كاونسلو للاستشارات القانونية|لا تُشارَك/);
 });
 
 test("unsupported Vision 2030 partnership and endorsement wording is absent", () => {
@@ -185,7 +185,7 @@ test("unverified testimonial outcomes and unsupported personal licence numbers s
 
 test("professional-role boundary qualifies legacy representation wording", () => {
   const qualified = qualifyProfessionalRoleCopy({
-    en: "At CounselO, we represent clients before courts. We manage the full appeal process.",
+    en: "At CounselO Legal, we represent clients before courts. We manage the full appeal process.",
     ar: "نحن نمثل العملاء أمام المحاكم ونقدم تمثيل كامل.",
   });
   assert.match(qualified.en, /separately engaged, appropriately licensed practitioner/i);
@@ -195,7 +195,7 @@ test("professional-role boundary qualifies legacy representation wording", () =>
 });
 
 test("EEAT boundary qualifies legacy outcome, timing and online-service claims", () => {
-  const qualified = qualifyEeatCopy("CounselO recovered hundreds of millions of Saudi riyals and provides complete online consultation within 24 hours. No office visit required.");
+  const qualified = qualifyEeatCopy("CounselO Legal recovered hundreds of millions of Saudi riyals and provides complete online consultation within 24 hours. No office visit required.");
   assert.match(qualified, /substantial sums \(a stated experience figure, not an audited result\)/);
   assert.match(qualified, /initial online consultation/);
   assert.match(qualified, /target 24-hour response window/);

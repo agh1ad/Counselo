@@ -1,14 +1,14 @@
 /**
- * Keeps legacy service copy aligned with CounselO's published role model.
- * CounselO can consult, review documents and coordinate work; formal court
+ * Keeps legacy service copy aligned with CounselO Legal's published role model.
+ * CounselO Legal can consult, review documents and coordinate work; formal court
  * representation and reserved filings require a separately scoped, licensed
  * practitioner or cooperating office.
  */
 export function qualifyProfessionalRoleCopy<T>(value: T): T {
   if (typeof value === "string") {
     const qualified = value
-      .replace(/At CounselO, we represent /g, "CounselO provides consultation and can coordinate representation through a separately engaged, appropriately licensed practitioner for ")
-      .replace(/At CounselO, we represent /gi, "CounselO provides consultation and can coordinate representation through a separately engaged, appropriately licensed practitioner for ")
+      .replace(/At CounselO Legal, we represent /g, "CounselO Legal provides consultation and can coordinate representation through a separately engaged, appropriately licensed practitioner for ")
+      .replace(/At CounselO Legal, we represent /gi, "CounselO Legal provides consultation and can coordinate representation through a separately engaged, appropriately licensed practitioner for ")
       .replace(/\bWe represent you\b/g, "A separately engaged, appropriately licensed practitioner may represent you")
       .replace(/\bWe represent clients\b/g, "A separately engaged, appropriately licensed practitioner may represent clients")
       .replace(/\bWe represent /g, "A separately engaged, appropriately licensed practitioner may represent ")
@@ -23,8 +23,8 @@ export function qualifyProfessionalRoleCopy<T>(value: T): T {
       .replace(/\blicensed lawyers across three jurisdictions\b/gi, "lawyers across three jurisdictions")
       .replace(/Legal Consultant Omar Al-Baghdadi/g, "Legal Counsel Omar Al-Baghdadi")
       .replace(/نحن نمثل/g, "يمكن ترتيب التمثيل بشكل منفصل عبر مهني مرخص مناسب")
-      .replace(/تمثل كاونسلو/g, "تقدم كاونسلو الاستشارة ويمكنها تنسيق التمثيل بشكل منفصل")
-      .replace(/نمثل عملاء/g, "تقدم كاونسلو الاستشارة ويمكن ترتيب تمثيل منفصل للعملاء عبر مهني مرخص مناسب")
+      .replace(/تمثل كاونسلو للاستشارات القانونية/g, "تقدم كاونسلو للاستشارات القانونية الاستشارة ويمكنها تنسيق التمثيل بشكل منفصل")
+      .replace(/نمثل عملاء/g, "تقدم كاونسلو للاستشارات القانونية الاستشارة ويمكن ترتيب تمثيل منفصل للعملاء عبر مهني مرخص مناسب")
       .replace(/تمثيل كامل/g, "تمثيل بموجب تكليف مستقل")
       .replace(/محامياً مرخصاً في ثلاث ولايات قضائية/g, "محامياً في ثلاث ولايات قضائية");
 

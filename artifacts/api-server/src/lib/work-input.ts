@@ -49,8 +49,8 @@ function truncate(text: string, max: number): string {
 
 function brandedTitle(title: string, arabic: boolean): string {
   if (!title) return "";
-  if (/(?:CounselO|كاونسلو)$/i.test(title)) return truncate(title, 70);
-  const suffix = arabic ? " | كاونسلو" : " | CounselO";
+  if (/(?:CounselO Legal|كاونسلو للاستشارات القانونية)$/i.test(title)) return truncate(title, 70);
+  const suffix = arabic ? " | كاونسلو للاستشارات القانونية" : " | CounselO Legal";
   return `${truncate(title, 70 - suffix.length)}${suffix}`;
 }
 

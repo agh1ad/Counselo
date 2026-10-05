@@ -1,14 +1,14 @@
-# CounselO — optional machine-readable documentation
+# CounselO Legal — optional machine-readable documentation
 
 Last updated: 2026-08-08
 
-CounselO is a bilingual online legal platform for fast, professional and trusted legal consultations, document review and structured legal guidance. It provides jurisdiction-first legal intake across Saudi Arabia, Syria and the UAE and—where separately scoped—coordinates with licensed local professionals for filings, court appearances, notarisation, or other work requiring local authorisation.
+CounselO Legal is a bilingual online legal platform for fast, professional and trusted legal consultations, document review and structured legal guidance. It provides jurisdiction-first legal intake across Saudi Arabia, Syria and the UAE and—where separately scoped—coordinates with licensed local professionals for filings, court appearances, notarisation, or other work requiring local authorisation.
 
 This file is optional machine-readable documentation. It is not a ranking factor, does not replace ordinary SEO, and is not legal advice.
 
 ## Jurisdictions and languages
 
-CounselO has distinct service hubs for:
+CounselO Legal has distinct service hubs for:
 
 - United Arab Emirates (UAE): federal, emirate-level, mainland, free-zone, DIFC and ADGM context where applicable
 - Saudi Arabia (SA): Saudi laws, authorities, courts and regulatory procedures
@@ -18,7 +18,7 @@ Services and articles identify the applicable jurisdiction. Arabic and English a
 
 ## Licensing and representation scope
 
-CounselO’s online intake, consultation, document review and preliminary legal analysis are scoped according to the facts and applicable jurisdiction. If court representation is requested or necessary, CounselO can arrange it through an appropriately licensed partner professional or cooperating office in the relevant served jurisdiction under a separate agreed engagement. No representation, court appearance, filing, or outcome is promised before the scope and engagement are agreed.
+CounselO Legal’s online intake, consultation, document review and preliminary legal analysis are scoped according to the facts and applicable jurisdiction. If court representation is requested or necessary, CounselO Legal can arrange it through an appropriately licensed partner professional or cooperating office in the relevant served jurisdiction under a separate agreed engagement. No representation, court appearance, filing, or outcome is promised before the scope and engagement are agreed.
 
 ## Regional service hubs
 
@@ -57,7 +57,7 @@ Articles should be read with their visible author, legal reviewer, jurisdiction,
 
 ## Consultation
 
-Consultation routes include an initial case assessment, focused legal consultation, document review, and matter roadmap. There is no fixed published price: after an initial study of the request, CounselO confirms scope, deliverables, timing, fee, payment method, follow-up inclusion, and any rescheduling terms before paid work begins.
+Consultation routes include an initial case assessment, focused legal consultation, document review, and matter roadmap. There is no fixed published price: after an initial study of the request, CounselO Legal confirms scope, deliverables, timing, fee, payment method, follow-up inclusion, and any rescheduling terms before paid work begins.
 
 - [Start a consultation — UAE](https://counselo-legal.com/uae/contact)
 - [Start a consultation — Saudi Arabia](https://counselo-legal.com/sa/contact)

@@ -10,11 +10,11 @@ import {
   COUNSELO_PLATFORM_POSITIONING,
 } from "@workspace/api-zod";
 
-test("core CounselO entities have stable IDs and canonical names", () => {
+test("core CounselO Legal entities have stable IDs and canonical names", () => {
   assert.equal(COUNSELO_ORGANIZATION["@id"], "https://counselo-legal.com/#organization");
   assert.equal(COUNSELO_WEBSITE["@id"], "https://counselo-legal.com/#website");
-  assert.equal(COUNSELO_ORGANIZATION.name, "CounselO");
-  assert.equal(COUNSELO_ORGANIZATION.alternateName, "كاونسلو");
+  assert.equal(COUNSELO_ORGANIZATION.name, "CounselO Legal");
+  assert.deepEqual(COUNSELO_ORGANIZATION.alternateName, ["كاونسلو للاستشارات القانونية", "CounselO", "كاونسلو"]);
   assert.match(COUNSELO_ORGANIZATION.description, /online legal platform/i);
   assert.deepEqual(COUNSELO_ORGANIZATION.areaServed.map((country) => country.name), COUNSELO_PLATFORM_POSITIONING.jurisdictions);
   assert.deepEqual(COUNSELO_ORGANIZATION.contactPoint.availableLanguage, ["Arabic", "English"]);

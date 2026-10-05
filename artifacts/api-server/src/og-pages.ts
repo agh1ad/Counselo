@@ -56,7 +56,7 @@ function findLegalDist(): string {
 const LEGAL_DIST = findLegalDist();
 const LEGAL_TEMPLATE = path.resolve(LEGAL_DIST, "../ssr-template.html");
 const DEFAULT_OG_IMAGE = BLOG_SOCIAL_IMAGE.url;
-const SITE_NAME = "CounselO";
+const SITE_NAME = "CounselO Legal";
 
 let indexHtmlCache: string | null = null;
 let shellHtmlCache: string | null = null;
@@ -168,12 +168,12 @@ export function buildDynamicBlogHtml(
   const title = isArabicPost
     ? safeSeoTitle(post.seoTitleAr, post.titleAr) || safeSeoTitle(post.seoTitleEn, post.titleEn) || SITE_NAME
     : safeSeoTitle(post.seoTitleEn, post.titleEn) || safeSeoTitle(post.seoTitleAr, post.titleAr) || SITE_NAME;
-  const brandedTitle = /(?:CounselO|كاونسلو)$/i.test(title)
+  const brandedTitle = /(?:CounselO Legal|كاونسلو للاستشارات القانونية)$/i.test(title)
     ? title
-    : `${title} | ${isArabicPost ? "كاونسلو" : "CounselO"}`;
+    : `${title} | ${isArabicPost ? "كاونسلو للاستشارات القانونية" : "CounselO Legal"}`;
   const description = normalizeDescription(
     isArabicPost ? post.seoDescriptionAr || post.seoDescriptionEn || "" : post.seoDescriptionEn || post.seoDescriptionAr || "",
-    isArabicPost ? post.excerptAr || post.excerptEn || "Online legal guidance from CounselO." : post.excerptEn || post.excerptAr || "Online legal guidance from CounselO.",
+    isArabicPost ? post.excerptAr || post.excerptEn || "Online legal guidance from CounselO Legal." : post.excerptEn || post.excerptAr || "Online legal guidance from CounselO Legal.",
   );
   const metadata = buildBlogHtmlMetadata({
     slug: post.slug,
@@ -220,7 +220,7 @@ export function buildDynamicBlogHtml(
     publisher: {
       "@type": "Organization",
       "@id": COUNSELO_ENTITY_IDS.organization,
-      name: "CounselO",
+      name: "CounselO Legal",
       url: BASE_URL,
       logo: { "@type": "ImageObject", url: `${BASE_URL}/logo.png` },
     },
@@ -316,11 +316,11 @@ function buildDynamicBlogIndex(
   }));
   const shell = getShellHtml() ?? getIndexHtml();
   const title = isArabic
-    ? "المدونة القانونية | مقالات وأدلة | كاونسلو"
-    : "Legal Blog | Articles & Guides | CounselO";
+    ? "المدونة القانونية | مقالات وأدلة | كاونسلو للاستشارات القانونية"
+    : "Legal Blog | Articles & Guides | CounselO Legal";
   const description = isArabic
-    ? "مقالات وأدلة قانونية عربية حول قوانين الإمارات والسعودية وسوريا من فريق كاونسلو القانوني."
-    : "Practical legal guides covering UAE, Saudi and Syrian law from CounselO's legal team.";
+    ? "مقالات وأدلة قانونية عربية حول قوانين الإمارات والسعودية وسوريا من فريق كاونسلو للاستشارات القانونية القانوني."
+    : "Practical legal guides covering UAE, Saudi and Syrian law from CounselO Legal's legal team.";
   const canonical = `${BASE_URL}${isArabic ? "/blog/ar" : "/blog"}`;
   const collection = safeJson({
     "@context": "https://schema.org",
@@ -394,7 +394,7 @@ export function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | 
     contentLocation: sample.jurisdictionEn || sample.jurisdictionAr,
     creator: WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law"
       ? { "@type": "LegalService", "@id": COUNSELO_ENTITY_IDS.alBaghdadiOffice, name: "Baghdadi Law", alternateName: "البغدادي للمحاماة", url: "https://www.baghdadilaw.co" }
-      : { "@type": "Organization", "@id": COUNSELO_ENTITY_IDS.organization, name: "CounselO", alternateName: "كاونسلو", url: BASE_URL },
+      : { "@type": "Organization", "@id": COUNSELO_ENTITY_IDS.organization, name: "CounselO Legal", alternateName: "كاونسلو للاستشارات القانونية", url: BASE_URL },
     encoding: sample.fileSize > 0 ? { "@type": "MediaObject", contentUrl: fileUrl, encodingFormat: sample.fileMimeType } : undefined,
   });
   const breadcrumbs = safeJson({
@@ -449,8 +449,8 @@ function buildDynamicWorkIndex(samples: PublicWorkSample[], language: "en" | "ar
   const isArabic = language === "ar";
   const visibleSamples = samples.filter((sample) => isArabic ? Boolean(sample.titleAr) : Boolean(sample.titleEn));
   const shell = getShellHtml() ?? getIndexHtml();
-  const title = isArabic ? "نماذج من أعمالنا القانونية | خبرة وصياغة احترافية | كاونسلو" : "Our Legal Work | Redacted Documents & Experience | CounselO";
-  const description = isArabic ? "اطلع على نماذج منقحة من العقود والمذكرات والأعمال القانونية التي أعدها فريق كاونسلو، مع حماية كاملة لسرية وخصوصية العملاء." : "View redacted contracts, legal documents, and selected professional work prepared by CounselO, with client confidentiality protected.";
+  const title = isArabic ? "نماذج من أعمالنا القانونية | خبرة وصياغة احترافية | كاونسلو للاستشارات القانونية" : "Our Legal Work | Redacted Documents & Experience | CounselO Legal";
+  const description = isArabic ? "اطلع على نماذج منقحة من العقود والمذكرات والأعمال القانونية التي أعدها فريق كاونسلو للاستشارات القانونية، مع حماية كاملة لسرية وخصوصية العملاء." : "View redacted contracts, legal documents, and selected professional work prepared by CounselO Legal, with client confidentiality protected.";
   const canonical = `${BASE_URL}${isArabic ? "/ar/our-work" : "/our-work"}`;
   const itemList = safeJson({
     "@context": "https://schema.org", "@type": "ItemList", numberOfItems: visibleSamples.length,
@@ -611,8 +611,8 @@ export function registerOgPageRoutes(app: Express): void {
     res.status(200).send(
       shell?.replace(
         "<!--app-head-->",
-        '<title>CounselO Admin</title><meta name="robots" content="noindex, nofollow, noarchive">',
-      ) ?? "<!doctype html><title>CounselO Admin</title><meta name=\"robots\" content=\"noindex,nofollow\">",
+        '<title>CounselO Legal Admin</title><meta name="robots" content="noindex, nofollow, noarchive">',
+      ) ?? "<!doctype html><title>CounselO Legal Admin</title><meta name=\"robots\" content=\"noindex,nofollow\">",
     );
   });
 

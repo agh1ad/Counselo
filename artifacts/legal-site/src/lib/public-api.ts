@@ -1,3 +1,5 @@
+import { currentBrandRecord } from "@workspace/api-zod/browser";
+
 const PRODUCTION_ORIGIN = "https://counselo-legal.com";
 const PUBLIC_JSON_REUSE_MS = 15_000;
 const MAX_PUBLIC_JSON_CACHE_ENTRIES = 100;
@@ -54,7 +56,12 @@ export async function fetchPublicJson<T>(path: string): Promise<T> {
       throw new Error(`Published content returned ${contentType || "an unknown content type"} instead of JSON`);
     }
 
-    return response.json() as Promise<T>;
+    const data = await response.json();
+    // Keep rolling deployments and older cached public records consistent with SSR.
+    if (/^\/api\/(?:blog\/posts|work)(?:[/?]|$)/.test(path)) {
+      return (Array.isArray(data) ? data.map(currentBrandRecord) : data && typeof data === "object" ? currentBrandRecord(data) : data) as T;
+    }
+    return data as T;
   })();
 
   publicJsonCache.set(path, {

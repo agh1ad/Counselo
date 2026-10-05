@@ -232,9 +232,9 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
 
   const canonical = `https://counselo-legal.com/blog/${slug}`;
   const primaryTitle = seoTitleEn || seoTitleAr;
-  const brandedTitle = /(?:CounselO|كاونسلو)$/i.test(primaryTitle)
+  const brandedTitle = /(?:CounselO Legal|كاونسلو للاستشارات القانونية)$/i.test(primaryTitle)
     ? primaryTitle
-    : `${primaryTitle} | ${isArabicPost ? "كاونسلو" : "CounselO"}`;
+    : `${primaryTitle} | ${isArabicPost ? "كاونسلو للاستشارات القانونية" : "CounselO Legal"}`;
   const primaryDesc = normalizeDescription(
     seoDescEn || seoDescAr,
     post.excerptEn || post.excerptAr || stripHtml(post.bodyEn || post.bodyAr || ""),
@@ -254,13 +254,13 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
     author: {
       "@type": "Organization",
       "@id": "https://counselo-legal.com/#organization",
-      name: "CounselO",
+      name: "CounselO Legal",
       url: "https://counselo-legal.com",
     },
     publisher: {
       "@type": "Organization",
       "@id": "https://counselo-legal.com/#organization",
-      name: "CounselO",
+      name: "CounselO Legal",
       url: "https://counselo-legal.com",
       logo: {
         "@type": "ImageObject",
@@ -435,7 +435,7 @@ export function buildWorkHtmlFromTemplate(
     creator: {
       "@type": WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "LegalService" : "Organization",
       "@id": WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? COUNSELO_ENTITY_IDS.alBaghdadiOffice : COUNSELO_ENTITY_IDS.organization,
-      name: WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "Baghdadi Law" : "CounselO",
+      name: WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "Baghdadi Law" : "CounselO Legal",
       url: BASE,
     },
     encoding: {
@@ -660,7 +660,7 @@ function sendContentUnavailable(res: Response, arabic: boolean) {
   res.setHeader("Cache-Control", "no-store");
   res.setHeader("Retry-After", "60");
   return res.status(503).type("html").send(
-    `<!doctype html><html lang="${arabic ? "ar" : "en"}" dir="${arabic ? "rtl" : "ltr"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${title} | CounselO</title></head><body><main><h1>${title}</h1><p>${message}</p></main></body></html>`,
+    `<!doctype html><html lang="${arabic ? "ar" : "en"}" dir="${arabic ? "rtl" : "ltr"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${title} | CounselO Legal</title></head><body><main><h1>${title}</h1><p>${message}</p></main></body></html>`,
   );
 }
 
@@ -668,7 +668,7 @@ app.get("/counselo-admin", (_req: Request, res: Response) => {
   res.setHeader("Cache-Control", "no-store");
   res
     .status(200)
-    .send(spaShell("CounselO Admin", "noindex, nofollow, noarchive"));
+    .send(spaShell("CounselO Legal Admin", "noindex, nofollow, noarchive"));
 });
 
 // Keep the homepage and related service pages fresh so every newly published
@@ -813,7 +813,7 @@ async function serveBlogPost(
     res.setHeader("Cache-Control", "no-store");
     return res
       .status(404)
-      .send(spaShell("Article Not Found | CounselO", "noindex, nofollow"));
+      .send(spaShell("Article Not Found | CounselO Legal", "noindex, nofollow"));
   }
 
   if (result.status === "found") {
@@ -826,7 +826,7 @@ async function serveBlogPost(
       res.setHeader("Cache-Control", "no-store");
       return res
         .status(404)
-        .send(spaShell("Article Not Found | CounselO", "noindex, nofollow"));
+        .send(spaShell("Article Not Found | CounselO Legal", "noindex, nofollow"));
     }
     try {
       const posts = [
@@ -868,7 +868,7 @@ app.get("/ar/our-work/:slug", async (req: Request, res: Response) => {
 
   if (result.status === "notfound") {
     res.setHeader("Cache-Control", "no-store");
-    return res.status(404).send(spaShell("صفحة غير موجودة | كاونسلو", "noindex, nofollow"));
+    return res.status(404).send(spaShell("صفحة غير موجودة | كاونسلو للاستشارات القانونية", "noindex, nofollow"));
   }
 
   if (result.status === "found") {
@@ -912,7 +912,7 @@ app.get("/our-work/:slug", async (req: Request, res: Response) => {
 
   if (result.status === "notfound") {
     res.setHeader("Cache-Control", "no-store");
-    return res.status(404).send(spaShell("Work Not Found | CounselO", "noindex, nofollow"));
+    return res.status(404).send(spaShell("Work Not Found | CounselO Legal", "noindex, nofollow"));
   }
 
   if (result.status === "found") {
@@ -965,9 +965,9 @@ app.use((req: Request, res: Response, _next: NextFunction) => {
   res
     .status(404)
     .send(spaShell(
-      "Page Not Found | CounselO",
+      "Page Not Found | CounselO Legal",
       "noindex, nofollow",
-      '<main><h1>Page not found</h1><p>The requested CounselO page is unavailable.</p><p><a href="/">Return to CounselO</a></p></main>',
+      '<main><h1>Page not found</h1><p>The requested CounselO Legal page is unavailable.</p><p><a href="/">Return to CounselO Legal</a></p></main>',
     ));
 });
 

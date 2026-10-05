@@ -1,3 +1,4 @@
+import { currentBrandRecord } from "@workspace/api-zod";
 import { createHash } from "node:crypto";
 import { ARTICLE_CONTEXT, containsPublishingPlaceholder } from "@workspace/api-zod";
 import { correctArticleSnippets } from "./article-snippet-corrections.js";
@@ -98,7 +99,7 @@ const CONTRACT_INTERPRETATION_ENGLISH_BODY = `
  * The database backfill command uses the same replacement so this safety net
  * can later become dormant without changing the published article.
  */
-export function repairPublicBlogPost<T extends PublicBlogRecord>(post: T): T {
+function repairBlogEditorialContent<T extends PublicBlogRecord>(post: T): T {
   // Limit the complete rewrite to the audited duplicate; preserve later CMS authoring.
   if (post.slug === "almswwlyh-alaqdyh-fy-almaamlat-altjaryh"
     && createHash("sha256").update(post.bodyEn ?? "").digest("hex") === "94715648f45be7cbca3ba194d28b87bfe4b9b643c7fe751f150a5ceb9882e823"
@@ -176,3 +177,7 @@ export function repairPublicBlogPost<T extends PublicBlogRecord>(post: T): T {
 }
 
 export { CONTRACT_INTERPRETATION_ENGLISH_BODY };
+
+export function repairPublicBlogPost<T extends PublicBlogRecord>(post: T): T {
+  return currentBrandRecord(repairBlogEditorialContent(post));
+}

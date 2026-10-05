@@ -1127,3 +1127,21 @@
 @media (max-width: 540px) {
   .home-practice-links-grid { grid-template-columns: 1fr; }
 }
+
+/* Bilingual brand lockup: text remains readable at narrow viewport widths. */
+.home-header .home-brand-lockup { display:flex; align-items:center; gap:.65rem; min-width:0; flex-shrink:0; color:#073d2b; }
+.home-header .home-brand-lockup img { width:48px; height:48px; flex:none; }
+.home-brand-lockup > span { display:grid; gap:.25rem; max-width:17rem; }
+.home-brand-lockup strong { font-size:1.35rem; line-height:1.35; }
+.home-brand-lockup small { font-size:.72rem; line-height:1.5; }
+.home-brand-founder { font-size:.9rem; line-height:1.7; color:inherit; margin-block:1rem; }
+[dir="rtl"] .home-brand-lockup strong { font-size:1rem; letter-spacing:0; }
+@media(max-width:600px) {
+ .home-header .home-brand-lockup { flex-shrink:1; gap:.4rem; }
+ .home-header .home-brand-lockup img { width:36px; height:36px; }
+ .home-brand-lockup strong { font-size:1.06rem; }
+ .home-brand-lockup small { font-size:.63rem; }
+ [dir="rtl"] .home-brand-lockup strong { font-size:.86rem; }
+}
+
+.home-refined .home-hero .home-brand-founder { color:#e8dec7; }

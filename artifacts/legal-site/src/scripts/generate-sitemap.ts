@@ -327,14 +327,14 @@ try {
         slug: post.slug,
         date: articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date)?.slice(0, 10) || post.date,
         title: post.titleEn?.trim() || post.slug,
-        excerpt: post.excerptEn?.trim() || "CounselO legal insight",
+        excerpt: post.excerptEn?.trim() || "CounselO Legal insight",
         url: enUrl,
       });
       feedPosts.push({
         slug: post.slug,
         date: articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date)?.slice(0, 10) || post.date,
         title: post.titleAr?.trim() || post.slug,
-        excerpt: post.excerptAr?.trim() || "رؤية قانونية من كاونسلو",
+        excerpt: post.excerptAr?.trim() || "رؤية قانونية من كاونسلو للاستشارات القانونية",
         url: arUrl,
       });
     }
@@ -433,7 +433,7 @@ const escapeXml = (value: string) => value
 const feedXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>CounselO Global Legal Insights</title>
+    <title>CounselO Legal Global Legal Insights</title>
     <link>${BASE_URL}${BLOG_BASE_PATH}</link>
     <description>Legal articles and guides covering Saudi, Syrian and UAE law.</description>
     <language>en</language>

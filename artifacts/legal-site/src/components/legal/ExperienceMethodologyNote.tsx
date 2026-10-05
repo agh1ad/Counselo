@@ -7,7 +7,7 @@ type ExperienceMethodologyNoteProps = {
 };
 
 /**
- * Keeps the public methodology and limitation for CounselO's experience-volume
+ * Keeps the public methodology and limitation for CounselO Legal's experience-volume
  * figure identical wherever that figure is used.
  */
 export function ExperienceMethodologyNote({

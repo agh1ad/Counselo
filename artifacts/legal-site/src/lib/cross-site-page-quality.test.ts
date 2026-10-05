@@ -76,6 +76,6 @@ test("global jurisdiction mentions consistently prioritize Saudi Arabia, then Sy
   assert.doesNotMatch(globalCopy, /الإمارات والسعودية وسوريا|الإمارات · السعودية · سوريا/);
 });
 
-test("the CounselO brand uses one English capitalization", () => {
+test("the CounselO Legal brand uses one English capitalization", () => {
   assert.doesNotMatch(readLib("optimized-meta.ts"), /\bCounselo\b/);
 });

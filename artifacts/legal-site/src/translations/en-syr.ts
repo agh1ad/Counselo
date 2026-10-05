@@ -35,25 +35,25 @@ export const enSyr: typeof en = {
     ...en.home,
     hero: {
       ...en.home.hero,
-      badge: "Syria's Specialized Online Legal Consultation Platform · CounselO",
+      badge: "Syria's Specialized Online Legal Consultation Platform · CounselO Legal",
       h1a: "Online Legal Consultation",
       h1b: "for Syria — Focused & Structured.",
-      desc: "CounselO is an online legal consultation platform serving Syria — delivering expert legal guidance for individuals, businesses and investors across all major areas of Syrian law",
+      desc: "CounselO Legal is an online legal consultation platform serving Syria — delivering expert legal guidance for individuals, businesses and investors across all major areas of Syrian law",
       subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in Syria — with a target professional response time of 24 hours. 30+ years of legal practice, 20,000+ legal matters and consultations.",
     },
     platform: {
       ...en.home.platform,
-      subheading: "CounselO is a fully digital legal platform serving Syria. Consultation and document review scoped to the relevant Syrian matter, documents and professional requirements.",
+      subheading: "CounselO Legal is a fully digital legal platform serving Syria. Consultation and document review scoped to the relevant Syrian matter, documents and professional requirements.",
       advantages: [
         { icon: "wifi", title: "Fully Online — Anywhere in Syria", desc: "Consult from Damascus, Aleppo, Homs, Lattakia or anywhere in Syria — no office visit, no commute, no waiting room." },
-        { icon: "clock", title: "Target Response Within 24 Hours", desc: "Submit your legal matter for a structured professional response. CounselO targets a response within 24 hours, subject to the matter's scope and urgency." },
+        { icon: "clock", title: "Target Response Within 24 Hours", desc: "Submit your legal matter for a structured professional response. CounselO Legal targets a response within 24 hours, subject to the matter's scope and urgency." },
         { icon: "lock", title: "Professional Legal Confidentiality", desc: "Information is handled confidentially under applicable professional, privacy and data-protection obligations, subject to legally required or permitted disclosures." },
         { icon: "globe", title: "Arabic & English", desc: "Fully bilingual platform. Legal advice in the language you think and work in — no barriers." },
       ],
     },
     about: {
       ...en.home.about,
-      p1: "CounselO was founded by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice and a stated career-wide record of 20,000+ legal matters and consultations across the region. Syrian matters are reviewed against the applicable Syrian framework, with any reserved local work separately scoped through an appropriately licensed professional or cooperating office.",
+      p1: "CounselO Legal was founded by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice and a stated career-wide record of 20,000+ legal matters and consultations across the region. Syrian matters are reviewed against the applicable Syrian framework, with any reserved local work separately scoped through an appropriately licensed professional or cooperating office.",
       founderTeamLine: "Leading a professional legal team across Syria & the region",
     },
     consultMethods: {
@@ -62,7 +62,7 @@ export const enSyr: typeof en = {
     },
     whoWeServe: {
       ...en.home.whoWeServe,
-      subheading: "CounselO serves all client types across Syria — from individuals navigating personal legal matters to corporations handling complex commercial disputes.",
+      subheading: "CounselO Legal serves all client types across Syria — from individuals navigating personal legal matters to corporations handling complex commercial disputes.",
       clients: [
         { title: "Individuals", desc: "Personal legal matters including family law, real estate, employment disputes and debt recovery under Syrian law." },
         { title: "Businesses", desc: "Commercial contracts, corporate disputes, company formation and regulatory compliance in Syria." },
@@ -100,7 +100,7 @@ export const enSyr: typeof en = {
     },
     cooperation: {
       ...en.home.cooperation,
-      desc: "CounselO can begin many matters online through consultations, document review and written guidance. When a case requires court representation, attendance before a competent authority or notarisation, the applicable local licensing and engagement requirements are reviewed and any cooperating practitioner is engaged separately where appropriate.",
+      desc: "CounselO Legal can begin many matters online through consultations, document review and written guidance. When a case requires court representation, attendance before a competent authority or notarisation, the applicable local licensing and engagement requirements are reviewed and any cooperating practitioner is engaged separately where appropriate.",
       officeName: "Al-Baghdadi Law Firm",
       officeDetail: "Licensed in Syria — serving clients across all of Syria",
       office2: {
@@ -146,7 +146,7 @@ export const enSyr: typeof en = {
       "family-law": {
         title: "Family Law",
         subtitle: "Protecting what matters most under Syrian Personal Status Law.",
-        overview: "Family law in Syria is governed by the Syrian Personal Status Law (Law No. 59 of 1953, as amended) and Islamic Sharia principles, applied by Personal Status Courts (محاكم الأحوال الشخصية). At CounselO, we understand that family disputes are among the most sensitive legal matters our clients face. We provide strategic, clear-headed counsel rooted in Syrian family law — protecting your assets, your relationship with your children, and your future.",
+        overview: "Family law in Syria is governed by the Syrian Personal Status Law (Law No. 59 of 1953, as amended) and Islamic Sharia principles, applied by Personal Status Courts (محاكم الأحوال الشخصية). At CounselO Legal, we understand that family disputes are among the most sensitive legal matters our clients face. We provide strategic, clear-headed counsel rooted in Syrian family law — protecting your assets, your relationship with your children, and your future.",
         covers: ["Divorce Proceedings (Talaq & Khul')", "Child Custody Disputes (Syrian Personal Status Courts)", "Alimony & Nafaqa Claims", "Inheritance Division (Syrian Sharia Courts)", "Prenuptial & Marriage Contract Disputes"],
         process: [
           { title: "Initial Consultation", desc: "A confidential review of your situation under Syrian Personal Status Law — identifying your rights and the strongest legal position." },
@@ -158,7 +158,7 @@ export const enSyr: typeof en = {
       "business-law": {
         title: "Commercial Law",
         subtitle: "Strategic legal representation under the Syrian Commercial Code.",
-        overview: "Syrian commercial review covers sales, supply, agency arrangements and business claims. Trade Law 33/2007 is a legislative starting point; the contract, transaction date, parties and special legislation must be checked before choosing the applicable rule or forum. CounselO provides structured legal analysis and practical guidance within the agreed scope.",
+        overview: "Syrian commercial review covers sales, supply, agency arrangements and business claims. Trade Law 33/2007 is a legislative starting point; the contract, transaction date, parties and special legislation must be checked before choosing the applicable rule or forum. CounselO Legal provides structured legal analysis and practical guidance within the agreed scope.",
         covers: ["Commercial Contract Disputes", "Shareholder & Partner Conflicts", "Company Formation under Syrian Law", "Commercial Agency Disputes", "Corporate Governance & Compliance"],
         process: [
           { title: "Commercial Assessment", desc: "We analyse your dispute or transaction under Syrian commercial law — identifying your strongest legal position and the most effective forum." },
@@ -170,7 +170,7 @@ export const enSyr: typeof en = {
       "real-estate": {
         title: "Property Law",
         subtitle: "Securing and protecting property rights in the Syrian Real Estate Register.",
-        overview: "Syrian real estate law — governed by the Ottoman Land Code as amended by Syrian legislation and administered through the Syrian Real Estate Register (السجل العقاري) and its Directorates — creates specific procedural requirements for all property transactions and disputes. At CounselO, we bring deep expertise in Syrian property law: from title registration and ownership disputes to contractor conflicts, landlord-tenant matters, and Real Estate Directorate proceedings. Expert advice via WhatsApp or email — professional response within 24 hours.",
+        overview: "Syrian real estate law — governed by the Ottoman Land Code as amended by Syrian legislation and administered through the Syrian Real Estate Register (السجل العقاري) and its Directorates — creates specific procedural requirements for all property transactions and disputes. At CounselO Legal, we bring deep expertise in Syrian property law: from title registration and ownership disputes to contractor conflicts, landlord-tenant matters, and Real Estate Directorate proceedings. Expert advice via WhatsApp or email — professional response within 24 hours.",
         covers: ["Title Registration & Ownership Disputes (Syrian Real Estate Register)", "Landlord-Tenant Disputes", "Construction Contractor Disputes", "Pre-emption Rights (حق الشفعة) under Syrian Civil Code", "Property Transfer & Registration Procedures"],
         process: [
           { title: "Property Due Diligence", desc: "We verify title through the Real Estate Directorate, check for encumbrances and adverse registrations, and assess ownership legitimacy." },
@@ -182,7 +182,7 @@ export const enSyr: typeof en = {
       "employment-law": {
         title: "Employment Law",
         subtitle: "Protecting employees and employers under Syrian Labour Law No. 17/2010.",
-        overview: "Syrian Labour Law No. 17 of 2010 governs all employment relationships in Syria — setting minimum standards for wages, working hours, termination procedures, and end-of-service indemnity. The Social Insurance Authority (هيئة التأمينات الاجتماعية) administers social security, and Labour Courts (محاكم العمل) resolve employment disputes. At CounselO, we represent both employees and employers across all Syrian employment law matters — from wrongful termination claims to social insurance disputes and workplace discrimination. Online consultation via WhatsApp or email — response within 24 hours.",
+        overview: "Syrian Labour Law No. 17 of 2010 governs all employment relationships in Syria — setting minimum standards for wages, working hours, termination procedures, and end-of-service indemnity. The Social Insurance Authority (هيئة التأمينات الاجتماعية) administers social security, and Labour Courts (محاكم العمل) resolve employment disputes. At CounselO Legal, we represent both employees and employers across all Syrian employment law matters — from wrongful termination claims to social insurance disputes and workplace discrimination. Online consultation via WhatsApp or email — response within 24 hours.",
         covers: ["Wrongful Termination Claims", "End-of-Service Indemnity Disputes", "Syrian Labour Court Representation", "Social Insurance Authority Disputes", "Workplace Discrimination & Harassment Claims"],
         process: [
           { title: "Employment Assessment", desc: "We review your employment contract, termination circumstances, and entitlements under Syrian Labour Law No. 17/2010." },
@@ -194,7 +194,7 @@ export const enSyr: typeof en = {
       "foreign-investment": {
         title: "Foreign Investment & Business Law",
         subtitle: "Guiding foreign investors through Syria's investment legal framework under Investment Law No. 18/2021.",
-        overview: "Investment planning in Syria requires checking Investment Law No. 18 of 2021 as amended, including Decree No. 114 of 2025 and the applicable implementing instructions. Foreign investors in Syria must navigate sector restrictions, registration requirements, and an evolving regulatory environment. CounselO has advised investors entering the Syrian market for 30+ years of legal practice, covering every stage from initial licensing through investment disputes, partner conflicts, and regulatory challenges. Our online consultation means specialist advice is available via WhatsApp or email within 24 hours.",
+        overview: "Investment planning in Syria requires checking Investment Law No. 18 of 2021 as amended, including Decree No. 114 of 2025 and the applicable implementing instructions. Foreign investors in Syria must navigate sector restrictions, registration requirements, and an evolving regulatory environment. CounselO Legal has advised investors entering the Syrian market for 30+ years of legal practice, covering every stage from initial licensing through investment disputes, partner conflicts, and regulatory challenges. Our online consultation means specialist advice is available via WhatsApp or email within 24 hours.",
         covers: ["Syrian Investment Authority Registration & Activity Approvals", "Foreign Company Formation (Syrian Companies Law No. 29/2011)", "Investment Disputes & Appeals", "Free Zone Entity Registration", "Joint Venture Agreements & Disputes"],
         process: [
           { title: "Investment Structure Assessment", desc: "Advising on the optimal legal structure for your Syria market entry — branch, subsidiary, or joint venture under Syrian law." },
@@ -206,7 +206,7 @@ export const enSyr: typeof en = {
       "administrative-law": {
         title: "Administrative Law",
         subtitle: "Challenging unlawful government decisions before Syria's State Council and administrative courts.",
-        overview: "Administrative law in Syria is administered by the State Council (مجلس الدولة) — Syria's dedicated administrative court system — comprising the Administrative Court of First Instance and the Supreme Administrative Court (High Administrative Court). When a Syrian government authority makes a decision that affects your rights — refusing a license, cancelling a contract, imposing a penalty, or taking an unlawful administrative action — CounselO has the specialist expertise to challenge it before the State Council. With 30+ years of legal practice in Syrian and regional administrative law, we provide decisive representation for individuals and businesses facing government authority.",
+        overview: "Administrative law in Syria is administered by the State Council (مجلس الدولة) — Syria's dedicated administrative court system — comprising the Administrative Court of First Instance and the Supreme Administrative Court (High Administrative Court). When a Syrian government authority makes a decision that affects your rights — refusing a license, cancelling a contract, imposing a penalty, or taking an unlawful administrative action — CounselO Legal has the specialist expertise to challenge it before the State Council. With 30+ years of legal practice in Syrian and regional administrative law, we provide decisive representation for individuals and businesses facing government authority.",
         covers: ["State Council (مجلس الدولة) Litigation", "Administrative Decision Appeals", "Government Contract Disputes", "Regulatory & Licensing Challenges", "Public Procurement Disputes", "Customs & Tax Authority Disputes"],
         process: [
           { title: "Administrative Decision Review", desc: "Analysing the challenged decision for legal errors, procedural irregularities, and grounds for challenge before the State Council." },
@@ -218,56 +218,56 @@ export const enSyr: typeof en = {
       "arbitration": {
         title: "Arbitration & Mediation",
         subtitle: "Expert representation in commercial arbitration and dispute resolution under Syrian Arbitration Law No. 4/2008.",
-        overview: "Syria's Arbitration Law No. 4 of 2008 provides a modern framework for commercial arbitration, and Syria ratified the New York Convention on Recognition and Enforcement of Foreign Arbitral Awards in 1959. The Damascus Chamber of Commerce operates an arbitration center for domestic commercial disputes. CounselO provides expert representation across all aspects of arbitration and dispute resolution in Syria: domestic commercial arbitration, international arbitration, mediation, award enforcement, and cross-border disputes. Online consultation available via WhatsApp or email within 24 hours.",
+        overview: "Syria's Arbitration Law No. 4 of 2008 provides a modern framework for commercial arbitration, and Syria ratified the New York Convention on Recognition and Enforcement of Foreign Arbitral Awards in 1959. The Damascus Chamber of Commerce operates an arbitration center for domestic commercial disputes. CounselO Legal provides expert representation across all aspects of arbitration and dispute resolution in Syria: domestic commercial arbitration, international arbitration, mediation, award enforcement, and cross-border disputes. Online consultation available via WhatsApp or email within 24 hours.",
         covers: ["Commercial Arbitration (Damascus Chamber of Commerce)", "International Arbitration (ICC, UNCITRAL)", "Syrian Arbitration Law No. 4/2008 Proceedings", "Arbitral Award Enforcement", "Mediation & Alternative Dispute Resolution"],
         process: en.serviceDetail.services["arbitration"].process,
       },
       "enforcement": {
         title: "Enforcement & Debt Collection",
         subtitle: "Specialist enforcement lawyers enforcing court judgments and collecting commercial debts under Syrian civil procedure.",
-        overview: "Enforcing a Syrian court judgment or arbitral award requires specialist knowledge of the Syrian Code of Civil Procedure and the procedural requirements of the competent enforcement court. At CounselO, we bring 30+ years of legal practice — converting favorable judgments into real recovery through asset attachment, bank account garnishment, real estate enforcement, and all available enforcement tools under Syrian law. Online consultation via WhatsApp or email within 24 hours.",
+        overview: "Enforcing a Syrian court judgment or arbitral award requires specialist knowledge of the Syrian Code of Civil Procedure and the procedural requirements of the competent enforcement court. At CounselO Legal, we bring 30+ years of legal practice — converting favorable judgments into real recovery through asset attachment, bank account garnishment, real estate enforcement, and all available enforcement tools under Syrian law. Online consultation via WhatsApp or email within 24 hours.",
         covers: en.serviceDetail.services["enforcement"].covers,
         process: en.serviceDetail.services["enforcement"].process,
       },
       "contracts": {
         title: "Contracts",
         subtitle: "Expert contract lawyers for drafting, disputes, and enforcement under the Syrian Civil Code.",
-        overview: "Syria's contract law is primarily governed by the Syrian Civil Code (Legislative Decree No. 84 of 1949) — a comprehensive code based on French civil law tradition and Egyptian civil law — supplemented by the Syrian Commercial Code for commercial contracts. At CounselO, our contracts practice covers the full lifecycle: from drafting and negotiation through to dispute resolution, specific performance, and enforcement before Syrian courts. With 30+ years of legal practice and 20,000+ legal matters and consultations, CounselO's contracts team provides decisive guidance for individuals and businesses across Syria.",
+        overview: "Syria's contract law is primarily governed by the Syrian Civil Code (Legislative Decree No. 84 of 1949) — a comprehensive code based on French civil law tradition and Egyptian civil law — supplemented by the Syrian Commercial Code for commercial contracts. At CounselO Legal, our contracts practice covers the full lifecycle: from drafting and negotiation through to dispute resolution, specific performance, and enforcement before Syrian courts. With 30+ years of legal practice and 20,000+ legal matters and consultations, CounselO Legal's contracts team provides decisive guidance for individuals and businesses across Syria.",
         covers: ["Commercial Contract Drafting & Review", "Contract Disputes & Breach of Contract Claims (Syrian Civil Code Art. 148+)", "Government & Public Procurement Contracts", "Real Estate Contracts", "Employment & Labour Contracts", "Partnership & Joint Venture Agreements", "International & Cross-Border Contracts"],
         process: en.serviceDetail.services["contracts"].process,
       },
       "companies-law": {
         title: "Companies Law & Corporate Disputes",
         subtitle: "Specialist legal representation under Syrian Companies Law No. 29/2011.",
-        overview: "Syrian Companies Law No. 29 of 2011 governs all aspects of corporate life in Syria — from formation and governance through capital structure, dissolution, and liability. Companies are registered with the Ministry of Economy and Foreign Trade and the Commercial Register. CounselO's companies law practice covers the full spectrum of corporate disputes and corporate needs under Syrian law — providing decisive representation for shareholders, partners, directors, and companies. Online specialist advice via WhatsApp or email within 24 hours.",
+        overview: "Syrian Companies Law No. 29 of 2011 governs all aspects of corporate life in Syria — from formation and governance through capital structure, dissolution, and liability. Companies are registered with the Ministry of Economy and Foreign Trade and the Commercial Register. CounselO Legal's companies law practice covers the full spectrum of corporate disputes and corporate needs under Syrian law — providing decisive representation for shareholders, partners, directors, and companies. Online specialist advice via WhatsApp or email within 24 hours.",
         covers: ["Partner & Shareholder Disputes", "Director Liability", "Company Formation & Dissolution under Syrian Law", "Capital Disputes", "Shareholder Agreement Disputes", "Family Company Conflicts"],
         process: en.serviceDetail.services["companies-law"].process,
       },
       "criminal-law": {
         title: "Criminal Law",
         subtitle: "Expert criminal defense lawyers representing individuals and businesses before Syrian courts — from investigation through the Court of Cassation.",
-        overview: "Syria's criminal justice system is governed by the Syrian Penal Code (Legislative Decree No. 148 of 1949) and the Code of Criminal Procedure (Legislative Decree No. 112 of 1950). Criminal proceedings in Syria move through the Public Prosecution (النيابة العامة) to trial courts — the Court of First Instance for felonies and misdemeanors, the Court of Appeal, and the Court of Cassation (محكمة النقض) for final appeals. At CounselO, our criminal defense practice covers the full spectrum: from investigation-stage representation and bail applications through criminal trials and Court of Cassation appeals. With 30+ years of legal practice, we provide decisive, urgent defense.",
+        overview: "Syria's criminal justice system is governed by the Syrian Penal Code (Legislative Decree No. 148 of 1949) and the Code of Criminal Procedure (Legislative Decree No. 112 of 1950). Criminal proceedings in Syria move through the Public Prosecution (النيابة العامة) to trial courts — the Court of First Instance for felonies and misdemeanors, the Court of Appeal, and the Court of Cassation (محكمة النقض) for final appeals. At CounselO Legal, our criminal defense practice covers the full spectrum: from investigation-stage representation and bail applications through criminal trials and Court of Cassation appeals. With 30+ years of legal practice, we provide decisive, urgent defense.",
         covers: ["Criminal Defense in Syrian Courts", "Bail & Pre-trial Detention", "Criminal Appeals (Court of Appeal & Court of Cassation)", "Financial Crimes & Commercial Fraud Defense", "Cybercrime Defense (Law No. 20/2022 and applicable amendments)", "Drug Offense Cases", "Criminal Investigation Representation"],
         process: en.serviceDetail.services["criminal-law"].process,
       },
       "banking-finance": {
         title: "Banking & Finance Law",
         subtitle: "Specialist banking and finance lawyers advising on Syrian banking law, Central Bank of Syria regulations, and finance contract disputes.",
-        overview: "Syria's banking sector is regulated by the Central Bank of Syria (مصرف سوريا المركزي) under the Banking Law (Decree No. 28 of 2001). The sector comprises state-owned banks, private commercial banks, and Islamic banks operating under Law No. 35 of 2005. At CounselO, our banking and finance practice covers every aspect of Syrian financial law: from finance contract structuring and banking dispute resolution to regulatory compliance, Islamic banking, and financial fraud defense. We advise financial institutions, corporations, and individuals on all banking and finance legal matters in Syria.",
+        overview: "Syria's banking sector is regulated by the Central Bank of Syria (مصرف سوريا المركزي) under the Banking Law (Decree No. 28 of 2001). The sector comprises state-owned banks, private commercial banks, and Islamic banks operating under Law No. 35 of 2005. At CounselO Legal, our banking and finance practice covers every aspect of Syrian financial law: from finance contract structuring and banking dispute resolution to regulatory compliance, Islamic banking, and financial fraud defense. We advise financial institutions, corporations, and individuals on all banking and finance legal matters in Syria.",
         covers: ["Banking Dispute Resolution", "Finance Contract Drafting & Review", "Central Bank of Syria Regulatory Compliance", "Islamic Banking Disputes (Law No. 35/2005)", "Loan & Guarantee Agreement Disputes", "Banking Fraud Defense & Recovery"],
         process: en.serviceDetail.services["banking-finance"].process,
       },
       "intellectual-property": {
         title: "Intellectual Property",
         subtitle: "Expert IP lawyers protecting your trademarks, patents, and copyrights under Syrian intellectual property law.",
-        overview: "Syria's intellectual property framework is governed by the Industrial Property Protection Law No. 8 of 2007 (trademarks, patents, industrial designs) and the Copyright Law No. 12 of 2001. The Ministry of Economy and Foreign Trade administers IP registration. Syria is a member of WIPO and party to major international IP conventions. At CounselO, our IP practice covers the full spectrum: from trademark registration and patent protection through to copyright disputes, trade secret protection, and IP litigation before Syrian courts.",
+        overview: "Syria's intellectual property framework is governed by the Industrial Property Protection Law No. 8 of 2007 (trademarks, patents, industrial designs) and the Copyright Law No. 12 of 2001. The Ministry of Economy and Foreign Trade administers IP registration. Syria is a member of WIPO and party to major international IP conventions. At CounselO Legal, our IP practice covers the full spectrum: from trademark registration and patent protection through to copyright disputes, trade secret protection, and IP litigation before Syrian courts.",
         covers: ["Trademark Registration & Protection", "Patent Filing & Protection", "Copyright Ownership, Licensing & Infringement Disputes", "Trade Secret Protection", "IP Licensing Agreements", "Brand Protection & Anti-Counterfeiting"],
         process: en.serviceDetail.services["intellectual-property"].process,
       },
       "tax-zakat": {
         title: "Tax & Customs",
         subtitle: "Legal review of Syrian tax assessments, business records, customs issues and cross-border tax questions.",
-        overview: "A Syrian tax matter starts with the taxpayer, relevant period, transaction and the actual assessment or decision. CounselO reviews the records, stated legal basis and available response under the framework in force for that period. Foreign VAT or zakat exposure is assessed only where a separate jurisdictional connection exists; rules from Saudi Arabia or the UAE are not assumed to apply to a Syrian domestic transaction.",
+        overview: "A Syrian tax matter starts with the taxpayer, relevant period, transaction and the actual assessment or decision. CounselO Legal reviews the records, stated legal basis and available response under the framework in force for that period. Foreign VAT or zakat exposure is assessed only where a separate jurisdictional connection exists; rules from Saudi Arabia or the UAE are not assumed to apply to a Syrian domestic transaction.",
         covers: ["Tax Assessment Review", "Business Tax Records & Compliance Questions", "Tax Penalty Objections", "Customs Valuation & Duty Disputes", "Tax Clauses in Commercial Contracts", "Foreign Tax Exposure on Cross-Border Transactions"],
         process: [
           { title: "Identify the tax question", desc: "Confirm the taxpayer, period, transaction, issuing authority and decision being reviewed." },
@@ -279,28 +279,28 @@ export const enSyr: typeof en = {
       "cyber-law": {
         title: "Cyber & IT Law",
         subtitle: "Expert cybercrime lawyers defending individuals and businesses under Syrian Cybercrime Law Law No. 20/2022 and applicable amendments.",
-        overview: "A Syrian cybercrime assessment starts with the date and nature of the alleged conduct, the applicable version of Law No. 20 of 2022 and any relevant amendments, and the available digital evidence. At CounselO, our cyber and IT law practice covers the full spectrum: cybercrime defense under Law No. 20/2022 and applicable amendments, online fraud cases, IT contract disputes, and digital evidence handling. Online consultations available via WhatsApp or email — essential when cybercrime investigations move fast.",
+        overview: "A Syrian cybercrime assessment starts with the date and nature of the alleged conduct, the applicable version of Law No. 20 of 2022 and any relevant amendments, and the available digital evidence. At CounselO Legal, our cyber and IT law practice covers the full spectrum: cybercrime defense under Law No. 20/2022 and applicable amendments, online fraud cases, IT contract disputes, and digital evidence handling. Online consultations available via WhatsApp or email — essential when cybercrime investigations move fast.",
         covers: ["Cybercrime Defense (Law No. 20/2022 and applicable amendments)", "Online Fraud & Digital Theft Cases", "Hacking & Unauthorized Access Defense", "Online Defamation Cases", "E-Commerce Disputes", "IT & Technology Contract Disputes"],
         process: en.serviceDetail.services["cyber-law"].process,
       },
       "medical-malpractice": {
         title: "Medical Malpractice & Healthcare Law",
         subtitle: "Expert medical malpractice lawyers in Syria — securing compensation for victims of medical negligence and surgical errors.",
-        overview: "Medical malpractice liability in Syria is governed by the Syrian Civil Code's provisions on civil liability (Articles 164–175), professional liability principles, and the regulations of the Syrian Medical Association. Claims are pursued before Syrian civil courts as professional negligence claims. At CounselO, we represent patients, families, and healthcare providers in all categories of medical malpractice disputes — including negligence claims, surgical errors, misdiagnosis, pharmaceutical liability, and dental malpractice. Online consultation available via WhatsApp or email.",
+        overview: "Medical malpractice liability in Syria is governed by the Syrian Civil Code's provisions on civil liability (Articles 164–175), professional liability principles, and the regulations of the Syrian Medical Association. Claims are pursued before Syrian civil courts as professional negligence claims. At CounselO Legal, we represent patients, families, and healthcare providers in all categories of medical malpractice disputes — including negligence claims, surgical errors, misdiagnosis, pharmaceutical liability, and dental malpractice. Online consultation available via WhatsApp or email.",
         covers: ["Medical Negligence Claims & Compensation", "Surgical Error & Anaesthesia Claims", "Misdiagnosis & Diagnostic Error Cases", "Pharmaceutical Liability"],
         process: en.serviceDetail.services["medical-malpractice"].process,
       },
       "insurance-law": {
         title: "Insurance Law",
         subtitle: "Specialist insurance dispute lawyers in Syria — challenging wrongful claim rejections and recovering insurance proceeds.",
-        overview: "Syria's insurance sector is governed by Insurance Law No. 68 of 2001 and supervised by the Insurance Supervisory Authority (هيئة الإشراف على التأمين) under the Ministry of Economy and Foreign Trade. When insurers wrongfully reject or underpay valid claims — whether for health, property, motor, life, or commercial insurance — policyholders have the right to challenge those decisions. At CounselO, we represent policyholders, beneficiaries, and insured parties in all categories of insurance dispute in Syria. Online consultation via WhatsApp or email.",
+        overview: "Syria's insurance sector is governed by Insurance Law No. 68 of 2001 and supervised by the Insurance Supervisory Authority (هيئة الإشراف على التأمين) under the Ministry of Economy and Foreign Trade. When insurers wrongfully reject or underpay valid claims — whether for health, property, motor, life, or commercial insurance — policyholders have the right to challenge those decisions. At CounselO Legal, we represent policyholders, beneficiaries, and insured parties in all categories of insurance dispute in Syria. Online consultation via WhatsApp or email.",
         covers: ["Health Insurance Claim Disputes", "Property & Home Insurance Claims", "Motor Insurance Disputes", "Life Insurance & Beneficiary Claims", "Commercial Insurance Disputes", "Insurance Policy Interpretation"],
         process: en.serviceDetail.services["insurance-law"].process,
       },
       "civil-law": {
         title: "Civil Law",
         subtitle: "Expert legal advice on Syrian Civil Code No. 84/1949 — covering civil liability, real rights, obligations, inheritance, and legal capacity.",
-        overview: "The Syrian Civil Code No. 84/1949 governs civil relationships between individuals — including tort liability, real rights, civil obligations, inheritance, and legal capacity. CounselO provides comprehensive civil law advice for individuals, businesses, and investors across Syria.",
+        overview: "The Syrian Civil Code No. 84/1949 governs civil relationships between individuals — including tort liability, real rights, civil obligations, inheritance, and legal capacity. CounselO Legal provides comprehensive civil law advice for individuals, businesses, and investors across Syria.",
         covers: ["Civil Liability & Damages", "Real Rights & Ownership", "Civil Obligations & Contracts", "Inheritance & Wills", "Neighbor Disputes & Easements", "Legal Capacity & Civil Status"],
         process: [
           { title: "Initial consultation", desc: "Review your civil law matter under Syrian law and identify your rights and best course of action." },
@@ -312,7 +312,7 @@ export const enSyr: typeof en = {
       "civil-procedure": {
         title: "Civil Procedure",
         subtitle: "Expert guidance on Syrian civil court proceedings under Legislative Decree No. 84/1953.",
-        overview: "Legislative Decree No. 84/1953 (Syrian Civil Procedure Code) governs civil court proceedings in Syria — from filing claims and interim measures through evidence, appeal, cassation, and enforcement of foreign judgments. CounselO provides procedural guidance to ensure your case proceeds correctly.",
+        overview: "Legislative Decree No. 84/1953 (Syrian Civil Procedure Code) governs civil court proceedings in Syria — from filing claims and interim measures through evidence, appeal, cassation, and enforcement of foreign judgments. CounselO Legal provides procedural guidance to ensure your case proceeds correctly.",
         covers: ["Filing a Civil Claim", "Interim & Provisional Measures", "Evidence & Proof", "Civil Appeals", "Civil Cassation", "Foreign Judgment Enforcement"],
         process: [
           { title: "Procedural assessment", desc: "Identify the correct court and procedure under the Syrian Civil Procedure Code." },
@@ -324,10 +324,10 @@ export const enSyr: typeof en = {
       "criminal-procedure": {
         title: "Criminal Procedure",
         subtitle: "Expert criminal defense at every stage of Syrian criminal proceedings under Legislative Decree No. 112/1950.",
-        overview: "Legislative Decree No. 112/1950 (Syrian Criminal Procedure Code) governs criminal proceedings in Syria — from investigation through trial, appeal, cassation, and civil action. CounselO provides comprehensive criminal defense at every stage of Syrian criminal proceedings.",
+        overview: "Legislative Decree No. 112/1950 (Syrian Criminal Procedure Code) governs criminal proceedings in Syria — from investigation through trial, appeal, cassation, and civil action. CounselO Legal provides comprehensive criminal defense at every stage of Syrian criminal proceedings.",
         covers: ["Preliminary Investigation Defense", "Detention & Bail", "Criminal Trial & Defense", "Criminal Appeal", "Criminal Cassation", "Civil Action in Criminal Proceedings"],
         process: [
-          { title: "Immediate intervention", desc: "Contact CounselO upon summons or detention — we respond 24/7." },
+          { title: "Immediate intervention", desc: "Contact CounselO Legal upon summons or detention — we respond 24/7." },
           { title: "Case assessment and strategy", desc: "Review the charges and build the defense strategy from day one." },
           { title: "Trial representation", desc: "Full defense representation before Syrian criminal courts at all stages." },
           { title: "Appeal if necessary", desc: "File appeal or cassation immediately after any adverse judgment." },
@@ -828,19 +828,19 @@ export const enSyr: typeof en = {
       { stat: "20", label: "Practice Areas" },
       { stat: "40+", label: "Lawyers Mentored" },
     ],
-    seoTitle: "About CounselO — Syria's Specialized Online Legal Consultation Platform",
-    seoDesc: "CounselO provides online legal consultation for Syrian matters in Arabic and English, founded and led by Lawyer Omar Al-Baghdadi, whose professional practice began in 1996.",
-    seoKeywords: "about CounselO, online legal platform Syria, lawyer Omar Al-Baghdadi, specialized legal platform Syria, online legal consultation Syria, Syrian law expert",
+    seoTitle: "About CounselO Legal — Syria's Specialized Online Legal Consultation Platform",
+    seoDesc: "CounselO Legal provides online legal consultation for Syrian matters in Arabic and English, founded and led by Lawyer Omar Al-Baghdadi, whose professional practice began in 1996.",
+    seoKeywords: "about CounselO Legal, online legal platform Syria, lawyer Omar Al-Baghdadi, specialized legal platform Syria, online legal consultation Syria, Syrian law expert",
     hero: {
       ...en.aboutPage.hero,
-      badge: "Syria's Specialized Online Legal Consultation Platform · CounselO",
+      badge: "Syria's Specialized Online Legal Consultation Platform · CounselO Legal",
       heading: "Syria's Specialized Online Legal Consultation Platform",
-      subheading: "CounselO provides online consultation, document review and written legal guidance for Syrian matters in Arabic and English, with scope and fees agreed before work begins.",
+      subheading: "CounselO Legal provides online consultation, document review and written legal guidance for Syrian matters in Arabic and English, with scope and fees agreed before work begins.",
     },
     mission: {
       eyebrow: "Our Mission",
       heading: "Democratising Legal Access in Syria",
-      p1: "CounselO provides online legal consultation, document review and written legal guidance for individuals, businesses and investors with matters involving Syria. Send the facts, documents and any deadline through WhatsApp or email so we can assess the request and confirm the service scope and fee.",
+      p1: "CounselO Legal provides online legal consultation, document review and written legal guidance for individuals, businesses and investors with matters involving Syria. Send the facts, documents and any deadline through WhatsApp or email so we can assess the request and confirm the service scope and fee.",
       p2: "Requests can be submitted at any time in Arabic or English. Submission does not mean a lawyer is available continuously or that advice is immediate. Response timing depends on the matter, urgency, completeness of information and service availability; we confirm the expected delivery time when agreeing the work.",
       p3: "The online service covers review of facts and documents, legal analysis and practical next steps. Court filing, representation, notarisation and other work requiring local authority are separately agreed with the appropriately authorised professional; they are not included automatically in an online consultation.",
       vision2030Badge: "Online consultation for Syrian matters",
@@ -848,19 +848,19 @@ export const enSyr: typeof en = {
     },
     founder: {
       ...en.aboutPage.founder,
-      subheading: "Damascus University Law Graduate (1996) · CounselO Founder",
-      bio4: "Omar has trained or supervised more than 40 lawyers. At CounselO, his role includes professional direction, review of legal analysis and coordination of matters requiring jurisdiction-specific support.",
+      subheading: "Damascus University Law Graduate (1996) · CounselO Legal Founder",
+      bio4: "Omar has trained or supervised more than 40 lawyers. At CounselO Legal, his role includes professional direction, review of legal analysis and coordination of matters requiring jurisdiction-specific support.",
     },
     why: {
-      eyebrow: "Why CounselO",
-      heading: "The CounselO Difference",
+      eyebrow: "Why CounselO Legal",
+      heading: "The CounselO Legal Difference",
       points: [
         { title: "Access to Justice", desc: "Individuals, businesses and investors can request online consultation in Arabic or English for Syrian matters. We confirm the scope, documents needed and availability before accepting the work." },
       ],
     },
     cta: {
       eyebrow: "Discuss Your Legal Matter",
-      heading: "Consult CounselO — Syria's Specialized Online Legal Consultation Platform",
+      heading: "Consult CounselO Legal — Syria's Specialized Online Legal Consultation Platform",
       desc: "Send your question, relevant documents and any deadline through WhatsApp or email. We review the request and explain the consultation scope, fee and expected timing before work begins.",
       ctaBtn: "Start Your Consultation",
       learnMoreBtn: "View All Services",
@@ -869,8 +869,8 @@ export const enSyr: typeof en = {
       ...en.aboutPage.office,
       eyebrow: "Physical Presence",
       heading: "Cooperating Law Offices in Syria",
-      p1: "CounselO provides online legal consultation services, document analysis, and remote legal opinion preparation — enabling clients across all of Syria to access professional legal services without the need for in-person attendance.",
-      p2: "Where a case requires court representation, appearances before courts or competent authorities, or document notarization and procedures requiring physical presence, CounselO works through its licensed legal partners in Syria to handle judicial representation proceedings before Syrian courts and government authorities.",
+      p1: "CounselO Legal provides online legal consultation services, document analysis, and remote legal opinion preparation — enabling clients across all of Syria to access professional legal services without the need for in-person attendance.",
+      p2: "Where a case requires court representation, appearances before courts or competent authorities, or document notarization and procedures requiring physical presence, CounselO Legal works through its licensed legal partners in Syria to handle judicial representation proceedings before Syrian courts and government authorities.",
       city: "Syria",
       region: "Syria",
       partnerName: "Al-Baghdadi Law Firm",

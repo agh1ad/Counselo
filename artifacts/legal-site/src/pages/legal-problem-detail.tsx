@@ -73,7 +73,7 @@ export default function LegalProblemDetail() {
   const sources: LegalSource[] = [...new Map([...(directAnswer?.sources ?? []), ...getRegionalLegalSources(region, id), ...sourceGuidance.flatMap(item => item.sources)].map(source => [source.href, source])).values()];
   const relatedProblems = getRelatedLegalProblemPages(page);
   const consultationPackage = getConsultationProduct("comprehensive-consultation");
-  const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو، أحتاج إلى مراجعة بخصوص: ${page.titleAr}.` : `Hello CounselO, I need a review regarding: ${page.titleEn}.`)}`;
+  const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو للاستشارات القانونية، أحتاج إلى مراجعة بخصوص: ${page.titleAr}.` : `Hello CounselO Legal, I need a review regarding: ${page.titleEn}.`)}`;
 
   return (
     <div className="counselo-editorial-page service-brief-page w-full bg-background min-h-screen" id="main-content">
@@ -184,7 +184,7 @@ export default function LegalProblemDetail() {
             <Link href={`${regionPrefix}/about`} className="font-serif text-xl text-[#0d4a31] hover:underline">
               {isRTL ? "المحامي عمر البغدادي" : "Lawyer Omar Al-Baghdadi"}
             </Link>
-            <p className="text-sm text-muted-foreground">{isRTL ? "المحامي والمستشار القانوني مؤسس كاونسلو" : "Lawyer, Legal Counsel and founder of CounselO"}</p>
+            <p className="text-sm text-muted-foreground">{isRTL ? "المحامي والمستشار القانوني مؤسس كاونسلو للاستشارات القانونية" : "Lawyer, Legal Counsel and founder of CounselO Legal"}</p>
           </div>
           <div className="border-s-2 border-[#d5ae5d] ps-4">
             <p className="font-serif text-2xl text-[#0d4a31]">30+</p>
@@ -200,7 +200,7 @@ export default function LegalProblemDetail() {
           </div>
         </div>
         <p className="premium-content-shell border-t border-[#0d4a31]/10 py-4 text-sm leading-6 text-muted-foreground">
-          {isRTL ? "يقود كاونسلو المحامي والمستشار القانوني عمر البغدادي. تُراجع كل مسألة وفق وقائعها واختصاصها، لا بإجابة عامة واحدة." : "CounselO is led by Lawyer and Legal Counsel Omar Al-Baghdadi. Each matter is reviewed against its facts and jurisdiction, not a one-size-fits-all answer."}
+          {isRTL ? "يقود كاونسلو للاستشارات القانونية المحامي والمستشار القانوني عمر البغدادي. تُراجع كل مسألة وفق وقائعها واختصاصها، لا بإجابة عامة واحدة." : "CounselO Legal is led by Lawyer and Legal Counsel Omar Al-Baghdadi. Each matter is reviewed against its facts and jurisdiction, not a one-size-fits-all answer."}
         </p>
         <ExperienceMethodologyNote isArabic={isRTL} className="premium-content-shell pb-4 text-xs leading-5 text-muted-foreground" />
       </section>
@@ -275,7 +275,7 @@ export default function LegalProblemDetail() {
 
         <section id="problem-deliverables" className="scroll-mt-36">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary">{isRTL ? "مخرج هذه المسألة" : "Matter-specific output"}</p>
-          <h2 className="font-serif text-3xl lg:text-4xl mb-3">{isRTL ? `ماذا تقدم كاونسلو في مسألة ${page.titleAr}؟` : `What CounselO delivers for ${page.titleEn.toLowerCase()}`}</h2>
+          <h2 className="font-serif text-3xl lg:text-4xl mb-3">{isRTL ? `ماذا تقدم كاونسلو للاستشارات القانونية في مسألة ${page.titleAr}؟` : `What CounselO Legal delivers for ${page.titleEn.toLowerCase()}`}</h2>
           <p className="mb-7 max-w-4xl leading-7 text-muted-foreground">{isRTL ? "المخرج ليس شرحاً عاماً للخدمة؛ بل مراجعة مركزة للمشكلة التي أرسلتها والنتيجة التي تريد الوصول إليها." : "The deliverable is not a general explanation of the service. It is a focused review of the problem you submit and the outcome you need."}</p>
           <div className="grid md:grid-cols-2 gap-5">
             {(isRTL ? page.deliverables.ar : page.deliverables.en).map((item, index) => (
@@ -373,7 +373,7 @@ export default function LegalProblemDetail() {
         <section id="problem-contact" className="service-content-band scroll-mt-36 bg-[#0d4a31] p-7 text-white lg:p-10" aria-labelledby="problem-contact-heading">
           <h2 id="problem-contact-heading" className="font-serif text-3xl mb-4">{isRTL ? "ابدأ مراجعة مسألتك" : "Start a review of your matter"}</h2>
           <p className="leading-7 max-w-3xl opacity-90">
-            {isRTL ? "أرسل الوقائع والمستندات الأساسية عبر واتساب أو البريد الإلكتروني. تؤكد كاونسلو النطاق والرسوم والمخرج قبل بدء العمل المدفوع." : "Send the key facts and documents through WhatsApp, email or the consultation form. CounselO confirms scope, fee and deliverable before paid work begins."}
+            {isRTL ? "أرسل الوقائع والمستندات الأساسية عبر واتساب أو البريد الإلكتروني. تؤكد كاونسلو للاستشارات القانونية النطاق والرسوم والمخرج قبل بدء العمل المدفوع." : "Send the key facts and documents through WhatsApp, email or the consultation form. CounselO Legal confirms scope, fee and deliverable before paid work begins."}
           </p>
           <div className="mt-7 border border-white/20 bg-white/5 p-5">
             <h3 className="font-semibold">{isRTL ? "للحصول على رد أولي أكثر فائدة، أرسل:" : "For a more useful first response, send:"}</h3>

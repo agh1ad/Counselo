@@ -64,13 +64,13 @@ export default function LegalLibrary() {
 
   const ui = ar ? {
     title: "المكتبة القانونية: مقالات وأدلة ونماذج أعمال",
-    intro: "استكشف المقالات والإرشادات العملية ونماذج الأعمال المنشورة من كاونسلو بالعربية والإنجليزية. اختر السعودية أو سوريا أو الإمارات للوصول إلى الخدمات والمسائل ذات الصلة باختصاصك.",
+    intro: "استكشف المقالات والإرشادات العملية ونماذج الأعمال المنشورة من كاونسلو للاستشارات القانونية بالعربية والإنجليزية. اختر السعودية أو سوريا أو الإمارات للوصول إلى الخدمات والمسائل ذات الصلة باختصاصك.",
     browseArticles: "تصفح التحليلات القانونية",
     examineWork: "استعرض أعمالنا",
     articles: "المقالات والتحليلات القانونية",
     articlesText: "تحليل قانوني مستقل وإرشادات عملية حول التطورات المؤثرة في أعمالك والتزاماتك.",
     work: "نماذج من الأعمال القانونية",
-    workText: "نماذج منقحة من الاتفاقيات والمذكرات والمستندات التي أعدها فريق كاونسلو.",
+    workText: "نماذج منقحة من الاتفاقيات والمذكرات والمستندات التي أعدها فريق كاونسلو للاستشارات القانونية.",
     jurisdictions: "تصفح حسب الاختصاص",
     latestArticles: "أحدث التحليلات القانونية",
     selectedWork: "أعمال قانونية مختارة",
@@ -82,17 +82,17 @@ export default function LegalLibrary() {
     methodologyText: "توضح الموارد لغتها واختصاصها أو سياقها المهني، مع التمييز بين التأليف والتحديث التحريري والمراجعة المهنية المعلنة. ولا تُنشر أعمال العملاء إلا بعد تنقيحها وحماية الهوية.",
     principles: ["محتوى عربي وإنجليزي مستقل", "بيان التأليف والتحديث والمراجعة المعلنة", "أعمال منقحة مع حماية السرية"],
     ctaTitle: "هل تحتاج إلى تطبيق القانون على مسألتك؟",
-    ctaText: "استخدم المكتبة لفهم الموضوع، ثم تحدث مع كاونسلو حول الوقائع والنطاق والخطوة التالية.",
+    ctaText: "استخدم المكتبة لفهم الموضوع، ثم تحدث مع كاونسلو للاستشارات القانونية حول الوقائع والنطاق والخطوة التالية.",
     cta: "ابدأ استشارة",
   } : {
     title: "Legal library: articles, guides and work samples",
-    intro: "Explore CounselO's published articles, practical guidance and work examples in Arabic and English. Choose Saudi Arabia, Syria or the UAE to find services and legal questions relevant to your jurisdiction.",
+    intro: "Explore CounselO Legal's published articles, practical guidance and work examples in Arabic and English. Choose Saudi Arabia, Syria or the UAE to find services and legal questions relevant to your jurisdiction.",
     browseArticles: "Browse legal analysis",
     examineWork: "Examine our work",
     articles: "Legal Articles & Analysis",
     articlesText: "Independent legal analysis and practical guidance on developments that affect your business and obligations.",
     work: "Selected Legal Work",
-    workText: "Redacted examples of agreements, memoranda, notices, and documents prepared by CounselO.",
+    workText: "Redacted examples of agreements, memoranda, notices, and documents prepared by CounselO Legal.",
     jurisdictions: "Browse by jurisdiction",
     latestArticles: "Latest legal analysis",
     selectedWork: "Selected legal work",
@@ -104,7 +104,7 @@ export default function LegalLibrary() {
     methodologyText: "Resources identify their language and jurisdiction or professional context. Authorship, editorial updates and any stated professional review are shown separately. Client work is published only after redaction and identity protection.",
     principles: ["Independent Arabic and English content", "Authorship, updates and stated review", "Redacted work, confidentiality protected"],
     ctaTitle: "Need help applying the law to your matter?",
-    ctaText: "Use the library to understand the issue, then speak with CounselO about the facts, scope, and next step.",
+    ctaText: "Use the library to understand the issue, then speak with CounselO Legal about the facts, scope, and next step.",
     cta: "Start a consultation",
   };
 
@@ -123,7 +123,7 @@ export default function LegalLibrary() {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       "@id": `https://counselo-legal.com${libraryPath}#webpage`,
-      name: ar ? "مكتبة كاونسلو القانونية" : "CounselO Legal Library",
+      name: ar ? "مكتبة كاونسلو للاستشارات القانونية" : "CounselO Legal Library",
       description: ui.intro,
       url: `https://counselo-legal.com${libraryPath}`,
       inLanguage: lang,
@@ -154,13 +154,13 @@ export default function LegalLibrary() {
   return (
     <div className="legal-library-page min-h-screen bg-white" dir={isRTL ? "rtl" : "ltr"}>
       <SEOHead
-        title={ar ? "مكتبة كاونسلو القانونية | مقالات ونماذج أعمال قانونية" : "CounselO Legal Library | Articles, Analysis & Work Samples"}
-        description={ar ? "استكشف مكتبة كاونسلو القانونية ثنائية اللغة: مقالات وتحليلات قانونية ونماذج أعمال منقحة تغطي السعودية وسوريا والإمارات." : "Explore the bilingual CounselO Legal Library: reviewed legal articles, practical analysis, and redacted work samples covering Saudi Arabia, Syria and the UAE."}
+        title={ar ? "مكتبة كاونسلو للاستشارات القانونية | مقالات ونماذج أعمال قانونية" : "CounselO Legal Library | Articles, Analysis & Work Samples"}
+        description={ar ? "استكشف مكتبة كاونسلو للاستشارات القانونية ثنائية اللغة: مقالات وتحليلات قانونية ونماذج أعمال منقحة تغطي السعودية وسوريا والإمارات." : "Explore the bilingual CounselO Legal Library: reviewed legal articles, practical analysis, and redacted work samples covering Saudi Arabia, Syria and the UAE."}
         canonical={libraryPath}
         noRegionPrefix
         sharedLanguageAlternates={{ en: "/legal-library", ar: "/ar/legal-library" }}
         contentLanguage={lang}
-        keywords={ar ? "مكتبة قانونية, مقالات قانونية, نماذج أعمال قانونية, أبحاث قانونية, كاونسلو" : "legal library, legal articles, legal research, redacted legal work samples, CounselO"}
+        keywords={ar ? "مكتبة قانونية, مقالات قانونية, نماذج أعمال قانونية, أبحاث قانونية, كاونسلو للاستشارات القانونية" : "legal library, legal articles, legal research, redacted legal work samples, CounselO Legal"}
         schema={schemas}
       />
 

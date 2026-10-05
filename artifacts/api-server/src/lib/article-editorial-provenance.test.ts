@@ -16,7 +16,7 @@ test("retains original author and separates publication for original and correct
     assert.equal(p.primaryAuthorNameAr, "البغدادي للمحاماة");
     assert.equal(p.primaryAuthorUrl, BAGHDADI_LAW_PROFILE_URL);
     assert.equal(p.primaryAuthorEntityId, BAGHDADI_LAW_CANONICAL_ENTITY_ID);
-    assert.match(p.contentMethodology, /CounselO publishes an editorially adapted version/);
+    assert.match(p.contentMethodology, /CounselO Legal publishes an editorially adapted version/);
   }
 });
 test("title and attribution are both required; unrelated articles keep their author", () => {
