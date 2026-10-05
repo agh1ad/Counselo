@@ -20,7 +20,7 @@ test("main service pages keep a five-choice scan-first hierarchy", () => {
 test("main service pages expose immediate contact paths and safe engagement boundaries", () => {
   assert.match(template, /data-conversion-position="service-hero"/);
   assert.match(template, /data-conversion-position="service-contact"/);
-  assert.match(template, /Contacting CounselO does not stop or extend a deadline/);
+  assert.match(template, /Contacting CounselO Legal does not stop or extend a deadline/);
   assert.match(template, /contacting us alone does not create a professional engagement/);
   assert.match(template, /without guaranteeing an outcome/);
 });

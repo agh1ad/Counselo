@@ -36,19 +36,19 @@ export default function PrivacyPolicy() {
 
   const content = {
     en: {
-      seoTitle: "Privacy Policy | How CounselO Protects Your Data | CounselO",
-      seoDesc: `CounselO's Privacy Policy for ${countryEn} — how we collect, use and protect personal data and confidential legal information for online consultations.`,
+      seoTitle: "Privacy Policy | How CounselO Legal Protects Your Data | CounselO Legal",
+      seoDesc: `CounselO Legal's Privacy Policy for ${countryEn} — how we collect, use and protect personal data and confidential legal information for online consultations.`,
       canonical: "/privacy-policy",
       eyebrow: "Data Protection & Privacy",
       heading: "Privacy Policy",
       subheading:
-        "CounselO is committed to protecting your privacy and the confidentiality of your legal information. This policy explains what data we collect, how we use it, and how information moves through our website and communication providers.",
+        "CounselO Legal is committed to protecting your privacy and the confidentiality of your legal information. This policy explains what data we collect, how we use it, and how information moves through our website and communication providers.",
       lastUpdated: "Last updated: 7 September 2026",
       sections: [
         {
           icon: Shield,
           title: "1. Who We Are",
-          content: `CounselO is an online legal consultation platform founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice. We provide professional legal consultation services for matters in ${countryEn} via WhatsApp and email, in Arabic and English.`,
+          content: `CounselO Legal is an online legal consultation platform founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice. We provide professional legal consultation services for matters in ${countryEn} via WhatsApp and email, in Arabic and English.`,
         },
         {
           icon: Database,
@@ -80,7 +80,7 @@ export default function PrivacyPolicy() {
         {
           icon: Lock,
           title: "4. Professional Legal Confidentiality",
-          content: `All information you share with CounselO is handled under applicable professional confidentiality and data-protection obligations for matters in ${countryEn}. This means:`,
+          content: `All information you share with CounselO Legal is handled under applicable professional confidentiality and data-protection obligations for matters in ${countryEn}. This means:`,
           list: [
             "We do not share your legal matter details, documents, or personal information without your consent, except where disclosure is required or permitted by applicable law",
             "Website requests and attachments are sent through our email provider, Resend, to the configured consultation recipients; you also receive a confirmation email",
@@ -96,7 +96,7 @@ export default function PrivacyPolicy() {
           list: [
             "WhatsApp messages are transmitted via Meta's encrypted infrastructure — please review WhatsApp's own privacy policy for information on their data practices",
             "Email communications may be subject to standard internet transmission risks — we recommend using secure email where possible for highly sensitive matters",
-            "Consultation content received by CounselO is handled confidentially under applicable professional, privacy and data-protection obligations, regardless of transmission method, subject to legally required or permitted disclosures",
+            "Consultation content received by CounselO Legal is handled confidentially under applicable professional, privacy and data-protection obligations, regardless of transmission method, subject to legally required or permitted disclosures",
             "We do not proactively contact you by WhatsApp or email for marketing purposes without your consent",
           ],
         },
@@ -184,7 +184,7 @@ export default function PrivacyPolicy() {
           list: [
             "The updated policy will be published on this page with a revised 'Last updated' date",
             "For material changes, we will notify active clients via email",
-            "Your continued use of CounselO's services after any update constitutes your acceptance of the revised policy",
+            "Your continued use of CounselO Legal's services after any update constitutes your acceptance of the revised policy",
           ],
         },
       ],
@@ -194,20 +194,20 @@ export default function PrivacyPolicy() {
       contactBtn: "Contact Us",
     },
     ar: {
-      seoTitle: "سياسة الخصوصية | كيف تحمي كاونسلو بياناتك | كاونسلو",
-      seoDesc: `سياسة خصوصية كاونسلو في ${countryAr} — كيفية جمع البيانات الشخصية والمعلومات القانونية السرية واستخدامها وحمايتها عند تقديم الاستشارات أونلاين.`,
+      seoTitle: "سياسة الخصوصية | كيف تحمي كاونسلو للاستشارات القانونية بياناتك | كاونسلو للاستشارات القانونية",
+      seoDesc: `سياسة خصوصية كاونسلو للاستشارات القانونية في ${countryAr} — كيفية جمع البيانات الشخصية والمعلومات القانونية السرية واستخدامها وحمايتها عند تقديم الاستشارات أونلاين.`,
       canonical: "/privacy-policy",
       eyebrow: "حماية البيانات والخصوصية",
       heading: "سياسة الخصوصية",
       subheading:
-        "تلتزم منصة كاونسلو بحماية خصوصيتك وسرية معلوماتك القانونية. توضّح هذه السياسة البيانات التي نجمعها وكيفية استخدامها وكيف تنتقل المعلومات عبر موقعنا ومزودي خدمات التواصل.",
+        "تلتزم منصة كاونسلو للاستشارات القانونية بحماية خصوصيتك وسرية معلوماتك القانونية. توضّح هذه السياسة البيانات التي نجمعها وكيفية استخدامها وكيف تنتقل المعلومات عبر موقعنا ومزودي خدمات التواصل.",
       lastUpdated: "آخر تحديث: 7 سبتمبر 2026",
       sections: [
         {
           icon: Shield,
           title: "١. من نحن",
           content:
-            "كاونسلو منصة للاستشارات القانونية الأونلاين، أسّسها ويقودها المحامي والمستشار القانوني عمر البغدادي بخبرة 30+ عاماً من الممارسة القانونية. نقدّم خدمات الاستشارة القانونية المهنية عبر واتساب والبريد الإلكتروني بالعربية والإنجليزية.",
+            "كاونسلو للاستشارات القانونية منصة للاستشارات القانونية الأونلاين، أسّسها ويقودها المحامي والمستشار القانوني عمر البغدادي بخبرة 30+ عاماً من الممارسة القانونية. نقدّم خدمات الاستشارة القانونية المهنية عبر واتساب والبريد الإلكتروني بالعربية والإنجليزية.",
         },
         {
           icon: Database,
@@ -237,7 +237,7 @@ export default function PrivacyPolicy() {
         {
           icon: Lock,
           title: "٤. السرية المهنية القانونية",
-          content: `تُعامل جميع المعلومات التي تشاركها مع كاونسلو وفق التزامات السرية المهنية وحماية البيانات المنطبقة على المسائل في ${countryAr}. ويعني ذلك:`,
+          content: `تُعامل جميع المعلومات التي تشاركها مع كاونسلو للاستشارات القانونية وفق التزامات السرية المهنية وحماية البيانات المنطبقة على المسائل في ${countryAr}. ويعني ذلك:`,
           list: [
             "لا نُفصح عن تفاصيل مسألتك القانونية أو مستنداتك أو معلوماتك الشخصية دون موافقتك، إلا إذا كان الإفصاح مطلوباً أو مسموحاً به بموجب القانون المنطبق",
             "تُرسل طلبات الموقع ومرفقاتها عبر مزود البريد Resend إلى مستلمي طلبات الاستشارة المعينين، ويُرسل إليك أيضاً بريد لتأكيد الاستلام",
@@ -253,7 +253,7 @@ export default function PrivacyPolicy() {
           list: [
             "تُنقَل رسائل واتساب عبر البنية التحتية المشفرة لـ Meta — يُرجى الاطّلاع على سياسة خصوصية واتساب للتعرف على ممارساتهم في معالجة البيانات",
             "قد تخضع مراسلات البريد الإلكتروني لمخاطر النقل الإلكتروني المعتادة عبر الإنترنت — ننصح باستخدام بريد إلكتروني آمن للمسائل بالغة الحساسية",
-            "تُعامل محتويات الاستشارة التي يتلقّاها كاونسلو بسرية وفق الالتزامات المهنية وواجبات الخصوصية وحماية البيانات المنطبقة، بصرف النظر عن أسلوب الإرسال، مع مراعاة الإفصاحات التي يوجبها القانون أو يسمح بها",
+            "تُعامل محتويات الاستشارة التي يتلقّاها كاونسلو للاستشارات القانونية بسرية وفق الالتزامات المهنية وواجبات الخصوصية وحماية البيانات المنطبقة، بصرف النظر عن أسلوب الإرسال، مع مراعاة الإفصاحات التي يوجبها القانون أو يسمح بها",
             "لا نتواصل معك عبر واتساب أو البريد الإلكتروني لأغراض تسويقية دون موافقتك المسبقة",
           ],
         },
@@ -341,7 +341,7 @@ export default function PrivacyPolicy() {
           list: [
             "تُنشر السياسة المحدَّثة على هذه الصفحة مع تاريخ 'آخر تحديث' مراجَع",
             "بالنسبة للتغييرات الجوهرية، نُبلّغ العملاء الفاعلين عبر البريد الإلكتروني",
-            "يُعدّ استمرار استخدامك لخدمات كاونسلو بعد أي تحديث قبولاً للسياسة المعدَّلة",
+            "يُعدّ استمرار استخدامك لخدمات كاونسلو للاستشارات القانونية بعد أي تحديث قبولاً للسياسة المعدَّلة",
           ],
         },
       ],
@@ -361,25 +361,25 @@ export default function PrivacyPolicy() {
         canonical="/privacy-policy"
         keywords={isUae
           ? (isRTL
-            ? "سياسة الخصوصية كاونسلو الإمارات, حماية البيانات الشخصية الإمارات, قانون حماية البيانات الإماراتي, سرية الاستشارة القانونية"
-            : "CounselO UAE privacy policy, UAE personal data protection law, legal consultation confidentiality UAE, UAE data privacy")
+            ? "سياسة الخصوصية كاونسلو للاستشارات القانونية الإمارات, حماية البيانات الشخصية الإمارات, قانون حماية البيانات الإماراتي, سرية الاستشارة القانونية"
+            : "CounselO Legal UAE privacy policy, UAE personal data protection law, legal consultation confidentiality UAE, UAE data privacy")
           : region === "syr"
           ? (isRTL
-            ? "سياسة الخصوصية كاونسلو, حماية البيانات الشخصية سوريا, سرية الاستشارة القانونية, حماية البيانات السورية, خصوصية المستخدم سوريا"
-            : "CounselO privacy policy, data protection Syria, legal consultation confidentiality Syria, Syrian data protection law, client data privacy Syria")
+            ? "سياسة الخصوصية كاونسلو للاستشارات القانونية, حماية البيانات الشخصية سوريا, سرية الاستشارة القانونية, حماية البيانات السورية, خصوصية المستخدم سوريا"
+            : "CounselO Legal privacy policy, data protection Syria, legal consultation confidentiality Syria, Syrian data protection law, client data privacy Syria")
           : (isRTL
-            ? "سياسة الخصوصية كاونسلو, حماية البيانات الشخصية السعودية, سرية الاستشارة القانونية, نظام PDPL السعودي, خصوصية المستخدم"
-            : "CounselO privacy policy, data protection Saudi Arabia, legal consultation confidentiality, PDPL Saudi Arabia, client data privacy")}
+            ? "سياسة الخصوصية كاونسلو للاستشارات القانونية, حماية البيانات الشخصية السعودية, سرية الاستشارة القانونية, نظام PDPL السعودي, خصوصية المستخدم"
+            : "CounselO Legal privacy policy, data protection Saudi Arabia, legal consultation confidentiality, PDPL Saudi Arabia, client data privacy")}
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
             "dateModified": "2026-09-07",
             "@id": `${pageUrl}#webpage`,
-            "name": isRTL ? "سياسة الخصوصية — كاونسلو" : "Privacy Policy — CounselO",
+            "name": isRTL ? "سياسة الخصوصية — كاونسلو للاستشارات القانونية" : "Privacy Policy — CounselO Legal",
             "description": content.seoDesc,
             "url": pageUrl,
-            "isPartOf": { "@type": "WebSite", "name": "CounselO", "url": "https://counselo-legal.com" },
+            "isPartOf": { "@type": "WebSite", "name": "CounselO Legal", "url": "https://counselo-legal.com" },
             "inLanguage": languageCode,
             "about": { "@id": "https://counselo-legal.com/#organization" },
           },

@@ -71,7 +71,7 @@ test("persistent cache keys are deterministic and do not expose URLs", () => {
   const first = publicResponseObjectName(key, release);
   const second = publicResponseObjectName(key, release);
   assert.equal(first, second);
-  assert.match(first, /^counselo\/public-response-cache\/v2\/[a-f0-9]{64}\/[a-f0-9]{64}\.json$/);
+  assert.match(first, /^counselo\/public-response-cache\/v2-brand\/[a-f0-9]{64}\/[a-f0-9]{64}\.json$/);
   assert.notEqual(first, publicResponseObjectName(key, "b".repeat(64)));
   assert.doesNotMatch(first, /confidential|source=test/);
 });
@@ -138,10 +138,10 @@ test("API and HTML never read prior deployment entries, retain process hits and 
     await request(second, "/api/blog/posts", apiBody, "MISS");
     await request(second, "/blog/en/article", pageBody, "MISS");
     assert.equal(reads.length, 4, "process cache avoids repeat persistent reads");
-    assert.ok(reads.every(name => name.includes(`/v2/${firstVersion}/`) || name.includes(`/v2/${nextVersion}/`)), "v1 and prior deployment entries are never read");
+    assert.ok(reads.every(name => name.includes(`/v2-brand/${firstVersion}/`) || name.includes(`/v2-brand/${nextVersion}/`)), "v1 and prior deployment entries are never read");
     apiBody = "published API"; pageBody = "published HTML";
     await invalidatePublicResponseCache(nextVersion);
-    assert.deepEqual(lists, Array(2).fill(`counselo/public-response-cache/v2/${nextVersion}/`));
+    assert.deepEqual(lists, Array(2).fill(`counselo/public-response-cache/v2-brand/${nextVersion}/`));
     await request(second, "/api/blog/posts", apiBody, "MISS");
     await request(second, "/blog/en/article", pageBody, "MISS");
     assert.ok(stored.has(publicResponseObjectName("api:GET:/api/blog/posts", firstVersion)), "publication removes the active namespace without relying on old releases");

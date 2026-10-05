@@ -109,7 +109,7 @@ function scorePage(file: string): PageScore | null {
   if (title.includes(country)) queryRelevance += 5;
   if (language === "ar" ? /استشارة|قانونية|أونلاين/.test(title) : /consultation|legal|online/i.test(`${title} ${description}`)) queryRelevance += 5;
   if ([...title].length >= 30 && [...title].length <= 70) queryRelevance += 4;
-  if (language === "ar" ? /كاونسلو/.test(title) : /CounselO/.test(title)) queryRelevance += 3;
+  if (language === "ar" ? /كاونسلو للاستشارات القانونية/.test(title) : /CounselO/.test(title)) queryRelevance += 3;
 
   let serpAppeal = 0;
   const descriptionLength = [...description].length;
@@ -194,7 +194,7 @@ const report = {
 
 fs.writeFileSync(path.join(DIST, "click-readiness-report.json"), `${JSON.stringify(report, null, 2)}\n`);
 fs.writeFileSync(path.join(DIST, "click-readiness-report.md"), [
-  "# CounselO Bilingual Click Readiness",
+  "# CounselO Legal Bilingual Click Readiness",
   "",
   `Generated: ${report.generatedAt}`,
   "",

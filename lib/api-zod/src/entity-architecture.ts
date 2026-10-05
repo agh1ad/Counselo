@@ -17,8 +17,8 @@ export const COUNSELO_ENTITY_IDS = {
 export const COUNSELO_ORGANIZATION = {
   "@type": "Organization",
   "@id": COUNSELO_ENTITY_IDS.organization,
-  name: "CounselO",
-  alternateName: "كاونسلو",
+  name: "CounselO Legal",
+  alternateName: ["كاونسلو للاستشارات القانونية", "CounselO", "كاونسلو"],
   description: COUNSELO_PLATFORM_POSITIONING.descriptionEn,
   url: ENTITY_BASE_URL,
   logo: { "@type": "ImageObject", url: `${ENTITY_BASE_URL}/logo.png`, width: 512, height: 512 },
@@ -37,8 +37,8 @@ export const COUNSELO_ORGANIZATION = {
 export const COUNSELO_WEBSITE = {
   "@type": "WebSite",
   "@id": COUNSELO_ENTITY_IDS.website,
-  name: "CounselO",
-  alternateName: "كاونسلو",
+  name: "CounselO Legal",
+  alternateName: ["كاونسلو للاستشارات القانونية", "CounselO", "كاونسلو"],
   url: ENTITY_BASE_URL,
   publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
   inLanguage: ["en", "ar"],
@@ -97,7 +97,7 @@ export function regionalServiceEntity(region: keyof typeof REGION_NAMES, slug: s
   return {
     "@type": "Service",
     "@id": `${ENTITY_BASE_URL}/#${region}-service-${slug}`,
-    name: `${name} — ${lang === "ar" ? "كاونسلو" : "CounselO"}`,
+    name: `${name} — ${lang === "ar" ? "كاونسلو للاستشارات القانونية" : "CounselO Legal"}`,
     description,
     url: `${ENTITY_BASE_URL}/${region}${lang === "ar" ? "/ar" : ""}/services/${slug}`,
     areaServed: { "@type": "Country", name: REGION_NAMES[region] },

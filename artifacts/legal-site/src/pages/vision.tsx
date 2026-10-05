@@ -25,15 +25,15 @@ type EcosystemItem = { title: string; description: string; icon: LucideIcon };
 
 const copy = {
   ar: {
-    seoTitle: "رؤيتنا لمنصة قانونية رقمية موثوقة | كاونسلو",
+    seoTitle: "رؤيتنا لمنصة قانونية رقمية موثوقة | كاونسلو للاستشارات القانونية",
     seoDescription:
-      "تعرّف على رؤية كاونسلو ورسالتها وقيمها لبناء مرجع قانوني رقمي عربي موثوق يجمع الخبرة القانونية والتقنية والسرية المهنية.",
+      "تعرّف على رؤية كاونسلو للاستشارات القانونية ورسالتها وقيمها لبناء مرجع قانوني رقمي عربي موثوق يجمع الخبرة القانونية والتقنية والسرية المهنية.",
     seoKeywords:
-      "رؤية كاونسلو, منصة قانونية رقمية, مرجع قانوني عربي, خدمات قانونية إلكترونية, استشارات قانونية موثوقة, عمر رياض بغدادي",
+      "رؤية كاونسلو للاستشارات القانونية, منصة قانونية رقمية, مرجع قانوني عربي, خدمات قانونية إلكترونية, استشارات قانونية موثوقة, عمر رياض بغدادي",
     eyebrow: "رؤيتنا",
-    title: "رؤية كاونسلو ومنهج الاستشارات القانونية",
+    title: "رؤية كاونسلو للاستشارات القانونية ومنهج الاستشارات القانونية",
     lead:
-      "توضح هذه الصفحة كيف تقدم كاونسلو الاستشارات القانونية أونلاين: تحديد الدولة ونوع المسألة، مراجعة الوقائع والمستندات، ثم بيان الخيارات ونطاق العمل قبل البدء.",
+      "توضح هذه الصفحة كيف تقدم كاونسلو للاستشارات القانونية الاستشارات القانونية أونلاين: تحديد الدولة ونوع المسألة، مراجعة الوقائع والمستندات، ثم بيان الخيارات ونطاق العمل قبل البدء.",
     intro:
       "تجمع المنصة الاستشارات والمقالات القانونية ونماذج الأعمال في مكان واحد، مع بيان صاحب المحتوى وسياقه والتمييز بين المعلومات العامة والمشورة بشأن حالة محددة.",
     trust: [
@@ -41,7 +41,7 @@ const copy = {
       { stat: "رقمي", label: "وصول يتجاوز الحدود" },
       { stat: "عربي · English", label: "دعم قانوني متعدد اللغات" },
     ],
-    whyEyebrow: "لماذا أُنشئت كاونسلو؟",
+    whyEyebrow: "لماذا أُنشئت كاونسلو للاستشارات القانونية؟",
     whyTitle: "خبرة عملية تستجيب لتحديات قانونية حقيقية",
     whyBody:
       `على مدار ${COUNSELO_LEGAL_PRACTICE_CLAIM.ar}، شهدنا العديد من التحديات التي تواجه طالبي الخدمات القانونية، ومن أبرزها صعوبة الوصول إلى المعلومة الموثوقة، واختلاف مستوى الخدمات، وطول الإجراءات، وضعف الاستفادة من التقنيات الحديثة.`,
@@ -56,7 +56,7 @@ const copy = {
     visionLabel: "رؤيتنا",
     visionTitle: "مرجع قانوني رقمي موثوق للعالم العربي",
     visionBody:
-      "أن تصبح كاونسلو مرجعاً قانونياً رقمياً موثوقاً للعالم العربي، ومنصة تجمع بين المعرفة القانونية المتخصصة والخدمات المهنية، بمعايير واضحة للجودة والسرية المهنية وفق الالتزامات الواجبة التطبيق.",
+      "أن تصبح كاونسلو للاستشارات القانونية مرجعاً قانونياً رقمياً موثوقاً للعالم العربي، ومنصة تجمع بين المعرفة القانونية المتخصصة والخدمات المهنية، بمعايير واضحة للجودة والسرية المهنية وفق الالتزامات الواجبة التطبيق.",
     missionLabel: "رسالتنا",
     missionTitle: "خبرة ودقة وتقنية، في خدمة قرار قانوني أفضل",
     missionBody:
@@ -75,7 +75,7 @@ const copy = {
       { title: "احترام العميل", description: "تواصل واضح، ووقت مقدّر، وتجربة إنسانية.", icon: UserRoundCheck },
       { title: "المسؤولية المهنية", description: "التزام واعٍ بأثر كل رأي وإجراء قانوني.", icon: ShieldCheck },
     ] as ValueItem[],
-    ecosystemEyebrow: "ما الذي يميز كاونسلو؟",
+    ecosystemEyebrow: "ما الذي يميز كاونسلو للاستشارات القانونية؟",
     ecosystemTitle: "ليست مجرد منصة لحجز استشارة قانونية",
     ecosystemBody:
       "بل منظومة قانونية رقمية تضم خدمات وموارد متكاملة للأفراد والشركات.",
@@ -93,14 +93,14 @@ const copy = {
       "قوة المحامي لا تُقاس فقط بقدرته على كسب القضايا، بل بقدرته على بناء الثقة، وتقديم المعرفة، وإيجاد الحلول قبل نشوء النزاعات.",
     founderParagraphs: [
       `على مدار ${COUNSELO_LEGAL_PRACTICE_CLAIM.ar}، ترسخت لديّ قناعة بأن الخدمة القانونية الحقيقية تبدأ بالفهم والثقة، لا بالإجراء وحده.`,
-      "واليوم تمثل كاونسلو امتداداً لهذه القناعة؛ مشروعاً يسخّر الخبرة القانونية والتقنية لخدمة الأفراد والشركات، ويضع الجودة والموثوقية معياراً أول لكل ما يقدمه.",
+      "واليوم تمثل كاونسلو للاستشارات القانونية امتداداً لهذه القناعة؛ مشروعاً يسخّر الخبرة القانونية والتقنية لخدمة الأفراد والشركات، ويضع الجودة والموثوقية معياراً أول لكل ما يقدمه.",
       "لا تتمثل رؤيتي في إنشاء منصة تقدم خدمات قانونية فحسب، بل في بناء مرجع قانوني رقمي يضيف قيمة حقيقية للمجتمع القانوني، ويجعل الوصول إلى المعرفة والخدمة الاحترافية أكثر سهولة وكفاءة.",
     ],
     founderName: "عمر رياض بغدادي",
     founderRole: "المحامي والمستشار القانوني · المؤسس",
-    founderImageAlt: "المحامي والمستشار القانوني عمر رياض بغدادي، مؤسس كاونسلو",
+    founderImageAlt: "المحامي والمستشار القانوني عمر رياض بغدادي، مؤسس كاونسلو للاستشارات القانونية",
     ctaEyebrow: "معرفة أوضح. قرار أكثر ثقة.",
-    ctaTitle: "ابدأ خطوتك القانونية مع كاونسلو",
+    ctaTitle: "ابدأ خطوتك القانونية مع كاونسلو للاستشارات القانونية",
     ctaBody:
       "شارك الوقائع والمستندات المتاحة. تُعامل المعلومات وفق التزامات السرية المهنية والخصوصية وحماية البيانات الواجبة التطبيق، ويؤكد الفريق نطاق المراجعة قبل بدء العمل.",
     ctaPrimary: "ابدأ استشارة",
@@ -109,15 +109,15 @@ const copy = {
     pageName: "رؤيتنا",
   },
   en: {
-    seoTitle: "Our Vision for Trusted Digital Legal Services | CounselO",
+    seoTitle: "Our Vision for Trusted Digital Legal Services | CounselO Legal",
     seoDescription:
-      "Discover CounselO's vision, mission and values: building a trusted Arab digital legal reference grounded in experience, technology and confidentiality.",
+      "Discover CounselO Legal's vision, mission and values: building a trusted Arab digital legal reference grounded in experience, technology and confidentiality.",
     seoKeywords:
-      "CounselO vision, digital legal platform, Arab legal reference, online legal services, trusted legal consultation, Omar Al-Baghdadi",
+      "CounselO Legal vision, digital legal platform, Arab legal reference, online legal services, trusted legal consultation, Omar Al-Baghdadi",
     eyebrow: "Our Vision",
-    title: "CounselO’s vision and approach to legal advice",
+    title: "CounselO Legal’s vision and approach to legal advice",
     lead:
-      "This page explains how CounselO provides online legal consultations: identify the country and issue, review the facts and documents, then explain the options and agree the scope of work.",
+      "This page explains how CounselO Legal provides online legal consultations: identify the country and issue, review the facts and documents, then explain the options and agree the scope of work.",
     intro:
       "The platform brings together legal consultations, articles and work samples. Each resource identifies its author and context, and distinguishes general information from advice on an individual case.",
     trust: [
@@ -125,7 +125,7 @@ const copy = {
       { stat: "Digital", label: "Access beyond borders" },
       { stat: "Arabic · English", label: "Multilingual legal support" },
     ],
-    whyEyebrow: "Why CounselO was created",
+    whyEyebrow: "Why CounselO Legal was created",
     whyTitle: "Practical experience responding to real legal challenges",
     whyBody:
       "Over more than thirty years of legal practice, we have witnessed many of the challenges facing those seeking legal services. Among the most prominent are difficulty accessing reliable information, variations in service quality, lengthy procedures, and the limited use of modern technology.",
@@ -140,7 +140,7 @@ const copy = {
     visionLabel: "Our vision",
     visionTitle: "A trusted digital legal reference for the Arab world",
     visionBody:
-      "For CounselO to become a trusted digital legal reference for the Arab world: a platform combining specialized legal knowledge and professional services with clear quality standards and confidentiality under applicable obligations.",
+      "For CounselO Legal to become a trusted digital legal reference for the Arab world: a platform combining specialized legal knowledge and professional services with clear quality standards and confidentiality under applicable obligations.",
     missionLabel: "Our mission",
     missionTitle: "Experience, precision, and technology for better legal decisions",
     missionBody:
@@ -159,7 +159,7 @@ const copy = {
       { title: "Respect for clients", description: "Clear communication, valued time, and a human experience.", icon: UserRoundCheck },
       { title: "Professional responsibility", description: "Careful ownership of every legal opinion and action.", icon: ShieldCheck },
     ] as ValueItem[],
-    ecosystemEyebrow: "What makes CounselO different",
+    ecosystemEyebrow: "What makes CounselO Legal different",
     ecosystemTitle: "Not merely a platform for booking legal consultations",
     ecosystemBody:
       "It is an integrated digital legal ecosystem offering services and resources for individuals and businesses.",
@@ -177,14 +177,14 @@ const copy = {
       "A lawyer's strength is measured not only by the ability to win cases, but by the ability to build trust, share knowledge, and find solutions before disputes arise.",
     founderParagraphs: [
       "When I began my legal career more than thirty years ago, I came to believe that meaningful legal service starts with understanding and trust—not procedure alone.",
-      "Today, CounselO extends that conviction: a project that puts legal experience and technology to work for individuals and businesses, with quality and reliability as the first measure of everything it provides.",
+      "Today, CounselO Legal extends that conviction: a project that puts legal experience and technology to work for individuals and businesses, with quality and reliability as the first measure of everything it provides.",
       "My vision is not simply to create another legal-services platform. It is to build a digital legal reference that brings real value to the legal community and makes professional knowledge and service easier and more efficient to access.",
     ],
     founderName: "Omar Al-Baghdadi",
     founderRole: "Lawyer & Legal Counsel · Founder",
-    founderImageAlt: "Lawyer and Legal Counsel Omar Al-Baghdadi, founder of CounselO",
+    founderImageAlt: "Lawyer and Legal Counsel Omar Al-Baghdadi, founder of CounselO Legal",
     ctaEyebrow: "Clearer knowledge. More confident decisions.",
-    ctaTitle: "Take your next legal step with CounselO",
+    ctaTitle: "Take your next legal step with CounselO Legal",
     ctaBody:
       "Share the facts and available documents. Information is handled under applicable professional-confidentiality, privacy and data-protection obligations, and the team confirms the review scope before work begins.",
     ctaPrimary: "Start a consultation",
@@ -204,11 +204,11 @@ export default function Vision() {
       ? (isRTL ? "سوريا" : "Syria")
       : (isRTL ? "السعودية" : "Saudi Arabia");
   const seoTitle = isRTL
-    ? `رؤية كاونسلو للخدمات القانونية في ${regionName} | كاونسلو`
-    : `Vision for Legal Services in ${regionName} | CounselO`;
+    ? `رؤية كاونسلو للاستشارات القانونية للخدمات القانونية في ${regionName} | كاونسلو للاستشارات القانونية`
+    : `Vision for Legal Services in ${regionName} | CounselO Legal`;
   const seoDescription = isRTL
-    ? `تعرّف على رؤية كاونسلو ورسالتها وقيمها للخدمات القانونية الرقمية في ${regionName}، مع الخبرة والتقنية والسرية المهنية.`
-    : `Discover CounselO's vision, mission and values for digital legal services in ${regionName}, grounded in experience, technology and confidentiality.`;
+    ? `تعرّف على رؤية كاونسلو للاستشارات القانونية ورسالتها وقيمها للخدمات القانونية الرقمية في ${regionName}، مع الخبرة والتقنية والسرية المهنية.`
+    : `Discover CounselO Legal's vision, mission and values for digital legal services in ${regionName}, grounded in experience, technology and confidentiality.`;
   const languageCode = isRTL
     ? region === "uae"
       ? "ar-AE"
@@ -235,7 +235,7 @@ export default function Vision() {
       isPartOf: {
         "@type": "WebSite",
         "@id": COUNSELO_ENTITY_IDS.website,
-        name: "CounselO",
+        name: "CounselO Legal",
         url: "https://counselo-legal.com/",
       },
       about: { "@id": COUNSELO_ENTITY_IDS.organization },

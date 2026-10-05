@@ -1,29 +1,29 @@
 export const homepageContent = {
   en: {
-    title: "CounselO | Online Legal Consultation — Saudi Arabia, Syria & UAE",
+    title: "CounselO Legal | Online Legal Consultation — Saudi Arabia, Syria & UAE",
     description:
       "Online legal consultation and document review for Saudi Arabia, Syria and the UAE, in Arabic and English. Agree the scope and fee before paid work begins.",
     nav: ["About", "Our services", "Jurisdictions", "Our process", "Contact"],
     h1: "Online Legal Consultation for Saudi Arabia, Syria & the UAE",
     heroSummary: "Understand your legal options, review a document or plan your next step. Receive written guidance in Arabic or English, with the scope, fee and timing agreed before paid work begins.",
     intro:
-      "CounselO is a bilingual online legal consultation platform founded and led by Lawyer Omar Al-Baghdadi, providing jurisdiction-specific legal consultation, document review and legal guidance in Arabic and English for matters involving Saudi Arabia, Syria and the United Arab Emirates.",
+      "CounselO Legal is a bilingual online legal consultation platform founded and led by Lawyer Omar Al-Baghdadi, providing jurisdiction-specific legal consultation, document review and legal guidance in Arabic and English for matters involving Saudi Arabia, Syria and the United Arab Emirates.",
     primary: "Start a legal consultation",
     secondary: "Explore our services",
     picker: "Which country does your matter concern?",
     pickerNote:
       "Choose the relevant legal jurisdiction, even if you live elsewhere.",
     enter: "Explore services",
-    about: "What is CounselO?",
+    about: "What is CounselO Legal?",
     aboutText:
-      "CounselO brings consultation, document review and written legal guidance into one online process. Share the essential facts, agree on the scope, and receive an assessment of your options, risks and practical next steps.",
+      "CounselO Legal brings consultation, document review and written legal guidance into one online process. Share the essential facts, agree on the scope, and receive an assessment of your options, risks and practical next steps.",
     aboutNote:
       "The applicable country and legal framework shape the advice. A consultation does not automatically include court representation or filing.",
-    founder: "Who is behind CounselO?",
+    founder: "Who is behind CounselO Legal?",
     founderName: "Omar Al-Baghdadi",
     founderRole: "Founder · Lawyer and legal counsel",
     founderText:
-      "Lawyer and legal counsel Omar Al-Baghdadi founded CounselO to make professional legal consultation accessible online. His professional profile explains his background and experience; CounselO is the digital consultation platform, while Al-Baghdadi Law Firm is the distinct legal practice within the professional network.",
+      "Lawyer and legal counsel Omar Al-Baghdadi founded CounselO Legal to make professional legal consultation accessible online. His professional profile explains his background and experience; CounselO Legal is the digital consultation platform, while Al-Baghdadi Law Firm is the distinct legal practice within the professional network.",
     profile: "Read Omar’s professional profile",
     firm: "Meet Al-Baghdadi Law Firm",
     experience: "How we describe experience",
@@ -58,9 +58,9 @@ export const homepageContent = {
         "Any further work, follow-up or coordination with a licensed professional is agreed separately unless already included.",
       ],
     ],
-    why: "Why choose CounselO?",
+    why: "Why choose CounselO Legal?",
     whyIntro:
-      "Choose a service whose process fits your needs. CounselO is designed for people who want a clear written assessment, country-specific scope and an accessible way to discuss their matter.",
+      "Choose a service whose process fits your needs. CounselO Legal is designed for people who want a clear written assessment, country-specific scope and an accessible way to discuss their matter.",
     reasons: [
       [
         "Know who is behind the platform",
@@ -99,7 +99,7 @@ export const homepageContent = {
         "You can request a review of a defined contract or document set for a matter involving Saudi Arabia, Syria or the UAE. We first agree which documents, issues and legal framework are covered. The review identifies risks, gaps and recommended amendments or responses; drafting or negotiation requires an agreed scope.",
       ],
       [
-        "Can I use CounselO from another country?",
+        "Can I use CounselO Legal from another country?",
         "You can contact us online from abroad about a matter involving Saudi Arabia, Syria or the UAE. We first confirm the relevant jurisdiction and whether the requested work is within scope.",
       ],
       [
@@ -130,34 +130,34 @@ export const homepageContent = {
       "Sending a request does not by itself confirm an engagement. Scope, fees and timing are agreed before paid work begins.",
     privacy: "Privacy policy",
     terms: "Terms of service",
-    rights: "CounselO. All rights reserved.",
+    rights: "CounselO Legal. All rights reserved.",
     skip: "Skip to main content",
   },
   ar: {
-    title: "كاونسلو | استشارات قانونية إلكترونية للسعودية وسوريا والإمارات",
+    title: "كاونسلو للاستشارات القانونية | استشارات قانونية إلكترونية للسعودية وسوريا والإمارات",
     description:
       "استشارات قانونية إلكترونية ومراجعة مستندات لمسائل السعودية وسوريا والإمارات، بالعربية والإنجليزية. اتفق على نطاق الخدمة والرسوم قبل بدء العمل المدفوع.",
-    nav: ["عن كاونسلو", "خدماتنا", "الاختصاصات", "آلية العمل", "تواصل معنا"],
+    nav: ["عن كاونسلو للاستشارات القانونية", "خدماتنا", "الاختصاصات", "آلية العمل", "تواصل معنا"],
     h1: "استشارات قانونية إلكترونية للسعودية وسوريا والإمارات",
     heroSummary: "افهم خياراتك القانونية، أو راجع مستنداً، أو حدد خطوتك التالية. احصل على إرشاد مكتوب بالعربية أو الإنجليزية، بعد الاتفاق على نطاق الخدمة والرسوم والوقت قبل بدء العمل المدفوع.",
     intro:
-      "كاونسلو منصة استشارات قانونية إلكترونية بالعربية والإنجليزية، أسسها ويقودها المحامي عمر البغدادي، وتقدم استشارات قانونية ومراجعة مستندات وإرشاداً قانونياً يراعي الاختصاص القانوني للمسائل المرتبطة بالسعودية وسوريا والإمارات العربية المتحدة.",
+      "كاونسلو للاستشارات القانونية منصة استشارات قانونية إلكترونية بالعربية والإنجليزية، أسسها ويقودها المحامي عمر البغدادي، وتقدم استشارات قانونية ومراجعة مستندات وإرشاداً قانونياً يراعي الاختصاص القانوني للمسائل المرتبطة بالسعودية وسوريا والإمارات العربية المتحدة.",
     primary: "ابدأ استشارتك القانونية",
     secondary: "تعرّف على خدماتنا",
     picker: "بأي دولة ترتبط مسألتك؟",
     pickerNote:
       "اختر الاختصاص القانوني المرتبط بمسألتك، حتى لو كنت تقيم في دولة أخرى.",
     enter: "استكشف الخدمات",
-    about: "ما هي كاونسلو؟",
+    about: "ما هي كاونسلو للاستشارات القانونية؟",
     aboutText:
-      "تجمع كاونسلو الاستشارة ومراجعة المستندات والإرشاد القانوني المكتوب في مسار إلكتروني واحد. شارك الوقائع الأساسية، واتفق معنا على نطاق العمل، لتحصل على تقييم للخيارات والمخاطر والخطوات العملية التالية.",
+      "تجمع كاونسلو للاستشارات القانونية الاستشارة ومراجعة المستندات والإرشاد القانوني المكتوب في مسار إلكتروني واحد. شارك الوقائع الأساسية، واتفق معنا على نطاق العمل، لتحصل على تقييم للخيارات والمخاطر والخطوات العملية التالية.",
     aboutNote:
       "تتحدد المشورة بحسب الدولة والإطار القانوني المنطبق. ولا تشمل الاستشارة تلقائياً التمثيل أمام المحاكم أو تقديم الطلبات والدعاوى.",
-    founder: "من يقف وراء كاونسلو؟",
+    founder: "من يقف وراء كاونسلو للاستشارات القانونية؟",
     founderName: "عمر البغدادي",
     founderRole: "المؤسس · محامٍ ومستشار قانوني",
     founderText:
-      "أسس المحامي والمستشار القانوني عمر البغدادي كاونسلو لإتاحة الاستشارة القانونية المهنية عبر الإنترنت. يوضح ملفه المهني خلفيته وخبرته؛ وكاونسلو هي منصة الاستشارات الرقمية، بينما مكتب البغدادي للمحاماة هو الكيان المهني المستقل ضمن هذه الشبكة المهنية.",
+      "أسس المحامي والمستشار القانوني عمر البغدادي كاونسلو للاستشارات القانونية لإتاحة الاستشارة القانونية المهنية عبر الإنترنت. يوضح ملفه المهني خلفيته وخبرته؛ وكاونسلو للاستشارات القانونية هي منصة الاستشارات الرقمية، بينما مكتب البغدادي للمحاماة هو الكيان المهني المستقل ضمن هذه الشبكة المهنية.",
     profile: "تعرّف على الملف المهني لعمر البغدادي",
     firm: "تعرّف على مكتب البغدادي للمحاماة",
     experience: "كيف نعرض الخبرة المهنية",
@@ -196,9 +196,9 @@ export const homepageContent = {
         "يُتفق بشكل منفصل على أي عمل إضافي أو متابعة أو تنسيق مع مهني مرخص، ما لم يكن مشمولاً بالنطاق الأصلي.",
       ],
     ],
-    why: "لماذا تختار كاونسلو؟",
+    why: "لماذا تختار كاونسلو للاستشارات القانونية؟",
     whyIntro:
-      "اختر الخدمة التي تناسب احتياجك وطريقة عملك. صُممت كاونسلو لمن يريد تقييماً مكتوباً واضحاً ونطاقاً يراعي قانون الدولة ووسيلة ميسرة لمناقشة مسألته.",
+      "اختر الخدمة التي تناسب احتياجك وطريقة عملك. صُممت كاونسلو للاستشارات القانونية لمن يريد تقييماً مكتوباً واضحاً ونطاقاً يراعي قانون الدولة ووسيلة ميسرة لمناقشة مسألته.",
     reasons: [
       [
         "تعرف من يقف وراء المنصة",
@@ -237,7 +237,7 @@ export const homepageContent = {
         "يمكنك طلب مراجعة عقد أو مجموعة مستندات محددة لمسألة مرتبطة بالسعودية أو سوريا أو الإمارات. نتفق أولاً على المستندات والمسائل والإطار القانوني المشمول بالمراجعة. وتحدد المراجعة المخاطر والثغرات وتوصيات التعديل أو الرد؛ أما الصياغة أو التفاوض فيلزمان نطاقاً متفقاً عليه.",
       ],
       [
-        "هل يمكنني الاستفادة من كاونسلو من خارج هذه الدول؟",
+        "هل يمكنني الاستفادة من كاونسلو للاستشارات القانونية من خارج هذه الدول؟",
         "يمكنك التواصل معنا من الخارج بشأن مسألة مرتبطة بالسعودية أو سوريا أو الإمارات. نؤكد أولاً الاختصاص المعني وما إذا كان العمل المطلوب يدخل ضمن نطاق الخدمة.",
       ],
       [
@@ -268,7 +268,7 @@ export const homepageContent = {
       "إرسال الطلب لا يؤكد التكليف بحد ذاته. يُتفق على نطاق العمل والرسوم والوقت قبل بدء العمل المدفوع.",
     privacy: "سياسة الخصوصية",
     terms: "شروط الاستخدام",
-    rights: "كاونسلو. جميع الحقوق محفوظة.",
+    rights: "كاونسلو للاستشارات القانونية. جميع الحقوق محفوظة.",
     skip: "انتقل إلى المحتوى الرئيسي",
   },
 } as const;

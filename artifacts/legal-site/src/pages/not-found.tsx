@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <div className="counselo-editorial-page utility-page min-h-screen w-full flex items-center justify-center bg-background">
       <Helmet>
-        <title>404 — Page Not Found | CounselO</title>
+        <title>404 — Page Not Found | CounselO Legal</title>
         <meta name="robots" content="noindex, nofollow" />
         <meta name="description" content="The page you are looking for could not be found." />
       </Helmet>

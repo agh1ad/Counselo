@@ -17,8 +17,8 @@ export const ARTICLE_WORK_EVIDENCE: Readonly<Record<string, { slug: string; en: 
   },
   "hmayh-alamyl-mn-mswdh-alaqd-ala-altwqya": {
     slug: "mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh",
-    en: "Read CounselO’s published commercial contract review example",
-    ar: "اقرأ نموذج كاونسلو المنشور لمراجعة العقود التجارية",
+    en: "Read CounselO Legal’s published commercial contract review example",
+    ar: "اقرأ نموذج كاونسلو للاستشارات القانونية المنشور لمراجعة العقود التجارية",
   },
 };
 

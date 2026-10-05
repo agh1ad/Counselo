@@ -25,3 +25,4 @@ export * from "./legal-updates";
 export * from "./legal-updates-discovery.js";
 
 export * from "./legal-updates-sources.js";
+export * from "./brand";

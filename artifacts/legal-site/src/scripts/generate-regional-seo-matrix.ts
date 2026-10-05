@@ -8,7 +8,7 @@ writeFileSync(
   output,
   `${JSON.stringify({
     schemaVersion: 2,
-    purpose: "Canonical regional pages plus controlled long-tail keyword variants for live CounselO jurisdictions.",
+    purpose: "Canonical regional pages plus controlled long-tail keyword variants for live CounselO Legal jurisdictions.",
     policy: {
       indexOnlyWhen: "The page is jurisdiction-specific, materially useful, source-backed where law or procedure is discussed, and has a clear related consultation path.",
       languages: ["en", "ar"],

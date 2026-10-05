@@ -10,7 +10,7 @@ const base = {
   workTypeEn: "Contract drafting",
   jurisdictionEn: "Cross-border commercial law",
   challengeEn: "The parties needed clear risk allocation and performance obligations.",
-  approachEn: "CounselO structured the agreement, defined deliverables, and drafted practical remedies.",
+  approachEn: "CounselO Legal structured the agreement, defined deliverables, and drafted practical remedies.",
   documentLanguage: "en",
   published: false,
 };

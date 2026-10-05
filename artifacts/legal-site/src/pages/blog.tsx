@@ -72,7 +72,7 @@ export default function Blog() {
     en: {
       eyebrow: "Legal Insights",
       heading: "Legal articles and practical guides",
-      subheading: "A shared legal publication covering Saudi, Syrian and UAE law, with jurisdiction clearly identified in every country-specific article — published by CounselO with authorship and editorial methodology identified in each article.",
+      subheading: "A shared legal publication covering Saudi, Syrian and UAE law, with jurisdiction clearly identified in every country-specific article — published by CounselO Legal with authorship and editorial methodology identified in each article.",
       readMore: "Read Article",
       minRead: "min read",
       ctaHeading: "Have a Legal Question?",
@@ -84,7 +84,7 @@ export default function Blog() {
     ar: {
       eyebrow: "رؤى قانونية",
       heading: "مقالات قانونية وأدلة عملية",
-      subheading: "منصة قانونية مشتركة تغطي قوانين السعودية وسوريا والإمارات، مع بيان الاختصاص بوضوح في كل مقال خاص بدولة — تنشرها كاونسلو مع بيان نسبة التأليف والمنهجية التحريرية داخل كل مقال.",
+      subheading: "منصة قانونية مشتركة تغطي قوانين السعودية وسوريا والإمارات، مع بيان الاختصاص بوضوح في كل مقال خاص بدولة — تنشرها كاونسلو للاستشارات القانونية مع بيان نسبة التأليف والمنهجية التحريرية داخل كل مقال.",
       readMore: "اقرأ المقال",
       minRead: "د قراءة",
       ctaHeading: "هل لديك سؤال قانوني؟",
@@ -104,28 +104,28 @@ export default function Blog() {
         heroArtwork="platform"
         title={
           isRTL
-            ? "مقالات قانونية وأدلة عملية | كاونسلو"
-            : "Legal articles and practical guides | CounselO"
+            ? "مقالات قانونية وأدلة عملية | كاونسلو للاستشارات القانونية"
+            : "Legal articles and practical guides | CounselO Legal"
         }
         description={
           isRTL
-            ? "منصة كاونسلو القانونية المشتركة لمقالات قانونية وأدلة عملية حول قوانين السعودية وسوريا والإمارات، مع تحديد الاختصاص القانوني لكل مقال بوضوح."
-            : "CounselO's shared publication for legal articles and guides covering Saudi, Syrian and UAE law, with each article's jurisdiction clearly identified."
+            ? "منصة كاونسلو للاستشارات القانونية المشتركة لمقالات قانونية وأدلة عملية حول قوانين السعودية وسوريا والإمارات، مع تحديد الاختصاص القانوني لكل مقال بوضوح."
+            : "CounselO Legal's shared publication for legal articles and guides covering Saudi, Syrian and UAE law, with each article's jurisdiction clearly identified."
         }
         canonical={isRTL ? "/blog/ar" : "/blog"}
         noRegionPrefix
         sharedLanguageAlternates={{ en: "/blog", ar: "/blog/ar", xDefault: "/blog" }}
         keywords={
           isRTL
-            ? "رؤى قانونية, مقالات قانونية, قانون الإمارات, القانون السعودي, القانون السوري, قانون العمل, القانون التجاري, كاونسلو"
-            : "global legal insights, Saudi law articles, Syrian law articles, UAE law articles, employment law, commercial law, CounselO"
+            ? "رؤى قانونية, مقالات قانونية, قانون الإمارات, القانون السعودي, القانون السوري, قانون العمل, القانون التجاري, كاونسلو للاستشارات القانونية"
+            : "global legal insights, Saudi law articles, Syrian law articles, UAE law articles, employment law, commercial law, CounselO Legal"
         }
         schema={[
           {
             "@context": "https://schema.org",
             "@type": ["CollectionPage", "Blog"],
             "@id": `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}#collection`,
-            name: isRTL ? "رؤى كاونسلو القانونية العالمية" : "CounselO Global Legal Insights",
+            name: isRTL ? "رؤى كاونسلو للاستشارات القانونية العالمية" : "CounselO Legal Global Legal Insights",
             description: isRTL
               ? "مقالات قانونية وأدلة عملية تغطي قوانين السعودية وسوريا والإمارات"
               : "A shared legal publication covering Saudi, Syrian and UAE law",
@@ -134,8 +134,8 @@ export default function Blog() {
             publisher: {
               "@type": "Organization",
               "@id": COUNSELO_ENTITY_IDS.organization,
-              name: "CounselO",
-              alternateName: "كاونسلو",
+              name: "CounselO Legal",
+              alternateName: "كاونسلو للاستشارات القانونية",
               url: "https://counselo-legal.com",
             },
             inLanguage: isRTL ? "ar" : "en",
@@ -144,7 +144,7 @@ export default function Blog() {
             "@context": "https://schema.org",
             "@type": "ItemList",
             "@id": `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}#item-list`,
-            name: isRTL ? "مقالات كاونسلو القانونية" : "CounselO legal articles",
+            name: isRTL ? "مقالات كاونسلو للاستشارات القانونية" : "CounselO Legal articles",
             url: `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}`,
             itemListElement: posts.slice(0, 50).map((post, index) => ({
               "@type": "ListItem",

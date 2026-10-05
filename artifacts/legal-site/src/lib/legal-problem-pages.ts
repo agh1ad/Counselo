@@ -187,7 +187,7 @@ function intentSearchVariants(titleEn: string, titleAr: string, country: Localiz
 }
 
 /**
- * Exact, relevant queries observed in Google Search Console for CounselO for
+ * Exact, relevant queries observed in Google Search Console for CounselO Legal for
  * 2026-07-01 through 2026-09-03. Each query is routed to one principal problem
  * page to avoid making multiple canonicals compete for the same wording.
  * Noisy fragments, unrelated brands and misleading free-service wording are
@@ -869,12 +869,12 @@ function legalAccuracyBoundary(region: Region): LegalAccuracyBoundary {
     status: "framework-verified-matter-review-required",
     checks: regionalChecks,
     urgentWarning: {
-      en: "If you have a hearing, detention, notice, appeal, limitation or filing date, state the exact date in your first message and seek immediate advice. Contacting CounselO does not suspend or extend a deadline.",
-      ar: "إذا كان لديك توقيف أو جلسة أو إخطار أو ميعاد اعتراض أو تقادم أو قيد، فاذكر التاريخ الدقيق في أول رسالة واطلب المشورة فوراً. التواصل مع كاونسلو لا يوقف الميعاد ولا يمدده.",
+      en: "If you have a hearing, detention, notice, appeal, limitation or filing date, state the exact date in your first message and seek immediate advice. Contacting CounselO Legal does not suspend or extend a deadline.",
+      ar: "إذا كان لديك توقيف أو جلسة أو إخطار أو ميعاد اعتراض أو تقادم أو قيد، فاذكر التاريخ الدقيق في أول رسالة واطلب المشورة فوراً. التواصل مع كاونسلو للاستشارات القانونية لا يوقف الميعاد ولا يمدده.",
     },
     engagementWarning: {
-      en: "This page identifies issues for intake; it does not determine entitlement, liability, forum, deadline or outcome. Sending information does not by itself create an engagement. Matter-specific advice begins only after CounselO accepts the scope and confirms the service terms.",
-      ar: "تحدد هذه الصفحة مسائل الفحص الأولي ولا تحسم الاستحقاق أو المسؤولية أو الاختصاص أو الميعاد أو النتيجة. ولا ينشئ إرسال المعلومات وحده علاقة تكليف. تبدأ المشورة الخاصة بالملف بعد قبول كاونسلو للنطاق وتأكيد شروط الخدمة.",
+      en: "This page identifies issues for intake; it does not determine entitlement, liability, forum, deadline or outcome. Sending information does not by itself create an engagement. Matter-specific advice begins only after CounselO Legal accepts the scope and confirms the service terms.",
+      ar: "تحدد هذه الصفحة مسائل الفحص الأولي ولا تحسم الاستحقاق أو المسؤولية أو الاختصاص أو الميعاد أو النتيجة. ولا ينشئ إرسال المعلومات وحده علاقة تكليف. تبدأ المشورة الخاصة بالملف بعد قبول كاونسلو للاستشارات القانونية للنطاق وتأكيد شروط الخدمة.",
     },
     intakeChecklist: {
       en: [
@@ -926,8 +926,8 @@ function buildDetailedContent({
     documentsEn: [profile.evidenceEn],
     documentsAr: [profile.evidenceAr],
     heroSummary: {
-      en: brief?.answer.en ?? editorial?.summaryEn ?? `For ${titleEn.toLowerCase()}, the immediate task is to ${intent.actionEn}. CounselO checks the facts and the legal framework applicable in ${country.en} before confirming the legal position.`,
-      ar: brief?.answer.ar ?? editorial?.summaryAr ?? `في مسألة ${titleAr} تتمثل المهمة العاجلة في ${intent.actionAr}. وتتحقق كاونسلو من الوقائع والإطار النافذ في ${country.ar} قبل تأكيد المركز القانوني.`,
+      en: brief?.answer.en ?? editorial?.summaryEn ?? `For ${titleEn.toLowerCase()}, the immediate task is to ${intent.actionEn}. CounselO Legal checks the facts and the legal framework applicable in ${country.en} before confirming the legal position.`,
+      ar: brief?.answer.ar ?? editorial?.summaryAr ?? `في مسألة ${titleAr} تتمثل المهمة العاجلة في ${intent.actionAr}. وتتحقق كاونسلو للاستشارات القانونية من الوقائع والإطار النافذ في ${country.ar} قبل تأكيد المركز القانوني.`,
     },
     atAGlance: {
       en: [
@@ -942,8 +942,8 @@ function buildDetailedContent({
       ],
     },
     overview: {
-      en: editorial ? `${editorial.summaryEn} The assessment for ${country.en} examines ${profile.factsEn}. Provide ${profile.evidenceEn}; the next step is to ${profile.outcomeEn}.` : `${titleEn} sits within ${serviceTitleEn.toLowerCase()} and concerns ${profile.factsEn}. The practical risk is ${intent.riskEn}. In ${country.en}, CounselO therefore checks the competent authority, evidence, operative rule and deadline before advising whether and how to ${profile.outcomeEn}.`,
-      ar: editorial ? `${editorial.summaryAr} يتناول التقييم في ${country.ar} ${profile.factsAr}. قدّم ${profile.evidenceAr}؛ ويستهدف التقييم ${profile.outcomeAr}.` : `تندرج مسألة ${titleAr} ضمن ${serviceTitleAr} وتتعلق بـ${profile.factsAr}. ويتمثل الخطر العملي في ${intent.riskAr}. لذلك تتحقق كاونسلو في ${country.ar} من الجهة المختصة والأدلة والنص النافذ والميعاد قبل تقديم المشورة بشأن ${profile.outcomeAr}.`,
+      en: editorial ? `${editorial.summaryEn} The assessment for ${country.en} examines ${profile.factsEn}. Provide ${profile.evidenceEn}; the next step is to ${profile.outcomeEn}.` : `${titleEn} sits within ${serviceTitleEn.toLowerCase()} and concerns ${profile.factsEn}. The practical risk is ${intent.riskEn}. In ${country.en}, CounselO Legal therefore checks the competent authority, evidence, operative rule and deadline before advising whether and how to ${profile.outcomeEn}.`,
+      ar: editorial ? `${editorial.summaryAr} يتناول التقييم في ${country.ar} ${profile.factsAr}. قدّم ${profile.evidenceAr}؛ ويستهدف التقييم ${profile.outcomeAr}.` : `تندرج مسألة ${titleAr} ضمن ${serviceTitleAr} وتتعلق بـ${profile.factsAr}. ويتمثل الخطر العملي في ${intent.riskAr}. لذلك تتحقق كاونسلو للاستشارات القانونية في ${country.ar} من الجهة المختصة والأدلة والنص النافذ والميعاد قبل تقديم المشورة بشأن ${profile.outcomeAr}.`,
     },
     keyQuestions: {
       en: [
@@ -982,64 +982,64 @@ function buildDetailedContent({
     process: {
       en: [
         { title: "1. Submit the matter", desc: `Send the facts, desired outcome, notice or deadline, and the key documents about ${titleEn.toLowerCase()} through the contact form, WhatsApp or email.` },
-        { title: "2. CounselO studies and confirms", desc: `We study the information relevant to ${titleEn.toLowerCase()}, identify what is missing, and confirm the scope, fee, timing and written deliverable before work starts.` },
-        { title: "3. Pay and we begin", desc: "After you approve the scope and pay for the agreed consultation, CounselO begins the focused legal review." },
+        { title: "2. CounselO Legal studies and confirms", desc: `We study the information relevant to ${titleEn.toLowerCase()}, identify what is missing, and confirm the scope, fee, timing and written deliverable before work starts.` },
+        { title: "3. Pay and we begin", desc: "After you approve the scope and pay for the agreed consultation, CounselO Legal begins the focused legal review." },
         { title: "4. Receive the legal response", desc: brief ? "You receive the agreed written answer, its factual and legal basis, unresolved questions and next steps through WhatsApp or email." : `You receive the agreed written analysis and next steps focused on whether and how to ${profile.outcomeEn}, through WhatsApp or email.` },
       ],
       ar: [
         { title: "1. ترسل المسألة", desc: `أرسل الوقائع والنتيجة المطلوبة وأي إخطار أو ميعاد والمستندات الأساسية المتعلقة بـ${titleAr} عبر نموذج التواصل أو واتساب أو البريد الإلكتروني.` },
-        { title: "2. تدرس كاونسلو وتؤكد النطاق", desc: `تدرس كاونسلو المعلومات المرتبطة بـ${titleAr} وتحدد الناقص وتؤكد نطاق العمل والرسوم والمدة والمخرج المكتوب قبل البدء.` },
-        { title: "3. تدفع ونبدأ العمل", desc: "بعد موافقتك على النطاق وسداد قيمة الاستشارة المتفق عليها، تبدأ كاونسلو المراجعة القانونية المركزة." },
+        { title: "2. تدرس كاونسلو للاستشارات القانونية وتؤكد النطاق", desc: `تدرس كاونسلو للاستشارات القانونية المعلومات المرتبطة بـ${titleAr} وتحدد الناقص وتؤكد نطاق العمل والرسوم والمدة والمخرج المكتوب قبل البدء.` },
+        { title: "3. تدفع ونبدأ العمل", desc: "بعد موافقتك على النطاق وسداد قيمة الاستشارة المتفق عليها، تبدأ كاونسلو للاستشارات القانونية المراجعة القانونية المركزة." },
         { title: "4. تتلقى الرد القانوني", desc: brief ? "تتلقى الإجابة المكتوبة المتفق عليها وأساسها الواقعي والقانوني والمسائل غير المحسومة والخطوات التالية عبر واتساب أو البريد الإلكتروني." : `تتلقى التحليل المكتوب والخطوات التالية المتفق عليها، مع التركيز على ${profile.outcomeAr}، عبر واتساب أو البريد الإلكتروني.` },
       ],
     },
     experience: {
-      en: `CounselO is founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice and 20,000+ legal matters and consultations across civil, commercial, employment, family, property, administrative, arbitration and enforcement matters. For ${titleEn.toLowerCase()}, that experience means testing ${profile.factsEn} against ${profile.evidenceEn}, then matching the advice to the relevant forum and remedy—not applying a one-size-fits-all answer.`,
-      ar: `تأسست كاونسلو ويقودها المحامي والمستشار القانوني عمر البغدادي، مع خبرة قانونية إقليمية 30+ عاماً من الممارسة القانونية وأكثر من 20,000 مسألة واستشارة قانونية في المسائل المدنية والتجارية والعمالية والأسرية والعقارية والإدارية والتحكيم والتنفيذ. وفي مسألة ${titleAr} تعني هذه الخبرة اختبار ${profile.factsAr} في ضوء ${profile.evidenceAr} ثم مواءمة المشورة مع الجهة ووسيلة المعالجة، لا تطبيق إجابة عامة واحدة للجميع.`,
+      en: `CounselO Legal is founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice and 20,000+ legal matters and consultations across civil, commercial, employment, family, property, administrative, arbitration and enforcement matters. For ${titleEn.toLowerCase()}, that experience means testing ${profile.factsEn} against ${profile.evidenceEn}, then matching the advice to the relevant forum and remedy—not applying a one-size-fits-all answer.`,
+      ar: `تأسست كاونسلو للاستشارات القانونية ويقودها المحامي والمستشار القانوني عمر البغدادي، مع خبرة قانونية إقليمية 30+ عاماً من الممارسة القانونية وأكثر من 20,000 مسألة واستشارة قانونية في المسائل المدنية والتجارية والعمالية والأسرية والعقارية والإدارية والتحكيم والتنفيذ. وفي مسألة ${titleAr} تعني هذه الخبرة اختبار ${profile.factsAr} في ضوء ${profile.evidenceAr} ثم مواءمة المشورة مع الجهة ووسيلة المعالجة، لا تطبيق إجابة عامة واحدة للجميع.`,
     },
     faqs: {
       en: [
         {
           q: `What should I do first about ${titleEn.toLowerCase()}?`,
-          a: `Preserve ${profile.evidenceEn}, prepare a dated chronology and identify any notice or deadline. Send those materials to CounselO for an initial assessment of the facts, forum and options in ${country.en}.`,
+          a: `Preserve ${profile.evidenceEn}, prepare a dated chronology and identify any notice or deadline. Send those materials to CounselO Legal for an initial assessment of the facts, forum and options in ${country.en}.`,
         },
         {
           q: `What documents help assess ${titleEn.toLowerCase()}?`,
           a: `For this problem, start with ${profile.evidenceEn}. Add a short dated summary and identify any notice or deadline. The final list depends on the facts.`,
         },
         {
-          q: `Can CounselO review ${titleEn.toLowerCase()} online?`,
+          q: `Can CounselO Legal review ${titleEn.toLowerCase()} online?`,
           a: `Yes. The initial assessment and document review can begin through WhatsApp, email or the consultation form in Arabic or English. Formal filing, attendance and reserved representation work are scoped separately where required in ${country.en}.`,
         },
         {
-          q: `How does CounselO help with ${titleEn.toLowerCase()}?`,
-          a: brief ? `The review addresses this question: ${brief.question.en} CounselO examines ${profile.evidenceEn}, checks the applicable framework and authority, and explains the supported options and remaining uncertainties within the agreed scope.` : `CounselO focuses the review on ${profile.factsEn}, checks ${profile.evidenceEn}, identifies the potentially applicable framework and authority, verifies the operative provisions within the agreed scope, and delivers advice directed to whether and how to ${profile.outcomeEn}.`,
+          q: `How does CounselO Legal help with ${titleEn.toLowerCase()}?`,
+          a: brief ? `The review addresses this question: ${brief.question.en} CounselO Legal examines ${profile.evidenceEn}, checks the applicable framework and authority, and explains the supported options and remaining uncertainties within the agreed scope.` : `CounselO Legal focuses the review on ${profile.factsEn}, checks ${profile.evidenceEn}, identifies the potentially applicable framework and authority, verifies the operative provisions within the agreed scope, and delivers advice directed to whether and how to ${profile.outcomeEn}.`,
         },
         {
           q: "How quickly will I receive a response?",
-          a: "CounselO targets a professional response within 24 hours, subject to the matter’s scope, urgency, intake completeness and service availability. The target is not a guaranteed legal outcome or filing deadline.",
+          a: "CounselO Legal targets a professional response within 24 hours, subject to the matter’s scope, urgency, intake completeness and service availability. The target is not a guaranteed legal outcome or filing deadline.",
         },
       ],
       ar: [
         {
           q: `ما أول خطوة في مسألة ${titleAr}؟`,
-          a: `احفظ ${profile.evidenceAr} وأعد تسلسلاً زمنياً مؤرخاً وحدد أي إخطار أو ميعاد. أرسل هذه المواد إلى كاونسلو لتقييم أولي للوقائع والاختصاص والخيارات في ${country.ar}.`,
+          a: `احفظ ${profile.evidenceAr} وأعد تسلسلاً زمنياً مؤرخاً وحدد أي إخطار أو ميعاد. أرسل هذه المواد إلى كاونسلو للاستشارات القانونية لتقييم أولي للوقائع والاختصاص والخيارات في ${country.ar}.`,
         },
         {
           q: `ما المستندات المفيدة لتقييم ${titleAr}؟`,
           a: `ابدأ بـ${profile.evidenceAr}، وأضف ملخصاً زمنياً مختصراً وحدد أي إخطار أو ميعاد. وتختلف القائمة النهائية بحسب الوقائع.`,
         },
         {
-          q: `هل يمكن أن تراجع كاونسلو مسألة ${titleAr} أونلاين؟`,
+          q: `هل يمكن أن تراجع كاونسلو للاستشارات القانونية مسألة ${titleAr} أونلاين؟`,
           a: `نعم. يمكن بدء التقييم ومراجعة المستندات عبر واتساب أو البريد الإلكتروني أو نموذج التواصل بالعربية أو الإنجليزية. ويُحدد القيد الرسمي أو الحضور أو التمثيل المنظم بصورة منفصلة حيث يلزم في ${country.ar}.`,
         },
         {
-          q: `كيف تساعد كاونسلو في ${titleAr}؟`,
-          a: brief ? `تتناول المراجعة السؤال: ${brief.question.ar} وتفحص كاونسلو ${profile.evidenceAr} وتتحقق من الإطار والجهة المختصة وتوضح الخيارات المؤيدة وما بقي غير محسوم ضمن النطاق المتفق عليه.` : `تركز كاونسلو على ${profile.factsAr} وتراجع ${profile.evidenceAr} وتحدد الإطار المحتمل والجهة المختصة وتتحقق من النصوص النافذة ضمن النطاق المتفق عليه وتقدم مشورة موجهة إلى ${profile.outcomeAr}.`,
+          q: `كيف تساعد كاونسلو للاستشارات القانونية في ${titleAr}؟`,
+          a: brief ? `تتناول المراجعة السؤال: ${brief.question.ar} وتفحص كاونسلو للاستشارات القانونية ${profile.evidenceAr} وتتحقق من الإطار والجهة المختصة وتوضح الخيارات المؤيدة وما بقي غير محسوم ضمن النطاق المتفق عليه.` : `تركز كاونسلو للاستشارات القانونية على ${profile.factsAr} وتراجع ${profile.evidenceAr} وتحدد الإطار المحتمل والجهة المختصة وتتحقق من النصوص النافذة ضمن النطاق المتفق عليه وتقدم مشورة موجهة إلى ${profile.outcomeAr}.`,
         },
         {
           q: "متى يصل الرد المهني؟",
-          a: "تستهدف كاونسلو رداً مهنياً خلال 24 ساعة بحسب نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوفر الخدمة. ولا يمثل ذلك ضماناً لنتيجة قانونية أو لموعد قيد محدد.",
+          a: "تستهدف كاونسلو للاستشارات القانونية رداً مهنياً خلال 24 ساعة بحسب نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوفر الخدمة. ولا يمثل ذلك ضماناً لنتيجة قانونية أو لموعد قيد محدد.",
         },
       ],
     },

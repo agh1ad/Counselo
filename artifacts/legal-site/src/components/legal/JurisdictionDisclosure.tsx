@@ -20,9 +20,9 @@ const copy: Record<Region, { en: DisclosureCopy; ar: DisclosureCopy }> = {
     en: {
       label: "Jurisdiction disclosure",
       title: "Who provides the work, and what is separately scoped",
-      intro: "CounselO provides online consultation, document review and preliminary legal analysis for Saudi Arabia matters. The applicable professional and court requirements are confirmed before any service begins.",
+      intro: "CounselO Legal provides online consultation, document review and preliminary legal analysis for Saudi Arabia matters. The applicable professional and court requirements are confirmed before any service begins.",
       items: [
-        { icon: BriefcaseBusiness, title: "Consultation provider", text: "The consultation is provided through CounselO's legal team under the professional direction of Lawyer and Legal Counsel Omar Al-Baghdadi." },
+        { icon: BriefcaseBusiness, title: "Consultation provider", text: "The consultation is provided through CounselO Legal's legal team under the professional direction of Lawyer and Legal Counsel Omar Al-Baghdadi." },
         { icon: FileCheck2, title: "Professional licensing jurisdiction", text: "Saudi-law work is assessed against Saudi professional and procedural requirements. Any reserved activity is assigned to an appropriately licensed Saudi professional or office." },
         { icon: Scale, title: "Court representation", text: "Court filing, attendance and representation in Saudi Arabia are not created by browsing or consultation alone. They require a separate engagement with the professional authorized for that forum." },
         { icon: UsersRound, title: "Cooperating counsel and terms", text: "A cooperating Saudi lawyer or office may be involved where the service requires local rights of audience or another reserved activity. Scope, fees, deliverables and responsible professional may differ by service and are confirmed in the engagement terms." },
@@ -31,9 +31,9 @@ const copy: Record<Region, { en: DisclosureCopy; ar: DisclosureCopy }> = {
     ar: {
       label: "إفصاح الاختصاص",
       title: "من يقدم العمل وما الذي يحدد بتكليف مستقل",
-      intro: "تقدم كاونسلو الاستشارات الإلكترونية ومراجعة المستندات والتحليل القانوني الأولي للمسائل السعودية. ويُتحقق من المتطلبات المهنية والقضائية قبل بدء أي خدمة.",
+      intro: "تقدم كاونسلو للاستشارات القانونية الاستشارات الإلكترونية ومراجعة المستندات والتحليل القانوني الأولي للمسائل السعودية. ويُتحقق من المتطلبات المهنية والقضائية قبل بدء أي خدمة.",
       items: [
-        { icon: BriefcaseBusiness, title: "مقدم الاستشارة", text: "تُقدم الاستشارة من خلال الفريق القانوني في كاونسلو بإشراف المحامي والمستشار القانوني عمر البغدادي." },
+        { icon: BriefcaseBusiness, title: "مقدم الاستشارة", text: "تُقدم الاستشارة من خلال الفريق القانوني في كاونسلو للاستشارات القانونية بإشراف المحامي والمستشار القانوني عمر البغدادي." },
         { icon: FileCheck2, title: "اختصاص الترخيص المهني", text: "تُقيّم الأعمال المتعلقة بالقانون السعودي وفق المتطلبات المهنية والإجرائية السعودية. وتُسند الأعمال المحجوزة إلى مهني أو مكتب سعودي مرخص حسب الأصول." },
         { icon: Scale, title: "التمثيل أمام المحاكم", text: "لا ينشئ التصفح أو الاستشارة وحدهما تمثيلاً أو حضوراً أو إيداعاً أمام محكمة سعودية. ويتطلب ذلك تكليفاً مستقلاً مع المهني المخول أمام الجهة المختصة." },
         { icon: UsersRound, title: "المهني المتعاون وشروط العمل", text: "قد يشارك محامٍ أو مكتب سعودي متعاون عندما تتطلب الخدمة حق المرافعة المحلي أو نشاطاً محجوزاً آخر. وقد تختلف النطاقات والرسوم والمخرجات والمهني المسؤول بحسب الخدمة، وتحدد في شروط التكليف." },
@@ -44,9 +44,9 @@ const copy: Record<Region, { en: DisclosureCopy; ar: DisclosureCopy }> = {
     en: {
       label: "Jurisdiction disclosure",
       title: "Who provides the work, and what is separately scoped",
-      intro: "CounselO provides online consultation, document review and preliminary legal analysis for Syria matters. The applicable professional and court requirements are confirmed before any service begins.",
+      intro: "CounselO Legal provides online consultation, document review and preliminary legal analysis for Syria matters. The applicable professional and court requirements are confirmed before any service begins.",
       items: [
-        { icon: BriefcaseBusiness, title: "Consultation provider", text: "The consultation is provided through CounselO's legal team under the professional direction of Lawyer and Legal Counsel Omar Al-Baghdadi." },
+        { icon: BriefcaseBusiness, title: "Consultation provider", text: "The consultation is provided through CounselO Legal's legal team under the professional direction of Lawyer and Legal Counsel Omar Al-Baghdadi." },
         { icon: FileCheck2, title: "Professional licensing jurisdiction", text: "Syrian-law work is assessed against Syrian professional and procedural requirements. Any reserved activity is assigned to an appropriately licensed Syrian professional or office." },
         { icon: Scale, title: "Court representation", text: "Court filing, attendance and representation in Syria are not created by browsing or consultation alone. They require a separate engagement with the professional authorized for that forum." },
         { icon: UsersRound, title: "Cooperating counsel and terms", text: "A cooperating Syrian lawyer or office may be involved where the service requires local representation or another reserved activity. Scope, fees, deliverables and responsible professional may differ by service and are confirmed in the engagement terms." },
@@ -55,9 +55,9 @@ const copy: Record<Region, { en: DisclosureCopy; ar: DisclosureCopy }> = {
     ar: {
       label: "إفصاح الاختصاص",
       title: "من يقدم العمل وما الذي يحدد بتكليف مستقل",
-      intro: "تقدم كاونسلو الاستشارات الإلكترونية ومراجعة المستندات والتحليل القانوني الأولي للمسائل السورية. ويُتحقق من المتطلبات المهنية والقضائية قبل بدء أي خدمة.",
+      intro: "تقدم كاونسلو للاستشارات القانونية الاستشارات الإلكترونية ومراجعة المستندات والتحليل القانوني الأولي للمسائل السورية. ويُتحقق من المتطلبات المهنية والقضائية قبل بدء أي خدمة.",
       items: [
-        { icon: BriefcaseBusiness, title: "مقدم الاستشارة", text: "تُقدم الاستشارة من خلال الفريق القانوني في كاونسلو بإشراف المحامي والمستشار القانوني عمر البغدادي." },
+        { icon: BriefcaseBusiness, title: "مقدم الاستشارة", text: "تُقدم الاستشارة من خلال الفريق القانوني في كاونسلو للاستشارات القانونية بإشراف المحامي والمستشار القانوني عمر البغدادي." },
         { icon: FileCheck2, title: "اختصاص الترخيص المهني", text: "تُقيّم الأعمال المتعلقة بالقانون السوري وفق المتطلبات المهنية والإجرائية السورية. وتُسند الأعمال المحجوزة إلى مهني أو مكتب سوري مرخص حسب الأصول." },
         { icon: Scale, title: "التمثيل أمام المحاكم", text: "لا ينشئ التصفح أو الاستشارة وحدهما تمثيلاً أو حضوراً أو إيداعاً أمام محكمة سورية. ويتطلب ذلك تكليفاً مستقلاً مع المهني المخول أمام الجهة المختصة." },
         { icon: UsersRound, title: "المهني المتعاون وشروط العمل", text: "قد يشارك محامٍ أو مكتب سوري متعاون عندما تتطلب الخدمة تمثيلاً محلياً أو نشاطاً محجوزاً آخر. وقد تختلف النطاقات والرسوم والمخرجات والمهني المسؤول بحسب الخدمة، وتحدد في شروط التكليف." },
@@ -68,9 +68,9 @@ const copy: Record<Region, { en: DisclosureCopy; ar: DisclosureCopy }> = {
     en: {
       label: "Jurisdiction disclosure",
       title: "Who provides the work, and what is separately scoped",
-      intro: "CounselO provides online consultation, document review and preliminary legal analysis for United Arab Emirates matters. The relevant Emirate, authority and professional requirements are confirmed before any service begins.",
+      intro: "CounselO Legal provides online consultation, document review and preliminary legal analysis for United Arab Emirates matters. The relevant Emirate, authority and professional requirements are confirmed before any service begins.",
       items: [
-        { icon: BriefcaseBusiness, title: "Consultation provider", text: "The consultation is provided through CounselO's legal team under the professional direction of Lawyer and Legal Counsel Omar Al-Baghdadi." },
+        { icon: BriefcaseBusiness, title: "Consultation provider", text: "The consultation is provided through CounselO Legal's legal team under the professional direction of Lawyer and Legal Counsel Omar Al-Baghdadi." },
         { icon: FileCheck2, title: "Professional licensing jurisdiction", text: "UAE-law work is assessed against the applicable federal, Emirate, mainland or free-zone framework. Any reserved activity is assigned to an appropriately licensed UAE professional or office for the relevant forum." },
         { icon: Scale, title: "Court representation", text: "Court filing, attendance, notarisation and representation in the UAE are not created by browsing or consultation alone. They require a separate engagement with the professional authorized for the relevant forum." },
         { icon: UsersRound, title: "Cooperating counsel and terms", text: "A cooperating UAE lawyer or office may be involved where the service requires local rights of audience or another reserved activity. Scope, fees, deliverables and responsible professional may differ by service and are confirmed in the engagement terms." },
@@ -79,9 +79,9 @@ const copy: Record<Region, { en: DisclosureCopy; ar: DisclosureCopy }> = {
     ar: {
       label: "إفصاح الاختصاص",
       title: "من يقدم العمل وما الذي يحدد بتكليف مستقل",
-      intro: "تقدم كاونسلو الاستشارات الإلكترونية ومراجعة المستندات والتحليل القانوني الأولي للمسائل الإماراتية. ويُتحقق من الإمارة والجهة والمتطلبات المهنية ذات الصلة قبل بدء أي خدمة.",
+      intro: "تقدم كاونسلو للاستشارات القانونية الاستشارات الإلكترونية ومراجعة المستندات والتحليل القانوني الأولي للمسائل الإماراتية. ويُتحقق من الإمارة والجهة والمتطلبات المهنية ذات الصلة قبل بدء أي خدمة.",
       items: [
-        { icon: BriefcaseBusiness, title: "مقدم الاستشارة", text: "تُقدم الاستشارة من خلال الفريق القانوني في كاونسلو بإشراف المحامي والمستشار القانوني عمر البغدادي." },
+        { icon: BriefcaseBusiness, title: "مقدم الاستشارة", text: "تُقدم الاستشارة من خلال الفريق القانوني في كاونسلو للاستشارات القانونية بإشراف المحامي والمستشار القانوني عمر البغدادي." },
         { icon: FileCheck2, title: "اختصاص الترخيص المهني", text: "تُقيّم الأعمال المتعلقة بالقانون الإماراتي وفق الإطار الاتحادي أو المحلي أو البر الرئيسي أو المنطقة الحرة المنطبقة. وتُسند الأعمال المحجوزة إلى مهني أو مكتب إماراتي مرخص للجهة المختصة." },
         { icon: Scale, title: "التمثيل أمام المحاكم", text: "لا ينشئ التصفح أو الاستشارة وحدهما تمثيلاً أو حضوراً أو توثيقاً أو إيداعاً في الإمارات. ويتطلب ذلك تكليفاً مستقلاً مع المهني المخول أمام الجهة المختصة." },
         { icon: UsersRound, title: "المهني المتعاون وشروط العمل", text: "قد يشارك محامٍ أو مكتب إماراتي متعاون عندما تتطلب الخدمة حق المرافعة المحلي أو نشاطاً محجوزاً آخر. وقد تختلف النطاقات والرسوم والمخرجات والمهني المسؤول بحسب الخدمة، وتحدد في شروط التكليف." },

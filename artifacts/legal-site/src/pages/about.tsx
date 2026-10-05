@@ -58,7 +58,7 @@ export default function About() {
       "@context": "https://schema.org",
       "@type": ["ProfilePage", "WebPage"],
       "@id": `https://counselo-legal.com${regionPath}/about#webpage`,
-      "name": isRTL ? "عن كاونسلو" : "About CounselO",
+      "name": isRTL ? "عن كاونسلو للاستشارات القانونية" : "About CounselO Legal",
       "url": `https://counselo-legal.com${regionPath}/about`,
       "description": a.seoDesc,
       "mainEntity": { "@id": COUNSELO_ENTITY_IDS.organization },
@@ -67,7 +67,7 @@ export default function About() {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
-          { "@type": "ListItem", "position": 2, "name": isRTL ? "عن كاونسلو" : "About CounselO", "item": `https://counselo-legal.com${regionPath}/about` },
+          { "@type": "ListItem", "position": 2, "name": isRTL ? "عن كاونسلو للاستشارات القانونية" : "About CounselO Legal", "item": `https://counselo-legal.com${regionPath}/about` },
         ],
       },
     },
@@ -185,8 +185,8 @@ export default function About() {
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {isRTL
-                        ? "يخص تاريخ التأسيس عام 1957 مكتب البغدادي للمحاماة (BaghdadiLaw)، لا كاونسلو. وتشكل صلة عمر البغدادي العائلية والمهنية بالمكتب جزءاً من خلفيته بصفته مؤسس منصة الاستشارات الإلكترونية المنفصلة."
-                        : "The 1957 founding date belongs to Al-Baghdadi Law Firm (BaghdadiLaw), not CounselO. Omar Al-Baghdadi’s family and professional connection to the firm forms part of his background as founder of the separate online consultation platform."}
+                        ? "يخص تاريخ التأسيس عام 1957 مكتب البغدادي للمحاماة (BaghdadiLaw)، لا كاونسلو للاستشارات القانونية. وتشكل صلة عمر البغدادي العائلية والمهنية بالمكتب جزءاً من خلفيته بصفته مؤسس منصة الاستشارات الإلكترونية المنفصلة."
+                        : "The 1957 founding date belongs to Al-Baghdadi Law Firm (BaghdadiLaw), not CounselO Legal. Omar Al-Baghdadi’s family and professional connection to the firm forms part of his background as founder of the separate online consultation platform."}
                     </p>
                   </>
                 ) : (
@@ -197,8 +197,8 @@ export default function About() {
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {isRTL
-                        ? "تقدم كاونسلو خدمات قانونية إلكترونية تساعد الأفراد والشركات والمستثمرين على الوصول إلى الإرشاد المهني عبر القنوات الرقمية."
-                        : "CounselO provides online legal services that help individuals, businesses and investors access professional guidance through digital channels."}
+                        ? "تقدم كاونسلو للاستشارات القانونية خدمات قانونية إلكترونية تساعد الأفراد والشركات والمستثمرين على الوصول إلى الإرشاد المهني عبر القنوات الرقمية."
+                        : "CounselO Legal provides online legal services that help individuals, businesses and investors access professional guidance through digital channels."}
                     </p>
                   </>
                 )}
@@ -227,7 +227,7 @@ export default function About() {
                   <div className="w-36 h-44 border-4 border-primary/20 overflow-hidden shadow-xl">
                     <img
                       src={founderPhoto}
-                      alt="Lawyer Omar Al-Baghdadi — Founder of CounselO"
+                      alt="Lawyer Omar Al-Baghdadi — Founder of CounselO Legal"
                       className="w-full h-full object-cover object-top"
                       width="144" height="176" loading="lazy" decoding="async"
                     />
@@ -322,8 +322,8 @@ export default function About() {
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {isRTL
-                    ? "تأسس مكتب البغدادي للمحاماة (BaghdadiLaw) عام 1957 على يد المحامي رياض البغدادي، والد عمر. تخرج عمر من كلية الحقوق بجامعة دمشق عام 1996 وأسس كاونسلو بوصفها منصة استشارات إلكترونية منفصلة. تربط المكتب والمنصة صلة مهنية وتاريخية عبر عمر، مع بقاء هوية كل منهما وتكليفاته مستقلة."
-                    : "Al-Baghdadi Law Firm (BaghdadiLaw) was founded in 1957 by Lawyer Riyad Al-Baghdadi, Omar’s father. Omar graduated from Damascus University’s Faculty of Law in 1996 and founded CounselO as a distinct online consultation platform. The firm and platform share a professional and historical connection through Omar; their identities and engagements remain separate."}
+                    ? "تأسس مكتب البغدادي للمحاماة (BaghdadiLaw) عام 1957 على يد المحامي رياض البغدادي، والد عمر. تخرج عمر من كلية الحقوق بجامعة دمشق عام 1996 وأسس كاونسلو للاستشارات القانونية بوصفها منصة استشارات إلكترونية منفصلة. تربط المكتب والمنصة صلة مهنية وتاريخية عبر عمر، مع بقاء هوية كل منهما وتكليفاته مستقلة."
+                    : "Al-Baghdadi Law Firm (BaghdadiLaw) was founded in 1957 by Lawyer Riyad Al-Baghdadi, Omar’s father. Omar graduated from Damascus University’s Faculty of Law in 1996 and founded CounselO Legal as a distinct online consultation platform. The firm and platform share a professional and historical connection through Omar; their identities and engagements remain separate."}
                 </p>
                 <a
                   href={isRTL ? "https://www.baghdadilaw.co/ar/who-we-are" : BAGHDADI_LAW_PROFILE_URL}
@@ -340,7 +340,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Why CounselO ── */}
+      {/* ── Why CounselO Legal ── */}
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <m.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">

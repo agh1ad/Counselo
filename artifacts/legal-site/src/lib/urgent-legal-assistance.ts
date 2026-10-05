@@ -10,7 +10,7 @@ export const urgentCopy = {
   en: {
     title: "Urgent Legal Assistance",
     eyebrow: "When your legal matter cannot wait",
-    intro: "Need a legal document urgently? CounselO prepares legal memoranda and statements of claim, and reviews existing contracts or agreements for individuals and businesses, using the documents you provide.",
+    intro: "Need a legal document urgently? CounselO Legal prepares legal memoranda and statements of claim, and reviews existing contracts or agreements for individuals and businesses, using the documents you provide.",
     timing: "The 3-hour delivery target applies to the agreed memorandum, statement of claim or contract review—not an acknowledgement. The clock starts only after we accept the request, check that the documents are complete and confirm payment. We agree the delivery date, time and time zone before payment.",
     whatsapp: "Request urgent help on WhatsApp",
     email: "Send an urgent request by email",
@@ -55,7 +55,7 @@ export const urgentCopy = {
   ar: {
     title: "المساعدة القانونية العاجلة",
     eyebrow: "عندما لا تحتمل مسألتك القانونية الانتظار",
-    intro: "تحتاج إلى مستند قانوني بصورة عاجلة؟ تُعد كاونسلو المذكرات القانونية ولوائح الدعاوى، وتدقق العقود والاتفاقيات القائمة للأفراد والشركات، استناداً إلى المستندات التي تقدمها.",
+    intro: "تحتاج إلى مستند قانوني بصورة عاجلة؟ تُعد كاونسلو للاستشارات القانونية المذكرات القانونية ولوائح الدعاوى، وتدقق العقود والاتفاقيات القائمة للأفراد والشركات، استناداً إلى المستندات التي تقدمها.",
     timing: "هدف التسليم خلال ٣ ساعات يخص المذكرة أو لائحة الدعوى أو تدقيق العقد المتفق عليه، وليس مجرد إشعار باستلام الطلب. يبدأ الوقت فقط بعد قبول الطلب والتحقق من اكتمال المستندات وتأكيد السداد. نتفق على تاريخ وساعة التسليم والمنطقة الزمنية قبل الدفع.",
     whatsapp: "اطلب مساعدة عاجلة عبر واتساب",
     email: "أرسل طلبك العاجل بالبريد الإلكتروني",

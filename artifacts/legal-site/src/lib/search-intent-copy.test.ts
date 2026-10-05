@@ -37,11 +37,9 @@ test("jurisdiction-specific subjects and unrelated routes remain distinct", () =
   assert.equal(searchIntentMeta("/blog/ar/a-post"), undefined);
 });
 test("complete long legal subjects survive final title rendering", () => {
-  const title = "Challenging the enforcement of a foreign arbitral award in Saudi Arabia | CounselO";
-  const result = limitSeoTitle(title);
-  assert.ok(result.startsWith("Challenging the enforcement"));
-  assert.ok([...result].length <= 68);
-  assert.match(result, /\|\s*CounselO$/);
+  const title =
+    "Challenging the enforcement of a foreign arbitral award in Saudi Arabia | CounselO Legal";
+  assert.equal(limitSeoTitle(title), title);
 });
 
 test("regional core pages have distinct titles and descriptions", () => {

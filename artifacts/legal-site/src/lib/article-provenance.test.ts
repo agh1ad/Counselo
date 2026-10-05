@@ -25,7 +25,7 @@ test("articles default to safe professional commentary", () => {
   assert.equal(provenance.contentType, "professional-commentary");
   assert.equal(provenance.jurisdiction, undefined);
   assert.equal(provenance.primaryAuthorName, "CounselO Legal Team");
-  assert.equal(provenance.primaryAuthorNameAr, "فريق كاونسلو القانوني");
+  assert.equal(provenance.primaryAuthorNameAr, "فريق كاونسلو للاستشارات القانونية القانوني");
   assert.equal(provenance.legalReviewerName, "Omar Al-Baghdadi");
   assert.equal(provenance.legalReviewerNameAr, "عمر البغدادي");
   assert.equal(provenance.lastSubstantiveReviewAt, "2025-01-10");

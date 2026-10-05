@@ -17,8 +17,8 @@ export default function TermsOfService() {
 
   const content = {
     en: {
-      seoTitle: "Terms of Service | Online Legal Consultation Process | CounselO",
-      seoDesc: `CounselO's consultation terms and process for online legal advice in ${countryEn}: submit your matter, receive a fee quote, approve the scope, and receive your legal consultation in Arabic or English.`,
+      seoTitle: "Terms of Service | Online Legal Consultation Process | CounselO Legal",
+      seoDesc: `CounselO Legal's consultation terms and process for online legal advice in ${countryEn}: submit your matter, receive a fee quote, approve the scope, and receive your legal consultation in Arabic or English.`,
       eyebrow: "Legal Consultation Terms",
       heading: "Terms of Service",
       subheading:
@@ -38,7 +38,7 @@ export default function TermsOfService() {
         {
           icon: MessageCircle,
           title: "Step 3 — Payment Before the Answer",
-          desc: "Payment of the agreed consultation fee must be made in full before we issue your legal answer. Payment instructions will be provided upon your agreement to the fee. CounselO will confirm receipt of payment before proceeding.",
+          desc: "Payment of the agreed consultation fee must be made in full before we issue your legal answer. Payment instructions will be provided upon your agreement to the fee. CounselO Legal will confirm receipt of payment before proceeding.",
         },
         {
           icon: CheckCircle2,
@@ -50,7 +50,7 @@ export default function TermsOfService() {
       terms: [
         {
           title: "Confidentiality",
-          desc: "Information you share with CounselO is handled under applicable confidentiality and data-protection obligations. We do not disclose it without your consent except where disclosure is required or permitted by applicable law.",
+          desc: "Information you share with CounselO Legal is handled under applicable confidentiality and data-protection obligations. We do not disclose it without your consent except where disclosure is required or permitted by applicable law.",
         },
         {
           title: "Scope of Consultation",
@@ -68,7 +68,7 @@ export default function TermsOfService() {
         },
         {
           title: "Changes to Terms",
-          desc: "CounselO reserves the right to update these terms at any time. The terms applicable to your consultation are those in effect at the time you request the service.",
+          desc: "CounselO Legal reserves the right to update these terms at any time. The terms applicable to your consultation are those in effect at the time you request the service.",
         },
       ],
       ctaHeading: "Ready to Get Started?",
@@ -76,8 +76,8 @@ export default function TermsOfService() {
       ctaBtn: "Contact Us Now",
     },
     ar: {
-      seoTitle: "شروط الخدمة | آلية الاستشارة القانونية الأونلاين | كاونسلو",
-      seoDesc: `شروط وآلية استشارات كاونسلو القانونية الأونلاين في ${countryAr}: أرسل مسألتك، واحصل على عرض الرسوم، واعتمد النطاق، ثم استلم استشارتك القانونية بالعربية أو الإنجليزية.`,
+      seoTitle: "شروط الخدمة | آلية الاستشارة القانونية الأونلاين | كاونسلو للاستشارات القانونية",
+      seoDesc: `شروط وآلية استشارات كاونسلو للاستشارات القانونية الأونلاين في ${countryAr}: أرسل مسألتك، واحصل على عرض الرسوم، واعتمد النطاق، ثم استلم استشارتك القانونية بالعربية أو الإنجليزية.`,
       eyebrow: "شروط الاستشارة القانونية",
       heading: "شروط الخدمة",
       subheading:
@@ -97,7 +97,7 @@ export default function TermsOfService() {
         {
           icon: MessageCircle,
           title: "الخطوة الثالثة — الدفع قبل تلقّي الإجابة",
-          desc: "يجب سداد رسوم الاستشارة المتفق عليها كاملةً قبل إصدار إجابتك القانونية. ستُزوَّد بتعليمات الدفع فور موافقتك على المبلغ. ستؤكد كاونسلو استلام الدفعة قبل المضي في تقديم الاستشارة.",
+          desc: "يجب سداد رسوم الاستشارة المتفق عليها كاملةً قبل إصدار إجابتك القانونية. ستُزوَّد بتعليمات الدفع فور موافقتك على المبلغ. ستؤكد كاونسلو للاستشارات القانونية استلام الدفعة قبل المضي في تقديم الاستشارة.",
         },
         {
           icon: CheckCircle2,
@@ -109,7 +109,7 @@ export default function TermsOfService() {
       terms: [
         {
           title: "السرية",
-          desc: "تُعامل المعلومات التي تشاركها مع كاونسلو وفق التزامات السرية وحماية البيانات المنطبقة. ولا نُفصح عنها دون موافقتك إلا إذا كان الإفصاح مطلوباً أو مسموحاً به بموجب القانون المنطبق.",
+          desc: "تُعامل المعلومات التي تشاركها مع كاونسلو للاستشارات القانونية وفق التزامات السرية وحماية البيانات المنطبقة. ولا نُفصح عنها دون موافقتك إلا إذا كان الإفصاح مطلوباً أو مسموحاً به بموجب القانون المنطبق.",
         },
         {
           title: "نطاق الاستشارة",
@@ -127,7 +127,7 @@ export default function TermsOfService() {
         },
         {
           title: "تعديل الشروط",
-          desc: "يحق لكاونسلو تعديل هذه الشروط في أي وقت. والشروط المعمول بها عند طلبك الخدمة هي السارية على استشارتك.",
+          desc: "يحق لكاونسلو للاستشارات القانونية تعديل هذه الشروط في أي وقت. والشروط المعمول بها عند طلبك الخدمة هي السارية على استشارتك.",
         },
       ],
       ctaHeading: "مستعد للبدء؟",
@@ -145,22 +145,22 @@ export default function TermsOfService() {
         canonical="/terms-of-service"
         keywords={isUae
           ? (isRTL
-            ? "شروط خدمة كاونسلو الإمارات, آلية الاستشارة القانونية أونلاين الإمارات, رسوم الاستشارة القانونية, استشارة واتساب الإمارات"
-            : "CounselO UAE terms of service, UAE online legal consultation process, UAE legal consultation fees, legal advice WhatsApp UAE")
+            ? "شروط خدمة كاونسلو للاستشارات القانونية الإمارات, آلية الاستشارة القانونية أونلاين الإمارات, رسوم الاستشارة القانونية, استشارة واتساب الإمارات"
+            : "CounselO Legal UAE terms of service, UAE online legal consultation process, UAE legal consultation fees, legal advice WhatsApp UAE")
           : region === "syr"
           ? (isRTL
             ? "شروط الخدمة قانوني, كيفية الاستشارة القانونية أونلاين سوريا, استشارة قانونية بالواتساب سوريا, رسوم الاستشارة القانونية, محامي أونلاين سوريا"
-            : "CounselO terms of service, how online legal consultation works Syria, legal advice WhatsApp Syria, consultation fees lawyer Syria, online legal process Syria")
+            : "CounselO Legal terms of service, how online legal consultation works Syria, legal advice WhatsApp Syria, consultation fees lawyer Syria, online legal process Syria")
           : (isRTL
             ? "شروط الخدمة قانوني, كيفية الاستشارة القانونية أونلاين, استشارة قانونية بالواتساب السعودية, رسوم الاستشارة القانونية, محامي أونلاين"
-            : "CounselO terms of service, how online legal consultation works Saudi Arabia, legal advice WhatsApp KSA, consultation fees lawyer, online legal process")}
+            : "CounselO Legal terms of service, how online legal consultation works Saudi Arabia, legal advice WhatsApp KSA, consultation fees lawyer, online legal process")}
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
             "dateModified": "2026-09-07",
             "@id": `${pageUrl}#webpage`,
-            "name": isRTL ? "شروط الخدمة | كاونسلو" : "Terms of Service | CounselO",
+            "name": isRTL ? "شروط الخدمة | كاونسلو للاستشارات القانونية" : "Terms of Service | CounselO Legal",
             "description": content.seoDesc,
             "url": pageUrl,
             "isPartOf": { "@id": COUNSELO_ENTITY_IDS.website },

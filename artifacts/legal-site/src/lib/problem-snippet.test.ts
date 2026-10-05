@@ -28,8 +28,8 @@ const examples = [
 ];
 
 test("foreign VAT titles for Syrian transactions do not imply a domestic VAT procedure", () => {
-  assert.equal(buildEnglishProblemTitle({ titleEn: "Foreign VAT invoice correction for a Syrian transaction", serviceTitleEn: "Tax and Zakat", countryNameEn: "Syria" }), "Foreign VAT invoice correction for a Syrian transaction | CounselO");
-  assert.equal(buildArabicProblemTitle({ titleAr: "تصحيح فاتورة ضريبة قيمة مضافة أجنبية لمعاملة سورية", serviceTitleAr: "الضرائب والزكاة", countryNameAr: "سوريا" }), "تصحيح فاتورة ضريبة قيمة مضافة أجنبية لمعاملة سورية | كاونسلو");
+  assert.equal(buildEnglishProblemTitle({ titleEn: "Foreign VAT invoice correction for a Syrian transaction", serviceTitleEn: "Tax and Zakat", countryNameEn: "Syria" }), "Foreign VAT invoice correction for a Syrian transaction | CounselO Legal");
+  assert.equal(buildArabicProblemTitle({ titleAr: "تصحيح فاتورة ضريبة قيمة مضافة أجنبية لمعاملة سورية", serviceTitleAr: "الضرائب والزكاة", countryNameAr: "سوريا" }), "تصحيح فاتورة ضريبة قيمة مضافة أجنبية لمعاملة سورية | كاونسلو للاستشارات القانونية");
 });
 
 test("an explicit corporate-tax matter does not repeat the full tax-service title", () => {
@@ -38,15 +38,15 @@ test("an explicit corporate-tax matter does not repeat the full tax-service titl
     serviceTitleAr: "ضريبة الشركات وضريبة القيمة المضافة والمنازعات الضريبية",
     countryNameAr: "الإمارات",
   });
-  assert.equal(title, "مشكلة التسجيل والإقرار بضريبة الشركات في الإمارات | كاونسلو");
+  assert.equal(title, "مشكلة التسجيل والإقرار بضريبة الشركات في الإمارات | كاونسلو للاستشارات القانونية");
   assert.equal((title.match(/ضريبة الشركات/g) ?? []).length, 1);
 });
 
 test("ambiguous appeal and travel matters retain concise service context", () => {
   const appeal = buildArabicProblemTitle({ titleAr: "مشكلة ميعاد الطعن والقيد", serviceTitleAr: "أصول المحاكمات المدنية", countryNameAr: "سوريا" });
-  assert.equal(appeal, "مشكلة ميعاد الطعن والقيد | الدعاوى المدنية في سوريا | كاونسلو");
+  assert.equal(appeal, "مشكلة ميعاد الطعن والقيد | الدعاوى المدنية في سوريا | كاونسلو للاستشارات القانونية");
   const criminal = buildArabicProblemTitle({ titleAr: "مشكلة منع السفر أو التوقيف", serviceTitleAr: "القانون الجزائي والتحقيقات والإجراءات", countryNameAr: "الإمارات" });
-  assert.equal(criminal, "مشكلة منع السفر أو التوقيف | القضايا الجزائية في الإمارات | كاونسلو");
+  assert.equal(criminal, "مشكلة منع السفر أو التوقيف | القضايا الجزائية في الإمارات | كاونسلو للاستشارات القانونية");
   assert.doesNotMatch(criminal, /التحقيقات والإجراءات/);
 });
 
@@ -59,12 +59,12 @@ test("Arabic problem snippets preserve intent, jurisdiction, and safe positionin
     assert.doesNotMatch(title, /…/);
     assert.ok(description.includes(input.titleAr), description);
     assert.match(title, new RegExp(input.countryNameAr));
-    assert.match(title, /كاونسلو/);
+    assert.match(title, /كاونسلو للاستشارات القانونية/);
     assert.match(title, /في /);
     assert.match(description, /المستندات المطلوبة/);
     assert.match(description, /بشأن حالتك/);
     assert.match(description, /أونلاين/);
-    assert.match(description, /كاونسلو/);
+    assert.match(description, /كاونسلو للاستشارات القانونية/);
     assert.match(description, /[.؟]$/);
     assert.doesNotMatch(`${title} ${description}`, /\s(?:أمام|أو|إلى|بين|بشأن|ضد|ضمن|على|عن|غير|في|لدى|مع|من)(?:\s*\||[.؟])$/);
     assert.doesNotMatch(`${title} ${description}`, /مضمون|نضمن|تمثيل أمام|محامي مرخص/);
@@ -83,7 +83,7 @@ test("English problem snippets preserve topic, jurisdiction, action, and brand",
     assert.ok(title.startsWith(input.titleEn.replace(/ in Syria$/, "")), title);
     assert.doesNotMatch(title, /…/);
     assert.ok(description.startsWith(input.titleEn.replace(/ in Syria$/, "")), description);
-    assert.match(title, /CounselO$/);
+    assert.match(title, /CounselO Legal$/);
     assert.match(title, new RegExp(input.countryNameEn));
     assert.match(description, /documents to prepare/);
     assert.match(description, /CounselO/);
@@ -111,7 +111,7 @@ test("every canonical problem page has unique bilingual search snippets", () => 
 test("title shortening retains the leading legal subject", () => {
   const title = buildEnglishProblemTitle({ titleEn: "Trademark registration and disputes", serviceTitleEn: "Intellectual Property", countryNameEn: "Saudi Arabia" });
   assert.match(title, /^Trademark registration/);
-  assert.match(title, /Saudi Arabia \| CounselO$/);
+  assert.match(title, /Saudi Arabia \| CounselO Legal$/);
 });
 
 test("internal keyword research candidates remain unique and bilingual", () => {
@@ -166,5 +166,5 @@ test("self-describing Arabic tax topics do not repeat the entire service label",
     serviceTitleAr: "ضريبة الشركات وضريبة القيمة المضافة والمنازعات الضريبية",
     countryNameAr: "الإمارات",
   });
-  assert.equal(title, "مشكلة التسجيل والإقرار بضريبة الشركات في الإمارات | كاونسلو");
+  assert.equal(title, "مشكلة التسجيل والإقرار بضريبة الشركات في الإمارات | كاونسلو للاستشارات القانونية");
 });

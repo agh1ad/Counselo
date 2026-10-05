@@ -10,7 +10,7 @@ import {
 } from "./public-snapshot-readiness.js";
 import { notifySitemapUpdated } from "./google-indexing.js";
 
-const CACHE_PREFIX = "counselo/public-response-cache/v2/";
+const CACHE_PREFIX = "counselo/public-response-cache/v2-brand/";
 const PROCESS_CACHE_TTL_MS = 15_000;
 const PERSISTENT_CACHE_MAX_AGE_MS = 5 * 60_000;
 const PUBLICATION_CACHE_MAX_AGE_MS = 24 * 60 * 60_000;

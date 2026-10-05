@@ -93,10 +93,10 @@ export default function Services() {
       "@type": "ItemList",
       "@id": `${baseUrl}/services#service-list`,
       "name": region === "uae"
-        ? (isRTL ? `${areaCount} خدمة قانونية — كاونسلو الإمارات` : `${areaCount} Legal Services — CounselO UAE`)
+        ? (isRTL ? `${areaCount} خدمة قانونية — كاونسلو للاستشارات القانونية الإمارات` : `${areaCount} Legal Services — CounselO Legal UAE`)
         : region === "syr"
-        ? (isRTL ? `${areaCount} خدمة قانونية — كاونسلو سوريا` : `${areaCount} Legal Services — CounselO Syria`)
-        : (isRTL ? `${areaCount} خدمة قانونية — كاونسلو السعودية` : `${areaCount} Legal Services — CounselO Saudi Arabia`),
+        ? (isRTL ? `${areaCount} خدمة قانونية — كاونسلو للاستشارات القانونية سوريا` : `${areaCount} Legal Services — CounselO Legal Syria`)
+        : (isRTL ? `${areaCount} خدمة قانونية — كاونسلو للاستشارات القانونية السعودية` : `${areaCount} Legal Services — CounselO Legal Saudi Arabia`),
       "url": `${baseUrl}/services`,
       "numberOfItems": areaCount,
       "itemListElement": s.items.map((item, index) => ({
@@ -106,7 +106,7 @@ export default function Services() {
         "url": `${baseUrl}/services/${item.id}`,
       })),
     },
-    { "@context": "https://schema.org", ...regionalServiceDirectoryEntity(region, isRTL ? "ar" : "en", isRTL ? "خدمات كاونسلو القانونية" : "CounselO legal consultation services", seoDesc, s.items) },
+    { "@context": "https://schema.org", ...regionalServiceDirectoryEntity(region, isRTL ? "ar" : "en", isRTL ? "خدمات كاونسلو للاستشارات القانونية القانونية" : "CounselO Legal legal consultation services", seoDesc, s.items) },
     { "@context": "https://schema.org", ...COUNSELO_ORGANIZATION },
     {
       "@context": "https://schema.org",
@@ -212,7 +212,7 @@ export default function Services() {
       </section>
       <section id="services-process" className="border-y border-border bg-[#eef4f0] py-14 lg:py-20" aria-labelledby="services-process-title">
         <div className="premium-content-shell">
-          <h2 id="services-process-title" className="font-serif text-3xl md:text-4xl mb-8">{isRTL ? "كيف تعمل خدمات كاونسلو القانونية؟" : "How CounselO’s legal services work"}</h2>
+          <h2 id="services-process-title" className="font-serif text-3xl md:text-4xl mb-8">{isRTL ? "كيف تعمل خدمات كاونسلو للاستشارات القانونية؟" : "How CounselO Legal’s legal services work"}</h2>
           <p className="max-w-3xl text-muted-foreground leading-8 mb-8">{isRTL ? "اختر المجال بحسب المسألة، ثم حدد ما تحتاجه: إجابة عن سؤال قانوني، أو مراجعة مستند، أو خطة للخطوات التالية. نؤكد الخدمة المناسبة قبل الاتفاق على التكليف." : "Choose a practice area by the issue, then tell us what you need: an answer to a legal question, a document review or a plan for next steps. We confirm the appropriate service before agreeing the engagement."}</p>
           <ol className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {common.steps.map(([title, text], i) => <li key={title}>

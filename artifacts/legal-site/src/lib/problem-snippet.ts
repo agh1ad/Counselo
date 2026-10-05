@@ -31,21 +31,21 @@ const SELF_DESCRIBING_ARABIC_TOPICS = new Set([
 // cutting the middle of a phrase can change its meaning and create duplicates.
 export function buildArabicProblemTitle({titleAr, serviceTitleAr, countryNameAr}: ArabicProblemSnippetInput): string {
   const topic = arabicTopic(titleAr, countryNameAr);
-  if (countryNameAr === "سوريا" && /أجنبية (?:لنشاط سوري|لمعاملة سورية)$/.test(topic)) return `${topic} | كاونسلو`;
+  if (countryNameAr === "سوريا" && /أجنبية (?:لنشاط سوري|لمعاملة سورية)$/.test(topic)) return `${topic} | كاونسلو للاستشارات القانونية`;
   const needsContext = /^(?:عدم وضوح|الحاجة إلى|مشكلة|وجود|نزاع بشأن)/.test(topic)
     && !SELF_IDENTIFYING_ARABIC_SUBJECT.test(topic) && !SELF_DESCRIBING_ARABIC_TOPICS.has(topic);
   const context = needsContext ? ` | ${CONCISE_ARABIC_SERVICE_CONTEXT[serviceTitleAr] ?? serviceTitleAr}` : "";
-  return `${topic}${context} في ${countryNameAr} | كاونسلو`;
+  return `${topic}${context} في ${countryNameAr} | كاونسلو للاستشارات القانونية`;
 }
 export function buildEnglishProblemTitle({titleEn, serviceTitleEn, countryNameEn}: EnglishProblemSnippetInput): string {
   const topic = englishTopic(titleEn, countryNameEn);
-  if (countryNameEn === "Syria" && /^Foreign VAT .*Syrian (?:business|transaction)$/.test(topic)) return `${topic} | CounselO`;
+  if (countryNameEn === "Syria" && /^Foreign VAT .*Syrian (?:business|transaction)$/.test(topic)) return `${topic} | CounselO Legal`;
   const context = /^(?:Uncertainty|Unclear|A need|A dispute|A problem)/i.test(topic) ? ` | ${serviceTitleEn}` : "";
-  return `${topic}${context} in ${countryNameEn} | CounselO`;
+  return `${topic}${context} in ${countryNameEn} | CounselO Legal`;
 }
 export function buildArabicProblemDescription({titleAr, countryNameAr}: ArabicProblemSnippetInput): string {
-  return `${arabicTopic(titleAr, countryNameAr)} في ${countryNameAr}: تعرّف على ما يلزم مراجعته والمستندات المطلوبة، واطلب استشارة قانونية أونلاين من كاونسلو بشأن حالتك.`;
+  return `${arabicTopic(titleAr, countryNameAr)} في ${countryNameAr}: تعرّف على ما يلزم مراجعته والمستندات المطلوبة، واطلب استشارة قانونية أونلاين من كاونسلو للاستشارات القانونية بشأن حالتك.`;
 }
 export function buildEnglishProblemDescription({titleEn, countryNameEn}: EnglishProblemSnippetInput): string {
-  return `${englishTopic(titleEn, countryNameEn)} in ${countryNameEn}: see the issues to review and documents to prepare. Request online legal advice from CounselO about your case.`;
+  return `${englishTopic(titleEn, countryNameEn)} in ${countryNameEn}: see the issues to review and documents to prepare. Request online legal advice from CounselO Legal about your case.`;
 }

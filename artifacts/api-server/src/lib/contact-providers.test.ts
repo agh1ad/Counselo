@@ -59,8 +59,9 @@ test("emails the team and owner with an idempotency key", async () => {
       new Headers(request?.headers).get("Idempotency-Key"),
       "counselo-consultation/CON-20260726-TEST/internal",
     );
-    const body = JSON.parse(String(request?.body)) as { to: string[] };
+    const body = JSON.parse(String(request?.body)) as { to: string[]; from: string };
     assert.deepEqual(body.to, ["team@example.com", "owner@example.com"]);
+    assert.equal(body.from, "CounselO Legal <consultations@example.com>");
   });
 });
 
@@ -94,9 +95,9 @@ test("sends a polished bilingual confirmation to the customer", async () => {
     assert.equal(body.reply_to, "team@example.com");
     assert.match(body.subject, /تم استلام طلب استشارتك/);
     assert.match(body.text, /Thank you for choosing CounselO/);
-    assert.match(body.text, /شكراً لاختيارك كاونسلو/);
-    assert.match(body.html, /images\/counselo-logo\.png/);
-    assert.match(body.html, /<img[^>]+width="640"[^>]+width:100%/);
+    assert.match(body.text, /شكراً لاختيارك كاونسلو للاستشارات القانونية/);
+    assert.match(body.html, /\/logo\.png/);
+    assert.match(body.html, /<img[^>]+width="80"[^>]+height="80"/);
     assert.match(body.html, /including spam or junk/);
     assert.match(body.html, /بما في ذلك الرسائل غير المرغوب فيها/);
     assert.equal(body.attachments, undefined);

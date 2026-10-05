@@ -45,7 +45,7 @@ const SYR_TEXT_MAP: [RegExp, string][] = [
   [/المحاكم السعودية/g, "المحاكم السورية"],
   [/في المملكة\b/g, "في سوريا"],
   [/\bبالمملكة\b/g, "في سوريا"],
-  [/كاونسلو المملكة العربية السعودية/g, "كاونسلو سوريا"],
+  [/كاونسلو للاستشارات القانونية المملكة العربية السعودية/g, "كاونسلو للاستشارات القانونية سوريا"],
   [/ساما\b/g, "مصرف سوريا المركزي"],
   [/هيئة الزكاة والضريبة والجمارك/g, "هيئة الضرائب والرسوم"],
   [/ترخيص مساند/g, "الترخيص التجاري"],
@@ -126,7 +126,7 @@ const GEO = {
     hrefLangEn: "en-AE",
     hrefLangAr: "ar-AE",
     pathPrefix: "/uae",
-    imgAlt: "CounselO — Online Legal Consultation United Arab Emirates",
+    imgAlt: "CounselO Legal — Online Legal Consultation United Arab Emirates",
   },
   sa: {
     region: "SA",
@@ -138,7 +138,7 @@ const GEO = {
     hrefLangEn: "en-SA",
     hrefLangAr: "ar-SA",
     pathPrefix: "/sa",
-    imgAlt: "CounselO — Online Legal Consultation Saudi Arabia",
+    imgAlt: "CounselO Legal — Online Legal Consultation Saudi Arabia",
   },
   syr: {
     region: "SY",
@@ -150,7 +150,7 @@ const GEO = {
     hrefLangEn: "en-SY",
     hrefLangAr: "ar-SY",
     pathPrefix: "/syr",
-    imgAlt: "CounselO — Online Legal Consultation Syria",
+    imgAlt: "CounselO Legal — Online Legal Consultation Syria",
   },
 } as const;
 
@@ -315,16 +315,26 @@ export function SEOHead({
     !/[\u0600-\u06ff]/u.test(titleWithRegionalContext)
       ? `${titleWithRegionalContext} — العربية`
       : titleWithRegionalContext;
-  // Optimized meta titles are already final — never append a suffix to them.
-  // For fallback (non-map) titles, append "| CounselO" only if not already present.
+  // Optimized meta titles are already final — leave explicit overrides intact.
+  // Other titles retain regional context and use the current bilingual brand.
+  const titleToBrand =
+    metaOverride && !preferPageMetadata ? rawTitle : titleWithLanguageContext;
+  const alreadyHasCurrentBrand =
+    /(?:\|\s*CounselO Legal|\|\s*كاونسلو للاستشارات القانونية|كاونسلو للاستشارات القانونية)$/iu.test(
+      titleToBrand,
+    );
+  const withoutLegacyBrand = titleToBrand.replace(
+    /\s*(?:\|\s*)?(?:CounselO|كاونسلو)$/iu,
+    "",
+  );
   const fullTitle = limitTitle(
-    titleWithLanguageContext.endsWith("| CounselO") ||
-      titleWithLanguageContext.endsWith("| كاونسلو") ||
-      titleWithLanguageContext.endsWith("كاونسلو")
-      ? titleWithLanguageContext
-      : isArabic
-        ? `${titleWithLanguageContext} | كاونسلو`
-        : `${titleWithLanguageContext} | CounselO`,
+    metaOverride && !preferPageMetadata
+      ? rawTitle
+      : alreadyHasCurrentBrand
+        ? titleToBrand
+        : `${withoutLegacyBrand} | ${
+            isArabic ? "كاونسلو للاستشارات القانونية" : "CounselO Legal"
+          }`,
   );
 
   // Shared collection pages (noRegionPrefix=true without explicit alternates,
@@ -394,17 +404,17 @@ export function SEOHead({
 
   const defaultKeywordsEn =
     region === "uae"
-      ? "online legal consultation UAE, lawyer UAE online, legal advice Dubai, legal advice Abu Dhabi, UAE company law, UAE labour law, UAE family law, UAE arbitration, CounselO"
+      ? "online legal consultation UAE, lawyer UAE online, legal advice Dubai, legal advice Abu Dhabi, UAE company law, UAE labour law, UAE family law, UAE arbitration, CounselO Legal"
       : region === "sa"
-      ? "online legal consultation Saudi Arabia, lawyer Saudi Arabia online, legal advice KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law Saudi Arabia, foreign investment lawyer KSA, administrative law Saudi Arabia, CounselO"
-      : "online legal consultation Syria, lawyer Syria online, legal advice Syria, family law Syria, commercial law Syria, employment law Syria, real estate law Syria, foreign investment lawyer Syria, administrative law Syria, CounselO";
+      ? "online legal consultation Saudi Arabia, lawyer Saudi Arabia online, legal advice KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law Saudi Arabia, foreign investment lawyer KSA, administrative law Saudi Arabia, CounselO Legal"
+      : "online legal consultation Syria, lawyer Syria online, legal advice Syria, family law Syria, commercial law Syria, employment law Syria, real estate law Syria, foreign investment lawyer Syria, administrative law Syria, CounselO Legal";
 
   const defaultKeywordsAr =
     region === "uae"
-      ? "استشارة قانونية أونلاين الإمارات, محامي أونلاين الإمارات, مشورة قانونية دبي, قانون الشركات الإماراتي, قانون العمل الإماراتي, الأحوال الشخصية الإمارات, كاونسلو"
+      ? "استشارة قانونية أونلاين الإمارات, محامي أونلاين الإمارات, مشورة قانونية دبي, قانون الشركات الإماراتي, قانون العمل الإماراتي, الأحوال الشخصية الإمارات, كاونسلو للاستشارات القانونية"
       : region === "sa"
-      ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة العربية السعودية, مشورة قانونية إلكترونية, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل السعودي, القانون العقاري السعودي, استثمار أجنبي محامي, القانون الإداري السعودي, كاونسلو"
-      : "استشارة قانونية أونلاين سوريا, محامي أونلاين سوريا, مشورة قانونية إلكترونية سوريا, قانون الأسرة السوري, القانون التجاري السوري, قانون العمل السوري, القانون العقاري السوري, كاونسلو";
+      ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة العربية السعودية, مشورة قانونية إلكترونية, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل السعودي, القانون العقاري السعودي, استثمار أجنبي محامي, القانون الإداري السعودي, كاونسلو للاستشارات القانونية"
+      : "استشارة قانونية أونلاين سوريا, محامي أونلاين سوريا, مشورة قانونية إلكترونية سوريا, قانون الأسرة السوري, القانون التجاري السوري, قانون العمل السوري, القانون العقاري السوري, كاونسلو للاستشارات القانونية";
 
   const rawKeywords = keywords ?? (isArabic ? defaultKeywordsAr : defaultKeywordsEn);
 
@@ -480,7 +490,7 @@ export function SEOHead({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:type" content={ogType} />
-      <meta property="og:site_name" content="CounselO كاونسلو" />
+      <meta property="og:site_name" content="CounselO Legal كاونسلو للاستشارات القانونية" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:secure_url" content={ogImage} />
@@ -496,7 +506,7 @@ export function SEOHead({
         name="author"
         content={ogType === "article" && articleAuthor
           ? articleAuthor
-          : "CounselO — Lawyer and Legal Counsel Omar Al-Baghdadi"}
+          : "CounselO Legal — Lawyer and Legal Counsel Omar Al-Baghdadi"}
       />
       {reviewedBy && <meta name="reviewed-by" content={reviewedBy} />}
 

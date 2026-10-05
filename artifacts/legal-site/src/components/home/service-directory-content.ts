@@ -3,7 +3,7 @@ import type { Region } from "@workspace/api-zod/browser";
 export const serviceDirectoryContent: Record<Region, Record<"en" | "ar", { intro: string; framework: string; points: [string, string][]; preparation: string }>> = {
   sa: {
     en: {
-      intro: "CounselO provides online legal consultation, contract and document review, and written guidance for matters involving Saudi Arabia. Individuals, families, businesses and investors can explore the services below, then agree the question, documents, deliverable and fee in Arabic or English before paid work begins.",
+      intro: "CounselO Legal provides online legal consultation, contract and document review, and written guidance for matters involving Saudi Arabia. Individuals, families, businesses and investors can explore the services below, then agree the question, documents, deliverable and fee in Arabic or English before paid work begins.",
       framework: "How the Saudi legal framework shapes your matter",
       points: [
         ["Applicable law and documents", "The assessment starts with the type of relationship, relevant Saudi rules, contract terms and dates. Employment, family, company, property and commercial matters require different documents and legal checks."],
@@ -13,7 +13,7 @@ export const serviceDirectoryContent: Record<Region, Record<"en" | "ar", { intro
       preparation: "Start with a short chronology, your objective and any deadline. Identify the contract, notice, decision or case reference if available. We confirm the necessary documents before you send the full file.",
     },
     ar: {
-      intro: "تقدم كاونسلو استشارات قانونية إلكترونية ومراجعة للعقود والمستندات وإرشاداً مكتوباً للمسائل المرتبطة بالسعودية. يمكن للأفراد والأسر والشركات والمستثمرين استكشاف الخدمات أدناه، ثم الاتفاق على السؤال والمستندات والمخرج المطلوب والرسوم بالعربية أو الإنجليزية قبل بدء العمل المدفوع.",
+      intro: "تقدم كاونسلو للاستشارات القانونية استشارات قانونية إلكترونية ومراجعة للعقود والمستندات وإرشاداً مكتوباً للمسائل المرتبطة بالسعودية. يمكن للأفراد والأسر والشركات والمستثمرين استكشاف الخدمات أدناه، ثم الاتفاق على السؤال والمستندات والمخرج المطلوب والرسوم بالعربية أو الإنجليزية قبل بدء العمل المدفوع.",
       framework: "كيف يحدد الإطار القانوني السعودي مسار مسألتك؟",
       points: [
         ["النظام المنطبق والمستندات", "يبدأ التقييم بنوع العلاقة والأنظمة السعودية ذات الصلة وشروط العقد والتواريخ. وتحتاج مسائل العمل والأسرة والشركات والعقارات والتجارة إلى مستندات وفحوص قانونية مختلفة."],
@@ -25,7 +25,7 @@ export const serviceDirectoryContent: Record<Region, Record<"en" | "ar", { intro
   },
   syr: {
     en: {
-      intro: "CounselO provides online legal consultation and document review for Syrian property, family, employment, business and dispute matters. Clients in Syria and abroad can request written guidance in Arabic or English. We identify the relevant records, legal question and any local work before confirming the scope and fee.",
+      intro: "CounselO Legal provides online legal consultation and document review for Syrian property, family, employment, business and dispute matters. Clients in Syria and abroad can request written guidance in Arabic or English. We identify the relevant records, legal question and any local work before confirming the scope and fee.",
       framework: "How the Syrian legal framework shapes your matter",
       points: [
         ["Operative rules and amendments", "The review identifies the applicable legal text, amendments and relevant dates for the specific matter. A law number, earlier approval or old document alone does not establish the current legal position."],
@@ -35,7 +35,7 @@ export const serviceDirectoryContent: Record<Region, Record<"en" | "ar", { intro
       preparation: "Provide a brief summary, where you and the relevant records are located, and any deadline or pending proceeding. Mention documents already available; we confirm what is needed for consultation and what may require separately arranged local assistance.",
     },
     ar: {
-      intro: "تقدم كاونسلو استشارات قانونية إلكترونية ومراجعة مستندات للمسائل السورية المتعلقة بالعقارات والأسرة والعمل والأعمال والنزاعات. يمكن للعملاء داخل سوريا وخارجها طلب إرشاد مكتوب بالعربية أو الإنجليزية. نحدد السجلات المعنية والسؤال القانوني وأي عمل محلي قبل تأكيد النطاق والرسوم.",
+      intro: "تقدم كاونسلو للاستشارات القانونية استشارات قانونية إلكترونية ومراجعة مستندات للمسائل السورية المتعلقة بالعقارات والأسرة والعمل والأعمال والنزاعات. يمكن للعملاء داخل سوريا وخارجها طلب إرشاد مكتوب بالعربية أو الإنجليزية. نحدد السجلات المعنية والسؤال القانوني وأي عمل محلي قبل تأكيد النطاق والرسوم.",
       framework: "كيف يحدد الإطار القانوني السوري مسار مسألتك؟",
       points: [
         ["النص النافذ والتعديلات", "تحدد المراجعة النص القانوني المنطبق وتعديلاته والتواريخ ذات الصلة بالمسألة. ولا يكفي رقم قانون أو موافقة سابقة أو مستند قديم وحده لإثبات الموقف القانوني الحالي."],
@@ -47,7 +47,7 @@ export const serviceDirectoryContent: Record<Region, Record<"en" | "ar", { intro
   },
   uae: {
     en: {
-      intro: "CounselO provides online legal consultation and document review for individuals, families, businesses and investors with UAE matters. Explore corporate, employment, property, family and other services below. Advice is scoped around the relevant emirate, authority and mainland or free-zone framework, with written guidance in Arabic or English.",
+      intro: "CounselO Legal provides online legal consultation and document review for individuals, families, businesses and investors with UAE matters. Explore corporate, employment, property, family and other services below. Advice is scoped around the relevant emirate, authority and mainland or free-zone framework, with written guidance in Arabic or English.",
       framework: "How the UAE legal framework shapes your matter",
       points: [
         ["Federal, emirate and free-zone context", "Identify the emirate and the relevant company, employer or property registration. We assess whether the issue involves federal rules, local requirements or a free-zone framework, including DIFC or ADGM where applicable."],
@@ -57,7 +57,7 @@ export const serviceDirectoryContent: Record<Region, Record<"en" | "ar", { intro
       preparation: "Start with the emirate or free zone if known, the relevant parties, your question and any deadline. Identify the documents and authority involved. If unsure of the jurisdiction, say so; the initial assessment helps identify the appropriate scope.",
     },
     ar: {
-      intro: "تقدم كاونسلو استشارات قانونية إلكترونية ومراجعة مستندات للأفراد والأسر والشركات والمستثمرين في المسائل الإماراتية. استكشف أدناه خدمات الشركات والعمل والعقارات والأسرة وغيرها. يُحدد نطاق المشورة وفق الإمارة والجهة والإطار المنطبق في البرّ الرئيسي أو المنطقة الحرة، مع إرشاد مكتوب بالعربية أو الإنجليزية.",
+      intro: "تقدم كاونسلو للاستشارات القانونية استشارات قانونية إلكترونية ومراجعة مستندات للأفراد والأسر والشركات والمستثمرين في المسائل الإماراتية. استكشف أدناه خدمات الشركات والعمل والعقارات والأسرة وغيرها. يُحدد نطاق المشورة وفق الإمارة والجهة والإطار المنطبق في البرّ الرئيسي أو المنطقة الحرة، مع إرشاد مكتوب بالعربية أو الإنجليزية.",
       framework: "كيف يحدد الإطار القانوني الإماراتي مسار مسألتك؟",
       points: [
         ["الإطار الاتحادي والمحلي والمناطق الحرة", "حدد الإمارة وتسجيل الشركة أو صاحب العمل أو العقار المعني. نقيّم ارتباط المسألة بالقواعد الاتحادية أو المتطلبات المحلية أو إطار المنطقة الحرة، بما فيها مركز دبي المالي العالمي أو سوق أبوظبي العالمي عند انطباقهما."],

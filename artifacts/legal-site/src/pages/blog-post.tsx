@@ -169,7 +169,7 @@ export default function BlogPost() {
       minRead: "min read",
       consultHeading: "Need Legal Advice?",
       consultDesc:
-        "CounselO offers confidential initial online consultations for its supported jurisdictions via WhatsApp, email or the consultation form. Filing, attendance and reserved representation work are scoped separately where required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of legal practice, 20,000+ legal matters and consultations handled.",
+        "CounselO Legal offers confidential initial online consultations for its supported jurisdictions via WhatsApp, email or the consultation form. Filing, attendance and reserved representation work are scoped separately where required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of legal practice, 20,000+ legal matters and consultations handled.",
       whatsapp: "Chat on WhatsApp",
       consultation: "Start Consultation",
       disclaimer:
@@ -183,7 +183,7 @@ export default function BlogPost() {
       back: "العودة إلى المدونة",
       minRead: "د قراءة",
       consultHeading: "هل تحتاج إلى مشورة قانونية؟",
-      consultDesc: "يقدم كاونسلو استشارات سرية عبر واتساب أو البريد الإلكتروني — دون الحاجة لزيارة مكتب. من تأسيس المحامي والمستشار القانوني عمر البغدادي — خبرة قانونية 30+ عاماً من الممارسة القانونية.",
+      consultDesc: "يقدم كاونسلو للاستشارات القانونية استشارات سرية عبر واتساب أو البريد الإلكتروني — دون الحاجة لزيارة مكتب. من تأسيس المحامي والمستشار القانوني عمر البغدادي — خبرة قانونية 30+ عاماً من الممارسة القانونية.",
       whatsapp: "تواصل عبر واتساب",
       consultation: "ابدأ الاستشارة",
       disclaimer:
@@ -311,7 +311,7 @@ export default function BlogPost() {
     "publisher": {
       "@type": "Organization",
       "@id": COUNSELO_ENTITY_IDS.organization,
-      "name": "CounselO",
+      "name": "CounselO Legal",
       "url": "https://counselo-legal.com",
       "logo": {
         "@type": "ImageObject",
@@ -361,8 +361,8 @@ export default function BlogPost() {
         } : undefined}
         contentLanguage={useAr ? "ar" : "en"}
         keywords={useAr
-          ? `${category}, مقالات قانونية, إرشادات قانونية مجانية, كاونسلو, مدونة كاونسلو القانونية, استشارة قانونية أونلاين`
-          : `${category}, legal articles, free legal guides, CounselO blog, online legal advice, CounselO`}
+          ? `${category}, مقالات قانونية, إرشادات قانونية مجانية, كاونسلو للاستشارات القانونية, مدونة كاونسلو للاستشارات القانونية, استشارة قانونية أونلاين`
+          : `${category}, legal articles, free legal guides, CounselO Legal blog, online legal advice, CounselO Legal`}
         ogType="article"
         articlePublishedTime={post.date}
         articleModifiedTime={editorialUpdatedAt ?? post.updatedAt ?? post.date}
@@ -370,8 +370,8 @@ export default function BlogPost() {
         articleSection={category}
         reviewedBy={editorialUpdatedAt ? undefined : reviewerAttribution}
         ogImageAlt={editorialUpdatedAt ? title : useAr
-          ? `مقال قانوني من كاونسلو، راجعه ${reviewerAttribution}`
-          : `CounselO legal article reviewed by ${reviewerAttribution}`}
+          ? `مقال قانوني من كاونسلو للاستشارات القانونية، راجعه ${reviewerAttribution}`
+          : `CounselO Legal article reviewed by ${reviewerAttribution}`}
         extraSchemas={[articleSchema, breadcrumbSchema]}
       />
 

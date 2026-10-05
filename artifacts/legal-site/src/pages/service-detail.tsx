@@ -80,19 +80,19 @@ export default function ServiceDetail() {
       : `${data.title} | UAE`)
     : isRTL
     ? (syrSeo
-        ? `${data.title} في سوريا | استشارة قانونية أونلاين | كاونسلو`
-        : `${data.title} في ${isUae ? "الإمارات" : "السعودية"} | استشارة قانونية أونلاين | كاونسلو`)
+        ? `${data.title} في سوريا | استشارة قانونية أونلاين | كاونسلو للاستشارات القانونية`
+        : `${data.title} في ${isUae ? "الإمارات" : "السعودية"} | استشارة قانونية أونلاين | كاونسلو للاستشارات القانونية`)
     : (isSyr
-        ? (dataSeoTitle ?? `${data.title} Lawyer in Syria | Online Legal Consultation | CounselO`)
-        : `${data.title} Lawyer in ${isUae ? "the UAE" : "Saudi Arabia"} | Online Legal Consultation | CounselO`);
+        ? (dataSeoTitle ?? `${data.title} Lawyer in Syria | Online Legal Consultation | CounselO Legal`)
+        : `${data.title} Lawyer in ${isUae ? "the UAE" : "Saudi Arabia"} | Online Legal Consultation | CounselO Legal`);
 
   const fallbackSeoDesc = isUae
     ? truncateMeta(isRTL
       ? `${data.subtitle} استشارة قانونية إماراتية أونلاين تراعي الاختصاص الاتحادي والمحلي والبرّ الرئيسي والمناطق الحرة بالعربية أو الإنجليزية.`
       : `${data.subtitle} UAE-focused online legal consultation covering federal, emirate-level, mainland and free-zone requirements in Arabic or English.`)
     : isRTL
-      ? (syrSeo?.descAr ?? `${data.subtitle} — كاونسلو، منصة استشارات قانونية أونلاين في ${isSyr ? "سوريا" : "المملكة"}.`)
-      : (syrSeo?.desc ?? `${data.subtitle} — CounselO, ${isSyr ? "Syria's" : "Saudi Arabia's"} online legal consultation platform.`);
+      ? (syrSeo?.descAr ?? `${data.subtitle} — كاونسلو للاستشارات القانونية، منصة استشارات قانونية أونلاين في ${isSyr ? "سوريا" : "المملكة"}.`)
+      : (syrSeo?.desc ?? `${data.subtitle} — CounselO Legal, ${isSyr ? "Syria's" : "Saudi Arabia's"} online legal consultation platform.`);
 
   const seoKeywords = isUae && dataSeoKeywords
     ? dataSeoKeywords
@@ -151,14 +151,14 @@ export default function ServiceDetail() {
         { q: "ما المستندات التي أرسلها قبل الاستشارة؟", a: "أرسل العقود والمراسلات والإشعارات والقرارات وأي مستند يوضح التسلسل الزمني للوقائع. تجنب إرسال النسخ الوحيدة من الأصول، واحجب البيانات غير الضرورية." },
         { q: "متى يجب طلب المشورة القانونية؟", a: "اطلب المشورة بمجرد ظهور نزاع أو استلام إشعار أو قبل توقيع مستند مهم. التحرك المبكر يساعد على حفظ الأدلة وفهم الخيارات قبل اتخاذ قرار يصعب الرجوع عنه." },
         { q: "هل يمكن مراجعة عقد أو قرار أو ملف قبل بدء الإجراءات؟", a: "نعم. تساعد المراجعة الأولية على تحديد المخاطر ونقاط القوة والمعلومات الناقصة والمسار العملي المناسب قبل التفاوض أو تقديم أي طلب." },
-        { q: "هل تبقى معلومات الاستشارة سرية؟", a: "تتعامل كاونسلو مع المعلومات والمستندات القانونية وفق التزامات السرية المهنية والخصوصية وحماية البيانات الواجبة التطبيق، مع مراعاة حالات الإفصاح المطلوبة أو المسموح بها قانوناً." },
+        { q: "هل تبقى معلومات الاستشارة سرية؟", a: "تتعامل كاونسلو للاستشارات القانونية مع المعلومات والمستندات القانونية وفق التزامات السرية المهنية والخصوصية وحماية البيانات الواجبة التطبيق، مع مراعاة حالات الإفصاح المطلوبة أو المسموح بها قانوناً." },
       ]
     : [
         { q: `Can I get an online ${data.title.toLowerCase()} consultation for ${countryName}?`, a: "Yes. The initial legal assessment and document review can begin through WhatsApp or email. If formal representation or attendance is required, the team explains the appropriate next step after reviewing the matter." },
         { q: "What documents should I send before the consultation?", a: "Send relevant contracts, correspondence, notices, decisions, and a dated summary of events. Do not send the only copy of an original document, and redact unrelated sensitive information." },
         { q: "When should I seek legal advice?", a: "Seek advice when a dispute first appears, when you receive a notice, or before signing an important document. Early review helps preserve evidence and clarify options before an avoidable commitment is made." },
-        { q: "Can CounselO review a contract, decision, or case file before proceedings begin?", a: "Yes. An initial review can identify legal and practical risks, strengths, missing information, and the most appropriate route before negotiation or a formal filing." },
-        { q: "Is my consultation information confidential?", a: "CounselO handles legal information and documents under applicable professional-confidentiality, privacy and data-protection obligations, subject to legally required or permitted disclosures." },
+        { q: "Can CounselO Legal review a contract, decision, or case file before proceedings begin?", a: "Yes. An initial review can identify legal and practical risks, strengths, missing information, and the most appropriate route before negotiation or a formal filing." },
+        { q: "Is my consultation information confidential?", a: "CounselO Legal handles legal information and documents under applicable professional-confidentiality, privacy and data-protection obligations, subject to legally required or permitted disclosures." },
       ];
   const uaeService = isUae ? UAE_SERVICES.find(service => service.slug === id) : undefined;
   const regionalFaqs = uaeService ? buildUaeServicePageContent(uaeService).faqs[isRTL ? "ar" : "en"] : universalFaqs;
@@ -182,7 +182,7 @@ export default function ServiceDetail() {
     ...getRegionalLegalSources(region, id),
     ...sourceBackedSearchGuidance(region, id).flatMap(item => item.sources),
   ].map(source => [source.href, source])).values()];
-  const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو، أحتاج إلى مراجعة بخصوص خدمة ${data.title} في ${countryName}.` : `Hello CounselO, I need a review concerning ${data.title} in ${countryName}.`)}`;
+  const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو للاستشارات القانونية، أحتاج إلى مراجعة بخصوص خدمة ${data.title} في ${countryName}.` : `Hello CounselO Legal, I need a review concerning ${data.title} in ${countryName}.`)}`;
   const serviceSummary = intake ? `${isRTL ? `استشارة ${data.title} في ${countryName}.` : `${data.title} consultation in ${countryName}.`} ${intake.summary[isRTL ? "ar" : "en"]}` : isRTL
     ? `تقييم قانوني مركز لمسائل ${data.title} في ${countryName}: نحدد الإطار النظامي والجهة المختصة والمستندات والمواعيد والخيارات قبل تأكيد نطاق العمل.`
     : `A focused legal assessment for ${data.title.toLowerCase()} matters in ${countryName}: we identify the applicable framework, competent authority, documents, timing and options before confirming scope.`;
@@ -369,7 +369,7 @@ export default function ServiceDetail() {
                 <ul className="mt-6 grid gap-4 md:grid-cols-3">
                   {legalChecks.map((item) => <li key={item} className="flex gap-3 border-s-2 border-[#b4924a] bg-white/70 p-4 leading-7"><ShieldCheck className="mt-1 shrink-0 text-primary" size={19} />{item}</li>)}
                 </ul>
-                <p className="mt-6 border-s-4 border-red-700/70 bg-red-50 p-4 text-sm font-medium leading-6 text-red-950">{isRTL ? "التواصل مع كاونسلو لا يوقف أو يمدد أي ميعاد. إذا كان لديك موعد قريب، اذكر التاريخ والجهة فوراً." : "Contacting CounselO does not stop or extend a deadline. If a date is approaching, identify it and the relevant authority immediately."}</p>
+                <p className="mt-6 border-s-4 border-red-700/70 bg-red-50 p-4 text-sm font-medium leading-6 text-red-950">{isRTL ? "التواصل مع كاونسلو للاستشارات القانونية لا يوقف أو يمدد أي ميعاد. إذا كان لديك موعد قريب، اذكر التاريخ والجهة فوراً." : "Contacting CounselO Legal does not stop or extend a deadline. If a date is approaching, identify it and the relevant authority immediately."}</p>
               </section>
 
               {comprehensiveConsultation && (
@@ -529,8 +529,8 @@ export default function ServiceDetail() {
                 <div className="mt-6 border-s-2 border-[#b4924a] bg-white/65 p-4 text-sm text-muted-foreground leading-relaxed">
                   <strong className="text-foreground">{isRTL ? "مسؤول المحتوى:" : "Content responsibility:"}</strong>{" "}
                   {isRTL
-                    ? `أعدّها فريق المحتوى القانوني في كاونسلو، مع إسناد مسؤولية المراجعة القانونية إلى المراجع المبين في سجل المحتوى عند الاقتضاء. آخر تحقق من مسار المصادر: 18 أغسطس 2026. هذه الصفحة معلومات عامة عن ${data.title} في ${countryName}، والروابط الرسمية فيها نقاط بدء للتحقق وليست بديلاً عن مراجعة النص النافذ والوقائع والاستشارة المتخصصة.`
-                    : `Prepared by the CounselO legal content team, with legal-review responsibility assigned through the content record where applicable. Source-routing verification: 18 August 2026. This page provides general information about ${data.title.toLowerCase()} in ${countryName}; the official links are starting points for verification and do not replace checking the operative text, facts and qualified advice.`}
+                    ? `أعدّها فريق المحتوى القانوني في كاونسلو للاستشارات القانونية، مع إسناد مسؤولية المراجعة القانونية إلى المراجع المبين في سجل المحتوى عند الاقتضاء. آخر تحقق من مسار المصادر: 18 أغسطس 2026. هذه الصفحة معلومات عامة عن ${data.title} في ${countryName}، والروابط الرسمية فيها نقاط بدء للتحقق وليست بديلاً عن مراجعة النص النافذ والوقائع والاستشارة المتخصصة.`
+                    : `Prepared by the CounselO Legal content team, with legal-review responsibility assigned through the content record where applicable. Source-routing verification: 18 August 2026. This page provides general information about ${data.title.toLowerCase()} in ${countryName}; the official links are starting points for verification and do not replace checking the operative text, facts and qualified advice.`}
                 </div>
               </section>
 
@@ -540,7 +540,7 @@ export default function ServiceDetail() {
               </aside>
               <section id="service-contact" className="service-content-band scroll-mt-36 bg-[#0d4a31] p-7 text-white lg:p-10" aria-labelledby="service-contact-heading">
                 <h2 id="service-contact-heading" className="mb-4 font-serif text-3xl">{isRTL ? "ابدأ مراجعة مسألتك" : "Start a review of your matter"}</h2>
-                <p className="max-w-3xl leading-7 opacity-90">{isRTL ? "أرسل الهدف والوقائع الأساسية وأي ميعاد قريب والمستندات المتاحة. تؤكد كاونسلو نطاق العمل والرسوم والمخرج قبل بدء العمل المدفوع، ولا ينشئ التواصل وحده تكليفاً مهنياً." : "Send the objective, key facts, any approaching date and the available documents. CounselO confirms scope, fee and deliverable before paid work begins; contacting us alone does not create a professional engagement."}</p>
+                <p className="max-w-3xl leading-7 opacity-90">{isRTL ? "أرسل الهدف والوقائع الأساسية وأي ميعاد قريب والمستندات المتاحة. تؤكد كاونسلو للاستشارات القانونية نطاق العمل والرسوم والمخرج قبل بدء العمل المدفوع، ولا ينشئ التواصل وحده تكليفاً مهنياً." : "Send the objective, key facts, any approaching date and the available documents. CounselO Legal confirms scope, fee and deliverable before paid work begins; contacting us alone does not create a professional engagement."}</p>
                 <div className="mt-7 flex flex-wrap gap-4">
                   <Link href={`${regionPrefix}/contact?service=${id}`} data-cta="contact" data-conversion-position="service-contact" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex items-center gap-2 bg-white px-5 py-3 font-semibold text-primary hover:bg-white/90"><MessageSquareText size={18} />{isRTL ? "نموذج التواصل" : "Contact form"}</Link>
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-cta="whatsapp" data-conversion-position="service-contact" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex items-center gap-2 border border-white/50 px-5 py-3 font-semibold hover:bg-white/10"><Phone size={18} />WhatsApp</a>
@@ -575,7 +575,7 @@ export default function ServiceDetail() {
                     <ChevronRight className="h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                   </Link>
                   <Link href={isRTL ? "/ar/legal-library" : "/legal-library"} className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31]/12 bg-white p-5 font-semibold text-foreground transition-colors hover:bg-[#eef4f0] hover:text-primary">
-                    <span>{isRTL ? "مكتبة كاونسلو القانونية" : "CounselO Legal Library"}</span>
+                    <span>{isRTL ? "مكتبة كاونسلو للاستشارات القانونية" : "CounselO Legal Library"}</span>
                     <ChevronRight className="h-4 w-4 shrink-0 text-[#b4924a] transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                   </Link>
                   <Link href={`${regionPrefix}/contact?service=${id}`} data-cta="contact" data-conversion-position="service-related" data-region={region} data-lang={isRTL ? "ar" : "en"} className="group flex items-center justify-between gap-4 border-b border-e border-[#0d4a31] bg-[#0d4a31] p-5 font-semibold text-white transition-colors hover:bg-[#073d29]">

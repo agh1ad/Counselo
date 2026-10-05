@@ -19,8 +19,8 @@ export const COUNSELO_LEGAL_MATTERS_STAT = {
  * jurisdiction-specific result or a promise about any future matter.
  */
 export const COUNSELO_EXPERIENCE_SCOPE_NOTE = {
-  en: "CounselO states this career-wide figure includes legal matters, consultations, document reviews and related legal engagements handled or supervised across the region. It is an experience measure, not an independently audited outcome or a guarantee of results.",
-  ar: "تذكر كاونسلو أن هذا الرقم المهني التراكمي يشمل المسائل والاستشارات ومراجعات المستندات والأعمال القانونية المرتبطة التي عولجت أو جرى الإشراف عليها في المنطقة. وهو مقياس للخبرة وليس نتيجة مدققة بصورة مستقلة أو ضماناً لأي نتيجة.",
+  en: "CounselO Legal states this career-wide figure includes legal matters, consultations, document reviews and related legal engagements handled or supervised across the region. It is an experience measure, not an independently audited outcome or a guarantee of results.",
+  ar: "تذكر كاونسلو للاستشارات القانونية أن هذا الرقم المهني التراكمي يشمل المسائل والاستشارات ومراجعات المستندات والأعمال القانونية المرتبطة التي عولجت أو جرى الإشراف عليها في المنطقة. وهو مقياس للخبرة وليس نتيجة مدققة بصورة مستقلة أو ضماناً لأي نتيجة.",
 } as const;
 
 /** Approved professional-start year used for the public experience claim. */
