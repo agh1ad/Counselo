@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import test from "node:test";
 
+const journey = readFileSync(resolve(import.meta.dirname, "../components/legal/saudi-service-journey.tsx"), "utf8");
 const template = readFileSync(resolve(import.meta.dirname, "../pages/service-detail.tsx"), "utf8");
 
 test("main service pages keep a five-choice scan-first hierarchy", () => {
@@ -12,9 +13,9 @@ test("main service pages keep a five-choice scan-first hierarchy", () => {
     "sticky navigation should expose only five primary choices",
   );
   assert.match(template, /id="service-overview"/);
-  assert.match(template, /id="service-legal-checks"/);
+  assert.match(journey, /id="service-legal-checks"/);
   assert.match(template, /id="service-contact"/);
-  assert.match(template, /atAGlance\.map/);
+  assert.match(template, /<ServiceProcess isArabic=\{isRTL\}/);
 });
 
 test("main service pages expose immediate contact paths and safe engagement boundaries", () => {
@@ -22,7 +23,7 @@ test("main service pages expose immediate contact paths and safe engagement boun
   assert.match(template, /data-conversion-position="service-contact"/);
   assert.match(template, /Contacting CounselO Legal does not stop or extend a deadline/);
   assert.match(template, /contacting us alone does not create a professional engagement/);
-  assert.match(template, /without guaranteeing an outcome/);
+  assert.match(journey, /without guaranteeing an outcome/);
 });
 
 test("legacy outcome-oriented service narratives are not rendered by the shared template", () => {

@@ -37,10 +37,11 @@ test("homepage narrative follows DOM order without CSS section reordering", () =
     previous = current;
   }
   assert.match(source, /CONSULTATION_PRODUCTS\.map/);
-  assert.match(source, /e\.practices\.map/);
-  assert.match(source, /c\.reasons\.map/);
+  assert.equal((source.match(/<PracticeDirectory/g) ?? []).length, 1, "use one complete practice directory");
+  assert.doesNotMatch(source, /e\.practices\.map/, "do not repeat the same practice choices in a second directory");
+  assert.match(source, /<ServiceReasons/);
   assert.doesNotMatch(regional, /\border-(?:\d|\[)/);
-  assert.ok(regional.indexOf('id="about-founder-heading"') < regional.indexOf('id="practice-areas-heading"'));
+  assert.equal((regional.match(/<PracticeDirectory/g) ?? []).length, 1, "one comprehensive service directory avoids duplicate browsing sections");
   assert.ok(regional.indexOf('<PracticeDirectory') < regional.indexOf('id="how-it-works-heading"'));
   assert.doesNotMatch(regional, /SaudiHomepage/);
 });

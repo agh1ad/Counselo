@@ -1,0 +1,33 @@
+CounselO Legal | Digital incident and evidence-source worksheet
+Saudi Arabia — general preparation worksheet
+Updated: 2026-10-20
+https://counselo-legal.com/sa/services/cyber-law
+
+Complete on your own device. Nothing is sent to us automatically. Leave unknowns blank and omit passwords or unnecessary personal data.
+
+1. Incident
+Record the platform, date and incident type without guessing who was responsible.
+My notes: ____________________
+Available / missing record: ____________________
+
+2. Source
+Identify sources of available messages, links or logs and retain the originals available to you.
+My notes: ____________________
+Available / missing record: ____________________
+
+3. Report and response
+Arrange report references, platform or authority responses and subsequent correspondence.
+My notes: ____________________
+Available / missing record: ____________________
+
+What the agreed review scope can include:
+- A chronology connecting the incident to the source of each available record.
+- Information gaps and items that may require independent technical examination.
+
+Fee factors: Number of platforms, incidents and files, and any need for separate technical expertise.
+Do not send login details or verification codes; legal review is not account recovery or technical forensic examination.
+
+Output I am requesting: ____________________
+Requested deadline, its source and time zone: ____________________
+
+Preparation aid only; not a legal opinion or a filing-ready document. Scope, fee and responsible professional must be agreed before work starts, and the document-transfer method before sharing the file.

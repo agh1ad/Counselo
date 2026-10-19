@@ -42,7 +42,7 @@ test("evidence and publishing surfaces retain their trust boundaries", () => {
   assert.match(blog, /Report a correction or factual error/);
   assert.match(blog, /does not constitute legal advice/);
   assert.match(work, /past work or outcomes do not guarantee the result of another matter/);
-  assert.match(work, /Client names, personal and commercially sensitive data/);
+  assert.match(work, /Client identities and confidential details were redacted before publication/);
   assert.match(work, /articlePublishedTime=\{sample\.date\}/);
   assert.match(work, /articleModifiedTime=\{modifiedAt\}/);
   assert.match(work, /workModifiedAt\(sample\.slug, sample\.updatedAt, sample\.date\)/);

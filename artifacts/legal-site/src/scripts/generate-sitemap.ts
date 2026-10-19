@@ -1,3 +1,4 @@
+import { saudiServiceBrief, saudiServiceBriefModifiedAt } from "../lib/saudi-service-briefs.js";
 import { SEARCH_COPY_UPDATED_AT } from "../lib/search-intent-copy.js";
 import { writeFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
@@ -223,12 +224,13 @@ for (const page of CORE_PAGES) {
   if (page.path === "/syr") {
     entries.push("\n  <!-- ===== SYR CORE PAGES ===== -->");
   }
-  entries.push(urlEntry(page.path, page.changefreq, page.priority, /(?:urgent-legal-assistance|about|contact)$/.test(page.path) ? "2026-09-11" : /(?:privacy-policy|terms-of-service)$/.test(page.path) ? "2026-09-07" : /(?:vision|services)$/.test(page.path) || /^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?)$/.test(page.path) ? SEARCH_COPY_UPDATED_AT : STATIC_CONTENT_LASTMOD));
+  const saudiAcquisitionUpdated = /^\/sa(?:\/ar)?(?:\/contact)?$/.test(page.path);
+  entries.push(urlEntry(page.path, page.changefreq, page.priority, saudiAcquisitionUpdated ? (/^\/sa(?:\/ar)?$/.test(page.path) ? "2026-10-20" : "2026-10-19") : /(?:urgent-legal-assistance|about|contact)$/.test(page.path) ? "2026-09-11" : /(?:privacy-policy|terms-of-service)$/.test(page.path) ? "2026-09-07" : /(?:vision|services)$/.test(page.path) || /^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?)$/.test(page.path) ? SEARCH_COPY_UPDATED_AT : STATIC_CONTENT_LASTMOD));
 }
 
 entries.push("\n  <!-- ===== SA SERVICE PAGES ===== -->");
 for (const slug of SA_SERVICE_SLUGS) {
-  const modified = slug === "urgent-legal-assistance" ? "2026-09-11" : serviceGuidanceUpdatedAt("sa", slug, SEARCH_COPY_UPDATED_AT);
+  const modified = slug === "urgent-legal-assistance" ? "2026-10-20" : serviceGuidanceUpdatedAt("sa", slug, saudiServiceBrief("sa", slug, "en") ? saudiServiceBriefModifiedAt(slug) : SEARCH_COPY_UPDATED_AT);
   entries.push(urlEntry(`/sa/services/${slug}`, "monthly", "0.9", modified));
   entries.push(urlEntry(`/sa/ar/services/${slug}`, "monthly", "0.9", modified));
 }

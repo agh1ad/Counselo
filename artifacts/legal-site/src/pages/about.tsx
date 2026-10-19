@@ -1,3 +1,4 @@
+import { ServiceReasons } from "@/components/legal/saudi-service-journey";
 import * as m from "framer-motion/m";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -110,6 +111,7 @@ export default function About() {
         </div>
       </section>
 
+
       {/* ── Stats Bar ── */}
       <section className="bg-[#003d22] py-10 border-t border-[#d4af60]/30">
         <div className="premium-content-shell">
@@ -129,82 +131,11 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Mission + Vision 2030 ── */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{a.mission.eyebrow}</p>
-              <h2 className="text-4xl font-serif font-bold text-foreground mb-6">{a.mission.heading}</h2>
-              <div className="w-16 h-1 bg-primary/40 mb-8" />
-              <p className="text-muted-foreground leading-relaxed mb-5">{a.mission.p1}</p>
-              <p className="text-muted-foreground leading-relaxed mb-5">{a.mission.p2}</p>
-              <p className="text-muted-foreground leading-relaxed">{a.mission.p3}</p>
-            </m.div>
-            <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <div className="bg-primary p-10 text-white">
-                <div className="flex items-center gap-3 mb-6">
-                  <Star className="h-8 w-8 text-white/80" />
-                  <div>
-                    <div className="font-serif font-bold text-xl">{a.mission.vision2030Badge}</div>
-                    <div className="text-white/70 text-sm mt-1">{a.mission.vision2030Desc}</div>
-                  </div>
-                </div>
-                <div className="border-t border-white/20 pt-6 space-y-4">
-                  {[
-                    isRTL ? "التحول الرقمي للخدمات القانونية" : "Digital transformation of legal services",
-                    isRTL ? "إتاحة العدالة لجميع المواطنين" : "Access to justice for all citizens",
-                    isRTL ? "تمكين الأعمال والمستثمرين" : "Empowering businesses and investors",
-                    isRTL ? "المشورة القانونية بلا حدود جغرافية" : "Legal advice without geographic barriers",
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-white/60 shrink-0" />
-                      <span className="text-white/80 text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="mt-6 bg-card border border-border p-8">
-                {region === "uae" ? (
-                  <>
-                    <div className="text-4xl font-serif font-bold text-primary mb-2">7</div>
-                    <p className="text-foreground font-semibold mb-2">
-                      {isRTL ? "سبع إمارات — أطر واختصاصات متعددة" : "Seven Emirates — Multiple Competent Frameworks"}
-                    </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {isRTL
-                        ? "تبدأ المراجعة بتحديد الإمارة والجهة والإطار الاتحادي أو المحلي أو إطار البرّ الرئيسي أو المنطقة الحرة المناسب للمسألة."
-                        : "Each review begins by identifying the Emirate, authority and appropriate federal, local, mainland or free-zone framework."}
-                    </p>
-                  </>
-                ) : region === "syr" ? (
-                  <>
-                    <div className="text-4xl font-serif font-bold text-primary mb-2">1957</div>
-                    <p className="text-foreground font-semibold mb-2">
-                      {isRTL ? "مكتب البغدادي للمحاماة — تأسس عام 1957" : "Al-Baghdadi Law Firm — Est. 1957"}
-                    </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {isRTL
-                        ? "يخص تاريخ التأسيس عام 1957 مكتب البغدادي للمحاماة (BaghdadiLaw)، لا كاونسلو للاستشارات القانونية. وتشكل صلة عمر البغدادي العائلية والمهنية بالمكتب جزءاً من خلفيته بصفته مؤسس منصة الاستشارات الإلكترونية المنفصلة."
-                        : "The 1957 founding date belongs to Al-Baghdadi Law Firm (BaghdadiLaw), not CounselO Legal. Omar Al-Baghdadi’s family and professional connection to the firm forms part of his background as founder of the separate online consultation platform."}
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <div className="text-4xl font-serif font-bold text-primary mb-2">2030</div>
-                    <p className="text-foreground font-semibold mb-2">
-                      {isRTL ? "التحول الرقمي في السعودية — خدمات قانونية إلكترونية" : "Saudi digital transformation — Online Legal Services"}
-                    </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {isRTL
-                        ? "تقدم كاونسلو للاستشارات القانونية خدمات قانونية إلكترونية تساعد الأفراد والشركات والمستثمرين على الوصول إلى الإرشاد المهني عبر القنوات الرقمية."
-                        : "CounselO Legal provides online legal services that help individuals, businesses and investors access professional guidance through digital channels."}
-                    </p>
-                  </>
-                )}
-              </div>
-            </m.div>
-          </div>
+      <section className="py-10 bg-background" aria-labelledby="about-platform-heading">
+        <div className="premium-content-shell concise-intro">
+          <h2 id="about-platform-heading" className="text-3xl font-serif">{isRTL ? "ما هي كاونسلو؟" : "What is CounselO?"}</h2>
+          <div><p>{isRTL ? "منصة للاستشارات القانونية أونلاين للأفراد والشركات. نراجع الوقائع والمستندات ونوضح الخيارات والخطوة التالية، ضمن نطاق وأتعاب متفق عليها." : "An online legal consultation platform for individuals and businesses. We review the facts and documents, explain the options and next step, and agree the scope and fees in advance."}</p>
+          <Link href={`${regionPath}/vision`} className="concise-text-link">{isRTL ? "منهجنا في تقديم الاستشارة" : "Our approach to legal advice"}</Link></div>
         </div>
       </section>
 
@@ -269,18 +200,10 @@ export default function About() {
               </div>
 
               <p className="text-muted-foreground leading-relaxed mb-5 text-lg">{t.aboutPage.founder.bio1}</p>
-              <p className="text-muted-foreground leading-relaxed mb-5">{t.aboutPage.founder.bio2}</p>
-              <p className="text-muted-foreground leading-relaxed mb-5">{t.aboutPage.founder.bio3}</p>
+
+
               <p className="text-muted-foreground leading-relaxed">{t.aboutPage.founder.bio4}</p>
 
-              <div className="grid grid-cols-2 gap-4 mt-10">
-                {t.aboutPage.founder.stats.map((s, i) => (
-                  <div key={i} className="bg-primary/5 border border-primary/20 p-5 text-center">
-                    <div className="text-2xl font-serif font-bold text-primary mb-1">{s.stat}</div>
-                    <div className="text-xs text-muted-foreground uppercase tracking-wider">{s.label}</div>
-                  </div>
-                ))}
-              </div>
             </m.div>
 
             <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
@@ -340,31 +263,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Why CounselO Legal ── */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <m.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{a.why.eyebrow}</p>
-            <h2 className="text-4xl font-serif font-bold text-foreground mb-4">{a.why.heading}</h2>
-            <div className="w-16 h-1 bg-primary/30 mx-auto" />
-          </m.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {a.why.points.map((point, i) => {
-              const Icon = whyIcons[i] ?? Scale;
-              return (
-                <m.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                  className="bg-card border border-border p-8 hover:border-primary/40 transition-colors">
-                  <div className="w-12 h-12 bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-                    <Icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3">{point.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{point.desc}</p>
-                </m.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <div className="premium-content-shell py-12"><ServiceReasons isArabic={isRTL} regionPrefix={regionPath} /></div>
 
       {/* ── Physical Office ── */}
       <section className="py-20 bg-card border-t border-b border-border">
@@ -473,9 +372,9 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <m.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <p className="text-primary font-medium uppercase tracking-widest text-sm mb-4">{a.cta.eyebrow}</p>
-            <h2 className="text-4xl font-serif font-bold text-foreground mb-6">{a.cta.heading}</h2>
+            <h2 className="text-4xl font-serif font-bold text-foreground mb-6">{isRTL ? "ناقش مسألتك مع الفريق" : "Discuss your matter with the team"}</h2>
             <div className="w-20 h-1 bg-primary/30 mx-auto mb-8" />
-            <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-2xl mx-auto">{a.cta.desc}</p>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-2xl mx-auto">{isRTL ? "أرسل سؤالك وأي موعد مهم. نحدد نطاق الاستشارة والشكل المناسب والأتعاب قبل البدء." : "Send your question and any deadline. We agree the consultation scope, format and fee before work begins."}</p>
             <p className="mb-8 leading-7 text-muted-foreground">
               <Link href={`${regionPath}/vision`} className="text-primary underline underline-offset-4">
                 {isRTL ? "تعرّف على رؤيتنا لتقديم الاستشارة القانونية وحدود نطاق الخدمة" : "Read our approach to legal consultation and the scope of our service"}

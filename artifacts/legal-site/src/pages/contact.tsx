@@ -1,3 +1,4 @@
+import { ServiceProcess, ServiceCosts } from "@/components/legal/saudi-service-journey";
 import { urgentPath } from "@/lib/urgent-legal-assistance";
 import * as m from "framer-motion/m";
 import { Link } from "wouter";
@@ -89,6 +90,17 @@ export default function Contact() {
 
   const [formReady, setFormReady] = useState(false);
   useEffect(() => { setFormReady(true); }, []);
+  useEffect(() => {
+    if (!formReady || window.location.hash !== "#consultation-request") return;
+    // The page is lazy-loaded; the browser's initial fragment jump can precede
+    // the form, and the shared router also resets scroll on route changes.
+    const frame = window.requestAnimationFrame(() => {
+      const request = document.getElementById("consultation-request");
+      request?.scrollIntoView({ block: "start" });
+      request?.focus({ preventScroll: true });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [formReady]);
 
   const [wasSent, setWasSent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -287,37 +299,12 @@ export default function Contact() {
           <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">{c.hero.heading}</h1>
             <div className="premium-hero-rule mx-auto mb-8" />
-            <p className="text-xl text-white/75 max-w-2xl mx-auto leading-relaxed">{c.hero.subheading}</p>
+            <p className="text-xl text-white/75 max-w-2xl mx-auto leading-relaxed">{isRTL ? "أرسل مسألتك والدولة وأي موعد قريب. نستهدف الرد خلال 24 ساعة بحسب التفاصيل وتوفر الخدمة." : "Tell us your matter, country and any deadline. We target a response within 24 hours, depending on the details and availability."}</p>
+            {<div className="mt-7 flex flex-wrap justify-center gap-4">
+              <a href="#consultation-request" className="inline-flex min-h-11 items-center bg-[#d4af60] px-5 py-3 font-semibold text-[#003d22] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">{isRTL ? "انتقل إلى نموذج الطلب" : "Go to the request form"}</a>
+              <a href={whatsappUrl} data-cta="whatsapp" data-conversion-position="sa-contact-hero" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex min-h-11 items-center border border-white/50 px-5 py-3 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">{isRTL ? "ابدأ عبر واتساب" : "Start on WhatsApp"}</a>
+            </div>}
           </m.div>
-        </div>
-      </section>
-
-      <section className="border-b border-white/10 bg-[#073d29] py-14 text-white lg:py-16" aria-labelledby="consultation-process-heading">
-        <div className="premium-content-shell">
-          <div className="mb-8 max-w-3xl">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#d4b66c]">{isRTL ? "من رسالتك الأولى إلى الخطوة التالية" : "From your first message to next steps"}</p>
-            <h2 id="consultation-process-heading" className="mb-3 text-3xl font-serif font-bold text-white md:text-4xl">{isRTL ? "كيف تعمل الاستشارة القانونية أونلاين؟" : "How online legal consultation works"}</h2>
-            <p className="text-sm leading-7 text-white/65">{isRTL ? "أرسل التفاصيل، نراجع مسألتك، نشرح ما يمكننا تقديمه وتكلفته، ثم تتلقى مشورة مكتوبة وخطوات عملية واضحة." : "Send the details, let us review your matter, understand what you need and its cost, then receive written advice and clear practical next steps."}</p>
-          </div>
-          <ol className="grid border-y border-white/15 md:grid-cols-2 lg:grid-cols-4">
-            {(isRTL ? [
-              ["١", "أرسل التفاصيل", "الوقائع والسؤال والدولة والمستندات ذات الصلة عبر النموذج أو واتساب أو البريد."],
-              ["٢", "نراجع مسألتك", "نحدد القانون والجهة ودرجة الاستعجال، ونشرح مسار الاستشارة وما نحتاجه لفهم المسألة."],
-              ["٣", "اتفق على الخدمة والرسوم", "نوضح ما ستحصل عليه والمدة والرسوم قبل بدء العمل المدفوع؛ لا يوجد سعر ثابت قبل فهم المسألة."],
-              ["٤", "استلم المشورة والخطوة التالية", "تتلقى مشورة مكتوبة وتوضيحات عبر البريد أو واتساب، مع دعم صوتي أو مرئي ومتابعة عند الاتفاق. التمثيل أمام المحكمة منفصل."],
-            ] : [
-              ["1", "Send the details", "Share the facts, question, country and relevant documents through the form, WhatsApp or email."],
-              ["2", "We review your matter", "We identify the relevant law, authority and urgency, then explain the consultation route and what we need to understand the matter."],
-              ["3", "Agree on the service and fee", "We explain what you will receive, how long it should take and the fee before paid work begins; there is no fixed price before the matter is understood."],
-              ["4", "Receive advice and next steps", "You receive written advice and clarifications by email or WhatsApp, with voice/video support and monitoring when agreed. Court representation is separate."],
-            ]).map(([number, title, body]) => (
-              <li key={number} className="border-b border-white/15 p-6 last:border-b-0 md:border-e md:last:border-e-0 lg:p-7">
-                <span className="mb-3 block font-mono text-sm font-bold text-[#d4b66c]">{number}</span>
-                <h3 className="mb-2 text-lg font-serif font-bold text-white">{title}</h3>
-                <p className="text-sm leading-6 text-white/65">{body}</p>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
@@ -349,14 +336,6 @@ export default function Contact() {
                   </p>
                 )}
               </div>
-              <div className="w-full bg-primary/5 border border-primary/20 rounded-sm px-6 py-4 flex items-center gap-3">
-                <Clock className="h-5 w-5 text-primary shrink-0" />
-                <p className="text-sm text-foreground/80 font-medium">
-                  {isRTL
-                    ? "وقت الاستجابة المهني المستهدف: خلال 24 ساعة — عبر واتساب أو البريد الإلكتروني، بحسب المسألة والاستعجال وكفاية المعلومات"
-                    : "Target professional response: within 24 hours via WhatsApp or email, depending on the matter, urgency and information provided"}
-                </p>
-              </div>
             </m.div>
           </div>
         </section>
@@ -366,7 +345,7 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Info */}
-            <div className="lg:col-span-4 space-y-12">
+            <div className="order-2 lg:order-1 lg:col-span-4 space-y-8">
               <m.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
                 <h3 className="text-2xl font-serif font-bold text-foreground mb-8">{c.firmDetails.heading}</h3>
                 <div className="space-y-8">
@@ -391,11 +370,11 @@ export default function Contact() {
             </div>
 
             {/* Form */}
-            <div className="lg:col-span-8">
+            <div id="consultation-request" tabIndex={-1} aria-labelledby="consultation-request-heading" className="scroll-mt-28 order-1 lg:order-2 lg:col-span-8">
               <m.div initial={false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-                className="bg-card border border-border p-10">
-                <h3 className="text-2xl font-serif font-bold text-foreground mb-2">{f.heading}</h3>
-                <div className="w-12 h-1 bg-primary mb-8" />
+                className="bg-card border border-border p-5 sm:p-8">
+                <h3 id="consultation-request-heading" className="text-2xl font-serif font-bold text-foreground mb-2">{f.heading}</h3>
+                <p className="mt-3 mb-5 text-sm text-muted-foreground">{isRTL ? "نؤكد النطاق والأتعاب قبل العمل المدفوع." : "We confirm scope and fees before paid work."} <a href="#service-scope-heading" className="text-primary underline underline-offset-4">{isRTL ? "الأتعاب والدفع" : "Costs and payment"}</a></p>
                 <div className="mb-8 grid gap-3 sm:grid-cols-2">
                   <a
                     href={whatsappUrl}
@@ -588,6 +567,7 @@ export default function Contact() {
       <JurisdictionDisclosure jurisdiction={region} />
       <SearchIntentGuidance page="contact" />
       <Toaster />
+      <div className="premium-content-shell py-10"><ServiceCosts isArabic={isRTL} regionPrefix={regionPrefix} region={region} contactHref="#consultation-request" /></div>
     </div>
   );
 }

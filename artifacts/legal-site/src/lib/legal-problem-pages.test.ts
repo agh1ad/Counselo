@@ -54,9 +54,10 @@ test("problem template keeps the scan-first hierarchy concise", () => {
   assert.match(template, /<section id="problem-context"/);
   assert.match(template, /<details id="problem-questions"/);
   assert.match(template, /<details id="problem-process"/);
-  assert.match(template, /<details id="consultation-package"/);
+  assert.doesNotMatch(template, /<details id="consultation-package"/, "do not repeat a generic package after the issue-specific deliverables");
+  assert.match(template, /confirms scope, fee and deliverable before paid work begins/);
   assert.match(template, /<details id="problem-sources"/);
-  assert.doesNotMatch(template, /id="problem-experience"/, "experience should be consolidated into the trust strip");
+  assert.doesNotMatch(template, /id="problem-experience"/, "experience should be accessible through the professional profile");
 });
 
 test("every problem page preserves the legal-accuracy and engagement boundary", () => {

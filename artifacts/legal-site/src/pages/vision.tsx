@@ -1,3 +1,4 @@
+import { PageContents } from "@/components/legal/page-contents";
 import { Link } from "wouter";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -314,6 +315,8 @@ export default function Vision() {
             </article>
           </div>
         </section>
+      <div className="premium-content-shell"><PageContents isArabic={isRTL} pageKey={regionPrefix} /></div>
+
 
         <div className="relative mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-24">
           <article aria-label={c.pageName}>

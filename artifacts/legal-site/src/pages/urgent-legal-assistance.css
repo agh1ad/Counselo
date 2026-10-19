@@ -244,3 +244,72 @@
 .urgent-delivery-condition { color: #d8e5dc; font-size: .9rem; max-width: 45ch; margin-top: 14px; }
 .urgent-request-panel .urgent-availability { color: var(--urgent-forest); background: #eff5f1; border: 0; border-inline-start: 3px solid #d9b878; padding: 14px 16px; margin: 20px 0; }
 .urgent-request-panel .urgent-request-note { font-size: .85rem; line-height: 1.7; margin-top: 20px; }
+
+/* Saudi-only compact reading rhythm; acceptance and delivery terms remain visible. */
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-section { padding-block: 48px; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-section-heading { margin-bottom: 24px; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-grid article { padding-block: 20px; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-breadcrumb { margin-bottom: 24px; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-related-links a { padding-block: 12px; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .saudi-reading-details > summary { font-size: 1rem; line-height: 1.75; min-height: 48px; padding-block: 14px; }
+@media (max-width: 639px) {
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) h1 { font-size: 2rem; line-height: 1.3; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) h2 { font-size: 1.65rem; margin-bottom: 16px; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-section { padding-block: 32px; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-hero { padding-bottom: 32px; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-hero-grid { gap: 24px; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-request-panel { padding: 20px; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-process ol { gap: 20px; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-country { padding: 20px; }
+}
+
+/* Match the Saudi reading system while keeping the urgent delivery conditions prominent. */
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-shell { width: min(1184px, calc(100% - 64px)); }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-hero { padding-block: 24px 36px; border-bottom-width: 2px; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-hero-grid { gap: 48px; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-hero-copy { padding: 0; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-panel-symbol { display: none; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-request-panel { border-radius: 6px; box-shadow: none; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) h1 { font-size: clamp(2rem,3.2vw,3rem); }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-delivery-proposition { flex-direction: row; align-items: baseline; flex-wrap: wrap; gap: .5rem 1rem; margin-top: 20px; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-delivery-proposition strong { font-size: clamp(2.25rem,4vw,3.25rem); }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-section-nav { position: sticky; top: 84px; z-index: 40; box-shadow: 0 3px 12px #073d2b08; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-section-nav .urgent-shell { gap: .25rem; padding-block: .375rem; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-section-nav a { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: .5rem .75rem; border-radius: 4px; text-align: center; line-height: 1.4; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-section-nav a:is(:hover,[aria-current="location"]) { color: #073d2b; background: #edf4ef; text-decoration: underline; text-underline-offset: 6px; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-service-icon { width: 40px; height: 44px; border: 0; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-grid article { grid-template-columns: 40px minmax(0,1fr); gap: 16px; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-intake,
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-trust-layout,
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-faq-layout,
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-resources-layout { gap: 40px; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-document { box-shadow: none; border-top-color: #6a8b75; border-radius: 6px; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-faq summary { min-height: 48px; padding-block: 1rem; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-final-panel { border-radius: 6px; padding: 32px; gap: 32px; }
+.urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-final-panel > div > svg { display: none; }
+@media (max-width: 800px) {
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) { --sa-anchor-offset: 212px; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-section-nav .urgent-shell { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-section-nav a { padding: .25rem; font-size: .8125rem; line-height: 1.35; }
+}
+@media (max-width: 639px) {
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-shell { width: calc(100% - 40px); }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-section-nav .urgent-shell { width: calc(100% - 24px); }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-hero-grid { gap: 24px; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-intro { font-size: 1rem; line-height: 1.75; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-eyebrow { margin-bottom: 12px !important; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-hero h1 { margin-bottom: 16px; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-hero-explore { margin-top: 16px; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-request-panel .urgent-button { font-size: .9375rem; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-request-panel > p { font-size: .9375rem; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-grid p,
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-process p,
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-faq details > p { font-size: 1rem; line-height: 1.75; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-intake,
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-trust-layout,
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-faq-layout,
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-resources-layout { gap: 24px; }
+  .urgent-page:is(.saudi-reading-page, .service-reading-page) .urgent-final-panel { padding: 24px; }
+}
+
+.urgent-page:is(.saudi-reading-page, .service-reading-page) [id] { scroll-margin-top: var(--sa-anchor-offset); }

@@ -1,5 +1,7 @@
 import { regionalServiceDirectoryEntity, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE } from "@workspace/api-zod/browser";
+import { ServiceProcess, ServiceReasons } from "@/components/legal/saudi-service-journey";
 import { PracticeDirectory } from "@/components/home/practice-directory";
+import { SaudiConsultationStart, saudiContactHref } from "@/components/home/saudi-consultation-start";
 import { RegionalHomeFaq } from "@/components/home/regional-home-faq";
 import { COUNSELO_EXPERIENCE_SCOPE_NOTE, getCounseloYearsOfPractice } from "@/lib/public-claims";
 import { homepageContent } from "@/components/home/homepage-content";
@@ -44,8 +46,8 @@ function RegionalReferenceHero({ h, regionPrefix, isRTL, region }: { h: Translat
         <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="uae-reference-hero__copy">
           <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#d4af60]">{h.hero.badge}</p>
           <h1 id={`${region}-reference-title`}>{h.hero.h1a}{" "}<br /><em>{h.hero.h1b}</em></h1>
-          <p className="uae-reference-hero__lede">{h.hero.desc} <strong>{h.hero.descBold}</strong></p>
-          <p className="uae-reference-hero__support">{h.hero.subDesc}</p>
+          <p className="uae-reference-hero__lede">{isRTL ? "استشارات قانونية ومراجعة وصياغة مستندات للأفراد والشركات، أونلاين بالعربية والإنجليزية." : "Online legal advice, document review and drafting for individuals and businesses, in Arabic and English."}</p>
+
           <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs font-medium text-white/75" aria-label={isRTL ? "مزايا الخدمة" : "Service highlights"}>
             {(isRTL ? ["استشارة ومراجعة مستندات", "العربية والإنجليزية", "نطاق ورسوم متفق عليها", "التمثيل بتكليف منفصل"] : ["Consultation & document review", "Arabic & English", "Agreed scope & fee", "Representation separately engaged"]).map((chip) => <li key={chip}>{chip.replace(/^✓\s*/, "")}</li>)}
           </ul>
@@ -56,7 +58,7 @@ function RegionalReferenceHero({ h, regionPrefix, isRTL, region }: { h: Translat
           <div className="uae-reference-hero__trust" aria-label={isRTL ? "قنوات الاستشارة" : "Consultation channels"}>
             {h.hero.channels.map((channel, index) => {
               const Icon = channelIcons[index] ?? MessageCircle;
-              return <span key={channel.label}><Icon aria-hidden="true" />{channel.label}<small>{channel.sub}</small></span>;
+              return <a key={channel.label} href={saudiContactHref(index === 0 ? "whatsapp" : "email", isRTL, region)} data-cta={index === 0 ? "whatsapp" : "email"} data-conversion-position="sa-home-hero" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex min-h-11 items-center gap-2 underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"><Icon aria-hidden="true" />{channel.label}<small>{channel.sub}</small></a>;
             })}
           </div>
         </m.div>
@@ -78,7 +80,7 @@ export default function Home() {
   const description = isRTL ? `كاونسلو للاستشارات القانونية تقدم استشارات قانونية إلكترونية ومراجعة مستندات وإرشاداً مكتوباً لمسائل ${country}، بإشراف مؤسسها عمر البغدادي، بالعربية والإنجليزية.` : `CounselO Legal provides online legal consultation, document review and written guidance for ${country} matters, founded by Omar Al-Baghdadi, in Arabic and English.`;
   const comprehensiveConsultation = getConsultationProduct("comprehensive-consultation");
   return (
-    <div className="w-full flex flex-col">
+    <div className="regional-home-page w-full flex flex-col">
       <SEOHead
         title={isRTL ? `كاونسلو للاستشارات القانونية | استشارات قانونية في ${country}` : `CounselO Legal | Legal Consultation for ${country}`}
         description={description}
@@ -101,329 +103,37 @@ export default function Home() {
       <div className=""><RegionalReferenceHero h={h} regionPrefix={regionPrefix} isRTL={isRTL} region={region} /></div>
 
       {/* ── ANSWER-FIRST REGIONAL SUMMARY ── */}
-      <section className="border-b border-border bg-white py-16 lg:py-20" aria-labelledby={`${region}-platform-summary`}>
-        <div className="mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
-          <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
-            <div>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#755615]">{isRTL ? "نطاق الخدمة" : "Regional service scope"}</p>
-              <h2 id={`${region}-platform-summary`} className="text-3xl font-serif font-medium leading-tight text-foreground md:text-5xl">
-                {isRTL ? `منصة قانونية إلكترونية لمسائل ${region === "uae" ? "الإمارات" : region === "syr" ? "سوريا" : "السعودية"}` : `Online legal platform for ${region === "uae" ? "UAE" : region === "syr" ? "Syria" : "Saudi Arabia"} matters`}
-              </h2>
-            </div>
-            <div className="space-y-5 text-base leading-8 text-muted-foreground md:text-lg">
-              <p><strong className="text-foreground">{isRTL ? `كاونسلو للاستشارات القانونية تقدم استشارات قانونية أونلاين ومراجعة مستندات وإرشاداً مكتوباً وفق اختصاص ${region === "uae" ? "الإمارات" : region === "syr" ? "القانون السوري" : "القانون السعودي"}.` : `CounselO Legal provides online legal consultation, document review and structured written guidance for ${region === "uae" ? "UAE" : region === "syr" ? "Syrian" : "Saudi"} matters.`}</strong> {isRTL ? "ابدأ بتحديد المسألة وإرسال المعلومات الأساسية بالعربية أو الإنجليزية." : "Start by describing the matter and sending the essential information in Arabic or English."}</p>
-              <p>{isRTL ? "يحدد الفريق القانون والجهة والنطاق المناسب قبل تأكيد العمل. وقت الاستجابة المهني مستهدف خلال 24 ساعة وفق نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوفر الخدمة." : "The team identifies the applicable law, authority and scope before confirming the work. A professional response is targeted within 24 hours, subject to scope, urgency, intake completeness and service availability."}</p>
-              <dl className="grid gap-3 sm:grid-cols-2">
-                {[
-                  [isRTL ? "الخدمات" : "Services", isRTL ? "استشارة · مراجعة مستندات · تحليل أولي · إرشاد مكتوب" : "Consultation · document review · preliminary analysis · written guidance"],
-                  [isRTL ? "اللغة" : "Language", isRTL ? "العربية والإنجليزية" : "Arabic and English"],
-                  [isRTL ? "الوصول" : "Access", isRTL ? "واتساب أو البريد الإلكتروني" : "WhatsApp or email"],
-                  [isRTL ? "التمثيل أمام المحاكم" : "Court representation", isRTL ? "إذا طُلب أو أصبح ضرورياً، يرتب بشكل مستقل عبر مهنيين شركاء أو مكاتب متعاونة مرخصة" : "If requested or necessary, arranged separately through licensed partner professionals or cooperating offices"],
-                ].map(([label, value]) => <div key={label} className="border-s-2 border-[#b4924a] bg-[#f4f7f4] px-4 py-3"><dt className="text-xs font-semibold uppercase tracking-[0.12em] text-primary/70">{label}</dt><dd className="mt-1 text-sm leading-6 text-foreground">{value}</dd></div>)}
-              </dl>
-            </div>
-          </div>
-        </div>
-      </section>
+      <SaudiConsultationStart isArabic={isRTL} region={region} />
+
+      <div className="premium-content-shell py-10 w-full"><ServiceReasons isArabic={isRTL} regionPrefix={regionPrefix} /></div>
 
       <PracticeDirectory region={region} isArabic={isRTL} />
 
-      {comprehensiveConsultation && (
-        <section className="border-b border-border bg-[#eef4f0] py-16 lg:py-20" aria-labelledby="regional-consultation-package-heading">
-          <div className="mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
-            <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
-              <div>
-                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#755615]">{isRTL ? "حزمة الاستشارة" : "Consultation package"}</p>
-                <h2 id="regional-consultation-package-heading" className="text-3xl font-serif font-medium leading-tight text-foreground md:text-5xl"><MessageCircle aria-hidden="true" className="mb-4 h-8 w-8" strokeWidth={1.5} />
-                  {isRTL ? comprehensiveConsultation.titleAr : comprehensiveConsultation.titleEn}
-                </h2>
-                <p className="mt-5 text-base leading-8 text-muted-foreground md:text-lg">{isRTL ? comprehensiveConsultation.summaryAr : comprehensiveConsultation.summaryEn}</p>
-              </div>
-              <div>
-                <ul className="grid gap-3 sm:grid-cols-2">
-                  {(isRTL ? comprehensiveConsultation.includesAr : comprehensiveConsultation.includesEn).map((item) => (
-                    <li key={item} className="flex items-start gap-3 border-s border-[#b4924a] bg-white px-4 py-3 text-sm leading-6 text-foreground">
-                      <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-primary" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-5 text-sm leading-7 text-muted-foreground">
-                  <strong className="text-foreground">{isRTL ? "النطاق والتكليف:" : "Scope and engagement:"}</strong>{" "}
-                  {isRTL ? `${CONSULTATION_OPERATING_POLICY.monitoringAr} ${CONSULTATION_OPERATING_POLICY.representationAr}` : `${CONSULTATION_OPERATING_POLICY.monitoringEn} ${CONSULTATION_OPERATING_POLICY.representationEn}`}
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── STATS STRIP ── */}
-      <section className="relative py-10 lg:py-12 bg-[#003d22] text-white overflow-hidden" aria-label={isRTL ? "أرقام ونطاق الخدمة" : "Service credentials and scope"}>
-        <div className="counselo-orbit counselo-orbit-stats" aria-hidden="true" />
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 divide-x rtl:divide-x-reverse divide-white/20">
-            {h.stats.map((item, i) => (
-              <m.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.08 }} className="px-4 md:px-8 lg:px-10 flex items-center gap-3 md:gap-5">
-                {(() => {
-                  const Icon = trustIcons[i] ?? Award;
-                  return <Icon className="hidden sm:block h-7 w-7 text-[#d4af60] shrink-0" strokeWidth={1.4} />;
-                })()}
-                <div>
-                  <div className="text-3xl md:text-4xl font-serif font-medium text-white mb-1 leading-tight">{item.stat}</div>
-                  <div className="text-[0.65rem] md:text-xs font-medium text-white/65 uppercase tracking-[0.14em] leading-snug">{item.label}</div>
-                </div>
-              </m.div>
-            ))}
-          </div>
-          <ExperienceMethodologyNote
-            isArabic={isRTL}
-            className="mx-auto mt-7 max-w-4xl border-t border-white/15 pt-5 text-center text-xs leading-5 text-white/65"
-          />
-        </div>
-      </section>
-
       {/* ── HOW IT WORKS ── */}
-      <section className="py-24 lg:py-32 bg-[#003d22] text-white relative overflow-hidden" aria-labelledby="how-it-works-heading">
-        <img
-          src="/images/optimized/counselo-gold-legal-line-art-v1.webp"
-          alt=""
-          aria-hidden="true"
-          width="1254"
-          height="1254"
-          loading="lazy"
-          decoding="async"
-          className="absolute w-[34rem] -start-48 top-24 opacity-[0.13] pointer-events-none"
-        />
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
-          <m.div {...fadeIn} className="text-center max-w-3xl mx-auto mb-16">
-            <p className="text-[#d4af60] font-medium uppercase tracking-[0.18em] text-xs mb-3">{h.howItWorks.eyebrow}</p>
-            <h2 id="how-it-works-heading" className="text-4xl md:text-5xl font-serif font-medium text-white mb-4"><MonitorSmartphone aria-hidden="true" className="mb-4 h-8 w-8" strokeWidth={1.5} />{h.howItWorks.heading}</h2>
-            <div className="w-20 h-px bg-[#d4af60] mx-auto mb-6" />
-            <p className="text-white/65 text-lg">{h.howItWorks.subheading}</p>
-          </m.div>
-          <div className="relative grid md:grid-cols-4 gap-8 md:gap-0">
-            <div className="hidden md:block absolute top-8 inset-x-[10%] h-px bg-[#d4af60]/55" aria-hidden="true">
-              {[25, 50, 75].map((position) => (
-                <span
-                  key={position}
-                  className="absolute top-1/2 w-2 h-2 bg-white rotate-45 -translate-x-1/2 -translate-y-1/2"
-                  style={{ left: `${position}%` }}
-                />
-              ))}
-            </div>
-            {h.howItWorks.steps.map((s, i) => {
-              const StepIcon = stepIcons[i] ?? CheckCircle2;
-              return (
-                <m.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.15 }}
-                  className="relative px-4 lg:px-8 text-center">
-                  <div className="relative z-10 w-16 h-16 rounded-full border border-[#d4af60] bg-[#003d22] text-[#e0c078] flex items-center justify-center mx-auto mb-5 font-serif text-xl shadow-[0_0_0_8px_#003d22]">{s.step.replace(/^0/, "")}</div>
-                  <div className="h-9 border-s border-dashed border-[#d4af60]/70 w-px mx-auto mb-3" aria-hidden="true" />
-                  <StepIcon className="w-10 h-10 text-[#d4af60] mx-auto mb-5" strokeWidth={1.25} aria-hidden="true" />
-                  <h3 className="text-xl font-serif font-medium text-white mb-4">{s.title}</h3>
-                  <p className="text-white/60 leading-relaxed text-sm">{s.desc}</p>
-                </m.div>
-              );
-            })}
-          </div>
-          <div className="text-center mt-14">
-            <Button asChild size="lg" className="group rounded-none px-10 py-6 bg-[#d4af60] text-[#003d22] hover:bg-[#e0c078] font-semibold">
-              <Link href={`${regionPrefix}/contact`}>
-                {h.consultMethods.ctaBtn}
-                <ArrowRight className="ms-3 h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
-              </Link>
-            </Button>
-            <p className="text-white/45 text-xs mt-4">{isRTL ? "آمن · سري · مهني" : "Secure · Confidential · Professional"}</p>
-          </div>
+      <section className="py-12 bg-white" aria-labelledby="how-it-works-heading">
+        <div className="premium-content-shell">
+          <h2 id="how-it-works-heading" className="mb-6 text-3xl font-serif">{isRTL ? "خطوات الاستشارة" : "How your consultation works"}</h2>
+          <ServiceProcess isArabic={isRTL} />
         </div>
       </section>
 
-      {/* ── ABOUT / FOUNDER ── */}
-      <section className="py-24 lg:py-32 bg-background relative overflow-hidden" aria-labelledby="about-founder-heading">
-        <div className="counselo-orbit counselo-orbit-founder" aria-hidden="true" />
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
-          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-end">
-            <m.div {...fadeIn}>
-              <p className="text-[#755615] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.about.eyebrow}</p>
-              <h2 id="about-founder-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6 leading-tight"><UserRoundCheck aria-hidden="true" className="mb-4 h-8 w-8" strokeWidth={1.5} />{c.founder}</h2>
-              <div className="counselo-gold-rule mb-8" />
-              <p className="text-muted-foreground text-lg mb-6 leading-relaxed">{c.founderText}</p>
-              <p className="text-muted-foreground text-lg mb-6 leading-relaxed"><a className="underline underline-offset-4" href={isRTL ? "https://omarbaghdadi.com/ar" : "https://omarbaghdadi.com/"}>{c.profile}</a></p>
-              <p className="text-muted-foreground text-lg mb-9 leading-relaxed"><a className="underline underline-offset-4" href="https://www.baghdadilaw.co/who-we-are">{c.firm}</a></p>
-              <div className="grid grid-cols-2 border-y border-border mb-8">
-                <div className="py-6 pe-5 border-e border-border">
-                  <span className="block text-4xl font-serif text-primary font-medium mb-1">{getCounseloYearsOfPractice()}+</span>
-                  <span className="block text-[#755615] font-semibold uppercase tracking-[0.12em] text-[0.65rem] leading-snug">
-                    {h.about.yearsLabel ?? (isRTL ? "سنة خبرة قانونية" : "Years of Legal Experience")}
-                  </span>
-                </div>
-                <div className="py-6 ps-6">
-                  <span className="block text-4xl font-serif text-primary font-medium mb-1">{h.about.caseStat}</span>
-                  <span className="block text-[#755615] font-semibold uppercase tracking-[0.12em] text-[0.65rem] leading-snug">{isRTL ? "مسائل واستشارات مهنية في المنطقة" : "Career-wide legal matters & consultations"}</span>
-                </div>
-              </div>
-              <p className="text-sm leading-7 text-muted-foreground mb-6">{COUNSELO_EXPERIENCE_SCOPE_NOTE[isRTL ? "ar" : "en"]}</p>
-              <ul className="space-y-4 border-t border-border pt-7">
-                {(isRTL ? ["يُحدد نطاق الخدمة والمهني المسؤول قبل بدء العمل.", "الاستشارة ومراجعة المستندات بالعربية أو الإنجليزية.", "التمثيل المحلي والعمل المنظم يخضعان لتكليف مستقل."] : ["The service scope and responsible professional are confirmed before work begins.", "Consultation and document review in Arabic or English.", "Local representation and regulated work require a separate engagement."]).map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-foreground">
-                    <span className="mt-2 block h-1.5 w-1.5 rotate-45 bg-[#b4924a] shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 pt-6 border-t border-border">
-                <div className="font-serif italic text-2xl text-primary leading-tight">{h.about.founderName}</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-[0.14em] mt-1">{h.about.founderRole}</div>
-              </div>
-            </m.div>
-
-            <m.div initial={false} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative self-stretch min-h-[560px]">
-              <div className="counselo-orbit counselo-orbit-founder-portrait" aria-hidden="true" />
-              <div className="absolute inset-0 overflow-hidden">
-                <img src="/omar-baghdadi.jpg" alt={c.founderName}
-                  className="counselo-founder-art w-full h-full object-cover object-top"
-                  width="800" height="1200" loading="lazy" decoding="async" />
-              </div>
-            </m.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── COOPERATING OFFICE / PHYSICAL PRESENCE ── */}
-      <section className="py-24 lg:py-28 bg-white border-y border-border relative overflow-hidden" aria-labelledby="cooperation-heading">
-        <div className="counselo-orbit counselo-orbit-section" aria-hidden="true" />
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
-          <div className="grid lg:grid-cols-[0.78fr_1.22fr] gap-12 lg:gap-20 items-start">
-            <m.div {...fadeIn}>
-              <p className="text-[#755615] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.cooperation.eyebrow}</p>
-              <h2 id="cooperation-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6 leading-tight"><Building2 aria-hidden="true" className="mb-4 h-8 w-8" strokeWidth={1.5} />{h.cooperation.heading}</h2>
-              <div className="counselo-gold-rule mb-8" />
-              <p className="text-muted-foreground text-lg leading-relaxed">{h.cooperation.desc}</p>
-            </m.div>
-            <m.div initial={false} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="border-t border-border">
-              {/* Primary office card */}
-              <div className="grid sm:grid-cols-[5rem_1fr] gap-5 sm:gap-8 py-8 border-b border-border">
-                <div className="w-16 h-16 border border-primary/20 flex items-center justify-center shrink-0">
-                  <MapPin className="h-7 w-7 text-primary" strokeWidth={1.4} />
-                </div>
-                <div>
-                  <div className="text-[#755615] text-[0.68rem] font-semibold uppercase tracking-[0.16em] mb-2">{h.cooperation.officeLabel}</div>
-                  <div className="font-serif font-medium text-2xl text-foreground mb-4">{h.cooperation.officeName}</div>
-                  <div className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                    <span className="text-muted-foreground text-sm leading-relaxed">{h.cooperation.officeDetail}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Second office card — Syria only */}
-              {h.cooperation.office2 && (
-                <div className="grid sm:grid-cols-[5rem_1fr] gap-5 sm:gap-8 py-8 border-b border-border">
-                  <div className="w-16 h-16 border border-primary/20 flex items-center justify-center shrink-0">
-                    <MapPin className="h-7 w-7 text-primary" strokeWidth={1.4} />
-                  </div>
-                  <div>
-                    <div className="text-[#755615] text-[0.68rem] font-semibold uppercase tracking-[0.16em] mb-2">{h.cooperation.officeLabel}</div>
-                    <div className="font-serif font-medium text-2xl text-foreground mb-4">{h.cooperation.office2.officeName}</div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground text-sm leading-relaxed">{h.cooperation.office2.officeDetail}</span>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </m.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHO WE SERVE ── */}
-      <section className="py-24 lg:py-32 bg-background border-b border-border" aria-labelledby="who-we-serve-heading">
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
-          <m.div {...fadeIn} className="max-w-3xl mb-16 lg:mb-20">
-            <p className="text-[#755615] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.whoWeServe.eyebrow}</p>
-            <h2 id="who-we-serve-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5"><Users aria-hidden="true" className="mb-4 h-8 w-8" strokeWidth={1.5} />{h.whoWeServe.heading}</h2>
-            <div className="counselo-gold-rule mb-6" />
-            <p className="text-muted-foreground text-lg leading-relaxed">{h.whoWeServe.subheading}</p>
-          </m.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 border-y border-border">
-            {h.whoWeServe.clients.map((client, i) => {
-              const Icon = clientIcons[i];
-              return (
-                <m.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group py-10 px-1 sm:px-7 lg:px-8 first:ps-0 lg:border-e last:border-e-0 border-border">
-                  <div className="flex items-center justify-between mb-8">
-                    <div className="w-14 h-14 border border-primary/20 flex items-center justify-center">
-                      <Icon className="h-7 w-7 text-primary" strokeWidth={1.4} />
-                    </div>
-                    <span className="font-serif text-4xl text-[#b4924a]/70">0{i + 1}</span>
-                  </div>
-                  <h3 className="text-xl font-serif font-medium text-foreground mb-3 group-hover:text-primary transition-colors">{client.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{client.desc}</p>
-                </m.div>
-              );
-            })}
+      <section className="py-12 bg-background" aria-labelledby="about-founder-heading">
+        <div className="premium-content-shell concise-founder">
+          <img src="/omar-baghdadi.jpg" alt={c.founderName} width="160" height="200" loading="lazy" decoding="async" />
+          <div>
+            <h2 id="about-founder-heading" className="text-3xl font-serif mb-3">{c.founderName}</h2>
+            <p>{isRTL ? "مؤسس كاونسلو، محامٍ ومستشار قانوني بدأ ممارسته عام 1996. يقود فريقاً يقدم الاستشارات ومراجعة المستندات بالعربية والإنجليزية." : "CounselO’s founder, a lawyer and legal counsel in practice since 1996, leads the team providing consultations and document review in Arabic and English."}</p>
+            <Link href={`${regionPrefix}/about`} className="concise-text-link">{isRTL ? "الفريق والمؤهلات ونطاق العمل" : "Team, qualifications and scope of practice"}<ArrowRight aria-hidden="true" className="h-4 w-4 rtl:rotate-180" /></Link>
           </div>
         </div>
       </section>
 
       {/* ── PRACTICE AREAS ── */}
-      <section className="py-24 lg:py-32 bg-background relative overflow-hidden" aria-labelledby="practice-areas-heading">
-        <div className="counselo-orbit counselo-orbit-practice" aria-hidden="true" />
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative">
-          <div className="grid lg:grid-cols-[0.72fr_1.28fr] gap-12 lg:gap-20">
-            <m.div {...fadeIn} className="lg:sticky lg:top-32 lg:self-start">
-              <p className="text-[#755615] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{h.practiceAreas.eyebrow}</p>
-              <h2 id="practice-areas-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-5 leading-tight"><Scale aria-hidden="true" className="mb-4 h-8 w-8" strokeWidth={1.5} />{h.practiceAreas.heading}</h2>
-              <div className="counselo-gold-rule mb-7" />
-              <p className="text-muted-foreground text-lg max-w-xl leading-relaxed">{h.practiceAreas.subheading}</p>
-              <Link href={`${regionPrefix}/services`} className="inline-flex items-center gap-3 text-primary font-semibold mt-8 group">
-                {h.practiceAreas.viewAllBtn}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
-              </Link>
-            </m.div>
-            <div className="grid sm:grid-cols-2 gap-5">
-              {h.practiceAreas.areas.map((area, i) => {
-                const Icon = serviceCardIcons[i % serviceCardIcons.length];
-                return (
-                <m.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.06 }}>
-                  <Link
-                    href={regionPrefix + area.path}
-                    className="group flex h-full min-h-56 flex-col border border-primary/15 bg-white p-6 transition-all hover:-translate-y-1 hover:border-[#b4924a] hover:shadow-[0_18px_45px_rgba(0,61,34,0.09)]"
-                  >
-                    <div className="mb-7 flex items-center justify-between">
-                      <span className="flex h-12 w-12 items-center justify-center border border-primary/20 bg-[#eef4f0] text-primary">
-                        <Icon className="h-6 w-6" strokeWidth={1.4} />
-                      </span>
-                      <span className="font-serif text-2xl text-[#b4924a]">0{i + 1}</span>
-                    </div>
-                    <h3 className="mb-3 text-xl font-serif font-medium text-foreground group-hover:text-primary transition-colors">{area.title}</h3>
-                    <p className="mb-7 text-muted-foreground text-sm leading-relaxed">{area.desc}</p>
-                    <ArrowRight className="mt-auto h-5 w-5 text-primary transition-transform group-hover:translate-x-1 rtl:rotate-180" />
-                  </Link>
-                </m.div>
-              )})}
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       <div className=""><LatestContentCarousels isArabic={isRTL} region={region} /></div>
 
       <div className=""><JurisdictionDisclosure jurisdiction={region} /></div>
-
-      <section className="py-20 lg:py-24 bg-white border-y border-border" aria-labelledby="experience-evidence-heading">
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="max-w-3xl">
-            <p className="text-[#755615] font-semibold uppercase tracking-[0.18em] text-xs mb-3">{isRTL ? "الخبرة والشفافية" : "Experience and transparency"}</p>
-            <h2 id="experience-evidence-heading" className="text-4xl md:text-5xl font-serif font-medium text-foreground mb-6"><ShieldCheck aria-hidden="true" className="mb-4 h-8 w-8" strokeWidth={1.5} />{isRTL ? "اعرف أساس الخدمة قبل البدء" : "Know the basis of the service before you begin"}</h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8">{isRTL ? "توضح كاونسلو للاستشارات القانونية نطاق الاستشارة والاختصاص والمصادر وطريقة التنسيق مع المهنيين المرخصين قبل بدء العمل. نماذج الأعمال المنشورة منقحة وتوضيحية، ولا تضمن الأعمال أو النتائج السابقة نتيجة أي مسألة أخرى." : "CounselO Legal explains the consultation scope, jurisdiction, sources, and any coordination with licensed professionals before work begins. Published work samples are redacted and illustrative; past work or outcomes do not guarantee the result of another matter."}</p>
-            <div className="grid sm:grid-cols-3 gap-4">
-              {[isRTL ? "اختصاص محدد" : "Jurisdiction-specific scope", isRTL ? "مصادر رسمية" : "Official-source links", isRTL ? "تكليف واضح" : "Defined engagement"].map((label) => <div key={label} className="border border-border p-5 text-sm font-semibold text-foreground">{label}</div>)}
-            </div>
-          </div>
-        </div>
-      </section>
 
       <RegionalHomeFaq region={region} isArabic={isRTL} />
 
@@ -444,13 +154,14 @@ export default function Home() {
             <div>
               <p className="text-[#d4af60] uppercase tracking-[0.18em] text-xs font-semibold mb-4">{h.cta.eyebrow}</p>
               <h2 id="regional-cta-heading" className="text-4xl md:text-5xl font-serif font-medium text-white mb-6 leading-tight"><MessageCircle aria-hidden="true" className="mb-4 h-8 w-8" strokeWidth={1.5} />{h.cta.heading}</h2>
-              <p className="text-lg text-white/70 mb-4 max-w-3xl leading-relaxed">{h.cta.desc}</p>
-              <p className="text-white/45 text-sm">{h.cta.subDesc}</p>
+              <p className="text-lg text-white/70 mb-4 max-w-3xl leading-relaxed">{isRTL ? "أرسل ملخص المسألة والدولة وأي موعد قريب. نوضح النطاق والأتعاب قبل بدء العمل." : "Send a short summary, the country and any deadline. We confirm scope and fees before starting."}</p>
+
             </div>
             <div className="lg:border-s border-white/20 lg:ps-12">
             <div className="flex flex-col gap-3 mb-7">
               {h.hero.channels.map((ch, i) => {
                 const Icon = channelIcons[i];
+                return <a key={i} href={saudiContactHref(i === 0 ? "whatsapp" : "email", isRTL, region)} data-cta={i === 0 ? "whatsapp" : "email"} data-conversion-position="sa-home-footer" data-region={region} data-lang={isRTL ? "ar" : "en"} className="group flex items-center justify-between gap-4 border-b border-white/20 py-4 text-sm font-semibold text-white transition-colors hover:border-[#d4af60] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"><span className="flex items-center gap-3"><Icon className="h-5 w-5 text-[#d4af60]" />{ch.label}</span><ArrowRight aria-hidden="true" className="h-4 w-4 rtl:rotate-180" /></a>;
                 return (
                   <Link key={i} href={`${regionPrefix}/contact`}
                     className="group flex items-center justify-between gap-4 border-b border-white/20 text-white py-4 text-sm font-semibold hover:border-[#d4af60] transition-colors">

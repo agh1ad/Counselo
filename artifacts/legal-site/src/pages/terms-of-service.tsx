@@ -190,14 +190,14 @@ export default function TermsOfService() {
       </section>
 
       <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:px-8 lg:py-24">
-        <nav aria-label={isRTL ? "محتويات شروط الخدمة" : "Terms contents"} className="hidden lg:block">
-          <div className="sticky top-28 border-t-2 border-[#b58b32] bg-[#eef4f0] p-6">
-            <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-[#0d4a31]">{isRTL ? "المحتويات" : "Contents"}</p>
+        <nav aria-label={isRTL ? "محتويات شروط الخدمة" : "Terms contents"} className="policy-contents">
+          <details open className="policy-contents-panel">
+            <summary className="font-semibold">{isRTL ? "المحتويات" : "Contents"}</summary>
             <ol className="space-y-4 text-sm">
               <li><a href="#terms-process" className="text-muted-foreground hover:text-primary">1. {content.processHeading}</a></li>
               <li><a href="#terms-general" className="text-muted-foreground hover:text-primary">2. {content.termsHeading}</a></li>
             </ol>
-          </div>
+          </details>
         </nav>
         <div>
 

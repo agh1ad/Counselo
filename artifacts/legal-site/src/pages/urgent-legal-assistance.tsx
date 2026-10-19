@@ -1,3 +1,5 @@
+import { ReadingNavigation } from "@/components/legal/reading-navigation";
+import { ReadingDetails } from "@/components/legal/reading-details";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useLocation } from "wouter";
@@ -6,7 +8,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { COUNSELO_ENTITY_IDS, buildHreflangLinks, getServicesForRegion } from "@workspace/api-zod/browser";
-import { urgentContactLinks, urgentCopy, urgentJurisdictions, urgentPath } from "@/lib/urgent-legal-assistance";
+import { urgentContactLinks, urgentCopy, saudiUrgentCopy, urgentJurisdictions, urgentPath } from "@/lib/urgent-legal-assistance";
 import "./urgent-legal-assistance.css";
 
 export default function UrgentLegalAssistance() {
@@ -15,7 +17,7 @@ export default function UrgentLegalAssistance() {
   const { region, regionPrefix } = useRegion();
   const [location] = useLocation();
   const regional = /^\/(sa|syr|uae)\//.test(location);
-  const c = urgentCopy[lang];
+  const c = saudiUrgentCopy[lang];
   const jurisdiction = urgentJurisdictions[region][lang];
   const path = urgentPath(isRTL, regional ? region : undefined);
   const url = `https://counselo-legal.com${path}`;
@@ -28,7 +30,7 @@ export default function UrgentLegalAssistance() {
     const [hrefLang, href] = value.split("|");
     return { hrefLang, href };
   });
-  const related = getServicesForRegion(region).filter(service => ["contracts", "civil-law", "criminal-law", "business-law"].includes(service.clusterSlug));
+  const related = getServicesForRegion(region).filter(service => region === "sa" ? service.kind !== "priority-intake" : ["contracts", "civil-law", "criminal-law", "business-law"].includes(service.clusterSlug));
   const schema = [
     { "@context": "https://schema.org", "@type": "Service", "@id": `${url}#service`, name: title, description: `${c.intro} ${c.timing} ${c.availability}`, url, serviceType: c.title, provider: { "@id": COUNSELO_ENTITY_IDS.organization }, availableChannel: [{ "@type": "ServiceChannel", serviceUrl: contacts.whatsapp, availableLanguage: ["Arabic", "English"] }] },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
@@ -60,7 +62,7 @@ export default function UrgentLegalAssistance() {
     <a href={contacts.email} data-cta="email" data-conversion-position="urgent-service" className="urgent-button urgent-button-secondary"><Mail aria-hidden="true" />{c.email}</a>
   </div>;
 
-  return <div className="urgent-page" dir={isRTL ? "rtl" : "ltr"}>
+  return <div className={`urgent-page service-reading-page${regional && region === "sa" ? " saudi-reading-page" : ""}`} dir={isRTL ? "rtl" : "ltr"}>
     <Helmet>{regional && <meta name="geo.region" content={{ sa: "SA", syr: "SY", uae: "AE" }[region]} />}</Helmet>
     <SEOHead title={title} description={description} canonical={path} noRegionPrefix
       contentLanguage={lang} regionalLanguageAlternates={alternates}
@@ -94,7 +96,7 @@ export default function UrgentLegalAssistance() {
         </div>
       </div>
     </section>
-    <nav className="urgent-section-nav" aria-label={isRTL ? "أقسام المساعدة العاجلة" : "Urgent assistance sections"}><div className="urgent-shell">{sections.map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</div></nav>
+    <ReadingNavigation enabled={true} pageKey={path} className="urgent-section-nav" label={isRTL ? "أقسام المساعدة العاجلة" : "Urgent assistance sections"}><div className="urgent-shell">{sections.map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</div></ReadingNavigation>
     <section className="urgent-section urgent-scope-section" aria-labelledby="urgent-scope">
       <div className="urgent-shell">
         <div className="urgent-section-heading"><h2 id="urgent-scope">{c.scopeTitle}</h2></div>
@@ -112,7 +114,7 @@ export default function UrgentLegalAssistance() {
     <section className="urgent-section" aria-labelledby="urgent-documents">
       <div className="urgent-shell urgent-intake">
         <div className="urgent-intake-copy"><span className="urgent-section-icon"><ClipboardList aria-hidden="true" /></span><h2 id="urgent-documents">{c.documentsTitle}</h2>
-          <p className="urgent-section-lead">{isRTL ? "جهّز التفاصيل مرة واحدة، ثم شاركها عبر وسيلة التواصل الأنسب لك." : "Prepare the details once, then share them through your preferred contact channel."}</p>
+          {!(regional && region === "sa") && <p className="urgent-section-lead">{isRTL ? "جهّز التفاصيل مرة واحدة، ثم شاركها عبر وسيلة التواصل الأنسب لك." : "Prepare the details once, then share them through your preferred contact channel."}</p>}
           <div className="urgent-privacy-note"><ShieldCheck aria-hidden="true" /><p>{c.privacy}</p></div><Link href={`${regionPrefix}/privacy-policy`} className="urgent-text-link">{isRTL ? "سياسة الخصوصية" : "Privacy policy"}<ArrowUpRight aria-hidden="true" /></Link>
         </div>
         <div className="urgent-document">
@@ -123,20 +125,26 @@ export default function UrgentLegalAssistance() {
       </div>
     </section>
     <section className="urgent-section urgent-coverage-section" aria-labelledby="urgent-coverage">
+      {regional && region === "sa" ? <div className="urgent-shell">
+        <h2 id="urgent-coverage">{isRTL ? "للطلبات السعودية" : "Saudi requests"}</h2>
+        <p>{isRTL ? "حدّد المدينة والجهة ومرحلة القضية وموعد الإشعار بالساعة والمنطقة الزمنية. شارك تفاصيل الإشعار دون كلمات مرور أو رموز تحقق. الإيداع والحضور غير مشمولين." : "State the city, authority, case stage and notice deadline, including time and time zone. Share notice details without passwords or verification codes. Filing and appearances are excluded."}</p>
+        <Link href={urgentPath(isRTL)} className="urgent-text-link">{isRTL ? "مسألتك في دولة أخرى؟" : "Matter in another country?"}<ArrowUpRight aria-hidden="true" /></Link>
+      </div> : <>
       <div className="urgent-shell urgent-coverage-layout">
         <div><span className="urgent-section-icon"><Globe2 aria-hidden="true" /></span><h2 id="urgent-coverage">{c.coverageTitle}</h2><p>{c.coverage}</p></div>
         {regional ? <aside className="urgent-country"><div className="urgent-country-label"><Globe2 aria-hidden="true" /><span>{jurisdiction[0]}</span></div><h3>{isRTL ? `تجهيز طلب عاجل في ${jurisdiction[0]}` : `Preparing an urgent request in ${jurisdiction[0]}`}</h3><p>{jurisdiction[1]}</p><Link href={urgentPath(isRTL)} className="urgent-text-link">{isRTL ? "هل تتعلق مسألتك بدولة أخرى؟" : "Does your matter concern another country?"}<ArrowUpRight aria-hidden="true" /></Link></aside> : <div className="urgent-jurisdictions">{(["sa", "syr", "uae"] as const).map(r => <Link key={r} href={urgentPath(isRTL, r)}><span>{urgentJurisdictions[r][lang][0]}</span><ArrowUpRight aria-hidden="true" /></Link>)}<p>{isRTL ? "لدولة أخرى، حدد الاختصاص في رسالتك." : "For another country, specify the jurisdiction in your message."}</p></div>}
       </div>
+      </>}
     </section>
     <section className="urgent-section urgent-trust" aria-labelledby="trust-signals-heading">
       <div className="urgent-shell urgent-trust-layout"><div><span className="urgent-section-icon"><ShieldCheck aria-hidden="true" /></span><h2 id="trust-signals-heading">{isRTL ? "نطاق واضح وأتعاب متفق عليها" : "Clear scope and agreed fees"}</h2><div className="urgent-policy-links"><Link href={`${regionPrefix}/about`}>{isRTL ? "عن كاونسلو للاستشارات القانونية والفريق" : "About CounselO Legal and the team"}</Link><Link href={`${regionPrefix}/terms-of-service`}>{isRTL ? "شروط الخدمة" : "Terms of service"}</Link><Link href={`${regionPrefix}/privacy-policy`}>{isRTL ? "سياسة الخصوصية" : "Privacy policy"}</Link></div></div>
         <div className="urgent-fee-copy"><h3>{c.feesTitle}</h3><p>{c.fees}</p><h3 className="urgent-agreement-heading">{c.deliveryTitle}</h3><p>{c.delivery}</p><h3 className="urgent-agreement-heading">{c.handlingTitle}</h3><p>{c.handling}</p><div className="urgent-fee-boundary"><Check aria-hidden="true" /><p>{c.boundary}</p></div></div>
       </div>
     </section>
-    <section className="urgent-section urgent-questions" aria-labelledby="urgent-faq"><div className="urgent-shell urgent-faq-layout"><div><h2 id="urgent-faq">{c.faqTitle}</h2><p>{isRTL ? "تفاصيل تساعدك على اتخاذ الخطوة التالية بوضوح." : "The practical details before you take the next step."}</p></div><div className="urgent-faq">{c.faqs.map(([q, a]) => <details key={q}><summary><span>{q}</span><Plus aria-hidden="true" /></summary><p>{a}</p></details>)}</div></div></section>
+    <section className="urgent-section urgent-questions" aria-labelledby="urgent-faq"><div className="urgent-shell urgent-faq-layout"><div><h2 id="urgent-faq">{c.faqTitle}</h2>{!(regional && region === "sa") && <p>{isRTL ? "تفاصيل تساعدك على اتخاذ الخطوة التالية بوضوح." : "The practical details before you take the next step."}</p>}</div><div className="urgent-faq">{c.faqs.map(([q, a]) => <details key={q}><summary><span>{q}</span><Plus aria-hidden="true" /></summary><p>{a}</p></details>)}</div></div></section>
     <section className="urgent-section urgent-resources"><div className="urgent-shell urgent-resources-layout">
-      {regional && <div><h2>{c.relatedTitle}</h2><div className="urgent-related-links">{related.map(service => <Link key={service.slug} href={`${regionPrefix}/services/${service.slug}`}><span>{isRTL ? service.titleAr : service.titleEn}</span><ArrowUpRight aria-hidden="true" /></Link>)}</div></div>}
-      <aside className="urgent-reading"><BookOpen aria-hidden="true" /><h2>{isRTL ? "قراءة قانونية تساعدك على تجهيز طلبك" : "Legal reading to help prepare your request"}</h2><p>{isRTL ? "استعرض المقالات بحسب موضوع المسألة واختصاصها لفهم المصطلحات وتجهيز الأسئلة. القراءة العامة لا تؤكد قبول طلب عاجل أو تمدد أي ميعاد." : "Browse articles by topic and jurisdiction to understand terms and prepare questions. General reading does not confirm acceptance of an urgent request or extend any deadline."}</p><Link className="urgent-text-link" href={isRTL ? "/blog/ar" : "/blog"}>{isRTL ? "استعرض المقالات القانونية" : "Browse legal articles"}<ArrowUpRight aria-hidden="true" /></Link></aside>
+      {regional && <div><h2>{c.relatedTitle}</h2><ReadingDetails enabled={true} title={isRTL ? `استعرض ${related.length} خدمة قانونية` : `Browse ${related.length} legal services`}><div className="urgent-related-links">{related.map(service => <Link key={service.slug} href={`${regionPrefix}/services/${service.slug}`}><span>{isRTL ? service.titleAr : service.titleEn}</span><ArrowUpRight aria-hidden="true" /></Link>)}</div></ReadingDetails></div>}
+      {regional && region === "sa" ? <Link className="urgent-text-link" href={isRTL ? "/blog/ar" : "/blog"}>{isRTL ? "المقالات القانونية" : "Legal articles"}<ArrowUpRight aria-hidden="true" /></Link> : <>      <aside className="urgent-reading"><BookOpen aria-hidden="true" /><h2>{isRTL ? "قراءة قانونية تساعدك على تجهيز طلبك" : "Legal reading to help prepare your request"}</h2><p>{isRTL ? "استعرض المقالات بحسب موضوع المسألة واختصاصها لفهم المصطلحات وتجهيز الأسئلة. القراءة العامة لا تؤكد قبول طلب عاجل أو تمدد أي ميعاد." : "Browse articles by topic and jurisdiction to understand terms and prepare questions. General reading does not confirm acceptance of an urgent request or extend any deadline."}</p><Link className="urgent-text-link" href={isRTL ? "/blog/ar" : "/blog"}>{isRTL ? "استعرض المقالات القانونية" : "Browse legal articles"}<ArrowUpRight aria-hidden="true" /></Link></aside></>}
     </div></section>
     <section className="urgent-last"><div className="urgent-shell"><div className="urgent-final-panel"><div><MessageSquareText aria-hidden="true" /><h2>{c.eyebrow}</h2><p>{isRTL ? "أخبرنا بما تحتاجه ومتى تحتاجه. نؤكد النطاق والأتعاب والموعد قبل الدفع." : "Tell us what you need and when you need it. We confirm scope, fees and timing before payment."}</p></div>{actions}</div></div></section>
   </div>;

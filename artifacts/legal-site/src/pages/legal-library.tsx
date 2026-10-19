@@ -166,9 +166,9 @@ export default function LegalLibrary() {
 
       <div>
         <section className="border-b border-[#c9a254]/45 bg-white">
-          <div className="mx-auto grid min-h-[650px] max-w-[1440px] lg:grid-cols-[1.02fr_.98fr]">
-            <div className="flex flex-col justify-center px-5 py-20 sm:px-8 lg:px-12 lg:py-24 xl:px-20">
-              <h1 className="max-w-3xl font-serif text-[clamp(3.1rem,5.2vw,5.7rem)] font-medium leading-[.98] tracking-[-.045em] text-[#073d2a]">{ui.title}</h1>
+          <div className="mx-auto grid max-w-[1440px] lg:grid-cols-[1.02fr_.98fr]">
+            <div className="flex flex-col justify-center px-5 py-10 sm:px-8 lg:px-12 xl:px-16">
+              <h1 className="max-w-3xl font-serif text-[clamp(2rem,4vw,3.25rem)] font-medium leading-tight tracking-[-.045em] text-[#073d2a]">{ui.title}</h1>
               <p className="mt-8 max-w-2xl text-lg leading-8 text-[#25312d] md:text-xl">{ui.intro}</p>
               <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-10">
                 <Link href={blogIndexPath} className="group inline-flex min-h-14 items-center gap-5 bg-[#073d2a] px-7 font-semibold text-white transition-colors hover:bg-[#0d563a]">
@@ -179,27 +179,12 @@ export default function LegalLibrary() {
                 </Link>
               </div>
             </div>
-            <div className="relative min-h-[420px] overflow-hidden bg-[#0d4a31] lg:min-h-full">
+            <div className="relative hidden overflow-hidden bg-[#0d4a31] lg:block">
               <picture>
                 <source type="image/webp" srcSet="/images/optimized/legal-library-480.webp 480w, /images/optimized/legal-library-768.webp 768w, /images/optimized/legal-library-1440.webp 1440w" sizes="(min-width: 1440px) 706px, (min-width: 1024px) 49vw, 100vw" />
                 <img src="/images/legal-library-index.jpg" alt="" className="absolute inset-0 h-full w-full object-cover object-center" width="1536" height="1024" fetchPriority="high" />
               </picture>
             </div>
-          </div>
-        </section>
-
-        <section aria-label={ar ? "أقسام المكتبة" : "Library collections"} className="border-b border-[#d8c7a2] bg-white">
-          <div className="mx-auto grid max-w-[1440px] lg:grid-cols-2">
-            {[
-              { icon: BookOpen, title: ui.articles, text: ui.articlesText, href: blogIndexPath },
-              { icon: BriefcaseBusiness, title: ui.work, text: ui.workText, href: workIndexPath },
-            ].map(({ icon: Icon, title, text, href }, index) => (
-              <Link key={title} href={href} className={`group grid grid-cols-[auto_1fr_auto] gap-6 px-5 py-10 transition-colors hover:bg-[#f2f6f3] sm:px-8 lg:px-12 ${index === 0 ? "border-b border-[#d8c7a2] lg:border-b-0 lg:border-e" : ""}`}>
-                <Icon className="mt-1 h-8 w-8 text-[#b1842a]" strokeWidth={1.4} />
-                <div><h2 className="font-serif text-2xl font-semibold text-[#073d2a] md:text-3xl">{title}</h2><p className="mt-3 max-w-xl leading-7 text-[#52605a]">{text}</p></div>
-                <Arrow rtl={ar} />
-              </Link>
-            ))}
           </div>
         </section>
 
@@ -235,7 +220,7 @@ export default function LegalLibrary() {
           </div>
         </section>
 
-        <SaudiJudgmentObjectionGuidance />
+
 
         {libraryReadingPaths(visiblePosts, ar).length > 0 && (
           <section id="reading-by-question" aria-labelledby="reading-by-question-heading" className="bg-[#f8f5ed] px-5 py-12 sm:px-8 lg:px-12">
@@ -257,25 +242,25 @@ export default function LegalLibrary() {
         )}
 
         {recentPosts.length > 0 ? (
-          <section id="latest-analysis" className="scroll-mt-28 bg-white px-5 py-20 sm:px-8 lg:py-24 lg:pl-12 lg:pr-40 xl:px-12">
+          <section id="latest-analysis" className="scroll-mt-28 bg-white px-5 py-10 sm:px-8 lg:py-12 lg:pl-12 lg:pr-40 xl:px-12">
             <div className="mx-auto max-w-[1260px]">
               <div className="mb-12 flex items-center gap-7">
-                <h2 className="min-w-0 font-serif text-4xl font-medium tracking-[-.03em] text-[#10251e] md:text-5xl">{ui.latestArticles}</h2>
+                <h2 className="min-w-0 font-serif text-4xl font-medium tracking-[-.03em] text-[#10251e] md:text-3xl">{ui.latestArticles}</h2>
                 <span className="hidden h-px flex-1 bg-[#c7a45d] sm:block" />
                 <Link href={blogIndexPath} className="group hidden shrink-0 items-center gap-4 border-b border-[#073d2a] pb-1 font-medium text-[#073d2a] sm:inline-flex">{ui.viewAllArticles}<Arrow rtl={ar} /></Link>
               </div>
               <div className="grid lg:grid-cols-[1fr_1.25fr]">
                 {recentPosts[0] ? (
-                  <m.article initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="border-b border-[#c7a45d] pb-10 lg:border-b-0 lg:border-e lg:pe-12">
+                  <m.article initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="border-b border-[#c7a45d] pb-10 lg:border-b-0 lg:border-e lg:pe-12">
                     <p className="text-xs font-bold uppercase tracking-[.12em] text-[#9a711f]">{ar ? recentPosts[0].categoryAr : recentPosts[0].categoryEn}<span className="mx-3 text-[#8a918d]">|</span><time>{recentPosts[0].date}</time></p>
-                    <h3 className="mt-6 font-serif text-3xl font-medium leading-[1.12] text-[#10251e] md:text-5xl">{ar ? recentPosts[0].titleAr : recentPosts[0].titleEn}</h3>
+                    <h3 className="mt-6 font-serif text-3xl font-medium leading-[1.12] text-[#10251e] md:text-3xl">{ar ? recentPosts[0].titleAr : recentPosts[0].titleEn}</h3>
                     <p className="mt-6 max-w-xl text-lg leading-8 text-[#52605a]">{ar ? recentPosts[0].excerptAr : recentPosts[0].excerptEn}</p>
                     <Link href={blogPath(recentPosts[0].slug, lang)} className="group mt-7 inline-flex items-center gap-4 border-b border-[#073d2a] pb-1 font-medium text-[#073d2a]">{ui.viewArticle}<Arrow rtl={ar} /></Link>
                   </m.article>
                 ) : null}
                 <div className="lg:ps-10">
                   {recentPosts.slice(1).map((post, index) => (
-                    <m.article key={post.slug} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .06 }} className="border-b border-[#c7a45d] py-9 first:pt-9 lg:first:pt-0">
+                    <m.article key={post.slug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .06 }} className="border-b border-[#c7a45d] py-9 first:pt-9 lg:first:pt-0">
                       <p className="text-xs font-bold uppercase tracking-[.12em] text-[#9a711f]">{ar ? post.categoryAr : post.categoryEn}<span className="mx-3 text-[#8a918d]">|</span><time>{post.date}</time></p>
                       <h3 className="mt-4 font-serif text-2xl font-medium leading-tight text-[#10251e] md:text-3xl">{ar ? post.titleAr : post.titleEn}</h3>
                       <p className="mt-3 line-clamp-2 leading-7 text-[#52605a]">{ar ? post.excerptAr : post.excerptEn}</p>
@@ -290,16 +275,16 @@ export default function LegalLibrary() {
         ) : null}
 
         {recentSamples.length > 0 ? (
-          <section id="selected-work" className="scroll-mt-28 border-y border-[#d8c7a2] bg-[#eef4f0] px-5 py-20 sm:px-8 lg:py-24 lg:pl-12 lg:pr-40 xl:px-12">
+          <section id="selected-work" className="scroll-mt-28 border-y border-[#d8c7a2] bg-[#eef4f0] px-5 py-10 sm:px-8 lg:py-12 lg:pl-12 lg:pr-40 xl:px-12">
             <div className="mx-auto max-w-[1260px]">
               <div className="mb-8 flex items-center gap-7">
-                <h2 className="min-w-0 font-serif text-4xl font-medium tracking-[-.03em] text-[#10251e] md:text-5xl">{ui.selectedWork}</h2>
+                <h2 className="min-w-0 font-serif text-4xl font-medium tracking-[-.03em] text-[#10251e] md:text-3xl">{ui.selectedWork}</h2>
                 <span className="hidden h-px flex-1 bg-[#c7a45d] sm:block" />
                 <Link href={workIndexPath} className="group hidden shrink-0 items-center gap-4 border-b border-[#073d2a] pb-1 font-medium text-[#073d2a] sm:inline-flex">{ui.viewAllWork}<Arrow rtl={ar} /></Link>
               </div>
               <div className="border-t border-[#c7a45d]">
                 {recentSamples.map((sample, index) => (
-                  <m.article key={sample.slug} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid gap-5 border-b border-[#c7a45d] py-8 md:grid-cols-[90px_1.35fr_1fr_auto] md:items-center">
+                  <m.article key={sample.slug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid gap-5 border-b border-[#c7a45d] py-8 md:grid-cols-[90px_1.35fr_1fr_auto] md:items-center">
                     <span className="font-serif text-5xl font-medium text-[#0d4a31]">{String(index + 1).padStart(2, "0")}</span>
                     <div className="md:border-s md:border-[#c7a45d] md:ps-9">
                       <p className="text-xs font-bold uppercase tracking-[.12em] text-[#9a711f]">{localized(sample.workTypeEn, sample.workTypeAr, lang)}<span className="mx-3 text-[#8a918d]">|</span>{localized(sample.jurisdictionEn, sample.jurisdictionAr, lang)}</p>
@@ -315,29 +300,15 @@ export default function LegalLibrary() {
           </section>
         ) : null}
 
-        <SearchIntentGuidance page="library" />
-        <section id="publishing-standard" className="scroll-mt-28 bg-white px-5 py-20 sm:px-8 lg:py-24 lg:pl-12 lg:pr-40 xl:px-12">
-          <div className="mx-auto grid max-w-[1260px] gap-12 lg:grid-cols-[.85fr_1.15fr] lg:gap-20">
-            <div>
-              <Scale className="mb-7 h-8 w-8 text-[#b1842a]" strokeWidth={1.4} />
-              <h2 className="max-w-lg font-serif text-4xl font-medium leading-[1.05] tracking-[-.035em] text-[#073d2a] md:text-6xl">{ui.methodology}</h2>
-              <div className="mt-7 h-0.5 w-20 bg-[#c79938]" />
-              <p className="mt-7 max-w-xl text-lg leading-8 text-[#52605a]">{ui.methodologyText}</p>
-            </div>
-            <ol className="border-t border-[#c7a45d]">
-              {ui.principles.map((principle, index) => (
-                <li key={principle} className="grid grid-cols-[72px_1fr] items-center border-b border-[#c7a45d] py-7 sm:grid-cols-[110px_1fr]">
-                  <span className="font-serif text-4xl text-[#c18f25] sm:text-5xl">{String(index + 1).padStart(2, "0")}</span>
-                  <strong className="border-s border-[#c7a45d] py-3 ps-7 text-lg text-[#073d2a] sm:text-xl">{principle}</strong>
-                </li>
-              ))}
-            </ol>
-          </div>
+
+        <section id="publishing-standard" className="premium-content-shell py-8 border-t border-border">
+          <h2 className="text-2xl font-serif mb-3">{ui.methodology}</h2>
+          <p className="max-w-3xl leading-7 text-muted-foreground">{ui.methodologyText}</p>
         </section>
 
         <section className="border-y border-[#c69a40] bg-[#0d4a31] px-5 py-16 text-white sm:px-8 lg:px-12">
           <div className="mx-auto grid max-w-[1260px] gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
-            <h2 className="max-w-2xl font-serif text-4xl font-medium leading-tight md:text-5xl">{ui.ctaTitle}</h2>
+            <h2 className="max-w-2xl font-serif text-4xl font-medium leading-tight md:text-3xl">{ui.ctaTitle}</h2>
             <div className="border-s border-[#c69a40] ps-7 lg:ps-12">
               <p className="max-w-xl text-lg leading-8 text-white/78">{ui.ctaText}</p>
               <div className="mt-7 flex flex-wrap gap-3" aria-label={ar ? "اختر دولة الاستشارة" : "Choose the consultation jurisdiction"}>

@@ -1,3 +1,4 @@
+import { ServiceProcess, ServiceReasons } from "@/components/legal/saudi-service-journey";
 import { PracticeDirectory } from "./practice-directory";
 import { useEffect } from "react";
 import { Link } from "wouter";
@@ -243,7 +244,7 @@ export default function GlobalHomepage({
                 {e.pickerLabel}
               </div>
               <h2 id="picker-title">{c.picker}</h2>
-              <p>{c.pickerNote}</p>
+              <p>{isArabic ? "اختر الدولة للوصول إلى الخدمات المناسبة لمسألتك." : "Choose the country relevant to your matter."}</p>
               {regions.map((r, i) => (
                 <Link
                   key={r.id}
@@ -285,7 +286,7 @@ export default function GlobalHomepage({
           <h2 id="about-title" className="home-icon-heading"><SectionIcon icon={Scale} /><span>{c.about}</span></h2>
           <div>
             <p className="home-lede">{c.intro}</p>
-            <p>{c.aboutNote}</p>
+
           </div>
         </section>
         <PracticeDirectory isArabic={isArabic} />
@@ -337,7 +338,7 @@ export default function GlobalHomepage({
                 </div>
               </div>
               <p className="home-claim-context">{isArabic ? "الخبرة المهنية المعلنة للمؤسس، وليست مدة تشغيل المنصة أو عدد عملائها." : "The founder’s stated professional experience, not the platform’s operating history or client count."} {COUNSELO_EXPERIENCE_SCOPE_NOTE[lang]}</p>
-              <p>{c.founderText}</p>
+              <p>{isArabic ? "أسس عمر البغدادي كاونسلو للاستشارات القانونية، وبدأ ممارسته القانونية عام 1996. تعرّف على مؤهلاته وخلفيته المهنية." : "Omar Al-Baghdadi founded CounselO Legal and began legal practice in 1996. Explore his qualifications and professional background."}</p>
               <div className="home-link-stack">
                 <a href={`https://omarbaghdadi.com${isArabic ? "/ar" : "/"}`}>
                   {c.profile}
@@ -362,7 +363,7 @@ export default function GlobalHomepage({
         >
           <div className="home-section-intro">
             <h2 id="services-title" className="home-icon-heading"><SectionIcon icon={MessageCircle} /><span>{c.services}</span></h2>
-            <p>{c.servicesIntro}</p>
+            <p>{isArabic ? "اختر نوع المساعدة؛ نؤكد النطاق والأتعاب قبل البدء." : "Choose the help you need. We confirm scope and fees before work begins."}</p>
           </div>
           <div className="home-services home-services-v2">
             {CONSULTATION_PRODUCTS.map((p, i) => {
@@ -375,7 +376,7 @@ export default function GlobalHomepage({
                   <div>
                     <h3>{isArabic ? p.titleAr : p.titleEn}</h3>
                     <p>{isArabic ? p.bestForAr : p.bestForEn}</p>
-                    <p className="home-service-includes">{isArabic ? "ضمن النطاق المتفق عليه:" : "Within the agreed scope:"}</p>
+
                     <ul className="home-service-deliverables">
                       {(isArabic ? p.includesAr : p.includesEn).map((item) => <li key={item}>{item}</li>)}
                     </ul>
@@ -386,58 +387,13 @@ export default function GlobalHomepage({
           </div>
           <div className="home-services-action">
             <div>
-              <p>{c.areas}</p>
+
               <Link className="home-text-link" href={isArabic ? "/ar/urgent-legal-assistance" : "/urgent-legal-assistance"}>{isArabic ? "تحتاج إلى مساعدة قانونية عاجلة؟" : "Need urgent legal assistance?"}{arrow}</Link>
             </div>
             <a className="home-button" href="#contact">
               {c.primary}
               {arrow}
             </a>
-          </div>
-        </section>
-        <section
-          id="practice-areas"
-          className="home-practice home-section"
-          aria-labelledby="practice-title"
-        >
-          <div className="home-container">
-            <div className="home-section-intro">
-              <h2 id="practice-title" className="home-icon-heading"><SectionIcon icon={Compass} /><span>{e.practiceTitle}</span></h2>
-              <p>{e.practiceIntro}</p>
-            </div>
-            <div className="home-practice-grid">
-              {e.practices.map(([title, text]) => (
-                <details key={title}>
-                  <summary>
-                    {title}
-                    <span aria-hidden="true">+</span>
-                  </summary>
-                  <p>{text}</p>
-                  <a href="#jurisdictions">
-                    {e.pickerLabel}
-                    {arrow}
-                  </a>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-        <section
-          className="home-section home-container"
-          aria-labelledby="clients-title"
-        >
-          <h2 id="clients-title" className="home-icon-heading"><SectionIcon icon={UsersRound} /><span>{e.clientsTitle}</span></h2>
-          <div className="home-clients">
-            {e.clients.map(([title, text]) => (
-              <article key={title}>
-                <h3>{title}</h3>
-                <p>{text}</p>
-                <a className="home-text-link" href="#contact">
-                  {c.primary}
-                  {arrow}
-                </a>
-              </article>
-            ))}
           </div>
         </section>
         <section
@@ -448,7 +404,7 @@ export default function GlobalHomepage({
           <div className="home-container">
             <div className="home-section-intro">
               <h2 id="jurisdictions-title" className="home-icon-heading"><SectionIcon icon={Globe2} /><span>{c.jurisdictions}</span></h2>
-              <p>{c.pickerNote}</p>
+              <p>{isArabic ? "اختر الدولة للوصول إلى الخدمات المناسبة لمسألتك." : "Choose the country relevant to your matter."}</p>
             </div>
             <div className="home-country-grid">
               {regions.map((r, i) => (
@@ -484,78 +440,17 @@ export default function GlobalHomepage({
           aria-labelledby="process-title"
         >
           <h2 id="process-title" className="home-icon-heading"><SectionIcon icon={Route} /><span>{c.process}</span></h2>
-          <ol className="home-process">
-            {c.steps.map(([title, text], i) => (
-              <li key={title}>
-                <span aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </li>
-            ))}
-          </ol>
+          <ServiceProcess isArabic={isArabic} />
         </section>
-        <section
-          className="home-package home-section"
-          aria-labelledby="package-title"
-        >
-          <div className="home-container home-split">
-            <div>
-              <h2 id="package-title" className="home-icon-heading"><SectionIcon icon={ClipboardCheck} /><span>{e.packageTitle}</span></h2>
-              <p>{e.packageText}</p>
-              <p className="home-response">{e.response}</p>
-            </div>
-            <ul>
-              {e.deliverables.map((item) => (
-                <li key={item}>
-                  <Check size={19} aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-        <section
-          className="home-cross home-section home-container"
-          aria-labelledby="cross-title"
-        >
-          <div className="home-cross-heading">
-            <h2 id="cross-title" className="home-icon-heading"><SectionIcon icon={Globe2} /><span>{e.crossTitle}</span></h2>
-          </div>
-          <div>
-            <p className="home-lede">{e.crossText}</p>
-            <p>{e.crossNote}</p>
-            <a href="#contact" className="home-text-link">
-              {e.crossCta}
-              {arrow}
-            </a>
-          </div>
-        </section>
-        <section
-          id="why-counselo"
-          className="home-why home-section"
-          aria-labelledby="why-title"
-        >
-          <div className="home-container home-split">
-            <div>
-              <h2 id="why-title" className="home-icon-heading"><SectionIcon icon={ListChecks} /><span>{c.why}</span></h2>
-              <p>{c.whyIntro}</p>
-            </div>
-            <div className="home-reasons">
-              {c.reasons.map(([title, text]) => (
-                <div key={title}>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <div id="why-counselo" className="home-section home-container">
+          <ServiceReasons isArabic={isArabic} regionPrefix="" aboutHref="#founder" />
+        </div>
         <section
           className="home-section home-container"
           aria-labelledby="resources-title"
         >
           <h2 id="resources-title" className="home-icon-heading"><SectionIcon icon={BookOpen} /><span>{c.resources}</span></h2>
-          <p className="home-readable">{c.resourcesText}</p>
+
           <div className="home-resource-links">
             <Link
               className="home-text-link"

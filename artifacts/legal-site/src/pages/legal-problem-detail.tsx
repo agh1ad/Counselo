@@ -76,7 +76,7 @@ export default function LegalProblemDetail() {
   const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو للاستشارات القانونية، أحتاج إلى مراجعة بخصوص: ${page.titleAr}.` : `Hello CounselO Legal, I need a review regarding: ${page.titleEn}.`)}`;
 
   return (
-    <div className="counselo-editorial-page service-brief-page w-full bg-background min-h-screen" id="main-content">
+    <div className="counselo-editorial-page service-brief-page service-reading-page w-full bg-background min-h-screen" id="legal-problem-page">
       <SEOHead heroArtwork="gold"
         title={title}
         description={description}
@@ -152,7 +152,7 @@ export default function LegalProblemDetail() {
             <div className="mb-6 h-px w-20 bg-[#d5ae5d]" />
             <p className="mb-7 max-w-3xl font-serif text-xl italic leading-relaxed text-white/72 lg:text-2xl">{isRTL ? page.heroSummary.ar : page.heroSummary.en}</p>
             <div className="flex flex-wrap gap-4">
-              <Link href={`${regionPrefix}/contact?service=${id}`} data-cta="contact" data-conversion-position="problem-hero" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex items-center gap-2 bg-[#d5ae5d] px-5 py-3 font-bold text-[#0d3e2a] transition-colors hover:bg-[#e0bd73]">
+              <Link href={`${regionPrefix}/contact?service=${id}#consultation-request`} data-cta="contact" data-conversion-position="problem-hero" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex items-center gap-2 bg-[#d5ae5d] px-5 py-3 font-bold text-[#0d3e2a] transition-colors hover:bg-[#e0bd73]">
                 <MessageSquareText size={18} /> {isRTL ? "أرسل المسألة للمراجعة" : "Send your matter for review"}
               </Link>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-cta="whatsapp" data-conversion-position="problem-hero" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex items-center gap-2 border border-white/45 px-5 py-3 font-semibold text-white transition-colors hover:bg-white/10">
@@ -178,33 +178,6 @@ export default function LegalProblemDetail() {
         </section>
       )}
 
-      <section className="border-b border-[#0d4a31]/12 bg-white" aria-label={isRTL ? "مؤشرات الثقة" : "Trust highlights"}>
-        <div className="premium-content-shell grid gap-5 py-6 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="border-s-2 border-[#d5ae5d] ps-4">
-            <Link href={`${regionPrefix}/about`} className="font-serif text-xl text-[#0d4a31] hover:underline">
-              {isRTL ? "المحامي عمر البغدادي" : "Lawyer Omar Al-Baghdadi"}
-            </Link>
-            <p className="text-sm text-muted-foreground">{isRTL ? "المحامي والمستشار القانوني مؤسس كاونسلو للاستشارات القانونية" : "Lawyer, Legal Counsel and founder of CounselO Legal"}</p>
-          </div>
-          <div className="border-s-2 border-[#d5ae5d] ps-4">
-            <p className="font-serif text-2xl text-[#0d4a31]">30+</p>
-            <p className="text-sm text-muted-foreground">{isRTL ? "عاماً من الخبرة القانونية الإقليمية" : "Years of regional legal experience"}</p>
-          </div>
-          <div className="border-s-2 border-[#d5ae5d] ps-4">
-            <p className="font-serif text-2xl text-[#0d4a31]">20,000+</p>
-            <p className="text-sm text-muted-foreground">{isRTL ? COUNSELO_LEGAL_MATTERS_CLAIM.ar : COUNSELO_LEGAL_MATTERS_CLAIM.en}</p>
-          </div>
-          <div className="border-s-2 border-[#d5ae5d] ps-4">
-            <p className="font-serif text-2xl text-[#0d4a31]">WhatsApp · Email</p>
-            <p className="text-sm text-muted-foreground">{isRTL ? "مخرج مكتوب بالعربية أو الإنجليزية" : "Written output in Arabic or English"}</p>
-          </div>
-        </div>
-        <p className="premium-content-shell border-t border-[#0d4a31]/10 py-4 text-sm leading-6 text-muted-foreground">
-          {isRTL ? "يقود كاونسلو للاستشارات القانونية المحامي والمستشار القانوني عمر البغدادي. تُراجع كل مسألة وفق وقائعها واختصاصها، لا بإجابة عامة واحدة." : "CounselO Legal is led by Lawyer and Legal Counsel Omar Al-Baghdadi. Each matter is reviewed against its facts and jurisdiction, not a one-size-fits-all answer."}
-        </p>
-        <ExperienceMethodologyNote isArabic={isRTL} className="premium-content-shell pb-4 text-xs leading-5 text-muted-foreground" />
-      </section>
-
       <nav aria-label={isRTL ? "أقسام صفحة المشكلة" : "Problem page sections"} className="service-anchor-rail sticky top-[4.5rem] z-30 border-b border-[#0d4a31]/12 bg-white/95 backdrop-blur">
         <div className="premium-content-shell overflow-x-auto">
           <div className="flex min-w-max items-center gap-7 py-4 text-sm font-semibold text-[#355447]">
@@ -219,7 +192,7 @@ export default function LegalProblemDetail() {
 
       <div className="premium-content-shell py-12 lg:py-16">
         <div className="grid gap-12 lg:grid-cols-12 xl:gap-16">
-          <div className="space-y-12 lg:col-span-8 xl:col-span-9">
+          <div className="problem-reading-body space-y-8 lg:col-span-8 xl:col-span-9">
         {primaryAnswer && (
           <section id="problem-direct-answer" className="scroll-mt-36 border-s-4 border-[#b4924a] bg-[#eef4f0] p-6 lg:p-8" aria-labelledby="problem-answer-heading">
             <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">{isRTL ? "إجابة قانونية ومصادرها" : "Legal answer and supporting sources"}</p>
@@ -275,12 +248,11 @@ export default function LegalProblemDetail() {
 
         <section id="problem-deliverables" className="scroll-mt-36">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary">{isRTL ? "مخرج هذه المسألة" : "Matter-specific output"}</p>
-          <h2 className="font-serif text-3xl lg:text-4xl mb-3">{isRTL ? `ماذا تقدم كاونسلو للاستشارات القانونية في مسألة ${page.titleAr}؟` : `What CounselO Legal delivers for ${page.titleEn.toLowerCase()}`}</h2>
-          <p className="mb-7 max-w-4xl leading-7 text-muted-foreground">{isRTL ? "المخرج ليس شرحاً عاماً للخدمة؛ بل مراجعة مركزة للمشكلة التي أرسلتها والنتيجة التي تريد الوصول إليها." : "The deliverable is not a general explanation of the service. It is a focused review of the problem you submit and the outcome you need."}</p>
-          <div className="grid md:grid-cols-2 gap-5">
+          <h2 className="font-serif text-3xl lg:text-4xl mb-3">{isRTL ? "ما تستلمه" : "What you receive"}</h2>
+          <div className="concise-deliverables">
             {(isRTL ? page.deliverables.ar : page.deliverables.en).map((item, index) => (
-              <div key={item} className="border border-border p-6">
-                <span className="text-primary font-semibold">0{index + 1}</span>
+              <div key={item} className="border-b border-border py-3">
+
                 <p className="font-medium mt-3 leading-7">{item}</p>
               </div>
             ))}
@@ -292,7 +264,6 @@ export default function LegalProblemDetail() {
             <span className="flex items-center justify-between gap-4"><span>{isRTL ? "كيف تسير المساعدة خطوة بخطوة؟" : "How the work moves forward"}</span><span aria-hidden="true" className="font-sans text-xl text-primary transition-transform group-open:rotate-45">+</span></span>
           </summary>
           <div className="pb-6">
-          <p className="mb-7 max-w-3xl leading-7 text-muted-foreground">{isRTL ? "كل خطوة لها غرض واضح: فهم المسألة، تأكيد نطاق العمل، ثم تسليم مخرج عملي يمكن اتخاذ القرار على أساسه." : "Each stage has a clear purpose: understand the issue, agree the scope, and deliver a practical output you can use to decide what happens next."}</p>
           <ol className="space-y-4">
             {(isRTL ? page.process.ar : page.process.en).map((step, index) => (
               <li key={step.title} className="flex gap-4 border-s-2 border-primary/30 bg-muted/30 p-5 leading-7">
@@ -303,23 +274,6 @@ export default function LegalProblemDetail() {
           </ol>
           </div>
         </details>
-
-        {consultationPackage && (
-          <details id="consultation-package" className="group service-content-band scroll-mt-36 border border-[#d5ae5d]/60 bg-[#fbf8ef] px-7 py-2 lg:px-10">
-            <summary className="cursor-pointer list-none py-6 font-serif text-2xl marker:content-none">
-              <span className="flex items-center justify-between gap-4"><span>{isRTL ? consultationPackage.titleAr : consultationPackage.titleEn}</span><span aria-hidden="true" className="font-sans text-xl text-primary transition-transform group-open:rotate-45">+</span></span>
-            </summary>
-            <div className="pb-8">
-            <p className="max-w-4xl leading-7">{isRTL ? consultationPackage.summaryAr : consultationPackage.summaryEn}</p>
-            <ul className="mt-6 grid gap-3 md:grid-cols-2">
-              {(isRTL ? consultationPackage.includesAr : consultationPackage.includesEn).slice(0, 4).map((item) => (
-                <li key={item} className="flex gap-3 leading-7"><CheckCircle2 className="mt-1 shrink-0 text-primary" size={19} />{item}</li>
-              ))}
-            </ul>
-            <p className="mt-6 text-sm leading-6 text-muted-foreground">{isRTL ? "تُحدد الرسوم وطريقة الدفع بعد الدراسة الأولية للطلب وقبل بدء العمل المدفوع." : "The fee and payment method are confirmed after the initial study of the request and before paid work begins."}</p>
-            </div>
-          </details>
-        )}
 
         <section id="problem-documents" className="service-content-band scroll-mt-36 border border-[#0d4a31]/14 bg-white p-7 lg:p-10">
           <div className="flex gap-4 items-start">
@@ -384,7 +338,7 @@ export default function LegalProblemDetail() {
             </ul>
           </div>
           <div className="mt-7 flex flex-wrap gap-4">
-            <Link href={`${regionPrefix}/contact?service=${id}`} data-cta="contact" data-conversion-position="problem-contact" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex items-center gap-2 bg-white px-5 py-3 font-semibold text-primary hover:bg-white/90">
+            <Link href={`${regionPrefix}/contact?service=${id}#consultation-request`} data-cta="contact" data-conversion-position="problem-contact" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex items-center gap-2 bg-white px-5 py-3 font-semibold text-primary hover:bg-white/90">
               <MessageSquareText size={18} /> {isRTL ? "نموذج التواصل" : "Contact form"}
             </Link>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" data-cta="whatsapp" data-conversion-position="problem-contact" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex items-center gap-2 border border-white/50 px-5 py-3 font-semibold hover:bg-white/10">
@@ -408,7 +362,7 @@ export default function LegalProblemDetail() {
         )}
           </div>
 
-          <aside className="lg:col-span-4 xl:col-span-3">
+          <aside className="hidden lg:block lg:col-span-4 xl:col-span-3">
             <div className="service-consultation-panel sticky top-36 overflow-hidden bg-[#0d4a31] p-7 text-white shadow-[0_24px_65px_rgba(13,74,49,0.18)] lg:p-8">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#d5ae5d]">{isRTL ? "مراجعة قانونية محددة" : "Matter-specific legal review"}</p>
               <h2 className="mb-4 font-serif text-3xl font-semibold leading-tight text-white">{isRTL ? `استشارة ${page.titleAr}` : `${page.titleEn} consultation`}</h2>
@@ -422,7 +376,7 @@ export default function LegalProblemDetail() {
                 <li className="flex items-center gap-3"><ShieldCheck className="h-4 w-4 text-[#d5ae5d]" />{isRTL ? "النطاق والرسوم قبل العمل" : "Scope and fee confirmed first"}</li>
                 <li className="flex items-center gap-3"><Phone className="h-4 w-4 text-[#d5ae5d]" />{isRTL ? "استجابة مستهدفة خلال 24 ساعة" : "Target response within 24 hours"}</li>
               </ul>
-              <Link href={`${regionPrefix}/contact?service=${id}`} data-cta="contact" data-conversion-position="problem-sidebar" data-region={region} data-lang={isRTL ? "ar" : "en"} className="block w-full bg-[#d5ae5d] px-5 py-4 text-center font-bold text-[#0d3e2a] transition-colors hover:bg-[#e0bd73]">
+              <Link href={`${regionPrefix}/contact?service=${id}#consultation-request`} data-cta="contact" data-conversion-position="problem-sidebar" data-region={region} data-lang={isRTL ? "ar" : "en"} className="block w-full bg-[#d5ae5d] px-5 py-4 text-center font-bold text-[#0d3e2a] transition-colors hover:bg-[#e0bd73]">
                 {isRTL ? "اطلب مراجعة قانونية" : "Request a legal review"}
               </Link>
               <div className="mt-6 space-y-3 border-t border-white/12 pt-6 text-sm text-white/80">
@@ -433,7 +387,7 @@ export default function LegalProblemDetail() {
           </aside>
         </div>
       </div>
-      <TrustSignals isArabic={isRTL} regionPrefix={regionPrefix} />
+
       <JurisdictionDisclosure jurisdiction={region} compact />
       <LatestContentCarousels isArabic={isRTL} region={region} serviceSlug={id} />
     </div>

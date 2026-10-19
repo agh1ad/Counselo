@@ -1,4 +1,5 @@
 import { regionalServiceDirectoryEntity, COUNSELO_ORGANIZATION } from "@workspace/api-zod/browser";
+import { ServiceProcess } from "@/components/legal/saudi-service-journey";
 import { searchIntentMeta } from "@/lib/search-intent-copy";
 import { serviceDirectoryContent } from "@/components/home/service-directory-content";
 import { homepageContent } from "@/components/home/homepage-content";
@@ -213,26 +214,8 @@ export default function Services() {
       <section id="services-process" className="border-y border-border bg-[#eef4f0] py-14 lg:py-20" aria-labelledby="services-process-title">
         <div className="premium-content-shell">
           <h2 id="services-process-title" className="font-serif text-3xl md:text-4xl mb-8">{isRTL ? "كيف تعمل خدمات كاونسلو للاستشارات القانونية؟" : "How CounselO Legal’s legal services work"}</h2>
-          <p className="max-w-3xl text-muted-foreground leading-8 mb-8">{isRTL ? "اختر المجال بحسب المسألة، ثم حدد ما تحتاجه: إجابة عن سؤال قانوني، أو مراجعة مستند، أو خطة للخطوات التالية. نؤكد الخدمة المناسبة قبل الاتفاق على التكليف." : "Choose a practice area by the issue, then tell us what you need: an answer to a legal question, a document review or a plan for next steps. We confirm the appropriate service before agreeing the engagement."}</p>
-          <ol className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {common.steps.map(([title, text], i) => <li key={title}>
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#0d4a31] text-white mb-4" aria-hidden="true">{i + 1}</span>
-              <h3 className="font-serif text-xl mb-3">{title}</h3><p className="text-muted-foreground leading-7">{text}</p>
-            </li>)}
-          </ol>
-          <div className="mt-10 border-t border-[#0d4a31]/20 pt-8">
-            <h3 className="font-serif text-2xl mb-5">{isRTL ? "ما الذي تتلقاه ضمن النطاق المتفق عليه؟" : "What you receive within the agreed scope"}</h3>
-            <dl className="grid gap-6 lg:grid-cols-3">{(isRTL ? [
-              ["استشارة قانونية", "رد مكتوب يوضح السؤال المتفق عليه والوقائع والخيارات والمخاطر والخطوة التالية."],
-              ["مراجعة مستندات", "مراجعة مجموعة مستندات محددة وملخص بالمخاطر والثغرات وتوصيات التعديل أو الرد."],
-              ["خطة للمسألة", "تحديد الأولويات والمواعيد والمستندات المطلوبة والحاجة إلى تنسيق مهني محلي عند الاقتضاء."],
-            ] : [
-              ["Legal consultation", "A written response addressing the agreed question, relevant facts, options, risks and next step."],
-              ["Document review", "Review of a defined document set with a summary of risks, gaps and recommended amendments or responses."],
-              ["Matter roadmap", "Priorities, deadlines, required documents and an assessment of any need for local professional coordination."],
-            ]).map(([term, detail]) => <div key={term}><dt className="font-semibold mb-2">{term}</dt><dd className="text-muted-foreground leading-7">{detail}</dd></div>)}</dl>
-            <p className="mt-6 text-sm text-muted-foreground leading-7">{isRTL ? "يُحدد السعر وشكل التسليم والوقت بعد المراجعة الأولية وقبل العمل المدفوع. لا تُدرج الصياغة أو التفاوض أو المتابعة إلا إذا شملها النطاق المتفق عليه." : "The fee, delivery format and timing are confirmed after the initial review and before paid work. Drafting, negotiation and follow-up are included only when stated in the agreed scope."}</p>
-          </div>
+          <ServiceProcess isArabic={isRTL} />
+          <p className="mt-5 text-sm text-muted-foreground">{isRTL ? "الصياغة والتفاوض والمتابعة مشمولة فقط إذا وردت في نطاق التكليف." : "Drafting, negotiation and follow-up are included only when stated in the engagement scope."}</p>
         </div>
       </section>
       <section id="services-framework" className="bg-white py-14 lg:py-20" aria-labelledby="services-framework-title">

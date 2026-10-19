@@ -1,3 +1,5 @@
+import { prepareArticleHtml } from "@/lib/article-reading";
+import { PageContents } from "@/components/legal/page-contents";
 import { useParams, Link, Redirect, useLocation } from "wouter";
 import * as m from "framer-motion/m";
 import { Clock, ArrowLeft, ArrowRight, BadgeCheck, Calendar, MessageCircle } from "lucide-react";
@@ -169,7 +171,7 @@ export default function BlogPost() {
       minRead: "min read",
       consultHeading: "Need Legal Advice?",
       consultDesc:
-        "CounselO Legal offers confidential initial online consultations for its supported jurisdictions via WhatsApp, email or the consultation form. Filing, attendance and reserved representation work are scoped separately where required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of legal practice, 20,000+ legal matters and consultations handled.",
+        "Discuss how this applies to your matter. We confirm scope and fees before paid work; local representation requires a separate engagement.",
       whatsapp: "Chat on WhatsApp",
       consultation: "Start Consultation",
       disclaimer:
@@ -183,7 +185,7 @@ export default function BlogPost() {
       back: "العودة إلى المدونة",
       minRead: "د قراءة",
       consultHeading: "هل تحتاج إلى مشورة قانونية؟",
-      consultDesc: "يقدم كاونسلو للاستشارات القانونية استشارات سرية عبر واتساب أو البريد الإلكتروني — دون الحاجة لزيارة مكتب. من تأسيس المحامي والمستشار القانوني عمر البغدادي — خبرة قانونية 30+ عاماً من الممارسة القانونية.",
+      consultDesc: "ناقش تطبيق ذلك على مسألتك. نؤكد النطاق والأتعاب قبل العمل المدفوع؛ والتمثيل المحلي يحتاج إلى تكليف منفصل.",
       whatsapp: "تواصل عبر واتساب",
       consultation: "ابدأ الاستشارة",
       disclaimer:
@@ -233,7 +235,7 @@ export default function BlogPost() {
   const rawSeoDesc = useAr ? (post.seoDescriptionAr || post.excerptAr) : (post.seoDescriptionEn || post.excerptEn);
   const seoDesc = normalizeDescription(rawSeoDesc, excerpt);
   const category = useAr ? post.categoryAr : post.categoryEn;
-  const body = useAr ? post.bodyAr : post.bodyEn;
+  const body = prepareArticleHtml(useAr ? post.bodyAr : post.bodyEn, title);
   const content = (useAr ? post.contentAr : post.contentEn) ?? [];
   const curatedContext = ARTICLE_CONTEXT[post.slug];
   const editorialUpdatedAt = curatedContext?.editorialUpdatedAt ? articleModifiedAt(curatedContext.editorialUpdatedAt, post.updatedAt, post.date) : undefined;
@@ -397,7 +399,7 @@ export default function BlogPost() {
               {title}
             </h1>
             <div className="premium-hero-rule mb-6" />
-            <p dir={contentDir} className="text-lg text-white/70 leading-relaxed">{excerpt}</p>
+
             <a
               href={provenance.legalReviewerUrl}
               className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white transition-colors"
@@ -410,7 +412,7 @@ export default function BlogPost() {
       </section>
 
       {/* Content + Sidebar */}
-      <section className="premium-content-shell py-14">
+      <section className="premium-content-shell py-8 article-reading-layout">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Article body */}
           <m.article
@@ -419,6 +421,9 @@ export default function BlogPost() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="min-w-0 lg:col-span-2"
           >
+
+      <div><PageContents isArabic={useAr} pageKey={slug} selector=".legal-article-body h2, .legal-article-body h3" /></div>
+            <details className="article-source-details"><summary>{useAr ? "المؤلف والمراجعة والمصادر" : "Author, review and sources"}</summary>
             <section className="mb-10 border border-border bg-muted/25 p-5" aria-labelledby="article-provenance-heading">
               <h2 id="article-provenance-heading" className="text-lg font-serif font-bold text-foreground mb-4">
                 {contentType === "legal-guidance" ? (useAr ? "بيانات المراجعة والمصادر" : "Review and source information") : (useAr ? "بيانات المقال التحريري" : "Editorial information")}
@@ -439,6 +444,7 @@ export default function BlogPost() {
                 <a href={provenance.correctionUrl} className="text-primary hover:underline">{useAr ? "الإبلاغ عن تصحيح أو خطأ" : "Report a correction or factual error"}</a>
               </div>
             </section>
+            </details>
             <div className="legal-article-body prose prose-slate max-w-none tiptap-content" dir={contentDir}>
               {body ? (
                 <div dangerouslySetInnerHTML={{ __html: body }} />
@@ -446,7 +452,7 @@ export default function BlogPost() {
                 content.map((section, i) => (
                   <div key={i} className="mb-8">
                     {section.heading && (
-                      <h2 className="text-xl font-serif font-bold text-foreground mb-3 mt-8 first:mt-0">
+                      <h2 id={`article-section-${i + 1}`} className="text-xl font-serif font-bold text-foreground mb-3 mt-8 first:mt-0">
                         {section.heading}
                       </h2>
                     )}
@@ -537,23 +543,6 @@ export default function BlogPost() {
                 </div>
               </div>
 
-              <div className="border border-border p-5">
-                <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-2">
-                  {lang === "en" ? "Content information" : "معلومات المحتوى"}
-                </p>
-                <p className="font-serif font-bold text-foreground">
-                  {useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}
-                </p>
-                <p className="text-sm text-muted-foreground mt-1">
-                  {lang === "en"
-                    ? `Published ${formatDate(post.date, lang)}${editorialUpdatedAt || post.updatedAt ? ` · Updated ${formatDate(editorialUpdatedAt || post.updatedAt!, lang)}` : ""}`
-                    : `نُشر ${formatDate(post.date, lang)}${editorialUpdatedAt || post.updatedAt ? ` · حُدّث ${formatDate(editorialUpdatedAt || post.updatedAt!, lang)}` : ""}`}
-                </p>
-                <Link href={provenance.legalReviewerUrl} className="inline-flex mt-3 text-sm font-semibold text-primary hover:underline">
-                  {lang === "en" ? "Legal leadership and experience" : "القيادة والخبرة القانونية"}
-                </Link>
-              </div>
-
               {(() => {
                 const svc = articleServiceSlug
                   ? {
@@ -599,7 +588,7 @@ export default function BlogPost() {
           </m.aside>
         </div>
       </section>
-      <TrustSignals isArabic={useAr} regionPrefix={articleRegionPrefix} compact />
+
     </div>
   );
 }

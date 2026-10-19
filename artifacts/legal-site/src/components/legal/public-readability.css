@@ -1,0 +1,94 @@
+/* Shared public reading rhythm. Admin editing screens keep their own layout. */
+.public-readable-site { --reading-ink: #203c30; --reading-muted: #4c6257; }
+.public-readable-site :is(h1,h2,h3) { text-wrap: balance; overflow-wrap: break-word; }
+.public-readable-site :is(h2,h3,section[id]) { scroll-margin-top: 150px; }
+.public-readable-site :is(a,button,summary,input,select,textarea):focus-visible { outline: 2px solid #b4924a; outline-offset: 4px; }
+.public-readable-site .premium-page-hero { padding-block: clamp(2rem,5vw,3.5rem); }
+.public-readable-site .premium-page-hero h1 { font-size: clamp(1.875rem,4vw,3rem); line-height: 1.25; margin-bottom: 1rem; }
+.public-readable-site .premium-page-hero p { line-height: 1.75; }
+.public-readable-site .premium-page-hero .premium-hero-rule { margin-bottom: 1.25rem; }
+.public-readable-site :is(.counselo-editorial-page,.regional-home-page) > section:is(.py-20,.py-24,.py-28) { padding-block: clamp(2rem,4vw,3.5rem); }
+.public-readable-site :is(.counselo-editorial-page,.regional-home-page) > section :is(.gap-16,.gap-20) { gap: 2rem; }
+.public-readable-site :is(.counselo-editorial-page,.regional-home-page) > section :is(.mb-16,.mb-20) { margin-bottom: 2rem; }
+.public-readable-site .regional-editorial-hero { padding-block: 2rem; }
+.public-readable-site .regional-editorial-hero h1 { font-size: clamp(2rem,4vw,3.5rem); }
+.public-readable-site .regional-editorial-hero__support { font-size: 1rem; }
+.public-readable-site .counselo-home .home-section { padding-block: clamp(2rem,4vw,3.5rem); }
+.public-readable-site .home-refined .home-hero { min-height: 0; }
+.public-readable-site :is(.legal-article-body,.work-reading-body) { max-width: 72ch; overflow-wrap: anywhere; font-size: 1.0625rem; line-height: 1.85; }
+.public-readable-site :is(.legal-article-body,.work-reading-body) :is(h2,h3) { line-height: 1.4; margin-block: 1.75rem .75rem; }
+.public-readable-site :is(.legal-article-body,.work-reading-body) p { margin-block: 0 1rem; }
+.public-readable-site .legal-article-body :is(img,iframe,video) { max-width: 100%; }
+.public-readable-site .legal-article-body table { display: block; max-width: 100%; overflow-x: auto; }
+.public-readable-site .page-contents { margin-block: 1.25rem; border-block: 1px solid #c4d7ca; background: #f5f8f6; color: #203c30; padding-inline: 1rem; }
+.public-readable-site .page-contents summary { cursor: pointer; min-height: 48px; padding-block: .75rem; font-weight: 700; }
+.public-readable-site .page-contents ol { list-style: none; padding: 0 0 .75rem; margin: 0; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .25rem 1.5rem; }
+.public-readable-site .page-contents a { display: flex; align-items: center; min-height: 44px; padding-block: .5rem; text-decoration: underline; text-underline-offset: 4px; font-size: .9375rem; line-height: 1.5; }
+.public-readable-site .article-source-details { margin-bottom: 1.5rem; border-block: 1px solid #c4d7ca; padding-block: .5rem; }
+.public-readable-site .article-source-details > summary { cursor: pointer; padding-block: .75rem; font-weight: 600; }
+.public-readable-site .article-source-details > section { margin-block: .5rem; }
+.public-readable-site .policy-contents-panel { position: sticky; top: 112px; border-top: 2px solid #b4924a; padding: 1rem; background: #f5f8f6; }
+.public-readable-site .policy-contents-panel summary { cursor: pointer; padding-block: .5rem; min-height: 44px; }
+.public-readable-site .policy-contents-panel ol { margin-top: .75rem; }
+.public-readable-site .policy-contents-panel a { display: flex; align-items: center; min-height: 44px; line-height: 1.6; font-size: .9375rem; }
+.public-readable-site .sa-service-costs nav { gap: .25rem 1.5rem; }
+@media (max-width: 1023px) {
+  .public-readable-site .policy-contents-panel { position: static; }
+  .public-readable-site .policy-contents-panel ol { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .5rem 1rem; }
+}
+@media (max-width: 639px) {
+  .public-readable-site .page-contents ol, .public-readable-site .policy-contents-panel ol { grid-template-columns: minmax(0,1fr); }
+  .public-readable-site .regional-editorial-hero { padding-block: 1.5rem; }
+  .public-readable-site .regional-editorial-hero .uae-reference-hero__map { display: none; }
+  .public-readable-site :is(.legal-article-body,.work-reading-body) { font-size: 1rem; line-height: 1.8; }
+  .public-readable-site .premium-content-shell { min-width: 0; }
+  .public-readable-site .region-navbar .uae-navbar-title { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .public-readable-site *, .public-readable-site *::before, .public-readable-site *::after { scroll-behavior: auto !important; }
+}
+
+.public-readable-site .footer-practice-contents > summary { min-height: 44px; padding-block: .75rem; color: white; cursor: pointer; font-weight: 700; }
+.public-readable-site .footer-practice-links { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .25rem 1rem; }
+.public-readable-site .regional-reference-footer nav a { min-height: 44px; line-height: 1.6; }
+.public-readable-site .legal-updates-reading-page > header { padding-block: 2rem; }
+@media (max-width: 639px) {
+  .public-readable-site .footer-practice-links { grid-template-columns: minmax(0,1fr); }
+}
+.public-readable-site .regional-editorial-hero .uae-reference-hero__grid { padding-block: 1rem; }
+.public-readable-site .regional-editorial-hero .uae-reference-hero__copy h1 { font-size: clamp(2rem,4vw,3.5rem); line-height: 1.3; }
+.public-readable-site .premium-page-hero p { max-inline-size: 65ch; }
+
+/* Concise editorial layouts: reduce duplication and decoration, not reading size. */
+.public-readable-site .concise-intro { display: grid; gap: 1rem 2.5rem; grid-template-columns: minmax(0,1fr) minmax(0,2fr); }
+.public-readable-site .concise-intro p { max-width: 68ch; line-height: 1.8; }
+.public-readable-site .concise-founder { display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 1.5rem; align-items: center; }
+.public-readable-site .concise-founder img { width: 120px; height: 150px; object-fit: cover; object-position: top; }
+.public-readable-site .concise-founder p { max-width: 70ch; line-height: 1.8; }
+.public-readable-site .concise-text-link { display: inline-flex; min-height: 44px; align-items: center; gap: .6rem; color: #0d4a31; text-decoration: underline; text-underline-offset: 4px; font-weight: 600; }
+.public-readable-site .concise-link-row { display: flex; flex-wrap: wrap; gap: .5rem 2rem; margin-top: 1rem; }
+.public-readable-site .concise-link-row a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: 4px; }
+.public-readable-site .reading-search { display: block; width: 100%; max-width: 48rem; min-height: 48px; border: 1px solid #94ad9e; border-radius: 0; background: white; color: #203c30; padding: .75rem 1rem; font-size: 1rem; }
+.public-readable-site .reading-result h2 { margin: .35rem 0 .75rem; font-size: 1.25rem; line-height: 1.55; }
+.public-readable-site .reading-result a { min-height: 44px; }
+.public-readable-site .work-facts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .5rem 1.5rem; font-size: .9375rem; }
+.public-readable-site .work-reading-body .work-facts p { margin: 0; }
+.public-readable-site .concise-deliverables { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 1.5rem; }
+.public-readable-site .legal-article-body :is(p,h2,h3) { text-align: start !important; }
+.public-readable-site .legal-article-body p > span[style] { color: inherit !important; }
+.public-readable-site .article-reading-layout { max-width: 1240px; }
+.public-readable-site .article-reading-layout > div { gap: 2rem; }
+.public-readable-site .regional-reference-footer .uae-reference-footer__main { padding-block: 2rem; }
+.public-readable-site .regional-reference-footer .legal-network-footer { padding-block: 1.5rem; }
+.public-readable-site .home-refined .home-founder-photo { min-height: 0; max-height: 440px; }
+.public-readable-site .home-refined .home-country-map { max-height: 120px; }
+.public-readable-site .home-refined .home-founder { padding-block: 2.5rem; }
+@media (max-width: 639px) {
+  .public-readable-site .concise-intro { grid-template-columns: 1fr; }
+  .public-readable-site .concise-founder { grid-template-columns: 80px minmax(0,1fr); gap: 1rem; align-items: start; }
+  .public-readable-site .concise-founder img { width: 80px; height: 100px; }
+  .public-readable-site .concise-founder h2 { font-size: 1.5rem; }
+  .public-readable-site .concise-deliverables { grid-template-columns: 1fr; }
+  .public-readable-site .home-refined .home-founder-photo { display: none; }
+  .public-readable-site .home-refined .home-country-map { display: none; }
+}

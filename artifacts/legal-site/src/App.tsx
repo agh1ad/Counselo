@@ -1,3 +1,4 @@
+import "@/components/legal/public-readability.css";
 import {
   Switch,
   Route,
@@ -381,14 +382,14 @@ function AppShell() {
 
   if (isRegionPicker) {
     return (
-      <>
+      <div className="public-readable-site">
         <Router />
-      </>
+      </div>
     );
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="public-readable-site min-h-screen flex flex-col bg-background">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-background focus:text-foreground focus:px-4 focus:py-2 focus:border focus:border-border"

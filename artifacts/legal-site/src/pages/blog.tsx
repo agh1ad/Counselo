@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { readingSearchKey } from "@/lib/article-reading";
 import { Link } from "wouter";
 import * as m from "framer-motion/m";
 import { Clock, ArrowRight, BookOpen } from "lucide-react";
@@ -51,6 +53,7 @@ function formatDate(dateStr: string, lang: string) {
 }
 
 export default function Blog() {
+  const [search, setSearch] = useState("");
   const { lang, isRTL } = useLanguage();
   const { region, regionPrefix } = useRegion();
   const articlePath = (post: ApiPost) =>
@@ -68,11 +71,12 @@ export default function Blog() {
     refetchOnWindowFocus: "always",
   });
 
+  const matchingPosts = posts.filter(post => readingSearchKey(`${post.titleEn} ${post.titleAr} ${post.categoryEn} ${post.categoryAr} ${post.excerptEn} ${post.excerptAr}`).includes(readingSearchKey(search)));
   const ui = {
     en: {
       eyebrow: "Legal Insights",
       heading: "Legal articles and practical guides",
-      subheading: "A shared legal publication covering Saudi, Syrian and UAE law, with jurisdiction clearly identified in every country-specific article — published by CounselO Legal with authorship and editorial methodology identified in each article.",
+      subheading: "Articles on Saudi, Syrian and UAE law. Search by topic; each article identifies its jurisdiction and authorship.",
       readMore: "Read Article",
       minRead: "min read",
       ctaHeading: "Have a Legal Question?",
@@ -84,7 +88,7 @@ export default function Blog() {
     ar: {
       eyebrow: "رؤى قانونية",
       heading: "مقالات قانونية وأدلة عملية",
-      subheading: "منصة قانونية مشتركة تغطي قوانين السعودية وسوريا والإمارات، مع بيان الاختصاص بوضوح في كل مقال خاص بدولة — تنشرها كاونسلو للاستشارات القانونية مع بيان نسبة التأليف والمنهجية التحريرية داخل كل مقال.",
+      subheading: "مقالات في قوانين السعودية وسوريا والإمارات. ابحث بالموضوع؛ يوضح كل مقال اختصاصه ومؤلفه.",
       readMore: "اقرأ المقال",
       minRead: "د قراءة",
       ctaHeading: "هل لديك سؤال قانوني؟",
@@ -221,8 +225,13 @@ export default function Blog() {
         </div>
       </section>
 
+      <div className="premium-content-shell pt-6">
+        <label htmlFor="article-search" className="block font-semibold mb-2">{isRTL ? "ابحث في المقالات" : "Search articles"}</label>
+        <input id="article-search" type="search" value={search} onChange={event => setSearch(event.target.value)} className="reading-search" placeholder={isRTL ? "الموضوع أو الدولة أو كلمة من العنوان" : "Topic, country or title"} />
+        <p role="status" className="mt-2 text-sm text-muted-foreground">{isRTL ? `${matchingPosts.length} مقال` : `${matchingPosts.length} articles`}</p>
+      </div>
       {/* Posts Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {isLoading ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3].map((i) => (
@@ -239,49 +248,9 @@ export default function Blog() {
           </div>
         ) : (
           <div>
-            {posts.slice(0, 1).map((post) => {
-              const hasEnglish = !!(post.titleEn && post.titleEn.trim());
-              const hasArabic = !!(post.titleAr && post.titleAr.trim());
-              const useAr = hasArabic && (isRTL || !hasEnglish);
-              const title = useAr ? post.titleAr : post.titleEn;
-              const excerpt = useAr ? post.excerptAr : post.excerptEn;
-              const category = useAr ? post.categoryAr : post.categoryEn;
-              return (
-                <m.article
-                  key={post.slug}
-                  initial={false}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="relative mb-14 grid min-h-[360px] overflow-hidden border border-[#0d4a31] bg-[#0d4a31] text-white lg:grid-cols-[1.05fr_0.95fr]"
-                >
-                  <div className="relative z-10 flex flex-col p-8 sm:p-10 lg:p-12">
-                    <p className="mb-6 text-xs font-semibold uppercase tracking-[0.18em] text-[#d4b66c]">
-                      {isRTL ? "المقال المميز" : "Featured insight"} · {category}
-                    </p>
-                    <h2 dir={useAr ? "rtl" : "ltr"} className="mb-5 max-w-2xl font-serif text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
-                      {title}
-                    </h2>
-                    <p dir={useAr ? "rtl" : "ltr"} className="mb-8 max-w-xl text-base leading-relaxed text-white/65">
-                      {excerpt}
-                    </p>
-                    <div className="mt-auto flex flex-wrap items-center gap-6 text-xs text-white/55">
-                      <span>{formatDate(post.date, lang)}</span>
-                      <span className="flex items-center gap-2"><Clock className="h-3.5 w-3.5" /> {post.readTime} {ui.minRead}</span>
-                      <Link href={articlePath(post)} className="inline-flex items-center gap-2 border-b border-[#d4b66c] pb-1 font-semibold text-white">
-                        {ui.readMore}<ArrowRight className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="relative min-h-56 overflow-hidden border-t border-white/15 bg-white lg:border-s lg:border-t-0">
-                    <img src="/images/optimized/counselo-platform-line-art-v1.webp" srcSet="/images/optimized/counselo-platform-line-art-v1-640.webp 640w, /images/optimized/counselo-platform-line-art-v1-960.webp 960w, /images/optimized/counselo-platform-line-art-v1.webp 1719w" sizes="(max-width: 767px) 100vw, 50vw" loading="lazy" decoding="async" width="1719" height="915" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover opacity-40" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent,rgba(248,246,240,0.3))]" />
-                  </div>
-                </m.article>
-              );
-            })}
-
+            {matchingPosts.length === 0 && <p>{isRTL ? "لا توجد نتائج. جرّب كلمة أخرى." : "No matches. Try another keyword."}</p>}
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {posts.slice(1).map((post, i) => {
+              {matchingPosts.map((post, i) => {
                 const hasEnglish = Boolean(post.titleEn?.trim());
                 const hasArabic = Boolean(post.titleAr?.trim());
                 const useAr = hasArabic && (isRTL || !hasEnglish);
@@ -290,20 +259,15 @@ export default function Blog() {
                 const excerpt = useAr ? post.excerptAr : post.excerptEn;
                 return (
                   <m.article key={post.slug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.35, delay: Math.min(i * 0.03, 0.18) }}
-                    className="group flex min-h-80 flex-col border border-[#0d4a31]/15 bg-white p-7 transition-all hover:-translate-y-1 hover:border-[#b58b32] hover:shadow-[0_18px_45px_rgba(0,61,34,0.09)]">
-                    <div className="mb-7 flex items-center justify-between">
-                      <span className="flex h-12 w-12 items-center justify-center border border-[#0d4a31]/18 bg-[#eef4f0] text-[#0d4a31]">
-                        <BookOpen className="h-6 w-6" strokeWidth={1.4} />
-                      </span>
-                      <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[#755615]">{category}</span>
-                    </div>
+                    className="reading-result group flex flex-col border-b border-border py-5">
+                    <p className="mb-2 text-xs font-semibold text-[#755615]">{category}</p>
                     <h2 dir={useAr ? "rtl" : "ltr"} className="mb-4 font-serif text-xl font-semibold leading-snug text-[#0d4a31] transition-colors group-hover:text-[#aa7e28]">{title}</h2>
-                    <p dir={useAr ? "rtl" : "ltr"} className="mb-7 line-clamp-3 text-sm leading-relaxed text-muted-foreground">{excerpt}</p>
+                    <p dir={useAr ? "rtl" : "ltr"} className="mb-3 line-clamp-2 text-sm leading-relaxed text-muted-foreground">{excerpt}</p>
                     <div className="mt-auto flex items-center justify-between border-t border-[#0d4a31]/12 pt-5 text-xs text-muted-foreground">
                       <span>{formatDate(post.date, lang)}</span>
                       <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" />{post.readTime} {ui.minRead}</span>
                     </div>
-                    <Link href={articlePath(post)} className="mt-5 inline-flex items-center justify-between text-sm font-semibold text-primary">
+                    <Link href={articlePath(post)} className="mt-3 inline-flex min-h-11 items-center justify-between text-sm font-semibold text-primary">
                       {ui.readMore}<ArrowRight className={`h-4 w-4 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180" : ""}`} />
                     </Link>
                   </m.article>
