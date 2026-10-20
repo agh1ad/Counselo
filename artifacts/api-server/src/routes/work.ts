@@ -11,11 +11,13 @@ import {
   ContentTranslationError,
   translateWorkForPublishing,
 } from "../lib/content-translation.js";
+import { withPublicContentMutation } from "../lib/publication-cache.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 import { repairPublicWorkSample } from "../lib/public-work-repairs.js";
 
+import { publishedWork } from "../lib/published-content.js";
+
 const router = Router();
-const { fileData: _fileData, confidentialityConfirmed: _confidentiality, ...publicColumns } = getTableColumns(workSamplesTable);
 const { fileData: _adminFileData, ...adminColumns } = getTableColumns(workSamplesTable);
 
 function publicTestimonials(sample: { testimonials?: unknown[]; testimonialGovernanceVersion?: number }) {
@@ -32,11 +34,7 @@ function publicTestimonials(sample: { testimonials?: unknown[]; testimonialGover
 }
 
 router.get("/work", async (_req, res) => {
-  const samples = await db
-    .select(publicColumns)
-    .from(workSamplesTable)
-    .where(eq(workSamplesTable.published, true))
-    .orderBy(desc(workSamplesTable.date));
+  const samples = await publishedWork();
   res.json(samples.map(repairPublicWorkSample).map((sample) => ({
     ...sample,
     testimonials: publicTestimonials(sample),
@@ -71,10 +69,7 @@ router.get("/work/:slug/file", async (req, res) => {
 });
 
 router.get("/work/:slug", async (req, res) => {
-  const [sample] = await db
-    .select(publicColumns)
-    .from(workSamplesTable)
-    .where(eq(workSamplesTable.slug, String(req.params["slug"] ?? "")));
+  const [sample] = (await publishedWork()).filter(sample => sample.slug === String(req.params["slug"] ?? ""));
   if (!sample?.published) {
     res.status(404).json({ error: "Not found" });
     return;
@@ -131,10 +126,10 @@ router.post("/admin/work", requireAdmin, async (req, res) => {
         aiLinksAssignedAt: new Date(),
       };
     }
-    const [sample] = await db
+    const [sample] = await withPublicContentMutation(() => db
       .insert(workSamplesTable)
       .values({ ...values, ...linkValues })
-      .returning(adminColumns);
+      .returning(adminColumns), () => res.setHeader("X-CounselO-Cache-Status", "bypass"));
     if (sample.published) {
       await invalidatePublicResponseCache();
       notifyWorkPublished(sample.slug);
@@ -204,11 +199,11 @@ router.put("/admin/work/:id", requireAdmin, async (req, res) => {
         };
       }
     }
-    const [sample] = await db
+    const [sample] = await withPublicContentMutation(() => db
       .update(workSamplesTable)
       .set({ ...values, ...linkValues, updatedAt: new Date() })
       .where(eq(workSamplesTable.id, id))
-      .returning(adminColumns);
+      .returning(adminColumns), () => res.setHeader("X-CounselO-Cache-Status", "bypass"));
     if (!sample) {
       res.status(404).json({ error: "Not found" });
       return;
@@ -242,10 +237,10 @@ router.delete("/admin/work/:id", requireAdmin, async (req, res) => {
     res.status(400).json({ error: (error as Error).message });
     return;
   }
-  const [deleted] = await db
+  const [deleted] = await withPublicContentMutation(() => db
     .delete(workSamplesTable)
     .where(eq(workSamplesTable.id, id))
-    .returning({ slug: workSamplesTable.slug, published: workSamplesTable.published });
+    .returning({ slug: workSamplesTable.slug, published: workSamplesTable.published }), () => res.setHeader("X-CounselO-Cache-Status", "bypass"));
   if (!deleted) {
     res.status(404).json({ error: "Not found" });
     return;

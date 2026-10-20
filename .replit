@@ -4,7 +4,7 @@ modules = ["nodejs-24", "python-3.11", "postgresql-16"]
 router = "application"
 deploymentTarget = "autoscale"
 build = "pnpm run typecheck:libs && pnpm --filter @workspace/legal-site typecheck && pnpm --filter @workspace/api-server typecheck && pnpm --filter @workspace/legal-site build && pnpm --filter @workspace/api-server build"
-run = "PUBLIC_RESPONSE_CACHE_BUCKET_ID=replit-objstore-a69094dc-1cf1-4dcc-9b7c-8c67e9f645be PUBLIC_RESPONSE_CACHE_BACKEND=object-storage NODE_ENV=production pnpm --filter @workspace/api-server start"
+run = "PUBLIC_RESPONSE_CACHE_MODE=fenced PUBLIC_RESPONSE_CACHE_BUCKET_ID=replit-objstore-a69094dc-1cf1-4dcc-9b7c-8c67e9f645be PUBLIC_RESPONSE_CACHE_BACKEND=object-storage NODE_ENV=production pnpm --filter @workspace/api-server start"
 
 [deployment.postBuild]
 args = ["pnpm", "store", "prune"]

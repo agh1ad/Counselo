@@ -21,17 +21,16 @@ import {
   ContentTranslationError,
   translateBlogForPublishing,
 } from "../lib/content-translation.js";
+import { withPublicContentMutation } from "../lib/publication-cache.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 import { repairPublicBlogPost } from "../lib/public-blog-repairs.js";
+
+import { publishedBlogs } from "../lib/published-content.js";
 
 const router = Router();
 
 router.get("/blog/posts", async (_req, res) => {
-  const posts = await db
-    .select()
-    .from(blogPostsTable)
-    .where(eq(blogPostsTable.published, true))
-    .orderBy(desc(blogPostsTable.date));
+  const posts = await publishedBlogs();
   res.json(
     posts
       .map(repairPublicBlogPost)
@@ -41,36 +40,8 @@ router.get("/blog/posts", async (_req, res) => {
 });
 
 router.get("/blog/posts/discovery", async (_req, res) => {
-  // Discovery consumers only need listing/SEO fields. Avoid loading legal
-  // provenance and other large columns that are never returned by this route.
-  const posts = await db
-    .select({
-      id: blogPostsTable.id,
-      slug: blogPostsTable.slug,
-      date: blogPostsTable.date,
-      updatedAt: blogPostsTable.updatedAt,
-      categoryEn: blogPostsTable.categoryEn,
-      categoryAr: blogPostsTable.categoryAr,
-      readTime: blogPostsTable.readTime,
-      titleEn: blogPostsTable.titleEn,
-      titleAr: blogPostsTable.titleAr,
-      excerptEn: blogPostsTable.excerptEn,
-      excerptAr: blogPostsTable.excerptAr,
-      seoTitleEn: blogPostsTable.seoTitleEn,
-      seoTitleAr: blogPostsTable.seoTitleAr,
-      seoDescriptionEn: blogPostsTable.seoDescriptionEn,
-      seoDescriptionAr: blogPostsTable.seoDescriptionAr,
-      bodyEn: blogPostsTable.bodyEn,
-      bodyAr: blogPostsTable.bodyAr,
-      contentEn: blogPostsTable.contentEn,
-      contentAr: blogPostsTable.contentAr,
-      relatedServiceSlugs: blogPostsTable.relatedServiceSlugs,
-      relatedBlogSlugs: blogPostsTable.relatedBlogSlugs,
-      relatedWorkSlugs: blogPostsTable.relatedWorkSlugs,
-    })
-    .from(blogPostsTable)
-    .where(eq(blogPostsTable.published, true))
-    .orderBy(desc(blogPostsTable.date));
+  // Reuse the shared published snapshot; return only discovery fields below.
+  const posts = await publishedBlogs();
   res.json(
     posts
       .map(repairPublicBlogPost)
@@ -102,10 +73,7 @@ router.get("/blog/posts/discovery", async (_req, res) => {
 
 router.get("/blog/posts/:slug", async (req, res) => {
   const { slug } = req.params;
-  const [post] = await db
-    .select()
-    .from(blogPostsTable)
-    .where(eq(blogPostsTable.slug, slug));
+  const [post] = (await publishedBlogs()).filter(post => post.slug === slug);
   const repairedPost = post ? repairPublicBlogPost(post) : undefined;
   if (!repairedPost || !repairedPost.published || !hasQualityBilingualBlogContent(repairedPost)) {
     res.status(404).json({ error: "Not found" });
@@ -172,10 +140,10 @@ router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
         ...assignArticleProvenance(values),
       };
     }
-    const [post] = await db
+    const [post] = await withPublicContentMutation(() => db
       .insert(blogPostsTable)
       .values({ ...values, ...linkValues })
-      .returning();
+      .returning(), () => res.setHeader("X-CounselO-Cache-Status", "bypass"));
     if (post.published) {
       await invalidatePublicResponseCache();
       notifyPublished(post.slug);
@@ -247,11 +215,11 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
         };
       }
     }
-    const [post] = await db
+    const [post] = await withPublicContentMutation(() => db
       .update(blogPostsTable)
       .set({ ...values, ...linkValues, updatedAt: new Date() })
       .where(eq(blogPostsTable.id, id))
-      .returning();
+      .returning(), () => res.setHeader("X-CounselO-Cache-Status", "bypass"));
     if (!post) {
       res.status(404).json({ error: "Not found" });
       return;
@@ -287,14 +255,14 @@ router.delete("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
     res.status(400).json({ error: (error as Error).message });
     return;
   }
-  const [deleted] = await db
+  const [deleted] = await withPublicContentMutation(() => db
     .delete(blogPostsTable)
     .where(eq(blogPostsTable.id, id))
     .returning({
       id: blogPostsTable.id,
       slug: blogPostsTable.slug,
       published: blogPostsTable.published,
-    });
+    }), () => res.setHeader("X-CounselO-Cache-Status", "bypass"));
   if (!deleted) {
     res.status(404).json({ error: "Not found" });
     return;
