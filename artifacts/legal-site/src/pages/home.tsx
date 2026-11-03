@@ -104,48 +104,39 @@ export default function Home() {
 
 
       {/* ── CTA ── */}
-      <section className="py-20 lg:py-24 relative overflow-hidden bg-[#003d22]" aria-labelledby="regional-cta-heading">
-        <img
-          src="/images/optimized/counselo-gold-legal-line-art-v1.webp"
-          alt=""
-          aria-hidden="true"
-          width="1254"
-          height="1254"
-          loading="lazy"
-          decoding="async"
-          className="absolute w-[30rem] -end-32 -top-32 opacity-[0.13] pointer-events-none"
-        />
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
-          <m.div {...fadeIn} className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-20 items-center">
-            <div>
-              <p className="text-[#d4af60] uppercase tracking-[0.18em] text-xs font-semibold mb-4">{h.cta.eyebrow}</p>
-              <h2 id="regional-cta-heading" className="text-4xl md:text-5xl font-serif font-medium text-white mb-6 leading-tight"><MessageCircle aria-hidden="true" className="mb-4 h-8 w-8" strokeWidth={1.5} />{h.cta.heading}</h2>
-              <p className="text-lg text-white/70 mb-4 max-w-3xl leading-relaxed">{isRTL ? "أرسل ملخص المسألة والدولة وأي موعد قريب. نوضح النطاق والأتعاب قبل بدء العمل." : "Send a short summary, the country and any deadline. We confirm scope and fees before starting."}</p>
-
-            </div>
-            <div className="lg:border-s border-white/20 lg:ps-12">
-            <div className="flex flex-col gap-3 mb-7">
-              {h.hero.channels.map((ch, i) => {
-                const Icon = channelIcons[i];
-                return <a key={i} href={saudiContactHref(i === 0 ? "whatsapp" : "email", isRTL, region)} data-cta={i === 0 ? "whatsapp" : "email"} data-conversion-position="sa-home-footer" data-region={region} data-lang={isRTL ? "ar" : "en"} className="group flex items-center justify-between gap-4 border-b border-white/20 py-4 text-sm font-semibold text-white transition-colors hover:border-[#d4af60] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"><span className="flex items-center gap-3"><Icon className="h-5 w-5 text-[#d4af60]" />{ch.label}</span><ArrowRight aria-hidden="true" className="h-4 w-4 rtl:rotate-180" /></a>;
+      <section className="bg-[#173f30] px-6 py-8 sm:px-8 lg:px-12" aria-labelledby="regional-cta-heading">
+        <m.div {...fadeIn} className="mx-auto grid max-w-[1180px] items-center gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:gap-10">
+          <div className="min-w-0">
+            <h2 id="regional-cta-heading" className="mb-3 text-2xl font-semibold leading-snug text-white md:text-3xl">
+              {isRTL ? "ابدأ استشارتك القانونية أونلاين." : "Start your legal consultation online."}
+            </h2>
+            <p className="max-w-2xl text-base leading-7 text-[#d2e1d8]">
+              {isRTL
+                ? "أرسل سؤالك أو مستنداتك إلى فريقنا القانوني لتحصل على مشورة واضحة بالعربية أو الإنجليزية، دون زيارة مكتب."
+                : "Share your question or documents with our legal team for clear advice in Arabic or English, without an office visit."}
+            </p>
+          </div>
+          <div className="flex flex-col gap-2 md:min-w-56">
+            <Button asChild className="h-auto min-h-12 rounded-md bg-[#d4af60] px-5 py-3 text-base font-semibold text-[#173f30] hover:bg-[#e0c078]">
+              <Link href={`${regionPrefix}/contact`} data-cta="contact" data-conversion-position="sa-home-footer" data-region={region} data-lang={isRTL ? "ar" : "en"}>
+                {isRTL ? "تواصل مع فريقنا" : "Contact our team"}
+                <ArrowRight aria-hidden="true" className="ms-2 h-4 w-4 rtl:rotate-180" />
+              </Link>
+            </Button>
+            <div className="flex flex-wrap justify-center gap-x-5">
+              {h.hero.channels.map((channel, index) => {
+                const Icon = channelIcons[index];
+                const channelType = index === 0 ? "whatsapp" : "email";
                 return (
-                  <Link key={i} href={`${regionPrefix}/contact`}
-                    className="group flex items-center justify-between gap-4 border-b border-white/20 text-white py-4 text-sm font-semibold hover:border-[#d4af60] transition-colors">
-                    <span className="flex items-center gap-3"><Icon className="h-5 w-5 text-[#d4af60]" /> {ch.label}</span>
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
-                  </Link>
+                  <a key={channelType} href={saudiContactHref(channelType, isRTL, region)} data-cta={channelType} data-conversion-position="sa-home-footer" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d4af60]">
+                    <Icon aria-hidden="true" className="h-4 w-4 text-[#d4af60]" />
+                    {channel.label}
+                  </a>
                 );
               })}
             </div>
-            <Button asChild size="lg" className="group w-full text-base px-8 py-7 rounded-none bg-[#d4af60] text-[#003d22] hover:bg-[#e0c078] font-semibold">
-              <Link href={`${regionPrefix}/contact`}>
-                {h.cta.ctaBtn}
-                <ArrowRight className="ms-3 h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180" />
-              </Link>
-            </Button>
-            </div>
-          </m.div>
-        </div>
+          </div>
+        </m.div>
       </section>
 
     </div>
