@@ -1,0 +1,13 @@
+/* Targeted readability improvements over the restored original layout. */
+.original-home .region-picker-hero > .relative > :nth-child(2) > :nth-child(2) > .jurisdiction-choice-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+.original-home .region-picker-hero > .relative > :nth-child(2) > :nth-child(2) > .jurisdiction-choice-grid > .jurisdiction-choice-card { min-height: 220px; }
+.original-home .region-picker-hero > .relative > :nth-child(2) > :nth-child(2) > .jurisdiction-choice-grid > .jurisdiction-choice-card:focus-visible { outline: 3px solid #e0bd72; outline-offset: 4px; }
+.original-home .region-picker-hero > .relative > :nth-child(2) > :nth-child(2) > .jurisdiction-choice-grid > .jurisdiction-choice-card h3 { font-size: 1.65rem; line-height: 1.3; margin-bottom: 1rem; }
+.original-home .region-picker-hero .text-\[\#aa7e28\] { color: #d4b66c; }
+@media (min-width: 640px) and (max-width: 1023px) {
+  .original-home .region-picker-hero > .relative > :nth-child(2) > :nth-child(2) > .jurisdiction-choice-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .original-home .region-picker-hero > .relative > :nth-child(2) > :nth-child(2) > .jurisdiction-choice-grid > .jurisdiction-choice-card { min-height: 285px; }
+}
+@media (min-width: 1024px) {
+  .original-home .region-picker-hero > .relative > :nth-child(2) > :nth-child(2) > .jurisdiction-choice-grid > .jurisdiction-choice-card { min-height: 210px; }
+}

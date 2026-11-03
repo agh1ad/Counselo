@@ -1,3 +1,4 @@
+import { isRetiredPublicPath, retiredPageHtml, RETIRED_RESPONSE_HEADERS } from "@workspace/api-zod";
 import { db, workSamplesTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import { createPublicDocumentsRouter } from "./lib/public-work-documents.js";
@@ -18,6 +19,11 @@ import { cachePublicResponses } from "./lib/public-response-cache.js";
 import { handleResendWebhook } from "./lib/resend-webhook.js";
 
 const app: Express = express();
+
+app.use((req, res, next) => {
+  if (!isRetiredPublicPath(req.path)) return next();
+  res.status(410).set(RETIRED_RESPONSE_HEADERS).send(retiredPageHtml(req.path));
+});
 
 function isDiscoveryPath(path: string): boolean {
   return (
@@ -146,6 +152,8 @@ app.use("/documents", createPublicDocumentsRouter(async (slug) => {
   }).from(workSamplesTable).where(eq(workSamplesTable.slug, slug));
   return sample;
 }));
+
+
 
 app.use(cachePublicResponses("page", isCacheablePublicPagePath));
 

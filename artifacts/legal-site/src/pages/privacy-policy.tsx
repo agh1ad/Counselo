@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
         {
           icon: Shield,
           title: "1. Who We Are",
-          content: `CounselO Legal is an online legal consultation platform founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice. We provide professional legal consultation services for matters in ${countryEn} via WhatsApp and email, in Arabic and English.`,
+          content: `CounselO Legal is an online legal consultation platform with an experienced team providing legal analysis, advice and document review. We provide professional legal consultation services for matters in ${countryEn} via WhatsApp and email, in Arabic and English.`,
         },
         {
           icon: Database,
@@ -207,7 +207,7 @@ export default function PrivacyPolicy() {
           icon: Shield,
           title: "١. من نحن",
           content:
-            "كاونسلو للاستشارات القانونية منصة للاستشارات القانونية الأونلاين، أسّسها ويقودها المحامي والمستشار القانوني عمر البغدادي بخبرة 30+ عاماً من الممارسة القانونية. نقدّم خدمات الاستشارة القانونية المهنية عبر واتساب والبريد الإلكتروني بالعربية والإنجليزية.",
+            "كاونسلو للاستشارات القانونية منصة أونلاين يقدم فريقها القانوني المتمرس التحليل والمشورة ومراجعة المستندات. نقدّم خدمات الاستشارة القانونية المهنية عبر واتساب والبريد الإلكتروني بالعربية والإنجليزية.",
         },
         {
           icon: Database,
@@ -410,9 +410,9 @@ export default function PrivacyPolicy() {
       </section>
 
       <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:px-8 lg:py-24">
-        <nav aria-label={isRTL ? "محتويات سياسة الخصوصية" : "Privacy policy contents"} className="hidden lg:block">
-          <div className="sticky top-28 border-t-2 border-[#b58b32] bg-[#eef4f0] p-6">
-            <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-[#0d4a31]">{isRTL ? "المحتويات" : "Contents"}</p>
+        <nav aria-label={isRTL ? "محتويات سياسة الخصوصية" : "Privacy policy contents"} className="policy-contents">
+          <details className="policy-contents-panel">
+            <summary className="font-semibold">{isRTL ? "المحتويات" : "Contents"}</summary>
             <ol className="space-y-3">
               {content.sections.map((section, index) => (
                 <li key={section.title}>
@@ -422,7 +422,7 @@ export default function PrivacyPolicy() {
                 </li>
               ))}
             </ol>
-          </div>
+          </details>
         </nav>
 
         {/* Sections */}

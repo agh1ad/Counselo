@@ -249,25 +249,25 @@ export function alignSearchIntentCopy(source: Translations, region: Region, lang
   t.contact.hero.subheading = ar ? "اشرح المسألة، وحدد الدولة والنتيجة المطلوبة وأي ميعاد قريب. نراجع الطلب ونؤكد نطاق الاستشارة ورسومها قبل بدء العمل المدفوع." : "Explain your legal issue, country, intended outcome and any urgent deadline. We review your request and confirm the consultation scope and fee before paid work starts.";
   t.contact.firmDetails.heading = ar ? "التواصل مع كاونسلو للاستشارات القانونية" : "Contact CounselO Legal";
   t.contact.form.messageLabel = ar ? "ما المسألة القانونية التي تحتاج إلى مساعدة بشأنها؟" : "What legal issue do you need help with?";
-  t.aboutPage.hero.heading = ar ? "عن كاونسلو للاستشارات القانونية أونلاين" : "About CounselO Legal online legal consultations";
-  t.aboutPage.hero.subheading = ar ? `تعرّف على الفريق المهني ومنهج مراجعة الطلبات ونطاق الاستشارات المقدمة بشأن المسائل القانونية في ${country}.` : `Meet the professionals behind CounselO Legal and understand how we review requests and scope legal consultations concerning ${country}.`;
+  t.aboutPage.hero.heading = ar ? "فريق قانوني بخبرة راسخة. وخدمة متكاملة أونلاين." : "An experienced legal team. A complete online service.";
+  t.aboutPage.hero.subheading = ar ? `استشارات مهنية ومراجعة مستندات وصياغة قانونية للمسائل في ${country}، مع فريق متمرس وتواصل واضح بالعربية والإنجليزية.` : `Professional legal advice, document review and drafting for matters in ${country}, with an experienced team and clear communication in Arabic and English.`;
   return t;
 }
 
 export function searchIntentMeta(path: string) {
-  const match = path.match(/^\/(sa|syr|uae)(\/ar)?(?:\/(services|about|contact|vision)(?:\/([^/]+))?)?$/);
+  const match = path.match(/^\/(sa|syr|uae)(\/ar)?(?:\/(services|about|contact)(?:\/([^/]+))?)?$/);
   if (!match) return undefined;
   const region = match[1] as Region;
   const lang = match[2] ? "ar" : "en";
   if (match[4]) return match[3] === "services" ? serviceSearchCopy(match[4], region, lang) : undefined;
   const country = SEARCH_COUNTRIES[region][lang];
-  const pageLabels = {
-    services: {ar: "الاستشارات القانونية", en: "Legal consultation services"},
-    about: {ar: "عن كاونسلو للاستشارات القانونية", en: "About CounselO Legal consultations"},
-    contact: {ar: "اطلب استشارة قانونية", en: "Request a legal consultation"},
-    vision: {ar: "رؤية كاونسلو للاستشارات القانونية ومنهج الاستشارات القانونية", en: "CounselO Legal’s vision and approach to legal advice"},
+  const page = match[3] as "services" | "about" | "contact" | undefined;
+  if (page === "about") return {
+    title: lang === "ar" ? `عن كاونسلو وفريقها القانوني | ${country}` : `About CounselO Legal & Our Team | ${country}`,
+    description: lang === "ar"
+      ? `تعرّف على منصة كاونسلو وفريقها القانوني وخدمات الاستشارة ومراجعة المستندات والصياغة في ${country}، وكيف نعد العمل ونسلمه ونتابع معك أونلاين.`
+      : `Meet CounselO and its experienced legal team. Explore online advice, document review and drafting for ${country}, with clear delivery and professional follow-up.`,
   };
-  const page = match[3] as keyof typeof pageLabels | undefined;
   if (page === "services") {
     const descriptions = {
       sa: { en: "Explore Saudi legal services for companies, contracts, employment, family and disputes. Compare review scope, documents and separately agreed representation.", ar: "استكشف الخدمات القانونية السعودية للشركات والعقود والعمل والأسرة والنزاعات. تعرّف على نطاق المراجعة والمستندات والتمثيل المتفق عليه بصورة مستقلة." },
@@ -277,13 +277,11 @@ export function searchIntentMeta(path: string) {
     return { title: lang === "ar" ? `دليل الخدمات القانونية في ${country} | كاونسلو للاستشارات القانونية` : `Legal Services Directory in ${country} | CounselO Legal`, description: descriptions[region][lang] };
   }
 
-  if (page) return {
-    title: page === "contact" && region !== "uae"
-      ? (lang === "ar" ? `استشارة قانونية أونلاين في ${country} | كاونسلو للاستشارات القانونية` : `Online Legal Consultation ${country} | CounselO Legal`)
-      : `${pageLabels[page][lang]} ${lang === "ar" ? "في" : "in"} ${country} | ${lang === "ar" ? "كاونسلو للاستشارات القانونية" : "CounselO Legal"}`,
+  if (page === "contact") return {
+    title: lang === "ar" ? `اطلب استشارة قانونية في ${country} | كاونسلو` : `Request a Legal Consultation in ${country} | CounselO Legal`,
     description: lang === "ar"
-      ? ({services: `اختر موضوع استشارتك القانونية في ${country}. اطّلع على نطاق مراجعة قضايا العمل والأسرة والعقارات والشركات والمستندات اللازمة لكل خدمة.`, about: `تعرّف على فريق كاونسلو للاستشارات القانونية وخبرته المهنية ومنهج مراجعة طلبات الاستشارة القانونية المتعلقة بـ${country} وحدود نطاق الخدمة.`, contact: `اطلب استشارة قانونية بشأن مسألتك في ${country} عبر واتساب أو البريد الإلكتروني. أرسل الوقائع والمواعيد المهمة لتأكيد نطاق المراجعة ورسومها.`, vision: `تعرّف على منهج كاونسلو للاستشارات القانونية المتعلقة بـ${country}: مراجعة الوقائع والمصادر، وضوح النطاق، وسرية المعلومات.`})[page]
-      : ({services: `Find legal advice in ${country} by issue. Explore employment, family, property and business services, review scope and the documents to prepare.`, about: `Meet CounselO Legal’s professionals and learn about their experience, request review process and the scope of legal consultations concerning ${country}.`, contact: `Request legal advice concerning ${country} by WhatsApp or email. Send the facts and relevant dates so we can confirm the review scope and fee.`, vision: `Learn how CounselO Legal approaches legal consultations concerning ${country}: review of facts and sources, a clear scope and professional confidentiality.`})[page],
+      ? `أرسل طلب استشارتك في ${country} عبر النموذج. تعرّف على خطوات المراجعة، والاتفاق على النطاق والأتعاب، واستلام الاستشارة ومناقشتها مع فريقنا.`
+      : `Request a legal consultation in ${country}. Send your details through our form, agree the scope and fee, then receive and discuss your advice with our team.`,
   };
   return {
     title: lang === "ar" ? `استشارات قانونية أونلاين في ${country} | كاونسلو للاستشارات القانونية` : `Online legal advice in ${country} | CounselO Legal`,

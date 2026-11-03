@@ -9,7 +9,6 @@ export { default as Contact } from "@/pages/contact";
 export { default as ServiceDetail } from "@/pages/service-detail";
 export { default as LegalProblemDetail } from "@/pages/legal-problem-detail";
 export { default as About } from "@/pages/about";
-export { default as Vision } from "@/pages/vision";
 export { default as Blog } from "@/pages/blog";
 export { default as BlogPost } from "@/pages/blog-post";
 export { default as OurWork } from "@/pages/our-work";

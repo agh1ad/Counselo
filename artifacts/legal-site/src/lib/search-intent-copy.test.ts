@@ -43,7 +43,7 @@ test("complete long legal subjects survive final title rendering", () => {
 
 test("regional core pages have distinct titles and descriptions", () => {
   const entries = ["sa", "syr", "uae"].flatMap(region => ["", "/ar"].flatMap(locale =>
-    ["", "/about", "/services", "/contact", "/vision"].map(page => {
+    ["", "/about", "/services", "/contact"].map(page => {
       const meta = searchIntentMeta(`/${region}${locale}${page}`);
       assert.ok(meta);
       return meta;
@@ -51,4 +51,11 @@ test("regional core pages have distinct titles and descriptions", () => {
   ));
   assert.equal(new Set(entries.map(entry => entry.title)).size, entries.length);
   assert.equal(new Set(entries.map(entry => entry.description)).size, entries.length);
+});
+
+// Retired routes must not retain an indexable metadata entry.
+test("retired vision pages have no search metadata", () => {
+  for (const region of ["sa", "syr", "uae"]) for (const locale of ["", "/ar"]) {
+    assert.equal(searchIntentMeta(`/${region}${locale}/vision`), undefined);
+  }
 });

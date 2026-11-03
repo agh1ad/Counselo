@@ -17,6 +17,7 @@ import { COUNSELO_OPTIMIZED_META } from "@/lib/optimized-meta";
 import { BLOG_SOCIAL_IMAGE } from "@workspace/api-zod/browser";
 import { searchIntentMeta } from "@/lib/search-intent-copy";
 import { limitSeoTitle } from "@/lib/seo-title";
+import { latestPageUpdate } from "@/lib/site-content-dates";
 
 const SYR_TEXT_MAP: [RegExp, string][] = [
   [/Saudi Arabia/gi, "Syria"],
@@ -96,6 +97,8 @@ interface SEOHeadProps {
   reviewedBy?: string;
   /** Accessible description of the social-share image. */
   ogImageAlt?: string;
+  ogImageUrl?: string;
+  noIndex?: boolean;
   /** Override the document language when content intentionally differs from the site UI. */
   contentLanguage?: "en" | "ar";
   /**
@@ -115,8 +118,6 @@ const GEO = {
   uae: {
     region: "AE",
     placename: "United Arab Emirates",
-    position: "24.453884;54.377344",
-    icbm: "24.453884, 54.377344",
     ogLocaleAr: "ar_AE",
     ogLocaleEn: "en_AE",
     hrefLangEn: "en-AE",
@@ -127,8 +128,6 @@ const GEO = {
   sa: {
     region: "SA",
     placename: "Saudi Arabia",
-    position: "24.774265;46.738586",
-    icbm: "24.774265, 46.738586",
     ogLocaleAr: "ar_SA",
     ogLocaleEn: "en_US",
     hrefLangEn: "en-SA",
@@ -139,8 +138,6 @@ const GEO = {
   syr: {
     region: "SY",
     placename: "Syria",
-    position: "34.802075;38.996815",
-    icbm: "34.802075, 38.996815",
     ogLocaleAr: "ar_SY",
     ogLocaleEn: "en_US",
     hrefLangEn: "en-SY",
@@ -166,6 +163,8 @@ export function SEOHead({
   articleSection,
   reviewedBy,
   ogImageAlt,
+  ogImageUrl,
+  noIndex = false,
   contentLanguage,
   noRegionPrefix = false,
   sharedLanguageAlternates,
@@ -316,8 +315,10 @@ export function SEOHead({
       ? canonicalUrl
       : "https://counselo-legal.com/";
 
-  const ogImage = BLOG_SOCIAL_IMAGE.url;
-  const socialImageAlt = ogImageAlt ?? geo.imgAlt;
+  const ogImage = ogImageUrl || BLOG_SOCIAL_IMAGE.url;
+  const socialImageAlt = ogImageAlt ?? (noRegionPrefix
+    ? (isArabic ? "كاونسلو للاستشارات القانونية — مكتبة قانونية بالعربية والإنجليزية" : "CounselO Legal — Arabic and English legal resources")
+    : geo.imgAlt);
   const locale = isArabic ? geo.ogLocaleAr : geo.ogLocaleEn;
   const alternateLocale = isArabic ? geo.ogLocaleEn : geo.ogLocaleAr;
 
@@ -347,15 +348,18 @@ export function SEOHead({
   // description with the overridden values so structured data stays in sync.
   const applyWebPagePatch = (s: object): object => {
     const typed = s as Record<string, unknown>;
-    if (typed["@type"] === "WebPage") {
-      return { ...typed, name: fullTitle, description: finalDescription };
+    const types = Array.isArray(typed["@type"]) ? typed["@type"] : [typed["@type"]];
+    if (types.some(type => ["WebPage", "AboutPage", "ContactPage", "ProfilePage", "CollectionPage"].includes(String(type)))) {
+      return { ...typed, name: fullTitle, description: finalDescription,
+        dateModified: latestPageUpdate(canonicalUrl, typeof typed.dateModified === "string" ? typed.dateModified : undefined),
+      };
     }
     return s;
   };
 
   const processSchema = (s: object): object => {
     const syrified = isSyr ? (localizeLegacySyriaSchema(s, syriafyText) as object) : s;
-    return metaOverride ? applyWebPagePatch(syrified) : syrified;
+    return applyWebPagePatch(syrified);
   };
 
   const finalSchema = schema
@@ -381,14 +385,12 @@ export function SEOHead({
       <meta name="keywords" content={finalKeywords} />
       <meta
         name="robots"
-        content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+        content={noIndex ? "noindex, follow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"}
       />
 
       {/* Region-independent pages must not inherit a misleading country target. */}
       {!noRegionPrefix && <meta name="geo.region" content={geo.region} />}
       {!noRegionPrefix && <meta name="geo.placename" content={geo.placename} />}
-      {!noRegionPrefix && <meta name="geo.position" content={geo.position} />}
-      {!noRegionPrefix && <meta name="ICBM" content={geo.icbm} />}
       <meta httpEquiv="content-language" content={effectiveLanguage} />
 
       {/* Canonical */}
@@ -412,10 +414,10 @@ export function SEOHead({
       <meta property="og:site_name" content="CounselO Legal كاونسلو للاستشارات القانونية" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:image:secure_url" content={BLOG_SOCIAL_IMAGE.secureUrl} />
-      <meta property="og:image:type" content={BLOG_SOCIAL_IMAGE.type} />
-      <meta property="og:image:width" content={String(BLOG_SOCIAL_IMAGE.width)} />
-      <meta property="og:image:height" content={String(BLOG_SOCIAL_IMAGE.height)} />
+      <meta property="og:image:secure_url" content={ogImage} />
+      {!ogImageUrl && <meta property="og:image:type" content={BLOG_SOCIAL_IMAGE.type} />}
+      {!ogImageUrl && <meta property="og:image:width" content={String(BLOG_SOCIAL_IMAGE.width)} />}
+      {!ogImageUrl && <meta property="og:image:height" content={String(BLOG_SOCIAL_IMAGE.height)} />}
       <meta property="og:image:alt" content={socialImageAlt} />
       <meta property="og:locale" content={locale} />
       <meta property="og:locale:alternate" content={alternateLocale} />

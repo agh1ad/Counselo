@@ -41,6 +41,9 @@ test("platform positioning covers every served jurisdiction and language", () =>
 test("cooperating offices and regional services use durable entity IDs", () => {
   const officeIds = Object.values(COOPERATING_OFFICES).map((office) => office["@id"]);
   assert.equal(new Set(officeIds).size, officeIds.length);
+  for (const office of Object.values(COOPERATING_OFFICES)) {
+    assert.equal("identifier" in office, false, "Public office schema must omit licence identifiers");
+  }
   const service = regionalServiceEntity("uae", "real-estate", "Real Estate Law", "UAE property guidance");
   assert.equal(service["@id"], "https://counselo-legal.com/#uae-service-real-estate");
   assert.equal(service.provider["@id"], COUNSELO_ENTITY_IDS.organization);

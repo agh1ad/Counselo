@@ -47,7 +47,6 @@ export function getPublicRouteInventory(): string[] {
     pathPrefix,
     `${pathPrefix}/services`,
     `${pathPrefix}/about`,
-    `${pathPrefix}/vision`,
     `${pathPrefix}/contact`,
     `${pathPrefix}/terms-of-service`,
     `${pathPrefix}/privacy-policy`,
@@ -251,7 +250,7 @@ export function buildHreflangLinks(path: string): string[] {
   const basePath = path.replace(new RegExp(`^/(${REGION_PREFIX_PATTERN})(/ar)?`), "");
   const serviceSlug = path.match(/\/services\/([^/]+)/)?.[1];
   const eligibleRegions = serviceSlug
-    ? REGIONAL_SEO_REGISTRY.filter((entry) => entry.serviceSlugs.includes(serviceSlug))
+    ? REGIONAL_SEO_REGISTRY.filter((entry) => entry.region !== "uae" && entry.serviceSlugs.includes(serviceSlug))
     : REGIONAL_SEO_REGISTRY.filter((entry) => entry.region === "sa" || entry.region === "syr");
   return [
     ...eligibleRegions.flatMap((entry) => [
@@ -362,7 +361,14 @@ export function buildDynamicSitemap(
     return [sitemapEntry(canonicalPublicUrl(enPath), modified, links), sitemapEntry(canonicalPublicUrl(arPath), modified, links)];
   });
   const addIndexLastmod = (url: string, date: string | undefined) => {
-    if (date) xml = xml.replace(`<loc>${url}</loc>`, `<loc>${url}</loc>\n    <lastmod>${date}</lastmod>`);
+    if (!date) return;
+    xml = xml.replace(/<url>[\s\S]*?<\/url>/g, entry => {
+      if (!entry.includes(`<loc>${url}</loc>`)) return entry;
+      const previous = [...entry.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map(match => match[1]);
+      const modified = latestDate([...previous, date]);
+      return entry.replace(/\s*<lastmod>[^<]*<\/lastmod>/g, "")
+        .replace(/\s*<\/url>/, `\n    <lastmod>${modified}</lastmod>\n  </url>`);
+    });
   };
   const latestBlog = latestDate(bilingualPosts.map((post) => articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date) ?? post.date));
   addIndexLastmod(canonicalPublicUrl("/blog"), latestBlog);

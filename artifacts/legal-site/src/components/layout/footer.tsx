@@ -66,26 +66,9 @@ export function Footer() {
   const blogIndexPath = isArabic ? "/blog/ar" : "/blog";
   const regionPickerPath = isArabic ? "/ar" : "/";
   const brandName = isArabic ? "كاونسلو للاستشارات القانونية" : "CounselO Legal";
-  const methodologyPath = isSharedPath
-    ? `${isArabic ? "/sa/ar/about" : "/sa/about"}#experience-methodology`
-    : `${regionPrefix}/about#experience-methodology`;
 
   return (
     <footer className={`uae-reference-footer regional-reference-footer region-reference-footer--${region}`}>
-      <section className="uae-reference-footer__perspective">
-        <div className="uae-reference-footer__line" aria-hidden="true" />
-        <div className="uae-reference-footer__perspective-copy">
-          <h2>{regional.heading[lang]}</h2>
-          <p>{regional.description[lang]}</p>
-        </div>
-        <div className="uae-reference-footer__map">
-          <img src={regional.map} srcSet={isSharedPath ? "/images/optimized/counselo-platform-line-art-v1-640.webp 640w, /images/optimized/counselo-platform-line-art-v1-960.webp 960w, /images/optimized/counselo-platform-line-art-v1.webp 1719w" : undefined} sizes={isSharedPath ? "(max-width: 767px) 100vw, 620px" : undefined} alt="" width="620" height="440" loading="lazy" decoding="async" />
-        </div>
-        <ul className="uae-reference-footer__jurisdictions">
-          {regional.jurisdictions[lang].map(([Icon, label]) => <li key={label}><Icon aria-hidden="true" /><span>{label}</span></li>)}
-        </ul>
-      </section>
-
       <div className="uae-reference-footer__main">
         <div className="uae-reference-footer__brand">
           <Link href={isSharedPath ? regionPickerPath : regionPrefix} className="uae-reference-footer__lockup">
@@ -94,23 +77,21 @@ export function Footer() {
           </Link>
           <p>{isArabic ? "استشارات قانونية عبر الإنترنت" : "Online Legal Consultations"}</p>
           <p>{isArabic ? "أسسها المحامي عمر البغدادي" : "Founded by Lawyer Omar Al-Baghdadi"}</p>
-          <p>{isSharedPath ? regional.description[lang] : f.tagline}</p>
+
           <p className="mt-3 max-w-md text-xs leading-relaxed text-muted-foreground">
             {isArabic
-              ? "كاونسلو للاستشارات القانونية منصة إلكترونية للاستشارات القانونية. لا ينشئ التصفح أو الاستشارة وحدهما تفويضاً بالتمثيل؛ ويُحدد أي عمل محلي أو تمثيل مع مهني مرخص ضمن نطاق مستقل."
-              : "CounselO Legal is an online legal consultation platform. Browsing or consultation alone does not create a representation mandate; local or reserved work is separately scoped with an appropriately licensed professional."}
+              ? "وجهتك لخدمات قانونية متخصصة. استشر فريق كاونسلو المتمرس وراجع مستنداتك من منزلك، دون زيارة مكتب. ويقدم شركاؤنا ومحامونا المرخصون التمثيل المحلي وفق تكليف متفق عليه."
+              : "Your destination for expert legal services. Consult CounselO’s experienced team and review documents from home, without an office visit. Our licensed partners and lawyers provide local representation under an agreed engagement."}
           </p>
-          <Link href={methodologyPath} className="mt-3 inline-flex text-xs font-semibold text-[#e5c77e] underline underline-offset-4 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-            {isArabic ? "منهجية أرقام الخبرة وحدودها" : "Experience-figure methodology and limitations"}
-          </Link>
         </div>
         <nav className="regional-reference-footer__practice" aria-label={isArabic ? "مجالات الممارسة" : "Practice areas"}>
-          <h3>{isSharedPath ? (isArabic ? "اختر الاختصاص" : "Choose a jurisdiction") : f.practiceAreasHeading}</h3>
-          <div>{isSharedPath ? <>
+          <details className="footer-practice-contents"><summary>{isSharedPath ? (isArabic ? "اختر الاختصاص" : "Choose a jurisdiction") : f.practiceAreasHeading}</summary>
+          <div className="footer-practice-links">{isSharedPath ? <>
             <Link href={isArabic ? "/uae/ar" : "/uae"}>{isArabic ? "الإمارات العربية المتحدة" : "United Arab Emirates"}<ArrowRight /></Link>
             <Link href={isArabic ? "/sa/ar" : "/sa"}>{isArabic ? "المملكة العربية السعودية" : "Saudi Arabia"}<ArrowRight /></Link>
             <Link href={isArabic ? "/syr/ar" : "/syr"}>{isArabic ? "سوريا" : "Syria"}<ArrowRight /></Link>
           </> : f.practiceAreaLinks.map((link) => <Link key={link.href} href={regionPrefix + link.href}>{link.label}<ArrowRight /></Link>)}</div>
+          </details>
         </nav>
         <nav aria-label={isArabic ? "روابط سريعة" : "Quick links"}>
           <h3>{f.quickLinksHeading}</h3>
@@ -118,11 +99,10 @@ export function Footer() {
           <Link href={isSharedPath ? regionPickerPath : regionPrefix}>{f.links.home}<ArrowRight /></Link>
           {!isSharedPath && <Link href={p("/services")}>{f.links.allServices}<ArrowRight /></Link>}
           {!isSharedPath && <Link href={p("/about")}>{f.links.about}<ArrowRight /></Link>}
-          {!isSharedPath && <Link href={p("/vision")}>{isArabic ? "رؤيتنا" : "Our Vision"}<ArrowRight /></Link>}
           <Link href={libraryPath}>{f.links.ourWork}<ArrowRight /></Link>
           <Link href={blogIndexPath}>{f.links.blog}<ArrowRight /></Link>
           {!isSharedPath && <Link href={p("/contact")}>{f.links.contact}<ArrowRight /></Link>}
-          {!isSharedPath && <Link href={p("/contact")}>{f.links.book}<ArrowRight /></Link>}
+
           <Link href={regionPickerPath}>{isArabic ? "اختيار الدولة" : "Choose Region"}<Globe2 /></Link>
         </nav>
         <div className="uae-reference-footer__contact">

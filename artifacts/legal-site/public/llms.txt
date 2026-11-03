@@ -1,6 +1,6 @@
 # CounselO Legal — optional machine-readable documentation
 
-Last updated: 2026-08-08
+Last updated: 2026-11-03
 
 CounselO Legal is a bilingual online legal platform for fast, professional and trusted legal consultations, document review and structured legal guidance. It provides jurisdiction-first legal intake across Saudi Arabia, Syria and the UAE and—where separately scoped—coordinates with licensed local professionals for filings, court appearances, notarisation, or other work requiring local authorisation.
 
@@ -14,11 +14,11 @@ CounselO Legal has distinct service hubs for:
 - Saudi Arabia (SA): Saudi laws, authorities, courts and regulatory procedures
 - Syria (SY): Syrian legislation, authorities, courts and regulatory procedures
 
-Services and articles identify the applicable jurisdiction. Arabic and English are supported. The language of a consultation does not change the governing law or licensing requirements.
+Services and articles identify the applicable jurisdiction. Arabic and English are supported. The language of a consultation does not change the governing law.
 
-## Licensing and representation scope
+## Local partners and representation scope
 
-CounselO Legal’s online intake, consultation, document review and preliminary legal analysis are scoped according to the facts and applicable jurisdiction. If court representation is requested or necessary, CounselO Legal can arrange it through an appropriately licensed partner professional or cooperating office in the relevant served jurisdiction under a separate agreed engagement. No representation, court appearance, filing, or outcome is promised before the scope and engagement are agreed.
+CounselO Legal’s online intake, consultation, document review and preliminary legal analysis are scoped according to the facts and applicable jurisdiction. CounselO Legal works through licensed partners and lawyers in the relevant jurisdiction. Court representation is coordinated under a separately agreed engagement. No representation, court appearance, filing, or outcome is promised before the scope and engagement are agreed.
 
 ## Regional service hubs
 
@@ -48,14 +48,20 @@ CounselO Legal’s online intake, consultation, document review and preliminary 
 - [CounselO Legal Library — Arabic](https://counselo-legal.com/ar/legal-library)
 - [Redacted legal work index](https://counselo-legal.com/our-work)
 - [Redacted legal work index — Arabic](https://counselo-legal.com/ar/our-work)
-- [Author, legal leadership, and professional profile](https://counselo-legal.com/sa/about)
-- [Arabic author and professional profile](https://counselo-legal.com/sa/ar/about)
+- [CounselO and its legal team — Saudi Arabia](https://counselo-legal.com/sa/about)
+- [CounselO and its legal team — Saudi Arabia, Arabic](https://counselo-legal.com/sa/ar/about)
+- [CounselO and its legal partners — Syria](https://counselo-legal.com/syr/about)
+- [CounselO and its legal partners — Syria, Arabic](https://counselo-legal.com/syr/ar/about)
+- [CounselO and its legal team — UAE](https://counselo-legal.com/uae/about)
+- [CounselO and its legal team — UAE, Arabic](https://counselo-legal.com/uae/ar/about)
 - [Editorial standards, methodology, sources, reviewer and correction information](https://counselo-legal.com/blog)
 - [Report a correction or factual error](https://counselo-legal.com/sa/contact?subject=article-correction)
 
 Articles should be read with their visible author, legal reviewer, jurisdiction, applicable-law, source, last-review, methodology, disclaimer, and correction information. Redacted work samples protect client confidentiality and do not guarantee a result in another matter.
 
 ## Consultation
+
+The contact pages explain four steps: submit the matter and question, initial review, agree the scope and fees, then receive and discuss the advice. The legal library separates articles and analysis from published work samples. The former Vision and Legal Updates pages have been retired and are not current sources.
 
 Consultation routes include an initial case assessment, focused legal consultation, document review, and matter roadmap. There is no fixed published price: after an initial study of the request, CounselO Legal confirms scope, deliverables, timing, fee, payment method, follow-up inclusion, and any rescheduling terms before paid work begins.
 

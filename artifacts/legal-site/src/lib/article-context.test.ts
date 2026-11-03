@@ -14,8 +14,8 @@ test("article routing does not silently convert general or conflicting scope int
   assert.equal(articleContextRegion({ titleAr: "الإثبات في القانون السوري" }), "syr");
   assert.equal(articleContextRegion({ jurisdiction: "uae", titleEn: "Commercial agreements" }), "uae");
   assert.equal(articleContextRegion({ slug: "mta-ykwn-alslh-afdl-mn-alastmrar-fy-alkhswmh", jurisdiction: "sa" }), undefined);
-  assert.equal(localizeArticleProvenanceUrl("/sa/about", undefined, "ar", "profile"), "/ar#about-heading-ar");
-  assert.equal(localizeArticleProvenanceUrl("/sa/contact?subject=article-correction", undefined, "en", "correction"), "/#jurisdictions-heading");
+  assert.equal(localizeArticleProvenanceUrl("/sa/about", undefined, "ar", "profile"), "/ar#about");
+  assert.equal(localizeArticleProvenanceUrl("/sa/contact?subject=article-correction", undefined, "en", "correction"), "/#contact");
 });
 
 test("curated articles use services that exist in their actual country", () => {

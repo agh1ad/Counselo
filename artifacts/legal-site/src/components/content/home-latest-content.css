@@ -1,0 +1,46 @@
+.home-latest { padding-block: 3rem; background: #edf3ef; border-block: 1px solid #d1ddd4; color: #143f30; }
+.home-latest__inner { width: min(100% - 3rem,1180px); margin-inline: auto; }
+.home-latest__heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; margin-bottom: 1.75rem; }
+.home-latest__eyebrow { color: #806126; font-size: .75rem; text-transform: uppercase; letter-spacing: .14em; font-weight: 750; margin-bottom: .7rem; }
+.home-refined .home-latest__heading h2 { font-size: clamp(1.8rem,3vw,2.6rem); line-height: 1.2; max-width: 26ch; margin-bottom: .7rem; }
+.home-latest__intro { font-size: 1rem; color: #496256; margin: 0; }
+.home-latest__library { flex-shrink: 0; display: inline-flex; align-items: center; gap: .7rem; min-height: 44px; font-size: .9rem; font-weight: 700; text-decoration: underline; text-underline-offset: 5px; }
+.home-latest__grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.25rem; align-items: stretch; }
+.home-latest-panel { min-width: 0; background: #fff; border: 1px solid #ccd9d1; border-top: 4px solid #bb9651; border-radius: 12px; padding: 1.5rem; }
+.home-latest-panel__heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .3rem 1rem; padding-bottom: .75rem; border-bottom: 1px solid #d1ddd4; }
+.home-latest-panel__heading h3 { display: flex; align-items: center; gap: .65rem; font-size: 1.1rem; margin: 0; line-height: 1.4; }
+.home-latest-panel__heading h3 svg { flex-shrink: 0; color: #94702c; }
+.home-latest-panel__heading > a { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; font-size: .8rem; font-weight: 650; }
+.home-latest-list { list-style: none; margin: 0; padding: 0; }
+.home-latest-item + .home-latest-item { border-top: 1px solid #d1ddd4; }
+.home-latest-item > a { display: flex; align-items: center; gap: 1rem; min-height: 44px; padding-block: 1.1rem; }
+.home-latest-item:last-child > a { padding-bottom: 0; }
+.home-latest-item__copy { min-width: 0; flex: 1; }
+.home-latest-item__category { display: block; color: #5c704f; font-size: .72rem; font-weight: 700; line-height: 1.5; margin-bottom: .45rem; }
+.home-latest-item h4 { font-family: var(--app-font-sans); font-size: 1.02rem; font-weight: 700; line-height: 1.5; margin: 0; text-wrap: pretty; }
+.home-latest-item--featured h4 { font-size: clamp(1.2rem,1.9vw,1.5rem); line-height: 1.4; }
+.home-latest-item p { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin: .65rem 0; color: #496256; font-size: .875rem; }
+.home-latest-item__meta { display: block; color: #496256; font-size: .75rem; line-height: 1.5; }
+.home-latest-item__arrow { color: #94702c; flex-shrink: 0; }
+.home-refined .home-latest-item a:hover { text-decoration: none; }
+.home-latest-item a:hover h4 { text-decoration: underline; text-underline-offset: 4px; }
+.home-latest-panel--work { background: #143f30; color: #fff; border-color: #143f30; border-top-color: #e3bf74; }
+.home-latest-panel--work :is(.home-latest-panel__heading,.home-latest-item + .home-latest-item) { border-color: #4d715f; }
+.home-latest-panel--work :is(.home-latest-panel__heading h3 svg,.home-latest-item__category,.home-latest-item__arrow) { color: #efd18e; }
+.home-latest-panel--work :is(.home-latest-item p,.home-latest-item__meta,.home-latest-panel__empty) { color: #d2e1d8; }
+.home-latest-panel__empty { color: #496256; padding-block: 1rem; font-size: .95rem; }
+.home-latest[dir=rtl] .home-latest__eyebrow { letter-spacing: 0; font-size: .9rem; }
+.home-refined .home-latest[dir=rtl] .home-latest__heading h2 { line-height: 1.45; }
+@media (max-width: 760px) {
+  .home-latest__inner { width: calc(100% - 2.5rem); }
+  .home-latest__heading { display: block; }
+  .home-latest__library { margin-top: .7rem; }
+  .home-latest__grid { grid-template-columns: 1fr; }
+  .home-latest-item--featured h4 { font-size: 1.3rem; }
+}
+@media (max-width: 540px) {
+  .home-latest { padding-block: 2rem; }
+  .home-latest__inner { width: calc(100% - 2rem); }
+  .home-latest-panel { padding: 1.1rem; }
+  .home-latest-item > a { gap: .65rem; }
+}

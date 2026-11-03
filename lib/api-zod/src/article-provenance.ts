@@ -128,8 +128,8 @@ export function localizeArticleProvenanceUrl(
 ): string {
   const prefix = `${region ? `/${region}` : ""}${language === "ar" ? "/ar" : ""}`;
   const fallback = kind === "profile"
-    ? region ? `${prefix}/about` : `${prefix || "/"}#about-heading${language === "ar" ? "-ar" : ""}`
-    : region ? `${prefix}/contact?subject=article-correction` : `${prefix || "/"}#jurisdictions-heading${language === "ar" ? "-ar" : ""}`;
+    ? region ? `${prefix}/about` : `${prefix || "/"}#about`
+    : region ? `${prefix}/contact?subject=article-correction` : `${prefix || "/"}#contact`;
   const value = url?.trim();
   if (!value) return fallback;
   const isLegacyProfile = /^\/(?:sa|syr|uae)(?:\/ar)?\/about\/?$/.test(value) || value === "/about";

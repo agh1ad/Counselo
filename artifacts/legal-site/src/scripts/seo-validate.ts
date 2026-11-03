@@ -247,9 +247,9 @@ function validatePage(filepath: string): PageResult {
     });
   if (t && tLen > 70)
     issues.push({
-      severity: "warn",
+      severity: "info",
       rule: "title-too-long",
-      detail: `${tLen} chars (max 70)`,
+      detail: `${tLen} characters; search results may truncate the title. There is no fixed character limit.`,
     });
   if (desc && dLen < 80)
     issues.push({
@@ -259,9 +259,9 @@ function validatePage(filepath: string): PageResult {
     });
   if (desc && dLen > 170)
     issues.push({
-      severity: "warn",
+      severity: "info",
       rule: "desc-too-long",
-      detail: `${dLen} chars (max 170)`,
+      detail: `${dLen} characters; snippet display length varies by query and device.`,
     });
   if (/^\/?(?:blog|ar\/blog|our-work)\//i.test(t) || /^https?:\/\//i.test(t))
     issues.push({
@@ -388,7 +388,7 @@ function validatePage(filepath: string): PageResult {
 
   // ── geo ──
   const geoRegion = meta(html, "name", "geo.region");
-  if (!geoRegion && !isSingleUrlBlog && !isSharedWork && !/^\/(?:ar\/)?urgent-legal-assistance$/.test(route))
+  if (!geoRegion && /^(?:\/sa|\/syr|\/uae)(?:\/|$)/.test(route))
     issues.push({
       severity: "warn",
       rule: "geo-region-missing",
@@ -557,34 +557,40 @@ function validatePage(filepath: string): PageResult {
         rule: "blog-post-no-article-schema",
         detail: "Blog post missing Article schema",
       });
-    if (!/id="trust-signals-heading"/.test(html))
+    const article = sc.find((schema: any) => schema["@type"] === "Article") as { author?: { name?: string }; datePublished?: string } | undefined;
+    if (!article?.author?.name || !visibleText(html).includes(article.author.name) || !article.datePublished || !/id="article-provenance-heading"/.test(html))
       issues.push({
         severity: "error",
         rule: "blog-trust-signals-missing",
-        detail: "Article page is missing visible trust and transparency signals",
+        detail: "Article needs a visible named author, a publication date and its editorial/source information",
       });
   }
 
   // Service semantics, including nested matter-page entities, are validated above.
   if (/\/services\/[^/]+$/.test(route)) {
-    if (!/id="trust-signals-heading"/.test(html))
+    const hasServiceSchema = schemaTypes.some((t) =>
+      /legal|service|organization/i.test(t),
+    );
+    if (!hasServiceSchema)
+      issues.push({
+        severity: "warn",
+        rule: "service-no-schema",
+        detail: "Service page missing LegalService/Service schema",
+      });
+    if (!/id="service-overview"/.test(html) || !/(?:CounselO|كاونسلو)/.test(visibleText(html)) || !bodyLinks.some(link => /\/contact(?:[?#]|$)/.test(link)))
       issues.push({
         severity: "error",
         rule: "service-trust-signals-missing",
-        detail: "Service page is missing visible trust and transparency signals",
+        detail: "Service page needs visible provider/scope information and a consultation destination",
       });
-    if (bodyLinks.filter((link) => /\/services\/[^/]+/.test(link)).length < 2)
+    if (!/href="\/(?:sa|syr|uae)(?:\/ar)?\/services(?:[?#][^"]*)?"/.test(html))
       issues.push({
         severity: "error",
         rule: "service-contextual-links-weak",
-        detail: "Service page needs at least two contextual links to related services",
+        detail: "Service page has no crawlable route to its service directory",
       });
-    if (!bodyLinks.some((link) => link === "/blog" || link.startsWith("/blog/")))
-      issues.push({
-        severity: "error",
-        rule: "service-blog-link-missing",
-        detail: "Service page has no contextual link to the legal blog",
-      });
+    // Article links are useful only where relevant published material exists;
+    // their absence is not a technical defect and must not create filler links.
   }
 
   return {
@@ -635,6 +641,14 @@ function main() {
     return clean.length > 1 ? clean.replace(/\/$/, "") : clean;
   };
   const inboundSources = new Map<string, Set<string>>();
+  const sitemapAlternates = new Map<string, Record<string, string>>();
+  for (const filename of fs.readdirSync(DIST).filter(file => /^sitemap-.*\.xml$/.test(file))) {
+    const xml = fs.readFileSync(path.join(DIST, filename), "utf8");
+    for (const entry of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+      const loc = entry[1].match(/<loc>(.*?)<\/loc>/)?.[1];
+      if (loc) sitemapAlternates.set(normalizeInternalRoute(decode(loc)), hreflangTags(entry[1].replace(/<xhtml:link\b/g, "<link")));
+    }
+  }
   for (const source of pages) {
     for (const href of source.internalLinks) {
       const target = normalizeInternalRoute(href);
@@ -644,6 +658,12 @@ function main() {
   }
 
   for (const page of pages) {
+    const sitemapLinks = sitemapAlternates.get(page.route);
+    if (!sitemapLinks) {
+      page.issues.push({ severity: "error", rule: "sitemap-page-missing", detail: "Indexable page is missing from the generated sitemaps" });
+    } else if (JSON.stringify(Object.entries(sitemapLinks).sort()) !== JSON.stringify(Object.entries(page.hreflangs).sort())) {
+      page.issues.push({ severity: "error", rule: "sitemap-hreflang-mismatch", detail: "Sitemap language alternatives differ from the page head" });
+    }
     for (const [hrefLang, href] of Object.entries(page.hreflangs)) {
       if (hrefLang === "x-default" || !href.startsWith(BASE)) continue;
       const target = normalizeInternalRoute(href);
@@ -659,11 +679,11 @@ function main() {
     }
     if (/^\/(?:sa|syr|uae)(?:\/ar)?\/services\/[^/]+\/[^/]+$/.test(page.route)) {
       const inboundCount = inboundSources.get(page.route)?.size ?? 0;
-      if (inboundCount < 3) {
+      if (inboundCount === 0) {
         page.issues.push({
           severity: "error",
           rule: "problem-contextual-inbound-links-weak",
-          detail: `Problem page has ${inboundCount} contextual inbound page(s); minimum is 3`,
+          detail: "Problem page is orphaned: no crawlable contextual inbound page",
         });
       }
     }

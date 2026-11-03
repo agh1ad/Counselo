@@ -283,8 +283,8 @@ export function buildUaeServicePageContent(service: UaeLegalService) {
     documents,
     faqs,
     experienceNote: {
-      en: `Work involving ${service.title.en} in the UAE is jurisdiction-sensitive. We identify the competent Emirate, authority and forum, test the position against the relevant federal, local or free-zone rules, and separate online consultation from any regulated representation or filing requirement.`,
-      ar: `تتأثر مسائل ${service.title.ar} في الإمارات بالاختصاص. نحدد الإمارة والجهة والمنتدى المختص، ونراجع الموقف وفق القواعد الاتحادية أو المحلية أو قواعد المنطقة الحرة ذات الصلة، ونفصل بين الاستشارة الأونلاين وأي تمثيل أو قيد منظم مطلوب.`,
+      en: `CounselO’s legal team applies its experience in legal analysis and document review to ${service.title.en} in the UAE. We identify the competent Emirate, authority and forum, test the position against the relevant federal, local or free-zone rules, and separate online consultation from any regulated representation or filing requirement.`,
+      ar: `يوظف فريق كاونسلو خبرته في التحليل القانوني ومراجعة المستندات في مسائل ${service.title.ar} في الإمارات. نحدد الإمارة والجهة المختصة، ونراجع الموقف وفق القواعد الاتحادية أو المحلية أو قواعد المنطقة الحرة ذات الصلة، ونفصل بين الاستشارة الأونلاين وأي تمثيل أو قيد منظم مطلوب.`,
     },
     seoKeywords: {
       en: [

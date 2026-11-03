@@ -20,4 +20,12 @@ export { LEGACY_BLOG_REDIRECTS } from "./legacy-blog-redirects";
 export { LEGACY_SEARCH_REDIRECTS } from "./legacy-search-redirects.js";
 
 export * from "./public-work-documents";
+export * from "./legal-updates";
+
+export * from "./legal-updates-discovery.js";
+
+export * from "./legal-updates-sources.js";
+
 export * from "./brand";
+
+export * from "./retired-public-routes";
