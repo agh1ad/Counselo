@@ -7,20 +7,24 @@ import {
   type UpdateEditorial,
   updateEditorialSchema,
 } from "@workspace/api-zod/browser";
-interface Item {
+interface ItemSummary {
   id: string;
   revision: number;
   status: string;
   source_url: string;
   source_name: string;
+  source_check_status?: string;
+  source_checked_at?: string;
+  title_en?: string;
+}
+
+interface Item extends ItemSummary {
   source_text: string;
   draft: UpdateDraft;
   editorial?: UpdateEditorial;
-  source_check_status?: string;
-  source_checked_at?: string;
 }
 export function LegalUpdatesManager({ token }: { token: string }) {
-  const [items, setItems] = useState<Item[]>([]);
+  const [items, setItems] = useState<ItemSummary[]>([]);
   const [runs, setRuns] = useState<unknown[]>([]);
   const [selected, setSelected] = useState<Item | null>(null);
   const [reviewer, setReviewer] = useState(legalUpdatesDefaultReviewer.en);
@@ -28,6 +32,8 @@ export function LegalUpdatesManager({ token }: { token: string }) {
   const [note, setNote] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(false);
   const [error, setError] = useState("");
   async function request(path: string, method = "GET", body?: unknown) {
     const res = await fetch(`/api/admin/legal-updates${path}`, {
@@ -42,18 +48,37 @@ export function LegalUpdatesManager({ token }: { token: string }) {
     if (!res.ok) throw new Error(data.error || "Request failed");
     return data;
   }
-  async function load() {
+  async function load(offset = 0, append = false) {
+    setLoading(true);
     try {
-      const data = await request("");
-      setItems(data.items);
+      const data = await request(`?offset=${offset}`);
+      setItems((current: ItemSummary[]) => append ? [...current, ...data.items] : data.items);
+      setHasMore(data.hasMore);
       setRuns(data.runs);
     } catch (e) {
       setError(String(e));
+    } finally {
+      setLoading(false);
     }
   }
   useEffect(() => {
     void load();
   }, [token]);
+  async function openItem(id: string) {
+    setBusy(true);
+    setError("");
+    try {
+      const item = await request(`/${id}`);
+      setSelected(item);
+      setEvidenceText(JSON.stringify(item.draft.evidence, null, 2));
+      setConfirmed(false);
+      setNote("");
+    } catch (e) {
+      setError(String(e));
+    } finally {
+      setBusy(false);
+    }
+  }
   async function action(action: string) {
     if (!selected) return;
     setBusy(true);
@@ -410,15 +435,10 @@ export function LegalUpdatesManager({ token }: { token: string }) {
             <button
               key={item.id}
               className="w-full text-left py-5 hover:bg-gray-100"
-              onClick={() => {
-                setSelected(item);
-                setEvidenceText(JSON.stringify(item.draft.evidence, null, 2));
-                setConfirmed(false);
-                setNote("");
-              }}
+               onClick={() => void openItem(item.id)}
             >
               <span className="text-xs uppercase">{item.status}</span>
-              <h3 className="font-semibold">{item.draft.en.title}</h3>
+               <h3 className="font-semibold">{item.title_en || "Untitled legal update"}</h3>
               <p>{item.source_name}</p>
               {item.source_check_status &&
                 item.source_check_status !== "unchanged" && (
@@ -429,6 +449,15 @@ export function LegalUpdatesManager({ token }: { token: string }) {
                 )}
             </button>
           ))}
+           {hasMore && (
+             <button
+               className="w-full border border-green-800 rounded px-5 py-3 mt-5 disabled:opacity-40"
+               disabled={loading}
+               onClick={() => void load(items.length, true)}
+             >
+               {loading ? "Loading…" : "Load more updates"}
+             </button>
+           )}
         </div>
       )}
     </div>

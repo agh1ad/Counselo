@@ -1,6 +1,4 @@
 import { isRetiredPublicPath, retiredPageHtml, RETIRED_RESPONSE_HEADERS } from "@workspace/api-zod";
-import { db, workSamplesTable } from "@workspace/db";
-import { eq } from "drizzle-orm";
 import { createPublicDocumentsRouter } from "./lib/public-work-documents.js";
 import express, { type Express } from "express";
 import cors from "cors";
@@ -17,6 +15,16 @@ import {
 import { PUBLIC_CACHE_POLICY } from "@workspace/api-zod";
 import { cachePublicResponses } from "./lib/public-response-cache.js";
 import { handleResendWebhook } from "./lib/resend-webhook.js";
+import {
+  isCacheablePublicPagePath,
+  isCacheablePublicDocumentPath,
+  isDatabaseBackedPublicApiPath,
+  isDiscoveryPath,
+  publicCacheControl,
+} from "./lib/public-cache-policy.js";
+import { PublicSnapshotUnavailableError } from "./lib/publication-data-cache.js";
+import { PublicWorkFileUnavailableError } from "./lib/public-work-file-cache.js";
+import { publishedWorkFileBySlug } from "./lib/published-content.js";
 
 const app: Express = express();
 
@@ -24,45 +32,6 @@ app.use((req, res, next) => {
   if (!isRetiredPublicPath(req.path)) return next();
   res.status(410).set(RETIRED_RESPONSE_HEADERS).send(retiredPageHtml(req.path));
 });
-
-function isDiscoveryPath(path: string): boolean {
-  return (
-    path === "/sitemap.xml" ||
-    path === "/sitemap-blog.xml" ||
-    path === "/sitemap-work.xml" ||
-    path === "/feed.xml"
-  );
-}
-
-function publicCacheControl(path: string): string {
-  return isDiscoveryPath(path)
-    ? "public, max-age=0, s-maxage=300, stale-while-revalidate=600, must-revalidate"
-    : "public, max-age=0, s-maxage=15, stale-while-revalidate=30, must-revalidate";
-}
-
-function isDatabaseBackedPublicApiPath(path: string): boolean {
-  return (
-    path === "/blog/posts" ||
-    path === "/blog/posts/discovery" ||
-    path.startsWith("/blog/posts/") ||
-    path === "/work" ||
-    path.startsWith("/work/")
-  );
-}
-
-function isCacheablePublicPagePath(path: string): boolean {
-  return (
-    path === "/blog" ||
-    path === "/blog/ar" ||
-    path.startsWith("/blog/en/") ||
-    path.startsWith("/blog/ar/") ||
-    path === "/our-work" ||
-    path === "/ar/our-work" ||
-    path.startsWith("/our-work/") ||
-    path.startsWith("/ar/our-work/") ||
-    isDiscoveryPath(path)
-  );
-}
 
 function isStaticAssetRequest(url: string | undefined): boolean {
   const path = url?.split("?", 1)[0] ?? "";
@@ -129,7 +98,9 @@ app.use(redirectTrailingSlash);
 app.use("/api", (req, res, next) => {
   res.setHeader("X-Robots-Tag", "noindex, nofollow, noarchive");
 
-  if (isDatabaseBackedPublicApiPath(req.path)) {
+  if (req.headers.authorization) {
+    res.setHeader("Cache-Control", PUBLIC_CACHE_POLICY.dynamicHtml);
+  } else if (isDatabaseBackedPublicApiPath(req.path)) {
     res.setHeader("Cache-Control", publicCacheControl(req.path));
   } else {
     // Admin, contact, and other stateful API traffic must never be cached.
@@ -140,21 +111,14 @@ app.use("/api", (req, res, next) => {
 app.use("/api", cachePublicResponses("api", isDatabaseBackedPublicApiPath));
 app.use("/api", router);
 
-app.use("/documents", createPublicDocumentsRouter(async (slug) => {
-  const [sample] = await db.select({
-    slug: workSamplesTable.slug,
-    published: workSamplesTable.published,
-    updatedAt: workSamplesTable.updatedAt,
-    fileSize: workSamplesTable.fileSize,
-    fileMimeType: workSamplesTable.fileMimeType,
-    fileData: workSamplesTable.fileData,
-    confidentialityConfirmed: workSamplesTable.confidentialityConfirmed,
-  }).from(workSamplesTable).where(eq(workSamplesTable.slug, slug));
-  return sample;
-}));
+// Approved public documents are immutable within a publication epoch. Keep
+// client-facing no-store headers, but avoid reloading PDF bytes from
+// PostgreSQL after the first verified response. Work mutations rotate the
+// publication namespace before cached documents can be reused.
+app.use(cachePublicResponses("document", isCacheablePublicDocumentPath));
+app.use("/documents", createPublicDocumentsRouter(async (slug) => publishedWorkFileBySlug(slug)));
 
-
-
+// Cache public page responses within the current publication namespace.
 app.use(cachePublicResponses("page", isCacheablePublicPagePath));
 
 // Lean crawler discovery routes come first so each child sitemap queries only
@@ -165,5 +129,19 @@ registerDiscoveryRoutes(app);
 // Public site routes must be registered after /api so the final site-level
 // 404 handler cannot swallow API requests.
 registerOgPageRoutes(app);
+
+app.use((error: unknown, _req: express.Request, res: express.Response, next: express.NextFunction) => {
+  if ((error instanceof PublicSnapshotUnavailableError || error instanceof PublicWorkFileUnavailableError) && !res.headersSent) {
+    res
+      .status(503)
+      .setHeader("Cache-Control", "no-store")
+      .setHeader("Retry-After", "60")
+      .setHeader("X-Robots-Tag", "noindex, nofollow, noarchive")
+      .type("text/plain")
+      .send("Public content temporarily unavailable");
+    return;
+  }
+  next(error);
+});
 
 export default app;

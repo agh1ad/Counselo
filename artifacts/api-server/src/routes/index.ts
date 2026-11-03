@@ -3,6 +3,7 @@ import healthRouter from "./health.js";
 import blogRouter from "./blog.js";
 import contactRouter from "./contact.js";
 import workRouter from "./work.js";
+import adminTranslationsRouter from "./admin-translations.js";
 
 import legalUpdatesRouter from "../legal-updates/routes.js";
 
@@ -13,5 +14,6 @@ router.use(legalUpdatesRouter);
 router.use(contactRouter);
 router.use(blogRouter);
 router.use(workRouter);
+router.use(adminTranslationsRouter);
 
 export default router;

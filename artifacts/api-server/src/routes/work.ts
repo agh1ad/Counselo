@@ -9,14 +9,36 @@ import { assignInternalLinks } from "../lib/internal-link-assignment.js";
 import { publicTestimonial } from "@workspace/api-zod";
 import {
   ContentTranslationError,
+  hasCompleteWorkTranslation,
+  restoreBlankSeoMetadata,
   translateWorkForPublishing,
 } from "../lib/content-translation.js";
+import { withPublicContentMutation } from "../lib/publication-cache.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 import { repairPublicWorkSample } from "../lib/public-work-repairs.js";
 
+import { publishedWork, publishedWorkBySlug, publishedWorkFileBySlug, publishedWorkSummaries } from "../lib/published-content.js";
+
 const router = Router();
-const { fileData: _fileData, confidentialityConfirmed: _confidentiality, ...publicColumns } = getTableColumns(workSamplesTable);
+const ADMIN_PAGE_SIZE = 50;
 const { fileData: _adminFileData, ...adminColumns } = getTableColumns(workSamplesTable);
+const adminWorkSummaryColumns = {
+  id: workSamplesTable.id,
+  slug: workSamplesTable.slug,
+  date: workSamplesTable.date,
+  titleEn: workSamplesTable.titleEn,
+  titleAr: workSamplesTable.titleAr,
+  fileName: workSamplesTable.fileName,
+  fileSize: workSamplesTable.fileSize,
+  published: workSamplesTable.published,
+  featured: workSamplesTable.featured,
+  updatedAt: workSamplesTable.updatedAt,
+};
+
+function adminPageOffset(value: unknown): number {
+  const parsed = typeof value === "string" ? Number(value) : Number.NaN;
+  return Number.isSafeInteger(parsed) && parsed >= 0 ? parsed : 0;
+}
 
 function publicTestimonials(sample: { testimonials?: unknown[]; testimonialGovernanceVersion?: number }) {
   const testimonials = Array.isArray(sample.testimonials) ? sample.testimonials : [];
@@ -32,11 +54,7 @@ function publicTestimonials(sample: { testimonials?: unknown[]; testimonialGover
 }
 
 router.get("/work", async (_req, res) => {
-  const samples = await db
-    .select(publicColumns)
-    .from(workSamplesTable)
-    .where(eq(workSamplesTable.published, true))
-    .orderBy(desc(workSamplesTable.date));
+  const samples = await publishedWorkSummaries();
   res.json(samples.map(repairPublicWorkSample).map((sample) => ({
     ...sample,
     testimonials: publicTestimonials(sample),
@@ -45,16 +63,14 @@ router.get("/work", async (_req, res) => {
 });
 
 router.get("/work/:slug/file", async (req, res) => {
-  const [sample] = await db
-    .select({
-      fileName: workSamplesTable.fileName,
-      fileMimeType: workSamplesTable.fileMimeType,
-      fileData: workSamplesTable.fileData,
-      published: workSamplesTable.published,
-    })
-    .from(workSamplesTable)
-    .where(eq(workSamplesTable.slug, String(req.params["slug"] ?? "")));
-  if (!sample?.published || !sample.fileData) {
+  const slug = String(req.params["slug"] ?? "");
+  const publicSample = (await publishedWork()).find((sample) => sample.slug === slug);
+  if (!publicSample || publicSample.fileSize <= 0) {
+    res.status(404).json({ error: "Not found" });
+    return;
+  }
+  const sample = await publishedWorkFileBySlug(slug);
+  if (!sample?.fileData) {
     res.status(404).json({ error: "Not found" });
     return;
   }
@@ -71,10 +87,7 @@ router.get("/work/:slug/file", async (req, res) => {
 });
 
 router.get("/work/:slug", async (req, res) => {
-  const [sample] = await db
-    .select(publicColumns)
-    .from(workSamplesTable)
-    .where(eq(workSamplesTable.slug, String(req.params["slug"] ?? "")));
+  const sample = await publishedWorkBySlug(String(req.params["slug"] ?? ""));
   if (!sample?.published) {
     res.status(404).json({ error: "Not found" });
     return;
@@ -86,12 +99,37 @@ router.get("/work/:slug", async (req, res) => {
   });
 });
 
-router.get("/admin/work", requireAdmin, async (_req, res) => {
+router.get("/admin/work", requireAdmin, async (req, res) => {
   const samples = await db
+    .select(adminWorkSummaryColumns)
+    .from(workSamplesTable)
+    .orderBy(desc(workSamplesTable.createdAt), desc(workSamplesTable.id))
+    .limit(ADMIN_PAGE_SIZE + 1)
+    .offset(adminPageOffset(req.query.offset));
+  res.json({
+    items: samples.slice(0, ADMIN_PAGE_SIZE).map((sample) => ({ ...sample, hasFile: sample.fileSize > 0 })),
+    hasMore: samples.length > ADMIN_PAGE_SIZE,
+  });
+});
+
+router.get("/admin/work/:id", requireAdmin, async (req, res) => {
+  let id: number;
+  try {
+    id = parsePositiveId(req.params.id);
+  } catch (error) {
+    res.status(400).json({ error: (error as Error).message });
+    return;
+  }
+  const [sample] = await db
     .select(adminColumns)
     .from(workSamplesTable)
-    .orderBy(desc(workSamplesTable.createdAt));
-  res.json(samples.map((sample) => ({ ...sample, hasFile: sample.fileSize > 0 })));
+    .where(eq(workSamplesTable.id, id))
+    .limit(1);
+  if (!sample) {
+    res.status(404).json({ error: "Work sample not found" });
+    return;
+  }
+  res.json({ ...sample, hasFile: sample.fileSize > 0 });
 });
 
 router.post("/admin/work", requireAdmin, async (req, res) => {
@@ -104,12 +142,18 @@ router.post("/admin/work", requireAdmin, async (req, res) => {
     let values = draftValues;
     let linkValues = {};
     if (requestedPublished) {
-      const translation = await translateWorkForPublishing(draftValues);
+      const translationInput = restoreBlankSeoMetadata(draftValues, req.body);
+      const translation = await translateWorkForPublishing(translationInput);
       values = parseWorkSampleInput({
         ...draftValues,
         ...translation,
         published: true,
       });
+      if (!hasCompleteWorkTranslation(values)) {
+        throw new WorkInputError(
+          "Published work samples require complete English and Arabic content",
+        );
+      }
       const assignment = await assignInternalLinks({
         kind: "work",
         slug: values.slug,
@@ -131,10 +175,10 @@ router.post("/admin/work", requireAdmin, async (req, res) => {
         aiLinksAssignedAt: new Date(),
       };
     }
-    const [sample] = await db
+    const [sample] = await withPublicContentMutation(() => db
       .insert(workSamplesTable)
       .values({ ...values, ...linkValues })
-      .returning(adminColumns);
+      .returning(adminColumns), () => res.setHeader("X-CounselO-Cache-Status", "bypass"));
     if (sample.published) {
       await invalidatePublicResponseCache();
       notifyWorkPublished(sample.slug);
@@ -176,11 +220,17 @@ router.put("/admin/work/:id", requireAdmin, async (req, res) => {
     let values = draftValues;
     let linkValues = {};
     if (requestedPublished) {
-      const translation = await translateWorkForPublishing(draftValues);
+      const translationInput = restoreBlankSeoMetadata(draftValues, req.body);
+      const translation = await translateWorkForPublishing(translationInput);
       values = parseWorkSampleInput(
         { ...draftValues, ...translation, published: true },
         { existingSlug: before.slug, existingFile: before, existingTestimonials: before },
       );
+      if (!hasCompleteWorkTranslation(values)) {
+        throw new WorkInputError(
+          "Published work samples require complete English and Arabic content",
+        );
+      }
       if (!before.published) {
         const assignment = await assignInternalLinks({
           kind: "work",
@@ -204,11 +254,11 @@ router.put("/admin/work/:id", requireAdmin, async (req, res) => {
         };
       }
     }
-    const [sample] = await db
+    const [sample] = await withPublicContentMutation(() => db
       .update(workSamplesTable)
       .set({ ...values, ...linkValues, updatedAt: new Date() })
       .where(eq(workSamplesTable.id, id))
-      .returning(adminColumns);
+      .returning(adminColumns), () => res.setHeader("X-CounselO-Cache-Status", "bypass"));
     if (!sample) {
       res.status(404).json({ error: "Not found" });
       return;
@@ -242,10 +292,10 @@ router.delete("/admin/work/:id", requireAdmin, async (req, res) => {
     res.status(400).json({ error: (error as Error).message });
     return;
   }
-  const [deleted] = await db
+  const [deleted] = await withPublicContentMutation(() => db
     .delete(workSamplesTable)
     .where(eq(workSamplesTable.id, id))
-    .returning({ slug: workSamplesTable.slug, published: workSamplesTable.published });
+    .returning({ slug: workSamplesTable.slug, published: workSamplesTable.published }), () => res.setHeader("X-CounselO-Cache-Status", "bypass"));
   if (!deleted) {
     res.status(404).json({ error: "Not found" });
     return;

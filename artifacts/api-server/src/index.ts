@@ -1,5 +1,6 @@
 import app from "./app";
 import { logger } from "./lib/logger";
+import { publicationCacheEnabled } from "./lib/publication-cache.js";
 
 const rawPort = process.env["PORT"];
 
@@ -15,11 +16,23 @@ if (Number.isNaN(port) || port <= 0) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
 
-app.listen(port, (err) => {
-  if (err) {
-    logger.error({ err }, "Error listening on port");
-    process.exit(1);
-  }
+async function start(): Promise<void> {
+  const prewarmOnStartup =
+    process.env.NODE_ENV === "production" && publicationCacheEnabled();
 
-  logger.info({ port }, "Server listening");
+  app.listen(port, (err) => {
+    if (err) {
+      logger.error({ err }, "Error listening on port");
+      process.exit(1);
+    }
+
+    logger.info({ port }, "Server listening");
+  });
+
+  if (prewarmOnStartup) logger.info("Public snapshots will be served from Object Storage");
+}
+
+start().catch((err) => {
+  logger.error({ err }, "API startup failed");
+  process.exit(1);
 });

@@ -19,19 +19,39 @@ import {
 } from "@workspace/api-zod";
 import {
   ContentTranslationError,
+  hasCompleteBlogTranslation,
+  restoreBlankSeoMetadata,
   translateBlogForPublishing,
 } from "../lib/content-translation.js";
+import { withPublicContentMutation } from "../lib/publication-cache.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 import { repairPublicBlogPost } from "../lib/public-blog-repairs.js";
 
+import { publishedBlogBySlug, publishedBlogs } from "../lib/published-content.js";
+
 const router = Router();
+const ADMIN_PAGE_SIZE = 50;
+
+const adminBlogSummaryColumns = {
+  id: blogPostsTable.id,
+  slug: blogPostsTable.slug,
+  date: blogPostsTable.date,
+  categoryEn: blogPostsTable.categoryEn,
+  categoryAr: blogPostsTable.categoryAr,
+  titleEn: blogPostsTable.titleEn,
+  titleAr: blogPostsTable.titleAr,
+  published: blogPostsTable.published,
+  contentType: blogPostsTable.contentType,
+  createdAt: blogPostsTable.createdAt,
+};
+
+function adminPageOffset(value: unknown): number {
+  const parsed = typeof value === "string" ? Number(value) : Number.NaN;
+  return Number.isSafeInteger(parsed) && parsed >= 0 ? parsed : 0;
+}
 
 router.get("/blog/posts", async (_req, res) => {
-  const posts = await db
-    .select()
-    .from(blogPostsTable)
-    .where(eq(blogPostsTable.published, true))
-    .orderBy(desc(blogPostsTable.date));
+  const posts = await publishedBlogs();
   res.json(
     posts
       .map(repairPublicBlogPost)
@@ -41,36 +61,8 @@ router.get("/blog/posts", async (_req, res) => {
 });
 
 router.get("/blog/posts/discovery", async (_req, res) => {
-  // Discovery consumers only need listing/SEO fields. Avoid loading legal
-  // provenance and other large columns that are never returned by this route.
-  const posts = await db
-    .select({
-      id: blogPostsTable.id,
-      slug: blogPostsTable.slug,
-      date: blogPostsTable.date,
-      updatedAt: blogPostsTable.updatedAt,
-      categoryEn: blogPostsTable.categoryEn,
-      categoryAr: blogPostsTable.categoryAr,
-      readTime: blogPostsTable.readTime,
-      titleEn: blogPostsTable.titleEn,
-      titleAr: blogPostsTable.titleAr,
-      excerptEn: blogPostsTable.excerptEn,
-      excerptAr: blogPostsTable.excerptAr,
-      seoTitleEn: blogPostsTable.seoTitleEn,
-      seoTitleAr: blogPostsTable.seoTitleAr,
-      seoDescriptionEn: blogPostsTable.seoDescriptionEn,
-      seoDescriptionAr: blogPostsTable.seoDescriptionAr,
-      bodyEn: blogPostsTable.bodyEn,
-      bodyAr: blogPostsTable.bodyAr,
-      contentEn: blogPostsTable.contentEn,
-      contentAr: blogPostsTable.contentAr,
-      relatedServiceSlugs: blogPostsTable.relatedServiceSlugs,
-      relatedBlogSlugs: blogPostsTable.relatedBlogSlugs,
-      relatedWorkSlugs: blogPostsTable.relatedWorkSlugs,
-    })
-    .from(blogPostsTable)
-    .where(eq(blogPostsTable.published, true))
-    .orderBy(desc(blogPostsTable.date));
+  // Reuse the shared published snapshot; return only discovery fields below.
+  const posts = await publishedBlogs();
   res.json(
     posts
       .map(repairPublicBlogPost)
@@ -102,10 +94,7 @@ router.get("/blog/posts/discovery", async (_req, res) => {
 
 router.get("/blog/posts/:slug", async (req, res) => {
   const { slug } = req.params;
-  const [post] = await db
-    .select()
-    .from(blogPostsTable)
-    .where(eq(blogPostsTable.slug, slug));
+  const post = await publishedBlogBySlug(slug);
   const repairedPost = post ? repairPublicBlogPost(post) : undefined;
   if (!repairedPost || !repairedPost.published || !hasQualityBilingualBlogContent(repairedPost)) {
     res.status(404).json({ error: "Not found" });
@@ -128,12 +117,38 @@ router.post("/admin/auth", (req, res) => {
   res.status(401).json({ error: "Wrong password" });
 });
 
-router.get("/admin/blog/posts", requireAdmin, async (_req, res) => {
+router.get("/admin/blog/posts", requireAdmin, async (req, res) => {
   const posts = await db
+    .select(adminBlogSummaryColumns)
+    .from(blogPostsTable)
+    .orderBy(desc(blogPostsTable.createdAt), desc(blogPostsTable.id))
+    .limit(ADMIN_PAGE_SIZE + 1)
+    .offset(adminPageOffset(req.query.offset));
+  const hasMore = posts.length > ADMIN_PAGE_SIZE;
+  res.json({
+    items: posts.slice(0, ADMIN_PAGE_SIZE),
+    hasMore,
+  });
+});
+
+router.get("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
+  let id: number;
+  try {
+    id = parsePositiveId(req.params.id);
+  } catch (error) {
+    res.status(400).json({ error: (error as Error).message });
+    return;
+  }
+  const [post] = await db
     .select()
     .from(blogPostsTable)
-    .orderBy(desc(blogPostsTable.createdAt));
-  res.json(posts.map(sanitizeBlogPost));
+    .where(eq(blogPostsTable.id, id))
+    .limit(1);
+  if (!post) {
+    res.status(404).json({ error: "Post not found" });
+    return;
+  }
+  res.json(sanitizeBlogPost(post));
 });
 
 router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
@@ -146,12 +161,18 @@ router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
     let values = draftValues;
     let linkValues = {};
     if (requestedPublished) {
-      const translation = await translateBlogForPublishing(draftValues);
+      const translationInput = restoreBlankSeoMetadata(draftValues, req.body);
+      const translation = await translateBlogForPublishing(translationInput);
       values = parseBlogPostInput({
         ...draftValues,
         ...translation,
         published: true,
       });
+      if (!hasCompleteBlogTranslation(values)) {
+        throw new BlogInputError(
+          "Published blog posts require complete English and Arabic content",
+        );
+      }
       const assignment = await assignInternalLinks({
         kind: "blog",
         slug: values.slug,
@@ -172,10 +193,10 @@ router.post("/admin/blog/posts", requireAdmin, async (req, res) => {
         ...assignArticleProvenance(values),
       };
     }
-    const [post] = await db
+    const [post] = await withPublicContentMutation(() => db
       .insert(blogPostsTable)
       .values({ ...values, ...linkValues })
-      .returning();
+      .returning(), () => res.setHeader("X-CounselO-Cache-Status", "bypass"));
     if (post.published) {
       await invalidatePublicResponseCache();
       notifyPublished(post.slug);
@@ -220,11 +241,17 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
     let values = draftValues;
     let linkValues = {};
     if (requestedPublished) {
-      const translation = await translateBlogForPublishing(draftValues);
+      const translationInput = restoreBlankSeoMetadata(draftValues, req.body);
+      const translation = await translateBlogForPublishing(translationInput);
       values = parseBlogPostInput(
         { ...draftValues, ...translation, published: true },
         { existingSlug: before.slug },
       );
+      if (!hasCompleteBlogTranslation(values)) {
+        throw new BlogInputError(
+          "Published blog posts require complete English and Arabic content",
+        );
+      }
       if (!before.published) {
         const assignment = await assignInternalLinks({
           kind: "blog",
@@ -247,11 +274,11 @@ router.put("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
         };
       }
     }
-    const [post] = await db
+    const [post] = await withPublicContentMutation(() => db
       .update(blogPostsTable)
       .set({ ...values, ...linkValues, updatedAt: new Date() })
       .where(eq(blogPostsTable.id, id))
-      .returning();
+      .returning(), () => res.setHeader("X-CounselO-Cache-Status", "bypass"));
     if (!post) {
       res.status(404).json({ error: "Not found" });
       return;
@@ -287,14 +314,14 @@ router.delete("/admin/blog/posts/:id", requireAdmin, async (req, res) => {
     res.status(400).json({ error: (error as Error).message });
     return;
   }
-  const [deleted] = await db
+  const [deleted] = await withPublicContentMutation(() => db
     .delete(blogPostsTable)
     .where(eq(blogPostsTable.id, id))
     .returning({
       id: blogPostsTable.id,
       slug: blogPostsTable.slug,
       published: blogPostsTable.published,
-    });
+    }), () => res.setHeader("X-CounselO-Cache-Status", "bypass"));
   if (!deleted) {
     res.status(404).json({ error: "Not found" });
     return;

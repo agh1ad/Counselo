@@ -6,5 +6,12 @@
 - [Region translation shallow spreads](region-translation-overrides.md) — `{...base, override}` in region-variant translation files (e.g. `en-syr.ts`) silently leaks base-region content on unoverridden subfields; audit every nested field, and derive counts (e.g. practice-area totals) from `array.length` instead of hardcoding.
 - [CounselO bilingual URL routing](counselo-bilingual-urls.md) — Arabic/English is a real `/ar` URL segment (via RegionContext), not a client-side toggle, so hreflang/prerendering are truthful.
 - [Express 5 path-to-regexp v8 wildcards](express5-path-wildcards.md) — use `{/*param}` for catch-all routes; `/*` and `:name*` both throw at startup.
+- [PostgreSQL timestamp precision](postgres-timestamp-precision.md) — JS `Date` loses PostgreSQL timestamp microseconds; use a field snapshot or preserve exact DB precision for optimistic concurrency.
 - [CounselO OG proxy architecture](counselo-og-proxy.md) — all /sa/* and /syr/* routed through API server; og-pages.ts serves prerendered flat files first (correct OG tags), then DB for CMS posts, then index.html fallback.
 - [CounselO production web server is ssr-server](counselo-ssr-server-routing.md) — in production Replit routes ALL HTML page requests (including /ar/our-work/:slug) to the legal-site ssr-server (port 24438), not the api-server; dynamic work/blog routes must be added to ssr-server.ts, not just og-pages.ts.
+- [Public read cost safety](public-read-cost-safety.md) — public legal-update snapshots must be publication-fenced and exclude source evidence, reasoning, drafts, and admin records.
+- [Public snapshot publication fence](public-snapshot-publish-fence.md) — no-op CAS repairs must cancel fences; restore epochs only from a verified complete last-good snapshot set.
+- [Google indexing automation](google-indexing-automation.md) — ordinary pages cannot use Google's Indexing API; submit the sitemap after mutations and rely on crawlable links and accurate sitemaps.
+- [SEO prerender inventory merge](seo-prerender-inventory.md) — merge discovery inventory with full blog records before prerendering article detail pages.
+- [Our Work evidence boundary](our-work-evidence-boundary.md) — case studies support expertise and scope, but never Review or aggregateRating markup without independent client feedback.
+- [Git operation interruptions](git-rebase-interruptions.md) — a paused rebase or merge may disappear across workspace calls; verify status and reflog before resuming.

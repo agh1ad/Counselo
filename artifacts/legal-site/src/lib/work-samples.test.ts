@@ -3,13 +3,14 @@ import test from "node:test";
 import { compactWorkSamplesForDiscovery, workSamplePath, type WorkSamplePublic } from "./work-samples.js";
 import { limitSeoTitle } from "./seo-title";
 
-test("work links use an available language and title limits preserve branding", () => {
+test("work links use an available language and SEO title normalization preserves full wording", () => {
   const sample = { slug: "case", titleEn: "", titleAr: "دراسة حالة" };
   assert.equal(workSamplePath(sample, false), "/ar/our-work/case");
   assert.equal(workSamplePath(sample, true), "/ar/our-work/case");
   for (const title of ["كاونسلو للاستشارات القانونية و تخفيض مطالبة عمولة تجارية من 3.48 مليون ريال | أعمال كاونسلو للاستشارات القانونية", "كيف ساهمت كاونسلو للاستشارات القانونية في تخفيض مطالبة من 500 ألف ريال إلى | أعمال كاونسلو للاستشارات القانونية", "A detailed professional review of a complex commercial agreement and its clauses | CounselO Legal"]) {
     const result = limitSeoTitle(title);
     assert.ok(result.startsWith(title.split(" ").slice(0, 5).join(" ")));
+    assert.ok([...result].length > 68);
     assert.doesNotMatch(result, /…/);
     assert.match(result, /(?:كاونسلو للاستشارات القانونية|CounselO Legal)$/);
     assert.doesNotMatch(result, /(?:إلى|من|and|of|to)\s*\|/);

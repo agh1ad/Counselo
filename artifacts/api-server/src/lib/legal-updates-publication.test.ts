@@ -6,7 +6,7 @@ process.env.ADMIN_PASSWORD = "legal-updates-test-admin";
 const { pool } = await import("@workspace/db");
 const { default: router } = await import("../legal-updates/routes.js");
 const { default: express } = await import("express");
-const { updatesSitemap } = await import("@workspace/api-zod");
+const { updatesSitemap } = await import("../legal-updates/public-pages.js");
 const app = express();
 app.use(express.json());
 app.use("/api", router);

@@ -51,6 +51,7 @@ import {
   COUNSELO_ENTITY_IDS,
   type BlogLanguage,
 } from "@workspace/api-zod";
+import { limitSeoTitle, normalizeSeoDescription } from "./lib/seo-title.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -180,14 +181,6 @@ function stripHtml(html: string): string {
     .trim();
 }
 
-function normalizeDescription(primary: string, fallback: string): string {
-  const combined = primary.trim().length >= 80
-    ? primary.trim()
-    : `${primary.trim()} ${fallback.trim()}`.trim();
-  if (combined.length <= 170) return combined;
-  return `${combined.slice(0, 167).replace(/\s+\S*$/, "").trimEnd()}…`;
-}
-
 /** XSS-safe JSON serialisation for inline <script> tags. */
 function safeJson(value: unknown): string {
   return JSON.stringify(value)
@@ -234,12 +227,23 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
 
   const canonical = `https://counselo-legal.com/blog/${slug}`;
   const primaryTitle = seoTitleEn || seoTitleAr;
-  const brandedTitle = /(?:CounselO Legal|كاونسلو للاستشارات القانونية)$/i.test(primaryTitle)
-    ? primaryTitle
-    : `${primaryTitle} | ${isArabicPost ? "كاونسلو للاستشارات القانونية" : "CounselO Legal"}`;
-  const primaryDesc = normalizeDescription(
-    seoDescEn || seoDescAr,
-    post.excerptEn || post.excerptAr || stripHtml(post.bodyEn || post.bodyAr || ""),
+  const titleWithoutLegacyBrand = primaryTitle.replace(
+    /\s*\|\s*(?:CounselO|كاونسلو)$/i,
+    "",
+  );
+  const brandedTitle = limitSeoTitle(
+    /(?:CounselO Legal|كاونسلو للاستشارات القانونية)$/i.test(primaryTitle)
+      ? primaryTitle
+      : `${titleWithoutLegacyBrand} | ${
+          isArabicPost ? "كاونسلو للاستشارات القانونية" : "CounselO Legal"
+        }`,
+  );
+  const primaryDesc = normalizeSeoDescription(
+    seoDescEn ||
+      seoDescAr ||
+      post.excerptEn ||
+      post.excerptAr ||
+      stripHtml(post.bodyEn || post.bodyAr || ""),
   );
   const provenance = assignArticleProvenance(post);
   const reviewerAttribution = isArabicPost ? BLOG_REVIEWER_ATTRIBUTION.ar : BLOG_REVIEWER_ATTRIBUTION.en;
@@ -392,20 +396,20 @@ export function buildWorkHtmlFromTemplate(
   const isArabic = language === "ar";
   const BASE = "https://counselo-legal.com";
 
-  const title =
-    (isArabic
+  const title = limitSeoTitle(
+    ((isArabic
       ? sample.seoTitleAr || sample.titleAr
       : sample.seoTitleEn || sample.titleEn) ||
-    sample.titleAr ||
-    sample.titleEn;
+      sample.titleAr ||
+      sample.titleEn),
+  );
 
-  const description = normalizeDescription(
+  const description = normalizeSeoDescription(
     (isArabic
       ? sample.seoDescriptionAr || sample.summaryAr
       : sample.seoDescriptionEn || sample.summaryEn) ||
       sample.summaryAr ||
       sample.summaryEn,
-    sample.summaryEn || sample.summaryAr,
   );
 
   const basePath = isArabic ? "/ar/our-work" : "/our-work";
@@ -426,6 +430,8 @@ export function buildWorkHtmlFromTemplate(
   const workSchema = safeJson({
     "@context": "https://schema.org",
     "@type": "CreativeWork",
+    "@id": `${canonical}#work-sample`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${canonical}#webpage` },
     name: title,
     description,
     url: canonical,
@@ -434,12 +440,18 @@ export function buildWorkHtmlFromTemplate(
     inLanguage: language,
     genre: sample.workTypeEn || sample.workTypeAr,
     contentLocation: sample.jurisdictionEn || sample.jurisdictionAr,
+    isAccessibleForFree: true,
+    conditionsOfAccess: isArabic
+      ? "دراسة مهنية منقحة منشورة مع حماية سرية العملاء"
+      : "Published redacted professional case study with client confidentiality protected",
     creator: {
       "@type": WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "LegalService" : "Organization",
       "@id": WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? COUNSELO_ENTITY_IDS.alBaghdadiOffice : COUNSELO_ENTITY_IDS.organization,
       name: WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "Baghdadi Law" : "CounselO Legal",
       url: BASE,
     },
+    publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
+    isPartOf: { "@id": `${BASE}${basePath}#webpage` },
     encoding: {
       "@type": "MediaObject",
       contentUrl: fileUrl,
@@ -606,8 +618,9 @@ app.get("/sitemap.xml", async (_req, res) => {
     res.type("application/xml").setHeader("Cache-Control", "public, max-age=300, must-revalidate");
     res.send(dynamicSitemap(baseXml, posts, samples));
   } catch {
-    res.type("application/xml").setHeader("Cache-Control", "public, max-age=300, must-revalidate");
-    res.send(baseXml);
+    res.setHeader("Cache-Control", "no-store");
+    res.setHeader("Retry-After", "60");
+    res.status(503).type("text/plain").send("Sitemap temporarily unavailable");
   }
 });
 
@@ -617,10 +630,9 @@ app.get("/feed.xml", async (_req, res) => {
     res.type("application/rss+xml").setHeader("Cache-Control", "public, max-age=300, must-revalidate");
     res.send(discoveryFeed(posts, samples));
   } catch {
-    res
-      .type("application/rss+xml")
-      .setHeader("Cache-Control", "public, max-age=300, must-revalidate");
-    res.send(readFileSync(resolve(publicDir, "feed.xml"), "utf-8"));
+    res.setHeader("Cache-Control", "no-store");
+    res.setHeader("Retry-After", "60");
+    res.status(503).type("text/plain").send("Feed temporarily unavailable");
   }
 });
 
@@ -710,7 +722,7 @@ app.get(
       return res.send(html);
     } catch (error) {
       console.error(`Fresh discovery SSR failed for ${req.path}:`, error);
-      return next();
+      return sendContentUnavailable(res, req.path.includes("/ar"));
     }
   },
 );

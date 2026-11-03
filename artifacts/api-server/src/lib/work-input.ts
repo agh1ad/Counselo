@@ -1,5 +1,6 @@
 import type { InsertWorkSample, WorkSample } from "@workspace/db";
 import { publicTestimonial, testimonialMetadataSchema, type TestimonialMetadata } from "@workspace/api-zod";
+import { getWorkTranslationGaps } from "./content-translation.js";
 
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
@@ -128,15 +129,29 @@ export function parseWorkSampleInput(
   const workTypeAr = stringField(body, "workTypeAr", 140);
   const jurisdictionEn = stringField(body, "jurisdictionEn", 140);
   const jurisdictionAr = stringField(body, "jurisdictionAr", 140);
+  const clientTypeEn = stringField(body, "clientTypeEn", 140);
+  const clientTypeAr = stringField(body, "clientTypeAr", 140);
 
   if (published) {
     if (!fileData) throw new WorkInputError("Upload a redacted document before publishing");
     if (!confidentialityConfirmed) throw new WorkInputError("Confirm confidentiality and redaction before publishing");
-    if (!(workTypeEn || workTypeAr) || !(jurisdictionEn || jurisdictionAr)) {
-      throw new WorkInputError("Work type and jurisdiction are required before publishing");
-    }
-    if (!(challengeEn || challengeAr) || !(approachEn || approachAr)) {
-      throw new WorkInputError("Challenge and work performed are required before publishing");
+    if (
+      !titleEn ||
+      !titleAr ||
+      !summaryEn ||
+      !summaryAr ||
+      !workTypeEn ||
+      !workTypeAr ||
+      !jurisdictionEn ||
+      !jurisdictionAr ||
+      !challengeEn ||
+      !challengeAr ||
+      !approachEn ||
+      !approachAr
+    ) {
+      throw new WorkInputError(
+        "Published work samples require all required fields in English and Arabic",
+      );
     }
   }
 
@@ -146,6 +161,33 @@ export function parseWorkSampleInput(
   const seoDescriptionAr = stringField(body, "seoDescriptionAr", 500) || truncate(summaryAr, 160);
 
   if (published) {
+    const translationGaps = getWorkTranslationGaps({
+      titleEn,
+      titleAr,
+      summaryEn,
+      summaryAr,
+      workTypeEn,
+      workTypeAr,
+      jurisdictionEn,
+      jurisdictionAr,
+      clientTypeEn,
+      clientTypeAr,
+      challengeEn,
+      challengeAr,
+      approachEn,
+      approachAr,
+      outcomeEn,
+      outcomeAr,
+      seoTitleEn,
+      seoTitleAr,
+      seoDescriptionEn,
+      seoDescriptionAr,
+    });
+    if (translationGaps.length > 0) {
+      throw new WorkInputError(
+        `Published work samples require complete, distinct English and Arabic content: ${translationGaps.join("; ")}`,
+      );
+    }
     for (const [locale, title, description] of [
       ["English", titleEn ? seoTitleEn : "", titleEn ? seoDescriptionEn : ""],
       ["Arabic", titleAr ? seoTitleAr : "", titleAr ? seoDescriptionAr : ""],
@@ -171,8 +213,8 @@ export function parseWorkSampleInput(
     workTypeAr,
     jurisdictionEn,
     jurisdictionAr,
-    clientTypeEn: stringField(body, "clientTypeEn", 140),
-    clientTypeAr: stringField(body, "clientTypeAr", 140),
+    clientTypeEn,
+    clientTypeAr,
     challengeEn,
     challengeAr,
     approachEn,

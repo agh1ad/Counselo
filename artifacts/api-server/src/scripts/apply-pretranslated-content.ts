@@ -3,6 +3,11 @@ import { blogPostsTable, db, pool, workSamplesTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import { parseBlogPostInput } from "../lib/blog-input.js";
 import { parseWorkSampleInput } from "../lib/work-input.js";
+import {
+  hasCompleteBlogTranslation,
+  hasCompleteWorkTranslation,
+} from "../lib/content-translation.js";
+import { withPublicContentMutation, assertPublicMaintenanceCacheConfiguration } from "../lib/publication-cache.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 import { containsPublishingPlaceholder, isRouteLikeSeoTitle } from "@workspace/api-zod";
 import { CONTRACT_INTERPRETATION_ENGLISH_BODY } from "../lib/public-blog-repairs.js";
@@ -175,6 +180,11 @@ async function main() {
       contentEn: validated.contentEn,
       excerptAr: validated.excerptAr,
     };
+    if (!hasCompleteBlogTranslation({ ...post, ...values, published: true })) {
+      throw new Error(
+        `Prepared blog translation is still incomplete: ${translation.slug}`,
+      );
+    }
     blogUpdates.push({ id: post.id, slug: post.slug, values });
   }
 
@@ -218,10 +228,15 @@ async function main() {
       seoTitleEn: validated.seoTitleEn,
       seoDescriptionEn: validated.seoDescriptionEn,
     };
+    if (!hasCompleteWorkTranslation({ ...sample, ...values })) {
+      throw new Error(
+        `Prepared work translation is still incomplete: ${translation.slug}`,
+      );
+    }
     workUpdates.push({ id: sample.id, slug: sample.slug, values });
   }
 
-  await db.transaction(async (transaction) => {
+  await withPublicContentMutation(() => db.transaction(async (transaction) => {
     const updatedAt = new Date();
     for (const update of blogUpdates) {
       await transaction
@@ -235,7 +250,7 @@ async function main() {
         .set({ ...update.values, updatedAt })
         .where(eq(workSamplesTable.id, update.id));
     }
-  });
+  }));
 
   if (blogUpdates.length || workUpdates.length) {
     await invalidatePublicResponseCache();
@@ -253,6 +268,7 @@ async function main() {
 }
 
 try {
+  assertPublicMaintenanceCacheConfiguration();
   await main();
 } finally {
   await pool.end();

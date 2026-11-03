@@ -103,11 +103,16 @@ export default function WorkSample() {
     inLanguage: lang,
     genre: ["Legal case study", workType].filter(Boolean),
     contentLocation: jurisdiction,
+    isAccessibleForFree: true,
+    conditionsOfAccess: ar
+      ? "دراسة مهنية منقحة منشورة مع حماية سرية العملاء"
+      : "Published redacted professional case study with client confidentiality protected",
     about: relatedService
       ? { "@type": "Service", name: localized(relatedService.titleEn, relatedService.titleAr, lang), url: `https://counselo-legal.com${regionPrefix}/services/${relatedService.slug}` }
       : { "@type": "Thing", name: jurisdiction },
     keywords: [workType, jurisdiction, relatedService && localized(relatedService.titleEn, relatedService.titleAr, lang), "legal case study"].filter(Boolean),
     creator,
+    copyrightHolder: creator,
     publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
     isPartOf: { "@id": `https://counselo-legal.com${workBasePath}#webpage` },
     encoding: sample.hasFile ? { "@type": "MediaObject", contentUrl: new URL(fileUrl, "https://counselo-legal.com").href, encodingFormat: sample.fileMimeType } : undefined,

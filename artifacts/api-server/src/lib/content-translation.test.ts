@@ -3,6 +3,9 @@ import test from "node:test";
 import type { InsertBlogPost, InsertWorkSample } from "@workspace/db";
 import {
   ContentTranslationError,
+  getWorkTranslationGaps,
+  hasCompleteWorkTranslation,
+  restoreBlankSeoMetadata,
   translateBlogForPublishing,
   translateWorkForPublishing,
 } from "./content-translation.js";
@@ -10,6 +13,8 @@ import {
 const originalFetch = globalThis.fetch;
 const originalKey = process.env["OPENAI_API_KEY"];
 const originalModel = process.env["OPENAI_TRANSLATION_MODEL"];
+const originalIntegrationKey = process.env["AI_INTEGRATIONS_OPENAI_API_KEY"];
+const originalIntegrationBase = process.env["AI_INTEGRATIONS_OPENAI_BASE_URL"];
 
 function responseWithJson(value: unknown): Response {
   return new Response(
@@ -20,6 +25,29 @@ function responseWithJson(value: unknown): Response {
   );
 }
 
+test("restores blank SEO fields from the raw input for AI generation", () => {
+  const parsedValues = {
+    seoTitleEn: "Publisher supplied English title",
+    seoTitleAr: "Parser generated Arabic fallback",
+    seoDescriptionEn: "Parser generated English fallback",
+    seoDescriptionAr: "Publisher supplied Arabic description",
+  };
+
+  const prepared = restoreBlankSeoMetadata(parsedValues, {
+    seoTitleEn: "Publisher supplied English title",
+    seoTitleAr: "   ",
+    seoDescriptionAr: "Publisher supplied Arabic description",
+  });
+
+  assert.equal(prepared.seoTitleEn, "Publisher supplied English title");
+  assert.equal(prepared.seoTitleAr, "");
+  assert.equal(prepared.seoDescriptionEn, "");
+  assert.equal(
+    prepared.seoDescriptionAr,
+    "Publisher supplied Arabic description",
+  );
+});
+
 test.afterEach(() => {
   globalThis.fetch = originalFetch;
   if (originalKey === undefined) delete process.env["OPENAI_API_KEY"];
@@ -27,6 +55,12 @@ test.afterEach(() => {
   if (originalModel === undefined)
     delete process.env["OPENAI_TRANSLATION_MODEL"];
   else process.env["OPENAI_TRANSLATION_MODEL"] = originalModel;
+  if (originalIntegrationKey === undefined)
+    delete process.env["AI_INTEGRATIONS_OPENAI_API_KEY"];
+  else process.env["AI_INTEGRATIONS_OPENAI_API_KEY"] = originalIntegrationKey;
+  if (originalIntegrationBase === undefined)
+    delete process.env["AI_INTEGRATIONS_OPENAI_BASE_URL"];
+  else process.env["AI_INTEGRATIONS_OPENAI_BASE_URL"] = originalIntegrationBase;
 });
 
 test("fills missing English blog, repairs SEO, and requests strict structured output", async () => {
@@ -86,7 +120,14 @@ test("fills missing English blog, repairs SEO, and requests strict structured ou
     patch.bodyEn,
     '<p style="text-align:left">Translated legal body.</p>',
   );
-  assert.equal(patch.seoTitleAr, "تكوين العقد في القانون السوري | كاونسلو للاستشارات القانونية");
+  assert.equal(
+    patch.seoTitleAr,
+    "تكوين العقد في القانون السوري | كاونسلو للاستشارات القانونية",
+  );
+  assert.equal(
+    patch.seoDescriptionEn,
+    "Learn the requirements for valid contract formation under Syrian law, including consent, capacity, lawful purpose, and practical evidence.",
+  );
   assert.equal(patch.titleAr, undefined, "Arabic source must be preserved");
   assert.match(requestUrl, /\/chat\/completions$/);
   assert.equal(requestBody?.model, "gpt-5.6-luna");
@@ -167,6 +208,14 @@ test("fills missing Arabic work fields and preserves English source", async () =
   assert.equal(patch.jurisdictionAr, "المملكة العربية السعودية");
   assert.equal(patch.titleEn, undefined);
   assert.equal(patch.summaryEn, undefined);
+  assert.equal(
+    patch.seoTitleAr,
+    "مراجعة عقد تجاري في السعودية | كاونسلو للاستشارات القانونية",
+  );
+  assert.equal(
+    patch.seoDescriptionAr,
+    "اطّلع على كيفية مراجعة كاونسلو للاستشارات القانونية لعقد تجاري وتوضيح توزيع المخاطر وتعزيز الحماية العملية لعميل من قطاع الأعمال.",
+  );
   assert.equal(patch.clientTypeAr, undefined);
   assert.equal(patch.outcomeAr, undefined);
 });
@@ -219,6 +268,8 @@ test("complete bilingual work does not require optional client or outcome fields
 
 test("missing API key prevents incomplete bilingual publication", async () => {
   delete process.env["OPENAI_API_KEY"];
+  delete process.env["AI_INTEGRATIONS_OPENAI_API_KEY"];
+  delete process.env["AI_INTEGRATIONS_OPENAI_BASE_URL"];
   const incomplete = {
     slug: "arabic-only",
     date: "2026-07-29",
@@ -243,5 +294,38 @@ test("missing API key prevents incomplete bilingual publication", async () => {
   await assert.rejects(
     translateBlogForPublishing(incomplete),
     ContentTranslationError,
+  );
+});
+
+test("treats a two-language empty optional field as absent, but flags one-sided source text", () => {
+  const values = {
+    titleEn: "Commercial Contract Review",
+    titleAr: "مراجعة عقد تجاري",
+    summaryEn: "A complete English summary of the contract review and its scope.",
+    summaryAr: "ملخص عربي كامل لمراجعة العقد ونطاق العمل القانوني.",
+    workTypeEn: "Contract review",
+    workTypeAr: "مراجعة العقود",
+    jurisdictionEn: "Saudi Arabia",
+    jurisdictionAr: "المملكة العربية السعودية",
+    challengeEn: "The contract needed clearer allocation of commercial risks.",
+    challengeAr: "احتاج العقد إلى توزيع أوضح للمخاطر التجارية.",
+    approachEn: "CounselO clarified obligations and proposed practical safeguards.",
+    approachAr: "وضحت كاونسلو الالتزامات واقترحت ضمانات عملية.",
+    clientTypeEn: "",
+    clientTypeAr: "",
+    outcomeEn: "",
+    outcomeAr: "",
+    seoTitleEn: "Commercial Contract Review | CounselO",
+    seoTitleAr: "مراجعة عقد تجاري في السعودية | كاونسلو",
+    seoDescriptionEn:
+      "Read how CounselO reviewed a commercial agreement, clarified key obligations, and addressed practical risk allocation for the client.",
+    seoDescriptionAr:
+      "اطّلع على كيفية مراجعة كاونسلو لاتفاقية تجارية وتوضيح الالتزامات الرئيسية ومعالجة توزيع المخاطر العملية بما يناسب العميل.",
+  };
+  assert.deepEqual(getWorkTranslationGaps(values), []);
+  assert.equal(hasCompleteWorkTranslation(values), true);
+  assert.ok(
+    getWorkTranslationGaps({ ...values, outcomeEn: "The contract was signed." })
+      .some((gap) => gap.startsWith("outcome:")),
   );
 });

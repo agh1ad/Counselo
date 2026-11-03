@@ -1,24 +1,105 @@
 import { validateEditorial } from "./editorial.js";
+import { updateContext, legalUpdatesSitemapDocument } from "@workspace/api-zod";
 import { Router } from "express";
 import { createHash } from "node:crypto";
 import { pool } from "@workspace/db";
 import { requireAdmin, secretsMatch } from "../middlewares/auth.js";
+import { publishedUpdates, legalUpdatesSitemapRows } from "./store.js";
 import { runLegalUpdates } from "./worker.js";
 import { validateDraft } from "./validation.js";
 import { officialSources } from "./sources.js";
 import { fetchOfficial, sourceText } from "./retrieval.js";
+import { withPublicContentMutation } from "../lib/publication-cache.js";
+import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
+import { notifySitemapUpdated } from "../lib/google-indexing.js";
 const router = Router();
-router.get("/admin/legal-updates", requireAdmin, async (_req, res) => {
+const ADMIN_PAGE_SIZE = 50;
+
+function adminPageOffset(value: unknown): number {
+  const parsed = typeof value === "string" ? Number(value) : Number.NaN;
+  return Number.isSafeInteger(parsed) && parsed >= 0 ? parsed : 0;
+}
+
+function legalUpdateId(value: unknown): string | undefined {
+  const id = typeof value === "string" ? value : "";
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(id)
+    ? id
+    : undefined;
+}
+router.get("/legal-updates", async (req, res) => {
+  try {
+    // Replit's revisioned application cache handles reuse. Browsers and
+    // intermediaries must revalidate so a withdrawal is never edge-stale.
+    res.setHeader("Cache-Control", "no-store");
+    const path =
+      typeof req.query.path === "string" ? req.query.path : "/legal-updates";
+    if (!path.startsWith("/") || path.length > 500 || !updateContext(path)) {
+      res.status(400).json({ error: "Invalid updates path" });
+      return;
+    }
+    res.json(await publishedUpdates(path));
+  } catch {
+    res.status(503).json({ error: "Legal updates temporarily unavailable" });
+  }
+});
+router.get("/legal-updates-sitemap", async (req, res) => {
+  try {
+    res.setHeader("Cache-Control", "no-cache");
+    const xml = legalUpdatesSitemapDocument(
+      await legalUpdatesSitemapRows(),
+      req.query.part ? Number(req.query.part) : undefined,
+    );
+    if (!xml) {
+      res.status(404).send("Sitemap not found");
+      return;
+    }
+    res.type("application/xml").send(xml);
+  } catch {
+    res.status(503).send("Sitemap temporarily unavailable");
+  }
+});
+router.get("/admin/legal-updates", requireAdmin, async (req, res) => {
   res.setHeader("Cache-Control", "no-store");
   const [items, runs] = await Promise.all([
     pool.query(
-      "SELECT * FROM legal_updates ORDER BY discovered_at DESC LIMIT 200",
+      `SELECT id, revision, status, source_url, source_name, discovered_at,
+              source_check_status, source_checked_at,
+              draft->'en'->>'title' AS title_en
+         FROM legal_updates
+        ORDER BY discovered_at DESC, id DESC
+        LIMIT $1 OFFSET $2`,
+      [ADMIN_PAGE_SIZE + 1, adminPageOffset(req.query.offset)],
     ),
     pool.query(
-      "SELECT * FROM legal_update_runs ORDER BY started_at DESC LIMIT 20",
+      `SELECT id, day, started_at, finished_at, status
+         FROM legal_update_runs
+        ORDER BY started_at DESC
+        LIMIT 20`,
     ),
   ]);
-  res.json({ items: items.rows, runs: runs.rows, sources: officialSources });
+  res.json({
+    items: items.rows.slice(0, ADMIN_PAGE_SIZE),
+    hasMore: items.rows.length > ADMIN_PAGE_SIZE,
+    runs: runs.rows,
+    sources: officialSources,
+  });
+});
+
+router.get("/admin/legal-updates/:id", requireAdmin, async (req, res) => {
+  const id = legalUpdateId(req.params.id);
+  if (!id) {
+    res.status(400).json({ error: "Invalid legal update id" });
+    return;
+  }
+  const result = await pool.query(
+    "SELECT * FROM legal_updates WHERE id = $1 LIMIT 1",
+    [id],
+  );
+  if (!result.rows[0]) {
+    res.status(404).json({ error: "Legal update not found" });
+    return;
+  }
+  res.json(result.rows[0]);
 });
 router.post("/internal/legal-updates/run", async (req, res) => {
   const secret = process.env.LEGAL_UPDATES_CRON_SECRET;
@@ -67,8 +148,11 @@ router.put("/admin/legal-updates/:id", requireAdmin, async (req, res) => {
     });
     return;
   }
-  const client = await pool.connect();
-  try {
+  let publicContentChanged = false;
+  let operationSucceeded = false;
+  await withPublicContentMutation(async () => {
+    const client = await pool.connect();
+    try {
     await client.query("BEGIN");
     const row = (
       await client.query("SELECT * FROM legal_updates WHERE id=$1 FOR UPDATE", [
@@ -87,6 +171,7 @@ router.put("/admin/legal-updates/:id", requireAdmin, async (req, res) => {
         .json({ error: "Draft changed. Reload before reviewing." });
       return;
     }
+    publicContentChanged = action === "publish" || action === "withdraw";
     if (action === "save" && row.status === "published")
       throw new Error("Withdraw before changing published content");
     if (action === "publish" && !["draft", "withdrawn"].includes(row.status))
@@ -114,7 +199,7 @@ router.put("/admin/legal-updates/:id", requireAdmin, async (req, res) => {
         [row.id, text, createHash("sha256").update(text).digest("hex")],
       );
       await client.query("COMMIT");
-      res.json({ ok: true });
+      operationSucceeded = true;
       return;
     }
     const editorial =
@@ -209,14 +294,25 @@ router.put("/admin/legal-updates/:id", requireAdmin, async (req, res) => {
       ],
     );
     await client.query("COMMIT");
+    operationSucceeded = true;
+    } catch (error) {
+      await client.query("ROLLBACK");
+      res.status(400).json({
+        error: error instanceof Error ? error.message : "Review failed",
+      });
+    } finally {
+      client.release();
+    }
+  }, () => res.setHeader("X-CounselO-Cache-Status", "bypass"));
+  if (operationSucceeded && !res.headersSent) {
+    if (publicContentChanged) {
+      const invalidation = await invalidatePublicResponseCache();
+      if (!invalidation.complete) {
+        res.setHeader("X-CounselO-Cache-Status", "bypass");
+      }
+      notifySitemapUpdated();
+    }
     res.json({ ok: true });
-  } catch (error) {
-    await client.query("ROLLBACK");
-    res.status(400).json({
-      error: error instanceof Error ? error.message : "Review failed",
-    });
-  } finally {
-    client.release();
   }
 });
 export default router;
