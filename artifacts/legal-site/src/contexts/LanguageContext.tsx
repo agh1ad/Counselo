@@ -49,9 +49,12 @@ function loadTranslation(region: keyof typeof translationLoaders, lang: "en" | "
  */
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const { region, lang, regionPrefix, setBlogLang } = useRegion();
-  const [location, navigate] = useLocation();
+  const [location, navigatePath] = useLocation();
 
   const toggleLang = () => {
+    // Keep the chosen service, library filters and section when changing language.
+    const suffix = typeof window === "undefined" ? "" : `${window.location.search}${window.location.hash}`;
+    const navigate = (path: string) => navigatePath(`${path}${suffix}`);
     const next = lang === "en" ? "ar" : "en";
     const isBlogPath = location === "/blog" || location.startsWith("/blog/");
     const isWorkPath =
@@ -60,7 +63,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       location === "/ar/our-work" ||
       location.startsWith("/ar/our-work/");
     const isLibraryPath = location === "/legal-library" || location === "/ar/legal-library";
-    if (location === "/urgent-legal-assistance" || location === "/ar/urgent-legal-assistance") {
+    if (/^\/(?:ar\/)?legal-updates(?:\/|$)/.test(location)) {
+      const neutral = location.replace(/^\/ar(?=\/)/, "");
+      navigate(next === "ar" ? `/ar${neutral}` : neutral);
+    } else if (location === "/urgent-legal-assistance" || location === "/ar/urgent-legal-assistance") {
       navigate(next === "ar" ? "/ar/urgent-legal-assistance" : "/urgent-legal-assistance");
     } else if (isBlogPath) {
       if (location === "/blog") {

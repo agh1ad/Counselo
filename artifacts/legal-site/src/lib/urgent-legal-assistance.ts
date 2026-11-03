@@ -122,3 +122,57 @@ export function urgentContactLinks(ar: boolean, country?: string) {
     email: `mailto:info@counselo-legal.com?subject=${encodeURIComponent(copy.title)}&body=${encodeURIComponent(body)}`,
   };
 }
+
+// Saudi page wording: the underlying availability, liability and timing terms remain unchanged.
+export const saudiUrgentCopy = {
+  en: {
+    ...urgentCopy.en,
+    intro: "We prepare urgent memoranda and statements of claim, and review existing contracts. Send your documents and deadline.",
+    services: [
+      ["Legal memorandum", "Written analysis of the agreed questions, facts and documents. Send the case papers, correspondence and purpose; we confirm scope and language before payment."],
+      ["Statement of claim", "A draft covering parties, facts, requested relief and evidence. Send a dated account and supporting records. Filing and court attendance are excluded."],
+      ["Contract or agreement review", "Written comments on risks and unclear terms in an existing agreement. Send the draft, schedules and correspondence. We agree the comment format; new contracts are excluded."],
+    ],
+    steps: [
+      ["1. Send your request", "State the service, jurisdiction and deadline. A message does not confirm acceptance or start the clock."],
+      ["2. Document check", "We check completeness and identify missing information."],
+      ["3. Acceptance", "We confirm the professional, scope, fee and delivery time."],
+      ["4. Payment", "Pay the agreed fee after acceptance and document checks."],
+      ["5. Delivery target starts", "With acceptance, complete documents and payment confirmed, we target delivery within 3 hours."],
+    ],
+    documentsTitle: "What to send",
+    privacy: "Send complete, readable records you may share. Flag missing information and agree how to transfer sensitive files.",
+    feesTitle: "Urgent fees",
+    fees: "Urgent fees differ from standard fees and depend on scope, document volume, complexity and deadline.",
+    deliveryTitle: "Delivery and revisions",
+    delivery: "We agree language, format and delivery channel. The fee includes revisions and questions within scope; additional work needs a separate agreement.",
+    handlingTitle: "Your assigned professional",
+    handling: "We confirm the professional and role before acceptance. Ask about relevant qualifications and jurisdictional experience.",
+    relatedTitle: "Related services",
+  },
+  ar: {
+    ...urgentCopy.ar,
+    intro: "نعد المذكرات ولوائح الدعاوى وندقق العقود القائمة بصورة عاجلة. أرسل المستندات والموعد المطلوب.",
+    services: [
+      ["مذكرة قانونية", "تحليل مكتوب للأسئلة والوقائع والمستندات المتفق عليها. أرسل أوراق القضية والمراسلات والغرض؛ نؤكد النطاق واللغة قبل السداد."],
+      ["لائحة دعوى", "مسودة تتضمن الأطراف والوقائع والطلبات والأدلة. أرسل تسلسلاً مؤرخاً والمستندات المؤيدة. لا تشمل الخدمة الإيداع أو الحضور."],
+      ["تدقيق عقد أو اتفاقية", "ملاحظات مكتوبة على المخاطر والبنود الغامضة في اتفاق قائم. أرسل المسودة والملاحق والمراسلات. نتفق على صيغة الملاحظات؛ لا تشمل الخدمة إنشاء عقد جديد."],
+    ],
+    steps: [
+      ["١. أرسل الطلب", "حدّد الخدمة والاختصاص والموعد. الرسالة لا تعني القبول ولا تبدأ بها المدة."],
+      ["٢. فحص المستندات", "نتحقق من الاكتمال ونحدد المعلومات الناقصة."],
+      ["٣. قبول المهمة", "نؤكد المسؤول والنطاق والأتعاب وموعد التسليم."],
+      ["٤. السداد", "سدّد الأتعاب المتفق عليها بعد القبول وفحص المستندات."],
+      ["٥. بدء هدف التسليم", "بعد القبول واكتمال المستندات وتأكيد السداد، نستهدف التسليم خلال ٣ ساعات."],
+    ],
+    documentsTitle: "ما الذي ترسله؟",
+    privacy: "أرسل سجلات كاملة ومقروءة يحق لك مشاركتها. وضّح النقص واتفق على وسيلة نقل الملفات الحساسة.",
+    feesTitle: "أتعاب الطوارئ",
+    fees: "تختلف أتعاب الطوارئ عن العادية بحسب النطاق وحجم المستندات والتعقيد والموعد.",
+    deliveryTitle: "التسليم والتعديلات",
+    delivery: "نتفق على اللغة والصيغة ووسيلة التسليم. تشمل الأتعاب التعديلات والأسئلة ضمن النطاق؛ العمل الإضافي يحتاج إلى اتفاق مستقل.",
+    handlingTitle: "المهني المكلف",
+    handling: "نؤكد المسؤول وصفته قبل القبول. يمكنك السؤال عن مؤهلاته وخبرته في الاختصاص المعني.",
+    relatedTitle: "خدمات مرتبطة",
+  },
+} as const;

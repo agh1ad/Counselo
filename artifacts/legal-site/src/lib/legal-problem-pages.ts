@@ -994,8 +994,8 @@ function buildDetailedContent({
       ],
     },
     experience: {
-      en: `CounselO Legal is founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice and 20,000+ legal matters and consultations across civil, commercial, employment, family, property, administrative, arbitration and enforcement matters. For ${titleEn.toLowerCase()}, that experience means testing ${profile.factsEn} against ${profile.evidenceEn}, then matching the advice to the relevant forum and remedy—not applying a one-size-fits-all answer.`,
-      ar: `تأسست كاونسلو للاستشارات القانونية ويقودها المحامي والمستشار القانوني عمر البغدادي، مع خبرة قانونية إقليمية 30+ عاماً من الممارسة القانونية وأكثر من 20,000 مسألة واستشارة قانونية في المسائل المدنية والتجارية والعمالية والأسرية والعقارية والإدارية والتحكيم والتنفيذ. وفي مسألة ${titleAr} تعني هذه الخبرة اختبار ${profile.factsAr} في ضوء ${profile.evidenceAr} ثم مواءمة المشورة مع الجهة ووسيلة المعالجة، لا تطبيق إجابة عامة واحدة للجميع.`,
+      en: `CounselO’s legal team applies its experience in legal analysis, document review and dispute preparation to ${titleEn.toLowerCase()}. We test ${profile.factsEn} against ${profile.evidenceEn}, then prepare advice and next steps suited to the relevant forum and remedy.`,
+      ar: `يوظف فريق كاونسلو خبرته في التحليل القانوني ومراجعة المستندات والتحضير للنزاعات في مسألة ${titleAr}. نفحص ${profile.factsAr} في ضوء ${profile.evidenceAr}، ثم نعدّ المشورة والخطوات التالية بما يلائم الجهة المختصة ووسيلة المعالجة.`,
     },
     faqs: {
       en: [

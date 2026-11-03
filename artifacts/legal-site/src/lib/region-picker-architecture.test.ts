@@ -13,7 +13,7 @@ test("global homepage retains the entity hub and both locale entry points", () =
     assert.match(wrapper, /GlobalHomepage/);
     if (name.startsWith("ar-")) assert.match(wrapper, /isArabic/);
   }
-  for (const required of ["COUNSELO_ORGANIZATION", "COUNSELO_WEBSITE", "LatestContentCarousels", "our-work", "COUNSELO_LEGAL_MATTERS_CLAIM", "ExperienceMethodologyNote"]) assert.ok(source.includes(required), required);
+  for (const required of ["COUNSELO_ORGANIZATION", "COUNSELO_WEBSITE", "LatestContentCarousels", "our-work"]) assert.ok(source.includes(required), required);
   assert.match(source, /PracticeDirectory/);
 });
 
@@ -24,23 +24,29 @@ test("both languages answer the same core questions with complete content", () =
     assert.equal(c.countryDetails.length, 3);
     assert.equal(c.steps.length, 4);
     assert.equal(c.questions.length, 8);
-    assert.ok(c.intro.includes("Omar") || c.intro.includes("عمر"));
+    assert.match(c.intro, /experienced legal team|فريقها القانوني المتمرس/);
+    assert.doesNotMatch(c.intro, /Omar|عمر البغدادي|1996/);
   }
 });
 
 test("homepage narrative follows DOM order without CSS section reordering", () => {
-  const ids = ["about", "founder", "services", "jurisdictions", "process", "why-counselo", "faq", "contact"];
+  const ids = ["about", "services", "contact"];
   let previous = -1;
   for (const id of ids) {
     const current = source.indexOf(`id="${id}"`);
     assert.ok(current > previous, `Section ${id} must follow the previous section`);
     previous = current;
   }
-  assert.match(source, /CONSULTATION_PRODUCTS\.map/);
-  assert.match(source, /e\.practices\.map/);
-  assert.match(source, /c\.reasons\.map/);
+  assert.doesNotMatch(source, /CONSULTATION_PRODUCTS\.map|FAQPage/, "removed homepage sections must not leave invisible service or FAQ schema");
+  assert.equal((source.match(/<PracticeDirectory/g) ?? []).length, 1, "use one complete practice directory");
+  assert.doesNotMatch(source, /e\.practices\.map/, "do not repeat the same practice choices in a second directory");
+  assert.match(source, /c\.strengths\.map/, "service benefits are consolidated in the hero strengths bar");
+  assert.match(source, /LatestContentCarousels isArabic=\{isArabic\} variant="home"/, "global homepage uses the editorial content layout");
+  assert.doesNotMatch(source, /<ServiceReasons|id="jurisdictions"|id="faq"|id="process"|id="founder"|href="#founder"|resources-title|home-benefits|home-experience|baghdadilaw\.co/, "do not restore removed homepage sections or founder links");
   assert.doesNotMatch(regional, /\border-(?:\d|\[)/);
-  assert.ok(regional.indexOf('id="about-founder-heading"') < regional.indexOf('id="practice-areas-heading"'));
-  assert.ok(regional.indexOf('<PracticeDirectory') < regional.indexOf('id="how-it-works-heading"'));
-  assert.doesNotMatch(regional, /SaudiHomepage/);
+  assert.equal((regional.match(/<PracticeDirectory/g) ?? []).length, 1, "one comprehensive service directory avoids duplicate browsing sections");
+  assert.ok(regional.indexOf('<SaudiHomeIntroduction') < regional.indexOf('<PracticeDirectory'));
+  assert.ok(regional.indexOf('<PracticeDirectory') < regional.indexOf('<LatestContentCarousels'));
+  assert.doesNotMatch(regional, /<ServiceProcess|<RegionalHomeFaq|how-it-works-heading/);
+  assert.doesNotMatch(regional, /SaudiHomepage|about-founder-heading|concise-founder/);
 });

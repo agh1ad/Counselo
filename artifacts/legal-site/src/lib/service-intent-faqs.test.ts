@@ -29,12 +29,12 @@ test("Saudi client wording does not mutate another region's content", () => {
 test("problem pages do not render keyword permutation lists or metadata", () => {
   const source = readFileSync(new URL("../pages/legal-problem-detail.tsx", import.meta.url), "utf8");
   assert.doesNotMatch(source, /page\.searchVariants|id="common-searches"/);
-  assert.match(source, /page\.faqs/);
+  assert.doesNotMatch(source, /page\.faqs|FAQPage/);
 });
 
-test("service answers are in server HTML and accessible without JavaScript", () => {
-  const source = readFileSync(new URL("../pages/service-detail.tsx", import.meta.url), "utf8");
-  assert.doesNotMatch(source, /openFaq|setOpenFaq/);
-  assert.match(source, /<details key=\{i\}/);
-  assert.match(source, /<p className="text-muted-foreground leading-relaxed">\{faq.a\}<\/p>/);
+test("service details render visible coverage and guides through the shared component", () => {
+  const source = readFileSync(new URL("../components/legal/service-experience.tsx", import.meta.url), "utf8");
+  assert.match(source, /c.coverage.map/);
+  assert.match(source, /problems.map/);
+  assert.doesNotMatch(source, /<details|openFaq|setOpenFaq/);
 });

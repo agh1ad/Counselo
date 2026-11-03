@@ -1,0 +1,68 @@
+.legal-experience-page .service-detail-hero h1 { font-family: var(--app-font-sans); font-weight: 750; }
+.legal-experience-page.service-reading-page .service-detail-hero p.font-serif { color: #fff; font-weight: 600; font-size: clamp(1.1rem,1.7vw,1.3rem); line-height: 1.6; }
+.legal-experience-content { color: #183f30; }
+.legal-experience-content > section { margin-bottom: 2.75rem; }
+.legal-experience-content h2 { font-family: var(--app-font-sans); font-size: clamp(1.5rem,2.6vw,2rem); font-weight: 750; line-height: 1.3; letter-spacing: -.025em; margin-bottom: 1rem; }
+.legal-experience-content h3 { font-family: var(--app-font-sans); font-size: 1.04rem; font-weight: 700; line-height: 1.45; }
+.legal-experience-content p { font-size: 1rem; line-height: 1.8; color: #465f52; }
+.legal-experience-introduction > p { margin-bottom: 1rem; }
+.legal-experience-content .legal-experience-introduction__lead { font-size: 1.12rem; font-weight: 600; color: #183f30; }
+.legal-experience-contact { display: inline-flex; align-items: center; justify-content: center; gap: .8rem; min-height: 48px; background: #174b35; color: white; padding: .8rem 1.2rem; margin-top: .5rem; font-weight: 700; border-radius: 4px; }
+.legal-experience-contact:hover { background: #0d3525; }
+.legal-experience-coverage__grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 1.75rem; list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.legal-experience-coverage__grid li { border-top: 2px solid #c8aa66; padding: 1.2rem 0; min-width: 0; }
+.legal-experience-coverage__grid p { margin-top: .5rem; font-size: .94rem; }
+.legal-experience-page.service-reading-page #service-legal-checks.legal-experience-reasons { background: #143f30; padding: clamp(1.25rem,3vw,2rem); border-radius: 8px; color: white; }
+.legal-experience-reasons h2,.legal-experience-reasons h3 { color: white; }
+.legal-experience-content .legal-experience-reasons__intro { color: #dce8e0; max-width: 65ch; }
+.legal-experience-reasons__grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.75rem; margin-top: 1.5rem; }
+.legal-experience-reasons__grid article { min-width: 0; }
+.legal-experience-reasons__grid svg { color: #ebc776; margin-bottom: .7rem; }
+.legal-experience-reasons__grid p { color: #dce8e0; font-size: .94rem; margin-top: .5rem; }
+.legal-experience-problems__grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin-top: 1.4rem; }
+.legal-experience-problems__group { min-width: 0; border: 1px solid #cad9cf; border-radius: 6px; overflow: hidden; background: #fff; }
+.legal-experience-problems__group h3 { background: #edf4ef; padding: 1rem 1.2rem; }
+.legal-experience-problems__group ul { list-style: none; padding: 0; margin: 0; }
+.legal-experience-problems__group li + li { border-top: 1px solid #dce6df; }
+.legal-experience-problems__group a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 52px; padding: .9rem 1.2rem; font-size: .95rem; font-weight: 600; line-height: 1.55; }
+.legal-experience-problems__group a:hover { background: #f1f6f2; text-decoration: underline; text-underline-offset: 4px; }
+.legal-experience-content a svg { flex-shrink: 0; }
+.legal-experience-content:dir(rtl) a svg { transform: rotate(180deg); }
+.legal-experience-content:dir(rtl) h2 { letter-spacing: 0; line-height: 1.5; }
+.legal-experience-content:dir(rtl) p { line-height: 1.9; }
+@media (max-width: 580px) {
+  .legal-experience-coverage__grid,.legal-experience-reasons__grid,.legal-experience-problems__grid { grid-template-columns: minmax(0,1fr); }
+  .legal-experience-reasons__grid article + article { border-top: 1px solid #52715e; padding-top: 1.25rem; }
+}
+
+.legal-experience-page.service-reading-page #service-contact.legal-experience-closing { display: grid; gap: 1.5rem; padding: clamp(1.25rem,3vw,2rem); background: #edf4ef; border: 1px solid #cad9cf; border-top: 3px solid #b4924a; border-radius: 8px; color: #183f30; }
+.legal-experience-closing__copy { min-width: 0; }
+.legal-experience-closing h2 { margin: 0 0 .85rem; font-family: var(--app-font-sans); font-size: clamp(1.5rem,2.6vw,2rem); font-weight: 750; line-height: 1.3; letter-spacing: -.025em; }
+.legal-experience-closing__copy p { font-size: 1rem; line-height: 1.75; color: #405d4e; }
+.legal-experience-closing__actions { display: flex; flex-wrap: wrap; align-content: start; gap: .75rem; }
+.legal-experience-closing__actions a { display: flex; align-items: center; justify-content: center; gap: .75rem; min-height: 50px; padding: .85rem 1rem; font-size: .94rem; font-weight: 700; line-height: 1.5; text-align: center; }
+.legal-experience-closing__actions svg { flex-shrink: 0; }
+.legal-experience-closing__primary { background: #174b35; color: white; }
+.legal-experience-closing__primary:hover { background: #0d3525; }
+.legal-experience-closing__secondary { border: 1px solid #91ab9a; background: #fff; color: #174b35; }
+.legal-experience-closing__secondary:hover { background: #e2ece5; }
+.legal-experience-closing__actions a:focus-visible { outline: 2px solid #174b35; outline-offset: 4px; }
+.legal-experience-page .legal-experience-closing__note { font-size: .84rem; line-height: 1.65; color: #52695c; grid-column: 1 / -1; }
+.legal-experience-closing:dir(rtl) h2 { letter-spacing: 0; line-height: 1.5; }
+.legal-experience-closing:dir(rtl) .legal-experience-closing__primary svg { transform: rotate(180deg); }
+@media (min-width: 900px) {
+  .legal-experience-page.service-reading-page #service-contact.legal-experience-closing { grid-template-columns: minmax(0,1fr) 230px; column-gap: 2rem; }
+  .legal-experience-closing__actions { flex-direction: column; }
+}
+@media (max-width: 580px) {
+  .legal-experience-closing__actions { flex-direction: column; }
+}
+
+.legal-experience-problems__links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; list-style:none; padding:0; margin:1.4rem 0 0; }
+.legal-experience-problems__links li { min-width:0; }
+.legal-experience-problems__links a { display:flex; align-items:center; justify-content:space-between; gap:1rem; height:100%; min-height:64px; padding:1rem 1.2rem; border:1px solid #cad9cf; border-radius:6px; background:#f3f7f4; font-weight:650; line-height:1.55; }
+.legal-experience-problems__links a:hover { background:#e5efe8; text-decoration:underline; text-underline-offset:4px; }
+.legal-experience-content a:focus-visible { outline:2px solid #174b35; outline-offset:4px; }
+.legal-experience-page .service-detail-hero h1 { overflow-wrap:break-word; }
+.legal-experience-page .service-consultation-panel h3 { font-family:var(--app-font-sans); font-size:1.5rem; }
+@media(max-width:580px) { .legal-experience-problems__links { grid-template-columns:minmax(0,1fr); } }

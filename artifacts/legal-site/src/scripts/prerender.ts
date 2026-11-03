@@ -34,8 +34,8 @@ import { repairPublicWorkSample } from "../../../api-server/src/lib/public-work-
 
 // ---------------------------------------------------------------------------
 // Fetch published blog post slugs from the running API at build time.
-// Falls back to an empty array with a warning so the build never hard-fails
-// just because the API isn't reachable (e.g. local dev without the server).
+// A failed inventory fetch must stop the release: publishing empty discovery
+// sections or omitting existing article/work pages would break crawl coverage.
 // ---------------------------------------------------------------------------
 async function fetchBlogPosts(): Promise<InitialBlogPost[]> {
   try {
@@ -47,7 +47,7 @@ async function fetchBlogPosts(): Promise<InitialBlogPost[]> {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = (await res.json()) as unknown;
-    if (!Array.isArray(data)) return [];
+    if (!Array.isArray(data)) throw new Error("Blog discovery response is not an array");
     const candidates = data.filter(
       (post): post is InitialBlogPost => Boolean(post && typeof post === "object"),
     );
@@ -70,8 +70,7 @@ async function fetchBlogPosts(): Promise<InitialBlogPost[]> {
     console.warn(
       `  ⚠ Could not fetch blog posts from API: ${err instanceof Error ? err.message : String(err)}`,
     );
-    console.warn("    Blog post pages will not be prerendered this build.");
-    return [];
+    throw new Error("Prerender stopped: published blog inventory could not be loaded", { cause: err });
   }
 }
 
@@ -85,7 +84,7 @@ async function fetchWorkSamples(): Promise<WorkSamplePublic[]> {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = (await res.json()) as unknown;
-    if (!Array.isArray(data)) return [];
+    if (!Array.isArray(data)) throw new Error("Work discovery response is not an array");
     return data.filter(
       (sample): sample is WorkSamplePublic =>
         !!sample &&
@@ -97,8 +96,7 @@ async function fetchWorkSamples(): Promise<WorkSamplePublic[]> {
     console.warn(
       `  ⚠ Could not fetch work samples from API: ${err instanceof Error ? err.message : String(err)}`,
     );
-    console.warn("    Work sample discovery slides will be empty this build.");
-    return [];
+    throw new Error("Prerender stopped: published work inventory could not be loaded", { cause: err });
   }
 }
 

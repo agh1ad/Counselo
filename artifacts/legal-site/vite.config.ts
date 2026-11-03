@@ -1,4 +1,5 @@
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
+import { isRetiredPublicPath, retiredPageHtml, RETIRED_RESPONSE_HEADERS } from "../../lib/api-zod/src/retired-public-routes";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
@@ -38,6 +39,19 @@ const basePath = process.env.BASE_PATH ?? "/";
 // Whether this is the SSR bundle build (VITE_SSR=true vite build)
 const isSSR = process.env.VITE_SSR === "true";
 
+function retiredPagesPlugin(): Plugin {
+  const middleware = (req: { url?: string }, res: import("node:http").ServerResponse, next: () => void) => {
+    if (!isRetiredPublicPath(req.url ?? "/")) return next();
+    res.writeHead(410, RETIRED_RESPONSE_HEADERS);
+    res.end(retiredPageHtml(req.url ?? "/"));
+  };
+  return {
+    name: "retired-public-pages",
+    configureServer(server) { server.middlewares.use(middleware); },
+    configurePreviewServer(server) { server.middlewares.use(middleware); },
+  };
+}
+
 /**
  * Vite plugin: generate the XML sitemap once during the client build.
  * Skipped for the SSR bundle build to avoid running it twice.
@@ -58,6 +72,7 @@ function sitemapPlugin() {
 export default defineConfig({
   base: basePath,
   plugins: [
+    retiredPagesPlugin(),
     sitemapPlugin(),
     react(),
     tailwindcss(),

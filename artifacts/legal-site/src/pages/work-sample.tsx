@@ -1,13 +1,14 @@
+import { useEffect, useState } from "react";
+import { PageContents } from "@/components/legal/page-contents";
 import { Link, Redirect, useParams } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, ArrowRight, Calendar, Download, ExternalLink, FileCheck2, Languages, LockKeyhole, Scale, ShieldCheck } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { workJurisdictionRegion } from "@/lib/work-jurisdiction";
 import { SEOHead } from "@/components/seo/SEOHead";
-import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized, workSamplePath } from "@/lib/work-samples";
-import type { InitialBlogPost } from "@/App";
+import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized } from "@/lib/work-samples";
 import { fetchPublicJson, publicApiUrl } from "@/lib/public-api";
-import { workAttachmentPath, blogPath, WORK_CONTEXT, WORK_READER_GUIDANCE, workModifiedAt, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion } from "@workspace/api-zod/browser";
+import { workAttachmentPath, WORK_CONTEXT, WORK_READER_GUIDANCE, workModifiedAt, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion } from "@workspace/api-zod/browser";
 
 declare global {
   interface Window {
@@ -18,7 +19,9 @@ declare global {
 }
 
 export default function WorkSample() {
+  const [previewOpen, setPreviewOpen] = useState(false);
   const { slug = "" } = useParams<{ slug: string }>();
+  useEffect(() => setPreviewOpen(false), [slug]);
   const { lang, isRTL } = useLanguage();
   const { data: sample, isLoading, isError } = useQuery<WorkSamplePublic>({
     queryKey: ["work-sample", slug],
@@ -44,27 +47,13 @@ export default function WorkSample() {
     refetchOnMount: "always",
     retry: false,
   });
-  const { data: allPosts = [] } = useQuery<InitialBlogPost[]>({
-    queryKey: ["blog-posts"],
-    queryFn: () => fetchPublicJson<InitialBlogPost[]>("/api/blog/posts/discovery"),
-    initialData: () => typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined,
-    staleTime: 0,
-    refetchOnMount: "always",
-  });
-  const { data: allWork = [] } = useQuery<WorkSamplePublic[]>({
-    queryKey: ["work-samples"],
-    queryFn: () => fetchPublicJson<WorkSamplePublic[]>("/api/work"),
-    initialData: () => typeof window !== "undefined" ? window.__SSR_WORK_SAMPLES__ : undefined,
-    staleTime: 0,
-    refetchOnMount: "always",
-  });
 
   const ar = lang === "ar";
   const workBasePath = ar ? "/ar/our-work" : "/our-work";
   const ui = ar ? {
-    back: "العودة إلى أعمالنا", notFound: "نموذج العمل غير موجود", completed: "تاريخ نموذج العمل", jurisdiction: "النطاق القانوني", clientType: "نوع العميل", documentLanguage: "لغة المستند", challenge: "المسألة", approach: "العمل الذي قمنا به", outcome: "النتيجة أو القيمة المقدمة", document: "المستند المنقح", open: "فتح المستند في نافذة جديدة", download: "تنزيل نسخة", privacy: "حماية السرية", privacyText: "تم حذف أو حجب أسماء العملاء والبيانات الشخصية والتجارية السرية والتفاصيل التي تسمح بالتعرف على أصحابها قبل نشر هذا النموذج.", disclaimer: "هذا النموذج لأغراض توضيح الخبرة المهنية فقط. عُدّلت بعض التفاصيل أو حُجبت لحماية السرية، ولا تمثل النتائج السابقة ضماناً لنتيجة أي مسألة أخرى.", ctaTitle: "هل تحتاج إلى مستند أو حل قانوني مماثل؟", cta: "ناقش متطلباتك معنا",
+    back: "العودة إلى أعمالنا", notFound: "نموذج العمل غير موجود", completed: "تاريخ نموذج العمل", jurisdiction: "النطاق القانوني", clientType: "نوع العميل", documentLanguage: "لغة المستند", challenge: "المسألة", approach: "العمل الذي قمنا به", outcome: "النتيجة أو القيمة المقدمة", document: "المستند المنقح", open: "فتح المستند في نافذة جديدة", download: "تنزيل نسخة", privacy: "حماية السرية", privacyText: "نُقحت بيانات العملاء والمعلومات السرية قبل النشر.", disclaimer: "هذا النموذج لأغراض توضيح الخبرة المهنية فقط. عُدّلت بعض التفاصيل أو حُجبت لحماية السرية، ولا تمثل النتائج السابقة ضماناً لنتيجة أي مسألة أخرى.", ctaTitle: "هل تحتاج إلى مستند أو حل قانوني مماثل؟", cta: "ناقش متطلباتك معنا",
   } : {
-    back: "Back to Our Work", notFound: "Work sample not found", completed: "Work sample date", jurisdiction: "Jurisdiction", clientType: "Client type", documentLanguage: "Document language", challenge: "The matter", approach: "Work performed", outcome: "Outcome or value delivered", document: "Redacted document", open: "Open document in a new tab", download: "Download a copy", privacy: "Confidentiality protected", privacyText: "Client names, personal and commercially sensitive data, and identifying matter details were removed or obscured before this sample was published.", disclaimer: "This sample demonstrates professional experience only. Details may be modified or withheld to protect confidentiality, and past work or outcomes do not guarantee the result of another matter.", ctaTitle: "Need a similar legal document or solution?", cta: "Discuss Your Requirements",
+    back: "Back to Our Work", notFound: "Work sample not found", completed: "Work sample date", jurisdiction: "Jurisdiction", clientType: "Client type", documentLanguage: "Document language", challenge: "The matter", approach: "Work performed", outcome: "Outcome or value delivered", document: "Redacted document", open: "Open document in a new tab", download: "Download a copy", privacy: "Confidentiality protected", privacyText: "Client identities and confidential details were redacted before publication.", disclaimer: "This sample demonstrates professional experience only. Details may be modified or withheld to protect confidentiality, and past work or outcomes do not guarantee the result of another matter.", ctaTitle: "Need a similar legal document or solution?", cta: "Discuss Your Requirements",
   };
 
   if (isLoading) return <div className="min-h-[60vh] flex items-center justify-center text-muted-foreground">{ar ? "جارٍ التحميل…" : "Loading…"}</div>;
@@ -83,7 +72,7 @@ export default function WorkSample() {
     ? { "@type": "LegalService", "@id": COUNSELO_ENTITY_IDS.alBaghdadiOffice, name: "Baghdadi Law", alternateName: "البغدادي للمحاماة" }
     : { "@type": "Organization", "@id": COUNSELO_ENTITY_IDS.organization, name: "CounselO Legal", alternateName: "كاونسلو للاستشارات القانونية" };
   const regionPrefix = `${region ? `/${region}` : ""}${ar ? "/ar" : ""}`;
-  const contactPath = region ? `${regionPrefix}/contact` : (ar ? "/ar#jurisdictions-heading-ar" : "/#jurisdictions-heading");
+  const contactPath = region ? `${regionPrefix}/contact` : (ar ? "/ar#contact" : "/#contact");
   const clientType = localized(sample.clientTypeEn, sample.clientTypeAr, lang);
   const challenge = localized(sample.challengeEn, sample.challengeAr, lang);
   const approach = localized(sample.approachEn, sample.approachAr, lang);
@@ -97,19 +86,6 @@ export default function WorkSample() {
   const relatedServiceSlugs = (context?.relatedServiceSlugs ?? sample.relatedServiceSlugs ?? [])
     .filter((serviceSlug) => validServiceSlugs.has(serviceSlug))
     .slice(0, 2);
-  const relatedPostsAssigned = (context?.relatedBlogSlugs ?? sample.relatedBlogSlugs ?? [])
-    .map((relatedSlug) => allPosts.find((candidate) => candidate.slug === relatedSlug))
-    .filter((candidate): candidate is InitialBlogPost => candidate !== undefined && candidate.published !== false);
-  const relatedPosts = context || relatedPostsAssigned.length > 0
-    ? relatedPostsAssigned.slice(0, 3)
-    : allPosts
-      .filter((candidate) => candidate.published !== false)
-      .filter((candidate) => relatedServiceSlugs.some((serviceSlug) => candidate.relatedServiceSlugs?.includes(serviceSlug)))
-      .slice(0, 3);
-  const relatedWork = (context?.relatedWorkSlugs ?? sample.relatedWorkSlugs ?? [])
-    .map((relatedSlug) => allWork.find((candidate) => candidate.slug === relatedSlug))
-    .filter((candidate): candidate is WorkSamplePublic => candidate !== undefined && candidate.slug !== sample.slug && candidate.published !== false)
-    .slice(0, 3);
   const relatedService = region && relatedServiceSlugs[0]
     ? getServiceDefinition(relatedServiceSlugs[0], region)
     : undefined;
@@ -153,13 +129,15 @@ export default function WorkSample() {
       <section className="premium-page-hero text-white px-4 py-14">
         <div className="max-w-6xl mx-auto"><Link href={workBasePath} className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 text-sm"><ArrowLeft className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} />{ui.back}</Link><div className="max-w-4xl"><div className="flex flex-wrap gap-2 mb-5">{workType && <span className="border border-white/25 bg-white/10 px-3 py-1 text-sm">{workType}</span>}{sample.featured && <span className="bg-white text-primary px-3 py-1 text-sm font-semibold">{ar ? "عمل مميز" : "Featured work"}</span>}</div><h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-5">{title}</h1><div className="premium-hero-rule mb-6" /><p className="text-lg text-white/75 leading-relaxed">{summary}</p></div></div>
       </section>
+      <div className="premium-content-shell"><PageContents isArabic={ar} pageKey={slug} /></div>
+
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid lg:grid-cols-[minmax(0,1fr)_360px] gap-10">
-          <div className="space-y-10">
+          <div className="work-reading-body space-y-6">
             {context && <p className="text-sm text-muted-foreground">{ar ? "تحديث المحتوى: " : "Content updated: "}{modifiedAt?.slice(0, 10)}</p>}
             {context?.creator === "baghdadi-law" && <p>{ar ? "الجهة صاحبة الدراسة: " : "Study by: "}<a href={ar ? "https://www.baghdadilaw.co/ar/who-we-are" : "https://www.baghdadilaw.co/who-we-are"} className="text-primary underline">{ar ? "البغدادي للمحاماة" : "Baghdadi Law"}</a></p>}
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="work-facts">
               {[
                 [Calendar, ui.completed, formatWorkDate(sample.date, lang)],
                 [Scale, ui.jurisdiction, jurisdiction],
@@ -167,7 +145,7 @@ export default function WorkSample() {
                 [Languages, ui.documentLanguage, documentLanguageLabel(sample.documentLanguage, lang)],
               ].filter(([, , value]) => value).map(([Icon, label, value]) => {
                 const ItemIcon = Icon as typeof Calendar;
-                return <div key={String(label)} className="border border-border bg-card p-5 flex gap-3"><ItemIcon className="h-5 w-5 text-primary shrink-0" /><div><p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{String(label)}</p><p className="font-semibold">{String(value)}</p></div></div>;
+                return <div key={String(label)} className="flex gap-3 border-b border-border py-3"><ItemIcon className="h-5 w-5 text-primary shrink-0" /><div><p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{String(label)}</p><p className="font-semibold">{String(value)}</p></div></div>;
               })}
             </div>
             {clientType && <div className="border-s-4 border-primary bg-muted/40 p-5"><p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{ui.clientType}</p><p className="font-semibold">{clientType}</p></div>}
@@ -180,38 +158,15 @@ export default function WorkSample() {
           {sample.hasFile && <aside className="space-y-6">
             <div className="border border-border bg-card p-5 sticky top-28">
               <h2 className="text-xl font-serif font-bold mb-4">{context?.evidenceNote ? (ar ? "دراسة كاونسلو للاستشارات القانونية للحالة" : "CounselO Legal case study") : ui.document}</h2>
-              <div className="aspect-[3/4] bg-muted border border-border overflow-hidden mb-4 flex items-center justify-center">
+              <button type="button" onClick={() => setPreviewOpen(!previewOpen)} aria-expanded={previewOpen} aria-controls="work-document-preview" className="concise-text-link mb-4">{ar ? (previewOpen ? "إخفاء معاينة المستند" : "معاينة المستند") : (previewOpen ? "Hide document preview" : "Preview document")}</button>
+              <div id="work-document-preview" hidden={!previewOpen}>{previewOpen && <div className="aspect-[3/4] bg-muted border border-border overflow-hidden mb-4 flex items-center justify-center">
                 {sample.fileMimeType.startsWith("image/") ? <img src={fileUrl} alt={title} className="w-full h-full object-contain" /> : <iframe src={fileUrl} title={ui.document} className="w-full h-full" sandbox="allow-same-origin" loading="lazy" />}
-              </div>
+              </div>}</div>
               <a href={fileUrl} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-primary text-white px-4 py-3 font-semibold hover:bg-primary/90"><ExternalLink className="h-4 w-4" />{ui.open}</a>
               <a href={`${fileUrl}?download=1`} download={sample.fileName} className="mt-2 w-full flex items-center justify-center gap-2 border border-border px-4 py-3 font-semibold hover:bg-muted"><Download className="h-4 w-4" />{ui.download}</a>
               <div className="mt-5 pt-5 border-t border-border"><div className="flex gap-2 font-semibold text-sm mb-2"><LockKeyhole className="h-4 w-4 text-primary" />{ui.privacy}</div><p className="text-xs text-muted-foreground leading-relaxed">{ui.privacyText}</p></div>
             </div>
           </aside>}
-        </div>
-      </section>
-
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
-        <div className="border-t border-border pt-10">
-          <h2 className="text-2xl font-serif font-bold mb-6">{ar ? "روابط ومحتوى ذو صلة" : "Related services and content"}</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {relatedServiceSlugs.map((serviceSlug) => {
-              const service = region ? getServiceDefinition(serviceSlug, region) : undefined;
-              if (!service) return null;
-              return (
-              <Link key={serviceSlug} href={`${regionPrefix}/services/${serviceSlug}`} className="border border-border bg-card p-5 font-semibold text-primary hover:border-primary">
-                {localized(service.titleEn, service.titleAr, lang)}
-              </Link>
-              );
-            })}
-            {relatedPosts.map((post) => {
-              const useArabic = Boolean(post.titleAr) && (ar || !post.titleEn);
-              return <Link key={post.slug} href={blogPath(post.slug, useArabic ? "ar" : "en")} className="border border-border bg-card p-5 font-semibold hover:border-primary">{useArabic ? post.titleAr : post.titleEn}</Link>;
-            })}
-            {relatedWork.map((work) => (
-              <Link key={work.slug} href={workSamplePath(work, ar)} className="border border-border bg-card p-5 font-semibold hover:border-primary">{localized(work.titleEn, work.titleAr, lang)}</Link>
-            ))}
-          </div>
         </div>
       </section>
 

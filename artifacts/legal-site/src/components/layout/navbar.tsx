@@ -1,227 +1,138 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, Languages, ArrowRight, Globe2 } from "lucide-react";
+import { Menu, X, ArrowRight, Globe2, Search, ChevronDown, House, BookOpen, BriefcaseBusiness, Users, Mail, Scale, FileText, Clock3, Check } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { AnimatePresence } from "framer-motion";
-import * as m from "framer-motion/m";
+import * as Dialog from "@radix-ui/react-dialog";
+import { getServicesForRegion } from "@workspace/api-zod/browser";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
+import { readingSearchKey } from "@/lib/article-reading";
+import "./navigation.css";
 
 const brandMark = "/images/optimized/counselo-footer-logo.png";
+const countries = [
+  { id: "sa", en: "Saudi Arabia", ar: "السعودية" },
+  { id: "syr", en: "Syria", ar: "سوريا" },
+  { id: "uae", en: "UAE", ar: "الإمارات" },
+] as const;
 
 export function Navbar() {
   const [location] = useLocation();
-  const [isOpen, setIsOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
-  const servicesButtonRef = useRef<HTMLButtonElement>(null);
+  const [open, setOpen] = useState(false);
+  const [servicesExpanded, setServicesExpanded] = useState(false);
+  const [query, setQuery] = useState("");
+  const closeRef = useRef<HTMLButtonElement>(null);
   const { t, lang, toggleLang } = useLanguage();
   const { region, regionPrefix, isSharedPath } = useRegion();
+  const ar = lang === "ar";
+  const country = countries.find(item => item.id === region)!;
+  const home = isSharedPath ? (ar ? "/ar" : "/") : regionPrefix;
+  const library = ar ? "/ar/legal-library" : "/legal-library";
+  const blog = ar ? "/blog/ar" : "/blog";
+  const work = ar ? "/ar/our-work" : "/our-work";
+  const contact = `${regionPrefix}/contact`;
+  const serviceIndex = `${regionPrefix}/services`;
+  const regionHome = (id: string) => `/${id}${ar ? "/ar" : ""}`;
+  const label = ar ? {
+    menu: "القائمة", open: "فتح قائمة التصفح", close: "إغلاق قائمة التصفح", title: "تصفّح كاونسلو",
+    intro: "الصفحات الرئيسية والخدمات القانونية واختيار الدولة.", primary: "الصفحات الرئيسية",
+    services: "الخدمات القانونية", servicesHint: "اختر المجال القانوني الذي تحتاج إليه.", all: "جميع الخدمات",
+    search: "ابحث عن خدمة قانونية", placeholder: "الأسرة، العقود، العمل…", clear: "مسح البحث",
+    noResults: "لم نجد خدمة بهذا الاسم.", reset: "عرض جميع الخدمات", country: "اختر الدولة", countryHint: "خدمات قانونية بحسب اختصاصك.",
+    library: "المكتبة القانونية", articles: "المقالات القانونية", work: "نماذج الأعمال", about: "عن كاونسلو", contact: "تواصل معنا",
+    consult: "ابدأ استشارتك", urgent: "مساعدة قانونية عاجلة", online: "استشارات قانونية أونلاين", global: "رؤى عالمية",
+    language: "English — التبديل إلى الإنجليزية", found: "النتائج",
+  } : {
+    menu: "Menu", open: "Open navigation menu", close: "Close navigation menu", title: "Explore CounselO",
+    intro: "Main pages, legal services and country selection.", primary: "Main pages",
+    services: "Legal services", servicesHint: "Find the right practice area for your matter.", all: "All services",
+    search: "Find a legal service", placeholder: "Family, contracts, employment…", clear: "Clear search",
+    noResults: "No services match your search.", reset: "Show all services", country: "Choose your country", countryHint: "Legal services for your jurisdiction.",
+    library: "Legal library", articles: "Legal articles", work: "Our work", about: "About CounselO", contact: "Contact us",
+    consult: "Start a consultation", urgent: "Urgent legal assistance", online: "Online legal consultations", global: "Global insights",
+    language: "عربي — Switch to Arabic", found: "Results",
+  };
+  const primaryLinks = [
+    { href: home, title: t.nav.home, Icon: House },
+    ...(!isSharedPath ? [{ href: `${regionPrefix}/about`, title: label.about, Icon: Users }] : []),
+    { href: library, title: label.library, Icon: BookOpen },
+    { href: blog, title: label.articles, Icon: FileText },
+    { href: work, title: label.work, Icon: BriefcaseBusiness },
+    ...(!isSharedPath ? [{ href: contact, title: label.contact, Icon: Mail }] : []),
+  ];
+  const services = getServicesForRegion(region).filter(service => service.kind !== "priority-intake");
+  const words = readingSearchKey(query).split(/\s+/).filter(Boolean);
+  const matches = services.filter(service => {
+    const translated = t.nav.servicesList.find(item => item.href === `/services/${service.slug}`)?.name ?? "";
+    const text = readingSearchKey(`${service.titleEn} ${service.titleAr} ${translated}`);
+    return words.every(word => text.includes(word));
+  });
+  const active = (href: string) => location === href || (href !== home && location.startsWith(`${href}/`));
+  const close = () => setOpen(false);
+  const changeLanguage = () => { close(); toggleLang(); };
+  useEffect(() => { setOpen(false); setServicesExpanded(false); setQuery(""); }, [location, lang]);
+  useEffect(() => { if (!open) { setQuery(""); setServicesExpanded(false); } }, [open]);
 
-  useEffect(() => {
-    setIsOpen(false);
-    setServicesOpen(false);
-  }, [location]);
-
-  useEffect(() => {
-    if (isOpen) mobileMenuRef.current?.querySelector<HTMLAnchorElement>("a[href]")?.focus();
-  }, [isOpen]);
-
-  useEffect(() => {
-    if (!isOpen && !servicesOpen) return;
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key !== "Escape") return;
-      event.preventDefault();
-      if (isOpen) {
-        setIsOpen(false);
-        menuButtonRef.current?.focus();
-      } else {
-        setServicesOpen(false);
-        servicesButtonRef.current?.focus();
-      }
-    };
-    document.addEventListener("keydown", closeOnEscape);
-    return () => document.removeEventListener("keydown", closeOnEscape);
-  }, [isOpen, servicesOpen]);
-
-  const regionTitle = isSharedPath ? (lang === "ar" ? "رؤى عالمية" : "GLOBAL INSIGHTS") : {
-    sa: lang === "ar" ? "السعودية" : "SAUDI ARABIA",
-    syr: lang === "ar" ? "سوريا" : "SYRIA",
-    uae: lang === "ar" ? "الإمارات" : "UAE",
-  }[region];
-  const regionPickerPath = lang === "ar" ? "/ar" : "/";
-
-  const p = (path: string) => regionPrefix + path;
-  const libraryPath = lang === "ar" ? "/ar/legal-library" : "/legal-library";
-  const blogIndexPath = lang === "ar" ? "/blog/ar" : "/blog";
-  const workPath = lang === "ar" ? "/ar/our-work" : "/our-work";
-  const workLabel = lang === "ar" ? "أعمالنا" : "Our Work";
-
-  const isActive = (path: string) =>
-    path === "" ? location === regionPrefix || location === regionPrefix + "/"
-    : location.startsWith(regionPrefix + path);
-
-  return (
-    <nav className={`region-navbar region-navbar--${region} fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-b border-[#b4924a]/25`}>
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="flex justify-between items-center h-21">
-          <div className="flex items-center gap-3 min-w-0">
-            <Link href={isSharedPath ? regionPickerPath : regionPrefix} className="regional-navbar-lockup">
-              <img src={brandMark} alt="" width="42" height="42" decoding="async" />
-              <span className="uae-navbar-brand">
-                <strong>{lang === "ar" ? "كاونسلو للاستشارات القانونية" : "CounselO Legal"}</strong>
-                <small>{lang === "ar" ? "استشارات قانونية عبر الإنترنت" : "Online Legal Consultations"}</small>
-              </span>
-            </Link>
-            <span className="uae-navbar-title">{regionTitle}</span>
-          </div>
-
-          <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 rtl:space-x-reverse">
-            {isSharedPath ? <>
-              <Link href={regionPickerPath} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">{t.nav.home}</Link>
-              <Link href={lang === "ar" ? "/uae/ar" : "/uae"} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">{lang === "ar" ? "الإمارات" : "UAE"}</Link>
-              <Link href={lang === "ar" ? "/sa/ar" : "/sa"} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">{lang === "ar" ? "السعودية" : "Saudi Arabia"}</Link>
-              <Link href={lang === "ar" ? "/syr/ar" : "/syr"} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">{lang === "ar" ? "سوريا" : "Syria"}</Link>
-              <Link href={libraryPath} className={`text-sm font-medium transition-colors hover:text-primary ${location.includes("legal-library") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.ourWork}</Link>
-              <Link href={blogIndexPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location === "/blog" || location.startsWith("/blog/")) ? "text-primary" : "text-muted-foreground"}`}>{t.nav.blog}</Link>
-              <Link href={workPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location.startsWith("/our-work") || location.startsWith("/ar/our-work")) ? "text-primary" : "text-muted-foreground"}`}>{workLabel}</Link>
-              <Link href={regionPickerPath} className="region-picker-nav-link">
-                <Globe2 aria-hidden="true" /><span>{lang === "ar" ? "الدول" : "Regions"}</span>
-              </Link>
-              <button onClick={toggleLang} className="flex items-center gap-1.5 border border-border px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:border-primary hover:text-primary" aria-label={lang === "en" ? "عربي — Switch to Arabic" : "English — التبديل إلى الإنجليزية"}>
-                <Languages className="w-4 h-4" />{lang === "en" ? "عربي" : "English"}
-              </button>
-            </> : <>
-            <Link href={regionPrefix} className={`relative py-2 text-[0.82rem] font-medium transition-colors hover:text-primary ${isActive("") ? "text-primary after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:bg-[#b4924a]" : "text-muted-foreground"}`}>{t.nav.home}</Link>
-
-            <div className="relative group" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={(event) => {
-              if (!event.currentTarget.contains(document.activeElement)) setServicesOpen(false);
-            }} onBlur={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setServicesOpen(false);
-            }}>
-              <div className="flex items-center gap-1">
-                <Link href={p("/services")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/services") ? "text-primary" : "text-muted-foreground"}`}>
-                  {t.nav.services}
-                </Link>
-                <button ref={servicesButtonRef} type="button" onClick={() => setServicesOpen((open) => !open)} aria-label={lang === "ar" ? "موضوعات الاستشارة القانونية" : "Legal consultation topics"} aria-expanded={servicesOpen} aria-controls={servicesOpen ? "desktop-service-links" : undefined} className="inline-flex min-h-8 min-w-8 items-center justify-center text-muted-foreground hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-                  <ChevronDown className="h-4 w-4" aria-hidden="true" />
-                </button>
-              </div>
-              <AnimatePresence>
-                {servicesOpen && (
-                  <m.div
-                    id="desktop-service-links"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
-                  className="regional-services-menu absolute start-0 mt-2 bg-background border border-border shadow-lg py-2 z-50"
-                  >
-                    {t.nav.servicesList.map((service) => (
-                      <Link key={service.href} href={regionPrefix + service.href} className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary transition-colors">
-                        {service.name}
-                      </Link>
-                    ))}
-                  </m.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            <Link href={p("/about")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/about") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.about}</Link>
-            <Link href={p("/vision")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/vision") ? "text-primary" : "text-muted-foreground"}`}>{lang === "ar" ? "رؤيتنا" : "Our Vision"}</Link>
-            <Link href={libraryPath} className={`text-sm font-medium transition-colors hover:text-primary ${location.includes("legal-library") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.ourWork}</Link>
-            <Link href={blogIndexPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location === "/blog" || location.startsWith("/blog/")) ? "text-primary" : "text-muted-foreground"}`}>{t.nav.blog}</Link>
-            <Link href={workPath} className={`text-sm font-medium transition-colors hover:text-primary ${(location.startsWith("/our-work") || location.startsWith("/ar/our-work")) ? "text-primary" : "text-muted-foreground"}`}>{workLabel}</Link>
-            <Link href={p("/contact")} className={`text-sm font-medium transition-colors hover:text-primary ${isActive("/contact") ? "text-primary" : "text-muted-foreground"}`}>{t.nav.contact}</Link>
-
-            <Link href={regionPickerPath} className="region-picker-nav-link">
-              <Globe2 aria-hidden="true" />
-              <span>{lang === "ar" ? "الدول" : "Regions"}</span>
-            </Link>
-
-            <button
-              onClick={toggleLang}
-              className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors border border-border px-3 py-1.5 hover:border-primary"
-              aria-label={lang === "en" ? "عربي — Switch to Arabic" : "English — التبديل إلى الإنجليزية"}
-            >
-              <Languages className="w-4 h-4" />
-              {lang === "en" ? "عربي" : "English"}
-            </button>
-
-            <Button asChild className="group rounded-none font-medium bg-primary text-white hover:bg-primary/90 shadow-[5px_5px_0_rgba(180,146,74,0.25)]">
-              <Link href={p("/contact")}>
-                {t.nav.bookConsultation}
-                <ArrowRight className="ms-2 h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 rtl:rotate-180" />
-              </Link>
-            </Button>
-            </>}
-          </div>
-
-          <div className="lg:hidden flex items-center gap-3">
-            <Link href={regionPickerPath} aria-label={lang === "ar" ? "اختيار الدولة" : "Choose region"} className="text-[#886b31] hover:text-primary">
-              <Globe2 className="h-5 w-5" />
-            </Link>
-            <button onClick={toggleLang} aria-label={lang === "en" ? "ع — Switch to Arabic" : "EN — Switch to English"} className="text-muted-foreground hover:text-primary text-sm font-medium border border-border px-2 py-1">
-              {lang === "en" ? "ع" : "EN"}
-            </button>
-            <button ref={menuButtonRef} type="button" onClick={() => setIsOpen((open) => !open)} aria-label={lang === "ar" ? (isOpen ? "إغلاق القائمة" : "فتح القائمة") : (isOpen ? "Close menu" : "Open menu")} aria-expanded={isOpen} aria-controls={isOpen ? "mobile-navigation-links" : undefined} className="inline-flex min-h-11 min-w-11 items-center justify-center text-muted-foreground hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
+  return <Dialog.Root open={open} onOpenChange={setOpen}>
+    <header className="counselo-header" dir={ar ? "rtl" : "ltr"}>
+      <div className="counselo-header__inner">
+        <Link href={home} className="counselo-brand">
+          <img src={brandMark} width="38" height="38" alt="" />
+          <span><strong>{ar ? "كاونسلو للاستشارات القانونية" : "CounselO Legal"}</strong><small>{label.online}</small></span>
+        </Link>
+        <Link href={ar ? "/ar" : "/"} className="counselo-header__region" aria-label={`${label.country}: ${isSharedPath ? label.global : country[lang]}`}><Globe2 aria-hidden="true" />{isSharedPath ? label.global : country[lang]}</Link>
+        <nav className="counselo-header__links" aria-label={label.primary}>
+          <Link href={home} aria-current={location === home ? "page" : undefined}>{t.nav.home}</Link>
+          {!isSharedPath && <><Link href={serviceIndex} data-active={active(serviceIndex)}>{label.services}</Link><Link href={`${regionPrefix}/about`} data-active={active(`${regionPrefix}/about`)}>{label.about}</Link></>}
+          <Link href={library} data-active={active(library)}>{label.library}</Link>
+          {isSharedPath ? <Link href={work} data-active={active(work)}>{label.work}</Link> : <Link href={contact} className="counselo-header__consult">{label.consult}</Link>}
+        </nav>
+        <div className="counselo-header__controls">
+          <button type="button" onClick={changeLanguage} className="counselo-language" aria-label={label.language}><span lang={ar ? "en" : "ar"}>{ar ? "EN" : "ع"}</span></button>
+          <Dialog.Trigger asChild><button type="button" className="counselo-menu-trigger" aria-label={label.open}><Menu aria-hidden="true" /><span>{label.menu}</span></button></Dialog.Trigger>
         </div>
       </div>
-
-      <AnimatePresence>
-        {isOpen && (
-          <m.div
-            ref={mobileMenuRef}
-            id="mobile-navigation-links"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="lg:hidden bg-background border-b border-border overflow-hidden"
-          >
-            <div className="overflow-y-auto max-h-[calc(100svh-5.25rem)]">
-            <div className="px-4 pt-2 pb-10 space-y-1">
+    </header>
+    <Dialog.Portal>
+      <Dialog.Overlay className="counselo-menu-overlay" />
+      <Dialog.Content className="counselo-menu" dir={ar ? "rtl" : "ltr"} onOpenAutoFocus={event => { event.preventDefault(); closeRef.current?.focus(); }}>
+        <div className="counselo-menu__heading">
+          <div><Dialog.Title>{label.title}</Dialog.Title><p>{isSharedPath ? label.global : country[lang]}</p></div>
+          <Dialog.Description className="sr-only">{label.intro}</Dialog.Description>
+          <Dialog.Close asChild><button ref={closeRef} type="button" className="counselo-menu__close" aria-label={label.close}><X aria-hidden="true" /></button></Dialog.Close>
+        </div>
+        <div className="counselo-menu__scroll">
+          <div className="counselo-menu__body">
+            <div className="counselo-menu__primary">
+              <nav aria-label={label.primary}>
+                {primaryLinks.map(({ href, title, Icon }) => <Link key={href} href={href} onClick={close} data-active={active(href)} aria-current={location === href ? "page" : undefined}><Icon aria-hidden="true" /><span>{title}</span><ArrowRight className="counselo-nav-arrow" aria-hidden="true" /></Link>)}
+              </nav>
+              {!isSharedPath && <Link className="counselo-menu__consult" href={contact} onClick={close}>{label.consult}<ArrowRight className="counselo-nav-arrow" aria-hidden="true" /></Link>}
+              <Link className="counselo-menu__urgent" href={isSharedPath ? `${ar ? "/ar" : ""}/urgent-legal-assistance` : `${serviceIndex}/urgent-legal-assistance`} onClick={close}><Clock3 aria-hidden="true" />{label.urgent}</Link>
+            </div>
+            <section className={`counselo-menu__services${servicesExpanded ? " is-expanded" : ""}`} aria-labelledby="navigation-services-title">
               {isSharedPath ? <>
-                <Link href={regionPickerPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.home}</Link>
-                <Link href={lang === "ar" ? "/uae/ar" : "/uae"} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{lang === "ar" ? "الإمارات العربية المتحدة" : "United Arab Emirates"}</Link>
-                <Link href={lang === "ar" ? "/sa/ar" : "/sa"} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{lang === "ar" ? "المملكة العربية السعودية" : "Saudi Arabia"}</Link>
-                <Link href={lang === "ar" ? "/syr/ar" : "/syr"} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{lang === "ar" ? "سوريا" : "Syria"}</Link>
-                <Link href={libraryPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.ourWork}</Link>
-                <Link href={blogIndexPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-primary">{t.nav.blog}</Link>
-                <Link href={workPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{workLabel}</Link>
-                <Link href={regionPickerPath} onClick={() => setIsOpen(false)} className="flex items-center gap-2 px-3 py-2 text-base font-medium text-foreground hover:text-primary"><Globe2 className="h-4 w-4" />{lang === "ar" ? "اختيار الدولة" : "Choose Region"}</Link>
+                <h3 id="navigation-services-title">{label.country}</h3><p className="counselo-menu__hint">{label.countryHint}</p>
+                <div className="counselo-menu__destinations">{countries.map(item => <Link key={item.id} href={`${regionHome(item.id)}/services`} onClick={close}><Globe2 aria-hidden="true" /><span><strong>{item[lang]}</strong><small>{label.services}</small></span><ArrowRight className="counselo-nav-arrow" aria-hidden="true" /></Link>)}</div>
               </> : <>
-              <Link href={regionPrefix} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.home}</Link>
-              <div className="px-3 py-2 text-base font-medium text-foreground">{t.nav.services}</div>
-              <div className="ps-6 space-y-1">
-                {t.nav.servicesList.map((service) => (
-                  <Link key={service.href} href={regionPrefix + service.href} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary">
-                    {service.name}
-                  </Link>
-                ))}
-              </div>
-              <Link href={p("/about")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.about}</Link>
-              <Link href={p("/vision")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{lang === "ar" ? "رؤيتنا" : "Our Vision"}</Link>
-              <Link href={libraryPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.ourWork}</Link>
-              <Link href={blogIndexPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.blog}</Link>
-              <Link href={workPath} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{workLabel}</Link>
-              <Link href={p("/contact")} onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary">{t.nav.contact}</Link>
-              <Link href={regionPickerPath} onClick={() => setIsOpen(false)} className="flex items-center gap-2 px-3 py-2 text-base font-medium text-foreground hover:text-primary"><Globe2 className="h-4 w-4" />{lang === "ar" ? "اختيار الدولة" : "Choose Region"}</Link>
-              <div className="px-3 pt-4">
-                <Button asChild className="w-full bg-primary text-white hover:bg-primary/90">
-                  <Link href={p("/contact")} onClick={() => setIsOpen(false)}>{t.nav.bookConsultation}</Link>
-                </Button>
-              </div>
+                <div className="counselo-menu__service-heading"><h3 id="navigation-services-title">{label.services}</h3><Link href={serviceIndex} onClick={close}>{label.all}<ArrowRight className="counselo-nav-arrow" aria-hidden="true" /></Link></div>
+                <button type="button" className="counselo-menu__expand" aria-expanded={servicesExpanded} aria-controls="navigation-service-list" onClick={() => setServicesExpanded(value => !value)}><Scale aria-hidden="true" /><span>{label.services}</span><span className="counselo-menu__total">{services.length}</span><ChevronDown aria-hidden="true" /></button>
+                <div className="counselo-menu__service-body" id="navigation-service-list">
+                  <p className="counselo-menu__hint">{label.servicesHint}</p>
+                  <label className="counselo-menu__search"><Search aria-hidden="true" /><span className="sr-only">{label.search}</span><input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder={label.placeholder} />{query && <button type="button" aria-label={label.clear} onClick={() => setQuery("")}><X aria-hidden="true" /></button>}</label>
+                  {query && <p className="counselo-menu__result-count" role="status">{label.found}: {matches.length}</p>}
+                  <nav className="counselo-menu__service-grid" aria-label={label.services}>{matches.map(service => <Link key={service.slug} href={`${serviceIndex}/${service.slug}`} onClick={close} data-active={active(`${serviceIndex}/${service.slug}`)}>{ar ? service.titleAr : service.titleEn}<ArrowRight className="counselo-nav-arrow" aria-hidden="true" /></Link>)}</nav>
+                  {!matches.length && <div className="counselo-menu__empty"><p>{label.noResults}</p><button type="button" onClick={() => setQuery("")}>{label.reset}</button></div>}
+                  <Link href={serviceIndex} className="counselo-menu__all-services" onClick={close}>{label.all}<ArrowRight className="counselo-nav-arrow" aria-hidden="true" /></Link>
+                </div>
               </>}
-            </div>
-            </div>
-          </m.div>
-        )}
-      </AnimatePresence>
-    </nav>
-  );
+            </section>
+          </div>
+        </div>
+          <div className="counselo-menu__footer">
+            <nav className="counselo-menu__countries" aria-label={label.country}><span><Globe2 aria-hidden="true" />{label.country}</span><div>{countries.map(item => <Link key={item.id} href={regionHome(item.id)} onClick={close} aria-current={!isSharedPath && region === item.id ? "location" : undefined}>{item[lang]}{!isSharedPath && region === item.id && <Check aria-hidden="true" />}</Link>)}</div></nav>
+            <button type="button" className="counselo-menu__language" onClick={changeLanguage} aria-label={label.language}><span lang={ar ? "en" : "ar"}>{ar ? "English" : "العربية"}</span><ArrowRight className="counselo-nav-arrow" aria-hidden="true" /></button>
+          </div>
+      </Dialog.Content>
+    </Dialog.Portal>
+  </Dialog.Root>;
 }

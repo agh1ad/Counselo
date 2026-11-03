@@ -64,6 +64,17 @@ test("shared canonical, hreflang, cache, and prerender policies are deterministi
   assert.equal(PUBLIC_CACHE_POLICY.notFound, "no-store");
 });
 
+test("regional service alternatives are reciprocal when UAE shares a route slug", () => {
+  for (const slug of ["banking-finance", "intellectual-property"]) {
+    const sa = buildHreflangLinks(`/sa/services/${slug}`);
+    assert.deepEqual(sa, buildHreflangLinks(`/syr/ar/services/${slug}`));
+    assert.ok(!sa.some(value => value.includes("/uae/")));
+    const uae = buildHreflangLinks(`/uae/services/${slug}`);
+    assert.deepEqual(uae, buildHreflangLinks(`/uae/ar/services/${slug}`));
+    assert.ok(!uae.some(value => value.includes("/sa/") || value.includes("/syr/")));
+  }
+});
+
 test("the checked-in canonical URL matrix covers the generated public inventory", () => {
   const requiredPageTypes = [
     "region-picker",
@@ -142,6 +153,12 @@ test("dynamic discovery emits both language canonicals and preserves both blog h
   assert.match(sitemap, /\/blog\/en\/contract-guide/);
   assert.match(sitemap, /\/blog\/ar\/contract-guide/);
   assert.doesNotMatch(sitemap, /\/blog\/legacy/);
+  const datedBase = base.replace("/blog</loc>", "/blog</loc><lastmod>2026-11-03</lastmod>");
+  const datedSitemap = buildDynamicSitemap(datedBase, [post], []);
+  const indexEntry = datedSitemap.match(/<url><loc>https:\/\/counselo-legal\.com\/blog<\/loc>[\s\S]*?<\/url>/)?.[0] ?? "";
+  assert.equal((indexEntry.match(/<lastmod>/g) ?? []).length, 1);
+  assert.match(indexEntry, /<lastmod>2026-11-03<\/lastmod>/);
+  assert.equal(buildDynamicSitemap(datedSitemap, [post], []).replace(/>\s*</g, "><"), datedSitemap.replace(/>\s*</g, "><"));
   const feed = buildDiscoveryFeed([post], []);
   assert.match(feed, /\/blog\/en\/contract-guide/);
   assert.match(feed, /\/blog\/ar\/contract-guide/);

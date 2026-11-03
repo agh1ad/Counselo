@@ -71,7 +71,6 @@ export const COOPERATING_OFFICES = {
     name: "Lawyer Abdullah Al-Anzi",
     alternateName: "المحامي عبدالله العنزي",
     areaServed: { "@type": "Country", name: "Saudi Arabia" },
-    identifier: { "@type": "PropertyValue", name: "Saudi law licence", value: "37440" },
   },
   alBaghdadi: {
     "@type": "LegalService",
@@ -87,7 +86,6 @@ export const COOPERATING_OFFICES = {
     name: "Lawyer Omar Al-Abdullah Office",
     alternateName: "مكتب المحامي عمر العبد الله",
     areaServed: { "@type": "Country", name: "Syria" },
-    identifier: { "@type": "PropertyValue", name: "Syrian law licence", value: "4519" },
   },
 } as const;
 

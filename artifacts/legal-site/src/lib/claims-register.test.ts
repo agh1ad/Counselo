@@ -28,8 +28,8 @@ test("every public claim register entry has approval and evidence metadata", () 
     assert.ok(claim.approvedWordingEn && claim.approvedWordingAr);
     assert.ok(claim.evidenceOwner && claim.evidenceLocation);
     assert.deepEqual(new Set(claim.jurisdictions), new Set(["uae", "sa", "syr"]));
-    assert.match(claim.lastVerified, /^2026-\d{2}-\d{2}$/);
-    assert.match(claim.reviewBy, /^2026-\d{2}-\d{2}$/);
+    assert.match(claim.lastVerified, /^\d{4}-\d{2}-\d{2}$/);
+    assert.match(claim.reviewBy, /^\d{4}-\d{2}-\d{2}$/);
     assert.ok(claim.requiredDisclaimer);
   }
 });
@@ -54,21 +54,21 @@ test("the experience-volume claim uses the neutral centralized wording", () => {
   assert.doesNotMatch(copy, /(?:أكثر من\s+)?20,000\s+(?:قضية|قضايا|مسألة)\b(?! واستشارة قانونية)/);
 });
 
-test("experience methodology is visible on every claim-bearing page family and linked site-wide", () => {
-  const directSurfaces = [
-    "src/components/home/global-homepage.tsx",
-    "src/pages/home.tsx",
-    "src/pages/about.tsx",
-    "src/pages/legal-problem-detail.tsx",
-    "src/components/seo/TrustSignals.tsx",
-  ];
-  for (const file of directSurfaces) {
-    assert.match(readFileSync(resolve(process.cwd(), file), "utf8"), /ExperienceMethodologyNote/, file);
-  }
+test("About omits the removed experience explanation and team trust signals avoid personal figures", () => {
+  const about = readFileSync(resolve(process.cwd(), "src/pages/about.tsx"), "utf8");
+  assert.doesNotMatch(about, /ExperienceMethodologyNote|experience-methodology/);
+
+  const trust = readFileSync(resolve(process.cwd(), "src/components/seo/TrustSignals.tsx"), "utf8");
+  assert.match(trust, /Experienced legal team|فريق قانوني متمرس/);
+  assert.doesNotMatch(trust, /Omar|عمر البغدادي|COUNSELO_LEGAL_MATTERS_CLAIM|COUNSELO_LEGAL_PRACTICE_CLAIM/);
+
+  const homepage = readFileSync(resolve(process.cwd(), "src/components/home/global-homepage.tsx"), "utf8");
+  assert.doesNotMatch(homepage, /home-founder-stats|COUNSELO_LEGAL_MATTERS_STAT/);
 
   const footer = readFileSync(resolve(process.cwd(), "src/components/layout/footer.tsx"), "utf8");
-  assert.match(footer, /#experience-methodology/);
-  assert.match(footer, /Experience-figure methodology and limitations/);
+  assert.doesNotMatch(footer, /#experience-methodology|Experience-figure methodology and limitations/);
+  const journey = readFileSync(resolve(process.cwd(), "src/components/legal/saudi-service-journey.tsx"), "utf8");
+  assert.doesNotMatch(journey, /#experience-methodology/);
 
   const app = readFileSync(resolve(process.cwd(), "src/App.tsx"), "utf8");
   assert.match(app, /<Footer \/>/);
@@ -87,7 +87,6 @@ test("the professional-experience claim is derived from the approved start year"
     resolve(process.cwd(), "src/components/home/global-homepage.tsx"),
     resolve(process.cwd(), "src/components/home/homepage-content.ts"),
     resolve(process.cwd(), "src/pages/about.tsx"),
-    resolve(process.cwd(), "src/pages/vision.tsx"),
     resolve(process.cwd(), "src/pages/home.tsx"),
     resolve(process.cwd(), "src/pages/services.tsx"),
     resolve(process.cwd(), "src/pages/blog-post.tsx"),

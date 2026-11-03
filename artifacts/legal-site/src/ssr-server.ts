@@ -1,3 +1,5 @@
+import { isRetiredPublicPath, retiredPageHtml, RETIRED_RESPONSE_HEADERS } from "@workspace/api-zod";
+import { routeToFlatFilename, type LegalUpdate, type LegalUpdatesData, legalUpdatesData } from "@workspace/api-zod";
 /**
  * Production SSR server for the legal-site artifact.
  *
@@ -524,29 +526,30 @@ function htmlTag(route: string): string {
 // On-demand SSR for routes with no prerendered file
 // ---------------------------------------------------------------------------
 
-let _render: ((url: string, posts?: ApiPost[], samples?: WorkSamplePublic[]) => RenderResult) | null = null;
+let _render: ((url: string, posts?: ApiPost[], samples?: WorkSamplePublic[], updates?: LegalUpdatesData | LegalUpdate[]) => RenderResult) | null = null;
 
 async function ssrRender(
   url: string,
   posts: ApiPost[] = [],
   samples: WorkSamplePublic[] = [],
+  updates: LegalUpdatesData | LegalUpdate[] = [],
 ): Promise<string> {
   if (!_render) {
     const mod = (await import(ssrBundle)) as {
-      render: (url: string, posts?: ApiPost[], samples?: WorkSamplePublic[]) => RenderResult;
+      render: (url: string, posts?: ApiPost[], samples?: WorkSamplePublic[], updates?: LegalUpdatesData | LegalUpdate[]) => RenderResult;
     };
     _render = mod.render;
   }
 
   const template = readFileSync(shellHtml, "utf-8");
-  const { head, body } = _render(url, posts, samples);
+  const { head, body } = _render(url, posts, samples, updates);
   const discoveryWorkSamples = compactWorkSamplesForDiscovery(samples);
   const blogSlug = url.match(/^\/blog\/(?:en|ar)\/([^/?]+)$/)?.[1];
   const workSlug = url.match(/^\/(?:ar\/)?our-work\/([^/?]+)$/)?.[1];
   const detailPost = blogSlug ? posts.find(post => post.slug === decodeURIComponent(blogSlug)) : undefined;
   const detailWork = workSlug ? samples.find(sample => sample.slug === decodeURIComponent(workSlug)) : undefined;
   const detailData = `${detailPost ? `window.__SSR_POST__=${JSON.stringify(detailPost).replace(/</g, "\\u003c")};` : ""}${detailWork ? `window.__SSR_WORK__=${JSON.stringify(detailWork).replace(/</g, "\\u003c")};` : ""}`;
-  const discoveryData = `<script>${detailData}window.__SSR_POSTS__=${JSON.stringify(posts).replace(/</g, "\\u003c")};window.__SSR_WORK_SAMPLES__=${JSON.stringify(discoveryWorkSamples).replace(/</g, "\\u003c")};</script>`;
+  const discoveryData = `<script>window.__SSR_LEGAL_UPDATES__=${JSON.stringify(legalUpdatesData(url, updates)).replace(/</g, "\\u003c")};${detailData}window.__SSR_POSTS__=${JSON.stringify(posts).replace(/</g, "\\u003c")};window.__SSR_WORK_SAMPLES__=${JSON.stringify(discoveryWorkSamples).replace(/</g, "\\u003c")};</script>`;
 
   return template
     .replace('<html lang="en">', htmlTag(url))
@@ -564,6 +567,10 @@ async function ssrRender(
 const app = express();
 
 app.disable("x-powered-by");
+app.use((req, res, next) => {
+  if (!isRetiredPublicPath(req.path)) return next();
+  res.status(410).set(RETIRED_RESPONSE_HEADERS).send(retiredPageHtml(req.path));
+});
 app.use((req, res, next) => {
   const destination = canonicalHostRedirect(
     req.get("host"),

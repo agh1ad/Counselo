@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { readingSearchKey } from "@/lib/article-reading";
 import { Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import * as m from "framer-motion/m";
@@ -16,6 +18,7 @@ declare global {
 }
 
 export default function OurWork() {
+  const [search, setSearch] = useState("");
   const { lang, isRTL } = useLanguage();
   const { regionPrefix } = useRegion();
   const { data: samples = [], isLoading } = useQuery<WorkSamplePublic[]>({
@@ -33,6 +36,7 @@ export default function OurWork() {
   const ar = lang === "ar";
   const workBasePath = ar ? "/ar/our-work" : "/our-work";
   const visibleSamples = samples.filter((sample) => ar ? Boolean(sample.titleAr) : Boolean(sample.titleEn));
+  const matchingSamples = visibleSamples.filter(sample => readingSearchKey(`${sample.titleEn} ${sample.titleAr} ${sample.workTypeEn} ${sample.workTypeAr} ${sample.jurisdictionEn} ${sample.jurisdictionAr}`).includes(readingSearchKey(search)));
   const ui = ar ? {
     eyebrow: "مكتبة كاونسلو للاستشارات القانونية · نماذج الأعمال",
     title: "نماذج الأعمال والمذكرات القانونية",
@@ -79,7 +83,7 @@ export default function OurWork() {
       "@context": "https://schema.org",
       "@type": "ItemList",
       numberOfItems: visibleSamples.length,
-      itemListElement: visibleSamples.map((sample, index) => ({
+      itemListElement: matchingSamples.map((sample, index) => ({
         "@type": "ListItem",
         position: index + 1,
         name: localized(sample.titleEn, sample.titleAr, lang),
@@ -129,9 +133,11 @@ export default function OurWork() {
       </section>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="border border-border bg-muted/40 p-6 md:p-8 flex flex-col md:flex-row gap-5 mb-12">
-          <div className="h-12 w-12 shrink-0 bg-primary/10 text-primary flex items-center justify-center"><LockKeyhole className="h-6 w-6" /></div>
-          <div><h2 className="text-xl font-serif font-bold mb-2">{ui.trustTitle}</h2><p className="text-muted-foreground leading-relaxed max-w-4xl">{ui.trustText}</p></div>
+        <div className="mb-5">
+          <label htmlFor="work-search" className="block font-semibold mb-2">{ar ? "ابحث في نماذج الأعمال" : "Search work samples"}</label>
+          <input id="work-search" type="search" value={search} onChange={event => setSearch(event.target.value)} className="reading-search" placeholder={ar ? "الموضوع أو الدولة أو نوع المستند" : "Topic, country or document type"} />
+          <p role="status" className="mt-2 text-sm text-muted-foreground">{ar ? `${matchingSamples.length} نموذج عمل` : `${matchingSamples.length} work samples`}</p>
+          {search && matchingSamples.length === 0 && <p className="mt-4">{ar ? "لا توجد نتائج. جرّب كلمة أخرى." : "No matches. Try another keyword."}</p>}
         </div>
 
         {isLoading ? (
@@ -140,25 +146,20 @@ export default function OurWork() {
           <div className="text-center py-20 border border-dashed border-border"><FileText className="h-10 w-10 text-muted-foreground/40 mx-auto mb-4" /><p className="text-muted-foreground">{ui.empty}</p></div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
-            {visibleSamples.map((sample, index) => {
+            {matchingSamples.map((sample, index) => {
               const title = localized(sample.titleEn, sample.titleAr, lang);
               const summary = localized(sample.summaryEn, sample.summaryAr, lang);
               const workType = localized(sample.workTypeEn, sample.workTypeAr, lang);
               const jurisdiction = localized(sample.jurisdictionEn, sample.jurisdictionAr, lang);
               return (
-                <m.article key={sample.slug} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: Math.min(index * .06, .24) }} className={`group border border-border bg-card flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all ${index === 0 ? "featured-work-card" : ""}`}>
-                  <div className="work-card-document h-44 bg-gradient-to-br from-primary/10 via-muted to-primary/5 flex items-center justify-center relative border-b border-border">
-                    <div className="w-20 h-24 bg-white border border-border shadow-md flex items-center justify-center"><FileCheck2 className="h-9 w-9 text-primary" /></div>
-                    {sample.featured && <span className="absolute top-4 start-4 bg-primary text-white text-xs font-semibold px-3 py-1">{ui.featured}</span>}
-                    <span className="absolute bottom-4 end-4 bg-background/90 border border-border text-xs px-2 py-1 uppercase">{sample.fileMimeType === "application/pdf" ? "PDF" : "IMAGE"}</span>
-                  </div>
-                  <div className="work-card-copy p-6 flex flex-col flex-1">
+                <m.article key={sample.slug} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: Math.min(index * .06, .24) }} className="reading-result group border-b border-border flex flex-col">
+                  <div className="py-5 flex flex-col flex-1">
                     <div className="flex flex-wrap gap-2 text-xs text-muted-foreground mb-4">
                       {workType && <span className="border border-border px-2.5 py-1">{workType}</span>}
                       {jurisdiction && <span className="border border-border px-2.5 py-1">{jurisdiction}</span>}
                     </div>
                     <h2 className="text-xl font-serif font-bold leading-snug mb-3 group-hover:text-primary transition-colors">{title}</h2>
-                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-4 mb-5">{summary}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 mb-3">{summary}</p>
                     <div className="mt-auto space-y-2 text-xs text-muted-foreground border-t border-border pt-4">
                       <div className="flex items-center gap-2"><Scale className="h-3.5 w-3.5" />{ui.completed}: {formatWorkDate(sample.date, lang)}</div>
                       <div className="flex items-center gap-2"><Languages className="h-3.5 w-3.5" />{ui.docLanguage}: {documentLanguageLabel(sample.documentLanguage, lang)}</div>

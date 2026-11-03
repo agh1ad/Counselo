@@ -2,12 +2,12 @@ export const homepageContent = {
   en: {
     title: "CounselO Legal | Online Legal Consultation — Saudi Arabia, Syria & UAE",
     description:
-      "Online legal consultation and document review for Saudi Arabia, Syria and the UAE, in Arabic and English. Agree the scope and fee before paid work begins.",
+      "Expert online legal advice from home for Saudi Arabia, Syria and the UAE. Experienced legal team, document services and representation through licensed partners.",
     nav: ["About", "Our services", "Jurisdictions", "Our process", "Contact"],
     h1: "Online Legal Consultation for Saudi Arabia, Syria & the UAE",
     heroSummary: "Understand your legal options, review a document or plan your next step. Receive written guidance in Arabic or English, with the scope, fee and timing agreed before paid work begins.",
     intro:
-      "CounselO Legal is a bilingual online legal consultation platform founded and led by Lawyer Omar Al-Baghdadi, providing jurisdiction-specific legal consultation, document review and legal guidance in Arabic and English for matters involving Saudi Arabia, Syria and the United Arab Emirates.",
+      "CounselO Legal is a bilingual online legal consultation platform whose experienced legal team provides jurisdiction-specific legal consultation, document review and legal guidance in Arabic and English for matters involving Saudi Arabia, Syria and the United Arab Emirates.",
     primary: "Start a legal consultation",
     secondary: "Explore our services",
     picker: "Which country does your matter concern?",
@@ -136,12 +136,12 @@ export const homepageContent = {
   ar: {
     title: "كاونسلو للاستشارات القانونية | استشارات قانونية إلكترونية للسعودية وسوريا والإمارات",
     description:
-      "استشارات قانونية إلكترونية ومراجعة مستندات لمسائل السعودية وسوريا والإمارات، بالعربية والإنجليزية. اتفق على نطاق الخدمة والرسوم قبل بدء العمل المدفوع.",
+      "مشورة قانونية متخصصة من منزلك لمسائل السعودية وسوريا والإمارات. فريق متمرس للاستشارات والمستندات أونلاين وتمثيل قانوني عبر شركاء ومحامين مرخصين.",
     nav: ["عن كاونسلو للاستشارات القانونية", "خدماتنا", "الاختصاصات", "آلية العمل", "تواصل معنا"],
     h1: "استشارات قانونية إلكترونية للسعودية وسوريا والإمارات",
     heroSummary: "افهم خياراتك القانونية، أو راجع مستنداً، أو حدد خطوتك التالية. احصل على إرشاد مكتوب بالعربية أو الإنجليزية، بعد الاتفاق على نطاق الخدمة والرسوم والوقت قبل بدء العمل المدفوع.",
     intro:
-      "كاونسلو للاستشارات القانونية منصة استشارات قانونية إلكترونية بالعربية والإنجليزية، أسسها ويقودها المحامي عمر البغدادي، وتقدم استشارات قانونية ومراجعة مستندات وإرشاداً قانونياً يراعي الاختصاص القانوني للمسائل المرتبطة بالسعودية وسوريا والإمارات العربية المتحدة.",
+      "كاونسلو للاستشارات القانونية منصة استشارات قانونية إلكترونية يقدم فريقها القانوني المتمرس بالعربية والإنجليزية استشارات قانونية ومراجعة مستندات وإرشاداً قانونياً يراعي الاختصاص القانوني للمسائل المرتبطة بالسعودية وسوريا والإمارات العربية المتحدة.",
     primary: "ابدأ استشارتك القانونية",
     secondary: "تعرّف على خدماتنا",
     picker: "بأي دولة ترتبط مسألتك؟",

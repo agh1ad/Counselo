@@ -54,7 +54,7 @@ export const enUae = {
   aboutPage: {
     ...uaeBase.aboutPage,
     seoTitle: "About CounselO Legal UAE | Online Legal Consultation",
-    seoDesc: "Learn about CounselO Legal UAE, an online legal consultation service for federal, emirate-level, mainland and free-zone matters, available in Arabic and English across 22 practice areas.",
+    seoDesc: "Meet CounselO’s experienced legal team and explore online legal advice, document review and drafting for matters in the UAE, in Arabic and English.",
     seoKeywords: "about CounselO Legal UAE, UAE online legal consultation, UAE legal services Arabic English, federal and free zone legal guidance",
     hero: {
       eyebrow: "About CounselO Legal UAE",
@@ -63,8 +63,8 @@ export const enUae = {
       badge: "Federal · Emirate-level · Mainland · Free zones",
     },
     stats: [
-      { stat: "20,000+", label: "Career-wide matters & consultations across the region" },
-      { stat: "30+", label: "Years of Regional Experience" },
+      { stat: "Online", label: "Remote consultation and document review" },
+      { stat: "Experienced team", label: "Legal analysis, drafting and dispute assessment" },
       { stat: "22", label: "UAE Practice Areas" },
       { stat: "2", label: "Service Languages" },
     ],
@@ -107,11 +107,10 @@ export const enUae = {
       eyebrow: "UAE Service Model",
       heading: "Online Consultation with Jurisdiction-Specific Coordination",
       p1: "CounselO Legal provides online consultation, document review and preliminary legal analysis for UAE matters across all seven Emirates.",
-      p2: "If the reviewed scope requires a locally licensed advocate, court filing, notarisation or appearance before a UAE authority, that requirement and the appropriate engagement route are confirmed before the additional work begins.",
+      p2: "We work through licensed partners and lawyers in the UAE. Court and authority representation is coordinated under a separately agreed engagement.",
       city: "United Arab Emirates",
       region: "Online across all seven Emirates",
       partnerName: "CounselO Legal UAE Matter Support",
-      licenseNo: "Online consultation and jurisdiction review",
       address: "United Arab Emirates\nFederal, emirate-level, mainland and free-zone matters",
       mapsUrl: "",
       mapsLabel: "UAE service information",
@@ -146,7 +145,7 @@ export const enUae = {
       h1b: "for the UAE — Focused & Structured.",
       desc: "CounselO Legal is an online legal consultation platform serving the United Arab Emirates — delivering expert legal guidance for individuals, families, businesses and investors across federal, emirate-level, mainland and free-zone matters",
       descBold: "without leaving your desk.",
-      subDesc: "No office visit required. Consult via WhatsApp or email from anywhere in the UAE — with a target professional response time of 24 hours. We identify the relevant UAE framework before advising. 30+ years of legal practice, 20,000+ legal matters and consultations.",
+      subDesc: "Consult our experienced legal team by WhatsApp or email about your matter in the UAE. We review the facts and documents and confirm the advice you need before work begins, without an office visit.",
       chips: ["✓ UAE-focused legal guidance", "✓ Arabic & English", "✓ Individuals & Businesses", "✓ Online across all Emirates"],
     },
     platform: {
@@ -161,7 +160,7 @@ export const enUae = {
     },
     about: {
       ...en.home.about,
-      p1: "CounselO Legal was founded by Lawyer and Legal Counsel Omar Al-Baghdadi, a senior advocate with 30+ years of legal practice across the region. The UAE service brings that experience to matters involving federal law, emirate-level authorities, mainland businesses and financial free zones.",
+      p1: "CounselO’s legal team brings experience in contracts, disputes, family, employment and property matters to your legal needs in the UAE. We review the documents and evidence, prepare advice and drafting, and arrange any local representation through licensed partners and lawyers under a separate engagement.",
       p2: "The platform coordinates UAE-focused legal analysis across corporate, commercial, employment, property, family, disputes and regulated-sector matters, with senior review and a clear scope for each consultation.",
       p3: "Whether you are an individual, a UAE company, a founder or a foreign investor, CounselO Legal provides a direct bilingual route to structured legal guidance without unnecessary office visits.",
       founderTeamLine: "Leading a professional legal network across the UAE and the region",
@@ -180,7 +179,7 @@ export const enUae = {
     consultMethods: {
       ...en.home.consultMethods,
       eyebrow: "Available Online — Across the UAE",
-      intro: "Start securely by WhatsApp or email. CounselO Legal reviews the UAE jurisdiction, relevant authority and documents before confirming the appropriate legal work.",
+      intro: "CounselO’s experienced legal team provides structured legal analysis and practical guidance. Published work samples are redacted and illustrative, and do not guarantee the result of another matter.",
     },
     whoWeServe: {
       ...en.home.whoWeServe,
@@ -203,7 +202,7 @@ export const enUae = {
       features: [
         { title: "Jurisdiction First", desc: "We identify the Emirate, authority, court, mainland or free-zone framework before recommending a route." },
         { title: "Confidential & Structured", desc: "Your facts and documents are reviewed through a clear professional consultation process." },
-        { title: "Senior Legal Oversight", desc: "CounselO Legal was founded by Lawyer and Legal Counsel Omar Al-Baghdadi, with 30+ years of legal practice." },
+        { title: "Experienced legal team", desc: "Our team applies its experience to document analysis, risk assessment and the preparation of legal advice, contracts and memoranda." },
         { title: "Arabic & English", desc: "Bilingual legal guidance for UAE residents, businesses and international clients." },
       ],
     },
@@ -221,14 +220,14 @@ export const enUae = {
       eyebrow: "Online Legal Consultation Platform — UAE",
       heading: "Start with the Right UAE Jurisdiction.",
       desc: `${UAE_SERVICES.length} UAE-focused legal services for individuals, businesses and investors — online in Arabic or English.`,
-      subDesc: "Federal · Emirate-level · Mainland · Free zones · DIFC · ADGM",
+      subDesc: "Experienced legal team · WhatsApp or email · Arabic and English",
     },
     cooperation: {
       ...en.home.cooperation,
       desc: "Most consultations, document reviews and legal opinions can begin online. If a UAE matter requires formal filing, representation, notarisation or attendance before a competent authority, the required local engagement is confirmed after reviewing the scope and jurisdiction.",
       officeLabel: "UAE Matter Support",
       officeName: "Jurisdiction-specific coordination",
-      officeDetail: "Formal representation is arranged only where required and subject to the applicable UAE licensing and engagement requirements.",
+      officeDetail: "We work through licensed partners and lawyers in the UAE.",
     },
   },
   contact: {

@@ -1,502 +1,147 @@
-import * as m from "framer-motion/m";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { CheckCircle2, ArrowRight, MapPin, Award, Users, Globe, Zap, Scale, Star, Building2, Linkedin } from "lucide-react";
+import { ArrowLeft, ArrowRight, MonitorSmartphone, UsersRound, Scale, Globe2, Check, ShieldCheck, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
-import {
-  getServicesForRegion,
-  BAGHDADI_LAW_PROFILE_URL,
-  COUNSELO_ORGANIZATION,
-  OMAR_AL_BAGHDADI,
-  COOPERATING_OFFICES,
-  COUNSELO_ENTITY_IDS,
-  OMAR_OFFICIAL_PROFILE_URL,
-} from "@workspace/api-zod/browser";
-import { JurisdictionDisclosure } from "@/components/legal/JurisdictionDisclosure";
-import { ExperienceMethodologyNote } from "@/components/legal/ExperienceMethodologyNote";
-import { COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
+import { COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI, COOPERATING_OFFICES, COUNSELO_ENTITY_IDS, OMAR_OFFICIAL_PROFILE_URL } from "@workspace/api-zod/browser";
+import { ABOUT_UPDATED, SAUDI_PARTNER_LICENCE, aboutContent, aboutRegions, syrianPartners } from "@/components/about/about-content";
+import "@/components/about/about.css";
 
-const founderPhoto = "/images/optimized/omar-founder-bio.png";
-const saudiFlag = "/images/optimized/saudi-arabia-hero.jpg";
-const syrianFlag = "/images/optimized/syria-hero.jpg";
-const uaeFlag = "/images/optimized/uae-flag.svg";
-
-const whyIcons = [Scale, Globe, Award, Globe, Zap, Users];
+const featureIcons = [MonitorSmartphone, UsersRound, Scale, Globe2];
 
 export default function About() {
-  const { t, isRTL } = useLanguage();
+  const { isRTL } = useLanguage();
   const { region } = useRegion();
-  const a = t.aboutPage;
-  const practiceAreaCount = getServicesForRegion(region).length;
-  const heroFlag = region === "uae" ? uaeFlag : region === "syr" ? syrianFlag : saudiFlag;
-  const heroFlagSources = region === "uae" ? undefined : region === "syr"
-    ? "/images/optimized/syria-hero-480.webp 480w, /images/optimized/syria-hero-645.webp 645w"
-    : "/images/optimized/saudi-arabia-hero-640.webp 640w, /images/optimized/saudi-arabia-hero-960.webp 960w, /images/optimized/saudi-arabia-hero-1600.webp 1600w";
+  const language = isRTL ? "ar" : "en";
+  const c = aboutContent[language];
+  const local = aboutRegions[region][language];
   const regionPath = `/${region}${isRTL ? "/ar" : ""}`;
+  const Arrow = isRTL ? ArrowLeft : ArrowRight;
   const countryCode = region === "uae" ? "AE" : region === "syr" ? "SY" : "SA";
-
+  const description = isRTL
+    ? `تعرّف على كاونسلو وفريقها القانوني: الاستشارات ومراجعة المستندات والصياغة أونلاين في ${local.country}، وكيف نجهز العمل ونسلمه ونتابع معك.`
+    : `Meet CounselO and its experienced legal team: online advice, document review and drafting for ${local.country}, with clear delivery and professional follow-up.`;
+  const whatsapp = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL
+    ? `مرحباً كاونسلو، أود مناقشة مسألة قانونية في ${local.country} وتحديد نطاق العمل والأتعاب.`
+    : `Hello CounselO, I would like to discuss a legal matter in ${local.country} and confirm the scope and fee.`)}`;
   const schema = [
-    {
-      "@context": "https://schema.org",
-      ...COUNSELO_ORGANIZATION,
-
-    },
-    {
-      "@context": "https://schema.org",
-      ...OMAR_AL_BAGHDADI,
-      "image": {
-        "@type": "ImageObject",
-        "url": "https://counselo-legal.com/omar-baghdadi.jpg",
-        "width": 800,
-        "height": 1200,
-      },
-
+    { "@context": "https://schema.org", ...COUNSELO_ORGANIZATION },
+    { "@context": "https://schema.org", ...OMAR_AL_BAGHDADI,
+      image: { "@type": "ImageObject", url: "https://counselo-legal.com/images/optimized/omar-founder-bio.png" },
     },
     {
       "@context": "https://schema.org",
       "@type": ["ProfilePage", "WebPage"],
       "@id": `https://counselo-legal.com${regionPath}/about#webpage`,
-      "name": isRTL ? "عن كاونسلو للاستشارات القانونية" : "About CounselO Legal",
+      "name": c.label,
       "url": `https://counselo-legal.com${regionPath}/about`,
-      "description": a.seoDesc,
+      "description": description,
       "mainEntity": { "@id": COUNSELO_ENTITY_IDS.organization },
-      "inLanguage": isRTL ? `ar-${countryCode}` : `en-${countryCode}`,
+      "inLanguage": `${language}-${countryCode}`,
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
-          { "@type": "ListItem", "position": 2, "name": isRTL ? "عن كاونسلو للاستشارات القانونية" : "About CounselO Legal", "item": `https://counselo-legal.com${regionPath}/about` },
+          { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": `https://counselo-legal.com${regionPath}` },
+          { "@type": "ListItem", "position": 2, "name": c.label, "item": `https://counselo-legal.com${regionPath}/about` },
         ],
       },
     },
-    ...Object.values(COOPERATING_OFFICES).map((office) => ({
-      "@context": "https://schema.org",
-      ...office,
-    })),
+    ...(region === "sa" ? [{ "@context": "https://schema.org", ...COOPERATING_OFFICES.saudi }] : []),
+    ...(region === "syr" ? [COOPERATING_OFFICES.alBaghdadi, COOPERATING_OFFICES.syriaAbdullah].map(office => ({ "@context": "https://schema.org", ...office })) : []),
   ];
 
-  return (
-    <div className="counselo-editorial-page firm-profile-page w-full bg-background min-h-screen">
-      <SEOHead
-        title={a.seoTitle}
-        description={a.seoDesc}
-        canonical="/about"
-        keywords={a.seoKeywords}
-        schema={schema}
-      />
+  return <div className="about-platform-page" dir={isRTL ? "rtl" : "ltr"}>
+    <SEOHead title={`${c.label} | ${local.country}`} description={description} canonical="/about" schema={schema} />
 
-      {/* ── Hero ── */}
-      <section className="premium-page-hero relative overflow-hidden py-28">
-        {/* The jurisdiction flag remains authentic context, integrated as a quiet editorial layer. */}
-        <picture>
-          {heroFlagSources && <source type="image/webp" srcSet={heroFlagSources} sizes="(max-width: 767px) 640px, 62vw" />}
-          <img src={heroFlag} alt="" aria-hidden="true" width={region === "syr" ? 645 : 1600} height={region === "syr" ? 360 : 900} fetchPriority="high" decoding="async" className="absolute inset-y-0 end-0 h-full w-[62%] object-cover object-center opacity-[0.08] mix-blend-multiply" />
-        </picture>
-        <div className="absolute inset-0 bg-[#073d2b]/82" />
-        <div className="premium-content-shell relative z-10">
-          <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-2 mb-6">
-              {a.hero.badge}
-            </span>
-            <p className="text-sm font-semibold uppercase tracking-widest text-white/60 mb-4">{a.hero.eyebrow}</p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
-              {a.hero.heading}
-            </h1>
-            <div className="premium-hero-rule mb-8" />
-            <p className="text-lg text-white/75 leading-relaxed max-w-2xl">{a.hero.subheading}</p>
-          </m.div>
-        </div>
-      </section>
-
-      {/* ── Stats Bar ── */}
-      <section className="bg-[#003d22] py-10 border-t border-[#d4af60]/30">
-        <div className="premium-content-shell">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {a.stats.map((s, i) => (
-              <m.div key={i} initial={false} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
-                <div className="text-3xl md:text-4xl font-serif font-bold text-white mb-1">{i === 2 ? practiceAreaCount : s.stat}</div>
-                <div className="text-sm text-white/70 uppercase tracking-wider">{s.label}</div>
-              </m.div>
-            ))}
-          </div>
-          <ExperienceMethodologyNote
-            id="experience-methodology"
-            isArabic={isRTL}
-            className="mx-auto mt-8 max-w-4xl scroll-mt-32 border-t border-white/15 pt-5 text-center text-xs leading-5 text-white/65"
-          />
-        </div>
-      </section>
-
-      {/* ── Mission + Vision 2030 ── */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{a.mission.eyebrow}</p>
-              <h2 className="text-4xl font-serif font-bold text-foreground mb-6">{a.mission.heading}</h2>
-              <div className="w-16 h-1 bg-primary/40 mb-8" />
-              <p className="text-muted-foreground leading-relaxed mb-5">{a.mission.p1}</p>
-              <p className="text-muted-foreground leading-relaxed mb-5">{a.mission.p2}</p>
-              <p className="text-muted-foreground leading-relaxed">{a.mission.p3}</p>
-            </m.div>
-            <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <div className="bg-primary p-10 text-white">
-                <div className="flex items-center gap-3 mb-6">
-                  <Star className="h-8 w-8 text-white/80" />
-                  <div>
-                    <div className="font-serif font-bold text-xl">{a.mission.vision2030Badge}</div>
-                    <div className="text-white/70 text-sm mt-1">{a.mission.vision2030Desc}</div>
-                  </div>
-                </div>
-                <div className="border-t border-white/20 pt-6 space-y-4">
-                  {[
-                    isRTL ? "التحول الرقمي للخدمات القانونية" : "Digital transformation of legal services",
-                    isRTL ? "إتاحة العدالة لجميع المواطنين" : "Access to justice for all citizens",
-                    isRTL ? "تمكين الأعمال والمستثمرين" : "Empowering businesses and investors",
-                    isRTL ? "المشورة القانونية بلا حدود جغرافية" : "Legal advice without geographic barriers",
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-white/60 shrink-0" />
-                      <span className="text-white/80 text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="mt-6 bg-card border border-border p-8">
-                {region === "uae" ? (
-                  <>
-                    <div className="text-4xl font-serif font-bold text-primary mb-2">7</div>
-                    <p className="text-foreground font-semibold mb-2">
-                      {isRTL ? "سبع إمارات — أطر واختصاصات متعددة" : "Seven Emirates — Multiple Competent Frameworks"}
-                    </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {isRTL
-                        ? "تبدأ المراجعة بتحديد الإمارة والجهة والإطار الاتحادي أو المحلي أو إطار البرّ الرئيسي أو المنطقة الحرة المناسب للمسألة."
-                        : "Each review begins by identifying the Emirate, authority and appropriate federal, local, mainland or free-zone framework."}
-                    </p>
-                  </>
-                ) : region === "syr" ? (
-                  <>
-                    <div className="text-4xl font-serif font-bold text-primary mb-2">1957</div>
-                    <p className="text-foreground font-semibold mb-2">
-                      {isRTL ? "مكتب البغدادي للمحاماة — تأسس عام 1957" : "Al-Baghdadi Law Firm — Est. 1957"}
-                    </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {isRTL
-                        ? "يخص تاريخ التأسيس عام 1957 مكتب البغدادي للمحاماة (BaghdadiLaw)، لا كاونسلو للاستشارات القانونية. وتشكل صلة عمر البغدادي العائلية والمهنية بالمكتب جزءاً من خلفيته بصفته مؤسس منصة الاستشارات الإلكترونية المنفصلة."
-                        : "The 1957 founding date belongs to Al-Baghdadi Law Firm (BaghdadiLaw), not CounselO Legal. Omar Al-Baghdadi’s family and professional connection to the firm forms part of his background as founder of the separate online consultation platform."}
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <div className="text-4xl font-serif font-bold text-primary mb-2">2030</div>
-                    <p className="text-foreground font-semibold mb-2">
-                      {isRTL ? "التحول الرقمي في السعودية — خدمات قانونية إلكترونية" : "Saudi digital transformation — Online Legal Services"}
-                    </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {isRTL
-                        ? "تقدم كاونسلو للاستشارات القانونية خدمات قانونية إلكترونية تساعد الأفراد والشركات والمستثمرين على الوصول إلى الإرشاد المهني عبر القنوات الرقمية."
-                        : "CounselO Legal provides online legal services that help individuals, businesses and investors access professional guidance through digital channels."}
-                    </p>
-                  </>
-                )}
-              </div>
-            </m.div>
+    <section className="about-hero" aria-labelledby="about-title">
+      <div className="about-shell about-hero__grid">
+        <div>
+          <p className="about-kicker">{c.label}</p>
+          <h1 id="about-title">{c.heading}</h1>
+          <p className="about-hero__lead">{c.lead}</p>
+          <div className="about-actions">
+            <Link href={`${regionPath}/contact`} className="about-button about-button--gold" data-cta="contact" data-conversion-position="about-hero" data-region={region} data-lang={language}>{c.contact}<Arrow size={18} aria-hidden="true" /></Link>
+            <Link href={`${regionPath}/services`} className="about-hero__services">{c.servicesLink}<Arrow size={18} aria-hidden="true" /></Link>
           </div>
         </div>
-      </section>
+        <aside className="about-hero__promise" aria-labelledby="about-promise-title">
+          <h2 id="about-promise-title">{c.heroSideTitle}</h2>
+          <ul>{c.heroServices.map(text => <li key={text}><Check size={19} aria-hidden="true" /><span>{text}</span></li>)}</ul>
+        </aside>
+      </div>
+    </section>
 
-      {/* ── Founder Biography ── */}
-      <section className="py-24 bg-card border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <m.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
-            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{t.aboutPage.founder.eyebrow}</p>
-            <h2 className="text-4xl font-serif font-bold text-foreground mb-4">{t.aboutPage.founder.heading}</h2>
-            <p className="text-muted-foreground text-lg">{t.aboutPage.founder.subheading}</p>
-            <div className="w-20 h-1 bg-primary/30 mx-auto mt-6" />
-          </m.div>
+    <section className="about-features" aria-label={isRTL ? "كاونسلو باختصار" : "CounselO at a glance"}>
+      <ul className="about-shell about-features__list">{c.features.map((item, index) => {
+        const Icon = featureIcons[index];
+        return <li key={item.title}><Icon size={28} strokeWidth={1.6} aria-hidden="true" /><div><h2>{item.title}</h2><p>{item.text}</p></div></li>;
+      })}</ul>
+    </section>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left col: photo + bio */}
-            <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              {/* Founder Photo */}
-              <div className="mb-10 flex items-start gap-6">
-                <div className="relative shrink-0">
-                  <div className="w-36 h-44 border-4 border-primary/20 overflow-hidden shadow-xl">
-                    <img
-                      src={founderPhoto}
-                      alt="Lawyer Omar Al-Baghdadi — Founder of CounselO Legal"
-                      className="w-full h-full object-cover object-top"
-                      width="144" height="176" loading="lazy" decoding="async"
-                    />
-                  </div>
-                  <div className="absolute -bottom-3 -end-3 bg-primary px-3 py-1.5">
-                    <p className="text-white text-xs font-bold uppercase tracking-wider">
-                      {isRTL ? "المؤسس" : "Founder"}
-                    </p>
-                  </div>
-                </div>
-                <div className="pt-2">
-                  <h3 className="text-xl font-serif font-bold text-foreground mb-1">
-                    {isRTL ? "المحامي عمر البغدادي" : "Omar Al-Baghdadi"}
-                  </h3>
-                  <p className="text-primary text-sm font-medium mb-3">
-                    {isRTL ? "محامٍ ومستشار قانوني" : "Lawyer & Legal Counsel"}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <a
-                      href={`${OMAR_OFFICIAL_PROFILE_URL}${isRTL ? "/ar" : ""}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors border border-border hover:border-primary px-3 py-1.5"
-                    >
-                      <Globe className="h-3.5 w-3.5" />
-                      {isRTL ? "الموقع المهني الرسمي" : "Official professional profile"}
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/lawyeromarbaghdadi/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors border border-border hover:border-primary px-3 py-1.5"
-                    >
-                      <Linkedin className="h-3.5 w-3.5" />
-                      LinkedIn
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <p className="text-muted-foreground leading-relaxed mb-5 text-lg">{t.aboutPage.founder.bio1}</p>
-              <p className="text-muted-foreground leading-relaxed mb-5">{t.aboutPage.founder.bio2}</p>
-              <p className="text-muted-foreground leading-relaxed mb-5">{t.aboutPage.founder.bio3}</p>
-              <p className="text-muted-foreground leading-relaxed">{t.aboutPage.founder.bio4}</p>
-
-              <div className="grid grid-cols-2 gap-4 mt-10">
-                {t.aboutPage.founder.stats.map((s, i) => (
-                  <div key={i} className="bg-primary/5 border border-primary/20 p-5 text-center">
-                    <div className="text-2xl font-serif font-bold text-primary mb-1">{s.stat}</div>
-                    <div className="text-xs text-muted-foreground uppercase tracking-wider">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-            </m.div>
-
-            <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <div className="bg-primary p-8 text-white mb-6">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-white/15 border border-white/25 flex items-center justify-center">
-                    <Award className="h-7 w-7 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-serif font-bold text-lg">
-                      {isRTL ? "المحامي والمستشار القانوني" : "Lawyer & Legal Counsel"}
-                    </div>
-                    <div className="text-white/70 text-sm">
-                      {isRTL ? "عمر البغدادي" : "Omar Al-Baghdadi"}
-                    </div>
-                  </div>
-                </div>
-                <div className="border-t border-white/20 pt-6">
-                  <p className="text-white/80 text-sm font-semibold uppercase tracking-wider mb-4">
-                    {isRTL ? "المؤهلات والإنجازات" : "Credentials & Achievements"}
-                  </p>
-                  <ul className="space-y-3">
-                    {t.aboutPage.founder.credentials.map((c, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-4 w-4 text-white/60 shrink-0 mt-0.5" />
-                        <span className="text-white/80 text-sm leading-relaxed">{c}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="bg-card border border-border p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <Building2 className="h-5 w-5 text-primary" />
-                  <span className="font-semibold text-foreground">
-                    {isRTL ? "مكتب البغدادي للمحاماة — تأسس 1957" : "Al-Baghdadi Law Firm — Est. 1957"}
-                  </span>
-                </div>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {isRTL
-                    ? "تأسس مكتب البغدادي للمحاماة (BaghdadiLaw) عام 1957 على يد المحامي رياض البغدادي، والد عمر. تخرج عمر من كلية الحقوق بجامعة دمشق عام 1996 وأسس كاونسلو للاستشارات القانونية بوصفها منصة استشارات إلكترونية منفصلة. تربط المكتب والمنصة صلة مهنية وتاريخية عبر عمر، مع بقاء هوية كل منهما وتكليفاته مستقلة."
-                    : "Al-Baghdadi Law Firm (BaghdadiLaw) was founded in 1957 by Lawyer Riyad Al-Baghdadi, Omar’s father. Omar graduated from Damascus University’s Faculty of Law in 1996 and founded CounselO Legal as a distinct online consultation platform. The firm and platform share a professional and historical connection through Omar; their identities and engagements remain separate."}
-                </p>
-                <a
-                  href={isRTL ? "https://www.baghdadilaw.co/ar/who-we-are" : BAGHDADI_LAW_PROFILE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-4"
-                >
-                  {isRTL ? "تعرّف على تاريخ المكتب وقيادته" : "Explore the firm’s history and leadership"}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </a>
-              </div>
-            </m.div>
-          </div>
+    <section className="about-story about-shell" aria-labelledby="about-platform-heading">
+      <header className="about-story__intro">
+        <h2 id="about-platform-heading">{c.platformTitle}</h2>
+        <div><p className="about-lead">{c.introduction}</p><p>{c.purpose}</p><p>{local.focus}</p></div>
+      </header>
+      <div className="about-story__row">
+        <h3>{c.teamTitle}</h3>
+        <div><p>{c.team}</p><p>{c.teamSupport}</p></div>
+      </div>
+      <div className="about-story__row">
+        <h3>{c.servicesTitle}</h3>
+        <div>
+          <p>{c.servicesIntro}</p>
+          <ul className="about-service-list">{c.services.map(item => <li key={item.title}><h4>{item.title}</h4><p>{item.text}</p></li>)}</ul>
+          <Link href={`${regionPath}/services`} className="about-text-link">{c.servicesLink}<Arrow size={17} aria-hidden="true" /></Link>
         </div>
-      </section>
+      </div>
+      <div className="about-story__row">
+        <h3>{c.processTitle}</h3>
+        <ol className="about-process">{c.process.map((item, index) => <li key={item.title}><span className="about-process__number" aria-hidden="true">{index + 1}</span><div><h4>{item.title}</h4><p>{item.text}</p></div></li>)}</ol>
+      </div>
+      <div className="about-story__row">
+        <h3>{c.standardsTitle}</h3>
+        <div><p>{c.standards}</p><p>{c.privacy}</p><Link href={`${regionPath}/privacy-policy`} className="about-text-link">{c.privacyLink}<Arrow size={17} aria-hidden="true" /></Link></div>
+      </div>
+    </section>
 
-      {/* ── Why CounselO Legal ── */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <m.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{a.why.eyebrow}</p>
-            <h2 className="text-4xl font-serif font-bold text-foreground mb-4">{a.why.heading}</h2>
-            <div className="w-16 h-1 bg-primary/30 mx-auto" />
-          </m.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {a.why.points.map((point, i) => {
-              const Icon = whyIcons[i] ?? Scale;
-              return (
-                <m.div key={i} initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                  className="bg-card border border-border p-8 hover:border-primary/40 transition-colors">
-                  <div className="w-12 h-12 bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
-                    <Icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3">{point.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{point.desc}</p>
-                </m.div>
-              );
-            })}
-          </div>
+    <section className="about-founder" aria-labelledby="about-founder-heading">
+      <div className="about-shell about-founder__grid">
+        <div className="about-founder__portrait"><img src="/images/optimized/omar-founder-bio.png" alt={isRTL ? "المحامي عمر البغدادي، مؤسس كاونسلو" : "Lawyer Omar Al-Baghdadi, founder of CounselO"} width="280" height="350" loading="lazy" decoding="async" /><p>{c.founderLabel}</p></div>
+        <div>
+          <h2 id="about-founder-heading">{c.founderName}</h2>
+          <p className="about-founder__role">{c.founderRole}</p>
+          <p className="about-lead">{c.founderIntro}</p>
+          <p>{c.founderExperience}</p>
+          <dl className="about-founder__facts">{c.founderFacts.map(item => <div key={item.title}><dt>{item.title}</dt><dd>{item.text}</dd></div>)}</dl>
+          <a className="about-text-link" href={`${OMAR_OFFICIAL_PROFILE_URL}${isRTL ? "/ar" : ""}`} target="_blank" rel="noopener noreferrer">{c.profileLink}<Arrow size={17} aria-hidden="true" /></a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      {/* ── Physical Office ── */}
-      <section className="py-20 bg-card border-t border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <p className="text-primary font-medium uppercase tracking-widest text-sm mb-3">{a.office.eyebrow}</p>
-              <h2 className="text-3xl font-serif font-bold text-foreground mb-6">{a.office.heading}</h2>
-              <div className="w-16 h-1 bg-primary/30 mb-8" />
-              <p className="text-muted-foreground leading-relaxed mb-5">{a.office.p1}</p>
-              <p className="text-muted-foreground leading-relaxed">{a.office.p2}</p>
-            </m.div>
-            <m.div initial={false} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
-              {/* Office card — always shown */}
-              <div className="bg-primary p-8 text-white">
-                <div className="flex items-start gap-4 mb-5">
-                  <div className="w-12 h-12 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
-                    <MapPin className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-serif font-bold text-lg">{a.office.partnerName}</div>
-                    <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mt-1">{a.office.licenseNo}</div>
-                  </div>
-                </div>
-                <div className="border-t border-white/20 pt-5 mb-5">
-                  <p className="text-white/80 text-sm leading-relaxed whitespace-pre-line mb-4">{a.office.address}</p>
-                  {a.office.mapsUrl && (
-                    <a
-                      href={a.office.mapsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs font-semibold px-4 py-2 transition-colors"
-                    >
-                      <MapPin className="h-3.5 w-3.5" />
-                      {a.office.mapsLabel}
-                    </a>
-                  )}
-                </div>
-                <div className="border-t border-white/20 pt-5 space-y-3">
-                  {[
-                    region === "uae"
-                      ? (isRTL ? "تنسيق وفق الاختصاص ومتطلبات الترخيص الإماراتية" : "Coordination subject to UAE jurisdiction and licensing requirements")
-                      : region === "syr"
-                      ? (isRTL ? "مكتب محاماة مرخَّص في سوريا" : "Licensed law office in Syria")
-                      : (isRTL ? "مكتب محاماة مرخَّص في المنطقة الشرقية" : "Licensed law office in the Eastern Province"),
-                    region === "uae"
-                      ? (isRTL ? "يُرتب التمثيل المحلي فقط عند الحاجة" : "Local representation is arranged only when required")
-                      : (isRTL ? "حضور شخصي أمام المحاكم وتوثيق الوثائق" : "Court attendance & official document processing"),
-                    isRTL ? "متكامل مع الخدمة الرقمية الأونلاين" : "Integrated with our full online digital service",
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <CheckCircle2 className="h-4 w-4 text-white/60 shrink-0" />
-                      <span className="text-white/80 text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+    <section className="about-partner about-shell" aria-labelledby="about-partner-heading">
+      <div className="about-partner__identity"><ShieldCheck size={32} strokeWidth={1.5} aria-hidden="true" /><div>
+        {region === "sa" && <p className="about-kicker">{c.partnerLabel}</p>}
+        <h2 id="about-partner-heading">{local.partnerTitle}</h2>
+      </div>{region === "sa" && <p className="about-partner__licence">{c.licenceLabel}<strong dir="ltr">{SAUDI_PARTNER_LICENCE}</strong></p>}</div>
+      <p>{local.partnerText}</p>
+      {region === "syr" && <ul className="about-partner__offices">
+        {syrianPartners[language].map(partner => <li key={partner.name}>
+          <h3>{partner.name}</h3>
+          <p>{partner.location}</p>
+          {partner.licence && <p>{isRTL ? "رقم الترخيص: " : "Licence number: "}<strong><bdi dir="ltr">{partner.licence}</bdi></strong></p>}
+        </li>)}
+      </ul>}
+    </section>
 
-              {/* Second office card — Syria only */}
-              {a.office.office2 && (
-                <div className="bg-primary/90 p-8 text-white border border-white/10">
-                  <div className="flex items-start gap-4 mb-5">
-                    <div className="w-12 h-12 bg-white/15 border border-white/25 flex items-center justify-center shrink-0">
-                      <MapPin className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <div className="font-serif font-bold text-lg">{a.office.office2.partnerName}</div>
-                      <div className="text-white/60 text-xs font-semibold uppercase tracking-wider mt-1">{a.office.office2.licenseNo}</div>
-                    </div>
-                  </div>
-                  <div className="border-t border-white/20 pt-5 mb-5">
-                    <p className="text-white/80 text-sm leading-relaxed whitespace-pre-line mb-4">{a.office.office2.address}</p>
-                    <a
-                      href={a.office.office2.mapsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/25 text-white text-xs font-semibold px-4 py-2 transition-colors"
-                    >
-                      <MapPin className="h-3.5 w-3.5" />
-                      {a.office.office2.mapsLabel}
-                    </a>
-                  </div>
-                  <div className="border-t border-white/20 pt-5 space-y-3">
-                    {[
-                      isRTL ? "مكتب محاماة مرخَّص في سوريا" : "Licensed law office in Syria",
-                      isRTL ? "حضور شخصي أمام المحاكم وتوثيق الوثائق" : "Court attendance & official document processing",
-                      isRTL ? "متكامل مع الخدمة الرقمية الأونلاين" : "Integrated with our full online digital service",
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <CheckCircle2 className="h-4 w-4 text-white/60 shrink-0" />
-                        <span className="text-white/80 text-sm">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </m.div>
-          </div>
+    <section className="about-closing about-shell" aria-labelledby="about-contact-heading">
+      <div className="about-closing__panel">
+        <div><h2 id="about-contact-heading">{c.ctaTitle}</h2><p>{c.ctaText}</p><p className="about-closing__note">{c.ctaNote}</p></div>
+        <div className="about-closing__actions">
+          <Link href={`${regionPath}/contact`} className="about-button about-button--gold" data-cta="contact" data-conversion-position="about-contact" data-region={region} data-lang={language}>{c.contact}<Arrow size={18} aria-hidden="true" /></Link>
+          <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="about-button about-button--outline" data-cta="whatsapp" data-conversion-position="about-contact" data-region={region} data-lang={language}><MessageCircle size={19} aria-hidden="true" />{c.whatsapp}</a>
         </div>
-      </section>
-
-      <JurisdictionDisclosure jurisdiction={region} />
-
-      {/* ── CTA ── */}
-      <section className="py-24 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <m.div initial={false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <p className="text-primary font-medium uppercase tracking-widest text-sm mb-4">{a.cta.eyebrow}</p>
-            <h2 className="text-4xl font-serif font-bold text-foreground mb-6">{a.cta.heading}</h2>
-            <div className="w-20 h-1 bg-primary/30 mx-auto mb-8" />
-            <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-2xl mx-auto">{a.cta.desc}</p>
-            <p className="mb-8 leading-7 text-muted-foreground">
-              <Link href={`${regionPath}/vision`} className="text-primary underline underline-offset-4">
-                {isRTL ? "تعرّف على رؤيتنا لتقديم الاستشارة القانونية وحدود نطاق الخدمة" : "Read our approach to legal consultation and the scope of our service"}
-              </Link>
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="rounded-none bg-primary text-white hover:bg-primary/90 px-10 py-6 text-base font-semibold">
-                <Link href={`${regionPath}/contact`}>
-                  {a.cta.ctaBtn}
-                  <ArrowRight className={`ms-2 h-5 w-5 ${isRTL ? "rotate-180" : ""}`} />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-white px-10 py-6 text-base font-semibold">
-                <Link href={`${regionPath}/services`}>
-                  {a.cta.learnMoreBtn}
-                </Link>
-              </Button>
-            </div>
-          </m.div>
-        </div>
-      </section>
-    </div>
-  );
+      </div>
+    </section>
+  </div>;
 }

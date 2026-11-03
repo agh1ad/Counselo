@@ -1,0 +1,41 @@
+/* Each regional directory opens with the same confident typography as its homepage. */
+.public-readable-site .services-directory-page .services-directory-hero--strong {
+  padding-block: clamp(2rem, 4vw, 3.25rem);
+}
+
+.public-readable-site .services-directory-page .services-directory-hero--strong h1 {
+  max-width: 23ch;
+  margin-bottom: 1.2rem;
+  font-family: var(--app-font-sans);
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  font-weight: 750;
+  line-height: 1.12;
+  letter-spacing: -.035em;
+  color: #fff !important;
+}
+
+.public-readable-site .services-directory-page .services-directory-hero--strong p {
+  max-width: 66ch;
+  font-size: 1rem;
+  font-weight: 450;
+  line-height: 1.7;
+  color: #e2ece6 !important;
+}
+
+.public-readable-site .services-directory-page .services-directory-hero--strong .services-directory-lead {
+  max-width: 54ch;
+  margin-bottom: .85rem;
+  font-size: clamp(1.12rem, 1.7vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.5;
+  color: #f0d392 !important;
+}
+
+[dir="rtl"] .services-directory-hero--strong h1 {
+  letter-spacing: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.public-readable-site .services-directory-page:dir(rtl) .services-directory-hero--strong p {
+  line-height: 1.85;
+}
