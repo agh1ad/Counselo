@@ -52,6 +52,7 @@ import {
   type BlogLanguage,
 } from "@workspace/api-zod";
 import { limitSeoTitle, normalizeSeoDescription } from "./lib/seo-title.js";
+import { appendHydrationData } from "./lib/ssr-hydration.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -321,14 +322,13 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
     `<link data-rh="true" rel="canonical" href="${escapeHtml(canonical)}">`,
     `<script data-rh="true" type="application/ld+json">${articleSchema}</script>`,
     `<script data-rh="true" type="application/ld+json">${breadcrumbSchema}</script>`,
-    // Inject post data for instant client-side hydration (no loading flash)
-    `<script>window.__SSR_POST__=${JSON.stringify(post)};</script>`,
   ].join("\n");
 
-  return template
+  return appendHydrationData(template
     .replace(/<html\b[^>]*>/i, `<html lang="${isArabicPost ? "ar" : "en"}" dir="${isArabicPost ? "rtl" : "ltr"}">`)
     .replace("<!--app-head-->", headTags)
-    .replace(/<div id="root"><\/div>/, `<div id="root" data-ssr="true"></div>`);
+    .replace(/<div id="root"><\/div>/, `<div id="root" data-ssr="true"></div>`),
+    `<script>window.__SSR_POST__=${safeJson(post)};</script>`);
 }
 
 // ---------------------------------------------------------------------------
@@ -492,13 +492,13 @@ export function buildWorkHtmlFromTemplate(
     `<meta data-rh="true" property="og:image" content="${BASE}/og-image.png">`,
     `<script data-rh="true" type="application/ld+json">${workSchema}</script>`,
     `<script data-rh="true" type="application/ld+json">${breadcrumbSchema}</script>`,
-    `<script>window.__SSR_WORK__=${safeJson(sample)};</script>`,
   ].join("\n");
 
-  return template
+  return appendHydrationData(template
     .replace(/<html\b[^>]*>/i, `<html lang="${language}" dir="${isArabic ? "rtl" : "ltr"}">`)
     .replace("<!--app-head-->", headTags)
-    .replace(/<div id="root"><\/div>/, `<div id="root" data-ssr="true"></div>`);
+    .replace(/<div id="root"><\/div>/, `<div id="root" data-ssr="true"></div>`),
+    `<script>window.__SSR_WORK__=${safeJson(sample)};</script>`);
 }
 
 function buildWorkHtml(sample: ApiWorkSample, language: "en" | "ar"): string {
@@ -563,13 +563,13 @@ async function ssrRender(
   const detailData = `${detailPost ? `window.__SSR_POST__=${JSON.stringify(detailPost).replace(/</g, "\\u003c")};` : ""}${detailWork ? `window.__SSR_WORK__=${JSON.stringify(detailWork).replace(/</g, "\\u003c")};` : ""}`;
   const discoveryData = `<script>window.__SSR_LEGAL_UPDATES__=${JSON.stringify(legalUpdatesData(url, updates)).replace(/</g, "\\u003c")};${detailData}window.__SSR_POSTS__=${JSON.stringify(posts).replace(/</g, "\\u003c")};window.__SSR_WORK_SAMPLES__=${JSON.stringify(discoveryWorkSamples).replace(/</g, "\\u003c")};</script>`;
 
-  return template
+  return appendHydrationData(template
     .replace('<html lang="en">', htmlTag(url))
-    .replace("<!--app-head-->", `${unescapeHeadEntities(addDataRh(head))}${discoveryData}`)
+    .replace("<!--app-head-->", unescapeHeadEntities(addDataRh(head)))
     .replace(
       /<div id="root"><\/div>/,
       `<div id="root" data-ssr="true" data-ssr-url="${url}">${body}</div>`,
-    );
+    ), discoveryData);
 }
 
 // ---------------------------------------------------------------------------

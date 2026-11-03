@@ -21,6 +21,7 @@ import { fileURLToPath } from "node:url";
 import type { RenderResult } from "../entry-server.js";
 import type { InitialBlogPost } from "../App.js";
 import { compactWorkSamplesForDiscovery, type WorkSamplePublic } from "../lib/work-samples.js";
+import { appendHydrationData } from "../lib/ssr-hydration.js";
 import { getLegalProblemPaths, LEGAL_PROBLEM_REDIRECTS } from "../lib/legal-problem-pages.js";
 import {
   LEGACY_BLOG_REDIRECTS,
@@ -233,7 +234,7 @@ function writeRoute(
       : "";
   const initialData = `${discoveryData}${detailData}`;
 
-  const routeHtml = template
+  const routeHtml = appendHydrationData(template
     // Patch the static <html lang="en"> to the correct lang + dir for this route.
     .replace('<html lang="en">', htmlTag(route))
     // Inject per-route head tags (title, meta, canonical, OG, schemas).
@@ -243,7 +244,7 @@ function writeRoute(
     // and meta content so SEO crawlers see the intended character.
     .replace(
       "<!--app-head-->",
-      `${unescapeHeadEntities(addDataRh(head))}${initialData}`,
+      unescapeHeadEntities(addDataRh(head)),
     )
     // Inject server-rendered app HTML into the root div.
     // data-ssr signals entry-client.tsx to use hydrateRoot instead of createRoot.
@@ -255,7 +256,7 @@ function writeRoute(
     .replace(
       /<div id="root"><\/div>/,
       `<div id="root" data-ssr="true" data-ssr-url="${route}">${body}</div>`,
-    );
+    ), initialData);
 
   // Root route keeps the standard index.html (needed by the static server as
   // both the "/" page and the SPA-fallback template for unprerendered paths

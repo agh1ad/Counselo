@@ -15,3 +15,4 @@
 - [SEO prerender inventory merge](seo-prerender-inventory.md) — merge discovery inventory with full blog records before prerendering article detail pages.
 - [Our Work evidence boundary](our-work-evidence-boundary.md) — case studies support expertise and scope, but never Review or aggregateRating markup without independent client feedback.
 - [Git operation interruptions](git-rebase-interruptions.md) — a paused rebase or merge may disappear across workspace calls; verify status and reflog before resuming.
+- [SSR bootstrap ordering](ssr-bootstrap-order.md) — large hydration datasets must follow stylesheet discovery; body-end data is ready before deferred client modules run.
