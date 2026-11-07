@@ -2,12 +2,12 @@ export const homepageContent = {
   en: {
     title: "CounselO Legal | Online Legal Consultation — Saudi Arabia, Syria & UAE",
     description:
-      "Expert online legal advice from home for Saudi Arabia, Syria and the UAE. Experienced legal team, document services and representation through licensed partners.",
+      "Comprehensive online legal support backed by a strong network of lawyers and professional partners across Saudi Arabia, the UAE and Syria.",
     nav: ["About", "Our services", "Jurisdictions", "Our process", "Contact"],
     h1: "Online Legal Consultation for Saudi Arabia, Syria & the UAE",
     heroSummary: "Understand your legal options, review a document or plan your next step. Receive written guidance in Arabic or English, with the scope, fee and timing agreed before paid work begins.",
     intro:
-      "CounselO Legal is a bilingual online legal consultation platform whose experienced legal team provides jurisdiction-specific legal consultation, document review and legal guidance in Arabic and English for matters involving Saudi Arabia, Syria and the United Arab Emirates.",
+      "CounselO Legal connects experienced legal professionals and a strong network of lawyers and partners across Saudi Arabia, the UAE and Syria. Our bilingual team provides consultations, document review, drafting, dispute support and coordinated legal services.",
     primary: "Start a legal consultation",
     secondary: "Explore our services",
     picker: "Which country does your matter concern?",
@@ -18,7 +18,7 @@ export const homepageContent = {
     aboutText:
       "CounselO Legal brings consultation, document review and written legal guidance into one online process. Share the essential facts, agree on the scope, and receive an assessment of your options, risks and practical next steps.",
     aboutNote:
-      "The applicable country and legal framework shape the advice. A consultation does not automatically include court representation or filing.",
+      "Our services connect consultations and legal document work with professional support for filings, disputes and representation through our regional legal partners.",
     founder: "Who is behind CounselO Legal?",
     founderName: "Omar Al-Baghdadi",
     founderRole: "Founder · Lawyer and legal counsel",
@@ -55,12 +55,12 @@ export const homepageContent = {
       ],
       [
         "Decide on the next step",
-        "Any further work, follow-up or coordination with a licensed professional is agreed separately unless already included.",
+        "Our team can coordinate the next stage, including drafting, negotiation, follow-up and representation with qualified professional partners, with work and fees agreed in advance.",
       ],
     ],
     why: "Why choose CounselO Legal?",
     whyIntro:
-      "Choose a service whose process fits your needs. CounselO Legal is designed for people who want a clear written assessment, country-specific scope and an accessible way to discuss their matter.",
+      "Choose CounselO for accessible legal expertise, practical strategy and coordinated support from your first question through the next stages of your matter.",
     reasons: [
       [
         "Know who is behind the platform",
@@ -88,7 +88,7 @@ export const homepageContent = {
     questions: [
       [
         "What do I receive from an online legal consultation?",
-        "The primary deliverable is written legal guidance by email or WhatsApp, addressing the agreed question, relevant facts, options, risks and next steps. Document review, voice or video support and follow-up are included only as agreed in the scope.",
+        "We provide written legal advice by email or WhatsApp, with document review, drafting, phone or video consultation and continuing support available under the service agreed with our team.",
       ],
       [
         "What should I prepare before requesting a consultation?",
@@ -100,19 +100,19 @@ export const homepageContent = {
       ],
       [
         "Can I use CounselO Legal from another country?",
-        "You can contact us online from abroad about a matter involving Saudi Arabia, Syria or the UAE. We first confirm the relevant jurisdiction and whether the requested work is within scope.",
+        "Yes. Contact CounselO from wherever you live. Our team reviews matters connected to Saudi Arabia, the UAE and Syria and coordinates the legal professionals and next steps relevant to your case.",
       ],
       [
         "How quickly will I receive a response?",
-        "We target a professional response within 24 hours, subject to scope, urgency, complete intake information and availability. This is not a promise that the matter will be resolved within 24 hours.",
+        "We aim to respond professionally within 24 hours after receiving the information needed to review your enquiry. We discuss urgency, timing and next steps with you.",
       ],
       [
         "How much does a consultation cost?",
         "No fixed price is published. The fee is agreed after the initial study of your request and before paid work begins.",
       ],
       [
-        "Does the consultation include court representation?",
-        "Court representation, filing and other reserved work are separate. Availability, jurisdictional authorization and a separate engagement must be confirmed with an appropriately licensed professional or cooperating office.",
+        "Can CounselO assist with court representation and legal proceedings?",
+        "Yes. CounselO supports disputes and legal proceedings by coordinating preparation, filings and representation with appropriately qualified lawyers and cooperating offices. We confirm the responsible professional, engagement terms and fees for the work involved.",
       ],
       [
         "How is my information handled?",
@@ -136,12 +136,12 @@ export const homepageContent = {
   ar: {
     title: "كاونسلو للاستشارات القانونية | استشارات قانونية إلكترونية للسعودية وسوريا والإمارات",
     description:
-      "مشورة قانونية متخصصة من منزلك لمسائل السعودية وسوريا والإمارات. فريق متمرس للاستشارات والمستندات أونلاين وتمثيل قانوني عبر شركاء ومحامين مرخصين.",
+      "خدمات قانونية متكاملة أونلاين تدعمها شبكة قوية من المحامين والشركاء المهنيين في السعودية والإمارات وسوريا.",
     nav: ["عن كاونسلو للاستشارات القانونية", "خدماتنا", "الاختصاصات", "آلية العمل", "تواصل معنا"],
     h1: "استشارات قانونية إلكترونية للسعودية وسوريا والإمارات",
     heroSummary: "افهم خياراتك القانونية، أو راجع مستنداً، أو حدد خطوتك التالية. احصل على إرشاد مكتوب بالعربية أو الإنجليزية، بعد الاتفاق على نطاق الخدمة والرسوم والوقت قبل بدء العمل المدفوع.",
     intro:
-      "كاونسلو للاستشارات القانونية منصة استشارات قانونية إلكترونية يقدم فريقها القانوني المتمرس بالعربية والإنجليزية استشارات قانونية ومراجعة مستندات وإرشاداً قانونياً يراعي الاختصاص القانوني للمسائل المرتبطة بالسعودية وسوريا والإمارات العربية المتحدة.",
+      "تجمع كاونسلو للاستشارات القانونية خبرات فريق قانوني متمرس وشبكة قوية من المحامين والشركاء المهنيين في السعودية والإمارات وسوريا. نقدم بالعربية والإنجليزية الاستشارات ومراجعة المستندات وصياغتها ودعم المنازعات وتنسيق الخدمات القانونية.",
     primary: "ابدأ استشارتك القانونية",
     secondary: "تعرّف على خدماتنا",
     picker: "بأي دولة ترتبط مسألتك؟",
@@ -152,7 +152,7 @@ export const homepageContent = {
     aboutText:
       "تجمع كاونسلو للاستشارات القانونية الاستشارة ومراجعة المستندات والإرشاد القانوني المكتوب في مسار إلكتروني واحد. شارك الوقائع الأساسية، واتفق معنا على نطاق العمل، لتحصل على تقييم للخيارات والمخاطر والخطوات العملية التالية.",
     aboutNote:
-      "تتحدد المشورة بحسب الدولة والإطار القانوني المنطبق. ولا تشمل الاستشارة تلقائياً التمثيل أمام المحاكم أو تقديم الطلبات والدعاوى.",
+      "نربط الاستشارات القانونية وإعداد المستندات بالتعاون المهني لتنسيق الدعاوى والإجراءات والتمثيل القانوني عبر شبكة شركائنا.",
     founder: "من يقف وراء كاونسلو للاستشارات القانونية؟",
     founderName: "عمر البغدادي",
     founderRole: "المؤسس · محامٍ ومستشار قانوني",
@@ -193,12 +193,12 @@ export const homepageContent = {
       ],
       [
         "تحدد خطوتك التالية",
-        "يُتفق بشكل منفصل على أي عمل إضافي أو متابعة أو تنسيق مع مهني مرخص، ما لم يكن مشمولاً بالنطاق الأصلي.",
+        "يمكن لفريقنا تنسيق الخطوات التالية، بما فيها الصياغة والتفاوض والمتابعة والتمثيل بالتعاون مع شركائنا المهنيين المؤهلين، مع الاتفاق المسبق على العمل والأتعاب.",
       ],
     ],
     why: "لماذا تختار كاونسلو للاستشارات القانونية؟",
     whyIntro:
-      "اختر الخدمة التي تناسب احتياجك وطريقة عملك. صُممت كاونسلو للاستشارات القانونية لمن يريد تقييماً مكتوباً واضحاً ونطاقاً يراعي قانون الدولة ووسيلة ميسرة لمناقشة مسألته.",
+      "اختر الخدمة التي تناسب احتياجك وطريقة عملك. صُممت كاونسلو لتتيح لك الخبرة القانونية والاستراتيجية الواضحة والمتابعة المهنية المنسقة منذ سؤالك الأول وحتى مراحل مسألتك التالية.",
     reasons: [
       [
         "تعرف من يقف وراء المنصة",
@@ -226,7 +226,7 @@ export const homepageContent = {
     questions: [
       [
         "ماذا أتلقى من الاستشارة القانونية الإلكترونية؟",
-        "المخرج الأساسي إرشاد قانوني مكتوب عبر البريد الإلكتروني أو واتساب، يتناول السؤال المتفق عليه والوقائع ذات الصلة والخيارات والمخاطر والخطوات التالية. وتُدرج مراجعة المستندات أو المكالمات الصوتية والمرئية أو المتابعة بحسب النطاق المتفق عليه فقط.",
+        "نقدم المشورة القانونية المكتوبة عبر البريد الإلكتروني أو واتساب، إلى جانب مراجعة المستندات وصياغتها والمكالمات الصوتية أو المرئية والمتابعة القانونية بحسب الخدمة المتفق عليها.",
       ],
       [
         "ما الذي أجهزه قبل طلب الاستشارة؟",
@@ -238,19 +238,19 @@ export const homepageContent = {
       ],
       [
         "هل يمكنني الاستفادة من كاونسلو للاستشارات القانونية من خارج هذه الدول؟",
-        "يمكنك التواصل معنا من الخارج بشأن مسألة مرتبطة بالسعودية أو سوريا أو الإمارات. نؤكد أولاً الاختصاص المعني وما إذا كان العمل المطلوب يدخل ضمن نطاق الخدمة.",
+        "نعم. يمكنك التواصل مع كاونسلو من أي مكان، ونتولى دراسة المسائل المرتبطة بالسعودية والإمارات وسوريا وتنسيق الخبرات والخطوات القانونية المناسبة لمسألتك.",
       ],
       [
         "متى أتلقى رداً؟",
-        "نستهدف رداً مهنياً خلال 24 ساعة، بحسب نطاق المسألة ودرجة الاستعجال واكتمال المعلومات وتوفر الخدمة. ولا يعني ذلك وعداً بحل المسألة خلال 24 ساعة.",
+        "نسعى للرد المهني خلال 24 ساعة من استلام المعلومات اللازمة لمراجعة الطلب، ونتفق معك على المواعيد والخطوات المناسبة بحسب طبيعة المسألة واستعجالها.",
       ],
       [
         "ما تكلفة الاستشارة؟",
         "لا يُنشر سعر ثابت. تُتفق الرسوم بعد الدراسة الأولية لطلبك وقبل بدء العمل المدفوع.",
       ],
       [
-        "هل تشمل الاستشارة التمثيل أمام المحاكم؟",
-        "التمثيل أمام المحاكم وتقديم الطلبات والأعمال المحجوزة مهنياً خدمات منفصلة. ويجب تأكيد توفر الخدمة والترخيص المناسب للاختصاص والاتفاق على تكليف منفصل مع مهني أو مكتب متعاون مرخص.",
+        "هل تساعد كاونسلو في التمثيل أمام المحاكم والإجراءات القانونية؟",
+        "نعم. ندعم المنازعات والإجراءات القانونية بتنسيق إعداد المستندات والطلبات والتمثيل مع المحامين والمكاتب المهنية المؤهلة المتعاونة معنا، مع تحديد المحامي المسؤول وشروط التكليف والأتعاب بحسب المسألة.",
       ],
       [
         "كيف تتعاملون مع معلوماتي؟",

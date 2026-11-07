@@ -54,7 +54,7 @@ export const homepageEditorial = {
     crossText:
       "A Saudi company contracting with a UAE business. Property or family documents in Syria while you live abroad. A judgment or asset connected to another country. Each part of the matter needs its own jurisdictional assessment.",
     crossNote:
-      "We identify the countries, legal frameworks and professional requirements involved. Local proceedings or representation may be coordinated through appropriately licensed partner lawyers or law firms, where available and separately agreed.",
+      "We connect legal analysis with strong professional relationships across the countries involved, coordinating proceedings and representation through qualified partner lawyers and law firms under agreed engagements.",
     crossCta: "Discuss a cross-border matter",
     packageTitle: "Know what your consultation will cover.",
     packageText:
@@ -124,7 +124,7 @@ export const homepageEditorial = {
     crossText:
       "شركة سعودية تتعاقد مع منشأة إماراتية. عقار أو مستندات أسرية في سوريا وأنت مقيم بالخارج. حكم أو أصل مالي يرتبط بدولة أخرى. يحتاج كل جزء من المسألة إلى تقييم اختصاصه القانوني.",
     crossNote:
-      "نحدد الدول والأطر القانونية والمتطلبات المهنية ذات الصلة. وقد ننسق الإجراءات المحلية أو التمثيل عبر محامين أو مكاتب شريكة مرخصة حسب الأصول، عند التوفر وباتفاق منفصل.",
+      "نجمع التحليل القانوني والعلاقات المهنية في الدول المعنية، وننسق الإجراءات المحلية والتمثيل مع المحامين ومكاتب المحاماة الشريكة المؤهلة ضمن تكليف متفق عليه.",
     crossCta: "ناقش مسألة عابرة للحدود",
     packageTitle: "اعرف ما ستشمله استشارتك.",
     packageText:

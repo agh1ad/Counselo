@@ -80,8 +80,8 @@ export function Footer() {
 
           <p className="mt-3 max-w-md text-xs leading-relaxed text-muted-foreground">
             {isArabic
-              ? "وجهتك لخدمات قانونية متخصصة. استشر فريق كاونسلو المتمرس وراجع مستنداتك من منزلك، دون زيارة مكتب. ويقدم شركاؤنا ومحامونا المرخصون التمثيل المحلي وفق تكليف متفق عليه."
-              : "Your destination for expert legal services. Consult CounselO’s experienced team and review documents from home, without an office visit. Our licensed partners and lawyers provide local representation under an agreed engagement."}
+              ? "وجهتك لخدمات قانونية متكاملة عبر الإنترنت، تدعمها شبكة قوية من المحامين ومكاتب المحاماة والشركاء المهنيين في السعودية والإمارات وسوريا."
+              : "Your destination for comprehensive online legal services, backed by a strong network of lawyers, law firms and professional partners across Saudi Arabia, the UAE and Syria."}
           </p>
         </div>
         <nav className="regional-reference-footer__practice" aria-label={isArabic ? "مجالات الممارسة" : "Practice areas"}>
@@ -115,7 +115,7 @@ export function Footer() {
       <section className="legal-network-footer" aria-labelledby="legal-network-footer-title">
         <div className="legal-network-footer__intro">
           <h2 id="legal-network-footer-title">{isArabic ? "شبكة عمر البغدادي القانونية" : "Omar Al-Baghdadi Legal Network"}</h2>
-          <p>{isArabic ? "منصات ومواقع مهنية مترابطة، لكل منها دوره ونطاقه المستقل." : "Connected professional platforms, each with its own role and scope."}</p>
+          <p>{isArabic ? "منصات مهنية مترابطة تكملها شبكة قوية من المحامين والشركاء المهنيين في السعودية والإمارات وسوريا." : "Connected professional platforms, complemented by a strong network of lawyers and partners across Saudi Arabia, the UAE and Syria."}</p>
         </div>
         <nav className="legal-network-footer__list" aria-label={isArabic ? "مواقع شبكة عمر البغدادي القانونية" : "Omar Al-Baghdadi Legal Network websites"}>
           <a href={isArabic ? "https://omarbaghdadi.com/ar" : "https://omarbaghdadi.com"} target="_blank" rel="noopener noreferrer" className="legal-network-footer__item">
