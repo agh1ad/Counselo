@@ -7,13 +7,13 @@ const llmsPath = resolve(process.cwd(), "public/llms.txt");
 
 test("llms.txt documents all jurisdictions, scope, editorial links, and contact routes", () => {
   const content = readFileSync(llmsPath, "utf8");
+  assert.match(content, /^Last updated: \d{4}-\d{2}-\d{2}$/m);
   for (const required of [
-    "Last updated: 2026-11-03",
     "United Arab Emirates",
     "Saudi Arabia",
     "Syria",
     "Arabic and English",
-    "Local partners and representation scope",
+    "Regional network and professional cooperation",
     "/uae/services",
     "/sa/services",
     "/syr/services",

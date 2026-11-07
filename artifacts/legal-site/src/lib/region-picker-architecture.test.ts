@@ -24,9 +24,10 @@ test("both languages answer the same core questions with complete content", () =
     assert.equal(c.countryDetails.length, 3);
     assert.equal(c.steps.length, 4);
     assert.equal(c.questions.length, 8);
-    assert.match(c.intro, /experienced legal team|فريقها القانوني المتمرس/);
     assert.doesNotMatch(c.intro, /Omar|عمر البغدادي|1996/);
   }
+  assert.match(homepageContent.en.intro, /experienced legal professionals.*network of lawyers and partners/);
+  assert.match(homepageContent.ar.intro, /فريق قانوني متمرس.*المحامين والشركاء المهنيين/);
 });
 
 test("homepage narrative follows DOM order without CSS section reordering", () => {
