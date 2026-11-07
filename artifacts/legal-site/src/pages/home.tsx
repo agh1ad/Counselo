@@ -66,7 +66,7 @@ export default function Home() {
   const h = t.home;
   const c = homepageContent[isRTL ? "ar" : "en"];
   const country = c.countryNames[region === "sa" ? 0 : region === "syr" ? 1 : 2];
-  const description = isRTL ? `كاونسلو للاستشارات القانونية تقدم استشارات قانونية إلكترونية ومراجعة مستندات وإرشاداً مكتوباً لمسائل ${country}، يقدمها فريقها القانوني المتمرس بالعربية والإنجليزية.` : `CounselO Legal provides online legal consultation, document review and written guidance for ${country} matters, delivered by its experienced legal team in Arabic and English.`;
+  const description = isRTL ? `كاونسلو تقدم دعماً قانونياً متكاملاً لمسائل ${country} بدعم فريق ثنائي اللغة وشبكة قوية من المحامين والشركاء المهنيين في السعودية والإمارات وسوريا.` : `CounselO Legal offers comprehensive legal support for ${country}, backed by a bilingual team and strong professional connections with lawyers and partners across Saudi Arabia, the UAE and Syria.`;
   const comprehensiveConsultation = getConsultationProduct("comprehensive-consultation");
   return (
     <div className="regional-home-page w-full flex flex-col">

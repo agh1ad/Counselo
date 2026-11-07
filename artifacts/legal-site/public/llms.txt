@@ -1,8 +1,8 @@
 # CounselO Legal — optional machine-readable documentation
 
-Last updated: 2026-11-03
+Last updated: 2026-11-08
 
-CounselO Legal is a bilingual online legal platform for fast, professional and trusted legal consultations, document review and structured legal guidance. It provides jurisdiction-first legal intake across Saudi Arabia, Syria and the UAE and—where separately scoped—coordinates with licensed local professionals for filings, court appearances, notarisation, or other work requiring local authorisation.
+CounselO Legal is a bilingual legal services platform connecting experienced counsel and a strong network of lawyers, law firms and professional partners across Saudi Arabia, the UAE and Syria. Its services include consultations, drafting, document review, dispute strategy and coordination of proceedings and representation with qualified local professionals.
 
 This file is optional machine-readable documentation. It is not a ranking factor, does not replace ordinary SEO, and is not legal advice.
 
@@ -16,9 +16,9 @@ CounselO Legal has distinct service hubs for:
 
 Services and articles identify the applicable jurisdiction. Arabic and English are supported. The language of a consultation does not change the governing law.
 
-## Local partners and representation scope
+## Regional network and professional cooperation
 
-CounselO Legal’s online intake, consultation, document review and preliminary legal analysis are scoped according to the facts and applicable jurisdiction. CounselO Legal works through licensed partners and lawyers in the relevant jurisdiction. Court representation is coordinated under a separately agreed engagement. No representation, court appearance, filing, or outcome is promised before the scope and engagement are agreed.
+CounselO Legal works with lawyers and professional partners across Saudi Arabia, the UAE and Syria to support matters from consultation to legal drafting, disputes, filings and coordination of representation. Each engagement identifies the responsible professionals, services, fees and applicable procedural requirements.
 
 ## Regional service hubs
 

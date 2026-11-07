@@ -19,8 +19,8 @@ export default function About() {
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
   const countryCode = region === "uae" ? "AE" : region === "syr" ? "SY" : "SA";
   const description = isRTL
-    ? `تعرّف على كاونسلو وفريقها القانوني: الاستشارات ومراجعة المستندات والصياغة أونلاين في ${local.country}، وكيف نجهز العمل ونسلمه ونتابع معك.`
-    : `Meet CounselO and its experienced legal team: online advice, document review and drafting for ${local.country}, with clear delivery and professional follow-up.`;
+    ? `تعرّف إلى كاونسلو وشبكتها المهنية في ${local.country}: الاستشارات والصياغة ودعم المنازعات والتنسيق القانوني عبر فريق وشركاء متمرسين.`
+    : `Discover CounselO's experienced legal team and professional network for ${local.country}: consultations, drafting, dispute support and coordinated legal services.`;
   const whatsapp = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL
     ? `مرحباً كاونسلو، أود مناقشة مسألة قانونية في ${local.country} وتحديد نطاق العمل والأتعاب.`
     : `Hello CounselO, I would like to discuss a legal matter in ${local.country} and confirm the scope and fee.`)}`;
