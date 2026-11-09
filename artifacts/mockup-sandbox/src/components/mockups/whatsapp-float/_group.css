@@ -1,0 +1,101 @@
+:root {
+  --app-font-sans: "Inter", sans-serif;
+  --app-font-serif: "Playfair Display", serif;
+  --app-font-mono: Menlo, monospace;
+  --radius: 0rem;
+  --background: 0 0% 100%;
+  --foreground: 0 0% 8%;
+  --card: 150 40% 97%;
+  --card-foreground: 0 0% 8%;
+  --card-border: 150 25% 88%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 8%;
+  --popover-border: 150 25% 88%;
+  --primary: 150 100% 21%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 150 35% 93%;
+  --secondary-foreground: 0 0% 8%;
+  --muted: 150 20% 95%;
+  --muted-foreground: 0 0% 34%;
+  --accent: 150 35% 90%;
+  --accent-foreground: 0 0% 8%;
+  --destructive: 0 62.8% 40%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 150 20% 88%;
+  --input: 150 20% 88%;
+  --ring: 150 100% 21%;
+  --counselo-gold: #b4924a;
+  --counselo-gold-light: #d4af60;
+  --counselo-forest: #003d22;
+}
+
+.dark {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 8%;
+  --card: 150 40% 97%;
+  --card-foreground: 0 0% 8%;
+  --card-border: 150 25% 88%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 8%;
+  --popover-border: 150 25% 88%;
+  --primary: 150 100% 21%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 150 35% 93%;
+  --secondary-foreground: 0 0% 8%;
+  --muted: 150 20% 95%;
+  --muted-foreground: 0 0% 34%;
+  --accent: 150 35% 90%;
+  --accent-foreground: 0 0% 8%;
+  --destructive: 0 62.8% 40%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 150 20% 88%;
+  --input: 150 20% 88%;
+  --ring: 150 100% 21%;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/__mockup/fonts/inter-latin-variable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Tajawal";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/__mockup/fonts/tajawal-arabic-400.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFC;
+}
+
+.whatsapp-current-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(4px);
+  border-radius: 9px;
+  background: #111827;
+  padding: 8px 12px;
+  color: #fff;
+  font-size: 13px;
+  opacity: 0;
+  white-space: nowrap;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.whatsapp-current-button:hover .whatsapp-current-tooltip,
+.whatsapp-current-button:focus-visible .whatsapp-current-tooltip {
+  transform: translateY(-50%) translateX(0);
+  opacity: 1;
+}
+
+@font-face {
+  font-family: "Tajawal";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/__mockup/fonts/tajawal-arabic-700.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFC;
+}

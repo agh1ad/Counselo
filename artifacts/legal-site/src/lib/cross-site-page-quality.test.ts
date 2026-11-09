@@ -47,9 +47,21 @@ test("evidence and publishing surfaces retain their trust boundaries", () => {
 
 test("the floating contact control does not duplicate or obscure primary consultation calls to action", () => {
   const floatingContact = readComponent("layout/whatsapp-float.tsx");
+  const floatingContactStyles = readFileSync(resolve(import.meta.dirname, "../components/layout/whatsapp-float.css"), "utf8");
   assert.doesNotMatch(floatingContact, /data-cta="contact"/);
   assert.match(floatingContact, /data-cta="whatsapp"/);
-  assert.match(floatingContact, /h-16 w-16/);
+  assert.match(floatingContact, /966594850247/);
+  assert.match(floatingContact, /PROMPT_DELAY_MS = 4000/);
+  assert.match(floatingContact, /sessionStorage/);
+  assert.match(floatingContact, /Need legal advice\?/);
+  assert.match(floatingContact, /Start your consultation on WhatsApp/);
+  assert.match(floatingContact, /counselo-wa-widget--rtl/);
+  assert.match(floatingContact, /data-testid="whatsapp-floating-button"/);
+  assert.match(floatingContact, /data-testid="whatsapp-prompt-link"/);
+  assert.match(floatingContactStyles, /animation: counselo-wa-arrival-pulse 850ms ease-out 3/);
+  assert.match(floatingContactStyles, /prefers-reduced-motion: reduce/);
+  assert.match(floatingContactStyles, /counselo-wa-widget--rtl \{\s*right: auto;\s*left:/);
+  assert.match(floatingContactStyles, /calc\(100vw - 24px\)/);
 });
 
 test("global jurisdiction mentions include all three regions with Saudi Arabia first", () => {

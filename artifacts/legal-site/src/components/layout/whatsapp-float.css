@@ -1,0 +1,293 @@
+.counselo-wa-widget {
+  position: fixed;
+  z-index: 70;
+  right: clamp(12px, 2vw, 24px);
+  left: auto;
+  bottom: max(18px, env(safe-area-inset-bottom, 0px));
+  display: flex;
+  width: min(340px, calc(100vw - 24px));
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.counselo-wa-widget[dir="rtl"] {
+  align-items: flex-end;
+}
+
+.counselo-wa-widget--rtl {
+  right: auto;
+  left: clamp(12px, 2vw, 24px);
+}
+
+.counselo-wa-widget a,
+.counselo-wa-widget button {
+  pointer-events: auto;
+}
+
+.counselo-wa-button {
+  position: relative;
+  display: inline-flex;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #087a43;
+  box-shadow: 0 8px 24px rgb(0 48 27 / 28%), 0 2px 7px rgb(0 0 0 / 18%);
+  color: #fff;
+  text-decoration: none;
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.counselo-wa-button::before {
+  position: absolute;
+  inset: -4px;
+  border: 2px solid rgb(37 211 102 / 72%);
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+  animation: counselo-wa-arrival-pulse 850ms ease-out 3;
+}
+
+.counselo-wa-button__icon {
+  position: relative;
+  z-index: 1;
+  width: 38px;
+  height: 38px;
+}
+
+.counselo-wa-button__hover-label {
+  position: absolute;
+  right: calc(100% + 12px);
+  left: auto;
+  top: 50%;
+  width: max-content;
+  max-width: min(220px, calc(100vw - 112px));
+  transform: translateY(-50%) translateX(4px);
+  border-radius: 9px;
+  background: #073c29;
+  padding: 9px 13px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.35;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 18%);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.counselo-wa-button:hover {
+  transform: translateY(-2px);
+  background: #06683a;
+  box-shadow: 0 11px 28px rgb(0 48 27 / 34%), 0 3px 9px rgb(0 0 0 / 18%);
+}
+
+.counselo-wa-button:hover .counselo-wa-button__hover-label,
+.counselo-wa-button:focus-visible .counselo-wa-button__hover-label {
+  transform: translateY(-50%) translateX(0);
+  opacity: 1;
+}
+
+.counselo-wa-widget--rtl .counselo-wa-button__hover-label {
+  right: auto;
+  left: calc(100% + 12px);
+  transform: translateY(-50%) translateX(-4px);
+}
+
+.counselo-wa-widget--rtl .counselo-wa-button:hover .counselo-wa-button__hover-label,
+.counselo-wa-widget--rtl .counselo-wa-button:focus-visible .counselo-wa-button__hover-label {
+  transform: translateY(-50%) translateX(0);
+}
+
+.counselo-wa-button:active {
+  transform: scale(.96);
+}
+
+.counselo-wa-button:focus-visible,
+.counselo-wa-prompt__close:focus-visible,
+.counselo-wa-prompt__action:focus-visible {
+  outline: 3px solid #b4924a;
+  outline-offset: 4px;
+}
+
+.counselo-wa-prompt {
+  position: relative;
+  width: 100%;
+  max-height: min(220px, calc(100dvh - 118px));
+  overflow: visible;
+  border: 1px solid #dce8e0;
+  border-radius: 16px;
+  background: #fff;
+  padding: 18px;
+  color: #123526;
+  box-shadow: 0 14px 38px rgb(3 34 20 / 20%), 0 3px 10px rgb(0 0 0 / 8%);
+  animation: counselo-wa-prompt-in 220ms cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.counselo-wa-prompt::after {
+  position: absolute;
+  inset-block-end: -8px;
+  right: 24px;
+  left: auto;
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg);
+  border-block-end: 1px solid #dce8e0;
+  border-inline-end: 1px solid #dce8e0;
+  background: #fff;
+  content: "";
+  pointer-events: none;
+}
+
+.counselo-wa-widget--rtl .counselo-wa-prompt::after {
+  right: auto;
+  left: 24px;
+}
+
+.counselo-wa-prompt__title {
+  max-width: calc(100% - 26px);
+  margin: 0 0 14px;
+  color: #123526;
+  font-size: 17px;
+  font-weight: 750;
+  line-height: 1.35;
+  letter-spacing: -.01em;
+}
+
+.counselo-wa-prompt__close {
+  position: absolute;
+  inset-block-start: 7px;
+  inset-inline-end: 7px;
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: #f1f7f3;
+  color: #315c46;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.counselo-wa-prompt__close:hover {
+  background: #e4f0e8;
+  color: #123526;
+}
+
+.counselo-wa-prompt__close svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.8;
+}
+
+.counselo-wa-prompt__action {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid #075f37;
+  border-radius: 11px;
+  background: #0b7041;
+  padding: 10px 12px 10px 14px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.counselo-wa-prompt__action:hover {
+  transform: translateY(-1px);
+  background: #075f37;
+}
+
+.counselo-wa-prompt__action svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.counselo-wa-widget[dir="rtl"] .counselo-wa-prompt__action svg {
+  transform: scaleX(-1);
+}
+
+@keyframes counselo-wa-arrival-pulse {
+  0% {
+    transform: scale(.95);
+    opacity: 0;
+  }
+  38% {
+    opacity: .72;
+  }
+  100% {
+    transform: scale(1.32);
+    opacity: 0;
+  }
+}
+
+@keyframes counselo-wa-prompt-in {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 359px) {
+  .counselo-wa-widget {
+    right: 12px;
+    left: auto;
+    width: calc(100vw - 24px);
+  }
+
+  .counselo-wa-widget--rtl {
+    right: auto;
+    left: 12px;
+  }
+
+  .counselo-wa-prompt {
+    padding: 16px;
+  }
+
+  .counselo-wa-prompt__title {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .counselo-wa-button,
+  .counselo-wa-button__hover-label,
+  .counselo-wa-prompt,
+  .counselo-wa-prompt__close,
+  .counselo-wa-prompt__action {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+
+  .counselo-wa-button::before {
+    animation: none;
+  }
+}
