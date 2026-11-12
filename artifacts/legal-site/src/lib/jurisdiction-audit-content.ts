@@ -1,9 +1,10 @@
-/** Navigation labels describe destinations, not the law applied by this page. */
+/** Navigation and platform-wide coverage facts do not identify the law applied to a matter. */
 export function jurisdictionEditorialContent(html: string): string {
   return html
     .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
     .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
     .replace(/<nav\b[\s\S]*?<\/nav>/gi, " ")
+    .replace(/<section\b(?=[^>]*\bclass=["'][^"']*\bplatform-facts(?:\s|["']))[^>]*>[\s\S]*?<\/section>/gi, " ")
     .replace(/<[^>]+>/g, " ")
     .replace(/\s+/g, " ");
 }

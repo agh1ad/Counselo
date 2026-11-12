@@ -17,6 +17,7 @@ import { COUNSELO_OPTIMIZED_META } from "@/lib/optimized-meta";
 import { BLOG_SOCIAL_IMAGE } from "@workspace/api-zod/browser";
 import { searchIntentMeta } from "@/lib/search-intent-copy";
 import { limitSeoTitle } from "@/lib/seo-title";
+import { latestPageUpdate } from "@/lib/site-content-dates";
 
 const SYR_TEXT_MAP: [RegExp, string][] = [
   [/Saudi Arabia/gi, "Syria"],
@@ -45,7 +46,7 @@ const SYR_TEXT_MAP: [RegExp, string][] = [
   [/المحاكم السعودية/g, "المحاكم السورية"],
   [/في المملكة\b/g, "في سوريا"],
   [/\bبالمملكة\b/g, "في سوريا"],
-  [/كاونسلو المملكة العربية السعودية/g, "كاونسلو سوريا"],
+  [/كاونسلو للاستشارات القانونية المملكة العربية السعودية/g, "كاونسلو للاستشارات القانونية سوريا"],
   [/ساما\b/g, "مصرف سوريا المركزي"],
   [/هيئة الزكاة والضريبة والجمارك/g, "هيئة الضرائب والرسوم"],
   [/ترخيص مساند/g, "الترخيص التجاري"],
@@ -62,10 +63,11 @@ function syriafyText(text: string): string {
 
 /**
  * Serialize a schema object to a JSON string safe for inline <script> tags.
- * Escapes </script> to prevent the tag from being prematurely closed.
+ * Escape every less-than character: HTML accepts whitespace and case variants
+ * in a script end tag, including those inside an otherwise valid JSON string.
  */
 function schemaJson(obj: object): string {
-  return JSON.stringify(obj).replace(/<\/script>/gi, "<\\/script>");
+  return JSON.stringify(obj).replace(/</g, "\\u003c");
 }
 
 function limitTitle(value: string, max = 68): string {
@@ -94,6 +96,8 @@ interface SEOHeadProps {
   reviewedBy?: string;
   /** Accessible description of the social-share image. */
   ogImageAlt?: string;
+  ogImageUrl?: string;
+  noIndex?: boolean;
   /** Override the document language when content intentionally differs from the site UI. */
   contentLanguage?: "en" | "ar";
   /**
@@ -113,38 +117,32 @@ const GEO = {
   uae: {
     region: "AE",
     placename: "United Arab Emirates",
-    position: "24.453884;54.377344",
-    icbm: "24.453884, 54.377344",
     ogLocaleAr: "ar_AE",
     ogLocaleEn: "en_AE",
     hrefLangEn: "en-AE",
     hrefLangAr: "ar-AE",
     pathPrefix: "/uae",
-    imgAlt: "CounselO — Online Legal Consultation United Arab Emirates",
+    imgAlt: "CounselO Legal — Online Legal Consultation United Arab Emirates",
   },
   sa: {
     region: "SA",
     placename: "Saudi Arabia",
-    position: "24.774265;46.738586",
-    icbm: "24.774265, 46.738586",
     ogLocaleAr: "ar_SA",
     ogLocaleEn: "en_US",
     hrefLangEn: "en-SA",
     hrefLangAr: "ar-SA",
     pathPrefix: "/sa",
-    imgAlt: "CounselO — Online Legal Consultation Saudi Arabia",
+    imgAlt: "CounselO Legal — Online Legal Consultation Saudi Arabia",
   },
   syr: {
     region: "SY",
     placename: "Syria",
-    position: "34.802075;38.996815",
-    icbm: "34.802075, 38.996815",
     ogLocaleAr: "ar_SY",
     ogLocaleEn: "en_US",
     hrefLangEn: "en-SY",
     hrefLangAr: "ar-SY",
     pathPrefix: "/syr",
-    imgAlt: "CounselO — Online Legal Consultation Syria",
+    imgAlt: "CounselO Legal — Online Legal Consultation Syria",
   },
 } as const;
 
@@ -163,6 +161,8 @@ export function SEOHead({
   articleSection,
   reviewedBy,
   ogImageAlt,
+  ogImageUrl,
+  noIndex = false,
   contentLanguage,
   noRegionPrefix = false,
   sharedLanguageAlternates,
@@ -174,7 +174,9 @@ export function SEOHead({
   const geo = GEO[region];
   const effectiveLanguage = contentLanguage ?? lang;
   const isArabic = effectiveLanguage === "ar";
-  const isSyr = region === "syr";
+  // A saved navigation preference must never rewrite the jurisdiction of a
+  // shared article or work sample. Only legacy regional pages need this map.
+  const isSyr = region === "syr" && !noRegionPrefix;
 
   const basePath = canonical === "/" ? "" : canonical ?? "";
   const langSegment = isArabic ? "/ar" : "";
@@ -242,16 +244,16 @@ export function SEOHead({
       ? sharedTitleOverrides[basePath]
       : (isSyr ? syriafyText(title) : title);
   // Optimized meta titles are already final — never append a suffix to them.
-  // For fallback (non-map) titles, append "| CounselO" only if not already present.
+  // For fallback (non-map) titles, append "| CounselO Legal" only if not already present.
   const fullTitle = limitTitle(metaOverride
     ? rawTitle
-    : (rawTitle.endsWith("| CounselO") ||
-        rawTitle.endsWith("| كاونسلو") ||
-        rawTitle.endsWith("كاونسلو")
+    : (rawTitle.endsWith("| CounselO Legal") ||
+        rawTitle.endsWith("| كاونسلو للاستشارات القانونية") ||
+        rawTitle.endsWith("كاونسلو للاستشارات القانونية")
           ? rawTitle
           : isArabic
-            ? `${rawTitle} | كاونسلو`
-            : `${rawTitle} | CounselO`));
+            ? `${rawTitle} | كاونسلو للاستشارات القانونية`
+            : `${rawTitle} | CounselO Legal`));
 
   // Shared collection pages (noRegionPrefix=true without explicit alternates,
   // e.g. /blog) emit no regional alternates. Bilingual
@@ -313,24 +315,26 @@ export function SEOHead({
       ? canonicalUrl
       : "https://counselo-legal.com/";
 
-  const ogImage = BLOG_SOCIAL_IMAGE.url;
-  const socialImageAlt = ogImageAlt ?? geo.imgAlt;
+  const ogImage = ogImageUrl || BLOG_SOCIAL_IMAGE.url;
+  const socialImageAlt = ogImageAlt ?? (noRegionPrefix
+    ? (isArabic ? "كاونسلو للاستشارات القانونية — مكتبة قانونية بالعربية والإنجليزية" : "CounselO Legal — Arabic and English legal resources")
+    : geo.imgAlt);
   const locale = isArabic ? geo.ogLocaleAr : geo.ogLocaleEn;
   const alternateLocale = isArabic ? geo.ogLocaleEn : geo.ogLocaleAr;
 
   const defaultKeywordsEn =
     region === "uae"
-      ? "online legal consultation UAE, lawyer UAE online, legal advice Dubai, legal advice Abu Dhabi, UAE company law, UAE labour law, UAE family law, UAE arbitration, CounselO"
+      ? "online legal consultation UAE, lawyer UAE online, legal advice Dubai, legal advice Abu Dhabi, UAE company law, UAE labour law, UAE family law, UAE arbitration, CounselO Legal"
       : region === "sa"
-      ? "online legal consultation Saudi Arabia, lawyer Saudi Arabia online, legal advice KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law Saudi Arabia, foreign investment lawyer KSA, administrative law Saudi Arabia, CounselO"
-      : "online legal consultation Syria, lawyer Syria online, legal advice Syria, family law Syria, commercial law Syria, employment law Syria, real estate law Syria, foreign investment lawyer Syria, administrative law Syria, CounselO";
+      ? "online legal consultation Saudi Arabia, lawyer Saudi Arabia online, legal advice KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law Saudi Arabia, foreign investment lawyer KSA, administrative law Saudi Arabia, CounselO Legal"
+      : "online legal consultation Syria, lawyer Syria online, legal advice Syria, family law Syria, commercial law Syria, employment law Syria, real estate law Syria, foreign investment lawyer Syria, administrative law Syria, CounselO Legal";
 
   const defaultKeywordsAr =
     region === "uae"
-      ? "استشارة قانونية أونلاين الإمارات, محامي أونلاين الإمارات, مشورة قانونية دبي, قانون الشركات الإماراتي, قانون العمل الإماراتي, الأحوال الشخصية الإمارات, كاونسلو"
+      ? "استشارة قانونية أونلاين الإمارات, محامي أونلاين الإمارات, مشورة قانونية دبي, قانون الشركات الإماراتي, قانون العمل الإماراتي, الأحوال الشخصية الإمارات, كاونسلو للاستشارات القانونية"
       : region === "sa"
-      ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة العربية السعودية, مشورة قانونية إلكترونية, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل السعودي, القانون العقاري السعودي, استثمار أجنبي محامي, القانون الإداري السعودي, كاونسلو"
-      : "استشارة قانونية أونلاين سوريا, محامي أونلاين سوريا, مشورة قانونية إلكترونية سوريا, قانون الأسرة السوري, القانون التجاري السوري, قانون العمل السوري, القانون العقاري السوري, كاونسلو";
+      ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة العربية السعودية, مشورة قانونية إلكترونية, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل السعودي, القانون العقاري السعودي, استثمار أجنبي محامي, القانون الإداري السعودي, كاونسلو للاستشارات القانونية"
+      : "استشارة قانونية أونلاين سوريا, محامي أونلاين سوريا, مشورة قانونية إلكترونية سوريا, قانون الأسرة السوري, القانون التجاري السوري, قانون العمل السوري, القانون العقاري السوري, كاونسلو للاستشارات القانونية";
 
   const rawKeywords = keywords ?? (isArabic ? defaultKeywordsAr : defaultKeywordsEn);
 
@@ -344,15 +348,18 @@ export function SEOHead({
   // description with the overridden values so structured data stays in sync.
   const applyWebPagePatch = (s: object): object => {
     const typed = s as Record<string, unknown>;
-    if (typed["@type"] === "WebPage") {
-      return { ...typed, name: fullTitle, description: finalDescription };
+    const types = Array.isArray(typed["@type"]) ? typed["@type"] : [typed["@type"]];
+    if (types.some(type => ["WebPage", "AboutPage", "ContactPage", "ProfilePage", "CollectionPage"].includes(String(type)))) {
+      return { ...typed, name: fullTitle, description: finalDescription,
+        dateModified: latestPageUpdate(canonicalUrl, typeof typed.dateModified === "string" ? typed.dateModified : undefined),
+      };
     }
     return s;
   };
 
   const processSchema = (s: object): object => {
     const syrified = isSyr ? (localizeLegacySyriaSchema(s, syriafyText) as object) : s;
-    return metaOverride ? applyWebPagePatch(syrified) : syrified;
+    return applyWebPagePatch(syrified);
   };
 
   const finalSchema = schema
@@ -378,14 +385,12 @@ export function SEOHead({
       <meta name="keywords" content={finalKeywords} />
       <meta
         name="robots"
-        content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+        content={noIndex ? "noindex, follow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"}
       />
 
       {/* Region-independent pages must not inherit a misleading country target. */}
       {!noRegionPrefix && <meta name="geo.region" content={geo.region} />}
       {!noRegionPrefix && <meta name="geo.placename" content={geo.placename} />}
-      {!noRegionPrefix && <meta name="geo.position" content={geo.position} />}
-      {!noRegionPrefix && <meta name="ICBM" content={geo.icbm} />}
       <meta httpEquiv="content-language" content={effectiveLanguage} />
 
       {/* Canonical */}
@@ -406,13 +411,13 @@ export function SEOHead({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:type" content={ogType} />
-      <meta property="og:site_name" content="CounselO كاونسلو" />
+      <meta property="og:site_name" content="CounselO Legal كاونسلو للاستشارات القانونية" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:image:secure_url" content={BLOG_SOCIAL_IMAGE.secureUrl} />
-      <meta property="og:image:type" content={BLOG_SOCIAL_IMAGE.type} />
-      <meta property="og:image:width" content={String(BLOG_SOCIAL_IMAGE.width)} />
-      <meta property="og:image:height" content={String(BLOG_SOCIAL_IMAGE.height)} />
+      <meta property="og:image:secure_url" content={ogImage} />
+      {!ogImageUrl && <meta property="og:image:type" content={BLOG_SOCIAL_IMAGE.type} />}
+      {!ogImageUrl && <meta property="og:image:width" content={String(BLOG_SOCIAL_IMAGE.width)} />}
+      {!ogImageUrl && <meta property="og:image:height" content={String(BLOG_SOCIAL_IMAGE.height)} />}
       <meta property="og:image:alt" content={socialImageAlt} />
       <meta property="og:locale" content={locale} />
       <meta property="og:locale:alternate" content={alternateLocale} />
@@ -422,7 +427,7 @@ export function SEOHead({
         name="author"
         content={ogType === "article" && articleAuthor
           ? articleAuthor
-          : "CounselO — Lawyer and Legal Counsel Omar Al-Baghdadi"}
+          : "CounselO Legal — Lawyer and Legal Counsel Omar Al-Baghdadi"}
       />
       {reviewedBy && <meta name="reviewed-by" content={reviewedBy} />}
 

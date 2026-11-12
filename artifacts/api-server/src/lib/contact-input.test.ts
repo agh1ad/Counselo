@@ -24,6 +24,24 @@ test("accepts a valid consultation request", () => {
   assert.deepEqual(parsed.attachments, []);
 });
 
+test("accepts and normalizes Arabic and Eastern Arabic phone digits", () => {
+  for (const phone of ["+٩٦٦٥٥٠٠٠١٢٣٤", "+۹۶۶۵۵۰۰۰۱۲۳۴"]) {
+    assert.equal(parseContactInput({ ...validInput, phone, language: "ar" }).phone, "+966550001234");
+  }
+});
+
+test("accepts only bounded UUID submission keys", () => {
+  const idempotencyKey = "0c21b6b4-aaf4-4e7b-8885-999e82aa707c";
+  assert.equal(parseContactInput({ ...validInput, idempotencyKey }).idempotencyKey, idempotencyKey);
+  assert.throws(() => parseContactInput({ ...validInput, idempotencyKey: "arbitrary-value" }), ContactInputError);
+});
+
+test("phone separators cannot substitute for digits", () => {
+  for (const phone of ["+........1", "1234567890123456", "not-a-phone-number"]) {
+    assert.throws(() => parseContactInput({ ...validInput, phone }), ContactInputError);
+  }
+});
+
 test("validates consultation products independently from practice areas", () => {
   const parsed = parseContactInput({ ...validInput, consultationProduct: "document-review" });
   assert.equal(parsed.consultationProduct, "document-review");

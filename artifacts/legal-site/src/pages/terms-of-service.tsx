@@ -17,8 +17,8 @@ export default function TermsOfService() {
 
   const content = {
     en: {
-      seoTitle: "Terms of Service | Online Legal Consultation Process | CounselO",
-      seoDesc: `CounselO's consultation terms and process for online legal advice in ${countryEn}: submit your matter, receive a fee quote, approve the scope, and receive your legal consultation in Arabic or English.`,
+      seoTitle: "Terms of Service | Online Legal Consultation Process | CounselO Legal",
+      seoDesc: `CounselO Legal's consultation terms and process for online legal advice in ${countryEn}: submit your matter, receive a fee quote, approve the scope, and receive your legal consultation in Arabic or English.`,
       eyebrow: "Legal Consultation Terms",
       heading: "Terms of Service",
       subheading:
@@ -33,12 +33,12 @@ export default function TermsOfService() {
         {
           icon: CreditCard,
           title: "Step 2 — We Assess & Inform You of the Cost",
-          desc: "Our legal team — led by Lawyer and Legal Counsel Omar Al-Baghdadi — will review your matter and inform you of the consultation fee. The fee is determined by the complexity and scope of the legal question. We will not proceed without your explicit agreement to the quoted cost.",
+          desc: "Our legal team will review your matter and inform you of the consultation fee. The fee is determined by the complexity and scope of the legal question. We will not proceed without your explicit agreement to the quoted cost.",
         },
         {
           icon: MessageCircle,
           title: "Step 3 — Payment Before the Answer",
-          desc: "Payment of the agreed consultation fee must be made in full before we issue your legal answer. Payment instructions will be provided upon your agreement to the fee. CounselO will confirm receipt of payment before proceeding.",
+          desc: "Payment of the agreed consultation fee must be made in full before we issue your legal answer. Payment instructions will be provided upon your agreement to the fee. CounselO Legal will confirm receipt of payment before proceeding.",
         },
         {
           icon: CheckCircle2,
@@ -50,7 +50,7 @@ export default function TermsOfService() {
       terms: [
         {
           title: "Confidentiality",
-          desc: "Information you share with CounselO is handled under applicable confidentiality and data-protection obligations. We do not disclose it without your consent except where disclosure is required or permitted by applicable law.",
+          desc: "Information you share with CounselO Legal is handled under applicable confidentiality and data-protection obligations. We do not disclose it without your consent except where disclosure is required or permitted by applicable law.",
         },
         {
           title: "Scope of Consultation",
@@ -68,7 +68,7 @@ export default function TermsOfService() {
         },
         {
           title: "Changes to Terms",
-          desc: "CounselO reserves the right to update these terms at any time. The terms applicable to your consultation are those in effect at the time you request the service.",
+          desc: "CounselO Legal reserves the right to update these terms at any time. The terms applicable to your consultation are those in effect at the time you request the service.",
         },
       ],
       ctaHeading: "Ready to Get Started?",
@@ -76,8 +76,8 @@ export default function TermsOfService() {
       ctaBtn: "Contact Us Now",
     },
     ar: {
-      seoTitle: "شروط الخدمة | آلية الاستشارة القانونية الأونلاين | كاونسلو",
-      seoDesc: `شروط وآلية استشارات كاونسلو القانونية الأونلاين في ${countryAr}: أرسل مسألتك، واحصل على عرض الرسوم، واعتمد النطاق، ثم استلم استشارتك القانونية بالعربية أو الإنجليزية.`,
+      seoTitle: "شروط الخدمة | آلية الاستشارة القانونية الأونلاين | كاونسلو للاستشارات القانونية",
+      seoDesc: `شروط وآلية استشارات كاونسلو للاستشارات القانونية الأونلاين في ${countryAr}: أرسل مسألتك، واحصل على عرض الرسوم، واعتمد النطاق، ثم استلم استشارتك القانونية بالعربية أو الإنجليزية.`,
       eyebrow: "شروط الاستشارة القانونية",
       heading: "شروط الخدمة",
       subheading:
@@ -92,12 +92,12 @@ export default function TermsOfService() {
         {
           icon: CreditCard,
           title: "الخطوة الثانية — نقيّم الطلب ونخبرك بالتكلفة",
-          desc: "يراجع فريقنا القانوني — بقيادة المحامي والمستشار القانوني عمر البغدادي — قضيتك ويُعلمك برسوم الاستشارة. تُحدَّد الرسوم بحسب تعقيد المسألة القانونية ونطاقها. لن نمضي قُدُماً إلا بعد موافقتك الصريحة على التكلفة المقدَّمة.",
+          desc: "يراجع فريقنا القانوني قضيتك ويُعلمك برسوم الاستشارة. تُحدَّد الرسوم بحسب تعقيد المسألة القانونية ونطاقها. لن نمضي قُدُماً إلا بعد موافقتك الصريحة على التكلفة المقدَّمة.",
         },
         {
           icon: MessageCircle,
           title: "الخطوة الثالثة — الدفع قبل تلقّي الإجابة",
-          desc: "يجب سداد رسوم الاستشارة المتفق عليها كاملةً قبل إصدار إجابتك القانونية. ستُزوَّد بتعليمات الدفع فور موافقتك على المبلغ. ستؤكد كاونسلو استلام الدفعة قبل المضي في تقديم الاستشارة.",
+          desc: "يجب سداد رسوم الاستشارة المتفق عليها كاملةً قبل إصدار إجابتك القانونية. ستُزوَّد بتعليمات الدفع فور موافقتك على المبلغ. ستؤكد كاونسلو للاستشارات القانونية استلام الدفعة قبل المضي في تقديم الاستشارة.",
         },
         {
           icon: CheckCircle2,
@@ -109,7 +109,7 @@ export default function TermsOfService() {
       terms: [
         {
           title: "السرية",
-          desc: "تُعامل المعلومات التي تشاركها مع كاونسلو وفق التزامات السرية وحماية البيانات المنطبقة. ولا نُفصح عنها دون موافقتك إلا إذا كان الإفصاح مطلوباً أو مسموحاً به بموجب القانون المنطبق.",
+          desc: "تُعامل المعلومات التي تشاركها مع كاونسلو للاستشارات القانونية وفق التزامات السرية وحماية البيانات المنطبقة. ولا نُفصح عنها دون موافقتك إلا إذا كان الإفصاح مطلوباً أو مسموحاً به بموجب القانون المنطبق.",
         },
         {
           title: "نطاق الاستشارة",
@@ -127,7 +127,7 @@ export default function TermsOfService() {
         },
         {
           title: "تعديل الشروط",
-          desc: "يحق لكاونسلو تعديل هذه الشروط في أي وقت. والشروط المعمول بها عند طلبك الخدمة هي السارية على استشارتك.",
+          desc: "يحق لكاونسلو للاستشارات القانونية تعديل هذه الشروط في أي وقت. والشروط المعمول بها عند طلبك الخدمة هي السارية على استشارتك.",
         },
       ],
       ctaHeading: "مستعد للبدء؟",
@@ -145,22 +145,22 @@ export default function TermsOfService() {
         canonical="/terms-of-service"
         keywords={isUae
           ? (isRTL
-            ? "شروط خدمة كاونسلو الإمارات, آلية الاستشارة القانونية أونلاين الإمارات, رسوم الاستشارة القانونية, استشارة واتساب الإمارات"
-            : "CounselO UAE terms of service, UAE online legal consultation process, UAE legal consultation fees, legal advice WhatsApp UAE")
+            ? "شروط خدمة كاونسلو للاستشارات القانونية الإمارات, آلية الاستشارة القانونية أونلاين الإمارات, رسوم الاستشارة القانونية, استشارة واتساب الإمارات"
+            : "CounselO Legal UAE terms of service, UAE online legal consultation process, UAE legal consultation fees, legal advice WhatsApp UAE")
           : region === "syr"
           ? (isRTL
             ? "شروط الخدمة قانوني, كيفية الاستشارة القانونية أونلاين سوريا, استشارة قانونية بالواتساب سوريا, رسوم الاستشارة القانونية, محامي أونلاين سوريا"
-            : "CounselO terms of service, how online legal consultation works Syria, legal advice WhatsApp Syria, consultation fees lawyer Syria, online legal process Syria")
+            : "CounselO Legal terms of service, how online legal consultation works Syria, legal advice WhatsApp Syria, consultation fees lawyer Syria, online legal process Syria")
           : (isRTL
             ? "شروط الخدمة قانوني, كيفية الاستشارة القانونية أونلاين, استشارة قانونية بالواتساب السعودية, رسوم الاستشارة القانونية, محامي أونلاين"
-            : "CounselO terms of service, how online legal consultation works Saudi Arabia, legal advice WhatsApp KSA, consultation fees lawyer, online legal process")}
+            : "CounselO Legal terms of service, how online legal consultation works Saudi Arabia, legal advice WhatsApp KSA, consultation fees lawyer, online legal process")}
         schema={[
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
             "dateModified": "2026-09-07",
             "@id": `${pageUrl}#webpage`,
-            "name": isRTL ? "شروط الخدمة | كاونسلو" : "Terms of Service | CounselO",
+            "name": isRTL ? "شروط الخدمة | كاونسلو للاستشارات القانونية" : "Terms of Service | CounselO Legal",
             "description": content.seoDesc,
             "url": pageUrl,
             "isPartOf": { "@id": COUNSELO_ENTITY_IDS.website },
@@ -190,14 +190,14 @@ export default function TermsOfService() {
       </section>
 
       <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:px-8 lg:py-24">
-        <nav aria-label={isRTL ? "محتويات شروط الخدمة" : "Terms contents"} className="hidden lg:block">
-          <div className="sticky top-28 border-t-2 border-[#b58b32] bg-[#eef4f0] p-6">
-            <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-[#0d4a31]">{isRTL ? "المحتويات" : "Contents"}</p>
+        <nav aria-label={isRTL ? "محتويات شروط الخدمة" : "Terms contents"} className="policy-contents">
+          <details open className="policy-contents-panel">
+            <summary className="font-semibold">{isRTL ? "المحتويات" : "Contents"}</summary>
             <ol className="space-y-4 text-sm">
               <li><a href="#terms-process" className="text-muted-foreground hover:text-primary">1. {content.processHeading}</a></li>
               <li><a href="#terms-general" className="text-muted-foreground hover:text-primary">2. {content.termsHeading}</a></li>
             </ol>
-          </div>
+          </details>
         </nav>
         <div>
 
@@ -259,14 +259,14 @@ export default function TermsOfService() {
           className="bg-primary p-10 text-center"
         >
           <h2 className="text-2xl font-serif font-bold text-white mb-3">{content.ctaHeading}</h2>
-          <p className="text-white/70 mb-8 leading-relaxed">{content.ctaDesc}</p>
+          <p className="text-white/90 mb-8 leading-relaxed">{content.ctaDesc}</p>
           <Link href={`${regionPrefix}/contact`}>
             <span className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-4 hover:bg-white/90 transition-colors cursor-pointer">
               {content.ctaBtn}
               <ArrowRight className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
             </span>
           </Link>
-          <div className="mt-8 pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/60">
+          <div className="mt-8 pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/90">
             <a href="https://wa.me/966594850247" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
               <MessageCircle className="h-4 w-4" />
               <span dir="ltr">+966 59 485 0247</span>

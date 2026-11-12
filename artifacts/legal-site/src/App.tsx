@@ -1,3 +1,7 @@
+import RemovedPage from "@/pages/removed";
+import { isRetiredPublicPath } from "@workspace/api-zod/browser";
+import "@/components/legal/public-readability.css";
+import { legalUpdatesData, type LegalUpdatesData } from "@workspace/api-zod/browser";
 import {
   Switch,
   Route,
@@ -18,6 +22,7 @@ import { ErrorBoundary } from "@/components/error-boundary";
 import { Helmet } from "react-helmet-async";
 import { trackEvent, trackPageview, injectGTM } from "@/lib/analytics";
 import type { WorkSamplePublic } from "@/lib/work-samples";
+import type { LegalUpdate } from "@workspace/api-zod/browser";
 import { blogPath } from "@workspace/api-zod/browser";
 
 import {
@@ -36,7 +41,6 @@ import {
   ServiceDetail,
   Services,
   TermsOfService,
-  Vision,
   UrgentLegalAssistance,
   WorkSample,
 } from "@/route-pages";
@@ -72,8 +76,9 @@ export interface InitialBlogPost {
   relatedWorkSlugs?: string[];
 }
 
-function createSsrQueryClient(posts: InitialBlogPost[], workSamples: WorkSamplePublic[]): QueryClient {
+function createSsrQueryClient(posts: InitialBlogPost[], workSamples: WorkSamplePublic[], updates: LegalUpdatesData | LegalUpdate[], path: string): QueryClient {
   const client = new QueryClient();
+  client.setQueryData(["legal-updates", path], legalUpdatesData(path, updates));
   client.setQueryData(["blog-posts"], posts);
   client.setQueryData(["work-samples"], workSamples);
   for (const post of posts) {
@@ -164,18 +169,18 @@ function RegionIdentityBar() {
 
   const details = {
     sa: {
-      en: "CounselO Saudi Arabia",
-      ar: "كاونسلو المملكة العربية السعودية",
+      en: "CounselO Legal Saudi Arabia",
+      ar: "كاونسلو للاستشارات القانونية المملكة العربية السعودية",
       flag: "/images/optimized/saudi-arabia-flag.webp",
     },
     syr: {
-      en: "CounselO Syria",
-      ar: "كاونسلو سوريا",
+      en: "CounselO Legal Syria",
+      ar: "كاونسلو للاستشارات القانونية سوريا",
       flag: "/images/optimized/syria-flag.webp",
     },
     uae: {
-      en: "CounselO United Arab Emirates",
-      ar: "كاونسلو الإمارات العربية المتحدة",
+      en: "CounselO Legal United Arab Emirates",
+      ar: "كاونسلو للاستشارات القانونية الإمارات العربية المتحدة",
       flag: "/images/optimized/uae-flag.svg",
     },
   } as const;
@@ -224,11 +229,6 @@ function buildRegionRoutes() {
       key={`${prefix}-about`}
       path={`${prefix}/about`}
       component={About}
-    />,
-    <Route
-      key={`${prefix}-vision`}
-      path={`${prefix}/vision`}
-      component={Vision}
     />,
     <Route
       key={`${prefix}-contact`}
@@ -285,6 +285,8 @@ function Router() {
   const [location] = useLocation();
   const isAdmin = location.startsWith("/counselo-admin");
 
+  if (isRetiredPublicPath(location)) return <RemovedPage />;
+
   if (isAdmin) {
     return (
       <>
@@ -336,7 +338,6 @@ function Router() {
         <Route path="/ar/legal-library" component={LegalLibrary} />
         <Route path="/legal-library" component={LegalLibrary} />
         <Route path="/about" component={About} />
-        <Route path="/vision" component={Vision} />
         <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
         <Route path="/terms-of-service" component={TermsOfService} />
@@ -376,7 +377,7 @@ function AppShell() {
     return (
       <div className="min-h-screen bg-gray-50">
         <Helmet>
-          <title>CounselO Admin</title>
+          <title>CounselO Legal Admin</title>
           <meta name="robots" content="noindex, nofollow, noarchive" />
         </Helmet>
         <Router />
@@ -386,14 +387,15 @@ function AppShell() {
 
   if (isRegionPicker) {
     return (
-      <>
+      <div className="public-readable-site">
         <Router />
-      </>
+        <WhatsAppFloat />
+      </div>
     );
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="public-readable-site min-h-screen flex flex-col bg-background">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-background focus:text-foreground focus:px-4 focus:py-2 focus:border focus:border-border"
@@ -410,6 +412,7 @@ function AppShell() {
     </div>
   );
 }
+
 
 function RoutedLanguageBoundary() {
   const [location] = useLocation();
@@ -439,13 +442,14 @@ interface AppProps {
   ssrUrl?: string;
   /** Published posts supplied by the prerender pipeline for first-byte HTML. */
   initialBlogPosts?: InitialBlogPost[];
+  initialLegalUpdates?: LegalUpdatesData | LegalUpdate[];
   /** Published work samples supplied for crawlable discovery links. */
   initialWorkSamples?: WorkSamplePublic[];
 }
 
-function App({ ssrUrl, initialBlogPosts = [], initialWorkSamples = [] }: AppProps = {}) {
+function App({ ssrUrl, initialBlogPosts = [], initialWorkSamples = [], initialLegalUpdates = [] }: AppProps = {}) {
   const activeQueryClient = ssrUrl
-    ? createSsrQueryClient(initialBlogPosts, initialWorkSamples)
+    ? createSsrQueryClient(initialBlogPosts, initialWorkSamples, initialLegalUpdates, ssrUrl || "/")
     : queryClient;
   return (
     <QueryClientProvider client={activeQueryClient}>

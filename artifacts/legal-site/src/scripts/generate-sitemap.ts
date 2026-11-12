@@ -1,4 +1,6 @@
+import { saudiServiceBrief, saudiServiceBriefModifiedAt } from "../lib/saudi-service-briefs.js";
 import { SEARCH_COPY_UPDATED_AT } from "../lib/search-intent-copy.js";
+import { latestPageUpdate } from "../lib/site-content-dates.js";
 import { writeFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -10,10 +12,11 @@ import {
   buildHreflangLinks,
   getServicesForRegion,
   hasQualityBilingualBlogContent,
+  buildWorkDocumentSitemapEntries,
 } from "@workspace/api-zod";
 import { repairPublicBlogPost } from "../../../api-server/src/lib/public-blog-repairs.js";
 import { repairPublicWorkSample } from "../../../api-server/src/lib/public-work-repairs.js";
-import { getLegalProblemPages, legalProblemPath } from "../lib/legal-problem-pages.js";
+import { getLegalProblemPages, getLegalProblemLanguageAlternates, legalProblemPath } from "../lib/legal-problem-pages.js";
 import { matterGuidanceUpdatedAt } from "../lib/matter-source-guidance.js";
 import { serviceGuidanceUpdatedAt } from "../lib/source-backed-search-guidance.js";
 
@@ -114,11 +117,13 @@ function urlEntry(
   changefreq: string,
   priority: string,
   lastmod?: string,
+  alternates?: Array<{ hrefLang: string; href: string }>,
 ): string {
   const loc = path === "" ? `${BASE_URL}/` : `${BASE_URL}${path}`;
+  lastmod = latestPageUpdate(path, lastmod);
   return `  <url>
     <loc>${loc}</loc>
-${sharedHreflang(path)}
+${alternates ? [...alternates, { hrefLang: "x-default", href: `${BASE_URL}/` }].map(({ hrefLang, href }) => `    <xhtml:link rel="alternate" hreflang="${hrefLang}" href="${href}"/>`).join("\n") : sharedHreflang(path)}
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
 ${lastmod ? `    <lastmod>${lastmod}</lastmod>` : ""}
@@ -131,6 +136,7 @@ function urlEntrySyrOnly(
   priority: string,
   lastmod?: string,
 ): string {
+  lastmod = latestPageUpdate(path, lastmod);
   return `  <url>
     <loc>${BASE_URL}${path}</loc>
 ${hreflangSyrOnly(path)}
@@ -197,6 +203,7 @@ function urlEntryLanguageVariant(
   priority: string,
   lastmod?: string,
 ): string {
+  lastmod = latestPageUpdate(fullUrl, lastmod);
   return `  <url>
     <loc>${fullUrl}</loc>
     <xhtml:link rel="alternate" hreflang="en" href="${englishUrl}"/>
@@ -222,12 +229,13 @@ for (const page of CORE_PAGES) {
   if (page.path === "/syr") {
     entries.push("\n  <!-- ===== SYR CORE PAGES ===== -->");
   }
-  entries.push(urlEntry(page.path, page.changefreq, page.priority, /(?:urgent-legal-assistance|about|contact)$/.test(page.path) ? "2026-09-11" : /(?:privacy-policy|terms-of-service)$/.test(page.path) ? "2026-09-07" : /(?:vision|services)$/.test(page.path) || /^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?)$/.test(page.path) ? SEARCH_COPY_UPDATED_AT : STATIC_CONTENT_LASTMOD));
+  const saudiAcquisitionUpdated = /^\/sa(?:\/ar)?(?:\/contact)?$/.test(page.path);
+  entries.push(urlEntry(page.path, page.changefreq, page.priority, saudiAcquisitionUpdated ? (/^\/sa(?:\/ar)?$/.test(page.path) ? "2026-10-20" : "2026-10-19") : /(?:urgent-legal-assistance|about|contact)$/.test(page.path) ? "2026-09-11" : /(?:privacy-policy|terms-of-service)$/.test(page.path) ? "2026-09-07" : /(?:vision|services)$/.test(page.path) || /^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?)$/.test(page.path) ? SEARCH_COPY_UPDATED_AT : STATIC_CONTENT_LASTMOD));
 }
 
 entries.push("\n  <!-- ===== SA SERVICE PAGES ===== -->");
 for (const slug of SA_SERVICE_SLUGS) {
-  const modified = slug === "urgent-legal-assistance" ? "2026-09-11" : serviceGuidanceUpdatedAt("sa", slug, SEARCH_COPY_UPDATED_AT);
+  const modified = slug === "urgent-legal-assistance" ? "2026-10-20" : serviceGuidanceUpdatedAt("sa", slug, saudiServiceBrief("sa", slug, "en") ? saudiServiceBriefModifiedAt(slug) : SEARCH_COPY_UPDATED_AT);
   entries.push(urlEntry(`/sa/services/${slug}`, "monthly", "0.9", modified));
   entries.push(urlEntry(`/sa/ar/services/${slug}`, "monthly", "0.9", modified));
 }
@@ -253,8 +261,9 @@ for (const region of ["sa", "syr", "uae"] as const) {
     const enPath = legalProblemPath(region, "en", page.parentServiceSlug, page.slug);
     const arPath = legalProblemPath(region, "ar", page.parentServiceSlug, page.slug);
     const modified = matterGuidanceUpdatedAt(region, page.parentServiceSlug, page.slug, [page.contentUpdatedAt ?? "", PROBLEM_CONTENT_LASTMOD].sort().at(-1)!);
-    entries.push(urlEntryLanguageVariant(`${BASE_URL}${enPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8", modified));
-    entries.push(urlEntryLanguageVariant(`${BASE_URL}${arPath}`, `${BASE_URL}${enPath}`, `${BASE_URL}${arPath}`, "monthly", "0.8", modified));
+    const alternates = getLegalProblemLanguageAlternates(page);
+    entries.push(urlEntry(enPath, "monthly", "0.8", modified, alternates));
+    entries.push(urlEntry(arPath, "monthly", "0.8", modified, alternates));
   }
 }
 
@@ -279,7 +288,7 @@ entries.push(urlEntryLanguageVariant(workIndexAr, workIndexEn, workIndexAr, "wee
 
 // Blog posts — fetch the published records from the live API by default.
 // BLOG_API_URL can point builds at a preview/local API without changing config.
-// If it is unreachable, posts are skipped without failing the static build.
+// If discovery is unavailable, stop rather than publish incomplete discovery files.
 try {
   const BlogPostRowSchema = z.object({
     slug: z.string(),
@@ -326,14 +335,14 @@ try {
         slug: post.slug,
         date: articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date)?.slice(0, 10) || post.date,
         title: post.titleEn?.trim() || post.slug,
-        excerpt: post.excerptEn?.trim() || "CounselO legal insight",
+        excerpt: post.excerptEn?.trim() || "CounselO Legal insight",
         url: enUrl,
       });
       feedPosts.push({
         slug: post.slug,
         date: articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date)?.slice(0, 10) || post.date,
         title: post.titleAr?.trim() || post.slug,
-        excerpt: post.excerptAr?.trim() || "رؤية قانونية من كاونسلو",
+        excerpt: post.excerptAr?.trim() || "رؤية قانونية من كاونسلو للاستشارات القانونية",
         url: arUrl,
       });
     }
@@ -344,12 +353,12 @@ try {
 }
 
 try {
-  const WorkRowSchema = z.object({ slug: z.string(), date: z.string(), updatedAt: z.string().optional(), titleEn: z.string().optional(), titleAr: z.string().optional() }).passthrough();
+  const WorkRowSchema = z.object({ slug: z.string(), date: z.string(), updatedAt: z.string().optional(), titleEn: z.string().optional(), titleAr: z.string().optional(), published: z.boolean(), fileSize: z.number().default(0), fileMimeType: z.string().default("") }).passthrough();
   const workApiUrl = process.env["WORK_API_URL"]?.trim() || "https://counselo-legal.com/api/work";
   const res = await fetchRequiredDiscovery([workApiUrl], "Work sample");
   if (res.ok) {
     const raw = (await res.json()) as unknown[];
-    const samples = raw.map((item) => WorkRowSchema.safeParse(item)).filter((item) => item.success).map((item) => repairPublicWorkSample(item.data));
+    const samples = raw.map((item) => WorkRowSchema.safeParse(item)).filter((item) => item.success).map((item) => repairPublicWorkSample(item.data)).filter(sample => sample.published);
     for (const sample of samples) {
       const enUrl = `${BASE_URL}${WORK_BASE_PATH}/${sample.slug}`;
       const arUrl = `${BASE_URL}/ar${WORK_BASE_PATH}/${sample.slug}`;
@@ -363,7 +372,9 @@ try {
         entries.push(urlEntrySingleUrl(enUrl, "monthly", "0.75", modified));
       }
     }
-    console.log(`[sitemap] added ${samples.length} work sample(s) to sitemap`);
+    const documentEntries = buildWorkDocumentSitemapEntries(samples);
+    entries.push(...documentEntries);
+    console.log(`[sitemap] added ${samples.length} work sample(s) and ${documentEntries.length} PDF document(s) to sitemap`);
   }
 } catch (err) {
   throw new Error(`[sitemap] ${(err as Error).message}`, { cause: err });
@@ -375,7 +386,7 @@ function sitemapBucket(url: string): "core" | "uae-services" | "sa-services" | "
   if (/^\/sa\/(?:ar\/)?services\//.test(pathname)) return "sa-services";
   if (/^\/syr\/(?:ar\/)?services\//.test(pathname)) return "syr-services";
   if (pathname === "/blog" || pathname.startsWith("/blog/")) return "blog";
-  if (pathname === "/our-work" || pathname.startsWith("/our-work/") || pathname === "/ar/our-work" || pathname.startsWith("/ar/our-work/")) return "work";
+  if (pathname === "/our-work" || pathname.startsWith("/our-work/") || pathname === "/ar/our-work" || pathname.startsWith("/ar/our-work/") || pathname.startsWith("/documents/")) return "work";
   return "core";
 }
 
@@ -415,6 +426,7 @@ for (const [bucket, filename] of sitemapFiles) {
   writeFileSync(resolve(rootDir, "public", filename), renderUrlset(buckets[bucket]), "utf-8");
 }
 
+
 const outPath = resolve(rootDir, "public/sitemap.xml");
 const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -432,7 +444,7 @@ const escapeXml = (value: string) => value
 const feedXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>CounselO Global Legal Insights</title>
+    <title>CounselO Legal Global Legal Insights</title>
     <link>${BASE_URL}${BLOG_BASE_PATH}</link>
     <description>Legal articles and guides covering Saudi, Syrian and UAE law.</description>
     <language>en</language>

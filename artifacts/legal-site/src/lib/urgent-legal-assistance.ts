@@ -1,7 +1,7 @@
 import type { Region } from "@workspace/api-zod/browser";
 
 export const URGENT_SLUG = "urgent-legal-assistance";
-export const URGENT_UPDATED_AT = "2026-09-11";
+export const URGENT_UPDATED_AT = "2026-11-13";
 export const urgentPath = (ar: boolean, region?: Region) => region
   ? `/${region}${ar ? "/ar" : ""}/services/${URGENT_SLUG}`
   : `${ar ? "/ar" : ""}/${URGENT_SLUG}`;
@@ -10,7 +10,7 @@ export const urgentCopy = {
   en: {
     title: "Urgent Legal Assistance",
     eyebrow: "When your legal matter cannot wait",
-    intro: "Need a legal document urgently? CounselO prepares legal memoranda and statements of claim, and reviews existing contracts or agreements for individuals and businesses, using the documents you provide.",
+    intro: "Need a legal document urgently? CounselO Legal prepares legal memoranda and statements of claim, and reviews existing contracts or agreements for individuals and businesses, using the documents you provide.",
     timing: "The 3-hour delivery target applies to the agreed memorandum, statement of claim or contract review—not an acknowledgement. The clock starts only after we accept the request, check that the documents are complete and confirm payment. We agree the delivery date, time and time zone before payment.",
     whatsapp: "Request urgent help on WhatsApp",
     email: "Send an urgent request by email",
@@ -41,7 +41,7 @@ export const urgentCopy = {
       ["What if my deadline is less than three hours away?", "Send the exact deadline and time zone before paying. We assess feasibility and confirm what we can accept; a message does not reserve availability or extend an official deadline."],
       ["Can I submit a request on Thursday or Friday?", "Requests are accepted at any time Saturday–Thursday. We do not accept new urgent requests on Friday. For a Thursday request, agree the exact delivery date and time before payment."],
       ["Can I discuss the work or request revisions after delivery?", "Yes. The agreed fee includes revisions within scope and discussion or questions about the delivered work. New matters and work beyond that scope are agreed separately."],
-      ["Will you file the document or represent me in court?", "No. This service covers document preparation or review only. It excludes filing, attending hearings, monitoring court deadlines and creating new contracts."],
+      ["Does the three-hour urgent document service include court filing or representation?", "The three-hour urgent service delivers the agreed memorandum, statement of claim or review of an existing contract. Court filing, hearing attendance, monitoring court deadlines and drafting a new contract are outside this urgent package. CounselO also provides representation through licensed local partners under a separately agreed engagement; tell us if your matter needs that service so we can confirm the responsible professional, scope and timing."],
       ["How do I send my documents?", "Contact us through WhatsApp or email to agree the transfer method, then attach the files there. Include relevant schedules and correspondence. Website contact links do not attach files automatically."],
     ],
     relatedTitle: "Explore the relevant legal service",
@@ -55,7 +55,7 @@ export const urgentCopy = {
   ar: {
     title: "المساعدة القانونية العاجلة",
     eyebrow: "عندما لا تحتمل مسألتك القانونية الانتظار",
-    intro: "تحتاج إلى مستند قانوني بصورة عاجلة؟ تُعد كاونسلو المذكرات القانونية ولوائح الدعاوى، وتدقق العقود والاتفاقيات القائمة للأفراد والشركات، استناداً إلى المستندات التي تقدمها.",
+    intro: "تحتاج إلى مستند قانوني بصورة عاجلة؟ تُعد كاونسلو للاستشارات القانونية المذكرات القانونية ولوائح الدعاوى، وتدقق العقود والاتفاقيات القائمة للأفراد والشركات، استناداً إلى المستندات التي تقدمها.",
     timing: "هدف التسليم خلال ٣ ساعات يخص المذكرة أو لائحة الدعوى أو تدقيق العقد المتفق عليه، وليس مجرد إشعار باستلام الطلب. يبدأ الوقت فقط بعد قبول الطلب والتحقق من اكتمال المستندات وتأكيد السداد. نتفق على تاريخ وساعة التسليم والمنطقة الزمنية قبل الدفع.",
     whatsapp: "اطلب مساعدة عاجلة عبر واتساب",
     email: "أرسل طلبك العاجل بالبريد الإلكتروني",
@@ -86,7 +86,7 @@ export const urgentCopy = {
       ["ماذا لو بقي على الموعد أقل من ثلاث ساعات؟", "أرسل الموعد الدقيق والمنطقة الزمنية قبل الدفع. نقيّم إمكان التنفيذ ونؤكد ما يمكن قبوله؛ الرسالة لا تحجز التوافر ولا تمدد أي ميعاد رسمي."],
       ["هل يمكن تقديم الطلب يوم الخميس أو الجمعة؟", "نستقبل الطلبات في أي وقت من السبت إلى الخميس، ولا نستقبل طلبات مستعجلة جديدة يوم الجمعة. لطلب الخميس، اتفق معنا على تاريخ وساعة التسليم قبل السداد."],
       ["هل يمكن مناقشة العمل أو طلب تعديلات بعد التسليم؟", "نعم. تشمل الأتعاب المتفق عليها التعديلات ضمن النطاق ومناقشة العمل المسلّم والأسئلة المتعلقة به. تُتفق المسائل الجديدة والأعمال خارج النطاق بصورة مستقلة."],
-      ["هل تتولون الإيداع أو التمثيل أمام القضاء؟", "لا. تقتصر الخدمة على إعداد المستند أو تدقيقه. لا تشمل الإيداع أو حضور الجلسات أو متابعة المواعيد القضائية أو إنشاء عقود جديدة."],
+      ["هل تشمل خدمة المستندات العاجلة خلال ثلاث ساعات الإيداع أو التمثيل أمام القضاء؟", "تقدم الخدمة العاجلة المذكرة أو لائحة الدعوى أو مراجعة العقد القائم المتفق عليها. ويخرج عن نطاق هذه الخدمة العاجلة الإيداع وحضور الجلسات ومتابعة المواعيد القضائية وصياغة عقد جديد. وتقدم كاونسلو أيضاً التمثيل عبر شركاء محليين مرخصين بموجب تكليف مستقل متفق عليه؛ أخبرنا إذا كانت مسألتك تحتاج إلى ذلك لنؤكد المهني المسؤول ونطاق العمل وموعده."],
       ["كيف أرسل المستندات؟", "تواصل عبر واتساب أو البريد للاتفاق على وسيلة النقل، ثم أرفق الملفات هناك مع الملاحق والمراسلات ذات الصلة. روابط الموقع لا ترفق الملفات تلقائياً."],
     ],
     relatedTitle: "استكشف الخدمة القانونية ذات الصلة",
@@ -122,3 +122,57 @@ export function urgentContactLinks(ar: boolean, country?: string) {
     email: `mailto:info@counselo-legal.com?subject=${encodeURIComponent(copy.title)}&body=${encodeURIComponent(body)}`,
   };
 }
+
+// Saudi page wording: the underlying availability, liability and timing terms remain unchanged.
+export const saudiUrgentCopy = {
+  en: {
+    ...urgentCopy.en,
+    intro: "We prepare urgent memoranda and statements of claim, and review existing contracts. Send your documents and deadline.",
+    services: [
+      ["Legal memorandum", "Written analysis of the agreed questions, facts and documents. Send the case papers, correspondence and purpose; we confirm scope and language before payment."],
+      ["Statement of claim", "A draft covering parties, facts, requested relief and evidence. Send a dated account and supporting records. Filing and court attendance are excluded."],
+      ["Contract or agreement review", "Written comments on risks and unclear terms in an existing agreement. Send the draft, schedules and correspondence. We agree the comment format; new contracts are excluded."],
+    ],
+    steps: [
+      ["1. Send your request", "State the service, jurisdiction and deadline. A message does not confirm acceptance or start the clock."],
+      ["2. Document check", "We check completeness and identify missing information."],
+      ["3. Acceptance", "We confirm the professional, scope, fee and delivery time."],
+      ["4. Payment", "Pay the agreed fee after acceptance and document checks."],
+      ["5. Delivery target starts", "With acceptance, complete documents and payment confirmed, we target delivery within 3 hours."],
+    ],
+    documentsTitle: "What to send",
+    privacy: "Send complete, readable records you may share. Flag missing information and agree how to transfer sensitive files.",
+    feesTitle: "Urgent fees",
+    fees: "Urgent fees differ from standard fees and depend on scope, document volume, complexity and deadline.",
+    deliveryTitle: "Delivery and revisions",
+    delivery: "We agree language, format and delivery channel. The fee includes revisions and questions within scope; additional work needs a separate agreement.",
+    handlingTitle: "Your assigned professional",
+    handling: "We confirm the professional and role before acceptance. Ask about relevant qualifications and jurisdictional experience.",
+    relatedTitle: "Related services",
+  },
+  ar: {
+    ...urgentCopy.ar,
+    intro: "نعد المذكرات ولوائح الدعاوى وندقق العقود القائمة بصورة عاجلة. أرسل المستندات والموعد المطلوب.",
+    services: [
+      ["مذكرة قانونية", "تحليل مكتوب للأسئلة والوقائع والمستندات المتفق عليها. أرسل أوراق القضية والمراسلات والغرض؛ نؤكد النطاق واللغة قبل السداد."],
+      ["لائحة دعوى", "مسودة تتضمن الأطراف والوقائع والطلبات والأدلة. أرسل تسلسلاً مؤرخاً والمستندات المؤيدة. لا تشمل الخدمة الإيداع أو الحضور."],
+      ["تدقيق عقد أو اتفاقية", "ملاحظات مكتوبة على المخاطر والبنود الغامضة في اتفاق قائم. أرسل المسودة والملاحق والمراسلات. نتفق على صيغة الملاحظات؛ لا تشمل الخدمة إنشاء عقد جديد."],
+    ],
+    steps: [
+      ["١. أرسل الطلب", "حدّد الخدمة والاختصاص والموعد. الرسالة لا تعني القبول ولا تبدأ بها المدة."],
+      ["٢. فحص المستندات", "نتحقق من الاكتمال ونحدد المعلومات الناقصة."],
+      ["٣. قبول المهمة", "نؤكد المسؤول والنطاق والأتعاب وموعد التسليم."],
+      ["٤. السداد", "سدّد الأتعاب المتفق عليها بعد القبول وفحص المستندات."],
+      ["٥. بدء هدف التسليم", "بعد القبول واكتمال المستندات وتأكيد السداد، نستهدف التسليم خلال ٣ ساعات."],
+    ],
+    documentsTitle: "ما الذي ترسله؟",
+    privacy: "أرسل سجلات كاملة ومقروءة يحق لك مشاركتها. وضّح النقص واتفق على وسيلة نقل الملفات الحساسة.",
+    feesTitle: "أتعاب الطوارئ",
+    fees: "تختلف أتعاب الطوارئ عن العادية بحسب النطاق وحجم المستندات والتعقيد والموعد.",
+    deliveryTitle: "التسليم والتعديلات",
+    delivery: "نتفق على اللغة والصيغة ووسيلة التسليم. تشمل الأتعاب التعديلات والأسئلة ضمن النطاق؛ العمل الإضافي يحتاج إلى اتفاق مستقل.",
+    handlingTitle: "المهني المكلف",
+    handling: "نؤكد المسؤول وصفته قبل القبول. يمكنك السؤال عن مؤهلاته وخبرته في الاختصاص المعني.",
+    relatedTitle: "خدمات مرتبطة",
+  },
+} as const;

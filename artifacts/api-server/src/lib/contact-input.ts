@@ -22,13 +22,16 @@ const attachmentSchema = z.object({
 const contactInputSchema = z.object({
   name: z.string().trim().min(2).max(120),
   email: z.string().trim().email().max(254),
-  phone: z.string().trim().min(10).max(30),
+  phone: z.string().trim().transform((value) => value.replace(/[٠-٩۰-۹]/g, (digit) =>
+    String(digit.charCodeAt(0) - (digit >= "۰" ? 0x06f0 : 0x0660)),
+  )).pipe(z.string().min(10).max(30)),
   service: z.string().trim().min(1),
   consultationProduct: z.string().trim().min(1).default("comprehensive-consultation"),
   message: z.string().trim().min(10).max(5_000),
   region: z.enum(["uae", "sa", "syr"]),
   language: z.enum(["en", "ar"]),
   website: z.string().max(200).optional().default(""),
+  idempotencyKey: z.string().uuid().optional(),
   attachments: z
     .array(attachmentSchema)
     .max(MAX_CONTACT_FILES)
@@ -129,7 +132,8 @@ export function parseContactInput(value: unknown): ContactInput {
     );
   }
 
-  if (!/^[+\d][\d\s().-]{8,28}\d$/.test(result.data.phone)) {
+  const phoneDigits = result.data.phone.replace(/\D/g, "").length;
+  if (!/^[+\d][\d\s().-]{8,28}\d$/.test(result.data.phone) || phoneDigits < 10 || phoneDigits > 15) {
     throw new ContactInputError("Enter a valid phone number.");
   }
   if (!isServiceValidForRegion(result.data.region, result.data.service)) {

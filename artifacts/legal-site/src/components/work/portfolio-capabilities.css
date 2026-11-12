@@ -1,0 +1,24 @@
+.portfolio-capabilities { width: min(1180px, calc(100% - 3rem)); margin-inline: auto; padding-block: 2.5rem; color: #173f30; border-bottom: 1px solid #d1ddd5; }
+.portfolio-capabilities__intro { max-width: 78ch; margin-bottom: 1.75rem; }
+.portfolio-capabilities__intro h2 { font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 750; line-height: 1.35; margin-bottom: .65rem; }
+.portfolio-capabilities__intro p { color: #496358; line-height: 1.8; }
+.portfolio-capabilities__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 2.5rem; }
+.portfolio-capabilities__case { min-width: 0; border-inline-start: 2px solid #bc9a57; padding-inline-start: 1.25rem; }
+.portfolio-capabilities__case h3 { font-size: 1.2rem; font-weight: 750; line-height: 1.5; margin-bottom: .4rem; }
+.portfolio-capabilities__case h3 a { display: inline-flex; align-items: baseline; gap: .6rem; min-height: 36px; }
+.portfolio-capabilities__capability { font-size: .95rem; font-weight: 650; line-height: 1.7; margin-bottom: 1rem; }
+.portfolio-capabilities__case dl { display: grid; gap: .75rem; }
+.portfolio-capabilities__case dt { font-size: .78rem; font-weight: 750; line-height: 1.5; color: #765a25; margin-bottom: .25rem; }
+.portfolio-capabilities__case dd { font-size: .9rem; line-height: 1.75; color: #496358; }
+.portfolio-capabilities__links { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; margin-top: .7rem; }
+.portfolio-capabilities__links a { display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; font-size: .82rem; font-weight: 700; line-height: 1.6; text-decoration: underline; text-underline-offset: 4px; }
+.portfolio-capabilities svg { flex-shrink: 0; }
+.portfolio-capabilities a:hover { color: #286c4c; }
+.portfolio-capabilities a:focus-visible { outline: 2px solid #987232; outline-offset: 5px; }
+.portfolio-capabilities[dir=rtl] :is(h2, h3) { line-height: 1.6; letter-spacing: 0; }
+.portfolio-capabilities[dir=rtl] :is(p, dd) { line-height: 1.9; }
+@media (max-width: 760px) {
+  .portfolio-capabilities { width: calc(100% - 2rem); padding-block: 2rem; }
+  .portfolio-capabilities__grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .portfolio-capabilities__case { padding-inline-start: 1rem; }
+}

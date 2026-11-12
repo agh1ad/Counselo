@@ -31,3 +31,11 @@ test("a Saudi intake number is distinct from Saudi legal advice", () => {
   assert.doesNotMatch(checked, /Saudi number/);
   assert.match(checked, /Saudi employment rules/);
 });
+
+test("platform country coverage is distinct from neighboring jurisdiction-specific advice", () => {
+  const facts = '<section class="platform-facts platform-facts--embedded"><h3>Countries served / دول ضمن نطاق خدماتنا</h3><dl><dd>Saudi Arabia · Syria · United Arab Emirates</dd><dd>السعودية · سوريا · الإمارات</dd></dl></section>';
+  assert.doesNotMatch(jurisdictionEditorialContent(facts), /Saudi|السعودية/);
+  const content = jurisdictionEditorialContent(`${facts}<section><p>Apply Saudi employment rules in Syria. تطبق القواعد السعودية.</p></section>`);
+  assert.match(content, /Apply Saudi employment rules/);
+  assert.match(content, /القواعد السعودية/);
+});

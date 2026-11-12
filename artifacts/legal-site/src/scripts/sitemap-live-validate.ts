@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import {
   getPublicRouteInventory,
   getServicesForRegion,
+  publicWorkDocumentPath,
 } from "@workspace/api-zod";
 
 const BASE_URL = (process.env["SITEMAP_BASE_URL"] ?? "https://counselo-legal.com").replace(/\/$/, "");
@@ -45,6 +46,7 @@ type PageAudit = {
   indexable: boolean;
   alternates: Record<string, string>;
   dateModified?: string;
+  validPdf?: boolean;
 };
 
 type Baseline = Record<string, { lastmod: string; contentHash: string }>;
@@ -138,6 +140,22 @@ async function response(url: string): Promise<Response> {
   return cached;
 }
 
+/** PDF canonicals and indexing directives are HTTP headers, not HTML tags. */
+export function parsePdfAudit(status: number, redirected: boolean, bytes: Uint8Array, headers: Headers): PageAudit {
+  const canonical = headers.get("link")?.match(/<([^>]+)>;\s*rel="?canonical"?/i)?.[1] ?? "";
+  const declaredLength = headers.get("content-length");
+  const body = Buffer.from(bytes);
+  return {
+    status,
+    redirected,
+    body: body.toString("base64"),
+    canonical: canonical ? absoluteUrl(canonical) : "",
+    indexable: !/noindex|nofollow|(?:^|[\s,])none(?:$|[\s,])/i.test(headers.get("x-robots-tag") ?? ""),
+    alternates: {},
+    validPdf: /^application\/pdf(?:;|$)/i.test(headers.get("content-type") ?? "") && body.subarray(0, 5).toString("ascii") === "%PDF-" && (!declaredLength || Number(declaredLength) === body.length),
+  };
+}
+
 async function fetchXml(url: string): Promise<SitemapDocument | null> {
   const res = await response(url);
   if (res.status !== 200) {
@@ -152,7 +170,9 @@ async function fetchPage(url: string): Promise<PageAudit> {
   let cached = pageCache.get(normalized);
   if (!cached) {
     cached = response(normalized).then(async (res) =>
-      parsePageAudit(
+      new URL(normalized).pathname.startsWith("/documents/")
+        ? parsePdfAudit(res.status, res.status >= 300 && res.status < 400, new Uint8Array(await res.arrayBuffer()), res.headers)
+        : parsePageAudit(
         res.status,
         res.status >= 300 && res.status < 400,
         await res.text(),
@@ -177,7 +197,7 @@ function loadBaseline(): Baseline {
   return JSON.parse(readFileSync(baselinePath, "utf8")) as Baseline;
 }
 
-function expectedUrls(blogPosts: Array<Record<string, unknown>>, workSamples: Array<Record<string, unknown>>): Set<string> {
+export function expectedUrls(blogPosts: Array<Record<string, unknown>>, workSamples: Array<Record<string, unknown>>): Set<string> {
   const expected = new Set(getPublicRouteInventory().map((route) => absoluteUrl(route)));
   for (const post of blogPosts) {
     const slug = String(post.slug);
@@ -185,6 +205,7 @@ function expectedUrls(blogPosts: Array<Record<string, unknown>>, workSamples: Ar
     expected.add(absoluteUrl(`/blog/ar/${slug}`));
   }
   for (const sample of workSamples) {
+    if (sample.published === false) continue;
     const slug = String(sample.slug);
     if (sample.titleEn && sample.titleAr) {
       expected.add(absoluteUrl(`/our-work/${slug}`));
@@ -192,6 +213,13 @@ function expectedUrls(blogPosts: Array<Record<string, unknown>>, workSamples: Ar
     } else {
       expected.add(absoluteUrl(sample.titleAr ? `/ar/our-work/${slug}` : `/our-work/${slug}`));
     }
+    const document = publicWorkDocumentPath({
+      slug,
+      published: sample.published === true,
+      fileSize: typeof sample.fileSize === "number" ? sample.fileSize : 0,
+      fileMimeType: typeof sample.fileMimeType === "string" ? sample.fileMimeType : "",
+    });
+    if (document) expected.add(absoluteUrl(document));
   }
   return expected;
 }
@@ -246,6 +274,7 @@ async function validate(): Promise<void> {
     if (page.redirected) fail(`${entry.loc} is a redirect URL submitted to the sitemap`);
     if (page.canonical !== entry.loc) fail(`${entry.loc} canonical is ${page.canonical}`);
     if (!page.indexable) fail(`${entry.loc} is noindex or nofollow`);
+    if (page.validPdf === false) fail(`${entry.loc} did not return a valid PDF with matching metadata`);
 
     for (const [language, target] of Object.entries(entry.alternates)) {
       const targetPage = await fetchPage(target);

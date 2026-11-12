@@ -1,5 +1,6 @@
 import app from "./app";
 import { logger } from "./lib/logger";
+import { startContactNotificationRecovery } from "./lib/contact-notifications";
 
 const rawPort = process.env["PORT"];
 
@@ -22,4 +23,9 @@ app.listen(port, (err) => {
   }
 
   logger.info({ port }, "Server listening");
+  // Development and production-like smoke tests must not send stored customer
+  // notifications merely because they opened a connection to a shared DB.
+  if (process.env.NODE_ENV === "production" && process.env.CONTACT_AUTOMATIC_RECOVERY !== "false") {
+    startContactNotificationRecovery();
+  }
 });

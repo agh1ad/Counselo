@@ -1,25 +1,25 @@
-import type { Request, Response, NextFunction } from "express";
-import { timingSafeEqual } from "node:crypto";
+import type { RequestHandler } from "express";
+import { secretsMatch } from "./auth-secrets.js";
+import { adminLoginLimiter, type AdminAttemptLimiter } from "./admin-login.js";
+export { secretsMatch } from "./auth-secrets.js";
 
-export function secretsMatch(candidate: string, secret: string): boolean {
-  const candidateBuffer = Buffer.from(candidate);
-  const secretBuffer = Buffer.from(secret);
-  return (
-    candidateBuffer.length === secretBuffer.length &&
-    timingSafeEqual(candidateBuffer, secretBuffer)
-  );
+export function createAdminGuard(
+  secret: () => string | undefined = () => process.env.ADMIN_PASSWORD,
+  limiter: AdminAttemptLimiter = adminLoginLimiter,
+): RequestHandler {
+  return (req, res, next) => {
+    const password = secret();
+    if (!password) { res.status(500).json({ error: "Server misconfigured" }); return; }
+    // Credential guessing must not bypass the login limit via a protected URL.
+    limiter(req, res, () => {
+      if (secretsMatch(req.headers.authorization ?? "", `Bearer ${password}`)) {
+        limiter.release(req);
+        next();
+        return;
+      }
+      res.status(401).json({ error: "Unauthorized" });
+    });
+  };
 }
 
-export function requireAdmin(req: Request, res: Response, next: NextFunction) {
-  const secret = process.env["ADMIN_PASSWORD"];
-  if (!secret) {
-    res.status(500).json({ error: "Server misconfigured" });
-    return;
-  }
-  const authHeader = req.headers["authorization"] ?? "";
-  if (secretsMatch(authHeader, `Bearer ${secret}`)) {
-    next();
-    return;
-  }
-  res.status(401).json({ error: "Unauthorized" });
-}
+export const requireAdmin = createAdminGuard();

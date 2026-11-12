@@ -1,3 +1,5 @@
+import { prepareArticleHtml } from "@/lib/article-reading";
+import { PageContents } from "@/components/legal/page-contents";
 import { useParams, Link, Redirect, useLocation } from "wouter";
 import * as m from "framer-motion/m";
 import { Clock, ArrowLeft, ArrowRight, BadgeCheck, Calendar, MessageCircle } from "lucide-react";
@@ -6,7 +8,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { TrustSignals } from "@/components/seo/TrustSignals";
 import { type WorkSamplePublic, localized, workSamplePath } from "@/lib/work-samples";
-import { fetchPublicJson } from "@/lib/public-api";
+import { fetchPublicJson, isMissingPublicContent } from "@/lib/public-api";
+import { ContentRecovery } from "@/components/content/content-recovery";
 import {
   articleJurisdictionLabel,
   articleContextRegion,
@@ -123,7 +126,7 @@ export default function BlogPost() {
 
   const dbSlug = slug ?? "";
 
-  const { data: post, isLoading, isError } = useQuery<ApiPost>({
+  const { data: post, isLoading, isError, error, isFetching, refetch } = useQuery<ApiPost>({
     queryKey: ["blog-post", dbSlug],
     queryFn: () => fetchPublicJson<ApiPost>(`/api/blog/posts/${encodeURIComponent(dbSlug)}`),
     // Use server-injected data (window.__SSR_POST__) as the initial value so
@@ -169,7 +172,7 @@ export default function BlogPost() {
       minRead: "min read",
       consultHeading: "Need Legal Advice?",
       consultDesc:
-        "CounselO offers confidential initial online consultations for its supported jurisdictions via WhatsApp, email or the consultation form. Filing, attendance and reserved representation work are scoped separately where required. Founded and led by Lawyer and Legal Counsel Omar Al-Baghdadi: 30+ years of legal practice, 20,000+ legal matters and consultations handled.",
+        "Discuss how this applies to your matter. We confirm scope and fees before paid work; local representation requires a separate engagement.",
       whatsapp: "Chat on WhatsApp",
       consultation: "Start Consultation",
       disclaimer:
@@ -183,7 +186,7 @@ export default function BlogPost() {
       back: "العودة إلى المدونة",
       minRead: "د قراءة",
       consultHeading: "هل تحتاج إلى مشورة قانونية؟",
-      consultDesc: "يقدم كاونسلو استشارات سرية عبر واتساب أو البريد الإلكتروني — دون الحاجة لزيارة مكتب. من تأسيس المحامي والمستشار القانوني عمر البغدادي — خبرة قانونية 30+ عاماً من الممارسة القانونية.",
+      consultDesc: "ناقش تطبيق ذلك على مسألتك. نؤكد النطاق والأتعاب قبل العمل المدفوع؛ والتمثيل المحلي يحتاج إلى تكليف منفصل.",
       whatsapp: "تواصل عبر واتساب",
       consultation: "ابدأ الاستشارة",
       disclaimer:
@@ -205,7 +208,10 @@ export default function BlogPost() {
     );
   }
 
-  if (isError || !post) {
+  if (isError && !isMissingPublicContent(error) && !post) {
+    return <ContentRecovery isArabic={lang === "ar"} retry={() => { void refetch(); }} retrying={isFetching} backHref={lang === "ar" ? "/blog/ar" : "/blog"} backLabel={ui.backBlog} />;
+  }
+  if (isMissingPublicContent(error) || !post) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-4" dir={isRTL ? "rtl" : "ltr"}>
         <h1 className="text-2xl font-serif font-bold text-foreground">{ui.notFound}</h1>
@@ -233,13 +239,13 @@ export default function BlogPost() {
   const rawSeoDesc = useAr ? (post.seoDescriptionAr || post.excerptAr) : (post.seoDescriptionEn || post.excerptEn);
   const seoDesc = normalizeDescription(rawSeoDesc, excerpt);
   const category = useAr ? post.categoryAr : post.categoryEn;
-  const body = useAr ? post.bodyAr : post.bodyEn;
+  const body = prepareArticleHtml(useAr ? post.bodyAr : post.bodyEn, title);
   const content = (useAr ? post.contentAr : post.contentEn) ?? [];
   const curatedContext = ARTICLE_CONTEXT[post.slug];
   const editorialUpdatedAt = curatedContext?.editorialUpdatedAt ? articleModifiedAt(curatedContext.editorialUpdatedAt, post.updatedAt, post.date) : undefined;
   const articleRegion = articleContextRegion(post);
   const articleRegionPrefix = `${articleRegion ? `/${articleRegion}` : ""}${useAr ? "/ar" : ""}`;
-  const articleContactPath = articleRegion ? `${articleRegionPrefix}/contact` : `${useAr ? "/ar" : "/"}#jurisdictions-heading${useAr ? "-ar" : ""}`;
+  const articleContactPath = articleRegion ? `${articleRegionPrefix}/contact` : `${useAr ? "/ar" : "/"}#contact`;
   const fallbackProvenance = assignArticleProvenance(post);
   const contentType = post.contentType ?? "professional-commentary";
   const provenance = {
@@ -311,7 +317,7 @@ export default function BlogPost() {
     "publisher": {
       "@type": "Organization",
       "@id": COUNSELO_ENTITY_IDS.organization,
-      "name": "CounselO",
+      "name": "CounselO Legal",
       "url": "https://counselo-legal.com",
       "logo": {
         "@type": "ImageObject",
@@ -340,10 +346,9 @@ export default function BlogPost() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
-      { "@type": "ListItem", "position": 2, "name": useAr ? "المكتبة القانونية" : "Legal Library", "item": `https://counselo-legal.com${useAr ? "/ar/legal-library" : "/legal-library"}` },
-      { "@type": "ListItem", "position": 3, "name": useAr ? "المدونة" : "Blog", "item": `https://counselo-legal.com${useAr ? "/blog/ar" : "/blog"}` },
-      { "@type": "ListItem", "position": 4, "name": seoTitle, "item": canonicalArticleUrl },
+      { "@type": "ListItem", "position": 1, "name": useAr ? "الرئيسية" : "Home", "item": `https://counselo-legal.com${useAr ? "/ar" : "/"}` },
+      { "@type": "ListItem", "position": 2, "name": useAr ? "المقالات القانونية" : "Legal Articles", "item": `https://counselo-legal.com${useAr ? "/blog/ar" : "/blog"}` },
+      { "@type": "ListItem", "position": 3, "name": seoTitle, "item": canonicalArticleUrl },
     ],
   };
 
@@ -361,8 +366,8 @@ export default function BlogPost() {
         } : undefined}
         contentLanguage={useAr ? "ar" : "en"}
         keywords={useAr
-          ? `${category}, مقالات قانونية, إرشادات قانونية مجانية, كاونسلو, مدونة كاونسلو القانونية, استشارة قانونية أونلاين`
-          : `${category}, legal articles, free legal guides, CounselO blog, online legal advice, CounselO`}
+          ? `${category}, مقالات قانونية, إرشادات قانونية مجانية, كاونسلو للاستشارات القانونية, مدونة كاونسلو للاستشارات القانونية, استشارة قانونية أونلاين`
+          : `${category}, legal articles, free legal guides, CounselO Legal blog, online legal advice, CounselO Legal`}
         ogType="article"
         articlePublishedTime={post.date}
         articleModifiedTime={editorialUpdatedAt ?? post.updatedAt ?? post.date}
@@ -370,8 +375,8 @@ export default function BlogPost() {
         articleSection={category}
         reviewedBy={editorialUpdatedAt ? undefined : reviewerAttribution}
         ogImageAlt={editorialUpdatedAt ? title : useAr
-          ? `مقال قانوني من كاونسلو، راجعه ${reviewerAttribution}`
-          : `CounselO legal article reviewed by ${reviewerAttribution}`}
+          ? `مقال قانوني من كاونسلو للاستشارات القانونية، راجعه ${reviewerAttribution}`
+          : `CounselO Legal article reviewed by ${reviewerAttribution}`}
         extraSchemas={[articleSchema, breadcrumbSchema]}
       />
 
@@ -397,7 +402,7 @@ export default function BlogPost() {
               {title}
             </h1>
             <div className="premium-hero-rule mb-6" />
-            <p dir={contentDir} className="text-lg text-white/70 leading-relaxed">{excerpt}</p>
+
             <a
               href={provenance.legalReviewerUrl}
               className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white transition-colors"
@@ -410,7 +415,7 @@ export default function BlogPost() {
       </section>
 
       {/* Content + Sidebar */}
-      <section className="premium-content-shell py-14">
+      <section className="premium-content-shell py-8 article-reading-layout">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Article body */}
           <m.article
@@ -419,6 +424,9 @@ export default function BlogPost() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="min-w-0 lg:col-span-2"
           >
+
+      <div><PageContents isArabic={useAr} pageKey={slug} selector=".legal-article-body h2, .legal-article-body h3" /></div>
+            <details className="article-source-details"><summary>{useAr ? "المؤلف والمراجعة والمصادر" : "Author, review and sources"}</summary>
             <section className="mb-10 border border-border bg-muted/25 p-5" aria-labelledby="article-provenance-heading">
               <h2 id="article-provenance-heading" className="text-lg font-serif font-bold text-foreground mb-4">
                 {contentType === "legal-guidance" ? (useAr ? "بيانات المراجعة والمصادر" : "Review and source information") : (useAr ? "بيانات المقال التحريري" : "Editorial information")}
@@ -439,6 +447,7 @@ export default function BlogPost() {
                 <a href={provenance.correctionUrl} className="text-primary hover:underline">{useAr ? "الإبلاغ عن تصحيح أو خطأ" : "Report a correction or factual error"}</a>
               </div>
             </section>
+            </details>
             <div className="legal-article-body prose prose-slate max-w-none tiptap-content" dir={contentDir}>
               {body ? (
                 <div dangerouslySetInnerHTML={{ __html: body }} />
@@ -446,7 +455,7 @@ export default function BlogPost() {
                 content.map((section, i) => (
                   <div key={i} className="mb-8">
                     {section.heading && (
-                      <h2 className="text-xl font-serif font-bold text-foreground mb-3 mt-8 first:mt-0">
+                      <h2 id={`article-section-${i + 1}`} className="text-xl font-serif font-bold text-foreground mb-3 mt-8 first:mt-0">
                         {section.heading}
                       </h2>
                     )}
@@ -511,7 +520,7 @@ export default function BlogPost() {
               <div className="bg-primary text-white p-6 mb-6">
                 <MessageCircle className="h-6 w-6 text-white/70 mb-3" />
                 <h3 className="text-lg font-serif font-bold text-white mb-2">{ui.consultHeading}</h3>
-                <p className="text-white/70 text-sm leading-relaxed mb-5">{ui.consultDesc}</p>
+                <p className="text-white/90 text-sm leading-relaxed mb-5">{ui.consultDesc}</p>
                 <div className="flex flex-col gap-3">
                   <a
                     href="https://wa.me/966594850247"
@@ -535,23 +544,6 @@ export default function BlogPost() {
                     {ui.consultation}
                   </Link>
                 </div>
-              </div>
-
-              <div className="border border-border p-5">
-                <p className="text-xs text-muted-foreground uppercase tracking-wide font-medium mb-2">
-                  {lang === "en" ? "Content information" : "معلومات المحتوى"}
-                </p>
-                <p className="font-serif font-bold text-foreground">
-                  {useAr ? provenance.primaryAuthorNameAr : provenance.primaryAuthorName}
-                </p>
-                <p className="text-sm text-muted-foreground mt-1">
-                  {lang === "en"
-                    ? `Published ${formatDate(post.date, lang)}${editorialUpdatedAt || post.updatedAt ? ` · Updated ${formatDate(editorialUpdatedAt || post.updatedAt!, lang)}` : ""}`
-                    : `نُشر ${formatDate(post.date, lang)}${editorialUpdatedAt || post.updatedAt ? ` · حُدّث ${formatDate(editorialUpdatedAt || post.updatedAt!, lang)}` : ""}`}
-                </p>
-                <Link href={provenance.legalReviewerUrl} className="inline-flex mt-3 text-sm font-semibold text-primary hover:underline">
-                  {lang === "en" ? "Legal leadership and experience" : "القيادة والخبرة القانونية"}
-                </Link>
               </div>
 
               {(() => {
@@ -599,7 +591,7 @@ export default function BlogPost() {
           </m.aside>
         </div>
       </section>
-      <TrustSignals isArabic={useAr} regionPrefix={articleRegionPrefix} compact />
+
     </div>
   );
 }

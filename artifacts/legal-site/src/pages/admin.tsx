@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
+import { LegalUpdatesManager } from "@/components/admin/legal-updates-manager";
+import { useState, useEffect, useCallback, useRef } from "react";
 import {
   Plus, Edit2, Trash2, LogOut, Eye, ChevronRight,
   X, Save, AlertCircle, CheckCircle, Globe, ChevronDown,
@@ -16,7 +17,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 import { blogPath } from "@workspace/api-zod/browser";
 
 const API = "/api";
-type Tab = "blog" | "work" | "analytics" | "seo" | "tools";
+type Tab = "updates" | "blog" | "work" | "analytics" | "seo" | "tools";
 
 interface BlogPost {
   id: number;
@@ -93,9 +94,9 @@ function truncateAtWord(text: string, limit: number): string {
 }
 
 function seoTitle(title: string, Arabic: boolean): string {
-  const suffix = Arabic ? " | كاونسلو" : " | CounselO";
+  const suffix = Arabic ? " | كاونسلو للاستشارات القانونية" : " | CounselO Legal";
   if (!title.trim()) return "";
-  if (title.endsWith("CounselO") || title.endsWith("كاونسلو")) return truncateAtWord(title, 70);
+  if (title.endsWith("CounselO Legal") || title.endsWith("كاونسلو للاستشارات القانونية")) return truncateAtWord(title, 70);
   return `${truncateAtWord(title, 70 - suffix.length)}${suffix}`;
 }
 
@@ -406,7 +407,7 @@ function PostEditor({ initial, token, onSave, onBack }: {
               </div>
               <div className="px-10 py-5 border-t border-gray-50 bg-gray-50/50 text-xs text-gray-300 flex items-center gap-4">
                 <FileText size={12} />
-                {lang === "en" ? "CounselO Legal Blog — English version" : "مدونة كاونسلو القانونية — النسخة العربية"}
+                {lang === "en" ? "CounselO Legal Blog — English version" : "مدونة كاونسلو للاستشارات القانونية — النسخة العربية"}
               </div>
             </div>
           </div>
@@ -570,7 +571,7 @@ const SEO_CHECKS = [
   { id: "canonical", label: "Canonical URLs on all pages", desc: "All 9 page types + 18 sub-areas", pass: true },
   { id: "keywords", label: "Keywords meta tag — all pages", desc: "Including blog posts, terms, privacy", pass: true },
   { id: "twitter_card", label: "Twitter/X summary_large_image", desc: "twitter:site @CounselOLegal set", pass: true },
-  { id: "titles_145", label: "145 seoTitles — all branded", desc: "Every sub-page title ends with CounselO suffix", pass: true },
+  { id: "titles_145", label: "145 seoTitles — all branded", desc: "Every sub-page title ends with CounselO Legal suffix", pass: true },
   { id: "sub_schema", label: "All 18 sub-pages — 3 schemas each", desc: "LegalService + FAQPage + BreadcrumbList", pass: true },
   { id: "no_247", label: "No 'Online, 24/7' in SEO descriptions", desc: "All replaced with '24 hours via WhatsApp'", pass: true },
   { id: "geo", label: "Geo meta tags — Jubail, SA-04", desc: "geo.region, geo.placename, geo.position", pass: true },
@@ -817,6 +818,8 @@ export default function AdminCMS() {
   const [password, setPassword] = useState("");
   const [showPw, setShowPw] = useState(false);
   const [loginErr, setLoginErr] = useState("");
+  const [signingIn, setSigningIn] = useState(false);
+  const signInLock = useRef(false);
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(false);
   const [editing, setEditing] = useState<(FormData & { id?: number }) | null>(null);
@@ -841,14 +844,31 @@ export default function AdminCMS() {
 
   const login = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (signInLock.current) return;
+    signInLock.current = true;
+    setSigningIn(true);
     setLoginErr("");
-    const res = await fetch(`${API}/admin/auth`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password }) });
-    if (res.ok) {
-      const { token: t } = await res.json() as { token: string };
-      sessionStorage.setItem("counselo_admin_token", t);
-      setToken(t);
-    } else {
-      setLoginErr("Wrong password. Try again.");
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 15_000);
+    try {
+      const res = await fetch(`${API}/admin/auth`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password }), signal: controller.signal });
+      if (!res.ok) {
+        setLoginErr(res.status === 401 ? "Wrong password. Try again." : res.status === 429 ? "Too many sign-in attempts. Try again shortly." : "The sign-in service is unavailable. Please retry.");
+        return;
+      }
+      const result: unknown = await res.json();
+      if (!result || typeof result !== "object" || !("token" in result) || typeof result.token !== "string" || !result.token.trim()) {
+        throw new Error("Invalid sign-in response");
+      }
+      sessionStorage.setItem("counselo_admin_token", result.token);
+      setToken(result.token);
+      setPassword("");
+    } catch {
+      setLoginErr(controller.signal.aborted ? "Sign-in timed out. Please retry." : "Unable to reach the sign-in service. Please retry.");
+    } finally {
+      window.clearTimeout(timeout);
+      signInLock.current = false;
+      setSigningIn(false);
     }
   };
 
@@ -870,16 +890,16 @@ export default function AdminCMS() {
         <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-8">
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-50 mb-4 text-2xl">🔒</div>
-            <h1 className="text-xl font-bold text-gray-900">CounselO Admin</h1>
+            <h1 className="text-xl font-bold text-gray-900">CounselO Legal Admin</h1>
             <p className="text-sm text-gray-500 mt-1">Analytics · Blog · SEO · Tools</p>
           </div>
           <form onSubmit={login} className="space-y-4">
             <div className="relative">
-              <input type={showPw ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Admin password" className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600 pr-10" autoFocus />
-              <button type="button" onClick={() => setShowPw((v) => !v)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">{showPw ? "🙈" : "👁"}</button>
+              <input type={showPw ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Admin password" aria-label="Admin password" autoComplete="current-password" required disabled={signingIn} className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600 pr-10" autoFocus />
+              <button type="button" aria-label={showPw ? "Hide password" : "Show password"} onClick={() => setShowPw((v) => !v)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">{showPw ? "🙈" : "👁"}</button>
             </div>
-            {loginErr && <p className="text-xs text-red-600">{loginErr}</p>}
-            <button type="submit" className="w-full bg-[#006C35] text-white py-3 rounded-lg text-sm font-semibold hover:bg-green-800 transition-colors">Sign in</button>
+            {loginErr && <p role="alert" className="text-xs text-red-600">{loginErr}</p>}
+            <button type="submit" disabled={signingIn} className="w-full bg-[#006C35] text-white py-3 rounded-lg text-sm font-semibold hover:bg-green-800 transition-colors disabled:opacity-60">{signingIn ? "Signing in…" : "Sign in"}</button>
           </form>
         </div>
       </div>
@@ -892,6 +912,7 @@ export default function AdminCMS() {
 
   const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
     { id: "blog", label: "Blog Posts", icon: <FileText size={15} /> },
+    { id: "updates", label: "Legal Updates", icon: <Search size={15} /> },
     { id: "work", label: "Our Work", icon: <BriefcaseBusiness size={15} /> },
     { id: "analytics", label: "Analytics", icon: <BarChart2 size={15} /> },
     { id: "seo", label: "SEO Monitor", icon: <Search size={15} /> },
@@ -906,7 +927,7 @@ export default function AdminCMS() {
       <div className="bg-[#006C35] text-white shadow sticky top-0 z-20">
         <div className="px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="text-base font-bold">CounselO Admin</span>
+            <span className="text-base font-bold">CounselO Legal Admin</span>
             <ChevronRight size={14} className="opacity-40" />
             <span className="text-sm opacity-70">{TABS.find((t) => t.id === tab)?.label}</span>
           </div>
@@ -926,6 +947,7 @@ export default function AdminCMS() {
       {tab === "analytics" && <AnalyticsTab posts={posts} />}
       {tab === "seo" && <SEOMonitorTab />}
       {tab === "tools" && <ToolsTab />}
+      {tab === "updates" && <LegalUpdatesManager token={token} />}
       {tab === "work" && <WorkSamplesManager token={token} />}
 
       {tab === "blog" && (

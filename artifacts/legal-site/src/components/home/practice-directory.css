@@ -15,3 +15,43 @@
 .practice-directory .practice-urgent { display: inline-flex; align-items: center; gap: .75rem; min-height: 48px; margin-top: 1rem; text-decoration: underline; }
 @media(max-width: 900px) { .practice-directory > ul { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 @media(max-width: 540px) { .practice-directory > ul { grid-template-columns: 1fr; } .practice-directory { width: calc(100% - 2.5rem); } }
+
+/* The Saudi homepage offers a compact overview with the full registry available. */
+.sa-home-practices { width: min(100% - 3rem,1180px); padding-block: 2.75rem; }
+.sa-home-practices__heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5rem; margin-bottom: 1.5rem; }
+.sa-home-practices__eyebrow { color: #806126; text-transform: uppercase; letter-spacing: .13em; font-size: .75rem; font-weight: 750; margin-bottom: .6rem; }
+.sa-home-practices h2 { display: block; font-family: var(--app-font-sans); font-size: clamp(1.8rem,3vw,2.65rem); font-weight: 750; line-height: 1.2; letter-spacing: -.035em; max-width: 24ch; margin: 0; }
+.sa-home-practices .sa-home-practices__all { display: inline-flex; align-items: center; gap: .6rem; min-height: 44px; flex-shrink: 0; font-size: .9rem; font-weight: 700; text-decoration: underline; text-underline-offset: 5px; }
+.sa-home-practices .sa-home-practices__grid { gap: .85rem; }
+.sa-home-practices__grid li { border: 0; border-radius: 10px; background: #143f30; }
+.sa-home-practices__grid li > a { display: grid; grid-template-columns: 42px minmax(0,1fr) 18px; align-items: start; gap: .9rem; min-height: 132px; padding: 1.3rem; border-radius: inherit; color: #fff; transition: background-color .18s ease; }
+.sa-home-practices__grid li > a:hover { color: #fff; background: #215a43; text-decoration: none; }
+.sa-home-practices .sa-practice-icon { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid #708269; border-radius: 8px; color: #efd18e; }
+.sa-home-practices .sa-practice-icon svg { width: 26px; height: 26px; }
+.sa-home-practices .sa-practice-copy h3 { font-family: var(--app-font-sans); font-weight: 700; font-size: 1.15rem; line-height: 1.4; margin: 0 0 .45rem; padding: 0; }
+.sa-home-practices .sa-practice-copy > span { display: block; color: #d2e1d8; font-size: .85rem; line-height: 1.6; }
+.sa-home-practices .sa-practice-arrow { color: #efd18e; margin-top: .7rem; }
+.sa-home-practices__more { margin-top: 1rem; border: 1px solid #cad8ce; border-radius: 8px; background: #f1f5f2; }
+.sa-home-practices__more summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 60px; padding: 1rem 1.25rem; cursor: pointer; list-style: none; font-weight: 700; }
+.sa-home-practices__more summary::-webkit-details-marker { display: none; }
+.sa-home-practices__more[open] summary svg { transform: rotate(45deg); }
+.sa-home-practices__more ul { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .5rem; margin: 0; padding: 0 1rem 1rem; list-style: none; }
+.sa-home-practices__more li { border-color: #d2ded5; }
+.sa-home-practices__more li > a { min-height: 54px; padding: .7rem .85rem; font-size: .9rem; font-weight: 650; }
+.sa-home-practices .sa-home-practices__urgent { display: inline-flex; align-items: center; gap: .75rem; min-height: 44px; margin-top: .75rem; font-size: .9rem; font-weight: 650; text-decoration: underline; text-underline-offset: 4px; }
+.sa-home-practices[dir=rtl] .sa-practice-icon svg { transform: none; }
+.sa-home-practices[dir=rtl] h2 { letter-spacing: 0; line-height: 1.45; }
+.sa-home-practices[dir=rtl] .sa-home-practices__eyebrow { letter-spacing: 0; font-size: .9rem; }
+@media (max-width: 1000px) {
+  .sa-home-practices .sa-home-practices__grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .sa-home-practices__more ul { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .sa-home-practices__grid li > a { padding: 1.1rem; gap: .75rem; }
+}
+@media (max-width: 540px) {
+  .sa-home-practices { width: calc(100% - 2rem); padding-block: 2rem; }
+  .sa-home-practices__heading { display: block; margin-bottom: 1rem; }
+  .sa-home-practices__heading .sa-home-practices__all { margin-top: .6rem; }
+  .sa-home-practices .sa-home-practices__grid { grid-template-columns: 1fr; }
+  .sa-home-practices__grid li > a { min-height: 108px; }
+  .sa-home-practices__more ul { grid-template-columns: 1fr; }
+}

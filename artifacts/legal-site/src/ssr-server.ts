@@ -1,3 +1,5 @@
+import { isRetiredPublicPath, retiredPageHtml, RETIRED_RESPONSE_HEADERS } from "@workspace/api-zod";
+import { routeToFlatFilename, type LegalUpdate, type LegalUpdatesData, legalUpdatesData } from "@workspace/api-zod";
 /**
  * Production SSR server for the legal-site artifact.
  *
@@ -214,7 +216,10 @@ async function fetchBlogPost(slug: string): Promise<FetchResult> {
 }
 
 function buildBlogHtml(slug: string, post: ApiPost): string {
-  const template = readFileSync(shellHtml, "utf-8");
+  return buildBlogHtmlFromTemplate(readFileSync(shellHtml, "utf-8"), slug, post);
+}
+
+export function buildBlogHtmlFromTemplate(template: string, slug: string, post: ApiPost): string {
   const isArabicPost = Boolean(post.titleAr?.trim() && !post.titleEn?.trim());
 
   const seoTitleEn =
@@ -232,9 +237,9 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
 
   const canonical = `https://counselo-legal.com/blog/${slug}`;
   const primaryTitle = seoTitleEn || seoTitleAr;
-  const brandedTitle = /(?:CounselO|كاونسلو)$/i.test(primaryTitle)
+  const brandedTitle = /(?:CounselO Legal|كاونسلو للاستشارات القانونية)$/i.test(primaryTitle)
     ? primaryTitle
-    : `${primaryTitle} | ${isArabicPost ? "كاونسلو" : "CounselO"}`;
+    : `${primaryTitle} | ${isArabicPost ? "كاونسلو للاستشارات القانونية" : "CounselO Legal"}`;
   const primaryDesc = normalizeDescription(
     seoDescEn || seoDescAr,
     post.excerptEn || post.excerptAr || stripHtml(post.bodyEn || post.bodyAr || ""),
@@ -242,7 +247,7 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
   const provenance = assignArticleProvenance(post);
   const reviewerAttribution = isArabicPost ? BLOG_REVIEWER_ATTRIBUTION.ar : BLOG_REVIEWER_ATTRIBUTION.en;
 
-  const articleSchema = JSON.stringify({
+  const articleSchema = safeJson({
     "@context": "https://schema.org",
     "@type": "Article",
     headline: primaryTitle,
@@ -254,13 +259,13 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
     author: {
       "@type": "Organization",
       "@id": "https://counselo-legal.com/#organization",
-      name: "CounselO",
+      name: "CounselO Legal",
       url: "https://counselo-legal.com",
     },
     publisher: {
       "@type": "Organization",
       "@id": "https://counselo-legal.com/#organization",
-      name: "CounselO",
+      name: "CounselO Legal",
       url: "https://counselo-legal.com",
       logo: {
         "@type": "ImageObject",
@@ -282,7 +287,7 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
     },
   });
 
-  const breadcrumbSchema = JSON.stringify({
+  const breadcrumbSchema = safeJson({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -316,7 +321,7 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
     `<script data-rh="true" type="application/ld+json">${articleSchema}</script>`,
     `<script data-rh="true" type="application/ld+json">${breadcrumbSchema}</script>`,
     // Inject post data for instant client-side hydration (no loading flash)
-    `<script>window.__SSR_POST__=${JSON.stringify(post)};</script>`,
+    `<script>window.__SSR_POST__=${safeJson(post)};</script>`,
   ].join("\n");
 
   return template
@@ -424,25 +429,30 @@ export function buildWorkHtmlFromTemplate(
   const workSchema = safeJson({
     "@context": "https://schema.org",
     "@type": "CreativeWork",
+    "@id": `${canonical}#work-sample`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${canonical}#webpage` },
     name: title,
+    headline: title,
     description,
     url: canonical,
     dateCreated: sample.date,
     dateModified: workModifiedAt(sample.slug, sample.updatedAt, sample.date),
     inLanguage: language,
-    genre: sample.workTypeEn || sample.workTypeAr,
-    contentLocation: sample.jurisdictionEn || sample.jurisdictionAr,
+    genre: ["Legal case study", isArabic ? sample.workTypeAr || sample.workTypeEn : sample.workTypeEn || sample.workTypeAr].filter(Boolean),
+    contentLocation: isArabic ? sample.jurisdictionAr || sample.jurisdictionEn : sample.jurisdictionEn || sample.jurisdictionAr,
     creator: {
       "@type": WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "LegalService" : "Organization",
       "@id": WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? COUNSELO_ENTITY_IDS.alBaghdadiOffice : COUNSELO_ENTITY_IDS.organization,
-      name: WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "Baghdadi Law" : "CounselO",
-      url: BASE,
+      name: WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "Baghdadi Law" : "CounselO Legal",
+      url: WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "https://www.baghdadilaw.co/" : BASE,
     },
-    encoding: {
+    publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
+    isPartOf: { "@id": `${BASE}${basePath}#webpage` },
+    encoding: sample.fileSize > 0 ? {
       "@type": "MediaObject",
       contentUrl: fileUrl,
       encodingFormat: sample.fileMimeType,
-    },
+    } : undefined,
   });
 
   const breadcrumbSchema = safeJson({
@@ -453,7 +463,7 @@ export function buildWorkHtmlFromTemplate(
         "@type": "ListItem",
         position: 1,
         name: isArabic ? "الرئيسية" : "Home",
-        item: `${BASE}/`,
+        item: `${BASE}${isArabic ? "/ar" : "/"}`,
       },
       {
         "@type": "ListItem",
@@ -475,7 +485,14 @@ export function buildWorkHtmlFromTemplate(
     `<meta data-rh="true" property="og:title" content="${escapeHtml(title)}">`,
     `<meta data-rh="true" property="og:description" content="${escapeHtml(description.slice(0, 170))}">`,
     `<meta data-rh="true" property="og:url" content="${escapeHtml(canonical)}">`,
+    `<meta data-rh="true" property="og:locale" content="${isArabic ? "ar_SA" : "en_US"}">`,
     `<meta data-rh="true" property="og:image" content="${BASE}/og-image.png">`,
+    `<meta data-rh="true" property="og:image:alt" content="${escapeHtml(title)}">`,
+    `<meta data-rh="true" name="twitter:card" content="summary_large_image">`,
+    `<meta data-rh="true" name="twitter:title" content="${escapeHtml(title)}">`,
+    `<meta data-rh="true" name="twitter:description" content="${escapeHtml(description.slice(0, 170))}">`,
+    `<meta data-rh="true" name="twitter:image" content="${BASE}/og-image.png">`,
+    `<meta data-rh="true" name="twitter:image:alt" content="${escapeHtml(title)}">`,
     `<script data-rh="true" type="application/ld+json">${workSchema}</script>`,
     `<script data-rh="true" type="application/ld+json">${breadcrumbSchema}</script>`,
     `<script>window.__SSR_WORK__=${safeJson(sample)};</script>`,
@@ -524,29 +541,30 @@ function htmlTag(route: string): string {
 // On-demand SSR for routes with no prerendered file
 // ---------------------------------------------------------------------------
 
-let _render: ((url: string, posts?: ApiPost[], samples?: WorkSamplePublic[]) => RenderResult) | null = null;
+let _render: ((url: string, posts?: ApiPost[], samples?: WorkSamplePublic[], updates?: LegalUpdatesData | LegalUpdate[]) => RenderResult) | null = null;
 
 async function ssrRender(
   url: string,
   posts: ApiPost[] = [],
   samples: WorkSamplePublic[] = [],
+  updates: LegalUpdatesData | LegalUpdate[] = [],
 ): Promise<string> {
   if (!_render) {
     const mod = (await import(ssrBundle)) as {
-      render: (url: string, posts?: ApiPost[], samples?: WorkSamplePublic[]) => RenderResult;
+      render: (url: string, posts?: ApiPost[], samples?: WorkSamplePublic[], updates?: LegalUpdatesData | LegalUpdate[]) => RenderResult;
     };
     _render = mod.render;
   }
 
   const template = readFileSync(shellHtml, "utf-8");
-  const { head, body } = _render(url, posts, samples);
+  const { head, body } = _render(url, posts, samples, updates);
   const discoveryWorkSamples = compactWorkSamplesForDiscovery(samples);
   const blogSlug = url.match(/^\/blog\/(?:en|ar)\/([^/?]+)$/)?.[1];
   const workSlug = url.match(/^\/(?:ar\/)?our-work\/([^/?]+)$/)?.[1];
   const detailPost = blogSlug ? posts.find(post => post.slug === decodeURIComponent(blogSlug)) : undefined;
   const detailWork = workSlug ? samples.find(sample => sample.slug === decodeURIComponent(workSlug)) : undefined;
-  const detailData = `${detailPost ? `window.__SSR_POST__=${JSON.stringify(detailPost).replace(/</g, "\\u003c")};` : ""}${detailWork ? `window.__SSR_WORK__=${JSON.stringify(detailWork).replace(/</g, "\\u003c")};` : ""}`;
-  const discoveryData = `<script>${detailData}window.__SSR_POSTS__=${JSON.stringify(posts).replace(/</g, "\\u003c")};window.__SSR_WORK_SAMPLES__=${JSON.stringify(discoveryWorkSamples).replace(/</g, "\\u003c")};</script>`;
+  const detailData = `${detailPost ? `window.__SSR_POST__=${safeJson(detailPost)};` : ""}${detailWork ? `window.__SSR_WORK__=${safeJson(detailWork)};` : ""}`;
+  const discoveryData = `<script>window.__SSR_LEGAL_UPDATES__=${safeJson(legalUpdatesData(url, updates))};${detailData}window.__SSR_POSTS__=${safeJson(posts)};window.__SSR_WORK_SAMPLES__=${safeJson(discoveryWorkSamples)};</script>`;
 
   return template
     .replace('<html lang="en">', htmlTag(url))
@@ -564,6 +582,10 @@ async function ssrRender(
 const app = express();
 
 app.disable("x-powered-by");
+app.use((req, res, next) => {
+  if (!isRetiredPublicPath(req.path)) return next();
+  res.status(410).set(RETIRED_RESPONSE_HEADERS).send(retiredPageHtml(req.path));
+});
 app.use((req, res, next) => {
   const destination = canonicalHostRedirect(
     req.get("host"),
@@ -660,7 +682,7 @@ function sendContentUnavailable(res: Response, arabic: boolean) {
   res.setHeader("Cache-Control", "no-store");
   res.setHeader("Retry-After", "60");
   return res.status(503).type("html").send(
-    `<!doctype html><html lang="${arabic ? "ar" : "en"}" dir="${arabic ? "rtl" : "ltr"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${title} | CounselO</title></head><body><main><h1>${title}</h1><p>${message}</p></main></body></html>`,
+    `<!doctype html><html lang="${arabic ? "ar" : "en"}" dir="${arabic ? "rtl" : "ltr"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${title} | CounselO Legal</title></head><body><main><h1>${title}</h1><p>${message}</p></main></body></html>`,
   );
 }
 
@@ -668,7 +690,7 @@ app.get("/counselo-admin", (_req: Request, res: Response) => {
   res.setHeader("Cache-Control", "no-store");
   res
     .status(200)
-    .send(spaShell("CounselO Admin", "noindex, nofollow, noarchive"));
+    .send(spaShell("CounselO Legal Admin", "noindex, nofollow, noarchive"));
 });
 
 // Keep the homepage and related service pages fresh so every newly published
@@ -813,7 +835,7 @@ async function serveBlogPost(
     res.setHeader("Cache-Control", "no-store");
     return res
       .status(404)
-      .send(spaShell("Article Not Found | CounselO", "noindex, nofollow"));
+      .send(spaShell("Article Not Found | CounselO Legal", "noindex, nofollow"));
   }
 
   if (result.status === "found") {
@@ -826,7 +848,7 @@ async function serveBlogPost(
       res.setHeader("Cache-Control", "no-store");
       return res
         .status(404)
-        .send(spaShell("Article Not Found | CounselO", "noindex, nofollow"));
+        .send(spaShell("Article Not Found | CounselO Legal", "noindex, nofollow"));
     }
     try {
       const posts = [
@@ -868,7 +890,7 @@ app.get("/ar/our-work/:slug", async (req: Request, res: Response) => {
 
   if (result.status === "notfound") {
     res.setHeader("Cache-Control", "no-store");
-    return res.status(404).send(spaShell("صفحة غير موجودة | كاونسلو", "noindex, nofollow"));
+    return res.status(404).send(spaShell("صفحة غير موجودة | كاونسلو للاستشارات القانونية", "noindex, nofollow"));
   }
 
   if (result.status === "found") {
@@ -912,7 +934,7 @@ app.get("/our-work/:slug", async (req: Request, res: Response) => {
 
   if (result.status === "notfound") {
     res.setHeader("Cache-Control", "no-store");
-    return res.status(404).send(spaShell("Work Not Found | CounselO", "noindex, nofollow"));
+    return res.status(404).send(spaShell("Work Not Found | CounselO Legal", "noindex, nofollow"));
   }
 
   if (result.status === "found") {
@@ -965,9 +987,9 @@ app.use((req: Request, res: Response, _next: NextFunction) => {
   res
     .status(404)
     .send(spaShell(
-      "Page Not Found | CounselO",
+      "Page Not Found | CounselO Legal",
       "noindex, nofollow",
-      '<main><h1>Page not found</h1><p>The requested CounselO page is unavailable.</p><p><a href="/">Return to CounselO</a></p></main>',
+      '<main><h1>Page not found</h1><p>The requested CounselO Legal page is unavailable.</p><p><a href="/">Return to CounselO Legal</a></p></main>',
     ));
 });
 

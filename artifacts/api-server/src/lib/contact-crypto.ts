@@ -21,6 +21,10 @@ function getEncryptionKey(): Buffer {
   return Buffer.from(value, "hex");
 }
 
+export function assertContactEncryptionConfiguration(): void {
+  getEncryptionKey();
+}
+
 export function encryptContactPayload(payload: unknown): EncryptedPayload {
   const iv = randomBytes(12);
   const cipher = createCipheriv("aes-256-gcm", getEncryptionKey(), iv);

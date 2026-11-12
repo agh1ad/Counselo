@@ -57,10 +57,9 @@ test("problem schema does not duplicate the Arabic locale prefix", () => {
   assert.doesNotMatch(source, /\$\{regionPrefix\}\$\{isRTL\s*\?/);
 });
 
-test("global FAQ structured data shares the visible question collection", () => {
+test("removed global FAQ does not leave invisible structured data", () => {
   const source = readFileSync(new URL("../components/home/global-homepage.tsx", import.meta.url), "utf8");
-  assert.match(source, /mainEntity: c\.questions\.map/);
-  assert.match(source, /\{c\.questions\.map/);
+  assert.doesNotMatch(source, /FAQPage|c\.questions\.map/);
 });
 
 test("work audit snapshots do not override fresh production work records", () => {

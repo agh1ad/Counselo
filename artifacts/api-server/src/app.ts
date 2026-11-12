@@ -1,3 +1,4 @@
+import { isRetiredPublicPath, retiredPageHtml, RETIRED_RESPONSE_HEADERS } from "@workspace/api-zod";
 import { db, workSamplesTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import { createPublicDocumentsRouter } from "./lib/public-work-documents.js";
@@ -16,8 +17,14 @@ import {
 import { PUBLIC_CACHE_POLICY } from "@workspace/api-zod";
 import { cachePublicResponses } from "./lib/public-response-cache.js";
 import { handleResendWebhook } from "./lib/resend-webhook.js";
+import { adminLoginLimiter } from "./middlewares/admin-login.js";
 
 const app: Express = express();
+
+app.use((req, res, next) => {
+  if (!isRetiredPublicPath(req.path)) return next();
+  res.status(410).set(RETIRED_RESPONSE_HEADERS).send(retiredPageHtml(req.path));
+});
 
 function isDiscoveryPath(path: string): boolean {
   return (
@@ -35,6 +42,9 @@ function publicCacheControl(path: string): string {
 }
 
 function isDatabaseBackedPublicApiPath(path: string): boolean {
+  // Attachments recheck publication on every request; cached PDF responses
+  // from the former API route must never bypass the canonical redirect.
+  if (/^\/work\/[^/]+\/file$/.test(path)) return false;
   return (
     path === "/blog/posts" ||
     path === "/blog/posts/discovery" ||
@@ -112,6 +122,9 @@ app.post(
   express.text({ type: "application/json", limit: "256kb" }),
   handleResendWebhook,
 );
+// Sign-in needs only a small password payload. Apply its rolling attempt limit
+// before parsing, while other authenticated editor uploads retain their limit.
+app.post("/api/admin/auth", adminLoginLimiter, express.json({ limit: "4kb", type: () => true }));
 app.use(express.json({ limit: "12mb" }));
 app.use(express.urlencoded({ extended: true, limit: "12mb" }));
 
@@ -142,10 +155,11 @@ app.use("/documents", createPublicDocumentsRouter(async (slug) => {
     fileSize: workSamplesTable.fileSize,
     fileMimeType: workSamplesTable.fileMimeType,
     fileData: workSamplesTable.fileData,
-    confidentialityConfirmed: workSamplesTable.confidentialityConfirmed,
   }).from(workSamplesTable).where(eq(workSamplesTable.slug, slug));
   return sample;
 }));
+
+
 
 app.use(cachePublicResponses("page", isCacheablePublicPagePath));
 

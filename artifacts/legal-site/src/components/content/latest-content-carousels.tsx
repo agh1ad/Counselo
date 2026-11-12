@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type ComponentProps, type ReactNode } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowLeft, ArrowRight, BookOpen, BriefcaseBusiness, Clock } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, BriefcaseBusiness, Clock, Pause, Play } from "lucide-react";
 import { Link } from "wouter";
 import type { InitialBlogPost } from "@/App";
 import {
@@ -8,18 +8,19 @@ import {
   type CarouselApi,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { type WorkSamplePublic, localized, workSamplePath } from "@/lib/work-samples";
 import { fetchPublicJson } from "@/lib/public-api";
 import { blogPath } from "@workspace/api-zod/browser";
 import { workJurisdictionRegion } from "@/lib/work-jurisdiction";
+import { HomeLatestContent } from "./home-latest-content";
+import "./latest-content-carousels.css";
 
 type LatestContentCarouselsProps = {
   isArabic: boolean;
   region?: "sa" | "syr" | "uae";
   serviceSlug?: string;
+  variant?: "home";
 };
 
 function newestFirst<T extends { date: string }>(items: T[]): T[] {
@@ -48,25 +49,10 @@ function CardLink({
 }) {
   const Arrow = isArabic ? ArrowLeft : ArrowRight;
   return (
-    <Link href={href} className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+    <Link href={href} className="latest-content__read">
       {children}
       <Arrow className="h-4 w-4" aria-hidden="true" />
     </Link>
-  );
-}
-
-function CarouselControls({ isArabic, label }: { isArabic: boolean; label: string }) {
-  return (
-    <>
-      <CarouselPrevious
-        aria-label={isArabic ? `الشريحة السابقة في ${label}` : `Previous ${label} slide`}
-        className="start-2 left-auto top-1/2 z-10 h-10 w-10 -translate-y-1/2 border-primary/25 bg-background/95 text-primary shadow-md hover:bg-primary hover:text-white"
-      />
-      <CarouselNext
-        aria-label={isArabic ? `الشريحة التالية في ${label}` : `Next ${label} slide`}
-        className="end-2 right-auto top-1/2 z-10 h-10 w-10 -translate-y-1/2 border-primary/25 bg-background/95 text-primary shadow-md hover:bg-primary hover:text-white"
-      />
-    </>
   );
 }
 
@@ -82,18 +68,57 @@ function AutoCarousel({
   children: ReactNode;
 }) {
   const [api, setApi] = useState<CarouselApi>();
+  const [position, setPosition] = useState({ current: 1, total: 0 });
+  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(true);
+  const Previous = isArabic ? ArrowRight : ArrowLeft;
+  const Next = isArabic ? ArrowLeft : ArrowRight;
 
   useEffect(() => {
-    if (!api || api.scrollSnapList().length <= 1) return;
-    const interval = window.setInterval(() => api.scrollNext(), 3_000);
-    return () => window.clearInterval(interval);
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    // Keep the existing rotation; reduced-motion readers get an instant change instead of a sliding transition.
+    const updatePreference = () => setReducedMotion(preference.matches);
+    updatePreference();
+    preference.addEventListener("change", updatePreference);
+    return () => preference.removeEventListener("change", updatePreference);
+  }, []);
+
+  useEffect(() => {
+    if (!api) return;
+    const updatePosition = () => setPosition({ current: api.selectedScrollSnap() + 1, total: api.scrollSnapList().length });
+    updatePosition();
+    api.on("select", updatePosition);
+    api.on("reInit", updatePosition);
+    return () => {
+      api.off("select", updatePosition);
+      api.off("reInit", updatePosition);
+    };
   }, [api]);
 
+  useEffect(() => {
+    if (!api || position.total <= 1 || paused || hovered) return;
+    const interval = window.setInterval(() => api.scrollNext(), 3_000);
+    return () => window.clearInterval(interval);
+  }, [api, position.total, paused, hovered]);
+
   return (
-    <div data-autoplay-interval="3000">
-      <Carousel setApi={setApi} opts={{ ...opts, loop: true }} aria-label={label}>
-        <CarouselContent className="py-1">{children}</CarouselContent>
-        <CarouselControls isArabic={isArabic} label={label} />
+    <div data-autoplay-interval="3000" onPointerEnter={(event) => event.pointerType === "mouse" && setHovered(true)} onPointerLeave={() => setHovered(false)}>
+      <Carousel setApi={setApi} opts={{ ...opts, loop: true, duration: reducedMotion ? 0 : 25 }} aria-label={label}>
+        <CarouselContent className="latest-content__track" onFocusCapture={() => setPaused(true)} onPointerDown={() => setPaused(true)}>{children}</CarouselContent>
+        {position.total > 1 && <div className="latest-content__controls">
+          <div className="latest-content__progress" aria-hidden="true">
+            <span style={{ width: `${100 / position.total}%`, insetInlineStart: `${(position.current - 1) / position.total * 100}%` }} />
+          </div>
+          <span className="latest-content__position" aria-label={isArabic ? `الشريحة ${position.current} من ${position.total}` : `Slide ${position.current} of ${position.total}`}>
+            <b>{position.current.toLocaleString(isArabic ? "ar" : "en")}</b> / {position.total.toLocaleString(isArabic ? "ar" : "en")}
+          </span>
+          <button type="button" onClick={() => setPaused(!paused)} aria-label={isArabic ? `${paused ? "تشغيل" : "إيقاف"} الحركة التلقائية في ${label}` : `${paused ? "Play" : "Pause"} ${label} autoplay`}>
+            {paused ? <Play size={16} aria-hidden="true" /> : <Pause size={16} aria-hidden="true" />}
+          </button>
+          <button type="button" onFocus={() => setPaused(true)} onClick={() => api?.scrollPrev()} aria-label={isArabic ? `الشريحة السابقة في ${label}` : `Previous ${label} slide`}><Previous size={18} aria-hidden="true" /></button>
+          <button type="button" onFocus={() => setPaused(true)} onClick={() => api?.scrollNext()} aria-label={isArabic ? `الشريحة التالية في ${label}` : `Next ${label} slide`}><Next size={18} aria-hidden="true" /></button>
+        </div>}
       </Carousel>
     </div>
   );
@@ -103,6 +128,7 @@ export function LatestContentCarousels({
   isArabic,
   region,
   serviceSlug,
+  variant,
 }: LatestContentCarouselsProps) {
   const ssrPosts = typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined;
   const ssrWorkSamples = typeof window !== "undefined" ? window.__SSR_WORK_SAMPLES__ : undefined;
@@ -172,26 +198,50 @@ export function LatestContentCarousels({
   const articleLabel = isArabic ? "أحدث المقالات" : "latest articles";
   const workLabel = isArabic ? "أحدث الأعمال" : "latest work";
 
+  if (variant === "home") {
+    return <HomeLatestContent isArabic={isArabic}
+      posts={latestPosts.map(post => {
+        const useArabic = Boolean(post.titleAr) && (isArabic || !post.titleEn);
+        return {
+          href: blogPath(post.slug, useArabic ? "ar" : "en"),
+          title: (useArabic ? post.titleAr : post.titleEn) || "",
+          summary: (useArabic ? post.excerptAr : post.excerptEn) || "",
+          category: (useArabic ? post.categoryAr : post.categoryEn) || "",
+          meta: post.readTime ? `${post.readTime} ${useArabic ? "دقائق قراءة" : "min read"}` : "",
+          isArabic: useArabic,
+        };
+      })}
+      work={latestWork.map(sample => ({
+        href: workSamplePath(sample, isArabic),
+        title: localized(sample.titleEn, sample.titleAr, isArabic ? "ar" : "en"),
+        summary: localized(sample.summaryEn, sample.summaryAr, isArabic ? "ar" : "en"),
+        category: localized(sample.workTypeEn, sample.workTypeAr, isArabic ? "ar" : "en"),
+        meta: localized(sample.jurisdictionEn, sample.jurisdictionAr, isArabic ? "ar" : "en"),
+        isArabic,
+      }))}
+    />;
+  }
+
   if (latestPosts.length === 0 && latestWork.length === 0) {
     return (
       <section
-        className="border-y border-border bg-[#eef4f0] py-16 lg:py-20"
+        className="latest-content latest-content--empty" dir={isArabic ? "rtl" : "ltr"}
         aria-labelledby={isArabic ? "latest-content-empty-heading-ar" : "latest-content-empty-heading"}
       >
-        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#755615]">
-            {isArabic ? "محتوى كاونسلو" : "CounselO content"}
+        <div className="latest-content__inner">
+          <p className="latest-content__eyebrow">
+            {isArabic ? "محتوى كاونسلو للاستشارات القانونية" : "CounselO Legal content"}
           </p>
           <h2
             id={isArabic ? "latest-content-empty-heading-ar" : "latest-content-empty-heading"}
-            className="mb-5 font-serif text-4xl font-medium text-foreground md:text-5xl"
+            className="latest-content__title"
           >
             {isArabic ? "أحدث المقالات والأعمال القانونية" : "Latest legal articles and work"}
           </h2>
           <p className="mb-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             {isArabic
-              ? "استكشف المقالات القانونية ونماذج الأعمال المنشورة حديثاً من كاونسلو."
-              : "Explore CounselO's latest legal articles and published work samples."}
+              ? "استكشف المقالات القانونية ونماذج الأعمال المنشورة حديثاً من كاونسلو للاستشارات القانونية."
+              : "Explore CounselO Legal's latest legal articles and published work samples."}
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href={isArabic ? "/ar/legal-library" : "/legal-library"} className="inline-flex items-center gap-2 bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90">
@@ -203,7 +253,7 @@ export function LatestContentCarousels({
               {isArabic ? <ArrowLeft className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
             </Link>
             <Link href={isArabic ? "/ar/our-work" : "/our-work"} className="inline-flex items-center gap-2 border border-primary/30 bg-white px-5 py-3 text-sm font-semibold text-primary hover:border-primary">
-              {isArabic ? "أحدث الأعمال" : "Latest our work"}
+              {isArabic ? "أحدث الأعمال" : "Latest work"}
               {isArabic ? <ArrowLeft className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
             </Link>
           </div>
@@ -214,27 +264,26 @@ export function LatestContentCarousels({
 
   return (
     <section
-      className="border-y border-border bg-[#eef4f0] py-24 lg:py-28"
+      className="latest-content" dir={isArabic ? "rtl" : "ltr"}
       aria-labelledby={isService ? "related-content-heading" : isArabic ? "latest-content-heading-ar" : "latest-content-heading"}
     >
-      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-        <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+      <div className="latest-content__inner">
+        <div className="latest-content__heading">
           <div className="max-w-3xl">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#755615]">
+          <p className="latest-content__eyebrow">
             {isService
               ? isArabic ? "محتوى مرتبط" : "Related content"
               : isArabic ? "منشور حديثاً" : "Recently published"}
           </p>
           <h2
             id={isService ? "related-content-heading" : isArabic ? "latest-content-heading-ar" : "latest-content-heading"}
-            className="mb-5 font-serif text-4xl font-medium text-foreground md:text-5xl"
+            className="latest-content__title"
           >
             {isService
               ? isArabic ? "أحدث المقالات والأعمال المرتبطة" : "Latest related articles and work"
               : isArabic ? "أحدث مقالاتنا وأعمالنا القانونية" : "Latest legal articles and work"}
           </h2>
-          <div className="counselo-gold-rule mb-6" />
-          <p className="text-lg leading-relaxed text-muted-foreground">
+          <p className="latest-content__intro">
             {isService
               ? isArabic
                 ? "مقالات وأعمال قانونية مرتبطة بهذه الخدمة."
@@ -244,25 +293,23 @@ export function LatestContentCarousels({
                 : "Explore recent legal analysis and published case studies."}
           </p>
           </div>
-          <Link href={isArabic ? "/ar/legal-library" : "/legal-library"} className="group inline-flex w-fit shrink-0 items-center gap-3 border-b border-primary pb-1 font-semibold text-primary">
+          <Link href={isArabic ? "/ar/legal-library" : "/legal-library"} className="latest-content__library">
             {isArabic ? "استكشف المكتبة القانونية" : "Explore the Legal Library"}
-            {isArabic ? <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" /> : <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />}
+            {isArabic ? <ArrowLeft className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
           </Link>
         </div>
 
-        <div className="space-y-16">
+        <div className="latest-content__collections">
           {latestPosts.length > 0 ? (
-            <div data-content-carousel="articles">
-              <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
+            <div className="latest-content__collection" data-content-carousel="articles">
+              <div className="latest-content__row-heading">
                 <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                    {isArabic ? "مركز المعرفة" : "Knowledge centre"}
-                  </p>
-                  <h3 className="font-serif text-2xl font-bold text-foreground">
+                  <h3 className="latest-content__row-title">
+                    <BookOpen size={22} aria-hidden="true" />
                     {isArabic ? "أحدث المقالات" : "Latest articles"}
                   </h3>
                 </div>
-                <Link href={isArabic ? "/blog/ar" : "/blog"} className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                <Link href={isArabic ? "/blog/ar" : "/blog"} className="latest-content__view-all">
                   {isArabic ? "عرض جميع المقالات" : "View all articles"}
                   {isArabic ? <ArrowLeft className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
                 </Link>
@@ -271,25 +318,25 @@ export function LatestContentCarousels({
                 {latestPosts.map((post) => {
                   const useArabic = Boolean(post.titleAr) && (isArabic || !post.titleEn);
                   return (
-                    <CarouselItem key={post.slug} className="sm:basis-1/2 lg:basis-1/3">
+                    <CarouselItem key={post.slug} className="latest-content__slide">
                       <article
                         data-content-title={useArabic ? post.titleAr : post.titleEn}
-                        className="flex h-full min-h-64 flex-col border-y border-e border-border bg-background p-7 transition-colors hover:bg-white"
+                        className="latest-content__card"
                         dir={useArabic ? "rtl" : "ltr"}
                       >
-                        <div className="mb-5 flex items-center justify-between gap-3">
-                          <BookOpen className="h-6 w-6 text-primary" aria-hidden="true" />
-                          <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-                            {useArabic ? post.categoryAr : post.categoryEn}
+                        <div className="latest-content__category">
+                          <BookOpen className="latest-content__card-icon" aria-hidden="true" />
+                          <span className="latest-content__category-label">
+                            {(useArabic ? post.categoryAr : post.categoryEn) || (isArabic ? "مقال قانوني" : "Legal insight")}
                           </span>
                         </div>
-                        <h4 className="mb-3 font-serif text-xl font-bold leading-snug text-foreground">
+                        <h4 className="latest-content__card-title">
                           {useArabic ? post.titleAr : post.titleEn}
                         </h4>
-                        <p className="mb-6 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                        <p className="latest-content__summary">
                           {useArabic ? post.excerptAr : post.excerptEn}
                         </p>
-                        <div className="mb-5 flex items-center gap-2 text-xs text-muted-foreground">
+                        <div className="latest-content__meta">
                           <Clock className="h-3.5 w-3.5" aria-hidden="true" />
                           <span>{post.readTime} {isArabic ? "دقائق قراءة" : "min read"}</span>
                         </div>
@@ -305,23 +352,19 @@ export function LatestContentCarousels({
           ) : null}
 
           {visibleWork.length > 0 ? (
-            <div data-content-carousel="work">
-              <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
+            <div className="latest-content__collection latest-content__collection--work" data-content-carousel="work">
+              <div className="latest-content__row-heading">
                 <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                    {showingTestimonials
-                      ? isArabic ? "شهادات مرتبطة بأعمال منشورة" : "Testimonials from published work"
-                      : isArabic ? "خبرة يمكنك الاطلاع عليها" : "Experience you can examine"}
-                  </p>
-                  <h3 className="font-serif text-2xl font-bold text-foreground">
+                  <h3 className="latest-content__row-title">
+                    <BriefcaseBusiness size={22} aria-hidden="true" />
                     {showingTestimonials
                       ? isArabic ? "ما يقوله أصحاب الأعمال المنشورة" : "What clients say about related work"
-                      : isArabic ? "أحدث أعمالنا" : "Latest our work"}
+                      : isArabic ? "أحدث أعمالنا" : "Latest work"}
                   </h3>
                 </div>
                 <Link
                   href={isArabic ? "/ar/our-work" : "/our-work"}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+                  className="latest-content__view-all"
                 >
                   {isArabic ? "عرض جميع الأعمال" : "View all work"}
                   {isArabic ? <ArrowLeft className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
@@ -329,18 +372,18 @@ export function LatestContentCarousels({
               </div>
               <AutoCarousel isArabic={isArabic} label={workLabel} opts={carouselOptions}>
                 {visibleWork.map((sample) => (
-                  <CarouselItem key={sample.slug} className="sm:basis-1/2 lg:basis-1/3">
+                  <CarouselItem key={sample.slug} className="latest-content__slide">
                     <article
                       data-content-title={localized(sample.titleEn, sample.titleAr, isArabic ? "ar" : "en")}
-                      className="flex h-full min-h-64 flex-col border-y border-e border-border bg-background p-7 transition-colors hover:bg-white"
+                      className="latest-content__card"
                     >
-                      <div className="mb-5 flex items-center justify-between gap-3">
-                        <BriefcaseBusiness className="h-6 w-6 text-primary" aria-hidden="true" />
-                        <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                      <div className="latest-content__category">
+                        <BriefcaseBusiness className="latest-content__card-icon" aria-hidden="true" />
+                        <span className="latest-content__category-label">
                           {localized(sample.workTypeEn, sample.workTypeAr, isArabic ? "ar" : "en")}
                         </span>
                       </div>
-                      <h4 className="mb-3 font-serif text-xl font-bold leading-snug text-foreground">
+                      <h4 className="latest-content__card-title">
                         {localized(sample.titleEn, sample.titleAr, isArabic ? "ar" : "en")}
                       </h4>
                       {isService && sample.testimonials?.find((testimonial) => testimonial.text.trim())?.text ? (
@@ -348,11 +391,11 @@ export function LatestContentCarousels({
                           “{sample.testimonials.find((testimonial) => testimonial.text.trim())?.text}”
                         </blockquote>
                       ) : (
-                        <p className="mb-6 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                        <p className="latest-content__summary">
                           {localized(sample.summaryEn, sample.summaryAr, isArabic ? "ar" : "en")}
                         </p>
                       )}
-                      <p className="mb-5 text-xs text-muted-foreground">
+                      <p className="latest-content__meta">
                         {region === "syr"
                           ? (isArabic ? "سوريا" : "Syria")
                           : region === "sa"
@@ -360,7 +403,7 @@ export function LatestContentCarousels({
                             : localized(sample.jurisdictionEn, sample.jurisdictionAr, isArabic ? "ar" : "en")}
                       </p>
                       {(!serviceSlug || sample.relatedServiceSlugs?.includes(serviceSlug)) && sample.testimonials?.find((testimonial) => testimonial.text.trim())?.text && (
-                        <div className="mb-5 text-xs text-muted-foreground">
+                        <div className="latest-content__meta">
                           <span className="mb-1 block text-[0.65rem] font-semibold not-italic uppercase tracking-[0.14em] text-primary">
                             {isArabic ? "شهادة مرتبطة بنموذج العمل" : "Testimonial from this work sample"}
                           </span>

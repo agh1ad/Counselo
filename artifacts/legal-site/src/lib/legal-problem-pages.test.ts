@@ -46,17 +46,13 @@ test("problem-page registry covers every served region and language", () => {
   }
 });
 
-test("problem template keeps the scan-first hierarchy concise", () => {
+test("problem template uses the approved experience layout without retired sections", () => {
   const template = readFileSync(new URL("../pages/legal-problem-detail.tsx", import.meta.url), "utf8");
-  assert.equal(template.match(/className="service-anchor-link"/g)?.length, 5, "sticky navigation should expose only five primary choices");
-  assert.match(template, /page\.heroSummary/);
-  assert.match(template, /problem-at-a-glance-heading/);
-  assert.match(template, /<section id="problem-context"/);
-  assert.match(template, /<details id="problem-questions"/);
-  assert.match(template, /<details id="problem-process"/);
-  assert.match(template, /<details id="consultation-package"/);
-  assert.match(template, /<details id="problem-sources"/);
-  assert.doesNotMatch(template, /id="problem-experience"/, "experience should be consolidated into the trust strip");
+  assert.match(template, /problemPageCopy\(page/);
+  assert.match(template, /<ServiceExperience/);
+  assert.match(template, /<ServiceContact/);
+  assert.match(template, /citation.*sources.map/);
+  assert.doesNotMatch(template, /service-anchor-link|problem-context|problem-process|problem-documents|problem-faq|FAQPage/);
 });
 
 test("every problem page preserves the legal-accuracy and engagement boundary", () => {

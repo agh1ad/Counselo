@@ -2,6 +2,7 @@ import { getServicesForRegion, type Region } from "./region-services";
 import { ARTICLE_CONTEXT, articleModifiedAt } from "./article-context";
 import { workModifiedAt } from "./work-context";
 import { REGIONAL_SEO_REGISTRY } from "./regional-seo";
+import { publicWorkDocumentPath, type WorkDocumentMetadata } from "./public-work-documents";
 
 export const PUBLIC_BASE_URL = "https://counselo-legal.com";
 
@@ -47,7 +48,6 @@ export function getPublicRouteInventory(): string[] {
     pathPrefix,
     `${pathPrefix}/services`,
     `${pathPrefix}/about`,
-    `${pathPrefix}/vision`,
     `${pathPrefix}/contact`,
     `${pathPrefix}/terms-of-service`,
     `${pathPrefix}/privacy-policy`,
@@ -251,7 +251,7 @@ export function buildHreflangLinks(path: string): string[] {
   const basePath = path.replace(new RegExp(`^/(${REGION_PREFIX_PATTERN})(/ar)?`), "");
   const serviceSlug = path.match(/\/services\/([^/]+)/)?.[1];
   const eligibleRegions = serviceSlug
-    ? REGIONAL_SEO_REGISTRY.filter((entry) => entry.serviceSlugs.includes(serviceSlug))
+    ? REGIONAL_SEO_REGISTRY.filter((entry) => entry.region !== "uae" && entry.serviceSlugs.includes(serviceSlug))
     : REGIONAL_SEO_REGISTRY.filter((entry) => entry.region === "sa" || entry.region === "syr");
   return [
     ...eligibleRegions.flatMap((entry) => [
@@ -325,7 +325,29 @@ export type DiscoveryWorkSample = {
   summaryAr: string;
   date: string;
   updatedAt?: string | Date | null;
+  published?: boolean;
+  fileSize?: number;
+  fileMimeType?: string;
 };
+
+/** PDFs have one canonical URL and are not language variants of their HTML case pages. */
+export function buildWorkDocumentSitemapEntries(
+  samples: Array<Partial<WorkDocumentMetadata> & { slug: string; date?: string }>,
+): string[] {
+  const entries = new Map<string, string>();
+  for (const sample of samples) {
+    const path = publicWorkDocumentPath({
+      ...sample,
+      published: sample.published === true,
+      fileSize: sample.fileSize ?? 0,
+      fileMimeType: sample.fileMimeType ?? "",
+    });
+    if (!path) continue;
+    const modified = dateOnly(sample.updatedAt) ?? dateOnly(sample.date);
+    entries.set(path, `  <url>\n    <loc>${escapeXml(canonicalPublicUrl(path))}</loc>${modified ? `\n    <lastmod>${escapeXml(modified)}</lastmod>` : ""}\n  </url>`);
+  }
+  return [...entries.values()];
+}
 
 function sitemapEntry(url: string, lastmod: string, links: Array<[string, string]>): string {
   return `  <url>\n    <loc>${escapeXml(url)}</loc>\n${links
@@ -340,7 +362,9 @@ export function buildDynamicSitemap(
 ): string {
   let xml = baseXml
     .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/blog\/([^<]+)<\/loc>[\s\S]*?<\/url>/g, (entry, suffix: string) => suffix === "ar" ? entry : "")
-    .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/(?:ar\/)?our-work\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "");
+    .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/(?:ar\/)?our-work\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "")
+    .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/documents\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "");
+  const publishedSamples = samples.filter(sample => sample.published !== false);
   const bilingualPosts = posts.filter((post) =>
     post.bilingual === true || hasQualityBilingualBlogContent(post),
   );
@@ -352,7 +376,7 @@ export function buildDynamicSitemap(
       sitemapEntry(canonicalPublicUrl(blogPath(post.slug, "ar")), modified, links),
     ];
   });
-  const workEntries = samples.flatMap((sample) => {
+  const workEntries = publishedSamples.flatMap((sample) => {
     const modified = dateOnly(workModifiedAt(sample.slug, sample.updatedAt, sample.date)) ?? sample.date;
     const enPath = `/our-work/${sample.slug}`;
     const arPath = `/ar/our-work/${sample.slug}`;
@@ -362,21 +386,28 @@ export function buildDynamicSitemap(
     return [sitemapEntry(canonicalPublicUrl(enPath), modified, links), sitemapEntry(canonicalPublicUrl(arPath), modified, links)];
   });
   const addIndexLastmod = (url: string, date: string | undefined) => {
-    if (date) xml = xml.replace(`<loc>${url}</loc>`, `<loc>${url}</loc>\n    <lastmod>${date}</lastmod>`);
+    if (!date) return;
+    xml = xml.replace(/<url>[\s\S]*?<\/url>/g, entry => {
+      if (!entry.includes(`<loc>${url}</loc>`)) return entry;
+      const previous = [...entry.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map(match => match[1]);
+      const modified = latestDate([...previous, date]);
+      return entry.replace(/\s*<lastmod>[^<]*<\/lastmod>/g, "")
+        .replace(/\s*<\/url>/, `\n    <lastmod>${modified}</lastmod>\n  </url>`);
+    });
   };
   const latestBlog = latestDate(bilingualPosts.map((post) => articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date) ?? post.date));
   addIndexLastmod(canonicalPublicUrl("/blog"), latestBlog);
   addIndexLastmod(canonicalPublicUrl("/blog/ar"), latestBlog);
-  const latestWork = latestDate(samples.map((sample) => workModifiedAt(sample.slug, sample.updatedAt, sample.date) ?? sample.date));
+  const latestWork = latestDate(publishedSamples.map((sample) => workModifiedAt(sample.slug, sample.updatedAt, sample.date) ?? sample.date));
   const latestLibrary = latestDate([
     ...bilingualPosts.map((post) => articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date) ?? post.date),
-    ...samples.map((sample) => workModifiedAt(sample.slug, sample.updatedAt, sample.date) ?? sample.date),
+    ...publishedSamples.map((sample) => workModifiedAt(sample.slug, sample.updatedAt, sample.date) ?? sample.date),
   ]);
   addIndexLastmod(canonicalPublicUrl("/legal-library"), latestLibrary);
   addIndexLastmod(canonicalPublicUrl("/ar/legal-library"), latestLibrary);
   addIndexLastmod(canonicalPublicUrl("/our-work"), latestWork);
   addIndexLastmod(canonicalPublicUrl("/ar/our-work"), latestWork);
-  const allEntries = [...entries, ...workEntries];
+  const allEntries = [...entries, ...workEntries, ...buildWorkDocumentSitemapEntries(publishedSamples)];
   return xml.replace("</urlset>", `${allEntries.length ? `\n${allEntries.join("\n")}\n` : ""}</urlset>`);
 }
 
@@ -395,10 +426,10 @@ export function buildDiscoveryFeed(
     ]),
   ].sort((a, b) => Date.parse(String(b.modified)) - Date.parse(String(a.modified))).slice(0, 50);
   const lastBuildDate = items[0]?.modified ? new Date(items[0].modified).toUTCString() : new Date(0).toUTCString();
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>CounselO Legal Articles and Work</title>\n    <link>${PUBLIC_BASE_URL}/</link>\n    <description>Recently published legal articles and redacted professional work from CounselO.</description>\n    <language>en</language>\n    <lastBuildDate>${escapeXml(lastBuildDate)}</lastBuildDate>\n${items.map((item) => `    <item>\n      <title>${escapeXml(item.title)}</title>\n      <link>${escapeXml(item.url)}</link>\n      <guid isPermaLink="true">${escapeXml(item.url)}</guid>\n      <description>${escapeXml(item.description)}</description>\n      <pubDate>${escapeXml(new Date(item.modified).toUTCString())}</pubDate>\n    </item>`).join("\n")}\n  </channel>\n</rss>`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>CounselO Legal Articles and Work</title>\n    <link>${PUBLIC_BASE_URL}/</link>\n    <description>Recently published legal articles and redacted professional work from CounselO Legal.</description>\n    <language>en</language>\n    <lastBuildDate>${escapeXml(lastBuildDate)}</lastBuildDate>\n${items.map((item) => `    <item>\n      <title>${escapeXml(item.title)}</title>\n      <link>${escapeXml(item.url)}</link>\n      <guid isPermaLink="true">${escapeXml(item.url)}</guid>\n      <description>${escapeXml(item.description)}</description>\n      <pubDate>${escapeXml(new Date(item.modified).toUTCString())}</pubDate>\n    </item>`).join("\n")}\n  </channel>\n</rss>`;
 }
 
-export function buildNotFoundHtml(shellHtml?: string, title = "Page Not Found | CounselO"): string {
+export function buildNotFoundHtml(shellHtml?: string, title = "Page Not Found | CounselO Legal"): string {
   const head = `<title>${title}</title><meta name="robots" content="noindex, nofollow">`;
   if (shellHtml) return shellHtml.replace("<!--app-head-->", head);
   return `<!doctype html><html><head>${head}</head><body><h1>Page not found</h1></body></html>`;

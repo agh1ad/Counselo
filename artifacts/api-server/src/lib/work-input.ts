@@ -1,5 +1,5 @@
 import type { InsertWorkSample, WorkSample } from "@workspace/db";
-import { publicTestimonial, testimonialMetadataSchema, type TestimonialMetadata } from "@workspace/api-zod";
+import { selectPublicTestimonials, testimonialMetadataSchema, type TestimonialMetadata } from "@workspace/api-zod";
 
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
@@ -49,8 +49,8 @@ function truncate(text: string, max: number): string {
 
 function brandedTitle(title: string, arabic: boolean): string {
   if (!title) return "";
-  if (/(?:CounselO|كاونسلو)$/i.test(title)) return truncate(title, 70);
-  const suffix = arabic ? " | كاونسلو" : " | CounselO";
+  if (/(?:CounselO Legal|كاونسلو للاستشارات القانونية)$/i.test(title)) return truncate(title, 70);
+  const suffix = arabic ? " | كاونسلو للاستشارات القانونية" : " | CounselO Legal";
   return `${truncate(title, 70 - suffix.length)}${suffix}`;
 }
 
@@ -198,8 +198,6 @@ export function parseWorkSampleInput(
 
 export function publicWorkSample(sample: WorkSample): Omit<WorkSample, "fileData" | "confidentialityConfirmed"> & { hasFile: boolean } {
   const { fileData, confidentialityConfirmed: _confirmed, ...safe } = sample;
-  const testimonials = sample.testimonialGovernanceVersion === 1
-    ? sample.testimonials.map(publicTestimonial)
-    : sample.testimonials.map(({ internalReference: _internalReference, ...legacy }) => legacy);
+  const testimonials = selectPublicTestimonials(sample.testimonials);
   return { ...safe, testimonials, hasFile: Boolean(fileData) } as Omit<WorkSample, "fileData" | "confidentialityConfirmed"> & { hasFile: boolean };
 }

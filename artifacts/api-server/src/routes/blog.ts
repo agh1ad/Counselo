@@ -1,7 +1,8 @@
 import { Router } from "express";
 import { db, blogPostsTable } from "@workspace/db";
 import { desc, eq } from "drizzle-orm";
-import { requireAdmin, secretsMatch } from "../middlewares/auth.js";
+import { requireAdmin } from "../middlewares/auth.js";
+import { adminLoginHandler, adminLoginLimiter } from "../middlewares/admin-login.js";
 import {
   notifyPublished,
   notifyRemoved,
@@ -114,19 +115,7 @@ router.get("/blog/posts/:slug", async (req, res) => {
   res.json(sanitizeBlogPost(repairedPost));
 });
 
-router.post("/admin/auth", (req, res) => {
-  const adminPassword = process.env["ADMIN_PASSWORD"];
-  if (!adminPassword) {
-    res.status(500).json({ error: "Server misconfigured" });
-    return;
-  }
-  const { password } = req.body as { password?: unknown };
-  if (typeof password === "string" && secretsMatch(password, adminPassword)) {
-    res.json({ token: adminPassword });
-    return;
-  }
-  res.status(401).json({ error: "Wrong password" });
-});
+router.post("/admin/auth", adminLoginLimiter, adminLoginHandler);
 
 router.get("/admin/blog/posts", requireAdmin, async (_req, res) => {
   const posts = await db

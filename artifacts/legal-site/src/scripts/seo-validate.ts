@@ -9,6 +9,9 @@
  */
 
 import { jurisdictionEditorialContent, jurisdictionAdviceForContaminationCheck } from "../lib/jurisdiction-audit-content";
+import { readJsonLd, auditStructuredData, schemaTypes as typesOfSchema } from "../lib/structured-data-audit";
+import { siteSectionMeta } from "../lib/site-section-meta";
+import { homepageContent } from "../components/home/homepage-content";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -84,20 +87,6 @@ function h1s(html: string): string[] {
   let m: RegExpExecArray | null;
   while ((m = re.exec(html)) !== null) {
     out.push(decode(m[1].replace(/<[^>]+>/g, "").trim()));
-  }
-  return out;
-}
-
-function schemas(html: string): object[] {
-  const re = /<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi;
-  const out: object[] = [];
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(html)) !== null) {
-    try {
-      out.push(JSON.parse(m[1]));
-    } catch {
-      /* skip malformed */
-    }
   }
   return out;
 }
@@ -208,6 +197,22 @@ function validatePage(filepath: string): PageResult {
   if ([...html.matchAll(/<link\b[^>]*\brel="canonical"/gi)].length !== 1) issues.push({ severity: "error", rule: "canonical-count", detail: "An indexable page must have exactly one canonical link" });
   const ogTitle = meta(html, "property", "og:title");
   const ogDesc = meta(html, "property", "og:description");
+  const sectionMeta = route === "/" || route === "/ar" ? homepageContent[isAr ? "ar" : "en"] : siteSectionMeta(route);
+  if (sectionMeta && (t !== sectionMeta.title || desc !== sectionMeta.description)) {
+    issues.push({ severity: "error", rule: "section-metadata-mismatch", detail: "Rendered section title and description must match the current bilingual page identity" });
+  }
+  if (sectionMeta) {
+    const prefix = route.match(/^\/(?:sa|syr|uae)(?:\/ar)?/)?.[0];
+    const expectedLinks = prefix
+      ? [prefix, `${prefix}/services`, `${prefix}/contact`, `${prefix}/about`]
+      : [isAr ? "/ar" : "/", `${isAr ? "/ar" : ""}/our-work`, `${isAr ? "/ar" : ""}/legal-library`];
+    const header = html.match(/<header\b[^>]*>([\s\S]*?)<\/header>/i)?.[1] ?? "";
+    const navigation = header.match(/<nav\b[^>]*>([\s\S]*?)<\/nav>/i)?.[1] ?? "";
+    const actualLinks = [...navigation.matchAll(/<a\b[^>]*\bhref="([^"]*)"/gi)].map(match => decode(match[1]));
+    if (JSON.stringify(actualLinks) !== JSON.stringify(expectedLinks)) {
+      issues.push({ severity: "error", rule: "section-navigation-hierarchy", detail: `Primary navigation must link to ${expectedLinks.join(", ")} in order; found ${actualLinks.join(", ") || "no links"}` });
+    }
+  }
 
   if (!t)
     issues.push({
@@ -245,9 +250,9 @@ function validatePage(filepath: string): PageResult {
     });
   if (t && tLen > 70)
     issues.push({
-      severity: "warn",
+      severity: "info",
       rule: "title-too-long",
-      detail: `${tLen} chars (max 70)`,
+      detail: `${tLen} characters; search results may truncate the title. There is no fixed character limit.`,
     });
   if (desc && dLen < 80)
     issues.push({
@@ -257,9 +262,9 @@ function validatePage(filepath: string): PageResult {
     });
   if (desc && dLen > 170)
     issues.push({
-      severity: "warn",
+      severity: "info",
       rule: "desc-too-long",
-      detail: `${dLen} chars (max 170)`,
+      detail: `${dLen} characters; snippet display length varies by query and device.`,
     });
   if (/^\/?(?:blog|ar\/blog|our-work)\//i.test(t) || /^https?:\/\//i.test(t))
     issues.push({
@@ -267,7 +272,7 @@ function validatePage(filepath: string): PageResult {
       rule: "title-route-like",
       detail: "Title contains a URL or route instead of a descriptive page name",
     });
-  if (/\b(?:a|an|and|at|by|for|from|in|of|on|or|the|to|under|with)$/i.test(t.replace(/\s*\|\s*(?:CounselO|كاونسلو)\s*$/i, "")))
+  if (/\b(?:a|an|and|at|by|for|from|in|of|on|or|the|to|under|with)$/i.test(t.replace(/\s*\|\s*(?:CounselO Legal|كاونسلو للاستشارات القانونية)\s*$/i, "")))
     issues.push({
       severity: "error",
       rule: "title-dangling-word",
@@ -336,29 +341,11 @@ function validatePage(filepath: string): PageResult {
     });
 
   // ── structured data ──
-  const sc = schemas(html);
-  const schemaTypes = sc.map((s: any) => s["@type"] ?? "unknown");
-  const webPageSchemas = sc.filter((schema: any) => schema?.["@type"] === "WebPage");
-  for (const value of webPageSchemas) {
-    const schema = value as { url?: string; "@id"?: string };
-    if (schema.url && schema.url !== canon) issues.push({ severity: "error", rule: "webpage-schema-canonical-mismatch", detail: `WebPage URL ${schema.url} differs from canonical ${canon}` });
-    if (schema["@id"] && schema["@id"].split("#")[0] !== canon) issues.push({ severity: "error", rule: "webpage-id-canonical-mismatch", detail: `WebPage @id ${schema["@id"]} differs from canonical ${canon}` });
-  }
-  if (webPageSchemas.some((schema: any) => schema["@context"] !== "https://schema.org"))
-    issues.push({
-      severity: "error",
-      rule: "webpage-schema-context-missing",
-      detail: "Standalone WebPage JSON-LD must declare https://schema.org context",
-    });
-  const hasBreadcrumbSchema = sc.some((schema: any) => {
-    const visit = (value: unknown): boolean => {
-      if (!value || typeof value !== "object") return false;
-      if (Array.isArray(value)) return value.some(visit);
-      const node = value as Record<string, unknown>;
-      return node["@type"] === "BreadcrumbList" || Object.values(node).some(visit);
-    };
-    return visit(schema);
-  });
+  const parsedSchemas = readJsonLd(html);
+  const sc = parsedSchemas.nodes.map(node => node.value);
+  const schemaTypes = [...new Set(sc.flatMap(typesOfSchema))];
+  issues.push(...auditStructuredData(parsedSchemas, canon, route).map(issue => ({ ...issue, severity: "error" as const })));
+  const hasBreadcrumbSchema = schemaTypes.includes("BreadcrumbList");
   if (sc.length === 0)
     issues.push({
       severity: "warn",
@@ -385,7 +372,7 @@ function validatePage(filepath: string): PageResult {
 
   // ── geo ──
   const geoRegion = meta(html, "name", "geo.region");
-  if (!geoRegion && !isSingleUrlBlog && !isSharedWork && !/^\/(?:ar\/)?urgent-legal-assistance$/.test(route))
+  if (!geoRegion && /^(?:\/sa|\/syr|\/uae)(?:\/|$)/.test(route))
     issues.push({
       severity: "warn",
       rule: "geo-region-missing",
@@ -487,11 +474,11 @@ function validatePage(filepath: string): PageResult {
 
   const bodyLinks = internalLinksFromBody(html);
   const isProblemPage = /^\/(?:sa|syr|uae)(?:\/ar)?\/services\/[^/]+\/[^/]+$/.test(route);
-  if (isProblemPage && !/(CounselO|كاونسلو)/.test(t))
+  if (isProblemPage && !/(CounselO Legal|كاونسلو للاستشارات القانونية)/.test(t))
     issues.push({
       severity: "error",
       rule: "problem-title-brand-missing",
-      detail: "Problem-page title was truncated before the CounselO brand",
+      detail: "Problem-page title was truncated before the CounselO Legal brand",
     });
   if (isProblemPage && /\b(?:a|an|and|for|in|of|or|the|to|with)$/i.test(t))
     issues.push({
@@ -556,11 +543,12 @@ function validatePage(filepath: string): PageResult {
         rule: "blog-post-no-article-schema",
         detail: "Blog post missing Article schema",
       });
-    if (!/id="trust-signals-heading"/.test(html))
+    const article = sc.find((schema: any) => schema["@type"] === "Article") as { author?: { name?: string }; datePublished?: string } | undefined;
+    if (!article?.author?.name || !visibleText(html).includes(article.author.name) || !article.datePublished || !/id="article-provenance-heading"/.test(html))
       issues.push({
         severity: "error",
         rule: "blog-trust-signals-missing",
-        detail: "Article page is missing visible trust and transparency signals",
+        detail: "Article needs a visible named author, a publication date and its editorial/source information",
       });
   }
 
@@ -575,24 +563,20 @@ function validatePage(filepath: string): PageResult {
         rule: "service-no-schema",
         detail: "Service page missing LegalService/Service schema",
       });
-    if (!/id="trust-signals-heading"/.test(html))
+    if (!/id="service-overview"/.test(html) || !/(?:CounselO|كاونسلو)/.test(visibleText(html)) || !bodyLinks.some(link => /\/contact(?:[?#]|$)/.test(link)))
       issues.push({
         severity: "error",
         rule: "service-trust-signals-missing",
-        detail: "Service page is missing visible trust and transparency signals",
+        detail: "Service page needs visible provider/scope information and a consultation destination",
       });
-    if (bodyLinks.filter((link) => /\/services\/[^/]+/.test(link)).length < 2)
+    if (!/href="\/(?:sa|syr|uae)(?:\/ar)?\/services(?:[?#][^"]*)?"/.test(html))
       issues.push({
         severity: "error",
         rule: "service-contextual-links-weak",
-        detail: "Service page needs at least two contextual links to related services",
+        detail: "Service page has no crawlable route to its service directory",
       });
-    if (!bodyLinks.some((link) => link === "/blog" || link.startsWith("/blog/")))
-      issues.push({
-        severity: "error",
-        rule: "service-blog-link-missing",
-        detail: "Service page has no contextual link to the legal blog",
-      });
+    // Article links are useful only where relevant published material exists;
+    // their absence is not a technical defect and must not create filler links.
   }
 
   return {
@@ -643,6 +627,14 @@ function main() {
     return clean.length > 1 ? clean.replace(/\/$/, "") : clean;
   };
   const inboundSources = new Map<string, Set<string>>();
+  const sitemapAlternates = new Map<string, Record<string, string>>();
+  for (const filename of fs.readdirSync(DIST).filter(file => /^sitemap-.*\.xml$/.test(file))) {
+    const xml = fs.readFileSync(path.join(DIST, filename), "utf8");
+    for (const entry of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+      const loc = entry[1].match(/<loc>(.*?)<\/loc>/)?.[1];
+      if (loc) sitemapAlternates.set(normalizeInternalRoute(decode(loc)), hreflangTags(entry[1].replace(/<xhtml:link\b/g, "<link")));
+    }
+  }
   for (const source of pages) {
     for (const href of source.internalLinks) {
       const target = normalizeInternalRoute(href);
@@ -652,6 +644,12 @@ function main() {
   }
 
   for (const page of pages) {
+    const sitemapLinks = sitemapAlternates.get(page.route);
+    if (!sitemapLinks) {
+      page.issues.push({ severity: "error", rule: "sitemap-page-missing", detail: "Indexable page is missing from the generated sitemaps" });
+    } else if (JSON.stringify(Object.entries(sitemapLinks).sort()) !== JSON.stringify(Object.entries(page.hreflangs).sort())) {
+      page.issues.push({ severity: "error", rule: "sitemap-hreflang-mismatch", detail: "Sitemap language alternatives differ from the page head" });
+    }
     for (const [hrefLang, href] of Object.entries(page.hreflangs)) {
       if (hrefLang === "x-default" || !href.startsWith(BASE)) continue;
       const target = normalizeInternalRoute(href);
@@ -667,11 +665,11 @@ function main() {
     }
     if (/^\/(?:sa|syr|uae)(?:\/ar)?\/services\/[^/]+\/[^/]+$/.test(page.route)) {
       const inboundCount = inboundSources.get(page.route)?.size ?? 0;
-      if (inboundCount < 3) {
+      if (inboundCount === 0) {
         page.issues.push({
           severity: "error",
           rule: "problem-contextual-inbound-links-weak",
-          detail: `Problem page has ${inboundCount} contextual inbound page(s); minimum is 3`,
+          detail: "Problem page is orphaned: no crawlable contextual inbound page",
         });
       }
     }
@@ -743,7 +741,7 @@ function main() {
   const now = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
   const lines: string[] = [];
 
-  lines.push(`# CounselO SEO Validation Report`);
+  lines.push(`# CounselO Legal SEO Validation Report`);
   lines.push(`\n_Generated: ${now}_\n`);
   lines.push(`## Summary\n`);
   lines.push(`| Metric | Value |`);

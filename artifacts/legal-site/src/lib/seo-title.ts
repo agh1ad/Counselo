@@ -4,5 +4,5 @@
  */
 export function limitSeoTitle(value: string, _max = 68): string {
   return value.replace(/\s+/g, " ").trim()
-    .replace(/\s+(?:إلى|من|في|على|and|of|to|in)\s*(?=\|\s*(?:أعمال\s+)?(?:كاونسلو|CounselO)$)/i, " ");
+    .replace(/\s+(?:إلى|من|في|على|and|of|to|in)\s*(?=\|\s*(?:أعمال\s+)?(?:كاونسلو للاستشارات القانونية|CounselO Legal)$)/i, " ");
 }

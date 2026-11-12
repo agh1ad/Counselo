@@ -1,7 +1,5 @@
 import { Award, BriefcaseBusiness, Languages, LockKeyhole, Scale, ShieldCheck } from "lucide-react";
 import { Link } from "wouter";
-import { COUNSELO_LEGAL_MATTERS_CLAIM, COUNSELO_LEGAL_PRACTICE_CLAIM } from "@/lib/public-claims";
-import { ExperienceMethodologyNote } from "@/components/legal/ExperienceMethodologyNote";
 
 type TrustSignalsProps = {
   isArabic: boolean;
@@ -19,24 +17,24 @@ export function TrustSignals({ isArabic, regionPrefix, compact = false }: TrustS
       ? "إذا تطلبت المسألة تمثيلاً أمام المحاكم أو إيداعاً أو حضوراً في الإمارات، يمكن ترتيب تكليف مستقل مع مهني شريك أو مكتب متعاون مرخص في الإمارات."
       : regionPrefix.startsWith("/syr")
         ? "إذا تطلبت المسألة السورية تمثيلاً أمام المحاكم أو إيداعاً أو حضوراً، يمكن ترتيب تكليف مستقل مع مهني شريك أو مكتب متعاون مرخص في سوريا."
-        : "عندما تتطلب المسألة حضوراً في السعودية، تنسق كاونسلو مع مكتب محاماة سعودي متعاون ومرخص وفق نطاق التكليف."
+        : "عندما تتطلب المسألة حضوراً في السعودية، تنسق كاونسلو للاستشارات القانونية مع مكتب محاماة سعودي متعاون ومرخص وفق نطاق التكليف."
     : regionPrefix.startsWith("/uae")
-      ? "If a UAE matter requires court representation, filing or attendance, CounselO can arrange a separate engagement with an appropriately licensed UAE partner professional or cooperating office."
+      ? "If a UAE matter requires court representation, filing or attendance, CounselO Legal can arrange a separate engagement with an appropriately licensed UAE partner professional or cooperating office."
       : regionPrefix.startsWith("/syr")
-        ? "If a Syrian matter requires court representation, filing or attendance, CounselO can arrange a separate engagement through an appropriately licensed Syrian partner professional or cooperating office."
-        : "When a Saudi matter requires attendance, CounselO coordinates with a licensed cooperating Saudi law office within the agreed engagement.";
+        ? "If a Syrian matter requires court representation, filing or attendance, CounselO Legal can arrange a separate engagement through an appropriately licensed Syrian partner professional or cooperating office."
+        : "When a Saudi matter requires attendance, CounselO Legal coordinates with a licensed cooperating Saudi law office within the agreed engagement.";
   const items = isArabic
     ? [
-        { icon: Award, title: "قيادة قانونية خبيرة", text: `تأسست كاونسلو بقيادة المحامي والمستشار القانوني عمر البغدادي، مع ${COUNSELO_LEGAL_PRACTICE_CLAIM.ar}.` },
-        { icon: BriefcaseBusiness, title: "خبرة عملية واسعة", text: `تذكر كاونسلو سجلاً مهنياً تراكمياً يشمل ${COUNSELO_LEGAL_MATTERS_CLAIM.ar} عولجت أو جرى الإشراف عليها في المنطقة.` },
+        { icon: Award, title: "فريق قانوني متمرس", text: "يجمع فريق كاونسلو الخبرة في تحليل العقود والمنازعات والمسائل الأسرية والعمالية والعقارية لإعداد مشورة عملية." },
+        { icon: BriefcaseBusiness, title: "صياغة ومراجعة مهنية", text: "نربط الوقائع والمستندات بالسؤال القانوني، ونعدّ العقود والاتفاقيات والمذكرات اللازمة لخطوتك المقبلة." },
         { icon: Scale, title: "نموذج تمثيل واضح", text: representationText },
         { icon: Languages, title: "العربية والإنجليزية", text: "تتوفر الاستشارات ومراجعة المستندات باللغتين العربية والإنجليزية." },
         { icon: LockKeyhole, title: "سرية مهنية", text: "تُعامل معلومات العملاء ومستنداتهم باعتبارها معلومات قانونية سرية، ويُطلب فقط ما يلزم لتقييم المسألة." },
         { icon: ShieldCheck, title: "نطاق خدمة شفاف", text: "لا تنشئ الاستشارة وحدها تفويضاً بالتمثيل أمام المحاكم؛ ويتطلب التمثيل اتفاقاً منفصلاً يحدد نطاق العمل." },
       ]
     : [
-        { icon: Award, title: "Experienced legal leadership", text: `CounselO was founded and is led by Lawyer and Legal Counsel Omar Al-Baghdadi, with ${COUNSELO_LEGAL_PRACTICE_CLAIM.en}.` },
-        { icon: BriefcaseBusiness, title: "Extensive practical experience", text: `CounselO states a career-wide record including ${COUNSELO_LEGAL_MATTERS_CLAIM.en} handled or supervised across the region.` },
+        { icon: Award, title: "Experienced legal team", text: "CounselO’s team brings experience in contracts, disputes, family, employment and property matters to practical legal advice." },
+        { icon: BriefcaseBusiness, title: "Professional drafting and review", text: "We connect the facts and documents to the legal question, preparing contracts, agreements and memoranda for your next step." },
         { icon: Scale, title: "Clear representation model", text: representationText },
         { icon: Languages, title: "Arabic and English", text: "Legal consultations and document review are available in both Arabic and English." },
         { icon: LockKeyhole, title: "Professional confidentiality", text: "Client information and legal documents are treated as confidential, and only information needed to assess the matter is requested." },
@@ -51,7 +49,7 @@ export function TrustSignals({ isArabic, regionPrefix, compact = false }: TrustS
             {isArabic ? "الثقة والشفافية" : "Trust and transparency"}
           </p>
           <h2 id="trust-signals-heading" className="text-3xl font-serif font-bold text-foreground mb-3">
-            {isArabic ? "لماذا يختار العملاء كاونسلو؟" : "Why clients choose CounselO"}
+            {isArabic ? "لماذا يختار العملاء كاونسلو للاستشارات القانونية؟" : "Why clients choose CounselO Legal"}
           </h2>
           <p className="text-muted-foreground leading-relaxed">
             {isArabic ? "معلومات واضحة عن الخبرة وطريقة تقديم الخدمة والسرية ونطاق التمثيل قبل بدء الاستشارة." : "Clear information about experience, service delivery, confidentiality, and representation scope before a consultation begins."}
@@ -66,12 +64,8 @@ export function TrustSignals({ isArabic, regionPrefix, compact = false }: TrustS
             </div>
           ))}
         </div>
-        <ExperienceMethodologyNote
-          isArabic={isArabic}
-          className="mt-6 max-w-4xl border-s-2 border-primary/35 ps-4 text-xs leading-5 text-muted-foreground"
-        />
         <nav aria-label={isArabic ? "روابط الثقة والسياسات" : "Trust and policy links"} className="flex flex-wrap gap-x-6 gap-y-3 mt-8 text-sm font-semibold">
-          <Link href={regional ? `${regionPrefix}/about` : `${sharedHome}#about-heading${isArabic ? "-ar" : ""}`} className="text-primary hover:underline">
+          <Link href={regional ? `${regionPrefix}/about` : `${sharedHome}#about`} className="text-primary hover:underline">
             {isArabic ? "عن المؤسس والفريق" : "Founder and team"}
           </Link>
           {regional && <><Link href={`${regionPrefix}/privacy-policy`} className="text-primary hover:underline">
@@ -80,8 +74,8 @@ export function TrustSignals({ isArabic, regionPrefix, compact = false }: TrustS
           <Link href={`${regionPrefix}/terms-of-service`} className="text-primary hover:underline">
             {isArabic ? "شروط ونطاق الخدمة" : "Terms and service scope"}
           </Link></>}
-          <Link href={regional ? `${regionPrefix}/contact` : `${sharedHome}#jurisdictions-heading${isArabic ? "-ar" : ""}`} className="text-primary hover:underline">
-            {regional ? isArabic ? "تواصل مع كاونسلو" : "Contact CounselO" : isArabic ? "اختر الاختصاص ونطاق الخدمة" : "Choose your jurisdiction and service scope"}
+          <Link href={regional ? `${regionPrefix}/contact` : `${sharedHome}#contact`} className="text-primary hover:underline">
+            {regional ? isArabic ? "تواصل مع كاونسلو للاستشارات القانونية" : "Contact CounselO Legal" : isArabic ? "اختر الاختصاص ونطاق الخدمة" : "Choose your jurisdiction and service scope"}
           </Link>
         </nav>
       </div>

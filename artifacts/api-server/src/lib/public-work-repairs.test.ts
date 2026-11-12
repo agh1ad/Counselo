@@ -93,7 +93,7 @@ test("financial-claim English completion follows the recorded Arabic source and 
   const input = JSON.parse(readFileSync(new URL("./__fixtures__/financial-claim-language-gap.json", import.meta.url), "utf8"));
   const fixed = repairPublicWorkSample(input);
   for (const key of ["titleEn", "challengeEn", "approachEn", "outcomeEn", "jurisdictionEn"]) assert.ok(fixed[key]?.trim(), key);
-  assert.equal(fixed.summaryEn, input.summaryEn);
+  assert.equal(fixed.summaryEn, input.summaryEn.replace("Counselo", "CounselO Legal"));
   assert.match(fixed.outcomeEn, /published account/);
   assert.deepEqual(repairPublicWorkSample(fixed), fixed);
   assert.equal(repairPublicWorkSample({ ...input, titleEn: "Later authored title" }).titleEn, "Later authored title");

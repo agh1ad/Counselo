@@ -31,15 +31,15 @@ export function buildBlogSocialMetaTags(input: {
   const canonical = escapeMeta(input.canonical);
   const reviewerName = input.reviewerName ? escapeMeta(input.reviewerName) : undefined;
   const imageAlt = escapeMeta(!input.reviewerName ? input.title : input.language === "ar"
-    ? `مقال قانوني من كاونسلو، راجعه ${input.reviewerName}`
-    : `CounselO legal article reviewed by ${input.reviewerName}`);
+    ? `مقال قانوني من كاونسلو للاستشارات القانونية، راجعه ${input.reviewerName}`
+    : `CounselO Legal article reviewed by ${input.reviewerName}`);
 
   return [
     `<meta property="og:type" content="article">`,
     `<meta property="og:title" content="${title}">`,
     `<meta property="og:description" content="${description}">`,
     `<meta property="og:url" content="${canonical}">`,
-    `<meta property="og:site_name" content="CounselO كاونسلو">`,
+    `<meta property="og:site_name" content="CounselO Legal كاونسلو للاستشارات القانونية">`,
     `<meta property="og:locale" content="${input.language === "ar" ? "ar_SA" : "en_US"}">`,
     `<meta property="og:image" content="${BLOG_SOCIAL_IMAGE.url}">`,
     `<meta property="og:image:secure_url" content="${BLOG_SOCIAL_IMAGE.secureUrl}">`,

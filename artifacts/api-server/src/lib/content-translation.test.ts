@@ -45,8 +45,8 @@ test("fills missing English blog, repairs SEO, and requests strict structured ou
       excerptEn:
         "A practical overview of contract formation requirements under Syrian law.",
       excerptAr: "ملخص عربي أصلي",
-      seoTitleEn: "Contract Formation in Syrian Law | CounselO",
-      seoTitleAr: "تكوين العقد في القانون السوري | كاونسلو",
+      seoTitleEn: "Contract Formation in Syrian Law | CounselO Legal",
+      seoTitleAr: "تكوين العقد في القانون السوري | كاونسلو للاستشارات القانونية",
       seoDescriptionEn:
         "Learn the requirements for valid contract formation under Syrian law, including consent, capacity, lawful purpose, and practical evidence.",
       seoDescriptionAr:
@@ -86,7 +86,7 @@ test("fills missing English blog, repairs SEO, and requests strict structured ou
     patch.bodyEn,
     '<p style="text-align:left">Translated legal body.</p>',
   );
-  assert.equal(patch.seoTitleAr, "تكوين العقد في القانون السوري | كاونسلو");
+  assert.equal(patch.seoTitleAr, "تكوين العقد في القانون السوري | كاونسلو للاستشارات القانونية");
   assert.equal(patch.titleAr, undefined, "Arabic source must be preserved");
   assert.match(requestUrl, /\/chat\/completions$/);
   assert.equal(requestBody?.model, "gpt-5.6-luna");
@@ -120,12 +120,12 @@ test("fills missing Arabic work fields and preserves English source", async () =
       approachAr: "منهجية العمل القانونية المترجمة.",
       outcomeEn: "",
       outcomeAr: "",
-      seoTitleEn: "Commercial Contract Review | CounselO",
-      seoTitleAr: "مراجعة عقد تجاري في السعودية | كاونسلو",
+      seoTitleEn: "Commercial Contract Review | CounselO Legal",
+      seoTitleAr: "مراجعة عقد تجاري في السعودية | كاونسلو للاستشارات القانونية",
       seoDescriptionEn:
-        "Review how CounselO assessed a commercial contract, clarified risk allocation, and improved practical protections for a business client.",
+        "Review how CounselO Legal assessed a commercial contract, clarified risk allocation, and improved practical protections for a business client.",
       seoDescriptionAr:
-        "اطّلع على كيفية مراجعة كاونسلو لعقد تجاري وتوضيح توزيع المخاطر وتعزيز الحماية العملية لعميل من قطاع الأعمال.",
+        "اطّلع على كيفية مراجعة كاونسلو للاستشارات القانونية لعقد تجاري وتوضيح توزيع المخاطر وتعزيز الحماية العملية لعميل من قطاع الأعمال.",
     });
 
   const values = {
@@ -147,10 +147,10 @@ test("fills missing Arabic work fields and preserves English source", async () =
     approachAr: "",
     outcomeEn: "",
     outcomeAr: "",
-    seoTitleEn: "Commercial Contract Review | CounselO",
+    seoTitleEn: "Commercial Contract Review | CounselO Legal",
     seoTitleAr: "",
     seoDescriptionEn:
-      "Review how CounselO assessed a commercial contract, clarified risk allocation, and improved practical protections for a business client.",
+      "Review how CounselO Legal assessed a commercial contract, clarified risk allocation, and improved practical protections for a business client.",
     seoDescriptionAr: "",
     documentLanguage: "en",
     fileName: "sample.pdf",
@@ -197,12 +197,12 @@ test("complete bilingual work does not require optional client or outcome fields
     approachAr: "منهجية العمل بالعربية.",
     outcomeEn: "",
     outcomeAr: "",
-    seoTitleEn: "Commercial Contract Review | CounselO",
-    seoTitleAr: "مراجعة عقد تجاري في السعودية | كاونسلو",
+    seoTitleEn: "Commercial Contract Review | CounselO Legal",
+    seoTitleAr: "مراجعة عقد تجاري في السعودية | كاونسلو للاستشارات القانونية",
     seoDescriptionEn:
-      "Review how CounselO assessed a commercial contract, clarified risk allocation, and improved practical protections for a business client.",
+      "Review how CounselO Legal assessed a commercial contract, clarified risk allocation, and improved practical protections for a business client.",
     seoDescriptionAr:
-      "اطّلع على كيفية مراجعة كاونسلو لعقد تجاري وتوضيح توزيع المخاطر وتعزيز الحماية العملية لعميل من قطاع الأعمال.",
+      "اطّلع على كيفية مراجعة كاونسلو للاستشارات القانونية لعقد تجاري وتوضيح توزيع المخاطر وتعزيز الحماية العملية لعميل من قطاع الأعمال.",
     documentLanguage: "bilingual",
     fileName: "sample.pdf",
     fileMimeType: "application/pdf",

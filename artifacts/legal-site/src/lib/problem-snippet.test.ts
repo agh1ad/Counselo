@@ -36,12 +36,12 @@ test("Arabic problem snippets preserve intent, jurisdiction, and safe positionin
     assert.doesNotMatch(title, /…/);
     assert.ok(description.includes(input.titleAr), description);
     assert.match(title, new RegExp(input.countryNameAr));
-    assert.match(title, /كاونسلو/);
+    assert.match(title, /كاونسلو للاستشارات القانونية/);
     assert.match(title, /في /);
     assert.match(description, /المستندات المطلوبة/);
     assert.match(description, /بشأن حالتك/);
     assert.match(description, /أونلاين/);
-    assert.match(description, /كاونسلو/);
+    assert.match(description, /كاونسلو للاستشارات القانونية/);
     assert.match(description, /[.؟]$/);
     assert.doesNotMatch(`${title} ${description}`, /\s(?:أمام|أو|إلى|بين|بشأن|ضد|ضمن|على|عن|غير|في|لدى|مع|من)(?:\s*\||[.؟])$/);
     assert.doesNotMatch(`${title} ${description}`, /مضمون|نضمن|تمثيل أمام|محامي مرخص/);
@@ -60,7 +60,7 @@ test("English problem snippets preserve topic, jurisdiction, action, and brand",
     assert.ok(title.startsWith(input.titleEn.replace(/ in Syria$/, "")), title);
     assert.doesNotMatch(title, /…/);
     assert.ok(description.startsWith(input.titleEn.replace(/ in Syria$/, "")), description);
-    assert.match(title, /CounselO$/);
+    assert.match(title, /CounselO Legal$/);
     assert.match(title, new RegExp(input.countryNameEn));
     assert.match(description, /documents to prepare/);
     assert.match(description, /CounselO/);
@@ -88,7 +88,7 @@ test("every canonical problem page has unique bilingual search snippets", () => 
 test("title shortening retains the leading legal subject", () => {
   const title = buildEnglishProblemTitle({ titleEn: "Trademark registration and disputes", serviceTitleEn: "Intellectual Property", countryNameEn: "Saudi Arabia" });
   assert.match(title, /^Trademark registration/);
-  assert.match(title, /Saudi Arabia \| CounselO$/);
+  assert.match(title, /Saudi Arabia \| CounselO Legal$/);
 });
 
 test("internal keyword research candidates remain unique and bilingual", () => {
@@ -143,5 +143,5 @@ test("self-describing Arabic tax topics do not repeat the entire service label",
     serviceTitleAr: "ضريبة الشركات وضريبة القيمة المضافة والمنازعات الضريبية",
     countryNameAr: "الإمارات",
   });
-  assert.equal(title, "مشكلة التسجيل والإقرار بضريبة الشركات في الإمارات | كاونسلو");
+  assert.equal(title, "مشكلة التسجيل والإقرار بضريبة الشركات في الإمارات | كاونسلو للاستشارات القانونية");
 });

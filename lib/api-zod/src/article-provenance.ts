@@ -33,7 +33,7 @@ export type ArticleProvenance = {
 const REVIEWER = "Omar Al-Baghdadi";
 const REVIEWER_AR = "عمر البغدادي";
 const AUTHOR = "CounselO Legal Team";
-const AUTHOR_AR = "فريق كاونسلو القانوني";
+const AUTHOR_AR = "فريق كاونسلو للاستشارات القانونية القانوني";
 
 const SOURCES: Record<Region, ArticleSource[]> = {
   sa: [
@@ -128,8 +128,8 @@ export function localizeArticleProvenanceUrl(
 ): string {
   const prefix = `${region ? `/${region}` : ""}${language === "ar" ? "/ar" : ""}`;
   const fallback = kind === "profile"
-    ? region ? `${prefix}/about` : `${prefix || "/"}#about-heading${language === "ar" ? "-ar" : ""}`
-    : region ? `${prefix}/contact?subject=article-correction` : `${prefix || "/"}#jurisdictions-heading${language === "ar" ? "-ar" : ""}`;
+    ? region ? `${prefix}/about` : `${prefix || "/"}#about`
+    : region ? `${prefix}/contact?subject=article-correction` : `${prefix || "/"}#contact`;
   const value = url?.trim();
   if (!value) return fallback;
   const isLegacyProfile = /^\/(?:sa|syr|uae)(?:\/ar)?\/about\/?$/.test(value) || value === "/about";
@@ -205,10 +205,10 @@ export function assignArticleProvenance(input: {
     applicableLaw: contentType === "legal-guidance" ? applicableLaw : "",
     applicableLawAr: contentType === "legal-guidance" ? applicableLawAr : "",
     sources: contentType === "legal-guidance" ? sourcesForArticle(jurisdiction, input.relatedServiceSlugs) : [],
-    keyLegalUpdateNote: contentType === "legal-guidance" ? "Check the cited primary sources for amendments, implementing decisions and later official guidance before acting." : "This is CounselO editorial commentary. Apply any jurisdiction-specific discussion only within the scope stated in the article.",
-    keyLegalUpdateNoteAr: contentType === "legal-guidance" ? "تحقق من المصادر الأولية المذكورة بشأن أي تعديلات أو قرارات تنفيذية أو إرشادات رسمية لاحقة قبل اتخاذ أي إجراء." : "هذا تعليق تحريري من كاونسلو. يُقرأ أي تحليل خاص باختصاص قضائي ضمن النطاق المبين في المقال.",
-    contentMethodology: attributedLatentDefectArticle ? "The supplied article credits Al-Baghdadi Law Firm as original author and attributes its earlier publication to baghdadilaw.co. CounselO publishes an editorially adapted version; this does not replace the original credit or independently verify the earlier publication." : contentType === "legal-guidance" ? "Primary-law review plus CounselO practice commentary." : "Editorial explanation and professional commentary. Check the stated jurisdiction and any cited authority before applying an observation to a case.",
-    contentMethodologyAr: attributedLatentDefectArticle ? "ينسب المقال المقدم التأليف الأصلي إلى البغدادي للمحاماة والنشر السابق إلى baghdadilaw.co. تنشر كاونسلو نسخة محررة؛ ولا يستبدل ذلك نسبة التأليف الأصلية أو يثبت النشر السابق بصورة مستقلة." : contentType === "legal-guidance" ? "مراجعة المصادر القانونية الأولية مع تعليق عملي من كاونسلو." : "شرح تحريري وتعليق مهني. تحقّق من الاختصاص المذكور وأي مرجع مستشهد به قبل تطبيق ملاحظة على قضية محددة.",
+    keyLegalUpdateNote: contentType === "legal-guidance" ? "Check the cited primary sources for amendments, implementing decisions and later official guidance before acting." : "This is CounselO Legal editorial commentary. Apply any jurisdiction-specific discussion only within the scope stated in the article.",
+    keyLegalUpdateNoteAr: contentType === "legal-guidance" ? "تحقق من المصادر الأولية المذكورة بشأن أي تعديلات أو قرارات تنفيذية أو إرشادات رسمية لاحقة قبل اتخاذ أي إجراء." : "هذا تعليق تحريري من كاونسلو للاستشارات القانونية. يُقرأ أي تحليل خاص باختصاص قضائي ضمن النطاق المبين في المقال.",
+    contentMethodology: attributedLatentDefectArticle ? "The supplied article credits Al-Baghdadi Law Firm as original author and attributes its earlier publication to baghdadilaw.co. CounselO Legal publishes an editorially adapted version; this does not replace the original credit or independently verify the earlier publication." : contentType === "legal-guidance" ? "Primary-law review plus CounselO Legal practice commentary." : "Editorial explanation and professional commentary. Check the stated jurisdiction and any cited authority before applying an observation to a case.",
+    contentMethodologyAr: attributedLatentDefectArticle ? "ينسب المقال المقدم التأليف الأصلي إلى البغدادي للمحاماة والنشر السابق إلى baghdadilaw.co. تنشر كاونسلو للاستشارات القانونية نسخة محررة؛ ولا يستبدل ذلك نسبة التأليف الأصلية أو يثبت النشر السابق بصورة مستقلة." : contentType === "legal-guidance" ? "مراجعة المصادر القانونية الأولية مع تعليق عملي من كاونسلو للاستشارات القانونية." : "شرح تحريري وتعليق مهني. تحقّق من الاختصاص المذكور وأي مرجع مستشهد به قبل تطبيق ملاحظة على قضية محددة.",
     lastSubstantiveReviewAt: reviewDate,
     correctionUrl: `/${jurisdiction}/contact?subject=article-correction`,
   };

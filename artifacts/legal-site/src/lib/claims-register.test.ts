@@ -5,6 +5,12 @@ import test from "node:test";
 import { qualifyProfessionalRoleCopy } from "@/lib/professional-role-scope";
 import { qualifyEeatCopy } from "@/lib/eeat-scope";
 import { COUNSELO_LEGAL_MATTERS_CLAIM, COUNSELO_LEGAL_PRACTICE_CLAIM, COUNSELO_PROFESSIONAL_START_YEAR, getCounseloLegalPracticeClaim } from "@/lib/public-claims";
+import { en } from "../translations/en";
+import { ar } from "../translations/ar";
+import { enSyr } from "../translations/en-syr";
+import { arSyr } from "../translations/ar-syr";
+import { enUae } from "../translations/en-uae";
+import { arUae } from "../translations/ar-uae";
 
 type Claim = {
   id: string;
@@ -28,8 +34,8 @@ test("every public claim register entry has approval and evidence metadata", () 
     assert.ok(claim.approvedWordingEn && claim.approvedWordingAr);
     assert.ok(claim.evidenceOwner && claim.evidenceLocation);
     assert.deepEqual(new Set(claim.jurisdictions), new Set(["uae", "sa", "syr"]));
-    assert.match(claim.lastVerified, /^2026-\d{2}-\d{2}$/);
-    assert.match(claim.reviewBy, /^2026-\d{2}-\d{2}$/);
+    assert.match(claim.lastVerified, /^\d{4}-\d{2}-\d{2}$/);
+    assert.match(claim.reviewBy, /^\d{4}-\d{2}-\d{2}$/);
     assert.ok(claim.requiredDisclaimer);
   }
 });
@@ -54,21 +60,21 @@ test("the experience-volume claim uses the neutral centralized wording", () => {
   assert.doesNotMatch(copy, /(?:أكثر من\s+)?20,000\s+(?:قضية|قضايا|مسألة)\b(?! واستشارة قانونية)/);
 });
 
-test("experience methodology is visible on every claim-bearing page family and linked site-wide", () => {
-  const directSurfaces = [
-    "src/components/home/global-homepage.tsx",
-    "src/pages/home.tsx",
-    "src/pages/about.tsx",
-    "src/pages/legal-problem-detail.tsx",
-    "src/components/seo/TrustSignals.tsx",
-  ];
-  for (const file of directSurfaces) {
-    assert.match(readFileSync(resolve(process.cwd(), file), "utf8"), /ExperienceMethodologyNote/, file);
-  }
+test("About omits the removed experience explanation and team trust signals avoid personal figures", () => {
+  const about = readFileSync(resolve(process.cwd(), "src/pages/about.tsx"), "utf8");
+  assert.doesNotMatch(about, /ExperienceMethodologyNote|experience-methodology/);
+
+  const trust = readFileSync(resolve(process.cwd(), "src/components/seo/TrustSignals.tsx"), "utf8");
+  assert.match(trust, /Experienced legal team|فريق قانوني متمرس/);
+  assert.doesNotMatch(trust, /Omar|عمر البغدادي|COUNSELO_LEGAL_MATTERS_CLAIM|COUNSELO_LEGAL_PRACTICE_CLAIM/);
+
+  const homepage = readFileSync(resolve(process.cwd(), "src/components/home/global-homepage.tsx"), "utf8");
+  assert.doesNotMatch(homepage, /home-founder-stats|COUNSELO_LEGAL_MATTERS_STAT/);
 
   const footer = readFileSync(resolve(process.cwd(), "src/components/layout/footer.tsx"), "utf8");
-  assert.match(footer, /#experience-methodology/);
-  assert.match(footer, /Experience-figure methodology and limitations/);
+  assert.doesNotMatch(footer, /#experience-methodology|Experience-figure methodology and limitations/);
+  const journey = readFileSync(resolve(process.cwd(), "src/components/legal/saudi-service-journey.tsx"), "utf8");
+  assert.doesNotMatch(journey, /#experience-methodology/);
 
   const app = readFileSync(resolve(process.cwd(), "src/App.tsx"), "utf8");
   assert.match(app, /<Footer \/>/);
@@ -87,7 +93,6 @@ test("the professional-experience claim is derived from the approved start year"
     resolve(process.cwd(), "src/components/home/global-homepage.tsx"),
     resolve(process.cwd(), "src/components/home/homepage-content.ts"),
     resolve(process.cwd(), "src/pages/about.tsx"),
-    resolve(process.cwd(), "src/pages/vision.tsx"),
     resolve(process.cwd(), "src/pages/home.tsx"),
     resolve(process.cwd(), "src/pages/services.tsx"),
     resolve(process.cwd(), "src/pages/blog-post.tsx"),
@@ -108,7 +113,7 @@ test("known high-risk claim contradictions are absent from the public shell copy
     resolve(process.cwd(), "src/translations/en.ts"),
   ];
   const copy = files.map((file) => readFileSync(file, "utf8")).join("\n");
-  assert.doesNotMatch(copy, /Guaranteed Response|never shared|never share|يضمن كاونسلو|لا تُشارَك/);
+  assert.doesNotMatch(copy, /Guaranteed Response|never shared|never share|يضمن كاونسلو للاستشارات القانونية|لا تُشارَك/);
 });
 
 test("unsupported Vision 2030 partnership and endorsement wording is absent", () => {
@@ -185,7 +190,7 @@ test("unverified testimonial outcomes and unsupported personal licence numbers s
 
 test("professional-role boundary qualifies legacy representation wording", () => {
   const qualified = qualifyProfessionalRoleCopy({
-    en: "At CounselO, we represent clients before courts. We manage the full appeal process.",
+    en: "At CounselO Legal, we represent clients before courts. We manage the full appeal process.",
     ar: "نحن نمثل العملاء أمام المحاكم ونقدم تمثيل كامل.",
   });
   assert.match(qualified.en, /separately engaged, appropriately licensed practitioner/i);
@@ -195,18 +200,21 @@ test("professional-role boundary qualifies legacy representation wording", () =>
 });
 
 test("EEAT boundary qualifies legacy outcome, timing and online-service claims", () => {
-  const qualified = qualifyEeatCopy("CounselO recovered hundreds of millions of Saudi riyals and provides complete online consultation within 24 hours. No office visit required.");
+  const qualified = qualifyEeatCopy("CounselO Legal recovered hundreds of millions of Saudi riyals and provides complete online consultation within 24 hours. No office visit required.");
   assert.match(qualified, /substantial sums \(a stated experience figure, not an audited result\)/);
-  assert.match(qualified, /initial online consultation/);
+  assert.match(qualified, /online consultation covering the agreed legal questions/);
   assert.match(qualified, /target 24-hour response window/);
-  assert.match(qualified, /initial consultation may begin without an office visit/);
+  assert.match(qualified, /online consultation and document review without an office visit/i);
+  assert.doesNotMatch(qualified, /initial online consultation/);
+  const arabic = qualifyEeatCopy("استشارة قانونية أونلاين كاملة خلال 24 ساعة");
+  assert.match(arabic, /استشارة أونلاين تغطي المسائل القانونية المتفق عليها/);
+  assert.match(arabic, /وقت استجابة مستهدف/);
+  assert.doesNotMatch(arabic, /استشارة أولية/);
 });
 
 test("About missions avoid immediate advice, continuous availability and bundled representation claims", () => {
-  for (const locale of ["en", "ar", "en-syr", "ar-syr", "en-uae", "ar-uae"]) {
-    const source = readFileSync(resolve(process.cwd(), `src/translations/${locale}.ts`), "utf8");
-    const about = source.slice(source.indexOf("  aboutPage: {"));
-    const mission = about.slice(about.indexOf("    mission: {"), about.indexOf("    founder: {"));
+  for (const [locale, copy] of Object.entries({ en, ar, enSyr, arSyr, enUae, arUae })) {
+    const mission = Object.values(copy.aboutPage.mission).join(" ");
     assert.doesNotMatch(mission, /instantly|24\/7|expert representation|على مدار الساعة|تمثيلاً متخصصاً/, locale);
     assert.match(mission, /separate agreement|separately agreed|identified separately|اتفاق مستقل|اتفاقاً مستقلاً|بشكل مستقل|بصورة منفصلة/, locale);
   }

@@ -1,7 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import * as m from "framer-motion/m";
 import { useState } from "react";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 
 const WHATSAPP_NUMBER = "966594850247";
@@ -9,8 +8,8 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export function WhatsAppFloat() {
   const [hovered, setHovered] = useState(false);
-  const { isRTL } = useLanguage();
-  const { region } = useRegion();
+  const { region, lang } = useRegion();
+  const isRTL = lang === "ar";
   const label = isRTL ? "تواصل عبر واتساب" : "Chat on WhatsApp";
 
   return (

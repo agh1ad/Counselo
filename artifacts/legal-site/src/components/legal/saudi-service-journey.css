@@ -1,0 +1,29 @@
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-service-steps { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.25rem; padding: 0; list-style: none; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-service-steps li { position: relative; padding-block-start: .25rem; min-width: 0; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-service-steps li::before { content: ""; position: absolute; top: 1.3rem; inset-inline: 0 -1.25rem; border-top: 1px solid #c4d7ca; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-service-steps li:last-child::before { inset-inline-end: 0; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-step-number { position: relative; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; margin-bottom: .875rem; border: 1px solid #6a8b75; border-radius: 50%; background: #fff; color: #0d4a31; font-weight: 700; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) :is(.sa-service-steps,.sa-reasons-grid,.sa-payment-steps,.sa-quote-panel) h3 { font-family: var(--app-font-sans); font-size: 1.0625rem; font-weight: 700; line-height: 1.5; margin-bottom: .375rem; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) :is(.sa-service-steps,.sa-reasons-grid,.sa-payment-steps,.sa-quote-panel) p { margin: 0; font-size: .9375rem; color: #4c6257; line-height: 1.75; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) #service-legal-checks.sa-service-reasons { padding: 0; background: none; border: 0; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-reasons-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.25rem 2rem; margin-block: 1rem .5rem; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-reasons-grid article { border-inline-start: 3px solid #b4924a; padding-inline-start: 1rem; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-text-link { display: inline-flex; align-items: center; min-height: 44px; color: #0d4a31; text-decoration: underline; text-underline-offset: 4px; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-quote-panel { display: flex; align-items: center; gap: 1.5rem; justify-content: space-between; padding: 1.25rem; background: #f5f8f6; border: 1px solid #c4d7ca; border-radius: 6px; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-quote-panel > div { flex: 1; min-width: 0; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-quote-action { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .75rem 1rem; border-radius: 4px; color: #fff; background: #0d4a31; font-weight: 700; text-align: center; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-quote-action:hover { background: #073d2b; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-payment-steps { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.25rem; margin-block: 1.25rem; padding: 0; list-style: none; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-payment-steps li { display: flex; align-items: baseline; gap: .625rem; min-width: 0; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-payment-steps li > span { color: #54725e; font-size: .875rem; font-weight: 700; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-service-costs .sa-cost-boundary { border-top: 1px solid #dce5df; padding-top: 1rem; font-size: .875rem; color: #4c6257; }
+:is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-service-costs nav { display: flex; flex-wrap: wrap; }
+@media (max-width: 700px) {
+  :is(.saudi-reading-page,.service-reading-page,.public-readable-site) :is(.sa-service-steps,.sa-payment-steps,.sa-reasons-grid) { grid-template-columns: minmax(0,1fr); gap: 1rem; }
+  :is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-service-steps li { display: flex; gap: .875rem; padding: 0; }
+  :is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-service-steps li::before { top: 1rem; bottom: -1rem; inset-inline-start: 1.125rem; inset-inline-end: auto; border-top: 0; border-inline-start: 1px solid #c4d7ca; }
+  :is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-service-steps li:last-child::before { display: none; }
+  :is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-step-number { flex-shrink: 0; margin: 0; }
+  :is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-quote-panel { flex-direction: column; align-items: stretch; gap: 1rem; }
+  :is(.saudi-reading-page,.service-reading-page,.public-readable-site) .sa-reasons-grid article { padding-inline-start: .875rem; }
+}

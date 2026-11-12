@@ -51,8 +51,8 @@ function ToolBtn({
       disabled={disabled}
       onMouseDown={(e) => {
         e.preventDefault();
-        onClick();
       }}
+      onClick={onClick}
       className={`p-1.5 rounded transition-colors text-sm ${
         active
           ? "bg-green-700 text-white"
@@ -87,7 +87,9 @@ function ColorPicker({ editor }: { editor: ReturnType<typeof useEditor> }) {
           key={c}
           type="button"
           title={c}
-          onMouseDown={(e) => { e.preventDefault(); applyColor(c); }}
+          aria-label={`Text color ${c}`}
+          onMouseDown={(e) => e.preventDefault()}
+          onClick={() => applyColor(c)}
           className="w-4 h-4 rounded-sm border border-gray-300 hover:scale-110 transition-transform shrink-0"
           style={{ backgroundColor: c }}
         />
@@ -96,7 +98,9 @@ function ColorPicker({ editor }: { editor: ReturnType<typeof useEditor> }) {
       <div className="relative ml-0.5" title="Custom color">
         <button
           type="button"
-          onMouseDown={(e) => { e.preventDefault(); inputRef.current?.click(); }}
+          aria-label="Custom text color"
+          onMouseDown={(e) => e.preventDefault()}
+          onClick={() => inputRef.current?.click()}
           className="flex items-center gap-1 p-1.5 rounded text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
         >
           <Baseline size={14} />
@@ -118,7 +122,9 @@ function ColorPicker({ editor }: { editor: ReturnType<typeof useEditor> }) {
       <button
         type="button"
         title="Remove color"
-        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().unsetColor().run(); }}
+        aria-label="Remove color"
+        onMouseDown={(e) => e.preventDefault()}
+        onClick={() => editor.chain().focus().unsetColor().run()}
         className="p-1.5 rounded text-gray-400 hover:bg-gray-100 hover:text-gray-900 transition-colors text-[10px] font-bold leading-none"
       >
         ✕
@@ -131,7 +137,7 @@ export function RichTextEditor({ value, onChange, placeholder, dir = "ltr", minH
   const [fullscreen, setFullscreen] = useState(false);
   const editor = useEditor({
     extensions: [
-      StarterKit.configure({ heading: { levels: [2, 3] } }),
+      StarterKit.configure({ heading: { levels: [2, 3] }, link: false, underline: false }),
       Underline,
       TextStyle,
       Color,

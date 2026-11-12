@@ -49,6 +49,9 @@ const blogDiscoveryColumns = {
 
 const workDiscoveryColumns = {
   slug: workSamplesTable.slug,
+  published: workSamplesTable.published,
+  fileSize: workSamplesTable.fileSize,
+  fileMimeType: workSamplesTable.fileMimeType,
   titleEn: workSamplesTable.titleEn,
   titleAr: workSamplesTable.titleAr,
   summaryEn: workSamplesTable.summaryEn,

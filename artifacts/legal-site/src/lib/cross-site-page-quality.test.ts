@@ -11,16 +11,9 @@ const readLib = (name: string) => readFileSync(resolve(import.meta.dirname, name
 test("service directories use scoped descriptions instead of legacy promotional narratives", () => {
   const template = readPage("services.tsx");
   assert.doesNotMatch(template, /\{service\.longDesc\}/);
-  assert.match(template, /legal checks and scoped consultation options/);
-  assert.match(template, /data-conversion-position="services-guidance"/);
-});
-
-test("vision copy is aspirational without unsupported superlatives", () => {
-  const template = readPage("vision.tsx");
-  assert.doesNotMatch(template, /most trusted|highest standards/i);
-  assert.match(template, /A trusted digital legal reference for the Arab world/);
-  assert.match(template, /applicable professional-confidentiality, privacy and data-protection obligations/);
-  assert.match(template, /dateModified: "2026-09-05"/);
+  assert.match(template, /serviceExperience\(region, service.id/);
+  assert.match(template, /data-conversion-position="services-final"/);
+  assert.doesNotMatch(template, /id="services-opening-cta"|id="services-framework"/);
 });
 
 test("global entry pages keep qualified positioning and accessible heading spacing", () => {
@@ -31,7 +24,7 @@ test("global entry pages keep qualified positioning and accessible heading spaci
   assert.match(copy, /subject to scope, urgency/);
   assert.match(copy, /بحسب نطاق المسألة/);
   assert.match(template, /<h1 id="home-title">\s*\{c\.h1\}\s*<\/h1>/);
-  assert.match(home, /h\.hero\.h1a\}\{" "\}/);
+  assert.match(home, /\{saudiCopy\.title\}/);
 });
 
 test("evidence and publishing surfaces retain their trust boundaries", () => {
@@ -42,7 +35,7 @@ test("evidence and publishing surfaces retain their trust boundaries", () => {
   assert.match(blog, /Report a correction or factual error/);
   assert.match(blog, /does not constitute legal advice/);
   assert.match(work, /past work or outcomes do not guarantee the result of another matter/);
-  assert.match(work, /Client names, personal and commercially sensitive data/);
+  assert.match(work, /Client identities and confidential details were redacted before publication/);
   assert.match(work, /articlePublishedTime=\{sample\.date\}/);
   assert.match(work, /articleModifiedTime=\{modifiedAt\}/);
   assert.match(work, /workModifiedAt\(sample\.slug, sample\.updatedAt, sample\.date\)/);
@@ -76,6 +69,6 @@ test("global jurisdiction mentions consistently prioritize Saudi Arabia, then Sy
   assert.doesNotMatch(globalCopy, /الإمارات والسعودية وسوريا|الإمارات · السعودية · سوريا/);
 });
 
-test("the CounselO brand uses one English capitalization", () => {
+test("the CounselO Legal brand uses one English capitalization", () => {
   assert.doesNotMatch(readLib("optimized-meta.ts"), /\bCounselo\b/);
 });
