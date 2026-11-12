@@ -1,9 +1,49 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { buildBlogHtmlFromTemplate, buildWorkHtmlFromTemplate } from "./ssr-server";
+import { once } from "node:events";
+import { app, buildBlogHtmlFromTemplate, buildWorkHtmlFromTemplate } from "./ssr-server";
 
 const template = '<html><head><!--app-head--></head><body><div id="root"></div></body></html>';
 const payload = 'Legal text </ScRiPt ><img src=x onerror=alert(1)> <!-- <script> \u2028 \u2029';
+
+test("unknown and wrong-region services return nonindexable HTTP 404 without fetching CMS data", async () => {
+  const server = app.listen(0, "127.0.0.1");
+  await once(server, "listening");
+  const address = server.address();
+  assert.ok(address && typeof address !== "string");
+  const origin = `http://127.0.0.1:${address.port}`;
+  const originalFetch = globalThis.fetch;
+  const unexpectedRequests: string[] = [];
+  globalThis.fetch = ((input, init) => {
+    const url = input instanceof Request ? input.url : String(input);
+    if (!url.startsWith(`${origin}/`)) {
+      unexpectedRequests.push(url);
+      throw new Error("Unknown services must not request upstream data");
+    }
+    return originalFetch(input, init);
+  }) as typeof fetch;
+  try {
+    for (const path of [
+      "/sa/services/quality-audit-missing-service",
+      "/sa/ar/services/quality-audit-missing-service",
+      "/syr/services/quality-audit-missing-service",
+      "/syr/ar/services/quality-audit-missing-service",
+      "/sa/services/civil-procedure",
+      "/sa/ar/services/civil-procedure",
+    ]) {
+      for (const method of ["GET", "HEAD"]) {
+        const response = await fetch(`${origin}${path}`, { method });
+        assert.equal(response.status, 404, `${method} ${path}`);
+        assert.equal(response.headers.get("cache-control"), "no-store");
+        if (method === "GET") assert.match(await response.text(), /name="robots" content="noindex, nofollow"/);
+      }
+    }
+    assert.deepEqual(unexpectedRequests, []);
+  } finally {
+    globalThis.fetch = originalFetch;
+    await new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve()));
+  }
+});
 
 function scripts(html: string) {
   assert.doesNotMatch(html, /<img src=x/);

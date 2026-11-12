@@ -14,7 +14,7 @@ import { routeToFlatFilename, type LegalUpdate, type LegalUpdatesData, legalUpda
  *                      otherwise SSR render on-demand via entry-server.js
  *   4. Any other path → flat prerendered file __pages/<path-as-filename>.html
  *                       if it exists (e.g. /sa/about → sa-about.html)
- *   5. Catch-all → index.html (SPA hydration for unknown routes)
+ *   5. Catch-all → a real HTTP 404 with noindex metadata
  */
 
 import express, {
@@ -49,6 +49,7 @@ import {
   BLOG_REVIEWER_ATTRIBUTION,
   buildBlogSocialMetaTags,
   COUNSELO_ENTITY_IDS,
+  getServiceDefinition,
   type BlogLanguage,
 } from "@workspace/api-zod";
 
@@ -667,7 +668,10 @@ app.use(
 );
 
 function spaShell(title: string, robots: string, fallbackBody = ""): string {
-  return readFileSync(shellHtml, "utf-8")
+  const template = existsSync(shellHtml)
+    ? readFileSync(shellHtml, "utf-8")
+    : '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><!--app-head--></head><body><div id="root"></div></body></html>';
+  return template
     .replace(
       "<!--app-head-->",
       `<title>${escapeHtml(title)}</title><meta name="robots" content="${robots}">`,
@@ -714,6 +718,14 @@ app.get(
     "/syr/ar/services/:id",
   ],
   async (req: Request, res: Response, next: NextFunction) => {
+    // React's service page can render its empty state for an arbitrary slug.
+    // Reject nonexistent or wrong-region services before CMS reads and SSR so
+    // that this otherwise valid route shape cannot become an indexable soft 404.
+    const serviceId = req.params["id"];
+    if (typeof serviceId === "string") {
+      const region = req.path.startsWith("/syr/") ? "syr" : "sa";
+      if (!getServiceDefinition(serviceId, region)) return next();
+    }
     // Urgent intake has no CMS-dependent content. Serve its complete prerendered
     // page immediately, even when the article or work-sample API is unavailable.
     if (req.params["id"] === "urgent-legal-assistance") return next();
@@ -967,7 +979,7 @@ app.get("/our-work/:slug", async (req: Request, res: Response) => {
   return sendContentUnavailable(res, false);
 });
 
-// 4. All other paths — look for a flat prerendered file, fall back to SPA
+// 4. All other paths — look for a flat prerendered file, otherwise return 404.
 app.use((req: Request, res: Response, _next: NextFunction) => {
   const urlPath = req.path;
 
