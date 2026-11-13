@@ -33,6 +33,7 @@ import { repairPublicWorkSample } from "../../api-server/src/lib/public-work-rep
 import { canonicalHostRedirect } from "./lib/canonical-host.js";
 import { LEGAL_PROBLEM_REDIRECTS } from "./lib/legal-problem-pages.js";
 import { resolveBlogRoute } from "./lib/blog-route-policy.js";
+import { publicDocumentProxy } from "./lib/public-document-proxy.js";
 import {
   ARTICLE_CONTEXT,
   WORK_CONTEXT,
@@ -623,6 +624,8 @@ app.use((_req, res, next) => {
 
 // Keep discovery surfaces database-backed even when this standalone SSR
 // process is the production entry point.
+app.use("/documents", publicDocumentProxy(apiOrigin));
+
 app.get("/sitemap.xml", async (_req, res) => {
   const baseXml = readFileSync(resolve(publicDir, "sitemap.xml"), "utf-8");
   try {

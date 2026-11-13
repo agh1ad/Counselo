@@ -11,7 +11,13 @@ export interface AcquisitionContext {
 export function publicMeasurementPath(value: unknown): string | undefined {
   if (typeof value !== "string") return undefined;
   const path = value.split(/[?#]/, 1)[0];
-  if (path.length > 250 || !/^\/(?:[a-z0-9-]+\/?)*$/.test(path)) return undefined;
+  if (path.length > 250 || !path.startsWith("/")) return undefined;
+  // Validate each segment once. An optional separator inside a repeated group
+  // makes a long rejected filename (such as a PDF link) backtrack exponentially
+  // in the synchronous click handler, freezing navigation before it starts.
+  const segments = path.slice(1).split("/");
+  if (segments.at(-1) === "") segments.pop();
+  if (segments.some((segment) => !/^[a-z0-9-]+$/.test(segment))) return undefined;
   if (/^\/(?:api|counselo-admin)(?:\/|$)/.test(path)) return undefined;
   return path.length > 1 ? path.replace(/\/+$/, "") : path;
 }

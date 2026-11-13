@@ -1,10 +1,98 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { once } from "node:events";
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+import express from "express";
+import { createPublicDocumentsRouter } from "../../api-server/src/lib/public-work-documents.js";
 import { app, buildBlogHtmlFromTemplate, buildWorkHtmlFromTemplate } from "./ssr-server";
 
 const template = '<html><head><!--app-head--></head><body><div id="root"></div></body></html>';
 const payload = 'Legal text </ScRiPt ><img src=x onerror=alert(1)> <!-- <script> \u2028 \u2029';
+
+test("actual standalone server streams canonical documents through the API on a same-origin path router", async () => {
+  const bytes = Buffer.from("%PDF-1.7\nSynthetic path-routing fixture\n%%EOF");
+  const record = { slug: "routed-work", published: true, updatedAt: "2026-11-13T00:00:00.000Z", fileMimeType: "application/pdf", fileSize: bytes.length, fileData: bytes.toString("base64") };
+  let published = true;
+  let unavailable = false;
+  let htmlInsteadOfFile = false;
+  const apiPaths: string[] = [];
+  const ranges: Array<string | undefined> = [];
+  const api = express();
+  api.use("/api", (req, res, next) => {
+    apiPaths.push(req.originalUrl);
+    ranges.push(req.get("Range"));
+    res.setHeader("X-Robots-Tag", "noindex, nofollow");
+    if (unavailable) { res.status(503).send("Snapshot unavailable"); return; }
+    if (htmlInsteadOfFile) { res.type("html").send("<html><script>unexpectedApp()</script></html>"); return; }
+    next();
+  });
+  const text = { slug: record.slug, sourceSHA256: createHash("sha256").update(bytes).digest("hex"), sourceUpdatedAt: record.updatedAt, fileSize: bytes.length, language: "ar" as const, text: "النص القانوني التجريبي\n", checkedPageCount: 1 };
+  api.use("/api/documents", createPublicDocumentsRouter(async slug => published && slug === record.slug ? record : undefined, [text]));
+  const gateway = express();
+  gateway.use(api);
+  const server = gateway.listen(0, "127.0.0.1");
+  await once(server, "listening");
+  const address = server.address(); assert.ok(address && typeof address !== "string");
+  const origin = `http://127.0.0.1:${address.port}`;
+  const previous = process.env.API_ORIGIN;
+  try {
+    // Both artifacts share one public origin. Only /api routes belong to the
+    // API artifact; canonical documents arrive at the real standalone app.
+    process.env.API_ORIGIN = origin;
+    const { app: standalone } = await import(new URL("./ssr-server.ts?document-path-routing", import.meta.url).href);
+    gateway.use(standalone);
+    for (const method of ["GET", "HEAD"]) {
+      const response = await fetch(`${origin}/documents/routed-work.pdf`, { method });
+      assert.equal(response.status, 200);
+      assert.equal(response.headers.get("content-type"), "application/pdf");
+      assert.equal(response.headers.get("content-length"), String(bytes.length));
+      assert.equal(response.headers.get("cache-control"), "no-store");
+      assert.equal(response.headers.get("x-robots-tag"), null);
+      assert.equal(response.headers.get("x-frame-options"), null);
+      assert.equal(response.headers.get("content-security-policy"), "frame-ancestors 'self'");
+      assert.equal(response.headers.get("link"), '<https://counselo-legal.com/documents/routed-work.pdf>; rel="canonical"');
+      assert.deepEqual(Buffer.from(await response.arrayBuffer()), method === "GET" ? bytes : Buffer.alloc(0));
+    }
+    const download = await fetch(`${origin}/documents/routed-work.pdf?download=1`);
+    assert.match(download.headers.get("content-disposition")!, /^attachment;/);
+    await download.arrayBuffer();
+    const ranged = await fetch(`${origin}/documents/routed-work.pdf`, { headers: { Range: "bytes=0-15" } });
+    assert.equal(ranged.status, 200, "an origin without range support may return the complete PDF");
+    assert.deepEqual(Buffer.from(await ranged.arrayBuffer()), bytes);
+    assert.equal(ranges.at(-1), "bytes=0-15");
+    const readable = await fetch(`${origin}/documents/routed-work.txt`);
+    assert.equal(await readable.text(), text.text);
+    assert.equal(readable.headers.get("content-language"), "ar");
+    published = false;
+    const missing = await fetch(`${origin}/documents/routed-work.pdf`);
+    assert.equal(missing.status, 404);
+    assert.match(missing.headers.get("x-robots-tag")!, /noindex/);
+    assert.doesNotMatch(await missing.text(), /<html|<script/i);
+    unavailable = true;
+    const outage = await fetch(`${origin}/documents/routed-work.pdf`);
+    assert.equal(outage.status, 503);
+    assert.equal(outage.headers.get("retry-after"), "60");
+    assert.doesNotMatch(await outage.text(), /<html|<script/i);
+    unavailable = false;
+    htmlInsteadOfFile = true;
+    const wrongType = await fetch(`${origin}/documents/routed-work.pdf`);
+    assert.equal(wrongType.status, 502);
+    assert.match(wrongType.headers.get("x-robots-tag")!, /noindex/);
+    assert.doesNotMatch(await wrongType.text(), /<html|<script/i);
+    assert.equal(apiPaths.length, 8, "one API request per document request; no same-origin recursion");
+    assert.ok(apiPaths.every(path => path.startsWith("/api/documents/")));
+    assert.ok(apiPaths.includes("/api/documents/routed-work.pdf?download=1"));
+  } finally {
+    if (previous === undefined) delete process.env.API_ORIGIN; else process.env.API_ORIGIN = previous;
+    await new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve()));
+  }
+});
+
+test("the production API artifact owns canonical document paths", () => {
+  const config = readFileSync(new URL("../../api-server/.replit-artifact/artifact.toml", import.meta.url), "utf8");
+  assert.match(config, /paths\s*=\s*\[[^\]]*"\/documents"/);
+});
 
 test("unknown and wrong-region services return nonindexable HTTP 404 without fetching CMS data", async () => {
   const server = app.listen(0, "127.0.0.1");
