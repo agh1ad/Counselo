@@ -8,6 +8,9 @@ import { getMatterEditorial } from "../lib/matter-editorial";
 import { getMatterIntentBrief } from "../lib/matter-intent-briefs/index";
 import { getServicesForRegion } from "@workspace/api-zod/browser";
 import { serviceTopicFaq } from "../lib/service-topic-faqs";
+import { reconcileSeoLedgerInventory } from "../lib/seo-ledger-inventory";
+import { problemPageCopy } from "../lib/experience-page-copy";
+import { experienceStatements, regionalServiceStatements } from "../lib/rendered-experience-contract";
 
 const root = resolve(import.meta.dirname, "../../../..");
 const site = resolve(root, "artifacts/legal-site");
@@ -27,7 +30,7 @@ const base = "https://counselo-legal.com";
 const decode = (s: string) => s.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#x27;|&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&nbsp;/g, " ");
 const plain = (s: string) => decode(s.replace(/<script\b[\s\S]*?<\/script>/gi, " ").replace(/<style\b[\s\S]*?<\/style>/gi, " ").replace(/<[^>]*>/g, " ")).replace(/\s+/g, " ").trim();
 const pages = report.pages.filter((p: any) => !p.isRedirect);
-const routes = new Set(pages.map((p: any) => p.route));
+const routes = new Set<string>(pages.map((p: any) => p.route));
 const redirects = new Map(report.pages.filter((p: any) => p.isRedirect).map((p: any) => [p.route, p.redirectTo]));
 const issues: { route: string; issue: string }[] = [];
 for (const [route, target] of Object.entries(LEGAL_PROBLEM_REDIRECTS)) {
@@ -40,24 +43,30 @@ for (const route of inventory.routes) if (!routes.has(route)) issues.push({ rout
 const sitemapRoutes = new Set<string>();
 for (const file of readdirSync(resolve(site, "public")).filter(file => /^sitemap-.*\.xml$/.test(file))) {
   const xml = readFileSync(resolve(site, "public", file), "utf8");
-  for (const match of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) sitemapRoutes.add(new URL(decode(match[1])).pathname);
+  for (const match of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    const url = new URL(decode(match[1]));
+    // Preserve noncanonical document queries/fragments and foreign origins so
+    // inventory reconciliation reports them instead of silently normalizing them.
+    sitemapRoutes.add(url.origin !== base ? url.href : `${url.pathname}${/^\/documents(?:\/|$)/.test(url.pathname) ? url.search + url.hash : ""}`);
+  }
 }
-for (const route of sitemapRoutes) if (!routes.has(route)) issues.push({ route, issue: "Sitemap URL was not validated" });
-for (const route of routes) if (!sitemapRoutes.has(String(route))) issues.push({ route: String(route), issue: "Rendered indexable route is absent from sitemaps" });
+const documentInventory = reconcileSeoLedgerInventory(sitemapRoutes, routes);
+issues.push(...documentInventory.issues);
 const entries = pages.map((p: any) => {
   const html = readFileSync(resolve(site, "dist/public", p.file), "utf8");
   const body = html.match(/<body\b[^>]*>([\s\S]*)<\/body>/i)?.[1] ?? "";
   const text = plain(body);
+  const experienceLayout = /class="[^"]*\blegal-experience-page\b/.test(body);
   const canonical = decode(html.match(/<link\b[^>]*rel="canonical"[^>]*href="([^"]+)"/i)?.[1] ?? "");
   const h1 = plain(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? "");
   if (canonical !== `${base}${p.route}`) issues.push({ route: p.route, issue: "Canonical is not the rendered route" });
   const ar = /(?:^|\/)ar(?:\/|$)/.test(p.route);
   const region = p.route.match(/^\/(sa|syr|uae)(?:\/|$)/)?.[1] as "sa" | "syr" | "uae" | undefined;
   const matter = LEGAL_PROBLEM_PAGES.find(page => legalProblemPath(page.region, ar ? "ar" : "en", page.parentServiceSlug, page.slug) === p.route);
-  if (matter) for (const fact of matter.atAGlance[ar ? "ar" : "en"]) {
+  if (matter && !experienceLayout) for (const fact of matter.atAGlance[ar ? "ar" : "en"]) {
     if (!text.includes(plain(fact))) issues.push({ route: p.route, issue: "Subject-specific matter guidance missing from initial HTML" });
   }
-  if (matter) {
+  if (matter && !experienceLayout) {
     const brief = getMatterIntentBrief(matter.titleEn);
     if (brief) for (const value of [brief.question[ar ? "ar" : "en"], brief.answer[ar ? "ar" : "en"]]) {
       if (!text.includes(plain(value))) issues.push({ route: p.route, issue: "Authored matter intent answer missing from initial HTML" });
@@ -67,29 +76,43 @@ const entries = pages.map((p: any) => {
     for (const document of documents) if (!plain(documentSection).includes(plain(document))) issues.push({ route: p.route, issue: "Matter evidence missing from the rendered documents section" });
   }
   const service = region ? getServicesForRegion(region).find(item => p.route === `/${region}${ar ? "/ar" : ""}/services/${item.slug}`) : undefined;
-  if (service) {
+  if (service && !experienceLayout) {
     const faq = serviceTopicFaq(service.slug, ar);
     if (!text.includes(faq.q) || !text.includes(faq.a)) issues.push({ route: p.route, issue: "Subject-specific service FAQ missing from initial HTML" });
   }
-  if (p.route === "/legal-library" || p.route === "/ar/legal-library") {
-    for (const country of ["sa", "syr", "uae"] as const) for (const item of getServicesForRegion(country)) {
-      if (!body.includes(`href="/${country}${ar ? "/ar" : ""}/services/${item.slug}"`)) issues.push({ route: p.route, issue: `Service directory destination missing: ${country}/${item.slug}` });
+  if (experienceLayout) {
+    const expected = matter ? experienceStatements(problemPageCopy(matter, ar ? "ar" : "en"))
+      : service && region ? regionalServiceStatements(region, service.slug, ar ? "ar" : "en") : [];
+    for (const statement of expected) if (!text.includes(plain(statement))) issues.push({ route: p.route, issue: `Current service/matter paragraph missing from initial HTML: ${statement.slice(0, 100)}` });
+    if (region && (matter || service)) {
+      const slug = matter?.parentServiceSlug ?? service!.slug;
+      if (!body.includes(`href="/${region}${ar ? "/ar" : ""}/contact?service=${slug}#consultation-request"`)) issues.push({ route: p.route, issue: "Contextual service consultation destination missing" });
     }
   }
+  if (p.route === "/legal-library" || p.route === "/ar/legal-library") {
+    for (const destination of [ar ? "/blog/ar" : "/blog", ar ? "/ar/our-work" : "/our-work", "#library-articles-heading", "#library-work-heading"]) {
+      if (!body.includes(`href="${destination}"`)) issues.push({ route: p.route, issue: `Library collection destination missing: ${destination}` });
+    }
+    if (!body.includes('id="library-query"')) issues.push({ route: p.route, issue: "Library search input missing" });
+  }
+  if (region && /^\/(?:sa|syr|uae)(?:\/ar)?\/services$/.test(p.route)) {
+    for (const item of getServicesForRegion(region)) if (!body.includes(`href="/${region}${ar ? "/ar" : ""}/services/${item.slug}"`)) issues.push({ route: p.route, issue: `Service directory destination missing: ${region}/${item.slug}` });
+  }
   const revisedMatter = LEGAL_PROBLEM_PAGES.find(page => page.editorialTopic && legalProblemPath(page.region, ar ? "ar" : "en", page.parentServiceSlug, page.slug) === p.route);
-  if (revisedMatter) {
+  if (revisedMatter && !experienceLayout) {
     const revision = getMatterEditorial(revisedMatter.titleEn)!;
     for (const faq of revision.faqs[ar ? "ar" : "en"]) if (!text.includes(faq.q) || !text.includes(faq.a)) issues.push({ route: p.route, issue: `Revised matter answer missing from initial body: ${faq.q}` });
     if (!text.includes(revisedMatter.heroSummary[ar ? "ar" : "en"])) issues.push({ route: p.route, issue: "Revised matter summary missing" });
   }
   const uaeService = UAE_SERVICES.find(service => p.route === `/uae${ar ? "/ar" : ""}/services/${service.slug}`);
-  if (uaeService) for (const faq of buildUaeServicePageContent(uaeService).faqs[ar ? "ar" : "en"]) {
+  if (uaeService && !experienceLayout) for (const faq of buildUaeServicePageContent(uaeService).faqs[ar ? "ar" : "en"]) {
     if (!text.includes(faq.q) || !text.includes(faq.a)) issues.push({ route: p.route, issue: `Consolidated procedural guidance missing: ${faq.q}` });
   }
-  const editorial = SEARCH_INTENT_EDITORIAL.filter(e => editorialTarget(e, region ?? "sa", ar) === p.route);
-  for (const e of editorial) {
-    if (!text.includes(e[ar ? "ar" : "en"].q) || !text.includes(e[ar ? "ar" : "en"].a)) issues.push({ route: p.route, issue: `Editorial answer missing from initial body: ${e.id}` });
-  }
+  // Retired search-intent modules are historical query mappings, not required UI.
+  // Count only answers actually visible in this revision; all emitted FAQ JSON-LD
+  // continues to be checked against body text below.
+  const editorial = SEARCH_INTENT_EDITORIAL.filter(e => editorialTarget(e, region ?? "sa", ar) === p.route)
+    .filter(e => text.includes(plain(e[ar ? "ar" : "en"].q)) && text.includes(plain(e[ar ? "ar" : "en"].a)));
   const assignedQueries = queries.rows.filter((q: any) => q.targets.some((t: any) => t.ar === p.route || t.en === p.route)).map((q: any) => q.keyword);
   const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)].map(m => JSON.parse(m[1]));
   const flatten = (x: any): any[] => Array.isArray(x) ? x.flatMap(flatten) : x && typeof x === "object" ? [x, ...Object.values(x).flatMap(flatten)] : [];
@@ -100,6 +123,8 @@ const entries = pages.map((p: any) => {
     for (const q of questions) if (!text.includes(plain(q.name)) || !text.includes(plain(q.acceptedAnswer?.text ?? ""))) issues.push({ route: p.route, issue: `FAQ schema is not in initial body: ${q.name}` });
   }
   const links = [...body.matchAll(/<a\b[^>]*href="([^"]+)"/gi)].map(m => decode(m[1]));
+  // Existing citation metadata is retained. The owner has explicitly chosen
+  // not to show legal-source panels, so visible citation anchors are not a UI contract.
   const missingLinks = new Set<string>();
   for (const href of links) {
     if (!href.startsWith("/") && !href.startsWith(base)) continue;
@@ -112,7 +137,7 @@ const entries = pages.map((p: any) => {
   for (const target of missingLinks) issues.push({ route: p.route, issue: `Internal destination not in rendered inventory: ${target}` });
   const family = /\/services\/[^/]+\/[^/]+$/.test(p.route) ? "legal matter" : /\/services\/[^/]+$/.test(p.route) ? "service" : /\/blog\/(?:ar|en)\//.test(p.route) ? "article" : /\/our-work\/[^/]+$/.test(p.route) ? "work example" : "shared or regional page";
   if (family === "legal matter") {
-    if (!text.includes(ar ? "ترتبط هذه المسألة بخدمة" : "This matter falls within")) issues.push({ route: p.route, issue: "Safe service-scope explanation missing" });
+    if (!experienceLayout && !text.includes(ar ? "ترتبط هذه المسألة بخدمة" : "This matter falls within")) issues.push({ route: p.route, issue: "Safe service-scope explanation missing" });
     if (nodes.some(node => node["@type"] === "WebPage" && node.reviewedBy)) issues.push({ route: p.route, issue: "Professional review asserted without a recorded approval for this revision" });
   }
   const utility = /(?:privacy-policy|terms-of-service|editorial-policy|corrections-policy|disclaimer|accessibility)/.test(p.route);
@@ -123,10 +148,11 @@ const entries = pages.map((p: any) => {
     : family === "work example" ? ["Understand the recorded challenge", "Approach taken", "Reported outcome and its limits", "Related services and reading"]
     : utility ? ["Understand the applicable website policy", "Find the appropriate contact or correction route"]
     : ["Navigate the relevant country or content collection", "Understand the professional identity and service scope", "Find the appropriate next step"];
-  return { route: p.route, family, searchIntent: { primary: primaryIntent, supporting: supportingIntents, role: utility ? "Policy and trust utility" : family, evidence: "Derived from the reviewed page purpose and visible sections; not a claim of observed search volume or every possible query." }, language: ar ? "ar" : "en", region: region ?? "shared", title: p.title, description: p.description, h1, canonical, initialBodyWords: text.split(/\s+/).length, editorialIntents: editorial.map(e => e.id), assignedQueries, contentTopic: matter?.contentTopic, contentAction: matter?.intentBriefTitle ? `Authored intent question, answer and evidence: ${matter.intentBriefTitle}` : revisedMatter ? `Topic-specific editorial revision: ${revisedMatter.editorialTopic}` : matter ? `Service-aware evidence guidance: ${matter.contentTopic}` : service ? "Subject-specific bilingual FAQ and service content checks" : editorial.length ? "Targeted bilingual guidance added" : "Published content retained; discovery, template and technical checks applied", individualEditorialReview: assessments.get(p.route)?.status ?? "open", editorialAssessmentFile: assessments.get(p.route)?.evidenceFile ?? null, technicalIssues: p.issues, legalReview: "Independent review not requested; no professional certification asserted by this audit" };
+  return { route: p.route, family, searchIntent: { primary: primaryIntent, supporting: supportingIntents, role: utility ? "Policy and trust utility" : family, evidence: "Derived from the reviewed page purpose and visible sections; not a claim of observed search volume or every possible query." }, language: ar ? "ar" : "en", region: region ?? "shared", title: p.title, description: p.description, h1, canonical, initialBodyWords: text.split(/\s+/).length, editorialIntents: editorial.map(e => e.id), assignedQueries, contentTopic: matter?.contentTopic, contentAction: experienceLayout ? "Current service/matter paragraphs, evidence, coverage and engagement scope checked against rendered HTML" : matter?.intentBriefTitle ? `Authored intent question, answer and evidence: ${matter.intentBriefTitle}` : revisedMatter ? `Topic-specific editorial revision: ${revisedMatter.editorialTopic}` : matter ? `Service-aware evidence guidance: ${matter.contentTopic}` : service ? "Subject-specific bilingual FAQ and service content checks" : editorial.length ? "Targeted bilingual guidance added" : "Published content retained; discovery, template and technical checks applied", individualEditorialReview: assessments.get(p.route)?.status ?? "open", editorialAssessmentFile: assessments.get(p.route)?.evidenceFile ?? null, technicalIssues: p.issues, legalReview: "Independent review not requested; no professional certification asserted by this audit" };
 });
 for (const q of queries.rows) for (const t of q.targets) for (const route of [t.ar, t.en]) if (!routes.has(route)) issues.push({ route, issue: `Mapped query target is missing: ${q.keyword}` });
-const result = { generatedAt: new Date().toISOString(), buildValidationAt: report.generatedAt, scope: "All rendered indexable public pages; local implementation evidence only, not indexing, rankings or individual legal certification", summary: { pages: entries.length, editorialPages: entries.filter((p: any) => p.editorialIntents.length).length, mappedQueries: queries.summary.mapped, excludedQueries: queries.summary.excluded, additionalIssues: issues.length, editorialAssessedPages: entries.filter((p: { individualEditorialReview: string }) => p.individualEditorialReview === "implementation-assessed-and-render-verified").length, editorialOpenPages: entries.filter((p: { individualEditorialReview: string }) => p.individualEditorialReview !== "implementation-assessed-and-render-verified").length }, issues, pages: entries };
-writeFileSync(resolve(root, "docs/page-seo-ledger-2026-09-06.json"), JSON.stringify(result, null, 2) + "\n");
+const result = { generatedAt: new Date().toISOString(), buildValidationAt: report.generatedAt, scope: "All rendered indexable public pages; local implementation evidence only, not indexing, rankings or individual legal certification", summary: { pages: entries.length, publishedDocumentUrls: documentInventory.documentRoutes.length, editorialPages: entries.filter((p: any) => p.editorialIntents.length).length, mappedQueries: queries.summary.mapped, excludedQueries: queries.summary.excluded, additionalIssues: issues.length, editorialAssessedPages: entries.filter((p: { individualEditorialReview: string }) => p.individualEditorialReview === "implementation-assessed-and-render-verified").length, editorialOpenPages: entries.filter((p: { individualEditorialReview: string }) => p.individualEditorialReview !== "implementation-assessed-and-render-verified").length }, documentInventory: { routes: documentInventory.documentRoutes, validation: "HTTP PDF content, canonical and robots checks are performed by sitemap:validate." }, issues, pages: entries };
+const outputFile = process.env.SEO_LEDGER_OUTPUT || "docs/page-seo-ledger-2026-09-06.json";
+writeFileSync(resolve(root, outputFile), JSON.stringify(result, null, 2) + "\n");
 console.log(JSON.stringify(result.summary));
 if (issues.length) { console.error(JSON.stringify(issues.slice(0, 30), null, 2)); process.exitCode = 1; }

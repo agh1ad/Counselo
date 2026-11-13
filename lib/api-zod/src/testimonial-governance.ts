@@ -2,16 +2,16 @@ import { z } from "zod/v4";
 
 /**
  * Governance metadata for every real client testimonial.
- * Metadata is retained for classification and audit; it does not block publication.
+ * Classification never establishes authenticity, publication consent or redaction.
  */
 export const testimonialMetadataSchema = z.object({
   text: z.string().trim().min(1),
   jurisdiction: z.string().trim().min(1),
   service: z.string().trim().min(1),
   sourceType: z.string().trim().min(1),
-  verified: z.boolean().default(true),
-  consentVerified: z.boolean().default(true),
-  anonymized: z.boolean().default(true),
+  verified: z.boolean().default(false),
+  consentVerified: z.boolean().default(false),
+  anonymized: z.boolean().default(false),
   internalReference: z.string().trim().min(1),
 });
 
@@ -23,23 +23,34 @@ export const testimonialAiAssignmentSchema = z.object({
   sourceType: z.string().trim().min(1),
 });
 
-/** AI classification helper. Consent and publication are automatic in this workflow. */
+/** AI can classify a draft; a person must record evidence and publication checks. */
 export function assignAiTestimonialMetadata(
   input: Pick<TestimonialMetadata, "text" | "internalReference"> & z.input<typeof testimonialAiAssignmentSchema>,
 ): TestimonialMetadata {
   return testimonialMetadataSchema.parse({
     ...input,
-    verified: true,
-    consentVerified: true,
-    anonymized: true,
+    verified: false,
+    consentVerified: false,
+    anonymized: false,
   });
 }
 
 export function isPublishableTestimonial(testimonial: TestimonialMetadata): boolean {
-  return Boolean(testimonial.text && testimonial.jurisdiction && testimonial.service && testimonial.sourceType);
+  return testimonial.verified === true && testimonial.consentVerified === true && testimonial.anonymized === true
+    && [testimonial.text, testimonial.jurisdiction, testimonial.service, testimonial.sourceType, testimonial.internalReference]
+      .every(value => typeof value === "string" && value.trim().length > 0);
 }
 
 export function publicTestimonial(testimonial: TestimonialMetadata): Omit<TestimonialMetadata, "internalReference"> {
   const { internalReference: _internalReference, ...safe } = testimonial;
   return safe;
+}
+
+/** Apply the same evidence gate to API and SSR outputs; keep drafts only in admin storage. */
+export function selectPublicTestimonials(testimonials: unknown): Array<Omit<TestimonialMetadata, "internalReference">> {
+  if (!Array.isArray(testimonials)) return [];
+  return testimonials.flatMap(value => {
+    const parsed = testimonialMetadataSchema.safeParse(value);
+    return parsed.success && isPublishableTestimonial(parsed.data) ? [publicTestimonial(parsed.data)] : [];
+  });
 }

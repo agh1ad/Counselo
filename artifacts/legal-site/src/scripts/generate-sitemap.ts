@@ -12,6 +12,7 @@ import {
   buildHreflangLinks,
   getServicesForRegion,
   hasQualityBilingualBlogContent,
+  buildWorkDocumentSitemapEntries,
 } from "@workspace/api-zod";
 import { repairPublicBlogPost } from "../../../api-server/src/lib/public-blog-repairs.js";
 import { repairPublicWorkSample } from "../../../api-server/src/lib/public-work-repairs.js";
@@ -353,12 +354,12 @@ try {
 }
 
 try {
-  const WorkRowSchema = z.object({ slug: z.string(), date: z.string(), updatedAt: z.string().optional(), titleEn: z.string().optional(), titleAr: z.string().optional() }).passthrough();
+  const WorkRowSchema = z.object({ slug: z.string(), date: z.string(), updatedAt: z.string().optional(), titleEn: z.string().optional(), titleAr: z.string().optional(), published: z.boolean(), fileSize: z.number().default(0), fileMimeType: z.string().default("") }).passthrough();
   const workApiUrl = process.env["WORK_API_URL"]?.trim() || "https://counselo-legal.com/api/work";
   const res = await fetchRequiredDiscovery([workApiUrl], "Work sample");
   if (res.ok) {
     const raw = (await res.json()) as unknown[];
-    const samples = raw.map((item) => WorkRowSchema.safeParse(item)).filter((item) => item.success).map((item) => repairPublicWorkSample(item.data));
+    const samples = raw.map((item) => WorkRowSchema.safeParse(item)).filter((item) => item.success).map((item) => repairPublicWorkSample(item.data)).filter(sample => sample.published);
     for (const sample of samples) {
       const enUrl = `${BASE_URL}${WORK_BASE_PATH}/${sample.slug}`;
       const arUrl = `${BASE_URL}/ar${WORK_BASE_PATH}/${sample.slug}`;
@@ -372,7 +373,9 @@ try {
         entries.push(urlEntrySingleUrl(enUrl, "monthly", "0.75", modified));
       }
     }
-    console.log(`[sitemap] added ${samples.length} work sample(s) to sitemap`);
+    const documentEntries = buildWorkDocumentSitemapEntries(samples);
+    entries.push(...documentEntries);
+    console.log(`[sitemap] added ${samples.length} work sample(s) and ${documentEntries.length} PDF document(s) to sitemap`);
   }
 } catch (err) {
   throw new Error(`[sitemap] ${(err as Error).message}`, { cause: err });
@@ -384,7 +387,7 @@ function sitemapBucket(url: string): "core" | "uae-services" | "sa-services" | "
   if (/^\/sa\/(?:ar\/)?services\//.test(pathname)) return "sa-services";
   if (/^\/syr\/(?:ar\/)?services\//.test(pathname)) return "syr-services";
   if (pathname === "/blog" || pathname.startsWith("/blog/")) return "blog";
-  if (pathname === "/our-work" || pathname.startsWith("/our-work/") || pathname === "/ar/our-work" || pathname.startsWith("/ar/our-work/")) return "work";
+  if (pathname === "/our-work" || pathname.startsWith("/our-work/") || pathname === "/ar/our-work" || pathname.startsWith("/ar/our-work/") || pathname.startsWith("/documents/")) return "work";
   return "core";
 }
 

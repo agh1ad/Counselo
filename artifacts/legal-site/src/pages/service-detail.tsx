@@ -162,9 +162,9 @@ export default function ServiceDetail() {
       <section className="service-detail-hero">
         <div className="premium-content-shell relative z-10 py-14 lg:py-20">
           <nav aria-label={isRTL ? "مسار التنقل" : "Breadcrumb"} className="mb-9 flex flex-wrap items-center text-sm text-white/62">
-            <Link href={regionPrefix} className="transition-colors hover:text-[#d5ae5d]">{sd.breadcrumb.home}</Link>
+            <Link href={regionPrefix} className="inline-flex min-h-8 items-center transition-colors hover:text-[#d5ae5d]">{sd.breadcrumb.home}</Link>
             <ChevronRight className={`mx-2 h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
-            <Link href={`${regionPrefix}/services`} className="transition-colors hover:text-[#d5ae5d]">{sd.breadcrumb.services}</Link>
+            <Link href={`${regionPrefix}/services`} className="inline-flex min-h-8 items-center transition-colors hover:text-[#d5ae5d]">{sd.breadcrumb.services}</Link>
             <ChevronRight className={`mx-2 h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
             <span className="font-medium text-white">{data.title}</span>
           </nav>

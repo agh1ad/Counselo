@@ -1,24 +1,57 @@
 # CounselO Legal — optional machine-readable documentation
 
-Last updated: 2026-11-08
+Last updated: 2026-11-13
 
-CounselO Legal is a bilingual legal services platform connecting experienced counsel and a strong network of lawyers, law firms and professional partners across Saudi Arabia, the UAE and Syria. Its services include consultations, drafting, document review, dispute strategy and coordination of proceedings and representation with qualified local professionals.
+CounselO Legal provides comprehensive legal support for individuals, families, businesses and investors across Saudi Arabia, Syria and the UAE, in Arabic and English. Its work spans legal consultations, contracts, dispute strategy, litigation and arbitration support, continuing legal support and representation through licensed local partners. Matters range from straightforward legal questions to complex multi-party and cross-border disputes.
 
-This file is optional machine-readable documentation. It is not a ranking factor, does not replace ordinary SEO, and is not legal advice.
+## Capabilities and published evidence
+
+- Legal consultation and written advice: review the facts, documents, governing law, options and next steps for the agreed legal questions.
+- Contracts and transactions: draft and review agreements, assess risks, negotiate terms and prepare legal memoranda.
+- Litigation and arbitration support: analyse evidence, develop claims and defences, prepare submissions and advise on negotiation, settlement and enforcement.
+- Continuing and complex matters: coordinate legal preparation and follow-up where a dispute involves multiple parties, substantial records or connected jurisdictions.
+- Local representation: licensed local partners and lawyers conduct court and authority representation, with CounselO coordinating the legal work and client follow-up.
+
+Examples of the published work behind these services:
+
+- [Commercial contract review: risk analysis, negotiation and revised terms](https://counselo-legal.com/our-work/mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh)
+- [Commercial contract review — Arabic](https://counselo-legal.com/ar/our-work/mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh)
+- [Saudi commercial claim: commission undertaking, payment conditions and supporting evidence](https://counselo-legal.com/our-work/kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal)
+- [Saudi commercial claim — Arabic](https://counselo-legal.com/ar/our-work/kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal)
+- [Saudi–Bahrain dispute: claims strategy and coordination with local counsel](https://counselo-legal.com/our-work/msandh-kawnslw-fy-qdyh-aabrh-llhdwd)
+- [Saudi–Bahrain dispute — Arabic](https://counselo-legal.com/ar/our-work/msandh-kawnslw-fy-qdyh-aabrh-llhdwd)
+
+These work pages describe the legal task, approach, published supporting document and reported outcome in its case-specific context.
+
+## Published work documents
+
+Published PDF attachments are publicly available at `https://counselo-legal.com/documents/{work-slug}.pdf`. The work sitemap lists the current published PDFs alongside their case pages. Each case page links to its supporting document and supplies the narrative context and author credit.
+
+- [Published work and document sitemap](https://counselo-legal.com/sitemap-work.xml)
+- [Commercial contract review — published Arabic PDF](https://counselo-legal.com/documents/mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh.pdf)
+- [Saudi commercial claim — published Arabic PDF](https://counselo-legal.com/documents/kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal.pdf)
+- [Saudi–Bahrain dispute — published Arabic PDF](https://counselo-legal.com/documents/msandh-kawnslw-fy-qdyh-aabrh-llhdwd.pdf)
+- [Construction arbitration — published Arabic PDF](https://counselo-legal.com/documents/kyf-sahmt-kawnslw-fy-anjah-mlf-thkymy-kaml.pdf)
+
+## نبذة عن الخدمات بالعربية
+
+تقدم كاونسلو الاستشارات القانونية الشاملة وصياغة العقود ومراجعتها واستراتيجية المنازعات ودعم التقاضي والتحكيم والمتابعة القانونية المستمرة في السعودية وسوريا والإمارات. ويتولى الفريق الأسئلة والمسائل المباشرة والقضايا المعقدة متعددة الأطراف والعابرة للحدود. يقدم الشركاء والمحامون المحليون المرخصون التمثيل أمام المحاكم والجهات المختصة، مع تنسيق كاونسلو للإعداد القانوني والمتابعة. وتعرض دراسات الأعمال المنشورة أمثلة على تحليل العقود والمطالبات والأدلة والتنسيق مع الممثل القانوني المحلي.
 
 ## Jurisdictions and languages
 
 CounselO Legal has distinct service hubs for:
 
-- United Arab Emirates (UAE): federal, emirate-level, mainland, free-zone, DIFC and ADGM context where applicable
 - Saudi Arabia (SA): Saudi laws, authorities, courts and regulatory procedures
 - Syria (SY): Syrian legislation, authorities, courts and regulatory procedures
+- United Arab Emirates (UAE): federal, emirate-level, mainland, free-zone, DIFC and ADGM context where applicable
 
 Services and articles identify the applicable jurisdiction. Arabic and English are supported. The language of a consultation does not change the governing law.
 
-## Regional network and professional cooperation
+## Local partners and representation scope
 
-CounselO Legal works with lawyers and professional partners across Saudi Arabia, the UAE and Syria to support matters from consultation to legal drafting, disputes, filings and coordination of representation. Each engagement identifies the responsible professionals, services, fees and applicable procedural requirements.
+CounselO brings consultation, legal preparation and local representation together around the client's matter. Its team develops the analysis, documents and strategy; an appropriately licensed partner professional or cooperating office conducts court and authority representation in the relevant country. The engagement identifies the responsible professionals, scope, deliverables, fees and delivery schedule before work begins.
+
+The regional About pages identify the founder and published cooperating professionals, including Lawyer Abdullah Al-Anzi in Saudi Arabia and the published cooperating offices in Syria. Professional licences belong to the named professional or office and the relevant jurisdiction.
 
 ## Regional service hubs
 
@@ -57,16 +90,18 @@ CounselO Legal works with lawyers and professional partners across Saudi Arabia,
 - [Editorial standards, methodology, sources, reviewer and correction information](https://counselo-legal.com/blog)
 - [Report a correction or factual error](https://counselo-legal.com/sa/contact?subject=article-correction)
 
-Articles should be read with their visible author, legal reviewer, jurisdiction, applicable-law, source, last-review, methodology, disclaimer, and correction information. Redacted work samples protect client confidentiality and do not guarantee a result in another matter.
+Articles identify their author, reviewer, jurisdiction, legal sources, review date and correction route. Published work pages explain their supporting sources and identify the basis for reported results. These case studies document CounselO's work and approach; they are presented in the platform's own voice. Past work illustrates experience without promising the outcome of another matter.
 
 ## Consultation
 
-The contact pages explain four steps: submit the matter and question, initial review, agree the scope and fees, then receive and discuss the advice. The legal library separates articles and analysis from published work samples. The former Vision and Legal Updates pages have been retired and are not current sources.
+The contact pages explain four steps: submit the matter and question, review the requirements, agree the scope and fees, then receive the agreed legal work and discuss the next steps. The legal library separates articles and analysis from published work samples.
 
-Consultation routes include an initial case assessment, focused legal consultation, document review, and matter roadmap. There is no fixed published price: after an initial study of the request, CounselO Legal confirms scope, deliverables, timing, fee, payment method, follow-up inclusion, and any rescheduling terms before paid work begins.
+An engagement may cover a focused consultation, comprehensive document review, contract or memorandum drafting, dispute preparation, continuing support or coordinated representation. CounselO confirms the scope, deliverables, timing, fee, payment method and included follow-up before paid work begins.
 
 - [Start a consultation — UAE](https://counselo-legal.com/uae/contact)
 - [Start a consultation — Saudi Arabia](https://counselo-legal.com/sa/contact)
 - [Start a consultation — Syria](https://counselo-legal.com/syr/contact)
 - WhatsApp / phone: +966 59 485 0247
 - Email: info@counselo-legal.com
+
+This is optional machine-readable documentation of the public website, not legal advice or a guarantee of search-engine inclusion.

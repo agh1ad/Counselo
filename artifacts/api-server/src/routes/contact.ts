@@ -1,6 +1,5 @@
-import { randomBytes } from "node:crypto";
 import { Router, type Request } from "express";
-import { and, count, desc, eq, gte } from "drizzle-orm";
+import { and, count, desc, eq, gte, sql } from "drizzle-orm";
 import { contactSubmissionsTable, db } from "@workspace/db";
 import { ContactInputError, parseContactInput } from "../lib/contact-input.js";
 import {
@@ -16,15 +15,11 @@ import {
 import { logger } from "../lib/logger.js";
 import { requireAdmin } from "../middlewares/auth.js";
 import { contactAttribution, prepareStoredContact, updateLeadProgress, LEAD_OUTCOMES, type StoredContactPayload } from "../lib/contact-attribution.js";
+import { createContactReference } from "../lib/contact-reference.js";
 
 const router = Router();
 const RATE_LIMIT_WINDOW_MS = 15 * 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
-
-function createReference(): string {
-  const date = new Date().toISOString().slice(0, 10).replaceAll("-", "");
-  return `CON-${date}-${randomBytes(4).toString("hex").toUpperCase()}`;
-}
 
 function requestIp(req: Request): string {
   return req.ip || "unknown";
@@ -35,6 +30,40 @@ function originAllowed(req: Request): boolean {
   const host = req.get("host");
   if (!origin || !host) return false;
   return origin === `${req.protocol}://${host}`;
+}
+
+const receiptFields = {
+  id: contactSubmissionsTable.id,
+  encryptedPayload: contactSubmissionsTable.encryptedPayload,
+  payloadIv: contactSubmissionsTable.payloadIv,
+  payloadAuthTag: contactSubmissionsTable.payloadAuthTag,
+  emailProviderId: contactSubmissionsTable.emailProviderId,
+  customerEmailProviderId: contactSubmissionsTable.customerEmailProviderId,
+};
+
+function storedLeadId(submission: { encryptedPayload: string; payloadIv: string; payloadAuthTag: string }): string | null {
+  if (!submission.encryptedPayload) return null;
+  try { return contactAttribution(decryptContactPayload<StoredContactPayload>(submission)).leadId; }
+  catch { return null; }
+}
+
+function validReference(reference: string): boolean {
+  return /^CON-(?:\d{8}-[0-9A-F]{8}|[0-9A-F]{32})$/.test(reference);
+}
+
+async function resumeStoredNotification(
+  submission: { id: number; emailProviderId: string | null; customerEmailProviderId: string | null },
+  reference: string,
+): Promise<boolean> {
+  if (submission.emailProviderId && submission.customerEmailProviderId) return true;
+  try {
+    return (await processContactNotification(submission.id)).emailAccepted;
+  } catch (error) {
+    // The request remains in the durable admin inbox. Pending recovery can be
+    // retried by this receipt path or the existing recovery command.
+    logger.error({ err: error, reference }, "Stored consultation notification remains pending");
+    return false;
+  }
 }
 
 router.post("/contact", async (req, res) => {
@@ -48,23 +77,56 @@ router.post("/contact", async (req, res) => {
     if (input.website) {
       res
         .status(201)
-        .json({ reference: createReference(), notificationStatus: "accepted" });
+        .json({ reference: createContactReference(), notificationStatus: "accepted" });
+      return;
+    }
+
+    const reference = createContactReference(input);
+    // A retry must recover the original receipt even if notification settings
+    // change or this client has since reached the new-request rate limit.
+    const [existing] = await db
+      .select(receiptFields)
+      .from(contactSubmissionsTable)
+      .where(eq(contactSubmissionsTable.reference, reference))
+      .limit(1);
+    if (existing) {
+      const emailAccepted = await resumeStoredNotification(existing, reference);
+      res.status(emailAccepted ? 200 : 202).json({ reference, leadId: storedLeadId(existing), notificationStatus: emailAccepted ? "sent" : "pending" });
       return;
     }
 
     assertContactNotificationConfiguration();
     const requestFingerprint = fingerprintRequest(requestIp(req));
-    const windowStart = new Date(Date.now() - RATE_LIMIT_WINDOW_MS);
-    const [rate] = await db
-      .select({ total: count() })
-      .from(contactSubmissionsTable)
-      .where(
-        and(
-          eq(contactSubmissionsTable.requestFingerprint, requestFingerprint),
-          gte(contactSubmissionsTable.createdAt, windowStart),
-        ),
-      );
-    if ((rate?.total ?? 0) >= RATE_LIMIT_MAX_REQUESTS) {
+    const encrypted = encryptContactPayload(prepareStoredContact(input));
+    const accepted = await db.transaction(async (transaction) => {
+      // Serialize this fingerprint's count and insert across Autoscale
+      // instances. The transaction never includes a provider/network send.
+      await transaction.execute(sql`select pg_advisory_xact_lock(hashtextextended(${`contact-rate:${requestFingerprint}`}, 0))`);
+      const [replayed] = await transaction.select(receiptFields).from(contactSubmissionsTable)
+        .where(eq(contactSubmissionsTable.reference, reference)).limit(1);
+      if (replayed) return { kind: "stored" as const, created: false, submission: replayed };
+      const [rate] = await transaction.select({ total: count() }).from(contactSubmissionsTable).where(and(
+        eq(contactSubmissionsTable.requestFingerprint, requestFingerprint),
+        gte(contactSubmissionsTable.createdAt, new Date(Date.now() - RATE_LIMIT_WINDOW_MS)),
+      ));
+      if ((rate?.total ?? 0) >= RATE_LIMIT_MAX_REQUESTS) return { kind: "limited" as const };
+      const [submission] = await transaction.insert(contactSubmissionsTable).values({
+        reference,
+        region: input.region,
+        language: input.language,
+        service: input.service,
+        requestFingerprint,
+        ...encrypted,
+      }).onConflictDoNothing({ target: contactSubmissionsTable.reference }).returning({ id: contactSubmissionsTable.id });
+      if (submission) return { kind: "stored" as const, created: true, submission: { ...submission, ...encrypted, emailProviderId: null, customerEmailProviderId: null } };
+      // A mobile retry can arrive from another IP; the unique reference still
+      // prevents a second request even though the rate-limit locks differ.
+      const [stored] = await transaction.select(receiptFields).from(contactSubmissionsTable)
+        .where(eq(contactSubmissionsTable.reference, reference)).limit(1);
+      if (!stored) throw new Error("Unable to recover stored consultation receipt.");
+      return { kind: "stored" as const, created: false, submission: stored };
+    });
+    if (accepted.kind === "limited") {
       res.setHeader(
         "Retry-After",
         String(Math.ceil(RATE_LIMIT_WINDOW_MS / 1000)),
@@ -77,27 +139,11 @@ router.post("/contact", async (req, res) => {
       return;
     }
 
-    const reference = createReference();
-    const payload = prepareStoredContact(input);
-    const encrypted = encryptContactPayload(payload);
-    const [submission] = await db
-      .insert(contactSubmissionsTable)
-      .values({
-        reference,
-        region: input.region,
-        language: input.language,
-        service: input.service,
-        requestFingerprint,
-        ...encrypted,
-      })
-      .returning({ id: contactSubmissionsTable.id });
-    if (!submission) throw new Error("Failed to store consultation request.");
-
-    const result = await processContactNotification(submission.id);
-    res.status(result.emailAccepted ? 201 : 202).json({
+    const emailAccepted = await resumeStoredNotification(accepted.submission, reference);
+    res.status(emailAccepted ? (accepted.created ? 201 : 200) : 202).json({
       reference,
-      leadId: payload.leadId,
-      notificationStatus: result.emailAccepted ? "sent" : "pending",
+      leadId: storedLeadId(accepted.submission),
+      notificationStatus: emailAccepted ? "sent" : "pending",
     });
   } catch (error) {
     if (error instanceof ContactInputError) {
@@ -152,12 +198,12 @@ router.get("/admin/contact-submissions", requireAdmin, async (_req, res) => {
 // encrypted attachments just to populate an analytics/admin table.
 router.get("/admin/contact-submissions/:reference/attribution", requireAdmin, async (req, res) => {
   const reference = String(req.params.reference);
-  if (!/^CON-\d{8}-[0-9A-F]{8}$/.test(reference)) return res.status(400).json({ error: "Invalid request reference." });
+  if (!validReference(reference)) return res.status(400).json({ error: "Invalid request reference." });
   try {
     const [row] = await db.select({ encryptedPayload: contactSubmissionsTable.encryptedPayload, payloadIv: contactSubmissionsTable.payloadIv, payloadAuthTag: contactSubmissionsTable.payloadAuthTag })
       .from(contactSubmissionsTable).where(eq(contactSubmissionsTable.reference, reference)).limit(1);
     if (!row) return res.status(404).json({ error: "Request not found." });
-    return res.json({ reference, ...contactAttribution(decryptContactPayload<StoredContactPayload>(row)) });
+    return res.json({ reference, ...contactAttribution(row.encryptedPayload ? decryptContactPayload<StoredContactPayload>(row) : {}) });
   } catch {
     return res.status(500).json({ error: "Request attribution is temporarily unavailable." });
   }
@@ -167,12 +213,15 @@ router.patch("/admin/contact-submissions/:reference/attribution", requireAdmin, 
   const reference = String(req.params.reference);
   if (!LEAD_OUTCOMES.includes(req.body?.status)) return res.status(400).json({ error: "Choose a supported enquiry outcome." });
   if (!originAllowed(req)) return res.status(403).json({ error: "This update origin is not allowed." });
-  if (!/^CON-\d{8}-[0-9A-F]{8}$/.test(reference)) return res.status(400).json({ error: "Invalid request reference." });
+  if (!validReference(reference)) return res.status(400).json({ error: "Invalid request reference." });
   try {
     const result = await db.transaction(async (tx) => {
       const [row] = await tx.select().from(contactSubmissionsTable).where(eq(contactSubmissionsTable.reference, reference)).limit(1).for("update");
       if (!row) return { status: 404, body: { error: "Request not found." } };
-      const updated = updateLeadProgress(decryptContactPayload<StoredContactPayload>(row), req.body?.status);
+      // The notification worker compacts this same encrypted field after delivery.
+      // Do not overwrite its in-flight snapshot or lose a concurrent outcome edit.
+      if (row.processingAt) return { status: 409, body: { error: "Notification processing is in progress. Please retry shortly." } };
+      const updated = updateLeadProgress(row.encryptedPayload ? decryptContactPayload<StoredContactPayload>(row) : {}, req.body?.status);
       if (!updated) return { status: 400, body: { error: "Choose a supported enquiry outcome." } };
       await tx.update(contactSubmissionsTable).set({ ...encryptContactPayload(updated), updatedAt: new Date() }).where(eq(contactSubmissionsTable.id, row.id));
       return { status: 200, body: { reference, ...contactAttribution(updated) } };

@@ -1,0 +1,23 @@
+.platform-facts { width: min(1180px, calc(100% - 3rem)); margin: 2rem auto; padding: 1.75rem 2rem; background: #f1f5f1; border-block: 1px solid #d1ddd5; color: #173f30; }
+.platform-facts__heading { margin: 0 0 1.5rem; font-size: 1.15rem; font-weight: 700; line-height: 1.6; }
+.platform-facts__grid { display: grid; grid-template-columns: 1.15fr 1fr .8fr; gap: 2rem; margin: 0; }
+.platform-facts__item { display: flex; min-width: 0; flex-direction: column; border-inline-start: 2px solid #bc9a57; padding-inline-start: 1.1rem; }
+.platform-facts__item dt { font-size: .94rem; font-weight: 650; line-height: 1.6; }
+.platform-facts__value { order: -1; margin: 0 0 .4rem; font-size: clamp(2.3rem, 4vw, 3.3rem); font-weight: 650; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.platform-facts__value a { display: inline-flex; align-items: center; min-height: 44px; }
+.platform-facts__value a:hover { text-decoration: underline; text-underline-offset: .15em; }
+.platform-facts__value a:focus-visible { outline: 2px solid #987232; outline-offset: 5px; }
+.platform-facts__value--link { min-height: 3.6rem; display: flex; align-items: center; font-size: 1.25rem; line-height: 1.5; }
+.platform-facts__detail { margin: .45rem 0 0; font-size: .84rem; line-height: 1.7; color: #496358; }
+.platform-facts--embedded { width: 100%; margin: 1.75rem 0 0; }
+[dir=rtl] .platform-facts :is(dt, dd, h2, h3) { letter-spacing: 0; }
+@media (max-width: 760px) {
+  .platform-facts { width: calc(100% - 2rem); padding: 1.5rem 1.25rem; }
+  .platform-facts__grid { grid-template-columns: 1fr; gap: 1.4rem; }
+  .platform-facts__item { display: grid; grid-template-columns: minmax(4.5rem, auto) 1fr; column-gap: 1rem; align-items: center; }
+  .platform-facts__item dt { grid-column: 2; grid-row: 1; }
+  .platform-facts__value { grid-column: 1; grid-row: 1 / span 2; margin: 0; font-size: 2.5rem; }
+  .platform-facts__value--link { max-width: 7rem; font-size: 1rem; }
+  .platform-facts__detail { grid-column: 2; grid-row: 2; }
+  .platform-facts--embedded { width: 100%; }
+}

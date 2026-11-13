@@ -1,5 +1,4 @@
 import { ArrowRight, ClipboardCheck, FileSearch, MessageSquareText, MessagesSquare } from "lucide-react";
-import "./consultation-steps.css";
 
 const steps = [
   {
@@ -28,11 +27,11 @@ const steps = [
     Icon: ClipboardCheck,
     en: {
       title: "Confirm and pay",
-      description: "Agree scope, fees and delivery date.",
+      description: "Confirm the responsible professional, scope, fees and delivery date.",
     },
     ar: {
       title: "الاتفاق والسداد",
-      description: "نحدد النطاق والأتعاب وموعد التسليم.",
+      description: "نحدد المهني المسؤول ونطاق العمل والأتعاب وموعد التسليم.",
     },
   },
   {

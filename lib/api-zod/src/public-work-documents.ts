@@ -1,17 +1,5 @@
-/** Approval applies to one reviewed revision, never to every attachment on a work page. */
-export interface PublicWorkDocumentApproval {
-  workSlug: string;
-  documentSlug: string;
-  updatedAt: string;
-  sha256: string;
-  confidentialityReviewed: true;
-  redactionReviewed: true;
-  publicationRightsConfirmed: true;
-  indexingApproved: true;
-}
-
-// Add entries only after express editorial approval. No existing files are opted in.
-export const PUBLIC_WORK_DOCUMENT_APPROVALS: readonly PublicWorkDocumentApproval[] = [];
+import { PUBLIC_WORK_DOCUMENT_TEXT_METADATA, type PublicWorkDocumentTextMetadata } from "./public-work-document-text-metadata";
+export { PUBLIC_WORK_DOCUMENT_TEXT_METADATA, type PublicWorkDocumentTextMetadata } from "./public-work-document-text-metadata";
 
 export interface WorkDocumentMetadata {
   slug: string;
@@ -21,21 +9,27 @@ export interface WorkDocumentMetadata {
   fileMimeType: string;
 }
 
-export function publicWorkDocumentPath(
-  sample: WorkDocumentMetadata,
-  approvals: readonly PublicWorkDocumentApproval[] = PUBLIC_WORK_DOCUMENT_APPROVALS,
-): string | undefined {
-  const time = sample.updatedAt ? new Date(sample.updatedAt).getTime() : NaN;
-  const revision = Number.isFinite(time) ? new Date(time).toISOString() : undefined;
-  const approval = approvals.find((entry) => entry.workSlug === sample.slug && entry.updatedAt === revision);
-  if (!sample.published || sample.fileSize <= 0 || sample.fileMimeType !== "application/pdf" ||
-      !approval || !approval.confidentialityReviewed || !approval.redactionReviewed ||
-      !approval.publicationRightsConfirmed || !approval.indexingApproved ||
-      !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(approval.documentSlug) ||
-      !/^[a-f0-9]{64}$/.test(approval.sha256)) return undefined;
-  return `/documents/${approval.documentSlug}.pdf`;
+/** Published PDF attachments have stable, crawlable URLs outside the private API namespace. */
+export function publicWorkDocumentPath(sample: WorkDocumentMetadata): string | undefined {
+  if (sample.published !== true || !Number.isSafeInteger(sample.fileSize) || sample.fileSize <= 0 ||
+      sample.fileMimeType !== "application/pdf" || typeof sample.slug !== "string" ||
+      !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(sample.slug)) return undefined;
+  return `/documents/${sample.slug}.pdf`;
 }
 
 export function workAttachmentPath(sample: WorkDocumentMetadata): string {
   return publicWorkDocumentPath(sample) ?? `/api/work/${encodeURIComponent(sample.slug)}/file`;
+}
+
+/** Only a text alternative matching the current published PDF revision may be linked. */
+export function publicWorkDocumentTextPath(
+  sample: WorkDocumentMetadata,
+  alternatives: readonly PublicWorkDocumentTextMetadata[] = PUBLIC_WORK_DOCUMENT_TEXT_METADATA,
+): string | undefined {
+  if (!publicWorkDocumentPath(sample)) return undefined;
+  const source = alternatives.find(entry => entry.slug === sample.slug);
+  const revisionTime = sample.updatedAt ? new Date(sample.updatedAt).getTime() : NaN;
+  if (!source || !Number.isFinite(revisionTime) || revisionTime !== new Date(source.sourceUpdatedAt).getTime() ||
+      sample.fileSize !== source.fileSize || !/^[a-f0-9]{64}$/.test(source.sourceSHA256)) return undefined;
+  return `/documents/${sample.slug}.txt`;
 }

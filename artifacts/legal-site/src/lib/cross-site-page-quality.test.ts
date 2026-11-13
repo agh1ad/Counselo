@@ -23,6 +23,8 @@ test("global entry pages keep qualified positioning and accessible heading spaci
   assert.doesNotMatch(copy, /fast, professional and trusted|مستشار قانوني معتمد/i);
   assert.match(copy, /scope, fee and timing agreed before paid work begins/);
   assert.match(copy, /بعد الاتفاق على نطاق الخدمة والرسوم والوقت قبل بدء العمل المدفوع/);
+  assert.match(copy, /aim to respond professionally within 24 hours after receiving the information needed/);
+  assert.match(copy, /نسعى للرد المهني خلال 24 ساعة من استلام المعلومات اللازمة/);
   assert.match(template, /<h1 id="home-title">\s*\{c\.h1\}\s*<\/h1>/);
   assert.match(home, /\{saudiCopy\.title\}/);
 });
@@ -64,7 +66,7 @@ test("the floating contact control does not duplicate or obscure primary consult
   assert.match(floatingContactStyles, /calc\(100vw - 24px\)/);
 });
 
-test("global jurisdiction mentions include all three regions with Saudi Arabia first", () => {
+test("global jurisdiction mentions consistently prioritize Saudi Arabia, Syria, then the UAE", () => {
   const globalCopy = [
     readPage("region-picker.tsx"),
     readPage("ar-region-picker.tsx"),
@@ -75,8 +77,8 @@ test("global jurisdiction mentions include all three regions with Saudi Arabia f
     readPublic("feed.xml"),
   ].join("\n");
 
-  assert.match(globalCopy, /Saudi Arabia, (?:Syria (?:and |& )(?:the )?UAE|(?:the )?UAE and Syria)|Saudi Arabia · (?:Syria · UAE|UAE · Syria)/);
-  assert.match(globalCopy, /السعودية (?:وسوريا والإمارات|والإمارات وسوريا|· سوريا · الإمارات|· الإمارات · سوريا)/);
+  assert.match(globalCopy, /Saudi Arabia, Syria (?:and |& )(?:the )?UAE|Saudi Arabia · Syria · UAE/);
+  assert.match(globalCopy, /السعودية وسوريا والإمارات|السعودية · سوريا · الإمارات/);
   assert.doesNotMatch(globalCopy, /UAE, Saudi(?: Arabia)? (?:and|&) Syria|UAE · Saudi Arabia · Syria/);
   assert.doesNotMatch(globalCopy, /الإمارات والسعودية وسوريا|الإمارات · السعودية · سوريا/);
 });

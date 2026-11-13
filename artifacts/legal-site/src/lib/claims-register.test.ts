@@ -5,6 +5,12 @@ import test from "node:test";
 import { qualifyProfessionalRoleCopy } from "@/lib/professional-role-scope";
 import { qualifyEeatCopy } from "@/lib/eeat-scope";
 import { COUNSELO_LEGAL_MATTERS_CLAIM, COUNSELO_LEGAL_PRACTICE_CLAIM, COUNSELO_PROFESSIONAL_START_YEAR, getCounseloLegalPracticeClaim } from "@/lib/public-claims";
+import { en } from "../translations/en";
+import { ar } from "../translations/ar";
+import { enSyr } from "../translations/en-syr";
+import { arSyr } from "../translations/ar-syr";
+import { enUae } from "../translations/en-uae";
+import { arUae } from "../translations/ar-uae";
 
 type Claim = {
   id: string;
@@ -196,9 +202,22 @@ test("professional-role boundary qualifies legacy representation wording", () =>
 test("EEAT boundary qualifies legacy outcome, timing and online-service claims", () => {
   const qualified = qualifyEeatCopy("CounselO Legal recovered hundreds of millions of Saudi riyals and provides complete online consultation within 24 hours. No office visit required.");
   assert.match(qualified, /substantial sums \(a stated experience figure, not an audited result\)/);
-  assert.match(qualified, /initial online consultation/);
+  assert.match(qualified, /online consultation covering the agreed legal questions/);
   assert.match(qualified, /target 24-hour response window/);
-  assert.match(qualified, /initial consultation may begin without an office visit/);
+  assert.match(qualified, /online consultation and document review without an office visit/i);
+  assert.doesNotMatch(qualified, /initial online consultation/);
+  const arabic = qualifyEeatCopy("استشارة قانونية أونلاين كاملة خلال 24 ساعة");
+  assert.match(arabic, /استشارة أونلاين تغطي المسائل القانونية المتفق عليها/);
+  assert.match(arabic, /وقت استجابة مستهدف/);
+  assert.doesNotMatch(arabic, /استشارة أولية/);
+});
+
+test("About missions avoid immediate advice, continuous availability and bundled representation claims", () => {
+  for (const [locale, copy] of Object.entries({ en, ar, enSyr, arSyr, enUae, arUae })) {
+    const mission = Object.values(copy.aboutPage.mission).join(" ");
+    assert.doesNotMatch(mission, /instantly|24\/7|expert representation|على مدار الساعة|تمثيلاً متخصصاً/, locale);
+    assert.match(mission, /separate agreement|separately agreed|identified separately|اتفاق مستقل|اتفاقاً مستقلاً|بشكل مستقل|بصورة منفصلة/, locale);
+  }
 });
 
 test("About missions avoid immediate advice, continuous availability and bundled representation claims", () => {

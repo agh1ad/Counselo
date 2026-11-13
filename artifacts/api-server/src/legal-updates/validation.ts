@@ -34,10 +34,10 @@ export function validateDraft(
     if (!getServiceDefinition(slug, region))
       throw new Error("Unknown related service");
   for (const [field, value] of Object.entries(draft.ar))
-    if (!/[\u0600-\u06ff]/.test(value))
+    if (typeof value !== "string" || !/[\u0600-\u06ff]/.test(value))
       throw new Error(`Arabic content missing in ${field}`);
   for (const [field, value] of Object.entries(draft.en))
-    if (!/[a-zA-Z]/.test(value))
+    if (typeof value !== "string" || !/[a-zA-Z]/.test(value))
       throw new Error(`English content missing in ${field}`);
   return draft;
 }

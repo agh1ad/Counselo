@@ -1,5 +1,6 @@
 import app from "./app";
 import { logger } from "./lib/logger";
+import { startContactNotificationRecovery } from "./lib/contact-notifications";
 import { publicationCacheEnabled } from "./lib/publication-cache.js";
 
 const rawPort = process.env["PORT"];
@@ -27,6 +28,9 @@ async function start(): Promise<void> {
     }
 
     logger.info({ port }, "Server listening");
+    if (process.env.NODE_ENV === "production" && process.env.CONTACT_AUTOMATIC_RECOVERY !== "false") {
+      startContactNotificationRecovery();
+    }
   });
 
   if (prewarmOnStartup) logger.info("Public snapshots will be served from Object Storage");

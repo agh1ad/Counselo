@@ -6,7 +6,14 @@ import { COUNSELO_CLIENT_TRUST } from "@/lib/public-claims";
 // record. The owner supplied partner licence 37440 on 2026-10-19 and requested
 // its display on About on 2026-11-03. It belongs to the Saudi partner, not CounselO.
 export const SAUDI_PARTNER_LICENCE = "37440";
-export const ABOUT_UPDATED = "2026-11-03";
+export const ABOUT_UPDATED = "2026-11-13";
+
+// Official service descriptions checked on 2026-11-12. These are routes for
+// independent enquiries, not evidence that a particular licence was checked.
+export const SAUDI_LAWYER_DIRECTORY = {
+  en: "https://www.moj.gov.sa/English/eServices/pages/10abd1a2-a4c2-4951-a464-ac926eb24417.aspx",
+  ar: "https://www.moj.gov.sa/ar/eServices/Pages/10abd1a2-a4c2-4951-a464-ac926eb24417.aspx",
+} as const;
 
 // Existing business record: en-syr.ts/ar-syr.ts at HEAD and the published
 // https://counselo-legal.com/syr/ar partner card (checked 2026-11-03).
@@ -29,12 +36,12 @@ export const syrianPartners = {
 export const aboutContent = {
   en: {
     label: "About CounselO Legal",
-    heading: "An experienced legal team.\nA complete online service.",
-    lead: "CounselO connects you with comprehensive online legal support and a strong network of lawyers, law firms and professional partners across Saudi Arabia, the UAE and Syria.",
+    heading: "An experienced legal team.\nFrom advice to representation.",
+    lead: "CounselO provides comprehensive legal support for individuals, families, businesses and investors in Saudi Arabia, Syria and the UAE. From everyday questions to complex cases, we bring together advice, legal strategy, drafting and follow-up, with court representation through licensed partners and lawyers.",
     contact: "Discuss your legal matter",
     servicesLink: "Explore our services",
     heroSideTitle: "Legal knowledge, put to work for you.",
-    heroServices: ["Advice that explains your position and options", "Documents prepared for the step you need to take", "Professional guidance as your matter develops"],
+    heroServices: ["Consultation, contracts and legal strategy", "Case preparation, negotiation and follow-up", "Court representation through licensed partners"],
     features: [
       { title: "Fully online", text: "Consult without an office visit." },
       { title: "Experienced legal team", text: "Practical experience in legal analysis, drafting and disputes." },
@@ -42,13 +49,18 @@ export const aboutContent = {
       { title: "3 countries", text: "Saudi Arabia, Syria and the UAE." },
     ],
     platformTitle: "Professional legal support, built around you.",
-    introduction: "Founded by lawyer and legal counsel Omar Al-Baghdadi, CounselO brings legal expertise, drafting, consultation and dispute support together through a strong network of lawyers and professional partners across Saudi Arabia, the UAE and Syria.",
+    introduction: "CounselO Legal is a legal services platform founded by lawyer and legal counsel Omar Al-Baghdadi. Our team and licensed partner lawyers connect consultation, drafting, negotiation, dispute work and representation for matters in Saudi Arabia, Syria and the UAE, with online communication throughout your work with us.",
     purpose: "You do not need an office appointment to access our team's expertise. Share your question and documents from home, discuss them in Arabic or English and receive advice you can act on. From a family concern or employment dispute to a property transaction or business decision, we build the service around your facts and objectives.",
     teamTitle: "The team behind your advice",
     team: "Our legal team draws on its practical experience in contracts, disputes, arbitration and cross-border legal analysis. We examine the chronology, test the documents against the legal questions and identify the strengths, gaps and risks before preparing our recommendations. This discipline carries through to our drafting, settlement reviews and preparation for proceedings.",
-    teamSupport: "Our team connects your consultation with analysis, drafting, negotiation, dispute management and legal representation coordinated through qualified lawyers and professional partners in the relevant country. You remain connected to the team handling your matter.",
+    teamSupport: "Our support connects your online consultation with the legal work that follows. Our team handles analysis, drafting and follow-up; licensed partners and lawyers in the relevant country deliver court and authority representation under an agreed engagement. You know who is handling your matter and can stay in touch with our team online.",
+    complexTitle: "From everyday questions to complex cases",
+    complexText: "We handle straightforward questions, detailed transactions and complex disputes involving multiple parties, substantial evidence or more than one country. Our work connects case analysis, legal strategy, drafting, settlement negotiations and follow-up. The plan identifies the professional responsible for each agreed stage and the licensed local lawyer handling court representation.",
+    workTitle: "Published legal work you can examine",
+    workText: "Our published work shows the legal questions addressed, our approach and the documents prepared. Explore the matters and their available supporting documents to see the team's work in context and discuss the experience relevant to your own matter.",
+    workLink: "Explore our published legal work",
     servicesTitle: "What we can do for you",
-    servicesIntro: "From a focused question to a substantial document review or continuing legal support, we define the work around the matter you bring us.",
+    servicesIntro: "Our services cover the legal work a matter needs: advice, document review and drafting, negotiation, litigation and arbitration support, partner representation and ongoing legal support.",
     services: [
       { title: "Individuals and families", text: "Advice and document preparation for marriage, separation, maintenance, custody, inheritance, employment rights and personal financial disputes." },
       { title: "Property and transactions", text: "Review of sales, leases, ownership records, payment obligations and disputed terms, with advice and drafting for negotiation or the next legal step." },
@@ -78,19 +90,27 @@ export const aboutContent = {
     profileLink: "View his professional profile",
     partnerLabel: "Our licensed Saudi partner",
     licenceLabel: "Saudi lawyer licence",
+    directoryLabel: "Saudi Ministry of Justice · Practising lawyers directory",
+    directoryNote: "The Ministry's directory provides a search by lawyer name. The licence shown above identifies our Saudi partner; the professional responsible for your representation is confirmed in your engagement.",
+    faqTitle: "Your questions about our legal services",
+    faqs: [
+      { question: "What legal services does CounselO provide?", answer: "CounselO provides consultation, legal analysis, contract and document drafting, negotiation, dispute and arbitration support, and continuing legal advice for matters in Saudi Arabia, Syria and the UAE. Licensed partners and lawyers provide representation before courts and authorities, with CounselO coordinating preparation and follow-up under the agreed engagement.", link: null },
+      { question: "Can CounselO handle both simple and complex cases?", answer: "Yes. Our team handles everyday legal questions and complex matters involving multiple parties, extensive evidence or cross-border issues. We develop a work plan covering the legal strategy, documents, deadlines and the professionals responsible for the agreed stages.", link: null },
+      { question: "Where can I examine CounselO’s experience?", answer: "Our Work contains published case studies, contract reviews and supporting legal documents. These explain the legal issue, the work performed and the context, including commercial contracts, a Saudi commercial claim and a cross-border dispute. The portfolio figure counts the platform’s published work records.", link: { label: "Examine our published work", href: "/our-work" } },
+    ],
     ctaTitle: "Put our legal experience to work for you.",
-    ctaText: "Choose CounselO for experienced legal guidance, carefully drafted documents, dispute strategy and coordinated legal representation through our professional network. Connect with our team online.",
+    ctaText: "Choose CounselO for a clear answer, a carefully prepared document or support with a dispute. Speak with our experienced team from home and take the next step with advice, drafting and access to licensed local representation through our partners.",
     ctaNote: "Include the country, your objective and any approaching deadline. We agree the scope, fee and delivery date before paid work begins.",
     whatsapp: "Speak to us on WhatsApp",
   },
   ar: {
     label: "عن كاونسلو للاستشارات القانونية",
-    heading: "فريق قانوني بخبرة راسخة.\nوخدمة متكاملة أونلاين.",
-    lead: "تجمع كاونسلو بين الخدمات القانونية المتكاملة عبر الإنترنت وشبكة قوية من المحامين والشركاء المهنيين في السعودية والإمارات وسوريا، لخدمة الأفراد والأسر والشركات والمستثمرين.",
+    heading: "فريق قانوني بخبرة راسخة.\nمن الاستشارة إلى التمثيل.",
+    lead: "تقدم كاونسلو دعماً قانونياً متكاملاً للأفراد والأسر والشركات والمستثمرين في السعودية وسوريا والإمارات. من الأسئلة اليومية إلى القضايا المعقدة، نجمع المشورة والاستراتيجية القانونية والصياغة والمتابعة، مع التمثيل أمام المحاكم عبر شركاء ومحامين مرخصين.",
     contact: "ناقش مسألتك القانونية معنا",
     servicesLink: "استكشف خدماتنا",
     heroSideTitle: "معرفة قانونية نضعها في خدمتك.",
-    heroServices: ["استشارة توضح موقفك القانوني وخياراتك", "مستندات مصاغة للخطوة التي تحتاج إليها", "مساندة مهنية تواكب تطورات مسألتك"],
+    heroServices: ["استشارات وعقود واستراتيجية قانونية", "إعداد القضايا والتفاوض والمتابعة", "تمثيل أمام المحاكم عبر شركاء مرخصين"],
     features: [
       { title: "أونلاين بالكامل", text: "استشر فريقنا دون زيارة مكتب." },
       { title: "فريق قانوني متمرس", text: "خبرة عملية في التحليل القانوني والصياغة والمنازعات." },
@@ -98,13 +118,18 @@ export const aboutContent = {
       { title: "3 دول", text: "السعودية وسوريا والإمارات." },
     ],
     platformTitle: "دعم قانوني مهني، مصمم حول احتياجك.",
-    introduction: "كاونسلو منصة أسسها المحامي والمستشار القانوني عمر البغدادي، تجمع الخبرة القانونية والمشورة والصياغة ودعم المنازعات عبر شبكة قوية من المحامين والشركاء المهنيين في السعودية والإمارات وسوريا.",
+    introduction: "كاونسلو للاستشارات القانونية منصة خدمات قانونية أسسها المحامي والمستشار القانوني عمر البغدادي. يربط فريقنا وشركاؤنا المحامون المرخصون الاستشارة والصياغة والتفاوض والعمل على المنازعات والتمثيل في المسائل المرتبطة بالسعودية وسوريا والإمارات، مع التواصل أونلاين طوال العمل معنا.",
     purpose: "لا تحتاج إلى موعد في مكتب للاستفادة من خبرة فريقنا. أرسل سؤالك ومستنداتك من منزلك، وناقشها بالعربية أو الإنجليزية، وتسلّم مشورة تساعدك على اتخاذ القرار. من المسائل الأسرية والنزاعات العمالية إلى المعاملات العقارية والقرارات التجارية، نبني الخدمة حول وقائعك وأهدافك.",
     teamTitle: "الفريق الذي يقف وراء استشارتك",
     team: "يستند فريقنا القانوني إلى خبرته العملية في العقود والمنازعات والتحكيم والتحليل القانوني للمسائل العابرة للحدود. نفحص تسلسل الوقائع، ونربط المستندات بالأسئلة القانونية، ونحدد نقاط القوة والنقص والمخاطر قبل إعداد التوصيات. ويمتد هذا المنهج إلى الصياغة ومراجعة التسويات والتحضير للإجراءات.",
-    teamSupport: "يربط فريقنا استشارتك بالتحليل والصياغة والتفاوض وإدارة المنازعات وتنسيق التمثيل القانوني عبر محامين وشركاء مهنيين مؤهلين في الدولة المعنية، مع تواصل مباشر خلال مراحل العمل.",
+    teamSupport: "نربط استشارتك أونلاين بالعمل القانوني الذي يليها. يتولى فريقنا التحليل والصياغة والمتابعة، ويقدم شركاء ومحامون مرخصون في الدولة المعنية التمثيل أمام المحاكم والجهات المختصة وفق تكليف متفق عليه. تعرف من يتولى مسألتك، وتبقى على تواصل مع فريقنا أونلاين.",
+    complexTitle: "من الأسئلة اليومية إلى القضايا المعقدة",
+    complexText: "نتولى الأسئلة المباشرة والمعاملات التفصيلية والنزاعات المعقدة التي تتعدد أطرافها أو تتسع أدلتها أو ترتبط بأكثر من دولة. ويربط عملنا تحليل الملف بالاستراتيجية القانونية والصياغة ومفاوضات التسوية والمتابعة. وتحدد الخطة المهني المسؤول عن كل مرحلة متفق عليها والمحامي المحلي المرخص الذي يتولى التمثيل أمام المحاكم.",
+    workTitle: "أعمال قانونية منشورة يمكنك الاطّلاع عليها",
+    workText: "توضح أعمالنا المنشورة الأسئلة القانونية التي عالجناها ومنهج العمل والمستندات التي أعددناها. تصفح المسائل وما يتاح معها من مستندات داعمة للاطلاع على عمل الفريق في سياقه، ومناقشة الخبرة المرتبطة بمسألتك.",
+    workLink: "تصفح أعمالنا القانونية المنشورة",
     servicesTitle: "ما الذي نقدمه لك؟",
-    servicesIntro: "من سؤال قانوني محدد إلى مراجعة مستندات موسعة أو دعم قانوني مستمر، نحدد العمل المطلوب وفق المسألة التي تعرضها علينا.",
+    servicesIntro: "تشمل خدماتنا العمل القانوني الذي تحتاجه المسألة: المشورة ومراجعة المستندات وصياغتها والتفاوض ودعم التقاضي والتحكيم والتمثيل عبر الشركاء والدعم القانوني المستمر.",
     services: [
       { title: "الأفراد والأسرة", text: "الاستشارة وإعداد المستندات في مسائل الزواج والانفصال والنفقة والحضانة والميراث والحقوق العمالية والمنازعات المالية الشخصية." },
       { title: "العقارات والمعاملات", text: "مراجعة عقود البيع والإيجار وسجلات الملكية والالتزامات المالية والشروط المتنازع عليها، وإعداد الرأي والصياغة للتفاوض أو الخطوة القانونية التالية." },
@@ -134,8 +159,16 @@ export const aboutContent = {
     profileLink: "اطّلع على ملفه المهني",
     partnerLabel: "شريكنا السعودي المرخص",
     licenceLabel: "ترخيص المحاماة السعودي",
+    directoryLabel: "وزارة العدل السعودية · دليل المحامين الممارسين",
+    directoryNote: "يتيح دليل الوزارة البحث باسم المحامي. يخص رقم الترخيص المعروض شريكنا السعودي، ويُحدد المهني المسؤول عن تمثيلك في اتفاق التكليف.",
+    faqTitle: "أسئلتك عن خدماتنا القانونية",
+    faqs: [
+      { question: "ما الخدمات القانونية التي تقدمها كاونسلو؟", answer: "تقدم كاونسلو الاستشارات والتحليل القانوني وصياغة العقود والمستندات والتفاوض ودعم المنازعات والتحكيم والمشورة القانونية المستمرة للمسائل المرتبطة بالسعودية وسوريا والإمارات. ويتولى الشركاء والمحامون المرخصون التمثيل أمام المحاكم والجهات المختصة، مع تنسيق كاونسلو للإعداد والمتابعة وفق التكليف المتفق عليه.", link: null },
+      { question: "هل تتولى كاونسلو القضايا البسيطة والمعقدة؟", answer: "نعم. يتولى فريقنا الأسئلة القانونية اليومية والمسائل المعقدة التي تتعدد أطرافها أو تتسع أدلتها أو ترتبط بأكثر من دولة. ونضع خطة عمل تشمل الاستراتيجية القانونية والمستندات والمواعيد والمهنيين المسؤولين عن المراحل المتفق عليها.", link: null },
+      { question: "أين يمكنني الاطّلاع على خبرة كاونسلو؟", answer: "يتضمن قسم أعمالنا دراسات قضايا ومراجعات عقود ومستندات قانونية داعمة منشورة. وتوضح هذه السجلات المسألة القانونية والعمل المنجز وسياق الملف، بما يشمل العقود التجارية ومطالبة تجارية سعودية ونزاعاً عابراً للحدود. ويعبّر رقم الأعمال عن عدد السجلات المنشورة في مكتبة المنصة.", link: { label: "اطّلع على أعمالنا المنشورة", href: "/ar/our-work" } },
+    ],
     ctaTitle: "ضع خبرتنا القانونية في خدمة مسألتك.",
-    ctaText: "اختر كاونسلو للمشورة القانونية المتمرسة والمستندات المحكمة واستراتيجية المنازعات وتنسيق التمثيل عبر شبكتنا المهنية. تواصل مع فريقنا أونلاين.",
+    ctaText: "اختر كاونسلو لإجابة واضحة، أو مستند محكم الصياغة، أو مساندة في نزاع. تحدث مع فريقنا المتمرس من منزلك، واتخذ خطوتك التالية بالمشورة والصياغة والتمثيل المحلي عبر شركائنا المرخصين.",
     ctaNote: "اذكر الدولة وهدفك وأي موعد قريب. نتفق على نطاق العمل والأتعاب وموعد التسليم قبل بدء العمل المدفوع.",
     whatsapp: "تواصل معنا عبر واتساب",
   },

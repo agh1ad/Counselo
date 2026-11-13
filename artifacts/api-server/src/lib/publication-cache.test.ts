@@ -3,6 +3,9 @@ import test, { type TestContext } from "node:test";
 import type { Server } from "node:http";
 import express from "express";
 import { Client } from "@replit/object-storage";
+import { PublicWorkFileCache, type PublicWorkFile } from "./public-work-file-cache.js";
+import { createPublicDocumentsRouter, createWorkAttachmentHandler } from "./public-work-documents.js";
+import { createHash } from "node:crypto";
 import { PublicationDataCache } from "./publication-data-cache.js";
 import { logger } from "./logger.js";
 import { cachePublicResponses, clearPublicResponseProcessCache, publicResponseCacheUrl } from "./public-response-cache.js";
@@ -417,7 +420,7 @@ test("legal-update API and regional rendering reuse only the current published r
   assert.ok(burst.every(response => response.status === 200));
   assert.match(await (await fetch(first + syrApi)).text(), /سوريا العربية/);
   assert.equal(reads.api, 2, "language and jurisdiction filters remain distinct");
-   assert.equal(isDatabaseBackedPublicApiPath("/work/public-sample/file"), true);
+  assert.equal(isDatabaseBackedPublicApiPath("/work/public-sample/file"), false, "attachments use validated file snapshots and canonical document responses");
   assert.equal(isDatabaseBackedPublicApiPath("/work/public-sample"), true);
   assert.equal((await fetch(first + "/api/legal-updates-sitemap")).status, 200);
   assert.equal((await fetch(first + "/api/legal-updates-sitemap")).headers.get("x-counselo-response-cache"), "PROCESS");
@@ -454,4 +457,150 @@ test("legal-update API and regional rendering reuse only the current published r
   assert.equal((await fetch(restarted + failingPath)).status, 503);
   assert.equal((await fetch(restarted + failingPath)).status, 503);
   assert.equal(reads.api, 6, "server errors are never cached");
+});
+
+
+test("private responses and unbounded URL variants never become shared cached content", async t => {
+  const f = fixture(t), writer = f.coordinator();
+  await writer.mutate(async () => {});
+  let reads = 0;
+  const request = await httpApp(t, f.coordinator(), (req, res) => {
+    reads++;
+    if (req.path.endsWith("private")) res.setHeader("Cache-Control", "private, no-store");
+    if (req.path.endsWith("vary")) res.setHeader("Vary", "Accept-Encoding, Cookie");
+    res.send(`origin-${reads}`);
+  }, "privacy-boundaries");
+  for (const path of ["/public/private", "/public/vary", "/public?filter=a", "/public/%61lias"]) {
+    const first = await (await request(path)).text();
+    const second = await (await request(path)).text();
+    assert.notEqual(first, second, path);
+  }
+  assert.equal([...f.objects.keys()].filter(key => key.includes("public-response-cache")).length, 0);
+  const tracked = await (await request("/public?utm_source=fixture")).text();
+  assert.equal(await (await request("/public?utm_source=another")).text(), tracked);
+});
+
+test("many missing routes use only short bounded process caching and preserve noindex", async t => {
+  const f = fixture(t), writer = f.coordinator();
+  await writer.mutate(async () => {});
+  let reads = 0;
+  const request = await httpApp(t, f.coordinator(), (_req, res) => {
+    reads++;
+    res.setHeader("X-Robots-Tag", "noindex, nofollow");
+    res.status(404).send("Not found");
+  }, "negative-cache");
+  for (let index = 0; index < 24; index++) await request(`/public/missing-${index}`);
+  assert.equal([...f.objects.keys()].filter(key => key.includes("public-response-cache")).length, 0);
+  const cached = await request("/public/missing-23");
+  assert.equal(cached.status, 404);
+  assert.equal(cached.headers.get("x-robots-tag"), "noindex, nofollow");
+  assert.equal(cached.headers.get("x-counselo-response-cache"), "PROCESS");
+  assert.equal(reads, 24);
+  f.advance(15_001);
+  await request("/public/missing-23");
+  assert.equal(reads, 25, "a nonexistent URL is never held for the day-long positive TTL");
+});
+
+test("a delayed persistent read cannot repopulate the process cache after local invalidation", async t => {
+  const f = fixture(t), writer = f.coordinator();
+  await writer.mutate(async () => {});
+  let body = "before edit";
+  const request = await httpApp(t, f.coordinator(), (_req, res) => res.send(body), "delayed-read");
+  await request();
+  clearPublicResponseProcessCache();
+  let release!: () => void, started!: () => void;
+  const gate = new Promise<void>(resolve => { release = resolve; });
+  const began = new Promise<void>(resolve => { started = resolve; });
+  t.mock.method(Client.prototype, "downloadAsText", (async (name: string) => {
+    const value = f.objects.get(name);
+    started(); await gate;
+    return value === undefined ? { ok: false, error: { statusCode: 404 } } : { ok: true, value };
+  }) as never);
+  const delayed = request();
+  await began;
+  body = "after edit";
+  clearPublicResponseProcessCache();
+  release();
+  assert.equal(await (await delayed).text(), "after edit");
+});
+
+
+test("publication-backed canonical PDFs retain headers, avoid database reads and withdraw old bytes", async t => {
+  const f = fixture(t), writer = f.coordinator(), reader = f.coordinator();
+  await writer.mutate(async () => {});
+  let visible = true;
+  let bytes = Buffer.from("%PDF-1.7\nSynthetic publication integration fixture\n%%EOF");
+  let file: PublicWorkFile = {
+    slug: "published-pdf", published: true, confidentialityConfirmed: false,
+    updatedAt: "2026-11-13T00:00:00.000Z", fileName: "Published.pdf",
+    fileMimeType: "application/pdf", fileSize: bytes.length, fileData: bytes.toString("base64"),
+  };
+  const files = new PublicWorkFileCache(() => new Client(), reader, true);
+  await files.prime([file]);
+  let databaseReads = 0;
+  const load = async (slug: string) => {
+    if (!visible || slug !== file.slug) return undefined;
+    return files.read(slug, async () => { databaseReads++; throw new Error("Must use published snapshot"); });
+  };
+  const text = {
+    slug: file.slug, sourceSHA256: createHash("sha256").update(bytes).digest("hex"),
+    sourceUpdatedAt: String(file.updatedAt), fileSize: bytes.length, language: "ar" as const,
+    checkedPageCount: 1, text: "نص اختباري من المستند المنشور\n",
+  };
+  const app = express();
+  app.use((_req, res, next) => { res.setHeader("X-Frame-Options", "DENY"); next(); });
+  app.use(cachePublicResponses("document", path => /^\/documents\/[^/]+\.pdf$/.test(path), "canonical-documents", reader));
+  app.use("/documents", createPublicDocumentsRouter(load, [text]));
+  app.use("/api", (_req, res, next) => { res.setHeader("X-Robots-Tag", "noindex, nofollow"); next(); });
+  app.use("/api", cachePublicResponses("api", isDatabaseBackedPublicApiPath, "canonical-documents", reader));
+  app.get("/api/work/:slug/file", createWorkAttachmentHandler(load));
+  const server = app.listen(0, "127.0.0.1");
+  await new Promise<void>(resolve => server.once("listening", resolve));
+  t.after(() => new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve())));
+  const address = server.address(); assert.ok(address && typeof address !== "string");
+  const request = (path: string, options?: RequestInit) => fetch(`http://127.0.0.1:${address.port}${path}`, options);
+  for (const method of ["GET", "HEAD"]) {
+    const response = await request("/documents/published-pdf.pdf", { method });
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get("content-type"), "application/pdf");
+    assert.equal(response.headers.get("cache-control"), "no-store");
+    assert.equal(response.headers.get("x-robots-tag"), null);
+    assert.equal(response.headers.get("x-frame-options"), null);
+    assert.equal(response.headers.get("link"), '<https://counselo-legal.com/documents/published-pdf.pdf>; rel="canonical"');
+    assert.equal((await response.arrayBuffer()).byteLength, method === "HEAD" ? 0 : bytes.length);
+  }
+  const download = await request("/documents/published-pdf.pdf?download=1");
+  assert.match(download.headers.get("content-disposition")!, /^attachment;/);
+  await download.arrayBuffer();
+  const legacy = await request("/api/work/published-pdf/file?download=1", { redirect: "manual" });
+  assert.equal(legacy.status, 301);
+  assert.equal(legacy.headers.get("location"), "/documents/published-pdf.pdf?download=1");
+  await legacy.arrayBuffer();
+  for (let repeat = 0; repeat < 2; repeat++) {
+    const response = await request("/api/work/published-pdf/file", { redirect: "manual" });
+    assert.equal(response.status, 301);
+    assert.equal(response.headers.get("location"), "/documents/published-pdf.pdf");
+    assert.equal(response.headers.get("x-robots-tag"), null);
+    assert.equal(response.headers.get("x-counselo-response-cache"), null);
+    await response.arrayBuffer();
+  }
+  assert.equal(await (await request("/documents/published-pdf.txt")).text(), text.text);
+  await writer.mutate(async () => { visible = false; });
+  f.advance(15_001);
+  for (const path of ["/documents/published-pdf.pdf", "/documents/published-pdf.txt", "/documents/unknown.pdf"]) {
+    const response = await request(path);
+    assert.equal(response.status, 404);
+    assert.match(response.headers.get("x-robots-tag")!, /noindex/);
+    await response.arrayBuffer();
+  }
+  await writer.mutate(async () => { visible = true; });
+  f.advance(15_001);
+  bytes = Buffer.from("%PDF-1.7\nReplacement public PDF fixture\n%%EOF");
+  file = { ...file, fileData: bytes.toString("base64"), fileSize: bytes.length, updatedAt: "2026-11-14T00:00:00.000Z" };
+  await files.prime([file]);
+  assert.deepEqual(Buffer.from(await (await request("/documents/published-pdf.pdf")).arrayBuffer()), bytes);
+  const staleText = await request("/documents/published-pdf.txt");
+  assert.equal(staleText.status, 404);
+  await staleText.arrayBuffer();
+  assert.equal(databaseReads, 0, "publication controls and object storage serve documents without PostgreSQL reads");
 });

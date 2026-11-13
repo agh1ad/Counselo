@@ -2,6 +2,19 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { jurisdictionEditorialContent, jurisdictionAdviceForContaminationCheck } from "./jurisdiction-audit-content";
 
+test("shared footer network coverage never hides adjacent wrong-jurisdiction advice", () => {
+  const coverage = [
+    "Your destination for comprehensive online legal services, backed by a strong network of lawyers, law firms and professional partners across Saudi Arabia, the UAE and Syria.",
+    "وجهتك لخدمات قانونية متكاملة عبر الإنترنت، تدعمها شبكة قوية من المحامين ومكاتب المحاماة والشركاء المهنيين في السعودية والإمارات وسوريا.",
+    "Connected professional platforms, complemented by a strong network of lawyers and partners across Saudi Arabia, the UAE and Syria.",
+    "منصات مهنية مترابطة تكملها شبكة قوية من المحامين والشركاء المهنيين في السعودية والإمارات وسوريا.",
+  ].join(" ");
+  assert.doesNotMatch(jurisdictionAdviceForContaminationCheck(coverage), /Saudi|السعودية/);
+  const checked = jurisdictionAdviceForContaminationCheck(`${coverage} Apply Saudi law to the Syrian claim. تطبق القواعد السعودية.`);
+  assert.match(checked, /Apply Saudi law to the Syrian claim/);
+  assert.match(checked, /القواعد السعودية/);
+});
+
 test("country navigation does not masquerade as legal advice for another jurisdiction", () => {
   const html = '<main><h1>Syrian legal consultation</h1><nav aria-label="Jurisdictions"><a href="/sa">Saudi Arabia</a><a href="/sa/ar">السعودية</a></nav><p>Syrian law applies to this assessment.</p></main>';
   const content = jurisdictionEditorialContent(html);
@@ -30,4 +43,12 @@ test("a Saudi intake number is distinct from Saudi legal advice", () => {
   const checked = jurisdictionAdviceForContaminationCheck("Regional intake phone & WhatsApp (Saudi number). Saudi employment rules.");
   assert.doesNotMatch(checked, /Saudi number/);
   assert.match(checked, /Saudi employment rules/);
+});
+
+test("platform country coverage is distinct from neighboring jurisdiction-specific advice", () => {
+  const facts = '<section class="platform-facts platform-facts--embedded"><h3>Countries served / دول ضمن نطاق خدماتنا</h3><dl><dd>Saudi Arabia · Syria · United Arab Emirates</dd><dd>السعودية · سوريا · الإمارات</dd></dl></section>';
+  assert.doesNotMatch(jurisdictionEditorialContent(facts), /Saudi|السعودية/);
+  const content = jurisdictionEditorialContent(`${facts}<section><p>Apply Saudi employment rules in Syria. تطبق القواعد السعودية.</p></section>`);
+  assert.match(content, /Apply Saudi employment rules/);
+  assert.match(content, /القواعد السعودية/);
 });

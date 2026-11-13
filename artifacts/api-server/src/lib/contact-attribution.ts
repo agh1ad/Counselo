@@ -5,7 +5,7 @@ import type { ContactInput } from "./contact-input.js";
 export const LEAD_OUTCOMES = ["new", "qualified", "not_qualified", "engaged", "closed"] as const;
 export type LeadOutcome = typeof LEAD_OUTCOMES[number];
 export interface LeadProgress { status: LeadOutcome; updatedAt: string; }
-export type StoredContactPayload = ContactInput & { leadId?: string; leadProgress?: LeadProgress };
+export type StoredContactPayload = Partial<ContactInput> & { leadId?: string; leadProgress?: LeadProgress };
 
 export function prepareStoredContact(input: ContactInput): StoredContactPayload {
   return { ...input, leadId: randomUUID(), leadProgress: { status: "new", updatedAt: new Date().toISOString() } };
@@ -25,4 +25,15 @@ export function contactAttribution(payload: StoredContactPayload) {
 export function updateLeadProgress(payload: StoredContactPayload, status: unknown): StoredContactPayload | undefined {
   if (!LEAD_OUTCOMES.includes(status as LeadOutcome)) return undefined;
   return { ...payload, leadProgress: { status: status as LeadOutcome, updatedAt: new Date().toISOString() } };
+}
+
+/** Keep the enquiry join ID and sanitized attribution after email delivery,
+ * without retaining the client's identity, narrative or attached documents. */
+export function retainContactAttribution(payload: StoredContactPayload): StoredContactPayload {
+  const safe = contactAttribution(payload);
+  return {
+    ...(safe.leadId ? { leadId: safe.leadId } : {}),
+    ...(safe.acquisition ? { acquisition: safe.acquisition } : {}),
+    ...(payload.leadProgress && safe.progress.updatedAt ? { leadProgress: { status: safe.progress.status, updatedAt: safe.progress.updatedAt } } : {}),
+  };
 }

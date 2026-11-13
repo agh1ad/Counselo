@@ -29,3 +29,8 @@ export * from "./legal-updates-sources.js";
 export * from "./brand";
 
 export * from "./retired-public-routes";
+
+export * from "./portfolio-capabilities";
+export * from "./portfolio-facts";
+
+export * from "./work-jurisdiction";

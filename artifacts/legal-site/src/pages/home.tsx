@@ -1,5 +1,6 @@
 import { regionalServiceDirectoryEntity, COUNSELO_ORGANIZATION, COUNSELO_WEBSITE } from "@workspace/api-zod/browser";
 import { PracticeDirectory } from "@/components/home/practice-directory";
+import { PlatformFacts } from "@/components/legal/platform-facts";
 import { saudiContactHref } from "@/components/home/saudi-consultation-start";
 import { SaudiHomeIntroduction, SaudiHomeStrengths, regionalHomeCopy } from "@/components/home/saudi-home-introduction";
 import { COUNSELO_EXPERIENCE_SCOPE_NOTE, getCounseloYearsOfPractice } from "@/lib/public-claims";
@@ -42,7 +43,7 @@ function RegionalReferenceHero({ h, regionPrefix, isRTL, region }: { h: Translat
       <div className="uae-reference-hero__ornament" aria-hidden="true" />
       <div className="uae-reference-hero__grid">
         <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }} className="uae-reference-hero__copy">
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#d4af60]">{h.hero.badge}</p>
+          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#866523]">{h.hero.badge}</p>
           <h1 id={`${region}-reference-title`}>{saudiCopy.title}</h1>
           <p className="sa-home-hero-lead">{saudiCopy.heroLead}</p>
           <p className="uae-reference-hero__lede">{saudiCopy.heroText}</p>
@@ -95,7 +96,7 @@ export default function Home() {
 
       {/* ── ANSWER-FIRST REGIONAL SUMMARY ── */}
       <SaudiHomeIntroduction isArabic={isRTL} region={region} />
-
+      <PlatformFacts isArabic={isRTL} />
 
       <PracticeDirectory region={region} isArabic={isRTL} variant="home" />
 

@@ -1,4 +1,5 @@
 import { SERVICE_INTAKE_CONTENT } from "./service-intake-content";
+import { siteSectionMeta } from "./site-section-meta";
 
 export const SEARCH_COPY_UPDATED_AT = "2026-09-07";
 
@@ -260,31 +261,5 @@ export function searchIntentMeta(path: string) {
   const region = match[1] as Region;
   const lang = match[2] ? "ar" : "en";
   if (match[4]) return match[3] === "services" ? serviceSearchCopy(match[4], region, lang) : undefined;
-  const country = SEARCH_COUNTRIES[region][lang];
-  const page = match[3] as "services" | "about" | "contact" | undefined;
-  if (page === "about") return {
-    title: lang === "ar" ? `عن كاونسلو وفريقها القانوني | ${country}` : `About CounselO Legal & Our Team | ${country}`,
-    description: lang === "ar"
-      ? `تعرّف على منصة كاونسلو وفريقها القانوني وخدمات الاستشارة ومراجعة المستندات والصياغة في ${country}، وكيف نعد العمل ونسلمه ونتابع معك أونلاين.`
-      : `Meet CounselO and its experienced legal team. Explore online advice, document review and drafting for ${country}, with clear delivery and professional follow-up.`,
-  };
-  if (page === "services") {
-    const descriptions = {
-      sa: { en: "Explore Saudi legal services for companies, contracts, employment, family and disputes. Compare review scope, documents and separately agreed representation.", ar: "استكشف الخدمات القانونية السعودية للشركات والعقود والعمل والأسرة والنزاعات. تعرّف على نطاق المراجعة والمستندات والتمثيل المتفق عليه بصورة مستقلة." },
-      syr: { en: "Explore Syrian legal services for property, family, business and disputes, including enquiries from abroad. Review documents, service scope and local work requirements.", ar: "استكشف الخدمات القانونية السورية للعقارات والأسرة والأعمال والنزاعات، وللمغتربين. تعرّف على المستندات ونطاق الاستشارة ومتطلبات العمل المحلي." },
-      uae: { en: "Explore UAE legal services across corporate, employment, property and family matters. Identify the emirate or free-zone context, documents and consultation scope.", ar: "استكشف الخدمات القانونية الإماراتية للشركات والعمل والعقارات والأسرة. حدد الإمارة أو المنطقة الحرة والمستندات ونطاق الاستشارة المناسب." },
-    };
-    return { title: lang === "ar" ? `دليل الخدمات القانونية في ${country} | كاونسلو للاستشارات القانونية` : `Legal Services Directory in ${country} | CounselO Legal`, description: descriptions[region][lang] };
-  }
-
-  if (page === "contact") return {
-    title: lang === "ar" ? `اطلب استشارة قانونية في ${country} | كاونسلو` : `Request a Legal Consultation in ${country} | CounselO Legal`,
-    description: lang === "ar"
-      ? `أرسل طلب استشارتك في ${country} عبر النموذج. تعرّف على خطوات المراجعة، والاتفاق على النطاق والأتعاب، واستلام الاستشارة ومناقشتها مع فريقنا.`
-      : `Request a legal consultation in ${country}. Send your details through our form, agree the scope and fee, then receive and discuss your advice with our team.`,
-  };
-  return {
-    title: lang === "ar" ? `استشارات قانونية أونلاين في ${country} | كاونسلو للاستشارات القانونية` : `Online legal advice in ${country} | CounselO Legal`,
-    description: lang === "ar" ? `استشارات قانونية في ${country} بشأن العمل والأسرة والعقارات والعقود والشركات. أرسل سؤالك ومستنداتك عبر واتساب أو البريد لتحديد نطاق الاستشارة ورسومها.` : `Online legal advice in ${country} on employment, family, property, contracts and business. Send your question to confirm the consultation scope and fee.`,
-  };
+  return siteSectionMeta(path);
 }

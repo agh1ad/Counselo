@@ -4,7 +4,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI, COOPERATING_OFFICES, COUNSELO_ENTITY_IDS, OMAR_OFFICIAL_PROFILE_URL } from "@workspace/api-zod/browser";
-import { ABOUT_UPDATED, SAUDI_PARTNER_LICENCE, aboutContent, aboutRegions, syrianPartners } from "@/components/about/about-content";
+import { ABOUT_UPDATED, SAUDI_PARTNER_LICENCE, SAUDI_LAWYER_DIRECTORY, aboutContent, aboutRegions, syrianPartners } from "@/components/about/about-content";
+import { EngagementStandards } from "@/components/legal/engagement-standards";
+import { PlatformFacts } from "@/components/legal/platform-facts";
 import "@/components/about/about.css";
 
 const featureIcons = [MonitorSmartphone, UsersRound, Scale, Globe2];
@@ -19,8 +21,8 @@ export default function About() {
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
   const countryCode = region === "uae" ? "AE" : region === "syr" ? "SY" : "SA";
   const description = isRTL
-    ? `تعرّف إلى كاونسلو وشبكتها المهنية في ${local.country}: الاستشارات والصياغة ودعم المنازعات والتنسيق القانوني عبر فريق وشركاء متمرسين.`
-    : `Discover CounselO's experienced legal team and professional network for ${local.country}: consultations, drafting, dispute support and coordinated legal services.`;
+    ? `تعرّف على خدمات كاونسلو في ${local.country}: الاستشارة والصياغة والاستراتيجية القانونية ودعم القضايا من البسيطة إلى المعقدة، والتمثيل عبر شركاء مرخصين.`
+    : `Meet CounselO's legal team for ${local.country}: advice, drafting and case strategy from everyday questions to complex disputes, with licensed partner representation.`;
   const whatsapp = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL
     ? `مرحباً كاونسلو، أود مناقشة مسألة قانونية في ${local.country} وتحديد نطاق العمل والأتعاب.`
     : `Hello CounselO, I would like to discuss a legal matter in ${local.country} and confirm the scope and fee.`)}`;
@@ -36,6 +38,7 @@ export default function About() {
       "name": c.label,
       "url": `https://counselo-legal.com${regionPath}/about`,
       "description": description,
+      "dateModified": ABOUT_UPDATED,
       "mainEntity": { "@id": COUNSELO_ENTITY_IDS.organization },
       "inLanguage": `${language}-${countryCode}`,
       "breadcrumb": {
@@ -48,6 +51,17 @@ export default function About() {
     },
     ...(region === "sa" ? [{ "@context": "https://schema.org", ...COOPERATING_OFFICES.saudi }] : []),
     ...(region === "syr" ? [COOPERATING_OFFICES.alBaghdadi, COOPERATING_OFFICES.syriaAbdullah].map(office => ({ "@context": "https://schema.org", ...office })) : []),
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `https://counselo-legal.com${regionPath}/about#faq`,
+      "inLanguage": `${language}-${countryCode}`,
+      "mainEntity": c.faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": { "@type": "Answer", "text": faq.answer },
+      })),
+    },
   ];
 
   return <div className="about-platform-page" dir={isRTL ? "rtl" : "ltr"}>
@@ -67,6 +81,7 @@ export default function About() {
         <aside className="about-hero__promise" aria-labelledby="about-promise-title">
           <h2 id="about-promise-title">{c.heroSideTitle}</h2>
           <ul>{c.heroServices.map(text => <li key={text}><Check size={19} aria-hidden="true" /><span>{text}</span></li>)}</ul>
+          <Link href={`${isRTL ? "/ar" : ""}/our-work`} className="about-hero__services about-hero__work">{c.workLink}<Arrow size={17} aria-hidden="true" /></Link>
         </aside>
       </div>
     </section>
@@ -88,6 +103,10 @@ export default function About() {
         <div><p>{c.team}</p><p>{c.teamSupport}</p></div>
       </div>
       <div className="about-story__row">
+        <h3>{c.complexTitle}</h3>
+        <div><p>{c.complexText}</p></div>
+      </div>
+      <div className="about-story__row">
         <h3>{c.servicesTitle}</h3>
         <div>
           <p>{c.servicesIntro}</p>
@@ -103,7 +122,14 @@ export default function About() {
         <h3>{c.standardsTitle}</h3>
         <div><p>{c.standards}</p><p>{c.privacy}</p><Link href={`${regionPath}/privacy-policy`} className="about-text-link">{c.privacyLink}<Arrow size={17} aria-hidden="true" /></Link></div>
       </div>
+      <div className="about-story__row">
+        <h3>{c.workTitle}</h3>
+        <div><p>{c.workText}</p><Link href={`${isRTL ? "/ar" : ""}/our-work`} className="about-text-link">{c.workLink}<Arrow size={17} aria-hidden="true" /></Link></div>
+      </div>
     </section>
+
+    <div className="about-shell about-platform-proof"><PlatformFacts isArabic={isRTL} embedded /></div>
+    <div className="about-shell"><EngagementStandards isArabic={isRTL} regionPath={regionPath} /></div>
 
     <section className="about-founder" aria-labelledby="about-founder-heading">
       <div className="about-shell about-founder__grid">
@@ -125,6 +151,10 @@ export default function About() {
         <h2 id="about-partner-heading">{local.partnerTitle}</h2>
       </div>{region === "sa" && <p className="about-partner__licence">{c.licenceLabel}<strong dir="ltr">{SAUDI_PARTNER_LICENCE}</strong></p>}</div>
       <p>{local.partnerText}</p>
+      {region === "sa" && <div className="about-partner__verification">
+        <a className="about-text-link" href={SAUDI_LAWYER_DIRECTORY[language]} target="_blank" rel="noopener noreferrer">{c.directoryLabel}<Arrow size={17} aria-hidden="true" /></a>
+        <p>{c.directoryNote}</p>
+      </div>}
       {region === "syr" && <ul className="about-partner__offices">
         {syrianPartners[language].map(partner => <li key={partner.name}>
           <h3>{partner.name}</h3>
@@ -132,6 +162,17 @@ export default function About() {
           {partner.licence && <p>{isRTL ? "رقم الترخيص: " : "Licence number: "}<strong><bdi dir="ltr">{partner.licence}</bdi></strong></p>}
         </li>)}
       </ul>}
+    </section>
+
+    <section id="faq" className="about-faq about-shell" aria-labelledby="about-faq-heading">
+      <h2 id="about-faq-heading">{c.faqTitle}</h2>
+      <div className="about-faq__answers">
+        {c.faqs.map(faq => <article key={faq.question}>
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+          {faq.link && <Link href={faq.link.href} className="about-text-link">{faq.link.label}<Arrow size={17} aria-hidden="true" /></Link>}
+        </article>)}
+      </div>
     </section>
 
     <section className="about-closing about-shell" aria-labelledby="about-contact-heading">

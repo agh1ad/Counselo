@@ -9,6 +9,7 @@ import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { COUNSELO_ENTITY_IDS } from "@workspace/api-zod/browser";
 import { fetchPublicJson } from "@/lib/public-api";
+import { ContentRecovery } from "@/components/content/content-recovery";
 import { blogPath } from "@workspace/api-zod/browser";
 
 interface ApiPost {
@@ -59,12 +60,12 @@ export default function Blog() {
   const articlePath = (post: ApiPost) =>
     blogPath(post.slug, lang === "ar" ? "ar" : "en");
 
-  const { data: posts = [], isLoading } = useQuery<ApiPost[]>({
+  const { data: posts = [], isLoading, isError, isFetching, refetch } = useQuery<ApiPost[]>({
     queryKey: ["blog-posts"],
     queryFn: () => fetchPublicJson<ApiPost[]>("/api/blog/posts/discovery"),
     // Render the deployment snapshot immediately, but do not let it suppress
     // the live request for posts published after that deployment.
-    placeholderData: () =>
+    initialData: () =>
       typeof window !== "undefined" ? window.__SSR_POSTS__ : undefined,
     staleTime: 0,
     refetchOnMount: "always",
@@ -129,12 +130,12 @@ export default function Blog() {
             "@context": "https://schema.org",
             "@type": ["CollectionPage", "Blog"],
             "@id": `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}#collection`,
-            name: isRTL ? "رؤى كاونسلو للاستشارات القانونية العالمية" : "CounselO Legal Global Legal Insights",
+            name: isRTL ? "مقالات كاونسلو القانونية" : "CounselO Legal Articles",
             description: isRTL
               ? "مقالات قانونية وأدلة عملية تغطي قوانين السعودية وسوريا والإمارات"
               : "A shared legal publication covering Saudi, Syrian and UAE law",
             url: `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}`,
-            isPartOf: { "@id": `https://counselo-legal.com${isRTL ? "/ar/legal-library" : "/legal-library"}#webpage` },
+            isPartOf: { "@id": COUNSELO_ENTITY_IDS.website },
             publisher: {
               "@type": "Organization",
               "@id": COUNSELO_ENTITY_IDS.organization,
@@ -165,18 +166,12 @@ export default function Blog() {
                 "@type": "ListItem",
                 position: 1,
                 name: isRTL ? "الرئيسية" : "Home",
-                item: "https://counselo-legal.com/",
+                item: `https://counselo-legal.com${isRTL ? "/ar" : "/"}`,
               },
               {
                 "@type": "ListItem",
                 position: 2,
-                name: isRTL ? "المكتبة القانونية" : "Legal Library",
-                item: `https://counselo-legal.com${isRTL ? "/ar/legal-library" : "/legal-library"}`,
-              },
-              {
-                "@type": "ListItem",
-                position: 3,
-                name: isRTL ? "المدونة" : "Blog",
+                name: isRTL ? "المقالات القانونية" : "Legal Articles",
                 item: `https://counselo-legal.com${isRTL ? "/blog/ar" : "/blog"}`,
               },
             ],
@@ -228,10 +223,11 @@ export default function Blog() {
       <div className="premium-content-shell pt-6">
         <label htmlFor="article-search" className="block font-semibold mb-2">{isRTL ? "ابحث في المقالات" : "Search articles"}</label>
         <input id="article-search" type="search" value={search} onChange={event => setSearch(event.target.value)} className="reading-search" placeholder={isRTL ? "الموضوع أو الدولة أو كلمة من العنوان" : "Topic, country or title"} />
-        <p role="status" className="mt-2 text-sm text-muted-foreground">{isRTL ? `${matchingPosts.length} مقال` : `${matchingPosts.length} articles`}</p>
+        {!isLoading && (!isError || posts.length > 0) && <p role="status" className="mt-2 text-sm text-muted-foreground">{isRTL ? `${matchingPosts.length} مقال` : `${matchingPosts.length} articles`}</p>}
       </div>
       {/* Posts Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {isError && <ContentRecovery isArabic={isRTL} retry={() => { void refetch(); }} retrying={isFetching} />}
         {isLoading ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3].map((i) => (
@@ -241,7 +237,7 @@ export default function Blog() {
               />
             ))}
           </div>
-        ) : posts.length === 0 ? (
+        ) : isError && posts.length === 0 ? null : posts.length === 0 ? (
           <div className="text-center py-20">
             <BookOpen className="h-10 w-10 text-muted-foreground mx-auto mb-4 opacity-30" />
             <p className="text-muted-foreground text-lg">{ui.empty}</p>
