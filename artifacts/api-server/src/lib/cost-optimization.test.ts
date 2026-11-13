@@ -52,15 +52,16 @@ test("retired pages bypass caches while active public pages keep publication cac
   assert.match(app, /if \(req\.headers\.authorization\)/);
 });
 
-test("approved public documents and legacy attachments are cached only after public approval checks", () => {
+test("published documents use validated snapshot caching and legacy attachments retain canonical routing", () => {
   const app = source("artifacts/api-server/src/app.ts");
   const policy = source("artifacts/api-server/src/lib/public-cache-policy.ts");
   const work = source("artifacts/api-server/src/routes/work.ts");
+  const publishedContent = source("artifacts/api-server/src/lib/published-content.ts");
   assert.match(policy, /function isCacheablePublicDocumentPath/);
   assert.ok(policy.includes('return /^\\/documents\\/[^/]+\\.pdf$/.test(path);'));
-  assert.match(policy, /work\\\/\[\^\/\]\+\\\/file/);
   assert.match(work, /publishedWorkFileBySlug/);
-  assert.match(work, /publishedWork\(\)/);
+  assert.match(work, /createWorkAttachmentHandler\(publishedWorkFileBySlug\)/);
+  assert.match(publishedContent, /await publishedWorkBySlug\(slug\)/);
   assert.ok(
     app.indexOf('cachePublicResponses("document", isCacheablePublicDocumentPath)') <
       app.indexOf('app.use("/documents", createPublicDocumentsRouter'),

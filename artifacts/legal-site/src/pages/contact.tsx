@@ -1,10 +1,10 @@
 import { ConsultationSteps } from "@/components/contact/consultation-steps";
+import { createContactFormSchema, type ContactFormValues } from "@/components/contact/contact-form-schema";
 import { urgentPath } from "@/lib/urgent-legal-assistance";
 import * as m from "framer-motion/m";
 import { Link } from "wouter";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { useState, useRef, useCallback, useMemo, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -26,16 +26,6 @@ const MAX_FILES = 10;
 const MAX_FILE_SIZE_MB = 5;
 const MAX_TOTAL_SIZE_MB = 7;
 const ACCEPTED = ["image/jpeg", "image/png", "image/gif", "image/webp", "application/pdf"];
-
-const createFormSchema = (isArabic: boolean) => z.object({
-  name: z.string().min(2, isArabic ? "يرجى إدخال الاسم الكامل." : "Please enter your full name."),
-  email: z.string().email(isArabic ? "يرجى إدخال بريد إلكتروني صحيح." : "Please enter a valid email address."),
-  phone: z.string().min(10, isArabic ? "يرجى إدخال رقم هاتف صحيح مع رمز الدولة." : "Please enter a valid phone number with country code."),
-  service: z.string().min(1, isArabic ? "يرجى اختيار المجال القانوني الأقرب لمسألتك." : "Please select the legal service closest to your matter."),
-  message: z.string().min(10, isArabic ? "يرجى وصف المسألة في 10 أحرف على الأقل." : "Please describe your matter in at least 10 characters."),
-});
-
-type ContactFormValues = z.infer<ReturnType<typeof createFormSchema>>;
 
 function FileIcon({ type }: { type: string }) {
   if (type === "application/pdf") return <FileText className="h-4 w-4 text-primary shrink-0" />;
@@ -85,6 +75,11 @@ export default function Contact() {
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
+  const submissionLock = useRef(false);
+  const dismissSubmissionToast = useRef<(() => void) | undefined>(undefined);
+  const dismissAttachmentToast = useRef<(() => void) | undefined>(undefined);
+  const idempotencyKey = useRef<string | undefined>(undefined);
+  const successRef = useRef<HTMLElement>(null);
 
   const [formReady, setFormReady] = useState(false);
   useEffect(() => { setFormReady(true); }, []);
@@ -105,7 +100,10 @@ export default function Contact() {
   const [submissionError, setSubmissionError] = useState("");
   const [reference, setReference] = useState("");
   const [prefillService, setPrefillService] = useState("");
-  const contactFormSchema = useMemo(() => createFormSchema(isRTL), [isRTL]);
+  const contactFormSchema = useMemo(() => createContactFormSchema(isRTL, serviceOptions.map(option => option.value)), [isRTL, serviceOptions]);
+  useEffect(() => {
+    if (wasSent) successRef.current?.focus();
+  }, [wasSent]);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -117,6 +115,12 @@ export default function Contact() {
     if (serviceOptions.some((option) => option.value === requestedService)) {
       setPrefillService(requestedService);
       form.setValue("service", requestedService);
+    } else {
+      setPrefillService("");
+      const selectedService = form.getValues("service");
+      if (selectedService && !serviceOptions.some(option => option.value === selectedService)) {
+        form.setValue("service", "", { shouldValidate: form.formState.isSubmitted });
+      }
     }
   }, [form, serviceOptions]);
 
@@ -129,7 +133,7 @@ export default function Contact() {
     let totalSize = combined.reduce((sum, file) => sum + file.size, 0);
     Array.from(incoming).forEach((file) => {
       if (!ACCEPTED.includes(file.type)) { skipped.push(file.name); return; }
-      if (file.size > MAX_FILE_SIZE_MB * 1024 * 1024) { skipped.push(file.name); return; }
+      if (file.size <= 0 || file.size > MAX_FILE_SIZE_MB * 1024 * 1024) { skipped.push(file.name); return; }
       if (combined.length >= MAX_FILES) { skipped.push(file.name); return; }
       if (totalSize + file.size > MAX_TOTAL_SIZE_MB * 1024 * 1024) { skipped.push(file.name); return; }
       combined.push(file);
@@ -137,13 +141,13 @@ export default function Contact() {
     });
     setFiles(combined);
     if (skipped.length > 0) {
-      toast({
+      dismissAttachmentToast.current = toast({
         title: isRTL ? "بعض الملفات لم تُضَف" : "Some files were skipped",
         description: isRTL
-          ? `${skipped.join(", ")} — الحد الأقصى 5 ميغابايت للملف و7 ميغابايت إجمالاً`
-          : `${skipped.join(", ")} — maximum 5 MB per file and 7 MB total`,
+          ? `${skipped.join(", ")} — اختر ملفات PDF أو صوراً غير فارغة، بحد أقصى 10 ملفات و5 ميغابايت للملف و7 ميغابايت إجمالاً.`
+          : `${skipped.join(", ")} — choose nonempty PDFs or supported images: up to 10 files, 5 MB per file and 7 MB total.`,
         variant: "destructive",
-      });
+      }).dismiss;
     }
   }, [files, isRTL, toast]);
 
@@ -152,19 +156,30 @@ export default function Contact() {
   };
 
   async function onSubmit(values: ContactFormValues) {
+    if (submissionLock.current) return;
+    submissionLock.current = true;
+    dismissSubmissionToast.current?.();
+    dismissAttachmentToast.current?.();
     setIsSubmitting(true);
     setSubmissionError("");
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 45_000);
     try {
+      idempotencyKey.current ??= window.crypto.randomUUID();
       const attachments = await Promise.all(files.map(async (file) => ({
         name: file.name,
         type: file.type,
-        data: await fileToBase64(file),
+        data: await fileToBase64(file).catch(() => {
+          throw new Error(isRTL ? "تعذر قراءة أحد المرفقات. أعد اختيار الملف وحاول مرة أخرى." : "An attachment could not be read. Select the file again and retry.");
+        }),
       })));
       const response = await fetch("/api/contact", {
         method: "POST",
+        signal: controller.signal,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...values,
+          idempotencyKey: idempotencyKey.current,
           region,
           language: isRTL ? "ar" : "en",
           acquisition: getAcquisitionContext(),
@@ -190,6 +205,7 @@ export default function Contact() {
 
       setReference(result.reference);
       setWasSent(true);
+      idempotencyKey.current = undefined;
       trackEvent("generate_lead", window.location.pathname, {
         form_name: "consultation",
         lead_id: result.leadId,
@@ -206,16 +222,24 @@ export default function Contact() {
         form_name: "consultation",
         region,
       });
-      const message = error instanceof Error ? error.message : (isRTL
-        ? "تعذر إرسال طلبك. يرجى المحاولة مرة أخرى."
-        : "We could not submit your request. Please try again.");
+      const message = controller.signal.aborted
+        ? (isRTL
+          ? "استغرق تأكيد الاستلام وقتاً أطول من المتوقع. احتفظنا ببياناتك؛ أعد المحاولة لاسترجاع تأكيد الطلب، أو تواصل معنا مباشرة."
+          : "Confirmation is taking longer than expected. Your entries are still here; retry to recover your receipt, or contact us directly.")
+        : error instanceof TypeError
+          ? (isRTL ? "تعذر الاتصال بالخدمة. تحقق من اتصال الإنترنت وأعد المحاولة؛ بياناتك ما زالت في النموذج." : "We could not reach the service. Check your connection and retry; your entries are still in the form.")
+          : error instanceof Error ? error.message : (isRTL
+            ? "تعذر إرسال طلبك. يرجى المحاولة مرة أخرى."
+            : "We could not submit your request. Please try again.");
       setSubmissionError(message);
-      toast({
-        title: isRTL ? "لم يتم إرسال الطلب" : "Request not submitted",
+      dismissSubmissionToast.current = toast({
+        title: isRTL ? "تعذر تأكيد استلام الطلب" : "Receipt could not be confirmed",
         description: message,
         variant: "destructive",
-      });
+      }).dismiss;
     } finally {
+      window.clearTimeout(timeout);
+      submissionLock.current = false;
       setIsSubmitting(false);
     }
   }
@@ -306,7 +330,7 @@ export default function Contact() {
             <div className="premium-hero-rule mx-auto mb-8" />
             <p className="text-xl text-white/75 max-w-2xl mx-auto leading-relaxed">{isRTL ? "تواصل مع فريقنا القانوني المتمرس من منزلك، دون زيارة مكتب. أرسل سؤالك أو مستنداتك للمشورة والصياغة، أو اطلب التمثيل القانوني عبر شركائنا ومحامينا المرخصين. حدد الدولة وأي موعد قريب لنبدأ مراجعة طلبك." : "Connect with our experienced legal team from home, without an office visit. Send your question or documents for advice and drafting, or request legal representation through our licensed partners and lawyers. Include the country and any deadline so we can review your request."}</p>
             {<div className="mt-7 flex flex-wrap justify-center gap-4">
-              <a href="#consultation-request" className="inline-flex min-h-11 items-center bg-[#d4af60] px-5 py-3 font-semibold text-[#003d22] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">{isRTL ? "انتقل إلى نموذج الطلب" : "Go to the request form"}</a>
+              <a href={wasSent ? "#consultation-receipt" : "#consultation-request"} className="inline-flex min-h-11 items-center bg-[#d4af60] px-5 py-3 font-semibold text-[#003d22] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">{wasSent ? (isRTL ? "عرض تأكيد الطلب" : "View your confirmation") : (isRTL ? "انتقل إلى نموذج الطلب" : "Go to the request form")}</a>
               <a href={whatsappUrl} data-cta="whatsapp" data-conversion-position="sa-contact-hero" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex min-h-11 items-center border border-white/50 px-5 py-3 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">{isRTL ? "ابدأ عبر واتساب" : "Start on WhatsApp"}</a>
             </div>}
           </m.div>
@@ -317,7 +341,7 @@ export default function Contact() {
 
       {/* Success screen */}
       {wasSent && (
-        <section className="py-24 bg-background">
+        <section id="consultation-receipt" ref={successRef} tabIndex={-1} role="status" aria-labelledby="consultation-success-heading" className="py-24 bg-background scroll-mt-28">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
             <m.div
               initial={false}
@@ -329,7 +353,7 @@ export default function Contact() {
                 <CheckCircle className="h-10 w-10 text-primary" />
               </div>
               <div className="space-y-3">
-                <h2 className="text-3xl font-serif font-bold text-foreground">
+                <h2 id="consultation-success-heading" className="text-3xl font-serif font-bold text-foreground">
                   {isRTL ? "شكراً لتواصلك معنا!" : "Thank You!"}
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
@@ -338,8 +362,8 @@ export default function Contact() {
                     : "Your consultation request has been received. CounselO Legal targets a professional response within 24 hours, depending on the matter, the details provided and service availability."}
                 </p>
                 {reference && (
-                  <p className="text-sm font-semibold text-primary" dir="ltr">
-                    {isRTL ? "رقم الطلب:" : "Consultation reference:"} {reference}
+                  <p className="text-sm font-semibold text-primary break-words">
+                    {isRTL ? "رقم الطلب:" : "Consultation reference:"} <bdi dir="ltr" className="mt-2 block break-all">{reference}</bdi>
                   </p>
                 )}
               </div>
@@ -367,7 +391,9 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="text-foreground font-medium mb-1">{label}</h4>
-                        <p className="text-muted-foreground leading-relaxed whitespace-pre-line" dir={ltr ? "ltr" : undefined}>{value}</p>
+                        {Icon === Phone || Icon === Mail
+                          ? <a href={Icon === Phone ? "tel:+966594850247" : "mailto:info@counselo-legal.com"} className="text-muted-foreground leading-relaxed underline underline-offset-4 break-all" dir="ltr">{value}</a>
+                          : <p className="text-muted-foreground leading-relaxed whitespace-pre-line" dir={ltr ? "ltr" : undefined}>{value}</p>}
                       </div>
                     </div>
                   ))}
@@ -391,7 +417,7 @@ export default function Contact() {
                     <Link href={urgentPath(isRTL, region)} className="mt-3 inline-block font-semibold underline">{isRTL ? "تواصل لطلب مساعدة قانونية عاجلة" : "Contact the team for urgent legal assistance"}</Link>
                   </aside>}
                   <form id="consultation-form" name="consultation" noValidate onSubmit={form.handleSubmit(onSubmit, () => trackEvent("form_submit_error", window.location.pathname, { form_name: "consultation" }))} aria-busy={!formReady || isSubmitting}>
-                    <fieldset disabled={!formReady} className="m-0 min-w-0 space-y-6 border-0 p-0">
+                    <fieldset disabled={!formReady || isSubmitting} className="m-0 min-w-0 space-y-6 border-0 p-0">
                     <div className="sr-only" aria-hidden="true">
                       <label htmlFor="contact-website">Website</label>
                       <input
@@ -440,7 +466,7 @@ export default function Contact() {
                             value={field.value || prefillService}
                           >
                             <FormControl>
-                              <SelectTrigger aria-required="true" className="border-border"><SelectValue placeholder={f.servicePlaceholder} /></SelectTrigger>
+                              <SelectTrigger aria-required="true" className="border-border data-[placeholder]:text-foreground"><SelectValue placeholder={f.servicePlaceholder} /></SelectTrigger>
                             </FormControl>
                             <SelectContent>
                               {serviceOptions.map((opt) => (
@@ -456,7 +482,7 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel className="text-foreground font-medium">{f.messageLabel}</FormLabel>
                         <FormControl>
-                          <Textarea required aria-required="true" maxLength={5000} placeholder={f.messagePlaceholder} className="min-h-[140px] border-border focus:border-primary resize-none" {...field} />
+                          <Textarea required aria-required="true" maxLength={5000} placeholder={f.messagePlaceholder} className="min-h-[140px] border-border focus:border-primary resize-y" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -498,8 +524,8 @@ export default function Contact() {
                               <button
                                 type="button"
                                 onClick={() => removeFile(idx)}
-                                className="text-muted-foreground hover:text-destructive transition-colors shrink-0"
-                                aria-label={f.uploadRemove}
+                                className="min-h-11 min-w-11 flex items-center justify-center text-muted-foreground hover:text-destructive transition-colors shrink-0"
+                                aria-label={`${f.uploadRemove}: ${file.name}`}
                               >
                                 <X className="h-4 w-4" />
                               </button>
@@ -532,7 +558,7 @@ export default function Contact() {
                       disabled={isSubmitting}
                       className="w-full h-auto min-h-12 whitespace-normal py-6 text-lg rounded-none bg-primary text-white hover:bg-primary/90"
                     >
-                      {isSubmitting && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
+                      {isSubmitting && <Loader2 className="me-2 h-5 w-5 animate-spin" aria-hidden="true" />}
                       {isSubmitting
                         ? (isRTL ? "جارٍ إرسال الطلب..." : "Submitting…")
                         : f.submitBtn}
@@ -540,6 +566,10 @@ export default function Contact() {
                     <p className="text-xs text-muted-foreground text-center">{f.disclaimer}</p>
                     </fieldset>
                   </form>
+                  <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm">
+                    <a href="mailto:info@counselo-legal.com" data-conversion-position="contact-form" className="inline-flex min-h-11 items-center text-primary underline underline-offset-4">{isRTL ? "تواصل بالبريد الإلكتروني" : "Contact by email"}</a>
+                    <a href={whatsappUrl} data-conversion-position="contact-form" className="inline-flex min-h-11 items-center text-primary underline underline-offset-4">{isRTL ? "تواصل عبر واتساب" : "Contact on WhatsApp"}</a>
+                  </div>
                 </Form>
               </m.div>
             </div>

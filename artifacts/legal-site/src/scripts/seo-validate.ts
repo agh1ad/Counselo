@@ -9,6 +9,9 @@
  */
 
 import { jurisdictionEditorialContent, jurisdictionAdviceForContaminationCheck } from "../lib/jurisdiction-audit-content";
+import { readJsonLd, auditStructuredData, schemaTypes as typesOfSchema } from "../lib/structured-data-audit";
+import { siteSectionMeta } from "../lib/site-section-meta";
+import { homepageContent } from "../components/home/homepage-content";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -86,20 +89,6 @@ function h1s(html: string): string[] {
   let m: RegExpExecArray | null;
   while ((m = re.exec(html)) !== null) {
     out.push(decode(m[1].replace(/<[^>]+>/g, "").trim()));
-  }
-  return out;
-}
-
-function schemas(html: string): object[] {
-  const re = /<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi;
-  const out: object[] = [];
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(html)) !== null) {
-    try {
-      out.push(JSON.parse(m[1]));
-    } catch {
-      /* skip malformed */
-    }
   }
   return out;
 }
@@ -210,6 +199,22 @@ function validatePage(filepath: string): PageResult {
   if ([...html.matchAll(/<link\b[^>]*\brel="canonical"/gi)].length !== 1) issues.push({ severity: "error", rule: "canonical-count", detail: "An indexable page must have exactly one canonical link" });
   const ogTitle = meta(html, "property", "og:title");
   const ogDesc = meta(html, "property", "og:description");
+  const sectionMeta = route === "/" || route === "/ar" ? homepageContent[isAr ? "ar" : "en"] : siteSectionMeta(route);
+  if (sectionMeta && (t !== sectionMeta.title || desc !== sectionMeta.description)) {
+    issues.push({ severity: "error", rule: "section-metadata-mismatch", detail: "Rendered section title and description must match the current bilingual page identity" });
+  }
+  if (sectionMeta) {
+    const prefix = route.match(/^\/(?:sa|syr|uae)(?:\/ar)?/)?.[0];
+    const expectedLinks = prefix
+      ? [prefix, `${prefix}/services`, `${prefix}/contact`, `${prefix}/about`]
+      : [isAr ? "/ar" : "/", `${isAr ? "/ar" : ""}/our-work`, `${isAr ? "/ar" : ""}/legal-library`];
+    const header = html.match(/<header\b[^>]*>([\s\S]*?)<\/header>/i)?.[1] ?? "";
+    const navigation = header.match(/<nav\b[^>]*>([\s\S]*?)<\/nav>/i)?.[1] ?? "";
+    const actualLinks = [...navigation.matchAll(/<a\b[^>]*\bhref="([^"]*)"/gi)].map(match => decode(match[1]));
+    if (JSON.stringify(actualLinks) !== JSON.stringify(expectedLinks)) {
+      issues.push({ severity: "error", rule: "section-navigation-hierarchy", detail: `Primary navigation must link to ${expectedLinks.join(", ")} in order; found ${actualLinks.join(", ") || "no links"}` });
+    }
+  }
 
   if (!t)
     issues.push({
@@ -338,30 +343,12 @@ function validatePage(filepath: string): PageResult {
     });
 
   // ── structured data ──
-  const sc = schemas(html);
-  const schemaTypes = [...new Set(schemaNodes(sc).flatMap(node => typeof node["@type"] === "string" ? [node["@type"]] : Array.isArray(node["@type"]) ? node["@type"] as string[] : []))];
+  const parsedSchemas = readJsonLd(html);
+  const sc = parsedSchemas.nodes.map(node => node.value);
+  const schemaTypes = [...new Set(sc.flatMap(typesOfSchema))];
+  issues.push(...auditStructuredData(parsedSchemas, canon, route).map(issue => ({ ...issue, severity: "error" as const })));
   issues.push(...validateSchemaSemantics(sc, route).map(issue => ({ severity: "error" as const, ...issue })));
-  const webPageSchemas = sc.filter((schema: any) => schema?.["@type"] === "WebPage");
-  for (const value of webPageSchemas) {
-    const schema = value as { url?: string; "@id"?: string };
-    if (schema.url && schema.url !== canon) issues.push({ severity: "error", rule: "webpage-schema-canonical-mismatch", detail: `WebPage URL ${schema.url} differs from canonical ${canon}` });
-    if (schema["@id"] && schema["@id"].split("#")[0] !== canon) issues.push({ severity: "error", rule: "webpage-id-canonical-mismatch", detail: `WebPage @id ${schema["@id"]} differs from canonical ${canon}` });
-  }
-  if (webPageSchemas.some((schema: any) => schema["@context"] !== "https://schema.org"))
-    issues.push({
-      severity: "error",
-      rule: "webpage-schema-context-missing",
-      detail: "Standalone WebPage JSON-LD must declare https://schema.org context",
-    });
-  const hasBreadcrumbSchema = sc.some((schema: any) => {
-    const visit = (value: unknown): boolean => {
-      if (!value || typeof value !== "object") return false;
-      if (Array.isArray(value)) return value.some(visit);
-      const node = value as Record<string, unknown>;
-      return node["@type"] === "BreadcrumbList" || Object.values(node).some(visit);
-    };
-    return visit(schema);
-  });
+  const hasBreadcrumbSchema = schemaTypes.includes("BreadcrumbList");
   if (sc.length === 0)
     issues.push({
       severity: "warn",

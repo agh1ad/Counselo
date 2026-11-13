@@ -1,5 +1,6 @@
 import { isRetiredPublicPath, retiredPageHtml, RETIRED_RESPONSE_HEADERS } from "@workspace/api-zod";
 import { createPublicDocumentsRouter } from "./lib/public-work-documents.js";
+import { adminLoginLimiter } from "./middlewares/admin-login.js";
 import express, { type Express } from "express";
 import cors from "cors";
 import pinoHttp from "pino-http";
@@ -87,6 +88,8 @@ app.post(
   express.text({ type: "application/json", limit: "256kb" }),
   handleResendWebhook,
 );
+// Rate-limit sign-in before body parsing; editor uploads keep their separate size limit.
+app.post("/api/admin/auth", adminLoginLimiter, express.json({ limit: "4kb", type: () => true }));
 app.use(express.json({ limit: "12mb" }));
 app.use(express.urlencoded({ extended: true, limit: "12mb" }));
 
@@ -111,7 +114,7 @@ app.use("/api", (req, res, next) => {
 app.use("/api", cachePublicResponses("api", isDatabaseBackedPublicApiPath));
 app.use("/api", router);
 
-// Approved public documents are immutable within a publication epoch. Keep
+// Valid published documents are immutable within a publication epoch. Keep
 // client-facing no-store headers, but avoid reloading PDF bytes from
 // PostgreSQL after the first verified response. Work mutations rotate the
 // publication namespace before cached documents can be reused.

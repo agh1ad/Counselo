@@ -1,8 +1,8 @@
 export const homepageContent = {
   en: {
-    title: "CounselO Legal | Online Legal Consultation — Saudi Arabia, Syria & UAE",
+    title: "CounselO Legal | Legal Services in Saudi Arabia, Syria & UAE",
     description:
-      "Comprehensive online legal support backed by a strong network of lawyers and professional partners across Saudi Arabia, the UAE and Syria.",
+      "Legal advice, contracts and complex disputes in Saudi Arabia, Syria and the UAE. CounselO coordinates your legal work and representation through licensed partners.",
     nav: ["About", "Our services", "Jurisdictions", "Our process", "Contact"],
     h1: "Online Legal Consultation for Saudi Arabia, Syria & the UAE",
     heroSummary: "Understand your legal options, review a document or plan your next step. Receive written guidance in Arabic or English, with the scope, fee and timing agreed before paid work begins.",
@@ -134,9 +134,9 @@ export const homepageContent = {
     skip: "Skip to main content",
   },
   ar: {
-    title: "كاونسلو للاستشارات القانونية | استشارات قانونية إلكترونية للسعودية وسوريا والإمارات",
+    title: "كاونسلو | خدمات قانونية في السعودية وسوريا والإمارات",
     description:
-      "خدمات قانونية متكاملة أونلاين تدعمها شبكة قوية من المحامين والشركاء المهنيين في السعودية والإمارات وسوريا.",
+      "استشارات وعقود وقضايا معقدة في السعودية وسوريا والإمارات. تنسق كاونسلو التحليل والصياغة والمتابعة والتمثيل القانوني عبر شركاء ومحامين محليين مرخصين.",
     nav: ["عن كاونسلو للاستشارات القانونية", "خدماتنا", "الاختصاصات", "آلية العمل", "تواصل معنا"],
     h1: "استشارات قانونية إلكترونية للسعودية وسوريا والإمارات",
     heroSummary: "افهم خياراتك القانونية، أو راجع مستنداً، أو حدد خطوتك التالية. احصل على إرشاد مكتوب بالعربية أو الإنجليزية، بعد الاتفاق على نطاق الخدمة والرسوم والوقت قبل بدء العمل المدفوع.",

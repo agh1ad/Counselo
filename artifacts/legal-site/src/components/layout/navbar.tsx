@@ -38,7 +38,7 @@ export function Navbar() {
     services: "الخدمات القانونية", servicesHint: "اختر المجال القانوني الذي تحتاج إليه.", all: "جميع الخدمات",
     search: "ابحث عن خدمة قانونية", placeholder: "الأسرة، العقود، العمل…", clear: "مسح البحث",
     noResults: "لم نجد خدمة بهذا الاسم.", reset: "عرض جميع الخدمات", country: "اختر الدولة", countryHint: "خدمات قانونية بحسب اختصاصك.",
-    library: "المكتبة القانونية", articles: "المقالات القانونية", work: "نماذج الأعمال", about: "عن كاونسلو", contact: "تواصل معنا",
+    library: "المكتبة القانونية", articles: "المقالات القانونية", work: "أعمالنا", about: "من نحن", contact: "تواصل معنا",
     consult: "ابدأ استشارتك", urgent: "مساعدة قانونية عاجلة", online: "استشارات قانونية أونلاين", global: "رؤى عالمية",
     language: "English — التبديل إلى الإنجليزية", found: "النتائج",
   } : {
@@ -47,17 +47,20 @@ export function Navbar() {
     services: "Legal services", servicesHint: "Find the right practice area for your matter.", all: "All services",
     search: "Find a legal service", placeholder: "Family, contracts, employment…", clear: "Clear search",
     noResults: "No services match your search.", reset: "Show all services", country: "Choose your country", countryHint: "Legal services for your jurisdiction.",
-    library: "Legal library", articles: "Legal articles", work: "Our work", about: "About CounselO", contact: "Contact us",
+    library: "Legal Library", articles: "Legal Articles", work: "Our Work", about: "About Us", contact: "Contact Us",
     consult: "Start a consultation", urgent: "Urgent legal assistance", online: "Online legal consultations", global: "Global insights",
     language: "عربي — Switch to Arabic", found: "Results",
   };
   const primaryLinks = [
     { href: home, title: t.nav.home, Icon: House },
-    ...(!isSharedPath ? [{ href: `${regionPrefix}/about`, title: label.about, Icon: Users }] : []),
+    ...(!isSharedPath ? [
+      { href: serviceIndex, title: ar ? "الخدمات" : "Services", Icon: Scale },
+      { href: contact, title: label.contact, Icon: Mail },
+      { href: `${regionPrefix}/about`, title: label.about, Icon: Users },
+    ] : []),
+    { href: work, title: label.work, Icon: BriefcaseBusiness },
     { href: library, title: label.library, Icon: BookOpen },
     { href: blog, title: label.articles, Icon: FileText },
-    { href: work, title: label.work, Icon: BriefcaseBusiness },
-    ...(!isSharedPath ? [{ href: contact, title: label.contact, Icon: Mail }] : []),
   ];
   const services = getServicesForRegion(region).filter(service => service.kind !== "priority-intake");
   const words = readingSearchKey(query).split(/\s+/).filter(Boolean);
@@ -82,9 +85,14 @@ export function Navbar() {
         <Link href={ar ? "/ar" : "/"} className="counselo-header__region" aria-label={`${label.country}: ${isSharedPath ? label.global : country[lang]}`}><Globe2 aria-hidden="true" />{isSharedPath ? label.global : country[lang]}</Link>
         <nav className="counselo-header__links" aria-label={label.primary}>
           <Link href={home} aria-current={location === home ? "page" : undefined}>{t.nav.home}</Link>
-          {!isSharedPath && <><Link href={serviceIndex} data-active={active(serviceIndex)}>{label.services}</Link><Link href={`${regionPrefix}/about`} data-active={active(`${regionPrefix}/about`)}>{label.about}</Link></>}
-          <Link href={library} data-active={active(library)}>{label.library}</Link>
-          {isSharedPath ? <Link href={work} data-active={active(work)}>{label.work}</Link> : <Link href={contact} className="counselo-header__consult">{label.consult}</Link>}
+          {isSharedPath ? <>
+            <Link href={work} data-active={active(work)}>{label.work}</Link>
+            <Link href={library} data-active={active(library)}>{label.library}</Link>
+          </> : <>
+            <Link href={serviceIndex} data-active={active(serviceIndex)}>{ar ? "الخدمات" : "Services"}</Link>
+            <Link href={contact} data-active={active(contact)} className="counselo-header__consult">{label.contact}</Link>
+            <Link href={`${regionPrefix}/about`} data-active={active(`${regionPrefix}/about`)}>{label.about}</Link>
+          </>}
         </nav>
         <div className="counselo-header__controls">
           <button type="button" onClick={changeLanguage} className="counselo-language" aria-label={label.language}><span lang={ar ? "en" : "ar"}>{ar ? "EN" : "ع"}</span></button>

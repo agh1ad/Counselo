@@ -63,10 +63,11 @@ function syriafyText(text: string): string {
 
 /**
  * Serialize a schema object to a JSON string safe for inline <script> tags.
- * Escapes </script> to prevent the tag from being prematurely closed.
+ * Escape every less-than character: HTML accepts whitespace and case variants
+ * in a script end tag, including those inside an otherwise valid JSON string.
  */
 function schemaJson(obj: object): string {
-  return JSON.stringify(obj).replace(/<\/script>/gi, "<\\/script>");
+  return JSON.stringify(obj).replace(/</g, "\\u003c");
 }
 
 function limitTitle(value: string, max = 68): string {
@@ -176,7 +177,9 @@ export function SEOHead({
   const geo = GEO[region];
   const effectiveLanguage = contentLanguage ?? lang;
   const isArabic = effectiveLanguage === "ar";
-  const isSyr = region === "syr";
+  // A saved navigation preference must never rewrite the jurisdiction of a
+  // shared article or work sample. Only legacy regional pages need this map.
+  const isSyr = region === "syr" && !noRegionPrefix;
 
   const basePath = canonical === "/" ? "" : canonical ?? "";
   const langSegment = isArabic ? "/ar" : "";

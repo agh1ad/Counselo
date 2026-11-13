@@ -1,9 +1,10 @@
-/** Navigation labels describe destinations, not the law applied by this page. */
+/** Navigation and platform-wide coverage facts do not identify the law applied to a matter. */
 export function jurisdictionEditorialContent(html: string): string {
   return html
     .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
     .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
     .replace(/<nav\b[\s\S]*?<\/nav>/gi, " ")
+    .replace(/<section\b(?=[^>]*\bclass=["'][^"']*\bplatform-facts(?:\s|["']))[^>]*>[\s\S]*?<\/section>/gi, " ")
     .replace(/<[^>]+>/g, " ")
     .replace(/\s+/g, " ");
 }
@@ -11,6 +12,12 @@ export function jurisdictionEditorialContent(html: string): string {
 /** Explicit contrasts and intake-number labels do not assert Saudi law applies. */
 export function jurisdictionAdviceForContaminationCheck(text: string): string {
   return text
+    // These exact shared-footer statements describe the platform's network,
+    // not the law applied to the current matter. Keep neighboring advice checked.
+    .replace(/Your destination for comprehensive online legal services, backed by a strong network of lawyers, law firms and professional partners across Saudi Arabia, the UAE and Syria\./g, "")
+    .replace(/وجهتك لخدمات قانونية متكاملة عبر الإنترنت، تدعمها شبكة قوية من المحامين ومكاتب المحاماة والشركاء المهنيين في السعودية والإمارات وسوريا\./g, "")
+    .replace(/Connected professional platforms, complemented by a strong network of lawyers and partners across Saudi Arabia, the UAE and Syria\./g, "")
+    .replace(/منصات مهنية مترابطة تكملها شبكة قوية من المحامين والشركاء المهنيين في السعودية والإمارات وسوريا\./g, "")
     .replace(/Saudi anti-concealment rules should not be imported into the analysis\./g, "")
     .replace(/ولا تنقل إليه نظام مكافحة التستر السعودي\./g, "")
     .replace(/do not import a Saudi transfer procedure merely because the worker is Syrian\./g, "")

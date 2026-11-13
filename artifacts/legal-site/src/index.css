@@ -1,5 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+/* The contact process is above the fold in prerendered HTML. Load its layout
+   before first paint instead of waiting for the contact page JavaScript. */
+@import "./components/contact/consultation-steps.css";
 @plugin "@tailwindcss/typography";
 
 /* Local subsets preserve the existing typography without a render-blocking
@@ -430,7 +433,7 @@
 .legal-network-footer__item > span:last-child { min-width: 0; display: grid; gap: .25rem; }
 .legal-network-footer__item strong { font-family: var(--app-font-serif); font-size: .9rem; font-weight: 500; }
 [dir="rtl"] .legal-network-footer__item strong { font-family: var(--app-font-sans); font-weight: 700; }
-.legal-network-footer__item small { color: rgb(255 255 255 / .5); font-size: .62rem; line-height: 1.4; }
+.legal-network-footer__item small { color: rgb(255 255 255 / .72); font-size: .75rem; line-height: 1.5; }
 .uae-reference-footer__bottom { width: min(100% - 3rem, 1300px); margin-inline: auto; padding-block: 1.2rem 1.8rem; display: flex; justify-content: space-between; gap: 2rem; border-top: 1px solid rgb(201 154 59 / .5); color: rgb(255 255 255 / .62); font-size: .72rem; }
 .uae-reference-footer__bottom > span { color: #fff; }
 .uae-reference-footer__bottom b { color: #d8ad50; }
@@ -1937,14 +1940,14 @@
 :is(.saudi-reading-page,.service-reading-page) #service-contact [data-cta] { min-height: 48px; border-radius: 4px; }
 :is(.saudi-reading-page,.service-reading-page) .service-consultation-panel { padding: 1.5rem; color: var(--sa-ink); background: #f5f8f6; border: 1px solid #c4d7ca; border-top: 3px solid #0d4a31; border-radius: 6px; box-shadow: none; top: 160px; }
 :is(.saudi-reading-page,.service-reading-page) .service-consultation-panel::after, :is(.saudi-reading-page,.service-reading-page) .service-consultation-panel > .h-px { display: none; }
-:is(.saudi-reading-page,.service-reading-page) .service-consultation-panel h3 { font-size: 1.5rem; line-height: 1.4; color: #073d2b; margin-bottom: .75rem; }
+:is(.saudi-reading-page,.service-reading-page) .service-consultation-panel :is(h2,h3) { font-size: 1.5rem; line-height: 1.4; color: #073d2b; margin-bottom: .75rem; }
 :is(.saudi-reading-page,.service-reading-page) .service-consultation-panel p { color: var(--sa-muted); margin-bottom: 1rem; }
 :is(.saudi-reading-page,.service-reading-page) .service-consultation-panel ul { color: var(--sa-ink); border-color: var(--sa-line); padding-block: 1rem; margin-bottom: 1.25rem; }
 :is(.saudi-reading-page,.service-reading-page) .service-consultation-panel svg { flex-shrink: 0; color: #51735c; }
 :is(.saudi-reading-page,.service-reading-page) .service-consultation-panel li { align-items: start; }
 :is(.saudi-reading-page,.service-reading-page) .service-consultation-panel li svg { margin-top: .2rem; }
 :is(.saudi-reading-page,.service-reading-page) .service-consultation-panel a[data-cta] { background: #0d4a31; color: #fff; border-radius: 4px; height: auto; min-height: 48px; white-space: normal; text-align: center; padding: .75rem; }
-:is(.saudi-reading-page,.service-reading-page) .service-consultation-panel > div:last-child { padding-top: 1rem; margin-top: 1rem; border-color: var(--sa-line); }
+:is(.saudi-reading-page,.service-reading-page) .service-consultation-panel > div:last-child { padding-top: 1rem; margin-top: 1rem; border-color: var(--sa-line); color: var(--sa-ink); }
 :is(.saudi-reading-page,.service-reading-page) .service-consultation-panel > div:last-child p { margin-bottom: .25rem; }
 @media (min-width: 1024px) {
   :is(.saudi-reading-page,.service-reading-page) .saudi-service-layout { grid-template-columns: minmax(0,1fr) 300px; }
@@ -1977,4 +1980,17 @@ body:has(:is(.saudi-reading-page,.service-reading-page)) .region-navbar .h-21 > 
 }
 @media (prefers-reduced-motion: reduce) {
   :is(.saudi-reading-page,.service-reading-page) *, :is(.saudi-reading-page,.service-reading-page) *::after { scroll-behavior: auto !important; transition: none !important; }
+}
+
+/* Prerendered dark cards and the urgent contact action are visible before their
+   lazy page styles arrive. Preserve the final readable colors on first paint. */
+.home-refined .home-country-nav a { background: #1d4a3b; color: #fff; }
+.home-latest-panel--work { background: #143f30; color: #fff; }
+.home-latest-panel--work .home-latest-item h4 { color: #fff; }
+.legal-experience-page #service-contact .legal-experience-closing__secondary {
+  background: #fff;
+  color: #174b35;
+}
+.legal-experience-page #service-contact .legal-experience-closing__secondary:hover {
+  background: #e2ece5;
 }

@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { PageContents } from "@/components/legal/page-contents";
 import { Link, Redirect, useParams } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, ArrowRight, Calendar, Download, ExternalLink, FileCheck2, Languages, LockKeyhole, Scale, ShieldCheck } from "lucide-react";
@@ -7,8 +5,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { workJurisdictionRegion } from "@/lib/work-jurisdiction";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized } from "@/lib/work-samples";
-import { fetchPublicJson, publicApiUrl } from "@/lib/public-api";
-import { workAttachmentPath, WORK_CONTEXT, WORK_READER_GUIDANCE, workModifiedAt, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion } from "@workspace/api-zod/browser";
+import { fetchPublicJson, publicApiUrl, isMissingPublicContent } from "@/lib/public-api";
+import { ContentRecovery } from "@/components/content/content-recovery";
+import { workAttachmentPath, publicWorkDocumentTextPath, WORK_CONTEXT, WORK_READER_GUIDANCE, workModifiedAt, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion } from "@workspace/api-zod/browser";
 
 declare global {
   interface Window {
@@ -19,11 +18,9 @@ declare global {
 }
 
 export default function WorkSample() {
-  const [previewOpen, setPreviewOpen] = useState(false);
   const { slug = "" } = useParams<{ slug: string }>();
-  useEffect(() => setPreviewOpen(false), [slug]);
   const { lang, isRTL } = useLanguage();
-  const { data: sample, isLoading, isError } = useQuery<WorkSamplePublic>({
+  const { data: sample, isLoading, isError, error, isFetching, refetch } = useQuery<WorkSamplePublic>({
     queryKey: ["work-sample", slug],
     queryFn: () => fetchPublicJson<WorkSamplePublic>(`/api/work/${encodeURIComponent(slug)}`),
     // Use server-injected data (window.__SSR_WORK__) as the initial value so
@@ -36,11 +33,8 @@ export default function WorkSample() {
       ) {
         return window.__SSR_WORK__;
       }
-      if (typeof window !== "undefined") {
-        return window.__SSR_WORK_SAMPLES__?.find(
-          (candidate) => candidate.slug === slug,
-        );
-      }
+      // Discovery cards omit the case detail fields and cannot stand in for
+      // the complete work record while the detail endpoint is unavailable.
       return undefined;
     },
     staleTime: 0,
@@ -57,7 +51,8 @@ export default function WorkSample() {
   };
 
   if (isLoading) return <div className="min-h-[60vh] flex items-center justify-center text-muted-foreground">{ar ? "جارٍ التحميل…" : "Loading…"}</div>;
-  if (isError || !sample) return <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4"><h1 className="text-2xl font-serif font-bold">{ui.notFound}</h1><Link href={workBasePath} className="text-primary hover:underline">{ui.back}</Link></div>;
+  if (isError && !isMissingPublicContent(error) && !sample) return <ContentRecovery isArabic={ar} retry={() => { void refetch(); }} retrying={isFetching} backHref={workBasePath} backLabel={ui.back} />;
+  if (isMissingPublicContent(error) || !sample) return <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4"><h1 className="text-2xl font-serif font-bold">{ui.notFound}</h1><Link href={workBasePath} className="text-primary hover:underline">{ui.back}</Link></div>;
   if (ar && !sample.titleAr) return <Redirect to={`/our-work/${sample.slug}`} replace />;
   if (!ar && !sample.titleEn) return <Redirect to={`/ar/our-work/${sample.slug}`} replace />;
 
@@ -80,6 +75,7 @@ export default function WorkSample() {
   const seoTitle = localized(sample.seoTitleEn, sample.seoTitleAr, lang) || title;
   const seoDescription = localized(sample.seoDescriptionEn, sample.seoDescriptionAr, lang) || summary;
   const fileUrl = publicApiUrl(workAttachmentPath(sample));
+  const textPath = publicWorkDocumentTextPath(sample);
   const canonicalPath = `${workBasePath}/${sample.slug}`;
   const canonical = `https://counselo-legal.com${canonicalPath}`;
   const validServiceSlugs = new Set(region ? getServicesForRegion(region).map((service) => service.slug) : []);
@@ -121,10 +117,9 @@ export default function WorkSample() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: ar ? "الرئيسية" : "Home", item: "https://counselo-legal.com/" },
-      { "@type": "ListItem", position: 2, name: ar ? "المكتبة القانونية" : "Legal Library", item: `https://counselo-legal.com${ar ? "/ar/legal-library" : "/legal-library"}` },
-      { "@type": "ListItem", position: 3, name: ar ? "أعمالنا" : "Our Work", item: `https://counselo-legal.com${workBasePath}` },
-      { "@type": "ListItem", position: 4, name: title, item: canonical },
+      { "@type": "ListItem", position: 1, name: ar ? "الرئيسية" : "Home", item: `https://counselo-legal.com${ar ? "/ar" : "/"}` },
+      { "@type": "ListItem", position: 2, name: ar ? "أعمالنا" : "Our Work", item: `https://counselo-legal.com${workBasePath}` },
+      { "@type": "ListItem", position: 3, name: title, item: canonical },
     ],
   };
 
@@ -134,9 +129,6 @@ export default function WorkSample() {
       <section className="premium-page-hero text-white px-4 py-14">
         <div className="max-w-6xl mx-auto"><Link href={workBasePath} className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 text-sm"><ArrowLeft className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} />{ui.back}</Link><div className="max-w-4xl"><div className="flex flex-wrap gap-2 mb-5">{workType && <span className="border border-white/25 bg-white/10 px-3 py-1 text-sm">{workType}</span>}{sample.featured && <span className="bg-white text-primary px-3 py-1 text-sm font-semibold">{ar ? "عمل مميز" : "Featured work"}</span>}</div><h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-5">{title}</h1><div className="premium-hero-rule mb-6" /><p className="text-lg text-white/75 leading-relaxed">{summary}</p></div></div>
       </section>
-      <div className="premium-content-shell"><PageContents isArabic={ar} pageKey={slug} /></div>
-
-
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid lg:grid-cols-[minmax(0,1fr)_360px] gap-10">
           <div className="work-reading-body space-y-6">
@@ -163,12 +155,12 @@ export default function WorkSample() {
           {sample.hasFile && <aside className="space-y-6">
             <div className="border border-border bg-card p-5 sticky top-28">
               <h2 className="text-xl font-serif font-bold mb-4">{context?.evidenceNote ? (ar ? "دراسة كاونسلو للاستشارات القانونية للحالة" : "CounselO Legal case study") : ui.document}</h2>
-              <button type="button" onClick={() => setPreviewOpen(!previewOpen)} aria-expanded={previewOpen} aria-controls="work-document-preview" className="concise-text-link mb-4">{ar ? (previewOpen ? "إخفاء معاينة المستند" : "معاينة المستند") : (previewOpen ? "Hide document preview" : "Preview document")}</button>
-              <div id="work-document-preview" hidden={!previewOpen}>{previewOpen && <div className="aspect-[3/4] bg-muted border border-border overflow-hidden mb-4 flex items-center justify-center">
-                {sample.fileMimeType.startsWith("image/") ? <img src={fileUrl} alt={title} className="w-full h-full object-contain" /> : <iframe src={fileUrl} title={ui.document} className="w-full h-full" sandbox="allow-same-origin" loading="lazy" />}
-              </div>}</div>
+              <div id="work-document-preview" className="aspect-[3/4] bg-muted border border-border overflow-hidden mb-4 flex items-center justify-center">
+                {sample.fileMimeType.startsWith("image/") ? <img src={fileUrl} alt={title} className="w-full h-full object-contain" /> : <iframe src={fileUrl} title={`${ui.document}: ${title}`} className="w-full h-full" loading="lazy" />}
+              </div>
               <a href={fileUrl} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-primary text-white px-4 py-3 font-semibold hover:bg-primary/90"><ExternalLink className="h-4 w-4" />{ui.open}</a>
               <a href={`${fileUrl}?download=1`} download={sample.fileName} className="mt-2 w-full flex items-center justify-center gap-2 border border-border px-4 py-3 font-semibold hover:bg-muted"><Download className="h-4 w-4" />{ui.download}</a>
+              {textPath && <a href={publicApiUrl(textPath)} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-primary underline underline-offset-4">{ar ? "قراءة نص المستند" : "Read document as text"}</a>}
               <div className="mt-5 pt-5 border-t border-border"><div className="flex gap-2 font-semibold text-sm mb-2"><LockKeyhole className="h-4 w-4 text-primary" />{ui.privacy}</div><p className="text-xs text-muted-foreground leading-relaxed">{ui.privacyText}</p></div>
             </div>
           </aside>}

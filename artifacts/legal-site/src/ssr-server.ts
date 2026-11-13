@@ -14,7 +14,7 @@ import { routeToFlatFilename, type LegalUpdate, type LegalUpdatesData, legalUpda
  *                      otherwise SSR render on-demand via entry-server.js
  *   4. Any other path → flat prerendered file __pages/<path-as-filename>.html
  *                       if it exists (e.g. /sa/about → sa-about.html)
- *   5. Catch-all → index.html (SPA hydration for unknown routes)
+ *   5. Catch-all → a real HTTP 404 with noindex metadata
  */
 
 import express, {
@@ -49,6 +49,7 @@ import {
   BLOG_REVIEWER_ATTRIBUTION,
   buildBlogSocialMetaTags,
   COUNSELO_ENTITY_IDS,
+  getServiceDefinition,
   type BlogLanguage,
 } from "@workspace/api-zod";
 import { limitSeoTitle, normalizeSeoDescription } from "./lib/seo-title.js";
@@ -209,7 +210,10 @@ async function fetchBlogPost(slug: string): Promise<FetchResult> {
 }
 
 function buildBlogHtml(slug: string, post: ApiPost): string {
-  const template = readFileSync(shellHtml, "utf-8");
+  return buildBlogHtmlFromTemplate(readFileSync(shellHtml, "utf-8"), slug, post);
+}
+
+export function buildBlogHtmlFromTemplate(template: string, slug: string, post: ApiPost): string {
   const isArabicPost = Boolean(post.titleAr?.trim() && !post.titleEn?.trim());
 
   const seoTitleEn =
@@ -248,7 +252,7 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
   const provenance = assignArticleProvenance(post);
   const reviewerAttribution = isArabicPost ? BLOG_REVIEWER_ATTRIBUTION.ar : BLOG_REVIEWER_ATTRIBUTION.en;
 
-  const articleSchema = JSON.stringify({
+  const articleSchema = safeJson({
     "@context": "https://schema.org",
     "@type": "Article",
     headline: primaryTitle,
@@ -288,7 +292,7 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
     },
   });
 
-  const breadcrumbSchema = JSON.stringify({
+  const breadcrumbSchema = safeJson({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -322,7 +326,7 @@ function buildBlogHtml(slug: string, post: ApiPost): string {
     `<script data-rh="true" type="application/ld+json">${articleSchema}</script>`,
     `<script data-rh="true" type="application/ld+json">${breadcrumbSchema}</script>`,
     // Inject post data for instant client-side hydration (no loading flash)
-    `<script>window.__SSR_POST__=${JSON.stringify(post)};</script>`,
+    `<script>window.__SSR_POST__=${safeJson(post)};</script>`,
   ].join("\n");
 
   return template
@@ -433,13 +437,14 @@ export function buildWorkHtmlFromTemplate(
     "@id": `${canonical}#work-sample`,
     mainEntityOfPage: { "@type": "WebPage", "@id": `${canonical}#webpage` },
     name: title,
+    headline: title,
     description,
     url: canonical,
     dateCreated: sample.date,
     dateModified: workModifiedAt(sample.slug, sample.updatedAt, sample.date),
     inLanguage: language,
-    genre: sample.workTypeEn || sample.workTypeAr,
-    contentLocation: sample.jurisdictionEn || sample.jurisdictionAr,
+    genre: ["Legal case study", isArabic ? sample.workTypeAr || sample.workTypeEn : sample.workTypeEn || sample.workTypeAr].filter(Boolean),
+    contentLocation: isArabic ? sample.jurisdictionAr || sample.jurisdictionEn : sample.jurisdictionEn || sample.jurisdictionAr,
     isAccessibleForFree: true,
     conditionsOfAccess: isArabic
       ? "دراسة مهنية منقحة منشورة مع حماية سرية العملاء"
@@ -448,15 +453,15 @@ export function buildWorkHtmlFromTemplate(
       "@type": WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "LegalService" : "Organization",
       "@id": WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? COUNSELO_ENTITY_IDS.alBaghdadiOffice : COUNSELO_ENTITY_IDS.organization,
       name: WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "Baghdadi Law" : "CounselO Legal",
-      url: BASE,
+      url: WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? "https://www.baghdadilaw.co/" : BASE,
     },
     publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
     isPartOf: { "@id": `${BASE}${basePath}#webpage` },
-    encoding: {
+    encoding: sample.fileSize > 0 ? {
       "@type": "MediaObject",
       contentUrl: fileUrl,
       encodingFormat: sample.fileMimeType,
-    },
+    } : undefined,
   });
 
   const breadcrumbSchema = safeJson({
@@ -467,7 +472,7 @@ export function buildWorkHtmlFromTemplate(
         "@type": "ListItem",
         position: 1,
         name: isArabic ? "الرئيسية" : "Home",
-        item: `${BASE}/`,
+        item: `${BASE}${isArabic ? "/ar" : "/"}`,
       },
       {
         "@type": "ListItem",
@@ -489,7 +494,14 @@ export function buildWorkHtmlFromTemplate(
     `<meta data-rh="true" property="og:title" content="${escapeHtml(title)}">`,
     `<meta data-rh="true" property="og:description" content="${escapeHtml(description.slice(0, 170))}">`,
     `<meta data-rh="true" property="og:url" content="${escapeHtml(canonical)}">`,
+    `<meta data-rh="true" property="og:locale" content="${isArabic ? "ar_SA" : "en_US"}">`,
     `<meta data-rh="true" property="og:image" content="${BASE}/og-image.png">`,
+    `<meta data-rh="true" property="og:image:alt" content="${escapeHtml(title)}">`,
+    `<meta data-rh="true" name="twitter:card" content="summary_large_image">`,
+    `<meta data-rh="true" name="twitter:title" content="${escapeHtml(title)}">`,
+    `<meta data-rh="true" name="twitter:description" content="${escapeHtml(description.slice(0, 170))}">`,
+    `<meta data-rh="true" name="twitter:image" content="${BASE}/og-image.png">`,
+    `<meta data-rh="true" name="twitter:image:alt" content="${escapeHtml(title)}">`,
     `<script data-rh="true" type="application/ld+json">${workSchema}</script>`,
     `<script data-rh="true" type="application/ld+json">${breadcrumbSchema}</script>`,
     `<script>window.__SSR_WORK__=${safeJson(sample)};</script>`,
@@ -560,8 +572,8 @@ async function ssrRender(
   const workSlug = url.match(/^\/(?:ar\/)?our-work\/([^/?]+)$/)?.[1];
   const detailPost = blogSlug ? posts.find(post => post.slug === decodeURIComponent(blogSlug)) : undefined;
   const detailWork = workSlug ? samples.find(sample => sample.slug === decodeURIComponent(workSlug)) : undefined;
-  const detailData = `${detailPost ? `window.__SSR_POST__=${JSON.stringify(detailPost).replace(/</g, "\\u003c")};` : ""}${detailWork ? `window.__SSR_WORK__=${JSON.stringify(detailWork).replace(/</g, "\\u003c")};` : ""}`;
-  const discoveryData = `<script>window.__SSR_LEGAL_UPDATES__=${JSON.stringify(legalUpdatesData(url, updates)).replace(/</g, "\\u003c")};${detailData}window.__SSR_POSTS__=${JSON.stringify(posts).replace(/</g, "\\u003c")};window.__SSR_WORK_SAMPLES__=${JSON.stringify(discoveryWorkSamples).replace(/</g, "\\u003c")};</script>`;
+  const detailData = `${detailPost ? `window.__SSR_POST__=${safeJson(detailPost)};` : ""}${detailWork ? `window.__SSR_WORK__=${safeJson(detailWork)};` : ""}`;
+  const discoveryData = `<script>window.__SSR_LEGAL_UPDATES__=${safeJson(legalUpdatesData(url, updates))};${detailData}window.__SSR_POSTS__=${safeJson(posts)};window.__SSR_WORK_SAMPLES__=${safeJson(discoveryWorkSamples)};</script>`;
 
   return template
     .replace('<html lang="en">', htmlTag(url))
@@ -664,7 +676,10 @@ app.use(
 );
 
 function spaShell(title: string, robots: string, fallbackBody = ""): string {
-  return readFileSync(shellHtml, "utf-8")
+  const template = existsSync(shellHtml)
+    ? readFileSync(shellHtml, "utf-8")
+    : '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><!--app-head--></head><body><div id="root"></div></body></html>';
+  return template
     .replace(
       "<!--app-head-->",
       `<title>${escapeHtml(title)}</title><meta name="robots" content="${robots}">`,
@@ -711,6 +726,14 @@ app.get(
     "/syr/ar/services/:id",
   ],
   async (req: Request, res: Response, next: NextFunction) => {
+    // React's service page can render its empty state for an arbitrary slug.
+    // Reject nonexistent or wrong-region services before CMS reads and SSR so
+    // that this otherwise valid route shape cannot become an indexable soft 404.
+    const serviceId = req.params["id"];
+    if (typeof serviceId === "string") {
+      const region = req.path.startsWith("/syr/") ? "syr" : "sa";
+      if (!getServiceDefinition(serviceId, region)) return next();
+    }
     // Urgent intake has no CMS-dependent content. Serve its complete prerendered
     // page immediately, even when the article or work-sample API is unavailable.
     if (req.params["id"] === "urgent-legal-assistance") return next();
@@ -964,7 +987,7 @@ app.get("/our-work/:slug", async (req: Request, res: Response) => {
   return sendContentUnavailable(res, false);
 });
 
-// 4. All other paths — look for a flat prerendered file, fall back to SPA
+// 4. All other paths — look for a flat prerendered file, otherwise return 404.
 app.use((req: Request, res: Response, _next: NextFunction) => {
   const urlPath = req.path;
 

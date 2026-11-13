@@ -2,6 +2,7 @@ import { getServicesForRegion, type Region } from "./region-services";
 import { ARTICLE_CONTEXT, articleModifiedAt } from "./article-context";
 import { workModifiedAt } from "./work-context";
 import { REGIONAL_SEO_REGISTRY } from "./regional-seo";
+import { publicWorkDocumentPath, type WorkDocumentMetadata } from "./public-work-documents";
 
 export const PUBLIC_BASE_URL = "https://counselo-legal.com";
 
@@ -324,7 +325,29 @@ export type DiscoveryWorkSample = {
   summaryAr: string;
   date: string;
   updatedAt?: string | Date | null;
+  published?: boolean;
+  fileSize?: number;
+  fileMimeType?: string;
 };
+
+/** PDFs have one canonical URL and are not language variants of their HTML case pages. */
+export function buildWorkDocumentSitemapEntries(
+  samples: Array<Partial<WorkDocumentMetadata> & { slug: string; date?: string }>,
+): string[] {
+  const entries = new Map<string, string>();
+  for (const sample of samples) {
+    const path = publicWorkDocumentPath({
+      ...sample,
+      published: sample.published === true,
+      fileSize: sample.fileSize ?? 0,
+      fileMimeType: sample.fileMimeType ?? "",
+    });
+    if (!path) continue;
+    const modified = dateOnly(sample.updatedAt) ?? dateOnly(sample.date);
+    entries.set(path, `  <url>\n    <loc>${escapeXml(canonicalPublicUrl(path))}</loc>${modified ? `\n    <lastmod>${escapeXml(modified)}</lastmod>` : ""}\n  </url>`);
+  }
+  return [...entries.values()];
+}
 
 function sitemapEntry(url: string, lastmod: string, links: Array<[string, string]>): string {
   return `  <url>\n    <loc>${escapeXml(url)}</loc>\n${links
@@ -339,7 +362,9 @@ export function buildDynamicSitemap(
 ): string {
   let xml = baseXml
     .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/blog\/([^<]+)<\/loc>[\s\S]*?<\/url>/g, (entry, suffix: string) => suffix === "ar" ? entry : "")
-    .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/(?:ar\/)?our-work\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "");
+    .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/(?:ar\/)?our-work\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "")
+    .replace(/\s*<url>\s*<loc>https:\/\/counselo-legal\.com\/documents\/[^<]+<\/loc>[\s\S]*?<\/url>/g, "");
+  const publishedSamples = samples.filter(sample => sample.published !== false);
   const bilingualPosts = posts.filter((post) =>
     post.bilingual === true || hasQualityBilingualBlogContent(post),
   );
@@ -351,7 +376,7 @@ export function buildDynamicSitemap(
       sitemapEntry(canonicalPublicUrl(blogPath(post.slug, "ar")), modified, links),
     ];
   });
-  const workEntries = samples.flatMap((sample) => {
+  const workEntries = publishedSamples.flatMap((sample) => {
     const modified = dateOnly(workModifiedAt(sample.slug, sample.updatedAt, sample.date)) ?? sample.date;
     const enPath = `/our-work/${sample.slug}`;
     const arPath = `/ar/our-work/${sample.slug}`;
@@ -373,16 +398,16 @@ export function buildDynamicSitemap(
   const latestBlog = latestDate(bilingualPosts.map((post) => articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date) ?? post.date));
   addIndexLastmod(canonicalPublicUrl("/blog"), latestBlog);
   addIndexLastmod(canonicalPublicUrl("/blog/ar"), latestBlog);
-  const latestWork = latestDate(samples.map((sample) => workModifiedAt(sample.slug, sample.updatedAt, sample.date) ?? sample.date));
+  const latestWork = latestDate(publishedSamples.map((sample) => workModifiedAt(sample.slug, sample.updatedAt, sample.date) ?? sample.date));
   const latestLibrary = latestDate([
     ...bilingualPosts.map((post) => articleModifiedAt(ARTICLE_CONTEXT[post.slug]?.editorialUpdatedAt, post.updatedAt, post.date) ?? post.date),
-    ...samples.map((sample) => workModifiedAt(sample.slug, sample.updatedAt, sample.date) ?? sample.date),
+    ...publishedSamples.map((sample) => workModifiedAt(sample.slug, sample.updatedAt, sample.date) ?? sample.date),
   ]);
   addIndexLastmod(canonicalPublicUrl("/legal-library"), latestLibrary);
   addIndexLastmod(canonicalPublicUrl("/ar/legal-library"), latestLibrary);
   addIndexLastmod(canonicalPublicUrl("/our-work"), latestWork);
   addIndexLastmod(canonicalPublicUrl("/ar/our-work"), latestWork);
-  const allEntries = [...entries, ...workEntries];
+  const allEntries = [...entries, ...workEntries, ...buildWorkDocumentSitemapEntries(publishedSamples)];
   return xml.replace("</urlset>", `${allEntries.length ? `\n${allEntries.join("\n")}\n` : ""}</urlset>`);
 }
 

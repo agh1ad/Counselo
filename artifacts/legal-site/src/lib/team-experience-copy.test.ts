@@ -6,12 +6,16 @@ import { enSyr } from "../translations/en-syr";
 import { arSyr } from "../translations/ar-syr";
 import { enUae } from "../translations/en-uae";
 import { arUae } from "../translations/ar-uae";
+import { enLegacyServiceDetails } from "../translations/en.legacy";
+import { arLegacyServiceDetails } from "../translations/ar.legacy";
+import { enSyrLegacyServiceDetails } from "../translations/en-syr.legacy";
+import { arSyrLegacyServiceDetails } from "../translations/ar-syr.legacy";
 import { aboutContent } from "../components/about/about-content";
 
 const personalExperience = /Omar Al-Baghdadi|عمر البغدادي|1996|30\+|20,000|three decades|ثلاثة عقود/;
 const team = /team|فريق/i;
 
-test("all regional translation experience notes describe the team without inheriting personal career claims", () => {
+test("active and retained regional translation experience notes do not inherit personal career claims", () => {
   for (const [locale, copy] of Object.entries({ en, ar, enSyr, arSyr, enUae, arUae })) {
     let notes = 0;
     const walk = (value: unknown, path = "") => {
@@ -27,10 +31,28 @@ test("all regional translation experience notes describe the team without inheri
       }
     };
     walk(copy);
-    assert.ok(notes > 20, `${locale}: expected complete service coverage`);
     for (const text of [copy.home.about.p1, copy.home.hero.subDesc, copy.aboutPage.seoDesc]) {
       assert.match(text, team, locale);
       assert.doesNotMatch(text, personalExperience, locale);
+    }
+  }
+  // The retired detailed templates remain checked without shipping their
+  // dictionaries to visitors of the registry-backed service pages.
+  for (const [locale, copy] of Object.entries({ enLegacyServiceDetails, arLegacyServiceDetails, enSyrLegacyServiceDetails, arSyrLegacyServiceDetails })) {
+    const notes: string[] = [];
+    const walk = (value: unknown) => {
+      if (!value || typeof value !== "object") return;
+      for (const [key, item] of Object.entries(value)) {
+        if ((key === "experienceNote" || key === "experienceBadge") && typeof item === "string") notes.push(item);
+        else walk(item);
+      }
+    };
+    walk(copy);
+    assert.ok(notes.length > 20, `${locale}: expected retained service coverage`);
+    for (const note of notes) {
+      assert.match(note, team, locale);
+      assert.doesNotMatch(note, personalExperience, locale);
+      assert.doesNotMatch(note, /undefined|\[object Object\]/, locale);
     }
   }
 });

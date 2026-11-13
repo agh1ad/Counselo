@@ -16,6 +16,7 @@ const input: ContactInput = {
   region: "sa",
   language: "en",
   website: "",
+  acquisition: undefined,
   attachments: [],
 };
 

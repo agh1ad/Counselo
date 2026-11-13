@@ -14,7 +14,7 @@ export type PublicWorkFile = {
   fileData: string;
   fileSize: number;
   published: true;
-  confidentialityConfirmed: true;
+  confidentialityConfirmed: boolean;
   updatedAt: Date | string | null;
 };
 
@@ -51,7 +51,6 @@ function decode(source: string): PublicWorkFile {
     entry.version !== 1 ||
     !entry.file ||
     entry.file.published !== true ||
-    entry.file.confidentialityConfirmed !== true ||
     typeof entry.file.slug !== "string" ||
     typeof entry.file.fileData !== "string" ||
     typeof entry.file.fileSize !== "number" ||
@@ -64,6 +63,13 @@ function decode(source: string): PublicWorkFile {
 
 export class PublicWorkFileCache {
   private memory = new Map<string, string>();
+  private memoryEpoch?: string;
+
+  private selectEpoch(epoch: string): void {
+    if (this.memoryEpoch === epoch) return;
+    this.memory.clear();
+    this.memoryEpoch = epoch;
+  }
 
   constructor(
     private readonly storage: () => DataStorage = () => new Client({ bucketId: process.env.PUBLIC_RESPONSE_CACHE_BUCKET_ID?.trim() }),
@@ -88,6 +94,7 @@ export class PublicWorkFileCache {
       if (allowDatabaseFallback) return load();
       throw new PublicWorkFileUnavailableError();
     }
+    this.selectEpoch(state.epoch);
     const objectKey = key(state.epoch, slug);
     const cached = this.memory.get(objectKey);
     if (cached) {
@@ -101,6 +108,7 @@ export class PublicWorkFileCache {
       const result = await boundedRead(this.storage().downloadAsText(objectKey));
       if (result.ok && Buffer.byteLength(result.value) <= MAX_BYTES) {
         const file = decode(result.value);
+        if (file.slug !== slug) throw new Error("Public file snapshot slug mismatch");
         this.memory.set(objectKey, result.value);
         return file;
       }
@@ -115,6 +123,7 @@ export class PublicWorkFileCache {
     if (!this.enabled) return;
     const state = await this.coordinator.state();
     if (!state.cacheable) throw new PublicWorkFileUnavailableError();
+    this.selectEpoch(state.epoch);
     const store = this.storage();
     await Promise.all(files.map(async (file) => {
       const source = JSON.stringify({ version: 1, createdAt: Date.now(), file });

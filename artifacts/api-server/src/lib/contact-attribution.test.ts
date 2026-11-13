@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { parseContactInput } from "./contact-input.js";
-import { contactAttribution, prepareStoredContact, updateLeadProgress } from "./contact-attribution.js";
+import { contactAttribution, prepareStoredContact, updateLeadProgress, retainContactAttribution } from "./contact-attribution.js";
 import { decryptContactPayload, encryptContactPayload } from "./contact-crypto.js";
 
 const request = { name: "Client Name", email: "client@example.com", phone: "+966550001234", service: "business-law", message: "Confidential legal narrative", region: "sa", language: "en", acquisition: { version: 1, landingPath: "/sa/services/business-law?client=private", source: "google", medium: "organic", privateQuery: "Client Name" }, leadProgress: { status: "engaged" }, leadId: "forged-client-id" };
@@ -42,4 +42,13 @@ test("old encrypted requests need no migration and do not fabricate historic acq
   assert.equal(updated.message, old.message);
   assert.equal(contactAttribution(updated).leadId, null);
   assert.equal(contactAttribution(updated).acquisition, null);
+});
+
+test("delivery retains only sanitized lead metadata and outcome", () => {
+  const payload = prepareStoredContact(parseContactInput(request));
+  const qualified = updateLeadProgress(payload, "qualified")!;
+  const retained = retainContactAttribution(qualified);
+  assert.deepEqual(contactAttribution(retained), contactAttribution(qualified));
+  assert.deepEqual(Object.keys(retained).sort(), ["acquisition", "leadId", "leadProgress"]);
+  assert.doesNotMatch(JSON.stringify(retained), /Client Name|client@example|Confidential|attachments|phone|idempotencyKey/);
 });

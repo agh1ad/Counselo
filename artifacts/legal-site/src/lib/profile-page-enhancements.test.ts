@@ -8,8 +8,8 @@ const aboutSource = readFileSync(new URL("../pages/about.tsx", import.meta.url),
 test("CounselO Legal about pages expose an organization ProfilePage", () => {
   assert.match(aboutSource, /"@type": \["ProfilePage", "WebPage"\]/);
   assert.match(aboutSource, /"mainEntity": \{ "@id": COUNSELO_ENTITY_IDS\.organization \}/);
-  assert.doesNotMatch(aboutSource, /"dateModified"/);
-  assert.equal(ABOUT_UPDATED, "2026-11-03");
+  assert.match(aboutSource, /"dateModified": ABOUT_UPDATED/);
+  assert.equal(ABOUT_UPDATED, "2026-11-13");
   assert.match(aboutSource, /COOPERATING_OFFICES\.saudi/);
   assert.doesNotMatch(aboutSource, /"mainEntity": \{ "@id": COUNSELO_ENTITY_IDS\.omar \}/);
 });

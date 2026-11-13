@@ -1,7 +1,7 @@
 import { blogPostsTable, db, selectBlogPostSchema, selectWorkSampleSchema, workSamplesTable } from "@workspace/db";
 import { and, desc, eq, getTableColumns } from "drizzle-orm";
 import { publicationDataCache } from "./publication-data-cache.js";
-import { publicWorkFileCache, type PublicWorkFile } from "./public-work-file-cache.js";
+import { publicWorkFileCache, PublicWorkFileUnavailableError, type PublicWorkFile } from "./public-work-file-cache.js";
 
 const { fileData: _file, confidentialityConfirmed: _approval, ...workColumns } = getTableColumns(workSamplesTable);
 type Blog = typeof blogPostsTable.$inferSelect;
@@ -143,19 +143,28 @@ export async function publishedWorkBySlug(slug: string): Promise<Work | undefine
   return (await publishedWork()).find((sample) => sample.slug === slug);
 }
 
-export function publishedWorkFileBySlug(slug: string): Promise<PublicWorkFile | undefined> {
-  return publicWorkFileCache.read(slug, async () => {
+export async function publishedWorkFileBySlug(slug: string): Promise<PublicWorkFile | undefined> {
+  // The publication inventory distinguishes a missing/withdrawn file (404)
+  // from a temporarily unavailable snapshot of a published file (503).
+  const metadata = await publishedWorkBySlug(slug);
+  if (!metadata?.published || metadata.fileSize <= 0) return undefined;
+  const file = await publicWorkFileCache.read(slug, async () => {
     const [file] = await db.select(publicWorkFileColumns)
       .from(workSamplesTable)
       .where(and(
         eq(workSamplesTable.slug, slug),
         eq(workSamplesTable.published, true),
-        eq(workSamplesTable.confidentialityConfirmed, true),
       ))
       .limit(1);
     if (!file?.fileData || file.fileSize <= 0) return undefined;
     return file as PublicWorkFile;
   });
+  if (!file || file.slug !== metadata.slug || file.fileSize !== metadata.fileSize ||
+      file.fileMimeType !== metadata.fileMimeType ||
+      new Date(file.updatedAt ?? 0).getTime() !== new Date(metadata.updatedAt ?? 0).getTime()) {
+    throw new PublicWorkFileUnavailableError();
+  }
+  return file;
 }
 
 export async function primePublishedContentDataSnapshots(): Promise<void> {
@@ -189,7 +198,6 @@ export async function primePublishedWorkFileSnapshots(): Promise<void> {
     .from(workSamplesTable)
     .where(and(
       eq(workSamplesTable.published, true),
-      eq(workSamplesTable.confidentialityConfirmed, true),
     ));
   await publicWorkFileCache.prime(files.filter((file) => Boolean(file.fileData && file.fileSize > 0)) as PublicWorkFile[]);
 }

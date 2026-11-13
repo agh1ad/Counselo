@@ -25,7 +25,6 @@ export function isDatabaseBackedPublicApiPath(path: string): boolean {
     path.startsWith("/blog/posts/") ||
     path === "/work" ||
     /^\/work\/[^/]+$/.test(path) ||
-    /^\/work\/[^/]+\/file$/.test(path) ||
     path === "/legal-updates" ||
     path === "/legal-updates-sitemap"
   );

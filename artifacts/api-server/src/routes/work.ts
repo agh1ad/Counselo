@@ -6,7 +6,7 @@ import { parsePositiveId } from "../lib/blog-input.js";
 import { WorkInputError, parseWorkSampleInput } from "../lib/work-input.js";
 import { notifyWorkPublished, notifyWorkRemoved } from "../lib/google-indexing.js";
 import { assignInternalLinks } from "../lib/internal-link-assignment.js";
-import { publicTestimonial } from "@workspace/api-zod";
+import { selectPublicTestimonials } from "@workspace/api-zod";
 import {
   ContentTranslationError,
   hasCompleteWorkTranslation,
@@ -16,6 +16,7 @@ import {
 import { withPublicContentMutation } from "../lib/publication-cache.js";
 import { invalidatePublicResponseCache } from "../lib/public-response-cache.js";
 import { repairPublicWorkSample } from "../lib/public-work-repairs.js";
+import { createWorkAttachmentHandler } from "../lib/public-work-documents.js";
 
 import { publishedWork, publishedWorkBySlug, publishedWorkFileBySlug, publishedWorkSummaries } from "../lib/published-content.js";
 
@@ -41,16 +42,7 @@ function adminPageOffset(value: unknown): number {
 }
 
 function publicTestimonials(sample: { testimonials?: unknown[]; testimonialGovernanceVersion?: number }) {
-  const testimonials = Array.isArray(sample.testimonials) ? sample.testimonials : [];
-  if (sample.testimonialGovernanceVersion === 1) {
-    return testimonials.map(publicTestimonial);
-  }
-  // Legacy records are preserved. Internal references are never sent to the public API.
-  return testimonials.map((testimonial) => {
-    if (!testimonial || typeof testimonial !== "object") return testimonial;
-    const { internalReference: _internalReference, ...safe } = testimonial as Record<string, unknown>;
-    return safe;
-  });
+  return selectPublicTestimonials(sample.testimonials);
 }
 
 router.get("/work", async (_req, res) => {
@@ -62,29 +54,7 @@ router.get("/work", async (_req, res) => {
   })));
 });
 
-router.get("/work/:slug/file", async (req, res) => {
-  const slug = String(req.params["slug"] ?? "");
-  const publicSample = (await publishedWork()).find((sample) => sample.slug === slug);
-  if (!publicSample || publicSample.fileSize <= 0) {
-    res.status(404).json({ error: "Not found" });
-    return;
-  }
-  const sample = await publishedWorkFileBySlug(slug);
-  if (!sample?.fileData) {
-    res.status(404).json({ error: "Not found" });
-    return;
-  }
-  const data = Buffer.from(sample.fileData, "base64");
-  res.removeHeader("X-Frame-Options");
-  res.setHeader("Content-Security-Policy", "frame-ancestors 'self'");
-  res.setHeader("Cross-Origin-Resource-Policy", "same-origin");
-  res.setHeader("Cache-Control", "public, max-age=3600, must-revalidate");
-  res.setHeader("Content-Type", sample.fileMimeType);
-  res.setHeader("Content-Length", String(data.length));
-  const disposition = req.query["download"] === "1" ? "attachment" : "inline";
-  res.setHeader("Content-Disposition", `${disposition}; filename*=UTF-8''${encodeURIComponent(sample.fileName)}`);
-  res.send(data);
-});
+router.get("/work/:slug/file", createWorkAttachmentHandler(publishedWorkFileBySlug));
 
 router.get("/work/:slug", async (req, res) => {
   const sample = await publishedWorkBySlug(String(req.params["slug"] ?? ""));

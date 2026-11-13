@@ -8,7 +8,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { TrustSignals } from "@/components/seo/TrustSignals";
 import { type WorkSamplePublic, localized, workSamplePath } from "@/lib/work-samples";
-import { fetchPublicJson } from "@/lib/public-api";
+import { fetchPublicJson, isMissingPublicContent } from "@/lib/public-api";
+import { ContentRecovery } from "@/components/content/content-recovery";
 import {
   articleJurisdictionLabel,
   articleContextRegion,
@@ -125,7 +126,7 @@ export default function BlogPost() {
 
   const dbSlug = slug ?? "";
 
-  const { data: post, isLoading, isError } = useQuery<ApiPost>({
+  const { data: post, isLoading, isError, error, isFetching, refetch } = useQuery<ApiPost>({
     queryKey: ["blog-post", dbSlug],
     queryFn: () => fetchPublicJson<ApiPost>(`/api/blog/posts/${encodeURIComponent(dbSlug)}`),
     // Use server-injected data (window.__SSR_POST__) as the initial value so
@@ -207,7 +208,10 @@ export default function BlogPost() {
     );
   }
 
-  if (isError || !post) {
+  if (isError && !isMissingPublicContent(error) && !post) {
+    return <ContentRecovery isArabic={lang === "ar"} retry={() => { void refetch(); }} retrying={isFetching} backHref={lang === "ar" ? "/blog/ar" : "/blog"} backLabel={ui.backBlog} />;
+  }
+  if (isMissingPublicContent(error) || !post) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-4" dir={isRTL ? "rtl" : "ltr"}>
         <h1 className="text-2xl font-serif font-bold text-foreground">{ui.notFound}</h1>
@@ -342,10 +346,9 @@ export default function BlogPost() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": isRTL ? "الرئيسية" : "Home", "item": "https://counselo-legal.com/" },
-      { "@type": "ListItem", "position": 2, "name": useAr ? "المكتبة القانونية" : "Legal Library", "item": `https://counselo-legal.com${useAr ? "/ar/legal-library" : "/legal-library"}` },
-      { "@type": "ListItem", "position": 3, "name": useAr ? "المدونة" : "Blog", "item": `https://counselo-legal.com${useAr ? "/blog/ar" : "/blog"}` },
-      { "@type": "ListItem", "position": 4, "name": seoTitle, "item": canonicalArticleUrl },
+      { "@type": "ListItem", "position": 1, "name": useAr ? "الرئيسية" : "Home", "item": `https://counselo-legal.com${useAr ? "/ar" : "/"}` },
+      { "@type": "ListItem", "position": 2, "name": useAr ? "المقالات القانونية" : "Legal Articles", "item": `https://counselo-legal.com${useAr ? "/blog/ar" : "/blog"}` },
+      { "@type": "ListItem", "position": 3, "name": seoTitle, "item": canonicalArticleUrl },
     ],
   };
 
@@ -517,7 +520,7 @@ export default function BlogPost() {
               <div className="bg-primary text-white p-6 mb-6">
                 <MessageCircle className="h-6 w-6 text-white/70 mb-3" />
                 <h3 className="text-lg font-serif font-bold text-white mb-2">{ui.consultHeading}</h3>
-                <p className="text-white/70 text-sm leading-relaxed mb-5">{ui.consultDesc}</p>
+                <p className="text-white/90 text-sm leading-relaxed mb-5">{ui.consultDesc}</p>
                 <div className="flex flex-col gap-3">
                   <a
                     href="https://wa.me/966594850247"

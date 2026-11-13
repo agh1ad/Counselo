@@ -1,60 +1,75 @@
+# Published work PDFs use /documents/. Internal API routes remain excluded.
 User-agent: *
 Allow: /
+Allow: /documents/
 # The admin page returns noindex in both HTML and HTTP headers. It remains
 # crawlable so compliant engines can read that directive.
 Disallow: /api/
 
 User-agent: Googlebot
 Allow: /
+Allow: /documents/
 Disallow: /api/
 
 User-agent: Bingbot
 Allow: /
+Allow: /documents/
 Disallow: /api/
 
 User-agent: OAI-SearchBot
 Allow: /
+Allow: /documents/
 Disallow: /api/
 
 # Allow AI/LLM crawlers that respect robots.txt
 User-agent: GPTBot
 Allow: /
+Allow: /documents/
 Disallow: /api/
 
 User-agent: ChatGPT-User
 Allow: /
+Allow: /documents/
 Disallow: /api/
 
 User-agent: Google-Extended
 Allow: /
+Allow: /documents/
 Disallow: /api/
 
 User-agent: ClaudeBot
 Allow: /
+Allow: /documents/
 Disallow: /api/
 
 User-agent: anthropic-ai
 Allow: /
+Allow: /documents/
 Disallow: /api/
 
 User-agent: PerplexityBot
 Allow: /
+Allow: /documents/
 Disallow: /api/
 
 User-agent: cohere-ai
 Allow: /
+Allow: /documents/
 Disallow: /api/
 
 User-agent: Applebot-Extended
 Allow: /
+Allow: /documents/
 Disallow: /api/
 
 User-agent: Meta-ExternalAgent
 Allow: /
+Allow: /documents/
 Disallow: /api/
 
 User-agent: Amazonbot
 Allow: /
+Allow: /documents/
 Disallow: /api/
 
 # Sitemap

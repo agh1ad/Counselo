@@ -7,6 +7,7 @@ import { PracticeDirectory } from "./practice-directory";
 import { LatestContentCarousels } from "@/components/content/latest-content-carousels";
 import { homepageContent } from "./homepage-content";
 import { homepagePresentation } from "./homepage-presentation";
+import { PublishedWorkEvidence } from "./published-work-evidence";
 import "./homepage.css";
 import "./homepage-refined.css";
 
@@ -24,9 +25,10 @@ export default function GlobalHomepage({ isArabic = false }: { isArabic?: boolea
   const url = `https://counselo-legal.com${isArabic ? "/ar" : "/"}`;
   const countryLabels = isArabic ? ["السعودية", "سوريا", "الإمارات"] : ["Saudi Arabia", "Syria", "UAE"];
   const resources = [
-    [isArabic ? "/ar/legal-library" : "/legal-library", isArabic ? "المكتبة القانونية" : "Legal library"],
-    [isArabic ? "/blog/ar" : "/blog", isArabic ? "المقالات القانونية" : "Legal articles"],
-    [isArabic ? "/ar/our-work" : "/our-work", isArabic ? "أعمالنا" : "Our work"],
+    [isArabic ? "/ar" : "/", isArabic ? "الرئيسية" : "Home"],
+    [isArabic ? "/ar/our-work" : "/our-work", isArabic ? "أعمالنا" : "Our Work"],
+    [isArabic ? "/ar/legal-library" : "/legal-library", isArabic ? "المكتبة القانونية" : "Legal Library"],
+    [isArabic ? "/blog/ar" : "/blog", isArabic ? "المقالات القانونية" : "Legal Articles"],
   ];
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -106,8 +108,9 @@ export default function GlobalHomepage({ isArabic = false }: { isArabic?: boolea
           <span><strong>{isArabic ? "كاونسلو" : "CounselO Legal"}</strong><small>{c.heroLabel}</small></span>
         </Link>
         <nav aria-label={isArabic ? "التنقل الرئيسي" : "Main navigation"}>
-          <a href="#services">{isArabic ? "خدماتنا" : "Our services"}</a>
-          <a href="#about">{isArabic ? "عن كاونسلو" : "About us"}</a>
+          <Link href={isArabic ? "/ar" : "/"}>{isArabic ? "الرئيسية" : "Home"}</Link>
+          <Link href={`${suffix}/our-work`}>{isArabic ? "أعمالنا" : "Our Work"}</Link>
+          <Link href={`${suffix}/legal-library`}>{isArabic ? "المكتبة القانونية" : "Legal Library"}</Link>
         </nav>
         <div className="home-header-actions">
           <Link className="home-language" href={isArabic ? "/" : "/ar"} lang={isArabic ? "en" : "ar"} hrefLang={isArabic ? "en" : "ar"}><Globe2 size={17} aria-hidden="true" />{isArabic ? "English" : "العربية"}</Link>
@@ -152,6 +155,7 @@ export default function GlobalHomepage({ isArabic = false }: { isArabic?: boolea
             </div>
           </div>
         </section>
+        <PublishedWorkEvidence isArabic={isArabic} />
         <div id="services" className="home-directory-section"><PracticeDirectory isArabic={isArabic} variant="home" /></div>
         <LatestContentCarousels isArabic={isArabic} variant="home" />
         <section id="contact" className="home-contact" aria-labelledby="contact-title">

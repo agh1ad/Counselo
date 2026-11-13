@@ -11,7 +11,7 @@ import {
 // pool. No connection is made by this pure renderer test, but the module still
 // requires a syntactically valid URL at startup.
 process.env.DATABASE_URL ??= "postgresql://test:test@127.0.0.1:5432/counselo_renderer_test";
-const { buildDynamicBlogHtml } = await import("../og-pages.js");
+const { buildDynamicBlogHtml, buildDynamicBlogIndex } = await import("../og-pages.js");
 
 const FUTURE_SLUG = "future-post-published-after-the-last-deployment";
 
@@ -61,6 +61,32 @@ const futurePost = {
 } satisfies BlogPost;
 
 const shell = "<!doctype html><html><head><!--app-head--></head><body><div id=\"root\"></div></body></html>";
+
+test("dynamic article index and detail reflect the global Articles hierarchy in both languages", () => {
+  const schemas = (html: string) => [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
+  for (const language of ["en", "ar"] as const) {
+    const home = `https://counselo-legal.com${language === "ar" ? "/ar" : "/"}`;
+    const index = `https://counselo-legal.com${language === "ar" ? "/blog/ar" : "/blog"}`;
+    const indexHtml = buildDynamicBlogIndex([], language, shell);
+    const heading = language === "ar" ? "مقالات قانونية وأدلة عملية" : "Legal articles and practical guides";
+    const brand = language === "ar" ? "كاونسلو للاستشارات القانونية" : "CounselO Legal";
+    assert.ok(indexHtml.includes(`<title>${heading} | ${brand}</title>`));
+    assert.ok(indexHtml.includes(`<h1>${heading}</h1>`));
+    assert.ok(indexHtml.includes(`<meta property="og:image:alt" content="${heading} | ${brand}">`));
+    assert.ok(indexHtml.includes(`<meta name="twitter:image:alt" content="${heading} | ${brand}">`));
+    const collectionGraph = schemas(indexHtml);
+    const collection = collectionGraph.find(item => item["@type"]?.includes("CollectionPage"));
+    assert.equal(collection.description, language === "ar"
+      ? "منصة كاونسلو للاستشارات القانونية المشتركة لمقالات قانونية وأدلة عملية حول قوانين السعودية وسوريا والإمارات، مع تحديد الاختصاص القانوني لكل مقال بوضوح."
+      : "CounselO Legal's shared publication for legal articles and guides covering Saudi, Syrian and UAE law, with each article's jurisdiction clearly identified.");
+    assert.equal(collection.isPartOf["@id"], "https://counselo-legal.com/#website");
+    assert.deepEqual(collectionGraph.find(item => item["@type"] === "BreadcrumbList").itemListElement.map((item: { item: string }) => item.item), [home, index]);
+    const articleGraph = schemas(buildDynamicBlogHtml(futurePost, language, shell));
+    const article = articleGraph.find(item => item["@type"] === "Article");
+    assert.equal(article.isPartOf["@id"], collection["@id"]);
+    assert.deepEqual(articleGraph.find(item => item["@type"] === "BreadcrumbList").itemListElement.map((item: { item: string }) => item.item), [home, index, `https://counselo-legal.com${blogPath(FUTURE_SLUG, language)}`]);
+  }
+});
 
 test("an editorial correction reports modification without inventing professional approval", () => {
   const html = buildDynamicBlogHtml({ ...futurePost, slug: "alsnd-lamr-kadah-dman-mta-ythwl-ala-khtr-tnfydhy", date: "2026-08-20", updatedAt: new Date("2026-08-20"), lastSubstantiveReviewAt: "2026-08-20" }, "en", shell);

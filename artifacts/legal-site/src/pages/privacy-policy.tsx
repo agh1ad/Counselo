@@ -471,14 +471,14 @@ export default function PrivacyPolicy() {
           className="mt-8 bg-primary p-10 text-center lg:col-start-2"
         >
           <h2 className="text-2xl font-serif font-bold text-white mb-3">{content.contactHeading}</h2>
-          <p className="text-white/70 mb-8 leading-relaxed max-w-lg mx-auto">{content.contactDesc}</p>
+          <p className="text-white/90 mb-8 leading-relaxed max-w-lg mx-auto">{content.contactDesc}</p>
           <Link href={`${regionPrefix}/contact`}>
             <span className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-4 hover:bg-white/90 transition-colors cursor-pointer">
               {content.contactBtn}
               <ArrowRight className={`h-4 w-4 ${isRTL ? "rotate-180" : ""}`} />
             </span>
           </Link>
-          <div className="mt-8 pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/60">
+          <div className="mt-8 pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/90">
             <a
               href="https://wa.me/966594850247"
               target="_blank"

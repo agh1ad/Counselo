@@ -25,6 +25,7 @@
 .about-hero__promise ul { display: grid; gap: 1.25rem; }
 .about-hero__promise li { display: flex; align-items: flex-start; gap: .7rem; font-size: .95rem; line-height: 1.7; color: #d8e6de; }
 .about-hero__promise svg { color: var(--about-gold); flex-shrink: 0; margin-top: .2rem; }
+.about-hero__work { margin-top: 1.25rem; color: var(--about-gold); }
 .about-features { background: #f1f5f1; border-bottom: 1px solid var(--about-line); }
 .about-features__list { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); padding-block: 1.75rem; }
 .about-features__list li { padding-inline: 1.4rem; border-inline-start: 1px solid var(--about-line); }
@@ -39,6 +40,8 @@
 .about-story p:last-child { margin-bottom: 0; }
 .about-platform-page .about-lead { color: var(--about-green); font-size: 1.1rem; font-weight: 650; }
 .about-story__row { padding-top: 2.5rem; margin-top: 2.5rem; border-top: 1px solid var(--about-line); }
+.about-platform-proof { padding-bottom: 2rem; }
+.about-platform-proof .platform-facts { margin-top: 0; }
 .about-service-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.6rem 2rem; margin-block: 1.7rem 1.2rem; }
 .about-service-list li { padding-inline-start: 1rem; border-inline-start: 2px solid #bc9a57; }
 .about-service-list h4 { margin-bottom: .4rem; }
@@ -65,6 +68,14 @@
 .about-partner .about-kicker { margin-bottom: .2rem; font-size: .85rem; color: var(--about-muted); }
 .about-partner h2 { font-size: 1.4rem; line-height: 1.5; }
 .about-partner > p { max-width: 94ch; color: var(--about-muted); }
+.about-partner__verification { margin-top: 1rem; padding-top: .75rem; border-top: 1px solid var(--about-line); }
+.about-partner__verification p { max-width: 90ch; color: var(--about-muted); font-size: .875rem; }
+.about-faq { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2.4fr); gap: 2rem 3.75rem; padding-block: 2.5rem; border-top: 1px solid var(--about-line); }
+.about-faq__answers { display: grid; gap: 1.5rem; }
+.about-faq__answers article + article { padding-top: 1.5rem; border-top: 1px solid var(--about-line); }
+.about-faq__answers h3 { font-size: 1.1rem; margin-bottom: .6rem; }
+.about-faq__answers p { color: var(--about-muted); }
+.about-faq__answers .about-text-link { margin-top: .5rem; }
 .about-partner__offices { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; list-style: none; padding: 0; margin-top: 1.5rem; }
 .about-partner__offices li { padding: 1.5rem; border: 1px solid var(--about-line); border-inline-start: 3px solid #b68a3a; background: #f6f8f4; border-radius: 4px; }
 .about-partner__offices h3 { font-size: 1.1rem; line-height: 1.5; margin-bottom: .4rem; }
@@ -102,6 +113,7 @@
   .about-features__list li:nth-child(2) { padding-inline-end: 0; }
   .about-story { padding-block: 2.5rem; }
   .about-story__intro, .about-story__row { grid-template-columns: 1fr; gap: 1.2rem; }
+  .about-faq { grid-template-columns: 1fr; gap: 1.5rem; }
   .about-story__row { padding-top: 2rem; margin-top: 2rem; }
   .about-founder__grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .about-founder__portrait { display: flex; align-items: flex-end; gap: 1rem; }

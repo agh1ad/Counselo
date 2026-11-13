@@ -1,4 +1,4 @@
-import { workAttachmentPath } from "@workspace/api-zod";
+import { workAttachmentPath, publicWorkDocumentTextPath, selectPublicTestimonials } from "@workspace/api-zod";
 import express, { type Express, type Request, type Response } from "express";
 import { blogPostsTable, workSamplesTable } from "@workspace/db";
 import {
@@ -28,6 +28,7 @@ import {
   articleModifiedAt,
   ARTICLE_CONTEXT,
   WORK_CONTEXT,
+  workJurisdictionRegion,
   WORK_READER_GUIDANCE,
   workModifiedAt,
   getServiceDefinition,
@@ -41,6 +42,11 @@ import {
   PUBLIC_CACHE_POLICY,
   routeToFlatFilename,
   COUNSELO_ENTITY_IDS,
+  COUNSELO_PLATFORM_POSITIONING,
+  COUNSELO_SERVICE_COUNTRY_COUNT,
+  COUNSELO_SERVICE_LANGUAGE_COUNT,
+  countPublishedPortfolio,
+  portfolioCapabilities,
   BLOG_SOCIAL_IMAGE,
   BLOG_REVIEWER_ATTRIBUTION,
   buildBlogSocialMetaTags,
@@ -115,6 +121,7 @@ function buildOgHtml(
     <meta property="og:title" content="${esc(title)}" />
     <meta property="og:description" content="${esc(description)}" />
     <meta property="og:image" content="${DEFAULT_OG_IMAGE}" />
+    <meta property="og:image:alt" content="${esc(title)}" />
     <meta property="og:url" content="${esc(url)}" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="${SITE_NAME}" />
@@ -122,7 +129,8 @@ function buildOgHtml(
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${esc(title)}" />
     <meta name="twitter:description" content="${esc(description)}" />
-    <meta name="twitter:image" content="${DEFAULT_OG_IMAGE}" />`;
+    <meta name="twitter:image" content="${DEFAULT_OG_IMAGE}" />
+    <meta name="twitter:image:alt" content="${esc(title)}" />`;
 
   const indexHtml = getIndexHtml();
   if (!indexHtml) {
@@ -215,6 +223,7 @@ export function buildDynamicBlogHtml(
     datePublished: post.date,
     dateModified: editorialUpdatedAt ?? provenance.lastSubstantiveReviewAt,
     mainEntityOfPage: canonical,
+    isPartOf: { "@id": `${BASE_URL}${isArabicPost ? "/blog/ar" : "/blog"}#collection` },
     author: {
       "@type": "Organization",
       "@id": provenance.primaryAuthorEntityId ?? COUNSELO_ENTITY_IDS.organization,
@@ -250,6 +259,14 @@ export function buildDynamicBlogHtml(
       },
     } : {}),
   });
+  const articleBreadcrumbs = safeJson({
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isArabicPost ? "الرئيسية" : "Home", item: `${BASE_URL}${isArabicPost ? "/ar" : "/"}` },
+      { "@type": "ListItem", position: 2, name: isArabicPost ? "المقالات القانونية" : "Legal Articles", item: `${BASE_URL}${isArabicPost ? "/blog/ar" : "/blog"}` },
+      { "@type": "ListItem", position: 3, name: title, item: canonical },
+    ],
+  });
   const head = `<title>${esc(brandedTitle)}</title>
     <meta name="description" content="${esc(description.slice(0, 170))}">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -261,7 +278,7 @@ export function buildDynamicBlogHtml(
       language: isArabicPost ? "ar" : "en",
       reviewerName: editorialUpdatedAt ? undefined : reviewerAttribution,
     })}
-    <script type="application/ld+json">${articleSchema}</script>
+    <script type="application/ld+json">${articleSchema}</script><script type="application/ld+json">${articleBreadcrumbs}</script>
     <script>window.__SSR_POST__=${safeJson(post)};</script>`;
   const reviewerLabel = editorialUpdatedAt ? isArabicPost ? "القيادة القانونية" : "Legal leadership" : isArabicPost ? "تمت المراجعة بواسطة" : "Reviewed by";
   const legalFields = contentType === "legal-guidance" && provenance.jurisdiction
@@ -291,9 +308,10 @@ export function buildDynamicBlogHtml(
     .replace(/<div id="root"><\/div>/, `<div id="root">${bodyWithArticle}</div>`);
 }
 
-function buildDynamicBlogIndex(
+export function buildDynamicBlogIndex(
   posts: Array<typeof blogPostsTable.$inferSelect>,
   language: "en" | "ar",
+  template?: string,
 ): string {
   const isArabic = language === "ar";
   const visiblePosts = posts.filter(hasQualityBilingualBlogContent);
@@ -319,21 +337,23 @@ function buildDynamicBlogIndex(
     published: true,
     bilingual: true,
   }));
-  const shell = getShellHtml() ?? getIndexHtml();
+  const shell = template ?? getShellHtml() ?? getIndexHtml();
   const title = isArabic
-    ? "المدونة القانونية | مقالات وأدلة | كاونسلو للاستشارات القانونية"
-    : "Legal Blog | Articles & Guides | CounselO Legal";
+    ? "مقالات قانونية وأدلة عملية | كاونسلو للاستشارات القانونية"
+    : "Legal articles and practical guides | CounselO Legal";
   const description = isArabic
-    ? "مقالات وأدلة قانونية عربية حول قوانين الإمارات والسعودية وسوريا من فريق كاونسلو للاستشارات القانونية القانوني."
-    : "Practical legal guides covering UAE, Saudi and Syrian law from CounselO Legal's legal team.";
+    ? "منصة كاونسلو للاستشارات القانونية المشتركة لمقالات قانونية وأدلة عملية حول قوانين السعودية وسوريا والإمارات، مع تحديد الاختصاص القانوني لكل مقال بوضوح."
+    : "CounselO Legal's shared publication for legal articles and guides covering Saudi, Syrian and UAE law, with each article's jurisdiction clearly identified.";
   const canonical = `${BASE_URL}${isArabic ? "/blog/ar" : "/blog"}`;
   const collection = safeJson({
     "@context": "https://schema.org",
     "@type": ["CollectionPage", "Blog"],
     "@id": `${canonical}#collection`,
-    name: title,
+    name: isArabic ? "مقالات كاونسلو القانونية" : "CounselO Legal Articles",
     description,
     url: canonical,
+    inLanguage: language,
+    isPartOf: { "@id": `${BASE_URL}/#website` },
   });
   const itemList = safeJson({
     "@context": "https://schema.org",
@@ -346,19 +366,26 @@ function buildDynamicBlogIndex(
       url: `${BASE_URL}${blogPath(post.slug, language)}`,
     })),
   });
+  const indexBreadcrumbs = safeJson({
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isArabic ? "الرئيسية" : "Home", item: `${BASE_URL}${isArabic ? "/ar" : "/"}` },
+      { "@type": "ListItem", position: 2, name: isArabic ? "المقالات القانونية" : "Legal Articles", item: canonical },
+    ],
+  });
   const head = `<title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="${canonical}"><link rel="alternate" hreflang="en" href="${BASE_URL}/blog"><link rel="alternate" hreflang="ar" href="${BASE_URL}/blog/ar"><link rel="alternate" hreflang="x-default" href="${BASE_URL}/blog"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}">
-    <meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${DEFAULT_OG_IMAGE}"><meta property="og:locale" content="${isArabic ? "ar_SA" : "en_US"}">
-    <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(description)}"><meta name="twitter:image" content="${DEFAULT_OG_IMAGE}">
-    <script type="application/ld+json">${collection}</script><script type="application/ld+json">${itemList}</script><script>window.__SSR_POSTS__=${safeJson(discoveryPosts)};</script>`;
+    <meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${DEFAULT_OG_IMAGE}"><meta property="og:image:alt" content="${esc(title)}"><meta property="og:locale" content="${isArabic ? "ar_SA" : "en_US"}">
+    <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(description)}"><meta name="twitter:image" content="${DEFAULT_OG_IMAGE}"><meta name="twitter:image:alt" content="${esc(title)}">
+    <script type="application/ld+json">${collection}</script><script type="application/ld+json">${itemList}</script><script type="application/ld+json">${indexBreadcrumbs}</script><script>window.__SSR_POSTS__=${safeJson(discoveryPosts)};</script>`;
   const links = visiblePosts
     .map(
       (post) =>
         `<article><h2><a href="${blogPath(encodeURIComponent(post.slug), language)}">${esc(isArabic ? post.titleAr : post.titleEn)}</a></h2><p>${esc(isArabic ? post.excerptAr : post.excerptEn)}</p></article>`,
     )
     .join("");
-  const body = `<main><h1>${isArabic ? "المدونة القانونية" : "Legal Blog"}</h1>${links}</main>`;
+  const body = `<main><h1>${isArabic ? "مقالات قانونية وأدلة عملية" : "Legal articles and practical guides"}</h1>${links}</main>`;
   if (!shell) {
     return `<!doctype html><html lang="${language}"${isArabic ? ' dir="rtl"' : ""}><head>${head}</head><body><div id="root">${body}</div></body></html>`;
   }
@@ -370,9 +397,45 @@ function buildDynamicBlogIndex(
 
 type PublicWorkSample = Omit<typeof workSamplesTable.$inferSelect, "fileData" | "confidentialityConfirmed">;
 
-export function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | "ar"): string {
+function publicWorkBootstrap(sample: PublicWorkSample) {
+  return {
+    ...sample,
+    hasFile: sample.fileSize > 0,
+    // Match the public JSON boundary: editorial evidence references are
+    // internal even when the corresponding testimonial is published.
+    testimonials: selectPublicTestimonials(sample.testimonials),
+  };
+}
+
+function workSocialMeta(title: string, description: string, canonical: string, language: "en" | "ar", type: "article" | "website"): string {
+  return [
+    `<meta property="og:type" content="${type}">`,
+    `<meta property="og:title" content="${esc(title)}">`,
+    `<meta property="og:description" content="${esc(description)}">`,
+    `<meta property="og:url" content="${esc(canonical)}">`,
+    `<meta property="og:locale" content="${language === "ar" ? "ar_SA" : "en_US"}">`,
+    `<meta property="og:image" content="${DEFAULT_OG_IMAGE}">`,
+    `<meta property="og:image:alt" content="${esc(title)}">`,
+    `<meta name="twitter:card" content="summary_large_image">`,
+    `<meta name="twitter:title" content="${esc(title)}">`,
+    `<meta name="twitter:description" content="${esc(description)}">`,
+    `<meta name="twitter:image" content="${DEFAULT_OG_IMAGE}">`,
+    `<meta name="twitter:image:alt" content="${esc(title)}">`,
+  ].join("\n");
+}
+
+export function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | "ar", template?: string): string {
   sample = repairPublicWorkSample(sample);
   const isArabic = language === "ar";
+  const localized = (en: string, ar: string) => isArabic ? ar || en : en || ar;
+  const context = WORK_CONTEXT[sample.slug];
+  const region = context ? context.region : workJurisdictionRegion(sample.jurisdictionEn, sample.jurisdictionAr);
+  const relatedServices = region ? (context?.relatedServiceSlugs ?? sample.relatedServiceSlugs ?? []).flatMap(slug => {
+    const service = getServiceDefinition(slug, region);
+    return service ? [service] : [];
+  }).slice(0, 2) : [];
+  const workType = localized(sample.workTypeEn, sample.workTypeAr);
+  const jurisdiction = localized(sample.jurisdictionEn, sample.jurisdictionAr);
   const title = (isArabic ? sample.seoTitleAr || sample.titleAr : sample.seoTitleEn || sample.titleEn) || sample.titleAr || sample.titleEn;
   const description = normalizeDescription(
     (isArabic ? sample.seoDescriptionAr || sample.summaryAr : sample.seoDescriptionEn || sample.summaryEn) || sample.summaryAr || sample.summaryEn,
@@ -384,52 +447,57 @@ export function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | 
   const englishUrl = `${BASE_URL}/our-work/${sample.slug}`;
   const arabicUrl = `${BASE_URL}/ar/our-work/${sample.slug}`;
   const fileUrl = `${BASE_URL}${workAttachmentPath(sample)}`;
-  const shell = getShellHtml() ?? getIndexHtml();
+  const textPath = publicWorkDocumentTextPath(sample);
+  const shell = template ?? getShellHtml() ?? getIndexHtml();
   const schema = safeJson({
     "@context": "https://schema.org",
     "@type": "CreativeWork",
+    "@id": `${canonical}#work-sample`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${canonical}#webpage` },
     name: title,
+    headline: title,
     description,
     url: canonical,
     dateCreated: sample.date,
     dateModified: workModifiedAt(sample.slug, sample.updatedAt, sample.date),
     inLanguage: language,
-    genre: sample.workTypeEn || sample.workTypeAr,
-    contentLocation: sample.jurisdictionEn || sample.jurisdictionAr,
+    genre: ["Legal case study", workType].filter(Boolean),
+    contentLocation: jurisdiction,
+    about: relatedServices[0]
+      ? { "@type": "Service", name: localized(relatedServices[0].titleEn, relatedServices[0].titleAr), url: `${BASE_URL}/${region}${isArabic ? "/ar" : ""}/services/${relatedServices[0].slug}` }
+      : { "@type": "Thing", name: jurisdiction },
+    keywords: [workType, jurisdiction, relatedServices[0] && localized(relatedServices[0].titleEn, relatedServices[0].titleAr), "legal case study"].filter(Boolean),
     creator: WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law"
       ? { "@type": "LegalService", "@id": COUNSELO_ENTITY_IDS.alBaghdadiOffice, name: "Baghdadi Law", alternateName: "البغدادي للمحاماة", url: "https://www.baghdadilaw.co" }
       : { "@type": "Organization", "@id": COUNSELO_ENTITY_IDS.organization, name: "CounselO Legal", alternateName: "كاونسلو للاستشارات القانونية", url: BASE_URL },
+    publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
+    isPartOf: { "@id": `${BASE_URL}${basePath}#webpage` },
     encoding: sample.fileSize > 0 ? { "@type": "MediaObject", contentUrl: fileUrl, encodingFormat: sample.fileMimeType } : undefined,
   });
   const breadcrumbs = safeJson({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: isArabic ? "الرئيسية" : "Home", item: `${BASE_URL}/` },
+      { "@type": "ListItem", position: 1, name: isArabic ? "الرئيسية" : "Home", item: `${BASE_URL}${isArabic ? "/ar" : "/"}` },
       { "@type": "ListItem", position: 2, name: isArabic ? "أعمالنا" : "Our Work", item: `${BASE_URL}${basePath}` },
       { "@type": "ListItem", position: 3, name: title, item: canonical },
     ],
   });
   const head = `<title>${esc(title)}</title>
     <meta name="description" content="${esc(description.slice(0, 170))}"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <link rel="canonical" href="${canonical}">${sample.titleEn && sample.titleAr ? `<link rel="alternate" hreflang="en" href="${englishUrl}"><link rel="alternate" hreflang="ar" href="${arabicUrl}">` : ""}<link rel="alternate" hreflang="x-default" href="${sample.titleEn ? englishUrl : arabicUrl}"><meta property="og:type" content="article"><meta property="og:title" content="${esc(title)}">
-    <meta property="og:description" content="${esc(description.slice(0, 170))}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${DEFAULT_OG_IMAGE}">
+    <link rel="canonical" href="${canonical}">${sample.titleEn && sample.titleAr ? `<link rel="alternate" hreflang="en" href="${englishUrl}"><link rel="alternate" hreflang="ar" href="${arabicUrl}">` : ""}<link rel="alternate" hreflang="x-default" href="${sample.titleEn ? englishUrl : arabicUrl}">
+    ${workSocialMeta(title, description.slice(0, 170), canonical, language, "article")}
     <script type="application/ld+json">${schema}</script><script type="application/ld+json">${breadcrumbs}</script>
-    <script>window.__SSR_WORK__=${safeJson(sample)};</script>`;
-  const localized = (en: string, ar: string) => isArabic ? ar || en : en || ar;
+    <script>window.__SSR_WORK__=${safeJson(publicWorkBootstrap(sample))};</script>`;
   const sections = [
     [isArabic ? "المسألة" : "The matter", localized(sample.challengeEn, sample.challengeAr)],
     [isArabic ? "العمل الذي قمنا به" : "Work performed", localized(sample.approachEn, sample.approachAr)],
     [isArabic ? "النتيجة أو القيمة المقدمة" : "Outcome or value delivered", localized(sample.outcomeEn, sample.outcomeAr)],
   ].filter(([, value]) => value.trim()).map(([heading, value]) => `<section><h2>${esc(heading)}</h2><p style="white-space:pre-line">${esc(value)}</p></section>`).join("");
   const disclaimer = isArabic ? "هذا النموذج لأغراض توضيح الخبرة المهنية فقط. عُدّلت بعض التفاصيل أو حُجبت لحماية السرية، ولا تمثل النتائج السابقة ضماناً لنتيجة أي مسألة أخرى." : "This sample demonstrates professional experience only. Details may be modified or withheld to protect confidentiality, and past work or outcomes do not guarantee the result of another matter.";
-  const context = WORK_CONTEXT[sample.slug];
   const evidenceNote = context?.evidenceNote ? `<section><h2>${isArabic ? "ما الذي يوضحه المستند المنشور؟" : "What does the published document establish?"}</h2><p>${esc(context.evidenceNote[language])}</p></section>` : "";
   const readerGuidance = (WORK_READER_GUIDANCE[sample.slug]?.[language] ?? []).map(answer => `<section><h2>${esc(answer.q)}</h2><p>${esc(answer.a)}</p></section>`).join("");
-  const serviceLinks = context?.region ? context.relatedServiceSlugs.flatMap(slug => {
-    const service = getServiceDefinition(slug, context.region!);
-    return service ? [`<li><a href="/${context.region}${isArabic ? "/ar" : ""}/services/${esc(slug)}">${esc(localized(service.titleEn, service.titleAr))}</a></li>`] : [];
-  }) : [];
+  const serviceLinks = relatedServices.map(service => `<li><a href="/${region}${isArabic ? "/ar" : ""}/services/${esc(service.slug)}">${esc(localized(service.titleEn, service.titleAr))}</a></li>`);
   const articleLinks = (context?.relatedBlogSlugs ?? []).flatMap(slug => {
     const label = ARTICLE_LINK_LABELS[slug];
     return label ? [`<li><a href="${esc(blogPath(slug, language))}">${esc(label[language])}</a></li>`] : [];
@@ -440,36 +508,70 @@ export function buildDynamicWorkHtml(sample: PublicWorkSample, language: "en" | 
   });
   const links = [...serviceLinks, ...articleLinks, ...workLinks];
   const related = links.length ? `<nav aria-label="${isArabic ? "محتوى ذو صلة" : "Related content"}"><h2>${isArabic ? "خدمات ومحتوى ذو صلة" : "Related services and content"}</h2><ul>${links.join("")}</ul></nav>` : "";
-  const contactPath = context?.region ? `/${context.region}${isArabic ? "/ar" : ""}/contact` : `${isArabic ? "/ar" : "/"}#jurisdictions-heading${isArabic ? "-ar" : ""}`;
+  const contactPath = region ? `/${region}${isArabic ? "/ar" : ""}/contact` : `${isArabic ? "/ar" : "/"}#contact`;
   const attribution = context?.creator === "baghdadi-law" ? `<p>${isArabic ? "الجهة صاحبة الدراسة" : "Study by"}: <a href="https://www.baghdadilaw.co">${isArabic ? "البغدادي للمحاماة" : "Baghdadi Law"}</a></p>` : "";
   const updated = context ? `<p>${isArabic ? "تحديث المحتوى" : "Content updated"}: ${esc(workModifiedAt(sample.slug, sample.updatedAt, sample.date)?.slice(0, 10) ?? sample.date)}</p>` : "";
-  const body = `<main><article><h1>${esc(localized(sample.titleEn, sample.titleAr))}</h1>${attribution}${updated}<p>${esc(localized(sample.summaryEn, sample.summaryAr))}</p><p>${esc(localized(sample.workTypeEn, sample.workTypeAr))} · ${esc(localized(sample.jurisdictionEn, sample.jurisdictionAr))}</p>${sections}${evidenceNote}${readerGuidance}<p>${esc(disclaimer)}</p>${related}<p><a href="${contactPath}">${isArabic ? "ناقش متطلباتك القانونية" : "Discuss your legal requirements"}</a></p>${sample.fileSize > 0 ? `<a href="${fileUrl}">${isArabic ? "عرض المستند المنقح" : "View redacted document"}</a>` : ""}</article></main>`;
+  const textLink = textPath ? `<p><a href="${BASE_URL}${esc(textPath)}">${isArabic ? "قراءة المستند كنص" : "Read document as text"}</a></p>` : "";
+  const body = `<main><article><h1>${esc(localized(sample.titleEn, sample.titleAr))}</h1>${attribution}${updated}<p>${esc(localized(sample.summaryEn, sample.summaryAr))}</p><p>${esc(localized(sample.workTypeEn, sample.workTypeAr))} · ${esc(localized(sample.jurisdictionEn, sample.jurisdictionAr))}</p>${sections}${evidenceNote}${readerGuidance}<p>${esc(disclaimer)}</p>${related}<p><a href="${contactPath}">${isArabic ? "ناقش متطلباتك القانونية" : "Discuss your legal requirements"}</a></p>${sample.fileSize > 0 ? `<a href="${fileUrl}">${isArabic ? "عرض المستند المنقح" : "View redacted document"}</a>` : ""}${textLink}</article></main>`;
   if (!shell) return `<!doctype html><html lang="${isArabic ? "ar" : "en"}" dir="${isArabic ? "rtl" : "ltr"}"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
   return shell.replace(/<html\b[^>]*>/i, `<html lang="${isArabic ? "ar" : "en"}" dir="${isArabic ? "rtl" : "ltr"}">`).replace("<!--app-head-->", head).replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
 }
 
-function buildDynamicWorkIndex(samples: PublicWorkSample[], language: "en" | "ar"): string {
-  samples = samples.map(repairPublicWorkSample);
+export function buildDynamicWorkIndex(samples: PublicWorkSample[], language: "en" | "ar", template?: string): string {
+  samples = samples.filter(sample => sample.published === true).map(repairPublicWorkSample);
   const isArabic = language === "ar";
   const visibleSamples = samples.filter((sample) => isArabic ? Boolean(sample.titleAr) : Boolean(sample.titleEn));
-  const shell = getShellHtml() ?? getIndexHtml();
-  const title = isArabic ? "نماذج من أعمالنا القانونية | خبرة وصياغة احترافية | كاونسلو للاستشارات القانونية" : "Our Legal Work | Redacted Documents & Experience | CounselO Legal";
-  const description = isArabic ? "اطلع على نماذج منقحة من العقود والمذكرات والأعمال القانونية التي أعدها فريق كاونسلو للاستشارات القانونية، مع حماية كاملة لسرية وخصوصية العملاء." : "View redacted contracts, legal documents, and selected professional work prepared by CounselO Legal, with client confidentiality protected.";
+  const shell = template ?? getShellHtml() ?? getIndexHtml();
+  const title = isArabic ? "أعمالنا | دراسات القضايا والمستندات القانونية | كاونسلو" : "Our Work | Case Studies & Legal Documents | CounselO Legal";
+  const description = isArabic ? "استعرض دراسات القضايا ومراجعات العقود والمستندات القانونية المنشورة، مع بيان المسألة والعمل المنفذ والمصدر والوثائق الداعمة." : "Explore published case studies, contract reviews and legal documents, with the matter, work performed, source attribution and supporting documents.";
   const canonical = `${BASE_URL}${isArabic ? "/ar/our-work" : "/our-work"}`;
+  const introduction = isArabic
+    ? "من مراجعة عقد إلى إعداد ملف نزاع تجاري أو تحكيم أو قضية عابرة للحدود: اطّلع على دراسات تشرح المسألة، ودور كاونسلو، والتحليل والمستندات التي استند إليها العمل. تشمل خدماتنا الاستشارة والاستراتيجية والصياغة ودعم إجراءات النزاع، مع التمثيل أمام المحاكم والجهات المختصة بواسطة المحامين المحليين المرخصين وفق نطاق التكليف."
+    : "From reviewing a contract to preparing a commercial dispute, arbitration or cross-border matter, explore studies explaining the issue, CounselO’s role and the analysis and documents behind the work. Our services cover advice, strategy, drafting and dispute support, with representation before courts and authorities handled by licensed local lawyers under the agreed engagement.";
+  const collection = safeJson({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${canonical}#webpage`,
+    name: isArabic ? "نماذج أعمال كاونسلو للاستشارات القانونية" : "CounselO Legal Work Samples",
+    description: introduction,
+    url: canonical,
+    inLanguage: language,
+    about: { "@id": COUNSELO_ENTITY_IDS.organization },
+    isPartOf: { "@id": `${BASE_URL}/#website` },
+    mainEntity: { "@id": `${canonical}#work-list` },
+  });
   const itemList = safeJson({
-    "@context": "https://schema.org", "@type": "ItemList", numberOfItems: visibleSamples.length,
-    itemListElement: visibleSamples.map((sample, index) => ({ "@type": "ListItem", position: index + 1, name: isArabic ? sample.titleAr : sample.titleEn, url: `${canonical}/${sample.slug}` })),
+    "@context": "https://schema.org", "@type": "ItemList", "@id": `${canonical}#work-list`, numberOfItems: visibleSamples.length,
+    itemListElement: visibleSamples.map((sample, index) => ({ "@type": "ListItem", position: index + 1, name: isArabic ? sample.titleAr : sample.titleEn, url: `${canonical}/${sample.slug}`, item: { "@id": `${canonical}/${sample.slug}#work-sample` } })),
   });
   const breadcrumbs = safeJson({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: isArabic ? "الرئيسية" : "Home", item: `${BASE_URL}/` },
+      { "@type": "ListItem", position: 1, name: isArabic ? "الرئيسية" : "Home", item: `${BASE_URL}${isArabic ? "/ar" : "/"}` },
       { "@type": "ListItem", position: 2, name: isArabic ? "أعمالنا القانونية" : "Our Legal Work", item: canonical },
     ],
   });
-  const head = `<title>${esc(title)}</title><meta name="description" content="${esc(description)}"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"><link rel="canonical" href="${canonical}"><link rel="alternate" hreflang="en" href="${BASE_URL}/our-work"><link rel="alternate" hreflang="ar" href="${BASE_URL}/ar/our-work"><link rel="alternate" hreflang="x-default" href="${BASE_URL}/our-work"><meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${canonical}"><script type="application/ld+json">${itemList}</script><script type="application/ld+json">${breadcrumbs}</script><script>window.__SSR_WORK_SAMPLES__=${safeJson(visibleSamples.map((sample) => ({ ...sample, hasFile: sample.fileSize > 0 })))};</script>`;
-  const body = `<main><h1>${isArabic ? "أعمالنا القانونية" : "Our Legal Work"}</h1>${visibleSamples.map((sample) => `<article><h2><a href="${isArabic ? "/ar" : ""}/our-work/${encodeURIComponent(sample.slug)}">${esc(isArabic ? sample.titleAr : sample.titleEn)}</a></h2><p>${esc(isArabic ? sample.summaryAr : sample.summaryEn)}</p></article>`).join("")}</main>`;
+  const head = `<title>${esc(title)}</title><meta name="description" content="${esc(description)}"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"><link rel="canonical" href="${canonical}"><link rel="alternate" hreflang="en" href="${BASE_URL}/our-work"><link rel="alternate" hreflang="ar" href="${BASE_URL}/ar/our-work"><link rel="alternate" hreflang="x-default" href="${BASE_URL}/our-work">${workSocialMeta(title, description, canonical, language, "website")}<script type="application/ld+json">${collection}</script><script type="application/ld+json">${itemList}</script><script type="application/ld+json">${breadcrumbs}</script><script>window.__SSR_WORK_SAMPLES__=${safeJson(visibleSamples.map(publicWorkBootstrap))};</script>`;
+  const countryNamesAr: Record<string, string> = { "Saudi Arabia": "السعودية", Syria: "سوريا", "United Arab Emirates": "الإمارات" };
+  const languageNamesAr: Record<string, string> = { Arabic: "العربية", English: "الإنجليزية" };
+  const countries = COUNSELO_PLATFORM_POSITIONING.jurisdictions.map(name => isArabic ? countryNamesAr[name] ?? name : name).join(" · ");
+  const languages = COUNSELO_PLATFORM_POSITIONING.languages.map(name => isArabic ? languageNamesAr[name] ?? name : name).join(" · ");
+  const publishedCount = countPublishedPortfolio(samples);
+  const countLabel = publishedCount ? publishedCount.toLocaleString(language) : (isArabic ? "استعرض الأعمال" : "Explore Our Work");
+  const facts = `<section aria-labelledby="portfolio-facts-heading"><h2 id="portfolio-facts-heading">${isArabic ? "أعمال منشورة ونطاق خدمة إقليمي" : "Published work and regional service"}</h2><dl><div><dt>${isArabic ? "نماذج أعمال في مكتبة المنصة" : "Work samples in our public library"}</dt><dd><a href="${canonical}">${esc(countLabel)}</a></dd><dd>${isArabic ? "دراسات وملفات منشورة مع بيان أصحابها" : "Published studies and documents with author credits"}</dd></div><div><dt>${isArabic ? "دول ضمن نطاق خدماتنا" : "Countries served"}</dt><dd>${COUNSELO_SERVICE_COUNTRY_COUNT.toLocaleString(language)}</dd><dd>${esc(countries)}</dd></div><div><dt>${isArabic ? "لغتان لتقديم الخدمة" : "Service languages"}</dt><dd>${COUNSELO_SERVICE_LANGUAGE_COUNT.toLocaleString(language)}</dd><dd>${esc(languages)}</dd></div></dl></section>`;
+  const samplesBySlug = new Map(visibleSamples.map(sample => [sample.slug, sample]));
+  const availableCapabilities = portfolioCapabilities.filter(item => samplesBySlug.has(item.slug));
+  const capabilities = availableCapabilities.length ? `<section aria-labelledby="portfolio-capabilities-heading"><h2 id="portfolio-capabilities-heading">${isArabic ? "قدراتنا القانونية في أعمال منشورة" : "Our capabilities, shown in published work"}</h2><p>${isArabic ? "توضح هذه الملفات المنشورة دور فريقنا والمستندات التي درسها والعمل القانوني الذي قدمه." : "These published files show our team’s role, the documents examined and the legal work delivered."}</p>${availableCapabilities.map(item => {
+    const content = item[language];
+    const sample = samplesBySlug.get(item.slug)!;
+    const casePath = `${isArabic ? "/ar" : ""}/our-work/${encodeURIComponent(item.slug)}`;
+    const pdfLink = sample.fileSize > 0 && sample.fileMimeType === "application/pdf"
+      ? `<a href="${esc(workAttachmentPath(sample))}" target="_blank" rel="noopener noreferrer">${isArabic ? "المستند المنشور · PDF بالعربية" : "Published document · Arabic PDF"}</a>`
+      : "";
+    return `<article><h3><a href="${casePath}">${esc(content.title)}</a></h3><p>${esc(content.capability)}</p><dl><div><dt>${isArabic ? "دور كاونسلو" : "CounselO’s role"}</dt><dd>${esc(content.role)}</dd></div><div><dt>${isArabic ? "المستندات التي درسناها" : "Documents examined"}</dt><dd>${esc(content.documents)}</dd></div></dl><p><a href="${casePath}">${isArabic ? "اقرأ دراسة الحالة" : "Read the case study"}</a> ${pdfLink}</p></article>`;
+  }).join("")}</section>` : "";
+  const body = `<main><h1>${isArabic ? "أعمالنا القانونية ودراسات القضايا" : "Our legal work and case studies"}</h1><p>${esc(introduction)}</p>${facts}${capabilities}${visibleSamples.map((sample) => `<article><h2><a href="${isArabic ? "/ar" : ""}/our-work/${encodeURIComponent(sample.slug)}">${esc(isArabic ? sample.titleAr : sample.titleEn)}</a></h2>${WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? `<p>${isArabic ? "الجهة صاحبة الدراسة: البغدادي للمحاماة" : "Study by: Baghdadi Law"}</p>` : ""}<p>${esc(isArabic ? sample.summaryAr : sample.summaryEn)}</p></article>`).join("")}</main>`;
   if (!shell) return `<!doctype html><html lang="${language}" dir="${isArabic ? "rtl" : "ltr"}"><head>${head}</head><body><div id="root">${body}</div></body></html>`;
   return shell.replace(/<html\b[^>]*>/i, `<html lang="${language}" dir="${isArabic ? "rtl" : "ltr"}">`).replace("<!--app-head-->", head).replace(/<div id="root"><\/div>/, `<div id="root">${body}</div>`);
 }

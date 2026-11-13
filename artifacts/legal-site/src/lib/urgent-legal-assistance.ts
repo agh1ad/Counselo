@@ -1,7 +1,7 @@
 import type { Region } from "@workspace/api-zod/browser";
 
 export const URGENT_SLUG = "urgent-legal-assistance";
-export const URGENT_UPDATED_AT = "2026-09-11";
+export const URGENT_UPDATED_AT = "2026-11-13";
 export const urgentPath = (ar: boolean, region?: Region) => region
   ? `/${region}${ar ? "/ar" : ""}/services/${URGENT_SLUG}`
   : `${ar ? "/ar" : ""}/${URGENT_SLUG}`;
@@ -41,7 +41,7 @@ export const urgentCopy = {
       ["What if my deadline is less than three hours away?", "Send the exact deadline and time zone before paying. We assess feasibility and confirm what we can accept; a message does not reserve availability or extend an official deadline."],
       ["Can I submit a request on Thursday or Friday?", "Requests are accepted at any time Saturday–Thursday. We do not accept new urgent requests on Friday. For a Thursday request, agree the exact delivery date and time before payment."],
       ["Can I discuss the work or request revisions after delivery?", "Yes. The agreed fee includes revisions within scope and discussion or questions about the delivered work. New matters and work beyond that scope are agreed separately."],
-      ["Will you file the document or represent me in court?", "No. This service covers document preparation or review only. It excludes filing, attending hearings, monitoring court deadlines and creating new contracts."],
+      ["Does the three-hour urgent document service include court filing or representation?", "The three-hour urgent service delivers the agreed memorandum, statement of claim or review of an existing contract. Court filing, hearing attendance, monitoring court deadlines and drafting a new contract are outside this urgent package. CounselO also provides representation through licensed local partners under a separately agreed engagement; tell us if your matter needs that service so we can confirm the responsible professional, scope and timing."],
       ["How do I send my documents?", "Contact us through WhatsApp or email to agree the transfer method, then attach the files there. Include relevant schedules and correspondence. Website contact links do not attach files automatically."],
     ],
     relatedTitle: "Explore the relevant legal service",
@@ -86,7 +86,7 @@ export const urgentCopy = {
       ["ماذا لو بقي على الموعد أقل من ثلاث ساعات؟", "أرسل الموعد الدقيق والمنطقة الزمنية قبل الدفع. نقيّم إمكان التنفيذ ونؤكد ما يمكن قبوله؛ الرسالة لا تحجز التوافر ولا تمدد أي ميعاد رسمي."],
       ["هل يمكن تقديم الطلب يوم الخميس أو الجمعة؟", "نستقبل الطلبات في أي وقت من السبت إلى الخميس، ولا نستقبل طلبات مستعجلة جديدة يوم الجمعة. لطلب الخميس، اتفق معنا على تاريخ وساعة التسليم قبل السداد."],
       ["هل يمكن مناقشة العمل أو طلب تعديلات بعد التسليم؟", "نعم. تشمل الأتعاب المتفق عليها التعديلات ضمن النطاق ومناقشة العمل المسلّم والأسئلة المتعلقة به. تُتفق المسائل الجديدة والأعمال خارج النطاق بصورة مستقلة."],
-      ["هل تتولون الإيداع أو التمثيل أمام القضاء؟", "لا. تقتصر الخدمة على إعداد المستند أو تدقيقه. لا تشمل الإيداع أو حضور الجلسات أو متابعة المواعيد القضائية أو إنشاء عقود جديدة."],
+      ["هل تشمل خدمة المستندات العاجلة خلال ثلاث ساعات الإيداع أو التمثيل أمام القضاء؟", "تقدم الخدمة العاجلة المذكرة أو لائحة الدعوى أو مراجعة العقد القائم المتفق عليها. ويخرج عن نطاق هذه الخدمة العاجلة الإيداع وحضور الجلسات ومتابعة المواعيد القضائية وصياغة عقد جديد. وتقدم كاونسلو أيضاً التمثيل عبر شركاء محليين مرخصين بموجب تكليف مستقل متفق عليه؛ أخبرنا إذا كانت مسألتك تحتاج إلى ذلك لنؤكد المهني المسؤول ونطاق العمل وموعده."],
       ["كيف أرسل المستندات؟", "تواصل عبر واتساب أو البريد للاتفاق على وسيلة النقل، ثم أرفق الملفات هناك مع الملاحق والمراسلات ذات الصلة. روابط الموقع لا ترفق الملفات تلقائياً."],
     ],
     relatedTitle: "استكشف الخدمة القانونية ذات الصلة",

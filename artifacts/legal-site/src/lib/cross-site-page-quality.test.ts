@@ -21,8 +21,8 @@ test("global entry pages keep qualified positioning and accessible heading spaci
   const template = readComponent("home/global-homepage.tsx");
   const home = readPage("home.tsx");
   assert.doesNotMatch(copy, /fast, professional and trusted|مستشار قانوني معتمد/i);
-  assert.match(copy, /subject to scope, urgency/);
-  assert.match(copy, /بحسب نطاق المسألة/);
+  assert.match(copy, /aim to respond professionally within 24 hours after receiving the information needed/);
+  assert.match(copy, /نسعى للرد المهني خلال 24 ساعة من استلام المعلومات اللازمة/);
   assert.match(template, /<h1 id="home-title">\s*\{c\.h1\}\s*<\/h1>/);
   assert.match(home, /\{saudiCopy\.title\}/);
 });

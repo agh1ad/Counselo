@@ -7,21 +7,21 @@ export const saudiHomeCopy = {
   en: {
     title: "CounselO Saudi Arabia",
     heroLead: "Protect your rights. Strengthen your contracts. Move your business forward.",
-    heroText: "Your destination for comprehensive Saudi legal services from home, with experienced counsel and a strong network of lawyers and professional partners.",
+    heroText: "Saudi legal services from everyday advice to complex disputes: consultation, contracts, legal strategy and follow-up, with court representation through licensed partners and lawyers. Work with our experienced team online in Arabic or English.",
     heading: "Legal experience.\nA practical understanding of Saudi Arabia.",
-    introduction: "CounselO Saudi Arabia puts an experienced legal team within reach of your home, wherever you are in the Kingdom or abroad. From family and employment matters to property, contracts, companies and commercial disputes, we turn your facts and documents into clear legal advice and practical next steps.",
-    experience: "Our legal team brings practical experience in contract drafting, dispute assessment, arbitration and cross-border legal analysis. We examine the evidence, identify the legal issues and prepare advice, agreements and submissions that support a clear strategy for your matter.",
-    localWork: "From online consultation to dispute preparation and court representation, our team coordinates agreed stages with qualified Saudi lawyers and professional partners while keeping you informed.",
+    introduction: "CounselO Saudi Arabia puts an experienced legal team within reach, wherever you are in the Kingdom or abroad. We handle everyday questions and substantial matters across family, employment, property, contracts, companies and commercial disputes, connecting advice, drafting and representation through our licensed partners.",
+    experience: "Our legal team works on straightforward matters and complex disputes involving multiple parties, substantial documents or more than one country. We examine the evidence, develop the legal strategy and prepare opinions, agreements, settlement proposals, claims and defence memoranda, with follow-up through the agreed stages of the matter.",
+    localWork: "From online consultation to legal representation, stay connected with one team. Our licensed partners and lawyers in Saudi Arabia handle representation before courts and authorities under a separately agreed engagement, while we coordinate the legal preparation and follow-up with you.",
     profile: "Meet our team and Saudi partners",
   },
   ar: {
     title: "كاونسلو السعودية",
     heroLead: "احمِ حقوقك. اضبط عقودك. وامضِ بأعمالك بثقة.",
-    heroText: "وجهتك لخدمات قانونية سعودية متكاملة من منزلك، بدعم فريق متمرس وشبكة قوية من المحامين والشركاء المهنيين.",
+    heroText: "خدمات قانونية سعودية من المشورة اليومية إلى النزاعات المعقدة: استشارات وعقود واستراتيجية قانونية ومتابعة، وتمثيل أمام المحاكم عبر شركائنا ومحامينا المرخصين. تعامل مع فريقنا المتمرس أونلاين بالعربية أو الإنجليزية.",
     heading: "خبرة قانونية راسخة.\nومعرفة عملية بالسعودية.",
-    introduction: "تضع كاونسلو السعودية فريقاً قانونياً متمرساً في متناولك من منزلك، سواء كنت داخل المملكة أو خارجها. من مسائل الأسرة والعمل إلى العقارات والعقود والشركات والمنازعات التجارية، نحوّل وقائع مسألتك ومستنداتها إلى مشورة واضحة وخطوات عملية.",
-    experience: "يمتلك فريقنا القانوني خبرة عملية في صياغة العقود ودراسة المنازعات والتحكيم والتحليل القانوني للمسائل العابرة للحدود. نفحص الأدلة، ونحدد المسائل القانونية، ونعدّ المشورة والاتفاقيات والمذكرات التي تدعم استراتيجية واضحة لمسألتك.",
-    localWork: "من الاستشارة أونلاين إلى التحضير للمنازعات والتمثيل القانوني، ينسق فريقنا مراحل العمل المتفق عليها بالتعاون مع محامين وشركاء مهنيين مؤهلين في السعودية مع إبقائك على اطلاع مستمر.",
+    introduction: "تضع كاونسلو السعودية فريقاً قانونياً متمرساً في متناولك، سواء كنت داخل المملكة أو خارجها. نتولى الأسئلة اليومية والمسائل الواسعة في الأسرة والعمل والعقارات والعقود والشركات والمنازعات التجارية، ونربط المشورة والصياغة بالتمثيل عبر شركائنا المرخصين.",
+    experience: "يعمل فريقنا القانوني على المسائل المباشرة والنزاعات المعقدة التي تتعدد أطرافها أو تتسع مستنداتها أو ترتبط بأكثر من دولة. نفحص الأدلة، ونضع الاستراتيجية القانونية، ونعدّ الآراء والاتفاقيات ومقترحات التسوية والمطالبات ومذكرات الدفاع، مع المتابعة خلال مراحل العمل المتفق عليها.",
+    localWork: "من الاستشارة أونلاين إلى التمثيل القانوني، ابقَ على تواصل مع فريق واحد. يتولى شركاؤنا ومحامونا المرخصون في السعودية التمثيل أمام المحاكم والجهات المختصة بموجب تكليف مستقل متفق عليه، وننسق معك الإعداد القانوني والمتابعة.",
     profile: "تعرّف على فريقنا وشركائنا في السعودية",
   },
 } as const;
@@ -34,7 +34,7 @@ export function regionalHomeCopy(region: Region, isArabic: boolean) {
     ...base,
     title: isArabic ? `كاونسلو ${country}` : `CounselO ${region === "syr" ? "Syria" : "UAE"}`,
     heading: isArabic ? `خبرة قانونية راسخة.\nدعم مهني لمسألتك في ${country}.` : `Experienced legal support.\nFor your matter in ${country}.`,
-    heroText: isArabic ? `وجهتك للخدمات القانونية في ${country} من منزلك. استشر فريقنا المتمرس بالعربية أو الإنجليزية دون زيارة مكتب، مع تمثيل محلي عبر شركاء ومحامين مرخصين.` : `Your destination for legal services in ${country}, from home. Consult our experienced team in Arabic or English without an office visit, with local representation through licensed partners and lawyers.`,
+    heroText: isArabic ? `خدمات قانونية في ${country} من المشورة اليومية إلى النزاعات المعقدة: استشارات وعقود واستراتيجية قانونية ومتابعة، وتمثيل أمام المحاكم عبر شركاء ومحامين مرخصين. تعامل مع فريقنا أونلاين بالعربية أو الإنجليزية.` : `Legal services in ${country}, from everyday advice to complex disputes: consultation, contracts, legal strategy and follow-up, with court representation through licensed partners and lawyers. Work with our team online in Arabic or English.`,
     introduction: region === "syr"
       ? (isArabic ? "يضع فريق كاونسلو خبرته في خدمة الأفراد والأسر والشركات داخل سوريا وخارجها. نراجع مسائل العقارات والميراث والعقود والأعمال والمنازعات، ونربط المستندات والوقائع بخطوات قانونية واضحة تراعي موقع السجلات والأطراف وأي صلة بالخارج." : "CounselO brings experienced online legal support to individuals, families and businesses in Syria and abroad. We review property, inheritance, contracts, business matters and disputes, connecting your records and objectives to a clear legal approach that accounts for local documents and cross-border issues.")
       : (isArabic ? "تقدم كاونسلو دعماً قانونياً مهنياً للأفراد والشركات والمستثمرين في الإمارات. ندرس العقود والشركات والعمل والعقارات ومسائل الأسرة والمنازعات، مع تحديد الإمارة والجهة والإطار المنطبق في البر الرئيسي أو المنطقة الحرة لبناء مشورة دقيقة وخطوات عملية." : "CounselO provides professional legal support for individuals, businesses and investors with UAE matters. Our team reviews contracts, companies, employment, property, family issues and disputes, identifying the relevant emirate, authority and mainland or free-zone framework to prepare clear advice and practical next steps."),
@@ -74,6 +74,7 @@ export function SaudiHomeIntroduction({ isArabic, region = "sa" }: { isArabic: b
         <p>{c.experience}</p>
         <p>{c.localWork}</p>
         <Link className="sa-home-introduction__link" href={`/${region}${isArabic ? "/ar" : ""}/about`}>{c.profile}<ArrowRight size={18} aria-hidden="true" /></Link>
+        <p><Link className="sa-home-introduction__link" href={isArabic ? "/ar/our-work" : "/our-work"}>{isArabic ? "اطّلع على دراسات القضايا والمستندات في أعمالنا" : "Explore case studies and documents in Our Work"}<ArrowRight size={18} aria-hidden="true" /></Link></p>
       </div>
     </div>
   </section>;

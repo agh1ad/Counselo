@@ -11,6 +11,17 @@ type PublicJsonCacheEntry = {
 
 const publicJsonCache = new Map<string, PublicJsonCacheEntry>();
 
+export class PublicContentError extends Error {
+  constructor(public readonly status: number) {
+    super(`Unable to load published content (${status})`);
+    this.name = "PublicContentError";
+  }
+}
+
+export function isMissingPublicContent(error: unknown): boolean {
+  return error instanceof PublicContentError && (error.status === 404 || error.status === 410);
+}
+
 function trimPublicJsonCache(): void {
   while (publicJsonCache.size > MAX_PUBLIC_JSON_CACHE_ENTRIES) {
     const oldestKey = publicJsonCache.keys().next().value as string | undefined;
@@ -23,8 +34,12 @@ function trimPublicJsonCache(): void {
  * Public content is served by the production API. In local Vite development
  * there is no `/api` proxy, so same-origin requests would receive index.html.
  */
-export function publicApiUrl(path: string): string {
-  return import.meta.env?.DEV ? `${PRODUCTION_ORIGIN}${path}` : path;
+export function publicApiUrl(path: string, development = import.meta.env?.DEV ?? false): string {
+  if (!development) return path;
+  // Vite previews documents using read-only public data,
+  // keeping PDF frames on this origin while the backend changes await deployment.
+  if (path.startsWith("/documents/")) return path;
+  return `${PRODUCTION_ORIGIN}${path}`;
 }
 
 export async function fetchPublicJson<T>(path: string): Promise<T> {
@@ -50,7 +65,7 @@ export async function fetchPublicJson<T>(path: string): Promise<T> {
     const contentType = response.headers.get("content-type") ?? "";
 
     if (!response.ok) {
-      throw new Error(`Unable to load published content (${response.status})`);
+      throw new PublicContentError(response.status);
     }
     if (!contentType.toLowerCase().includes("application/json")) {
       throw new Error(`Published content returned ${contentType || "an unknown content type"} instead of JSON`);

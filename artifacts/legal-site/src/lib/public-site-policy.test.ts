@@ -7,6 +7,7 @@ import {
   blogPath,
   buildDiscoveryFeed,
   buildDynamicSitemap,
+  buildWorkDocumentSitemapEntries,
   buildHreflangLinks,
   getPublicRouteInventory,
   hasQualityBilingualBlogContent,
@@ -162,6 +163,24 @@ test("dynamic discovery emits both language canonicals and preserves both blog h
   const feed = buildDiscoveryFeed([post], []);
   assert.match(feed, /\/blog\/en\/contract-guide/);
   assert.match(feed, /\/blog\/ar\/contract-guide/);
+});
+
+test("work discovery refreshes canonical PDFs and removes withdrawn files without HTML language alternates", () => {
+  const sample = { slug: "published-work", titleEn: "Work", titleAr: "عمل", summaryEn: "Summary", summaryAr: "ملخص", date: "2026-11-01", updatedAt: "2026-11-13T10:00:00Z", published: true, fileSize: 123, fileMimeType: "application/pdf" };
+  const samples = [sample, { ...sample, slug: "draft-work", published: false }, { ...sample, slug: "removed-file", fileSize: 0 }, { ...sample, slug: "non-pdf", fileMimeType: "text/plain" }];
+  const entries = buildWorkDocumentSitemapEntries([...samples, sample]);
+  assert.equal(entries.length, 1);
+  assert.match(entries[0], /<loc>https:\/\/counselo-legal\.com\/documents\/published-work\.pdf<\/loc>/);
+  assert.match(entries[0], /<lastmod>2026-11-13<\/lastmod>/);
+  assert.doesNotMatch(entries[0], /hreflang|xhtml:link/);
+  const base = '<urlset><url><loc>https://counselo-legal.com/our-work</loc></url><url><loc>https://counselo-legal.com/documents/withdrawn-work.pdf</loc></url></urlset>';
+  const xml = buildDynamicSitemap(base, [], samples);
+  assert.doesNotMatch(xml, /withdrawn-work|draft-work/);
+  assert.equal((xml.match(/<loc>[^<]*\/documents\//g) ?? []).length, 1);
+  assert.match(xml, /\/our-work\/published-work/);
+  assert.match(xml, /\/ar\/our-work\/published-work/);
+  assert.equal(buildDynamicSitemap(xml, [], samples).replace(/>\s*</g, "><"), xml.replace(/>\s*</g, "><"));
+  assert.ok(!getPublicRouteInventory().some(route => route.startsWith("/documents/") || route.endsWith(".pdf")));
 });
 
 test("checked-in sitemap index and child files are purpose-separated", () => {

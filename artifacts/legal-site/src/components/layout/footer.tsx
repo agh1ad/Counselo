@@ -95,13 +95,16 @@ export function Footer() {
         </nav>
         <nav aria-label={isArabic ? "روابط سريعة" : "Quick links"}>
           <h3>{f.quickLinksHeading}</h3>
-          <Link href={`${isArabic ? "/ar" : ""}/urgent-legal-assistance`}>{isArabic ? "المساعدة القانونية العاجلة" : "Urgent Legal Assistance"}</Link>
           <Link href={isSharedPath ? regionPickerPath : regionPrefix}>{f.links.home}<ArrowRight /></Link>
-          {!isSharedPath && <Link href={p("/services")}>{f.links.allServices}<ArrowRight /></Link>}
-          {!isSharedPath && <Link href={p("/about")}>{f.links.about}<ArrowRight /></Link>}
-          <Link href={libraryPath}>{f.links.ourWork}<ArrowRight /></Link>
+          {!isSharedPath && <>
+            <Link href={p("/services")}>{isArabic ? "الخدمات" : "Services"}<ArrowRight /></Link>
+            <Link href={p("/contact")}>{isArabic ? "تواصل معنا" : "Contact Us"}<ArrowRight /></Link>
+            <Link href={p("/about")}>{isArabic ? "من نحن" : "About Us"}<ArrowRight /></Link>
+          </>}
+          <Link href={isArabic ? "/ar/our-work" : "/our-work"}>{isArabic ? "أعمالنا" : "Our Work"}<ArrowRight /></Link>
+          <Link href={libraryPath}>{isArabic ? "المكتبة القانونية" : "Legal Library"}<ArrowRight /></Link>
           <Link href={blogIndexPath}>{f.links.blog}<ArrowRight /></Link>
-          {!isSharedPath && <Link href={p("/contact")}>{f.links.contact}<ArrowRight /></Link>}
+          <Link href={`${isArabic ? "/ar" : ""}/urgent-legal-assistance`}>{isArabic ? "المساعدة القانونية العاجلة" : "Urgent Legal Assistance"}</Link>
 
           <Link href={regionPickerPath}>{isArabic ? "اختيار الدولة" : "Choose Region"}<Globe2 /></Link>
         </nav>

@@ -24,7 +24,7 @@ test("both languages answer the same core questions with complete content", () =
     assert.equal(c.countryDetails.length, 3);
     assert.equal(c.steps.length, 4);
     assert.equal(c.questions.length, 8);
-    assert.match(c.intro, /experienced legal team|فريقها القانوني المتمرس/);
+    assert.match(c.intro, /experienced legal professionals|فريق قانوني متمرس/);
     assert.doesNotMatch(c.intro, /Omar|عمر البغدادي|1996/);
   }
 });

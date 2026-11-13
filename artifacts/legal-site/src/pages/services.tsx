@@ -106,7 +106,7 @@ export default function Services() {
         "url": `${baseUrl}/services/${item.id}`,
       })),
     },
-    { "@context": "https://schema.org", ...regionalServiceDirectoryEntity(region, isRTL ? "ar" : "en", isRTL ? "خدمات كاونسلو للاستشارات القانونية القانونية" : "CounselO Legal legal consultation services", seoDesc, s.items) },
+    { "@context": "https://schema.org", ...regionalServiceDirectoryEntity(region, isRTL ? "ar" : "en", isRTL ? "خدمات كاونسلو القانونية" : "CounselO Legal legal consultation services", seoDesc, s.items) },
     { "@context": "https://schema.org", ...COUNSELO_ORGANIZATION },
     {
       "@context": "https://schema.org",
@@ -165,7 +165,7 @@ export default function Services() {
                         </span>
                         <div>
                           <h3 className="mb-2 block font-serif text-xl font-semibold leading-tight text-[#173f2f] transition-colors group-hover:text-[#0d4a31]">
-                            <span className="me-2 text-base font-normal text-[#b4924a]">{String(index + 1).padStart(2, "0")}.</span>
+                            <span className="me-2 text-base font-normal text-[#866523]">{String(index + 1).padStart(2, "0")}.</span>
                             {service.title}
                           </h3>
                           <span className="line-clamp-3 block text-sm leading-6 text-[#52675e]">

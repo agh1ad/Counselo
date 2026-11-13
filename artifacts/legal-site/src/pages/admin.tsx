@@ -1,5 +1,5 @@
 import { LegalUpdatesManager } from "@/components/admin/legal-updates-manager";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import {
   Plus, Edit2, Trash2, LogOut, Eye, ChevronRight,
   X, Save, AlertCircle, CheckCircle, Globe, ChevronDown,
@@ -767,6 +767,8 @@ export default function AdminCMS() {
   const [password, setPassword] = useState("");
   const [showPw, setShowPw] = useState(false);
   const [loginErr, setLoginErr] = useState("");
+  const [signingIn, setSigningIn] = useState(false);
+  const signInLock = useRef(false);
   const [posts, setPosts] = useState<BlogPostSummary[]>([]);
   const [loading, setLoading] = useState(false);
   const [loadingEdit, setLoadingEdit] = useState<number | null>(null);
@@ -808,14 +810,31 @@ export default function AdminCMS() {
 
   const login = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (signInLock.current) return;
+    signInLock.current = true;
+    setSigningIn(true);
     setLoginErr("");
-    const res = await fetch(`${API}/admin/auth`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password }) });
-    if (res.ok) {
-      const { token: t } = await res.json() as { token: string };
-      sessionStorage.setItem("counselo_admin_token", t);
-      setToken(t);
-    } else {
-      setLoginErr("Wrong password. Try again.");
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 15_000);
+    try {
+      const res = await fetch(`${API}/admin/auth`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password }), signal: controller.signal });
+      if (!res.ok) {
+        setLoginErr(res.status === 401 ? "Wrong password. Try again." : res.status === 429 ? "Too many sign-in attempts. Try again shortly." : "The sign-in service is unavailable. Please retry.");
+        return;
+      }
+      const result: unknown = await res.json();
+      if (!result || typeof result !== "object" || !("token" in result) || typeof result.token !== "string" || !result.token.trim()) {
+        throw new Error("Invalid sign-in response");
+      }
+      sessionStorage.setItem("counselo_admin_token", result.token);
+      setToken(result.token);
+      setPassword("");
+    } catch {
+      setLoginErr(controller.signal.aborted ? "Sign-in timed out. Please retry." : "Unable to reach the sign-in service. Please retry.");
+    } finally {
+      window.clearTimeout(timeout);
+      signInLock.current = false;
+      setSigningIn(false);
     }
   };
 
@@ -842,11 +861,11 @@ export default function AdminCMS() {
           </div>
           <form onSubmit={login} className="space-y-4">
             <div className="relative">
-              <input type={showPw ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Admin password" className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600 pr-10" autoFocus />
-              <button type="button" onClick={() => setShowPw((v) => !v)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">{showPw ? "🙈" : "👁"}</button>
+              <input type={showPw ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Admin password" aria-label="Admin password" autoComplete="current-password" required disabled={signingIn} className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-600 pr-10" autoFocus />
+              <button type="button" aria-label={showPw ? "Hide password" : "Show password"} onClick={() => setShowPw((v) => !v)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">{showPw ? "🙈" : "👁"}</button>
             </div>
-            {loginErr && <p className="text-xs text-red-600">{loginErr}</p>}
-            <button type="submit" className="w-full bg-[#006C35] text-white py-3 rounded-lg text-sm font-semibold hover:bg-green-800 transition-colors">Sign in</button>
+            {loginErr && <p role="alert" className="text-xs text-red-600">{loginErr}</p>}
+            <button type="submit" disabled={signingIn} className="w-full bg-[#006C35] text-white py-3 rounded-lg text-sm font-semibold hover:bg-green-800 transition-colors disabled:opacity-60">{signingIn ? "Signing in…" : "Sign in"}</button>
           </form>
         </div>
       </div>

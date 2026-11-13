@@ -1,5 +1,6 @@
 import type { InsertWorkSample, WorkSample } from "@workspace/db";
-import { publicTestimonial, testimonialMetadataSchema, type TestimonialMetadata } from "@workspace/api-zod";
+import { selectPublicTestimonials, testimonialMetadataSchema, type TestimonialMetadata } from "@workspace/api-zod";
+
 import { getWorkTranslationGaps } from "./content-translation.js";
 
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -240,8 +241,6 @@ export function parseWorkSampleInput(
 
 export function publicWorkSample(sample: WorkSample): Omit<WorkSample, "fileData" | "confidentialityConfirmed"> & { hasFile: boolean } {
   const { fileData, confidentialityConfirmed: _confirmed, ...safe } = sample;
-  const testimonials = sample.testimonialGovernanceVersion === 1
-    ? sample.testimonials.map(publicTestimonial)
-    : sample.testimonials.map(({ internalReference: _internalReference, ...legacy }) => legacy);
+  const testimonials = selectPublicTestimonials(sample.testimonials);
   return { ...safe, testimonials, hasFile: Boolean(fileData) } as Omit<WorkSample, "fileData" | "confidentialityConfirmed"> & { hasFile: boolean };
 }
