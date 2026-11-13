@@ -6,6 +6,7 @@ import { workJurisdictionRegion } from "@/lib/work-jurisdiction";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized } from "@/lib/work-samples";
 import { fetchPublicJson, publicApiUrl, isMissingPublicContent } from "@/lib/public-api";
+import { PdfDocumentPreview } from "@/components/content/pdf-document-preview";
 import { ContentRecovery } from "@/components/content/content-recovery";
 import { workAttachmentPath, publicWorkDocumentTextPath, WORK_CONTEXT, WORK_READER_GUIDANCE, workModifiedAt, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion } from "@workspace/api-zod/browser";
 
@@ -156,7 +157,7 @@ export default function WorkSample() {
             <div className="border border-border bg-card p-5 sticky top-28">
               <h2 className="text-xl font-serif font-bold mb-4">{context?.evidenceNote ? (ar ? "دراسة كاونسلو للاستشارات القانونية للحالة" : "CounselO Legal case study") : ui.document}</h2>
               <div id="work-document-preview" className="aspect-[3/4] bg-muted border border-border overflow-hidden mb-4 flex items-center justify-center">
-                {sample.fileMimeType.startsWith("image/") ? <img src={fileUrl} alt={title} className="w-full h-full object-contain" /> : <iframe src={fileUrl} title={`${ui.document}: ${title}`} className="w-full h-full" loading="lazy" />}
+                {sample.fileMimeType.startsWith("image/") ? <img src={fileUrl} alt={title} className="w-full h-full object-contain" /> : <PdfDocumentPreview key={fileUrl} src={fileUrl} title={`${ui.document}: ${title}`} isArabic={ar} />}
               </div>
               <a href={fileUrl} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-primary text-white px-4 py-3 font-semibold hover:bg-primary/90"><ExternalLink className="h-4 w-4" />{ui.open}</a>
               <a href={`${fileUrl}?download=1`} download={sample.fileName} className="mt-2 w-full flex items-center justify-center gap-2 border border-border px-4 py-3 font-semibold hover:bg-muted"><Download className="h-4 w-4" />{ui.download}</a>

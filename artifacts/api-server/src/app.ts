@@ -113,6 +113,9 @@ app.use("/api", (req, res, next) => {
 });
 app.use("/api", cachePublicResponses("api", isDatabaseBackedPublicApiPath));
 app.use("/api", router);
+// A web-artifact document proxy must use the API-owned namespace, never call
+// its own /documents URL again on a path-routed deployment.
+app.use("/api/documents", createPublicDocumentsRouter(publishedWorkFileBySlug));
 
 // Valid published documents are immutable within a publication epoch. Keep
 // client-facing no-store headers, but avoid reloading PDF bytes from

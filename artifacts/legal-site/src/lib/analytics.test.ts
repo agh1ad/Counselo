@@ -128,3 +128,12 @@ test("a delayed SPA page view waits for destination metadata, is cancelled on ab
     Object.defineProperty(globalThis, "MutationObserver", { configurable: true, value: previous.observer });
   }
 });
+
+test("document clicks preserve the event but exclude filenames and download parameters", () => {
+  for (const link of ["/documents/a.pdf", "/documents/a.pdf?download=1", "/documents/a.txt", "/documents/%61.pdf"]) {
+    const parameters = measurementParameters("/ar/our-work/case", { link_url: link, element_tag: "a" });
+    assert.equal(parameters?.page_path, "/ar/our-work/case");
+    assert.equal(parameters?.element_tag, "a");
+    assert.equal(parameters?.link_url, undefined);
+  }
+});

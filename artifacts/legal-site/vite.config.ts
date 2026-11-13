@@ -113,6 +113,10 @@ export default defineConfig({
   // Prerendered output is not a development entry point.
   optimizeDeps: { entries: ["index.html"] },
   build: {
+    // Prerendered HTML is visible before lazy route JavaScript runs. Keep its
+    // complete styling in the blocking HTML stylesheet to prevent an unstyled
+    // first paint. JavaScript route splitting remains enabled.
+    cssCodeSplit: false,
     // Client build → dist/public/  (served as static files by artifact.toml)
     // SSR build    → dist/server/  (Node bundle consumed by prerender.ts)
     outDir: isSSR
