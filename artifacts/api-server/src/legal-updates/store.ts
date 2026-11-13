@@ -186,7 +186,7 @@ export async function publishedUpdates(
   data.article = article;
   if (context.kind === "article" && !article) return data;
 
-  const relatedServices = article?.draft.serviceSlugs || [];
+  const relatedServices: string[] = article?.draft.serviceSlugs || [];
   const filtered = snapshot.updates.filter((update) => {
     if (context.region && update.region !== context.region) return false;
     if (
