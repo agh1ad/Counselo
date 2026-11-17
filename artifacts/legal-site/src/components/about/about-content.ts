@@ -6,14 +6,8 @@ import { COUNSELO_CLIENT_TRUST } from "@/lib/public-claims";
 // record. The owner supplied partner licence 37440 on 2026-10-19 and requested
 // its display on About on 2026-11-03. It belongs to the Saudi partner, not CounselO.
 export const SAUDI_PARTNER_LICENCE = "37440";
-export const ABOUT_UPDATED = "2026-11-13";
-
-// Official service descriptions checked on 2026-11-12. These are routes for
-// independent enquiries, not evidence that a particular licence was checked.
-export const SAUDI_LAWYER_DIRECTORY = {
-  en: "https://www.moj.gov.sa/English/eServices/pages/10abd1a2-a4c2-4951-a464-ac926eb24417.aspx",
-  ar: "https://www.moj.gov.sa/ar/eServices/Pages/10abd1a2-a4c2-4951-a464-ac926eb24417.aspx",
-} as const;
+export const ABOUT_UPDATED = "2026-11-17";
+export const SAUDI_PARTNER_DIRECTORY_URL = "https://eservice.sba.gov.sa/directory/855";
 
 // Existing business record: en-syr.ts/ar-syr.ts at HEAD and the published
 // https://counselo-legal.com/syr/ar partner card (checked 2026-11-03).
@@ -89,9 +83,10 @@ export const aboutContent = {
     ],
     profileLink: "View his professional profile",
     partnerLabel: "Our licensed Saudi partner",
-    licenceLabel: "Saudi lawyer licence",
-    directoryLabel: "Saudi Ministry of Justice · Practising lawyers directory",
-    directoryNote: "The Ministry's directory provides a search by lawyer name. The licence shown above identifies our Saudi partner; the professional responsible for your representation is confirmed in your engagement.",
+    licenceLabel: "Associated lawyer licence",
+    partnerLocation: "Saudi Arabia",
+    directoryLabel: "View this office in the Saudi Bar Association directory",
+    directoryNote: "This directory record documents the partner office. CounselO identifies the partnership; any representation is agreed separately.",
     faqTitle: "Your questions about our legal services",
     faqs: [
       { question: "What legal services does CounselO provide?", answer: "CounselO provides consultation, legal analysis, contract and document drafting, negotiation, dispute and arbitration support, and continuing legal advice for matters in Saudi Arabia, Syria and the UAE. Licensed partners and lawyers provide representation before courts and authorities, with CounselO coordinating preparation and follow-up under the agreed engagement.", link: null },
@@ -158,9 +153,10 @@ export const aboutContent = {
     ],
     profileLink: "اطّلع على ملفه المهني",
     partnerLabel: "شريكنا السعودي المرخص",
-    licenceLabel: "ترخيص المحاماة السعودي",
-    directoryLabel: "وزارة العدل السعودية · دليل المحامين الممارسين",
-    directoryNote: "يتيح دليل الوزارة البحث باسم المحامي. يخص رقم الترخيص المعروض شريكنا السعودي، ويُحدد المهني المسؤول عن تمثيلك في اتفاق التكليف.",
+    licenceLabel: "ترخيص المحامي المرتبط بالمكتب",
+    partnerLocation: "المملكة العربية السعودية",
+    directoryLabel: "عرض سجل هذا المكتب في دليل الهيئة السعودية للمحامين",
+    directoryNote: "يوثق هذا السجل مكتب الشريك. وتوضح كاونسلو علاقة الشراكة؛ أما أي تمثيل فيكون بموجب تكليف مستقل متفق عليه.",
     faqTitle: "أسئلتك عن خدماتنا القانونية",
     faqs: [
       { question: "ما الخدمات القانونية التي تقدمها كاونسلو؟", answer: "تقدم كاونسلو الاستشارات والتحليل القانوني وصياغة العقود والمستندات والتفاوض ودعم المنازعات والتحكيم والمشورة القانونية المستمرة للمسائل المرتبطة بالسعودية وسوريا والإمارات. ويتولى الشركاء والمحامون المرخصون التمثيل أمام المحاكم والجهات المختصة، مع تنسيق كاونسلو للإعداد والمتابعة وفق التكليف المتفق عليه.", link: null },
@@ -176,8 +172,8 @@ export const aboutContent = {
 
 export const aboutRegions: Record<Region, { en: { country: string; focus: string; partnerTitle: string; partnerText: string }; ar: { country: string; focus: string; partnerTitle: string; partnerText: string } }> = {
   sa: {
-    en: { country: "Saudi Arabia", focus: "For Saudi matters, we assess family, employment, property, commercial and investment questions against the relevant Saudi rules and documents, with online support available throughout the Kingdom.", partnerTitle: "Lawyer Abdullah Al-Anzi", partnerText: "Our presence in Saudi Arabia is supported by our licensed partner, lawyer Abdullah Al-Anzi. CounselO coordinates the legal analysis and preparation with him when a matter requires local representation before courts or authorities, under a separately agreed engagement." },
-    ar: { country: "السعودية", focus: "في المسائل السعودية، نراجع شؤون الأسرة والعمل والعقارات والتجارة والاستثمار في ضوء الأنظمة والمستندات ذات الصلة، مع إتاحة الدعم أونلاين في جميع أنحاء المملكة.", partnerTitle: "المحامي عبدالله العنزي", partnerText: "يدعم حضورنا المهني في السعودية شريكنا المرخص، المحامي عبدالله العنزي. وتنسق كاونسلو معه التحليل القانوني والتحضير عندما تتطلب المسألة تمثيلاً محلياً أمام المحاكم أو الجهات المختصة، ضمن تكليف مستقل متفق عليه." },
+    en: { country: "Saudi Arabia", focus: "For Saudi matters, we assess family, employment, property, commercial and investment questions against the relevant Saudi rules and documents, with online support available throughout the Kingdom.", partnerTitle: "Our Saudi partner office", partnerText: "Our Saudi partner office is مكتب عبدالله مغثي قاعد العنزي للمحاماة. CounselO coordinates legal preparation with the office; any court or authority representation is arranged under a separately agreed engagement." },
+    ar: { country: "السعودية", focus: "في المسائل السعودية، نراجع شؤون الأسرة والعمل والعقارات والتجارة والاستثمار في ضوء الأنظمة والمستندات ذات الصلة، مع إتاحة الدعم أونلاين في جميع أنحاء المملكة.", partnerTitle: "مكتب شريكنا السعودي", partnerText: "مكتب شريكنا السعودي هو مكتب عبدالله مغثي قاعد العنزي للمحاماة. وتنسق كاونسلو الإعداد القانوني مع المكتب، ويكون أي تمثيل أمام المحاكم أو الجهات المختصة بموجب تكليف مستقل متفق عليه." },
   },
   syr: {
     en: { country: "Syria", focus: "For Syrian matters, we review family and inheritance questions, property records, civil obligations and commercial disputes, and prepare advice and documents around the relevant Syrian law and procedural stage.", partnerTitle: "Our legal partners in Syria", partnerText: "We work with Al-Baghdadi Law Firm and Lawyer Omar Al-Abdullah’s office to connect our team’s online advice and document preparation with local legal support in Syria. When your matter requires court or authority representation, we coordinate with the responsible partner and agree the work and engagement with you." },

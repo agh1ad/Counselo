@@ -130,9 +130,16 @@ export const COOPERATING_OFFICES = {
   saudi: {
     "@type": "LegalService",
     "@id": COUNSELO_ENTITY_IDS.saudiOffice,
-    name: "Lawyer Abdullah Al-Anzi",
-    alternateName: "المحامي عبدالله العنزي",
+    name: "مكتب عبدالله مغثي قاعد العنزي للمحاماة",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "SA",
+    },
     areaServed: { "@type": "Country", name: "Saudi Arabia" },
+    subjectOf: {
+      "@type": "WebPage",
+      url: "https://eservice.sba.gov.sa/directory/855",
+    },
   },
   alBaghdadi: {
     "@type": "LegalService",

@@ -1,7 +1,8 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { ABOUT_UPDATED, SAUDI_PARTNER_LICENCE, aboutContent, aboutRegions, syrianPartners } from "../components/about/about-content";
+import { COOPERATING_OFFICES } from "@workspace/api-zod/browser";
+import { ABOUT_UPDATED, SAUDI_PARTNER_DIRECTORY_URL, SAUDI_PARTNER_LICENCE, aboutContent, aboutRegions, syrianPartners } from "../components/about/about-content";
 
 const aboutSource = readFileSync(new URL("../pages/about.tsx", import.meta.url), "utf8");
 
@@ -9,7 +10,7 @@ test("CounselO Legal about pages expose an organization ProfilePage", () => {
   assert.match(aboutSource, /"@type": \["ProfilePage", "WebPage"\]/);
   assert.match(aboutSource, /"mainEntity": \{ "@id": COUNSELO_ENTITY_IDS\.organization \}/);
   assert.match(aboutSource, /"dateModified": ABOUT_UPDATED/);
-  assert.equal(ABOUT_UPDATED, "2026-11-13");
+  assert.equal(ABOUT_UPDATED, "2026-11-17");
   assert.match(aboutSource, /COOPERATING_OFFICES\.saudi/);
   assert.doesNotMatch(aboutSource, /"mainEntity": \{ "@id": COUNSELO_ENTITY_IDS\.omar \}/);
 });
@@ -17,8 +18,26 @@ test("CounselO Legal about pages expose an organization ProfilePage", () => {
 test("About presents the platform and keeps the Saudi licence tied to its partner", () => {
   assert.equal(SAUDI_PARTNER_LICENCE, "37440");
   assert.match(aboutSource, /region === "sa" && <p className="about-partner__licence"/);
-  assert.match(aboutRegions.sa.en.partnerTitle, /Abdullah Al-Anzi/);
-  assert.match(aboutRegions.sa.ar.partnerTitle, /عبدالله العنزي/);
+  assert.equal(aboutRegions.sa.en.partnerTitle, "Our Saudi partner office");
+  assert.equal(aboutRegions.sa.ar.partnerTitle, "مكتب شريكنا السعودي");
+  assert.equal(COOPERATING_OFFICES.saudi.name, "مكتب عبدالله مغثي قاعد العنزي للمحاماة");
+  assert.deepEqual(COOPERATING_OFFICES.saudi.address, {
+    "@type": "PostalAddress",
+    addressCountry: "SA",
+  });
+  assert.deepEqual(COOPERATING_OFFICES.saudi.subjectOf, {
+    "@type": "WebPage",
+    url: "https://eservice.sba.gov.sa/directory/855",
+  });
+  assert.equal(SAUDI_PARTNER_DIRECTORY_URL, "https://eservice.sba.gov.sa/directory/855");
+  assert.match(aboutSource, /href={SAUDI_PARTNER_DIRECTORY_URL}/);
+  assert.match(aboutSource, /<h3 lang="ar" dir="rtl">\{COOPERATING_OFFICES\.saudi\.name\}<\/h3>/);
+  assert.match(aboutRegions.sa.en.partnerText, /CounselO coordinates legal preparation with the office/);
+  assert.match(aboutRegions.sa.ar.partnerText, /وتنسق كاونسلو الإعداد القانوني مع المكتب/);
+  assert.equal(aboutContent.en.partnerLocation, "Saudi Arabia");
+  assert.equal(aboutContent.ar.partnerLocation, "المملكة العربية السعودية");
+  assert.match(aboutContent.en.directoryNote, /directory record documents the partner office/);
+  assert.match(aboutContent.ar.directoryNote, /يوثق هذا السجل مكتب الشريك/);
   assert.match(aboutRegions.sa.en.partnerText, /separately agreed engagement/);
   assert.doesNotMatch(aboutSource, /CounselOFeatures|a\.stats|a\.office|mapsUrl|BAGHDADI_LAW_PROFILE_URL/);
   for (const lang of ["en", "ar"] as const) {
