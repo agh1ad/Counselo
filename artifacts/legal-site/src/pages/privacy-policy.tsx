@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
         {
           icon: Shield,
           title: "1. Who We Are",
-          content: `CounselO Legal provides legal services for matters in ${countryEn}, with one team for online consultation, document review and representation. Clients communicate with the same team in Arabic or English through the website, WhatsApp and email.`,
+          content: `CounselO Legal provides legal services for matters in ${countryEn}, with one team for online consultation, document review and representation. Clients communicate with the same team in Arabic or English through WhatsApp and email.`,
         },
         {
           icon: Database,
@@ -83,7 +83,7 @@ export default function PrivacyPolicy() {
           content: `All information you share with CounselO Legal is handled under applicable professional confidentiality and data-protection obligations for matters in ${countryEn}. This means:`,
           list: [
             "We do not share your legal matter details, documents, or personal information without your consent, except where disclosure is required or permitted by applicable law",
-            "Website requests and attachments are sent through our email provider, Resend, to our designated legal intake team; you also receive a confirmation email",
+            "Send current enquiries and documents directly to our team through WhatsApp or email. Earlier website submissions used Resend to notify our designated legal intake team and send an acknowledgement",
             "Confidentiality continues after the legal engagement to the extent required by applicable professional, contractual and legal obligations",
             "We do not sell, rent, or trade your personal information to any person, company, or data broker",
           ],
@@ -131,7 +131,7 @@ export default function PrivacyPolicy() {
           list: [
             "With your explicit consent: only where you have specifically authorised us to share your information",
             "Legal obligation: where disclosure is required by a court order or applicable law",
-            "Service providers: website hosting and database services, Resend for form emails and attachments, Google Tag Manager for configured analytics, and the communication service you choose",
+            "Service providers: website hosting and database services, Resend for notifications and attachments from earlier website submissions, Google Tag Manager for configured analytics, and the communication service you choose",
             isUae
               ? "Cross-border transfers are made only where permitted by the applicable UAE, DIFC, ADGM or sector-specific regime and with required safeguards"
               : `We do not transfer your personal data outside ${countryEn} without appropriate safeguards`,
@@ -148,7 +148,7 @@ export default function PrivacyPolicy() {
               ? "Meet applicable UAE legal, regulatory and professional record-keeping obligations for the relevant matter"
               : `Meet our legal and professional record-keeping obligations under ${adjectiveEn} law`,
             "Defend any legal claims that may arise from the legal engagement",
-            "The website clears its encrypted submission payload after both notification emails are accepted by the email provider. Submission metadata and email copies are separate records; this does not mean every copy has been deleted",
+            "For earlier website submissions, the encrypted request payload is cleared after both notification emails are accepted by the email provider. Submission metadata and email copies remain separate records; this does not mean every copy has been deleted",
           ],
         },
         {
@@ -170,7 +170,7 @@ export default function PrivacyPolicy() {
           content:
             "We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, loss, or disclosure:",
           list: [
-            "The website encrypts the stored form payload while email delivery is pending; email processing and mailbox copies are separate from that storage",
+            "Stored payloads from earlier website submissions remain encrypted while email delivery is pending; email processing and mailbox copies are separate from that storage",
             "Electronic communications are handled through encrypted channels where available",
             "Our website uses HTTPS encryption for all data transmitted between your browser and our server",
             "Send only information needed for the initial review, and contact us before sending especially sensitive material",
@@ -207,7 +207,7 @@ export default function PrivacyPolicy() {
           icon: Shield,
           title: "١. من نحن",
           content:
-            "يقدم فريق كاونسلو نفسه الاستشارة أونلاين ومراجعة المستندات والتمثيل القانوني. ويتواصل العملاء مع الفريق نفسه بالعربية أو الإنجليزية عبر الموقع وواتساب والبريد الإلكتروني.",
+            "يقدم فريق كاونسلو نفسه الاستشارة أونلاين ومراجعة المستندات والتمثيل القانوني. ويتواصل العملاء مع الفريق نفسه بالعربية أو الإنجليزية عبر واتساب والبريد الإلكتروني.",
         },
         {
           icon: Database,
@@ -240,7 +240,7 @@ export default function PrivacyPolicy() {
           content: `تُعامل جميع المعلومات التي تشاركها مع كاونسلو للاستشارات القانونية وفق التزامات السرية المهنية وحماية البيانات المنطبقة على المسائل في ${countryAr}. ويعني ذلك:`,
           list: [
             "لا نُفصح عن تفاصيل مسألتك القانونية أو مستنداتك أو معلوماتك الشخصية دون موافقتك، إلا إذا كان الإفصاح مطلوباً أو مسموحاً به بموجب القانون المنطبق",
-            "تُرسل طلبات الموقع ومرفقاتها عبر مزود البريد Resend إلى فريق استقبال الطلبات القانونية المعين لدينا، ويُرسل إليك أيضاً بريد لتأكيد الاستلام",
+            "تُرسل الطلبات والمستندات الحالية مباشرة إلى فريقنا عبر واتساب أو البريد الإلكتروني. أما طلبات الموقع السابقة، فاستُخدم Resend لإشعار فريق استقبال الطلبات وإرسال تأكيد الاستلام",
             "تستمر السرية بعد انتهاء العمل القانوني بالقدر الذي تفرضه الالتزامات المهنية والتعاقدية والقانونية المنطبقة",
             "لا نبيع معلوماتك الشخصية أو نؤجّرها أو نتاجر بها مع أي شخص أو شركة أو وسيط بيانات",
           ],
@@ -288,7 +288,7 @@ export default function PrivacyPolicy() {
           list: [
             "بموافقتك الصريحة: فقط حين تأذن لنا تحديداً بمشاركة معلوماتك",
             "الالتزام القانوني: حين يُستلزم الإفصاح بموجب أمر قضائي أو نظام معمول به",
-            "مزودو الخدمة: خدمات استضافة الموقع وقاعدة البيانات، وResend لبريد النموذج ومرفقاته، وGoogle Tag Manager للتحليلات المهيأة، وخدمة التواصل التي تختارها",
+            "مزودو الخدمة: خدمات استضافة الموقع وقاعدة البيانات، وResend لإشعارات طلبات الموقع السابقة ومرفقاتها، وGoogle Tag Manager للتحليلات المهيأة، وخدمة التواصل التي تختارها",
             isUae
               ? "لا يتم نقل البيانات عبر الحدود إلا حيث يسمح النظام الإماراتي أو نظام مركز دبي المالي أو أبوظبي العالمي أو النظام القطاعي المنطبق، ومع توفير الضمانات المطلوبة"
               : `لا ننقل بياناتك الشخصية خارج ${countryAr} دون ضمانات مناسبة`,
@@ -305,7 +305,7 @@ export default function PrivacyPolicy() {
               ? "الوفاء بمتطلبات الاحتفاظ بالسجلات القانونية والتنظيمية والمهنية المنطبقة على المسألة في الإمارات"
               : `الوفاء بالتزامات الاحتفاظ القانوني والمهني بالسجلات وفق القواعد ${adjectiveAr} المنطبقة`,
             "الدفاع عن أي مطالبات قانونية قد تنشأ عن العمل القانوني",
-            "يمسح الموقع محتوى الطلب المشفر بعد قبول مزود البريد رسالتي الإشعار. وتبقى بيانات متابعة الطلب ونسخ البريد سجلات منفصلة؛ ولا يعني ذلك حذف كل نسخة",
+            "بالنسبة إلى طلبات الموقع السابقة، يُمسح محتوى الطلب المشفر بعد قبول مزود البريد رسالتي الإشعار. وتبقى بيانات متابعة الطلب ونسخ البريد سجلات منفصلة؛ ولا يعني ذلك حذف كل نسخة",
           ],
         },
         {
@@ -327,7 +327,7 @@ export default function PrivacyPolicy() {
           content:
             "نطبّق تدابير تقنية وتنظيمية مناسبة لحماية بياناتك الشخصية من الوصول غير المصرّح به أو الفقدان أو الإفصاح:",
           list: [
-            "يشفر الموقع محتوى النموذج المخزن أثناء انتظار إرسال البريد؛ وتختلف معالجة البريد ونسخ صناديق البريد عن هذا التخزين",
+            "تبقى محتويات طلبات الموقع السابقة المخزنة مشفرة أثناء انتظار إرسال البريد؛ وتختلف معالجة البريد ونسخ صناديق البريد عن هذا التخزين",
             "تُعالَج الاتصالات الإلكترونية عبر قنوات مشفرة حيثما تتوفر",
             "يستخدم موقعنا تشفير HTTPS لجميع البيانات المنقولة بين متصفحك وخادمنا",
             "أرسل المعلومات اللازمة للمراجعة الأولية فقط، وتواصل معنا قبل إرسال مواد شديدة الحساسية",

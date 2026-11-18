@@ -247,7 +247,7 @@ export const enUae = {
       ...en.contact.form,
       phonePlaceholder: "+971 or your international number",
       serviceOptions: UAE_SERVICES.map((service) => ({ value: service.slug, label: service.title.en })),
-      disclaimer: "Submissions are handled under applicable confidentiality and data-protection obligations. We aim to respond within a target 24-hour response window, subject to scope, urgency, completeness and availability.",
+      disclaimer: "Your messages and documents are handled under applicable confidentiality and data-protection obligations. We aim to respond within a target 24-hour response window, subject to scope, urgency, completeness and availability.",
     },
   },
   services: {

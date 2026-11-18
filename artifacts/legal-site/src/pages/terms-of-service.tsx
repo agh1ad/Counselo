@@ -28,7 +28,7 @@ export default function TermsOfService() {
         {
           icon: FileText,
           title: "Step 1 — Submit Your Information",
-          desc: "Send the details needed for an initial review through the website form, WhatsApp or email. Explain your objective and the legal work you need, and include relevant documents, contracts, correspondence and deadlines.",
+          desc: "Send the details needed for an initial review through WhatsApp or email. Explain your objective and the legal work you need, and include relevant documents, contracts, correspondence and deadlines.",
         },
         {
           icon: CreditCard,
@@ -85,7 +85,7 @@ export default function TermsOfService() {
         {
           icon: FileText,
           title: "الخطوة الأولى — إرسال معلوماتك",
-          desc: "أرسل التفاصيل اللازمة للمراجعة الأولية عبر نموذج الموقع أو واتساب أو البريد الإلكتروني. وضح هدفك والعمل القانوني الذي تحتاجه، وأرفق المستندات والعقود والمراسلات ذات الصلة والمواعيد المهمة.",
+          desc: "أرسل التفاصيل اللازمة للمراجعة الأولية عبر واتساب أو البريد الإلكتروني. وضح هدفك والعمل القانوني الذي تحتاجه، وأرفق المستندات والعقود والمراسلات ذات الصلة والمواعيد المهمة.",
         },
         {
           icon: CreditCard,

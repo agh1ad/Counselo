@@ -6,11 +6,11 @@ type Props = { isArabic: boolean; regionPrefix: string };
 
 export function ServiceProcess({ isArabic: ar }: { isArabic: boolean }) {
   const steps = ar ? [
-    ["أرسل طلبك", "اذكر ما تحتاجه والموعد المهم عبر واتساب أو نموذج التواصل. نحدد المستندات اللازمة."],
+    ["أرسل طلبك", "اذكر ما تحتاجه والموعد المهم عبر واتساب أو البريد الإلكتروني. نحدد المستندات اللازمة."],
     ["اعتمد العرض", "تعرّف على نطاق العمل والرسوم وموعد التسليم، ثم وافق وأكمل الدفع وفق التعليمات."],
     ["استلم العمل", "يتولى فريقنا العمل المتفق عليه من الاستشارة وإعداد المستندات إلى التفاوض أو التمثيل، ويطلعك على المستجدات والخطوات التالية."],
   ] : [
-    ["Send your request", "Tell us what you need and any deadline via WhatsApp or the contact form. We identify the documents needed."],
+    ["Send your request", "Tell us what you need and any deadline via WhatsApp or email. We identify the documents needed."],
     ["Approve your quote", "Review the scope, fee and delivery date, then approve and follow the payment instructions."],
     ["Receive your work", "Our team handles the agreed work, from consultation and document preparation to negotiation or representation, and keeps you informed of progress and next steps."],
   ];

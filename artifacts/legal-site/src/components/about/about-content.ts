@@ -69,7 +69,7 @@ export const aboutContent = {
     ],
     processTitle: "One team through every stage",
     process: [
-      { title: "Tell us what needs resolving", text: "Send your question through the website, WhatsApp or email, with the country, key facts and any deadline. We review your request and identify the documents needed for a useful assessment." },
+      { title: "Tell us what needs resolving", text: "Send your question through WhatsApp or email, with the country, key facts and any deadline. We review your request and identify the documents needed for a useful assessment." },
       { title: "Agree the work with our team", text: "We confirm the legal work, deliverables, responsible team members and timing. Online consultations have published fixed category fees; drafting and representation fees are agreed for the requested work. Once you approve the proposal, we provide payment instructions and confirm the start of the agreed work." },
       { title: "Move forward with our team", text: "We carry out the agreed work, from advice and document preparation to negotiation or representation. Our team keeps you informed of progress, deadlines and next steps. You can reach us by email or WhatsApp, with phone and video consultations available as agreed." },
     ],
@@ -137,7 +137,7 @@ export const aboutContent = {
     ],
     processTitle: "فريق واحد في كل مرحلة",
     process: [
-      { title: "أخبرنا بما تحتاج إلى معالجته", text: "أرسل سؤالك عبر الموقع أو واتساب أو البريد الإلكتروني، مع الدولة والوقائع الأساسية وأي موعد مهم. نراجع الطلب ونحدد المستندات اللازمة لتقييم مفيد لمسألتك." },
+      { title: "أخبرنا بما تحتاج إلى معالجته", text: "أرسل سؤالك عبر واتساب أو البريد الإلكتروني، مع الدولة والوقائع الأساسية وأي موعد مهم. نراجع الطلب ونحدد المستندات اللازمة لتقييم مفيد لمسألتك." },
       { title: "اتفق مع فريقنا على العمل", text: "نحدد العمل القانوني والمخرجات وأعضاء الفريق المسؤولين والمواعيد. للاستشارات أونلاين رسوم ثابتة منشورة بحسب المجال، ونتفق على أتعاب الصياغة والتمثيل وفق العمل المطلوب. وبعد موافقتك على العرض، نرسل تعليمات الدفع ونؤكد بدء العمل المتفق عليه." },
       { title: "تابع العمل مع فريقنا", text: "نتولى العمل المتفق عليه من الاستشارة وإعداد المستندات إلى التفاوض أو التمثيل. ونطلعك على تقدم العمل والمواعيد والخطوات التالية. يمكنك التواصل معنا عبر البريد الإلكتروني أو واتساب، مع إتاحة المكالمات الهاتفية والمرئية بحسب الاتفاق." },
     ],

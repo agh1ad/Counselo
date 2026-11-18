@@ -2,7 +2,6 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { getConsultationPrices, getConsultationPrice, getServicesForRegion } from "@workspace/api-zod/browser";
 import { getContactConsultationPrice, getContactServiceOptions, getContactServicePrefill } from "./contact-service-selection";
-import { createContactFormSchema } from "../components/contact/contact-form-schema";
 import { LEGAL_PROBLEM_PAGES } from "./legal-problem-pages";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -40,8 +39,7 @@ test("regional choices reject unknown and cross-region category identifiers", ()
     const options = getContactServiceOptions(region, false);
     assert.equal(getContactServicePrefill(region, `?consultation=${unavailableCategory}`), "");
     assert.equal(getContactServicePrefill(region, `?service=${unavailableCategory}`), "");
-    const schema = createContactFormSchema(false, options.map(option => option.value));
-    assert.equal(schema.safeParse({ name: "Test Client", email: "test@example.com", phone: "+966550001234", service: unavailableCategory, message: "Please advise on this legal matter." }).success, false);
+    assert.equal(options.some(option => option.value === unavailableCategory), false);
   }
   assert.equal(getContactServicePrefill("sa", "?consultation=unknown&service=corporate-commercial"), "");
   assert.equal(getContactServicePrefill("sa", "?consultation=unknown&service=family-law"), "family-law");
