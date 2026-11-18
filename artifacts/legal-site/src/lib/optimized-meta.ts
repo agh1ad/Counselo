@@ -170,22 +170,22 @@ export const COUNSELO_OPTIMIZED_META: Record<string, OptimizedMeta> = {
   "/sa/privacy-policy": {
     title: "Privacy Policy | CounselO Legal Saudi Arabia",
     description:
-      "Learn how CounselO Legal collects, protects, and handles legal consultation data in Saudi Arabia under applicable professional, privacy and data-protection obligations.",
+      "How CounselO Legal handles personal data and confidential information for legal services in Saudi Arabia, from online advice and contracts to representation.",
   },
   "/sa/ar/privacy-policy": {
     title: "سياسة الخصوصية | كاونسلو للاستشارات القانونية السعودية",
     description:
-      "تعرف على كيفية جمع كاونسلو للاستشارات القانونية لبيانات الاستشارة القانونية في السعودية وحمايتها والحفاظ على سرية معلومات العملاء التامة.",
+      "كيف تتعامل كاونسلو مع البيانات الشخصية والمعلومات السرية للخدمات القانونية في المملكة العربية السعودية، من الاستشارة أونلاين والعقود إلى التمثيل القانوني.",
   },
   "/syr/privacy-policy": {
     title: "Privacy Policy | CounselO Legal Syria",
     description:
-      "Learn how CounselO Legal collects, protects, and handles legal consultation data in Syria under applicable professional, privacy and data-protection obligations.",
+      "How CounselO Legal handles personal data and confidential information for legal services in Syria, from online advice and contracts to representation.",
   },
   "/syr/ar/privacy-policy": {
     title: "سياسة الخصوصية | كاونسلو للاستشارات القانونية سوريا",
     description:
-      "تعرف على كيفية جمع كاونسلو للاستشارات القانونية لبيانات الاستشارة القانونية في سوريا وحمايتها والحفاظ على سرية معلومات العملاء التامة.",
+      "كيف تتعامل كاونسلو مع البيانات الشخصية والمعلومات السرية للخدمات القانونية في سوريا، من الاستشارة أونلاين والعقود إلى التمثيل القانوني.",
   },
 
   // ─── SA ENGLISH SERVICE PAGES ────────────────────────────────────────────
