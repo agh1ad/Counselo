@@ -1,8 +1,7 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
-import { COOPERATING_OFFICES } from "@workspace/api-zod/browser";
-import { ABOUT_UPDATED, SAUDI_PARTNER_DIRECTORY_URL, SAUDI_PARTNER_LICENCE, aboutContent, aboutRegions, syrianPartners } from "../components/about/about-content";
+import { ABOUT_UPDATED, SAUDI_PARTNER_LICENCE, aboutContent, aboutRegions, syrianPartners } from "../components/about/about-content";
 
 const aboutSource = readFileSync(new URL("../pages/about.tsx", import.meta.url), "utf8");
 
@@ -18,39 +17,19 @@ test("CounselO Legal about pages expose an organization ProfilePage", () => {
 test("About presents one CounselO team and keeps the Saudi licence tied to its named lawyer", () => {
   assert.equal(SAUDI_PARTNER_LICENCE, "37440");
   assert.match(aboutSource, /region === "sa" && <div className="about-partner__licence"/);
-  assert.match(aboutSource, /href={SAUDI_PARTNER_DIRECTORY_URL}/);
-  assert.match(aboutSource, /<h3 lang="ar" dir="rtl">\{COOPERATING_OFFICES\.saudi\.name\}<\/h3>/);
-  assert.match(aboutSource, /about-partner__office-heading/);
-  assert.doesNotMatch(aboutSource, /SAUDI_LAWYER_DIRECTORY/);
+  assert.match(aboutSource, /<a className="about-partner__licence-link" href=\{SAUDI_LAWYER_DIRECTORY\[language\]\}[^>]*><strong><bdi dir="ltr">\{SAUDI_PARTNER_LICENCE\}<\/bdi><\/strong><\/a>/);
   assert.match(aboutSource, /region === "sa"\s*\? <img className="about-partner__logo" src="\/images\/abdullah-alenezi-law-office-logo\.jpg"/);
   assert.ok(existsSync(new URL("../../public/images/abdullah-alenezi-law-office-logo.jpg", import.meta.url)));
-  assert.equal(aboutRegions.sa.en.partnerTitle, "Our Saudi team office");
-  assert.equal(aboutRegions.sa.ar.partnerTitle, "مكتب ضمن فريقنا السعودي");
-  assert.equal(COOPERATING_OFFICES.saudi.name, "مكتب عبدالله مغثي قاعد العنزي للمحاماة");
-  assert.deepEqual(COOPERATING_OFFICES.saudi.address, {
-    "@type": "PostalAddress",
-    addressLocality: "Dammam",
-    addressCountry: "SA",
-  });
-  assert.deepEqual(COOPERATING_OFFICES.saudi.memberOf, { "@id": "https://counselo-legal.com/#organization" });
-  assert.deepEqual(COOPERATING_OFFICES.saudi.subjectOf, {
-    "@type": "WebPage",
-    url: "https://eservice.sba.gov.sa/directory/855",
-  });
-  assert.equal(SAUDI_PARTNER_DIRECTORY_URL, "https://eservice.sba.gov.sa/directory/855");
-  assert.match(aboutRegions.sa.en.partnerText, /is part of the CounselO legal team/);
-  assert.match(aboutRegions.sa.en.partnerText, /Dammam office/);
-  assert.match(aboutRegions.sa.en.partnerText, /مكتب عبدالله مغثي قاعد العنزي للمحاماة/);
-  assert.match(aboutRegions.sa.ar.partnerText, /جزء من فريق كاونسلو القانوني/);
-  assert.match(aboutRegions.sa.ar.partnerText, /مكتب الدمام/);
-  assert.match(aboutRegions.sa.ar.partnerText, /مكتب عبدالله مغثي قاعد العنزي للمحاماة/);
-  assert.match(aboutContent.en.directoryNote, /directory record documents the office/);
-  assert.match(aboutContent.ar.directoryNote, /يوثق هذا السجل المكتب/);
+  assert.match(aboutRegions.sa.en.partnerTitle, /Abdullah Al-Anzi/);
+  assert.match(aboutRegions.sa.ar.partnerTitle, /عبدالله العنزي/);
+  assert.match(aboutRegions.sa.en.partnerText, /Abdullah Al-Anzi Law Office is part of the CounselO team/);
+  assert.match(aboutRegions.sa.ar.partnerText, /مكتب المحامي عبدالله العنزي جزء من فريق كاونسلو/);
+  assert.doesNotMatch(aboutSource, /c\.directoryNote|about-partner__verification/);
   assert.doesNotMatch(aboutRegions.sa.en.partnerText, /separate(?:ly)? (?:agreed )?engagement/);
   assert.doesNotMatch(aboutRegions.sa.ar.partnerText, /تكليف مستقل|اتفاق منفصل/);
   assert.doesNotMatch(aboutSource, /CounselOFeatures|a\.stats|a\.office|mapsUrl|BAGHDADI_LAW_PROFILE_URL/);
   for (const lang of ["en", "ar"] as const) {
-    assert.equal("directoryNote" in aboutContent[lang], true);
+    assert.equal("directoryNote" in aboutContent[lang], false);
     assert.equal(aboutContent[lang].features.length, 4);
     assert.equal(aboutContent[lang].services.length, 4);
     assert.equal(aboutContent[lang].process.length, 3);

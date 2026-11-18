@@ -70,10 +70,6 @@
 .about-partner .about-kicker { margin-bottom: .2rem; font-size: .85rem; color: var(--about-muted); }
 .about-partner h2 { font-size: 1.4rem; line-height: 1.5; }
 .about-partner > p { max-width: 94ch; color: var(--about-muted); }
-.about-partner__office { margin-top: 1.2rem; padding: 1.1rem 1.2rem; border: 1px solid var(--about-line); border-inline-start: 3px solid #b68a3a; background: #f6f8f4; }
-.about-partner__office-heading { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem 1rem; }
-.about-partner__office h3 { font-size: 1.1rem; line-height: 1.7; overflow-wrap: anywhere; }
-.about-partner__office > p { max-width: 90ch; margin-top: .35rem; color: var(--about-muted); font-size: .875rem; }
 .about-faq { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,2.4fr); gap: 2rem 3.75rem; padding-block: 2.5rem; border-top: 1px solid var(--about-line); }
 .about-faq__answers { display: grid; gap: 1.5rem; }
 .about-faq__answers article + article { padding-top: 1.5rem; border-top: 1px solid var(--about-line); }

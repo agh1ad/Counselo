@@ -4,7 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useRegion } from "@/contexts/RegionContext";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { COUNSELO_ORGANIZATION, OMAR_AL_BAGHDADI, COOPERATING_OFFICES, COUNSELO_ENTITY_IDS, OMAR_OFFICIAL_PROFILE_URL } from "@workspace/api-zod/browser";
-import { ABOUT_UPDATED, SAUDI_PARTNER_LICENCE, SAUDI_PARTNER_DIRECTORY_URL, aboutContent, aboutRegions, syrianPartners } from "@/components/about/about-content";
+import { ABOUT_UPDATED, SAUDI_PARTNER_LICENCE, SAUDI_LAWYER_DIRECTORY, aboutContent, aboutRegions, syrianPartners } from "@/components/about/about-content";
 import { EngagementStandards } from "@/components/legal/engagement-standards";
 import { PlatformFacts } from "@/components/legal/platform-facts";
 import "@/components/about/about.css";
@@ -153,17 +153,9 @@ export default function About() {
         <h2 id="about-partner-heading">{local.partnerTitle}</h2>
       </div>{region === "sa" && <div className="about-partner__licence">
         <span>{c.licenceLabel}</span>
-        <strong><bdi dir="ltr">{SAUDI_PARTNER_LICENCE}</bdi></strong>
+        <a className="about-partner__licence-link" href={SAUDI_LAWYER_DIRECTORY[language]} target="_blank" rel="noopener noreferrer" aria-label={`${c.directoryLabel}: ${local.partnerTitle} — ${SAUDI_PARTNER_LICENCE}`} title={c.directoryLabel}><strong><bdi dir="ltr">{SAUDI_PARTNER_LICENCE}</bdi></strong></a>
       </div>}</div>
       <p>{local.partnerText}</p>
-      {region === "sa" && <div className="about-partner__office">
-        <div className="about-partner__office-heading">
-          <h3 lang="ar" dir="rtl">{COOPERATING_OFFICES.saudi.name}</h3>
-          <a className="about-text-link" href={SAUDI_PARTNER_DIRECTORY_URL} target="_blank" rel="noopener noreferrer">{c.directoryLabel}<Arrow size={17} aria-hidden="true" /></a>
-        </div>
-        <p>{c.partnerLocation}</p>
-        <p>{c.directoryNote}</p>
-      </div>}
       {region === "syr" && <ul className="about-partner__offices">
         {syrianPartners[language].map(partner => <li key={partner.name}>
           {partner.logo && <img className="about-partner__office-logo" src={partner.logo} alt={partner.logoAlt} width={700} height={300} loading="lazy" decoding="async" />}

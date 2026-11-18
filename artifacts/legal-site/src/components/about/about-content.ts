@@ -7,7 +7,13 @@ import { COUNSELO_CLIENT_TRUST } from "@/lib/public-claims";
 // it is not a licence held by every team member or by the CounselO brand.
 export const SAUDI_PARTNER_LICENCE = "37440";
 export const ABOUT_UPDATED = "2026-11-18";
-export const SAUDI_PARTNER_DIRECTORY_URL = "https://eservice.sba.gov.sa/directory/855";
+
+// Official service descriptions checked on 2026-11-12. These are routes for
+// independent enquiries, not evidence that a particular licence was checked.
+export const SAUDI_LAWYER_DIRECTORY = {
+  en: "https://www.moj.gov.sa/English/eServices/pages/10abd1a2-a4c2-4951-a464-ac926eb24417.aspx",
+  ar: "https://www.moj.gov.sa/ar/eServices/Pages/10abd1a2-a4c2-4951-a464-ac926eb24417.aspx",
+} as const;
 
 // Existing business record: en-syr.ts/ar-syr.ts at HEAD and the published
 // https://counselo-legal.com/syr/ar partner card (checked 2026-11-03).
@@ -83,10 +89,8 @@ export const aboutContent = {
     ],
     profileLink: "View his professional profile",
     partnerLabel: "Part of our CounselO team in Saudi Arabia",
-    licenceLabel: "Abdullah Al-Anzi’s Saudi lawyer licence",
-    partnerLocation: "Dammam, Saudi Arabia",
-    directoryLabel: "View this office in the Saudi Bar Association directory",
-    directoryNote: "This directory record documents the office. CounselO identifies its role as part of our team; the office retains its own local professional authority.",
+    licenceLabel: "Saudi lawyer licence",
+    directoryLabel: "Verify licence in the official lawyers directory",
     faqTitle: "Your questions about our legal services",
     faqs: [
       { question: "What legal services does CounselO provide?", answer: "CounselO provides consultation, legal analysis, contract and document drafting, negotiation, litigation, arbitration and continuing legal support in Saudi Arabia, Syria and the UAE. Our team includes the locally licensed lawyers and offices that handle court and authority representation, so you work with CounselO from your first consultation through the agreed stages of your matter.", link: null },
@@ -153,10 +157,8 @@ export const aboutContent = {
     ],
     profileLink: "اطّلع على ملفه المهني",
     partnerLabel: "من فريق كاونسلو في السعودية",
-    licenceLabel: "ترخيص المحامي عبدالله العنزي",
-    partnerLocation: "الدمام، المملكة العربية السعودية",
-    directoryLabel: "عرض سجل هذا المكتب في دليل الهيئة السعودية للمحامين",
-    directoryNote: "يوثق هذا السجل المكتب، وتوضح كاونسلو دوره ضمن فريقها؛ وتبقى الصلاحية المهنية المحلية للمكتب نفسه.",
+    licenceLabel: "ترخيص المحاماة السعودي",
+    directoryLabel: "التحقّق من الترخيص في الدليل الرسمي للمحامين",
     faqTitle: "أسئلتك عن خدماتنا القانونية",
     faqs: [
       { question: "ما الخدمات القانونية التي تقدمها كاونسلو؟", answer: "تقدم كاونسلو الاستشارات والتحليل القانوني وصياغة العقود والمستندات والتفاوض والتقاضي والتحكيم والدعم القانوني المستمر في السعودية وسوريا والإمارات. ويضم فريقنا المحامين والمكاتب المرخصة محلياً التي تتولى التمثيل أمام المحاكم والجهات المختصة، لتبقى مع كاونسلو من استشارتك الأولى إلى مراحل العمل المتفق عليها.", link: null },
@@ -172,8 +174,8 @@ export const aboutContent = {
 
 export const aboutRegions: Record<Region, { en: { country: string; focus: string; partnerTitle: string; partnerText: string }; ar: { country: string; focus: string; partnerTitle: string; partnerText: string } }> = {
   sa: {
-    en: { country: "Saudi Arabia", focus: "For Saudi matters, we assess family, employment, property, commercial and investment questions against the relevant Saudi rules and documents, with online support available throughout the Kingdom.", partnerTitle: "Our Saudi team office", partnerText: "The Dammam office, مكتب عبدالله مغثي قاعد العنزي للمحاماة, is part of the CounselO legal team in Saudi Arabia. You can ask the team for advice alone or continue with the same team for court or authority representation under an agreed scope and engagement." },
-    ar: { country: "السعودية", focus: "في المسائل السعودية، نراجع شؤون الأسرة والعمل والعقارات والتجارة والاستثمار في ضوء الأنظمة والمستندات ذات الصلة، مع إتاحة الدعم أونلاين في جميع أنحاء المملكة.", partnerTitle: "مكتب ضمن فريقنا السعودي", partnerText: "مكتب الدمام، مكتب عبدالله مغثي قاعد العنزي للمحاماة، جزء من فريق كاونسلو القانوني في السعودية. يمكنكم طلب الاستشارة وحدها أو مواصلة العمل مع الفريق للتمثيل أمام المحاكم أو الجهات المختصة وفق نطاق وتكليف متفق عليه." },
+    en: { country: "Saudi Arabia", focus: "For Saudi matters, we assess family, employment, property, commercial and investment questions against the relevant Saudi rules and documents, with online support available throughout the Kingdom.", partnerTitle: "Lawyer Abdullah Al-Anzi", partnerText: "Abdullah Al-Anzi Law Office is part of the CounselO team in Saudi Arabia. Lawyer Abdullah Al-Anzi contributes his local practice to our legal services." },
+    ar: { country: "السعودية", focus: "في المسائل السعودية، نراجع شؤون الأسرة والعمل والعقارات والتجارة والاستثمار في ضوء الأنظمة والمستندات ذات الصلة، مع إتاحة الدعم أونلاين في جميع أنحاء المملكة.", partnerTitle: "المحامي عبدالله العنزي", partnerText: "مكتب المحامي عبدالله العنزي جزء من فريق كاونسلو في السعودية. يسهم المحامي عبدالله العنزي بخبرته المحلية في خدماتنا القانونية." },
   },
   syr: {
     en: { country: "Syria", focus: "For Syrian matters, we review family and inheritance questions, property records, civil obligations and commercial disputes, and prepare advice and documents around the relevant Syrian law and procedural stage.", partnerTitle: "Our CounselO team in Syria", partnerText: "Al-Baghdadi Law Firm and Lawyer Omar Al-Abdullah’s office are part of the CounselO team in Syria. Together, the lawyers on our team handle consultation, document preparation, negotiation and representation before Syrian courts and authorities, with continuing follow-up through the stages agreed with you." },
