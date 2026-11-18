@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CounselO publication template - English</title><link rel="stylesheet" href="work-publication.css"></head>
+<body>
+<div class="controls"><p>Editable publication template. Replace every bracketed field, confirm the recorded facts and remove confidential information before exporting. This file is an authoring resource; it is not a published case.</p><button onclick="window.print()">Print / Save PDF</button><button id="save-template">Save edited HTML</button></div>
+<main class="sheet">
+<header class="letterhead"><div class="brand">CounselO<small lang="ar" dir="rtl">كاونسلو</small></div><p class="tagline">Online Consultation to Legal Representation<br>One CounselO legal team.</p></header>
+<h1 contenteditable="true">[Publication title]</h1>
+<table class="facts"><tbody>
+<tr><th>Publication type</th><td contenteditable="true">[Case study, legal opinion, contract review or professional work file]</td></tr>
+<tr><th>Jurisdiction</th><td contenteditable="true">[Applicable country and legal jurisdiction]</td></tr>
+<tr><th>Work date</th><td contenteditable="true">[Original work date]</td></tr>
+<tr><th>Publication edition</th><td contenteditable="true">[Publication or editorial update date]</td></tr>
+<tr><th>Prepared by</th><td contenteditable="true">[Named lawyer or law office], part of the CounselO team</td></tr>
+</tbody></table>
+<section class="result"><h2>Results</h2><p contenteditable="true">[State the recorded result, amount and procedural stage precisely. Identify whether it is an award, settlement, collected payment, procedural decision or completed legal work.]</p></section>
+<section><h2>The matter</h2><p contenteditable="true">[Summarize the material facts and the client's legal objective.]</p></section>
+<section><h2>Our team's work and strategy</h2><p contenteditable="true">[Describe the actual work undertaken by the CounselO team, including the responsible team member's role and the documents or legal analysis used.]</p></section>
+<section><h2>Result details and supporting records</h2><p contenteditable="true">[Identify the supporting document and recorded stage. Preserve the distinction between an award and collection, and attribute information supplied by the client accurately.]</p></section>
+<p class="credit">Published by CounselO Legal. Our team includes licensed lawyers and law offices. The same CounselO team handles online communication, legal advice, representation and any required in-person attendance.</p>
+<footer class="footer">CounselO | Online Consultation to Legal Representation | www.counselo-legal.com</footer>
+</main>
+<script>document.getElementById('save-template').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob(['<!doctype html>\n'+document.documentElement.outerHTML],{type:'text/html;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download='counselo-work-publication-en.html';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});</script>
+</body></html>

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import type { ContactInput } from "./contact-input.js";
+import { parseContactInput, type ContactInput } from "./contact-input.js";
 import {
   sendConsultationEmail,
   sendCustomerConfirmationEmail,
@@ -162,5 +162,36 @@ test("labels UAE in both internal and customer email templates", async () => {
     assert.match(String(bodies[0]?.text), /counselo-uae-business/);
     assert.match(String(bodies[1]?.text), /Region: United Arab Emirates/);
     assert.match(String(bodies[1]?.html), /United Arab Emirates/);
+  });
+});
+
+test("general and urgent requests stay general in staff and bilingual customer notifications", async () => {
+  await withProviderEnvironment(async () => {
+    const calls: { body: Record<string, unknown>; headers: Headers }[] = [];
+    globalThis.fetch = async (_input, init) => {
+      calls.push({ body: JSON.parse(String(init?.body)), headers: new Headers(init?.headers) });
+      return new Response(JSON.stringify({ id: "general-email-id" }), { status: 200 });
+    };
+    for (const [region, service] of [["sa", "family-law"], ["syr", "wills-estates"], ["uae", "corporate-commercial"], ["uae", "urgent-legal-assistance"]] as const) {
+      calls.length = 0;
+      const general = parseContactInput({ ...input, region, service, requestIntent: "general", message: "I need drafting and representation for this matter." });
+      await sendConsultationEmail(general, "CON-GENERAL");
+      await sendCustomerConfirmationEmail(general, "CON-GENERAL");
+      const [internal, customer] = calls.map(call => call.body);
+      assert.match(String(internal.subject), /New Legal Service Request/);
+      assert.match(String(internal.text), /Request type: General legal support/);
+      assert.match(String(internal.text), /I need drafting and representation/);
+      assert.doesNotMatch(String(internal.text), /Published consultation fee:|Consultation route:|New CounselO Legal consultation/);
+      assert.match(String(customer.subject), /legal service request.*طلب الخدمة القانونية/);
+      assert.match(String(customer.text), /General legal support/);
+      assert.match(String(customer.html), /دعم قانوني شامل/);
+      assert.match(String(customer.html), /The same CounselO team handles your online communication, legal work and representation/);
+      assert.doesNotMatch(String(customer.html), /received your consultation request|تم استلام طلب الاستشارة الخاص بك/);
+      for (const body of [internal, customer]) assert.equal((body.tags as { name: string }[]).some(tag => tag.name === "consultation_product"), false);
+      assert.equal(calls[0].headers.get("Idempotency-Key"), "counselo-consultation/CON-GENERAL/internal");
+      assert.equal(calls[1].headers.get("Idempotency-Key"), "counselo-consultation/CON-GENERAL/customer");
+      assert.deepEqual(internal.to, ["team@example.com", "owner@example.com"]);
+      assert.deepEqual(customer.to, [input.email]);
+    }
   });
 });

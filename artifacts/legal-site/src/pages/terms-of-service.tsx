@@ -28,12 +28,12 @@ export default function TermsOfService() {
         {
           icon: FileText,
           title: "Step 1 — Submit Your Information",
-          desc: "Send the details needed for an initial review through the website form, WhatsApp or email. Include any documents, contracts, correspondence, or facts that relate to your question. The more context you provide, the more precise and useful our advice will be.",
+          desc: "Send the details needed for an initial review through the website form, WhatsApp or email. Explain your objective and the legal work you need, and include relevant documents, contracts, correspondence and deadlines.",
         },
         {
           icon: CreditCard,
-          title: "Step 2 — Confirm Your Consultation Category",
-          desc: "We confirm the legal category and its published fixed online consultation fee, along with the responsible team members and delivery details. For additional work or representation, we agree the work and its fees with you when requested.",
+          title: "Step 2 — Agree the Legal Work and Fees",
+          desc: "We confirm the requested service, responsible team members and delivery details. Online consultations carry the published fixed fee for their legal category. Drafting, continuing support and representation have their own agreed scope and fees within the same CounselO team.",
         },
         {
           icon: MessageCircle,
@@ -43,7 +43,7 @@ export default function TermsOfService() {
         {
           icon: CheckCircle2,
           title: "Step 4 — Our Team Handles Your Matter",
-          desc: "Our team carries out the agreed advice, drafting, negotiation or representation and keeps you informed of progress and next steps. Written consultations are delivered by WhatsApp or email in Arabic or English; our locally licensed team lawyers handle court and authority work.",
+          desc: "Our team carries out the agreed advice, drafting, negotiation or representation and keeps you informed of progress and next steps. The same CounselO team handles your online communication and legal representation, including any required in-person attendance through its licensed members. Written consultations are delivered by WhatsApp or email in Arabic or English.",
         },
       ],
       termsHeading: "General Terms",
@@ -62,15 +62,15 @@ export default function TermsOfService() {
         },
         {
           title: "Representation and Authorisation",
-          desc: "Our locally licensed team lawyers handle representation before courts and authorities. We confirm the representation scope, fees and required authorisation in writing before acting; sending an enquiry alone does not authorise us to act.",
+          desc: "The same CounselO team provides advice and representation before courts and authorities through its licensed members. We confirm the representation scope, fees and required authorisation in writing before acting; sending an enquiry alone does not authorise us to act.",
         },
         {
           title: "Changes to Terms",
-          desc: "CounselO Legal reserves the right to update these terms at any time. The terms applicable to your consultation are those in effect at the time you request the service.",
+          desc: "CounselO Legal reserves the right to update these terms at any time. The terms applicable to your legal engagement are those in effect at the time you request the service.",
         },
       ],
       ctaHeading: "Ready to Get Started?",
-      ctaDesc: "Choose your legal category and its published fixed consultation fee, then send your question and documents. Our team confirms the service and payment details before starting.",
+      ctaDesc: "Tell us your objective and the legal service you need. Our team confirms the work and payment details before starting, with published fixed fees for online consultations and separately agreed fees for representation.",
       ctaBtn: "Contact Us Now",
     },
     ar: {
@@ -85,12 +85,12 @@ export default function TermsOfService() {
         {
           icon: FileText,
           title: "الخطوة الأولى — إرسال معلوماتك",
-          desc: "أرسل التفاصيل اللازمة للمراجعة الأولية عبر نموذج الموقع أو واتساب أو البريد الإلكتروني. أرفق أي مستندات أو عقود أو مراسلات أو وقائع ذات صلة بسؤالك. كلما كانت المعلومات أوفر، كانت الاستشارة أدق وأكثر فائدة.",
+          desc: "أرسل التفاصيل اللازمة للمراجعة الأولية عبر نموذج الموقع أو واتساب أو البريد الإلكتروني. وضح هدفك والعمل القانوني الذي تحتاجه، وأرفق المستندات والعقود والمراسلات ذات الصلة والمواعيد المهمة.",
         },
         {
           icon: CreditCard,
-          title: "الخطوة الثانية — نؤكد مجال الاستشارة",
-          desc: "نؤكد المجال القانوني ورسوم استشارته الأونلاين الثابتة والمنشورة، مع أعضاء الفريق المسؤولين وتفاصيل التسليم. ونتفق معك عند طلب أي عمل إضافي أو تمثيل على نطاقه وأتعابه.",
+          title: "الخطوة الثانية — الاتفاق على العمل والأتعاب",
+          desc: "نؤكد الخدمة المطلوبة وأعضاء الفريق المسؤولين وتفاصيل التسليم. للاستشارات أونلاين رسوم ثابتة منشورة بحسب المجال القانوني، وللصياغة والدعم المستمر والتمثيل نطاق وأتعاب نتفق عليها معك ضمن فريق كاونسلو نفسه.",
         },
         {
           icon: MessageCircle,
@@ -100,7 +100,7 @@ export default function TermsOfService() {
         {
           icon: CheckCircle2,
           title: "الخطوة الرابعة — يتولى فريقنا مسألتك",
-          desc: "ينجز فريقنا المشورة أو الصياغة أو التفاوض أو التمثيل المتفق عليه، ويطلعك على تقدم العمل والخطوات التالية. تُسلّم الاستشارات المكتوبة عبر واتساب أو البريد الإلكتروني بالعربية أو الإنجليزية، ويتولى محامو فريقنا المرخصون محلياً العمل أمام المحاكم والجهات المختصة.",
+          desc: "ينجز فريقنا المشورة أو الصياغة أو التفاوض أو التمثيل المتفق عليه، ويطلعك على تقدم العمل والخطوات التالية. ويتولى فريق كاونسلو نفسه التواصل معك أونلاين والتمثيل القانوني، بما يشمل أي حضور مطلوب بأعضائه المرخصين. وتُسلّم الاستشارات المكتوبة عبر واتساب أو البريد الإلكتروني بالعربية أو الإنجليزية.",
         },
       ],
       termsHeading: "الشروط العامة",
@@ -119,15 +119,15 @@ export default function TermsOfService() {
         },
         {
           title: "التمثيل والتفويض",
-          desc: "يتولى محامو فريقنا المرخصون محلياً التمثيل أمام المحاكم والجهات المختصة. نؤكد كتابةً نطاق التمثيل والأتعاب والتفويض المطلوب قبل مباشرة العمل؛ ولا يُعد إرسال استفسار وحده تفويضاً لنا بالتصرف.",
+          desc: "يقدم فريق كاونسلو نفسه المشورة والتمثيل أمام المحاكم والجهات المختصة بأعضائه المرخصين. نؤكد كتابةً نطاق التمثيل والأتعاب والتفويض المطلوب قبل مباشرة العمل؛ ولا يُعد إرسال استفسار وحده تفويضاً لنا بالتصرف.",
         },
         {
           title: "تعديل الشروط",
-          desc: "يحق لكاونسلو للاستشارات القانونية تعديل هذه الشروط في أي وقت. والشروط المعمول بها عند طلبك الخدمة هي السارية على استشارتك.",
+          desc: "يحق لكاونسلو للاستشارات القانونية تعديل هذه الشروط في أي وقت. والشروط المعمول بها عند طلبك الخدمة هي السارية على العمل القانوني المتفق عليه معك.",
         },
       ],
       ctaHeading: "مستعد للبدء؟",
-      ctaDesc: "اختر المجال القانوني ورسوم استشارته الثابتة المنشورة، ثم أرسل سؤالك ومستنداتك. يؤكد فريقنا تفاصيل الخدمة والدفع قبل البدء.",
+      ctaDesc: "وضح هدفك والخدمة القانونية التي تحتاجها. يؤكد فريقنا تفاصيل العمل والدفع قبل البدء، مع رسوم ثابتة منشورة للاستشارات أونلاين وأتعاب مستقلة للتمثيل نتفق عليها معك.",
       ctaBtn: "تواصل معنا الآن",
     },
   }[isRTL ? "ar" : "en"];

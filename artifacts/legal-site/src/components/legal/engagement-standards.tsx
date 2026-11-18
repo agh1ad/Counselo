@@ -8,8 +8,8 @@ const content = {
     items: [
       { title: "The professional responsible", text: "The name and role of the professional handling your matter, the relevant country and how to contact the team." },
       { title: "The work and what you receive", text: "The questions to address, documents to review and agreed output: a legal opinion, reviewed contract, draft document or support for a defined stage of your matter." },
-      { title: "Fees, timing and follow-up", text: "The quoted fee, payment terms, expected delivery date and included clarifications. Additional work is agreed with you before it starts." },
-      { title: "Representation by our team", text: "Our team includes the locally licensed lawyers and offices handling representation. We confirm the responsible team member, required authorisations, fees, filings and deadlines as part of your legal work." },
+      { title: "Fees, timing and follow-up", text: "Online consultations have published fixed fees. We agree drafting and representation fees separately, along with payment terms, timing and follow-up, before that work begins." },
+      { title: "Representation by our team", text: "The same CounselO team handles your online communication, legal work and representation, including required court attendance through its appropriately licensed members. We confirm responsibilities, authorisations, filings and deadlines before acting." },
     ],
     link: "Read the service terms",
   },
@@ -19,8 +19,8 @@ const content = {
     items: [
       { title: "المهني المسؤول عن مسألتك", text: "اسم المهني الذي يتولى مسألتك ودوره والدولة المعنية وطريقة التواصل مع الفريق." },
       { title: "العمل والمخرجات التي تتسلمها", text: "الأسئلة المطلوب معالجتها والمستندات المطلوب مراجعتها والمخرج المتفق عليه: رأي قانوني، أو عقد تمت مراجعته، أو مشروع مستند، أو دعم لمرحلة محددة من مسألتك." },
-      { title: "الأتعاب والموعد والمتابعة", text: "الأتعاب المعروضة وشروط الدفع وموعد التسليم المتوقع والإيضاحات المشمولة. ونتفق معك على أي عمل إضافي قبل البدء فيه." },
-      { title: "التمثيل الذي يتولاه فريقنا", text: "يضم فريقنا المحامين والمكاتب المرخصة محلياً التي تتولى التمثيل. نحدد عضو الفريق المسؤول والتفويضات المطلوبة والأتعاب والإيداعات والمواعيد ضمن العمل القانوني الذي نقدمه لك." },
+      { title: "الأتعاب والموعد والمتابعة", text: "للاستشارات الأونلاين رسوم ثابتة منشورة. ونتفق بصورة مستقلة على أتعاب الصياغة والتمثيل وشروط الدفع والموعد والمتابعة قبل بدء ذلك العمل." },
+      { title: "التمثيل الذي يتولاه فريقنا", text: "يتولى فريق كاونسلو نفسه التواصل معك أونلاين والعمل القانوني والتمثيل، بما يشمل الحضور المطلوب أمام المحاكم بأعضائه المرخصين في الدولة المعنية. ونؤكد المسؤوليات والتفويضات والإيداعات والمواعيد قبل مباشرة العمل." },
     ],
     link: "اطّلع على شروط الخدمة",
   },

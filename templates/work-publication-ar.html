@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>قالب منشورات كاونسلو - العربية</title><link rel="stylesheet" href="work-publication.css"></head>
+<body>
+<div class="controls"><p>قالب قابل للتحرير. استبدل جميع الحقول بين الأقواس، وراجع الوقائع واحذف المعلومات السرية قبل التصدير. هذا ملف لإعداد المنشورات، وليس دراسة حالة منشورة.</p><button onclick="window.print()">طباعة / حفظ PDF</button><button id="save-template">حفظ ملف HTML المعدّل</button></div>
+<main class="sheet">
+<header class="letterhead"><div class="brand" dir="ltr">CounselO<small lang="ar" dir="rtl">كاونسلو</small></div><p class="tagline">من الاستشارة أونلاين إلى التمثيل القانوني<br>فريق كاونسلو القانوني الواحد.</p></header>
+<h1 contenteditable="true">[عنوان المنشور]</h1>
+<table class="facts"><tbody>
+<tr><th>نوع المنشور</th><td contenteditable="true">[دراسة حالة، رأي قانوني، مراجعة عقد أو ملف عمل مهني]</td></tr>
+<tr><th>الاختصاص القانوني</th><td contenteditable="true">[الدولة والاختصاص القانوني المعني]</td></tr>
+<tr><th>تاريخ العمل</th><td contenteditable="true">[التاريخ الأصلي للعمل]</td></tr>
+<tr><th>نسخة النشر</th><td contenteditable="true">[تاريخ النشر أو التحديث التحريري]</td></tr>
+<tr><th>إعداد</th><td contenteditable="true">[اسم المحامي أو مكتب المحاماة]، ضمن فريق كاونسلو</td></tr>
+</tbody></table>
+<section class="result"><h2>النتائج</h2><p contenteditable="true">[اذكر النتيجة المسجلة والمبلغ والمرحلة الإجرائية بدقة، وبيّن ما إذا كانت حكماً أو صلحاً أو مبلغاً محصّلاً أو قراراً إجرائياً أو عملاً قانونياً منجزاً.]</p></section>
+<section><h2>المسألة القانونية</h2><p contenteditable="true">[لخّص الوقائع الجوهرية والهدف القانوني للعميل.]</p></section>
+<section><h2>عمل فريقنا والاستراتيجية القانونية</h2><p contenteditable="true">[صف العمل الذي أنجزه فريق كاونسلو فعلياً، ودور عضو الفريق المسؤول، والمستندات والتحليل القانوني الذي استند إليه العمل.]</p></section>
+<section><h2>تفاصيل النتيجة والمستندات الداعمة</h2><p contenteditable="true">[حدّد المستند الداعم والمرحلة المسجلة، وميّز بدقة بين المبلغ المحكوم به والمبلغ المحصّل، وانسب المعلومات المقدمة من العميل إلى مصدرها.]</p></section>
+<p class="credit">من منشورات كاونسلو. يضم فريقنا محامين ومكاتب محاماة مرخّصة. فريق كاونسلو نفسه يتولى التواصل أونلاين والاستشارة القانونية والتمثيل القانوني والحضور الشخصي متى لزم.</p>
+<footer class="footer">كاونسلو | من الاستشارة أونلاين إلى التمثيل القانوني | <bdi dir="ltr">www.counselo-legal.com</bdi></footer>
+</main>
+<script>document.getElementById('save-template').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob(['<!doctype html>\n'+document.documentElement.outerHTML],{type:'text/html;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download='counselo-work-publication-ar.html';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});</script>
+</body></html>

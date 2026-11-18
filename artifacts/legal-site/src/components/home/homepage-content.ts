@@ -4,11 +4,11 @@ export const homepageContent = {
     description:
       "One CounselO team for legal consultation, contracts, disputes and court representation in Saudi Arabia, Syria and the UAE. Services in Arabic and English.",
     nav: ["About", "Our services", "Jurisdictions", "Our process", "Contact"],
-    h1: "Legal Consultation & Representation in Saudi Arabia, Syria & the UAE",
-    heroSummary: "Understand your legal options, review a document or plan your next step. Receive detailed professional written advice online in Arabic or English at the published fee for your country and legal category, with discussion and questions on the same topic included.",
+    h1: "CounselO Legal | Complete Legal Services",
+    heroSummary: "One CounselO team handles advice, contracts, negotiation, disputes and representation in Arabic and English. The same team handles your online communication, legal work and required local representation through its appropriately licensed members.",
     intro:
       "CounselO Legal provides consultation, document review, drafting, negotiation and representation through one experienced team in Saudi Arabia, Syria and the United Arab Emirates. Our team comprises locally licensed lawyers and law offices, serving you in Arabic and English.",
-    primary: "Start your online consultation",
+    primary: "Discuss your legal matter online",
     secondary: "Explore our services",
     picker: "Which country does your matter concern?",
     pickerNote:
@@ -18,7 +18,7 @@ export const homepageContent = {
     aboutText:
       "CounselO Legal brings consultation, document review, negotiation and representation together in one legal service. Share the essential facts, agree on the work with our team, and we guide and support you through the stages your matter needs.",
     aboutNote:
-      "Lawyers on our team who are authorised in the relevant country handle court representation and filings as part of the work agreed with you.",
+      "The same CounselO team handles your online communication, filings and court representation through its members authorised in the relevant country, as part of the work agreed with you.",
     founder: "Who is behind CounselO Legal?",
     founderName: "Omar Al-Baghdadi",
     founderRole: "Founder · Lawyer and legal counsel",
@@ -29,7 +29,7 @@ export const homepageContent = {
     experience: "How we describe experience",
     services: "Find the legal service you need",
     servicesIntro:
-      "Start with the question you need answered or the document you need reviewed. We confirm which service fits your matter before the work begins.",
+      "Tell us whether you need advice, drafting, negotiation, representation or continuing legal support. Our team agrees the work with you and carries it through.",
     areas:
       "Questions about family, employment, contracts, property, business or investment? Choose a country to explore its practice areas and relevant guidance.",
     jurisdictions: "Three jurisdictions. Country-specific guidance.",
@@ -46,12 +46,12 @@ export const homepageContent = {
         "Send a short summary, the relevant country and any known deadline. We identify the information needed for an initial review.",
       ],
       [
-        "Confirm your consultation topic",
-        "We confirm the legal question, required documents and delivery details. Your online consultation follows the published fixed fee for the relevant country and legal category.",
+        "Agree the legal work and fees",
+        "We confirm the work, responsible team members and delivery details. Online consultations have published category fees; drafting, negotiation and representation have separately agreed fees within the same team.",
       ],
       [
-        "Receive written guidance",
-        "Receive detailed professional written advice explaining your assessment, options, risks and next steps, with discussion and questions on the same consultation topic included.",
+        "Our team handles your matter",
+        "The same CounselO team carries out the agreed advice, drafting, negotiation and representation, keeps you informed online and handles required local work through its appropriately licensed members.",
       ],
       [
         "Continue with your legal team",
@@ -112,7 +112,7 @@ export const homepageContent = {
       ],
       [
         "Can CounselO handle my matter from consultation to representation?",
-        "Yes. Consultation, case preparation and representation are services delivered by the CounselO team. Lawyers on our team who are authorised in the relevant country handle court work and filings. We agree the work, fees and required authorisations with you, and you stay with the same team throughout.",
+        "Yes. Consultation, case preparation and representation are services delivered by the CounselO team. The same team handles online communication, court work and filings through its members authorised in the relevant country. We agree the work, fees and required authorisations with you, and you stay with the same team throughout.",
       ],
       [
         "How is my information handled?",
@@ -125,9 +125,9 @@ export const homepageContent = {
     whatsapp: "Contact us on WhatsApp",
     email: "Email us",
     phone: "Call us",
-    form: "Use the consultation form",
+    form: "Send your legal request",
     contactNote:
-      "Choose the relevant country and legal category to view the fixed consultation fee. We confirm your consultation topic and service details before paid work begins.",
+      "Tell us the country and the legal work you need. Online consultation fees are fixed and published; we agree fees for other legal work with you before starting.",
     privacy: "Privacy policy",
     terms: "Terms of service",
     rights: "CounselO Legal. All rights reserved.",
@@ -138,11 +138,11 @@ export const homepageContent = {
     description:
       "فريق كاونسلو وجهتك للاستشارة والعقود والمنازعات والتمثيل أمام المحاكم في السعودية وسوريا والإمارات، بخدمات قانونية بالعربية والإنجليزية.",
     nav: ["عن كاونسلو للاستشارات القانونية", "خدماتنا", "الاختصاصات", "آلية العمل", "تواصل معنا"],
-    h1: "استشارات وتمثيل قانوني في السعودية وسوريا والإمارات",
-    heroSummary: "افهم خياراتك القانونية، أو راجع مستنداً، أو حدد خطوتك التالية. احصل على استشارة مهنية مكتوبة ومفصلة أونلاين بالعربية أو الإنجليزية بالرسوم المنشورة للدولة والمجال القانوني، وتشمل المناقشة والأسئلة ضمن الموضوع نفسه.",
+    h1: "كاونسلو | خدمات قانونية متكاملة",
+    heroSummary: "يتولى فريق كاونسلو المشورة والعقود والتفاوض والمنازعات والتمثيل بالعربية والإنجليزية. يتولى الفريق نفسه التواصل معك أونلاين والعمل القانوني والتمثيل المحلي المطلوب بأعضائه المرخّصين في الدولة المعنية.",
     intro:
       "تقدم كاونسلو الاستشارة ومراجعة المستندات والصياغة والتفاوض والتمثيل من خلال فريق متمرس واحد في السعودية وسوريا والإمارات. ويضم فريق كاونسلو محامين ومكاتب مرخصة محلياً لخدمتك بالعربية والإنجليزية.",
-    primary: "ابدأ استشارتك أونلاين",
+    primary: "ناقش مسألتك القانونية أونلاين",
     secondary: "تعرّف على خدماتنا",
     picker: "بأي دولة ترتبط مسألتك؟",
     pickerNote:
@@ -152,7 +152,7 @@ export const homepageContent = {
     aboutText:
       "تجمع كاونسلو الاستشارة ومراجعة المستندات والتفاوض والتمثيل في خدمة قانونية متكاملة. شارك الوقائع الأساسية واتفق مع فريقنا على العمل، لنتولى دعمك ومتابعة المراحل التي تحتاجها مسألتك.",
     aboutNote:
-      "يتولى المحامون المخولون في الدولة المعنية ضمن فريقنا التمثيل أمام المحاكم وتقديم الطلبات والدعاوى ضمن العمل المتفق عليه معك.",
+      "يتولى فريق كاونسلو نفسه التواصل معك أونلاين وتقديم الطلبات والدعاوى والتمثيل أمام المحاكم بأعضائه المخوّلين في الدولة المعنية، ضمن العمل المتفق عليه معك.",
     founder: "من يقف وراء كاونسلو للاستشارات القانونية؟",
     founderName: "عمر البغدادي",
     founderRole: "المؤسس · محامٍ ومستشار قانوني",
@@ -163,7 +163,7 @@ export const homepageContent = {
     experience: "كيف نعرض الخبرة المهنية",
     services: "اختر الخدمة القانونية المناسبة لك",
     servicesIntro:
-      "ابدأ بالسؤال الذي تحتاج إلى إجابته أو المستند الذي تريد مراجعته. نحدد معك الخدمة المناسبة لمسألتك قبل بدء العمل.",
+      "حدد ما تحتاج إليه من مشورة أو صياغة أو تفاوض أو تمثيل أو دعم قانوني مستمر. يتفق فريقنا معك على العمل ويتولى تنفيذه ومتابعته.",
     areas:
       "هل تتعلق مسألتك بالأسرة أو العمل أو العقود أو العقارات أو الشركات أو الاستثمار؟ اختر الدولة للاطلاع على مجالات الخدمة والإرشادات المرتبطة بها.",
     jurisdictions: "ثلاثة اختصاصات. مشورة تراعي قانون كل دولة.",
@@ -184,12 +184,12 @@ export const homepageContent = {
         "أرسل ملخصاً موجزاً وحدد الدولة وأي مهلة معروفة. نحدد المعلومات اللازمة للمراجعة الأولية.",
       ],
       [
-        "نؤكد موضوع استشارتك",
-        "نؤكد المسألة القانونية والمستندات المطلوبة وتفاصيل التسليم. وتُقدم استشارتك الأونلاين بالرسوم الثابتة المنشورة للدولة والمجال القانوني المعني.",
+        "نتفق على العمل القانوني وأتعابه",
+        "نؤكد العمل وأعضاء الفريق المسؤولين وتفاصيل التسليم. للاستشارات الأونلاين رسوم منشورة بحسب المجال، وللصياغة والتفاوض والتمثيل أتعاب نتفق عليها ضمن الفريق نفسه.",
       ],
       [
-        "تتلقى إرشاداً مكتوباً",
-        "تتلقى استشارة مهنية مكتوبة ومفصلة توضح التقييم والخيارات والمخاطر والخطوات التالية، وتشمل المناقشة والأسئلة ضمن موضوع الاستشارة نفسه.",
+        "يتولى فريقنا مسألتك",
+        "ينجز فريق كاونسلو نفسه المشورة والصياغة والتفاوض والتمثيل المتفق عليه، ويطلعك على المستجدات أونلاين ويتولى العمل المحلي المطلوب بأعضائه المرخّصين في الدولة المعنية.",
       ],
       [
         "تواصل مع فريقك القانوني",
@@ -250,7 +250,7 @@ export const homepageContent = {
       ],
       [
         "هل تتولى كاونسلو مسألتي من الاستشارة إلى التمثيل؟",
-        "نعم. يقدم فريق كاونسلو الاستشارة وإعداد القضية والتمثيل القانوني. ويتولى المحامون المخولون في الدولة المعنية ضمن فريقنا العمل أمام المحاكم وتقديم الطلبات. نتفق معك على العمل والأتعاب والتفويضات المطلوبة، وتبقى مع الفريق نفسه خلال مراحل المسألة.",
+        "نعم. يقدم فريق كاونسلو الاستشارة وإعداد القضية والتمثيل القانوني. ويتولى الفريق نفسه التواصل معك أونلاين والعمل أمام المحاكم وتقديم الطلبات بأعضائه المخوّلين في الدولة المعنية. نتفق معك على العمل والأتعاب والتفويضات المطلوبة، وتبقى مع الفريق نفسه خلال مراحل المسألة.",
       ],
       [
         "كيف تتعاملون مع معلوماتي؟",
@@ -263,9 +263,9 @@ export const homepageContent = {
     whatsapp: "تواصل عبر واتساب",
     email: "راسلنا بالبريد الإلكتروني",
     phone: "اتصل بنا",
-    form: "استخدم نموذج الاستشارة",
+    form: "أرسل طلبك القانوني",
     contactNote:
-      "اختر الدولة والمجال القانوني للاطلاع على الرسوم الثابتة للاستشارة. ونؤكد موضوع استشارتك وتفاصيل الخدمة قبل بدء العمل المدفوع.",
+      "حدد الدولة والعمل القانوني الذي تحتاجه. رسوم الاستشارات الأونلاين ثابتة ومنشورة، ونتفق معك على أتعاب الأعمال القانونية الأخرى قبل البدء.",
     privacy: "سياسة الخصوصية",
     terms: "شروط الاستخدام",
     rights: "كاونسلو للاستشارات القانونية. جميع الحقوق محفوظة.",

@@ -10,7 +10,7 @@ CounselO Legal provides comprehensive legal support for individuals, families, b
 - Contracts and transactions: share documents online; our team drafts and reviews agreements, assesses risks, negotiates terms and prepares legal memoranda.
 - Litigation and arbitration support: analyse evidence, develop claims and defences, prepare submissions and advise on negotiation, settlement and enforcement.
 - Continuing and complex matters: follow progress remotely with the team preparing and representing your matter, including disputes involving multiple parties, substantial records or connected jurisdictions.
-- Legal representation: our locally licensed team members conduct court and authority representation in the relevant country, with the same CounselO team responsible for preparation and follow-up.
+- Legal representation: the same CounselO team handles preparation, court and authority representation, and follow-up through its members licensed in the relevant country.
 
 Our Work is CounselO Legal’s official professional portfolio. Its published case studies and legal work files present the work our team performed and the results achieved in contracts, disputes and legal representation. Examples include:
 
@@ -35,7 +35,7 @@ CounselO publishes case studies and legal work files as PDF attachments at `http
 
 ## نبذة عن الخدمات بالعربية
 
-تقدم كاونسلو الاستشارات القانونية أونلاين وصياغة العقود ومراجعتها واستراتيجية المنازعات والتقاضي والتحكيم والتمثيل القانوني في السعودية وسوريا والإمارات. يشارك العميل مستنداته ويتابع مسألته عن بُعد من منزله أو مكان عمله، بالعربية أو الإنجليزية. ويتولى الفريق الأسئلة والمسائل المباشرة والقضايا المعقدة متعددة الأطراف والعابرة للحدود. ويتولى فريقنا المكوّن من محامين ومكاتب مرخّصة محلياً التمثيل أمام المحاكم والجهات المختصة. يبقى العميل مع فريق واحد من الاستشارة الأولى إلى الإعداد والتمثيل والمتابعة. وتعرض صفحة «أعمالنا» ملف كاونسلو المهني الرسمي: دراسات حالة قانونية تشرح المسألة واستراتيجية فريقنا والعمل المنفذ والنتائج التي حققها. وتشمل الملفات بصيغة PDF دراسات حالة وأعمالاً قانونية من إعداد الفريق، مثل العقود والأدلة القانونية، مع الحفاظ على اسم المؤلف وأي إسناد إلى المصدر الأصلي الوارد في العمل.
+تقدم كاونسلو الاستشارات القانونية أونلاين وصياغة العقود ومراجعتها واستراتيجية المنازعات والتقاضي والتحكيم والتمثيل القانوني في السعودية وسوريا والإمارات. يشارك العميل مستنداته ويتابع مسألته عن بُعد من منزله أو مكان عمله، بالعربية أو الإنجليزية. ويتولى الفريق الأسئلة والمسائل المباشرة والقضايا المعقدة متعددة الأطراف والعابرة للحدود. ويتولى فريقنا المكوّن من محامين ومكاتب مرخّصة محلياً التمثيل أمام المحاكم والجهات المختصة. يبقى العميل مع فريق واحد من الاستشارة الأولى إلى الإعداد والتمثيل والمتابعة. ويتولى فريق كاونسلو نفسه التواصل أونلاين والعمل القانوني والتمثيل، بما يشمل الحضور المطلوب أمام المحاكم والجهات المحلية بأعضائه المرخصين. للاستشارات أونلاين رسوم ثابتة منشورة بحسب المجال، تشمل رأياً مكتوباً مفصلاً والمناقشة والأسئلة ضمن الموضوع نفسه، وتُتفق أتعاب التمثيل على نحو مستقل مع الفريق نفسه عند طلبه. وتعرض صفحة «أعمالنا» ملف كاونسلو المهني الرسمي: دراسات حالة قانونية تشرح المسألة واستراتيجية فريقنا والعمل المنفذ والنتائج التي حققها. وتشمل الملفات بصيغة PDF دراسات حالة وأعمالاً قانونية من إعداد الفريق، مثل العقود والأدلة القانونية، مع الحفاظ على اسم المؤلف وأي إسناد إلى المصدر الأصلي الوارد في العمل.
 
 ## Jurisdictions and languages
 
@@ -50,6 +50,10 @@ Services and articles identify the applicable jurisdiction. Arabic and English a
 ## One CounselO team from consultation to representation
 
 CounselO is one destination for online legal consultation, document preparation and legal representation. Clients consult our lawyers online and stay connected remotely with the same team throughout their matter. The lawyers and offices delivering these services in Saudi Arabia, Syria and the UAE are part of the CounselO team. Clients work with that team throughout their matter, including representation before courts and authorities by team members licensed in the relevant jurisdiction. We agree the work, responsible lawyers, fees and timing before starting and handle the required representation authorization within that process.
+
+The same CounselO team handles online communication, legal work and representation, including required in-person court and authority attendance through its members licensed in the relevant jurisdiction.
+
+Online legal consultations have published fixed category fees in SAR for Saudi Arabia, AED for the UAE and USD for Syria. The fee includes detailed professional written advice and discussion and questions within the same consultation topic. Representation fees are agreed separately for the requested work, delivered by the same CounselO team.
 
 The regional About pages identify the founder and team members, including Abdullah Al-Anzi’s law office in Saudi Arabia and the named offices in Syria. These offices are part of the CounselO team. Professional licences belong to the named professional or office and the relevant jurisdiction.
 
@@ -70,7 +74,7 @@ The regional About pages identify the founder and team members, including Abdull
 - [Saudi Arabia — Arabic](https://counselo-legal.com/sa/ar)
 - [Syria — English](https://counselo-legal.com/syr)
 - [Syria — Arabic](https://counselo-legal.com/syr/ar)
-- [Contact and consultation intake](https://counselo-legal.com/sa/contact)
+- [Contact our legal team](https://counselo-legal.com/sa/contact)
 - [Terms of service and engagement boundaries](https://counselo-legal.com/sa/terms-of-service)
 - [Privacy policy](https://counselo-legal.com/sa/privacy-policy)
 
@@ -98,9 +102,9 @@ The contact pages explain four steps: submit your matter online, review the requ
 
 An engagement may cover a focused consultation, comprehensive document review, contract or memorandum drafting, dispute preparation, continuing support or representation by the CounselO team. CounselO confirms the scope, deliverables, timing, fee, payment method and included follow-up before paid work begins.
 
-- [Start a consultation — UAE](https://counselo-legal.com/uae/contact)
-- [Start a consultation — Saudi Arabia](https://counselo-legal.com/sa/contact)
-- [Start a consultation — Syria](https://counselo-legal.com/syr/contact)
+- [Discuss your legal matter — UAE](https://counselo-legal.com/uae/contact)
+- [Discuss your legal matter — Saudi Arabia](https://counselo-legal.com/sa/contact)
+- [Discuss your legal matter — Syria](https://counselo-legal.com/syr/contact)
 - WhatsApp / phone: +966 59 485 0247
 - Email: info@counselo-legal.com
 

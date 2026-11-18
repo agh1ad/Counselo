@@ -7,12 +7,12 @@ export function regionalHomeFaqs(region: Region, isArabic: boolean) {
   const local = {
     sa: {
       en: [
-        ["Can I request Saudi legal advice while living abroad?", "Yes. Identify the Saudi matter, parties, documents and any deadline, even if you live elsewhere. You can consult our team remotely, and our Saudi-licensed team members handle any agreed filing or representation as your matter progresses."],
+        ["Can I request Saudi legal advice while living abroad?", "Yes. Identify the Saudi matter, parties, documents and any deadline, even if you live elsewhere. The same CounselO team handles your online consultation, communication and agreed filing or representation through its members licensed in Saudi Arabia."],
         ["What should a business or investor provide?", "Describe the proposed activity, entity or investment, current registration status and the decision you need to make. Identify any notice or correspondence from a Saudi authority. We confirm the relevant documents and scope before reviewing formation, contracts, approvals or a dispute."],
         ["What should I send about a Saudi dispute?", "Begin with a short chronology, your objective and any deadline. Identify the contract, notice, decision or judgment and the relevant court or authority if known. We confirm the evidence needed and agree a plan covering advice, preparation and any proceedings our team will handle."],
       ],
       ar: [
-        ["هل يمكن طلب مشورة سعودية من خارج المملكة؟", "نعم. حدد المسألة السعودية والأطراف والمستندات وأي مهلة حتى لو كنت تقيم خارج المملكة. يمكنك استشارة فريقنا عن بُعد، ويتولى أعضاء فريقنا المرخصون في السعودية أي طلبات أو تمثيل متفق عليه مع تقدم مسألتك."],
+        ["هل يمكن طلب مشورة سعودية من خارج المملكة؟", "نعم. حدد المسألة السعودية والأطراف والمستندات وأي مهلة حتى لو كنت تقيم خارج المملكة. يتولى فريق كاونسلو نفسه استشارتك والتواصل معك أونلاين وتقديم الطلبات والتمثيل المتفق عليه بأعضائه المرخّصين في السعودية."],
         ["ما المعلومات المطلوبة من شركة أو مستثمر؟", "وضح النشاط أو الكيان أو الاستثمار المقترح وحالة التسجيل الحالية والقرار الذي تريد اتخاذه. اذكر أي إخطار أو مراسلات مع جهة سعودية. نحدد المستندات والنطاق قبل مراجعة التأسيس أو العقود أو الموافقات أو النزاع."],
         ["ما الذي أرسله بشأن نزاع سعودي؟", "ابدأ بتسلسل موجز للوقائع وهدفك وأي مهلة. حدد العقد أو الإنذار أو القرار أو الحكم والمحكمة أو الجهة المعنية إن كانت معلومة. نؤكد الأدلة المطلوبة ونتفق على خطة تشمل المشورة والإعداد والإجراءات التي سيتولاها فريقنا."],
       ],
@@ -33,12 +33,12 @@ export function regionalHomeFaqs(region: Region, isArabic: boolean) {
       en: [
         ["How do you identify the relevant UAE jurisdiction?", "Tell us the emirate, authority, employer or company registration, property location and any governing-law or forum clause. These facts help distinguish federal, emirate-level, mainland, free-zone, DIFC or ADGM issues before the legal route is assessed."],
         ["What should I prepare for a UAE employment or tenancy matter?", "For employment, identify the employer, registration jurisdiction, contract, payment records and any termination or complaint notice. For tenancy, identify the emirate, property, tenancy agreement, payment history and notices. Share dates and deadlines first; the required documents are confirmed after scope review."],
-        ["Can I request UAE advice from outside the Emirates?", "Yes. You can begin with consultation and document review online. Our UAE-licensed team members handle the agreed attendance, filing and representation, and help you complete any required notarisation, while you stay in contact with CounselO."],
+        ["Can I request UAE advice from outside the Emirates?", "Yes. The same CounselO team handles your online consultation, document review and communication, as well as agreed attendance, filing and representation through its members licensed in the UAE. We also help you complete any required notarisation."],
       ],
       ar: [
         ["كيف تحددون الاختصاص المعني في الإمارات؟", "اذكر الإمارة والجهة وتسجيل صاحب العمل أو الشركة وموقع العقار وأي شرط للقانون المنطبق أو جهة الفصل. تساعد هذه الوقائع على التمييز بين المسائل الاتحادية والمحلية والبرّ الرئيسي والمناطق الحرة ومركز دبي المالي العالمي وسوق أبوظبي العالمي قبل تقييم المسار القانوني."],
         ["ما الذي أجهزه لمسألة عمالية أو إيجارية في الإمارات؟", "للعمل، حدد صاحب العمل واختصاص تسجيله والعقد وسجلات السداد وأي إخطار بالإنهاء أو الشكوى. وللإيجار، حدد الإمارة والعقار والعقد وسجل المدفوعات والإخطارات. اذكر التواريخ والمواعيد أولاً؛ وتُحدد المستندات اللازمة بعد مراجعة النطاق."],
-        ["هل يمكن طلب مشورة إماراتية من خارج الإمارات؟", "نعم. يمكنك بدء الاستشارة ومراجعة المستندات عبر الإنترنت. ويتولى أعضاء فريقنا المرخصون في الإمارات الحضور وتقديم الطلبات والتمثيل المتفق عليه، ويساعدونك في استكمال أي توثيق مطلوب، مع استمرار تواصلك مع كاونسلو."],
+        ["هل يمكن طلب مشورة إماراتية من خارج الإمارات؟", "نعم. يتولى فريق كاونسلو نفسه استشارتك ومراجعة مستنداتك والتواصل معك أونلاين، والحضور وتقديم الطلبات والتمثيل المتفق عليه بأعضائه المرخّصين في الإمارات. ونساعدك أيضاً في استكمال أي توثيق مطلوب."],
       ],
     },
   }[region][isArabic ? "ar" : "en"];

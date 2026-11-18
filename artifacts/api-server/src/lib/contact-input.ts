@@ -27,6 +27,7 @@ const contactInputSchema = z.object({
   )).pipe(z.string().min(10).max(30)),
   service: z.string().trim().min(1),
   consultationProduct: z.string().trim().min(1).default("comprehensive-consultation"),
+  requestIntent: z.enum(["general", "consultation"]).optional(),
   message: z.string().trim().min(10).max(5_000),
   region: z.enum(["uae", "sa", "syr"]),
   language: z.enum(["en", "ar"]),
@@ -50,10 +51,16 @@ export type ContactAttachment = {
 
 export type ContactInput = Omit<
   z.infer<typeof contactInputSchema>,
-  "attachments"
+  "attachments" | "consultationProduct"
 > & {
+  consultationProduct?: string;
   attachments: ContactAttachment[];
 };
+
+/** Older forms and already queued requests retain their consultation meaning. */
+export function isConsultationRequest(input: Pick<ContactInput, "requestIntent">): boolean {
+  return input.requestIntent !== "general";
+}
 
 export class ContactInputError extends Error {
   constructor(message: string) {
@@ -130,7 +137,7 @@ export function parseContactInput(value: unknown): ContactInput {
   const result = contactInputSchema.safeParse(value);
   if (!result.success) {
     throw new ContactInputError(
-      result.error.issues[0]?.message ?? "Invalid consultation request.",
+      result.error.issues[0]?.message ?? "Invalid legal service request.",
     );
   }
 
@@ -165,5 +172,7 @@ export function parseContactInput(value: unknown): ContactInput {
     );
   }
 
-  return { ...result.data, attachments };
+  // Do not add an intent field to legacy payloads: their JSON is also used for
+  // idempotency fingerprints. General requests do not commission a product.
+  return { ...result.data, ...(result.data.requestIntent === "general" ? { consultationProduct: undefined } : {}), attachments };
 }

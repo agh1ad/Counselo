@@ -1,0 +1,49 @@
+:root { color-scheme: light; --green:#155f4b; --gold:#b18e34; --ink:#172b25; }
+* { box-sizing:border-box; }
+body { margin:0; background:#edf1ee; color:var(--ink); font:12pt/1.65 Georgia,"Times New Roman",serif; }
+.controls { max-width:210mm; margin:18px auto; padding:14px 20px; background:white; font:14px/1.5 Arial,sans-serif; }
+.controls p { margin:0 0 10px; }
+.controls button { padding:8px 15px; margin-inline-end:8px; border:1px solid var(--green); background:white; color:var(--green); cursor:pointer; }
+.sheet { width:210mm; min-height:297mm; margin:0 auto 24px; padding:18mm 20mm 24mm; background:white; }
+.letterhead { display:flex; justify-content:space-between; align-items:center; gap:18px; border-bottom:1.5pt solid var(--gold); padding-bottom:10mm; margin-bottom:12mm; }
+.brand { color:var(--green); font-size:27pt; line-height:1.2; font-weight:bold; }
+.brand small { display:block; margin-top:4px; font-size:13pt; font-weight:normal; }
+.tagline { max-width:90mm; color:var(--green); font-size:11pt; line-height:1.5; }
+h1 { margin:0 0 8mm; color:var(--green); font-size:24pt; line-height:1.4; }
+h2 { margin:9mm 0 3mm; font-size:16pt; color:var(--green); border-bottom:.5pt solid #cbd8d1; padding-bottom:2mm; }
+p { margin:0 0 4mm; }
+.facts { width:100%; border-collapse:collapse; margin-bottom:7mm; font-size:10.5pt; }
+.facts th,.facts td { text-align:start; vertical-align:top; border-bottom:.5pt solid #d9e3de; padding:2mm 3mm; }
+.facts th { width:35%; font-weight:normal; color:#456055; background:#f2f6f3; }
+.result { padding:5mm; border-inline-start:3pt solid var(--gold); background:#f5f7f3; }
+.result h2 { margin-top:0; }
+.credit { margin-top:8mm; color:#456055; font-size:10.5pt; }
+.footer { margin-top:14mm; border-top:.5pt solid #cbd8d1; padding-top:3mm; color:#456055; font:8.5pt/1.4 Arial,sans-serif; text-align:center; }
+[contenteditable]:focus { outline:1px dashed var(--gold); outline-offset:3px; }
+html[dir="rtl"] body { font-family:"Times New Roman",Tahoma,serif; font-size:13pt; }
+html[dir="rtl"] .brand { font-family:Georgia,"Times New Roman",serif; }
+html[dir="rtl"] .tagline { font-size:12pt; }
+html[dir="rtl"] .footer { font-family:"Times New Roman",Tahoma,serif; font-size:10pt; }
+@page {
+ size:A4; margin:18mm 20mm 22mm;
+ @bottom-center { content:"CounselO | Online Consultation to Legal Representation | www.counselo-legal.com"; font:8pt Arial,sans-serif; color:#456055; }
+}
+@page publication-ar {
+ @bottom-center { content:"كاونسلو | من الاستشارة أونلاين إلى التمثيل القانوني | www.counselo-legal.com"; font:9pt "Times New Roman",serif; color:#456055; direction:rtl; }
+}
+@media print {
+ body { background:white; font-size:11.5pt; line-height:1.5; }
+ html[dir="rtl"] body { font-size:12.5pt; }
+ html[dir="rtl"] .sheet { page:publication-ar; }
+ .controls { display:none; }
+ .sheet { width:auto; min-height:0; padding:0; margin:0; }
+ .letterhead { margin-bottom:6mm; padding-bottom:4mm; }
+ h1 { margin-bottom:6mm; }
+ h2 { margin-top:5mm; }
+ .facts th,.facts td { padding:1.5mm 3mm; }
+ h1,h2 { break-after:avoid; }
+ .facts,.result,.credit { break-inside:avoid; }
+ p { orphans:3; widows:3; }
+ .footer { display:none; }
+ [contenteditable] { outline:none !important; }
+}

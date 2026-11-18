@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18 00:41:10 UTC",
+  "generatedAt": "2026-11-18 12:45:31 UTC",
   "summary": {
     "pages": 1514,
     "redirects": 327,
@@ -9568,7 +9568,7 @@
       "route": "/sa/ar",
       "isRedirect": false,
       "title": "استشارات أونلاين وتمثيل قانوني في السعودية | كاونسلو",
-      "description": "استشر فريق كاونسلو أونلاين في السعودية وراجع مستنداتك وتابع ملفك من منزلك. فريق واحد من الاستشارة والعقود إلى التمثيل القانوني بمحامينا المرخصين محلياً.",
+      "description": "استشر فريق كاونسلو أونلاين في السعودية وراجع مستنداتك وتابع ملفك من منزلك. فريق واحد من الاستشارة والعقود إلى التمثيل القانوني ومتابعة الإجراءات.",
       "issues": [],
       "schemaTypes": [
         "Organization",
@@ -16514,8 +16514,8 @@
       "file": "__pages/sa.html",
       "route": "/sa",
       "isRedirect": false,
-      "title": "Online Legal Advice in Saudi Arabia | CounselO Legal",
-      "description": "Consult online in Saudi Arabia, share documents and follow your matter from home. One CounselO team handles advice through representation by our licensed lawyers.",
+      "title": "Online Legal Advice & Representation in Saudi Arabia | CounselO",
+      "description": "Consult online in Saudi Arabia, share documents and follow your matter from home. The same CounselO team handles your advice, legal work and representation.",
       "issues": [],
       "schemaTypes": [
         "Organization",
@@ -24147,7 +24147,7 @@
       "route": "/syr/ar",
       "isRedirect": false,
       "title": "استشارات أونلاين وتمثيل قانوني في سوريا | كاونسلو",
-      "description": "استشر فريق كاونسلو أونلاين في سوريا وراجع مستنداتك وتابع ملفك من منزلك. فريق واحد من الاستشارة والعقود إلى التمثيل القانوني بمحامينا المرخصين محلياً.",
+      "description": "استشر فريق كاونسلو أونلاين في سوريا وراجع مستنداتك وتابع ملفك من منزلك. فريق واحد من الاستشارة والعقود إلى التمثيل القانوني ومتابعة الإجراءات.",
       "issues": [],
       "schemaTypes": [
         "Organization",
@@ -31394,8 +31394,8 @@
       "file": "__pages/syr.html",
       "route": "/syr",
       "isRedirect": false,
-      "title": "Online Legal Advice in Syria | CounselO Legal",
-      "description": "Consult online in Syria, share documents and follow your matter from home. One CounselO team handles advice through representation by our licensed lawyers.",
+      "title": "Online Legal Advice & Representation in Syria | CounselO",
+      "description": "Consult online in Syria, share documents and follow your matter from home. The same CounselO team handles your advice, legal work and representation.",
       "issues": [],
       "schemaTypes": [
         "Organization",
@@ -31521,7 +31521,7 @@
       "route": "/uae/ar/privacy-policy",
       "isRedirect": false,
       "title": "سياسة الخصوصية | كيف تحمي كاونسلو للاستشارات القانونية بياناتك | كاونسلو للاستشارات القانونية",
-      "description": "سياسة خصوصية كاونسلو للاستشارات القانونية في الإمارات العربية المتحدة — كيفية جمع البيانات الشخصية والمعلومات القانونية السرية واستخدامها وحمايتها عند تقديم الاستشارات أونلاين.",
+      "description": "سياسة خصوصية كاونسلو للاستشارات القانونية في الإمارات العربية المتحدة: كيفية التعامل مع البيانات الشخصية والمعلومات السرية طوال العمل القانوني، من الاستشارة أونلاين إلى التمثيل.",
       "issues": [
         {
           "severity": "info",
@@ -31531,7 +31531,7 @@
         {
           "severity": "info",
           "rule": "desc-too-long",
-          "detail": "176 characters; snippet display length varies by query and device."
+          "detail": "177 characters; snippet display length varies by query and device."
         }
       ],
       "schemaTypes": [
@@ -37073,7 +37073,7 @@
       "route": "/uae/ar",
       "isRedirect": false,
       "title": "استشارات أونلاين وتمثيل قانوني في الإمارات | كاونسلو",
-      "description": "استشر فريق كاونسلو أونلاين في الإمارات وراجع مستنداتك وتابع ملفك من منزلك. فريق واحد من الاستشارة والعقود إلى التمثيل القانوني بمحامينا المرخصين محلياً.",
+      "description": "استشر فريق كاونسلو أونلاين في الإمارات وراجع مستنداتك وتابع ملفك من منزلك. فريق واحد من الاستشارة والعقود إلى التمثيل القانوني ومتابعة الإجراءات.",
       "issues": [],
       "schemaTypes": [
         "Organization",
@@ -37129,12 +37129,17 @@
       "route": "/uae/privacy-policy",
       "isRedirect": false,
       "title": "Privacy Policy | How CounselO Legal Protects Your Data | CounselO Legal",
-      "description": "CounselO Legal's Privacy Policy for the United Arab Emirates — how we collect, use and protect personal data and confidential legal information for online consultations.",
+      "description": "CounselO Legal's Privacy Policy for the United Arab Emirates: how we handle personal data and confidential information throughout your legal engagement, from online advice to representation.",
       "issues": [
         {
           "severity": "info",
           "rule": "title-too-long",
           "detail": "71 characters; search results may truncate the title. There is no fixed character limit."
+        },
+        {
+          "severity": "info",
+          "rule": "desc-too-long",
+          "detail": "190 characters; snippet display length varies by query and device."
         }
       ],
       "schemaTypes": [
@@ -42340,8 +42345,8 @@
       "file": "__pages/uae.html",
       "route": "/uae",
       "isRedirect": false,
-      "title": "Online Legal Advice in the UAE | CounselO Legal",
-      "description": "Consult online in the UAE, share documents and follow your matter from home. One CounselO team handles advice through representation by our licensed lawyers.",
+      "title": "Online Legal Advice & Representation in the UAE | CounselO",
+      "description": "Consult online in the UAE, share documents and follow your matter from home. The same CounselO team handles your advice, legal work and representation.",
       "issues": [],
       "schemaTypes": [
         "Organization",

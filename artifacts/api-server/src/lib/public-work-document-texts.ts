@@ -4,7 +4,12 @@ export interface PublicWorkDocumentText extends PublicWorkDocumentTextMetadata {
   text: string;
 }
 
-/** Faithful text alternatives for specific published PDF bytes; never imported into browser code. */
+/**
+ * Historical, faithful transcriptions of the original PDF bytes; never imported into browser code.
+ * Verified publication editions supersede these at the same PDF/TXT URLs. Preserve this original
+ * wording for source fallback rather than silently relabelling an unchanged historical document.
+ * New publications use templates/work-publication-{ar,en}.html.
+ */
 export const PUBLIC_WORK_DOCUMENT_TEXTS: readonly PublicWorkDocumentText[] = [
   {
     "slug": "atfaqyh-atar-ltqdym-alkhdmat-altqnyh-whlwl-aldhka-alastnaay",

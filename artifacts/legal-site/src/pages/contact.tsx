@@ -21,7 +21,7 @@ import { consultationPriceLabel } from "@/components/legal/consultation-price";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { trackEvent } from "@/lib/analytics";
 import { getAcquisitionContext } from "@/lib/acquisition";
-import { getContactServiceOptions, getContactServicePrefill } from "@/lib/contact-service-selection";
+import { getContactConsultationPrice, getContactServiceOptions, getContactServicePrefill } from "@/lib/contact-service-selection";
 
 const MAX_FILES = 10;
 const MAX_FILE_SIZE_MB = 5;
@@ -70,7 +70,6 @@ export default function Contact() {
   const isSyr = region === "syr";
   const countryName = isUae ? "United Arab Emirates" : isSyr ? "Syria" : "Saudi Arabia";
   const pageUrl = `https://counselo-legal.com${regionPrefix}/contact`;
-  const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL ? `مرحباً كاونسلو للاستشارات القانونية، أحتاج إلى استشارة بخصوص مسألة قانونية في ${countryName === "United Arab Emirates" ? "الإمارات" : countryName === "Syria" ? "سوريا" : "السعودية"}.` : `Hello CounselO Legal, I need a consultation about a legal matter in ${countryName}.`)}`;
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const honeypotRef = useRef<HTMLInputElement>(null);
@@ -126,11 +125,23 @@ export default function Contact() {
   const selectedService = form.watch("service");
   const urgentSelected = selectedService === "urgent-legal-assistance";
   const consultationPrice = getConsultationPrice(region, selectedService);
-  const consultationContext = consultationPrice
+  const requestedConsultation = getContactConsultationPrice(region, search, selectedService);
+  const isConsultation = Boolean(requestedConsultation);
+  const consultationContext = requestedConsultation
     ? (isRTL
-      ? `مجال الاستشارة: ${consultationPrice.titleAr}\nرسوم الاستشارة المنشورة: ${consultationPriceLabel(consultationPrice, true)}\n\n`
-      : `Consultation category: ${consultationPrice.titleEn}\nPublished consultation fee: ${consultationPriceLabel(consultationPrice, false)}\n\n`)
+      ? `مجال الاستشارة: ${requestedConsultation.titleAr}\nرسوم الاستشارة المنشورة: ${consultationPriceLabel(requestedConsultation, true)}\n\n`
+      : `Consultation category: ${requestedConsultation.titleEn}\nPublished consultation fee: ${consultationPriceLabel(requestedConsultation, false)}\n\n`)
     : "";
+  const selectedField = serviceOptions.find(option => option.value === selectedService)?.label;
+  const localizedCountry = isRTL ? { sa: "السعودية", syr: "سوريا", uae: "الإمارات" }[region] : countryName;
+  const whatsappMessage = requestedConsultation
+    ? (isRTL
+      ? `مرحباً كاونسلو، أود طلب استشارة قانونية مكتوبة أونلاين بشأن ${requestedConsultation.titleAr} في ${localizedCountry} بسعر ${consultationPriceLabel(requestedConsultation, true)}، مع المناقشة والأسئلة ضمن موضوع الاستشارة.`
+      : `Hello CounselO, I would like a written online legal consultation about ${requestedConsultation.titleEn} in ${localizedCountry} at ${consultationPriceLabel(requestedConsultation, false)}, including discussion and questions on the consultation topic.`)
+    : (isRTL
+      ? `مرحباً كاونسلو، أحتاج إلى دعم قانوني ${selectedField ? `بشأن ${selectedField} ` : ""}في ${localizedCountry}. أود مناقشة مسألتي والخدمة المناسبة مع فريقكم.`
+      : `Hello CounselO, I need legal support ${selectedField ? `with ${selectedField} ` : ""}in ${localizedCountry}. I would like to discuss my matter and the support I need with your team.`);
+  const whatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(whatsappMessage)}`;
 
   const handleFiles = useCallback((incoming: FileList | null) => {
     if (!incoming) return;
@@ -189,6 +200,8 @@ export default function Contact() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...values,
+          requestIntent: isConsultation ? "consultation" : "general",
+          ...(isConsultation ? { consultationProduct: "comprehensive-consultation" } : {}),
           message: `${consultationContext}${values.message}`,
           idempotencyKey: idempotencyKey.current,
           region,
@@ -207,7 +220,7 @@ export default function Contact() {
           : response.status === 503
             ? (isRTL
               ? "خدمة إرسال الطلبات غير متاحة مؤقتاً. يرجى التواصل معنا عبر البريد الإلكتروني."
-              : "Consultation submissions are temporarily unavailable. Please contact us by email.")
+              : "Request submissions are temporarily unavailable. Please contact us by email.")
             : (isRTL
               ? "تعذر إرسال طلبك. يرجى التحقق من البيانات والمحاولة مرة أخرى."
               : result.error || "We could not submit your request. Please check the form and try again.");
@@ -221,7 +234,7 @@ export default function Contact() {
         form_name: "consultation",
         lead_id: result.leadId,
         service: values.service,
-        consultation_product: "comprehensive-consultation",
+        ...(isConsultation ? { consultation_product: "comprehensive-consultation" } : {}),
         region,
         attachment_count: attachments.length,
       });
@@ -321,7 +334,7 @@ export default function Contact() {
             "url": "https://counselo-legal.com",
             "founder": OMAR_AL_BAGHDADI,
             "areaServed": { "@type": "Country", "name": countryName },
-            "contactPoint": { "@type": "ContactPoint", "telephone": "+966594850247", "contactType": "legal consultation", "availableLanguage": ["Arabic", "English"] },
+            "contactPoint": { "@type": "ContactPoint", "telephone": "+966594850247", "contactType": "legal services", "availableLanguage": ["Arabic", "English"] },
           },
           {
             "@context": "https://schema.org",
@@ -340,7 +353,7 @@ export default function Contact() {
           <m.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6">{c.hero.heading}</h1>
             <div className="premium-hero-rule mx-auto mb-8" />
-            <p className="text-xl text-white/75 max-w-2xl mx-auto leading-relaxed">{isRTL ? "استشر فريق كاونسلو المكوّن من محامين ومكاتب مرخّصة أونلاين. نتولى المشورة والصياغة والتفاوض والتمثيل، ونبقى معك كفريق واحد طوال مسألتك. أرسل مستنداتك ووضح هدفك وأي موعد قريب." : "Consult online with the CounselO team, comprising licensed lawyers and law offices. We advise, draft, negotiate and represent you as one team throughout your matter. Send your documents, tell us your objective and include any approaching deadline."}</p>
+            <p className="text-xl text-white/75 max-w-2xl mx-auto leading-relaxed">{c.hero.subheading}</p>
             {<div className="mt-7 flex flex-wrap justify-center gap-4">
               <a href={wasSent ? "#consultation-receipt" : "#consultation-request"} className="inline-flex min-h-11 items-center bg-[#d4af60] px-5 py-3 font-semibold text-[#003d22] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">{wasSent ? (isRTL ? "عرض تأكيد الطلب" : "View your confirmation") : (isRTL ? "انتقل إلى نموذج الطلب" : "Go to the request form")}</a>
               <a href={whatsappUrl} data-cta="whatsapp" data-conversion-position="sa-contact-hero" data-region={region} data-lang={isRTL ? "ar" : "en"} className="inline-flex min-h-11 items-center border border-white/50 px-5 py-3 font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">{isRTL ? "ابدأ عبر واتساب" : "Start on WhatsApp"}</a>
@@ -349,7 +362,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {!wasSent && <ConsultationSteps isArabic={isRTL} isConsultation={!urgentSelected} />}
+      {!wasSent && <ConsultationSteps isArabic={isRTL} isConsultation={isConsultation} />}
 
       {/* Success screen */}
       {wasSent && (
@@ -371,11 +384,11 @@ export default function Contact() {
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {isRTL
                     ? "تم استلام طلبك بنجاح. تستهدف كاونسلو للاستشارات القانونية تقديم رد مهني خلال 24 ساعة، بحسب نطاق المسألة واكتمال المعلومات وتوفر الخدمة."
-                    : "Your consultation request has been received. CounselO Legal targets a professional response within 24 hours, depending on the matter, the details provided and service availability."}
+                    : "Your request has been received. CounselO Legal targets a professional response within 24 hours, depending on the matter, the details provided and service availability."}
                 </p>
                 {reference && (
                   <p className="text-sm font-semibold text-primary break-words">
-                    {isRTL ? "رقم الطلب:" : "Consultation reference:"} <bdi dir="ltr" className="mt-2 block break-all">{reference}</bdi>
+                    {isRTL ? "رقم الطلب:" : "Request reference:"} <bdi dir="ltr" className="mt-2 block break-all">{reference}</bdi>
                   </p>
                 )}
               </div>
@@ -493,13 +506,17 @@ export default function Contact() {
                       <div className="space-y-3 border border-primary/25 bg-primary/5 p-4" aria-live="polite">
                         <p className="font-semibold text-foreground">
                           {consultationPrice
-                            ? <>{isRTL ? consultationPrice.titleAr : consultationPrice.titleEn}{" — "}<bdi>{consultationPriceLabel(consultationPrice, isRTL)}</bdi></>
+                            ? <>{isRTL ? "الاستشارة أونلاين في " : "Online consultation in "}{isRTL ? consultationPrice.titleAr : consultationPrice.titleEn}{" — "}<bdi>{consultationPriceLabel(consultationPrice, isRTL)}</bdi></>
                             : urgentSelected
                               ? (isRTL ? "رسوم الاستشارة وأتعاب العمل العاجل" : "Consultation and urgent document fees")
                               : (isRTL ? "رسوم ثابتة للاستشارات الأونلاين بحسب المجال" : "Fixed online consultation fees by legal category")}
                         </p>
                         {urgentSelected && <p className="text-sm leading-7 text-muted-foreground">{isRTL ? "تُطبق الرسوم المنشورة عند طلب استشارة قانونية. أما إعداد المذكرات ولوائح الدعاوى أو تدقيق المستندات بصورة عاجلة، فله أتعاب نتفق عليها بحسب العمل والموعد المطلوب قبل السداد." : "Published category fees apply when you request a legal consultation. Urgent memoranda, claim drafting or document review have fees agreed for the work and deadline before payment."}</p>}
-                        <p className="text-sm leading-7 text-muted-foreground">{CONSULTATION_SCOPE[isRTL ? "ar" : "en"]}</p>
+                        <p className="text-sm leading-7 text-muted-foreground">{isConsultation
+                          ? CONSULTATION_SCOPE[isRTL ? "ar" : "en"]
+                          : (isRTL
+                            ? "اختر المجال واشرح ما تحتاج إليه من استشارة أو صياغة أو تمثيل. تُطبق الرسوم المنشورة عند طلب الاستشارة المكتوبة أونلاين وتشمل المناقشة والأسئلة ضمن موضوعها. ويتولى فريق كاونسلو نفسه الصياغة والتمثيل بأتعاب نتفق عليها بصورة مستقلة."
+                            : "Choose the legal field and tell us whether you need advice, drafting or representation. Published fees apply to written online consultations and include discussion and questions on the same topic. The same CounselO team handles drafting and representation at separately agreed fees.")}</p>
                         <Link href={`${regionPrefix}/services#complete-service-directory`} className="inline-block text-sm font-semibold text-primary underline underline-offset-4">{isRTL ? "اطّلع على الخدمات وأسعار الاستشارات" : "View services and consultation fees"}</Link>
                       </div>
                     <FormField control={form.control} name="message" render={({ field }) => (
@@ -568,7 +585,7 @@ export default function Contact() {
                     </p>
                     <div className="flex items-start gap-3 bg-primary/8 border border-primary/25 p-4">
                       <CreditCard className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <p className="text-sm text-foreground/80 leading-relaxed">{urgentSelected ? f.paymentNotice : f.fixedPaymentNotice}</p>
+                      <p className="text-sm text-foreground/80 leading-relaxed">{urgentSelected ? f.paymentNotice : isConsultation ? f.fixedPaymentNotice : f.generalPaymentNotice}</p>
                     </div>
                     {submissionError && (
                       <div role="alert" className="flex items-start gap-3 border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive">

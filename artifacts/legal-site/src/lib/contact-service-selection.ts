@@ -20,3 +20,13 @@ export function getContactServicePrefill(region: Region, search: string): string
   }
   return getContactServiceOptions(region, false).some(option => option.value === requestedService) ? requestedService : "";
 }
+
+/** Selecting a legal field alone does not commission a paid consultation. */
+export function getContactConsultationPrice(region: Region, search: string, selectedService: string) {
+  const params = new URLSearchParams(search);
+  if (params.get("service") === "urgent-legal-assistance"
+    || !getConsultationPrice(region, params.get("consultation") ?? "")) return undefined;
+  // The selected parent service remains authoritative, including legacy links
+  // that name a differently priced subtopic in the consultation parameter.
+  return getConsultationPrice(region, selectedService);
+}

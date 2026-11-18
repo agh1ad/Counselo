@@ -104,3 +104,37 @@ test("contact and issue links retain jurisdiction, language and service context"
   assert.match(component, /data-region=\{region\}/);
   for (const template of templates) assert.match(template, /contact\?service=/);
 });
+
+test("service and issue journeys offer general support alongside the priced consultation", () => {
+  for (const template of templates.slice(0, 2)) {
+    assert.match(template, /const legalSupportHref = `\$\{regionPrefix\}\/contact\?service=\$\{id\}(?:&problem=\$\{encodeURIComponent\(problem\)\})?#consultation-request`/);
+    assert.match(template, /<ServiceExperience[^>]+contactHref=\{legalSupportHref\}/);
+    assert.match(template, /<ServiceContact[^>]+contactHref=\{legalSupportHref\} whatsappHref=\{legalSupportWhatsappUrl\}/);
+    assert.match(template, /consultationSchema\(consultationPrice[^\n]+serviceContactHref/);
+    assert.match(template, /<Link href=\{serviceContactHref\}[^>]+data-conversion-position="(?:service|problem)-hero"/);
+    assert.match(template, /&consultation=\$\{consultationPrice.id\}/);
+  }
+});
+
+test("every service and issue explains one team, online contact and required local attendance", () => {
+  const copies: { label: string; lang: "en" | "ar"; copy: unknown }[] = [];
+  for (const region of ["sa", "syr", "uae"] as const) {
+    for (const service of getServicesForRegion(region)) {
+      if (service.kind === "priority-intake") continue;
+      for (const lang of ["en", "ar"] as const) {
+        const source = region === "uae" ? getUaeService(service.slug)?.covers : BILINGUAL_SERVICE_COVERAGE[service.slug];
+        copies.push({ label: `${region}/${service.slug}/${lang}`, lang, copy: servicePageCopy(region, service.slug, lang, source?.[lang] ?? []) });
+      }
+    }
+  }
+  for (const page of LEGAL_PROBLEM_PAGES) for (const lang of ["en", "ar"] as const) {
+    copies.push({ label: `${page.region}/${page.parentServiceSlug}/${page.slug}/${lang}`, lang, copy: problemPageCopy(page, lang) });
+  }
+  assert.equal(copies.length, (59 + 560) * 2);
+  for (const { label, lang, copy } of copies) {
+    const text = JSON.stringify(copy);
+    assert.match(text, lang === "en" ? /online with CounselO/ : /أونلاين مع (?:فريق )?كاونسلو/, label);
+    assert.match(text, lang === "en" ? /required court attendance through its members licensed in/ : /الحضور المطلوب أمام المحاكم بأعضائه المرخصين/, label);
+    assert.doesNotMatch(text, /licensed partner|representation arranged|separate engagement|الشريك المرخص|ترتيب التمثيل المحلي/i, label);
+  }
+});

@@ -25,8 +25,8 @@ export function CounselOFeatures({ isArabic, fixedConsultation = false }: { isAr
   const reasons = c.reasons.map((reason, index) => {
     if (!fixedConsultation) return reason;
     if (index === 4) return isArabic
-      ? { title: "سعر ثابت للاستشارة", text: "سعر معلن للاستشارة المكتوبة أونلاين، وأتعاب مستقلة للتمثيل القانوني يُتفق عليها عند طلبه." }
-      : { title: "Fixed consultation prices", text: "A published fee for written online advice, with separate representation fees agreed when requested." };
+      ? { title: "سعر ثابت للاستشارة", text: "سعر معلن للاستشارة المكتوبة أونلاين، ويتولى فريق كاونسلو نفسه التمثيل القانوني بأتعاب مستقلة نتفق عليها عند طلبه." }
+      : { title: "Fixed consultation prices", text: "A published fee for written online advice. The same CounselO team handles representation at separate fees agreed when requested." };
     if (index === 5) return isArabic
       ? { title: "المناقشة والأسئلة مشمولة", text: "ناقش الاستشارة المكتوبة مع فريقنا واطرح أسئلتك ضمن موضوعها، ضمن السعر المعلن." }
       : { title: "Discussion and questions included", text: "Discuss your written advice with our team and ask questions on the same topic, included in the published fee." };

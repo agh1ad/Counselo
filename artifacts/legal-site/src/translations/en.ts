@@ -68,7 +68,7 @@ export const en = {
       responseTag: "From consultation to representation",
       h1a: "Expert Legal Support Online",
       h1b: "One Team, from Consultation to Representation.",
-      desc: "CounselO delivers legal advice, contracts, negotiation and representation in Saudi Arabia. Consult our team online, share documents and follow your matter remotely. Our licensed lawyers represent you before courts and authorities as part of the same CounselO team.",
+      desc: "CounselO delivers legal advice, contracts, negotiation and representation in Saudi Arabia. The same CounselO team handles your online communication, legal work and representation, including required court and authority attendance through its appropriately licensed members.",
       descBold: "One team supporting your matter from the start.",
       descEnd: "",
       subDesc: "Start your online consultation through WhatsApp or email. We review your matter and agree the scope with you, and you continue with the same CounselO team from advice to representation.",
@@ -91,7 +91,7 @@ export const en = {
       heading: "Start Online. One Team Throughout.",
       subheading: "Online consultation, document review and remote follow-up for your matter in Saudi Arabia, with one team also handling the contracts, negotiation and representation you need.",
       advantages: [
-        { icon: "wifi", title: "Start Online — Across Saudi Arabia", desc: "Consult from anywhere in Saudi Arabia — no office visit, no parking, no waiting room." },
+        { icon: "wifi", title: "Start Online — Across Saudi Arabia", desc: "Discuss your matter and share documents online from anywhere in Saudi Arabia; the same team handles local legal work where required." },
         { icon: "clock", title: "Continuity from the Start", desc: "The CounselO team follows your matter from the first review through the advice, procedures and representation you need." },
         { icon: "lock", title: "Professional Legal Confidentiality", desc: "Information is handled confidentially under applicable professional, privacy and data-protection obligations, subject to legally required or permitted disclosures." },
         { icon: "globe", title: "Arabic & English", desc: "Our team works in Arabic and English. Legal advice in the language you think and work in — no barriers." },
@@ -100,7 +100,7 @@ export const en = {
     about: {
       eyebrow: "About the CounselO Team",
       heading: "Your Legal Team Online. From Advice to Representation.",
-      p1: "CounselO’s team brings experience in contracts, disputes, family, employment and property matters to your legal needs in Saudi Arabia. We advise, review documents and draft online. Our licensed lawyers handle proceedings and representation, and our team keeps you informed remotely throughout.",
+      p1: "CounselO’s team brings experience in contracts, disputes, family, employment and property matters to your legal needs in Saudi Arabia. The same team handles advice, document review, drafting and representation, with online communication and required local work through its appropriately licensed members.",
       p2: "Under his leadership, CounselO Legal brings together a professional legal team of experienced attorneys across multiple practice areas — all supervised and directed by Lawyer and Legal Counsel Al-Baghdadi, ensuring consistent quality and senior oversight on every consultation.",
       p3: "Whether you are an individual, business or investor, CounselO brings its lawyers and offices together as one team to handle your matter and keep you informed in Arabic or English.",
       bullets: [
@@ -180,7 +180,7 @@ export const en = {
       items: [
         { quote: "The consultation starts with the facts, jurisdiction, authority and documents relevant to the matter.", author: "Scope", title: "Jurisdiction-first review" },
         { quote: "Published work samples are redacted and illustrative; they do not promise a result for a new matter.", author: "Evidence", title: "Confidentiality protected" },
-        { quote: "Our licensed lawyers handle filing, attendance and representation as part of the CounselO team and the agreed scope.", author: "Engagement", title: "One team throughout your matter" },
+        { quote: "The same CounselO team handles your online communication, filing, attendance and representation through its appropriately licensed members within the agreed scope.", author: "Engagement", title: "One team throughout your matter" },
       ],
     },
     cta: {
@@ -544,7 +544,7 @@ export const en = {
         { value: "insurance-law", label: "Insurance Law" },
       ],
       messageLabel: "Brief Description of Your Matter",
-      messagePlaceholder: "Please provide a brief overview of your legal situation...",
+      messagePlaceholder: "Describe your matter, any deadline, and the advice, drafting, negotiation or representation you need.",
       uploadLabel: "Attach Documents (Optional)",
       uploadHint: "Images or PDFs relating to your matter — max 10 files, 5 MB each and 7 MB total",
       uploadBtn: "Click to select files",
@@ -552,18 +552,19 @@ export const en = {
       submitBtn: "Send Your Request to Our Team",
       disclaimer: "Your information is handled confidentially. CounselO Legal aims to respond within a target 24-hour response window, subject to scope, urgency, intake completeness and availability.",
       paymentNotice: "For urgent document work, we agree the scope, delivery and fees before payment. Published category fees apply to legal consultations. Representation remains with the CounselO team, with separate fees agreed when requested.",
+      generalPaymentNotice: "Published fixed fees apply to online consultations. Drafting, negotiation, representation and other legal work remain with the same CounselO team, with fees agreed before work begins. Sending a request does not start paid work.",
       fixedPaymentNotice: "Your online consultation uses the published fixed fee for its country and legal category and includes detailed professional written advice, discussion and questions on the same topic. We confirm delivery and payment details before starting; the written answer follows confirmed payment. Representation stays with the CounselO team, with separate fees agreed when requested.",
     },
   },
 
   aboutPage: {
     seoTitle: "CounselO Team in Saudi Arabia | Legal Advice & Representation",
-    seoDesc: "Meet CounselO’s team in Saudi Arabia: online consultation, document review and remote follow-up, with representation by our licensed lawyers within the same team.",
+    seoDesc: "Meet CounselO’s team in Saudi Arabia: one team for online consultation, document review, representation and remote follow-up.",
     seoKeywords: "CounselO legal team, lawyers in Saudi Arabia, legal advice, legal representation, Omar Al-Baghdadi, Arabic English legal services",
     hero: {
       eyebrow: "About CounselO Legal",
       heading: "Your Legal Team, Accessible Online",
-      subheading: "Connect with CounselO’s team online about your matter in Saudi Arabia. We handle consultation, document review, drafting and negotiation, and our licensed lawyers handle proceedings and representation, while you stay in touch and follow progress remotely.",
+      subheading: "Connect with CounselO’s team online about your matter in Saudi Arabia. The same CounselO team handles your online communication, legal work and representation, including required court and authority attendance through its appropriately licensed members.",
       badge: "Online Consultation · Remote Follow-up · Representation",
     },
     stats: [
@@ -577,7 +578,7 @@ export const en = {
       heading: "Complete Legal Support with One Team",
       p1: "We bring consultation, drafting, negotiation and representation together in one destination for individuals, families, businesses and investors in Saudi Arabia. Our team identifies the right approach for your matter and works with you from the start.",
       p2: "Start your online consultation in Arabic or English from anywhere. Share documents through the agreed channel and follow your matter remotely with our team, from the first review through proceedings and representation.",
-      p3: "We agree the scope, fees and next steps with you before work begins. The appropriately authorised lawyers within our team handle the procedures and representation your matter requires.",
+      p3: "We agree the scope, fees and next steps with you before work begins. The same CounselO team handles your online communication, procedures and representation through its appropriately authorised members.",
       vision2030Badge: "Saudi digital transformation",
       vision2030Desc: "Online access to your legal team, with continuity across advice, procedures and representation.",
     },
@@ -610,7 +611,7 @@ export const en = {
       eyebrow: "CounselO’s Team on the Ground",
       heading: "Our Saudi Team — Abdullah Al-Anzi Law Office",
       p1: "Work with CounselO’s team in Saudi Arabia from your first contact through proceedings and representation. Share documents and follow your matter in Arabic or English, whether you are in the country or abroad.",
-      p2: "Abdullah Al-Anzi Law Office is part of CounselO’s team in Saudi Arabia. Our licensed lawyers handle advice, procedures and representation before courts and authorities within the scope and fees agreed with you.",
+      p2: "Abdullah Al-Anzi Law Office is part of CounselO’s team in Saudi Arabia. The same CounselO team handles online communication, advice, procedures and representation before courts and authorities through its appropriately licensed members, within the scope and fees agreed with you.",
       city: "Saudi Arabia",
       region: "Madinah Street, Radma Hotel Apartments Building",
       partnerName: "Abdullah Al-Anzi Law Office",

@@ -42,11 +42,17 @@ export default function LegalProblemDetail() {
 
   const parentTitle = serviceSearchCopy(id, region, isRTL ? "ar" : "en")?.label ?? (isRTL ? page.serviceTitleAr : page.serviceTitleEn);
   const countryName = region === "uae" ? (isRTL ? "الإمارات" : "the UAE") : region === "syr" ? (isRTL ? "سوريا" : "Syria") : (isRTL ? "السعودية" : "Saudi Arabia");
+  const topicTitle = isRTL ? page.titleAr : page.titleEn;
+  const topicWithCountry = `${topicTitle}${topicTitle.endsWith(countryName) ? "" : ` ${isRTL ? "في" : "in"} ${countryName}`}`;
   const canonical = `/services/${id}/${problem}`;
   const sourceGuidance = matterSourceGuidance(region, id, problem);
   const pageCopy = problemPageCopy(page, isRTL ? "ar" : "en");
   const consultationPrice = getConsultationPrice(region, id, problem);
   const serviceContactHref = `${regionPrefix}/contact?service=${id}${consultationPrice ? `&consultation=${consultationPrice.id}&problem=${encodeURIComponent(problem)}` : ""}#consultation-request`;
+  const legalSupportHref = `${regionPrefix}/contact?service=${id}&problem=${encodeURIComponent(problem)}#consultation-request`;
+  const legalSupportWhatsappUrl = `https://wa.me/966594850247?text=${encodeURIComponent(isRTL
+    ? `مرحباً كاونسلو، أحتاج إلى دعم قانوني بشأن ${topicWithCountry}. أود مناقشة مسألتي وما أحتاج إليه من مشورة أو صياغة أو تمثيل مع فريقكم.`
+    : `Hello CounselO, I need legal support with ${topicWithCountry}. I would like to discuss my matter and the advice, drafting or representation I need with your team.`)}`;
   const title = isRTL
     ? buildArabicProblemTitle({
         titleAr: page.titleAr,
@@ -134,7 +140,7 @@ export default function LegalProblemDetail() {
           </nav>
           <div className="max-w-5xl">
             <p className="mb-5 text-sm uppercase tracking-[0.18em] text-[#d5ae5d]">{parentTitle}</p>
-            <h1 className="mb-6 max-w-5xl font-serif text-5xl font-medium leading-[1.02] tracking-[-0.035em] text-white lg:text-7xl">{`${isRTL ? page.titleAr : page.titleEn}${(isRTL ? page.titleAr : page.titleEn).endsWith(countryName) ? "" : ` ${isRTL ? "في" : "in"} ${countryName}`}`}</h1>
+            <h1 className="mb-6 max-w-5xl font-serif text-5xl font-medium leading-[1.02] tracking-[-0.035em] text-white lg:text-7xl">{topicWithCountry}</h1>
             <div className="mb-6 h-px w-20 bg-[#d5ae5d]" />
             <p className="mb-7 max-w-3xl font-serif text-xl italic leading-relaxed text-white/72 lg:text-2xl">{pageCopy.hero}</p>
             {consultationPrice && <ConsultationPriceCard price={consultationPrice} isArabic={isRTL} />}
@@ -154,8 +160,8 @@ export default function LegalProblemDetail() {
       <div className="premium-content-shell saudi-service-body py-12 lg:py-16">
         <div className="saudi-service-layout grid gap-12 lg:grid-cols-12 xl:gap-16">
           <div className="saudi-service-main lg:col-span-8 xl:col-span-9">
-            <ServiceExperience copy={pageCopy} isArabic={isRTL} region={region} service={id} contactHref={serviceContactHref} />
-            <ServiceContact copy={pageCopy} isArabic={isRTL} region={region} contactHref={serviceContactHref} whatsappHref={whatsappUrl} />
+            <ServiceExperience copy={pageCopy} isArabic={isRTL} region={region} service={id} contactHref={legalSupportHref} />
+            <ServiceContact copy={pageCopy} isArabic={isRTL} region={region} contactHref={legalSupportHref} whatsappHref={legalSupportWhatsappUrl} />
           </div>
 
           <aside className="hidden lg:block lg:col-span-4 xl:col-span-3">

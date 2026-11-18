@@ -134,7 +134,7 @@ router.post("/contact", async (req, res) => {
       res
         .status(429)
         .json({
-          error: "Too many consultation requests. Please try again later.",
+          error: "Too many requests. Please try again later.",
         });
       return;
     }
@@ -168,7 +168,7 @@ router.post("/contact", async (req, res) => {
       .status(500)
       .json({
         error:
-          "We could not submit your consultation request. Please try again or contact us directly.",
+          "We could not submit your request. Please try again or contact us directly.",
       });
   }
 });

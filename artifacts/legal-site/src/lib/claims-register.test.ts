@@ -230,7 +230,8 @@ test("About mission sources keep authorised team representation within an agreed
     const mission = about.slice(about.indexOf("    mission: {"), about.indexOf("    founder: {"));
     assert.doesNotMatch(mission, /instantly|24\/7|expert representation|على مدار الساعة|تمثيلاً متخصصاً/, locale);
     assert.match(mission, /scope, fees.*before work begins|نطاق العمل والأتعاب.*قبل البدء/, locale);
-    assert.match(mission, /appropriately authorised lawyers within our team|المحامون المخولون في فريقنا/, locale);
+    assert.match(mission, /same CounselO team|فريق كاونسلو نفسه/, locale);
+    assert.match(mission, /representation through its appropriately authorised members|الإجراءات والتمثيل بأعضائه المخوّلين بحسب اختصاص المسألة/, locale);
     assert.doesNotMatch(mission, /separate agreement|separately engaged|تكليف مستقل|اتفاق مستقل/, locale);
     assert.doesNotMatch(mission, /representation (?:is )?(?:included|free)|التمثيل.*(?:مجاناً|مشمول في رسوم الاستشارة)/i, locale);
   }
