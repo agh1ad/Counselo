@@ -128,6 +128,10 @@ interface ApiWorkSample {
   seoDescriptionAr: string;
   fileMimeType: string;
   fileSize: number;
+  documentLanguage?: string;
+  documentEdition?: string;
+  documentEditionPublishedAt?: string;
+  documentTextUrl?: string;
   published: boolean;
   hasFile?: boolean;
 }
@@ -460,8 +464,13 @@ export function buildWorkHtmlFromTemplate(
     isPartOf: { "@id": `${BASE}${basePath}#webpage` },
     encoding: sample.fileSize > 0 ? {
       "@type": "MediaObject",
+      name: title,
       contentUrl: fileUrl,
       encodingFormat: sample.fileMimeType,
+      inLanguage: sample.documentLanguage,
+      dateModified: sample.documentEditionPublishedAt,
+      creator: { "@id": WORK_CONTEXT[sample.slug]?.creator === "baghdadi-law" ? COUNSELO_ENTITY_IDS.alBaghdadiOffice : COUNSELO_ENTITY_IDS.organization },
+      publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
     } : undefined,
   });
 

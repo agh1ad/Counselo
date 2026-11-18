@@ -2,8 +2,8 @@
 export const COUNSELO_BRAND = {
   en: "CounselO Legal",
   ar: "كاونسلو للاستشارات القانونية",
-  taglineEn: "Online Legal Consultations",
-  taglineAr: "استشارات قانونية عبر الإنترنت",
+  taglineEn: "Online Advice. One Legal Team.",
+  taglineAr: "استشارات أونلاين. فريق واحد.",
 } as const;
 
 /** Refresh editorial prose without rewriting links, email addresses or handles. */

@@ -75,13 +75,13 @@ export function Footer() {
             <img src={brandMark} alt="" width="40" height="40" loading="lazy" decoding="async" />
             <span>{brandName}</span><strong>{regional.label[lang]}</strong>
           </Link>
-          <p>{isArabic ? "استشارات قانونية عبر الإنترنت" : "Online Legal Consultations"}</p>
+          <p>{isArabic ? "استشارات أونلاين. وتمثيل من فريق واحد." : "Online Advice. One Team Through Representation."}</p>
           <p>{isArabic ? "أسسها المحامي عمر البغدادي" : "Founded by Lawyer Omar Al-Baghdadi"}</p>
 
           <p className="mt-3 max-w-md text-xs leading-relaxed text-muted-foreground">
             {isArabic
-              ? "وجهتك لخدمات قانونية متكاملة عبر الإنترنت، تدعمها شبكة قوية من المحامين ومكاتب المحاماة والشركاء المهنيين في السعودية والإمارات وسوريا."
-              : "Your destination for comprehensive online legal services, backed by a strong network of lawyers, law firms and professional partners across Saudi Arabia, the UAE and Syria."}
+              ? "وجهة واحدة أونلاين لخدماتك القانونية. يضم فريق كاونسلو محامين ومكاتب مرخّصة محلياً، ويتولى الاستشارة والعقود والتمثيل والمتابعة. تواصل مع الفريق عن بُعد طوال مسألتك."
+              : "One online destination for your legal needs. CounselO’s team comprises locally licensed lawyers and law offices, handling advice, contracts, representation and follow-up. Stay connected with the team remotely."}
           </p>
         </div>
         <nav className="regional-reference-footer__practice" aria-label={isArabic ? "مجالات الممارسة" : "Practice areas"}>
@@ -118,7 +118,7 @@ export function Footer() {
       <section className="legal-network-footer" aria-labelledby="legal-network-footer-title">
         <div className="legal-network-footer__intro">
           <h2 id="legal-network-footer-title">{isArabic ? "شبكة عمر البغدادي القانونية" : "Omar Al-Baghdadi Legal Network"}</h2>
-          <p>{isArabic ? "منصات مهنية مترابطة تكملها شبكة قوية من المحامين والشركاء المهنيين في السعودية والإمارات وسوريا." : "Connected professional platforms, complemented by a strong network of lawyers and partners across Saudi Arabia, the UAE and Syria."}</p>
+          <p>{isArabic ? "تعرّف عبر المواقع المهنية على خبرة الفريق ومؤسسه ومكاتب المحاماة التي يضمها." : "Explore the team’s experience, founder and member law offices through their professional websites."}</p>
         </div>
         <nav className="legal-network-footer__list" aria-label={isArabic ? "مواقع شبكة عمر البغدادي القانونية" : "Omar Al-Baghdadi Legal Network websites"}>
           <a href={isArabic ? "https://omarbaghdadi.com/ar" : "https://omarbaghdadi.com"} target="_blank" rel="noopener noreferrer" className="legal-network-footer__item">
@@ -127,7 +127,7 @@ export function Footer() {
           </a>
           <div className="legal-network-footer__item is-current" aria-current="page">
             <img src="/images/optimized/counselo-network-icon.webp" alt="" width="34" height="34" loading="lazy" decoding="async" className="legal-network-footer__icon" />
-            <span><strong>{brandName}</strong><small>{isArabic ? "منصة الاستشارات القانونية الرقمية · الموقع الحالي" : "Online legal consultation platform · Current site"}</small></span>
+            <span><strong>{brandName}</strong><small>{isArabic ? "الاستشارة والتمثيل القانوني · الموقع الحالي" : "Legal advice and representation · Current site"}</small></span>
           </div>
           <a href={isArabic ? "https://www.baghdadilaw.co/ar/who-we-are" : "https://www.baghdadilaw.co/who-we-are"} target="_blank" rel="noopener noreferrer" className="legal-network-footer__item">
             <img src="https://www.baghdadilaw.co/favicon-48x48.png" alt="" width="34" height="34" loading="lazy" decoding="async" className="legal-network-footer__icon" />

@@ -15,19 +15,19 @@ export const COUNSELO_ENTITY_IDS = {
 } as const;
 
 const serviceAreas = COUNSELO_PLATFORM_POSITIONING.jurisdictions.map((name) => ({ "@type": "Country", name }));
-const platformServices = [
+const legalServices = [
   { id: "legal-consultation", name: "Legal consultation and written advice", description: "Assessment of the facts, legal position and available options, from focused questions to complex multi-party and cross-border matters." },
   { id: "contracts-and-documents", name: "Contract drafting and document review", description: "Contract and transaction review, risk analysis, revised terms, agreements and legal memoranda for personal and business matters." },
-  { id: "litigation-and-arbitration-support", name: "Litigation, arbitration and dispute strategy", description: "Claims, defences, evidence analysis, legal submissions, negotiation, settlement and enforcement strategy, coordinated with the responsible local representative." },
-  { id: "continuing-legal-support", name: "Continuing legal support", description: "Legal preparation, advice and follow-up as a matter develops, including coordination between professionals where parties, proceedings or assets span countries." },
+  { id: "litigation-and-arbitration-support", name: "Litigation, arbitration and dispute strategy", description: "Claims, defences, evidence analysis, legal submissions, negotiation, settlement and enforcement strategy, handled by the CounselO team from preparation through representation." },
+  { id: "continuing-legal-support", name: "Continuing legal support", description: "Legal preparation, advice and follow-up as a matter develops, with the same CounselO team where parties, proceedings or assets span countries." },
 ] as const;
 
-// Known provider references belong to the published regional partners. An
-// unnamed UAE professional is identified in the engagement, not invented here.
+// Owner-confirmed team membership, 2026-11-18. Published offices retain their
+// own identities and jurisdictions; do not invent an unnamed UAE office.
 const representationServices = [
-  { region: "sa", country: "Saudi Arabia", providerIds: [COUNSELO_ENTITY_IDS.saudiOffice] },
-  { region: "syr", country: "Syria", providerIds: [COUNSELO_ENTITY_IDS.alBaghdadiOffice, COUNSELO_ENTITY_IDS.syriaAbdullahOffice] },
-  { region: "uae", country: "United Arab Emirates", providerIds: [] },
+  { region: "sa", country: "Saudi Arabia" },
+  { region: "syr", country: "Syria" },
+  { region: "uae", country: "United Arab Emirates" },
 ] as const;
 
 export const COUNSELO_ORGANIZATION = {
@@ -39,6 +39,11 @@ export const COUNSELO_ORGANIZATION = {
   url: ENTITY_BASE_URL,
   logo: { "@type": "ImageObject", url: `${ENTITY_BASE_URL}/logo.png`, width: 512, height: 512 },
   founder: { "@id": COUNSELO_ENTITY_IDS.omar },
+  member: [
+    { "@id": COUNSELO_ENTITY_IDS.saudiOffice },
+    { "@id": COUNSELO_ENTITY_IDS.alBaghdadiOffice },
+    { "@id": COUNSELO_ENTITY_IDS.syriaAbdullahOffice },
+  ],
   areaServed: serviceAreas,
   contactPoint: {
     "@type": "ContactPoint",
@@ -55,14 +60,14 @@ export const COUNSELO_ORGANIZATION = {
     "Negotiation, settlement and enforcement follow-up",
     "Complex multi-party and cross-border matters",
     "Continuing legal support",
-    "Court representation through licensed local partners",
+    "Court representation by our locally licensed team members",
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     "@id": `${ENTITY_BASE_URL}/#legal-services`,
     name: "CounselO legal services and regional representation",
     itemListElement: [
-      ...platformServices.map((service) => ({
+      ...legalServices.map((service) => ({
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
@@ -75,16 +80,15 @@ export const COUNSELO_ORGANIZATION = {
           url: ENTITY_BASE_URL,
         },
       })),
-      ...representationServices.map(({ region, country, providerIds }) => ({
+      ...representationServices.map(({ region, country }) => ({
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
           "@id": `${ENTITY_BASE_URL}/#${region}-partner-representation`,
           name: `Court and authority representation in ${country}`,
-          serviceType: "Representation through licensed local partners",
-          description: `Court and authority representation in ${country} is delivered by appropriately licensed local partners or cooperating offices, with CounselO coordinating legal preparation and follow-up. The responsible professional and representation scope are identified in the agreed engagement.`,
-          broker: { "@id": COUNSELO_ENTITY_IDS.organization },
-          ...(providerIds.length ? { provider: providerIds.map((id) => ({ "@id": id })) } : {}),
+          serviceType: "Legal representation by the CounselO team",
+          description: `CounselO provides court and authority representation in ${country} through its locally licensed team members, as part of the same service from consultation and preparation to representation and follow-up. The agreed engagement identifies the responsible lawyers, scope and fees.`,
+          provider: { "@id": COUNSELO_ENTITY_IDS.organization },
           areaServed: { "@type": "Country", name: country },
           url: `${ENTITY_BASE_URL}/${region}/about`,
           termsOfService: `${ENTITY_BASE_URL}/${region}/terms-of-service`,
@@ -133,8 +137,11 @@ export const COOPERATING_OFFICES = {
     name: "مكتب عبدالله مغثي قاعد العنزي للمحاماة",
     address: {
       "@type": "PostalAddress",
+      addressLocality: "Dammam",
       addressCountry: "SA",
     },
+    description: "Abdullah Al-Anzi’s law office is part of the CounselO legal team in Saudi Arabia, providing legal advice and representation within its local professional authority.",
+    memberOf: { "@id": COUNSELO_ENTITY_IDS.organization },
     areaServed: { "@type": "Country", name: "Saudi Arabia" },
     subjectOf: {
       "@type": "WebPage",
@@ -146,6 +153,8 @@ export const COOPERATING_OFFICES = {
     "@id": COUNSELO_ENTITY_IDS.alBaghdadiOffice,
     name: "Al-Baghdadi Law Firm",
     alternateName: "مكتب البغدادي للمحاماة",
+    description: "Al-Baghdadi Law Firm is part of the CounselO legal team, bringing its legal practice to consultation, preparation and representation.",
+    memberOf: { "@id": COUNSELO_ENTITY_IDS.organization },
     url: "https://www.baghdadilaw.co/",
     areaServed: ["Saudi Arabia", "United Arab Emirates", "Syria"],
   },
@@ -154,6 +163,8 @@ export const COOPERATING_OFFICES = {
     "@id": COUNSELO_ENTITY_IDS.syriaAbdullahOffice,
     name: "Lawyer Omar Al-Abdullah Office",
     alternateName: "مكتب المحامي عمر العبد الله",
+    description: "Lawyer Omar Al-Abdullah Office is part of the CounselO legal team in Syria, providing legal advice and representation within its local professional authority.",
+    memberOf: { "@id": COUNSELO_ENTITY_IDS.organization },
     areaServed: { "@type": "Country", name: "Syria" },
   },
 } as const;

@@ -15,6 +15,13 @@ async function boundedRead<T>(read: Promise<T>): Promise<T> {
   } finally { clearTimeout(timer!); }
 }
 type Entry = { version: 1; createdAt: number; records: unknown };
+type Collection = "blogs" | "work" | "work-summaries" | "legal-updates";
+
+function snapshotKey(collection: Collection, epoch: string): string {
+  // Older work snapshots omit the source fingerprint used by PDF editions.
+  const version = collection === "work" || collection === "work-summaries" ? "v3" : "v2";
+  return `counselo/public-data-cache/${version}/${epoch}/${collection}.json`;
+}
 
 export class PublicSnapshotUnavailableError extends Error {
   constructor(public readonly collection: string) {
@@ -35,7 +42,7 @@ export class PublicationDataCache {
   ) {}
 
   async read<T>(
-    collection: "blogs" | "work" | "work-summaries" | "legal-updates",
+    collection: Collection,
     load: () => Promise<T>,
     decode: (value: unknown) => T,
     options: { allowDatabaseFallback?: boolean; awaitPersistence?: boolean } = {},
@@ -52,7 +59,7 @@ export class PublicationDataCache {
       if (allowDatabaseFallback) return load();
       throw new PublicSnapshotUnavailableError(collection);
     }
-    const key = `counselo/public-data-cache/v2/${state.epoch}/${collection}.json`;
+    const key = snapshotKey(collection, state.epoch);
     const decodeEntry = (source: string): T => {
       const entry = JSON.parse(source) as Entry;
       const age = Date.now() - entry.createdAt;
@@ -108,14 +115,14 @@ export class PublicationDataCache {
   }
 
   async prime<T>(
-    collection: "blogs" | "work" | "work-summaries" | "legal-updates",
+    collection: Collection,
     load: () => Promise<T>,
     decode: (value: unknown) => T,
   ): Promise<T> {
     if (!this.enabled) return load();
     const state = await this.coordinator.state();
     if (!state.cacheable) throw new PublicSnapshotUnavailableError(collection);
-    const key = `counselo/public-data-cache/v2/${state.epoch}/${collection}.json`;
+    const key = snapshotKey(collection, state.epoch);
     const records = await load();
     const source = JSON.stringify({ version: 1, createdAt: Date.now(), records });
     if (Buffer.byteLength(source) > MAX_BYTES) {

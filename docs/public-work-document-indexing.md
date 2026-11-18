@@ -1,41 +1,65 @@
-# Public work document indexing
+# Public work documents
 
-Public PDFs are served at `/documents/<documentSlug>.pdf`. The operational `/api/`
-robots exclusions and indexing headers remain in force. Publishing a work page
-alone does not authorize indexing its attachment.
+Published PDF attachments use `/documents/<work-slug>.pdf`. Both language
+versions of the work page use the same existing document and download URL.
+The owner has authorized public access to the published portfolio attachments.
+The operational `/api/` robots exclusions remain in force; the legacy attachment
+route redirects published PDFs to the canonical document URL.
 
-The reviewed approval register is
-`lib/api-zod/src/public-work-documents.ts` (`PUBLIC_WORK_DOCUMENT_APPROVALS`).
-It starts empty: no attachment has been approved by this implementation.
-No database migration or automatic bulk publication is required.
+Public document routes read publication-fenced snapshots of CMS records and
+files. CMS mutations rotate the publication epoch and refresh those snapshots;
+cached responses are reused only within the current deployment and publication
+namespace. This avoids a database read for each document request. Unpublished
+work, removed files, invalid PDF bytes and unknown slugs return 404; unavailable
+published snapshots return 503. Client-facing responses use `no-store`, PDF
+content type and same-origin framing for the on-page preview.
 
-To approve a document:
+## Reviewed publication editions
 
-1. An authorized editor reviews the exact PDF for confidentiality, redaction
-   (including hidden text/metadata), publication rights, and explicit public
-   indexing permission. Keep the review evidence outside the public source tree.
-2. Record its existing work slug, exact database `updatedAt` as an ISO UTC string,
-   a unique lowercase hyphenated public document slug, and SHA-256 of the decoded
-   PDF bytes. Set all four review/approval flags only after those checks pass.
-   The underlying work must be published with `confidentialityConfirmed: true`.
-3. Add that entry to the register, run API tests and both app typechecks after
-   `pnpm run typecheck:libs`, and deploy the client and server together.
-4. Verify the actual public URL returns 200 and `application/pdf`, has no
-   `X-Robots-Tag: noindex`, and that both work-page languages link to it and use
-   it for the structured-data `contentUrl`. Confirm `/api/` remains disallowed.
+The November 2026 editorial editions preserve each publication's existing
+language arrangement, substantive facts and page layout. They present the work
+of one CounselO team from online consultation through representation. Case
+studies remain CounselO publications; they are not relabelled as court-issued
+documents. The recorded result remains a judgment, settlement, procedural step
+or completed professional work, as supported by that publication.
 
-Approval is revision-specific. Any normal work edit changes `updatedAt`, so the
-public route returns 404 until renewed approval. Replacing bytes also fails the
-SHA-256 check. Unpublishing, removing the file, or removing approval disables the
-public route. Responses use `no-store` to avoid serving revoked attachments from
-HTTP caches. Existing work-page/API caches may briefly retain an old link; the
-document handler still rechecks access on every request.
+Private replacement assets live in
+`artifacts/api-server/assets/work-document-revisions/`. They are copied into the
+API build, never mounted as a static directory. `manifest.json` records the source
+slug, update timestamp, byte count, language and SHA-256, together with the edition
+PDF/text hashes, byte counts, page count and edition date.
 
-Remove the register entry and redeploy both bundles to revoke indexing approval;
-unpublish the work if its existing API attachment must also become inaccessible.
-Unapproved published attachments keep their existing API link and exclusions.
-Unknown `/documents/` paths return 404, never the application HTML shell.
+Before generating an edition response, the handler checks the current published
+source snapshot against the reviewed source metadata and the hash of its actual
+decoded PDF bytes. The replacement PDF and text must also match their manifest
+hashes. Work snapshots retain the source fingerprint and document language;
+older snapshot formats cannot supply an edition response. The edition manifest
+also participates in the deployment cache identity, so asset-only PDF updates
+invalidate old document responses. A later CMS edit or upload rotates the
+publication namespace and takes precedence: an unmatched edition falls back to
+the current valid source PDF and its stale text edition is withheld. Missing or
+corrupt local assets likewise fall back to the current valid source PDF.
 
-This initial route accepts PDFs only. Other attachment types retain their current
-excluded API URLs. Public indexing, search-engine retrieval and ranking are
-external outcomes, separate from local route acceptance.
+Public API records expose the delivered PDF's size and language, plus verified
+`documentEdition`, `documentEditionPublishedAt` and `documentTextUrl` fields.
+Original case dates and CMS update timestamps are preserved. PDF structured data
+and document sitemap modification dates use the edition date when present.
+Internal source hashes, attachment base64 and confidentiality administration
+fields are omitted from public JSON/bootstrap records.
+
+## Preparing and verifying an edition
+
+1. Review the current source bytes and metadata; retain the originals.
+2. Revise the PDF itself, then check all changes visually and confirm that
+   surrounding text, amounts, tables, images and page counts remain intact.
+3. Generate a matching text edition, remove obsolete hidden text and verify both
+   files against the release manifest. Keep the edit and source audit records.
+4. Run document-route, source-replacement and metadata regressions, both app
+   typechecks and production builds. Deploy the website and API assets together.
+5. Verify the public PDF and text URLs, content types, download behavior, previews,
+   bilingual page links and structured data after deployment.
+
+CMS unpublication remains the control for removing a published work and its
+attachment. Removing a local edition restores the current valid CMS PDF; it does
+not unpublish that source. Search-engine retrieval, indexing and citations must
+be assessed separately from successful file delivery.

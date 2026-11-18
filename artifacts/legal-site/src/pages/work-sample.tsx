@@ -1,6 +1,6 @@
 import { Link, Redirect, useParams } from "wouter";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowLeft, ArrowRight, Calendar, Download, ExternalLink, FileCheck2, Languages, LockKeyhole, Scale, ShieldCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Download, ExternalLink, FileCheck2, Languages, LockKeyhole, Scale } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { workJurisdictionRegion } from "@/lib/work-jurisdiction";
 import { SEOHead } from "@/components/seo/SEOHead";
@@ -8,7 +8,7 @@ import { type WorkSamplePublic, documentLanguageLabel, formatWorkDate, localized
 import { fetchPublicJson, publicApiUrl, isMissingPublicContent } from "@/lib/public-api";
 import { PdfDocumentPreview } from "@/components/content/pdf-document-preview";
 import { ContentRecovery } from "@/components/content/content-recovery";
-import { workAttachmentPath, publicWorkDocumentTextPath, WORK_CONTEXT, WORK_READER_GUIDANCE, workModifiedAt, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion } from "@workspace/api-zod/browser";
+import { workAttachmentPath, publicWorkDocumentTextPath, WORK_CONTEXT, WORK_PUBLICATION_COPY, WORK_READER_GUIDANCE, workModifiedAt, COUNSELO_ENTITY_IDS, getServiceDefinition, getServicesForRegion } from "@workspace/api-zod/browser";
 
 declare global {
   interface Window {
@@ -45,11 +45,7 @@ export default function WorkSample() {
 
   const ar = lang === "ar";
   const workBasePath = ar ? "/ar/our-work" : "/our-work";
-  const ui = ar ? {
-    back: "العودة إلى أعمالنا", notFound: "نموذج العمل غير موجود", completed: "تاريخ نموذج العمل", jurisdiction: "النطاق القانوني", clientType: "نوع العميل", documentLanguage: "لغة المستند", challenge: "المسألة", approach: "العمل الذي قمنا به", outcome: "النتيجة أو القيمة المقدمة", document: "المستند المنقح", open: "فتح المستند في نافذة جديدة", download: "تنزيل نسخة", privacy: "حماية السرية", privacyText: "نُقحت بيانات العملاء والمعلومات السرية قبل النشر.", disclaimer: "هذا النموذج لأغراض توضيح الخبرة المهنية فقط. عُدّلت بعض التفاصيل أو حُجبت لحماية السرية، ولا تمثل النتائج السابقة ضماناً لنتيجة أي مسألة أخرى.", ctaTitle: "هل تحتاج إلى مستند أو حل قانوني مماثل؟", cta: "ناقش متطلباتك معنا",
-  } : {
-    back: "Back to Our Work", notFound: "Work sample not found", completed: "Work sample date", jurisdiction: "Jurisdiction", clientType: "Client type", documentLanguage: "Document language", challenge: "The matter", approach: "Work performed", outcome: "Outcome or value delivered", document: "Redacted document", open: "Open document in a new tab", download: "Download a copy", privacy: "Confidentiality protected", privacyText: "Client identities and confidential details were redacted before publication.", disclaimer: "This sample demonstrates professional experience only. Details may be modified or withheld to protect confidentiality, and past work or outcomes do not guarantee the result of another matter.", ctaTitle: "Need a similar legal document or solution?", cta: "Discuss Your Requirements",
-  };
+  const ui = WORK_PUBLICATION_COPY[lang];
 
   if (isLoading) return <div className="min-h-[60vh] flex items-center justify-center text-muted-foreground">{ar ? "جارٍ التحميل…" : "Loading…"}</div>;
   if (isError && !isMissingPublicContent(error) && !sample) return <ContentRecovery isArabic={ar} retry={() => { void refetch(); }} retrying={isFetching} backHref={workBasePath} backLabel={ui.back} />;
@@ -112,7 +108,16 @@ export default function WorkSample() {
     copyrightHolder: creator,
     publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
     isPartOf: { "@id": `https://counselo-legal.com${workBasePath}#webpage` },
-    encoding: sample.hasFile ? { "@type": "MediaObject", contentUrl: new URL(fileUrl, "https://counselo-legal.com").href, encodingFormat: sample.fileMimeType } : undefined,
+    encoding: sample.hasFile ? {
+      "@type": "MediaObject",
+      name: title,
+      contentUrl: new URL(fileUrl, "https://counselo-legal.com").href,
+      encodingFormat: sample.fileMimeType,
+      inLanguage: sample.documentLanguage,
+      dateModified: sample.documentEditionPublishedAt,
+      creator: { "@id": creator["@id"] },
+      publisher: { "@id": COUNSELO_ENTITY_IDS.organization },
+    } : undefined,
   };
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -126,7 +131,7 @@ export default function WorkSample() {
 
   return (
     <div className="counselo-editorial-page case-file-page min-h-screen bg-background" dir={isRTL ? "rtl" : "ltr"}>
-      <SEOHead heroArtwork="platform" title={seoTitle} description={seoDescription} canonical={canonicalPath} noRegionPrefix contentLanguage={lang} sharedLanguageAlternates={sample.titleEn && sample.titleAr ? { en: `/our-work/${sample.slug}`, ar: `/ar/our-work/${sample.slug}` } : undefined} keywords={`${workType}, ${jurisdiction}, ${ar ? "نموذج عمل قانوني, صياغة قانونية, كاونسلو للاستشارات القانونية" : "legal work sample, legal drafting, CounselO Legal"}`} schema={schema} extraSchemas={[breadcrumbSchema]} ogType="article" articlePublishedTime={sample.date} articleModifiedTime={modifiedAt} />
+      <SEOHead heroArtwork="platform" title={seoTitle} description={seoDescription} canonical={canonicalPath} noRegionPrefix contentLanguage={lang} sharedLanguageAlternates={sample.titleEn && sample.titleAr ? { en: `/our-work/${sample.slug}`, ar: `/ar/our-work/${sample.slug}` } : undefined} keywords={`${workType}, ${jurisdiction}, ${ar ? "أعمال فريق كاونسلو, دراسات قضايا, صياغة قانونية" : "CounselO legal team work, case studies, legal drafting"}`} schema={schema} extraSchemas={[breadcrumbSchema]} ogType="article" articlePublishedTime={sample.date} articleModifiedTime={modifiedAt} />
       <section className="premium-page-hero text-white px-4 py-14">
         <div className="max-w-6xl mx-auto"><Link href={workBasePath} className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 text-sm"><ArrowLeft className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} />{ui.back}</Link><div className="max-w-4xl"><div className="flex flex-wrap gap-2 mb-5">{workType && <span className="border border-white/25 bg-white/10 px-3 py-1 text-sm">{workType}</span>}{sample.featured && <span className="bg-white text-primary px-3 py-1 text-sm font-semibold">{ar ? "عمل مميز" : "Featured work"}</span>}</div><h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-5">{title}</h1><div className="premium-hero-rule mb-6" /><p className="text-lg text-white/75 leading-relaxed">{summary}</p></div></div>
       </section>
@@ -134,7 +139,10 @@ export default function WorkSample() {
         <div className="grid lg:grid-cols-[minmax(0,1fr)_360px] gap-10">
           <div className="work-reading-body space-y-6">
             {context && <p className="text-sm text-muted-foreground">{ar ? "تحديث المحتوى: " : "Content updated: "}{modifiedAt?.slice(0, 10)}</p>}
-            {context?.creator === "baghdadi-law" && <p>{ar ? "الجهة صاحبة الدراسة: " : "Study by: "}<a href={ar ? "https://www.baghdadilaw.co/ar/who-we-are" : "https://www.baghdadilaw.co/who-we-are"} className="text-primary underline">{ar ? "البغدادي للمحاماة" : "Baghdadi Law"}</a></p>}
+            <div className="border-s-4 border-primary ps-4 text-sm leading-relaxed">
+              <p className="font-semibold">{ui.publishedBy}: {ui.publisherName}</p>
+              <p className="mt-1 text-muted-foreground">{ui.preparedBy}: {context?.creator === "baghdadi-law" ? <><a href={ar ? "https://www.baghdadilaw.co/ar/who-we-are" : "https://www.baghdadilaw.co/who-we-are"} className="text-primary underline">{ar ? "البغدادي للمحاماة" : "Baghdadi Law"}</a> — {ui.memberOffice}</> : ui.teamName}</p>
+            </div>
             <div className="work-facts">
               {[
                 [Calendar, ui.completed, formatWorkDate(sample.date, lang)],
@@ -147,15 +155,15 @@ export default function WorkSample() {
               })}
             </div>
             {clientType && <div className="border-s-4 border-primary bg-muted/40 p-5"><p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{ui.clientType}</p><p className="font-semibold">{clientType}</p></div>}
-            {[[ui.challenge, challenge], [ui.approach, approach], [ui.outcome, outcome]].filter(([, value]) => value).map(([heading, value]) => <article key={heading}><h2 className="text-2xl font-serif font-bold mb-4">{heading}</h2><p className="text-muted-foreground leading-8 whitespace-pre-line">{value}</p></article>)}
-            {context?.evidenceNote && <section aria-labelledby="work-evidence-heading" className="border-s-4 border-primary bg-muted/40 p-5"><h2 id="work-evidence-heading" className="text-xl font-serif font-bold mb-3">{ar ? "ما الذي يوضحه المستند المنشور؟" : "What does the published document establish?"}</h2><p className="text-muted-foreground leading-8">{context.evidenceNote[lang]}</p></section>}
+            {outcome && <article><h2 className="text-2xl font-serif font-bold mb-4">{ui.outcome}</h2><p className="text-muted-foreground leading-8 whitespace-pre-line">{outcome}</p></article>}
+            {context?.evidenceNote && <section aria-labelledby="work-evidence-heading" className="border-s-4 border-primary bg-muted/40 p-5"><h2 id="work-evidence-heading" className="text-xl font-serif font-bold mb-3">{ui.resultContext}</h2><p className="text-muted-foreground leading-8">{context.evidenceNote[lang]}</p></section>}
+            {[[ui.matter, challenge], [ui.approach, approach]].filter(([, value]) => value).map(([heading, value]) => <article key={heading}><h2 className="text-2xl font-serif font-bold mb-4">{heading}</h2><p className="text-muted-foreground leading-8 whitespace-pre-line">{value}</p></article>)}
             {WORK_READER_GUIDANCE[sample.slug]?.[lang].map(answer => <section key={answer.q}><h2 className="text-2xl font-serif font-bold mb-4">{answer.q}</h2><p className="text-muted-foreground leading-8">{answer.a}</p></section>)}
-            <div className="border border-amber-200 bg-amber-50 text-amber-950 p-5 flex gap-3"><ShieldCheck className="h-5 w-5 shrink-0 mt-0.5" /><p className="text-sm leading-relaxed">{ui.disclaimer}</p></div>
           </div>
 
           {sample.hasFile && <aside className="space-y-6">
             <div className="border border-border bg-card p-5 sticky top-28">
-              <h2 className="text-xl font-serif font-bold mb-4">{context?.evidenceNote ? (ar ? "دراسة كاونسلو للاستشارات القانونية للحالة" : "CounselO Legal case study") : ui.document}</h2>
+              <h2 className="text-xl font-serif font-bold mb-4">{ui.document}</h2>
               <div id="work-document-preview" className="aspect-[3/4] bg-muted border border-border overflow-hidden mb-4 flex items-center justify-center">
                 {sample.fileMimeType.startsWith("image/") ? <img src={fileUrl} alt={title} className="w-full h-full object-contain" /> : <PdfDocumentPreview key={fileUrl} src={fileUrl} title={`${ui.document}: ${title}`} isArabic={ar} />}
               </div>
@@ -168,7 +176,7 @@ export default function WorkSample() {
         </div>
       </section>
 
-      <section className="bg-muted border-y border-border px-4 py-14 text-center"><h2 className="text-3xl font-serif font-bold mb-6">{ui.ctaTitle}</h2><Link href={contactPath} className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3 font-semibold hover:bg-primary/90">{region ? ui.cta : (ar ? "اختر الاختصاص لمناقشة متطلباتك" : "Choose your jurisdiction to discuss your requirements")}<ArrowRight className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} /></Link></section>
+      <section className="bg-muted border-y border-border px-4 py-14 text-center"><h2 className="text-3xl font-serif font-bold mb-4">{ui.ctaTitle}</h2><p className="mx-auto max-w-2xl text-muted-foreground mb-6">{ui.ctaText}</p><Link href={contactPath} className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3 font-semibold hover:bg-primary/90">{ui.cta}<ArrowRight className={`h-4 w-4 ${ar ? "rotate-180" : ""}`} /></Link></section>
     </div>
   );
 }

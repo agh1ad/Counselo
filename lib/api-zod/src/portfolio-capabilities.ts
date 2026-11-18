@@ -24,13 +24,13 @@ export const portfolioCapabilities: readonly PortfolioCapability[] = [
     en: {
       title: "Commercial defence",
       capability: "Building a defence from contractual conditions and financial evidence.",
-      role: "Analysed commission entitlement and developed the defence with the legal representative.",
+      role: "Analysed commission entitlement, assessed financial evidence and developed the defence strategy.",
       documents: "Undertaking letter, payment certificates and amounts received.",
     },
     ar: {
       title: "الدفاع في مطالبة تجارية",
       capability: "بناء الدفاع على شروط العقد والأدلة المالية.",
-      role: "تحليل استحقاق العمولة وبناء الدفاع بالتعاون مع الممثل النظامي.",
+      role: "تحليل استحقاق العمولة وتقييم الأدلة المالية وبناء استراتيجية الدفاع.",
       documents: "خطاب التعهد والمستخلصات والمبالغ المستلمة.",
     },
   },
@@ -54,13 +54,13 @@ export const portfolioCapabilities: readonly PortfolioCapability[] = [
     en: {
       title: "Construction arbitration",
       capability: "Connecting legal, financial and technical evidence in a complex dispute.",
-      role: "Organised the claims, supported memorandum drafting and analysed engineering expert reports for the claimant’s representative.",
+      role: "Organised the claims, supported memorandum drafting and analysed engineering expert reports to strengthen the arbitration case.",
       documents: "Construction contract, invoices and engineering expert reports.",
     },
     ar: {
       title: "التحكيم في نزاع مقاولات",
       capability: "ربط الأدلة القانونية والمالية والفنية في نزاع معقد.",
-      role: "تنظيم المطالبات ودعم صياغة المذكرات وتحليل تقارير الخبرة الهندسية لمساندة ممثل المحتكم.",
+      role: "تنظيم المطالبات ودعم صياغة المذكرات وتحليل تقارير الخبرة الهندسية لتعزيز الملف التحكيمي.",
       documents: "عقد المقاولة والفواتير وتقارير الخبرة الهندسية.",
     },
   },

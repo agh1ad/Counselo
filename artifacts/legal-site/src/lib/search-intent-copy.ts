@@ -188,9 +188,9 @@ export function serviceSearchCopy(id: string, region: Region, lang: Locale) {
   const summary = SERVICE_INTAKE_CONTENT[id]?.summary[lang];
   return { label, heading, summary,
     title: `${heading} | ${lang === "ar" ? "كاونسلو للاستشارات القانونية" : "CounselO Legal"}`,
-    description: lang === "ar"
-      ? `استشارة قانونية بشأن ${label} في ${country}. تعرّف على المسائل التي نراجعها والمستندات المطلوبة، وأرسل تفاصيل طلبك لتحديد نطاق الاستشارة ورسومها.`
-      : `Legal advice on ${label.toLowerCase()} in ${country}. See the issues and documents we review, then request a consultation with an agreed scope and fee.`,
+    description: id === "urgent-legal-assistance" && summary ? summary : lang === "ar"
+      ? `استشارة قانونية مكتوبة بشأن ${label} في ${country} بالرسوم المنشورة لمجالها. تعرّف على المسائل والمستندات التي نراجعها، مع المناقشة والأسئلة ضمن موضوع الاستشارة.`
+      : `Written legal advice on ${label.toLowerCase()} in ${country} at the published category fee. See the issues and documents we review, with discussion and questions on the same topic included.`,
   };
 }
 
@@ -226,32 +226,32 @@ export function alignSearchIntentCopy(source: Translations, region: Region, lang
     return {...item, title: copy?.label ?? item.title, desc: copy?.summary ?? item.desc};
   });
   t.contact.form.serviceOptions = t.contact.form.serviceOptions.map(item => ({...item, label: serviceSearchCopy(item.value, region, lang)?.label ?? item.label}));
-  t.nav.services = ar ? "الاستشارات القانونية" : "Legal services";
+  t.nav.services = ar ? "الخدمات القانونية" : "Legal services";
   t.nav.blog = ar ? "المقالات القانونية" : "Legal articles";
-  t.nav.bookConsultation = ar ? "اطلب استشارة قانونية" : "Request legal advice";
-  t.home.hero.h1a = ar ? "استشارات قانونية أونلاين" : "Online legal advice";
+  t.nav.bookConsultation = ar ? "استشر فريقنا أونلاين" : "Consult our team online";
+  t.home.hero.h1a = ar ? "خدمات قانونية متخصصة أونلاين" : "Expert legal support online";
   t.home.hero.h1b = `${ar ? "في" : "in"} ${country}`;
-  t.home.hero.badge = ar ? "استشارات للأفراد والشركات بالعربية والإنجليزية" : "Legal consultations for individuals and businesses";
-  t.home.hero.desc = ar ? `استشارة في قضايا العمل والأسرة والعقارات والعقود والشركات في ${country}. أرسل تفاصيل المسألة والمستندات عبر واتساب أو البريد الإلكتروني.` : `Get advice on employment, family, property, contract and business matters in ${country}. Send your question and documents by WhatsApp or email.`;
-  t.home.hero.descBold = ar ? "نحدد نطاق الاستشارة ورسومها قبل بدء العمل." : "We agree the consultation scope and fee before work starts.";
+  t.home.hero.badge = ar ? "فريق كاونسلو من الاستشارة إلى التمثيل" : "One CounselO team from advice to representation";
+  t.home.hero.desc = ar ? `استشر محامي كاونسلو أونلاين في قضايا العمل والأسرة والعقارات والعقود والشركات في ${country}. نتولى المشورة والصياغة والتفاوض والتمثيل ونتابع مسألتك ضمن فريق واحد.` : `Consult CounselO’s lawyers online on employment, family, property, contracts and business matters in ${country}. We advise, draft, negotiate and represent you, with one team following your matter through.`;
+  t.home.hero.descBold = ar ? "استشارة مهنية مكتوبة برسوم ثابتة منشورة، تشمل المناقشة والأسئلة ضمن الموضوع نفسه." : "Detailed written advice at published fixed fees, including discussion and questions on the same topic.";
   t.home.hero.descEnd = "";
-  t.home.hero.subDesc = ar ? "نراجع الوقائع والمستندات لتوضيح الخيارات والخطوة التالية. وأي تمثيل أمام المحاكم يخضع لاتفاق مستقل والتحقق من المحامي المرخص محلياً." : "We review the facts and documents to explain your options and next step. Court representation requires a separate agreement and verification of the locally licensed lawyer.";
+  t.home.hero.subDesc = ar ? "تبقى مع فريق كاونسلو في كل مرحلة؛ ويتولى محامونا المرخصون في الدولة المعنية التمثيل أمام المحاكم والجهات المختصة." : "Stay with the CounselO team at every stage. Our lawyers licensed in the relevant jurisdiction handle representation before courts and authorities.";
   t.home.hero.bookBtn = t.nav.bookConsultation;
-  t.home.hero.servicesBtn = ar ? "اختر موضوع استشارتك" : "Find advice for your legal issue";
-  t.home.practiceAreas.heading = ar ? `استشارات قانونية حسب نوع القضية في ${country}` : `Legal advice by issue in ${country}`;
-  t.home.practiceAreas.viewAllBtn = ar ? "جميع موضوعات الاستشارة" : "Browse all legal services";
-  t.home.platform.heading = ar ? "كيف تحصل على استشارة قانونية أونلاين؟" : "How to get legal advice online";
-  t.home.platform.subheading = ar ? "أرسل سؤالك والمستندات المتاحة، وحدد الدولة وأي موعد عاجل. نؤكد نطاق المراجعة والرسوم وطريقة تسليم الاستشارة قبل البدء." : "Send your question and available documents, identifying the country and any urgent deadline. We confirm the review scope, fee and delivery method before starting.";
-  t.services.hero.heading = ar ? `الاستشارات القانونية في ${country}` : `Legal consultation services in ${country}`;
-  t.services.hero.desc = ar ? "اختر الموضوع الأقرب إلى مسألتك للاطلاع على المشكلات التي نراجعها والمستندات المطلوبة والأسئلة الشائعة، ثم اطلب استشارة بشأن حالتك." : "Choose the issue closest to yours to see what we review, the documents to prepare and common questions, then request advice on your circumstances.";
-  t.footer.practiceAreasHeading = ar ? "موضوعات الاستشارة القانونية" : "Legal consultation topics";
-  t.footer.tagline = ar ? `استشارات قانونية أونلاين في ${country} للأفراد والشركات. مراجعة الوقائع والمستندات وتوضيح الخيارات القانونية.` : `Online legal advice in ${country} for individuals and businesses. Review your facts and documents and understand your legal options.`;
-  t.contact.hero.heading = ar ? `اطلب استشارة قانونية أونلاين في ${country}` : `Request an Online Legal Consultation in ${country}`;
-  t.contact.hero.subheading = ar ? "اشرح المسألة، وحدد الدولة والنتيجة المطلوبة وأي ميعاد قريب. نراجع الطلب ونؤكد نطاق الاستشارة ورسومها قبل بدء العمل المدفوع." : "Explain your legal issue, country, intended outcome and any urgent deadline. We review your request and confirm the consultation scope and fee before paid work starts.";
+  t.home.hero.servicesBtn = ar ? "استعرض خدماتنا القانونية" : "Explore our legal services";
+  t.home.practiceAreas.heading = ar ? `خدمات قانونية حسب نوع القضية في ${country}` : `Legal services by issue in ${country}`;
+  t.home.practiceAreas.viewAllBtn = ar ? "جميع الخدمات القانونية" : "Browse all legal services";
+  t.home.platform.heading = ar ? "تواصل أونلاين. وفريق واحد يتولى مسألتك." : "Connect online. One team handles your matter.";
+  t.home.platform.subheading = ar ? "أرسل سؤالك والمستندات المتاحة، وحدد الدولة وأي موعد قريب. يراجع فريقنا مسألتك ويتفق معك على المشورة والصياغة والتمثيل والمتابعة التي تحتاجها." : "Send your question and available documents, identifying the country and any deadline. Our team reviews your matter and agrees the advice, drafting, representation and follow-up you need.";
+  t.services.hero.heading = ar ? `الخدمات القانونية في ${country}` : `Legal services in ${country}`;
+  t.services.hero.desc = ar ? "اختر الموضوع الأقرب إلى مسألتك للاطلاع على المشكلات التي نراجعها والمستندات المطلوبة والأسئلة الشائعة، ثم استشر محامينا أونلاين." : "Choose the issue closest to yours to see what we review, the documents to prepare and common questions, then consult our lawyers online.";
+  t.footer.practiceAreasHeading = ar ? "مجالات الخدمات القانونية" : "Legal practice areas";
+  t.footer.tagline = ar ? `خدمات قانونية متخصصة في ${country}. استشر فريق كاونسلو أونلاين وتابع معنا العقود والنزاعات والتمثيل القانوني.` : `Expert legal support in ${country}. Consult CounselO online and stay with our team for contracts, disputes and representation.`;
+  t.contact.hero.heading = ar ? `تواصل أونلاين مع فريق كاونسلو في ${country}` : `Connect online with CounselO’s team in ${country}`;
+  t.contact.hero.subheading = ar ? "أرسل سؤالك ومستنداتك للحصول على استشارة مهنية مكتوبة ومفصلة بالرسوم الثابتة المنشورة لمجالها، مع المناقشة والأسئلة ضمن الموضوع نفسه." : "Send your question and documents for detailed professional written advice at the published category fee, with discussion and questions on the same topic included.";
   t.contact.firmDetails.heading = ar ? "التواصل مع كاونسلو للاستشارات القانونية" : "Contact CounselO Legal";
   t.contact.form.messageLabel = ar ? "ما المسألة القانونية التي تحتاج إلى مساعدة بشأنها؟" : "What legal issue do you need help with?";
-  t.aboutPage.hero.heading = ar ? "فريق قانوني بخبرة راسخة. وخدمة متكاملة أونلاين." : "An experienced legal team. A complete online service.";
-  t.aboutPage.hero.subheading = ar ? `استشارات مهنية ومراجعة مستندات وصياغة قانونية للمسائل في ${country}، مع فريق متمرس وتواصل واضح بالعربية والإنجليزية.` : `Professional legal advice, document review and drafting for matters in ${country}, with an experienced team and clear communication in Arabic and English.`;
+  t.aboutPage.hero.heading = ar ? "خدمات قانونية متخصصة أونلاين. فريق واحد من الاستشارة إلى التمثيل." : "Expert legal support online. One team from advice to representation.";
+  t.aboutPage.hero.subheading = ar ? `استشارات وعقود وتمثيل قانوني للمسائل في ${country}، مع محامين متمرسين وتواصل أونلاين بالعربية والإنجليزية.` : `Legal advice, contracts and representation for matters in ${country}, with experienced lawyers and online access in Arabic and English.`;
   return t;
 }
 

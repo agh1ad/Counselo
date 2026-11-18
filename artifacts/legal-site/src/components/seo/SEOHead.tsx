@@ -124,7 +124,7 @@ const GEO = {
     hrefLangEn: "en-AE",
     hrefLangAr: "ar-AE",
     pathPrefix: "/uae",
-    imgAlt: "CounselO Legal — Online Legal Consultation United Arab Emirates",
+    imgAlt: "CounselO Legal — Online Advice to Legal Representation in United Arab Emirates",
   },
   sa: {
     region: "SA",
@@ -134,7 +134,7 @@ const GEO = {
     hrefLangEn: "en-SA",
     hrefLangAr: "ar-SA",
     pathPrefix: "/sa",
-    imgAlt: "CounselO Legal — Online Legal Consultation Saudi Arabia",
+    imgAlt: "CounselO Legal — Online Advice to Legal Representation in Saudi Arabia",
   },
   syr: {
     region: "SY",
@@ -144,7 +144,7 @@ const GEO = {
     hrefLangEn: "en-SY",
     hrefLangAr: "ar-SY",
     pathPrefix: "/syr",
-    imgAlt: "CounselO Legal — Online Legal Consultation Syria",
+    imgAlt: "CounselO Legal — Online Advice to Legal Representation in Syria",
   },
 } as const;
 
@@ -327,17 +327,17 @@ export function SEOHead({
 
   const defaultKeywordsEn =
     region === "uae"
-      ? "online legal consultation UAE, lawyer UAE online, legal advice Dubai, legal advice Abu Dhabi, UAE company law, UAE labour law, UAE family law, UAE arbitration, CounselO Legal"
+      ? "online legal consultation UAE, legal representation UAE, CounselO lawyers UAE, legal advice Dubai, legal advice Abu Dhabi, UAE company law, UAE labour law, UAE family law, UAE arbitration, CounselO Legal"
       : region === "sa"
-      ? "online legal consultation Saudi Arabia, lawyer Saudi Arabia online, legal advice KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law Saudi Arabia, foreign investment lawyer KSA, administrative law Saudi Arabia, CounselO Legal"
-      : "online legal consultation Syria, lawyer Syria online, legal advice Syria, family law Syria, commercial law Syria, employment law Syria, real estate law Syria, foreign investment lawyer Syria, administrative law Syria, CounselO Legal";
+      ? "online legal consultation Saudi Arabia, legal representation Saudi Arabia, CounselO lawyers Saudi Arabia, legal advice KSA, family law Saudi Arabia, commercial law KSA, employment law Saudi Arabia, real estate law Saudi Arabia, foreign investment lawyer KSA, administrative law Saudi Arabia, CounselO Legal"
+      : "online legal consultation Syria, legal representation Syria, CounselO lawyers Syria, legal advice Syria, family law Syria, commercial law Syria, employment law Syria, real estate law Syria, foreign investment lawyer Syria, administrative law Syria, CounselO Legal";
 
   const defaultKeywordsAr =
     region === "uae"
-      ? "استشارة قانونية أونلاين الإمارات, محامي أونلاين الإمارات, مشورة قانونية دبي, قانون الشركات الإماراتي, قانون العمل الإماراتي, الأحوال الشخصية الإمارات, كاونسلو للاستشارات القانونية"
+      ? "استشارة قانونية أونلاين الإمارات, تمثيل قانوني الإمارات, فريق محامي كاونسلو الإمارات, مشورة قانونية دبي, قانون الشركات الإماراتي, قانون العمل الإماراتي, الأحوال الشخصية الإمارات, كاونسلو للاستشارات القانونية"
       : region === "sa"
-      ? "استشارة قانونية أونلاين السعودية, محامي أونلاين المملكة العربية السعودية, مشورة قانونية إلكترونية, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل السعودي, القانون العقاري السعودي, استثمار أجنبي محامي, القانون الإداري السعودي, كاونسلو للاستشارات القانونية"
-      : "استشارة قانونية أونلاين سوريا, محامي أونلاين سوريا, مشورة قانونية إلكترونية سوريا, قانون الأسرة السوري, القانون التجاري السوري, قانون العمل السوري, القانون العقاري السوري, كاونسلو للاستشارات القانونية";
+      ? "استشارة قانونية أونلاين السعودية, تمثيل قانوني السعودية, فريق محامي كاونسلو السعودية, مشورة قانونية إلكترونية, قانون الأسرة السعودي, القانون التجاري السعودي, قانون العمل السعودي, القانون العقاري السعودي, استثمار أجنبي محامي, القانون الإداري السعودي, كاونسلو للاستشارات القانونية"
+      : "استشارة قانونية أونلاين سوريا, تمثيل قانوني سوريا, فريق محامي كاونسلو سوريا, مشورة قانونية إلكترونية سوريا, قانون الأسرة السوري, القانون التجاري السوري, قانون العمل السوري, القانون العقاري السوري, كاونسلو للاستشارات القانونية";
 
   const rawKeywords = keywords ?? (isArabic ? defaultKeywordsAr : defaultKeywordsEn);
 

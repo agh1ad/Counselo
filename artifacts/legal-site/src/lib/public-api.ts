@@ -1,4 +1,4 @@
-import { currentBrandRecord } from "@workspace/api-zod/browser";
+import { currentBrandRecord, currentWorkTeamRecord } from "@workspace/api-zod/browser";
 
 const PRODUCTION_ORIGIN = "https://counselo-legal.com";
 const PUBLIC_JSON_REUSE_MS = 15_000;
@@ -74,7 +74,11 @@ export async function fetchPublicJson<T>(path: string): Promise<T> {
     const data = await response.json();
     // Keep rolling deployments and older cached public records consistent with SSR.
     if (/^\/api\/(?:blog\/posts|work)(?:[/?]|$)/.test(path)) {
-      return (Array.isArray(data) ? data.map(currentBrandRecord) : data && typeof data === "object" ? currentBrandRecord(data) : data) as T;
+      const normalize = (record: Record<string, unknown>) => {
+        const branded = currentBrandRecord(record);
+        return /^\/api\/work(?:[/?]|$)/.test(path) ? currentWorkTeamRecord(branded) : branded;
+      };
+      return (Array.isArray(data) ? data.map(normalize) : data && typeof data === "object" ? normalize(data) : data) as T;
     }
     return data as T;
   })();

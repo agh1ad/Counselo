@@ -67,7 +67,7 @@ export default function Home() {
   const h = t.home;
   const c = homepageContent[isRTL ? "ar" : "en"];
   const country = c.countryNames[region === "sa" ? 0 : region === "syr" ? 1 : 2];
-  const description = isRTL ? `كاونسلو تقدم دعماً قانونياً متكاملاً لمسائل ${country} بدعم فريق ثنائي اللغة وشبكة قوية من المحامين والشركاء المهنيين في السعودية والإمارات وسوريا.` : `CounselO Legal offers comprehensive legal support for ${country}, backed by a bilingual team and strong professional connections with lawyers and partners across Saudi Arabia, the UAE and Syria.`;
+  const description = isRTL ? `فريق كاونسلو وجهتك للاستشارة والعقود والمنازعات والتمثيل القانوني في ${country}، مع متابعة متكاملة بالعربية والإنجليزية.` : `One CounselO team for consultation, contracts, disputes and legal representation in ${country}, with continuing support in Arabic and English.`;
   const comprehensiveConsultation = getConsultationProduct("comprehensive-consultation");
   return (
     <div className="regional-home-page w-full flex flex-col">
@@ -109,7 +109,7 @@ export default function Home() {
         <m.div {...fadeIn} className="mx-auto grid max-w-[1180px] items-center gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:gap-10">
           <div className="min-w-0">
             <h2 id="regional-cta-heading" className="mb-3 text-2xl font-semibold leading-snug text-white md:text-3xl">
-              {isRTL ? "ابدأ استشارتك القانونية أونلاين." : "Start your legal consultation online."}
+              {isRTL ? "تحدث مع فريقك القانوني أونلاين." : "Speak with your legal team online."}
             </h2>
             <p className="max-w-2xl text-base leading-7 text-[#d2e1d8]">
               {isRTL

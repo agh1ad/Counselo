@@ -13,7 +13,7 @@ test("llms.txt documents all jurisdictions, scope, editorial links, and contact 
     "Saudi Arabia",
     "Syria",
     "Arabic and English",
-    "Local partners and representation scope",
+    "One CounselO team from consultation to representation",
     "/our-work/mnhj-kawnslw-fy-mrajah-alaqwd-altjaryh",
     "/our-work/msandh-kawnslw-fy-qdyh-aabrh-llhdwd",
     "https://counselo-legal.com/sitemap-work.xml",

@@ -24,14 +24,14 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     titleAr: "كيف رفضت المحكمة قضية مالية رغم ثبوت التحويل",
     editorialUpdatedAt: "2026-09-11",
     evidenceNote: {
-      en: "The published professional account reports dismissal of the claim after review of operational records and a financial release. The stated outcome concerns that particular dispute and is not independent verification of a court record or a general rule about bank transfers.",
-      ar: "يفيد العرض المهني المنشور برفض المطالبة بعد مراجعة المستندات التشغيلية والمخالصة المالية. وتخص النتيجة المذكورة ذلك النزاع بعينه، ولا تمثل تحققاً مستقلاً من سجل قضائي أو قاعدة عامة بشأن التحويلات البنكية.",
+      en: "CounselO’s published case study presents the dismissal of the financial claim following review of operational records and a financial release.",
+      ar: "تعرض دراسة الحالة المنشورة من كاونسلو رفض المطالبة المالية بعد مراجعة المستندات التشغيلية والمخالصة المالية.",
     },
   },
   "kyf-saadt-kawnslw-fy-astrdad-300000-ryal-abr-slh-qdayy-fy-nzaa-tjary": {
     "evidenceNote": {
-      "en": "The attached CounselO Legal case study describes a judicial settlement providing for the return of SAR 300,000, together with the claimant giving up an interest in another company. It explains the reported settlement terms; the attachment does not include a payment receipt or the court-issued settlement record.",
-      "ar": "تصف دراسة كاونسلو للاستشارات القانونية المرفقة صلحاً قضائياً يتضمن رد 300,000 ريال، مع تنازل المدعي عن حصة في شركة أخرى. وهي تشرح شروط الصلح الواردة في عرض القضية؛ ولا تتضمن المرفقات إيصال سداد أو محضر الصلح الصادر عن المحكمة."
+      "en": "CounselO’s published case study sets out a judicial settlement with two linked terms: the return of SAR 300,000 and the claimant’s surrender of an interest in another company. The stated amount is the sum agreed for return under the settlement.",
+      "ar": "تعرض دراسة الحالة المنشورة من كاونسلو صلحاً قضائياً يقوم على شرطين مترابطين: رد 300,000 ريال وتنازل المدعي عن حصة في شركة أخرى. ويمثل المبلغ المذكور القيمة المتفق على ردها بموجب الصلح."
     },
     "region": null,
     "relatedServiceSlugs": [],
@@ -49,8 +49,8 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
   },
   "kawnslw-w-tkhfyd-mtalbh-amwlh-tjaryh-mn-348-mlywn-ryal-ila-584-alf-ryal": {
     "evidenceNote": {
-      "en": "The attached CounselO Legal case study reports a SAR 3,480,000 claim and a SAR 584,131 award. Its statement that the judgment was affirmed on appeal is expressly based on what the client reported. The reduction describes the amount claimed compared with the reported award, rather than money collected.",
-      "ar": "تعرض دراسة كاونسلو للاستشارات القانونية المرفقة مطالبة بمبلغ 3,480,000 ريال وحكماً بمبلغ 584,131 ريال. وتوضح الدراسة صراحة أن تأييد الحكم استئنافياً ورد بحسب إفادة العميل. ويعبر التخفيض عن الفرق بين المطالبة والمبلغ المحكوم به وفق العرض المنشور، وليس عن أموال جرى تحصيلها."
+      "en": "CounselO’s published case study reports an award of SAR 584,131 against an original claim of SAR 3,480,000. The reduction is the difference between the amount claimed and the amount awarded. The study attributes affirmation of the judgment on appeal to the client’s report.",
+      "ar": "تعرض دراسة الحالة المنشورة من كاونسلو حكماً بمبلغ 584,131 ريال مقابل مطالبة أصلية بمبلغ 3,480,000 ريال. ويعبر التخفيض عن الفرق بين المبلغ المطالب به والمبلغ المحكوم به. وتستند الإشارة إلى تأييد الحكم استئنافياً إلى إفادة العميل."
     },
     "region": "sa",
     "relatedServiceSlugs": [
@@ -72,8 +72,8 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
   },
   "kyf-sahmt-kawnslw-fy-tkhfyd-mtalbh-mn-500-alf-ryal-ila-227": {
     "evidenceNote": {
-      "en": "The attached CounselO Legal case study describes a SAR 500,000 claim reduced to a reported final award of SAR 227,000. The published attachment is the professional case account explaining the defence and outcome; it is not a copy of the court judgment or evidence of payment.",
-      "ar": "تصف دراسة كاونسلو للاستشارات القانونية المرفقة تخفيض مطالبة بمبلغ 500,000 ريال إلى حكم نهائي بمبلغ 227,000 ريال وفق عرض القضية. والمرفق المنشور دراسة مهنية تشرح الدفاع والنتيجة، وليس نسخة من الحكم القضائي أو دليلاً على السداد."
+      "en": "CounselO’s published case study explains the defence and outcome in a SAR 500,000 claim, with a final award of SAR 227,000. The result is the reduction from the amount claimed to the amount awarded.",
+      "ar": "تشرح دراسة الحالة المنشورة من كاونسلو الدفاع ونتيجة مطالبة بمبلغ 500,000 ريال، وتورد حكماً نهائياً بمبلغ 227,000 ريال. وتتمثل النتيجة في تخفيض المبلغ المطالب به إلى المبلغ المحكوم به."
     },
     "region": "sa",
     "relatedServiceSlugs": [
@@ -146,8 +146,8 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
   },
   "astratyjyh-kawnslw-lastrdad-sndat-lamr-bqymh-17-mlywn-ryal": {
     "evidenceNote": {
-      "en": "The attached CounselO Legal case study describes an order to hand over 16 original promissory notes. The value above SAR 17 million is their face value. The study does not include a record establishing that the originals were subsequently delivered or that this amount was paid.",
-      "ar": "تصف دراسة كاونسلو للاستشارات القانونية المرفقة حكماً بتسليم أصول 16 سنداً لأمر. والمبلغ الذي يتجاوز 17 مليون ريال هو قيمتها الاسمية. ولا تتضمن الدراسة محضراً يثبت تسليم الأصول لاحقاً أو سداد هذا المبلغ."
+      "en": "CounselO’s published case study presents an order requiring the handover of 16 original promissory notes with a combined face value exceeding SAR 17 million. The outcome is the order to return the original instruments.",
+      "ar": "تعرض دراسة الحالة المنشورة من كاونسلو حكماً بتسليم أصول 16 سنداً لأمر تتجاوز قيمتها الاسمية الإجمالية 17 مليون ريال. وتتمثل النتيجة الواردة في الدراسة في الحكم بإعادة أصول السندات."
     },
     "region": "sa",
     "relatedServiceSlugs": [
@@ -288,8 +288,8 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
   },
   "tfkyk-mstndat-altmas-aaadh-alnzr-bnjah": {
     "evidenceNote": {
-      "en": "The attached CounselO Legal case study describes procedural admission of the reconsideration petition, rejection on its merits, lifting the enforcement stay and a SAR 23,000 fee award. These are the stages reported in the case account; the attachment is not the court-issued decision.",
-      "ar": "تصف دراسة كاونسلو للاستشارات القانونية المرفقة قبول التماس إعادة النظر شكلاً ثم رفضه موضوعاً، ورفع وقف التنفيذ، والحكم بأتعاب قدرها 23,000 ريال. وهذه هي المراحل الواردة في عرض القضية؛ والمرفق دراسة للحالة وليس القرار الصادر عن المحكمة."
+      "en": "CounselO’s published case study sets out the procedural sequence and result: the reconsideration petition was admitted procedurally, then rejected on its merits; the enforcement stay was lifted and SAR 23,000 in fees was awarded.",
+      "ar": "تعرض دراسة الحالة المنشورة من كاونسلو تسلسل الإجراءات والنتيجة: قبول التماس إعادة النظر شكلاً ثم رفضه موضوعاً، ورفع وقف التنفيذ، والحكم بأتعاب قدرها 23,000 ريال."
     },
     "region": "sa",
     "relatedServiceSlugs": [
@@ -548,7 +548,7 @@ export const WORK_CONTEXT: Readonly<Record<string, WorkContext>> = {
     ],
     "titleEn": "Rent vs. Enjoyment in Commercial Leasing",
     "titleAr": "الأجرة مقابل المنفعة في الإيجار التجاري",
-    "editorialUpdatedAt": "2026-09-07"
+    "editorialUpdatedAt": "2026-11-18"
   },
   "hdwd-mswwlyh-alkfyl-fy-alsnd-lamr": {
     "region": "sa",

@@ -1,5 +1,6 @@
 - [LanguageContext Fast Refresh split](language-context-hmr.md) — LanguageContext must never define both a component and a hook in the same file or Vite HMR cascades crash the app.
 - [CounselO SEO architecture](counselo-seo.md) — dual-region SA/SYR site; Syria sub-page SEO lives in seo-data-syr.ts; region picker at `/` uses Helmet directly (no region dep) targeting Middle East; all schemas are region-conditional.
+- [CounselO one-team service model](counselo-team-model.md) — Clients may stay with one team from advice to representation; local authority belongs to the licensed lawyer or office, not the CounselO brand.
 - [React 19 + react-helmet-async v3 SSR](react19-helmet-ssr.md) — HelmetProvider context is never populated in React 19; head tags appear at the start of renderToString output instead.
 - [index.html nested comment gotcha](nested-comment-html-gotcha.md) — <!--tag--> inside a doc comment breaks HTML parse5; renders raw text instead of React app.
 - [Static server trailing-slash redirect](static-server-trailing-slash-redirect.md) — prerendered nested routes must use flat files + explicit rewrites, not route/index.html, or prod static serving silently serves the home page.

@@ -5,6 +5,10 @@ const CREDIBILITY_REFRESH_DATE = "2026-11-12";
 
 export function latestPageUpdate(path: string, previous?: string): string | undefined {
   const pathname = path.startsWith("http") ? new URL(path).pathname : path;
+  // Team positioning and portfolio presentation revised these owned pages, not CMS publications.
+  if (/^(?:\/|\/ar|\/(?:sa|syr|uae)(?:\/ar)?(?:\/(?:about|contact|terms-of-service|privacy-policy|services)(?:\/.*)?)?|\/(?:ar\/)?(?:urgent-legal-assistance|our-work))$/.test(pathname)) {
+    return [previous ?? "", "2026-11-18"].sort().at(-1);
+  }
   if (/^(?:\/(?:ar\/)?|\/(?:sa|syr|uae)(?:\/ar)?\/services\/)urgent-legal-assistance$/.test(pathname)) {
     return [previous ?? "", "2026-11-13"].sort().at(-1);
   }

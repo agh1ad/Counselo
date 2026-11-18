@@ -10,6 +10,7 @@ import {
 import { logger } from "./lib/logger.js";
 import { repairPublicBlogPost } from "./lib/public-blog-repairs.js";
 import { repairPublicWorkSample } from "./lib/public-work-repairs.js";
+import { publicWorkDocumentMetadata } from "./lib/work-document-revisions.js";
 
 function findLegalDist(): string {
   const fromRoot = path.join(process.cwd(), "artifacts/legal-site/dist/public");
@@ -33,7 +34,7 @@ async function publishedBlogs() {
 }
 
 async function publishedWork() {
-  return (await loadPublishedWorkSummaries()).map(repairPublicWorkSample);
+  return (await loadPublishedWorkSummaries()).map(sample => publicWorkDocumentMetadata(sample)).map(repairPublicWorkSample);
 }
 
 /**

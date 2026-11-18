@@ -8,11 +8,11 @@ export function ServiceProcess({ isArabic: ar }: { isArabic: boolean }) {
   const steps = ar ? [
     ["أرسل طلبك", "اذكر ما تحتاجه والموعد المهم عبر واتساب أو نموذج التواصل. نحدد المستندات اللازمة."],
     ["اعتمد العرض", "تعرّف على نطاق العمل والرسوم وموعد التسليم، ثم وافق وأكمل الدفع وفق التعليمات."],
-    ["استلم العمل", "نراجع الملف ونقدم الاستشارة بالشكل المتفق عليه: كتابةً، أو بمكالمة هاتفية أو مرئية."],
+    ["استلم العمل", "يتولى فريقنا العمل المتفق عليه من الاستشارة وإعداد المستندات إلى التفاوض أو التمثيل، ويطلعك على المستجدات والخطوات التالية."],
   ] : [
     ["Send your request", "Tell us what you need and any deadline via WhatsApp or the contact form. We identify the documents needed."],
     ["Approve your quote", "Review the scope, fee and delivery date, then approve and follow the payment instructions."],
-    ["Receive your work", "We review your file and provide the consultation in the agreed format: writing, phone or video call."],
+    ["Receive your work", "Our team handles the agreed work, from consultation and document preparation to negotiation or representation, and keeps you informed of progress and next steps."],
   ];
   return <ol className="sa-service-steps" aria-label={ar ? "خطوات الخدمة" : "Service process"}>
     {steps.map(([title, description], index) => <li key={title}>
@@ -26,12 +26,12 @@ export function ServiceReasons({ isArabic: ar, regionPrefix, aboutHref }: Props 
   const ProfileLink = aboutHref?.startsWith("#") ? "a" : Link;
   const reasons = ar ? [
     ["رد مستهدف خلال 24 ساعة", "نستهدف الرد خلال 24 ساعة، بحسب نطاق الطلب واكتمال المعلومات والاستعجال وتوفر الخدمة."],
-    ["خدمة سهلة بالكامل أونلاين", "أرسل طلبك ومستنداتك وتابع استشارتك من مكانك عبر واتساب أو البريد، دون زيارة مكتب."],
+    ["تواصل سهل أونلاين", "أرسل طلبك ومستنداتك وتابع استشارتك من مكانك عبر واتساب أو البريد، دون زيارة مكتب."],
     ["كتابةً أو بمكالمة صوتية أو مرئية", "اختر الشكل الأنسب لاستشارتك بالعربية أو الإنجليزية: رد مكتوب، أو مكالمة هاتفية أو فيديو، وفق الاتفاق."],
     ["فريق قانوني متمرس", `خبرة فريق في تحليل الوقائع ومراجعة المستندات وصياغة المشورة والمذكرات، مع نطاق وأتعاب واضحة قبل البدء.`],
   ] : [
     ["Target response within 24 hours", "We aim to respond within 24 hours, subject to scope, complete information, urgency and availability."],
-    ["Simple and fully online", "Send your request and documents, and follow your consultation via WhatsApp or email. No office visit needed."],
+    ["Easy online communication", "Send your request and documents, and follow your consultation via WhatsApp or email. No office visit needed."],
     ["Written, phone or video consultation", "Choose the format that suits you: a written response, phone call or video call, in Arabic or English, as agreed."],
     ["An experienced legal team", `Our team brings experience in fact analysis, document review, legal advice and drafting, with clear scope and fees before work starts.`],
   ];
@@ -60,7 +60,7 @@ export function ServiceCosts({ isArabic: ar, regionPrefix, contactHref, region }
       <QuoteLink href={contactHref} className="sa-quote-action" data-cta="contact" data-conversion-position="service-fees" data-region={region} data-lang={ar ? "ar" : "en"}>{ar ? "اطلب عرض أتعاب" : "Request a quote"}</QuoteLink>
     </div>
     <ol className="sa-payment-steps">{steps.map(([title, description], index) => <li key={title}><span aria-hidden="true">{index + 1}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}</ol>
-    <p className="sa-cost-boundary">{ar ? "نوضح الخيارات دون ضمان نتيجة. التمثيل والإيداع يتطلبان تكليفاً مستقلاً عبر مهني مرخص في الدولة المعنية." : "We assess options without guaranteeing an outcome. Representation and filing require a separate engagement through a professional licensed in the relevant jurisdiction."}</p>
+    <p className="sa-cost-boundary">{ar ? "نتفق معك على العمل والأتعاب قبل البدء. ويشمل فريق كاونسلو المحامين المرخصين الذين يتولون التمثيل والإيداع في الدولة المعنية." : "We agree the work and fees with you before starting. The CounselO team includes the licensed lawyers who handle representation and filing in the relevant country."}</p>
     <nav aria-label={ar ? "شروط الخدمة والخصوصية" : "Service terms and privacy"}>
       <Link href={`${regionPrefix}/terms-of-service`} className="sa-text-link">{ar ? "شروط الدفع والخدمة" : "Payment and service terms"}</Link>
       <Link href={`${regionPrefix}/privacy-policy`} className="sa-text-link">{ar ? "الخصوصية" : "Privacy"}</Link>

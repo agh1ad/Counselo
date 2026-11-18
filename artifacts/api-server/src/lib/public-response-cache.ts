@@ -59,6 +59,7 @@ const SAFE_RESPONSE_HEADERS = [
   "Location",
   "X-Robots-Tag",
   "Content-Language",
+  "Last-Modified",
   "Link",
   "Vary",
 ] as const;

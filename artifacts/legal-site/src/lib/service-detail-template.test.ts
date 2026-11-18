@@ -84,7 +84,7 @@ test("every issue displays its evidence, central question and complete answer in
     const brief = getMatterIntentBrief(page.intentBriefTitle ?? page.titleEn);
     for (const lang of ["en", "ar"] as const) {
       const copy = problemPageCopy(page, lang);
-      assert.match(copy.introduction, /CounselO[’']s.*team|فريق كاونسلو/);
+      assert.match(copy.introduction, /CounselO[’']s.*team|فريق كاونسلو|محامو كاونسلو.*فريق/);
       assert.doesNotMatch(copy.introduction, /Omar|عمر البغدادي|1996|30\+|20,000/);
       assert.ok(copy.hero.includes(lang === "en" ? sentenceTopic(page.titleEn) : page.titleAr));
       const coverage = copy.coverage.map(item => `${item.title} ${item.text}`).join(" ");

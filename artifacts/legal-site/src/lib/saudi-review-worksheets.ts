@@ -7,7 +7,7 @@ export type SaudiReviewWorksheet = {
 };
 
 // Original preparation aids, not legal opinions, forms for filing or client examples.
-export const SAUDI_WORKSHEETS_UPDATED_AT = "2026-10-20";
+export const SAUDI_WORKSHEETS_UPDATED_AT = "2026-11-18";
 export const SAUDI_REVIEW_WORKSHEETS: Record<string, { ar: SaudiReviewWorksheet; en: SaudiReviewWorksheet }> = {
   "family-law": {
     "ar": {
@@ -31,7 +31,7 @@ export const SAUDI_REVIEW_WORKSHEETS: Record<string, { ar: SaudiReviewWorksheet;
         "قائمة بالنقاط المتنازع عليها والمعلومات اللازمة قبل تحديد الخطوة."
       ],
       "feeFactors": "نوع الطلب وعدد الأوامر والوثائق والحاجة إلى مراجعة أو صياغة.",
-      "boundary": "لا تحدد هذه الورقة نفقة أو حضانة مستحقة؛ التمثيل والتنفيذ يحتاجان إلى نطاق مستقل."
+      "boundary": "تساعد هذه الورقة فريقنا على مراجعة المسألة، ولا تحدد نفقة أو حضانة مستحقة. يتولى محامونا التمثيل والتنفيذ ضمن نطاق العمل المتفق عليه."
     },
     "en": {
       "title": "Family matter preparation",
@@ -54,7 +54,7 @@ export const SAUDI_REVIEW_WORKSHEETS: Record<string, { ar: SaudiReviewWorksheet;
         "A list of disputed points and information needed before deciding the next step."
       ],
       "feeFactors": "Type of request, number of orders/documents, and whether review or drafting is needed.",
-      "boundary": "This worksheet does not determine maintenance or custody rights; representation and enforcement need a separate scope."
+      "boundary": "This worksheet helps our team review the matter; it does not determine maintenance or custody rights. Our lawyers handle representation and enforcement within the agreed scope."
     }
   },
   "business-law": {
@@ -79,7 +79,7 @@ export const SAUDI_REVIEW_WORKSHEETS: Record<string, { ar: SaudiReviewWorksheet;
         "تمييز المطالبة التي تحتاج إلى إثبات عن سند قائم يحتاج إلى فحص مسار تنفيذه."
       ],
       "feeFactors": "عدد المعاملات والأطراف والفواتير، ووجود نزاع على أصل الدين.",
-      "boundary": "المراجعة لا تضمن التحصيل؛ التفاوض والمطالبة القضائية والتنفيذ أعمال تُحدد في التكليف."
+      "boundary": "يتولى فريقنا المراجعة والتفاوض والمطالبة القضائية والتنفيذ بحسب نطاق العمل المتفق عليه، دون ضمان التحصيل."
     },
     "en": {
       "title": "Commercial claim evidence map",
@@ -102,7 +102,7 @@ export const SAUDI_REVIEW_WORKSHEETS: Record<string, { ar: SaudiReviewWorksheet;
         "A distinction between a claim needing proof and an existing instrument needing enforcement-route review."
       ],
       "feeFactors": "Number of transactions, parties and invoices, and whether the underlying debt is disputed.",
-      "boundary": "Review does not guarantee recovery; negotiation, litigation and enforcement must be specified in the engagement."
+      "boundary": "Our team handles review, negotiation, litigation and enforcement within the agreed scope, without guaranteeing recovery."
     }
   },
   "real-estate": {
@@ -847,7 +847,7 @@ export const SAUDI_REVIEW_WORKSHEETS: Record<string, { ar: SaudiReviewWorksheet;
         "تأكيد المخرج والرسوم والموعد والمهني المسؤول قبل بدء العمل."
       ],
       "feeFactors": "عدد الصفحات والمرفقات واللغات، وحجم الصياغة والوقت المتاح.",
-      "boundary": "هدف التسليم خلال ٣ ساعات يبدأ بعد قبول الطلب واكتمال المستندات وتأكيد السداد؛ الإيداع والتمثيل ليسا تلقائيين."
+      "boundary": "هدف تسليم المستند خلال ٣ ساعات يبدأ بعد قبول الطلب واكتمال المستندات وتأكيد السداد. ويتابع فريقنا الإيداع والتمثيل ضمن نطاق العمل والأتعاب المتفق عليها."
     },
     "en": {
       "title": "Urgent document scope and deadline worksheet",
@@ -870,7 +870,7 @@ export const SAUDI_REVIEW_WORKSHEETS: Record<string, { ar: SaudiReviewWorksheet;
         "Confirmation of output, fee, timing and responsible professional before work begins."
       ],
       "feeFactors": "Pages, attachments, languages, drafting extent and available time.",
-      "boundary": "The three-hour delivery target begins after acceptance, complete documents and confirmed payment; filing and representation are not automatic."
+      "boundary": "The three-hour document-delivery target begins after acceptance, complete documents and confirmed payment. Our team handles filing and representation within the agreed scope and fees."
     }
   }
 };

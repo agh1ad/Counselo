@@ -15,7 +15,7 @@ test("core CounselO Legal entities have stable IDs and canonical names", () => {
   assert.equal(COUNSELO_WEBSITE["@id"], "https://counselo-legal.com/#website");
   assert.equal(COUNSELO_ORGANIZATION.name, "CounselO Legal");
   assert.deepEqual(COUNSELO_ORGANIZATION.alternateName, ["كاونسلو للاستشارات القانونية", "CounselO", "كاونسلو"]);
-  assert.match(COUNSELO_ORGANIZATION.description, /online legal platform/i);
+  assert.match(COUNSELO_ORGANIZATION.description, /integrated legal services through one team/i);
   assert.deepEqual(COUNSELO_ORGANIZATION.areaServed.map((country) => country.name), COUNSELO_PLATFORM_POSITIONING.jurisdictions);
   assert.deepEqual(COUNSELO_ORGANIZATION.contactPoint.availableLanguage, ["Arabic", "English"]);
   assert.equal(COUNSELO_ORGANIZATION.founder["@id"], COUNSELO_ENTITY_IDS.omar);
@@ -30,48 +30,47 @@ test("core CounselO Legal entities have stable IDs and canonical names", () => {
   assert.equal(OMAR_AL_BAGHDADI.subjectOf.url, "https://www.baghdadilaw.co/who-we-are");
 });
 
-test("platform positioning covers every served jurisdiction and language", () => {
+test("team positioning covers every served jurisdiction and language", () => {
   assert.deepEqual(COUNSELO_PLATFORM_POSITIONING.jurisdictions, ["Saudi Arabia", "Syria", "United Arab Emirates"]);
   assert.deepEqual(COUNSELO_PLATFORM_POSITIONING.languages, ["Arabic", "English"]);
-  assert.match(COUNSELO_PLATFORM_POSITIONING.descriptionEn, /comprehensive legal consultation/i);
+  assert.match(COUNSELO_PLATFORM_POSITIONING.descriptionEn, /consultation and contracts.*representation/i);
   assert.match(COUNSELO_PLATFORM_POSITIONING.descriptionEn, /Saudi Arabia, Syria and the UAE/i);
   assert.match(COUNSELO_PLATFORM_POSITIONING.descriptionAr, /السعودية وسوريا والإمارات/);
-  assert.match(COUNSELO_PLATFORM_POSITIONING.scopeEn, /licensed partner professional|cooperating office/i);
+  assert.match(COUNSELO_PLATFORM_POSITIONING.scopeEn, /team comprises locally licensed lawyers and law offices/i);
+  assert.match(COUNSELO_PLATFORM_POSITIONING.scopeAr, /فريقنا المكوّن من محامين ومكاتب مرخّصة محلياً/);
 });
 
-test("service catalogue separates platform work from jurisdiction-specific partner representation", () => {
+test("one CounselO provider covers consultation through representation in each jurisdiction", () => {
   const catalogue = COUNSELO_ORGANIZATION.hasOfferCatalog;
   assert.equal(catalogue["@type"], "OfferCatalog");
   const services = catalogue.itemListElement.map(offer => {
     assert.equal(offer["@type"], "Offer");
     assert.equal(offer.itemOffered["@type"], "Service");
+    assert.equal(offer.itemOffered.provider["@id"], COUNSELO_ENTITY_IDS.organization);
+    assert.equal("broker" in offer.itemOffered, false);
     return offer.itemOffered;
   });
   assert.equal(new Set(services.map(service => service["@id"])).size, services.length);
-  const representation = services.filter(service => "broker" in service);
+  const representation = services.filter(service => service["@id"].endsWith("-partner-representation"));
   assert.equal(representation.length, 3);
   for (const service of representation) {
-    assert.equal(service.broker["@id"], COUNSELO_ENTITY_IDS.organization);
     assert.ok(!Array.isArray(service.areaServed), "A representation service must identify its own jurisdiction");
-    const providers = "provider" in service ? service.provider ?? [] : [];
-    assert.ok(Array.isArray(providers));
-    assert.ok(providers.every(provider => provider["@id"] !== COUNSELO_ENTITY_IDS.organization));
+    assert.match(service.description, /locally licensed team members/);
     assert.ok(service.url.endsWith("/about"));
   }
-  const saudi = representation.find(service => service["@id"].endsWith("#sa-partner-representation"));
-  assert.deepEqual(saudi?.provider, [{ "@id": COUNSELO_ENTITY_IDS.saudiOffice }]);
-  const uae = representation.find(service => service["@id"].endsWith("#uae-partner-representation"));
-  assert.ok(uae);
-  assert.equal("provider" in uae, false, "Do not invent an unidentified local provider");
+  const memberIds = COUNSELO_ORGANIZATION.member.map(member => member["@id"]);
+  assert.deepEqual(new Set(memberIds), new Set(Object.values(COOPERATING_OFFICES).map(office => office["@id"])));
   const graph = JSON.stringify(COUNSELO_ORGANIZATION);
   assert.doesNotMatch(graph, /"(?:aggregateRating|ratingValue|reviewCount|hasCredential|hasCertification)"/);
 });
 
-test("cooperating offices and regional services use durable entity IDs", () => {
+test("team offices and regional services retain their own durable entity IDs", () => {
   const officeIds = Object.values(COOPERATING_OFFICES).map((office) => office["@id"]);
   assert.equal(new Set(officeIds).size, officeIds.length);
   for (const office of Object.values(COOPERATING_OFFICES)) {
     assert.equal("identifier" in office, false, "Public office schema must omit licence identifiers");
+    assert.equal(office.memberOf["@id"], COUNSELO_ENTITY_IDS.organization);
+    assert.notEqual(office["@id"], COUNSELO_ENTITY_IDS.organization);
   }
   const service = regionalServiceEntity("uae", "real-estate", "Real Estate Law", "UAE property guidance");
   assert.equal(service["@id"], "https://counselo-legal.com/#uae-service-real-estate");

@@ -21,8 +21,8 @@ test("global entry pages keep qualified positioning and accessible heading spaci
   const template = readComponent("home/global-homepage.tsx");
   const home = readPage("home.tsx");
   assert.doesNotMatch(copy, /fast, professional and trusted|مستشار قانوني معتمد/i);
-  assert.match(copy, /scope, fee and timing agreed before paid work begins/);
-  assert.match(copy, /بعد الاتفاق على نطاق الخدمة والرسوم والوقت قبل بدء العمل المدفوع/);
+  assert.match(copy, /Choose the relevant country and legal category to view the fixed consultation fee/);
+  assert.match(copy, /اختر الدولة والمجال القانوني للاطلاع على الرسوم الثابتة للاستشارة/);
   assert.match(copy, /aim to respond professionally within 24 hours after receiving the information needed/);
   assert.match(copy, /نسعى للرد المهني خلال 24 ساعة من استلام المعلومات اللازمة/);
   assert.match(template, /<h1 id="home-title">\s*\{c\.h1\}\s*<\/h1>/);
@@ -36,8 +36,11 @@ test("evidence and publishing surfaces retain their trust boundaries", () => {
   const library = readPage("legal-library.tsx");
   assert.match(blog, /Report a correction or factual error/);
   assert.match(blog, /does not constitute legal advice/);
-  assert.match(work, /past work or outcomes do not guarantee the result of another matter/);
-  assert.match(work, /Client identities and confidential details were redacted before publication/);
+  assert.match(work, /WORK_PUBLICATION_COPY\[lang\]/);
+  assert.match(work, /ui\.privacyText/);
+  assert.match(work, /ui\.publishedBy/);
+  assert.match(work, /ui\.preparedBy/);
+  assert.doesNotMatch(work, /Details may be modified|professional experience only/);
   assert.match(work, /articlePublishedTime=\{sample\.date\}/);
   assert.match(work, /articleModifiedTime=\{modifiedAt\}/);
   assert.match(work, /workModifiedAt\(sample\.slug, sample\.updatedAt, sample\.date\)/);

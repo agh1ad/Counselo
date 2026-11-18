@@ -4,7 +4,7 @@ export const serviceDirectoryContent: Record<Region, Record<"en" | "ar", { intro
   sa: {
     en: {
       introLead: "Experienced counsel. Precise contracts. A clear strategy for your dispute.",
-      intro: `Access CounselO’s experienced legal team from home for Saudi family, employment, property and commercial matters. Get advice, contracts and legal submissions online, without an office visit for your consultation. Our licensed partners and lawyers in Saudi Arabia provide local representation under an agreed engagement.`,
+      intro: `CounselO’s team of lawyers and law offices licensed in Saudi Arabia handles your family, employment, property and commercial matters, from consultation and contracts to negotiation and court representation, with online communication throughout your matter.`,
       framework: "How the Saudi legal framework shapes your matter",
       points: [
         ["Applicable law and documents", "The assessment starts with the type of relationship, relevant Saudi rules, contract terms and dates. Employment, family, company, property and commercial matters require different documents and legal checks."],
@@ -15,7 +15,7 @@ export const serviceDirectoryContent: Record<Region, Record<"en" | "ar", { intro
     },
     ar: {
       introLead: "خبرة قانونية راسخة. عقود دقيقة. واستراتيجية واضحة لنزاعك.",
-      intro: `استعن بفريق كاونسلو القانوني المتمرس من منزلك في مسائل الأسرة والعمل والعقارات والتجارة السعودية. احصل على المشورة والعقود والمذكرات أونلاين دون زيارة مكتب للاستشارة. ويقدم شركاؤنا ومحامونا المرخصون في السعودية التمثيل المحلي وفق تكليف متفق عليه.`,
+      intro: `يتولى فريق كاونسلو، المكوّن من محامين ومكاتب مرخّصة في السعودية، مسائل الأسرة والعمل والعقارات والتجارة، من الاستشارة والعقود إلى التفاوض والتمثيل أمام المحاكم، مع التواصل أونلاين طوال مسألتك.`,
       framework: "كيف يحدد الإطار القانوني السعودي مسار مسألتك؟",
       points: [
         ["النظام المنطبق والمستندات", "يبدأ التقييم بنوع العلاقة والأنظمة السعودية ذات الصلة وشروط العقد والتواريخ. وتحتاج مسائل العمل والأسرة والشركات والعقارات والتجارة إلى مستندات وفحوص قانونية مختلفة."],
@@ -28,31 +28,31 @@ export const serviceDirectoryContent: Record<Region, Record<"en" | "ar", { intro
   syr: {
     en: {
       introLead: "Experienced legal support. Wherever you are.",
-      intro: "Handle your Syrian legal matter with CounselO from home, whether you live in Syria or abroad. Our experienced team provides advice and drafting for property, family, business and disputes online. Licensed partners and lawyers in Syria handle local representation under an agreed engagement, with our team coordinating preparation and follow-up.",
+      intro: "Handle your Syrian legal matter with one CounselO team, whether you live in Syria or abroad. Our team comprises lawyers and law offices in Syria, delivering consultation, drafting, negotiation, representation and follow-up for property, family, business and disputes.",
       framework: "How the Syrian legal framework shapes your matter",
       points: [
         ["Operative rules and amendments", "The review identifies the applicable legal text, amendments and relevant dates for the specific matter. A law number, earlier approval or old document alone does not establish the current legal position."],
         ["Property, family and case records", "Identify the location of property or records, the issuing authority, the parties involved and any existing judgment. The assessment separates missing evidence or record issues from questions requiring a claim or local procedure."],
         ["Clients and documents abroad", "For documents issued outside Syria, identify the issuing country, intended use and receiving authority. Any translation, certification or authorisation requirements are checked against the proposed local step before it is agreed."],
       ],
-      preparation: "Provide a brief summary, where you and the relevant records are located, and any deadline or pending proceeding. Mention documents already available; we confirm what is needed for consultation and what may require separately arranged local assistance.",
+      preparation: "Provide a brief summary, where you and the relevant records are located, and any deadline or pending proceeding. Mention documents already available; we confirm what our team needs to advise you and carry out the agreed local steps.",
     },
     ar: {
       introLead: "خبرة قانونية راسخة. أينما كنت.",
-      intro: "تابع مسألتك السورية مع كاونسلو من منزلك، داخل سوريا أو خارجها. يقدم فريقنا المتمرس المشورة والصياغة أونلاين في مسائل العقارات والأسرة والأعمال والمنازعات. ويتولى شركاء ومحامون مرخصون في سوريا التمثيل المحلي وفق تكليف متفق عليه، مع تنسيق الإعداد والمتابعة عبر فريقنا.",
+      intro: "تابع مسألتك السورية مع فريق كاونسلو، سواء كنت داخل سوريا أو خارجها. يتكوّن فريقنا من محامين ومكاتب محاماة في سوريا، يتولون الاستشارة والصياغة والتفاوض والتمثيل والمتابعة في مسائل العقارات والأسرة والأعمال والمنازعات.",
       framework: "كيف يحدد الإطار القانوني السوري مسار مسألتك؟",
       points: [
         ["النص النافذ والتعديلات", "تحدد المراجعة النص القانوني المنطبق وتعديلاته والتواريخ ذات الصلة بالمسألة. ولا يكفي رقم قانون أو موافقة سابقة أو مستند قديم وحده لإثبات الموقف القانوني الحالي."],
         ["السجلات العقارية والأسرية والقضائية", "حدد موقع العقار أو السجلات والجهة المصدرة والأطراف وأي حكم قائم. يفصل التقييم بين نقص الأدلة أو مشكلات السجلات والمسائل التي تحتاج إلى دعوى أو إجراء محلي."],
         ["العملاء والمستندات في الخارج", "للمستندات الصادرة خارج سوريا، حدد بلد الإصدار والغرض والجهة التي ستتلقاها. يُتحقق من متطلبات الترجمة أو التصديق أو الوكالة بحسب الخطوة المحلية المقترحة قبل الاتفاق عليها."],
       ],
-      preparation: "قدم ملخصاً موجزاً ومكان إقامتك وموقع السجلات المعنية وأي مهلة أو إجراء قائم. اذكر المستندات المتاحة؛ نؤكد ما يلزم للاستشارة وما قد يحتاج إلى مساعدة محلية تُرتب بصورة مستقلة.",
+      preparation: "قدم ملخصاً موجزاً ومكان إقامتك وموقع السجلات المعنية وأي مهلة أو إجراء قائم. اذكر المستندات المتاحة؛ نؤكد ما يحتاجه فريقنا لتقديم المشورة وتنفيذ الإجراءات المحلية المتفق عليها.",
     },
   },
   uae: {
     en: {
       introLead: "Clear advice. Precise documents. A stronger legal position.",
-      intro: "Choose CounselO for UAE legal services you can access from home. Our experienced team delivers advice and documents online, tailored to the relevant emirate, authority and mainland or free-zone framework. For local representation, we work through licensed partners and lawyers under an agreed engagement.",
+      intro: "Choose CounselO for UAE legal services from consultation and documents to negotiation and representation. Our experienced team includes UAE-licensed lawyers and law offices, with the work tailored to the relevant emirate, authority and mainland or free-zone framework.",
       framework: "How the UAE legal framework shapes your matter",
       points: [
         ["Federal, emirate and free-zone context", "Identify the emirate and the relevant company, employer or property registration. We assess whether the issue involves federal rules, local requirements or a free-zone framework, including DIFC or ADGM where applicable."],
@@ -63,7 +63,7 @@ export const serviceDirectoryContent: Record<Region, Record<"en" | "ar", { intro
     },
     ar: {
       introLead: "مشورة واضحة. مستندات محكمة. وموقف قانوني أقوى.",
-      intro: "اختر كاونسلو لخدمات قانونية إماراتية تصل إليها من منزلك. يقدم فريقنا المتمرس المشورة والمستندات أونلاين وفق الإمارة والجهة والإطار المنطبق في البر الرئيسي أو المنطقة الحرة. ونعمل من خلال شركاء ومحامين مرخصين للتمثيل المحلي وفق تكليف متفق عليه.",
+      intro: "اختر كاونسلو لخدمات قانونية إماراتية من الاستشارة والمستندات إلى التفاوض والتمثيل. يضم فريقنا المتمرس محامين ومكاتب مرخصة في الإمارات، ويحدد العمل وفق الإمارة والجهة والإطار المنطبق في البر الرئيسي أو المنطقة الحرة.",
       framework: "كيف يحدد الإطار القانوني الإماراتي مسار مسألتك؟",
       points: [
         ["الإطار الاتحادي والمحلي والمناطق الحرة", "حدد الإمارة وتسجيل الشركة أو صاحب العمل أو العقار المعني. نقيّم ارتباط المسألة بالقواعد الاتحادية أو المتطلبات المحلية أو إطار المنطقة الحرة، بما فيها مركز دبي المالي العالمي أو سوق أبوظبي العالمي عند انطباقهما."],

@@ -1,7 +1,7 @@
 import type { Region } from "@workspace/api-zod/browser";
 
 export const URGENT_SLUG = "urgent-legal-assistance";
-export const URGENT_UPDATED_AT = "2026-11-13";
+export const URGENT_UPDATED_AT = "2026-11-18";
 export const urgentPath = (ar: boolean, region?: Region) => region
   ? `/${region}${ar ? "/ar" : ""}/services/${URGENT_SLUG}`
   : `${ar ? "/ar" : ""}/${URGENT_SLUG}`;
@@ -33,15 +33,15 @@ export const urgentCopy = {
     privacy: "Send relevant, complete and readable documents that you are entitled to share. Flag missing information and ask about the transfer method before sending sensitive material.",
     coverageTitle: "Requests from every jurisdiction",
     coverage: "Requests may concern any country. Specify the jurisdiction and relevant court or authority so we can confirm our capability before accepting the task.",
-    feesTitle: "Urgent fees differ from standard fees",
-    fees: "Urgent fees differ from standard fees and reflect the scope, document volume, complexity and deadline. Your quote includes revisions and discussion of the delivered work within the agreed scope.",
+    feesTitle: "Fees for urgent document work",
+    fees: "Urgent drafting and document review are quoted for their scope, document volume, complexity and deadline. The quote includes revisions and discussion of the delivered work within the agreed scope. Standard online legal consultations use the published fee for the country and legal category; representation has separate agreed fees with the same CounselO team.",
     faqTitle: "Questions about urgent legal help",
     faqs: [
       ["Is the three-hour target for delivery or an acknowledgement?", "Delivery of the agreed legal memorandum, statement of claim or contract review. It begins only after acceptance, complete documents and confirmed payment."],
       ["What if my deadline is less than three hours away?", "Send the exact deadline and time zone before paying. We assess feasibility and confirm what we can accept; a message does not reserve availability or extend an official deadline."],
       ["Can I submit a request on Thursday or Friday?", "Requests are accepted at any time Saturday–Thursday. We do not accept new urgent requests on Friday. For a Thursday request, agree the exact delivery date and time before payment."],
-      ["Can I discuss the work or request revisions after delivery?", "Yes. The agreed fee includes revisions within scope and discussion or questions about the delivered work. New matters and work beyond that scope are agreed separately."],
-      ["Does the three-hour urgent document service include court filing or representation?", "The three-hour urgent service delivers the agreed memorandum, statement of claim or review of an existing contract. Court filing, hearing attendance, monitoring court deadlines and drafting a new contract are outside this urgent package. CounselO also provides representation through licensed local partners under a separately agreed engagement; tell us if your matter needs that service so we can confirm the responsible professional, scope and timing."],
+      ["Can I discuss the work or request revisions after delivery?", "Yes. The agreed fee includes revisions within scope and discussion or questions about the delivered work. We agree any additional work and fees with you before continuing."],
+      ["Does the three-hour urgent document service include court filing or representation?", "The three-hour urgent service delivers the agreed memorandum, statement of claim or review of an existing contract. Court filing, hearing attendance, monitoring court deadlines and drafting a new contract are outside this urgent package. CounselO’s locally licensed team lawyers also handle representation. Tell us what your matter needs so the same team can agree the work, fees and timing with you."],
       ["How do I send my documents?", "Contact us through WhatsApp or email to agree the transfer method, then attach the files there. Include relevant schedules and correspondence. Website contact links do not attach files automatically."],
     ],
     relatedTitle: "Explore the relevant legal service",
@@ -50,7 +50,7 @@ export const urgentCopy = {
     handlingTitle: "Who handles your request",
     handling: "We confirm the assigned professional and their role before acceptance. You may ask about their relevant qualifications and experience in the jurisdiction concerned.",
     deliveryTitle: "Delivery, included revisions and follow-up",
-    delivery: "We agree the language, file format and delivery channel in advance. Revisions and questions about the delivered work are included within scope. A new matter or additional work outside that scope requires a separate agreement.",
+    delivery: "We agree the language, file format and delivery channel in advance. Revisions and questions about the delivered work are included within scope. We agree any additional work and fees with you before continuing.",
   },
   ar: {
     title: "المساعدة القانونية العاجلة",
@@ -78,15 +78,15 @@ export const urgentCopy = {
     privacy: "أرسل المستندات اللازمة كاملة ومقروءة، وتأكد من حقك في مشاركتها. وضّح أي معلومات ناقصة واستفسر عن وسيلة النقل قبل إرسال مواد حساسة.",
     coverageTitle: "نستقبل الطلبات من جميع الاختصاصات القضائية",
     coverage: "يمكن أن يتعلق طلبك بأي دولة. حدد الاختصاص والمحكمة أو الجهة ذات الصلة حتى نؤكد القدرة على تنفيذ المهمة قبل قبولها.",
-    feesTitle: "أتعاب الطوارئ تختلف عن أتعاب الحالة العادية",
-    fees: "تختلف أتعاب الطوارئ عن الأتعاب العادية بحسب النطاق وحجم المستندات والتعقيد والمهلة. يشمل العرض التعديلات ومناقشة العمل المسلّم ضمن النطاق المتفق عليه.",
+    feesTitle: "أتعاب العمل المستندي العاجل",
+    fees: "نحدد أتعاب الصياغة وتدقيق المستندات العاجلة بحسب النطاق وحجم المستندات والتعقيد والموعد. يشمل العرض التعديلات ومناقشة العمل المسلّم ضمن النطاق المتفق عليه. وتُقدم الاستشارات القانونية الأونلاين المعتادة بالرسوم المنشورة للدولة والمجال القانوني، بينما للتمثيل أتعاب منفصلة نتفق عليها مع بقاء العمل ضمن فريق كاونسلو نفسه.",
     faqTitle: "أسئلة عن الخدمات القانونية العاجلة",
     faqs: [
       ["هل هدف الساعات الثلاث للتسليم أم لتأكيد الاستلام؟", "لتسليم المذكرة القانونية أو لائحة الدعوى أو تدقيق العقد المتفق عليه. يبدأ فقط بعد قبول الطلب واكتمال المستندات وتأكيد السداد."],
       ["ماذا لو بقي على الموعد أقل من ثلاث ساعات؟", "أرسل الموعد الدقيق والمنطقة الزمنية قبل الدفع. نقيّم إمكان التنفيذ ونؤكد ما يمكن قبوله؛ الرسالة لا تحجز التوافر ولا تمدد أي ميعاد رسمي."],
       ["هل يمكن تقديم الطلب يوم الخميس أو الجمعة؟", "نستقبل الطلبات في أي وقت من السبت إلى الخميس، ولا نستقبل طلبات مستعجلة جديدة يوم الجمعة. لطلب الخميس، اتفق معنا على تاريخ وساعة التسليم قبل السداد."],
       ["هل يمكن مناقشة العمل أو طلب تعديلات بعد التسليم؟", "نعم. تشمل الأتعاب المتفق عليها التعديلات ضمن النطاق ومناقشة العمل المسلّم والأسئلة المتعلقة به. تُتفق المسائل الجديدة والأعمال خارج النطاق بصورة مستقلة."],
-      ["هل تشمل خدمة المستندات العاجلة خلال ثلاث ساعات الإيداع أو التمثيل أمام القضاء؟", "تقدم الخدمة العاجلة المذكرة أو لائحة الدعوى أو مراجعة العقد القائم المتفق عليها. ويخرج عن نطاق هذه الخدمة العاجلة الإيداع وحضور الجلسات ومتابعة المواعيد القضائية وصياغة عقد جديد. وتقدم كاونسلو أيضاً التمثيل عبر شركاء محليين مرخصين بموجب تكليف مستقل متفق عليه؛ أخبرنا إذا كانت مسألتك تحتاج إلى ذلك لنؤكد المهني المسؤول ونطاق العمل وموعده."],
+      ["هل تشمل خدمة المستندات العاجلة خلال ثلاث ساعات الإيداع أو التمثيل أمام القضاء؟", "تقدم الخدمة العاجلة المذكرة أو لائحة الدعوى أو مراجعة العقد القائم المتفق عليها. ويخرج عن نطاق هذه الخدمة العاجلة الإيداع وحضور الجلسات ومتابعة المواعيد القضائية وصياغة عقد جديد. ويتولى محامو فريق كاونسلو المرخصون محلياً التمثيل أيضاً. أخبرنا باحتياجات مسألتك ليتفق معك الفريق نفسه على العمل والأتعاب والوقت اللازم."],
       ["كيف أرسل المستندات؟", "تواصل عبر واتساب أو البريد للاتفاق على وسيلة النقل، ثم أرفق الملفات هناك مع الملاحق والمراسلات ذات الصلة. روابط الموقع لا ترفق الملفات تلقائياً."],
     ],
     relatedTitle: "استكشف الخدمة القانونية ذات الصلة",
@@ -95,7 +95,7 @@ export const urgentCopy = {
     handlingTitle: "من يتولى طلبك؟",
     handling: "نؤكد المهني المكلف بالمهمة وصفته قبل قبول الطلب. يمكنك الاستفسار عن مؤهلاته وخبرته ذات الصلة بالاختصاص المعني.",
     deliveryTitle: "التسليم والتعديلات المشمولة ومناقشة الرد",
-    delivery: "نتفق مسبقاً على اللغة وصيغة الملف ووسيلة التسليم. تشمل الأتعاب التعديلات والأسئلة المتعلقة بالعمل المسلّم ضمن نطاقه. تحتاج المسألة الجديدة أو الأعمال الإضافية خارج النطاق إلى اتفاق مستقل.",
+    delivery: "نتفق مسبقاً على اللغة وصيغة الملف ووسيلة التسليم. تشمل الأتعاب التعديلات والأسئلة المتعلقة بالعمل المسلّم ضمن نطاقه. نتفق معك على أي عمل إضافي وأتعابه قبل المتابعة.",
   },
 } as const;
 
@@ -142,10 +142,10 @@ export const saudiUrgentCopy = {
     ],
     documentsTitle: "What to send",
     privacy: "Send complete, readable records you may share. Flag missing information and agree how to transfer sensitive files.",
-    feesTitle: "Urgent fees",
-    fees: "Urgent fees differ from standard fees and depend on scope, document volume, complexity and deadline.",
+    feesTitle: "Fees for urgent document work",
+    fees: "We quote urgent drafting and document review for the scope and deadline. Standard online consultations use the published legal-category fee. Representation has separate agreed fees with the same CounselO team.",
     deliveryTitle: "Delivery and revisions",
-    delivery: "We agree language, format and delivery channel. The fee includes revisions and questions within scope; additional work needs a separate agreement.",
+    delivery: "We agree language, format and delivery channel. The fee includes revisions and questions within scope; we agree any additional work and fees before continuing.",
     handlingTitle: "Your assigned professional",
     handling: "We confirm the professional and role before acceptance. Ask about relevant qualifications and jurisdictional experience.",
     relatedTitle: "Related services",
@@ -167,10 +167,10 @@ export const saudiUrgentCopy = {
     ],
     documentsTitle: "ما الذي ترسله؟",
     privacy: "أرسل سجلات كاملة ومقروءة يحق لك مشاركتها. وضّح النقص واتفق على وسيلة نقل الملفات الحساسة.",
-    feesTitle: "أتعاب الطوارئ",
-    fees: "تختلف أتعاب الطوارئ عن العادية بحسب النطاق وحجم المستندات والتعقيد والموعد.",
+    feesTitle: "أتعاب العمل المستندي العاجل",
+    fees: "نحدد أتعاب الصياغة وتدقيق المستندات العاجلة بحسب النطاق والموعد. وتُقدم الاستشارات الأونلاين المعتادة بالرسوم المنشورة للمجال القانوني، وللتمثيل أتعاب منفصلة نتفق عليها ضمن فريق كاونسلو نفسه.",
     deliveryTitle: "التسليم والتعديلات",
-    delivery: "نتفق على اللغة والصيغة ووسيلة التسليم. تشمل الأتعاب التعديلات والأسئلة ضمن النطاق؛ العمل الإضافي يحتاج إلى اتفاق مستقل.",
+    delivery: "نتفق على اللغة والصيغة ووسيلة التسليم. تشمل الأتعاب التعديلات والأسئلة ضمن النطاق؛ نتفق على أي عمل إضافي وأتعابه قبل المتابعة.",
     handlingTitle: "المهني المكلف",
     handling: "نؤكد المسؤول وصفته قبل القبول. يمكنك السؤال عن مؤهلاته وخبرته في الاختصاص المعني.",
     relatedTitle: "خدمات مرتبطة",

@@ -213,7 +213,7 @@ export function buildUaeServicePageContent(service: UaeLegalService) {
       },
       {
         q: `Can a consultation about ${service.title.en} begin online?`,
-        a: "Yes. The initial assessment and document review can begin online in Arabic or English. Formal representation, filing, notarisation or attendance is scoped separately with an appropriately licensed UAE practitioner where required.",
+        a: "Yes. The initial assessment and document review can begin online in Arabic or English. Our UAE-licensed team lawyers handle representation, filing and attendance within the agreed scope, and guide you through any required notarisation.",
       },
       {
         q: "When should I seek UAE legal advice?",
@@ -251,7 +251,7 @@ export function buildUaeServicePageContent(service: UaeLegalService) {
       },
       {
         q: `هل يمكن بدء استشارة ${service.title.ar} أونلاين؟`,
-        a: "نعم. يمكن بدء التقييم ومراجعة المستندات أونلاين بالعربية أو الإنجليزية. ويُحدد التمثيل الرسمي أو القيد أو التوثيق أو الحضور بصورة منفصلة مع ممارس مرخص في الإمارات حيثما يلزم.",
+        a: "نعم. يمكن بدء التقييم ومراجعة المستندات أونلاين بالعربية أو الإنجليزية. ويتولى محامو فريقنا المرخصون في الإمارات التمثيل والقيد والحضور ضمن النطاق المتفق عليه، ويرشدونك إلى أي توثيق مطلوب.",
       },
       {
         q: "متى ينبغي طلب المشورة القانونية في الإمارات؟",
@@ -283,8 +283,8 @@ export function buildUaeServicePageContent(service: UaeLegalService) {
     documents,
     faqs,
     experienceNote: {
-      en: `CounselO’s legal team applies its experience in legal analysis and document review to ${service.title.en} in the UAE. We identify the competent Emirate, authority and forum, test the position against the relevant federal, local or free-zone rules, and separate online consultation from any regulated representation or filing requirement.`,
-      ar: `يوظف فريق كاونسلو خبرته في التحليل القانوني ومراجعة المستندات في مسائل ${service.title.ar} في الإمارات. نحدد الإمارة والجهة المختصة، ونراجع الموقف وفق القواعد الاتحادية أو المحلية أو قواعد المنطقة الحرة ذات الصلة، ونفصل بين الاستشارة الأونلاين وأي تمثيل أو قيد منظم مطلوب.`,
+      en: `CounselO’s legal team applies its experience in legal analysis and document review to ${service.title.en} in the UAE. We identify the competent Emirate, authority and forum, test the position against the relevant federal, local or free-zone rules, and handle advice, preparation and representation as one team, with UAE-licensed team lawyers undertaking court work.`,
+      ar: `يوظف فريق كاونسلو خبرته في التحليل القانوني ومراجعة المستندات في مسائل ${service.title.ar} في الإمارات. نحدد الإمارة والجهة المختصة، ونراجع الموقف وفق القواعد الاتحادية أو المحلية أو قواعد المنطقة الحرة ذات الصلة، ونتولى المشورة والإعداد والتمثيل ضمن فريق واحد، مع مباشرة محامي فريقنا المرخصين في الإمارات العمل أمام المحاكم.`,
     },
     seoKeywords: {
       en: [

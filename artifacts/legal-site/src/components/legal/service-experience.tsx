@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { ArrowRight, UsersRound, MonitorSmartphone, Languages, ShieldCheck, ClipboardCheck, MessagesSquare, MessageCircle } from "lucide-react";
-import type { Region } from "@workspace/api-zod/browser";
+import { CONSULTATION_SCOPE, type Region } from "@workspace/api-zod/browser";
 import { legalProblemPath } from "@/lib/legal-problem-pages";
 import { saudiFamilyServiceCopy, FAMILY_PROBLEM_GROUPS } from "./saudi-family-service-content";
 import "./service-experience.css";
@@ -20,12 +20,22 @@ export type ExperienceCopy = {
 type Problem = { slug: string; titleEn: string; titleAr: string };
 const reasonIcons = [UsersRound, MonitorSmartphone, Languages, ShieldCheck, ClipboardCheck, MessagesSquare];
 
-export function CounselOFeatures({ isArabic }: { isArabic: boolean }) {
+export function CounselOFeatures({ isArabic, fixedConsultation = false }: { isArabic: boolean; fixedConsultation?: boolean }) {
   const c = saudiFamilyServiceCopy[isArabic ? "ar" : "en"];
+  const reasons = c.reasons.map((reason, index) => {
+    if (!fixedConsultation) return reason;
+    if (index === 4) return isArabic
+      ? { title: "سعر ثابت للاستشارة", text: "سعر معلن للاستشارة المكتوبة أونلاين، وأتعاب مستقلة للتمثيل القانوني يُتفق عليها عند طلبه." }
+      : { title: "Fixed consultation prices", text: "A published fee for written online advice, with separate representation fees agreed when requested." };
+    if (index === 5) return isArabic
+      ? { title: "المناقشة والأسئلة مشمولة", text: "ناقش الاستشارة المكتوبة مع فريقنا واطرح أسئلتك ضمن موضوعها، ضمن السعر المعلن." }
+      : { title: "Discussion and questions included", text: "Discuss your written advice with our team and ask questions on the same topic, included in the published fee." };
+    return reason;
+  });
   return <section id="service-legal-checks" className="legal-experience-reasons" aria-labelledby="service-legal-checks-heading">
     <h2 id="service-legal-checks-heading">{c.reasonsTitle}</h2>
     <p className="legal-experience-reasons__intro">{c.reasonsIntro}</p>
-    <div className="legal-experience-reasons__grid">{c.reasons.map((reason, index) => {
+    <div className="legal-experience-reasons__grid">{reasons.map((reason, index) => {
       const Icon = reasonIcons[index];
       return <article key={reason.title}><Icon size={27} strokeWidth={1.7} aria-hidden="true" /><h3>{reason.title}</h3><p>{reason.text}</p></article>;
     })}</div>
@@ -61,7 +71,7 @@ export function ServiceExperience({ copy: c, isArabic, region, service, contactH
         <h3>{item.title}</h3>{item.text && <p>{item.text}</p>}
       </li>)}</ul>
     </section>
-    <CounselOFeatures isArabic={isArabic} />
+    <CounselOFeatures isArabic={isArabic} fixedConsultation={service !== "urgent-legal-assistance"} />
     {problems.length > 0 && <section className="legal-experience-problems" aria-labelledby="common-problems-heading">
       <h2 id="common-problems-heading">{family ? familyCopy.problemsTitle : isArabic ? "اختر المسألة التي تحتاج إلى المساعدة فيها" : "Find support for your specific issue"}</h2>
       <p>{family ? familyCopy.problemsIntro : isArabic ? "استكشف نطاق المراجعة القانونية لكل مسألة، واعرض ملفك على فريقنا للحصول على مشورة مخصصة." : "Explore the legal review available for each issue, then bring your matter to our team for advice tailored to your position."}</p>
@@ -87,6 +97,6 @@ export function ServiceContact({ copy: c, isArabic, region, contactHref, whatsap
         <MessageCircle size={19} aria-hidden="true" /><span>{shared.contactWhatsApp}</span>
       </a>
     </div>
-    <p className="legal-experience-closing__note">{shared.contactNote}</p>
+    <p className="legal-experience-closing__note">{contactHref.includes("consultation=") ? CONSULTATION_SCOPE[isArabic ? "ar" : "en"] : shared.contactNote}</p>
   </section>;
 }

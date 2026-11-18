@@ -39,8 +39,9 @@ test("SSR and the lazy browser provider expose identical public copy for all six
       const server = await renderPublicCopy(ServerLanguageProvider, path);
       const browser = await renderPublicCopy(BrowserLanguageProvider, path);
       assert.deepEqual(server, browser, `${path}: every public translation must match before hydration`);
-      assert.equal(server.t.home.hero.h1a, locale ? "استشارات قانونية أونلاين" : "Online legal advice");
-      assert.match(server.t.contact.hero.heading, locale ? /^اطلب استشارة قانونية/ : /^Request an Online Legal Consultation in /);
+      assert.equal(server.t.home.hero.h1a, locale ? "خدمات قانونية متخصصة أونلاين" : "Expert legal support online");
+      assert.equal(server.t.home.hero.badge, locale ? "فريق كاونسلو من الاستشارة إلى التمثيل" : "One CounselO team from advice to representation");
+      assert.match(server.t.contact.hero.heading, locale ? /^تواصل أونلاين مع فريق كاونسلو في / : /^Connect online with CounselO’s team in /);
       assert.equal(server.isRTL, Boolean(locale));
     }
   }

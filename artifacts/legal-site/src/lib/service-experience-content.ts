@@ -1,6 +1,6 @@
 import { getServiceDefinition, type Region } from "@workspace/api-zod/browser";
 
-export const SERVICE_EXPERIENCE_UPDATED_AT = "2026-11-03";
+export const SERVICE_EXPERIENCE_UPDATED_AT = "2026-11-18";
 type Locale = "en" | "ar";
 type Profile = { heading: string; hero: string; approach: string };
 function profile(heading: string, headingAr: string, hero: string, heroAr: string, approach: string, approachAr: string): Record<Locale, Profile> {
@@ -152,6 +152,6 @@ export function serviceExperience(region: Region, slug: string, lang: Locale): P
 export function teamIntroduction(region: Region, lang: Locale, topic: string): string {
   const country = { sa: { en: "Saudi Arabia", ar: "السعودية" }, syr: { en: "Syria", ar: "سوريا" }, uae: { en: "the UAE", ar: "الإمارات" } }[region][lang];
   return lang === "ar"
-    ? `يضع فريق كاونسلو القانوني خبرته في التحليل والصياغة ودراسة النزاعات في خدمة ${topic} في ${country}، من خلال مشورة مهنية ودعم قانوني أونلاين.`
-    : `CounselO’s legal team brings experience in legal analysis, drafting and dispute assessment to ${topic} in ${country}, with professional advice and support delivered online.`;
+    ? `يتولى محامو كاونسلو المتمرسون مسائل ${topic} في ${country}، من الاستشارة والصياغة إلى التمثيل القانوني. استشرنا أونلاين وأرسل مستنداتك وتابع مسألتك مع فريق واحد.`
+    : `CounselO’s experienced lawyers handle ${topic} in ${country}, from consultation and drafting to representation. Consult online, share documents and follow your matter with one team.`;
 }

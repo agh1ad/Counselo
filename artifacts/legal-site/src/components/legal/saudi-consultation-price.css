@@ -1,0 +1,19 @@
+.saudi-consultation-price {
+  max-width: 52rem;
+  margin-block: 0 1.5rem;
+  padding: 1.2rem 1.3rem;
+  border: 1px solid #d5ae5d80;
+  border-inline-start: 3px solid #d5ae5d;
+  border-radius: 4px;
+  background: #ffffff08;
+  color: #fff;
+}
+.saudi-consultation-price-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .65rem 1.5rem; }
+.saudi-consultation-price .saudi-consultation-price-label { margin: 0; font-size: .9rem; font-weight: 700; line-height: 1.65; color: #f0d49a; }
+.saudi-consultation-price .saudi-consultation-price-category { margin: .15rem 0 0; font-size: .85rem; line-height: 1.6; color: #e0ebe4; }
+.saudi-consultation-price .saudi-consultation-price-amount { margin: 0; font-size: 1.65rem; font-weight: 750; line-height: 1.4; white-space: nowrap; color: #fff; }
+.saudi-consultation-price .saudi-consultation-price-scope { margin: .8rem 0 0; font-size: 1rem; line-height: 1.85; color: #fff; }
+@media (max-width: 480px) {
+  .saudi-consultation-price { padding: 1rem; }
+  .saudi-consultation-price .saudi-consultation-price-amount { font-size: 1.4rem; }
+}

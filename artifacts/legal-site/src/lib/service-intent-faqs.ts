@@ -64,7 +64,9 @@ export function getServiceIntentFaqs(region: Region, slug: string, ar: boolean, 
   });
   if (issues.length) faqs.push({
     q: ar ? `هل تشمل استشارة ${title} المسألة التي أواجهها في ${country}؟` : `Does the ${title.toLowerCase()} consultation cover my issue in ${country}?`,
-    a: ar ? `تشمل الموضوعات الموضحة في هذه الصفحة: ${issues.slice(0, 3).join("؛ ")}. يراجع الفريق الوقائع والاختصاص ثم يؤكد نطاق التكليف والرسوم قبل بدء العمل.` : `Topics explained on this page include: ${issues.slice(0, 3).join("; ")}. The team reviews the facts and jurisdiction, then confirms the engagement scope and fee before work begins.`,
+    a: ar
+      ? `تشمل الموضوعات الموضحة في هذه الصفحة: ${issues.slice(0, 3).join("؛ ")}. يراجع فريقنا الوقائع والاختصاص ويؤكد موضوع الاستشارة. وتشمل الرسوم الثابتة المنشورة استشارة مهنية مكتوبة ومفصلة أونلاين، مع المناقشة والإجابة عن الأسئلة في موضوعها نفسه. ويتولى فريق كاونسلو نفسه التمثيل القانوني بأتعاب نتفق عليها عند طلبه.`
+      : `Topics explained on this page include: ${issues.slice(0, 3).join("; ")}. Our team reviews the facts and jurisdiction and confirms the consultation topic. The published fixed fee includes detailed professional written advice online, with discussion and answers to questions on the same topic. The same CounselO team provides representation, with fees agreed when requested.`,
   });
   return faqs;
 }

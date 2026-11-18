@@ -181,6 +181,26 @@ const workSample: Parameters<typeof buildWorkHtmlFromTemplate>[1] = {
   fileMimeType: "application/pdf", fileSize: 123, published: true,
 };
 
+test("standalone work rendering preserves revised document metadata separately from the case date", () => {
+  const edition = {
+    ...workSample, date: "2026-07-22", updatedAt: "2026-07-29T04:19:19.570Z", fileSize: 43210,
+    documentLanguage: "ar", documentEdition: "2026-11-18", documentEditionPublishedAt: "2026-11-18T00:00:00.000Z",
+    documentTextUrl: `/documents/${workSample.slug}.txt`,
+  };
+  for (const language of ["en", "ar"] as const) {
+    const html = buildWorkHtmlFromTemplate(template, edition, language);
+    const blocks = scripts(html);
+    const schema = JSON.parse(blocks[0]);
+    const bootstrap = JSON.parse(blocks[2].replace(/^window\.__SSR_WORK__=/, "").replace(/;$/, ""));
+    assert.equal(schema.dateCreated, edition.date);
+    assert.equal(schema.encoding.dateModified, edition.documentEditionPublishedAt);
+    assert.equal(schema.encoding.inLanguage, edition.documentLanguage);
+    assert.equal(bootstrap.fileSize, edition.fileSize);
+    assert.equal(bootstrap.updatedAt, edition.updatedAt);
+    assert.equal(bootstrap.documentTextUrl, edition.documentTextUrl);
+  }
+});
+
 function metadata(html: string, name: string) {
   return html.match(new RegExp(`<(?:meta)\\b[^>]*(?:name|property)="${name}"[^>]*content="([^"]*)"`))?.[1];
 }
@@ -210,6 +230,9 @@ test("standalone work metadata and entity relationships remain consistent in bot
     assert.equal(work.contentLocation, ar ? workSample.jurisdictionAr : workSample.jurisdictionEn);
     assert.deepEqual(work.genre, ["Legal case study", ar ? workSample.workTypeAr : workSample.workTypeEn]);
     assert.equal(work.encoding.contentUrl, `https://counselo-legal.com/documents/${workSample.slug}.pdf`);
+    assert.equal(work.encoding.name, title);
+    assert.equal(work.encoding.creator["@id"], work.creator["@id"]);
+    assert.equal(work.encoding.publisher["@id"], work.publisher["@id"]);
     assert.equal(breadcrumbs.itemListElement[0].item, `https://counselo-legal.com${ar ? "/ar" : "/"}`);
     assert.equal(breadcrumbs.itemListElement[2].item, canonical);
   }
@@ -227,5 +250,7 @@ test("standalone work schema only advertises an existing document and preserves 
     const partner = JSON.parse(scripts(partnerHtml)[0]);
     assert.equal(partner.creator.name, "Baghdadi Law");
     assert.notEqual(partner.creator["@id"], partner.publisher["@id"]);
+    assert.equal(partner.encoding.creator["@id"], partner.creator["@id"]);
+    assert.equal(partner.encoding.publisher["@id"], partner.publisher["@id"]);
   }
 });

@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
         {
           icon: Shield,
           title: "1. Who We Are",
-          content: `CounselO Legal is an online legal consultation platform with an experienced team providing legal analysis, advice and document review. We provide professional legal consultation services for matters in ${countryEn} via WhatsApp and email, in Arabic and English.`,
+          content: `CounselO Legal provides legal services for matters in ${countryEn}, from consultation and document review to representation by our locally licensed team lawyers. Clients communicate with our team in Arabic or English through the website, WhatsApp and email.`,
         },
         {
           icon: Database,
@@ -207,7 +207,7 @@ export default function PrivacyPolicy() {
           icon: Shield,
           title: "١. من نحن",
           content:
-            "كاونسلو للاستشارات القانونية منصة أونلاين يقدم فريقها القانوني المتمرس التحليل والمشورة ومراجعة المستندات. نقدّم خدمات الاستشارة القانونية المهنية عبر واتساب والبريد الإلكتروني بالعربية والإنجليزية.",
+            "يقدم فريق كاونسلو الخدمات القانونية من الاستشارة ومراجعة المستندات إلى التمثيل على يد محامينا المرخصين في الدولة المعنية. يتواصل العملاء مع فريقنا بالعربية أو الإنجليزية عبر الموقع وواتساب والبريد الإلكتروني.",
         },
         {
           icon: Database,

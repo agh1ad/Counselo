@@ -1,7 +1,7 @@
 import { useId } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
-import { COUNSELO_PLATFORM_POSITIONING } from "@workspace/api-zod/browser";
+import { COUNSELO_PLATFORM_POSITIONING, PORTFOLIO_PAGE_COPY } from "@workspace/api-zod/browser";
 import { fetchPublicJson } from "@/lib/public-api";
 import type { WorkSamplePublic } from "@/lib/work-samples";
 import { countPublishedPortfolio, COUNSELO_SERVICE_COUNTRY_COUNT, COUNSELO_SERVICE_LANGUAGE_COUNT } from "@/lib/portfolio-facts";
@@ -38,19 +38,20 @@ export function PlatformFacts({ isArabic, embedded = false, className = "" }: {
   const publishedCount = countPublishedPortfolio(workSamples);
   const hasPublishedCount = publishedCount !== undefined && publishedCount > 0;
   const locale = isArabic ? "ar" : "en";
+  const copy = PORTFOLIO_PAGE_COPY[locale];
   const Heading = embedded ? "h3" : "h2";
   const countries = COUNSELO_PLATFORM_POSITIONING.jurisdictions.map(name => isArabic ? countryNamesAr[name] ?? name : name).join(" · ");
   const languages = COUNSELO_PLATFORM_POSITIONING.languages.map(name => isArabic ? languageNamesAr[name] ?? name : name).join(" · ");
 
   return <section className={`platform-facts${embedded ? " platform-facts--embedded" : ""} ${className}`} dir={isArabic ? "rtl" : "ltr"} aria-labelledby={headingId}>
-    <Heading id={headingId} className="platform-facts__heading">{isArabic ? "أعمال منشورة ونطاق خدمة إقليمي" : "Published work and regional service"}</Heading>
+    <Heading id={headingId} className="platform-facts__heading">{copy.factsTitle}</Heading>
     <dl className="platform-facts__grid">
       <div className="platform-facts__item">
-        <dt>{isArabic ? "نماذج أعمال في مكتبة المنصة" : "Work samples in our public library"}</dt>
+        <dt>{copy.workCountLabel}</dt>
         <dd className={`platform-facts__value${hasPublishedCount ? "" : " platform-facts__value--link"}`}>
           <Link href={isArabic ? "/ar/our-work" : "/our-work"}>{hasPublishedCount ? publishedCount.toLocaleString(locale) : (isArabic ? "استعرض الأعمال" : "Explore Our Work")}</Link>
         </dd>
-        <dd className="platform-facts__detail">{isArabic ? "دراسات وملفات منشورة مع بيان أصحابها" : "Published studies and documents with author credits"}</dd>
+        <dd className="platform-facts__detail">{copy.workCountDetail}</dd>
       </div>
       <div className="platform-facts__item">
         <dt>{isArabic ? "دول ضمن نطاق خدماتنا" : "Countries served"}</dt>

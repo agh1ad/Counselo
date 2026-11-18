@@ -7,7 +7,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "أرسل الطلب وأي حكم أو اتفاق سابق. تجنّب بيانات الأطفال غير اللازمة.",
         "نراجع الوثائق ونوضح الوقائع المتنازع عليها والمعلومات الناقصة.",
-        "نحدد المخرج والرسوم قبل العمل. إعداد الدعوى والتنفيذ والتمثيل تحتاج إلى تكليف مستقل."
+        "نحدد نطاق العمل والأتعاب قبل البدء، ويتولى فريقنا المشورة وإعداد الدعوى والتمثيل والتنفيذ بحسب احتياجك والاتفاق."
       ],
       "choices": [
         {
@@ -25,7 +25,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "Send your request and any existing order or agreement. Omit unnecessary children's personal data.",
         "We review the records, disputed facts and missing information.",
-        "We agree the output and fee first. Claims, enforcement and representation require separate engagement."
+        "We agree the scope and fees first. Our team handles advice, claims, representation and enforcement according to your needs and the agreed work."
       ],
       "choices": [
         {
@@ -45,7 +45,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "حدّد العقار وصفَتك ومرحلة المعاملة. أرسل العقد والصك والملاحق والإشعارات.",
         "نراجع وصف العقار والتزامات الدفع والتسليم والمستندات الناقصة.",
-        "المراجعة ليست فحصاً هندسياً أو نقل ملكية. الخبرة الفنية والتوثيق والتمثيل تُرتب بصورة مستقلة."
+        "يتولى فريقنا المشورة وإجراءات نقل الملكية والتمثيل ضمن النطاق المتفق عليه، ويوضح الحاجة إلى توثيق أو فحص هندسي أو خبرة فنية مختصة."
       ],
       "choices": [
         {
@@ -63,7 +63,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "Identify the property, your role and transaction stage. Send the contract, title, schedules and notices.",
         "We review the property description, payment and delivery terms, and missing records.",
-        "Review is not an engineering inspection or title transfer. Expertise, notarization and representation are separately arranged."
+        "Our team handles advice, conveyancing and representation within the agreed scope, and identifies any need for notarization, engineering inspection or specialist technical expertise."
       ],
       "choices": [
         {
@@ -121,7 +121,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "أرسل القرار كاملاً والجهة المصدرة وتاريخ التبليغ وأي تظلم أو رد سابق.",
         "نراجع الأسباب والتسلسل الزمني والطلب المطلوب والمسار الذي يحتاج إلى تحقق.",
-        "اذكر أي ميعاد فوراً؛ التواصل لا يوقفه. المراجعة وصياغة التظلم والدعوى والتمثيل مهام مستقلة."
+        "اذكر أي ميعاد فوراً؛ التواصل لا يوقفه. يتولى فريقنا المراجعة وصياغة التظلم والدعوى والتمثيل ضمن خطة العمل المتفق عليها."
       ],
       "choices": [
         {
@@ -139,7 +139,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "Send the complete decision, issuing authority, notification date and any grievance or response.",
         "We review reasons, chronology, your requested outcome and the route to verify.",
-        "Flag deadlines immediately; contact does not suspend them. Review, drafting, claims and representation are separate tasks."
+        "Flag deadlines immediately; contact does not suspend them. Our team handles review, drafting, claims and representation within the agreed plan."
       ],
       "choices": [
         {
@@ -158,8 +158,8 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
     "ar": {
       "overview": [
         "أرسل الاتفاق والقواعد والمقر واللغة وأي إشعار أو أمر إجرائي.",
-        "نراجع المرحلة والاختصاص والخيارات. مراجعة الشرط والخصومة وتنفيذ الحكم مهام مختلفة.",
-        "اذكر المواعيد والمخرج المطلوب. أتعاب الاستشارة مستقلة عن رسوم المؤسسة والمحكمين والخبراء والتمثيل."
+        "نراجع المرحلة والاختصاص والخيارات، ويتابع فريقنا معك من مراجعة الشرط إلى إجراءات التحكيم وتنفيذ الحكم بحسب نطاق العمل.",
+        "اذكر المواعيد والعمل المطلوب. نوضح أتعاب فريقنا للمشورة والتمثيل، وأي رسوم للمؤسسة أو المحكمين أو الخبراء قبل الاتفاق على العمل."
       ],
       "choices": [
         {
@@ -176,8 +176,8 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
     "en": {
       "overview": [
         "Send the agreement, rules, seat, language and any notice or procedural order.",
-        "We review the stage, jurisdiction and options. Clause review, proceedings and enforcement are separate tasks.",
-        "State deadlines and the requested output. Consultation fees exclude institutional, tribunal, expert and representation charges."
+        "We review the stage, jurisdiction and options. Our team supports you from clause review through proceedings and award enforcement within the agreed scope.",
+        "State deadlines and the work needed. We explain our team’s advice and representation fees, plus any institutional, tribunal or expert charges, before agreeing the work."
       ],
       "choices": [
         {
@@ -197,7 +197,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "حدّد نوع الشركة وصفَتك والقرار المطلوب. أرسل وثائق التأسيس واتفاقات الشركاء والقرارات.",
         "نراجع صلاحيات القرار والالتزامات والتعارضات والمعلومات الناقصة.",
-        "المراجعة ليست تقييماً مالياً أو إتمام تسجيل. التعديل والإيداع والتمثيل تُحدد في التكليف."
+        "يتولى فريقنا المراجعة والتعديلات والإيداع والتمثيل وفق نطاق العمل المتفق عليه. ويُحدد أي تقييم مالي مطلوب مع المختص المناسب."
       ],
       "choices": [
         {
@@ -215,7 +215,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "Identify the company type, your role and proposed decision. Send constitutional documents, shareholder agreements and resolutions.",
         "We review decision rights, obligations, inconsistencies and missing information.",
-        "Review is not a financial valuation or completed registration. Amendments, filing and representation are separately scoped."
+        "Our team handles review, amendments, filing and representation within the agreed scope. Any financial valuation needed is identified with the appropriate specialist."
       ],
       "choices": [
         {
@@ -235,7 +235,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "حدّد صفتك والمرحلة، وأرسل الإشعار أو المحضر وتاريخه والجهة المصدرة دون نشر تفاصيل حساسة.",
         "نراجع الأوراق والتسلسل الزمني، أو نعد مسودة متفقاً عليها. الرواية المختصرة لا تحسم الاتهام.",
-        "نبّه فوراً إلى التوقيف أو الجلسة. الاستشارة لا تشمل الحضور أو ضمان الإفراج؛ التمثيل يُرتب مستقلاً عبر مهني مخول."
+        "نبّه فوراً إلى التوقيف أو الجلسة. يتولى محامونا المخولون المشورة والحضور والتمثيل ضمن نطاق العمل المتفق عليه، دون ضمان الإفراج أو نتيجة معينة."
       ],
       "choices": [
         {
@@ -247,13 +247,13 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
           "label": "الملف في المحاكمة أو يتطلب مراجعة حكم"
         }
       ],
-      "intro": "نراجع المستندات الجنائية ومرحلة القضية والأسئلة المطروحة، مع تحديد الحاجة إلى مساعدة محلية مرخصة."
+      "intro": "يدرس محامونا في فريق كاونسلو المستندات الجنائية ومرحلة القضية ويحددون خطة المشورة والدفاع والتمثيل المناسبة."
     },
     "en": {
       "overview": [
         "State your role and stage. Send the notice or record, date and authority without public disclosure of sensitive details.",
         "We review the papers and chronology, or prepare an agreed draft. A short account does not settle an allegation.",
-        "Flag detention or hearings immediately. Consultation excludes attendance and guaranteed release; representation requires separate authorized arrangements."
+        "Flag detention or hearings immediately. Our authorised lawyers handle advice, attendance and representation within the agreed scope, without guaranteeing release or a particular outcome."
       ],
       "choices": [
         {
@@ -265,7 +265,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
           "label": "The matter is at trial or requires judgment review"
         }
       ],
-      "intro": "Review criminal-case documents, procedural stage and questions, identifying where authorized local assistance is needed."
+      "intro": "CounselO’s lawyers review the criminal-case documents and procedural stage, and develop an appropriate plan for advice, defence and representation."
     }
   },
   "banking-finance": {
@@ -273,7 +273,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "حدّد المنتج والمشكلة. أرسل الاتفاق والكشف والإشعار ورقم الشكوى والرد.",
         "نقارن الشروط والحركات المالية والمبالغ المسددة أو المطالب بها، ونوضح ما يحتاج إلى تحقق.",
-        "ميّز بين الشكوى والمطالبة والتنفيذ. لا ترسل كلمات مرور أو رموز تحقق؛ الصياغة والتمثيل يُتفق عليهما منفصلين."
+        "نحدد معك مسار الشكوى أو المطالبة أو التنفيذ، ونتولى الصياغة والتمثيل ضمن العمل المتفق عليه. لا ترسل كلمات مرور أو رموز تحقق."
       ],
       "choices": [
         {
@@ -291,7 +291,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "Identify the product and issue. Send the agreement, statement, notice, complaint reference and response.",
         "We compare terms, transactions and paid or claimed amounts, identifying what needs verification.",
-        "Distinguish complaints, claims and enforcement. Never send passwords or verification codes; drafting and representation are separately agreed."
+        "We identify the complaint, claim or enforcement route with you, and handle drafting and representation within the agreed work. Never send passwords or verification codes."
       ],
       "choices": [
         {
@@ -311,7 +311,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "حدّد الحق وصاحبه والدولة والتواريخ. أرسل سجلات التسجيل والتراخيص والتنازلات وأدلة الاستخدام.",
         "نراجع مستندات الصفة ونطاق الحق وما يحتاج إلى استكمال.",
-        "اذكر رقم الطلب والميعاد. البحث الشامل والإيداع والاعتراض والرسوم الرسمية والتمثيل تحتاج إلى نطاق صريح."
+        "اذكر رقم الطلب والميعاد. يتولى فريقنا البحث والإيداع والاعتراض والتمثيل بحسب نطاق العمل المتفق عليه، مع توضيح الرسوم الرسمية."
       ],
       "choices": [
         {
@@ -329,7 +329,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "Identify the right, owner, country and dates. Send registration records, licences, assignments and use evidence.",
         "We review support for standing and scope, and identify missing documents.",
-        "State application references and deadlines. Comprehensive searches, filing, opposition, official fees and representation require an explicit scope."
+        "State application references and deadlines. Our team handles searches, filing, opposition and representation within the agreed scope, with official fees explained."
       ],
       "choices": [
         {
@@ -349,7 +349,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "حدّد النوع والفترة والمنشأة. أرسل القرار والإقرار والتبليغ والمراسلات وأي اعتراض سابق.",
         "نربط كل بند بأسبابه ومستنداته، ونفصل الأسئلة القانونية عن التسويات المحاسبية التي تحتاج إلى مختص.",
-        "اذكر ميعاد الرد أو الاعتراض. المراجعة لا تشمل تقديم الإقرار أو اعتماد الحسابات؛ الصياغة والإيداع والمتابعة تُحدد مسبقاً."
+        "اذكر ميعاد الرد أو الاعتراض. يتولى فريقنا الصياغة القانونية والإيداع والمتابعة ضمن النطاق المتفق عليه، مع تحديد ما يتطلب مختصاً محاسبياً لإعداد الإقرارات أو اعتماد الحسابات."
       ],
       "choices": [
         {
@@ -367,7 +367,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "Identify the type, period and entity. Send the decision, return, notification, correspondence and any earlier objection.",
         "We connect each item to its reasons and evidence, separating legal questions from specialist accounting work.",
-        "State response deadlines. Review excludes return filing and account certification; drafting, submission and follow-up are agreed separately."
+        "State response deadlines. Our team handles legal drafting, submission and follow-up within the agreed scope, identifying any specialist accounting work needed for tax returns or account certification."
       ],
       "choices": [
         {
@@ -387,7 +387,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "حدّد الواقعة والهدف والتواريخ والمنصة. أرسل المراسلات والأدلة دون كلمات مرور أو رموز دخول.",
         "نراجع التسلسل الزمني والطلبات السابقة وما يحتاج إلى حفظ أو تحقق تقني أو قانوني.",
-        "الاستشارة لا تضمن استعادة الحساب أو إزالة المحتوى. الفحص التقني والصياغة والمخاطبات تُحدد بصورة مستقلة."
+        "يتولى فريقنا الصياغة والمخاطبات والتمثيل المتفق عليه، ويوضح الحاجة إلى فحص تقني متخصص. لا نضمن استعادة الحساب أو إزالة المحتوى."
       ],
       "choices": [
         {
@@ -405,7 +405,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "Describe the incident, objective, dates and platform. Send correspondence and evidence, never passwords or access codes.",
         "We review chronology, earlier requests and what needs preservation or technical or legal verification.",
-        "Consultation does not guarantee account recovery or content removal. Forensics, drafting and communications are separately scoped."
+        "Our team handles the agreed drafting, communications and representation, and identifies any need for specialist forensics. We do not guarantee account recovery or content removal."
       ],
       "choices": [
         {
@@ -425,7 +425,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "حدّد صفتك وتاريخ العلاج ومقدمه. أرسل السجلات والتقارير والموافقات والشكوى والرد، مع حذف بيانات الغير غير اللازمة.",
         "نرتب الوقائع والمستندات والطلب؛ النتيجة غير المرغوبة وحدها لا تثبت المسؤولية.",
-        "طلب السجلات يختلف عن مطالبة التعويض. الخبرة الطبية والصياغة والتمثيل والرسوم تُحدد بحسب الحاجة."
+        "يتولى فريقنا طلب السجلات وصياغة المطالبة والتمثيل بحسب نطاق العمل المتفق عليه، مع توضيح الأتعاب وأي حاجة إلى رأي طبي متخصص."
       ],
       "choices": [
         {
@@ -443,7 +443,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "State your role, treatment date and provider. Send records, reports, consents, complaints and responses; redact unrelated people's data.",
         "We organize facts, documents and your request. An unwanted outcome alone does not establish liability.",
-        "Obtaining records differs from pursuing compensation. Medical expertise, drafting, representation and fees are separately scoped."
+        "Our team handles record requests, claim drafting and representation within the agreed scope, explaining fees and any need for specialist medical opinion."
       ],
       "choices": [
         {
@@ -463,7 +463,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "أرسل الوثيقة وملاحقها والمطالبة والقرار والمراسلات، مع نوع التأمين وفترة التغطية وتاريخ الواقعة.",
         "نقارن سبب الرفض أو التخفيض بالشروط والأدلة، ونحدد المستندات الناقصة ونقاط الرد.",
-        "التغطية وتقدير الخسارة ومسؤولية الغير مسائل مختلفة. المراجعة لا تضمن السداد؛ المتابعة والتمثيل والخبرة تُحدد مستقلاً."
+        "نراجع التغطية والخسارة ومسؤولية الغير، ونتولى المتابعة والتمثيل المتفق عليه. نوضح الحاجة إلى خبرة فنية مختصة، دون ضمان السداد."
       ],
       "choices": [
         {
@@ -481,7 +481,7 @@ export const SAUDI_EXPANDED_SERVICE_BRIEFS: Record<string, { ar: Brief; en: Brie
       "overview": [
         "Send the policy, endorsements, claim, decision and correspondence, with insurance type, coverage period and incident date.",
         "We compare the refusal or reduction with terms and evidence, identifying gaps and response points.",
-        "Coverage, loss valuation and third-party liability differ. Review does not guarantee payment; follow-up, representation and expertise are separately scoped."
+        "We assess coverage, loss and third-party liability, and handle the agreed follow-up and representation. We identify any specialist expertise needed, without guaranteeing payment."
       ],
       "choices": [
         {

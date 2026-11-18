@@ -66,6 +66,26 @@ test("emails the team and owner with an idempotency key", async () => {
   });
 });
 
+test("internal notifications use the authoritative regional consultation amount and currency", async () => {
+  await withProviderEnvironment(async () => {
+    let request: RequestInit | undefined;
+    globalThis.fetch = async (_input, init) => {
+      request = init;
+      return new Response(JSON.stringify({ id: "category-email-id" }), { status: 200 });
+    };
+    for (const [region, service, title, fee] of [
+      ["sa", "insolvency-restructuring", "Financial Restructuring & Bankruptcy", "SAR 500"],
+      ["syr", "wills-estates", "Wills, Estates & Inheritance", "USD 60"],
+      ["uae", "corporate-commercial", "Company Formation & Commercial Companies Law", "AED 450"],
+    ] as const) {
+      await sendConsultationEmail({ ...input, region, service }, "CON-20261118-CATEGORY");
+      const body = JSON.parse(String(request?.body)) as { text: string };
+      assert.ok(body.text.includes(`Practice area: ${title}`));
+      assert.ok(body.text.includes(`Published consultation fee: ${fee}`));
+    }
+  });
+});
+
 test("sends a polished bilingual confirmation to the customer", async () => {
   await withProviderEnvironment(async () => {
     let request: RequestInit | undefined;

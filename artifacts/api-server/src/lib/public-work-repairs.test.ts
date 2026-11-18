@@ -39,7 +39,8 @@ test("case copy preserves outcome stages and removes actual publication defects"
   const lease = repairPublicWorkSample(bySlug("fskh-aqd-iyjar-tjary-bsbb-khta-byanat-mnsh-iyjar"));
   assert.match(lease.titleEn, /Ejar/);
   assert.doesNotMatch(JSON.stringify(lease), /Ejari/);
-  assert.match(lease.outcomeEn, /settlement outcome, not a judgment/);
+  assert.match(lease.outcomeEn, /binding judicial settlement, with financial claims reserved/);
+  assert.match(lease.outcomeAr, /صلح قضائي ملزم، مع حفظ المطالبات المالية/);
   const accounting = repairPublicWorkSample(bySlug("kyf-adart-kawnslw-mrajah-mhasbyh-hsash"));
   assert.match(accounting.outcomeEn, /could still be assessed as evidence/);
   const financial = repairPublicWorkSample(bySlug("mn-atham-maly-maqd-ila-brah-qtayh"));

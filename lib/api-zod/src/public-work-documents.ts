@@ -1,12 +1,15 @@
 import { PUBLIC_WORK_DOCUMENT_TEXT_METADATA, type PublicWorkDocumentTextMetadata } from "./public-work-document-text-metadata";
+import type { PublicWorkDocumentEditionMetadata } from "./public-work-document-revisions";
+export type { PublicWorkDocumentRevision, PublicWorkDocumentRevisionManifest, PublicWorkDocumentEditionMetadata } from "./public-work-document-revisions";
 export { PUBLIC_WORK_DOCUMENT_TEXT_METADATA, type PublicWorkDocumentTextMetadata } from "./public-work-document-text-metadata";
 
-export interface WorkDocumentMetadata {
+export interface WorkDocumentMetadata extends PublicWorkDocumentEditionMetadata {
   slug: string;
   published: boolean;
   updatedAt?: string | Date | null;
   fileSize: number;
   fileMimeType: string;
+  documentLanguage?: string;
 }
 
 /** Published PDF attachments have stable, crawlable URLs outside the private API namespace. */
@@ -27,6 +30,8 @@ export function publicWorkDocumentTextPath(
   alternatives: readonly PublicWorkDocumentTextMetadata[] = PUBLIC_WORK_DOCUMENT_TEXT_METADATA,
 ): string | undefined {
   if (!publicWorkDocumentPath(sample)) return undefined;
+  if (sample.documentEdition && sample.documentTextUrl === `/documents/${sample.slug}.txt` &&
+      Number.isFinite(new Date(sample.documentEditionPublishedAt ?? "").getTime())) return sample.documentTextUrl;
   const source = alternatives.find(entry => entry.slug === sample.slug);
   const revisionTime = sample.updatedAt ? new Date(sample.updatedAt).getTime() : NaN;
   if (!source || !Number.isFinite(revisionTime) || revisionTime !== new Date(source.sourceUpdatedAt).getTime() ||

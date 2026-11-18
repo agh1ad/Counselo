@@ -328,6 +328,7 @@ export type DiscoveryWorkSample = {
   published?: boolean;
   fileSize?: number;
   fileMimeType?: string;
+  documentEditionPublishedAt?: string;
 };
 
 /** PDFs have one canonical URL and are not language variants of their HTML case pages. */
@@ -343,7 +344,7 @@ export function buildWorkDocumentSitemapEntries(
       fileMimeType: sample.fileMimeType ?? "",
     });
     if (!path) continue;
-    const modified = dateOnly(sample.updatedAt) ?? dateOnly(sample.date);
+    const modified = dateOnly(sample.documentEditionPublishedAt) ?? dateOnly(sample.updatedAt) ?? dateOnly(sample.date);
     entries.set(path, `  <url>\n    <loc>${escapeXml(canonicalPublicUrl(path))}</loc>${modified ? `\n    <lastmod>${escapeXml(modified)}</lastmod>` : ""}\n  </url>`);
   }
   return [...entries.values()];
