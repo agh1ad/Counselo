@@ -3,7 +3,7 @@ import { COUNSELO_CLIENT_TRUST } from "@/lib/public-claims";
 /** Global homepage presentation copy. The page title and H1 remain owned by homepageContent. */
 export const homepagePresentation = {
   en: {
-    heroLabel: "Full legal services · Connect online",
+    heroLabel: "Complete legal services online",
     heroSummaryLead: "Expert legal support online. One CounselO team from consultation to representation.",
     heroSummary: "Consult online, share documents and follow your matter remotely with CounselO. One team comprising locally licensed lawyers and law offices handles your advice, preparation, negotiation and court representation in Saudi Arabia, Syria and the UAE.",
     picker: "Legal support in",
@@ -32,7 +32,7 @@ export const homepagePresentation = {
     footerContact: "Speak with our team",
   },
   ar: {
-    heroLabel: "خدمات قانونية متكاملة · تواصل أونلاين",
+    heroLabel: "خدمات قانونية متكاملة أونلاين",
     heroSummaryLead: "خدمات قانونية متخصصة أونلاين. فريق كاونسلو معك من الاستشارة إلى التمثيل.",
     heroSummary: "استشر كاونسلو أونلاين، وأرسل مستنداتك وتابع مسألتك عن بُعد. يتولى فريق واحد مكوّن من محامين ومكاتب مرخّصة محلياً المشورة والإعداد والتفاوض والتمثيل أمام المحاكم في السعودية وسوريا والإمارات.",
     picker: "خدماتنا القانونية في",
